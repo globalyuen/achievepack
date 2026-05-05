@@ -145,7 +145,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['about achieve pack', 'sustainable packaging company', 'eco-friendly packaging supplier', 'pouch.eco', 'Hong Kong packaging']}    
@@ -159,7 +159,6 @@ const AboutPage = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#1f2937"
     />
   );
 };

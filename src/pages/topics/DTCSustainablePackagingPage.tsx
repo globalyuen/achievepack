@@ -64,7 +64,6 @@ const DTCSustainablePackagingPage: React.FC = () => {
                   alt="Custom printed DTC packaging" 
                   className="w-20 h-20 object-cover rounded-lg"
                   caption="Foil Stamp"
-                  heroBgColor="#14532d"
                 />
                 <ClickableImage 
                   src="/imgs/store/surface/matt.webp"
@@ -459,7 +458,7 @@ const DTCSustainablePackagingPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Sustainable Packaging for Direct-to-Consumer Brands"
         description="Custom eco-friendly packaging for DTC brands. Low MOQ from 100 pieces, fast turnaround, and certified sustainable materials."
         keywords={['DTC packaging', 'direct to consumer packaging', 'sustainable ecommerce packaging', 'custom eco pouches']}

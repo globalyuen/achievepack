@@ -23,7 +23,6 @@ const BioPePetDuplexNoWindowPage: React.FC = () => {
               alt="Bio-PE PET Duplex No Window Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Bio-PE PET Duplex - Full Print Coverage"
-              heroBgColor="#3f6212"
             />
             <h3 className="text-xl font-bold text-green-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -227,7 +226,7 @@ const BioPePetDuplexNoWindowPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#3f6212"
       title="Bio-PE PET Duplex No Window | Opaque Plant-Based Packaging"
       description="Bio-PE PET Duplex No Window: PET12 / 100% Bio-PE80 (92 micron). Full print coverage, light barrier. Plant-based sugarcane PE. Ideal for supplements, pet food, light-sensitive products."
       heroTitle="Bio-PE PET Duplex No Window Structure"

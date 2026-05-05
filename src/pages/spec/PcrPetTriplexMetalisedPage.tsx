@@ -23,7 +23,6 @@ const PcrPetTriplexMetalisedPage: React.FC = () => {
               alt="PCR PET Triplex Metalised Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PCR PET Triplex Metalised Structure"
-              heroBgColor="#3f6212"
             />
             <h3 className="text-xl font-bold text-purple-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -194,7 +193,7 @@ const PcrPetTriplexMetalisedPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#3f6212"
       title="PCR PET Metalised Triplex | High Barrier Sustainable Packaging"
       description="PCR PET Metalised Triplex: PET12 / Metalised PET12 / PCR-PE. High barrier (OTR <1, WVTR <1). 105 micron. Ideal for coffee, protein, premium foods. 99% less metal than foil."
       heroTitle="PCR PET Metalised Triplex Structure"

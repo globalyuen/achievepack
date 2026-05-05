@@ -137,7 +137,7 @@ const AdaptogensCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['adaptogen packaging', 'functional mushroom packaging', 'premium wellness packaging', 'Singapore packaging']}
@@ -151,7 +151,6 @@ const AdaptogensCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#1f2937"
     />
   );
 };

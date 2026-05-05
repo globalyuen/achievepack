@@ -113,7 +113,6 @@ const LateralFilterBagsPage: React.FC = () => {
             contentCn="Our 400mL Side Filter Membrane Homogenizer BagsKnotSuitableSideNoWoven FabricThroughFilterAnd γ Irradiation Sterilization，AchieveSafeEfficientOfMicrobialSamplePreparation。CompatibleCapacityEachLargeBrandLaboratoryHomogenizerDevice，Suitable forFood、Pharmaceutical、CosmeticsAndEnvironmental Testing。"
             imageLeft={true}
             index={0}
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -490,7 +489,7 @@ const LateralFilterBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Lateral Filter Blender Bags | Sterile Lab Sample Prep | AchievePack"
         description="AchievePack lateral filter blender bags feature side-mounted non-woven filtration membrane for instant, particle-free microbiology sample preparation. Gamma sterilized, clean room produced. 400mL capacity for food, pharma & environmental testing."
         keywords={['lateral filter bags', 'blender bags', 'lab filter bags', 'sterile sample bags', 'microbiology sample prep', 'gamma sterilized bags', 'clean room production', 'food testing', 'pharmaceutical QC', 'environmental testing', 'homogenizer bags', '400mL blender bags']}

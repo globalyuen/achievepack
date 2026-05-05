@@ -166,7 +166,7 @@ const DigitalPrintingPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t('seoPages.pages.digitalPrinting.title')}
       description="Low MOQ digital printing on sustainable pouches. No plate costs, unlimited colors, 500pc minimum. HP Indigo quality with 2-3 week turnaround. Perfect for startups and small batches."
       keywords={['digital printing pouches', 'low MOQ packaging', 'HP Indigo flexible packaging', 'custom printed pouches', 'no plate cost printing', 'small batch packaging']}
@@ -182,7 +182,6 @@ const DigitalPrintingPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.digitalPrinting.cta.title')}
       ctaDescription={t('seoPages.pages.digitalPrinting.cta.description')}
       ctaButtonText={t('seoPages.pages.digitalPrinting.cta.button')}
-      heroBgColor="#1f2937"
     />
   )
 }

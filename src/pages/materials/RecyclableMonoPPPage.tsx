@@ -24,7 +24,6 @@ const RecyclableMonoPPPage: React.FC = () => {
               alt="Recyclable Materials Infographic - Complete guide to recyclable packaging" 
               className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
               caption="Recyclable Materials Infographic"
-              heroBgColor="#1e3a8a"
             />
           </div>
         </div>
@@ -503,7 +502,7 @@ const RecyclableMonoPPPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1e3a8a"
       title={t('seoPages.pages.recyclableMonoPP.title')}
       description="Recyclable mono-PP flexible packaging with high heat resistance and clarity. Hot-fill and microwave safe. Single-material for PP recycling streams. MOQ 500."
       keywords={[

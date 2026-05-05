@@ -23,7 +23,6 @@ const BioPePetKraftQuadlexAluminumPage: React.FC = () => {
               alt="Bio-PE PET Kraft Quadlex Aluminum Premium Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Premium Kraft + Ultimate Barrier + Bio-PE"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -237,7 +236,7 @@ const BioPePetKraftQuadlexAluminumPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Bio-PE PET Kraft Quadlex Aluminum | Premium Natural Ultimate Barrier"
       description="Bio-PE PET Kraft Quadlex: PET12 / Kraft 50gsm / AL7 / 100% Bio-PE80 (149 micron). Premium 4-layer kraft with ultimate barrier (OTR/WVTR <0.5). Plant-based. Ideal for luxury coffee, premium organics."
       heroTitle="Bio-PE PET Kraft Quadlex Aluminum Structure"

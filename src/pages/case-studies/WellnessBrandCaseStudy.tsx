@@ -137,7 +137,7 @@ const WellnessBrandCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#083344"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['supplement packaging', 'bio-PE packaging', 'Amazon FBA packaging', 'child-resistant supplement bags']}
@@ -151,7 +151,6 @@ const WellnessBrandCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#083344"
     />
   );
 };

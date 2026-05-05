@@ -112,7 +112,6 @@ const CarbonNeutralBagsPage: React.FC = () => {
             contentCn="OptionalTraditional PE + Carbon Offset、PCR Recycled PE Blending、Bio-Based Green PE EtcMultipleLow CarbonMaterialGroupSuitable，FullPartCanThroughGroupSuitableReachToCarbon NeutralAndFlatBalance。"
             imageLeft={true}
             index={0}
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -570,7 +569,7 @@ const CarbonNeutralBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Carbon-Neutral Bags | Eco-Friendly Packaging"
         description="Carbon-neutral packaging bags with low-carbon materials, efficient production, and certified carbon offsets. Help your brand reduce CO₂ emissions up to 20% with quantifiable sustainability data for ESG reporting."
         keywords={['carbon neutral packaging', 'carbon neutral bags', 'low carbon packaging', 'sustainable packaging', 'PCR PE bags', 'bio-based packaging', 'carbon offset packaging', 'eco-friendly bags', 'ESG packaging', 'net zero packaging', 'climate positive packaging', 'green PE bags', 'recyclable carbon neutral', 'sustainable pouch packaging']}

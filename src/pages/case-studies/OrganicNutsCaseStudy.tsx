@@ -137,7 +137,7 @@ const OrganicNutsCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#14532d"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['nut packaging', 'EU PPWR compliant', 'organic food packaging', 'recyclable food pouches']}
@@ -151,7 +151,6 @@ const OrganicNutsCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#14532d"
     />
   );
 };

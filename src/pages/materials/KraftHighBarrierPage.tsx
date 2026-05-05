@@ -447,7 +447,7 @@ const KraftHighBarrierPage: React.FC = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={[
@@ -467,7 +467,6 @@ const KraftHighBarrierPage: React.FC = () => {
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
-      heroBgColor="#451a03"
     />
   );
 };

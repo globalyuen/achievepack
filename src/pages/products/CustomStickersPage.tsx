@@ -119,7 +119,6 @@ const CustomStickersPage: React.FC = () => {
             contentCn="CanChooseDie-Cut Sheets（SingleUniqueDie CutSticker）、Roll Form（SuitableSuitableLargeBatchVolumeApplicationOfContinuousRoll）、Paper Style（EachSheetMultipleUnitSticker）AndDie Cut（WithLinerPaperConvenientAtTearTake）。Each TypeCategoryTypeAllNeedleForSpecificUseScenarioAndApplicationMethodOptimizeization。"
             imageLeft={true}
             index={1}
-            heroBgColor="#1f2937"
           />
 
           <AlternatingSection
@@ -562,7 +561,7 @@ const CustomStickersPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Custom Stickers | Factory-Grade Printing | Achieve Pack"
         description="Factory-grade custom stickers with premium materials, multiple shapes, eco-friendly options, and professional finishes. Cut-to-size, roll, sheet, and kiss-cut types available."
         canonicalUrl="https://achievepack.com/products/custom-stickers"

@@ -23,7 +23,6 @@ const BioPePetTriplexAluminumPage: React.FC = () => {
               alt="Bio-PE PET Triplex Aluminum Ultimate Barrier Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Bio-PE PET Aluminum - Ultimate Barrier"
-              heroBgColor="#3f6212"
             />
             <h3 className="text-xl font-bold text-gray-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -230,7 +229,7 @@ const BioPePetTriplexAluminumPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#3f6212"
       title="Bio-PE PET Triplex Aluminum | Ultimate Barrier Plant-Based Packaging"
       description="Bio-PE PET Triplex Aluminum: PET12 / AL7 / 100% Bio-PE80 (99 micron). Ultimate barrier (OTR/WVTR <0.5) with plant-based sealant. Ideal for infant formula, pharmaceuticals, premium coffee."
       heroTitle="Bio-PE PET Triplex Aluminum Structure"

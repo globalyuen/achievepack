@@ -462,7 +462,7 @@ const FrozenFoodPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1e3a8a"
       title={t('seoPages.pages.frozenFood.title')}
       description="Durable flexible packaging for frozen foods including dumplings, frozen snacks, ice cream bites, and frozen meals. Cold-crack resistant, FDA compliant. MOQ 500 units."
       keywords={[
@@ -488,7 +488,6 @@ const FrozenFoodPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.frozenFood.cta.title')}
       ctaDescription={t('seoPages.pages.frozenFood.cta.description')}
       ctaButtonText={t('seoPages.pages.frozenFood.cta.button')}
-      heroBgColor="#1e3a8a"
     />
   )
 }

@@ -290,7 +290,7 @@ const SideGussetBagsPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Side Gusset Bags | Quad Seal Bags | Coffee Bags"
       description="Custom side gusset bags (quad seal) for coffee, tea, and bulk products. Expandable gussets for high capacity. Tin tie, zipper, and valve options. MOQ 500."
       keywords={[
@@ -316,7 +316,6 @@ const SideGussetBagsPage: React.FC = () => {
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
-      heroBgColor="#1f2937"
     />
   )
 }

@@ -56,7 +56,6 @@ const CustomBoxesPage: React.FC = () => {
                   src="/imgs/store/box/corrugated-box/2be65396-ac07-44d0-b54c-2422d3bfe981.webp" 
                   alt="Custom Printed Corrugated Mailer Box" 
                   className="w-full rounded-lg shadow-md"
-                  heroBgColor="#1f2937"
                 />
               </div>
               <div className="md:w-2/3">
@@ -666,7 +665,7 @@ const CustomBoxesPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Custom Boxes | Rigid Mailer Boxes | Tuck Boxes | Gift Packaging"
       description="Custom printed rigid boxes for chocolate, tea, coffee, and artisan foods. Premium finishes including gold foil, embossing, matte lamination. FSC certified. MOQ 200 pieces. Sea freight included."
       keywords={[

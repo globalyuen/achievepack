@@ -144,7 +144,6 @@ const LabelsAndStickersPage: React.FC = () => {
             contentCn="High Quality Paper Adhesive Labels，Suitable forProductLabel、ActivityLabel、UnitPersonCustomAndSmall BatchProduction。MultipleMaterialOptional，PackIncludingWhiteMatte、Gloss、Kraft PaperAndTransparentFilm。StrongPowerPermanentLongGlueStickAgentEnsureLabelCompleteBeautyPasteAttach。"
             imageLeft={true}
             index={1}
-            heroBgColor="#1f2937"
           />
 
           <AlternatingSection
@@ -455,7 +454,7 @@ const LabelsAndStickersPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Custom Labels & Stickers | Sheet Labels, Roll Stickers, Die-Cut | Achieve Pack"
         description="Professional custom labels and stickers with premium materials, eco-friendly options, and expert finishes. Sheet labels, roll stickers, die-cut, and kiss-cut types. No minimum order."
         canonicalUrl="https://achievepack.com/products/labels-and-stickers"

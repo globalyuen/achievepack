@@ -181,7 +181,7 @@ const EcoPackagingMistakesPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#14532d"
       title="5 Eco Packaging Mistakes Small Brands Make (And How to Avoid Them)"
       description="Avoid costly packaging mistakes that waste money and hurt your brand. Learn from real examples: over-ordering, wrong materials, greenwashing risks, and more. Expert advice from a packaging manufacturer."
       keywords={[
@@ -209,7 +209,6 @@ const EcoPackagingMistakesPage: React.FC = () => {
       ctaButtonUrl="/contact"
       canonicalUrl="https://achievepack.com/blog/eco-packaging-mistakes"
       schemaType="Article"
-      heroBgColor="#14532d"
     />
   )
 }

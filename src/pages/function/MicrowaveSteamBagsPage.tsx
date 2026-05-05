@@ -112,7 +112,6 @@ const MicrowaveSteamBagsPage: React.FC = () => {
             contentCn="OurFood GradeMicrowaveSteamingBagIdeal forSuitableSteamVegetables、HeatingFrozenMealAndPrepareMeal。CreateNewDesignReduceDoneExtraOutsideCookToolOfUse，MeanwhileMaintainFoodSafeStandard。"
             imageLeft={true}
             index={0}
-            heroBgColor="#451a03"
           />
         </div>
       )
@@ -509,7 +508,7 @@ const MicrowaveSteamBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#451a03"
         title="Microwave Steam Bags | Eco-Friendly Cooking Pouches"
         description="Food-safe microwave steam bags for vegetables, frozen meals, and meal prep. Eco-friendly, heat-resistant pouches with built-in steam vents. Store, steam and serve in one bag."
         keywords={['microwave steam bags', 'microwave cooking pouches', 'vegetable steam bags', 'food-safe microwave bags', 'eco-friendly cooking bags', 'meal prep pouches', 'steam vent bags', 'microwaveable food pouches', 'heat resistant bags', 'frozen meal bags', 'reheatable pouches', 'BPA-free microwave bags', 'sustainable cooking bags', 'food grade steam bags']}

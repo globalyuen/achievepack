@@ -113,7 +113,6 @@ const ArtisanProducerPage: React.FC = () => {
                 alt="Artisan chocolate packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Artisan Chocolate"
-                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/seo-photos/a_tea_craft_australia_garden_morning_8955209.webp"
@@ -387,7 +386,7 @@ const ArtisanProducerPage: React.FC = () => {
         <meta name="keywords" content="artisan packaging, small batch packaging, farmers market packaging, gourmet food packaging, craft food pouches, low MOQ artisan" />
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Artisan Producer Packaging | Small Batch Solutions"
         description="Packaging for artisan food makers. Low MOQ from 100 pieces, craft aesthetics, farmers market durable."
         keywords={['artisan packaging', 'small batch packaging', 'farmers market packaging', 'gourmet food packaging']}

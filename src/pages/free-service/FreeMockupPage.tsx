@@ -39,7 +39,6 @@ const ImageTextRow: React.FC<{
           src={image}
           alt={imageAlt}
           className="w-full rounded-xl shadow-lg"
-          heroBgColor="#1f2937"
         />
         {imageCaption && (
           <p className="text-sm text-neutral-500 mt-2 text-center italic">{imageCaption}</p>

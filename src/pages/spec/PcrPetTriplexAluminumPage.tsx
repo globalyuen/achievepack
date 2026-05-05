@@ -23,7 +23,6 @@ const PcrPetTriplexAluminumPage: React.FC = () => {
               alt="PCR PET Triplex Aluminum Foil Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PET Triplex with Aluminum Foil"
-              heroBgColor="#3f6212"
             />
             <h3 className="text-xl font-bold text-gray-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -198,7 +197,7 @@ const PcrPetTriplexAluminumPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#3f6212"
       title="PET Aluminum Foil Triplex | Maximum Barrier Sustainable Packaging"
       description="PET Aluminum Foil Triplex: PET12 / AL7 / PCR-PE. Maximum barrier (OTR <0.5, WVTR <0.5). 100 micron. Essential for coffee, baby food, pharmaceuticals. 24+ months shelf life."
       heroTitle="PET Aluminum Foil Triplex Structure"

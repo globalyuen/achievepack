@@ -23,7 +23,6 @@ const BioPeKraftVmpetPage: React.FC = () => {
               alt="Bio-PE Kraft VMPET High Barrier Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Natural Kraft + High Barrier + Bio-PE"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -230,7 +229,7 @@ const BioPeKraftVmpetPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Bio-PE Kraft VMPET | Natural High Barrier Plant-Based Packaging"
       description="Bio-PE Kraft VMPET: Kraft 50gsm / VMPET12 / 100% Bio-PE80 (142 micron). Natural kraft look with high barrier (OTR/WVTR <1). Plant-based sealant. Ideal for specialty coffee, premium organic products."
       heroTitle="Bio-PE Kraft VMPET Triplex Structure"

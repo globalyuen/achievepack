@@ -244,7 +244,7 @@ const LeadTimePage = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['lead time', 'production time', 'shipping time', 'packaging timeline', 'delivery schedule']}
@@ -258,7 +258,6 @@ const LeadTimePage = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#1f2937"
     />
   );
 };

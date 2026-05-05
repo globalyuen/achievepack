@@ -235,7 +235,7 @@ const PackagingCostGuidePage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="How Much Does Custom Packaging Cost in 2025? | Price Guide"
       description="Complete custom packaging cost breakdown for 2025. Compare prices for compostable pouches, recyclable bags & custom boxes from 100 to 10,000+ pieces. Real prices, no hidden fees."
       keywords={[
@@ -263,8 +263,7 @@ const PackagingCostGuidePage: React.FC = () => {
       ctaButtonUrl="/contact"
       canonicalUrl="https://achievepack.com/blog/packaging-cost-guide"
       schemaType="Article"
-      heroStyle="split"
-      heroBgColor="#451a03" // Dark brown matching packaging cardboard
+      heroStyle="split" // Dark brown matching packaging cardboard
     />
   )
 }

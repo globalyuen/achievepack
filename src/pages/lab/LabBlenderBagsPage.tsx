@@ -112,7 +112,6 @@ const LabBlenderBagsPage: React.FC = () => {
             contentCn="AchievePack® LaboratoryHomogenizerBagProfessionalForProfessionalIndustryMicrobialLaboratory、Food TestingInstitutionAndPharmaceuticalQuality ControlPartDoorDesign。UsingHigh TransparencyFood GradeOriginalRaw LDPE FilmMadeForm，TheseNoBacteriaBagForSamplePreparationAndHomogenizerizationProvideCanReliableOfNoContaminationEnvironment。"
             imageLeft={true}
             index={0}
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -434,7 +433,7 @@ const LabBlenderBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Lab Blender Bags | Sterile Sample Preparation Bags | AchievePack"
         description="AchievePack® sterile lab blender bags for microbiology sample preparation. 5-80 mL capacity, gamma irradiated, high-clarity LDPE, impact resistant. Perfect for food testing, pharmaceutical QC, and environmental labs."
         keywords={['lab blender bags', 'sterile sample bags', 'microbiology bags', 'homogenizer bags', 'paddle blender bags', 'stomacher bags', 'laboratory sample preparation', 'gamma irradiated bags', 'food testing bags', 'pharmaceutical QC bags', '5-80 mL bags', 'LDPE sterile bags']}

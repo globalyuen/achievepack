@@ -274,7 +274,7 @@ const TeaBrandCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Tea Brand Case Study | Compostable Window Packaging for Luxury Tea"
       description="How Milano Botanica achieved EU PPWR compliance with compostable window packaging. NatureFlex window, flat bottom bags. 28% sales increase. 12-month shelf life."
       keywords={['tea packaging case study', 'compostable window packaging', 'luxury tea bags', 'EU PPWR compliant packaging', 'flat bottom tea bags', 'NatureFlex window', 'loose leaf tea packaging']}
@@ -289,7 +289,6 @@ const TeaBrandCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#451a03"
     />
   );
 };

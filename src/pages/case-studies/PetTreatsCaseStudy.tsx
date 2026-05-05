@@ -211,7 +211,7 @@ const PetTreatsCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#3f6212"
       title="Pet Treats Case Study | Child-Resistant PCR Packaging for Organic Treats"
       description="How Pawsome Naturals achieved 40% more retail distribution with child-resistant PCR packaging. 30% recycled content, odor barrier, CPSC compliant."
       keywords={['pet treat packaging', 'child-resistant packaging', 'PCR recycled pouches', 'sustainable pet food packaging', 'odor barrier pet bags', 'CPSC compliant pet packaging']}
@@ -226,7 +226,6 @@ const PetTreatsCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#3f6212"
     />
   );
 };

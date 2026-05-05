@@ -24,7 +24,6 @@ const PCRPage: React.FC = () => {
               alt="PCR Packaging Infographic - Post-Consumer Recycled materials guide" 
               className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
               caption="PCR Packaging Infographic"
-              heroBgColor="#1f2937"
             />
           </div>
         </div>
@@ -555,7 +554,7 @@ const PCRPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="PCR Packaging | Post-Consumer Recycled Pouches | Circular Economy"
       description="PCR (Post-Consumer Recycled) flexible packaging with 30-50% recycled content. GRS certified, FDA approved. Reduce virgin plastic use. MOQ 500 units."
       keywords={[

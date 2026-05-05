@@ -23,7 +23,6 @@ const BioKraftVmCelloPage: React.FC = () => {
               alt="Bio Kraft VM Cellulose Compostable Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Natural Kraft with Compostable Barrier"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -199,7 +198,7 @@ const BioKraftVmCelloPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Bio Kraft VM Cellulose | Natural High Barrier Compostable Packaging"
       description="Bio Kraft VM Cellulose: Kraft 50gsm / VM Cellulose / PBAT (125 micron). Natural kraft with high barrier (OTR <2, WVTR <5). TUV/BPI certified compostable. Ideal for specialty coffee, premium organics."
       heroTitle="Bio Kraft VM Cellulose - Natural & Compostable"

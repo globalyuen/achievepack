@@ -571,7 +571,7 @@ const PetFoodPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#3f6212"
       title="Pet Food & Treats Packaging | Sustainable Dog & Cat Food Pouches"
       description="Eco-friendly flexible packaging for dry pet food, dog treats, cat food, and pet supplements. Compostable, recyclable options. Heavy-duty construction, resealable closures. MOQ from 100 units."
       keywords={[
@@ -600,7 +600,6 @@ const PetFoodPage: React.FC = () => {
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
-      heroBgColor="#3f6212"
     />
   )
 }

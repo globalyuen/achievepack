@@ -81,7 +81,6 @@ const StartupFounderPage: React.FC = () => {
                 alt="Compostable pouch for wellness startup brand" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Compostable Pouch"
-                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_stand_up_pouch_isolated_4331591.webp" 
@@ -566,7 +565,7 @@ const StartupFounderPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Packaging for Startup Founders | Low MOQ Sustainable Pouches"
         description="Launch your brand with certified sustainable packaging. Low MOQ from 100 pieces, free design support, fast turnaround for startups."
         keywords={['startup packaging', 'low MOQ pouches', 'DTC brand packaging', 'sustainable packaging startup', 'wellness brand packaging']}

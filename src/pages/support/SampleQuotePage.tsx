@@ -7,7 +7,7 @@ const SampleQuotePage: React.FC = () => {
   const { t } = useTranslation()
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Sample Packaging Quotes & Timeline"
       description="Request physical samples of stand-up pouches, flat bottom bags, and sustainable materials. Validate your construction, print quality, and branding before bulk production."
       keywords={['packaging samples', 'prototype pouch', 'printed samples', 'material validation', 'Achieve Pack samples']}
@@ -31,7 +31,6 @@ const SampleQuotePage: React.FC = () => {
                     src="/imgs/samples/achieve-hand-made-sample.png" 
                     alt="Hand-made material sample" 
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                    heroBgColor="#1f2937"
                   />
                 </div>
                 <div className="p-6 pt-8 relative flex-grow flex flex-col">

@@ -39,7 +39,6 @@ const USASnacksPage: React.FC = () => {
               alt="Sustainable snacks packaging for US brands" 
               className="w-full rounded-lg shadow-md"
               caption="Compostable snack packaging designed for US natural food brands"
-              heroBgColor="#451a03"
             />
           </div>
         </div>
@@ -420,7 +419,7 @@ const USASnacksPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Compostable Snack Packaging for US Brands | ASTM D6400 | Achieve Pack"
       description="ASTM D6400 certified compostable snack pouches for US food brands. Stand-up pouches with resealable zippers, low MOQ from 100 pieces, ships to USA in 15-20 days."
       keywords={['compostable snack packaging USA', 'compostable chip bags', 'ASTM D6400 snack pouches', 'sustainable snack packaging', 'eco-friendly granola bags', 'compostable stand up pouch', 'organic snack packaging', 'low MOQ snack bags', 'California compliant snack packaging', 'natural food packaging']}

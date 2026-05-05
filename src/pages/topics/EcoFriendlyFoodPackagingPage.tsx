@@ -84,7 +84,6 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
                 alt="Compostable packaging for food brands" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Compostable"
-                heroBgColor="#14532d"
               />
               <ClickableImage 
                 src="/imgs/4-infograhic/recyclable.webp" 
@@ -435,7 +434,7 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Eco-Friendly Packaging Solutions for Food Brands"
         description="Certified sustainable packaging for food brands. Compostable, recyclable, and bio-based options with full compliance documentation."
         keywords={['eco-friendly food packaging', 'sustainable food pouches', 'compostable food bags', 'food brand packaging']}

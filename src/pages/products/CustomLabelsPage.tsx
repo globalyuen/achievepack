@@ -116,7 +116,6 @@ const CustomLabelsPage: React.FC = () => {
             contentCn="FromProductLabel、ActivityStickerToUnitPersonProjectAndSmallTypeEnterpriseIndustryBrand——OurCustomPaperLabelSuitable forAnyScenario。NoTheoryYouRequireNeed 10 SheetAlsoIs 10,000 Sheet，WeAlwaysIfOneGroundProvideHighQualityProduct。"
             imageLeft={true}
             index={1}
-            heroBgColor="#1f2937"
           />
 
           <AlternatingSection
@@ -534,7 +533,7 @@ const CustomLabelsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Custom Sheet Labels | No Minimum Order | Achieve Pack"
         description="Professional custom sheet labels with no minimum order, 2-3 day turnaround, and expert design review. High-quality printing for products, packaging, and branding."
         canonicalUrl="https://achievepack.com/products/custom-labels"

@@ -23,7 +23,6 @@ const BioPePpTriplexAluminumPage: React.FC = () => {
               alt="Bio-PE PP Triplex Aluminum Best Moisture Ultimate Barrier"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Bio-PE PP Aluminum - Best Moisture Ultimate Barrier"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-gray-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -230,7 +229,7 @@ const BioPePpTriplexAluminumPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Bio-PE PP Triplex Aluminum | Best Moisture Ultimate Barrier Packaging"
       description="Bio-PE PP Triplex Aluminum: OPP20 / AL7 / 100% Bio-PE80 (107 micron). Best moisture barrier (WVTR <0.3) with plant-based sealant. Ideal for infant formula, protein powders, powdered milk."
       heroTitle="Bio-PE PP Triplex Aluminum Structure"

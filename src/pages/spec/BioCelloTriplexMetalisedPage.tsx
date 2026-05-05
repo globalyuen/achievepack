@@ -23,7 +23,6 @@ const BioCelloTriplexMetalisedPage: React.FC = () => {
               alt="Bio Cellulose Triplex Metalised Compostable"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Metalised Compostable - High Barrier"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-green-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -195,7 +194,7 @@ const BioCelloTriplexMetalisedPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Bio Cellulose Triplex Metalised | High Barrier Compostable Packaging"
       description="Bio Cellulose Triplex Metalised: Cellulose / Metalised Cellulose / PBAT (100 micron). High barrier compostable (OTR <2, WVTR <5). TUV/BPI certified. Ideal for coffee, tea, snacks."
       heroTitle="Bio Cellulose Triplex Metalised - High Barrier"

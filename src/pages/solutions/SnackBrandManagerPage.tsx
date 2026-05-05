@@ -80,7 +80,6 @@ const SnackBrandManagerPage: React.FC = () => {
                 alt="Sustainable snack packaging solutions" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Snack Pouches"
-                heroBgColor="#451a03"
               />
               <ClickableImage 
                 src="/imgs/seo-photos/usa/snack/a_snacks_brand_sustainability_guide_7868632.webp" 
@@ -488,7 +487,7 @@ const SnackBrandManagerPage: React.FC = () => {
         <meta name="keywords" content="snack brand packaging, organic snack pouches, sustainable snack packaging, compostable chip bags, granola packaging, nut packaging" />
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#451a03"
         title="Snack Brand Packaging | Multi-Product Sustainable Solutions"
         description="Sustainable packaging for organic snack brands. Multi-product solutions with verified sustainability claims."
         keywords={['snack brand packaging', 'organic snack pouches', 'sustainable snack packaging', 'compostable chip bags']}

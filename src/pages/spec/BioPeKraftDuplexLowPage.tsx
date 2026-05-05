@@ -23,7 +23,6 @@ const BioPeKraftDuplexLowPage: React.FC = () => {
               alt="Bio-PE Kraft Duplex Low Barrier Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Simple Kraft + Bio-PE - Natural & Affordable"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -231,7 +230,7 @@ const BioPeKraftDuplexLowPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Bio-PE Kraft Duplex Low Barrier | Simple Natural Plant-Based Packaging"
       description="Bio-PE Kraft Duplex: Kraft 50gsm / 100% Bio-PE80 (130 micron). Simple two-layer natural structure. Low barrier, most affordable. Plant-based. Ideal for farmers market, bakery, artisan products."
       heroTitle="Bio-PE Kraft Duplex Low Barrier Structure"

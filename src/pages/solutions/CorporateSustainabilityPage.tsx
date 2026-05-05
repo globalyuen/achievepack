@@ -152,7 +152,6 @@ const CorporateSustainabilityPage: React.FC = () => {
                 alt="Compostable certification documentation" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Compostable Certified"
-                heroBgColor="#14532d"
               />
               <ClickableImage 
                 src="/imgs/4-infograhic/recyclable.webp" 
@@ -432,7 +431,7 @@ const CorporateSustainabilityPage: React.FC = () => {
         <meta name="keywords" content="corporate sustainability packaging, ESG packaging, certified sustainable packaging, environmental reporting, supply chain transparency, corporate packaging solutions" />
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Corporate Sustainability Packaging | ESG Reporting Support"
         description="Corporate-grade sustainable packaging with third-party certifications for ESG reporting. Quantifiable impact data and multi-brand solutions."
         keywords={['corporate sustainability packaging', 'ESG packaging', 'certified sustainable packaging', 'environmental reporting']}

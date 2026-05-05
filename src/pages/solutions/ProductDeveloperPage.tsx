@@ -137,7 +137,6 @@ const ProductDeveloperPage: React.FC = () => {
                 alt="Metallic finish innovative packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Metallic Finish"
-                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/store/surface/stamp-foil.webp" 
@@ -465,7 +464,7 @@ const ProductDeveloperPage: React.FC = () => {
         <meta name="keywords" content="innovation packaging, rapid prototyping, product development packaging, low MOQ testing, flexible packaging design, cutting-edge materials" />
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Innovation Packaging | Rapid Prototyping | Product Development"
         description="Packaging for product innovators. Rapid prototyping in 48 hours, cutting-edge materials, flexible iteration with no plate costs."
         keywords={['innovation packaging', 'rapid prototyping', 'product development packaging', 'low MOQ testing']}

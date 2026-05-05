@@ -147,7 +147,6 @@ const LabBagsPage: React.FC = () => {
             contentCn="AchievePack® BagFilter SeriesUsingSideSetNoFilter Membrane，ProvideImmediatelyTimeNoParticle Filtrate。Side FilterDesignAchieveEfficientSampleDivideLeave，MeanwhileWhole ProcessMaintainNoBacteriaStatus。"
             imageLeft={true}
             index={1}
-            heroBgColor="#1f2937"
           />
 
           <AlternatingSection
@@ -468,7 +467,7 @@ const LabBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Lab Blender Bags | Sterile Filter Bags, Wire Closure | Achieve Pack"
         description="Premium sterile laboratory blender bags for microbiology and food safety testing. Lateral filter bags, standard blender bags, wire closure bags. Gamma sterilized, clean room produced."
         canonicalUrl="https://achievepack.com/products/lab-bags"

@@ -23,7 +23,6 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
               alt="PCR PP Kraft Triplex Clear Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PCR PP Kraft Triplex Clear Structure"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
@@ -190,7 +189,7 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="PCR PP Kraft Triplex Clear | Premium Kraft Paper Low WVTR Packaging"
       description="PCR PP Kraft Triplex: KOPP20 / Kraft Paper 50gsm / PCR-PE. Best moisture barrier in kraft category (WVTR <6). 140 micron. Ideal for powders, supplements, moisture-sensitive products."
       heroTitle="PCR PP Kraft Triplex Clear Structure"

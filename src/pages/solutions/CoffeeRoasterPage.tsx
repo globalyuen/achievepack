@@ -81,7 +81,6 @@ const CoffeeRoasterPage: React.FC = () => {
                 alt="Specialty coffee packaging with valve" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Coffee Pouch"
-                heroBgColor="#451a03"
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" 
@@ -405,7 +404,7 @@ const CoffeeRoasterPage: React.FC = () => {
         <meta name="keywords" content="coffee roaster packaging, degassing valve bags, sustainable coffee bags, compostable coffee packaging, specialty coffee packaging, coffee bag supplier" />
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#451a03"
         title="Coffee Roaster Packaging | Degassing Valve Compatible"
         description="Sustainable coffee packaging for specialty roasters. Degassing valve compatible with proven freshness performance."
         keywords={['coffee roaster packaging', 'degassing valve bags', 'sustainable coffee bags', 'specialty coffee packaging']}

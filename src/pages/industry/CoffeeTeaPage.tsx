@@ -607,7 +607,7 @@ const CoffeeTeaPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Coffee & Tea Packaging | Eco-Friendly Pouches for Roasters & Tea Brands"
       description="Premium compostable and recyclable packaging for coffee beans, ground coffee, loose-leaf tea. Low MOQ from 100 units. Degassing valves, EN 13432 certified. Compare suppliers in our guide."
       keywords={[
@@ -637,7 +637,6 @@ const CoffeeTeaPage: React.FC = () => {
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
-      heroBgColor="#451a03"
     />
   )
 }

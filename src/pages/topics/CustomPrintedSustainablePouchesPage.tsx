@@ -414,7 +414,7 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Custom Printed Sustainable Pouches"
         description="Full color custom printing on compostable, recyclable, and bio-based packaging materials."
         keywords={['custom printed sustainable pouches', 'eco-friendly custom packaging', 'printed compostable bags']}
@@ -425,7 +425,6 @@ const CustomPrintedSustainablePouchesPage: React.FC = () => {
         faqs={faqs}
         schemaType="Product"
         heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
-        heroBgColor="#14532d"
       />
     </>
   )

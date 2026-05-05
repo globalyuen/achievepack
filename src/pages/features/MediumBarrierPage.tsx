@@ -384,7 +384,7 @@ const MediumBarrierPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title={t(`${p}.title`)}
         description={t(`${p}.description`)}
         keywords={['medium barrier packaging', 'recyclable pouches', 'mono-PE packaging', 'bio-PE pouches', 'coffee packaging', 'pet food packaging']}
@@ -401,7 +401,6 @@ const MediumBarrierPage: React.FC = () => {
         ctaDescription={t(`${p}.cta.description`)}
         ctaButtonText={t(`${p}.cta.button`)}
         ctaButtonUrl="/contact"
-        heroBgColor="#1f2937"
       />
       
       {/* Gallery Lightbox Modal */}

@@ -370,7 +370,7 @@ const HighBarrierPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title={t(`${p}.title`)}
         description={t(`${p}.description`)}
         keywords={['high barrier packaging', 'EVOH barrier pouches', 'long shelf life packaging', 'supplement packaging', 'coffee bag high barrier']}
@@ -387,7 +387,6 @@ const HighBarrierPage: React.FC = () => {
         ctaDescription={t(`${p}.cta.description`)}
         ctaButtonText={t(`${p}.cta.button`)}
         ctaButtonUrl="/contact"
-        heroBgColor="#1f2937"
       />
       
       {/* Gallery Lightbox Modal */}

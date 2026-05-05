@@ -23,7 +23,6 @@ const PcrPpKraftQuadlexAluminumPage: React.FC = () => {
               alt="PP Kraft Quadlex Aluminum Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Premium PP Kraft with Aluminum - Lowest WVTR"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -201,7 +200,7 @@ const PcrPpKraftQuadlexAluminumPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="PP Kraft Quadlex Aluminum | Ultimate Moisture Barrier Natural Packaging"
       description="PP Kraft Quadlex Aluminum: OPP20 / Kraft 50gsm / AL7 / PCR-PE. Ultimate moisture barrier (WVTR <0.3) with natural kraft aesthetics. 155 micron. Ideal for premium powders, luxury products."
       heroTitle="PP Kraft Quadlex Aluminum Structure"

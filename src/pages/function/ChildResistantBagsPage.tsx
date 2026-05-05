@@ -112,7 +112,6 @@ const ChildResistantBagsPage: React.FC = () => {
             contentCn="OurChildrenChild-Resistant ZipperBagUsingCertificationOfPressPressureOpenAndPinchPressureSlideInstitution，PressPhotoUSA 16 CFR 1700 ChildrenSafeStandardDesignAndTest。Ideal forSuitableLargeHemp、Pharmaceuticals、Nutritional SupplementsWithAndAnyRequireNeedSafeSuitableSpecificationPackagingOfProduct。"
             imageLeft={true}
             index={0}
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -514,7 +513,7 @@ const ChildResistantBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Child-Resistant Zipper Bags | Certified Safety Pouches"
         description="Certified child-resistant zipper bags for cannabis, pharmaceuticals, supplements and more. Push-to-open mechanism meets U.S. 16 CFR 1700 standards. High barrier, odor-proof, eco-friendly options available."
         keywords={['child-resistant bags', 'child-resistant pouches', 'cannabis packaging', 'pharmaceutical pouches', 'CPSC certified bags', 'child-proof packaging', 'push-to-open bags', 'child safety packaging', 'CR zipper bags', 'compliant cannabis bags', 'supplement safety pouches', '16 CFR 1700 bags', 'tamper evident pouches', 'odor proof cannabis bags', 'eco friendly child resistant']}

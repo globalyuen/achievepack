@@ -105,7 +105,6 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
               alt="High barrier coffee packaging" 
               className="w-full h-28 object-cover rounded-lg"
               caption="High Barrier"
-              heroBgColor="#14532d"
             />
             <ClickableImage 
               src="/imgs/store/barrier/2-clear.webp"
@@ -422,7 +421,7 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Best Materials for Green Coffee Packaging"
         description="Expert guide comparing compostable, recyclable, and bio-based materials for sustainable coffee packaging."
         keywords={['green coffee packaging', 'eco-friendly coffee bags', 'sustainable coffee materials']}

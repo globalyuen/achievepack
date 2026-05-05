@@ -23,7 +23,6 @@ const MonoPeDuplexNoWindowPage: React.FC = () => {
               alt="Mono PE Duplex No Window Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Mono PE Duplex No Window - Fully Recyclable"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-blue-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -188,7 +187,7 @@ const MonoPeDuplexNoWindowPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Mono PE Duplex No Window | Opaque Recyclable Packaging"
       description="Mono PE Duplex No Window: PE60/PE60 (120 micron). 100% PE recyclable, full print coverage, light barrier. Store drop-off compatible. Ideal for pet food, rice, industrial products."
       heroTitle="Mono PE Duplex No Window - Opaque Recyclable"

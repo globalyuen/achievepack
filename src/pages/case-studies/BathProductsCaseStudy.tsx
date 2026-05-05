@@ -133,7 +133,7 @@ const BathProductsCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['bath bomb packaging', 'clear pouches', 'moisture barrier packaging', 'cosmetic packaging']}
@@ -147,7 +147,6 @@ const BathProductsCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#1f2937"
     />
   );
 };

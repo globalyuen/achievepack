@@ -308,7 +308,7 @@ const VacuumPouchesPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Vacuum Pouches | Vacuum Seal Bags | Sous Vide Bags"
       description="High-barrier vacuum pouches for meat, seafood, cheese, and coffee. Chamber and external types. Sous vide compatible, retort available. MOQ 500 units."
       keywords={[
@@ -334,7 +334,6 @@ const VacuumPouchesPage: React.FC = () => {
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
-      heroBgColor="#1f2937"
     />
   )
 }

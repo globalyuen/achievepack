@@ -36,7 +36,6 @@ const CertificatesPage = () => {
                 alt="Seedling Logo - OK Compost Certified" 
                 className="h-16 w-auto mb-2"
                 caption="EU Seedling"
-                heroBgColor="#1f2937"
               />
               <span className="text-xs text-center text-neutral-600">EU Seedling</span>
             </div>
@@ -331,7 +330,7 @@ const CertificatesPage = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['packaging certifications', 'EN 13432', 'ASTM D6400', 'GRS certified', 'FDA food safe', 'compostable certification']}

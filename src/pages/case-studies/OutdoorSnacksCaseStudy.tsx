@@ -137,7 +137,7 @@ const OutdoorSnacksCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['outdoor snack packaging', 'trail snack bags', 'REI packaging', 'puncture resistant pouches']}
@@ -151,7 +151,6 @@ const OutdoorSnacksCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#451a03"
     />
   );
 };

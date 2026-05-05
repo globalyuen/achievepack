@@ -115,7 +115,6 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             contentCn="UseFood GradeMulti-LayerFilmStructure（PET/Aluminum Foil/Nylon/CPP），OurSteamingBagCanWithstand 116–135℃ KillBacteria。SuitableSuitableCurry、Ready-to-EatMeal、BabyFood、PetFoodEtc，DigitalPrintingOnlyRequire 100 PackMinimum Order。"
             imageLeft={true}
             index={0}
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -616,7 +615,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Digital Printed Retort Bags | 100 pcs Low MOQ | High-Barrier Sterilization Pouches"
         description="Custom digital printed retort pouches with 100 pcs low MOQ. High-barrier multi-layer structure withstands 121-135°C sterilization. Ideal for ready meals, baby food, pet food. BRC certified, FDA compliant."
         keywords={['retort pouches', 'retort bags', 'digital printed pouches', 'sterilization pouches', 'ready meal packaging', 'baby food pouches', 'pet food bags', 'shelf stable packaging', 'high barrier pouches', 'low MOQ pouches', '100 pcs minimum order', 'aluminum foil pouches', 'heat resistant bags', 'food safe pouches']}

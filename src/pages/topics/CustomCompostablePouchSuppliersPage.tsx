@@ -84,7 +84,6 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
               alt="Compostable packaging certification" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Compostable"
-              heroBgColor="#14532d"
             />
             <ClickableImage 
               src="/imgs/store/shape/stand-up-pouch.webp" 
@@ -466,7 +465,7 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Custom Compostable Pouch Suppliers"
         description="Certified compostable pouch supplier with low MOQ and custom printing capabilities."
         keywords={['compostable pouch supplier', 'custom compostable bags', 'certified compostable packaging']}

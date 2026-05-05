@@ -146,7 +146,7 @@ const ChocolateBrandCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['chocolate packaging', 'luxury packaging', 'heat resistant packaging', 'foil stamping pouches']}
@@ -160,7 +160,6 @@ const ChocolateBrandCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#451a03"
     />
   );
 };

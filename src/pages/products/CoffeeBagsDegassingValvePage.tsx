@@ -37,7 +37,6 @@ const CoffeeBagsDegassingValvePage: React.FC = () => {
               alt="Coffee bag degassing valve closeup" 
               className="w-full rounded-lg shadow-md"
               caption="One-way degassing valve for freshly roasted coffee"
-              heroBgColor="#451a03"
             />
           </div>
         </div>
@@ -418,7 +417,7 @@ const CoffeeBagsDegassingValvePage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#451a03"
         title="Coffee Bags with Degassing Valves | Fresh Roast Protection | Achieve Pack"
         description="Premium coffee bags with one-way degassing valves. Protect freshly roasted coffee with CO2 release. Available in compostable and recyclable options."
         keywords={['coffee bags with degassing valves', 'one-way valve coffee bags', 'fresh roast coffee packaging', 'coffee degassing valve', 'specialty coffee bags']}

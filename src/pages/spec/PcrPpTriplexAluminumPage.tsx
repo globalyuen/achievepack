@@ -23,7 +23,6 @@ const PcrPpTriplexAluminumPage: React.FC = () => {
               alt="PCR PP Triplex Aluminum Foil Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PP Triplex with Aluminum Foil - Best Moisture"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-gray-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -194,7 +193,7 @@ const PcrPpTriplexAluminumPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="PP Aluminum Foil Triplex | Lowest WVTR Maximum Barrier Packaging"
       description="PP Aluminum Foil Triplex: OPP20 / AL7 / PCR-PE. Lowest moisture barrier (WVTR <0.3). Maximum oxygen barrier (OTR <0.5). 105 micron. Ideal for powders, pharmaceuticals."
       heroTitle="PP Aluminum Foil Triplex Structure"

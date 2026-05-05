@@ -44,7 +44,6 @@ const RecyclableMonoMaterialPage: React.FC = () => {
               alt="Recyclable mono-material pouch infographic" 
               className="w-full rounded-lg shadow-md"
               caption="Recyclable mono-material packaging overview"
-              heroBgColor="#1e3a8a"
             />
           </div>
         </div>
@@ -393,7 +392,7 @@ const RecyclableMonoMaterialPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1e3a8a"
         title="Recyclable Mono-Material Pouches | Store Drop-Off Recyclable | Achieve Pack"
         description="100% recyclable mono-PE and mono-PP pouches. Store drop-off recyclable flexible packaging. Custom printed with low MOQ from 100 pieces."
         keywords={['recyclable mono-material pouches', 'mono-PE packaging', 'mono-PP bags', 'store drop-off recyclable', 'sustainable flexible packaging']}

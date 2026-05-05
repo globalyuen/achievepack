@@ -40,7 +40,6 @@ const USACompostableHubPage: React.FC = () => {
               alt="Certified compostable packaging showcase for US brands" 
               className="w-full rounded-lg shadow-md"
               caption="ASTM D6400 certified compostable packaging solutions for US market"
-              heroBgColor="#14532d"
             />
           </div>
         </div>
@@ -438,7 +437,7 @@ const USACompostableHubPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#14532d"
       title="Certified Compostable Packaging for US Brands | ASTM D6400 | Achieve Pack"
       description="ASTM D6400 & BPI certified compostable packaging for US food brands. California & Washington compliant labeling. Low MOQ from 100 pieces. Ships to USA in 15-20 days."
       keywords={['compostable packaging USA', 'ASTM D6400 certified pouches', 'BPI certified compostable bags', 'compostable coffee bags USA', 'California compostable packaging', 'US compostable food packaging', 'certified compostable pouches', 'eco-friendly packaging USA', 'sustainable packaging United States', 'industrial compostable packaging', 'low MOQ compostable bags']}

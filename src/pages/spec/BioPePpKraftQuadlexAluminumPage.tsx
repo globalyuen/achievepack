@@ -23,7 +23,6 @@ const BioPePpKraftQuadlexAluminumPage: React.FC = () => {
               alt="Bio-PE PP Kraft Quadlex Aluminum - Best Moisture Premium"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Ultimate Kraft - Best Moisture + Ultimate Barrier"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -237,7 +236,7 @@ const BioPePpKraftQuadlexAluminumPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Bio-PE PP Kraft Quadlex Aluminum | Ultimate Moisture Natural Packaging"
       description="Bio-PE PP Kraft Quadlex: OPP20 / Kraft 50gsm / AL7 / 100% Bio-PE80 (155 micron). Lowest WVTR in kraft (<0.3). Plant-based. Ideal for premium instant coffee, luxury matcha, protein powders."
       heroTitle="Bio-PE PP Kraft Quadlex Aluminum Structure"

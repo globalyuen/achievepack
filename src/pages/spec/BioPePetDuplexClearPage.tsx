@@ -21,7 +21,6 @@ const BioPePetDuplexClearPage: React.FC = () => {
           structures={BIO_PE_STRUCTURES}
           title="All Bio-PE Structures - Sortable & Filterable"
           categoryColor="green"
-          heroBgColor="#3f6212"
         />
       )
     },
@@ -334,7 +333,7 @@ const BioPePetDuplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#3f6212"
       title="Bio-PE PET Duplex Clear | Plant-Based Sustainable Packaging"
       description="Bio-PE PET Duplex: KPET12 / 100% Bio-PE80 (100 micron). Plant-based sugarcane PE, I'm Green certified. Carbon negative. Mid barrier with window. Ideal for coffee, snacks, organic products."
       heroTitle="Bio-PE PET Duplex Clear Structure"

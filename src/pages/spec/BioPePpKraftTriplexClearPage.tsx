@@ -23,7 +23,6 @@ const BioPePpKraftTriplexClearPage: React.FC = () => {
               alt="Bio-PE PP Kraft Triplex Clear Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Bio-PE PP Kraft - Best Moisture + Natural Look"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -225,7 +224,7 @@ const BioPePpKraftTriplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Bio-PE PP Kraft Triplex Clear | Best Moisture Natural Packaging"
       description="Bio-PE PP Kraft Triplex: BOPP20 / Kraft 40gsm / 100% Bio-PE80 (130 micron). Best moisture barrier kraft (WVTR <5). Plant-based PE. Natural look with window. Ideal for crackers, cookies."
       heroTitle="Bio-PE PP Kraft Triplex Clear Structure"

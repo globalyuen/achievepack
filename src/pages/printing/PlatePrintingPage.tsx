@@ -180,7 +180,7 @@ const PlatePrintingPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t('seoPages.pages.platePrinting.title')}
       description="High-volume rotogravure printing for eco-friendly pouches. Up to 10 spot colors, metallic inks, spot UV, and hot foil stamping. Best unit cost for orders 10,000+."
       keywords={['gravure printing', 'plate printing pouches', 'rotogravure packaging', 'metallic ink printing', 'high volume packaging', 'premium pouch printing']}
@@ -196,7 +196,6 @@ const PlatePrintingPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.platePrinting.cta.title')}
       ctaDescription={t('seoPages.pages.platePrinting.cta.description')}
       ctaButtonText={t('seoPages.pages.platePrinting.cta.button')}
-      heroBgColor="#1f2937"
     />
   )
 }

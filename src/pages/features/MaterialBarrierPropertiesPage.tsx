@@ -169,7 +169,7 @@ const MaterialBarrierPropertiesPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title={'Flexible Packaging Material Barrier Properties Data Sheet | Achieve Pack'}
         description={'Technical data sheet detailing Oxygen Transmission Rate (O2 TR) and Water Vapor Transmission Rate (WVTR) for transparent, metallized, and kraft pouch materials.'}
         keywords={['O2 TR', 'WVTR', 'barrier properties', 'aluminum foil barrier', 'packaging transmission rate', 'VMPET barrier', 'KOP barrier']}
@@ -186,7 +186,6 @@ const MaterialBarrierPropertiesPage: React.FC = () => {
         ctaDescription={'Still confused about OTR and WVTR values? Contact our packaging engineers to find the precise material combination suited for your product\'s exact shelf-life requirements.'}
         ctaButtonText={'Contact Technical Support'}
         ctaButtonUrl="/contact"
-        heroBgColor="#1f2937"
       />
     </>
   )

@@ -542,7 +542,7 @@ const SupplementsPowdersPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#083344"
       title="Supplements & Powder Packaging | Protein, Superfood & Sports Nutrition Pouches"
       description="High-barrier flexible packaging for protein powders, superfood powders, collagen, and sports nutrition. Compostable, recyclable options. FDA compliant, moisture-proof. MOQ 500 units."
       keywords={[
@@ -571,7 +571,6 @@ const SupplementsPowdersPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.supplementsPowders.cta.title')}
       ctaDescription={t('seoPages.pages.supplementsPowders.cta.description')}
       ctaButtonText={t('seoPages.pages.supplementsPowders.cta.button')}
-      heroBgColor="#083344"
     />
   )
 }

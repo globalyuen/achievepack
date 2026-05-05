@@ -484,7 +484,7 @@ const ReclosureOptionsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title={t('seoPages.pages.reclosureOptions.title')}
         description="Sustainable reclosure solutions for flexible packaging. Press-to-close zippers, slider zippers, spout caps, tin-ties, and child-resistant options for eco-friendly pouches."
         keywords={['reclosable pouches', 'zipper bags', 'spout pouch', 'resealable packaging', 'child resistant packaging', 'tin tie bags']}
@@ -500,7 +500,6 @@ const ReclosureOptionsPage: React.FC = () => {
         ctaTitle={t('seoPages.pages.reclosureOptions.cta.title')}
         ctaDescription={t('seoPages.pages.reclosureOptions.cta.description')}
         ctaButtonText={t('seoPages.pages.reclosureOptions.cta.button')}
-        heroBgColor="#1f2937"
       />
       
       {/* Gallery Lightbox Modal */}

@@ -517,7 +517,7 @@ const BabyFoodPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#083344"
       title="Baby Food Packaging | Spout Pouches, Infant Cereal Bags & Toddler Snack Pouches"
       description="Food-safe packaging for baby purées, infant cereals, and toddler snacks. Spout pouches with child-safe caps. FDA & EU compliant, BPA-free materials. MOQ 500 units."
       keywords={[
@@ -545,7 +545,6 @@ const BabyFoodPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.babyFood.cta.title')}
       ctaDescription={t('seoPages.pages.babyFood.cta.description')}
       ctaButtonText={t('seoPages.pages.babyFood.cta.button')}
-      heroBgColor="#083344"
     />
   )
 }

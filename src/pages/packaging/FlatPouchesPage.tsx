@@ -156,7 +156,6 @@ const FlatPouchesPage: React.FC = () => {
                 alt="Three side seal flat pouch sachet" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="3-Side Seal"
-                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/store/barrier/2-clear.webp" 
@@ -444,7 +443,7 @@ const FlatPouchesPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="3-Side Seal Pouches | Flat Pouches | Sachets | Sample Packaging"
       description="Custom 3-side seal flat pouches for samples, sachets, and single-serve products. Most economical flexible packaging. Compostable options available. MOQ 500."
       keywords={[

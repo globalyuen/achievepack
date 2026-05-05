@@ -23,7 +23,6 @@ const BioPePpTriplexMetalisedPage: React.FC = () => {
               alt="Bio-PE PP Triplex Metalised High Barrier Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Bio-PE PP Triplex Metalised - Best Moisture High Barrier"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-gray-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -230,7 +229,7 @@ const BioPePpTriplexMetalisedPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Bio-PE PP Triplex Metalised | Best Moisture High Barrier Packaging"
       description="Bio-PE PP Triplex Metalised: OPP20 / VMPET12 / 100% Bio-PE80 (112 micron). Best moisture barrier (WVTR <0.5) in metalised category. Plant-based. Ideal for instant coffee, protein powders."
       heroTitle="Bio-PE PP Triplex Metalised Structure"

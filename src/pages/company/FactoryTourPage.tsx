@@ -66,7 +66,6 @@ const FactoryTourPage = () => {
                   description={video.description}
                   videoSrc={video.videoSrc}
                   icon={video.icon}
-                  heroBgColor="#1f2937"
                 />
               ))}
             </div>
@@ -259,7 +258,7 @@ const FactoryTourPage = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['factory tour', 'packaging manufacturing', 'pouch production', 'quality control', 'sustainable manufacturing']}

@@ -28,7 +28,6 @@ const FAQsPage = () => {
           <FAQItem 
             question="What is your minimum order quantity (MOQ)?" 
             answer={<p>For digital printing, our MOQ is <strong>100 pieces</strong>. For plate printing, the MOQ is typically <strong>5,000 pieces</strong>. Some materials and complex designs may have higher minimums—we'll advise during quotation.</p>}
-            heroBgColor="#1f2937"
           />
           <FAQItem 
             question="Can I order samples before a full order?" 
@@ -180,7 +179,7 @@ const FAQsPage = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['packaging FAQ', 'sustainable packaging questions', 'MOQ', 'lead time', 'compostable vs recyclable']}

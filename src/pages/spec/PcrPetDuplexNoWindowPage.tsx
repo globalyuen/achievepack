@@ -23,7 +23,6 @@ const PcrPetDuplexNoWindowPage: React.FC = () => {
               alt="PCR PET Duplex No Window Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PCR PET Duplex No Window Structure"
-              heroBgColor="#3f6212"
             />
             <h3 className="text-xl font-bold text-neutral-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -187,7 +186,7 @@ const PcrPetDuplexNoWindowPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#3f6212"
       title="PCR PET Duplex No Window | Low Barrier Sustainable Packaging"
       description="PCR PET Duplex No Window: PET12 / PCR-PE. Low barrier, 90 micron, full print coverage. Cost-effective eco packaging for short shelf life products. OTR <200."
       heroTitle="PCR PET Duplex No Window Structure"

@@ -23,7 +23,6 @@ const BioPePpDuplexNoWindowPage: React.FC = () => {
               alt="Bio-PE PP Duplex No Window Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Bio-PE PP Duplex - Best Moisture + Full Print"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-purple-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -227,7 +226,7 @@ const BioPePpDuplexNoWindowPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Bio-PE PP Duplex No Window | Best Moisture Opaque Packaging"
       description="Bio-PE PP Duplex No Window: OPP20 / 100% Bio-PE80 (100 micron). Best moisture barrier (WVTR <5) with full print coverage. Plant-based. Ideal for crackers, chips, candy."
       heroTitle="Bio-PE PP Duplex No Window Structure"

@@ -218,7 +218,7 @@ const SuperfoodBrandCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Superfood Brand Case Study | Recyclable Mono-PE Packaging for B-Corp Certified Brand"
       description="How VitalGreen Superfoods achieved B-Corp certification with recyclable mono-PE packaging. 18-month shelf life, 8 SKUs launched, GRS certification documentation."
       keywords={['superfood packaging case study', 'recyclable powder packaging', 'B-Corp packaging', 'GRS certified pouches', 'mono-PE packaging', 'high barrier recyclable', 'superfood pouch supplier']}
@@ -233,7 +233,6 @@ const SuperfoodBrandCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#1f2937"
     />
   );
 };

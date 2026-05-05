@@ -37,7 +37,6 @@ const CompostableStandUpPouchesPage: React.FC = () => {
               alt="Compostable stand-up pouches for food and beverage" 
               className="w-full rounded-lg shadow-md"
               caption="Premium compostable stand-up pouches with custom printing"
-              heroBgColor="#14532d"
             />
           </div>
         </div>
@@ -442,7 +441,7 @@ const CompostableStandUpPouchesPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Compostable Stand-Up Pouches | Certified Eco Packaging | Achieve Pack"
         description="Premium compostable stand-up pouches with resealable zippers. ASTM D6400 & EN 13432 certified. Custom printed from 100 pieces MOQ."
         keywords={['compostable stand-up pouches', 'certified compostable packaging', 'resealable eco pouches', 'biodegradable stand up bags', 'custom printed compostable bags']}

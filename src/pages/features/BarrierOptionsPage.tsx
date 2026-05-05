@@ -490,7 +490,7 @@ const BarrierOptionsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title={t('seoPages.pages.barrierOptions.title')}
         description="Choose the right barrier level for your sustainable packaging. Low, medium, and high barrier options in recyclable and compostable materials. Free shelf-life testing available."
         keywords={['barrier packaging', 'high barrier pouches', 'oxygen barrier', 'moisture barrier', 'shelf life packaging', 'EVOH barrier']}
@@ -506,7 +506,6 @@ const BarrierOptionsPage: React.FC = () => {
         ctaTitle={t('seoPages.pages.barrierOptions.cta.title')}
         ctaDescription={t('seoPages.pages.barrierOptions.cta.description')}
         ctaButtonText={t('seoPages.pages.barrierOptions.cta.button')}
-        heroBgColor="#1f2937"
       />
       
       {/* Gallery Lightbox Modal */}

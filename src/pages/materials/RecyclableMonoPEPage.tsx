@@ -24,7 +24,6 @@ const RecyclableMonoPEPage: React.FC = () => {
               alt="Recyclable Mono-PE Infographic - Complete guide to recyclable packaging" 
               className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
               caption="Recyclable Mono-PE Infographic"
-              heroBgColor="#1e3a8a"
             />
           </div>
         </div>
@@ -506,7 +505,7 @@ const RecyclableMonoPEPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1e3a8a"
       title="Recyclable Mono-PE Pouches | Single-Material Polyethylene Packaging"
       description="Recyclable mono-PE flexible packaging made from single-material polyethylene. Accepted in PE recycling streams. Sustainable alternative to multi-layer laminates. MOQ 500."
       keywords={[

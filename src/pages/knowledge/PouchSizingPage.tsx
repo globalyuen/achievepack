@@ -21,7 +21,6 @@ const PouchSizingPage: React.FC = () => {
           title="Stand Up Pouch Sizes - Sortable & Filterable"
           categoryColor="blue"
           productLink="/store/product/eco-standup"
-          heroBgColor="#1f2937"
         />
       )
     },
@@ -402,7 +401,7 @@ const PouchSizingPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Pouch Sizing Guide | All Sizes with Images & Dimensions"
         description="Complete pouch sizing guide with visual size comparison, dimensions in mm and inches, and capacity in grams. Find the perfect size for coffee, snacks, pet food, and more. XXXS to XXL sizes available."
         keywords={[

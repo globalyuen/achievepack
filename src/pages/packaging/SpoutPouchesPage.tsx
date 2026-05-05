@@ -158,7 +158,6 @@ const SpoutPouchesPage: React.FC = () => {
                 alt="Spout cap for liquid and beverage packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Spout Cap"
-                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" 
@@ -615,7 +614,7 @@ const SpoutPouchesPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Spout Pouches | Liquid Packaging | Pour Spout Bags"
       description="Custom spout pouches for liquids, baby food, sauces, and beverages. Resealable caps, multiple spout sizes. Hot-fill and retort capable. MOQ 500 units."
       keywords={[

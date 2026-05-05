@@ -65,7 +65,6 @@ const USALabelingGuidePage: React.FC = () => {
               alt="FDA labeling compliance checklist for compostable packaging" 
               className="w-full rounded-lg shadow-md"
               caption="FDA labeling compliance checklist for US compostable packaging"
-              heroBgColor="#1f2937"
             />
           </div>
         </div>
@@ -421,7 +420,7 @@ const USALabelingGuidePage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="US Compostable Packaging Labeling Guide | California, Washington, Colorado | Achieve Pack"
       description="Complete guide to US compostable packaging labeling requirements. California SB 343, AB 1201, Washington, and Colorado compliance. ASTM D6400 certification and label design guidance."
       keywords={['compostable labeling requirements', 'California AB 1201', 'California SB 343', 'ASTM D6400 labeling', 'compostable packaging regulations', 'BPI certification', 'Washington compostable law', 'Colorado compostable labeling', 'US packaging compliance', 'eco-friendly packaging labels']}

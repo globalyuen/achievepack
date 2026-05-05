@@ -27,7 +27,6 @@ const CompostablePage: React.FC = () => {
               alt="Compostable Materials Infographic - Complete guide to compostable packaging" 
               className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
               caption="Compostable Materials Infographic"
-              heroBgColor="#14532d"
             />
           </div>
         </div>
@@ -883,7 +882,7 @@ const CompostablePage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#14532d"
       title={t('seoPages.pages.compostable.title')}
       description={t('seoPages.pages.compostable.description')}
       keywords={[

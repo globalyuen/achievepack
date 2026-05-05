@@ -140,7 +140,6 @@ const FlatBottomBagsPage: React.FC = () => {
                 alt="Flat bottom bag structure showing box-like base" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="Flat Bottom Structure"
-                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/store/barrier/4-alu.webp" 
@@ -509,7 +508,7 @@ const FlatBottomBagsPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Flat Bottom Bags | Box Bottom Pouches | Block Bottom Packaging"
       description="Custom flat bottom bags (box bottom pouches) for coffee, pet food, and premium products. 5-panel printing, stable base. Compostable & recyclable options. MOQ 500."
       keywords={[

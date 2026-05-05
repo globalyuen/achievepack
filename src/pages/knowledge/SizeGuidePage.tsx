@@ -90,7 +90,6 @@ const SizeGuidePage = () => {
                       src={item.image} 
                       alt={`Stand-up pouch size ${item.size} compared to cola can`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      heroBgColor="#1f2937"
                     />
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-3">
@@ -446,7 +445,7 @@ const SizeGuidePage = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title={t(`${p}.title`)}
         description={t(`${p}.description`)}
         keywords={['pouch sizes', 'packaging dimensions', 'bag size guide', 'pouch capacity', 'custom pouch sizes']}

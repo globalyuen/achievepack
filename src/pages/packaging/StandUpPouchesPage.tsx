@@ -114,7 +114,6 @@ const StandUpPouchesPage: React.FC = () => {
                   src="/imgs/pouch-shape/achieve-pack-k-seal.png"
                   alt="Achieve Pack heavy duty K-seal bottom pouch"
                   className="w-32 h-32 object-contain bg-white rounded-lg shadow-md p-2"
-                  heroBgColor="#1f2937"
                 />
               </div>
               <div className="flex-1">
@@ -815,7 +814,7 @@ const StandUpPouchesPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Stand-Up Pouches | Custom Printed SUP Bags | Eco-Friendly Options"
       description="Custom stand-up pouches with zipper, slider, spout, and valve options. Compostable, recyclable materials. MOQ 500 units. Premium printing. 2-3 week lead time."
       keywords={[

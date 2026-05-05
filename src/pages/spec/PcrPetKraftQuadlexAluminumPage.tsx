@@ -27,7 +27,6 @@ const PcrPetKraftQuadlexAluminumPage: React.FC = () => {
               alt="PET Kraft Quadlex Aluminum Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Premium Kraft Paper with Aluminum Foil"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -209,7 +208,7 @@ const PcrPetKraftQuadlexAluminumPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       heroTitle={t(`${p}.heroTitle`)}

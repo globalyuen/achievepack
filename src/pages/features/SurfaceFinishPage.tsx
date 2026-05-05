@@ -508,7 +508,7 @@ const SurfaceFinishPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title={t('seoPages.pages.surfaceFinish.title')}
         description="Premium surface finishes for eco-friendly pouches. Matte, gloss, soft-touch coating, spot UV, hot foil stamping, and embossing options for sustainable packaging."
         keywords={['pouch finish options', 'matte packaging', 'soft touch coating', 'spot UV pouches', 'hot foil packaging', 'premium pouch finishes']}
@@ -524,7 +524,6 @@ const SurfaceFinishPage: React.FC = () => {
         ctaTitle={t('seoPages.pages.surfaceFinish.cta.title')}
         ctaDescription={t('seoPages.pages.surfaceFinish.cta.description')}
         ctaButtonText={t('seoPages.pages.surfaceFinish.cta.button')}
-        heroBgColor="#1f2937"
       />
       
       {/* Gallery Lightbox Modal */}

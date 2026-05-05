@@ -75,7 +75,6 @@ const HomeCompostablePage: React.FC = () => {
                 alt="DIN CERTCO Home Compostable Certification" 
                 className="h-16 w-auto mb-2"
                 caption="Home Compostable"
-                heroBgColor="#14532d"
               />
               <span className="text-xs font-semibold text-neutral-800">OK Home</span>
               <span className="text-xs text-neutral-500">TÜV Austria</span>
@@ -626,7 +625,7 @@ const HomeCompostablePage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#14532d"
       title={t(`${p}.title`)}
       description={t(`${p}.introSummary`)}
       keywords={['home compostable packaging', 'backyard compostable', 'OK Compost HOME', 'AS 5810', 'compostable pouches', 'biodegradable packaging']}

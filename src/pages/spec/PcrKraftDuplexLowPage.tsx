@@ -23,7 +23,6 @@ const PcrKraftDuplexLowPage: React.FC = () => {
               alt="PCR Kraft Duplex Low Barrier Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Natural Kraft Paper Duplex - Low Barrier"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -195,7 +194,7 @@ const PcrKraftDuplexLowPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Kraft Paper Duplex Low Barrier | Natural Eco-Friendly Packaging"
       description="Kraft Paper Duplex: Kraft 50gsm / PCR-PE. Simple two-layer natural structure. Low barrier for short shelf life products. 120 micron. Ideal for artisan foods, farmers market."
       heroTitle="Kraft Paper Duplex Low Barrier Structure"

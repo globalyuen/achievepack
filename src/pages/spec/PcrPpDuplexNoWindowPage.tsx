@@ -23,7 +23,6 @@ const PcrPpDuplexNoWindowPage: React.FC = () => {
               alt="PCR PP Duplex No Window Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PCR PP Duplex No Window Structure"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-neutral-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -187,7 +186,7 @@ const PcrPpDuplexNoWindowPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="PCR PP Duplex No Window | Low-Barrier Moisture-Resistant Eco Packaging"
       description="PCR PP Duplex No Window: OPP20 / PCR-PE. Best moisture barrier in low-barrier category (WVTR <8). 100 micron. Cost-effective for crackers, candy, dry goods."
       heroTitle="PCR PP Duplex No Window Structure"

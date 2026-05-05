@@ -26,7 +26,6 @@ const PcrPpDuplexClearPage: React.FC = () => {
               alt="PCR PP Duplex Clear Structure - KOPP20 / 30% PCR-PE"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PCR PP Duplex Clear Structure"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-green-800 mb-3">{structureName}</h3>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
@@ -186,7 +185,7 @@ const PcrPpDuplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="PCR PP Duplex Clear Structure | KOPP20 / Bio-PE Sustainable Packaging"
       description="PCR PP Duplex Clear structure: KOPP20 / 30% PCR-PE. Superior moisture barrier, optional window, 100 micron. Ideal for moisture-sensitive foods. OTR <10, WVTR <6."
       heroTitle="PCR PP Duplex Clear Structure"

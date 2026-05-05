@@ -533,7 +533,7 @@ const IndustrialCompostablePage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#14532d"
       title="Industrial Compostable Packaging | EN 13432 & ASTM D6400 Certified"
       description="EN 13432 and ASTM D6400 certified industrial compostable pouches. Breaks down in 90-180 days at commercial facilities. Higher barrier than home compostable."
       keywords={['industrial compostable', 'EN 13432', 'ASTM D6400', 'commercial compostable', 'BPI certified', 'compostable flexible packaging']}
@@ -548,7 +548,6 @@ const IndustrialCompostablePage: React.FC = () => {
       relatedLinks={relatedLinks}
       ctaTitle={t(`${p}.ctaTitle`)}
       ctaDescription={t(`${p}.ctaDescription`)}
-      heroBgColor="#14532d"
     />
   )
 }

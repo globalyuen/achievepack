@@ -259,7 +259,6 @@ const AllOptionsPage = () => {
             title="All Barrier Options - Sortable & Filterable"
             categoryColor="purple"
             type="barrier"
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -432,7 +431,7 @@ const AllOptionsPage = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title={t(`${p}.title`)}
         description={t(`${p}.description`)}
         keywords={['packaging options', 'pouch customization', 'barrier levels', 'zipper options', 'printing finishes', 'sustainable packaging features']}

@@ -24,7 +24,6 @@ const PcrPetDuplexClearPage: React.FC = () => {
           structures={PCR_STRUCTURES}
           title="All 14 PCR Structures - Sortable & Filterable"
           categoryColor="blue"
-          heroBgColor="#3f6212"
         />
       )
     },
@@ -327,7 +326,7 @@ const PcrPetDuplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#3f6212"
       title="PCR PET Duplex Clear Structure | KPET12 / PCR-PE Sustainable Packaging"
       description="PCR PET Duplex Clear packaging structure: KPET12 / 30% PCR-PE. Mid barrier, optional window, 100 micron thickness. Ideal for coffee, snacks, dried foods. OTR <8, WVTR <12."
       heroTitle="PCR PET Duplex Clear Structure"

@@ -21,7 +21,6 @@ const BioCelloDuplexClearPage: React.FC = () => {
           structures={COMPOSTABLE_STRUCTURES}
           title="All Compostable Structures - Sortable & Filterable"
           categoryColor="green"
-          heroBgColor="#1f2937"
         />
       )
     },
@@ -280,7 +279,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Bio Cellulose Duplex Clear | Compostable Window Packaging"
       description="Bio Cellulose Duplex: High Barrier Cellulose/PLA 25gsm / PBAT60 (85 micron). TUV/BPI certified compostable, clear window capable. OTR <5, WVTR <10. Ideal for coffee, tea, organic snacks."
       heroTitle="Bio Cellulose Duplex Clear - Compostable"

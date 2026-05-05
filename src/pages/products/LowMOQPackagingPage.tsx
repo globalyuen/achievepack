@@ -68,7 +68,6 @@ const LowMOQPackagingPage: React.FC = () => {
               src="/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp"
               alt="Small batch coffee roaster packaging"
               className="w-full h-40 object-cover rounded-lg"
-              heroBgColor="#1f2937"
             />
             <ClickableImage
               src="/imgs/seo-photos/a_artisan_chocolate_abu_dhabi_luxury_pouch_4218900.webp"
@@ -625,7 +624,7 @@ const LowMOQPackagingPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Low MOQ Packaging | 100 Piece Minimum | Achieve Pack"
         description="Custom printed sustainable packaging with low MOQ from 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands. Fast USA delivery."
         keywords={['low MOQ packaging', 'small batch packaging', 'custom printed pouches 100 minimum', 'startup packaging', 'small business packaging']}

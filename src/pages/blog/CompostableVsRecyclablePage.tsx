@@ -200,7 +200,7 @@ const CompostableVsRecyclablePage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#14532d"
       title="Compostable vs Recyclable Packaging: Which Is Right for Your Brand? (2025)"
       description="In-depth comparison of compostable vs recyclable packaging for food brands. Compare costs, shelf life, certifications, and environmental impact. Free decision guide included."
       keywords={[
@@ -228,7 +228,6 @@ const CompostableVsRecyclablePage: React.FC = () => {
       ctaButtonUrl="/free-service"
       canonicalUrl="https://achievepack.com/blog/compostable-vs-recyclable"
       schemaType="Article"
-      heroBgColor="#14532d"
     />
   )
 }

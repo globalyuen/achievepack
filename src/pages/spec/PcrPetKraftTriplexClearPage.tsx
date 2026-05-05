@@ -23,7 +23,6 @@ const PcrPetKraftTriplexClearPage: React.FC = () => {
               alt="PCR PET Kraft Triplex Clear Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PCR PET Kraft Triplex Clear Structure"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
@@ -190,7 +189,7 @@ const PcrPetKraftTriplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="PCR PET Kraft Triplex Clear | Premium Kraft Paper Sustainable Packaging"
       description="PCR PET Kraft Triplex structure: KPET12 / Kraft Paper 50gsm / PCR-PE. Premium kraft paper feel with window option. 140 micron thickness. Ideal for specialty coffee, artisan products."
       heroTitle="PCR PET Kraft Triplex Clear Structure"

@@ -111,7 +111,6 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
             contentCn="Our PVA Water Soluble Bait BagsUsingPolyvinyl AlcoholFilmMadeForm，Completely Dissolves in Water。Ideal forSuitableCarp、CatfishEtcEachCategoryFishingApplication。InstallEnterParticleBait、Bait PowderOrBait Ball，ThrowAfterBagChildDissolve，InHookChildAroundFormFormConcentrateBait MaterialCloud。"
             imageLeft={true}
             index={0}
-            heroBgColor="#1e3a8a"
           />
         </div>
       )
@@ -606,7 +605,7 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1e3a8a"
         title="PVA Water-Soluble Bait Bags | Achieve Pack® Fishing Packaging"
         description="Achieve Pack® PVA water-soluble bait bags dissolve completely in water for clean, efficient bait delivery. Perfect for carp fishing, catfishing. Custom sizes, printing available. ISO & BRC certified."
         keywords={['PVA bait bags', 'water-soluble bags', 'fishing bait packaging', 'PVA bags fishing', 'dissolving bait bags', 'carp fishing bags', 'catfish bait bags', 'water soluble film', 'biodegradable bait bags', 'fishing tackle packaging', 'PVA mesh bags', 'Water Soluble Bait Bags', 'PVAFishingBag']}

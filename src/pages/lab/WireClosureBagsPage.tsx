@@ -111,7 +111,6 @@ const WireClosureBagsPage: React.FC = () => {
             contentCn="OurWire Tie ClosureHomogenizerBagKnotSuitableOneBodyizationWireSealedTechnologyAnd γ Irradiation Sterilization，AchieveSafeLeak-ProofOfSamplePreparation。Wire Tie ClosureProvideRegularPlasticCable TieNoMethod CompareBeautyOfExcellentSealedEffect，EnsureSampleInProcessingAndTransportationWhole ProcessCompleteProperty。"
             imageLeft={true}
             index={0}
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -486,7 +485,7 @@ const WireClosureBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Wire Closure Blender Bags | Leak-resistant Lab Sample Bags | AchievePack"
         description="AchievePack wire closure blender bags feature integrated metal wire seal for superior leak-resistant sample preparation. Gamma sterilized, clean room produced. Fold · Twist · Lock for secure sealing. Wire Tie ClosureHomogenizerBag，Better Leak-Proof Seal。"
         keywords={['wire closure bags', 'blender bags', 'lab sample bags', 'sterile blender bags', 'leak-resistant bags', 'gamma sterilized bags', 'clean room production', 'food testing', 'pharmaceutical QC', 'microbiology sample prep', 'homogenizer bags', 'metal wire seal']}

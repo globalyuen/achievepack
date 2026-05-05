@@ -24,7 +24,6 @@ const BioPEPage: React.FC = () => {
               alt="Bio-PE Packaging Infographic - Plant-based polyethylene guide" 
               className="max-w-full md:max-w-2xl rounded-lg shadow-lg border border-neutral-200 cursor-pointer hover:shadow-xl transition"
               caption="Bio-PE Packaging Infographic"
-              heroBgColor="#1f2937"
             />
           </div>
         </div>
@@ -607,7 +606,7 @@ const BioPEPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Bio-PE Packaging | Plant-Based Polyethylene | Sugarcane PE Pouches"
       description="Bio-PE (bio-based polyethylene) packaging made from renewable sugarcane. Carbon negative production, recyclable. Same performance as conventional PE. MOQ 500."
       keywords={[

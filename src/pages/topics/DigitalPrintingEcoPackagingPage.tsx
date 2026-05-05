@@ -135,7 +135,6 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
               alt="Metallic finish digital print" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Metallic"
-              heroBgColor="#14532d"
             />
             <ClickableImage 
               src="/imgs/store/surface/matte.webp" 
@@ -468,7 +467,7 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Digital Printing for Eco Packaging"
         description="Photo-quality digital printing on compostable, recyclable, and bio-based pouches from just 100 pieces."
         keywords={['digital printing eco packaging', 'sustainable pouch printing', 'low MOQ packaging']}

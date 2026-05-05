@@ -111,7 +111,6 @@ const RicePaperBagsPage: React.FC = () => {
             contentCn="OurRice PaperBagOutsideLayerUsingNaturalFiber Texture，InsideLayerForCompleteCanCompostableOf PLA OrCellophane。OptionalHomeFamilyCanCompostableOrWorkerIndustryCanCompostableCertification。SuitableSuitablePursueNatural、Eco-FriendlyAndToolHavePremiumBeautyFeelOfBrand。"
             imageLeft={true}
             index={0}
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -625,7 +624,7 @@ const RicePaperBagsPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Rice Paper Bags | Achieve Pack® Compostable Pouches"
         description="Achieve Pack® rice paper bags feature natural fiber texture with PLA/cellophane lining for 100% compostability. Ideal for coffee, tea, snacks, and dry goods. Stand up, side gusset, flat bottom options. Custom printing from 500pcs."
         keywords={['rice paper bags', 'compostable pouches', 'rice paper packaging', 'PLA pouches', 'cellophane bags', 'eco-friendly packaging', 'compostable coffee bags', 'natural fiber pouches', 'sustainable packaging', 'biodegradable bags', 'kraft paper bags', 'stand up pouch', 'side gusset bag', 'Rice PaperBag', 'Compostable Packaging', 'PLAPackaging']}

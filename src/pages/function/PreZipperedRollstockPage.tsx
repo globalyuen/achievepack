@@ -99,7 +99,6 @@ const PreZipperedRollstockPage: React.FC = () => {
             content="Our pre-zippered rollstock features zippers applied transversely to the film roll before it reaches your production line. Run it on existing VFFS or HFFS equipment with minimal adjustments to produce cut-to-open, recloseable pouches from standard rollstock."
             imageLeft={true}
             index={0}
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -568,7 +567,7 @@ const PreZipperedRollstockPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Pre-Zippered Rollstock | Achieve Pack® Resealable Film"
         description="Achieve Pack® pre-zippered rollstock converts your existing VFFS/HFFS lines into resealable pouch production. No new equipment needed. Save up to 25% on zipper material. Ideal for snacks, frozen foods, pet food."
         keywords={['pre-zippered rollstock', 'resealable film', 'VFFS zipper film', 'HFFS resealable', 'pre-applied zipper', 'recloseable packaging', 'snack packaging', 'frozen food packaging', 'pet food bags', 'zipper rollstock', 'resealable pouches', 'flexible packaging film', 'Pre-Zipper Roll Film', 'CanRepeatedSealPackaging']}

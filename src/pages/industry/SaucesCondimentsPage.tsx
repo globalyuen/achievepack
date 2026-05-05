@@ -474,7 +474,7 @@ const SaucesCondimentsPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Sauces & Condiments Packaging | Spout Pouches & Refill Packs"
       description="Flexible packaging for sauces, condiments, oils, and spreads. Spout pouches, refill packs, sachets. Hot-fill and retort capable. MOQ 500 units."
       keywords={[
@@ -500,7 +500,6 @@ const SaucesCondimentsPage: React.FC = () => {
       ctaTitle={t('seoPages.pages.saucesCondiments.cta.title')}
       ctaDescription={t('seoPages.pages.saucesCondiments.cta.description')}
       ctaButtonText={t('seoPages.pages.saucesCondiments.cta.button')}
-      heroBgColor="#1f2937"
     />
   )
 }

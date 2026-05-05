@@ -112,7 +112,6 @@ const SpoutPouchesJuicePage: React.FC = () => {
             contentCn="UseMatchSuitableFoodContactStandardOfMulti-LayerFilmStructure（If PET/PE OrRecyclable mono-PE），SuitableSuitableJuice、SportsBeverage、Cold BrewTeaEtcLiquidProduct。SpoutTopPartHeat Seal + RotateCover，AntiLeak、AntiContamination。"
             imageLeft={true}
             index={0}
-            heroBgColor="#1f2937"
           />
         </div>
       )
@@ -504,7 +503,7 @@ const SpoutPouchesJuicePage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Recyclable Spout Juice Pouches | Eco-Friendly Beverage Packaging"
         description="Custom-shaped, food-safe, recyclable spout pouches for adult beverages. Ideal for juices, cold brew, sports drinks with easy-pour spout design and high barrier freshness protection."
         keywords={['spout pouches', 'juice pouches', 'recyclable spout bags', 'beverage packaging', 'liquid pouches', 'food-safe pouches', 'custom spout pouches', 'drink pouches', 'juice pouch packaging', 'cold brew pouches', 'sports drink pouches', 'mono-PE spout bags', 'eco friendly juice bags', 'refillable beverage pouches']}

@@ -387,7 +387,7 @@ const EcoPackagingRegulationsPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Regulations for Eco-Friendly Food Packaging"
         description="Navigate packaging regulations across EU, UK, US, and Australia. Certification requirements and compliance guidance."
         keywords={['eco packaging regulations', 'sustainable packaging compliance', 'food packaging certifications']}
@@ -398,7 +398,6 @@ const EcoPackagingRegulationsPage: React.FC = () => {
         faqs={faqs}
         schemaType="Article"
         heroImage="/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp"
-        heroBgColor="#14532d"
       />
     </>
   )

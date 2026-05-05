@@ -78,7 +78,6 @@ const LowMOQStartupPackagingPage: React.FC = () => {
               alt="Stand up pouch for startups" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Stand Up"
-              heroBgColor="#1f2937"
             />
             <ClickableImage 
               src="/imgs/store/pouch shape/flat-bottom.webp" 
@@ -370,7 +369,7 @@ const LowMOQStartupPackagingPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Low Minimum Order Packaging for Startups"
         description="Custom sustainable packaging from just 100 pieces. No plate fees, fast turnaround."
         keywords={['low MOQ packaging', 'startup packaging', 'small order custom pouches']}

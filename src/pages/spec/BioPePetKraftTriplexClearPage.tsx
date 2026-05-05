@@ -23,7 +23,6 @@ const BioPePetKraftTriplexClearPage: React.FC = () => {
               alt="Bio-PE PET Kraft Triplex Clear Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="Bio-PE PET Kraft Triplex - Premium Natural Look"
-              heroBgColor="#451a03"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -229,7 +228,7 @@ const BioPePetKraftTriplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Bio-PE PET Kraft Triplex Clear | Natural Plant-Based Packaging"
       description="Bio-PE PET Kraft Triplex: KPET12 / Kraft 40gsm / 100% Bio-PE80 (130 micron). Natural kraft look with window capability. Plant-based PE. Ideal for artisan coffee, premium organic products."
       heroTitle="Bio-PE PET Kraft Triplex Clear Structure"

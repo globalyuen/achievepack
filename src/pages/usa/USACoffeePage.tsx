@@ -65,7 +65,6 @@ const USACoffeePage: React.FC = () => {
               alt="Specialty coffee packaging pouches for US roasters" 
               className="w-full rounded-lg shadow-md"
               caption="Premium compostable coffee packaging designed for US specialty roasters"
-              heroBgColor="#451a03"
             />
           </div>
         </div>
@@ -376,7 +375,7 @@ const USACoffeePage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Compostable Coffee Packaging for US Roasters | ASTM D6400 | Achieve Pack"
       description="ASTM D6400 certified compostable coffee bags with degassing valves for US specialty roasters. Kraft paper pouches, low MOQ from 100 pieces, ships to USA in 15-20 days."
       keywords={['compostable coffee bags USA', 'compostable coffee packaging', 'ASTM D6400 coffee pouches', 'kraft paper coffee bags', 'sustainable coffee packaging', 'eco-friendly coffee bags', 'degassing valve compostable', 'specialty roaster packaging', 'low MOQ coffee bags', 'California compliant coffee packaging']}

@@ -21,7 +21,6 @@ const MonoPeDuplexClearPage: React.FC = () => {
           structures={MONO_PE_PP_STRUCTURES}
           title="All Mono PE/PP Structures - Sortable & Filterable"
           categoryColor="green"
-          heroBgColor="#1f2937"
         />
       )
     },
@@ -277,7 +276,7 @@ const MonoPeDuplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Mono PE Duplex Clear | Fully Recyclable Sustainable Packaging"
       description="Mono PE Duplex: PE60 / PE60 (120 micron). 100% PE mono-material recyclable in PE streams. Clear window capable. Good moisture barrier. Ideal for frozen foods, produce, e-commerce."
       heroTitle="Mono PE Duplex Clear - Fully Recyclable"

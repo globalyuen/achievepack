@@ -441,7 +441,7 @@ const PrintingTypesPage = () => {
 
   return (
     <>
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title={t(`${p}.title`)}
         description={t(`${p}.description`)}
         keywords={['digital printing', 'plate printing', 'flexographic printing', 'packaging printing', 'Pantone colors', 'CMYK printing']}
@@ -455,7 +455,6 @@ const PrintingTypesPage = () => {
         ctaDescription={t(`${p}.cta.description`)}
         ctaButtonText={t(`${p}.cta.button`)}
         ctaButtonUrl="/contact"
-        heroBgColor="#1f2937"
       />
       
       {/* Gallery Lightbox Modal */}

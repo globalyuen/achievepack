@@ -23,7 +23,6 @@ const PcrPpTriplexMetalisedPage: React.FC = () => {
               alt="PCR PP Triplex Metalised Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PCR PP Triplex Metalised Structure"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-purple-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -194,7 +193,7 @@ const PcrPpTriplexMetalisedPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="PCR PP Metalised Triplex | Best Moisture High-Barrier Eco Packaging"
       description="PCR PP Metalised Triplex: OPP20 / Metalised PET12 / PCR-PE. Superior moisture barrier (WVTR <0.5) + high oxygen barrier (OTR <1). 110 micron. Best for powders, instant coffee."
       heroTitle="PCR PP Metalised Triplex Structure"

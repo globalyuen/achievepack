@@ -637,7 +637,7 @@ const SnacksFoodPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Snacks & Food Packaging | Sustainable Pouches for Chips, Nuts & Confectionery"
       description="Eco-friendly flexible packaging for snacks, chips, nuts, jerky, and confectionery. Compostable, recyclable, and PCR options. High-barrier, resealable pouches. MOQ from 100 units."
       keywords={[
@@ -667,7 +667,6 @@ const SnacksFoodPage: React.FC = () => {
       ctaTitle={t(`${p}.cta.title`)}
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
-      heroBgColor="#451a03"
     />
   )
 }

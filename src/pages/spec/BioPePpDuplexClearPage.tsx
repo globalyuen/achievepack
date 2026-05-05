@@ -23,7 +23,6 @@ const BioPePpDuplexClearPage: React.FC = () => {
               alt="Bio-PE PP Duplex Clear Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="100% Bio-PE PP Duplex - Superior Moisture Barrier"
-              heroBgColor="#1f2937"
             />
             <h3 className="text-xl font-bold text-green-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
@@ -313,7 +312,7 @@ const BioPePpDuplexClearPage: React.FC = () => {
   ]
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title="Bio-PE PP Duplex Clear | Best Moisture Barrier Plant-Based Packaging"
       description="Bio-PE PP Duplex: BOPP20 / 100% Bio-PE80 (100 micron). Best moisture barrier (WVTR <5) with plant-based sugarcane PE. I'm Green certified. Ideal for crackers, chips, candy."
       heroTitle="Bio-PE PP Duplex Clear Structure"

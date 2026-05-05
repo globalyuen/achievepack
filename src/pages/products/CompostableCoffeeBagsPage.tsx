@@ -37,7 +37,6 @@ const CompostableCoffeeBagsPage: React.FC = () => {
               alt="Compostable coffee bags with degassing valve for specialty roasters" 
               className="w-full rounded-lg shadow-md"
               caption="Premium compostable coffee bags with degassing valve"
-              heroBgColor="#14532d"
             />
           </div>
         </div>
@@ -515,7 +514,7 @@ const CompostableCoffeeBagsPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Compostable Coffee Bags | ASTM D6400 Certified | Achieve Pack"
         description="Premium compostable coffee bags with degassing valves. ASTM D6400 & EN 13432 certified. Low MOQ from 100 pieces. Perfect for specialty roasters."
         keywords={['compostable coffee bags', 'certified compostable pouches', 'coffee bags with degassing valve', 'ASTM D6400 coffee packaging', 'biodegradable coffee bags', 'eco-friendly coffee packaging']}

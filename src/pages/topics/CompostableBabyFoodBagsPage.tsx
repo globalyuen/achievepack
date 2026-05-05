@@ -101,7 +101,6 @@ const CompostableBabyFoodBagsPage: React.FC = () => {
                   alt="Compostable spout pouch for baby food" 
                   className="w-24 h-24 object-cover rounded-lg"
                   caption="Spout Pouch"
-                  heroBgColor="#14532d"
                 />
                 <div>
                   <h4 className="font-semibold text-neutral-800">Spout Pouches</h4>
@@ -486,7 +485,7 @@ const CompostableBabyFoodBagsPage: React.FC = () => {
         </script>
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#14532d"
         title="Certified Compostable Bags for Baby Food"
         description="FDA compliant, BPA-free, TUV certified compostable pouches for baby food brands."
         keywords={['compostable baby food pouches', 'certified baby food packaging', 'organic baby food bags']}

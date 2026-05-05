@@ -276,7 +276,7 @@ const CoffeeRoasteryCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title="Coffee Roastery Case Study | Compostable Packaging with Degassing Valve"
       description="How Bean & Bole Coffee switched to compostable packaging. EN 13432 certified kraft + PLA pouches with degassing valve. 500 piece MOQ. 35% customer satisfaction increase."
       keywords={['coffee packaging case study', 'compostable coffee bags', 'specialty coffee packaging', 'degassing valve compostable', 'sustainable coffee roastery', 'low MOQ coffee bags', 'kraft coffee pouches']}
@@ -293,7 +293,6 @@ const CoffeeRoasteryCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#451a03"
     />
   );
 };

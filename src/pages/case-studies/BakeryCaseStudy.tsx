@@ -133,7 +133,7 @@ const BakeryCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#451a03"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['bakery packaging', 'granola packaging', 'home compostable', 'farmers market packaging']}
@@ -147,7 +147,6 @@ const BakeryCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#451a03"
     />
   );
 };

@@ -131,7 +131,6 @@ const FoodManufacturerPage: React.FC = () => {
                 alt="High barrier food packaging" 
                 className="w-full h-28 object-cover rounded-lg"
                 caption="High Barrier"
-                heroBgColor="#1f2937"
               />
               <ClickableImage 
                 src="/imgs/store/barrier/3-clear.webp" 
@@ -469,7 +468,7 @@ const FoodManufacturerPage: React.FC = () => {
         <meta name="keywords" content="food packaging regulations, FDA compliant packaging, EFSA food contact, BRC certified packaging, food manufacturing packaging, regulatory compliant packaging" />
       </Helmet>
 
-      <SEOPageLayout
+      <SEOPageLayout heroBgColor="#1f2937"
         title="Food Packaging Regulations | FDA EFSA Compliant"
         description="Food-grade packaging compliant with FDA, EFSA, and international regulations. BRC certified manufacturing with comprehensive documentation."
         keywords={['food packaging regulations', 'FDA compliant packaging', 'EFSA food contact', 'BRC certified packaging']}

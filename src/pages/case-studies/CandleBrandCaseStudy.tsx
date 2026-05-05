@@ -133,7 +133,7 @@ const CandleBrandCaseStudy = () => {
   ];
 
   return (
-    <SEOPageLayout
+    <SEOPageLayout heroBgColor="#1f2937"
       title={t(`${p}.title`)}
       description={t(`${p}.description`)}
       keywords={['candle packaging', 'artisan packaging', 'compostable packaging', 'tin-tie bags']}
@@ -147,7 +147,6 @@ const CandleBrandCaseStudy = () => {
       ctaDescription={t(`${p}.cta.description`)}
       ctaButtonText={t(`${p}.cta.button`)}
       ctaButtonUrl="/contact"
-      heroBgColor="#1f2937"
     />
   );
 };
