@@ -1,9 +1,9 @@
 {
   "generated": "2026-05-05",
-  "total_images": 1286,
+  "total_images": 1289,
   "total_categories": 141,
   "extensions": {
-    ".webp": 1077,
+    ".webp": 1080,
     ".png": 185,
     ".jpg": 21,
     ".svg": 3
@@ -5510,8 +5510,26 @@
       ]
     },
     "seo-photos": {
-      "count": 89,
+      "count": 92,
       "images": [
+        {
+          "filename": "a_packaging_mistakes_overview_6183920.webp",
+          "path": "/imgs/seo-photos/a_packaging_mistakes_overview_6183920.webp",
+          "extension": ".webp",
+          "modified": "2026-05-05T12:13:41.712Z"
+        },
+        {
+          "filename": "a_compostable_vs_recyclable_packaging_4528107.webp",
+          "path": "/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.webp",
+          "extension": ".webp",
+          "modified": "2026-05-05T12:13:41.709Z"
+        },
+        {
+          "filename": "a_packaging_cost_comparison_8724501.webp",
+          "path": "/imgs/seo-photos/a_packaging_cost_comparison_8724501.webp",
+          "extension": ".webp",
+          "modified": "2026-05-05T12:13:41.706Z"
+        },
         {
           "filename": "snacksmart_pouch.png",
           "path": "/imgs/seo-photos/snacksmart_pouch.png",

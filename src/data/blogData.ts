@@ -18,6 +18,48 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "packaging-cost-guide",
+    slug: "packaging-cost-guide",
+    title: "How Much Does Custom Packaging Cost in 2025? Complete Price Guide",
+    excerpt: "Transparent pricing for custom printed compostable & recyclable pouches. Compare costs for stand-up pouches, flat bottom bags, and sachets from 100 to 10,000+ pieces.",
+    content: `<!-- Rendered by PackagingCostGuidePage.tsx -->`,
+    author: "Ryan Wong",
+    publishDate: "2026-05-05",
+    category: "Guides",
+    tags: ["packaging cost", "pricing", "custom packaging", "MOQ", "startup packaging", "budget"],
+    featuredImage: "/imgs/seo-photos/a_packaging_cost_comparison_8724501.webp",
+    readTime: 8,
+    metaDescription: "Complete custom packaging cost breakdown for 2025. Compare prices for compostable pouches, recyclable bags & custom boxes from 100 to 10,000+ pieces."
+  },
+  {
+    id: "compostable-vs-recyclable",
+    slug: "compostable-vs-recyclable",
+    title: "Compostable vs Recyclable Packaging: Which Is Right for Your Brand?",
+    excerpt: "In-depth side-by-side comparison of compostable vs recyclable packaging. Compare costs, shelf life, certifications, and environmental impact to make the right choice.",
+    content: `<!-- Rendered by CompostableVsRecyclablePage.tsx -->`,
+    author: "Ryan Wong",
+    publishDate: "2026-05-05",
+    category: "Sustainable Packaging",
+    tags: ["compostable", "recyclable", "comparison", "eco packaging", "mono PE", "sustainability"],
+    featuredImage: "/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.webp",
+    readTime: 10,
+    metaDescription: "In-depth comparison of compostable vs recyclable packaging for food brands. Compare costs, shelf life, certifications, and environmental impact."
+  },
+  {
+    id: "eco-packaging-mistakes",
+    slug: "eco-packaging-mistakes",
+    title: "5 Eco Packaging Mistakes Small Brands Make (And How to Avoid Them)",
+    excerpt: "Avoid costly packaging mistakes that waste money and hurt your brand. Learn from real examples: over-ordering, wrong materials, greenwashing risks, and more.",
+    content: `<!-- Rendered by EcoPackagingMistakesPage.tsx -->`,
+    author: "Ryan Wong",
+    publishDate: "2026-05-05",
+    category: "Startup Resources",
+    tags: ["packaging mistakes", "startups", "tips", "eco packaging", "small business", "advice"],
+    featuredImage: "/imgs/seo-photos/a_packaging_mistakes_overview_6183920.webp",
+    readTime: 7,
+    metaDescription: "Avoid costly packaging mistakes that waste money and hurt your brand. Expert advice from a packaging manufacturer."
+  },
+  {
     id: "compostable-humidity-control",
     slug: "compostable-humidity-control",
     title: "Protect Cellulose Compost Bags from Becoming Brittle Due to Dryness",
