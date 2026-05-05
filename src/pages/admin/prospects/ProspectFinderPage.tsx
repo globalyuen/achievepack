@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet'
 import { EmailEditor } from '@/components/EmailEditor'
-import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye, Download, BarChart3, MousePointerClick, MailOpen, Phone, ExternalLink } from 'lucide-react'
+import { Search, Mail, RefreshCw, Loader2, PlayCircle, StopCircle, UserMinus, Plus, Check, Send, Wand2, SendHorizonal, Eye, Download, BarChart3, MousePointerClick, MailOpen, Phone, ExternalLink, Upload } from 'lucide-react'
 import { toast } from 'sonner'
 import { Link } from 'react-router-dom'
 import { Label } from '@/components/ui/label'
@@ -247,6 +247,70 @@ export default function ProspectFinderPage() {
     } finally {
       setIsSyncing(false)
     }
+  }
+
+  // Import Opened Emails CSV
+  const handleCSVImport = async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0]
+      if (!file) return
+      
+      setIsSyncing(true)
+      addLog(`📄 Processing CSV: ${file.name}...`, 'info')
+      
+      const reader = new FileReader()
+      reader.onload = async (e) => {
+          const text = e.target?.result as string
+          const lines = text.split('\n')
+          const emails: string[] = []
+          
+          // Basic CSV parsing (skip header, find email column)
+          let emailIdx = 0
+          const header = lines[0].toLowerCase().split(',')
+          emailIdx = header.findIndex(h => h.includes('email'))
+          if (emailIdx === -1) emailIdx = 0
+          
+          for (let i = 1; i < lines.length; i++) {
+              const columns = lines[i].split(',')
+              if (columns[emailIdx]) {
+                  emails.push(columns[emailIdx].trim().replace(/^"|"$/g, ''))
+              }
+          }
+          
+          addLog(`📊 Found ${emails.length} emails in CSV. Importing to database...`, 'info')
+          
+          try {
+              // Import in batches of 1000
+              const batchSize = 1000
+              let totalImported = 0
+              
+              for (let i = 0; i < emails.length; i += batchSize) {
+                  const batch = emails.slice(i, i + batchSize)
+                  addLog(`📡 Importing batch ${Math.floor(i/batchSize) + 1}/${Math.ceil(emails.length/batchSize)}...`, 'info')
+                  
+                  const res = await fetch('/api/prospect/import-opened-csv', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ emails: batch })
+                  })
+                  
+                  const data = await res.json()
+                  if (data.success) {
+                      totalImported += data.imported
+                  }
+              }
+              
+              addLog(`✅ Successfully imported/updated ${totalImported} warm leads from CSV!`, 'success')
+              toast.success(`Imported ${totalImported} warm leads`)
+              fetchHistory()
+          } catch (error: any) {
+              addLog(`❌ Import error: ${error.message}`, 'error')
+              toast.error('Failed to import CSV')
+          } finally {
+              setIsSyncing(false)
+              if (event.target) event.target.value = ''
+          }
+      }
+      reader.readAsText(file)
   }
 
   // Manual trigger for Auto Run (for testing)
@@ -832,6 +896,20 @@ export default function ProspectFinderPage() {
                             <Button variant="outline" size="sm" onClick={handleExportExcel} className="gap-2">
                                 <Download className="w-4 h-4" /> Export Excel
                             </Button>
+                            
+                            <div className="relative">
+                                <Button variant="outline" size="sm" className="gap-2 bg-amber-50 border-amber-200 text-amber-700 hover:bg-amber-100">
+                                    <Upload className="w-4 h-4" /> Import Opened CSV
+                                </Button>
+                                <input 
+                                    type="file" 
+                                    accept=".csv" 
+                                    className="absolute inset-0 opacity-0 cursor-pointer" 
+                                    onChange={handleCSVImport}
+                                    disabled={isSyncing}
+                                />
+                            </div>
+                            
                             <Button variant="ghost" size="sm" onClick={fetchHistory} className="gap-2">
                                  <RefreshCw className="w-4 h-4" /> Refresh
                             </Button>
