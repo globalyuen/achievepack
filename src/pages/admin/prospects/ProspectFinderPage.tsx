@@ -426,8 +426,13 @@ export default function ProspectFinderPage() {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
             <div>
-                <h1 className="text-3xl font-bold text-neutral-900">Prospect Finder</h1>
-                <p className="text-neutral-500">AI-powered lead generation and outreach</p>
+                <h1 className="text-3xl font-bold text-neutral-900 flex items-center gap-3">
+                    Prospect Finder
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full border border-blue-200">
+                        ❄️ Cold Email
+                    </span>
+                </h1>
+                <p className="text-neutral-500">AI-powered cold outreach — search, personalize & send to new prospects</p>
             </div>
             <div className="flex items-center gap-4">
                  <div className="flex items-center gap-3">

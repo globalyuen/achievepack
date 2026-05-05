@@ -1287,8 +1287,11 @@ Respond in this JSON format only:
           <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
             <Mail className="w-7 h-7 text-primary-600" />
             Email Follow Up
+            <span className="inline-flex items-center gap-1 px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full border border-orange-200">
+              🔥 Warm Email
+            </span>
           </h1>
-          <p className="text-gray-500 mt-1">AI-powered analysis of emails needing follow-up</p>
+          <p className="text-gray-500 mt-1">Contacts who reached out via your website — personalized warm follow-up</p>
         </div>
         <button
           onClick={loadData}
