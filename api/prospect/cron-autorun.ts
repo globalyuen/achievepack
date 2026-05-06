@@ -415,11 +415,38 @@ const WORDS_TO_REMOVE = [
     'Welcome', 'About', 'Contact', 'Products', 'Services', 'FAQ', 'Blog'
 ]
 
+// List of bad/invalid AI responses to reject
+const INVALID_NAME_PATTERNS = [
+    /^none$/i,
+    /^n\/a$/i,
+    /^unknown$/i,
+    /^unclear$/i,
+    /^no company/i,
+    /^no specific/i,
+    /^not (a|an|the)/i,
+    /^this (is|refers|page|title|website)/i,
+    /^the title/i,
+    /^multiple/i,
+    /^various/i,
+    /cannot (be|determine)/i,
+    /no (single|company|brand|specific)/i,
+    /\(no /i,
+    /\(not /i,
+]
+
+// Check if an AI-returned name is actually valid
+function isValidCleanName(name: string): boolean {
+    if (!name || name.trim().length < 2) return false
+    if (name.length > 60) return false // Too long = probably an explanation
+    const trimmed = name.trim()
+    return !INVALID_NAME_PATTERNS.some(pattern => pattern.test(trimmed))
+}
+
 // Clean business name using AI (XAI/Grok)
-async function cleanBusinessNameWithAI(rawName: string): Promise<string> {
+async function cleanBusinessNameWithAI(rawName: string, domain?: string): Promise<string | null> {
     const XAI_API_KEY = process.env.XAI_API_KEY
     if (!XAI_API_KEY) {
-        return fallbackCleanName(rawName)
+        return fallbackCleanName(rawName, domain)
     }
     
     try {
@@ -433,70 +460,87 @@ async function cleanBusinessNameWithAI(rawName: string): Promise<string> {
                 model: 'grok-3',
                 messages: [{
                     role: 'user',
-                    content: `Extract the actual business/company name from this website title. Return ONLY the company name (2-4 words max), nothing else.
+                    content: `You are extracting a company brand name from a webpage title.
 
 Title: "${rawName}"
+Domain: "${domain || ''}"
 
-Rules:
-- Extract only the company/brand name
-- Remove descriptive text like "Shop", "Buy", "Official", "Best", etc.
-- Remove location info if not part of brand name
-- If unclear, return the most brand-like portion
-- Maximum 4 words`
+Return ONLY the brand/company name — nothing else. No explanations. No punctuation. No quotes.
+
+Strict rules:
+- Return 1–4 words that is the actual brand or company name
+- If the title is generic (e.g. "Top 10 UK beauty brands"), derive the name from the domain instead
+- NEVER return "None", "N/A", "Unknown", "No company", or any explanation
+- NEVER include parentheses or qualifying text
+- If truly impossible to determine a name, return just the domain name without the TLD
+
+Examples:
+- "Krave Beauty – Skincare for All" → "Krave Beauty"
+- "Top 10 UK Beauty Brands | Cosmetify" → "Cosmetify"
+- "About – Grind Coffee" → "Grind Coffee"
+- domain: "bluebottlecoffee.com" → "Blue Bottle Coffee"`
                 }],
-                max_tokens: 30,
-                temperature: 0.1
+                max_tokens: 20,
+                temperature: 0
             })
         })
         
         if (response.ok) {
             const data = await response.json() as { choices?: { message?: { content?: string } }[] }
-            const cleaned = data.choices?.[0]?.message?.content?.trim()
-            if (cleaned && cleaned.length > 1 && cleaned.length < 100) {
-                return cleaned.replace(/["']/g, '')
+            const cleaned = data.choices?.[0]?.message?.content?.trim()?.replace(/["']/g, '')
+            if (cleaned && isValidCleanName(cleaned)) {
+                return cleaned
             }
         }
     } catch (error) {
         console.error('XAI name cleaning error:', error)
     }
     
-    return fallbackCleanName(rawName)
+    return fallbackCleanName(rawName, domain)
 }
 
-// Fallback name cleaning without AI
-function fallbackCleanName(rawName: string): string {
-    if (!rawName) return 'Your Business'
-    
-    // Remove common patterns
-    let name = rawName
-        .replace(/\s*[-|–—:]\s*.*/g, '')  // Remove everything after - | : etc
-        .replace(/\([^)]*\)/g, '')         // Remove parentheses content
-        .replace(/["']/g, '')              // Remove quotes
-        .trim()
-    
-    // Split into words and filter
-    const words = name.split(/\s+/)
-    const cleanedWords: string[] = []
-    
-    for (const word of words) {
-        const cleanWord = word.replace(/[.,!?;:]/g, '')
-        const upperWord = cleanWord.toUpperCase()
+// Fallback name cleaning without AI — uses domain as last resort
+function fallbackCleanName(rawName: string, domain?: string): string | null {
+    // Try to extract from raw title first
+    if (rawName) {
+        let name = rawName
+            .replace(/\s*[-|–—:]\s*.*/g, '')  // Remove everything after - | : etc
+            .replace(/\([^)]*\)/g, '')          // Remove parentheses content
+            .replace(/["']/g, '')               // Remove quotes
+            .trim()
         
-        // Skip if in removal list
-        if (WORDS_TO_REMOVE.some(w => w.toUpperCase() === upperWord)) {
-            continue
+        const words = name.split(/\s+/)
+        const cleanedWords: string[] = []
+        
+        for (const word of words) {
+            const cleanWord = word.replace(/[.,!?;:]/g, '')
+            const upperWord = cleanWord.toUpperCase()
+            if (WORDS_TO_REMOVE.some(w => w.toUpperCase() === upperWord)) continue
+            if (cleanWord.length > 1) cleanedWords.push(cleanWord)
+            if (cleanedWords.length >= 4) break
         }
         
-        // Keep the word
-        if (cleanWord.length > 1) {
-            cleanedWords.push(cleanWord)
+        if (cleanedWords.length >= 1) {
+            const result = cleanedWords.join(' ')
+            if (isValidCleanName(result)) return result
         }
-        
-        // Max 4 words
-        if (cleanedWords.length >= 4) break
     }
     
-    return cleanedWords.length > 0 ? cleanedWords.join(' ') : rawName.split(' ').slice(0, 3).join(' ')
+    // Fall back to domain name (e.g. "bluebottlecoffee" → "Bluebottlecoffee")
+    if (domain) {
+        const domainBase = domain
+            .replace(/^www\./, '')
+            .split('.')[0]            // take first segment
+            .replace(/-/g, ' ')       // hyphens to spaces
+            .replace(/([a-z])([A-Z])/g, '$1 $2') // camelCase to spaces
+            .trim()
+        if (domainBase && domainBase.length > 1) {
+            // Capitalise each word
+            return domainBase.replace(/\b\w/g, c => c.toUpperCase())
+        }
+    }
+    
+    return null // Signal: skip this prospect
 }
 
 // Extract business type from search query
@@ -1487,10 +1531,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 
                 addLog(`   ✅ Email passed all checks, preparing to send...`)
                 
-                // Clean business name using AI
+                // Clean business name using AI — pass domain as fallback source
                 addLog(`   🤖 Cleaning business name with AI...`)
-                const cleanName = await cleanBusinessNameWithAI(business.name)
+                const cleanName = await cleanBusinessNameWithAI(business.name, domain)
                 addLog(`   📝 Name: "${business.name}" → "${cleanName}"`)
+                
+                // HARD SKIP: if we couldn't extract a real company name, do NOT send the email
+                if (!cleanName) {
+                    addLog(`   🚫 SKIP: Could not extract a valid company name from "${business.name}" / ${domain}`)
+                    continue
+                }
                 
                 // Generate email content
                 addLog(`   📧 Generating email content...`)
