@@ -426,7 +426,7 @@ export default function ProspectFinderPage() {
         if (data.skipped) {
           toast.info('Auto Run is disabled - enable it first')
         } else {
-          toast.success(`Auto Run complete: ${data.emailsSent || 0} emails sent`)
+          toast.success(`Auto Run complete: ${data.totalEmailsSent || 0} emails sent`)
           fetchHistory() // Refresh history
         }
       } else {

@@ -416,8 +416,8 @@ function App() {
     <>
       <Helmet>
         <html lang={currentLang} />
-        <title>{isPouch ? `Pouch.eco - ${t('seo.home.title', 'Eco Packaging for Startups | Low MOQ from 500 units')}` : t('seo.home.title', 'Certified Compostable Packaging | Low MOQ from 100pcs - Achieve Pack')}</title>
-        <meta name="description" content={isPouch ? t('seo.home.description', 'Beautiful compostable packaging from just 500 units. Perfect for small brands starting their sustainability journey.') : t('seo.home.description', 'Transform your brand with EN13432 certified compostable packaging. Coffee bags, food pouches, pet treat bags. Low MOQ from 100pcs, 2-3 week sampling, trusted by 500+ global brands.')} />
+        <title>{isPouch ? t('seo.pouchHome.title') : t('seo.home.title')}</title>
+        <meta name="description" content={isPouch ? t('seo.pouchHome.description') : t('seo.home.description')} />
         <link rel="canonical" href={baseUrl} />
         
         {/* hreflang for multi-language */}

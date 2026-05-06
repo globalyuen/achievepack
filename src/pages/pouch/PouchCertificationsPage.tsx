@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Shield, CheckCircle, Award, Leaf, Globe, Factory, Home, ExternalLink, ChevronDown, Recycle } from 'lucide-react'
 import { useState } from 'react'
 import PouchLayout from '../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchCertificationsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -199,32 +200,27 @@ export default function PouchCertificationsPage() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <a 
+            <NeoButton 
               href="https://products.bpiworld.org/companies/achieve-pack-company"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-black text-[#D4FF00] px-6 py-3 border-4 border-black font-['JetBrains_Mono'] font-bold hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              variant="dark"
+              className="!text-[#D4FF00]"
             >
-              <ExternalLink className="w-5 h-5" />
+              <ExternalLink className="w-5 h-5 mr-2 inline-block" />
               View BPI Listing
-            </a>
-            <a 
+            </NeoButton>
+            <NeoButton 
               href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#10b981] text-white px-6 py-3 border-4 border-black font-['JetBrains_Mono'] font-bold hover:bg-[#059669] hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              className="bg-[#10b981] !text-white !border-black"
             >
-              <ExternalLink className="w-5 h-5" />
+              <ExternalLink className="w-5 h-5 mr-2 inline-block" />
               Download BPI Cert
-            </a>
-            <a 
+            </NeoButton>
+            <NeoButton 
               href="https://calendly.com/30-min-free-packaging-consultancy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white px-6 py-3 border-4 border-black font-['JetBrains_Mono'] font-bold hover:bg-[#00FFFF] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              variant="secondary"
             >
               Get Certified
-            </a>
+            </NeoButton>
           </div>
         </div>
         </div>
@@ -239,13 +235,9 @@ export default function PouchCertificationsPage() {
           
           <div className="grid md:grid-cols-2 gap-8">
             {certifications.map((cert, idx) => (
-              <motion.div
+              <NeoCard
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-[#F0F0F0] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
+                className="flex flex-col h-full bg-[#F0F0F0]"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div 
@@ -270,35 +262,28 @@ export default function PouchCertificationsPage() {
                 <p className="text-lg mb-4">{cert.description}</p>
 
                 <div className="flex gap-2 mb-4">
-                  <div className="bg-white border-2 border-black px-3 py-1 text-xs font-['JetBrains_Mono'] font-bold">
-                    {cert.standard}
-                  </div>
-                  <div className="bg-white border-2 border-black px-3 py-1 text-xs font-['JetBrains_Mono'] font-bold">
-                    {cert.facility}
-                  </div>
+                  <NeoBadge color="bg-white">{cert.standard}</NeoBadge>
+                  <NeoBadge color="bg-white">{cert.facility}</NeoBadge>
                 </div>
 
                 {cert.downloadUrl ? (
-                  <div className="flex gap-2 mb-4">
-                    <a 
+                  <div className="flex gap-2 mb-4 mt-auto">
+                    <NeoButton 
                       href={cert.listingUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex-1 bg-black text-[#D4FF00] text-center py-2 font-bold text-xs border-2 border-black hover:bg-[#D4FF00] hover:text-black transition-colors"
+                      variant="dark"
+                      className="flex-1 !text-[#D4FF00] !py-2 !text-xs"
                     >
                       LISTING
-                    </a>
-                    <a 
+                    </NeoButton>
+                    <NeoButton 
                       href={cert.downloadUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex-1 bg-[#10b981] text-white text-center py-2 font-bold text-xs border-2 border-black hover:bg-white hover:text-[#10b981] transition-colors"
+                      className="flex-1 !bg-[#10b981] !text-white !py-2 !text-xs !border-black"
                     >
                       DOWNLOAD
-                    </a>
+                    </NeoButton>
                   </div>
                 ) : null}
-              </motion.div>
+              </NeoCard>
             ))}
           </div>
         </div>
@@ -313,18 +298,14 @@ export default function PouchCertificationsPage() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, idx) => (
-              <motion.div
+              <NeoCard
                 key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                className="bg-white"
               >
                 <benefit.icon className="w-12 h-12 mb-4" />
                 <h3 className="font-black text-xl mb-2">{benefit.title}</h3>
                 <p className="text-sm">{benefit.description}</p>
-              </motion.div>
+              </NeoCard>
             ))}
           </div>
         </div>
@@ -393,9 +374,9 @@ export default function PouchCertificationsPage() {
           
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <div
+              <NeoCard
                 key={idx}
-                className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                className="!p-0 overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
@@ -412,7 +393,7 @@ export default function PouchCertificationsPage() {
                     <p className="text-lg pt-4">{faq.answer}</p>
                   </div>
                 )}
-              </div>
+              </NeoCard>
             ))}
           </div>
         </div>
@@ -481,20 +462,19 @@ export default function PouchCertificationsPage() {
             We'll guide you through the certification process and help you choose the right standards for your market.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a 
+            <NeoButton 
               href="https://calendly.com/30-min-free-packaging-consultancy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#D4FF00] text-black px-8 py-4 border-4 border-white font-['JetBrains_Mono'] font-bold hover:bg-[#00FFFF] transition-colors shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] text-lg"
+              className="text-lg"
             >
               Book Free Consultation
-            </a>
-            <a 
-              href="/materials"
-              className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 border-4 border-white font-['JetBrains_Mono'] font-bold hover:bg-[#FF00FF] hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] text-lg"
+            </NeoButton>
+            <NeoButton 
+              to="/materials"
+              variant="secondary"
+              className="text-lg"
             >
               Browse Certified Materials
-            </a>
+            </NeoButton>
           </div>
         </div>
       </section>

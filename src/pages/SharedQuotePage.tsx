@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock } from 'lucide-react';
+import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, Image as ImageIcon, Video as VideoIcon } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
 const ADMIN_PWD = '8888****';
@@ -10,6 +11,7 @@ const SharedQuotePage: React.FC = () => {
   const [quoteHtml, setQuoteHtml] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   // Admin edit state
   const [editMode, setEditMode] = useState(false);
@@ -20,7 +22,9 @@ const SharedQuotePage: React.FC = () => {
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [saveError, setSaveError] = useState('');
+  const [copySuccess, setCopySuccess] = useState(false);
   const pwdRef = useRef<HTMLInputElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     const fetchQuote = async () => {
@@ -40,6 +44,29 @@ const SharedQuotePage: React.FC = () => {
     };
     fetchQuote();
   }, [id]);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show indicator if at the top and the page is long enough to scroll
+      const isScrollable = document.documentElement.scrollHeight > window.innerHeight + 200;
+      if (window.scrollY > 150) {
+        setShowScrollIndicator(false);
+      } else if (isScrollable) {
+        setShowScrollIndicator(true);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    // Also check on resize and after initial load
+    window.addEventListener('resize', handleScroll);
+    const timer = setTimeout(handleScroll, 1000);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      clearTimeout(timer);
+    };
+  }, [quoteHtml]);
 
   const handleEditClick = () => {
     // If already authenticated in this session, go straight to edit
@@ -63,6 +90,61 @@ const SharedQuotePage: React.FC = () => {
       setPwdError('Incorrect password. Please try again.');
       setPwdInput('');
       pwdRef.current?.focus();
+    }
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopySuccess(true);
+    setTimeout(() => setCopySuccess(false), 2000);
+  };
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Official Quotation | Achieve Pack',
+          text: 'Check out this official quotation from Achieve Pack.',
+          url: window.location.href,
+        });
+      } catch (err) {
+        handleCopyLink();
+      }
+    } else {
+      handleCopyLink();
+    }
+  };
+
+  const insertHtml = (tag: string) => {
+    if (!textareaRef.current) return;
+    const start = textareaRef.current.selectionStart;
+    const end = textareaRef.current.selectionEnd;
+    const text = textareaRef.current.value;
+    const before = text.substring(0, start);
+    const after = text.substring(end);
+    const newText = before + tag + after;
+    setEditedHtml(newText);
+    
+    // Reset focus and cursor
+    setTimeout(() => {
+      if (textareaRef.current) {
+        textareaRef.current.focus();
+        textareaRef.current.setSelectionRange(start + tag.length, start + tag.length);
+      }
+    }, 0);
+  };
+
+  const handleInsertImage = () => {
+    const url = prompt('Enter image URL:');
+    if (url) {
+      insertHtml(`<img src="${url}" style="max-width: 100%; border-radius: 12px; margin: 20px 0; border: 4px solid black; box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);" alt="Product Image" />`);
+    }
+  };
+
+  const handleInsertVideo = () => {
+    const url = prompt('Enter video URL (direct link):');
+    if (url) {
+      insertHtml(`<video src="${url}" controls style="max-width: 100%; border-radius: 12px; margin: 20px 0; border: 4px solid black; box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);"></video>`);
     }
   };
 
@@ -183,10 +265,17 @@ const SharedQuotePage: React.FC = () => {
               </button>
             )}
             <button
-              onClick={() => window.print()}
+              onClick={handleCopyLink}
+              className={`flex items-center gap-2 ${copySuccess ? 'bg-emerald-600' : 'bg-gray-800'} hover:bg-black text-white px-5 py-2 rounded-lg font-bold shadow-md transition active:scale-95`}
+            >
+              {copySuccess ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+              {copySuccess ? 'Copied!' : 'Copy Link'}
+            </button>
+            <button
+              onClick={handleShare}
               className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-bold shadow-md transition active:scale-95"
             >
-              <Download className="w-4 h-4" /> Save as PDF / Print
+              <Share className="w-4 h-4" /> Share Link
             </button>
           </div>
         </div>
@@ -221,10 +310,27 @@ const SharedQuotePage: React.FC = () => {
               </div>
             </div>
             <div className="p-4">
-              <p className="text-xs text-gray-500 mb-2">
+              <p className="text-xs text-gray-500">
                 Edit the raw HTML below. Changes will update the live shared link immediately after saving.
               </p>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleInsertImage}
+                  className="flex items-center gap-1.5 bg-white border-2 border-black hover:bg-gray-50 text-black px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                >
+                  <ImageIcon className="w-3.5 h-3.5" /> Add Image
+                </button>
+                <button
+                  onClick={handleInsertVideo}
+                  className="flex items-center gap-1.5 bg-white border-2 border-black hover:bg-gray-50 text-black px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                >
+                  <VideoIcon className="w-3.5 h-3.5" /> Add Video
+                </button>
+              </div>
+            </div>
+            <div className="p-4">
               <textarea
+                ref={textareaRef}
                 value={editedHtml}
                 onChange={e => setEditedHtml(e.target.value)}
                 className="w-full h-80 border border-gray-200 rounded-xl p-3 text-xs font-mono bg-gray-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:outline-none leading-relaxed resize-y"
@@ -264,6 +370,35 @@ const SharedQuotePage: React.FC = () => {
           iframe { width: 100% !important; height: auto !important; min-height: 297mm !important; }
         }
       `}</style>
+
+      {/* Scroll Indicator */}
+      <AnimatePresence>
+        {showScrollIndicator && (
+          <motion.div
+            initial={{ opacity: 0, x: '-50%', y: 20 }}
+            animate={{ 
+              opacity: 1, 
+              x: '-50%',
+              y: [0, 10, 0],
+            }}
+            exit={{ opacity: 0, x: '-50%', y: 20 }}
+            transition={{ 
+              y: { repeat: Infinity, duration: 1.5, ease: "easeInOut" },
+              opacity: { duration: 0.3 }
+            }}
+            className="fixed bottom-12 left-1/2 -translate-x-1/2 z-[100] cursor-pointer print:hidden"
+            onClick={() => window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' })}
+          >
+            <div className="bg-[#D4FF00] text-black border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex flex-col items-center gap-1 group">
+              <span className="font-black text-xs uppercase tracking-tighter italic">View Full Quotation</span>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold opacity-70">SCROLL DOWN</span>
+                <ChevronDown className="w-5 h-5 animate-bounce" strokeWidth={4} />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

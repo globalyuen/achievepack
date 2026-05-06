@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-05",
-  "total_images": 1289,
-  "total_categories": 141,
+  "generated": "2026-05-06",
+  "total_images": 1298,
+  "total_categories": 143,
   "extensions": {
     ".webp": 1077,
-    ".png": 185,
-    ".jpg": 24,
+    ".png": 188,
+    ".jpg": 30,
     ".svg": 3
   },
   "categories": {
@@ -4756,6 +4756,34 @@
         }
       ]
     },
+    "pouch/materials": {
+      "count": 2,
+      "images": [
+        {
+          "filename": "pouch_recycle_hero.png",
+          "path": "/imgs/pouch/materials/pouch_recycle_hero.png",
+          "extension": ".png",
+          "modified": "2026-05-06T07:37:20.954Z"
+        },
+        {
+          "filename": "pouch_compost_hero.png",
+          "path": "/imgs/pouch/materials/pouch_compost_hero.png",
+          "extension": ".png",
+          "modified": "2026-05-06T07:37:07.275Z"
+        }
+      ]
+    },
+    "pouch/packaging": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "pouch_fb_hero.png",
+          "path": "/imgs/pouch/packaging/pouch_fb_hero.png",
+          "extension": ".png",
+          "modified": "2026-05-06T07:36:32.023Z"
+        }
+      ]
+    },
     "product": {
       "count": 1,
       "images": [
@@ -5510,8 +5538,44 @@
       ]
     },
     "seo-photos": {
-      "count": 92,
+      "count": 98,
       "images": [
+        {
+          "filename": "a_packaging_cost_digital_factory_8412414.jpg",
+          "path": "/imgs/seo-photos/a_packaging_cost_digital_factory_8412414.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-05T12:51:34.913Z"
+        },
+        {
+          "filename": "a_mistakes_premium_unboxing_8812414.jpg",
+          "path": "/imgs/seo-photos/a_mistakes_premium_unboxing_8812414.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-05T12:51:34.912Z"
+        },
+        {
+          "filename": "a_mistakes_compostable_labels_8412414.jpg",
+          "path": "/imgs/seo-photos/a_mistakes_compostable_labels_8412414.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-05T12:51:34.909Z"
+        },
+        {
+          "filename": "a_recyclable_coffee_barrier_fresh_4123114.jpg",
+          "path": "/imgs/seo-photos/a_recyclable_coffee_barrier_fresh_4123114.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-05T12:51:34.907Z"
+        },
+        {
+          "filename": "a_compostable_decomposition_soil_8123114.jpg",
+          "path": "/imgs/seo-photos/a_compostable_decomposition_soil_8123114.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-05T12:51:34.904Z"
+        },
+        {
+          "filename": "a_packaging_cost_quality_compare_8712411.jpg",
+          "path": "/imgs/seo-photos/a_packaging_cost_quality_compare_8712411.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-05T12:51:34.902Z"
+        },
         {
           "filename": "a_packaging_mistakes_overview_6183920.jpg",
           "path": "/imgs/seo-photos/a_packaging_mistakes_overview_6183920.jpg",

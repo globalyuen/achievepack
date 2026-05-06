@@ -84,7 +84,7 @@ export default function PouchEcoDemo() {
   return (
     <div className="min-h-screen bg-[#F0F0F0] text-black font-['Space_Grotesk'] selection:bg-black selection:text-[#D4FF00] overflow-x-hidden">
       <Helmet>
-        <title>POUCH.ECO | Eco Packaging Protocol | Demo</title>
+        <title>POUCH.ECO - Eco Packaging Protocol</title>
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
         `}</style>

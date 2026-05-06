@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react'
 import { Calendar, Menu, X, Building2, Instagram, Linkedin } from 'lucide-react'
+import { NeoButton } from './PouchUI'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -71,13 +72,14 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               </span>
             </a>
 
-            <button 
-              className="border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors relative group" 
-              onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}
+            <NeoButton 
+              variant="secondary"
+              className="!p-2 !px-2 !py-2 border-2" 
+              href="https://calendly.com/30-min-free-packaging-consultancy"
               title="Book Free Consultation"
             >
               <Calendar className="w-6 h-6" />
-            </button>
+            </NeoButton>
             
             {/* Mobile Menu Button */}
             <button
@@ -221,15 +223,14 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   </a>
                   
                   <div className="pt-4 border-t-4 border-black mt-4">
-                    <button
-                      onClick={() => {
-                        window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')
-                        setIsMenuOpen(false)
-                      }}
-                      className="w-full px-4 py-3 bg-black text-[#D4FF00] border-4 border-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
+                    <NeoButton
+                      variant="dark"
+                      href="https://calendly.com/30-min-free-packaging-consultancy"
+                      className="w-full"
+                      onClick={() => setIsMenuOpen(false)}
                     >
                       [BOOK FREE CALL]
-                    </button>
+                    </NeoButton>
                   </div>
                 </div>
               </div>
@@ -260,12 +261,52 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 placeholder="ENTER_EMAIL" 
                 className="bg-white border-4 border-black px-4 md:px-6 py-3 md:py-4 font-['JetBrains_Mono'] font-bold flex-1 focus:outline-none focus:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow text-sm md:text-base"
               />
-              <button 
-                onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}
-                className="bg-black text-white px-6 md:px-8 py-3 md:py-4 font-black uppercase border-4 border-black hover:bg-white hover:text-black transition-colors whitespace-nowrap text-sm md:text-base"
+              <NeoButton 
+                variant="dark"
+                href="https://calendly.com/30-min-free-packaging-consultancy"
+                className="whitespace-nowrap text-sm md:text-base"
               >
                 Book Call
-              </button>
+              </NeoButton>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 border-t-4 border-black pt-12">
+            <div>
+              <h4 className="font-black uppercase mb-4 text-xl">Packaging</h4>
+              <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
+                <li><Link to="/packaging/stand-up-pouches" className="hover:underline">[STAND-UP POUCHES]</Link></li>
+                <li><Link to="/packaging/flat-bottom-bags" className="hover:underline">[FLAT BOTTOM BAGS]</Link></li>
+                <li><Link to="/packaging/spout-pouches" className="hover:underline">[SPOUT POUCHES]</Link></li>
+                <li><Link to="/packaging/flat-pouches" className="hover:underline">[FLAT POUCHES]</Link></li>
+                <li><Link to="/packaging/vacuum-pouches" className="hover:underline">[VACUUM POUCHES]</Link></li>
+                <li><Link to="/products" className="hover:underline">[ALL PRODUCTS]</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-black uppercase mb-4 text-xl">Materials</h4>
+              <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
+                <li><Link to="/materials/compostable" className="hover:underline">[COMPOSTABLE]</Link></li>
+                <li><Link to="/materials/recyclable" className="hover:underline">[RECYCLABLE]</Link></li>
+                <li><Link to="/materials" className="hover:underline">[MATERIAL HUB]</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-black uppercase mb-4 text-xl">Industries</h4>
+              <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
+                <li><Link to="/industry/coffee-tea" className="hover:underline">[COFFEE & TEA]</Link></li>
+                <li><Link to="/industry/baby-food" className="hover:underline">[BABY FOOD]</Link></li>
+                <li><Link to="/industry/frozen-food" className="hover:underline">[FROZEN FOOD]</Link></li>
+                <li><Link to="/industry/snacks" className="hover:underline">[SNACKS]</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-black uppercase mb-4 text-xl">Support</h4>
+              <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
+                <li><Link to="/blog" className="hover:underline">[BLOG]</Link></li>
+                <li><Link to="/certifications" className="hover:underline">[CERTIFICATIONS]</Link></li>
+                <li><Link to="/size-guide" className="hover:underline">[SIZE GUIDE]</Link></li>
+              </ul>
             </div>
           </div>
 

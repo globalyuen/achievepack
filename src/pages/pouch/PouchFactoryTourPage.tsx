@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Play, X, ChevronLeft, ChevronRight, Factory, Printer, Layers, Scissors, Package, CheckCircle } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard } from '../../components/pouch/PouchUI'
 
 interface Video {
   id: string
@@ -132,16 +133,13 @@ export default function PouchFactoryTourPage() {
               { label: 'Quality Tests', value: '15+' },
               { label: 'Years Experience', value: '10+' }
             ].map((stat, idx) => (
-              <motion.div
+              <NeoCard
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                className="p-6"
               >
                 <div className="text-3xl font-black text-[#10b981] mb-1">{stat.value}</div>
                 <div className="text-sm font-['JetBrains_Mono'] uppercase">{stat.label}</div>
-              </motion.div>
+              </NeoCard>
             ))}
           </div>
         </div>
@@ -171,7 +169,7 @@ export default function PouchFactoryTourPage() {
                   className="group cursor-pointer"
                   onClick={() => setActiveVideo(video)}
                 >
-                  <div className="border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all overflow-hidden">
+                  <NeoCard className="!p-0 overflow-hidden group h-full">
                     <div className="relative aspect-video bg-black">
                       <video
                         src={video.videoSrc}
@@ -198,7 +196,7 @@ export default function PouchFactoryTourPage() {
                       </div>
                       <p className="text-sm text-gray-600 font-['Space_Grotesk']">{video.description}</p>
                     </div>
-                  </div>
+                  </NeoCard>
                 </motion.div>
               )
             })}
@@ -233,7 +231,7 @@ export default function PouchFactoryTourPage() {
                 points: ['BPI Certified', 'EN 13432 Compliant', 'FDA Food-Safe', 'GRS Certified']
               }
             ].map((section, idx) => (
-              <div key={idx} className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <NeoCard key={idx} className="h-full">
                 <h3 className="font-black text-xl uppercase mb-4 flex items-center gap-2">
                   <CheckCircle className="w-6 h-6 text-[#10b981]" />
                   {section.title}
@@ -246,7 +244,7 @@ export default function PouchFactoryTourPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </NeoCard>
             ))}
           </div>
         </div>
@@ -261,12 +259,12 @@ export default function PouchFactoryTourPage() {
           <p className="text-xl mb-8 font-['Space_Grotesk']">
             Book a free consultation to discuss your packaging needs
           </p>
-          <button
-            onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}
-            className="inline-block px-8 py-4 bg-black text-[#D4FF00] border-4 border-black font-black uppercase text-lg shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+          <NeoButton
+            href="https://calendly.com/30-min-free-packaging-consultancy"
+            className="text-lg"
           >
             Book Consultation
-          </button>
+          </NeoButton>
         </div>
       </section>
 

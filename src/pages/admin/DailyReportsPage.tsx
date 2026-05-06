@@ -133,6 +133,7 @@ export default function DailyReportsPage() {
   const [quoteData, setQuoteData] = useState<{ customerName: string; extracted?: any[]; dbLogId: string } | null>(null);
   const [quoteLoading, setQuoteLoading] = useState(false);
   const [quoteMarkup, setQuoteMarkup] = useState('1.6');
+  const [shippingDiscount, setShippingDiscount] = useState('1.0');
   const [quoteSearchTerm, setQuoteSearchTerm] = useState('');
   const [selectedDocCategory, setSelectedDocCategory] = useState('Quote');
   const [isAiParsing, setIsAiParsing] = useState(false);
@@ -425,8 +426,8 @@ export default function DailyReportsPage() {
       const { extracted, customerName } = quoteData;
       const itemsToRender = extracted;
       const RMB_TO_USD = 6.9;
-      const AIR_PER_KG = 15;
-      const SEA_PER_KG = 5;
+      const AIR_PER_KG = 15 * parseFloat(shippingDiscount);
+      const SEA_PER_KG = 5 * parseFloat(shippingDiscount);
       const today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
 
       // Debug: Log the extracted data to verify structure
@@ -583,7 +584,7 @@ export default function DailyReportsPage() {
     } catch (e: any) {
       setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error Building Quote</h2><p>${e.message}</p></div>`);
     }
-  }, [quoteData, quoteMarkup]);
+  }, [quoteData, quoteMarkup, shippingDiscount]);
 
   const handleSaveQuoteHistory = async () => {
     if (!quoteData || !quoteHtml) return;
@@ -1704,6 +1705,16 @@ export default function DailyReportsPage() {
                       <option value="3.0">3.0x — 200% Profit</option>
                     </select>
                   </div>
+                  <div className="flex-1 w-full">
+                    <label className="block text-xs font-extrabold text-emerald-800 mb-1">Shipping Discount (Closer Location)</label>
+                    <select className="w-full border border-emerald-200 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-emerald-400"
+                      value={shippingDiscount} onChange={e => setShippingDiscount(e.target.value)}>
+                      <option value="1.0">1.0x — Standard (USA/EU)</option>
+                      <option value="0.7">0.7x — HK / TW / SEA</option>
+                      <option value="0.5">0.5x — China Mainland</option>
+                      <option value="0.3">0.3x — Factory Pickup</option>
+                    </select>
+                  </div>
                   <button onClick={handleGenerateQuote} disabled={quoteLoading || !currentRecord.detail?.trim()}
                     className="sm:self-end flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-extrabold shadow-lg transition active:scale-95">
                     {quoteLoading ? <Loader2 className="w-5 h-5 animate-spin"/> : <FileText className="w-5 h-5"/>}
@@ -2043,6 +2054,31 @@ export default function DailyReportsPage() {
                           onChange={e => setQuoteData({...quoteData, customerName: e.target.value})}
                           className="w-full border-gray-300 rounded-lg p-2 text-sm font-bold bg-white focus:ring-blue-500 focus:border-blue-500 shadow-sm"
                         />
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Price Markup</label>
+                          <select className="w-full border border-gray-300 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-blue-400"
+                            value={quoteMarkup} onChange={e => setQuoteMarkup(e.target.value)}>
+                            <option value="1.3">1.3x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="1.6">1.6x</option>
+                            <option value="1.8">1.8x</option>
+                            <option value="2.0">2.0x</option>
+                            <option value="3.0">3.0x</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Shipping Disc.</label>
+                          <select className="w-full border border-gray-300 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-blue-400"
+                            value={shippingDiscount} onChange={e => setShippingDiscount(e.target.value)}>
+                            <option value="1.0">1.0x</option>
+                            <option value="0.7">0.7x</option>
+                            <option value="0.5">0.5x</option>
+                            <option value="0.3">0.3x</option>
+                          </select>
+                        </div>
                       </div>
                       
                       <div className="space-y-3">

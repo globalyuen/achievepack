@@ -374,6 +374,17 @@ const PouchSnacksPage = lazyWithRetry(() => import('./pages/pouch/industry/Pouch
 const PouchSupplementsPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchSupplementsPage'))
 const PouchTechSpecsPage = lazyWithRetry(() => import('./pages/pouch/PouchTechSpecsPage'))
 
+// New Pouch SEO Pages
+const PouchStandUpPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchStandUpPouchesPage'))
+const PouchFlatBottomBagsPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchFlatBottomBagsPage'))
+const PouchCompostablePage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCompostablePage'))
+const PouchRecyclablePage = lazyWithRetry(() => import('./pages/pouch/materials/PouchRecyclablePage'))
+const PouchBabyFoodPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchBabyFoodPage'))
+const PouchSpoutPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchSpoutPouchesPage'))
+const PouchFlatPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchFlatPouchesPage'))
+const PouchVacuumPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchVacuumPouchesPage'))
+const PouchFrozenFoodPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchFrozenFoodPage'))
+
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const EcoFriendlyFoodPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/EcoFriendlyFoodPackagingGuide'))
 const DTCSustainablePackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/DTCSustainablePackagingGuide'))
@@ -489,6 +500,17 @@ if (getDomain() === 'pouch') {
                   <Route path="/products" element={<PouchProductsPage />} />
                   <Route path="/materials" element={<PouchMaterialsPage />} />
                   <Route path="/seo-guide" element={<PouchSEOPage />} />
+                  
+                  {/* New SEO Pages */}
+                  <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
+                  <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
+                  <Route path="/materials/compostable" element={<PouchCompostablePage />} />
+                  <Route path="/materials/recyclable" element={<PouchRecyclablePage />} />
+                  <Route path="/industry/baby-food" element={<PouchBabyFoodPage />} />
+                  <Route path="/packaging/spout-pouches" element={<PouchSpoutPouchesPage />} />
+                  <Route path="/packaging/flat-pouches" element={<PouchFlatPouchesPage />} />
+                  <Route path="/packaging/vacuum-pouches" element={<PouchVacuumPouchesPage />} />
+                  <Route path="/industry/frozen-food" element={<PouchFrozenFoodPage />} />
                   {/* Industry Solution Pages */}
                   <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
                   <Route path="/industry/pet-food" element={<PouchPetFoodPage />} />

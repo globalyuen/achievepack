@@ -4,6 +4,7 @@ import { Star, Quote, Sparkles, Award, TrendingUp, Heart } from 'lucide-react'
 import { useEffect } from 'react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { getImagesForPage } from '../../data/imageHub'
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchTestimonialsPage() {
   // 从 imageHub 获取相关图片
@@ -247,17 +248,14 @@ export default function PouchTestimonialsPage() {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {stats.map((stat, idx) => (
-              <motion.div
+              <NeoCard
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                className="p-6"
               >
                 <stat.icon className="w-8 h-8 mx-auto mb-2" />
                 <div className="font-black text-3xl mb-1">{stat.value}</div>
                 <div className="font-['JetBrains_Mono'] text-xs font-bold">{stat.label}</div>
-              </motion.div>
+              </NeoCard>
             ))}
           </div>
         </div>
@@ -268,13 +266,9 @@ export default function PouchTestimonialsPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, idx) => (
-              <motion.div
+              <NeoCard
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-[#F0F0F0] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
+                className="bg-[#F0F0F0] !p-6"
               >
                 {/* Rating Stars */}
                 <div className="flex gap-1 mb-4">
@@ -306,12 +300,12 @@ export default function PouchTestimonialsPage() {
                 {/* Highlights */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {testimonial.highlights.map((highlight, hIdx) => (
-                    <span 
+                    <NeoBadge 
                       key={hIdx}
-                      className="bg-[#D4FF00] border-2 border-black px-3 py-1 text-xs font-['JetBrains_Mono'] font-bold"
+                      color="lime"
                     >
                       {highlight}
-                    </span>
+                    </NeoBadge>
                   ))}
                 </div>
 
@@ -491,18 +485,19 @@ export default function PouchTestimonialsPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}
-              className="bg-black text-white px-8 py-4 font-black uppercase border-4 border-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
+            <NeoButton
+              href="https://calendly.com/30-min-free-packaging-consultancy"
+              className="text-lg"
             >
               Book Free Call
-            </button>
-            <a
+            </NeoButton>
+            <NeoButton
               href="mailto:ryan@achievepack.com"
-              className="bg-white text-black px-8 py-4 font-black uppercase border-4 border-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
+              variant="secondary"
+              className="text-lg"
             >
               Request Samples
-            </a>
+            </NeoButton>
           </div>
 
           <div className="mt-8 font-['JetBrains_Mono'] text-sm font-bold">

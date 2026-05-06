@@ -4,31 +4,7 @@ import { Link } from 'react-router-dom'
 import PouchLayout from '../../components/pouch/PouchLayout'
 
 // Reusing Neo-components for consistency
-const NeoButton = ({ children, onClick, variant = 'primary', className = '' }: any) => {
-  const baseStyle = "relative px-8 py-4 font-black uppercase tracking-widest border-4 border-black transition-all active:translate-x-1 active:translate-y-1"
-  const variants = {
-    primary: "bg-[#D4FF00] text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    secondary: "bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    dark: "bg-black text-[#D4FF00] hover:shadow-[8px_8px_0px_0px_#D4FF00] hover:-translate-y-1 hover:-translate-x-1 border-[#D4FF00]"
-  }
-  return (
-    <button onClick={onClick} className={`${baseStyle} ${variants[variant as keyof typeof variants]} ${className}`}>
-      {children}
-    </button>
-  )
-}
-
-const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
-  <div className={`border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] ${color} ${className} transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)]`}>
-    {children}
-  </div>
-)
-
-const NeoBadge = ({ children, color = 'bg-[#FF00FF]' }: any) => (
-  <span className={`inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black ${color} text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
-    {children}
-  </span>
-)
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchMaterialsPage() {
   const MATERIALS = [
@@ -187,7 +163,7 @@ export default function PouchMaterialsPage() {
                <img src="/imgs/cert/cert-ISO14001-cert.webp" alt="ISO 14001" className="h-24 w-auto object-contain mx-auto" />
              </Link>
           <div className="mt-12">
-            <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
+            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">
               Speak to an Expert
             </NeoButton>
           </div>

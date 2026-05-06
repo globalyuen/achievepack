@@ -11,32 +11,7 @@ import VideoShowcase from '../../components/pouch/VideoShowcase'
 // NEO-BRUTALIST COMPONENTS (Local)
 // ============================================
 
-const NeoButton = ({ children, onClick, variant = 'primary', className = '' }: any) => {
-  const baseStyle = "relative px-8 py-4 font-black uppercase tracking-widest border-4 border-black transition-all active:translate-x-1 active:translate-y-1"
-  const variants = {
-    primary: "bg-[#D4FF00] text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    secondary: "bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    dark: "bg-black text-[#D4FF00] hover:shadow-[8px_8px_0px_0px_#D4FF00] hover:-translate-y-1 hover:-translate-x-1 border-[#D4FF00]"
-  }
-  
-  return (
-    <button onClick={onClick} className={`${baseStyle} ${variants[variant as keyof typeof variants]} ${className}`}>
-      {children}
-    </button>
-  )
-}
-
-const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
-  <div className={`border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] ${color} ${className} transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)]`}>
-    {children}
-  </div>
-)
-
-const NeoBadge = ({ children, color = 'bg-[#FF00FF]' }: any) => (
-  <span className={`inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black ${color} text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
-    {children}
-  </span>
-)
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 const Typewriter = ({ words }: { words: string[] }) => {
   const [text, setText] = useState('')
@@ -85,7 +60,7 @@ const SocialVideoCard = ({ videoSrc, coverSrc, index }: { videoSrc: string, cove
 
   return (
     <div className="flex-shrink-0 w-[280px] md:w-[320px] snap-center">
-      <div className="border-4 border-black p-2 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all hover:-translate-y-1">
+      <NeoCard className="p-2 h-full">
         <div 
           className="aspect-[9/16] relative bg-black overflow-hidden cursor-pointer group" 
           onClick={!isPlaying ? handlePlay : undefined}
@@ -101,7 +76,7 @@ const SocialVideoCard = ({ videoSrc, coverSrc, index }: { videoSrc: string, cove
               {/* Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
                 <div className="w-16 h-16 bg-[#D4FF00] border-4 border-black rounded-full flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:scale-110 transition-transform">
-                  <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[20px] border-l-black border-b-[10px] border-b-transparent ml-2" />
+                  <Play className="w-8 h-8 text-black fill-black ml-1" />
                 </div>
               </div>
             </>
@@ -120,7 +95,7 @@ const SocialVideoCard = ({ videoSrc, coverSrc, index }: { videoSrc: string, cove
           <span>@POUCH.ECO</span>
           <span>#{index.toString().padStart(3, '0')}</span>
         </div>
-      </div>
+      </NeoCard>
     </div>
   )
 }
@@ -197,7 +172,7 @@ export default function PouchHomePage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>POUCH.ECO | Eco Packaging Protocol | Demo</title>
+        <title>POUCH.ECO - Sustainable Eco Packaging for Startups</title>
         <meta name="description" content="Sustainable packaging made simple. Low MOQ compostable pouches for startups. Get started with 500 units." />
       </Helmet>
 
@@ -255,8 +230,8 @@ export default function PouchHomePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>Book Consultation</NeoButton>
-                <NeoButton variant="secondary" onClick={() => navigate('/materials')}>View Materials</NeoButton>
+                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">Book Consultation</NeoButton>
+                <NeoButton to="/materials">View Materials</NeoButton>
               </div>
             </div>
 
@@ -354,7 +329,7 @@ export default function PouchHomePage() {
                 { name: 'Green Urban Foods', image: '/imgs/clien-logos/green-urban.png' },
                 { name: 'Knowrish Well', image: '/imgs/clien-logos/knowrish.png' },
                 { name: 'Fodilicious', image: '/imgs/clien-logos/fodilicious.png' },
-                { name: 'Hike Again Remedies', image: '/imgs/clien-logos/hike.png' },
+                { name: 'Hike Again Remedies', image: '/imgs/clike.png' },
                 { name: 'Nuditea', image: '/imgs/clien-logos/nuditea.png' },
                 { name: 'Winand Products', image: '/imgs/clien-logos/winand.png' },
                 { name: 'Freshfield', image: '/imgs/clien-logos/freshfield.png' },
@@ -618,7 +593,7 @@ export default function PouchHomePage() {
                 Multi-layer barrier structures. O2 + moisture blocking. 
                 Keeps product fresh for 6-18 months shelf life.
               </p>
-              <NeoButton variant="primary" className="text-sm" onClick={() => navigate('/tech-specs')}>View Tech Specs</NeoButton>
+              <NeoButton to="/tech-specs" className="text-sm">View Tech Specs</NeoButton>
             </div>
             <img src="https://achievepack.com/imgs/feature-barrier-options.webp" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-20 grayscale group-hover:grayscale-0 transition-all duration-500 mask-image-gradient" alt="Barrier Options" />
           </NeoCard>
@@ -634,11 +609,8 @@ export default function PouchHomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {PRODUCTS.map((product) => (
-              <div key={product.id} className="group relative">
-                {/* Hover Card Effect */}
-                <div className={`absolute inset-0 ${product.color} translate-x-4 translate-y-4 border-4 border-white transition-transform group-hover:translate-x-6 group-hover:translate-y-6`} />
-                
-                <div className="relative bg-white border-4 border-black p-6 h-full flex flex-col">
+              <NeoCard key={product.id} className="h-full flex flex-col p-0 overflow-hidden">
+                <div className={`relative bg-white p-6 h-full flex flex-col`}>
                   <div className="bg-gray-100 border-2 border-black aspect-square mb-6 flex items-center justify-center relative overflow-hidden">
                     <div className={`absolute inset-0 ${product.color} opacity-20`} />
                     <img 
@@ -672,11 +644,11 @@ export default function PouchHomePage() {
 
                   <div className="text-center mb-4 font-black text-2xl">{product.price}</div>
 
-                  <NeoButton className="w-full" onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
+                  <NeoButton className="w-full" href="https://calendly.com/30-min-free-packaging-consultancy">
                     BOOK CALL
                   </NeoButton>
                 </div>
-              </div>
+              </NeoCard>
             ))}
           </div>
         </div>

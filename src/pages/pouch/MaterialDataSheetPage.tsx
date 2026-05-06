@@ -1,206 +1,210 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Download, CheckCircle, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { getDomain } from '../../utils/domain';
-import Footer from '../../components/Footer';
-import StoreFooter from '../../components/StoreFooter';
+import { Download, CheckCircle, ArrowLeft, FileText, Info } from 'lucide-react';
+import PouchLayout from '../../components/pouch/PouchLayout';
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 
 export default function MaterialDataSheetPage() {
-  const isPouch = getDomain() === 'pouch';
   return (
-    <div className="min-h-screen bg-neutral-50 pt-24 pb-16">
+    <PouchLayout>
       <Helmet>
         <title>Material Data Sheet - 60gsm Kraft Paper + 50μ Compostable Film | Achieve Pack</title>
         <meta name="description" content="Technical data sheet for 60gsm Kraft Paper + 50μ Compostable Inner Film packaging material." />
       </Helmet>
 
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="mb-6">
-          <Link to={isPouch ? "/" : "/store"} className="inline-flex items-center gap-2 text-neutral-500 hover:text-primary-600 font-medium transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-        </div>
-        <div className="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden mb-16">
-          {/* Header */}
-          <div className="bg-primary-900 text-white p-8">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-              <div>
-                <img src="/ap-logo-white.webp" alt="Achieve Pack Logo" className="h-10 mb-4" />
-                <h1 className="text-3xl font-bold mb-2">Technical Data Sheet</h1>
-                <p className="text-primary-200">Preliminary Specification</p>
-              </div>
-              <div className="mt-4 md:mt-0 text-left md:text-right">
-                <p className="text-sm text-primary-200">Last Update: March 2026</p>
-                <a 
-                  href="/pdfs/material_data_sheet.pdf?v=2" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-4 bg-white text-primary-900 px-4 py-2 rounded-lg font-medium hover:bg-neutral-100 transition-colors"
-                >
-                  <Download className="w-4 h-4" />
-                  Download PDF
-                </a>
-              </div>
-            </div>
+      <div className="py-16 px-4 bg-[#F0F0F0]">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-8">
+            <NeoButton to="/tech-specs" variant="secondary" className="!py-2 !text-sm">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Tech Specs
+            </NeoButton>
           </div>
 
-          <div className="p-8">
-            {/* Product Overview */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-primary-900 mb-6 border-b border-neutral-200 pb-2">
-                Product Overview / 产品概览
-              </h2>
-              <div className="space-y-4 text-neutral-700">
-                <p><strong>Product name / 产品名称:</strong> 60gsm Kraft Paper + 50μ Compostable Inner Film</p>
-                <p><strong>Structure / 结构:</strong> Kraft paper / 牛皮纸 + Compostable film / 可堆肥薄膜</p>
-                <p><strong>Calculation basis / 计算基准:</strong> Nominal total thickness 0.13mm (130μ) for 1 m².</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              {/* Properties */}
-              <div>
-                <h3 className="text-xl font-bold text-primary-900 mb-4 border-b border-neutral-200 pb-2">
-                  Key Features
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">Paper based compostable laminate</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">100% Home and Industrial Compostable</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">Natural Kraft Paper appearance and texture</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">Excellent sealing properties</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">Printable surface</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Applications & Certs */}
-              <div>
-                <h3 className="text-xl font-bold text-primary-900 mb-4 border-b border-neutral-200 pb-2">
-                  Common Usage / 应用场景
-                </h3>
-                <ul className="space-y-2 mb-6 text-neutral-700">
-                  <li>• Dry foods, snack foods, baked goods</li>
-                  <li>• Coffee beans, ground coffee, and tea</li>
-                  <li>• Confectionery and chocolates</li>
-                  <li>• Grains, nuts & seeds, dried fruits</li>
-                </ul>
-
-                <h3 className="text-xl font-bold text-primary-900 mb-4 border-b border-neutral-200 pb-2">
-                  Certifications
-                </h3>
-                <div className="flex gap-4">
-                  <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-12 object-contain" />
-                  <img src="/bcorp.svg" alt="B Corp" className="h-12 object-contain" />
+          <NeoCard className="!p-0 overflow-hidden mb-16">
+            {/* Header */}
+            <div className="bg-black text-[#D4FF00] p-8 border-b-4 border-black">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                  <div className="bg-[#D4FF00] text-black px-3 py-1 font-['JetBrains_Mono'] font-bold text-xs mb-4 inline-block transform -rotate-1">
+                    SPECIFICATION_v2026
+                  </div>
+                  <h1 className="text-4xl md:text-5xl font-black uppercase leading-none mb-2">Technical Data Sheet</h1>
+                  <p className="font-['JetBrains_Mono'] text-[#D4FF00]/80">Preliminary Specification // Kraft + Compostable</p>
+                </div>
+                <div className="mt-4 md:mt-0 text-left md:text-right">
+                  <p className="text-xs font-bold uppercase opacity-60 mb-4 tracking-widest">Last Update: March 2026</p>
+                  <NeoButton 
+                    href="/pdfs/material_data_sheet.pdf?v=2" 
+                    className="!bg-[#D4FF00] !text-black !border-black"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Download PDF
+                  </NeoButton>
                 </div>
               </div>
             </div>
 
-            {/* Visual Structure */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-primary-900 mb-6 border-b border-neutral-200 pb-2">
-                Material Structure Visualization
-              </h2>
-              <div className="bg-neutral-50 rounded-xl p-8 flex justify-center items-center border border-neutral-200">
-                <img 
-                  src="https://achievepack.com/imgs/store/barrier/2-paper.webp" 
-                  alt="Kraft Paper + Compostable Film Structure" 
-                  className="max-w-full h-auto max-h-64 object-contain shadow-sm rounded-lg"
-                />
-              </div>
-            </div>
-
-            {/* Construction Table */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-primary-900 mb-6 border-b border-neutral-200 pb-2">
-                Construction & Material Data / 结构与材料数据
-              </h2>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="bg-primary-50">
-                      <th className="p-3 border border-neutral-200 font-semibold text-primary-900">Layer / 层级</th>
-                      <th className="p-3 border border-neutral-200 font-semibold text-primary-900">Material / 材料</th>
-                      <th className="p-3 border border-neutral-200 font-semibold text-primary-900 text-center">Basis weight<br/>克重 (g/m²)</th>
-                      <th className="p-3 border border-neutral-200 font-semibold text-primary-900 text-center">Thickness<br/>厚度 (mm)</th>
-                      <th className="p-3 border border-neutral-200 font-semibold text-primary-900 text-center">Thickness<br/>厚度 (μm)</th>
-                      <th className="p-3 border border-neutral-200 font-semibold text-primary-900 text-center">Weight share<br/>重量占比 (%)</th>
-                      <th className="p-3 border border-neutral-200 font-semibold text-primary-900 text-center">Thickness share<br/>厚度占比 (%)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-neutral-700">
-                    <tr>
-                      <td className="p-3 border border-neutral-200 font-medium">Outer / 外层</td>
-                      <td className="p-3 border border-neutral-200">Kraft paper 牛皮纸 (uncoated)</td>
-                      <td className="p-3 border border-neutral-200 text-center">60</td>
-                      <td className="p-3 border border-neutral-200 text-center">0.08</td>
-                      <td className="p-3 border border-neutral-200 text-center">80</td>
-                      <td className="p-3 border border-neutral-200 text-center">46.2</td>
-                      <td className="p-3 border border-neutral-200 text-center">61.5</td>
-                    </tr>
-                    <tr>
-                      <td className="p-3 border border-neutral-200 font-medium">Inner / 内层</td>
-                      <td className="p-3 border border-neutral-200">Compostable film 可堆肥薄膜 (50μ, ρ=1.4)</td>
-                      <td className="p-3 border border-neutral-200 text-center">70</td>
-                      <td className="p-3 border border-neutral-200 text-center">0.05</td>
-                      <td className="p-3 border border-neutral-200 text-center">50</td>
-                      <td className="p-3 border border-neutral-200 text-center">53.8</td>
-                      <td className="p-3 border border-neutral-200 text-center">38.5</td>
-                    </tr>
-                    <tr className="bg-neutral-50 font-semibold text-primary-900">
-                      <td className="p-3 border border-neutral-200">Total / 合计</td>
-                      <td className="p-3 border border-neutral-200">Laminated structure 复合结构</td>
-                      <td className="p-3 border border-neutral-200 text-center">130</td>
-                      <td className="p-3 border border-neutral-200 text-center">0.13 (nominal)</td>
-                      <td className="p-3 border border-neutral-200 text-center">130</td>
-                      <td className="p-3 border border-neutral-200 text-center">100</td>
-                      <td className="p-3 border border-neutral-200 text-center">100</td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div className="p-8 bg-white">
+              {/* Product Overview */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-black uppercase mb-6 border-b-4 border-black pb-2 flex items-center gap-2">
+                  <Info className="w-6 h-6" /> Product Overview
+                </h2>
+                <div className="space-y-4 font-['JetBrains_Mono']">
+                  <div className="flex flex-col md:flex-row md:items-center gap-2 border-b-2 border-gray-100 pb-2">
+                    <span className="font-black min-w-[200px]">Product Name:</span>
+                    <span>60gsm Kraft Paper + 50μ Compostable Inner Film</span>
+                  </div>
+                  <div className="flex flex-col md:flex-row md:items-center gap-2 border-b-2 border-gray-100 pb-2">
+                    <span className="font-black min-w-[200px]">Structure:</span>
+                    <span>Kraft paper / 牛皮纸 + Compostable film / 可堆肥薄膜</span>
+                  </div>
+                  <div className="flex flex-col md:flex-row md:items-center gap-2">
+                    <span className="font-black min-w-[200px]">Calculation Basis:</span>
+                    <span>Nominal total thickness 0.13mm (130μ) for 1 m².</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Notes */}
-              <div className="mt-6 bg-neutral-50 p-4 rounded-lg text-sm text-neutral-600 border border-neutral-200">
-                <p className="font-semibold text-neutral-800 mb-2">Notes / 说明：</p>
-                <ul className="space-y-1">
-                  <li>• 60gsm kraft paper typical thickness range 70–85μ; here nominal 80μ (0.08mm) taken as outer layer thickness.</li>
-                  <li>• Compostable film thickness fixed at 50μ (0.05mm); with density 1.4g/cm³, this gives approx. 70g/m² basis weight.</li>
-                  <li>• Thickness share = layer thickness ÷ total thickness × 100%（例如：纸层 0.08 / 0.13 ≈ 61.5%，膜层 0.05 / 0.13 ≈ 38.5%）。</li>
-                </ul>
-              </div>
-            </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                {/* Properties */}
+                <div>
+                  <h3 className="text-xl font-black uppercase mb-4 border-b-2 border-black pb-2">
+                    Key Features
+                  </h3>
+                  <ul className="space-y-3 font-['JetBrains_Mono'] text-sm">
+                    {[
+                      'Paper based compostable laminate',
+                      '100% Home and Industrial Compostable',
+                      'Natural Kraft Paper appearance and texture',
+                      'Excellent sealing properties',
+                      'Printable surface'
+                    ].map(feature => (
+                      <li key={feature} className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-            {/* Footer */}
-            <div className="border-t border-neutral-200 pt-8 flex flex-col items-center justify-center text-center">
-              <p className="text-neutral-500 mb-2">For further details, please contact Achieve Pack's technical team.</p>
-              <div className="flex gap-6 text-sm text-neutral-600 font-medium">
-                <span>{isPouch ? 'www.pouch.eco' : 'www.achievepack.com'}</span>
-                <span>ryan@achievepack.com</span>
-                <span>Tel: +852 6970 4411</span>
+                {/* Applications */}
+                <div>
+                  <h3 className="text-xl font-black uppercase mb-4 border-b-2 border-black pb-2">
+                    Common Usage
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['Dry Foods', 'Coffee Beans', 'Confectionery', 'Nuts & Seeds', 'Dried Fruits', 'Baked Goods'].map(tag => (
+                      <NeoBadge key={tag} color="bg-gray-100">{tag}</NeoBadge>
+                    ))}
+                  </div>
+
+                  <h3 className="text-xl font-black uppercase mt-8 mb-4 border-b-2 border-black pb-2">
+                    Certifications
+                  </h3>
+                  <div className="flex gap-4 items-center grayscale hover:grayscale-0 transition-all">
+                    <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-10 object-contain" />
+                    <img src="/bcorp.svg" alt="B Corp" className="h-10 object-contain" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Visual Structure */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-black uppercase mb-6 border-b-4 border-black pb-2">
+                  Material Structure
+                </h2>
+                <div className="bg-[#f3f4f6] border-4 border-black p-8 flex justify-center items-center shadow-[inset_4px_4px_10px_rgba(0,0,0,0.1)]">
+                  <img 
+                    src="https://achievepack.com/imgs/store/barrier/2-paper.webp" 
+                    alt="Kraft Paper + Compostable Film Structure" 
+                    className="max-w-full h-auto max-h-64 object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Construction Table */}
+              <div className="mb-12">
+                <h2 className="text-2xl font-black uppercase mb-6 border-b-4 border-black pb-2">
+                  Technical Data
+                </h2>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-4 border-black border-collapse font-['JetBrains_Mono'] text-xs">
+                    <thead>
+                      <tr className="bg-black text-white">
+                        <th className="p-3 border border-gray-700">Layer / 层级</th>
+                        <th className="p-3 border border-gray-700">Material / 材料</th>
+                        <th className="p-3 border border-gray-700 text-center">GSM</th>
+                        <th className="p-3 border border-gray-700 text-center">mm</th>
+                        <th className="p-3 border border-gray-700 text-center">μm</th>
+                        <th className="p-3 border border-gray-700 text-center">Weight %</th>
+                        <th className="p-3 border border-gray-700 text-center">Thick %</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b-2 border-black">
+                        <td className="p-3 border border-gray-200 font-black uppercase bg-gray-50">Outer</td>
+                        <td className="p-3 border border-gray-200">Kraft paper (uncoated)</td>
+                        <td className="p-3 border border-gray-200 text-center">60</td>
+                        <td className="p-3 border border-gray-200 text-center">0.08</td>
+                        <td className="p-3 border border-gray-200 text-center">80</td>
+                        <td className="p-3 border border-gray-200 text-center">46.2%</td>
+                        <td className="p-3 border border-gray-200 text-center">61.5%</td>
+                      </tr>
+                      <tr className="border-b-2 border-black">
+                        <td className="p-3 border border-gray-200 font-black uppercase bg-gray-50">Inner</td>
+                        <td className="p-3 border border-gray-200">Compostable film (50μ)</td>
+                        <td className="p-3 border border-gray-200 text-center">70</td>
+                        <td className="p-3 border border-gray-200 text-center">0.05</td>
+                        <td className="p-3 border border-gray-200 text-center">50</td>
+                        <td className="p-3 border border-gray-200 text-center">53.8%</td>
+                        <td className="p-3 border border-gray-200 text-center">38.5%</td>
+                      </tr>
+                      <tr className="bg-[#D4FF00] font-black">
+                        <td className="p-3 border border-black">TOTAL</td>
+                        <td className="p-3 border border-black uppercase">Laminated</td>
+                        <td className="p-3 border border-black text-center">130</td>
+                        <td className="p-3 border border-black text-center">0.13</td>
+                        <td className="p-3 border border-black text-center">130</td>
+                        <td className="p-3 border border-black text-center">100%</td>
+                        <td className="p-3 border border-black text-center">100%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Notes */}
+                <div className="mt-8 bg-gray-50 p-6 border-2 border-black font-['JetBrains_Mono'] text-[10px] leading-relaxed">
+                  <p className="font-black text-xs uppercase mb-2">Technical Notes:</p>
+                  <ul className="space-y-1">
+                    <li>• 60gsm kraft paper typical thickness range 70–85μ; nominal 80μ taken here.</li>
+                    <li>• Compostable film 50μ at ρ=1.4 g/cm³ ≈ 70 g/m² basis weight.</li>
+                    <li>• Thickness share = layer thickness ÷ total thickness × 100%</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="border-t-4 border-black pt-12 text-center">
+                <p className="font-black uppercase text-sm mb-4 italic">Official Document // Achieve Pack Secure Hub</p>
+                <div className="flex flex-col md:flex-row items-center justify-center gap-6 font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-widest text-gray-500">
+                  <span>www.pouch.eco</span>
+                  <span>ryan@achievepack.com</span>
+                  <span>Tel: +852 6970 4411</span>
+                </div>
               </div>
             </div>
+          </NeoCard>
+          
+          <div className="text-center">
+            <NeoButton to="/materials" variant="dark" className="text-lg">
+              Browse All Materials <ArrowRight className="w-5 h-5 ml-2" />
+            </NeoButton>
           </div>
         </div>
       </div>
-      
-      {/* Global Footer */}
-      {isPouch ? <Footer /> : <StoreFooter />}
-    </div>
+    </PouchLayout>
   );
 }
+

@@ -16,7 +16,7 @@ export const getDomain = (): DomainType => {
   const hostname = window.location.hostname
   
   // Check for pouch.eco (including www.pouch.eco and localhost testing)
-  if (hostname.includes('pouch.eco') || hostname.includes('pouch-eco')) {
+  if (hostname.includes('pouch.eco') || hostname.includes('pouch-eco') || hostname.includes('localhost')) {
     return 'pouch'
   }
   

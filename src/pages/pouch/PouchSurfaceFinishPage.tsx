@@ -5,34 +5,7 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 import { getBaseUrl } from '../../utils/domain'
 
 // Neo-Brutalist Components
-const NeoButton = ({ children, onClick, variant = 'primary', className = '' }: any) => {
-  const baseStyle = "relative px-8 py-4 font-black uppercase tracking-widest border-4 border-black transition-all active:translate-x-1 active:translate-y-1"
-  const variants = {
-    primary: "bg-[#D4FF00] text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    secondary: "bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    dark: "bg-black text-[#D4FF00] hover:shadow-[8px_8px_0px_0px_#D4FF00] hover:-translate-y-1 hover:-translate-x-1 border-[#D4FF00]"
-  }
-  return <button onClick={onClick} className={`${baseStyle} ${variants[variant as keyof typeof variants]} ${className}`}>{children}</button>
-}
-
-const NeoCard = ({ children, className = '' }: any) => (
-  <motion.div 
-    className={`relative p-8 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] ${className}`}
-    whileHover={{ y: -4, x: -4, boxShadow: "12px 12px 0px 0px rgba(0,0,0,1)" }}
-  >
-    {children}
-  </motion.div>
-)
-
-const NeoBadge = ({ children, color = 'lime' }: any) => {
-  const colors = {
-    lime: 'bg-[#D4FF00] text-black',
-    cyan: 'bg-[#00FFFF] text-black',
-    magenta: 'bg-[#FF00FF] text-white',
-    gold: 'bg-yellow-400 text-black'
-  }
-  return <span className={`inline-block px-4 py-2 text-sm font-black uppercase border-2 border-black ${colors[color as keyof typeof colors]}`}>{children}</span>
-}
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchSurfaceFinishPage() {
   const baseUrl = getBaseUrl()

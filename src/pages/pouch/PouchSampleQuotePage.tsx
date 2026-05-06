@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
 import PouchLayout from '../../components/pouch/PouchLayout';
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 
 const PouchSampleQuotePage: React.FC = () => {
     const [searchParams] = useSearchParams();
@@ -16,73 +17,76 @@ const PouchSampleQuotePage: React.FC = () => {
 
     if (!isAuthenticated) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-[#f8f9fa] p-4">
+            <div className="min-h-screen flex items-center justify-center bg-[#f8f9fa] p-4 font-['Space_Grotesk']">
                 <Helmet>
-                    <title>Sample Quote - Pouch.eco</title>
+                    <title>Unlock Sample Quote | POUCH.ECO</title>
                 </Helmet>
-                <div className="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 max-w-md w-full text-center">
-                    <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
+                <NeoCard className="max-w-md w-full text-center bg-white">
+                    <div className="mb-6">
+                        <NeoBadge color="bg-[#D4FF00]">SECURE_ACCESS</NeoBadge>
                     </div>
-                    <h1 className="text-2xl font-black text-gray-900 mb-2 uppercase tracking-tight">Password Required</h1>
-                    <p className="text-gray-500 mb-8">Enter password to view the sample quote.</p>
-                    <div className="flex gap-2">
+                    
+                    <div className="w-20 h-20 bg-[#00FFFF] border-4 border-black flex items-center justify-center mx-auto mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <Lock className="w-10 h-10 text-black" />
+                    </div>
+                    
+                    <h1 className="text-3xl font-black text-gray-900 mb-2 uppercase tracking-tight leading-none">
+                        Password<br/>Required
+                    </h1>
+                    <p className="text-gray-500 mb-8 font-['JetBrains_Mono'] text-sm font-bold">
+                        &gt; Enter access code to view the sample quote protocol.
+                    </p>
+                    
+                    <div className="flex flex-col gap-4">
                         <input 
                             type="password" 
                             id="pwdInput"
-                            className="flex-1 border-2 border-gray-100 rounded-xl px-4 py-3 focus:border-green-500 outline-none transition-all font-medium" 
-                            placeholder="Enter password"
+                            className="w-full border-4 border-black bg-white px-4 py-4 focus:bg-[#D4FF00]/10 outline-none transition-all font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] placeholder:text-gray-300" 
+                            placeholder="Type password..."
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter') {
                                     window.location.href = '?p=' + (e.target as HTMLInputElement).value;
                                 }
                             }}
                         />
-                        <button 
+                        <NeoButton 
                             onClick={() => {
                                 const el = document.getElementById('pwdInput') as HTMLInputElement;
                                 if (el) window.location.href = '?p=' + el.value;
                             }}
-                            className="bg-black text-white px-6 py-3 rounded-xl font-bold hover:bg-green-600 transition-all shadow-lg active:scale-95"
+                            className="w-full justify-center text-lg py-4"
                         >
-                            Unlock
-                        </button>
+                            Unlock Access
+                        </NeoButton>
                     </div>
-                </div>
+
+                    <div className="mt-8 pt-6 border-t-2 border-black/10 font-['JetBrains_Mono'] text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                        Official Shared Quote System v2.0
+                    </div>
+                </NeoCard>
             </div>
         );
     }
 
+
     return (
         <PouchLayout>
             <Helmet>
-                <title>Sample Prototype Quote | Pouch.eco</title>
-                <style>
-                    {`
-                        .neo-shadow {
-                            box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
-                        }
-                        .neo-border {
-                            border: 4px solid black;
-                        }
-                    `}
-                </style>
+                <title>Sample Quote - Pouch.eco</title>
             </Helmet>
 
             <div className="bg-[#f8f9fa] py-16 px-4">
                 <div className="max-w-4xl mx-auto">
                     {/* Header Card */}
-                    <div className="bg-white neo-border neo-shadow p-8 md:p-12 mb-12">
+                    <NeoCard className="p-8 md:p-12 mb-12">
                         <div className="flex flex-col md:flex-row justify-between items-start gap-8 border-b-4 border-black pb-8 mb-8">
                             <div>
                                 <h1 className="text-5xl md:text-6xl font-black uppercase leading-none mb-4">
                                     Sample<br/>Quote
                                 </h1>
-                                <div className="inline-block bg-[#D4FF00] neo-border px-4 py-1 font-black text-sm uppercase tracking-widest">
+                                <NeoBadge color="lime">
                                     Flash Edition
-                                </div>
+                                </NeoBadge>
                             </div>
                         </div>
 
@@ -90,7 +94,7 @@ const PouchSampleQuotePage: React.FC = () => {
                         <div className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-4">
                             
                             {/* Hand Make Sample */}
-                            <div className="bg-white neo-border neo-shadow flex flex-col overflow-hidden transition-transform hover:-translate-y-1">
+                            <NeoCard className="flex flex-col !p-0 overflow-hidden transition-transform hover:-translate-y-1">
                                 <div className="bg-black text-white py-3 text-center font-black text-sm uppercase tracking-widest">
                                     Hand Make Sample
                                 </div>
@@ -101,10 +105,10 @@ const PouchSampleQuotePage: React.FC = () => {
                                         className="w-full h-full object-cover object-center aspect-[3/4]"
                                     />
                                 </div>
-                            </div>
+                            </NeoCard>
 
                             {/* Commercial Sample */}
-                            <div className="bg-[#D4FF00] neo-border neo-shadow flex flex-col overflow-hidden transition-transform hover:-translate-y-1 md:-mt-4">
+                            <NeoCard className="bg-[#D4FF00] flex flex-col !p-0 overflow-hidden transition-transform hover:-translate-y-1 md:-mt-4">
                                 <div className="bg-black text-[#D4FF00] py-3 text-center font-black text-sm uppercase tracking-widest">
                                     Commercial Sample
                                 </div>
@@ -115,10 +119,10 @@ const PouchSampleQuotePage: React.FC = () => {
                                         className="w-full h-full object-cover object-center aspect-[3/4]"
                                     />
                                 </div>
-                            </div>
+                            </NeoCard>
 
                             {/* Sheet Sample */}
-                            <div className="bg-white neo-border neo-shadow flex flex-col overflow-hidden transition-transform hover:-translate-y-1">
+                            <NeoCard className="flex flex-col !p-0 overflow-hidden transition-transform hover:-translate-y-1">
                                 <div className="bg-black text-white py-3 text-center font-black text-sm uppercase tracking-widest">
                                     Sheet Sample
                                 </div>
@@ -129,18 +133,18 @@ const PouchSampleQuotePage: React.FC = () => {
                                         className="w-full h-full object-cover object-center aspect-[3/4]"
                                     />
                                 </div>
-                            </div>
+                            </NeoCard>
 
                         </div>
 
                         {/* Options Grid */}
                         <div className="grid gap-8 mb-12">
                             {/* Option 1 */}
-                            <div className="group bg-[#f3f4f6] neo-border p-6 md:p-8 hover:bg-white transition-colors">
+                            <NeoCard className="group !p-6 md:!p-8 bg-[#f3f4f6] hover:bg-white transition-colors">
                                 <div className="flex flex-col md:flex-row justify-between gap-6">
                                     <div className="flex-1">
                                         <div className="flex items-center gap-3 mb-4">
-                                            <span className="bg-black text-white px-3 py-1 font-black text-xs uppercase">Option 01</span>
+                                            <NeoBadge color="bg-black text-white">Option 01</NeoBadge>
                                             <h2 className="text-2xl font-black uppercase">Material Sample Prototype</h2>
                                         </div>
                                         <p className="text-gray-600 font-medium mb-4 leading-relaxed">
@@ -157,14 +161,14 @@ const PouchSampleQuotePage: React.FC = () => {
                                         <div className="text-sm font-bold uppercase opacity-60">Set of 4 pieces</div>
                                     </div>
                                 </div>
-                            </div>
+                            </NeoCard>
 
                             {/* Option 2 */}
-                            <div className="group bg-[#D4FF00] neo-border p-6 md:p-8 hover:scale-[1.01] transition-all">
+                            <NeoCard className="group bg-[#D4FF00] !p-6 md:!p-8 hover:scale-[1.01] transition-all">
                                 <div className="flex flex-col md:flex-row justify-between gap-6">
                                     <div className="flex-1">
                                         <div className="flex items-center gap-3 mb-4">
-                                            <span className="bg-black text-white px-3 py-1 font-black text-xs uppercase">Option 02</span>
+                                            <NeoBadge color="bg-black text-white">Option 02</NeoBadge>
                                             <h2 className="text-2xl font-black uppercase">Final Product Sample</h2>
                                         </div>
                                         <p className="text-black font-semibold mb-4 leading-relaxed">
@@ -183,14 +187,14 @@ const PouchSampleQuotePage: React.FC = () => {
                                         <div className="text-sm font-black uppercase opacity-60 text-black">Set of 50 pieces</div>
                                     </div>
                                 </div>
-                            </div>
+                            </NeoCard>
 
                             {/* Option 3 */}
-                            <div className="group bg-[#f3f4f6] neo-border p-6 md:p-8 hover:bg-white transition-colors">
+                            <NeoCard className="group !p-6 md:!p-8 bg-[#f3f4f6] hover:bg-white transition-colors">
                                 <div className="flex flex-col md:flex-row justify-between gap-6">
                                     <div className="flex-1">
                                         <div className="flex items-center gap-3 mb-4">
-                                            <span className="bg-black text-white px-3 py-1 font-black text-xs uppercase">Option 03</span>
+                                            <NeoBadge color="bg-black text-white">Option 03</NeoBadge>
                                             <h2 className="text-2xl font-black uppercase">Artwork Print Only</h2>
                                         </div>
                                         <p className="text-gray-600 font-medium mb-4 leading-relaxed">
@@ -206,7 +210,7 @@ const PouchSampleQuotePage: React.FC = () => {
                                         <div className="text-sm font-bold uppercase opacity-60">Artwork Proof Sheet</div>
                                     </div>
                                 </div>
-                            </div>
+                            </NeoCard>
                         </div>
 
                         {/* Timeline Section */}
@@ -218,29 +222,29 @@ const PouchSampleQuotePage: React.FC = () => {
                                 Fast-Track Timeline
                             </h3>
                             <div className="grid md:grid-cols-2 gap-8">
-                                <div className="bg-black text-white neo-border p-8">
+                                <NeoCard className="bg-black text-white p-8">
                                     <h4 className="text-[#D4FF00] font-black uppercase text-xl mb-4">Production</h4>
                                     <p className="text-3xl font-black leading-tight">Lead Time is<br/>Approx 2 Weeks</p>
                                     <p className="text-sm mt-4 font-bold opacity-60 uppercase tracking-widest">Post-Approval</p>
-                                </div>
-                                <div className="bg-white neo-border p-8">
+                                </NeoCard>
+                                <NeoCard className="bg-white p-8">
                                     <h4 className="font-black uppercase text-xl mb-4 text-gray-400">FedEx Shipping</h4>
                                     <p className="text-3xl font-black leading-tight">+ Approx 10<br/>Business Days</p>
                                     <p className="text-sm mt-4 font-bold text-green-600 uppercase tracking-widest">Door-to-Door Service</p>
-                                </div>
+                                </NeoCard>
                             </div>
                         </div>
 
                         {/* Logistics info */}
                         <div className="mt-8 grid md:grid-cols-2 gap-4">
-                            <div className="flex items-center gap-3 bg-gray-50 p-4 neo-border">
+                            <NeoCard className="flex items-center gap-3 bg-gray-50 !p-4">
                                 <div className="w-6 h-6 bg-black text-white flex items-center justify-center font-black text-xs">!</div>
                                 <p className="text-sm font-black uppercase italic">Includes FedEx Shipping Cost</p>
-                            </div>
-                            <div className="flex items-center gap-3 bg-gray-50 p-4 neo-border">
+                            </NeoCard>
+                            <NeoCard className="flex items-center gap-3 bg-gray-50 !p-4">
                                 <div className="w-6 h-6 bg-black text-white flex items-center justify-center font-black text-xs">X</div>
                                 <p className="text-sm font-black uppercase italic">Excluded Tax & Duty</p>
-                            </div>
+                            </NeoCard>
                         </div>
                     </div>
 

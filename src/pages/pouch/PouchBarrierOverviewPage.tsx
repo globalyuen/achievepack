@@ -7,31 +7,7 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 // NEO-BRUTALIST COMPONENTS
 // ============================================
 
-const NeoButton = ({ children, onClick, variant = 'primary', className = '' }: any) => {
-  const baseStyle = "relative px-6 py-3 font-black uppercase text-sm tracking-wider border-4 border-black transition-all active:translate-x-1 active:translate-y-1"
-  const variants = {
-    primary: "bg-[#D4FF00] text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    secondary: "bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1"
-  }
-  
-  return (
-    <button onClick={onClick} className={`${baseStyle} ${variants[variant as keyof typeof variants]} ${className}`}>
-      {children}
-    </button>
-  )
-}
-
-const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
-  <div className={`border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] ${color} ${className} transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]`}>
-    {children}
-  </div>
-)
-
-const NeoBadge = ({ children, color = 'bg-[#00FFFF]' }: any) => (
-  <span className={`inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black ${color} text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
-    {children}
-  </span>
-)
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 // ============================================
 // MAIN PAGE
@@ -126,7 +102,7 @@ export default function PouchBarrierOverviewPage() {
           </p>
 
           <div className="flex gap-4 flex-wrap">
-            <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
+            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">
               Get Expert Help
             </NeoButton>
             <NeoButton variant="secondary">Take the Quiz</NeoButton>
@@ -326,7 +302,7 @@ export default function PouchBarrierOverviewPage() {
                 <li>✓ Actual vs theoretical shelf life</li>
               </ul>
             </div>
-            <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
+            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">
               Request Free Testing
             </NeoButton>
           </NeoCard>
@@ -342,7 +318,7 @@ export default function PouchBarrierOverviewPage() {
           <p className="text-xl mb-8 text-gray-300">
             Book a consultation and we'll recommend the perfect option for your product!
           </p>
-          <NeoButton onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
+          <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">
             Talk to an Expert
           </NeoButton>
         </div>

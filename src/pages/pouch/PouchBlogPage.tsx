@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { BookOpen, Calendar, ArrowRight, TrendingUp, Leaf, Coffee, Package, Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PouchLayout from '../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchBlogPage() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -444,8 +445,8 @@ export default function PouchBlogPage() {
       {/* Featured Post */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-[#F0F0F0] border-4 border-black grid md:grid-cols-2 overflow-hidden shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            <div className="border-2 border-black overflow-hidden">
+          <NeoCard className="grid md:grid-cols-2 overflow-hidden !p-0">
+            <div className="border-r-4 border-black overflow-hidden">
               <img 
                 src={featured.image} 
                 alt={featured.title}
@@ -453,10 +454,10 @@ export default function PouchBlogPage() {
               />
             </div>
             
-            <div className="p-8 flex flex-col justify-center">
-              <div className="inline-block bg-[#D4FF00] border-2 border-black px-3 py-1 text-xs font-['JetBrains_Mono'] font-bold w-fit mb-4">
+            <div className="p-8 flex flex-col justify-center bg-[#F0F0F0]">
+              <NeoBadge color="lime" className="mb-4">
                 FEATURED
-              </div>
+              </NeoBadge>
 
               <h2 className="font-black text-3xl md:text-4xl mb-4 leading-tight">
                 {featured.title}
@@ -475,15 +476,14 @@ export default function PouchBlogPage() {
                 <span>{featured.readTime} read</span>
               </div>
 
-              <Link
+              <NeoButton
                 to={featured.link}
-                className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 font-black uppercase hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all w-fit"
               >
                 Read Guide
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+                <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+              </NeoButton>
             </div>
-          </div>
+          </NeoCard>
         </div>
       </section>
 
@@ -507,27 +507,22 @@ export default function PouchBlogPage() {
                 <p className="font-['JetBrains_Mono'] text-sm mb-6 text-gray-600">
                   Try adjusting your search or filter to find what you're looking for.
                 </p>
-                <button
+                <NeoButton
                   onClick={() => {
                     setSearchQuery('')
                     setSelectedCategory('All Posts')
                   }}
-                  className="bg-black text-white px-6 py-3 font-black uppercase border-4 border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
                 >
                   Reset Filters
-                </button>
+                </NeoButton>
               </div>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post, idx) => (
-                <motion.article
+                <NeoCard
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all overflow-hidden group"
+                  className="flex flex-col h-full !p-0 overflow-hidden group"
                 >
                   {/* Image */}
                   <div className="border-b-4 border-black overflow-hidden h-48">
@@ -539,18 +534,18 @@ export default function PouchBlogPage() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="bg-[#D4FF00] border-2 border-black px-2 py-1 text-xs font-['JetBrains_Mono'] font-bold">
+                      <NeoBadge color="lime">
                         {post.category}
-                      </span>
+                      </NeoBadge>
                     </div>
 
                     <h3 className="font-black text-xl mb-3 leading-tight">
                       {post.title}
                     </h3>
 
-                    <p className="text-sm mb-4 font-['Space_Grotesk'] text-gray-700">
+                    <p className="text-sm mb-4 font-['Space_Grotesk'] text-gray-700 flex-grow">
                       {post.excerpt}
                     </p>
 
@@ -559,15 +554,16 @@ export default function PouchBlogPage() {
                       <span>{post.readTime} read</span>
                     </div>
 
-                    <Link
+                    <NeoButton
                       to={post.link}
-                      className="inline-flex items-center gap-2 text-sm font-black uppercase hover:text-[#10b981] transition-colors"
+                      variant="secondary"
+                      className="!py-2 !text-xs !w-fit"
                     >
                       Read More
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
+                      <ArrowRight className="w-4 h-4 ml-2 inline-block" />
+                    </NeoButton>
                   </div>
-                </motion.article>
+                </NeoCard>
               ))}
             </div>
           )}
@@ -591,9 +587,12 @@ export default function PouchBlogPage() {
               placeholder="YOUR_EMAIL@BRAND.COM"
               className="flex-1 bg-white border-4 border-black px-6 py-4 font-['JetBrains_Mono'] font-bold focus:outline-none focus:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow"
             />
-            <button className="bg-black text-white px-8 py-4 font-black uppercase border-4 border-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+            <NeoButton 
+              className="px-8 py-4"
+              onClick={() => alert('Subscription logic here')}
+            >
               Subscribe
-            </button>
+            </NeoButton>
           </div>
 
           <p className="mt-4 text-sm font-['JetBrains_Mono']">

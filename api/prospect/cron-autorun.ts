@@ -425,7 +425,7 @@ const INVALID_NAME_PATTERNS = [
     /^no specific/i,
     /^not (a|an|the)/i,
     /^this (is|refers|page|title|website)/i,
-    /^the title/i,
+    /^the (title|brand|website|page|company|name)/i,
     /^multiple/i,
     /^various/i,
     /cannot (be|determine)/i,
@@ -437,6 +437,10 @@ const INVALID_NAME_PATTERNS = [
 // Check if an AI-returned name is actually valid
 function isValidCleanName(name: string): boolean {
     if (!name || name.trim().length < 2) return false
+    
+    // If it starts with "The brand name is" or similar, it's an explanation
+    if (/^(the brand|the company|the name|this is)/i.test(name)) return false
+    
     if (name.length > 60) return false // Too long = probably an explanation
     const trimmed = name.trim()
     return !INVALID_NAME_PATTERNS.some(pattern => pattern.test(trimmed))
@@ -457,29 +461,19 @@ async function cleanBusinessNameWithAI(rawName: string, domain?: string): Promis
                 'Authorization': `Bearer ${XAI_API_KEY}`
             },
             body: JSON.stringify({
-                model: 'grok-3',
-                messages: [{
-                    role: 'user',
-                    content: `You are extracting a company brand name from a webpage title.
-
-Title: "${rawName}"
-Domain: "${domain || ''}"
-
-Return ONLY the brand/company name — nothing else. No explanations. No punctuation. No quotes.
-
-Strict rules:
-- Return 1–4 words that is the actual brand or company name
-- If the title is generic (e.g. "Top 10 UK beauty brands"), derive the name from the domain instead
-- NEVER return "None", "N/A", "Unknown", "No company", or any explanation
-- NEVER include parentheses or qualifying text
-- If truly impossible to determine a name, return just the domain name without the TLD
-
-Examples:
-- "Krave Beauty – Skincare for All" → "Krave Beauty"
-- "Top 10 UK Beauty Brands | Cosmetify" → "Cosmetify"
-- "About – Grind Coffee" → "Grind Coffee"
-- domain: "bluebottlecoffee.com" → "Blue Bottle Coffee"`
-                }],
+                model: 'grok-2-latest',
+                messages: [
+                    {
+                        role: 'system',
+                        content: 'You are a brand name extractor. Return ONLY the brand name, no explanations, no punctuation, no conversational filler.'
+                    },
+                    {
+                        role: 'user',
+                        content: `Extract the core brand/company name from this title: "${rawName}" (Domain: ${domain || 'unknown'}).
+                        
+Return ONLY the name (1-4 words). No "The brand is...", no quotes.`
+                    }
+                ],
                 max_tokens: 20,
                 temperature: 0
             })
@@ -487,7 +481,11 @@ Examples:
         
         if (response.ok) {
             const data = await response.json() as { choices?: { message?: { content?: string } }[] }
-            const cleaned = data.choices?.[0]?.message?.content?.trim()?.replace(/["']/g, '')
+            let cleaned = data.choices?.[0]?.message?.content?.trim()?.replace(/["']/g, '') || ''
+            
+            // Post-process to remove conversational filler if any remains
+            cleaned = cleaned.replace(/^(The brand name is|The brand is|The company is|The name is|Name:)\s*/i, '')
+            
             if (cleaned && isValidCleanName(cleaned)) {
                 return cleaned
             }
@@ -1584,7 +1582,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 
                 const contacted = await alreadyContacted(email)
                 if (contacted) {
-                    addLog(`   ⏭️ SKIP: ${email} (already contacted)`)
+                    addLog(`   ⏭️ SKIP: ${email} (already contacted in last 30 days)`)
                     continue
                 }
                 
@@ -1593,7 +1591,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 // Clean business name using AI — pass domain as fallback source
                 addLog(`   🤖 Cleaning business name with AI...`)
                 const cleanName = await cleanBusinessNameWithAI(business.name, domain)
-                addLog(`   📝 Name: "${business.name}" → "${cleanName}"`)
+                addLog(`   📝 Name: "${business.name}" → "${cleanName || 'null'}"`)
                 
                 // HARD SKIP: if we couldn't extract a real company name, do NOT send the email
                 if (!cleanName) {
@@ -1649,7 +1647,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                         })
                         .eq('id', prospect.id)
                     
-                    emailsSent++
+                    newEmailsSent++
                     addLog(`   ✉️ EMAIL SENT to ${cleanName} (${email})`)
                 } catch (emailError: any) {
                     addLog(`   ❌ Email send error: ${emailError.message || 'Unknown'}`)

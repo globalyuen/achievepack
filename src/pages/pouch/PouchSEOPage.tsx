@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Search, TrendingUp, Target, Award, BarChart3, CheckCircle, ArrowRight, Calendar } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
+import { NeoButton } from '../../components/pouch/PouchUI'
 
 export default function PouchSEOPage() {
   // Add scroll detection for enhanced animations
@@ -204,22 +205,21 @@ export default function PouchSEOPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <NeoButton
                 href="https://calendly.com/30-min-free-packaging-consultancy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#D4FF00] text-black px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all font-['Space_Grotesk'] font-black uppercase text-lg"
+                className="text-lg"
               >
-                <Calendar className="h-5 w-5" />
+                <Calendar className="h-5 w-5 mr-2 inline-block" />
                 Book SEO Consult
-              </a>
-              <a
+              </NeoButton>
+              <NeoButton
+                variant="secondary"
                 href="#keywords"
-                className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all font-['Space_Grotesk'] font-black uppercase text-lg"
+                className="text-lg"
               >
                 See Keywords
-                <ArrowRight className="h-5 w-5" />
-              </a>
+                <ArrowRight className="h-5 w-5 ml-2 inline-block" />
+              </NeoButton>
             </div>
           </motion.div>
         </div>
@@ -451,15 +451,14 @@ export default function PouchSEOPage() {
             <p className="text-xl font-['JetBrains_Mono'] mb-8">
               Book a FREE 30-minute SEO consultation. We'll audit your site, identify quick wins, and build a custom keyword strategy.
             </p>
-            <a
+            <NeoButton
+              variant="dark"
               href="https://calendly.com/30-min-free-packaging-consultancy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-black text-[#D4FF00] px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all font-['Space_Grotesk'] font-black uppercase text-lg"
+              className="!text-[#D4FF00] !border-[#D4FF00] text-lg"
             >
-              <Calendar className="h-5 w-5" />
+              <Calendar className="h-5 w-5 mr-2 inline-block" />
               Book Your SEO Consult
-            </a>
+            </NeoButton>
             <p className="text-sm font-['JetBrains_Mono'] mt-4">
               No pitch. No obligation. Just actionable SEO advice.
             </p>

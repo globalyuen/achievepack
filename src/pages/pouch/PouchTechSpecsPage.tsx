@@ -2,32 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { ArrowRight, Eye, FileText, FlaskConical, Home, Layers, ShieldCheck, Zap } from 'lucide-react'
 
-// Reusing Neo-components for consistency
-const NeoButton = ({ children, onClick, variant = 'primary', className = '' }: any) => {
-  const baseStyle = "relative px-8 py-4 font-black uppercase tracking-widest border-4 border-black transition-all active:translate-x-1 active:translate-y-1 inline-flex items-center gap-2"
-  const variants = {
-    primary: "bg-[#D4FF00] text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    secondary: "bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    dark: "bg-black text-[#D4FF00] hover:shadow-[8px_8px_0px_0px_#D4FF00] hover:-translate-y-1 hover:-translate-x-1 border-[#D4FF00]"
-  }
-  return (
-    <button onClick={onClick} className={`${baseStyle} ${variants[variant as keyof typeof variants]} ${className}`}>
-      {children}
-    </button>
-  )
-}
-
-const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
-  <div className={`border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] ${color} ${className} transition-transform hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)]`}>
-    {children}
-  </div>
-)
-
-const NeoBadge = ({ children, color = 'bg-[#FF00FF]' }: any) => (
-  <span className={`inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black ${color} text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
-    {children}
-  </span>
-)
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchTechSpecsPage() {
   const specs = [
@@ -245,7 +220,7 @@ export default function PouchTechSpecsPage() {
                           ))}
                         </div>
                       </div>
-                      <NeoButton variant="dark" className="w-full justify-center mt-auto" onClick={() => window.open(spec.pdfUrl, '_blank')}>
+                      <NeoButton variant="dark" className="w-full justify-center mt-auto" href={spec.pdfUrl} target="_blank">
                         <FileText className="w-4 h-4" /> Download PDF
                       </NeoButton>
                     </div>
@@ -351,7 +326,7 @@ export default function PouchTechSpecsPage() {
                        </div>
                     </div>
 
-                    <NeoButton variant="dark" className="w-full justify-center mt-auto" onClick={() => window.open(spec.pdfUrl, '_blank')}>
+                    <NeoButton variant="dark" className="w-full justify-center mt-auto" href={spec.pdfUrl} target="_blank">
                        <FileText className="w-4 h-4" /> Download PDF
                     </NeoButton>
                   </>
@@ -387,7 +362,7 @@ export default function PouchTechSpecsPage() {
                    </div>
                </div>
 
-               <NeoButton variant="primary" className="w-full justify-center mt-auto" onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
+               <NeoButton variant="primary" className="w-full justify-center mt-auto" href="https://calendly.com/30-min-free-packaging-consultancy">
                   <ArrowRight className="w-4 h-4" /> Book Consultation
                </NeoButton>
             </NeoCard>
@@ -420,7 +395,7 @@ export default function PouchTechSpecsPage() {
                        Tensile & Puncture Strength Verification
                     </li>
                  </ul>
-                 <NeoButton variant="secondary" onClick={() => window.open('https://calendly.com/30-min-free-packaging-consultancy', '_blank')}>
+                 <NeoButton variant="secondary" href="https://calendly.com/30-min-free-packaging-consultancy">
                     Request Test Reports
                  </NeoButton>
               </div>
