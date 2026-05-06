@@ -185,19 +185,24 @@ const EmailCampaignPage = () => {
           {/* Left Column: Editor */}
           <div className="lg:col-span-2 space-y-8">
             <NeoCard>
-              <div className="flex gap-4 mb-6 border-b border-neutral-200">
-                <button 
-                  onClick={() => setPreviewMode('edit')}
-                  className={`pb-4 px-4 font-black uppercase text-sm ${previewMode === 'edit' ? 'border-b-4 border-black' : 'text-neutral-400'}`}
-                >
-                  <Code className="w-4 h-4 inline mr-2" /> Edit HTML
-                </button>
-                <button 
-                  onClick={() => setPreviewMode('preview')}
-                  className={`pb-4 px-4 font-black uppercase text-sm ${previewMode === 'preview' ? 'border-b-4 border-black' : 'text-neutral-400'}`}
-                >
-                  <Eye className="w-4 h-4 inline mr-2" /> Preview
-                </button>
+              <div className="flex items-center justify-between mb-6 border-b border-neutral-200">
+                <div className="flex gap-4">
+                  <button 
+                    onClick={() => setPreviewMode('edit')}
+                    className={`pb-4 px-4 font-black uppercase text-sm ${previewMode === 'edit' ? 'border-b-4 border-black' : 'text-neutral-400'}`}
+                  >
+                    <Code className="w-4 h-4 inline mr-2" /> Side-by-Side
+                  </button>
+                  <button 
+                    onClick={() => setPreviewMode('preview')}
+                    className={`pb-4 px-4 font-black uppercase text-sm ${previewMode === 'preview' ? 'border-b-4 border-black' : 'text-neutral-400'}`}
+                  >
+                    <Eye className="w-4 h-4 inline mr-2" /> Full Preview
+                  </button>
+                </div>
+                <div className="pb-4">
+                  <span className="text-xs font-bold text-neutral-400 uppercase">Live Editor</span>
+                </div>
               </div>
 
               <div className="space-y-6">
@@ -207,30 +212,33 @@ const EmailCampaignPage = () => {
                     type="text" 
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="w-full p-4 border-4 border-black focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all font-bold"
+                    className="w-full p-4 border-4 border-black focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all font-bold bg-white"
                   />
                 </div>
 
-                {previewMode === 'edit' ? (
-                  <div>
+                <div className={previewMode === 'edit' ? "grid lg:grid-cols-2 gap-6" : ""}>
+                  <div className={previewMode === 'preview' ? "hidden" : "space-y-2"}>
                     <label className="block text-xs font-black uppercase mb-2">HTML Body</label>
                     <textarea 
                       value={body}
                       onChange={(e) => setBody(e.target.value)}
-                      className="w-full h-[600px] p-4 border-4 border-black focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all font-mono text-sm"
+                      className="w-full h-[600px] p-4 border-4 border-black focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] outline-none transition-all font-mono text-xs bg-neutral-900 text-green-400"
                     />
                     <div className="mt-4 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
-                      <p className="text-sm font-bold text-blue-800">
-                        <AlertCircle className="w-4 h-4 inline mr-2" />
-                        Available Placeholders: {'{{name}}'}, {'{{company}}'}, {'{{email}}'}
+                      <p className="text-sm font-bold text-blue-800 flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4" />
+                        Placeholders: {'{{name}}'}, {'{{company}}'}
                       </p>
                     </div>
                   </div>
-                ) : (
-                  <div className="border-4 border-black p-4 bg-white overflow-auto h-[600px]">
-                    <div dangerouslySetInnerHTML={{ __html: body.replace('{{name}}', 'Ryan').replace('{{company}}', 'Achieve Pack') }} />
+
+                  <div className={previewMode === 'edit' || previewMode === 'preview' ? "space-y-2" : "hidden"}>
+                    <label className="block text-xs font-black uppercase mb-2">Visual Preview</label>
+                    <div className={`border-4 border-black p-4 bg-white overflow-auto h-[600px] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)]`}>
+                      <div dangerouslySetInnerHTML={{ __html: body.replace(/{{name}}/g, 'Ryan').replace(/{{company}}/g, 'Achieve Pack') }} />
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             </NeoCard>
           </div>
