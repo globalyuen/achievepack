@@ -137,14 +137,14 @@ const SharedQuotePage: React.FC = () => {
   const handleInsertImage = () => {
     const url = prompt('Enter image URL:');
     if (url) {
-      insertHtml(`<img src="${url}" style="max-width: 100%; border-radius: 12px; margin: 20px 0; border: 4px solid black; box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);" alt="Product Image" />`);
+      insertHtml(`<div class="media-thumbnail-container" onclick="openLightbox(this)" data-src="${url}" data-type="image"><img src="${url}" class="media-thumbnail" alt="Product Image" /></div>`);
     }
   };
 
   const handleInsertVideo = () => {
     const url = prompt('Enter video URL (direct link):');
     if (url) {
-      insertHtml(`<video src="${url}" controls style="max-width: 100%; border-radius: 12px; margin: 20px 0; border: 4px solid black; box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);"></video>`);
+      insertHtml(`<div class="media-thumbnail-container" onclick="openLightbox(this)" data-src="${url}" data-type="video"><div class="media-video-thumbnail"><video src="${url}"></video></div></div>`);
     }
   };
 
@@ -345,7 +345,131 @@ const SharedQuotePage: React.FC = () => {
           {quoteHtml && (
             <iframe
               key={quoteHtml}
-              srcDoc={quoteHtml}
+              srcDoc={`
+                <html>
+                  <head>
+                    <style>
+                      .media-thumbnail-container {
+                        display: inline-block;
+                        margin: 10px;
+                        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                      }
+                      .media-thumbnail-container:hover {
+                        transform: scale(1.08) rotate(1deg);
+                      }
+                      .media-thumbnail {
+                        width: 150px;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 12px;
+                        border: 4px solid black;
+                        box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+                        cursor: pointer;
+                        display: block;
+                      }
+                      .media-video-thumbnail {
+                        position: relative;
+                        width: 150px;
+                        height: 150px;
+                        background: #000;
+                        border-radius: 12px;
+                        border: 4px solid black;
+                        box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+                        cursor: pointer;
+                        overflow: hidden;
+                      }
+                      .media-video-thumbnail video {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        opacity: 0.6;
+                      }
+                      .media-video-thumbnail::after {
+                        content: '▶';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: white;
+                        font-size: 40px;
+                        text-shadow: 0 0 15px rgba(0,0,0,0.8);
+                        background: rgba(0,0,0,0.3);
+                        width: 60px;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        border: 2px solid white;
+                      }
+                    </style>
+                    <script>
+                      function openLightbox(element) {
+                        const src = element.getAttribute('data-src');
+                        const type = element.getAttribute('data-type');
+                        const overlay = document.createElement('div');
+                        overlay.style.position = 'fixed';
+                        overlay.style.top = '0';
+                        overlay.style.left = '0';
+                        overlay.style.width = '100%';
+                        overlay.style.height = '100%';
+                        overlay.style.backgroundColor = 'rgba(0,0,0,0.95)';
+                        overlay.style.zIndex = '100000';
+                        overlay.style.display = 'flex';
+                        overlay.style.flexDirection = 'column';
+                        overlay.style.alignItems = 'center';
+                        overlay.style.justifyContent = 'center';
+                        overlay.style.cursor = 'zoom-out';
+                        overlay.style.backdropFilter = 'blur(10px)';
+                        overlay.style.padding = '20px';
+                        
+                        const closeBtn = document.createElement('div');
+                        closeBtn.innerHTML = '✕ CLOSE';
+                        closeBtn.style.position = 'fixed';
+                        closeBtn.style.top = '20px';
+                        closeBtn.style.right = '20px';
+                        closeBtn.style.color = '#D4FF00';
+                        closeBtn.style.fontSize = '20px';
+                        closeBtn.style.fontWeight = '900';
+                        closeBtn.style.cursor = 'pointer';
+                        closeBtn.style.padding = '10px 20px';
+                        closeBtn.style.border = '3px solid #D4FF00';
+                        closeBtn.style.backgroundColor = 'black';
+                        
+                        let content;
+                        if (type === 'image') {
+                          content = document.createElement('img');
+                          content.src = src;
+                          content.style.maxWidth = '100%';
+                          content.style.maxHeight = '85vh';
+                          content.style.borderRadius = '16px';
+                          content.style.border = '4px solid white';
+                          content.style.boxShadow = '0 0 50px rgba(212, 255, 0, 0.2)';
+                        } else {
+                          content = document.createElement('video');
+                          content.src = src;
+                          content.controls = true;
+                          content.autoplay = true;
+                          content.style.maxWidth = '100%';
+                          content.style.maxHeight = '85vh';
+                          content.style.borderRadius = '16px';
+                          content.style.border = '4px solid white';
+                        }
+                        
+                        overlay.appendChild(closeBtn);
+                        overlay.appendChild(content);
+                        overlay.onclick = (e) => {
+                          if (e.target !== content) document.body.removeChild(overlay);
+                        };
+                        document.body.appendChild(overlay);
+                      }
+                    </script>
+                  </head>
+                  <body style="margin:0; padding:0;">
+                    ${quoteHtml}
+                  </body>
+                </html>
+              `}
               className="w-full border-none min-h-[1100px]"
               title="Official Quotation"
               style={{ display: 'block' }}
