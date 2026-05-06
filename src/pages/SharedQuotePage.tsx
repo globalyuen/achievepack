@@ -210,160 +210,41 @@ const SharedQuotePage: React.FC = () => {
 
   const getSrcDoc = () => {
     if (!quoteHtml) return '';
-    return `
+    const doc = `
       <html>
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <style>
-            html, body {
-              margin: 0;
-              padding: 0;
-              background-color: #F3F4F6;
-              font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-              overflow: hidden;
-            }
-            body {
-              display: flex;
-              justify-content: center;
-              padding: 40px 20px;
-            }
+            html, body { margin: 0; padding: 0; background-color: #F3F4F6; font-family: sans-serif; overflow: hidden; }
+            body { display: flex; justify-content: center; padding: 40px 20px; }
             .quote-document-container {
-              width: 100%;
-              max-width: 850px;
-              background: white;
-              padding: 60px;
-              box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-              border-radius: 4px;
-              min-height: 800px;
-              box-sizing: border-box;
-              position: relative;
+              width: 100%; max-width: 850px; background: white; padding: 60px;
+              box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); border-radius: 4px;
+              min-height: 800px; box-sizing: border-box; position: relative;
             }
-            @media (max-width: 640px) {
-              body { padding: 10px; }
-              .quote-document-container { padding: 20px; }
-            }
-            .media-thumbnail-container {
-              display: inline-block;
-              transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-              margin: 10px;
-            }
-            .media-thumbnail-container:hover {
-              transform: scale(1.05) translateY(-5px);
-              z-index: 10;
-            }
-            .media-thumbnail {
-              width: 180px;
-              height: 180px;
-              object-fit: cover;
-              border-radius: 12px;
-              border: 3px solid black;
-              box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
-              cursor: pointer;
-              display: block;
-              background: #F9FAFB;
-            }
-            .media-video-thumbnail {
-              position: relative;
-              width: 180px;
-              height: 180px;
-              background: #000;
-              border-radius: 12px;
-              border: 3px solid black;
-              box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
-              cursor: pointer;
-              overflow: hidden;
-            }
-            .media-video-thumbnail video {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              opacity: 0.6;
-            }
-            .media-video-thumbnail::after {
-              content: '▶';
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              color: white;
-              font-size: 32px;
-              background: rgba(0,0,0,0.5);
-              width: 50px;
-              height: 50px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 50%;
-              border: 2px solid white;
-              backdrop-filter: blur(2px);
-            }
+            @media (max-width: 640px) { body { padding: 10px; } .quote-document-container { padding: 20px; } }
+            .media-thumbnail-container { display: inline-block; transition: all 0.3s; margin: 10px; }
+            .media-thumbnail { width: 180px; height: 180px; object-fit: cover; border-radius: 12px; border: 3px solid black; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); cursor: pointer; display: block; background: #F9FAFB; }
+            .media-video-thumbnail { position: relative; width: 180px; height: 180px; background: #000; border-radius: 12px; border: 3px solid black; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); cursor: pointer; overflow: hidden; }
+            .media-video-thumbnail video { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+            .media-video-thumbnail::after { content: '▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 32px; background: rgba(0,0,0,0.5); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid white; backdrop-filter: blur(2px); }
           </style>
           <script>
             function openLightbox(element) {
               const src = element.getAttribute('data-src');
               const type = element.getAttribute('data-type');
               const overlay = document.createElement('div');
-              overlay.style.position = 'fixed';
-              overlay.style.top = '0';
-              overlay.style.left = '0';
-              overlay.style.width = '100%';
-              overlay.style.height = '100%';
-              overlay.style.backgroundColor = 'rgba(0,0,0,0.95)';
-              overlay.style.zIndex = '100000';
-              overlay.style.display = 'flex';
-              overlay.style.flexDirection = 'column';
-              overlay.style.alignItems = 'center';
-              overlay.style.justifyContent = 'center';
-              overlay.style.cursor = 'zoom-out';
-              overlay.style.backdropFilter = 'blur(10px)';
-              overlay.style.padding = '20px';
-              const closeBtn = document.createElement('div');
-              closeBtn.innerHTML = '✕ CLOSE';
-              closeBtn.style.position = 'fixed';
-              closeBtn.style.top = '30px';
-              closeBtn.style.right = '30px';
-              closeBtn.style.color = '#D4FF00';
-              closeBtn.style.fontSize = '18px';
-              closeBtn.style.fontWeight = '900';
-              closeBtn.style.cursor = 'pointer';
-              closeBtn.style.padding = '12px 24px';
-              closeBtn.style.border = '3px solid #D4FF00';
-              closeBtn.style.backgroundColor = 'black';
-              closeBtn.style.boxShadow = '6px 6px 0px 0px rgba(212,255,0,0.3)';
+              overlay.style.position = 'fixed'; overlay.style.top = '0'; overlay.style.left = '0'; overlay.style.width = '100%'; overlay.style.height = '100%'; overlay.style.backgroundColor = 'rgba(0,0,0,0.95)'; overlay.style.zIndex = '100000'; overlay.style.display = 'flex'; overlay.style.flexDirection = 'column'; overlay.style.alignItems = 'center'; overlay.style.justifyContent = 'center'; overlay.style.cursor = 'zoom-out'; overlay.style.backdropFilter = 'blur(10px)'; overlay.style.padding = '20px';
+              const closeBtn = document.createElement('div'); closeBtn.innerHTML = '✕ CLOSE'; closeBtn.style.position = 'fixed'; closeBtn.style.top = '30px'; closeBtn.style.right = '30px'; closeBtn.style.color = '#D4FF00'; closeBtn.style.fontSize = '18px'; closeBtn.style.fontWeight = '900'; closeBtn.style.cursor = 'pointer'; closeBtn.style.padding = '12px 24px'; closeBtn.style.border = '3px solid #D4FF00'; closeBtn.style.backgroundColor = 'black'; closeBtn.style.boxShadow = '6px 6px 0px 0px rgba(212,255,0,0.3)';
               let content;
-              if (type === 'image') {
-                content = document.createElement('img');
-                content.src = src;
-                content.style.maxWidth = '90%';
-                content.style.maxHeight = '80vh';
-                content.style.borderRadius = '8px';
-                content.style.border = '4px solid white';
-                content.style.boxShadow = '0 0 50px rgba(0,0,0,0.5)';
-              } else {
-                content = document.createElement('video');
-                content.src = src;
-                content.controls = true;
-                content.autoplay = true;
-                content.style.maxWidth = '90%';
-                content.style.maxHeight = '80vh';
-                content.style.borderRadius = '8px';
-                content.style.border = '4px solid white';
-              }
-              overlay.appendChild(closeBtn);
-              overlay.appendChild(content);
-              overlay.onclick = (e) => {
-                if (e.target !== content) document.body.removeChild(overlay);
-              };
+              if (type === 'image') { content = document.createElement('img'); content.src = src; content.style.maxWidth = '90%'; content.style.maxHeight = '80vh'; content.style.borderRadius = '8px'; content.style.border = '4px solid white'; content.style.boxShadow = '0 0 50px rgba(0,0,0,0.5)'; } else { content = document.createElement('video'); content.src = src; content.controls = true; content.autoplay = true; content.style.maxWidth = '90%'; content.style.maxHeight = '80vh'; content.style.borderRadius = '8px'; content.style.border = '4px solid white'; }
+              overlay.appendChild(closeBtn); overlay.appendChild(content);
+              overlay.onclick = (e) => { if (e.target !== content) document.body.removeChild(overlay); };
               document.body.appendChild(overlay);
             }
-            function sendHeight() {
-              const height = document.documentElement.scrollHeight;
-              window.parent.postMessage({ type: 'resize-iframe', height: height }, '*');
-            }
-            window.addEventListener('load', sendHeight);
-            window.addEventListener('resize', sendHeight);
-            const observer = new ResizeObserver(sendHeight);
-            observer.observe(document.body);
+            function sendHeight() { const height = document.documentElement.scrollHeight; window.parent.postMessage({ type: 'resize-iframe', height: height }, '*'); }
+            window.addEventListener('load', sendHeight); window.addEventListener('resize', sendHeight);
+            new ResizeObserver(sendHeight).observe(document.body);
           </script>
         </head>
         <body>
@@ -373,7 +254,20 @@ const SharedQuotePage: React.FC = () => {
         </body>
       </html>
     `;
+    return doc;
   };
+
+  const printStyles = `
+    @media print {
+      @page { margin: 0; }
+      body { background: white !important; padding: 0 !important; margin: 0 !important; }
+      .min-h-screen { min-height: 0 !important; background: white !important; }
+      .max-w-7xl { max-width: none !important; width: 100% !important; padding: 0 !important; margin: 0 !important; }
+      .rounded-3xl { border-radius: 0 !important; border: none !important; }
+      iframe { width: 100% !important; height: auto !important; min-height: 297mm !important; }
+      .print-hidden { display: none !important; }
+    }
+  `;
 
   return (
     <PouchLayout>
@@ -419,7 +313,7 @@ const SharedQuotePage: React.FC = () => {
         )}
 
         {/* Action Bar */}
-        <div className="bg-white border-b border-gray-200 px-6 py-3 sticky top-0 z-50 print:hidden shadow-sm">
+        <div className="bg-white border-b border-gray-200 px-6 py-3 sticky top-0 z-50 print-hidden shadow-sm">
           <div className="max-w-5xl mx-auto flex justify-between items-center gap-3">
             <div className="flex items-center gap-3">
               <img src="/logo.png" alt="Achieve Pack" className="h-8 w-auto" />
@@ -430,31 +324,19 @@ const SharedQuotePage: React.FC = () => {
             </div>
             <div className="flex items-center gap-2">
               {editMode ? (
-                <button
-                  onClick={() => setEditMode(false)}
-                  className="flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold text-sm transition"
-                >
+                <button onClick={() => setEditMode(false)} className="flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold text-sm transition">
                   <X className="w-4 h-4" /> Close Editor
                 </button>
               ) : (
-                <button
-                  onClick={handleEditClick}
-                  className="flex items-center gap-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 px-4 py-2 rounded-lg font-bold text-sm transition"
-                >
+                <button onClick={handleEditClick} className="flex items-center gap-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 px-4 py-2 rounded-lg font-bold text-sm transition">
                   <Pencil className="w-4 h-4" /> Admin Edit
                 </button>
               )}
-              <button
-                onClick={handleCopyLink}
-                className={`flex items-center gap-2 ${copySuccess ? 'bg-emerald-600' : 'bg-gray-800'} hover:bg-black text-white px-5 py-2 rounded-lg font-bold shadow-md transition active:scale-95`}
-              >
+              <button onClick={handleCopyLink} className={`flex items-center gap-2 \${copySuccess ? 'bg-emerald-600' : 'bg-gray-800'} hover:bg-black text-white px-5 py-2 rounded-lg font-bold shadow-md transition active:scale-95`.replace('\${copySuccess ? \'bg-emerald-600\' : \'bg-gray-800\'}', copySuccess ? 'bg-emerald-600' : 'bg-gray-800')}>
                 {copySuccess ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copySuccess ? 'Copied!' : 'Copy Link'}
               </button>
-              <button
-                onClick={handleShare}
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-bold shadow-md transition active:scale-95"
-              >
+              <button onClick={handleShare} className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-bold shadow-md transition active:scale-95">
                 <Share className="w-4 h-4" /> Share Link
               </button>
             </div>
@@ -462,7 +344,7 @@ const SharedQuotePage: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12 print-hidden">
             <div>
               <NeoBadge color="bg-[#D4FF00]" className="mb-2">Official Quote</NeoBadge>
               <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">Your Custom Packaging Plan</h1>
@@ -477,109 +359,50 @@ const SharedQuotePage: React.FC = () => {
             </div>
           </div>
 
-          {/* ── Admin HTML Editor ── */}
+          {/* Admin Editor */}
           {editMode && (
-            <div className="mb-12 bg-white border border-indigo-200 rounded-2xl shadow-lg overflow-hidden">
+            <div className="mb-12 bg-white border border-indigo-200 rounded-2xl shadow-lg overflow-hidden print-hidden">
               <div className="flex items-center justify-between px-5 py-3 bg-indigo-50 border-b border-indigo-100">
                 <span className="text-sm font-extrabold text-indigo-800 flex items-center gap-2">
                   <Pencil className="w-4 h-4" /> Edit Quote HTML
                 </span>
                 <div className="flex items-center gap-2">
-                  {saveSuccess && (
-                    <span className="flex items-center gap-1 text-xs font-bold text-emerald-600">
-                      <CheckCircle className="w-4 h-4" /> Saved!
-                    </span>
-                  )}
-                  {saveError && (
-                    <span className="text-xs font-bold text-red-500">{saveError}</span>
-                  )}
-                  <button
-                    onClick={handleSave}
-                    disabled={saving}
-                    className="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white px-4 py-1.5 rounded-lg text-xs font-extrabold transition"
-                  >
+                  {saveSuccess && <span className="flex items-center gap-1 text-xs font-bold text-emerald-600"><CheckCircle className="w-4 h-4" /> Saved!</span>}
+                  {saveError && <span className="text-xs font-bold text-red-500">{saveError}</span>}
+                  <button onClick={handleSave} disabled={saving} className="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white px-4 py-1.5 rounded-lg text-xs font-extrabold transition">
                     {saving ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
                     {saving ? 'Saving...' : 'Save Changes'}
                   </button>
                 </div>
               </div>
               <div className="p-4 bg-gray-50 border-b border-gray-100 flex items-center gap-4">
-                <p className="text-xs text-gray-500 font-bold uppercase">Quick Tools:</p>
-                <button
-                  onClick={handleInsertImage}
-                  className="flex items-center gap-1.5 bg-white border-2 border-black hover:bg-gray-100 text-black px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
-                >
-                  <ImageIcon className="w-3 h-3" /> Insert Photo
-                </button>
-                <button
-                  onClick={handleInsertVideo}
-                  className="flex items-center gap-1.5 bg-white border-2 border-black hover:bg-gray-100 text-black px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
-                >
-                  <VideoIcon className="w-3 h-3" /> Insert Video
-                </button>
+                <button onClick={handleInsertImage} className="flex items-center gap-1.5 bg-white border-2 border-black hover:bg-gray-100 text-black px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><ImageIcon className="w-3 h-3" /> Insert Photo</button>
+                <button onClick={handleInsertVideo} className="flex items-center gap-1.5 bg-white border-2 border-black hover:bg-gray-100 text-black px-3 py-1.5 rounded-lg text-[10px] font-black uppercase transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><VideoIcon className="w-3 h-3" /> Insert Video</button>
               </div>
               <div className="p-4">
-                <textarea
-                  ref={textareaRef}
-                  value={editedHtml}
-                  onChange={e => setEditedHtml(e.target.value)}
-                  className="w-full h-[500px] border-4 border-black p-4 text-xs font-mono bg-neutral-900 text-green-400 focus:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)] outline-none transition-all leading-relaxed resize-y"
-                  spellCheck={false}
-                />
+                <textarea ref={textareaRef} value={editedHtml} onChange={e => setEditedHtml(e.target.value)} className="w-full h-[500px] border-4 border-black p-4 text-xs font-mono bg-neutral-900 text-green-400 focus:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)] outline-none leading-relaxed resize-y" spellCheck={false} />
               </div>
             </div>
           )}
 
-          {/* Quote Viewer */}
           <div className="bg-white shadow-2xl rounded-3xl overflow-hidden border border-gray-200 ring-1 ring-black/5">
             {quoteHtml && (
-              <iframe
-                key={quoteHtml}
-                srcDoc={getSrcDoc()}
-                className="w-full border-none"
-                style={{ height: iframeHeight + 'px', display: 'block', overflow: 'hidden' }}
-                title="Official Quotation"
-                scrolling="no"
-              />
+              <iframe key={quoteHtml} srcDoc={getSrcDoc()} className="w-full border-none" style={{ height: iframeHeight + 'px', display: 'block', overflow: 'hidden' }} title="Official Quotation" scrolling="no" />
             )}
           </div>
 
-          <div className="mt-8 text-center text-gray-500 text-xs print:hidden">
+          <div className="mt-8 text-center text-gray-500 text-xs print-hidden">
             <p>© {new Date().getFullYear()} Achieve Pack Limited. All rights reserved.</p>
             <p className="mt-1">This is an official document generated by Achieve Pack Secure Document Hub.</p>
           </div>
         </div>
 
-        <style>{\`
-          @media print {
-            @page { margin: 0; }
-            body { background: white !important; padding: 0 !important; margin: 0 !important; }
-            .min-h-screen { min-height: 0 !important; background: white !important; }
-            .max-w-7xl { max-width: none !important; width: 100% !important; padding: 0 !important; margin: 0 !important; }
-            .bg-gray-100 { background: white !important; }
-            .rounded-3xl { border-radius: 0 !important; border: none !important; }
-            iframe { width: 100% !important; height: auto !important; min-height: 297mm !important; }
-          }
-        \`}</style>
+        <style dangerouslySetInnerHTML={{ __html: printStyles }} />
 
         {/* Scroll Indicator */}
         <AnimatePresence>
           {showScrollIndicator && (
-            <motion.div
-              initial={{ opacity: 0, x: '-50%', y: 20 }}
-              animate={{ 
-                opacity: 1, 
-                x: '-50%',
-                y: [0, 10, 0],
-              }}
-              exit={{ opacity: 0, x: '-50%', y: 20 }}
-              transition={{ 
-                y: { repeat: Infinity, duration: 1.5, ease: "easeInOut" },
-                opacity: { duration: 0.3 }
-              }}
-              className="fixed bottom-12 left-1/2 -translate-x-1/2 z-[100] cursor-pointer print:hidden"
-              onClick={() => window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' })}
-            >
+            <motion.div initial={{ opacity: 0, x: '-50%', y: 20 }} animate={{ opacity: 1, x: '-50%', y: [0, 10, 0] }} exit={{ opacity: 0, x: '-50%', y: 20 }} transition={{ y: { repeat: Infinity, duration: 1.5, ease: "easeInOut" }, opacity: { duration: 0.3 } }} className="fixed bottom-12 left-1/2 -translate-x-1/2 z-[100] cursor-pointer print-hidden" onClick={() => window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' })}>
               <div className="bg-[#D4FF00] text-black border-4 border-black px-6 py-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex flex-col items-center gap-1 group text-center">
                 <span className="font-black text-xs uppercase tracking-tighter italic">View Full Quotation</span>
                 <div className="flex items-center gap-2">
