@@ -63,9 +63,7 @@ const BLOCKED_EMAIL_PATTERNS = [
 // Focus: Food & Beverage, FMCG, Healthcare/Supplements
 // Regions: Major international cities, excluding India and China
 const SEARCH_QUERIES = [
-    // ========== FOOD & BEVERAGE ==========
-    
-    // Coffee Roasters & Tea Brands
+    // ========== COFFEE & TEA ==========
     'specialty coffee roaster New York',
     'artisan coffee company Los Angeles',
     'small batch coffee roaster London',
@@ -79,8 +77,29 @@ const SEARCH_QUERIES = [
     'craft coffee Melbourne',
     'boutique coffee roaster Seoul',
     'third wave coffee brand Dubai',
+    'specialty coffee roaster Portland',
+    'craft coffee brand Nashville',
+    'independent coffee roaster Edinburgh',
+    'artisan tea brand Dublin',
+    'specialty tea company Zurich',
+    'craft coffee Vienna',
+    'boutique coffee Prague',
+    'independent coffee roaster Warsaw',
+    'specialty coffee brand Brussels',
+    'artisan coffee Helsinki',
+    'coffee brand Lisbon Portugal',
+    'specialty tea brand Bangkok Thailand',
+    'artisan coffee Kuala Lumpur',
+    'craft tea company Jakarta',
+    'premium coffee brand Manila',
+    'specialty coffee Lagos Nigeria',
+    'artisan coffee Nairobi Kenya',
+    'craft tea brand Cape Town South Africa',
+    'specialty coffee Bogota Colombia',
+    'artisan coffee Lima Peru',
+    'craft coffee Santiago Chile',
     
-    // Snack Food Brands
+    // ========== SNACKS & CHIPS ==========
     'healthy snack brand New York',
     'organic snack company California',
     'protein bar manufacturer London',
@@ -94,8 +113,25 @@ const SEARCH_QUERIES = [
     'crackers company Tokyo',
     'cookie brand Singapore',
     'biscuit company London',
+    'rice cake brand Seoul',
+    'healthy chip company Austin',
+    'organic cracker brand Seattle',
+    'pretzels brand Philadelphia',
+    'pork rind brand Dallas',
+    'seaweed snack company Los Angeles',
+    'kale chip brand San Francisco',
+    'grain-free snack company Denver',
+    'cassava chip brand Miami',
+    'plantain chip company New York',
+    'seed bar company London',
+    'date bar brand Dubai',
+    'dried mango company Philippines',
+    'roasted chickpea brand Netherlands',
+    'puffed grain snack Paris',
+    'crispy lentil brand Stockholm',
+    'mochi snack brand Vancouver',
     
-    // Chocolate & Confectionery
+    // ========== CHOCOLATE & CONFECTIONERY ==========
     'craft chocolate maker Brooklyn',
     'bean to bar chocolate San Francisco',
     'artisan chocolate London',
@@ -104,8 +140,16 @@ const SEARCH_QUERIES = [
     'specialty chocolate Tokyo',
     'handmade candy company Toronto',
     'gourmet confectionery Sydney',
+    'raw chocolate brand Melbourne',
+    'vegan chocolate company Berlin',
+    'single origin chocolate brand Copenhagen',
+    'artisan truffle company New York',
+    'premium fudge brand Edinburgh',
+    'handcrafted caramel company Los Angeles',
+    'gourmet lollipop brand Sydney',
+    'specialty nougat company Brussels',
     
-    // Bakery & Baked Goods
+    // ========== BAKERY ==========
     'artisan bakery New York',
     'gluten free bakery Los Angeles',
     'organic bakery London',
@@ -113,8 +157,16 @@ const SEARCH_QUERIES = [
     'vegan bakery Berlin',
     'premium bakery Toronto',
     'specialty bakery Sydney',
+    'gluten free cookie brand Chicago',
+    'paleo bread company Boulder',
+    'keto bakery Miami',
+    'vegan muffin brand Vancouver',
+    'sourdough brand Helsinki',
+    'gluten free bakery Oslo',
+    'artisan bread company Lisbon',
+    'organic pastry brand Madrid',
     
-    // Beverages
+    // ========== BEVERAGES ==========
     'kombucha brewery California',
     'cold brew coffee brand New York',
     'functional beverage company Los Angeles',
@@ -124,37 +176,104 @@ const SEARCH_QUERIES = [
     'smoothie brand Sydney',
     'matcha brand Tokyo',
     'herbal drink company Singapore',
+    'kefir drink brand Warsaw',
+    'adaptogen drink company New York',
+    'mushroom coffee brand San Francisco',
+    'collagen drink brand London',
+    'probiotic beverage company Berlin',
+    'coconut water brand Miami',
+    'turmeric latte brand Melbourne',
+    'ceremonial cacao brand Amsterdam',
+    'nootropic drink brand Austin',
+    'electrolyte drink company Denver',
+    'fermented drink brand Seoul',
+    'jun tea company Portland',
+    'water kefir brand Zurich',
+    'beet juice brand Copenhagen',
+    'ginger shot brand Stockholm',
     
-    // Baby & Kids Food
+    // ========== BABY & KIDS ==========
     'organic baby food brand California',
     'baby food company New York',
     'kids snacks brand London',
     'children food company Toronto',
     'baby nutrition brand Sydney',
+    'toddler snack brand Amsterdam',
+    'organic kids drink Berlin',
+    'baby food pouch company Paris',
+    'kids healthy snack Melbourne',
+    'infant formula brand Singapore',
     
-    // Pet Food
+    // ========== PET FOOD ==========
     'premium pet food company California',
     'organic dog treats brand New York',
     'natural pet food London',
     'artisan pet treats Toronto',
     'pet nutrition company Sydney',
+    'raw dog food brand Berlin',
+    'grain free dog treat company Amsterdam',
+    'freeze dried pet food brand Seattle',
+    'organic cat food company Melbourne',
+    'functional dog treat brand Austin',
+    'premium cat treat brand Seoul',
+    'holistic pet food company Vancouver',
+    'natural dog chew brand Dublin',
     
-    // Sauces & Condiments
+    // ========== SAUCES, CONDIMENTS & SPICES ==========
     'hot sauce brand New York',
     'specialty sauce company California',
     'artisan condiment brand London',
     'gourmet sauce company Toronto',
     'organic dressing brand Sydney',
-    
-    // Spices & Seasonings
     'specialty spice company New York',
     'organic spice brand California',
     'gourmet seasoning London',
     'artisan spice blend Toronto',
+    'fermented hot sauce brand Portland',
+    'BBQ sauce brand Kansas City',
+    'sriracha brand Los Angeles',
+    'truffle sauce company Milan',
+    'miso paste brand Tokyo',
+    'tahini brand Tel Aviv',
+    'harissa brand London',
+    'chimichurri brand Buenos Aires',
+    'za atar spice brand Amsterdam',
+    'ras el hanout brand Paris',
+    'everything bagel seasoning New York',
     
-    // ========== FMCG (Fast-Moving Consumer Goods) ==========
+    // ========== HEALTH SUPPLEMENTS ==========
+    'vitamin supplement brand California',
+    'organic supplement company New York',
+    'natural supplement brand London',
+    'health supplement company Toronto',
+    'wellness supplement Sydney',
+    'herbal supplement brand Berlin',
+    'protein powder brand California',
+    'fitness supplement company New York',
+    'sports nutrition brand London',
+    'workout supplement Toronto',
+    'muscle supplement Sydney',
+    'superfood powder company California',
+    'adaptogen brand New York',
+    'mushroom supplement company London',
+    'collagen powder brand Toronto',
+    'greens powder company Sydney',
+    'prebiotic supplement Berlin',
+    'keto supplement brand California',
+    'vegan protein company New York',
+    'plant based nutrition London',
+    'omega supplement brand Amsterdam',
+    'magnesium supplement company Zurich',
+    'ashwagandha brand Copenhagen',
+    'lion mane supplement Melbourne',
+    'sea moss supplement Miami',
+    'spirulina brand San Francisco',
+    'moringa supplement Austin',
+    'berberine supplement Nashville',
+    'NMN supplement brand Boston',
+    'creatine brand Portland',
     
-    // Skincare & Beauty
+    // ========== SKINCARE & BEAUTY ==========
     'natural skincare brand California',
     'organic beauty company New York',
     'clean beauty brand London',
@@ -164,49 +283,24 @@ const SEARCH_QUERIES = [
     'organic beauty Sydney',
     'K-beauty brand Seoul',
     'J-beauty company Tokyo',
-    
-    // Personal Care
     'natural soap company New York',
     'organic shampoo brand California',
     'eco personal care London',
     'natural body care Toronto',
     'organic deodorant brand Sydney',
+    'zero waste beauty brand Amsterdam',
+    'refillable skincare brand Paris',
+    'solid shampoo bar company Berlin',
+    'natural sunscreen brand Melbourne',
+    'organic toner brand Seoul',
+    'ayurvedic skincare company London',
+    'clean makeup brand New York',
+    'natural lip balm company Austin',
+    'organic hair mask brand Vancouver',
+    'vegan nail polish brand Amsterdam',
+    'CBD skincare brand Denver',
     
-    // ========== HEALTHCARE & SUPPLEMENTS ==========
-    
-    // Vitamins & Supplements
-    'vitamin supplement brand California',
-    'organic supplement company New York',
-    'natural supplement brand London',
-    'health supplement company Toronto',
-    'wellness supplement Sydney',
-    'herbal supplement brand Berlin',
-    
-    // Protein & Fitness
-    'protein powder brand California',
-    'fitness supplement company New York',
-    'sports nutrition brand London',
-    'workout supplement Toronto',
-    'muscle supplement Sydney',
-    
-    // Superfood & Functional
-    'superfood powder company California',
-    'adaptogen brand New York',
-    'mushroom supplement company London',
-    'collagen powder brand Toronto',
-    'greens powder company Sydney',
-    'prebiotic supplement Berlin',
-    
-    // Specialty Diet
-    'keto supplement brand California',
-    'vegan protein company New York',
-    'plant based nutrition London',
-    'paleo supplement Toronto',
-    'whole food supplement Sydney',
-    
-    // ========== INTERNATIONAL MARKETS ==========
-    
-    // Europe
+    // ========== EUROPE - NEW CITIES ==========
     'food startup London UK',
     'organic food brand Amsterdam Netherlands',
     'healthy food company Berlin Germany',
@@ -215,8 +309,23 @@ const SEARCH_QUERIES = [
     'health food company Barcelona Spain',
     'organic brand Stockholm Sweden',
     'natural food Copenhagen Denmark',
+    'health food startup Zurich Switzerland',
+    'organic brand Vienna Austria',
+    'natural food brand Prague Czech Republic',
+    'artisan food company Budapest Hungary',
+    'organic snack brand Brussels Belgium',
+    'healthy food brand Warsaw Poland',
+    'artisan food Dublin Ireland',
+    'specialty food Lisbon Portugal',
+    'organic brand Oslo Norway',
+    'healthy snack Helsinki Finland',
+    'food startup Riga Latvia',
+    'organic brand Tallinn Estonia',
+    'health food Zagreb Croatia',
+    'specialty food Athens Greece',
+    'artisan food Bucharest Romania',
     
-    // Asia Pacific (excluding China/India)
+    // ========== ASIA PACIFIC - NEW CITIES ==========
     'food brand Tokyo Japan',
     'health food company Singapore',
     'organic food brand Seoul South Korea',
@@ -225,13 +334,36 @@ const SEARCH_QUERIES = [
     'artisan food Auckland New Zealand',
     'food company Taipei Taiwan',
     'organic brand Hong Kong',
+    'health food brand Osaka Japan',
+    'organic snack Busan South Korea',
+    'specialty food Brisbane Australia',
+    'artisan food Perth Australia',
+    'healthy food brand Kuala Lumpur Malaysia',
+    'organic food Bangkok Thailand',
+    'specialty food Ho Chi Minh City Vietnam',
+    'health food Jakarta Indonesia',
+    'organic brand Manila Philippines',
+    'specialty food Hanoi Vietnam',
+    'artisan food Penang Malaysia',
+    'natural food Chiang Mai Thailand',
     
-    // Middle East
+    // ========== MIDDLE EAST & AFRICA ==========
     'health food company Dubai UAE',
     'organic food brand Tel Aviv Israel',
     'specialty food Riyadh Saudi Arabia',
+    'healthy snack Abu Dhabi UAE',
+    'organic brand Doha Qatar',
+    'artisan food Beirut Lebanon',
+    'health food Amman Jordan',
+    'specialty food Kuwait City',
+    'natural food brand Cairo Egypt',
+    'organic snack Lagos Nigeria',
+    'health food Nairobi Kenya',
+    'specialty food Cape Town South Africa',
+    'artisan food Johannesburg',
+    'organic brand Accra Ghana',
     
-    // North America
+    // ========== NORTH AMERICA - NEW CITIES ==========
     'food startup San Francisco',
     'health brand Boston',
     'organic company Seattle',
@@ -240,11 +372,37 @@ const SEARCH_QUERIES = [
     'healthy food Austin',
     'food company Vancouver Canada',
     'organic brand Montreal Canada',
+    'health food Phoenix Arizona',
+    'organic brand Minneapolis',
+    'specialty food Atlanta Georgia',
+    'artisan food Charlotte NC',
+    'healthy snack Salt Lake City',
+    'organic brand Pittsburgh',
+    'specialty food Kansas City',
+    'natural food brand Indianapolis',
+    'artisan food Columbus Ohio',
+    'health brand Raleigh NC',
+    'organic snack Tampa Florida',
+    'specialty food San Diego',
+    'artisan brand Sacramento',
+    'organic brand Calgary Canada',
+    'health food Ottawa Canada',
+    'natural food brand Winnipeg Canada',
+    'artisan food Quebec City Canada',
     
-    // South America
+    // ========== SOUTH AMERICA ==========
     'organic food brand Sao Paulo Brazil',
     'health food company Buenos Aires Argentina',
-    'specialty food Mexico City'
+    'specialty food Mexico City',
+    'artisan food brand Rio de Janeiro',
+    'organic snack Monterrey Mexico',
+    'healthy food Guadalajara Mexico',
+    'natural food brand Santiago Chile',
+    'organic brand Lima Peru',
+    'specialty food Bogota Colombia',
+    'health food Medellin Colombia',
+    'artisan food brand Quito Ecuador',
+    'organic snack Montevideo Uruguay',
 ]
 
 // Words to remove from business names
@@ -1025,13 +1183,16 @@ async function isUnsubscribed(email: string): Promise<boolean> {
     return !!data
 }
 
-// Check if already contacted
+// Check if already contacted within the last 90 days (allow re-contact after 90 days)
 async function alreadyContacted(email: string): Promise<boolean> {
+    const ninetyDaysAgo = new Date()
+    ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90)
     const { data } = await supabase
         .from('prospect')
         .select('id')
         .eq('email', email)
         .eq('email_sent', true)
+        .gte('email_sent_at', ninetyDaysAgo.toISOString())
         .single()
     return !!data
 }
