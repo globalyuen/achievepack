@@ -1227,16 +1227,16 @@ async function isUnsubscribed(email: string): Promise<boolean> {
     return !!data
 }
 
-// Check if already contacted within the last 90 days (allow re-contact after 90 days)
+// Check if already contacted within the last 30 days (allow re-contact after 30 days)
 async function alreadyContacted(email: string): Promise<boolean> {
-    const ninetyDaysAgo = new Date()
-    ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90)
+    const thirtyDaysAgo = new Date()
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
     const { data } = await supabase
         .from('prospect')
         .select('id')
         .eq('email', email)
         .eq('email_sent', true)
-        .gte('email_sent_at', ninetyDaysAgo.toISOString())
+        .gte('email_sent_at', thirtyDaysAgo.toISOString())
         .single()
     return !!data
 }
@@ -1402,6 +1402,60 @@ async function addToWhatsAppQueue(
     }
 }
 
+// Generate follow-up email for prospects who never replied
+function generateFollowUpEmailContent(prospect: any, senderKey: string) {
+    const companyName = prospect.name || 'your team'
+    const profile = SENDER_PROFILES[senderKey] || SENDER_PROFILES.ryan
+    const businessType = prospect.business_type || 'products'
+
+    const subject = `Following up — Eco Packaging for ${companyName}`
+
+    const body = `Hi ${companyName} Team,
+
+I wanted to follow up on my previous email about eco-friendly packaging for your ${businessType}.
+
+I know inboxes get busy, so I just wanted to make sure you didn't miss it!
+
+
+**A Quick Recap of What We Offer:**
+
+• Custom branded pouches with stunning full-color print
+• EN 13432 & ASTM D6400 certified compostable materials
+• Low MOQ starting at just 500 units — perfect for growing brands
+• Fast 2-week production turnaround
+• FREE design consultation and 3D mockup
+
+
+**What Other Brands Are Saying:**
+
+→ "Switching to Achieve Pack reduced our packaging waste by 80%" — Coffee brand, US
+→ "Our customers notice the difference — sales up 18%" — Snack brand, UK
+
+
+**Special Offer:**
+
+Reply to this email today and I'll send you a free sample pack so you can feel the quality firsthand.
+
+📅 Or book a quick 15-minute call: https://calendly.com/30-min-free-packaging-consultancy
+🌐 See our full range: https://achievepack.com
+
+
+Warm regards,
+
+${profile.name}
+Packaging Development Representative
+
+Achieve Pack™
+🌐 www.achievepack.com
+📧 ${profile.email}
+📱 WhatsApp: +852 69704411
+
+---
+To unsubscribe: https://achievepack.com/unsubscribe?email=${encodeURIComponent(prospect.email || '')}`
+
+    return { subject, body }
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Verify cron secret to prevent unauthorized access
     const cronSecret = req.headers['authorization']
@@ -1441,13 +1495,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         
         addLog('✅ Automation is enabled')
         
+        let totalEmailsSent = 0
+        let totalWhatsappQueued = 0
+
+        // =====================================================
+        // PHASE 1: Find and email NEW prospects
+        // =====================================================
+        addLog('\n🔵 PHASE 1: Finding NEW prospects...')
+
         // Pick a random search query
         const randomIndex = Math.floor(Math.random() * SEARCH_QUERIES.length)
         const searchQuery = SEARCH_QUERIES[randomIndex]
-        const sender = 'ryan' // Always use Ryan for auto run
+        const sender = 'ryan'
         
         addLog(`📍 Search Query: "${searchQuery}"`)
-        addLog(`👤 Sender: ${sender}`)
         
         // Create search record
         const { data: searchRecord, error: searchError } = await supabase
@@ -1465,19 +1526,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             throw searchError
         }
         
-        // Search for businesses
-        addLog('🔎 Searching Google via SerpAPI or custom search...')
         const businesses = await searchBusinesses(searchQuery, addLog)
         addLog(`🔍 Found ${businesses.length} businesses from search`)
         
-        let emailsSent = 0
+        let newEmailsSent = 0
         let emailsFound = 0
         let whatsappQueued = 0
         const businessType = extractBusinessType(searchQuery)
         
-        addLog(`📋 Processing top 5 businesses...`)
+        addLog(`📋 Processing top 8 businesses...`)
         
-        for (const business of businesses.slice(0, 5)) { // Limit to 5 per run
+        for (const business of businesses.slice(0, 8)) {
             try {
                 // Extract domain from website
                 if (!business.website) {
@@ -1616,6 +1675,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             }
         }
         
+        totalEmailsSent += newEmailsSent
+        totalWhatsappQueued += whatsappQueued
+
         // Update search record
         await supabase
             .from('prospect_search_query')
@@ -1623,10 +1685,72 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 status: 'completed',
                 total_results: businesses.length,
                 emails_found: emailsFound,
-                emails_sent: emailsSent
+                emails_sent: newEmailsSent
             })
             .eq('id', searchRecord.id)
         
+        // =====================================================
+        // PHASE 2: Follow-up emails to old non-responding prospects
+        // Target: sent 30–60 days ago, no reply/open recorded
+        // =====================================================
+        addLog('\n🟡 PHASE 2: Sending FOLLOW-UP emails to old prospects...')
+        
+        const sixtyDaysAgo = new Date()
+        sixtyDaysAgo.setDate(sixtyDaysAgo.getDate() - 60)
+        const thirtyDaysAgo = new Date()
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
+
+        const { data: followUpProspects } = await supabase
+            .from('prospect')
+            .select('id, email, name, business_type, email_sent_at, follow_up_sent')
+            .eq('email_sent', true)
+            .eq('follow_up_sent', false)
+            .gte('email_sent_at', sixtyDaysAgo.toISOString())
+            .lte('email_sent_at', thirtyDaysAgo.toISOString())
+            .limit(5)
+
+        let followUpSent = 0
+        
+        if (!followUpProspects || followUpProspects.length === 0) {
+            addLog('   ℹ️ No prospects due for follow-up at this time')
+        } else {
+            addLog(`   📋 ${followUpProspects.length} prospects due for follow-up`)
+            
+            for (const prospect of followUpProspects) {
+                try {
+                    // Skip unsubscribed
+                    const isUnsub = await isUnsubscribed(prospect.email)
+                    if (isUnsub) {
+                        addLog(`   ⛔ SKIP follow-up: ${prospect.email} (unsubscribed)`)
+                        continue
+                    }
+
+                    const { subject, body } = generateFollowUpEmailContent(prospect, sender)
+                    addLog(`   📨 Follow-up to ${prospect.name} (${prospect.email})...`)
+                    
+                    try {
+                        const messageId = await sendBrevoEmail(prospect.email, subject, body, sender, prospect.id)
+                        
+                        // Mark follow-up as sent
+                        await supabase
+                            .from('prospect')
+                            .update({ follow_up_sent: true, follow_up_sent_at: new Date().toISOString() })
+                            .eq('id', prospect.id)
+                        
+                        followUpSent++
+                        totalEmailsSent++
+                        addLog(`   ✅ Follow-up sent to ${prospect.name} (${messageId || 'ok'})`)
+                    } catch (e: any) {
+                        addLog(`   ❌ Follow-up send error for ${prospect.name}: ${e.message}`)
+                    }
+
+                    await new Promise(resolve => setTimeout(resolve, 1500))
+                } catch (e: any) {
+                    addLog(`   ❌ Follow-up error: ${e.message}`)
+                }
+            }
+        }
+
         // Update last run time
         await supabase
             .from('prospect_automation')
@@ -1635,21 +1759,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         
         addLog(`\n========================================`)
         addLog(`✅ AUTO RUN COMPLETE`)
-        addLog(`   📊 Businesses found: ${businesses.length}`)
-        addLog(`   📧 Emails found: ${emailsFound}`)
-        addLog(`   ✉️ Emails sent: ${emailsSent}`)
-        addLog(`   📱 WhatsApp queued: ${whatsappQueued}`)
+        addLog(`   📊 New businesses found: ${businesses.length}`)
+        addLog(`   📧 New emails found: ${emailsFound}`)
+        addLog(`   ✉️ New emails sent: ${newEmailsSent}`)
+        addLog(`   🔄 Follow-up emails sent: ${followUpSent}`)
+        addLog(`   📨 Total emails this run: ${totalEmailsSent}`)
+        addLog(`   📱 WhatsApp queued: ${totalWhatsappQueued}`)
         addLog(`========================================`)
         
         return res.status(200).json({
             success: true,
-            message: `${emailsSent} emails sent, ${whatsappQueued} WhatsApp queued`,
+            message: `${totalEmailsSent} total emails sent (${newEmailsSent} new + ${followUpSent} follow-ups), ${totalWhatsappQueued} WhatsApp queued`,
             query: searchQuery,
             sender,
             found: businesses.length,
             emailsFound,
-            emailsSent,
-            whatsappQueued,
+            newEmailsSent,
+            followUpSent,
+            totalEmailsSent,
+            totalWhatsappQueued,
             logs: runLogs
         })
         
