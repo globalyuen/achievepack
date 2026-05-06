@@ -208,6 +208,173 @@ const SharedQuotePage: React.FC = () => {
     );
   }
 
+  const getSrcDoc = () => {
+    if (!quoteHtml) return '';
+    return `
+      <html>
+        <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            html, body {
+              margin: 0;
+              padding: 0;
+              background-color: #F3F4F6;
+              font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+              overflow: hidden;
+            }
+            body {
+              display: flex;
+              justify-content: center;
+              padding: 40px 20px;
+            }
+            .quote-document-container {
+              width: 100%;
+              max-width: 850px;
+              background: white;
+              padding: 60px;
+              box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+              border-radius: 4px;
+              min-height: 800px;
+              box-sizing: border-box;
+              position: relative;
+            }
+            @media (max-width: 640px) {
+              body { padding: 10px; }
+              .quote-document-container { padding: 20px; }
+            }
+            .media-thumbnail-container {
+              display: inline-block;
+              transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+              margin: 10px;
+            }
+            .media-thumbnail-container:hover {
+              transform: scale(1.05) translateY(-5px);
+              z-index: 10;
+            }
+            .media-thumbnail {
+              width: 180px;
+              height: 180px;
+              object-fit: cover;
+              border-radius: 12px;
+              border: 3px solid black;
+              box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+              cursor: pointer;
+              display: block;
+              background: #F9FAFB;
+            }
+            .media-video-thumbnail {
+              position: relative;
+              width: 180px;
+              height: 180px;
+              background: #000;
+              border-radius: 12px;
+              border: 3px solid black;
+              box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+              cursor: pointer;
+              overflow: hidden;
+            }
+            .media-video-thumbnail video {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              opacity: 0.6;
+            }
+            .media-video-thumbnail::after {
+              content: '▶';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              color: white;
+              font-size: 32px;
+              background: rgba(0,0,0,0.5);
+              width: 50px;
+              height: 50px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              border: 2px solid white;
+              backdrop-filter: blur(2px);
+            }
+          </style>
+          <script>
+            function openLightbox(element) {
+              const src = element.getAttribute('data-src');
+              const type = element.getAttribute('data-type');
+              const overlay = document.createElement('div');
+              overlay.style.position = 'fixed';
+              overlay.style.top = '0';
+              overlay.style.left = '0';
+              overlay.style.width = '100%';
+              overlay.style.height = '100%';
+              overlay.style.backgroundColor = 'rgba(0,0,0,0.95)';
+              overlay.style.zIndex = '100000';
+              overlay.style.display = 'flex';
+              overlay.style.flexDirection = 'column';
+              overlay.style.alignItems = 'center';
+              overlay.style.justifyContent = 'center';
+              overlay.style.cursor = 'zoom-out';
+              overlay.style.backdropFilter = 'blur(10px)';
+              overlay.style.padding = '20px';
+              const closeBtn = document.createElement('div');
+              closeBtn.innerHTML = '✕ CLOSE';
+              closeBtn.style.position = 'fixed';
+              closeBtn.style.top = '30px';
+              closeBtn.style.right = '30px';
+              closeBtn.style.color = '#D4FF00';
+              closeBtn.style.fontSize = '18px';
+              closeBtn.style.fontWeight = '900';
+              closeBtn.style.cursor = 'pointer';
+              closeBtn.style.padding = '12px 24px';
+              closeBtn.style.border = '3px solid #D4FF00';
+              closeBtn.style.backgroundColor = 'black';
+              closeBtn.style.boxShadow = '6px 6px 0px 0px rgba(212,255,0,0.3)';
+              let content;
+              if (type === 'image') {
+                content = document.createElement('img');
+                content.src = src;
+                content.style.maxWidth = '90%';
+                content.style.maxHeight = '80vh';
+                content.style.borderRadius = '8px';
+                content.style.border = '4px solid white';
+                content.style.boxShadow = '0 0 50px rgba(0,0,0,0.5)';
+              } else {
+                content = document.createElement('video');
+                content.src = src;
+                content.controls = true;
+                content.autoplay = true;
+                content.style.maxWidth = '90%';
+                content.style.maxHeight = '80vh';
+                content.style.borderRadius = '8px';
+                content.style.border = '4px solid white';
+              }
+              overlay.appendChild(closeBtn);
+              overlay.appendChild(content);
+              overlay.onclick = (e) => {
+                if (e.target !== content) document.body.removeChild(overlay);
+              };
+              document.body.appendChild(overlay);
+            }
+            function sendHeight() {
+              const height = document.documentElement.scrollHeight;
+              window.parent.postMessage({ type: 'resize-iframe', height: height }, '*');
+            }
+            window.addEventListener('load', sendHeight);
+            window.addEventListener('resize', sendHeight);
+            const observer = new ResizeObserver(sendHeight);
+            observer.observe(document.body);
+          </script>
+        </head>
+        <body>
+          <div class="quote-document-container">
+            ${quoteHtml}
+          </div>
+        </body>
+      </html>
+    `;
+  };
+
   return (
     <PouchLayout>
       <div className="min-h-screen bg-gray-100 font-sans pb-24">
@@ -368,174 +535,7 @@ const SharedQuotePage: React.FC = () => {
             {quoteHtml && (
               <iframe
                 key={quoteHtml}
-                srcDoc={`
-                  <html>
-                    <head>
-                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                      <style>
-                        html, body {
-                          margin: 0;
-                          padding: 0;
-                          background-color: #F3F4F6;
-                          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                          overflow: hidden;
-                        }
-                        body {
-                          display: flex;
-                          justify-content: center;
-                          padding: 40px 20px;
-                        }
-                        .quote-document-container {
-                          width: 100%;
-                          max-width: 850px;
-                          background: white;
-                          padding: 60px;
-                          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-                          border-radius: 4px;
-                          min-height: 800px;
-                          box-sizing: border-box;
-                          position: relative;
-                        }
-                        @media (max-width: 640px) {
-                          body { padding: 10px; }
-                          .quote-document-container { padding: 20px; }
-                        }
-
-                        .media-thumbnail-container {
-                          display: inline-block;
-                          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                          margin: 10px;
-                        }
-                        .media-thumbnail-container:hover {
-                          transform: scale(1.05) translateY(-5px);
-                          z-index: 10;
-                        }
-                        .media-thumbnail {
-                          width: 180px;
-                          height: 180px;
-                          object-fit: cover;
-                          border-radius: 12px;
-                          border: 3px solid black;
-                          box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
-                          cursor: pointer;
-                          display: block;
-                          background: #F9FAFB;
-                        }
-                        .media-video-thumbnail {
-                          position: relative;
-                          width: 180px;
-                          height: 180px;
-                          background: #000;
-                          border-radius: 12px;
-                          border: 3px solid black;
-                          box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
-                          cursor: pointer;
-                          overflow: hidden;
-                        }
-                        .media-video-thumbnail video {
-                          width: 100%;
-                          height: 100%;
-                          object-fit: cover;
-                          opacity: 0.6;
-                        }
-                        .media-video-thumbnail::after {
-                          content: '▶';
-                          position: absolute;
-                          top: 50%;
-                          left: 50%;
-                          transform: translate(-50%, -50%);
-                          color: white;
-                          font-size: 32px;
-                          background: rgba(0,0,0,0.5);
-                          width: 50px;
-                          height: 50px;
-                          display: flex;
-                          align-items: center;
-                          justify-content: center;
-                          border-radius: 50%;
-                          border: 2px solid white;
-                          backdrop-filter: blur(2px);
-                        }
-                      </style>
-                      <script>
-                        function openLightbox(element) {
-                          const src = element.getAttribute('data-src');
-                          const type = element.getAttribute('data-type');
-                          const overlay = document.createElement('div');
-                          overlay.style.position = 'fixed';
-                          overlay.style.top = '0';
-                          overlay.style.left = '0';
-                          overlay.style.width = '100%';
-                          overlay.style.height = '100%';
-                          overlay.style.backgroundColor = 'rgba(0,0,0,0.95)';
-                          overlay.style.zIndex = '100000';
-                          overlay.style.display = 'flex';
-                          overlay.style.flexDirection = 'column';
-                          overlay.style.alignItems = 'center';
-                          overlay.style.justifyContent = 'center';
-                          overlay.style.cursor = 'zoom-out';
-                          overlay.style.backdropFilter = 'blur(10px)';
-                          overlay.style.padding = '20px';
-                          
-                          const closeBtn = document.createElement('div');
-                          closeBtn.innerHTML = '✕ CLOSE';
-                          closeBtn.style.position = 'fixed';
-                          closeBtn.style.top = '30px';
-                          closeBtn.style.right = '30px';
-                          closeBtn.style.color = '#D4FF00';
-                          closeBtn.style.fontSize = '18px';
-                          closeBtn.style.fontWeight = '900';
-                          closeBtn.style.cursor = 'pointer';
-                          closeBtn.style.padding = '12px 24px';
-                          closeBtn.style.border = '3px solid #D4FF00';
-                          closeBtn.style.backgroundColor = 'black';
-                          closeBtn.style.boxShadow = '6px 6px 0px 0px rgba(212,255,0,0.3)';
-                          
-                          let content;
-                          if (type === 'image') {
-                            content = document.createElement('img');
-                            content.src = src;
-                            content.style.maxWidth = '90%';
-                            content.style.maxHeight = '80vh';
-                            content.style.borderRadius = '8px';
-                            content.style.border = '4px solid white';
-                            content.style.boxShadow = '0 0 50px rgba(0,0,0,0.5)';
-                          } else {
-                            content = document.createElement('video');
-                            content.src = src;
-                            content.controls = true;
-                            content.autoplay = true;
-                            content.style.maxWidth = '90%';
-                            content.style.maxHeight = '80vh';
-                            content.style.borderRadius = '8px';
-                            content.style.border = '4px solid white';
-                          }
-                          
-                          overlay.appendChild(closeBtn);
-                          overlay.appendChild(content);
-                          overlay.onclick = (e) => {
-                            if (e.target !== content) document.body.removeChild(overlay);
-                          };
-                          document.body.appendChild(overlay);
-                        }
-
-                        function sendHeight() {
-                          const height = document.documentElement.scrollHeight;
-                          window.parent.postMessage({ type: 'resize-iframe', height: height }, '*');
-                        }
-                        window.addEventListener('load', sendHeight);
-                        window.addEventListener('resize', sendHeight);
-                        const observer = new ResizeObserver(sendHeight);
-                        observer.observe(document.body);
-                      </script>
-                    </head>
-                    <body>
-                      <div class="quote-document-container">
-                        \${quoteHtml}
-                      </div>
-                    </body>
-                  </html>
-                \`.replace('\\\\\${quoteHtml}', quoteHtml)}
+                srcDoc={getSrcDoc()}
                 className="w-full border-none"
                 style={{ height: iframeHeight + 'px', display: 'block', overflow: 'hidden' }}
                 title="Official Quotation"
@@ -559,7 +559,6 @@ const SharedQuotePage: React.FC = () => {
             .bg-gray-100 { background: white !important; }
             .rounded-3xl { border-radius: 0 !important; border: none !important; }
             iframe { width: 100% !important; height: auto !important; min-height: 297mm !important; }
-            .print\\\\:hidden { display: none !important; }
           }
         \`}</style>
 
