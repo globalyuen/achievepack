@@ -324,31 +324,31 @@ const SharedQuotePage: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <h3 className="font-black uppercase mb-4 flex items-center gap-2"><ImageIcon className="w-5 h-5" /> Product Photos</h3>
-                <div className="grid grid-cols-4 gap-2 mb-4">
+                <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-3 mb-4">
                   {photos.map((url, i) => (
-                    <div key={i} className="relative group aspect-square border-2 border-black">
+                    <div key={i} className="relative group w-20 h-20 border-2 border-black bg-white">
                       <img src={url} className="w-full h-full object-cover" alt="" />
-                      <button onClick={() => handleRemovePhoto(i)} className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full border-2 border-black opacity-0 group-hover:opacity-100 transition-opacity"><X className="w-3 h-3" /></button>
+                      <button onClick={() => handleRemovePhoto(i)} className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full border-2 border-black opacity-0 group-hover:opacity-100 transition-opacity z-10"><X className="w-2.5 h-2.5" /></button>
                     </div>
                   ))}
-                  <button onClick={handleAddPhoto} className="aspect-square border-2 border-dashed border-neutral-400 flex flex-col items-center justify-center text-neutral-500 hover:border-black hover:text-black transition-colors">
-                    <ImageIcon className="w-6 h-6" />
-                    <span className="text-[10px] font-bold">ADD PHOTO</span>
+                  <button onClick={handleAddPhoto} className="w-20 h-20 border-2 border-dashed border-neutral-300 flex flex-col items-center justify-center text-neutral-400 hover:border-black hover:text-black transition-colors">
+                    <ImageIcon className="w-5 h-5" />
+                    <span className="text-[8px] font-black">ADD</span>
                   </button>
                 </div>
               </div>
               <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <h3 className="font-black uppercase mb-4 flex items-center gap-2"><VideoIcon className="w-5 h-5" /> Product Videos</h3>
-                <div className="grid grid-cols-4 gap-2 mb-4">
+                <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-3 mb-4">
                   {videos.map((url, i) => (
-                    <div key={i} className="relative group aspect-square border-2 border-black bg-black flex items-center justify-center">
-                      <VideoIcon className="w-8 h-8 text-white" />
-                      <button onClick={() => handleRemoveVideo(i)} className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full border-2 border-black opacity-0 group-hover:opacity-100 transition-opacity"><X className="w-3 h-3" /></button>
+                    <div key={i} className="relative group w-20 h-20 border-2 border-black bg-black flex items-center justify-center">
+                      <VideoIcon className="w-5 h-5 text-white" />
+                      <button onClick={() => handleRemoveVideo(i)} className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full border-2 border-black opacity-0 group-hover:opacity-100 transition-opacity z-10"><X className="w-2.5 h-2.5" /></button>
                     </div>
                   ))}
-                  <button onClick={handleAddVideo} className="aspect-square border-2 border-dashed border-neutral-400 flex flex-col items-center justify-center text-neutral-500 hover:border-black hover:text-black transition-colors">
-                    <VideoIcon className="w-6 h-6" />
-                    <span className="text-[10px] font-bold">ADD VIDEO</span>
+                  <button onClick={handleAddVideo} className="w-20 h-20 border-2 border-dashed border-neutral-300 flex flex-col items-center justify-center text-neutral-400 hover:border-black hover:text-black transition-colors">
+                    <VideoIcon className="w-5 h-5" />
+                    <span className="text-[8px] font-black">ADD</span>
                   </button>
                 </div>
               </div>
@@ -377,12 +377,12 @@ const SharedQuotePage: React.FC = () => {
               {photos.length > 0 && (
                 <div className="mb-12">
                   <h3 className="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Photo Gallery</h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                  <div className="flex flex-wrap gap-4">
                     {photos.map((url, i) => (
                       <motion.div 
                         key={i} 
-                        whileHover={{ scale: 1.05, translateY: -5 }}
-                        className="aspect-square border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer overflow-hidden bg-white"
+                        whileHover={{ scale: 1.1, translateY: -5 }}
+                        className="w-24 h-24 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer overflow-hidden bg-white"
                         onClick={() => setLightbox({ src: url, type: 'image' })}
                       >
                         <img src={url} className="w-full h-full object-cover" alt={`Product ${i+1}`} />
@@ -395,18 +395,18 @@ const SharedQuotePage: React.FC = () => {
               {videos.length > 0 && (
                 <div>
                   <h3 className="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Video Documentation</h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                  <div className="flex flex-wrap gap-4">
                     {videos.map((url, i) => (
                       <motion.div 
                         key={i} 
-                        whileHover={{ scale: 1.05, translateY: -5 }}
-                        className="aspect-square border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer relative bg-black group"
+                        whileHover={{ scale: 1.1, translateY: -5 }}
+                        className="w-24 h-24 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer relative bg-black group"
                         onClick={() => setLightbox({ src: url, type: 'video' })}
                       >
                         <video src={url} className="w-full h-full object-cover opacity-60" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:scale-110 transition-transform">
-                            <VideoIcon className="w-6 h-6 text-white" />
+                          <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:scale-110 transition-transform">
+                            <VideoIcon className="w-4 h-4 text-white" />
                           </div>
                         </div>
                       </motion.div>
