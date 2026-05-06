@@ -120,7 +120,7 @@ const WorkshopRegisterPage = () => {
                       </NeoButton>
                     </div>
                     <p className="text-xs text-center text-neutral-500 font-bold uppercase tracking-widest">
-                      Limited to 100 participants per session.
+                      Limited to 10 participants per session.
                     </p>
                   </form>
                 </NeoCard>
