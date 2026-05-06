@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
+import { Lock } from 'lucide-react';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 
@@ -246,8 +247,7 @@ const PouchSampleQuotePage: React.FC = () => {
                                 <p className="text-sm font-black uppercase italic">Excluded Tax & Duty</p>
                             </NeoCard>
                         </div>
-                    </div>
-
+                    
 
 
                     {/* Thank you */}
@@ -261,8 +261,9 @@ const PouchSampleQuotePage: React.FC = () => {
                     </div>
                 </NeoCard>
             </div>
-        </PouchLayout>
-    );
+        </div>
+    </PouchLayout>
+);
 };
 
 export default PouchSampleQuotePage;

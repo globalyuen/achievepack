@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Download, CheckCircle, ArrowLeft, FileText, Info } from 'lucide-react';
+import { Download, CheckCircle, ArrowLeft, FileText, Info, ArrowRight } from 'lucide-react';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 
