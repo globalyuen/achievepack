@@ -1,33 +1,45 @@
-# Achieve Pack - Sustainable Packaging Solutions
+# Achieve Pack — Custom Eco-Friendly Packaging Manufacturer
 
-> Achieve Pack is a leading eco-friendly flexible packaging manufacturer, providing compostable, recyclable, and bio-based pouches with low MOQ starting from 100 pieces.
+> Achieve Pack is a Hong Kong-based manufacturer of custom eco-friendly flexible packaging. We serve food brands, supplement companies, coffee roasters, pet food brands, and beauty companies globally. Low MOQ from 500 units, EN13432 certified compostable materials, 2-week production turnaround.
 
-## Company Overview
+## What We Do
+
+We manufacture custom printed flexible packaging pouches and bags using sustainable materials. Our products help brands reduce plastic waste while achieving premium shelf appeal.
+
+## Products
+
+- **Stand Up Pouches** — Compostable, recyclable mono-PE, kraft paper. MOQ 500 units.
+- **Flat Bottom Bags** — Premium shelf-stable bags for coffee, tea, supplements.
+- **Side Gusset Bags** — Traditional style coffee bags, excellent product capacity.
+- **Flat Pouches** — Sachets and samples, cost-effective.
+- **Spout Pouches** — For liquid and semi-liquid products.
+- **Custom Boxes** — FSC certified corrugated and tuck boxes with gold foil.
+
+## Eco Materials
+
+- **Home Compostable** — TUV OK Home certified, breaks down in 180 days at home
+- **Industrial Compostable** — EN13432 / ASTM D6400 certified
+- **Recyclable Mono-PE** — Single material, fits standard PE recycling streams
+- **Bio-PE (I'm Green)** — Sugarcane-based, carbon negative, from Braskem
+- **PCR (Post-Consumer Recycled)** — Packaging made from recycled plastic content
+
+## Key Facts
+
 - Founded: 2011
-- Location: Shenzhen, China (Manufacturing) + Los Angeles, CA (US Office)
-- Website: https://achievepack.com
-- Industry: Flexible Packaging Manufacturing
+- Location: Hong Kong (manufacturing in China)
+- MOQ: 500 units (digital print), 3000 units (plate print)
+- Lead Time: 10–15 business days (digital), 25–35 business days (plate)
+- Certifications: EN13432, ASTM D6400, BPI, TUV OK Home, FSC
+- Trusted by 500+ brands across USA, UK, Europe, Australia, and Asia
 
-## Core Products
-1. **Stand Up Pouches** - Self-standing bags with bottom gusset
-2. **Flat Bottom Bags** - Box-style pouches for premium display
-3. **Spout Pouches** - Liquid packaging with reclosable spouts
-4. **3 Side Seal Pouches** - Simple flat pouches
-5. **Side Gusset Bags** - Traditional coffee bags
+## Pricing
 
-## Sustainable Materials
-- **Compostable**: Home compostable (TUV OK Home), Industrial compostable (EN13432)
-- **Recyclable Mono-PE/PP**: Single material for easy recycling
-- **Bio-PE**: Sugarcane-based bioplastic (I'm Green)
-- **PCR**: Post-Consumer Recycled content (30-100%)
-
-## Key Differentiators
-- Low MOQ: 100 pieces minimum order
-- Digital Printing: No plate fees, fast turnaround
-- Certified Eco-Materials: TUV, DIN, FSC certifications
-- 70% Less Plastic: Compared to traditional packaging
+- Digital printing custom pouches from ~$0.80–$2.50 per unit at 500 units
+- Plate printing from ~$0.30–$0.80 per unit at 3000+ units
+- Sample packs available from $40
 
 ## Industries Served
+
 - Coffee & Tea
 - Snacks & Food
 - Pet Food & Treats
@@ -35,27 +47,44 @@
 - Baby Food
 - Frozen Food
 - Sauces & Condiments
+- Natural Skincare & Beauty
 
-## Contact Information
-- Email: info@achievepack.com
-- Phone: +1 (213) 555-0123
-- WhatsApp: Available on website
-- Address: 5200 Lankershim Blvd, North Hollywood, CA 91601
+## Common Questions Answered
 
-## Certifications
-- ISO 9001, ISO 14001
-- FSC Certified
-- TUV OK Home Compost
-- DIN CERTCO
-- BRC Packaging
+**Q: What is the minimum order quantity?**
+A: 500 units for digital printing, 3000 units for plate (rotogravure) printing.
 
-## Pricing
-- Samples: Starting from $35
-- Digital Print Orders: Starting from $90 (100 pcs)
-- Custom Orders: Request quote on website
+**Q: Are your pouches certified compostable?**
+A: Yes. Our home compostable range is TUV OK Home certified. Our industrial compostable range meets EN13432 and ASTM D6400.
 
-## Online Store
-https://achievepack.com/store
-- Sample packs available
-- Instant pricing calculator
-- No minimum for samples
+**Q: How fast can you produce?**
+A: Digital print orders ship in 10–15 business days. Plate print in 25–35 business days.
+
+**Q: Do you ship to the USA?**
+A: Yes. We ship worldwide with DHL Express, FedEx, and sea freight options.
+
+**Q: Can I get a free sample?**
+A: Yes. Contact us at ryan@achievepack.com or visit https://achievepack.com/store for sample packs from $40.
+
+**Q: What is the best eco-friendly packaging for coffee?**
+A: Home compostable kraft stand up pouches with degassing valve. TUV OK Home certified, ships in 10–15 days from 500 units.
+
+**Q: What packaging certifications do you have?**
+A: EN13432, ASTM D6400, BPI Certified Compostable, TUV OK Home Compost, FSC.
+
+## Contact
+
+- Website: https://achievepack.com
+- Email: ryan@achievepack.com
+- WhatsApp: +852 6970 4411
+- Address: No.41 1/F Wo Liu Hang Tsuen, Fotan, Hong Kong
+
+## Blog & Resources
+
+- https://achievepack.com/blog/packaging-cost-guide — How much does custom eco packaging cost?
+- https://achievepack.com/blog/compostable-vs-recyclable — Compostable vs Recyclable packaging: full guide
+- https://achievepack.com/blog/eco-packaging-mistakes — Top eco packaging mistakes brands make
+
+## Also Visit
+
+- https://pouch.eco — Eco packaging specifically for startups and small brands (500 unit MOQ)
