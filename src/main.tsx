@@ -101,7 +101,9 @@ const OrderManagementPage = lazyWithRetry(() => import('./pages/OrderManagementP
 const OrderWorkflowPage = lazyWithRetry(() => import('./pages/OrderWorkflowPage'))
 const CustomerMapPage = lazyWithRetry(() => import('./pages/CustomerMapPage'))
 const ImageCatalogPage = lazyWithRetry(() => import('./pages/ImageCatalogPage'))
-const ArtworkHubPage = lazyWithRetry(() => import('./pages/ArtworkHubPage'))
+const ImageGeneratorPage = lazyWithRetry(() => import('./pages/admin/ImageGeneratorPage'))
+const DailyReportsPage = lazyWithRetry(() => import('./pages/admin/DailyReportsPage'))
+const EmailCampaignPage = lazyWithRetry(() => import('./pages/admin/EmailCampaignPage'))
 const UnsubscribePage = lazyWithRetry(() => import('./pages/UnsubscribePage'))
 
 // Industry Pages - Lazy loaded
@@ -341,6 +343,8 @@ const PouchBlogPage = lazyWithRetry(() => import('./pages/pouch/PouchBlogPage'))
 const PouchCertificationsPage = lazyWithRetry(() => import('./pages/pouch/PouchCertificationsPage'))
 const PouchFactoryTourPage = lazyWithRetry(() => import('./pages/pouch/PouchFactoryTourPage'))
 const PouchSampleQuotePage = lazyWithRetry(() => import('./pages/pouch/PouchSampleQuotePage'))
+const PackagingReport2026 = lazyWithRetry(() => import('./pages/pouch/reports/PackagingReport2026'))
+const WorkshopRegisterPage = lazyWithRetry(() => import('./pages/pouch/WorkshopRegisterPage'))
 // Blog Article Pages
 const USACompostableGuide = lazyWithRetry(() => import('./pages/pouch/blog/USACompostableGuide'))
 const CoffeePackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/CoffeePackagingGuide'))
@@ -539,6 +543,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/cert" element={<CertificateDownloadPage />} />
                   <Route path="/sample" element={<PouchSampleQuotePage />} />
                   <Route path="/support/sample-quote" element={<SampleQuotePage />} />
+                  <Route path="/reports/state-of-packaging-2026" element={<PackagingReport2026 />} />
+                  <Route path="/workshop-register" element={<WorkshopRegisterPage />} />
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="*" element={<PouchHomePage />} />
                 </Routes>
@@ -602,7 +608,8 @@ if (getDomain() === 'pouch') {
                         <Route path="/ctrl-x9k7m/shipments/:id" element={<AdminProtectedRoute><ShipmentDetailPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/document-templates" element={<AdminProtectedRoute><DocumentTemplatesPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/daily-reports" element={<AdminProtectedRoute><DailyReportsPage /></AdminProtectedRoute>} />
-                                              <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/email-campaign" element={<AdminProtectedRoute><EmailCampaignPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
                         <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
 
                         <Route path="/view-quote/:id" element={<SharedQuotePage />} />

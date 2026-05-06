@@ -108,7 +108,8 @@ const sidebarMenuItems = [
     collapsible: true,
     defaultOpen: true,
     items: [
-      { id: 'email-marketing', label: 'Email Marketing', icon: Send },
+      { id: 'email-marketing', label: 'Email Marketing (Legacy)', icon: Mail },
+      { id: 'email-campaign', label: 'Email Campaign Manager', icon: Send, externalLink: '/ctrl-x9k7m/email-campaign' },
       { id: 'seo-ranking', label: 'SEO & Ranking', icon: TrendingUp },
       { id: 'link-building', label: 'Link Building', icon: ExternalLink },
       { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
