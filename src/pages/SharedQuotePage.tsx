@@ -348,32 +348,69 @@ const SharedQuotePage: React.FC = () => {
               srcDoc={`
                 <html>
                   <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <style>
+                      body {
+                        margin: 0;
+                        padding: 40px 20px;
+                        background-color: #F3F4F6;
+                        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                        display: flex;
+                        justify-content: center;
+                      }
+                      .quote-document-container {
+                        width: 100%;
+                        max-width: 850px;
+                        background: white;
+                        padding: 60px;
+                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+                        border-radius: 4px;
+                        min-height: 1100px;
+                        box-sizing: border-box;
+                        position: relative;
+                      }
+                      @media (max-width: 640px) {
+                        body { padding: 10px; }
+                        .quote-document-container { padding: 20px; }
+                      }
+
+                      /* Media Gallery Section Styling */
+                      .quote-media-gallery {
+                        margin-top: 40px;
+                        padding-top: 30px;
+                        border-top: 2px dashed #EEE;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 15px;
+                        justify-content: center;
+                      }
+                      
                       .media-thumbnail-container {
                         display: inline-block;
-                        margin: 10px;
-                        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                       }
                       .media-thumbnail-container:hover {
-                        transform: scale(1.08) rotate(1deg);
+                        transform: scale(1.05) translateY(-5px);
+                        z-index: 10;
                       }
                       .media-thumbnail {
-                        width: 150px;
-                        height: 150px;
+                        width: 180px;
+                        height: 180px;
                         object-fit: cover;
                         border-radius: 12px;
-                        border: 4px solid black;
+                        border: 3px solid black;
                         box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
                         cursor: pointer;
                         display: block;
+                        background: #F9FAFB;
                       }
                       .media-video-thumbnail {
                         position: relative;
-                        width: 150px;
-                        height: 150px;
+                        width: 180px;
+                        height: 180px;
                         background: #000;
                         border-radius: 12px;
-                        border: 4px solid black;
+                        border: 3px solid black;
                         box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
                         cursor: pointer;
                         overflow: hidden;
@@ -391,16 +428,16 @@ const SharedQuotePage: React.FC = () => {
                         left: 50%;
                         transform: translate(-50%, -50%);
                         color: white;
-                        font-size: 40px;
-                        text-shadow: 0 0 15px rgba(0,0,0,0.8);
-                        background: rgba(0,0,0,0.3);
-                        width: 60px;
-                        height: 60px;
+                        font-size: 32px;
+                        background: rgba(0,0,0,0.5);
+                        width: 50px;
+                        height: 50px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         border-radius: 50%;
                         border: 2px solid white;
+                        backdrop-filter: blur(2px);
                       }
                     </style>
                     <script>
@@ -426,33 +463,34 @@ const SharedQuotePage: React.FC = () => {
                         const closeBtn = document.createElement('div');
                         closeBtn.innerHTML = '✕ CLOSE';
                         closeBtn.style.position = 'fixed';
-                        closeBtn.style.top = '20px';
-                        closeBtn.style.right = '20px';
+                        closeBtn.style.top = '30px';
+                        closeBtn.style.right = '30px';
                         closeBtn.style.color = '#D4FF00';
-                        closeBtn.style.fontSize = '20px';
+                        closeBtn.style.fontSize = '18px';
                         closeBtn.style.fontWeight = '900';
                         closeBtn.style.cursor = 'pointer';
-                        closeBtn.style.padding = '10px 20px';
+                        closeBtn.style.padding = '12px 24px';
                         closeBtn.style.border = '3px solid #D4FF00';
                         closeBtn.style.backgroundColor = 'black';
+                        closeBtn.style.boxShadow = '6px 6px 0px 0px rgba(212,255,0,0.3)';
                         
                         let content;
                         if (type === 'image') {
                           content = document.createElement('img');
                           content.src = src;
-                          content.style.maxWidth = '100%';
-                          content.style.maxHeight = '85vh';
-                          content.style.borderRadius = '16px';
+                          content.style.maxWidth = '90%';
+                          content.style.maxHeight = '80vh';
+                          content.style.borderRadius = '8px';
                           content.style.border = '4px solid white';
-                          content.style.boxShadow = '0 0 50px rgba(212, 255, 0, 0.2)';
+                          content.style.boxShadow = '0 0 50px rgba(0,0,0,0.5)';
                         } else {
                           content = document.createElement('video');
                           content.src = src;
                           content.controls = true;
                           content.autoplay = true;
-                          content.style.maxWidth = '100%';
-                          content.style.maxHeight = '85vh';
-                          content.style.borderRadius = '16px';
+                          content.style.maxWidth = '90%';
+                          content.style.maxHeight = '80vh';
+                          content.style.borderRadius = '8px';
                           content.style.border = '4px solid white';
                         }
                         
@@ -465,12 +503,14 @@ const SharedQuotePage: React.FC = () => {
                       }
                     </script>
                   </head>
-                  <body style="margin:0; padding:0;">
-                    ${quoteHtml}
+                  <body>
+                    <div class="quote-document-container">
+                      ${quoteHtml}
+                    </div>
                   </body>
                 </html>
               `}
-              className="w-full border-none min-h-[1100px]"
+              className="w-full border-none min-h-[1200px]"
               title="Official Quotation"
               style={{ display: 'block' }}
             />
