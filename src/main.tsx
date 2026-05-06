@@ -101,6 +101,7 @@ const OrderManagementPage = lazyWithRetry(() => import('./pages/OrderManagementP
 const OrderWorkflowPage = lazyWithRetry(() => import('./pages/OrderWorkflowPage'))
 const CustomerMapPage = lazyWithRetry(() => import('./pages/CustomerMapPage'))
 const ImageCatalogPage = lazyWithRetry(() => import('./pages/ImageCatalogPage'))
+const ArtworkHubPage = lazyWithRetry(() => import('./pages/ArtworkHubPage'))
 const ImageGeneratorPage = lazyWithRetry(() => import('./pages/admin/ImageGeneratorPage'))
 const DailyReportsPage = lazyWithRetry(() => import('./pages/admin/DailyReportsPage'))
 const EmailCampaignPage = lazyWithRetry(() => import('./pages/admin/EmailCampaignPage'))
@@ -452,8 +453,6 @@ const ShipmentDetailPage = lazyWithRetry(() => import('./pages/admin/ShipmentDet
 const ShipmentTrackingPage = lazyWithRetry(() => import('./pages/ShipmentTrackingPage'))
 const SharedQuotePage = lazyWithRetry(() => import('./pages/SharedQuotePage'))
 const DocumentTemplatesPage = lazyWithRetry(() => import('./pages/admin/DocumentTemplatesPage'))
-const ImageGeneratorPage = lazyWithRetry(() => import('./pages/admin/ImageGeneratorPage'))
-const DailyReportsPage = lazyWithRetry(() => import('./pages/admin/DailyReportsPage'))
 
 import AdminProtectedRoute from './components/admin/AdminProtectedRoute'
 // Cookie Consent Component

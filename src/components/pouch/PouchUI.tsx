@@ -2,16 +2,19 @@ import { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-export const NeoButton = ({ children, onClick, variant = 'primary', className = '', href, to, target, title }: { children: ReactNode, onClick?: () => void, variant?: 'primary' | 'secondary' | 'dark', className?: string, href?: string, to?: string, target?: string, title?: string }) => {
+export const NeoButton = ({ children, onClick, variant = 'primary', className = '', href, to, target, title, disabled }: { children: ReactNode, onClick?: () => void, variant?: 'primary' | 'secondary' | 'dark', className?: string, href?: string, to?: string, target?: string, title?: string, disabled?: boolean }) => {
   const navigate = useNavigate()
-  const baseStyle = "relative px-8 py-4 font-black uppercase tracking-widest border-4 border-black transition-all active:translate-x-1 active:translate-y-1 text-center"
+  const baseStyle = "relative px-8 py-4 font-black uppercase tracking-widest border-4 border-black transition-all text-center"
+  const activeStyle = !disabled ? "active:translate-x-1 active:translate-y-1 hover:-translate-y-1 hover:-translate-x-1" : "opacity-50 cursor-not-allowed"
+  
   const variants = {
-    primary: "bg-[#D4FF00] text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    secondary: "bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    dark: "bg-black text-[#D4FF00] hover:shadow-[8px_8px_0px_0px_#D4FF00] hover:-translate-y-1 hover:-translate-x-1 border-[#D4FF00]"
+    primary: `bg-[#D4FF00] text-black ${!disabled ? 'hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]' : ''}`,
+    secondary: `bg-white text-black ${!disabled ? 'hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]' : ''}`,
+    dark: `bg-black text-[#D4FF00] border-[#D4FF00] ${!disabled ? 'hover:shadow-[8px_8px_0px_0px_#D4FF00]' : ''}`
   }
   
   const handleClick = (e: React.MouseEvent) => {
+    if (disabled) return
     if (to) {
       e.preventDefault()
       navigate(to)
@@ -23,11 +26,12 @@ export const NeoButton = ({ children, onClick, variant = 'primary', className = 
   if (href) {
     return (
       <a 
-        href={href} 
+        href={disabled ? undefined : href} 
         target={target || (href.startsWith('http') ? '_blank' : undefined)}
         rel={target === '_blank' || href.startsWith('http') ? 'noopener noreferrer' : undefined}
-        className={`${baseStyle} ${variants[variant]} ${className} inline-block`}
+        className={`${baseStyle} ${variants[variant]} ${activeStyle} ${className} inline-block`}
         title={title}
+        onClick={disabled ? (e) => e.preventDefault() : undefined}
       >
         {children}
       </a>
@@ -38,7 +42,8 @@ export const NeoButton = ({ children, onClick, variant = 'primary', className = 
     <button 
       type="button"
       onClick={handleClick} 
-      className={`${baseStyle} ${variants[variant]} ${className}`}
+      disabled={disabled}
+      className={`${baseStyle} ${variants[variant]} ${activeStyle} ${className}`}
       title={title}
     >
       {children}
