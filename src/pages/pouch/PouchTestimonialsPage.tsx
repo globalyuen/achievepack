@@ -319,7 +319,7 @@ export default function PouchTestimonialsPage() {
                     {testimonial.industry} • {testimonial.location}
                   </div>
                 </div>
-              </motion.div>
+              </NeoCard>
             ))}
           </div>
         </div>

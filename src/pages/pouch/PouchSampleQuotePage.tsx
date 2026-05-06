@@ -259,7 +259,7 @@ const PouchSampleQuotePage: React.FC = () => {
                             <div className="w-12 h-1 bg-black"></div>
                         </div>
                     </div>
-                </div>
+                </NeoCard>
             </div>
         </PouchLayout>
     );
