@@ -288,6 +288,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
                 <li><Link to="/materials/compostable" className="hover:underline">[COMPOSTABLE]</Link></li>
                 <li><Link to="/materials/recyclable" className="hover:underline">[RECYCLABLE]</Link></li>
+                <li><Link to="/materials/plastic-free-kraft" className="hover:underline text-[#10b981]">[PLASTIC-FREE KRAFT]</Link></li>
                 <li><Link to="/materials" className="hover:underline">[MATERIAL HUB]</Link></li>
               </ul>
             </div>

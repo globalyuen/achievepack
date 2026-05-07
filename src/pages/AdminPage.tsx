@@ -223,6 +223,17 @@ const AdminPage: React.FC = () => {
     return saved ? new Set(JSON.parse(saved)) : new Set()
   })
 
+  // Prospecting Stats state
+  const [prospectStats, setProspectStats] = useState<{
+    total_sent: number;
+    opened: number;
+    clicked: number;
+    open_rate: number;
+    click_rate: number;
+  } | null>(null)
+  const [automationStatus, setAutomationStatus] = useState<boolean>(false)
+  const [lastProspectRun, setLastProspectRun] = useState<string | null>(null)
+
   // Image Catalog for Email
   const imageCatalog = {
     'Growth & Progress': [
@@ -434,7 +445,7 @@ const AdminPage: React.FC = () => {
       }
     }
     
-    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, emailHistoryRes, quotesRes, projectsRes] = await Promise.all([
+    const [customersRes, ordersRes, subscribersRes, documentsRes, draftsRes, emailHistoryRes, quotesRes, projectsRes, prospectStatsRes, autoStatusRes] = await Promise.all([
       supabase.from('profiles').select('*').is('deleted_at', null).order('created_at', { ascending: false }),
       supabase.from('orders').select('*').neq('status', 'deleted').order('created_at', { ascending: false }),
       supabase.from('newsletter_subscribers').select('*').order('created_at', { ascending: false }),
@@ -442,7 +453,9 @@ const AdminPage: React.FC = () => {
       supabase.from('email_drafts').select('*').order('updated_at', { ascending: false }),
       supabase.from('crm_activities').select('*').eq('type', 'email').order('created_at', { ascending: false }).limit(100),
       supabase.from('quotes').select('*').order('created_at', { ascending: false }),
-      supabase.from('projects').select('*').order('created_at', { ascending: false })
+      supabase.from('projects').select('*').order('created_at', { ascending: false }),
+      fetch('/api/prospect/email-history?limit=1').then(r => r.json()).catch(() => ({ success: false })),
+      fetch('/api/prospect/automation-status').then(r => r.json()).catch(() => null)
     ])
     
     // Debug: Log data counts
@@ -452,7 +465,8 @@ const AdminPage: React.FC = () => {
       subscribers: subscribersRes.data?.length || 0,
       inquiries: allInquiries.length,
       emailHistory: emailHistoryRes.data?.length || 0,
-      quotes: quotesRes.data?.length || 0
+      quotes: quotesRes.data?.length || 0,
+      prospects: prospectStatsRes.total || 0
     })
     
     // Debug: Log inquiry sources
@@ -478,6 +492,15 @@ const AdminPage: React.FC = () => {
     setInquiries(allInquiries)
     setEmailHistory(emailHistoryRes.data || [])
     setQuotes(quotesRes.data || [])
+    
+    if (prospectStatsRes.success) {
+      setProspectStats(prospectStatsRes.stats)
+    }
+    if (autoStatusRes && typeof autoStatusRes.running !== 'undefined') {
+      setAutomationStatus(autoStatusRes.running)
+      setLastProspectRun(autoStatusRes.last_run)
+    }
+    
     setLoading(false)
   }
 
@@ -1989,6 +2012,61 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
                     <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-full flex items-center justify-center">
                       <DollarSign className="h-5 w-5 md:h-6 md:w-6 text-green-600" />
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Prospecting & Automation Overview */}
+              <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div className="px-6 py-4 border-b flex justify-between items-center bg-gray-50/50">
+                  <div className="flex items-center gap-2">
+                    <Search className="h-5 w-5 text-primary-600" />
+                    <h2 className="text-lg font-semibold text-gray-900">Prospecting & Automation</h2>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className={`flex h-2.5 w-2.5 rounded-full ${automationStatus ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></span>
+                    <span className="text-xs font-medium text-gray-600">
+                      {automationStatus ? 'Auto-Outreach ACTIVE' : 'Auto-Outreach Paused'}
+                    </span>
+                    <Link 
+                      to="/ctrl-x9k7m/prospects" 
+                      className="ml-4 p-1.5 text-primary-600 hover:bg-primary-50 rounded-lg transition"
+                      title="Go to Prospect Finder"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+                <div className="p-4 grid grid-cols-2 md:grid-cols-5 gap-4">
+                  <div className="p-3 border rounded-lg bg-white">
+                    <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Cold Emails Sent</p>
+                    <p className="text-xl font-bold text-gray-900 mt-1">{prospectStats?.total_sent || 0}</p>
+                  </div>
+                  <div className="p-3 border rounded-lg bg-white">
+                    <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Opened</p>
+                    <div className="flex items-baseline gap-2">
+                      <p className="text-xl font-bold text-gray-900 mt-1">{prospectStats?.opened || 0}</p>
+                      <p className="text-xs font-medium text-green-600">{prospectStats?.open_rate || 0}%</p>
+                    </div>
+                  </div>
+                  <div className="p-3 border rounded-lg bg-white">
+                    <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Clicked</p>
+                    <div className="flex items-baseline gap-2">
+                      <p className="text-xl font-bold text-gray-900 mt-1">{prospectStats?.clicked || 0}</p>
+                      <p className="text-xs font-medium text-blue-600">{prospectStats?.click_rate || 0}%</p>
+                    </div>
+                  </div>
+                  <div className="p-3 border rounded-lg bg-gray-50 flex flex-col justify-center">
+                    <p className="text-[10px] uppercase tracking-wider text-gray-500 font-bold">Last Run</p>
+                    <p className="text-[11px] font-medium text-gray-700 mt-1">
+                      {lastProspectRun ? new Date(lastProspectRun).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Never'}
+                    </p>
+                  </div>
+                  <div className="p-3 border rounded-lg bg-primary-50/30 flex flex-col justify-center">
+                    <Link to="/ctrl-x9k7m/prospects" className="text-xs font-bold text-primary-700 flex items-center justify-between group">
+                      Open Finder
+                      <ChevronRight className="h-4 w-4 transform group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
                   </div>
                 </div>
               </div>

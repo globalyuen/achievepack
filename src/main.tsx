@@ -134,6 +134,7 @@ const PCRPage = lazyWithRetry(() => import('./pages/materials/PCRPage'))
 const HomeCompostablePage = lazyWithRetry(() => import('./pages/materials/HomeCompostablePage'))
 const IndustrialCompostablePage = lazyWithRetry(() => import('./pages/materials/IndustrialCompostablePage'))
 const KraftHighBarrierPage = lazyWithRetry(() => import('./pages/materials/KraftHighBarrierPage'))
+const PlasticFreeKraftPage = lazyWithRetry(() => import('./pages/materials/PlasticFreeKraftPage'))
 
 // Printing Pages - Lazy loaded
 const DigitalPrintingPage = lazyWithRetry(() => import('./pages/printing/DigitalPrintingPage'))
@@ -389,6 +390,7 @@ const PouchSpoutPouchesPage = lazyWithRetry(() => import('./pages/pouch/packagin
 const PouchFlatPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchFlatPouchesPage'))
 const PouchVacuumPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchVacuumPouchesPage'))
 const PouchFrozenFoodPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchFrozenFoodPage'))
+const PouchPlasticFreeKraftPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchPlasticFreeKraftPage'))
 
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
 const EcoFriendlyFoodPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/EcoFriendlyFoodPackagingGuide'))
@@ -509,6 +511,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
                   <Route path="/materials/compostable" element={<PouchCompostablePage />} />
                   <Route path="/materials/recyclable" element={<PouchRecyclablePage />} />
+                  <Route path="/materials/plastic-free-kraft" element={<PouchPlasticFreeKraftPage />} />
                   <Route path="/industry/baby-food" element={<PouchBabyFoodPage />} />
                   <Route path="/packaging/spout-pouches" element={<PouchSpoutPouchesPage />} />
                   <Route path="/packaging/flat-pouches" element={<PouchFlatPouchesPage />} />
@@ -640,6 +643,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/materials/pcr" element={<PCRPage />} />
                         <Route path="/materials/home-compostable" element={<HomeCompostablePage />} />
                         <Route path="/materials/industrial-compostable" element={<IndustrialCompostablePage />} />
+                        <Route path="/materials/plastic-free-kraft" element={<PlasticFreeKraftPage />} />
                         <Route path="/materials/kraft-high-barrier" element={<KraftHighBarrierPage />} />
                         <Route path="/materials/data-sheet" element={<MaterialDataSheetPage />} />
 

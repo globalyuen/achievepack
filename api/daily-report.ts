@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
+import { createClient } from '@supabase/supabase-js'
 
 interface TrafficData {
   domain: string
@@ -22,6 +23,22 @@ interface SEORankingData {
   avgPosition: number
   totalKeywords: number
 }
+
+interface BusinessMetrics {
+  newProspects: number
+  followUps: number
+  newQuotes: number
+  newArtworks: number
+  newOrders: number
+  newCustomers: number
+  totalRevenue: number
+}
+
+// Initialize Supabase
+const supabase = createClient(
+  process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || '',
+  process.env.SUPABASE_SERVICE_KEY || ''
+)
 
 /**
  * Daily Report API Endpoint
@@ -54,15 +71,17 @@ export default async function handler(
     const reportDate = yesterday.toISOString().split('T')[0]
 
     // Fetch data for both domains
-    const [achievepackData, pouchData] = await Promise.all([
+    const [achievepackData, pouchData, businessMetrics] = await Promise.all([
       fetchDomainData('achievepack.com', reportDate),
-      fetchDomainData('pouch.eco', reportDate)
+      fetchDomainData('pouch.eco', reportDate),
+      fetchBusinessMetrics(reportDate)
     ])
 
     // Generate email content
     const emailHtml = generateEmailHTML({
       achievepack: achievepackData,
       pouch: pouchData,
+      metrics: businessMetrics,
       date: reportDate
     })
 
@@ -135,14 +154,95 @@ async function fetchDomainData(domain: string, date: string) {
 }
 
 /**
+ * Fetch business metrics from Supabase for a specific date
+ */
+async function fetchBusinessMetrics(date: string): Promise<BusinessMetrics> {
+  const startOfDay = `${date}T00:00:00.000Z`
+  const endOfDay = `${date}T23:59:59.999Z`
+
+  try {
+    const [
+      prospectsRes,
+      followUpsRes,
+      quotesRes,
+      artworksRes,
+      ordersRes,
+      customersRes
+    ] = await Promise.all([
+      // New Prospects Sent
+      supabase.from('prospect')
+        .select('*', { count: 'exact', head: true })
+        .eq('email_sent', true)
+        .gte('email_sent_at', startOfDay)
+        .lte('email_sent_at', endOfDay),
+      
+      // Repeat Follow-ups
+      supabase.from('prospect')
+        .select('*', { count: 'exact', head: true })
+        .gt('touch_count', 1)
+        .gte('last_touch_at', startOfDay)
+        .lte('last_touch_at', endOfDay),
+      
+      // New Quotes
+      supabase.from('quotes')
+        .select('*', { count: 'exact', head: true })
+        .gte('created_at', startOfDay)
+        .lte('created_at', endOfDay),
+      
+      // New Artworks
+      supabase.from('artwork_files')
+        .select('*', { count: 'exact', head: true })
+        .gte('created_at', startOfDay)
+        .lte('created_at', endOfDay),
+      
+      // New Orders
+      supabase.from('orders')
+        .select('total_amount')
+        .gte('created_at', startOfDay)
+        .lte('created_at', endOfDay),
+      
+      // New Customers
+      supabase.from('profiles')
+        .select('*', { count: 'exact', head: true })
+        .gte('created_at', startOfDay)
+        .lte('created_at', endOfDay)
+    ])
+
+    const totalRevenue = (ordersRes.data || []).reduce((sum, order) => sum + (order.total_amount || 0), 0)
+
+    return {
+      newProspects: prospectsRes.count || 0,
+      followUps: followUpsRes.count || 0,
+      newQuotes: quotesRes.count || 0,
+      newArtworks: artworksRes.count || 0,
+      newOrders: (ordersRes.data || []).length,
+      newCustomers: customersRes.count || 0,
+      totalRevenue
+    }
+  } catch (error) {
+    console.error('Error fetching business metrics:', error)
+    return {
+      newProspects: 0,
+      followUps: 0,
+      newQuotes: 0,
+      newArtworks: 0,
+      newOrders: 0,
+      newCustomers: 0,
+      totalRevenue: 0
+    }
+  }
+}
+
+/**
  * Generate HTML email content
  */
 function generateEmailHTML(data: {
   achievepack: { traffic: TrafficData; seo: SEORankingData }
   pouch: { traffic: TrafficData; seo: SEORankingData }
+  metrics: BusinessMetrics
   date: string
 }) {
-  const { achievepack, pouch, date } = data
+  const { achievepack, pouch, metrics, date } = data
 
   return `
 <!DOCTYPE html>
@@ -271,6 +371,41 @@ function generateEmailHTML(data: {
   <div class="container">
     <h1>📊 Daily Performance Report</h1>
     <p style="color: #666; font-size: 16px;">Report Date: <strong>${date}</strong></p>
+
+    <!-- Business Metrics Overview -->
+    <div class="domain-section" style="border-left-color: #10b981; background-color: #f0fdf4;">
+      <h2 style="color: #059669;">💰 Business Overview</h2>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">Daily Revenue</div>
+          <div class="metric-value" style="color: #059669;">$${metrics.totalRevenue.toLocaleString()}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">New Orders</div>
+          <div class="metric-value">${metrics.newOrders}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">New Prospects</div>
+          <div class="metric-value" style="color: #8b5cf6;">${metrics.newProspects}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Follow-ups</div>
+          <div class="metric-value">${metrics.followUps}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">New Quotations</div>
+          <div class="metric-value">${metrics.newQuotes}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Artwork Uploads</div>
+          <div class="metric-value">${metrics.newArtworks}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">New Customers</div>
+          <div class="metric-value">${metrics.newCustomers}</div>
+        </div>
+      </div>
+    </div>
 
     <!-- AchievePack.com Section -->
     <div class="domain-section">
