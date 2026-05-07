@@ -200,7 +200,8 @@ const PlasticFreeKraftPage: React.FC = () => {
     <SEOPageLayout
       title="Kraft Paper Bag vs. Plastic-Free: What You Need to Know | Achieve Pack"
       description="Is kraft paper really plastic-free? Discover the truth about laminated paper bags, the role of PLA, and 5 fun facts about sustainable kraft packaging for coffee and snacks."
-      keywords="kraft paper bag plastic free, compostable kraft pouches, PLA lining kraft, sustainable coffee packaging, plastic free packaging facts, Achieve Pack"
+      introSummary="Many businesses assume kraft paper bags are 100% plastic-free. However, most traditional paper pouches contain a hidden plastic lining. We explain the truth about kraft packaging and how to find truly eco-friendly alternatives."
+      keywords={["kraft paper bag plastic free", "compostable kraft pouches", "PLA lining kraft", "sustainable coffee packaging", "plastic free packaging facts", "Achieve Pack"]}
       sections={sections}
       heroTitle="Kraft Paper Bag = Plastic-Free?"
       heroSubtitle="Separating Fact from Fiction in Sustainable Packaging"
