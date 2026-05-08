@@ -93,7 +93,7 @@ export default function USACompostableGuide() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <ClickableImage 
-                src="/imgs/topics/compostable_coffee_bags_1778220078142.png" 
+                src="/imgs/topics/compostable_coffee_bags.png" 
                 alt="Compostable Coffee Bags" 
                 className="w-full aspect-square object-cover border-4 border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)]"
               />
@@ -101,7 +101,7 @@ export default function USACompostableGuide() {
             </div>
             <div className="space-y-4">
               <ClickableImage 
-                src="/imgs/topics/pfas_free_packaging_1778220062665.png" 
+                src="/imgs/topics/pfas_free_packaging.png" 
                 alt="PFAS Free Packaging" 
                 className="w-full aspect-square object-cover border-4 border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)]"
               />
@@ -109,7 +109,7 @@ export default function USACompostableGuide() {
             </div>
             <div className="space-y-4">
               <ClickableImage 
-                src="/imgs/topics/minimalist_d2c_packaging_pouch_1778220133239.png" 
+                src="/imgs/topics/minimalist_d2c_packaging.png" 
                 alt="Minimalist D2C Packaging" 
                 className="w-full aspect-square object-cover border-4 border-white shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)]"
               />
