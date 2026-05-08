@@ -4,6 +4,7 @@ import { Factory, Shield, Zap, ArrowRight, CheckCircle, Package, Globe, Award, C
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchCustomCompostablePouchSuppliersPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -71,6 +72,40 @@ const PouchCustomCompostablePouchSuppliersPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-pink-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Manufacturing<br/>Excellence</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/topics/baby_food_bags_1778212399332.png" 
+              alt="Custom printed spout pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Spout Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Custom printed stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom box pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Box Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/topics/green_coffee_materials_1778212283713.png" 
+              alt="Custom printed coffee bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Coffee Bags"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Global Reach Section */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -125,6 +160,32 @@ const PouchCustomCompostablePouchSuppliersPage: React.FC = () => {
               <Globe className="w-16 h-16 mx-auto mb-6 text-cyan-600" />
               <h4 className="font-black text-2xl uppercase mb-4">Sedex Compliant</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Committed to ethical supply chains and responsible social/environmental business practices.</p>
+            </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">What is the minimum order quantity (MOQ) for custom pouches?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">With our digital printing capabilities, we can offer custom printed pouches starting at just 500 units per design, perfect for testing new markets.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Do you provide structural engineering support?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, our packaging engineers will work directly with you to determine the exact barrier layers, dimensions, and closures needed for your specific product.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Can you handle DDP shipping to the US and Europe?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Absolutely. We provide door-to-door delivery with all customs duties and taxes paid (DDP), so you have zero logistics headaches.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are your facilities certified for food packaging?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, our manufacturing facilities hold BRC Grade A certification, the gold standard for global food safety packaging production.</p>
             </NeoCard>
           </div>
         </div>

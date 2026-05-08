@@ -4,6 +4,7 @@ import { Rocket, Shield, Zap, ArrowRight, CheckCircle, Package, TrendingUp, BarC
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchLowMOQStartupPackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -71,6 +72,40 @@ const PouchLowMOQStartupPackagingPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-blue-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">STARTUP_FAVORITES</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Visual<br/>Showcase</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Flat Bottom Bags"
+            />
+            <ClickableImage 
+              src="/imgs/topics/baby_food_bags_1778212399332.png" 
+              alt="Baby food pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Baby Food Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/topics/dtc_packaging_1778212333445.png" 
+              alt="DTC sustainable packaging" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="DTC Packaging"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* MOQ Tier Matrix */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -116,6 +151,32 @@ const PouchLowMOQStartupPackagingPage: React.FC = () => {
               alt="Digital Workflow" 
               className="relative z-10 border-4 border-black w-full"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">What is the minimum order quantity (MOQ)?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Our MOQ starts from just 500 units for digitally printed pouches, allowing you to test the market with minimal risk.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Can I order different designs within the minimum quantity?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes! With digital printing, you can split your order across multiple SKUs (e.g., 500 units of 5 different flavors = 100 per flavor).</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are your materials certified eco-friendly?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, we offer certified compostable (TUV), recyclable, and bio-based materials that meet strict international standards.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">How long does production take?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Standard production time is 10-15 business days after artwork approval.</p>
+            </NeoCard>
           </div>
         </div>
       </section>

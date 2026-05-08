@@ -4,6 +4,7 @@ import { Droplets, Shield, Zap, ArrowRight, CheckCircle, Award, Wind, Thermomete
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchCompostableHumidityControlPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -71,6 +72,40 @@ const PouchCompostableHumidityControlPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-cyan-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Humidity<br/>Defenders</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Stand up pouch for moisture control" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/topics/green_coffee_materials_1778212283713.png" 
+              alt="Moisture barrier coffee bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Coffee Barrier Bags"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom box pouch for powders" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Powder Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/topics/baby_food_bags_1778212399332.png" 
+              alt="Spout pouch moisture control" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Spout Pouches"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Closure Systems Section */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -91,6 +126,32 @@ const PouchCompostableHumidityControlPage: React.FC = () => {
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">How does compostable packaging block moisture?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">We utilize ultra-thin microscopic metalized coatings (like AlOx) or advanced EVOH layers on plant-based films that physically block water vapor while remaining fully compostable.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Is the resealable zipper also compostable?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes! The entire pouch unit, including the heavy-duty "Click-Press" zipper and degassing valves, are certified to break down entirely in compost environments.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">What is the shelf life for moisture-sensitive products?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Depending on the specific film structure selected, you can achieve a stable shelf life of 12 to 18+ months for highly sensitive powders and botanicals.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Can these barrier bags be custom printed?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, our high-barrier compostable bags can be fully printed using eco-friendly digital inks, maintaining both their protective properties and visual appeal.</p>
+            </NeoCard>
           </div>
         </div>
       </section>

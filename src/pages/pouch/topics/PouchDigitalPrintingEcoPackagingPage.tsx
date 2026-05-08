@@ -4,6 +4,7 @@ import { Printer, Shield, Zap, ArrowRight, CheckCircle, Palette, MousePointer2, 
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -71,6 +72,40 @@ const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-yellow-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Digital<br/>Vibrancy</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Digitally printed stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom box pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Flat Bottom Bags"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/3-side.webp" 
+              alt="3-side seal flat pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Flat Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/topics/dtc_packaging_1778212333445.png" 
+              alt="Custom printed DTC packaging" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="DTC Packaging"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Finishing Grid */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -91,6 +126,32 @@ const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
                 <h4 className="font-black text-3xl uppercase">Ink Safety</h4>
                 <p className="text-xs font-bold mt-4 uppercase italic">Compost-safe, water-based inks that meet the highest FDA and EU food safety standards.</p>
               </div>
+            </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are digital inks eco-friendly and food-safe?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, we use advanced water-based digital inks that are both FDA/EU compliant for food contact and certified safe for compostable disposal.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are there any hidden plate or setup fees?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">No. Unlike rotogravure or flexo printing, digital printing requires zero metal plates, meaning you pay zero setup fees.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Can you match my specific brand Pantone colors?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Absolutely. Our digital presses use advanced CMYK+ layering to achieve over 97% of the Pantone matching system with incredible consistency.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">How fast is turnaround for digital printing?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Because there is no plate manufacturing required, we can go from approved artwork to shipped product in just 10-15 business days.</p>
             </NeoCard>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { ShoppingBag, Shield, Zap, ArrowRight, CheckCircle, Package, Truck, Targ
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchDTCSustainablePackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -71,6 +72,40 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-cyan-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">UNBOXING_EXPERIENCE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">DTC<br/>Formats</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/topics/dtc_packaging_1778212333445.png" 
+              alt="DTC sustainable packaging" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="DTC Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Stand up pouch for e-commerce" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom box pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Box Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/3-side.webp" 
+              alt="Flat pouch mailing" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Mailer Pouches"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Unboxing Impact */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -100,6 +135,28 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are these pouches durable enough for e-commerce shipping?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes! Our flexible packaging is specifically engineered to absorb impact during transit, resulting in a damage rate of less than 0.1% compared to rigid containers.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Can you print variable data for different SKUs?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Absolutely. With our digital printing capabilities, we can print multiple designs and variations in a single run without any plate costs.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">How do pouches reduce my shipping costs?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Pouches are up to 75% lighter than rigid jars and take up significantly less dimensional space (DIM weight), directly reducing 3PL and shipping fees.</p>
+            </NeoCard>
           </div>
         </div>
       </section>

@@ -71,21 +71,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         let allRows: any[] = [];
         
         if (site === 'all') {
-            // For 'all', try fetching both if possible, or just default to achieving both sequentially
-            try {
-                const achieveRows = await fetchGscData('sc-domain:achievepack.com');
-                const pouchRows = await fetchGscData('sc-domain:pouch.eco');
-                allRows = [...achieveRows, ...pouchRows];
-                
-                // Sort by clicks to merge
-                allRows.sort((a, b) => (b.clicks || 0) - (a.clicks || 0));
-                allRows = allRows.slice(0, limit);
-            } catch (e) {
-                // Fallback to default if both fails
-                allRows = await fetchGscData(targetSiteUrl);
-            }
+            const achievePromise = fetchGscData('sc-domain:achievepack.com').catch(e => {
+                console.error('Failed to fetch achievepack:', e.message);
+                return [];
+            });
+            const pouchPromise = fetchGscData('sc-domain:pouch.eco').catch(e => {
+                console.error('Failed to fetch pouch.eco:', e.message);
+                return [];
+            });
+            
+            const [achieveRows, pouchRows] = await Promise.all([achievePromise, pouchPromise]);
+            allRows = [...achieveRows, ...pouchRows];
+            
+            // Sort by clicks to merge
+            allRows.sort((a, b) => (b.clicks || 0) - (a.clicks || 0));
+            allRows = allRows.slice(0, limit);
         } else {
-            allRows = await fetchGscData(targetSiteUrl);
+            allRows = await fetchGscData(targetSiteUrl).catch(e => {
+                console.error(`Failed to fetch ${targetSiteUrl}:`, e.message);
+                return [];
+            });
         }
         
         const data = allRows.map((row: any) => ({

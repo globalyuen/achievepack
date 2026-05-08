@@ -4,6 +4,7 @@ import { Sparkles, Zap, Package, ArrowRight, Palette, Printer, ShoppingBag, Eye,
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -75,6 +76,40 @@ const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-yellow-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Custom<br/>Vibrancy</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Custom printed stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom box pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Flat Bottom Bags"
+            />
+            <ClickableImage 
+              src="/imgs/topics/green_coffee_materials_1778212283713.png" 
+              alt="Custom printed coffee bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Coffee Bags"
+            />
+            <ClickableImage 
+              src="/imgs/topics/baby_food_bags_1778212399332.png" 
+              alt="Custom printed spout pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Spout Pouches"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Showcase Grid */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -95,6 +130,32 @@ const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
                 <h4 className="font-black text-3xl uppercase">Dieline Library</h4>
                 <p className="text-xs font-bold mt-4 uppercase italic">Access 100+ standard dielines to jumpstart your design process today.</p>
               </div>
+            </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are the inks used for printing eco-friendly?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, we use advanced water-based inks that are certified safe for compostable disposal and compliant with strict FDA/EU food safety standards.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">What is the minimum order quantity for custom printed bags?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Thanks to digital printing, our MOQs start as low as 500 units per design, with zero setup or plate fees.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Can you print variable data or QR codes?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes! Digital printing allows for variable data printing (VDP), meaning we can print unique QR codes, serialization, or different designs on every single pouch.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">How long does a custom order take?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Our standard digital production time is 10-15 business days from artwork approval to shipment.</p>
             </NeoCard>
           </div>
         </div>

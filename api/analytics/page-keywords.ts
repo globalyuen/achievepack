@@ -67,15 +67,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         
         let allRows: any[] = [];
         if (site === 'all') {
-            try {
-                const achieveRows = await fetchGscKeywords('sc-domain:achievepack.com');
-                const pouchRows = await fetchGscKeywords('sc-domain:pouch.eco');
-                allRows = [...achieveRows, ...pouchRows];
-            } catch (e) {
-                allRows = await fetchGscKeywords(targetSiteUrl);
-            }
+            const achievePromise = fetchGscKeywords('sc-domain:achievepack.com').catch(e => {
+                console.error('Failed to fetch achievepack keywords:', e.message);
+                return [];
+            });
+            const pouchPromise = fetchGscKeywords('sc-domain:pouch.eco').catch(e => {
+                console.error('Failed to fetch pouch.eco keywords:', e.message);
+                return [];
+            });
+            
+            const [achieveRows, pouchRows] = await Promise.all([achievePromise, pouchPromise]);
+            allRows = [...achieveRows, ...pouchRows];
         } else {
-            allRows = await fetchGscKeywords(targetSiteUrl);
+            allRows = await fetchGscKeywords(targetSiteUrl).catch(e => {
+                console.error(`Failed to fetch ${targetSiteUrl} keywords:`, e.message);
+                return [];
+            });
         }
         
         // Group keywords by page

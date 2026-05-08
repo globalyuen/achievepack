@@ -4,6 +4,7 @@ import { Recycle, Package, CheckCircle, Award, Zap, Cookie, Factory, BarChart3, 
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchRecyclableSnackPackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -77,6 +78,40 @@ const PouchRecyclableSnackPackagingPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-blue-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Snack<br/>Formats</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Stand up snack pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom box pouch for snacks" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Box Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/3-side.webp" 
+              alt="Flat pouch for snacks" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Flat Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/side -seal.webp" 
+              alt="Side gusset snack packaging" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Side Gusset Bags"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Showcase Grid */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -97,6 +132,32 @@ const PouchRecyclableSnackPackagingPage: React.FC = () => {
                 <h4 className="font-black text-3xl uppercase">Shelf Life Matrix</h4>
                 <p className="text-xs font-bold mt-4 uppercase italic">Most snacks achieve 12-24 month stability with our recyclable high-barrier films.</p>
               </div>
+            </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">How do mono-material bags keep snacks fresh?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">We engineer Mono-PE and Mono-PP with microscopic barrier coatings (like EVOH or AlOx) that block oxygen and moisture without compromising recyclability.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are these recyclable in standard curbside bins?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Depending on the region, Mono-PE is typically recycled via "Store Drop-Off" programs, but infrastructure for curbside flexible plastic is rapidly expanding globally.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Can you handle nitrogen flushing?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes! Our seal integrity on recyclable films is excellent and fully compatible with nitrogen flushing to extend shelf life and prevent chip breakage.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Do you provide rollstock for automated packing lines?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, we provide fully customized, high-speed recyclable rollstock for Form-Fill-Seal (VFFS/HFFS) packaging machines.</p>
             </NeoCard>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { Coffee, Shield, Zap, Globe, Factory, BarChart3, ArrowLeftRight, Trendin
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchGreenCoffeeMaterialsPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -58,6 +59,40 @@ const PouchGreenCoffeeMaterialsPage: React.FC = () => {
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600">{stat.desc}</p>
               </NeoCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-[#fffcf5] border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="amber">ROASTER_FAVORITES</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Visual<br/>Showcase</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/topics/green_coffee_materials_1778212283713.png" 
+              alt="Sustainable coffee bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Compostable Bags"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom coffee bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Flat Bottom"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/side -seal.webp" 
+              alt="Side gusset coffee bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Side Gusset"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Stand up coffee pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
           </div>
         </div>
       </section>

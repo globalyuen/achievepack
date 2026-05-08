@@ -4,6 +4,7 @@ import { Gavel, Shield, Zap, ArrowRight, FileText, Globe, AlertTriangle, CheckCi
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchEcoPackagingRegulationsPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -72,6 +73,40 @@ const PouchEcoPackagingRegulationsPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-gray-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Compliant<br/>Solutions</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/topics/baby_food_bags_1778212399332.png" 
+              alt="Compliant baby food pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="EU PPWR Compliant"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Compliant stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Recyclable Formats"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom box pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="SB-54 Compliant"
+            />
+            <ClickableImage 
+              src="/imgs/topics/green_coffee_materials_1778212283713.png" 
+              alt="Tax exempt coffee bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Tax Exempt Designs"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Compliance Matrix Table */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -131,6 +166,32 @@ const PouchEcoPackagingRegulationsPage: React.FC = () => {
               <p className="text-xs font-bold mt-4 uppercase italic">Is your current packaging legal? Get a free regulatory audit today.</p>
             </div>
           </NeoCard>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">What is the EU PPWR and how does it affect me?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">The Packaging and Packaging Waste Regulation (PPWR) mandates that by 2030, all packaging placed on the EU market must be recyclable by design. Non-compliant packaging will be banned.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">How can I avoid the UK Plastic Packaging Tax?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">The UK tax applies to packaging manufactured in or imported into the UK that contains less than 30% recycled plastic. By switching to our PCR (Post-Consumer Recycled) packaging options, you are fully exempt.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">What does California SB 54 require?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">SB 54 introduces strict Extended Producer Responsibility (EPR) programs requiring producers to ensure all single-use packaging is recyclable or compostable by 2032.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are your compostable bags certified to meet these laws?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, our compostable packaging holds verified TUV Austria (OK Compost Home/Industrial) and BPI certifications, meeting strict legislative definitions for compostability globally.</p>
+            </NeoCard>
+          </div>
         </div>
       </section>
 

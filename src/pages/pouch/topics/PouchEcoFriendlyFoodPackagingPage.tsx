@@ -4,6 +4,7 @@ import { Leaf, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, BarCha
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -71,6 +72,40 @@ const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-yellow-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="blue">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Eco-Friendly<br/>In Action</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Eco-friendly stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom food bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Flat Bottom Bags"
+            />
+            <ClickableImage 
+              src="/imgs/topics/green_coffee_materials_1778212283713.png" 
+              alt="Sustainable coffee bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Green Coffee Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/topics/dtc_packaging_1778212333445.png" 
+              alt="DTC sustainable packaging" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="DTC Packaging"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Grid Section */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -91,6 +126,32 @@ const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
                 <h4 className="font-black text-3xl uppercase">Safety Audit</h4>
                 <p className="text-xs font-bold mt-4 uppercase italic">FDA, EU, and BRC certified manufacturing for total food safety peace of mind.</p>
               </div>
+            </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">What is the minimum order quantity (MOQ)?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Our MOQ starts from just 500 units for digitally printed pouches, allowing you to test the market with minimal risk.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are your materials certified food-safe?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, all our food packaging materials are FDA and EU compliant, manufactured in BRC certified facilities.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Can these pouches hold liquids or hot food?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, we have specific high-barrier structures designed to withstand high temperatures up to 110°C and maintain structural integrity for liquids.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">How long does production take?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Standard production time is 10-15 business days after artwork approval.</p>
             </NeoCard>
           </div>
         </div>

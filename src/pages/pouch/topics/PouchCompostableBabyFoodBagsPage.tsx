@@ -4,6 +4,7 @@ import { Baby, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shi
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 const PouchCompostableBabyFoodBagsPage: React.FC = () => {
   const baseUrl = getBaseUrl()
@@ -74,6 +75,40 @@ const PouchCompostableBabyFoodBagsPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-pink-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Formats<br/>& Styles</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/imgs/topics/baby_food_bags_1778212399332.png" 
+              alt="Compostable baby food bags" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Spout Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Baby snack stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Snack Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Flat bottom baby food box pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Formula Bags"
+            />
+            <ClickableImage 
+              src="/imgs/topics/dtc_packaging_1778212333445.png" 
+              alt="DTC baby food delivery" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="DTC Packaging"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Product Showcase */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
@@ -129,6 +164,32 @@ const PouchCompostableBabyFoodBagsPage: React.FC = () => {
               <Award className="w-12 h-12 mb-6 text-green-600" />
               <h4 className="font-black text-2xl uppercase mb-4">TUV OK Home</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Certified to break down in backyard compost bins, allowing parents to dispose of waste responsibly at home.</p>
+            </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
+          <div className="space-y-6">
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are your compostable baby food bags BPA and Phthalate free?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, 100%. Our materials undergo rigorous testing to guarantee zero migration of harmful chemicals, ensuring total safety for infant food.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Are the spouts and caps also compostable?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes! We use an innovative bio-polymer for our spouts and choke-safe caps that breaks down fully within 180 days in a compost environment.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">Can these pouches be used for hot-filling purees?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, our high-barrier compostable structures are heat stable up to 95°C, making them safe for standard hot-fill puree processes.</p>
+            </NeoCard>
+            <NeoCard color="bg-gray-50">
+              <h4 className="font-black text-xl mb-2">What is the MOQ for custom printed baby food pouches?</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600">We support startup organic brands with low MOQs starting at just 500 units for digitally printed, custom-branded bags.</p>
             </NeoCard>
           </div>
         </div>

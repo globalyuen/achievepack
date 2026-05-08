@@ -587,6 +587,7 @@ if (getDomain() === 'pouch') {
                   <Route path="*" element={<PouchHomePage />} />
                 </Routes>
               </Suspense>
+              <FloatingButtons />
             </BrowserRouter>
           </GeoBlocker>
         </ErrorBoundary>
