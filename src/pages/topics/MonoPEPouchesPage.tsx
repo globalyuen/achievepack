@@ -80,12 +80,13 @@ const MonoPEPouchesPage: React.FC = () => {
     <SEOPageLayout
       title="Recyclable Mono-PE Pouches | Circular Packaging Solutions"
       description="100% recyclable Mono-PE pouches for a circular economy. Single-material construction with high barrier performance. Category 4 recycling compatible."
+      heroTitle="Recyclable Mono-PE Pouches"
+      heroSubtitle="Single-material circular solutions for sustainable brands."
       sections={sections}
-    >
-      <Helmet>
-        <link rel="canonical" href="https://achievepack.com/topics/mono-material-pe-pouches" />
-      </Helmet>
-    </SEOPageLayout>
+      canonicalUrl="https://achievepack.com/topics/mono-material-pe-pouches"
+      keywords={['mono-pe pouches', 'recyclable plastic bags', 'circular economy packaging', 'mono-material pouches']}
+      introSummary="Transition to circular packaging with our 100% recyclable mono-material PE solutions."
+    />
   )
 }
 

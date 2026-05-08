@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-08",
-  "total_images": 1307,
+  "total_images": 1313,
   "total_categories": 146,
   "extensions": {
     ".webp": 1077,
-    ".png": 197,
+    ".png": 203,
     ".jpg": 30,
     ".svg": 3
   },
@@ -8530,8 +8530,44 @@
       ]
     },
     "topics": {
-      "count": 3,
+      "count": 9,
       "images": [
+        {
+          "filename": "minimalist_d2c_packaging.png",
+          "path": "/imgs/topics/minimalist_d2c_packaging.png",
+          "extension": ".png",
+          "modified": "2026-05-08T06:02:51.412Z"
+        },
+        {
+          "filename": "recycled_ocean_plastic_packaging.png",
+          "path": "/imgs/topics/recycled_ocean_plastic_packaging.png",
+          "extension": ".png",
+          "modified": "2026-05-08T06:02:51.410Z"
+        },
+        {
+          "filename": "child_resistant_mylar_bags.png",
+          "path": "/imgs/topics/child_resistant_mylar_bags.png",
+          "extension": ".png",
+          "modified": "2026-05-08T06:02:51.408Z"
+        },
+        {
+          "filename": "mono_pe_pouches.png",
+          "path": "/imgs/topics/mono_pe_pouches.png",
+          "extension": ".png",
+          "modified": "2026-05-08T06:02:51.404Z"
+        },
+        {
+          "filename": "compostable_coffee_bags.png",
+          "path": "/imgs/topics/compostable_coffee_bags.png",
+          "extension": ".png",
+          "modified": "2026-05-08T06:02:51.402Z"
+        },
+        {
+          "filename": "pfas_free_packaging.png",
+          "path": "/imgs/topics/pfas_free_packaging.png",
+          "extension": ".png",
+          "modified": "2026-05-08T06:02:51.400Z"
+        },
         {
           "filename": "green_coffee_materials_1778212283713.png",
           "path": "/imgs/topics/green_coffee_materials_1778212283713.png",

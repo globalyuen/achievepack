@@ -85,12 +85,13 @@ const HomeCompostableCoffeeBagsPage: React.FC = () => {
     <SEOPageLayout
       title="Home Compostable Coffee Bags | Specialty Coffee Packaging"
       description="Premium home compostable coffee bags for roasters. High barrier, TUV certified materials with compostable valves. Start from 500 units."
+      heroTitle="Home Compostable Coffee Bags"
+      heroSubtitle="Premium sustainable packaging for specialty coffee roasters."
       sections={sections}
-    >
-      <Helmet>
-        <link rel="canonical" href="https://achievepack.com/topics/home-compostable-coffee-bags" />
-      </Helmet>
-    </SEOPageLayout>
+      canonicalUrl="https://achievepack.com/topics/home-compostable-coffee-bags"
+      keywords={['home compostable coffee bags', 'specialty coffee packaging', 'TUV certified bags', 'eco friendly coffee pouches']}
+      introSummary="Elevate your roastery with high-performance, home-compostable coffee packaging that doesn't compromise on freshness."
+    />
   )
 }
 

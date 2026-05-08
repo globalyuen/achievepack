@@ -73,12 +73,13 @@ const ChildResistantMylarBagsPage: React.FC = () => {
     <SEOPageLayout
       title="Child-Resistant Mylar Bags | Certified Secure CRM Packaging"
       description="Certified ASTM D3475 child-resistant mylar bags. Secure, smell-proof, and moisture-proof packaging for pharmaceuticals and sensitive products. Custom printing available."
+      heroTitle="Child-Resistant Mylar Bags"
+      heroSubtitle="Certified secure packaging for sensitive and regulated products."
       sections={sections}
-    >
-      <Helmet>
-        <link rel="canonical" href="https://achievepack.com/topics/child-resistant-mylar-bags" />
-      </Helmet>
-    </SEOPageLayout>
+      canonicalUrl="https://achievepack.com/topics/child-resistant-mylar-bags"
+      keywords={['child resistant mylar bags', 'CRM packaging', 'ASTM D3475', 'smell proof bags']}
+      introSummary="Protect sensitive products with our certified ASTM D3475 child-resistant packaging solutions."
+    />
   )
 }
 

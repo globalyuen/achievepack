@@ -70,12 +70,13 @@ const RecycledOceanPlasticPackagingPage: React.FC = () => {
     <SEOPageLayout
       title="Recycled Ocean Plastic Packaging | OBP Certified Solutions"
       description="Eco-friendly packaging made from recycled ocean-bound plastic. Certified OBP materials with full traceability. Help clean the oceans while protecting your product."
+      heroTitle="Recycled Ocean Plastic Packaging"
+      heroSubtitle="Cleaning the oceans while protecting your products."
       sections={sections}
-    >
-      <Helmet>
-        <link rel="canonical" href="https://achievepack.com/topics/recycled-ocean-plastic-packaging" />
-      </Helmet>
-    </SEOPageLayout>
+      canonicalUrl="https://achievepack.com/topics/recycled-ocean-plastic-packaging"
+      keywords={['ocean plastic packaging', 'OBP certified', 'recycled plastic bags', 'sustainable ocean packaging']}
+      introSummary="Make a positive environmental impact with our certified ocean-bound plastic packaging solutions."
+    />
   )
 }
 

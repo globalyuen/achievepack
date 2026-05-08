@@ -82,12 +82,13 @@ const PFASFreePackagingPage: React.FC = () => {
     <SEOPageLayout
       title="PFAS-Free Food Packaging | Certified Non-Toxic Solutions"
       description="Protect your brand with certified PFAS-free food packaging. We offer advanced grease-resistant barriers that meet the strictest safety regulations in the USA and EU."
+      heroTitle="PFAS-Free Food Packaging"
+      heroSubtitle="Certified non-toxic solutions for a safer supply chain."
       sections={sections}
-    >
-      <Helmet>
-        <link rel="canonical" href="https://achievepack.com/topics/pfas-free-food-packaging" />
-      </Helmet>
-    </SEOPageLayout>
+      canonicalUrl="https://achievepack.com/topics/pfas-free-food-packaging"
+      keywords={['pfas-free packaging', 'non-toxic food bags', 'forever chemicals free', 'sustainable packaging']}
+      introSummary="Transition to non-toxic, PFAS-free packaging to ensure consumer safety and regulatory compliance."
+    />
   )
 }
 

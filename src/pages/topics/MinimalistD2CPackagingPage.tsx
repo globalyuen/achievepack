@@ -71,12 +71,13 @@ const MinimalistD2CPackagingPage: React.FC = () => {
     <SEOPageLayout
       title="Minimalist D2C Packaging | E-commerce Shipping Solutions"
       description="Premium minimalist D2C packaging for e-commerce. Sleek matte finishes, eco-friendly materials, and stunning unboxing experiences for modern brands."
+      heroTitle="Minimalist D2C Packaging"
+      heroSubtitle="Sleek, eco-friendly shipping solutions for modern e-commerce brands."
       sections={sections}
-    >
-      <Helmet>
-        <link rel="canonical" href="https://achievepack.com/topics/minimalist-d2c-packaging" />
-      </Helmet>
-    </SEOPageLayout>
+      canonicalUrl="https://achievepack.com/topics/minimalist-d2c-packaging"
+      keywords={['minimalist packaging', 'D2C unboxing', 'e-commerce packaging', 'matte finish pouches']}
+      introSummary="Create a memorable unboxing experience with our sleek, minimalist packaging solutions designed for modern D2C brands."
+    />
   )
 }
 

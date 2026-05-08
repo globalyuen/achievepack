@@ -38,6 +38,8 @@ const StandUpPouchQuotePage: React.FC = () => {
       elDate.textContent = today.toLocaleDateString('en-US', options);
     }
   }, []);
+
+  return (
     <>
       <QuoteLightbox />
 <Helmet>
