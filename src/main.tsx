@@ -507,7 +507,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/size-guide" element={<PouchSizeGuidePage />} />
                   <Route path="/testimonials" element={<PouchTestimonialsPage />} />
                   <Route path="/blog" element={<PouchBlogPage />} />
-                  <Route path="/blog/usa-compostable-packaging-guide" element={<USACompostableGuide />} />
+                  <Route path="/blog/usa-compostable-guide" element={<USACompostableGuide />} />
                   <Route path="/blog/coffee-packaging-guide" element={<CoffeePackagingGuide />} />
                   <Route path="/blog/compostable-humidity-control" element={<PouchHumidityControlGuide />} />
                   <Route path="/blog/usa-coffee-packaging" element={<USACoffeePackaging />} />
