@@ -27,6 +27,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     const days = parseInt(req.query.days as string) || 30
     const limit = parseInt(req.query.limit as string) || 20
+    const site = req.query.site as string
+    
+    // Override siteUrl if a specific site is requested
+    let targetSiteUrl = siteUrl;
+    if (site === 'achievepack.com') {
+        targetSiteUrl = 'sc-domain:achievepack.com'
+    } else if (site === 'pouch.eco') {
+        targetSiteUrl = 'sc-domain:pouch.eco'
+    }
     
     try {
         // Dynamic import to avoid serverless cold start issues
@@ -45,18 +54,41 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const startDate = new Date()
         startDate.setDate(startDate.getDate() - days)
         
-        const response = await searchConsole.searchanalytics.query({
-            siteUrl: siteUrl,
-            requestBody: {
-                startDate: startDate.toISOString().split('T')[0],
-                endDate: endDate.toISOString().split('T')[0],
-                dimensions: ['page'],
-                rowLimit: limit,
-                aggregationType: 'byPage'
-            }
-        })
+        const fetchGscData = async (url: string) => {
+            const response = await searchConsole.searchanalytics.query({
+                siteUrl: url,
+                requestBody: {
+                    startDate: startDate.toISOString().split('T')[0],
+                    endDate: endDate.toISOString().split('T')[0],
+                    dimensions: ['page'],
+                    rowLimit: limit,
+                    aggregationType: 'byPage'
+                }
+            })
+            return response.data.rows || []
+        }
         
-        const data = (response.data.rows || []).map((row: any) => ({
+        let allRows: any[] = [];
+        
+        if (site === 'all') {
+            // For 'all', try fetching both if possible, or just default to achieving both sequentially
+            try {
+                const achieveRows = await fetchGscData('sc-domain:achievepack.com');
+                const pouchRows = await fetchGscData('sc-domain:pouch.eco');
+                allRows = [...achieveRows, ...pouchRows];
+                
+                // Sort by clicks to merge
+                allRows.sort((a, b) => (b.clicks || 0) - (a.clicks || 0));
+                allRows = allRows.slice(0, limit);
+            } catch (e) {
+                // Fallback to default if both fails
+                allRows = await fetchGscData(targetSiteUrl);
+            }
+        } else {
+            allRows = await fetchGscData(targetSiteUrl);
+        }
+        
+        const data = allRows.map((row: any) => ({
             url: row.keys?.[0] || '',
             clicks: row.clicks || 0,
             impressions: row.impressions || 0,

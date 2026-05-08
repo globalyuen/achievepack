@@ -415,7 +415,7 @@ export default function LinkBuildingPage() {
     setScanResults([])
     
     try {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || ''
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://prospectpro-globalyuens-projects.vercel.app'
       const res = await fetch(`${backendUrl}/api/link-building/scan-mentions?keyword=${encodeURIComponent(scanKeyword)}`)
       const data = await res.json()
       

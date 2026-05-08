@@ -26,6 +26,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     const days = parseInt(req.query.days as string) || 30
     const limit = parseInt(req.query.limit as string) || 200
+    const site = req.query.site as string
+    
+    let targetSiteUrl = siteUrl;
+    if (site === 'achievepack.com') {
+        targetSiteUrl = 'sc-domain:achievepack.com'
+    } else if (site === 'pouch.eco') {
+        targetSiteUrl = 'sc-domain:pouch.eco'
+    }
     
     try {
         const { google } = await import('googleapis')
@@ -43,17 +51,32 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const startDate = new Date()
         startDate.setDate(startDate.getDate() - days)
         
-        // Query with both page and query dimensions to get keywords per page
-        const response = await searchConsole.searchanalytics.query({
-            siteUrl: siteUrl,
-            requestBody: {
-                startDate: startDate.toISOString().split('T')[0],
-                endDate: endDate.toISOString().split('T')[0],
-                dimensions: ['page', 'query'],
-                rowLimit: 5000,  // Get more rows to aggregate
-                aggregationType: 'byPage'
+        const fetchGscKeywords = async (url: string) => {
+            const response = await searchConsole.searchanalytics.query({
+                siteUrl: url,
+                requestBody: {
+                    startDate: startDate.toISOString().split('T')[0],
+                    endDate: endDate.toISOString().split('T')[0],
+                    dimensions: ['page', 'query'],
+                    rowLimit: 5000,
+                    aggregationType: 'byPage'
+                }
+            })
+            return response.data.rows || []
+        }
+        
+        let allRows: any[] = [];
+        if (site === 'all') {
+            try {
+                const achieveRows = await fetchGscKeywords('sc-domain:achievepack.com');
+                const pouchRows = await fetchGscKeywords('sc-domain:pouch.eco');
+                allRows = [...achieveRows, ...pouchRows];
+            } catch (e) {
+                allRows = await fetchGscKeywords(targetSiteUrl);
             }
-        })
+        } else {
+            allRows = await fetchGscKeywords(targetSiteUrl);
+        }
         
         // Group keywords by page
         const pageKeywords: Record<string, {
@@ -63,7 +86,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             totalImpressions: number
         }> = {}
         
-        for (const row of (response.data.rows || [])) {
+        for (const row of allRows) {
             const url = row.keys?.[0] || ''
             const query = row.keys?.[1] || ''
             

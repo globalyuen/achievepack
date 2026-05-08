@@ -27,6 +27,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     const days = parseInt(req.query.days as string) || 30
     const limit = parseInt(req.query.limit as string) || 20
+    const site = req.query.site as string
     
     try {
         // Dynamic import to avoid serverless cold start issues
@@ -36,6 +37,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const client = new BetaAnalyticsDataClient({
             credentials: parsedCredentials
         })
+        
+        let dimensionFilter: any = undefined;
+        if (site && site !== 'all') {
+            dimensionFilter = {
+                filter: {
+                    fieldName: 'hostName',
+                    stringFilter: {
+                        matchType: 'EXACT',
+                        value: site
+                    }
+                }
+            };
+        }
         
         const [response] = await client.runReport({
             property: `properties/${propertyId}`,
@@ -50,6 +64,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             dateRanges: [
                 { startDate: `${days}daysAgo`, endDate: 'today' }
             ],
+            dimensionFilter: dimensionFilter,
             orderBys: [
                 {
                     metric: { metricName: 'screenPageViews' },

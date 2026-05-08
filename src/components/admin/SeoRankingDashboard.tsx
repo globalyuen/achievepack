@@ -85,10 +85,10 @@ const SeoRankingDashboard: React.FC = () => {
       } else if (activeTab === 'keywords') {
         endpoint = `/api/analytics/page-keywords?days=${days}&limit=200&site=${selectedSite}`
       } else if (activeTab === 'ai-strategy') {
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || ''
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://prospectpro-globalyuens-projects.vercel.app'
         endpoint = `${backendUrl}/api/analytics/hot-topics`
       } else if (activeTab === 'lead-conversion') {
-        const backendUrl = import.meta.env.VITE_BACKEND_URL || ''
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://prospectpro-globalyuens-projects.vercel.app'
         endpoint = `${backendUrl}/api/analytics/hot-leads`
       }
       
