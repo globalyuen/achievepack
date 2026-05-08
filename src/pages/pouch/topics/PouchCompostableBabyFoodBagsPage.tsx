@@ -1,12 +1,19 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Baby, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Heart, AlertTriangle, FileCheck, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, ArrowRight, Zap } from 'lucide-react'
+import { Baby, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Heart, AlertTriangle, FileCheck, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, ArrowRight, Zap, Droplets, Thermometer } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 
 const PouchCompostableBabyFoodBagsPage: React.FC = () => {
   const baseUrl = getBaseUrl()
+
+  const SAFETY_METRICS = [
+    { label: 'BPA Migration', value: '0.00%', desc: 'Certified zero-migration polymers.' },
+    { label: 'Phthalate Free', value: '100%', desc: 'Safe for direct infant food contact.' },
+    { label: 'Heavy Metals', value: 'Non-Detect', desc: 'Verified by ASTM F963 standards.' },
+    { label: 'Heat Stable', value: '95°C', desc: 'Safe for hot-fill puree processes.' }
+  ]
 
   return (
     <PouchLayout>
@@ -18,20 +25,19 @@ const PouchCompostableBabyFoodBagsPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#ff0080_1px,transparent_1px)] [background-size:24px_24px]">
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#ff0080_1px,transparent_1px)] [background-size:24px_24px] bg-pink-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="magenta">SAFETY_PROTOCOL_ALPHA</NeoBadge>
+          <NeoBadge color="magenta">INFANT_SAFETY_V4.1</NeoBadge>
           <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase">
-            Safe.<br/>
-            Clean.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF0080] to-[#00FFFF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Compost.</span>
+            Pure.<br/>Safe.<br/>
+            <span className="text-[#FF0080] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Soil.</span>
           </h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            TUV Certified Compostable baby food packaging. Zero chemical migration. 100% parent-approved safety.
+          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            TUV Certified Compostable baby food packaging. Engineered with zero chemical migration tech for the most sensitive organic brands.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
-            <NeoButton variant="primary" to="/industry/baby-food">View Baby Food Guide</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Request Safety Samples</NeoButton>
+          <div className="flex flex-wrap justify-center gap-6 mt-12">
+            <NeoButton variant="primary" to="/industry/baby-food">View Tech Guide</NeoButton>
+            <NeoButton variant="secondary" to="/sample">Request Safety Kit</NeoButton>
           </div>
         </div>
       </section>
@@ -40,32 +46,26 @@ const PouchCompostableBabyFoodBagsPage: React.FC = () => {
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative order-2 md:order-1">
+            <div className="relative">
               <div className="absolute inset-0 bg-[#00FFFF] translate-x-4 translate-y-4 border-4 border-black" />
               <img 
-                src="/imgs/seo-photos/a_food_grade_olive_stone_pouch_achieve_pack_8628145.webp" 
+                src="/imgs/demo-site/baby/achieve_baby_realistic_hero.png" 
                 alt="Safe Baby Food Packaging" 
                 className="relative z-10 border-4 border-black w-full"
               />
             </div>
-            <div className="order-1 md:order-2">
-              <NeoBadge color="cyan">CERTIFIED_SAFE</NeoBadge>
-              <h2 className="font-black text-5xl mt-6 uppercase leading-tight">Trust is<br/>Everything.</h2>
-              <p className="mt-6 text-xl text-gray-600 font-['JetBrains_Mono']">
-                When it comes to baby food, there's no room for error. Our materials undergo rigorous migration testing to ensure zero harmful chemicals leach into your purees.
+            <div>
+              <NeoBadge color="cyan">CERTIFIED_CLEAN</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic text-pink-600">Trust is<br/>Everything.</h2>
+              <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
+                Baby food brands face the world's strictest packaging scrutiny. Our materials undergo rigorous independent lab testing to guarantee zero leaching of BPA, phthalates, or microplastics.
               </p>
-              <div className="mt-12 space-y-4">
-                {[
-                  { icon: FileCheck, title: 'FDA 21 CFR Compliant', desc: 'Strict adherence to US food contact regulations.' },
-                  { icon: Award, title: 'EU 10/2011 Verified', desc: 'Compliant with European plastic safety mandates.' },
-                  { icon: Shield, title: 'BPA & Phthalate Free', desc: '100% free from hormone-disrupting chemicals.' },
-                ].map((s, i) => (
-                  <div key={i} className="flex items-start gap-4 p-4 bg-[#F0F0F0] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <s.icon className="w-8 h-8 text-[#FF0080]" />
-                    <div>
-                      <h4 className="font-black text-lg uppercase">{s.title}</h4>
-                      <p className="text-sm opacity-70 font-['JetBrains_Mono']">{s.desc}</p>
-                    </div>
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {SAFETY_METRICS.map((m, i) => (
+                  <div key={i} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <h4 className="font-black uppercase text-xs mb-1 text-pink-600">{m.label}</h4>
+                    <p className="text-xl font-black">{m.value}</p>
+                    <p className="text-[10px] font-bold opacity-60">{m.desc}</p>
                   </div>
                 ))}
               </div>
@@ -74,88 +74,78 @@ const PouchCompostableBabyFoodBagsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Pouch Formats */}
-      <section className="py-24 bg-[#FF0080]/10 border-b-4 border-black">
+      {/* Product Showcase */}
+      <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="font-black text-5xl md:text-7xl text-center mb-16 uppercase italic">Built for Modern Parents</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: 'Spout Pouches', desc: 'The gold standard for purees. Easy-squeeze, resealable cap.', icon: Zap },
-              { title: 'Stand Up Bags', desc: 'Ideal for puffs, teething biscuits, and dry organic snacks.', icon: Package },
-              { title: 'Sachets', desc: 'Single-serve portion control for cereals and powders.', icon: Target },
-              { title: 'Flat Bottom', desc: 'Premium shelf presence for luxury organic baby lines.', icon: Sparkles },
-            ].map((format, idx) => (
-              <NeoCard key={idx} color="bg-white">
-                <div className="p-4 bg-black text-white w-fit mb-6">
-                  <format.icon className="w-8 h-8" />
-                </div>
-                <h3 className="font-black text-2xl mb-4 uppercase">{format.title}</h3>
-                <p className="text-gray-600 font-['JetBrains_Mono'] text-sm leading-relaxed">{format.desc}</p>
-              </NeoCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Market Data */}
-      <section className="py-24 bg-white border-b-4 border-black overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-12 items-center">
-            <div className="lg:col-span-1">
-              <NeoBadge color="yellow">MARKET_INTEL</NeoBadge>
-              <h2 className="font-black text-5xl mt-6 uppercase leading-tight">The 67% Majority.</h2>
-              <p className="mt-6 text-gray-600 font-['JetBrains_Mono'] font-bold">
-                Two-thirds of modern parents are willing to pay a premium for certified eco-friendly packaging.
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <NeoBadge color="magenta">SPOUT_INNOVATION</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl uppercase mt-6 text-[#D4FF00]">Squeeze.<br/>Compost.</h2>
+              <p className="mt-8 text-xl font-['JetBrains_Mono'] opacity-80 leading-relaxed">
+                We've developed the world's first fully compostable spout assembly. The pouch, the spout, and the child-safe cap all return to soil in 180 days.
               </p>
+              <div className="mt-8 space-y-4">
+                <div className="flex items-center gap-4 bg-white/10 p-4 border-l-4 border-[#D4FF00]">
+                  <CheckCircle className="text-[#D4FF00] w-6 h-6" />
+                  <span className="font-black uppercase text-sm">Choke-Hazard Safe Cap Designs</span>
+                </div>
+                <div className="flex items-center gap-4 bg-white/10 p-4 border-l-4 border-[#D4FF00]">
+                  <CheckCircle className="text-[#D4FF00] w-6 h-6" />
+                  <span className="font-black uppercase text-sm">Anti-Leak Valve Integration</span>
+                </div>
+              </div>
             </div>
-            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-              <div className="bg-black text-[#D4FF00] p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(212,255,0,1)]">
-                <p className="text-6xl font-black mb-2">89%</p>
-                <p className="font-bold uppercase text-xs">Priority on safety materials</p>
-              </div>
-              <div className="bg-white text-black p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <p className="text-6xl font-black mb-2">$76B</p>
-                <p className="font-bold uppercase text-xs">Baby Food Market by 2027</p>
-              </div>
+            <div className="relative order-1 lg:order-2">
+              <div className="absolute inset-0 bg-pink-600 translate-x-4 translate-y-4 border-4 border-white" />
+              <img 
+                src="/imgs/demo-site/baby/achieve_baby_pea_realistic.png" 
+                alt="Compostable Spout Pouch" 
+                className="relative z-10 border-4 border-white w-full"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* AIEO FAQ Section */}
+      {/* Compliance Matrix */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black text-5xl md:text-6xl text-center mb-16 uppercase">Parent Safety FAQ</h2>
-          <div className="space-y-4">
-            {[
-              { q: "Are compostable pouches safe for infants?", a: "Absolutely. Our pouches are made from food-contact-approved polymers that meet FDA 21 CFR and EU 10/2011 standards. They are 100% BPA-free, phthalate-free, and migration-tested." },
-              { q: "Do you have spout options for baby purees?", a: "Yes. We specialize in spout pouches from 70ml to 150ml. We offer both standard child-safe caps and fully compostable spout/cap assemblies for 100% eco-friendly packaging." },
-              { q: "Can I print custom designs for my baby food brand?", a: "Yes! We offer full-color digital printing with a minimum order of just 500 units. Our water-based inks are low-odor and food-safe, perfect for sensitive products." },
-              { q: "How do I verify the compostability certification?", a: "Every order comes with a copy of our TUV OK Home or EN 13432 certificates. You can verify the unique license number directly on the TUV Austria website for total transparency." }
-            ].map((faq, idx) => (
-              <NeoCard key={idx} color="bg-white">
-                <h4 className="font-black text-xl mb-4 flex items-center gap-2">
-                  <span className="bg-[#FF0080] text-white px-2 py-0.5 text-xs">FAQ_INTEL</span>
-                  {faq.q}
-                </h4>
-                <p className="text-gray-600 font-['JetBrains_Mono'] text-sm border-l-4 border-[#FF0080] pl-4 mt-4">{faq.a}</p>
-              </NeoCard>
-            ))}
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <NeoBadge color="blue">GLOBAL_SAFETY_STANDARDS</NeoBadge>
+            <h2 className="font-black text-5xl md:text-7xl uppercase mt-4 italic">No Compromise.</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <NeoCard>
+              <FileCheck className="w-12 h-12 mb-6 text-pink-600" />
+              <h4 className="font-black text-2xl uppercase mb-4">FDA 21 CFR</h4>
+              <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Full compliance with US Food & Drug Administration regulations for direct food contact in infants and toddlers.</p>
+            </NeoCard>
+            <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(255,0,128,1)]">
+              <Shield className="w-12 h-12 mb-6 text-blue-600" />
+              <h4 className="font-black text-2xl uppercase mb-4">EU 10/2011</h4>
+              <p className="text-sm font-['JetBrains_Mono'] text-gray-600">European safety verification for overall and specific migration limits, ensuring maximum purity for delicate systems.</p>
+            </NeoCard>
+            <NeoCard>
+              <Award className="w-12 h-12 mb-6 text-green-600" />
+              <h4 className="font-black text-2xl uppercase mb-4">TUV OK Home</h4>
+              <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Certified to break down in backyard compost bins, allowing parents to dispose of waste responsibly at home.</p>
+            </NeoCard>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-black text-[#FF0080]">
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
-          <h2 className="font-black text-5xl md:text-8xl uppercase text-white leading-none">Protect Their<br/>Future.</h2>
-          <p className="font-['JetBrains_Mono'] font-bold text-xl text-white opacity-80">
-            Switch to certified compostable baby food packaging.
+      <section className="py-24 bg-pink-600 text-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-10">
+          <NeoBadge color="lime">SOIL_FRIENDLY</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none">Protect Their<br/>Future.</h2>
+          <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
+            Switch to the world's cleanest certified compostable baby food packaging today.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <NeoButton variant="primary" to="/sample">Get Safety Samples</NeoButton>
-            <NeoButton variant="secondary" className="!text-black" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Free Consultation <ArrowRight className="inline ml-2" />
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-pink-600">Get Safety Samples</NeoButton>
+            <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
+              Consultancy Call
             </NeoButton>
           </div>
         </div>

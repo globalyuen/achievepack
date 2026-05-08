@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Ruler, Package, Download, Zap, CheckCircle, ArrowRight, Eye, Calculator, Maximize2, Settings, ArrowRightLeft, X, Box, Info } from 'lucide-react'
+import { Ruler, Package, Download, Zap, CheckCircle, ArrowRight, Eye, Calculator, Maximize2, Settings, ArrowRightLeft, X, Box, Info, Scale, Layers, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { getBaseUrl } from '../../utils/domain'
@@ -30,6 +30,14 @@ export default function PouchSizeGuidePage() {
     { size: 'XXL', image: '/imgs/store/size/flat-bottom/xxl.webp', capacity: '1.5-2.5kg', dim: '200×400×120mm', bestFor: 'Bulk Grains' },
   ]
 
+  const productDensity = [
+    { product: 'Whole Bean Coffee', density: '0.38 g/ml', factor: '2.6x', note: 'Standard for sizing' },
+    { product: 'Tea Leaves', density: '0.20 g/ml', factor: '5.0x', note: 'Requires large volume' },
+    { product: 'Protein Powder', density: '0.50 g/ml', factor: '2.0x', note: 'Dense but fluffy' },
+    { product: 'Granola', density: '0.35 g/ml', factor: '2.8x', note: 'High irregularity' },
+    { product: 'Nuts & Seeds', density: '0.60 g/ml', factor: '1.6x', note: 'Compact & Heavy' }
+  ]
+
   return (
     <PouchLayout>
       <Helmet>
@@ -40,87 +48,102 @@ export default function PouchSizeGuidePage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#d4ff00_1px,transparent_1px)] [background-size:24px_24px]">
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#d4ff00_1px,transparent_1px)] [background-size:24px_24px] bg-yellow-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="lime">SIZE_PROTOCOL_V2.7</NeoBadge>
+          <NeoBadge color="lime">SIZE_PROTOCOL_V3.0</NeoBadge>
           <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase">
             Fit.<br/>
             Feel.<br/>
             <span className="text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Finish.</span>
           </h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            Ditch the guesswork. Use our visual reference system to find the exact pouch size for your brand.
+          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            Ditch the guesswork. Use our visual reference system to find the exact pouch size for your brand. Metric, Imperial, and Volume comparisons included.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
+          <div className="flex flex-wrap justify-center gap-6 mt-12">
             <NeoButton variant="primary" to="/sample">Order Size Test Pack</NeoButton>
             <NeoButton variant="secondary" href="https://calendly.com/30-min-free-packaging-consultancy">Free Consultation</NeoButton>
           </div>
         </div>
       </section>
 
-      {/* Dimensions Logic Section */}
+      {/* Density Intelligence Section */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-1">
-              <NeoBadge color="magenta">TECH_SPECS</NeoBadge>
-              <h2 className="font-black text-5xl uppercase mt-4">Understanding Dimensions</h2>
-              <p className="mt-6 text-gray-600 font-['JetBrains_Mono']">
-                Pouch dimensions are expressed as: <br/>
-                <span className="text-black font-black block mt-2 text-2xl">Width × Height + Gusset</span>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="magenta">MARKET_INTELLIGENCE</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl uppercase mt-6 italic">Volume vs.<br/>Weight.</h2>
+              <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
+                The biggest mistake in packaging is sizing based solely on weight. 250g of puffed rice requires 10x the volume of 250g of salt. Use our density chart to calculate your exact ML requirement.
               </p>
+              <div className="mt-8 overflow-hidden border-4 border-black">
+                <table className="w-full text-left font-['JetBrains_Mono'] text-sm">
+                  <thead className="bg-black text-white">
+                    <tr>
+                      <th className="p-4">PRODUCT</th>
+                      <th className="p-4">DENSITY</th>
+                      <th className="p-4">VOL. FACTOR</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y-2 divide-black/10">
+                    {productDensity.map((p, i) => (
+                      <tr key={i} className="hover:bg-yellow-50 transition-colors">
+                        <td className="p-4 font-black">{p.product}</td>
+                        <td className="p-4">{p.density}</td>
+                        <td className="p-4 font-bold text-magenta-600">{p.factor}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div className="lg:col-span-2 grid md:grid-cols-3 gap-4">
-              <NeoCard><h4 className="font-black">WIDTH</h4><p className="text-sm opacity-70">Measured flat, edge-to-edge.</p></NeoCard>
-              <NeoCard><h4 className="font-black">HEIGHT</h4><p className="text-sm opacity-70">Bottom seal to the top of the zipper.</p></NeoCard>
-              <NeoCard><h4 className="font-black">GUSSET</h4><p className="text-sm opacity-70">The fold depth creating the pouch's internal volume.</p></NeoCard>
+            <div className="relative">
+              <div className="absolute inset-0 bg-yellow-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/seo-photos/a_size_reference_dimensions_7506199.webp" 
+                alt="Pouch Size Reference Dimensions" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Visual Comparison Section */}
+      {/* Visual Reference Grid */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <div>
-              <NeoBadge color="cyan">VISUAL_REFERENCE</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl uppercase mt-4">The Soda Can Test</h2>
-              <p className="text-xl font-bold font-['JetBrains_Mono'] mt-4 text-gray-600">
-                Reference: Standard 330ml Can (122mm Height)
-              </p>
-            </div>
-            <div className="bg-white border-2 border-black p-4 font-black text-sm uppercase">
-              Click images to enlarge & explore specs
-            </div>
+          <div className="text-center mb-20">
+            <NeoBadge color="cyan">VISUAL_SODA_CAN_REF</NeoBadge>
+            <h2 className="font-black text-5xl md:text-8xl uppercase mt-4">Scale Check.</h2>
+            <p className="font-['JetBrains_Mono'] text-xl mt-4 opacity-70 italic font-bold">Standard 330ml Can (122mm Height) used for scale.</p>
           </div>
 
           {/* Stand-Up Pouches */}
           <div className="mb-24">
-            <h3 className="inline-block bg-black text-[#D4FF00] px-6 py-2 font-black text-2xl mb-12 transform -rotate-1 border-2 border-black">
-              STAND-UP POUCH RANGE
+            <h3 className="inline-block bg-black text-[#D4FF00] px-8 py-3 font-black text-3xl mb-12 transform -rotate-1 border-4 border-black">
+              STAND-UP RANGE
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
               {standUpSizes.map((item) => (
                 <motion.div 
                   key={item.size}
-                  whileHover={{ y: -10 }}
-                  className="group border-4 border-black cursor-pointer bg-white relative overflow-hidden"
+                  whileHover={{ y: -12, rotate: 1 }}
+                  className="group border-4 border-black cursor-pointer bg-white relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
                   onClick={() => setSelectedImage(item.image)}
                 >
                   <div className="aspect-[3/4] bg-gray-100 border-b-4 border-black flex items-center justify-center overflow-hidden">
                     <img src={item.image} alt={item.size} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                      <Eye className="w-8 h-8 text-white drop-shadow-lg" />
+                      <Maximize2 className="w-8 h-8 text-white" />
                     </div>
                   </div>
-                  <div className="p-3">
+                  <div className="p-4">
                     <div className="flex justify-between items-center mb-1">
-                      <span className="font-black text-2xl">{item.size}</span>
-                      <span className="text-[10px] bg-black text-white px-1 font-black">{item.capacity}</span>
+                      <span className="font-black text-3xl">{item.size}</span>
+                      <span className="text-[10px] bg-black text-[#D4FF00] px-2 py-0.5 font-black">{item.capacity}</span>
                     </div>
                     <p className="text-[10px] font-bold font-['JetBrains_Mono'] opacity-60 leading-tight">{item.dim}</p>
-                    <p className="text-[8px] mt-2 font-black uppercase text-magenta-600 line-clamp-1">{item.bestFor}</p>
+                    <p className="text-[9px] mt-3 font-black uppercase text-magenta-600 border-t border-black/10 pt-2">{item.bestFor}</p>
                   </div>
                 </motion.div>
               ))}
@@ -128,31 +151,31 @@ export default function PouchSizeGuidePage() {
           </div>
 
           {/* Flat Bottom Bags */}
-          <div>
-            <h3 className="inline-block bg-[#00FFFF] text-black px-6 py-2 font-black text-2xl mb-12 transform rotate-1 border-2 border-black">
-              FLAT BOTTOM BAG RANGE
+          <div className="mb-12">
+            <h3 className="inline-block bg-[#00FFFF] text-black px-8 py-3 font-black text-3xl mb-12 transform rotate-1 border-4 border-black">
+              FLAT BOTTOM RANGE
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
               {flatBottomSizes.map((item) => (
                 <motion.div 
                   key={item.size}
-                  whileHover={{ y: -10 }}
-                  className="group border-4 border-black cursor-pointer bg-white relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                  whileHover={{ y: -12, rotate: -1 }}
+                  className="group border-4 border-black cursor-pointer bg-white relative overflow-hidden shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
                   onClick={() => setSelectedImage(item.image)}
                 >
                   <div className="aspect-[3/4] bg-gray-100 border-b-4 border-black flex items-center justify-center overflow-hidden">
                     <img src={item.image} alt={item.size} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                      <Eye className="w-8 h-8 text-white drop-shadow-lg" />
+                      <Maximize2 className="w-8 h-8 text-white" />
                     </div>
                   </div>
-                  <div className="p-3">
+                  <div className="p-4">
                     <div className="flex justify-between items-center mb-1">
-                      <span className="font-black text-2xl">{item.size}</span>
-                      <span className="text-[10px] bg-cyan-600 text-white px-1 font-black">{item.capacity}</span>
+                      <span className="font-black text-3xl">{item.size}</span>
+                      <span className="text-[10px] bg-cyan-600 text-white px-2 py-0.5 font-black">{item.capacity}</span>
                     </div>
                     <p className="text-[10px] font-bold font-['JetBrains_Mono'] opacity-60 leading-tight">{item.dim}</p>
-                    <p className="text-[8px] mt-2 font-black uppercase text-blue-600 line-clamp-1">{item.bestFor}</p>
+                    <p className="text-[9px] mt-3 font-black uppercase text-blue-600 border-t border-black/10 pt-2">{item.bestFor}</p>
                   </div>
                 </motion.div>
               ))}
@@ -161,73 +184,39 @@ export default function PouchSizeGuidePage() {
         </div>
       </section>
 
-      {/* Calculator Section */}
+      {/* Tech Cards Section */}
       <section className="py-24 bg-white border-b-4 border-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <NeoCard color="bg-white" className="!p-12">
-              <h3 className="font-black text-4xl uppercase mb-8 flex items-center gap-4">
-                <Calculator className="w-12 h-12 text-magenta-600" />
-                The Fill Test
-              </h3>
-              <div className="space-y-8 font-['JetBrains_Mono']">
-                <div className="relative pl-12 border-l-4 border-black py-2">
-                  <div className="absolute -left-6 top-0 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-black">1</div>
-                  <h4 className="font-black text-xl mb-2">DENSITY OVER WEIGHT</h4>
-                  <p className="text-sm opacity-70 leading-relaxed">250g of popcorn requires 3x more space than 250g of salt. Measure your product in <strong>Volume (ML)</strong> for accurate sizing.</p>
-                </div>
-                <div className="relative pl-12 border-l-4 border-black py-2">
-                  <div className="absolute -left-6 top-0 w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-black">2</div>
-                  <h4 className="font-black text-xl mb-2">ADD HEADSPACE</h4>
-                  <p className="text-sm opacity-70 leading-relaxed">Ensure you have <strong>40mm - 60mm</strong> of empty space above the product to allow for the heat seal, zipper, and tear notch operation.</p>
-                </div>
-              </div>
-            </NeoCard>
-
-            <NeoCard color="bg-black text-[#D4FF00]" className="!p-12">
-              <h3 className="font-black text-4xl uppercase mb-8 flex items-center gap-4">
-                <ArrowRightLeft className="w-12 h-12" />
-                Quick Convert
-              </h3>
-              <div className="grid grid-cols-2 gap-12 font-['JetBrains_Mono']">
-                <div>
-                  <h4 className="font-black text-white mb-6 uppercase text-sm border-b-2 border-[#D4FF00] pb-2 inline-block">MM to Inches</h4>
-                  <ul className="space-y-3 font-bold">
-                    <li>100mm = 3.94"</li>
-                    <li>150mm = 5.91"</li>
-                    <li>200mm = 7.87"</li>
-                    <li>250mm = 9.84"</li>
-                    <li>300mm = 11.81"</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-black text-white mb-6 uppercase text-sm border-b-2 border-[#D4FF00] pb-2 inline-block">Grams to Oz</h4>
-                  <ul className="space-y-3 font-bold">
-                    <li>100g = 3.5 oz</li>
-                    <li>250g = 8.8 oz</li>
-                    <li>500g = 17.6 oz</li>
-                    <li>1kg = 35.2 oz</li>
-                    <li>2kg = 70.5 oz</li>
-                  </ul>
-                </div>
-              </div>
-            </NeoCard>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+          <NeoCard color="bg-white">
+            <Ruler className="w-12 h-12 mb-6 text-magenta-600" />
+            <h4 className="font-black text-2xl uppercase mb-4">Precision Tolerances</h4>
+            <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Standard manufacturing tolerance is +/- 2mm. Ensure your artwork safe-zone is at least 5mm from all edges and seals.</p>
+          </NeoCard>
+          <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(212,255,0,1)]">
+            <Settings className="w-12 h-12 mb-6 text-green-600" />
+            <h4 className="font-black text-2xl uppercase mb-4">Headspace Logic</h4>
+            <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Always allow 40mm for the heat seal and zipper mechanism. Filling above the zipper line will result in structural seal failure.</p>
+          </NeoCard>
+          <NeoCard color="bg-white">
+            <Download className="w-12 h-12 mb-6 text-blue-600" />
+            <h4 className="font-black text-2xl uppercase mb-4">Dieline Access</h4>
+            <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Downloadable PDF/AI dielines are available for all standard sizes once your material selection is finalized.</p>
+          </NeoCard>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-[#D4FF00] border-b-4 border-black">
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
-          <NeoBadge color="magenta">FREE_SAMPLE_PROTOCOL</NeoBadge>
-          <h2 className="font-black text-5xl md:text-8xl uppercase leading-none">Not Sure?<br/>Test it.</h2>
-          <p className="font-['JetBrains_Mono'] font-bold text-xl text-black max-w-2xl mx-auto">
-            Order our "Size Kit" which includes all standard sizes for you to test-fill with your own product before committing to production.
+      <section className="py-24 bg-black text-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+          <NeoBadge color="magenta">VERIFY_BEFORE_ORDER</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Size.<br/>Sample.</h2>
+          <p className="font-['JetBrains_Mono'] font-bold text-xl text-white opacity-80 max-w-2xl mx-auto">
+            Avoid costly sizing mistakes. Order our comprehensive "Size Kit" to test-fill your products in real-world conditions.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <NeoButton variant="dark" to="/sample">Request Size Kit</NeoButton>
-            <NeoButton variant="secondary" className="!bg-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Speak to an Expert
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <NeoButton variant="primary" to="/sample" className="!bg-[#D4FF00] !text-black">Request Size Kit</NeoButton>
+            <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
+              Speak to Sizing Expert
             </NeoButton>
           </div>
         </div>

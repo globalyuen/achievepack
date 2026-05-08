@@ -1,12 +1,19 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Sparkles, Zap, Package, ArrowRight, Palette, Printer, ShoppingBag } from 'lucide-react'
+import { Sparkles, Zap, Package, ArrowRight, Palette, Printer, ShoppingBag, Eye, Layers, Type, MousePointer2 } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 
 const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
   const baseUrl = getBaseUrl()
+
+  const PRINT_CAPABILITIES = [
+    { label: 'Color Range', value: 'CMYK + W', desc: 'Extended gamut with high-opacity white ink.' },
+    { label: 'Resolution', value: '1200 DPI', desc: 'Photorealistic graphics and sharp micro-text.' },
+    { label: 'Ink Type', value: 'Water-Based', desc: 'Compost-safe, low-odor, food-grade certified.' },
+    { label: 'Lead Time', value: '10 Days', desc: 'Industry-leading speed for digital production.' }
+  ]
 
   return (
     <PouchLayout>
@@ -18,45 +25,40 @@ const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#d4ff00_1px,transparent_1px)] [background-size:24px_24px]">
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#d4ff00_1px,transparent_1px)] [background-size:24px_24px] bg-yellow-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="yellow">PRINT_LAB_ALPHA</NeoBadge>
+          <NeoBadge color="magenta">VISUAL_ENGINE_V6.2</NeoBadge>
           <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase">
             Design.<br/>
             Print.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#FF0080] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Sustain.</span>
+            <span className="text-[#FF0080] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Sustain.</span>
           </h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            Vibrant custom printing on the world's most sustainable materials. Photo-quality graphics. Low 500 unit MOQ.
+          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            Vibrant custom printing on the world's most sustainable substrates. Photo-quality graphics. Zero plate costs. Unlimited creativity.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
+          <div className="flex flex-wrap justify-center gap-6 mt-12">
             <NeoButton variant="primary" to="/printing/digital">Digital Print Guide</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Request Print Samples</NeoButton>
+            <NeoButton variant="secondary" to="/sample">Request Print Kit</NeoButton>
           </div>
         </div>
       </section>
 
-      {/* Printing Technology Section */}
+      {/* Tech Breakdown Section */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <NeoBadge color="magenta">VISUAL_IMPACT</NeoBadge>
-              <h2 className="font-black text-5xl mt-6 uppercase leading-tight">No Compromise<br/>on Quality.</h2>
-              <p className="mt-6 text-xl text-gray-600 font-['JetBrains_Mono']">
-                Sustainable packaging used to mean boring brown paper. Not anymore. Our advanced digital and flexographic presses deliver stunning, vibrant graphics on compostable and recyclable films.
+              <NeoBadge color="cyan">PRINT_TECH_STACK</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">No Sacrifice<br/>on Vibrancy.</h2>
+              <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
+                Sustainable packaging used to mean "natural" looking brown paper with limited colors. We've changed the game. Our advanced digital presses deliver 1200 DPI resolution on compostable and recyclable films, ensuring your brand pops on the shelf.
               </p>
-              <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { icon: Printer, title: 'Digital Precision', desc: 'No plate costs. Perfect for short runs and multiple SKUs.' },
-                  { icon: Palette, title: 'Premium Finishes', desc: 'Spot UV, foil stamping, and soft-touch lamination.' },
-                  { icon: Zap, title: 'Fast Turnaround', desc: 'Ships in 10-15 business days from artwork approval.' },
-                  { icon: ShoppingBag, title: 'Low MOQ', desc: 'Start your brand journey with just 500 pouches.' },
-                ].map((s, i) => (
-                  <div key={i} className="p-4 border-2 border-black bg-[#F0F0F0] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <s.icon className="w-6 h-6 mb-2 text-[#FF0080]" />
-                    <h4 className="font-black text-sm uppercase">{s.title}</h4>
-                    <p className="text-xs opacity-70 font-['JetBrains_Mono'] mt-1">{s.desc}</p>
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {PRINT_CAPABILITIES.map((p, i) => (
+                  <div key={i} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <h4 className="font-black uppercase text-xs mb-1 text-magenta-600">{p.label}</h4>
+                    <p className="text-xl font-black">{p.value}</p>
+                    <p className="text-[10px] font-bold opacity-60">{p.desc}</p>
                   </div>
                 ))}
               </div>
@@ -73,40 +75,43 @@ const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* AIEO FAQ */}
+      {/* Showcase Grid */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black text-5xl text-center mb-16 uppercase">Brand Design FAQ</h2>
-          <div className="space-y-4">
-            {[
-              { q: "Can you print white on clear compostable bags?", a: "Yes. Our digital presses allow for a high-opacity white ink layer, ensuring your colors pop even on transparent compostable or recyclable films." },
-              { q: "Are the inks food-safe and eco-friendly?", a: "We use water-based and bio-based inks that are fully compatible with composting and recycling processes. They are low-odor, low-VOC, and FDA food-safe approved." },
-              { q: "Do you offer metallic or foil finishes?", a: "Yes! We can apply metallic cold-foil and hot-stamping even on sustainable substrates. We also offer metallic-effect inks for a similar look with lower cost." },
-              { q: "Can I print multiple designs in one order?", a: "Yes, that's the beauty of digital printing. You can split your 500-unit MOQ across multiple flavors or SKUs (e.g., 250 units of two designs) for a small fee." }
-            ].map((faq, idx) => (
-              <NeoCard key={idx} color="bg-white">
-                <h4 className="font-black text-xl mb-4 flex items-center gap-2">
-                  <span className="bg-[#D4FF00] text-black px-2 py-0.5 text-xs">DESIGN_INTEL</span>
-                  {faq.q}
-                </h4>
-                <p className="text-gray-600 font-['JetBrains_Mono'] text-sm border-l-4 border-black pl-4 mt-4">{faq.a}</p>
-              </NeoCard>
-            ))}
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8">
+            <NeoCard>
+              <img src="/imgs/seo-photos/a_printing_types_overview_4017325.webp" className="border-2 border-black w-full mb-6" alt="Print Types" />
+              <h4 className="font-black text-xl uppercase mb-2">Multi-SKU Agility</h4>
+              <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Digital printing allows you to split your MOQ across 10+ flavors or designs without expensive setup fees.</p>
+            </NeoCard>
+            <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(212,255,0,1)]">
+              <img src="/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp" className="border-2 border-black w-full mb-6" alt="Finishing" />
+              <h4 className="font-black text-xl uppercase mb-2">Premium Finishes</h4>
+              <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Choose from matte, gloss, or soft-touch finishes. We also offer metallic effects even on compostable substrates.</p>
+            </NeoCard>
+            <NeoCard>
+              <div className="p-8 bg-black text-[#D4FF00] h-full flex flex-col justify-center text-center">
+                <MousePointer2 className="w-16 h-16 mx-auto mb-6" />
+                <h4 className="font-black text-3xl uppercase">Dieline Library</h4>
+                <p className="text-xs font-bold mt-4 uppercase italic">Access 100+ standard dielines to jumpstart your design process today.</p>
+              </div>
+            </NeoCard>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-black text-[#D4FF00]">
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
-          <h2 className="font-black text-5xl md:text-8xl uppercase text-white leading-none">Your Brand.<br/>Our Planet.</h2>
-          <p className="font-['JetBrains_Mono'] font-bold text-xl text-white opacity-80">
-            Design stunning custom packaging that doesn't cost the earth.
+      <section className="py-24 bg-black text-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+          <NeoBadge color="yellow">DESIGN_CONSULT_AVAILABLE</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic text-[#D4FF00]">Stand Out.<br/>Soil Safe.</h2>
+          <p className="font-['JetBrains_Mono'] font-bold text-xl text-white opacity-80 max-w-2xl mx-auto">
+            Ready to design stunning custom packaging that doesn't cost the earth? Let's bring your vision to life.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <NeoButton variant="primary" to="/sample">Order Print Sample</NeoButton>
-            <NeoButton variant="secondary" className="!text-black" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Free Consultation <ArrowRight className="inline ml-2" />
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <NeoButton variant="primary" to="/sample" className="!bg-[#D4FF00] !text-black">Request Print Kit</NeoButton>
+            <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
+              Speak to Print Expert
             </NeoButton>
           </div>
         </div>

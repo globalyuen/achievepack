@@ -1,50 +1,114 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Printer, Shield, Zap, ArrowRight, CheckCircle, Palette } from 'lucide-react'
+import { Printer, Shield, Zap, ArrowRight, CheckCircle, Palette, MousePointer2, Layers, Type, BarChart3, Image } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 
 const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()
+  
+  const PRINT_SPECS = [
+    { label: 'Color Matching', value: 'Pantone®', desc: 'Precise color consistency across batches.' },
+    { label: 'Variable Data', value: 'Unique IDs', desc: 'Print unique QR codes or serials on every bag.' },
+    { label: 'Substrates', value: 'All Eco', desc: 'Certified for Kraft, Bio-PE, and PCR films.' },
+    { label: 'Min. Quantity', value: '100 units', desc: 'Lowest entry point for custom packaging.' }
+  ]
+
   return (
     <PouchLayout>
       <Helmet>
         <title>Digital Printing for Eco Packaging | Low MOQ Pouches | Pouch.eco</title>
         <meta name="description" content="Photo-quality digital printing on sustainable packaging. No plate fees, fast 10-day turnaround. Perfect for small runs and multiple SKUs. Certified eco-friendly inks." />
         <link rel="canonical" href={`${baseUrl}/topics/digital-printing-eco-packaging`} />
+        <meta name="keywords" content="digital printing packaging, custom printed pouches, water based inks, no plate fees packaging, low moq custom pouches" />
       </Helmet>
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#ff0080_1px,transparent_1px)] [background-size:24px_24px]">
+
+      {/* Hero Section */}
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#ff0080_1px,transparent_1px)] [background-size:24px_24px] bg-pink-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="magenta">INK_JET_MAX_V2</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase">Pure.<br/>Print.<br/>Now.</h1>
-          <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            Digital printing on eco materials. No plates. No limits. Photo-quality resolution from 100 units.
+          <NeoBadge color="magenta">INK_JET_MAX_V4.2</NeoBadge>
+          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Pure.<br/>Print.<br/><span className="text-[#FF0080] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Now.</span></h1>
+          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            Digital printing on eco materials. Zero plates. Unlimited color. Photo-quality resolution from just 100 units. The future of brand agility starts here.
           </p>
-          <div className="mt-12 flex justify-center gap-4">
-            <NeoButton variant="primary" to="/printing/digital">Explore Digital Print</NeoButton>
+          <div className="mt-12 flex flex-wrap justify-center gap-6">
+            <NeoButton variant="primary" to="/printing/digital">Explore Digital Tech</NeoButton>
+            <NeoButton variant="secondary" to="/sample">Order Print Sample</NeoButton>
           </div>
         </div>
       </section>
+
+      {/* Technology Breakdown */}
       <section className="py-24 bg-white border-b-4 border-black">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black text-5xl uppercase mb-12 italic text-center">Infinite Customization</h2>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-yellow-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <img 
+                src="/imgs/seo-photos/a_digital_printing_customization_2717640.webp" 
+                alt="Advanced Digital Printing" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+            <div>
+              <NeoBadge color="cyan">ZERO_PLATE_LOGIC</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Why Digital?</h2>
+              <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
+                Traditional printing requires expensive metal plates for every color and every SKU. Digital printing eliminates this entirely, allowing you to launch multiple designs in days, not months.
+              </p>
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {PRINT_SPECS.map((s, i) => (
+                  <div key={i} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <h4 className="font-black uppercase text-xs mb-1 text-pink-600">{s.label}</h4>
+                    <p className="text-xl font-black">{s.value}</p>
+                    <p className="text-[10px] font-bold opacity-60">{s.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Finishing Grid */}
+      <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
-            <NeoCard color="bg-white">
-              <Printer className="w-12 h-12 mb-4 text-[#FF0080]" />
-              <h4 className="font-black text-xl">1200 DPI</h4>
-              <p className="text-gray-600 font-['JetBrains_Mono'] text-sm mt-2">Stunning detail and smooth gradients that rival traditional offset printing.</p>
+            <NeoCard>
+              <img src="/imgs/seo-photos/a_printing_types_overview_4017325.webp" className="border-2 border-black w-full mb-6" alt="Digital Print Overview" />
+              <h4 className="font-black text-xl uppercase mb-2">Multi-Flavor Agility</h4>
+              <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Print 5 designs of 100 units each in a single 500-unit run. Ideal for testing market response.</p>
             </NeoCard>
-            <NeoCard color="bg-white">
-              <Palette className="w-12 h-12 mb-4 text-cyan-600" />
-              <h4 className="font-black text-xl">Water-Based Inks</h4>
-              <p className="text-gray-600 font-['JetBrains_Mono'] text-sm mt-2">Food-safe, low-odor, and fully compatible with compostable and recyclable films.</p>
+            <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(255,0,128,1)]">
+              <img src="/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp" className="border-2 border-black w-full mb-6" alt="Premium Finishing" />
+              <h4 className="font-black text-xl uppercase mb-2">Premium Texture</h4>
+              <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Combine digital precision with soft-touch matte or spot-UV finishes for a luxury unboxing feel.</p>
             </NeoCard>
-            <NeoCard color="bg-white">
-              <Zap className="w-12 h-12 mb-4 text-yellow-500" />
-              <h4 className="font-black text-xl">Zero Plate Fees</h4>
-              <p className="text-gray-600 font-['JetBrains_Mono'] text-sm mt-2">Eliminate massive setup costs. Update your design whenever you want at no extra cost.</p>
+            <NeoCard>
+              <div className="p-8 bg-black text-[#D4FF00] h-full flex flex-col justify-center text-center">
+                <Palette className="w-16 h-16 mx-auto mb-6" />
+                <h4 className="font-black text-3xl uppercase">Ink Safety</h4>
+                <p className="text-xs font-bold mt-4 uppercase italic">Compost-safe, water-based inks that meet the highest FDA and EU food safety standards.</p>
+              </div>
             </NeoCard>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-black text-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+          <NeoBadge color="magenta">PRINT_READY_ACTION</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic text-pink-600">Print Fast.<br/>Ship Faster.</h2>
+          <p className="font-['JetBrains_Mono'] font-bold text-xl text-white opacity-80 max-w-2xl mx-auto">
+            Ready to bring your brand vision to life with zero setup fees? Request our Print Masterclass Kit today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <NeoButton variant="primary" to="/sample" className="!bg-pink-600 !text-white">Order Print Kit</NeoButton>
+            <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
+              Print Consultation Call
+            </NeoButton>
           </div>
         </div>
       </section>
