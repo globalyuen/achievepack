@@ -1,9 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Factory, Shield, Zap, ArrowRight, CheckCircle, Package } from 'lucide-react'
-import PouchLayout from '../../components/pouch/PouchLayout'
-import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
-import { getBaseUrl } from '../../utils/domain'
+import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { getBaseUrl } from '../../../utils/domain'
 
 const PouchCustomCompostablePouchSuppliersPage: React.FC = () => {
   const baseUrl = getBaseUrl()

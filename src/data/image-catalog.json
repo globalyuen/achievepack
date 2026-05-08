@@ -1,10 +1,10 @@
 {
-  "generated": "2026-05-06",
-  "total_images": 1298,
-  "total_categories": 143,
+  "generated": "2026-05-08",
+  "total_images": 1304,
+  "total_categories": 145,
   "extensions": {
     ".webp": 1077,
-    ".png": 188,
+    ".png": 194,
     ".jpg": 30,
     ".svg": 3
   },
@@ -2187,6 +2187,29 @@
           "path": "/imgs/demo-site/tea/hero.png",
           "extension": ".png",
           "modified": "2026-01-25T02:30:42.883Z"
+        }
+      ]
+    },
+    "emails": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "ryan_headshot_v2.png",
+          "path": "/imgs/emails/ryan_headshot_v2.png",
+          "extension": ".png",
+          "modified": "2026-05-06T10:14:46.709Z"
+        },
+        {
+          "filename": "ryan_photo.png",
+          "path": "/imgs/emails/ryan_photo.png",
+          "extension": ".png",
+          "modified": "2026-05-06T09:14:44.492Z"
+        },
+        {
+          "filename": "outreach_header_2026.png",
+          "path": "/imgs/emails/outreach_header_2026.png",
+          "extension": ".png",
+          "modified": "2026-05-06T09:14:44.490Z"
         }
       ]
     },
@@ -5104,6 +5127,29 @@
           "path": "/imgs/recyclable/what/retail_shelf_with_transparent_labeling.webp",
           "extension": ".webp",
           "modified": "2026-01-03T21:47:52.000Z"
+        }
+      ]
+    },
+    "reports": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "report_2026_header.png",
+          "path": "/imgs/reports/report_2026_header.png",
+          "extension": ".png",
+          "modified": "2026-05-06T10:31:55.881Z"
+        },
+        {
+          "filename": "consumer_trust_factors_2026.png",
+          "path": "/imgs/reports/consumer_trust_factors_2026.png",
+          "extension": ".png",
+          "modified": "2026-05-06T10:31:30.461Z"
+        },
+        {
+          "filename": "compostable_trends_chart_2026.png",
+          "path": "/imgs/reports/compostable_trends_chart_2026.png",
+          "extension": ".png",
+          "modified": "2026-05-06T10:31:30.458Z"
         }
       ]
     },

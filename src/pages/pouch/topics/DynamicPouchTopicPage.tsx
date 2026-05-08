@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import * as LucideIcons from 'lucide-react'
-import PouchLayout from '../../components/pouch/PouchLayout'
-import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
-import { getBaseUrl } from '../../utils/domain'
+import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { getBaseUrl } from '../../../utils/domain'
 
 // This will be populated by the migration script
-import migrationsData from '../../data/pouch-migrations.json'
+import migrationsData from '../../../data/pouch-migrations.json'
 
 interface MigrationContent {
   title: string
@@ -16,9 +16,11 @@ interface MigrationContent {
   keywords: string[]
   badge: string
   badgeColor: string
-  heroImage: string
+  heroTitle?: string
+  heroBgColor?: string
+  heroImage?: string
   accentColor: string
-  heroPattern: string
+  heroPattern?: string
   sections: Array<{
     title: string
     content: string

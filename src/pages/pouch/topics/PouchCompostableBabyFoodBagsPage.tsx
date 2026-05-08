@@ -1,9 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Baby, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Heart, AlertTriangle, FileCheck, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, ArrowRight } from 'lucide-react'
-import PouchLayout from '../../components/pouch/PouchLayout'
-import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
-import { getBaseUrl } from '../../utils/domain'
+import { Baby, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Heart, AlertTriangle, FileCheck, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, ArrowRight, Zap } from 'lucide-react'
+import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { getBaseUrl } from '../../../utils/domain'
 
 const PouchCompostableBabyFoodBagsPage: React.FC = () => {
   const baseUrl = getBaseUrl()

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Printer, Shield, Zap, ArrowRight, CheckCircle, Palette } from 'lucide-react'
-import PouchLayout from '../../components/pouch/PouchLayout'
-import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
-import { getBaseUrl } from '../../utils/domain'
+import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { getBaseUrl } from '../../../utils/domain'
 
 const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()

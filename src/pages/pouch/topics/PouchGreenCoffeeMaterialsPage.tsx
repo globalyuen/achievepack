@@ -1,9 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, ArrowRight, Bean } from 'lucide-react'
-import PouchLayout from '../../components/pouch/PouchLayout'
-import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
-import { getBaseUrl } from '../../utils/domain'
+import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { getBaseUrl } from '../../../utils/domain'
 
 const PouchGreenCoffeeMaterialsPage: React.FC = () => {
   const baseUrl = getBaseUrl()
