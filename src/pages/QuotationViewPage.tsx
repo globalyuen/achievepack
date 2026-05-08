@@ -12,10 +12,37 @@ const QuotationViewPage: React.FC = () => {
   const [items, setItems] = useState<QuotationItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [password, setPassword] = useState(passwordParam || '')
-  const [authenticated, setAuthenticated] = useState(false)
-
   const fetchQuotation = async () => {
+    const type = searchParams.get('type')
+    const option = searchParams.get('option')
+
+    if (type === 'sample') {
+      setLoading(true)
+      // Mock batch data for sample kit
+      const optionsMap: Record<string, any> = {
+        '1': { name: 'Material Sample Prototype', price: 200, items: [{ item_name: 'Material Sample Prototype', quantity: 4, unit_price: 50, line_total: 200, structure_spec: 'Home Compostable Glossy Kraft Paper' }] },
+        '2': { name: 'Final Product Sample', price: 400, items: [{ item_name: 'Final Product Sample', quantity: 50, unit_price: 8, line_total: 400, structure_spec: 'Recyclable / Bio PE / Compostable' }] },
+        '3': { name: 'Artwork Print Only', price: 100, items: [{ item_name: 'Artwork Print Only', quantity: 1, unit_price: 100, line_total: 100, structure_spec: 'Commercial Press Sheet' }] }
+      }
+      
+      const selectedOption = optionsMap[option || '1'] || optionsMap['1']
+      
+      setBatch({
+        id: 'sample',
+        quote_number: `SAMPLE-${option || '1'}-${Math.floor(Math.random() * 1000)}`,
+        status: 'sent',
+        customer_name: 'Prospective Client',
+        subtotal: selectedOption.price,
+        total: selectedOption.price,
+        currency: 'USD',
+        notes: 'This is a standardized sample kit quote. No password required.',
+        created_at: new Date().toISOString()
+      } as any)
+      setItems(selectedOption.items)
+      setLoading(false)
+      return
+    }
+
     if (!id) return
     setLoading(true)
     try {
@@ -27,15 +54,7 @@ const QuotationViewPage: React.FC = () => {
       
       if (batchError) throw batchError
       
-      if (batchData.password !== password) {
-        setError('Invalid password')
-        setAuthenticated(false)
-        setLoading(false)
-        return
-      }
-      
       setBatch(batchData)
-      setAuthenticated(true)
       
       const { data: itemsData, error: itemsError } = await supabase
         .from('quotation_items')
@@ -54,9 +73,8 @@ const QuotationViewPage: React.FC = () => {
   }
 
   useEffect(() => {
-    if (password) fetchQuotation()
-    else setLoading(false)
-  }, [id, password])
+    fetchQuotation()
+  }, [id, searchParams])
 
   const handleResponse = async (accept: boolean) => {
     if (!batch) return
@@ -80,33 +98,6 @@ const QuotationViewPage: React.FC = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black"></div>
-      </div>
-    )
-  }
-
-  if (!authenticated) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-xl border p-8 max-w-md w-full text-center">
-          <Lock className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold mb-2">Password Required</h1>
-          <p className="text-gray-500 mb-6">Enter the password to view this quotation</p>
-          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password"
-            className="w-full border rounded-lg px-4 py-3 mb-4 text-center text-lg"
-            onKeyDown={(e) => e.key === 'Enter' && fetchQuotation()}
-          />
-          <button
-            onClick={fetchQuotation}
-            className="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800"
-          >
-            View Quotation
-          </button>
-        </div>
       </div>
     )
   }

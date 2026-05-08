@@ -18,7 +18,7 @@ export default function FloatingButtons() {
   return (
     <>
       {/* Floating Buttons */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-3">
         {/* Expanded Options */}
         {isExpanded && (
           <div className="flex flex-col gap-3 animate-in slide-in-from-bottom-2 duration-200">

@@ -1,73 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Lock } from 'lucide-react';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 
 const PouchSampleQuotePage: React.FC = () => {
-    const [searchParams] = useSearchParams();
-    const pwd = searchParams.get('p');
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-    useEffect(() => {
-        if (pwd === 'pouch2026') {
-            setIsAuthenticated(true);
-        }
-    }, [pwd]);
-
-    if (!isAuthenticated) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-[#f8f9fa] p-4 font-['Space_Grotesk']">
-                <Helmet>
-                    <title>Unlock Sample Quote | POUCH.ECO</title>
-                </Helmet>
-                <NeoCard className="max-w-md w-full text-center bg-white">
-                    <div className="mb-6">
-                        <NeoBadge color="bg-[#D4FF00]">SECURE_ACCESS</NeoBadge>
-                    </div>
-                    
-                    <div className="w-20 h-20 bg-[#00FFFF] border-4 border-black flex items-center justify-center mx-auto mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                        <Lock className="w-10 h-10 text-black" />
-                    </div>
-                    
-                    <h1 className="text-3xl font-black text-gray-900 mb-2 uppercase tracking-tight leading-none">
-                        Password<br/>Required
-                    </h1>
-                    <p className="text-gray-500 mb-8 font-['JetBrains_Mono'] text-sm font-bold">
-                        &gt; Enter access code to view the sample quote protocol.
-                    </p>
-                    
-                    <div className="flex flex-col gap-4">
-                        <input 
-                            type="password" 
-                            id="pwdInput"
-                            className="w-full border-4 border-black bg-white px-4 py-4 focus:bg-[#D4FF00]/10 outline-none transition-all font-black uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] placeholder:text-gray-300" 
-                            placeholder="Type password..."
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                    window.location.href = '?p=' + (e.target as HTMLInputElement).value;
-                                }
-                            }}
-                        />
-                        <NeoButton 
-                            onClick={() => {
-                                const el = document.getElementById('pwdInput') as HTMLInputElement;
-                                if (el) window.location.href = '?p=' + el.value;
-                            }}
-                            className="w-full justify-center text-lg py-4"
-                        >
-                            Unlock Access
-                        </NeoButton>
-                    </div>
-
-                    <div className="mt-8 pt-6 border-t-2 border-black/10 font-['JetBrains_Mono'] text-[10px] text-gray-400 font-bold uppercase tracking-widest">
-                        Official Shared Quote System v2.0
-                    </div>
-                </NeoCard>
-            </div>
-        );
-    }
 
 
     return (
@@ -157,9 +95,12 @@ const PouchSampleQuotePage: React.FC = () => {
                                             <li className="flex items-center gap-2 text-red-600"><div className="w-2 h-2 bg-red-600"></div> <strong>Note:</strong> Printing quality is lower than commercial standard</li>
                                         </ul>
                                     </div>
-                                    <div className="md:text-right flex flex-col justify-end">
-                                        <div className="text-4xl font-black tracking-tight mb-1">USD $200</div>
-                                        <div className="text-sm font-bold uppercase opacity-60">Set of 4 pieces</div>
+                                    <div className="md:text-right flex flex-col justify-end gap-4">
+                                        <div>
+                                            <div className="text-4xl font-black tracking-tight mb-1">USD $200</div>
+                                            <div className="text-sm font-bold uppercase opacity-60">Set of 4 pieces</div>
+                                        </div>
+                                        <NeoButton to="/quote?type=sample&option=1" variant="primary" className="w-full">Order Kit 01</NeoButton>
                                     </div>
                                 </div>
                             </NeoCard>
@@ -181,11 +122,14 @@ const PouchSampleQuotePage: React.FC = () => {
                                             <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> <strong>Status:</strong> Retail Ready Prototype</li>
                                         </ul>
                                     </div>
-                                    <div className="md:text-right flex flex-col justify-end">
-                                        <div className="text-4xl font-black tracking-tight mb-1 font-mono text-black">USD $400</div>
-                                        <div className="text-xs font-black uppercase mb-1 opacity-70">Eco Materials Pkg</div>
-                                        <div className="text-xs font-bold text-black/60 italic mb-4">Starts from $100 for standard plastics</div>
-                                        <div className="text-sm font-black uppercase opacity-60 text-black">Set of 50 pieces</div>
+                                    <div className="md:text-right flex flex-col justify-end gap-4">
+                                        <div>
+                                            <div className="text-4xl font-black tracking-tight mb-1 font-mono text-black">USD $400</div>
+                                            <div className="text-xs font-black uppercase mb-1 opacity-70">Eco Materials Pkg</div>
+                                            <div className="text-xs font-bold text-black/60 italic mb-4">Starts from $100 for standard plastics</div>
+                                            <div className="text-sm font-black uppercase opacity-60 text-black">Set of 50 pieces</div>
+                                        </div>
+                                        <NeoButton to="/quote?type=sample&option=2" variant="dark" className="w-full shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">Order Kit 02</NeoButton>
                                     </div>
                                 </div>
                             </NeoCard>
@@ -206,9 +150,12 @@ const PouchSampleQuotePage: React.FC = () => {
                                             <li className="flex items-center gap-2"><div className="w-2 h-2 bg-black"></div> <strong>Process:</strong> No hand-making of pouches included</li>
                                         </ul>
                                     </div>
-                                    <div className="md:text-right flex flex-col justify-end">
-                                        <div className="text-4xl font-black tracking-tight mb-1">USD $100</div>
-                                        <div className="text-sm font-bold uppercase opacity-60">Artwork Proof Sheet</div>
+                                    <div className="md:text-right flex flex-col justify-end gap-4">
+                                        <div>
+                                            <div className="text-4xl font-black tracking-tight mb-1">USD $100</div>
+                                            <div className="text-sm font-bold uppercase opacity-60">Artwork Proof Sheet</div>
+                                        </div>
+                                        <NeoButton to="/quote?type=sample&option=3" variant="primary" className="w-full">Order Proof</NeoButton>
                                     </div>
                                 </div>
                             </NeoCard>

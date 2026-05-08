@@ -337,10 +337,12 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               <h4 className="font-black uppercase mb-4 text-xl">Featured</h4>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
                 <li><Link to="/topics/eco-friendly-food-packaging" className="hover:underline text-magenta-600">[FOOD PACKAGING]</Link></li>
-                <li><Link to="/topics/compostable-baby-food-bags" className="hover:underline">[BABY FOOD POUCHES]</Link></li>
-                <li><Link to="/topics/green-coffee-materials" className="hover:underline">[COFFEE MATERIALS]</Link></li>
-                <li><Link to="/topics/recyclable-snack-packaging" className="hover:underline">[RECYCLABLE SNACKS]</Link></li>
-                <li><Link to="/topics/custom-printed-sustainable-pouches" className="hover:underline text-blue-600">[CUSTOM PRINTED]</Link></li>
+                <li><Link to="/topics/pfas-free-food-packaging" className="hover:underline text-blue-600">[PFAS-FREE]</Link></li>
+                <li><Link to="/topics/home-compostable-coffee-bags" className="hover:underline">[COFFEE BAGS]</Link></li>
+                <li><Link to="/topics/mono-material-pe-pouches" className="hover:underline">[MONO-PE]</Link></li>
+                <li><Link to="/topics/child-resistant-mylar-bags" className="hover:underline">[CHILD-RESISTANT]</Link></li>
+                <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:underline text-cyan-600">[OCEAN PLASTIC]</Link></li>
+                <li><Link to="/topics/minimalist-d2c-packaging" className="hover:underline">[MINIMALIST D2C]</Link></li>
               </ul>
             </div>
           </div>

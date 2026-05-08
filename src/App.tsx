@@ -2328,6 +2328,18 @@ function App() {
               </ul>
             </div>
 
+            <div>
+              <h4 className="text-sm font-semibold mb-2">Trending Topics</h4>
+              <ul className="text-xs space-y-1 text-neutral-400">
+                <li><Link to="/topics/pfas-free-food-packaging" className="hover:text-primary-500">PFAS-Free Food</Link></li>
+                <li><Link to="/topics/home-compostable-coffee-bags" className="hover:text-primary-500">Compostable Coffee</Link></li>
+                <li><Link to="/topics/mono-material-pe-pouches" className="hover:text-primary-500">Mono-PE Pouches</Link></li>
+                <li><Link to="/topics/child-resistant-mylar-bags" className="hover:text-primary-500">Child-Resistant</Link></li>
+                <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:text-primary-500">Ocean Plastic</Link></li>
+                <li><Link to="/topics/minimalist-d2c-packaging" className="hover:text-primary-500">Minimalist D2C</Link></li>
+              </ul>
+            </div>
+
             {/* Support */}
             <div>
               <h4 className="text-sm font-semibold mb-2">{t('footer.support')}</h4>

@@ -148,6 +148,12 @@ const PouchEcoPackagingRegulationsPage = lazyWithRetry(() => import('./pages/pou
 const PouchCustomCompostablePouchSuppliersPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCustomCompostablePouchSuppliersPage'))
 const PouchLowMOQStartupPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchLowMOQStartupPackagingPage'))
 const PouchDTCSustainablePackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchDTCSustainablePackagingPage'))
+const PouchPFASFreePackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchPFASFreePackagingPage'))
+const PouchHomeCompostableCoffeeBagsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchHomeCompostableCoffeeBagsPage'))
+const PouchMonoPEPouchesPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMonoPEPouchesPage'))
+const PouchChildResistantMylarBagsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchChildResistantMylarBagsPage'))
+const PouchRecycledOceanPlasticPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecycledOceanPlasticPackagingPage'))
+const PouchMinimalistD2CPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMinimalistD2CPackagingPage'))
 const DynamicPouchTopicPage = lazyWithRetry(() => import('./pages/pouch/topics/DynamicPouchTopicPage'))
 
 // Printing Pages - Lazy loaded
@@ -312,6 +318,12 @@ const CustomCompostablePouchSuppliersPage = lazyWithRetry(() => import('./pages/
 const LowMOQStartupPackagingPage = lazyWithRetry(() => import('./pages/topics/LowMOQStartupPackagingPage'))
 const CompostableBabyFoodBagsPage = lazyWithRetry(() => import('./pages/topics/CompostableBabyFoodBagsPage'))
 const CompostableHumidityControlPage = lazyWithRetry(() => import('./pages/topics/CompostableHumidityControlPage'))
+const PFASFreePackagingPage = lazyWithRetry(() => import('./pages/topics/PFASFreePackagingPage'))
+const HomeCompostableCoffeeBagsPage = lazyWithRetry(() => import('./pages/topics/HomeCompostableCoffeeBagsPage'))
+const MonoPEPouchesPage = lazyWithRetry(() => import('./pages/topics/MonoPEPouchesPage'))
+const ChildResistantMylarBagsPage = lazyWithRetry(() => import('./pages/topics/ChildResistantMylarBagsPage'))
+const RecycledOceanPlasticPackagingPage = lazyWithRetry(() => import('./pages/topics/RecycledOceanPlasticPackagingPage'))
+const MinimalistD2CPackagingPage = lazyWithRetry(() => import('./pages/topics/MinimalistD2CPackagingPage'))
 
 // Compostable Education Pages - Lazy loaded
 const BiodegradableVsCompostablePage = lazyWithRetry(() => import('./pages/composting/BiodegradableVsCompostablePage'))
@@ -552,6 +564,12 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/custom-compostable-pouch-suppliers" element={<PouchCustomCompostablePouchSuppliersPage />} />
                   <Route path="/topics/low-moq-startup-packaging" element={<PouchLowMOQStartupPackagingPage />} />
                   <Route path="/topics/dtc-sustainable-packaging" element={<PouchDTCSustainablePackagingPage />} />
+                  <Route path="/topics/pfas-free-food-packaging" element={<PouchPFASFreePackagingPage />} />
+                  <Route path="/topics/home-compostable-coffee-bags" element={<PouchHomeCompostableCoffeeBagsPage />} />
+                  <Route path="/topics/mono-material-pe-pouches" element={<PouchMonoPEPouchesPage />} />
+                  <Route path="/topics/child-resistant-mylar-bags" element={<PouchChildResistantMylarBagsPage />} />
+                  <Route path="/topics/recycled-ocean-plastic-packaging" element={<PouchRecycledOceanPlasticPackagingPage />} />
+                  <Route path="/topics/minimalist-d2c-packaging" element={<PouchMinimalistD2CPackagingPage />} />
                   <Route path="/topics/:slug" element={<DynamicPouchTopicPage />} />
                   {/* Industry Solution Pages */}
                   <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
@@ -580,6 +598,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/quotes/rollstock" element={<RollstockQuotePage />} />
                   <Route path="/cert" element={<CertificateDownloadPage />} />
                   <Route path="/sample" element={<PouchSampleQuotePage />} />
+                  <Route path="/quote" element={<QuotationViewPage />} />
+                  <Route path="/quote/:id" element={<QuotationViewPage />} />
                   <Route path="/support/sample-quote" element={<SampleQuotePage />} />
                   <Route path="/reports/state-of-packaging-2026" element={<PackagingReport2026 />} />
                   <Route path="/workshop-register" element={<WorkshopRegisterPage />} />
@@ -587,7 +607,6 @@ if (getDomain() === 'pouch') {
                   <Route path="*" element={<PouchHomePage />} />
                 </Routes>
               </Suspense>
-              <FloatingButtons />
             </BrowserRouter>
           </GeoBlocker>
         </ErrorBoundary>
@@ -804,6 +823,12 @@ if (getDomain() === 'pouch') {
                         <Route path="/topics/compostable-pouch-suppliers" element={<CustomCompostablePouchSuppliersPage />} />
                         <Route path="/topics/low-moq-startup-packaging" element={<LowMOQStartupPackagingPage />} />
                         <Route path="/topics/compostable-baby-food-bags" element={<CompostableBabyFoodBagsPage />} />
+                        <Route path="/topics/pfas-free-food-packaging" element={<PFASFreePackagingPage />} />
+                        <Route path="/topics/home-compostable-coffee-bags" element={<HomeCompostableCoffeeBagsPage />} />
+                        <Route path="/topics/mono-material-pe-pouches" element={<MonoPEPouchesPage />} />
+                        <Route path="/topics/child-resistant-mylar-bags" element={<ChildResistantMylarBagsPage />} />
+                        <Route path="/topics/recycled-ocean-plastic-packaging" element={<RecycledOceanPlasticPackagingPage />} />
+                        <Route path="/topics/minimalist-d2c-packaging" element={<MinimalistD2CPackagingPage />} />
                         <Route path="/topics/compostable-humidity-control" element={<CompostableHumidityControlPage />} />
 
                         {/* Compostable Education Pages */}

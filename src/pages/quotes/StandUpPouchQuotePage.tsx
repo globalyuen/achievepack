@@ -8,16 +8,9 @@ const StandUpPouchQuotePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pwd = searchParams.get('p');
   const tabParam = searchParams.get('tab');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState<'kraft' | 'pla' | 'biope' | 'spouted' | 'pe'>('kraft');
   const [copied, setCopied] = useState(false);
   const [biopeSize, setBiopeSize] = useState<'large' | 'small'>('large');
-
-  useEffect(() => {
-    if (pwd === 'pouch2026') {
-      setIsAuthenticated(true);
-    }
-  }, [pwd]);
 
   // Set active tab from URL parameter
   useEffect(() => {
@@ -37,55 +30,14 @@ const StandUpPouchQuotePage: React.FC = () => {
   };
 
   useEffect(() => {
-    if (isAuthenticated) {
-      const today = new Date();
-      const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-      
-      const elDate = document.getElementById('currentDate');
-      if (elDate) {
-        elDate.textContent = today.toLocaleDateString('en-US', options);
-      }
+    const today = new Date();
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    
+    const elDate = document.getElementById('currentDate');
+    if (elDate) {
+      elDate.textContent = today.toLocaleDateString('en-US', options);
     }
-  }, [isAuthenticated]);
-
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-        <Helmet>
-          <title>Secure Quotation - Achieve Pack</title>
-        </Helmet>
-        <div className="bg-white p-8 rounded-xl shadow-md max-w-md w-full text-center">
-          <svg className="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-          <h1 className="text-2xl font-bold mb-2">Password Required</h1>
-          <p className="text-gray-600 mb-6">Please enter the password to view this quotation.</p>
-          <div className="flex gap-2">
-            <input 
-              type="password" 
-              id="pwdInput"
-              className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none" 
-              placeholder="Enter password"
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  window.location.href = '?p=' + (e.target as HTMLInputElement).value;
-                }
-              }}
-            />
-            <button 
-              onClick={() => {
-                const el = document.getElementById('pwdInput') as HTMLInputElement;
-                if (el) window.location.href = '?p=' + el.value;
-              }}
-              className="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition"
-            >
-              Unlock
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
+  }, []);
     <>
       <QuoteLightbox />
 <Helmet>
