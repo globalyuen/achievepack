@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BarChart, Search, TrendingUp, Filter, AlertTriangle, ExternalLink, ArrowUp, ArrowDown, Globe, Tag, ChevronDown, ChevronRight } from 'lucide-react'
+import { BarChart, Search, TrendingUp, Filter, AlertTriangle, ExternalLink, ArrowUp, ArrowDown, Globe, Tag, ChevronDown, ChevronRight, Zap, Target, CheckCircle, Copy, Mail, Eye } from 'lucide-react'
 
 // Types for API response
 interface TrafficPage {
@@ -31,19 +31,47 @@ interface PageKeywords {
   keywords: Keyword[]
 }
 
+interface AiTrend {
+  topic: string
+  country: string
+  growth: string
+  search_volume: string
+}
+
+interface AiSuggestion {
+  trend: AiTrend
+  suggested_title: string
+  suggested_url: string
+  rationale: string
+  action: string
+}
+
+interface HotLead {
+  email: string
+  company: string
+  email_engagement: string
+  website_engagement: string
+  status: string
+  action_recommended: string
+}
+
 const SeoRankingDashboard: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'traffic' | 'seo' | 'keywords'>('traffic')
+  const [activeTab, setActiveTab] = useState<'traffic' | 'seo' | 'keywords' | 'ai-strategy' | 'lead-conversion'>('traffic')
   const [trafficData, setTrafficData] = useState<TrafficPage[]>([])
   const [seoData, setSeoData] = useState<SeoPage[]>([])
   const [keywordsData, setKeywordsData] = useState<PageKeywords[]>([])
+  const [aiSuggestions, setAiSuggestions] = useState<AiSuggestion[]>([])
+  const [hotLeads, setHotLeads] = useState<HotLead[]>([])
   const [expandedPages, setExpandedPages] = useState<Set<string>>(new Set())
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [days, setDays] = useState(30)
+  const [selectedSite, setSelectedSite] = useState<'all' | 'achievepack.com' | 'pouch.eco'>('all')
+  const [cloningStatus, setCloningStatus] = useState<Record<string, 'idle' | 'cloning' | 'done'>>({})
 
   useEffect(() => {
     fetchData()
-  }, [activeTab, days])
+  }, [activeTab, days, selectedSite])
 
   const fetchData = async () => {
     setLoading(true)
@@ -51,11 +79,15 @@ const SeoRankingDashboard: React.FC = () => {
     try {
       let endpoint = ''
       if (activeTab === 'traffic') {
-        endpoint = `/api/analytics/page-traffic?days=${days}&limit=200`
+        endpoint = `/api/analytics/page-traffic?days=${days}&limit=200&site=${selectedSite}`
       } else if (activeTab === 'seo') {
-        endpoint = `/api/analytics/page-seo?days=${days}&limit=200`
-      } else {
-        endpoint = `/api/analytics/page-keywords?days=${days}&limit=200`
+        endpoint = `/api/analytics/page-seo?days=${days}&limit=200&site=${selectedSite}`
+      } else if (activeTab === 'keywords') {
+        endpoint = `/api/analytics/page-keywords?days=${days}&limit=200&site=${selectedSite}`
+      } else if (activeTab === 'ai-strategy') {
+        endpoint = `/api/analytics/hot-topics`
+      } else if (activeTab === 'lead-conversion') {
+        endpoint = `/api/analytics/hot-leads`
       }
       
       const res = await fetch(endpoint)
@@ -81,14 +113,26 @@ const SeoRankingDashboard: React.FC = () => {
         setTrafficData(data.data)
       } else if (activeTab === 'seo') {
         setSeoData(data.data)
-      } else {
+      } else if (activeTab === 'keywords') {
         setKeywordsData(data.data)
+      } else if (activeTab === 'ai-strategy') {
+        setAiSuggestions(data.ai_suggestions || [])
+      } else if (activeTab === 'lead-conversion') {
+        setHotLeads(data.hot_leads || [])
       }
     } catch (err: any) {
       setError(err.message)
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleClonePage = (suggestion: AiSuggestion) => {
+    setCloningStatus(prev => ({ ...prev, [suggestion.suggested_url]: 'cloning' }))
+    // Simulate cloning process
+    setTimeout(() => {
+      setCloningStatus(prev => ({ ...prev, [suggestion.suggested_url]: 'done' }))
+    }, 2000)
   }
 
   const togglePageExpand = (url: string) => {
@@ -153,15 +197,52 @@ const SeoRankingDashboard: React.FC = () => {
               Keywords
             </div>
           </button>
+          <button
+            onClick={() => setActiveTab('ai-strategy')}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+              activeTab === 'ai-strategy' 
+                ? 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-sm' 
+                : 'text-gray-600 hover:text-purple-600'
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <Zap className="w-4 h-4" />
+              AI Strategy
+            </div>
+          </button>
+          <button
+            onClick={() => setActiveTab('lead-conversion')}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+              activeTab === 'lead-conversion' 
+                ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-sm' 
+                : 'text-gray-600 hover:text-orange-600'
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <Target className="w-4 h-4" />
+              Lead Conversion
+            </div>
+          </button>
         </div>
       </div>
 
-      {/* Date Filter */}
-      <div className="flex justify-end">
+      {/* Filters */}
+      <div className="flex justify-end gap-3 mb-6">
+        {(activeTab === 'traffic' || activeTab === 'seo' || activeTab === 'keywords') && (
+          <select 
+            value={selectedSite} 
+            onChange={(e) => setSelectedSite(e.target.value as any)}
+            className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-purple-500 outline-none"
+          >
+            <option value="all">All Websites</option>
+            <option value="achievepack.com">achievepack.com</option>
+            <option value="pouch.eco">pouch.eco</option>
+          </select>
+        )}
         <select 
           value={days} 
           onChange={(e) => setDays(Number(e.target.value))}
-          className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+          className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-purple-500 outline-none"
         >
           <option value="7">Last 7 Days</option>
           <option value="30">Last 30 Days</option>
@@ -294,7 +375,7 @@ const SeoRankingDashboard: React.FC = () => {
               </tbody>
             </table>
           </div>
-        ) : (
+        ) : activeTab === 'keywords' ? (
           // Keywords Table with expandable rows
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
@@ -375,6 +456,143 @@ const SeoRankingDashboard: React.FC = () => {
                 )}
               </tbody>
             </table>
+          </div>
+        ) : activeTab === 'ai-strategy' ? (
+          // AI Strategy Tab
+          <div className="p-6">
+            <div className="mb-6 bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl border border-indigo-100">
+              <h3 className="text-xl font-bold text-indigo-900 mb-2 flex items-center gap-2">
+                <Globe className="w-6 h-6 text-indigo-600" />
+                Global Hot Topic Radar (全自動 AI 策略)
+              </h3>
+              <p className="text-indigo-700">
+                AI is monitoring global packaging trends. Here are the top suggestions for new SEO pages on <strong>Pouch.eco</strong> to capture emerging traffic.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {aiSuggestions.length === 0 ? (
+                <div className="text-center p-8 text-gray-500">No suggestions available at the moment.</div>
+              ) : (
+                aiSuggestions.map((suggestion, idx) => {
+                  const status = cloningStatus[suggestion.suggested_url] || 'idle'
+                  
+                  return (
+                    <div key={idx} className="bg-white border border-gray-200 rounded-xl p-5 hover:border-purple-300 transition-colors shadow-sm">
+                      <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 px-2.5 py-1 rounded-full text-xs font-bold">
+                              <ArrowUp className="w-3 h-3" />
+                              {suggestion.trend.growth}
+                            </span>
+                            <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-700 px-2.5 py-1 rounded-full text-xs font-medium">
+                              <Globe className="w-3 h-3" />
+                              {suggestion.trend.country}
+                            </span>
+                          </div>
+                          <h4 className="text-lg font-bold text-gray-900 mb-1">{suggestion.trend.topic}</h4>
+                          <p className="text-sm text-gray-600 mb-4">{suggestion.rationale}</p>
+                          
+                          <div className="bg-gray-50 rounded-lg p-3 text-sm font-mono text-gray-600 border border-gray-100 flex items-center gap-2">
+                            <Globe className="w-4 h-4 text-purple-400" />
+                            {suggestion.suggested_url}
+                          </div>
+                        </div>
+                        
+                        <div className="flex-shrink-0 pt-2 lg:pt-0">
+                          {status === 'done' ? (
+                            <button className="w-full lg:w-auto px-5 py-2.5 bg-green-50 text-green-700 border border-green-200 rounded-lg font-medium flex items-center justify-center gap-2" disabled>
+                              <CheckCircle className="w-4 h-4" />
+                              Page Created
+                            </button>
+                          ) : status === 'cloning' ? (
+                            <button className="w-full lg:w-auto px-5 py-2.5 bg-gray-100 text-gray-600 rounded-lg font-medium flex items-center justify-center gap-2 cursor-wait" disabled>
+                              <div className="animate-spin w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full"></div>
+                              Cloning Content...
+                            </button>
+                          ) : (
+                            <button 
+                              onClick={() => handleClonePage(suggestion)}
+                              className="w-full lg:w-auto px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium shadow-sm transition-colors flex items-center justify-center gap-2"
+                            >
+                              <Copy className="w-4 h-4" />
+                              Clone to Pouch.eco
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })
+              )}
+            </div>
+          </div>
+        ) : (
+          // Lead Conversion Tab
+          <div className="p-6">
+            <div className="mb-6 bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-xl border border-orange-100">
+              <h3 className="text-xl font-bold text-orange-900 mb-2 flex items-center gap-2">
+                <Target className="w-6 h-6 text-orange-600" />
+                Integrated Lead Conversion (數據驅動轉化)
+              </h3>
+              <p className="text-orange-800">
+                Merging Email Prospecting Open Rates with SEO Website Traffic to identify the most engaged "Hot Leads".
+              </p>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-gray-50 border-b border-gray-200">
+                    <th className="p-4 font-semibold text-gray-600 text-sm">Lead Info</th>
+                    <th className="p-4 font-semibold text-gray-600 text-sm">Email Engagement</th>
+                    <th className="p-4 font-semibold text-gray-600 text-sm">Web Traffic Data</th>
+                    <th className="p-4 font-semibold text-gray-600 text-sm">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {hotLeads.length === 0 ? (
+                    <tr>
+                      <td colSpan={4} className="p-8 text-center text-gray-500">No hot leads available right now.</td>
+                    </tr>
+                  ) : (
+                    hotLeads.map((lead, idx) => (
+                      <tr key={idx} className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors">
+                        <td className="p-4">
+                          <div className="font-bold text-gray-900">{lead.company}</div>
+                          <div className="text-sm text-gray-500">{lead.email}</div>
+                        </td>
+                        <td className="p-4">
+                          <div className="flex items-start gap-2">
+                            <Mail className="w-4 h-4 text-orange-500 mt-0.5" />
+                            <span className="text-sm text-gray-700">{lead.email_engagement}</span>
+                          </div>
+                        </td>
+                        <td className="p-4">
+                          <div className="flex items-start gap-2">
+                            <Eye className="w-4 h-4 text-blue-500 mt-0.5" />
+                            <span className="text-sm text-gray-700">{lead.website_engagement}</span>
+                          </div>
+                        </td>
+                        <td className="p-4">
+                          <div className="flex flex-col items-start gap-2">
+                            <span className={`inline-flex px-2 py-1 rounded text-xs font-bold ${
+                              lead.status === 'HOT LEAD' ? 'bg-red-100 text-red-700' : 'bg-orange-100 text-orange-700'
+                            }`}>
+                              {lead.status}
+                            </span>
+                            <span className="text-xs text-gray-500 font-medium">
+                              {lead.action_recommended}
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </div>
