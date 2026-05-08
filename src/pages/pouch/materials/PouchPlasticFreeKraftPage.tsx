@@ -54,7 +54,7 @@ export default function PouchPlasticFreeKraftPage() {
               <NeoCard className="bg-amber-100 relative z-10 rotate-2 !p-0 overflow-hidden group border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
                 <div className="aspect-square relative overflow-hidden">
                   <img 
-                    src="/imgs/pouch/materials/pouch_kraft_hero.png" 
+                    src="/imgs/barrier/ads/a_kraft_high_max_4456348.webp" 
                     alt="Kraft Paper Pouch" 
                     className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
                   />
