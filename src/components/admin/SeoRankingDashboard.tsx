@@ -85,9 +85,11 @@ const SeoRankingDashboard: React.FC = () => {
       } else if (activeTab === 'keywords') {
         endpoint = `/api/analytics/page-keywords?days=${days}&limit=200&site=${selectedSite}`
       } else if (activeTab === 'ai-strategy') {
-        endpoint = `/api/analytics/hot-topics`
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || ''
+        endpoint = `${backendUrl}/api/analytics/hot-topics`
       } else if (activeTab === 'lead-conversion') {
-        endpoint = `/api/analytics/hot-leads`
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || ''
+        endpoint = `${backendUrl}/api/analytics/hot-leads`
       }
       
       const res = await fetch(endpoint)
