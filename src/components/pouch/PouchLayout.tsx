@@ -309,6 +309,16 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/size-guide" className="hover:underline">[SIZE GUIDE]</Link></li>
               </ul>
             </div>
+            <div>
+              <h4 className="font-black uppercase mb-4 text-xl">Featured</h4>
+              <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
+                <li><Link to="/topics/eco-friendly-food-packaging" className="hover:underline text-magenta-600">[FOOD PACKAGING]</Link></li>
+                <li><Link to="/topics/compostable-baby-food-bags" className="hover:underline">[BABY FOOD POUCHES]</Link></li>
+                <li><Link to="/topics/green-coffee-materials" className="hover:underline">[COFFEE MATERIALS]</Link></li>
+                <li><Link to="/topics/recyclable-snack-packaging" className="hover:underline">[RECYCLABLE SNACKS]</Link></li>
+                <li><Link to="/topics/custom-printed-sustainable-pouches" className="hover:underline text-blue-600">[CUSTOM PRINTED]</Link></li>
+              </ul>
+            </div>
           </div>
 
           <div className="border-t-4 border-black pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center font-['JetBrains_Mono'] text-xs font-bold gap-4">

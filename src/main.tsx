@@ -136,6 +136,20 @@ const IndustrialCompostablePage = lazyWithRetry(() => import('./pages/materials/
 const KraftHighBarrierPage = lazyWithRetry(() => import('./pages/materials/KraftHighBarrierPage'))
 const PlasticFreeKraftPage = lazyWithRetry(() => import('./pages/materials/PlasticFreeKraftPage'))
 
+// Pouch Topics
+const PouchEcoFriendlyFoodPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchEcoFriendlyFoodPackagingPage'))
+const PouchCompostableBabyFoodBagsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostableBabyFoodBagsPage'))
+const PouchGreenCoffeeMaterialsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchGreenCoffeeMaterialsPage'))
+const PouchRecyclableSnackPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecyclableSnackPackagingPage'))
+const PouchCustomPrintedSustainablePouchesPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCustomPrintedSustainablePouchesPage'))
+const PouchDigitalPrintingEcoPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchDigitalPrintingEcoPackagingPage'))
+const PouchCompostableHumidityControlPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostableHumidityControlPage'))
+const PouchEcoPackagingRegulationsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchEcoPackagingRegulationsPage'))
+const PouchCustomCompostablePouchSuppliersPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCustomCompostablePouchSuppliersPage'))
+const PouchLowMOQStartupPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchLowMOQStartupPackagingPage'))
+const PouchDTCSustainablePackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchDTCSustainablePackagingPage'))
+const DynamicPouchTopicPage = lazyWithRetry(() => import('./pages/pouch/topics/DynamicPouchTopicPage'))
+
 // Printing Pages - Lazy loaded
 const DigitalPrintingPage = lazyWithRetry(() => import('./pages/printing/DigitalPrintingPage'))
 const PlatePrintingPage = lazyWithRetry(() => import('./pages/printing/PlatePrintingPage'))
@@ -384,6 +398,11 @@ const PouchTechSpecsPage = lazyWithRetry(() => import('./pages/pouch/PouchTechSp
 const PouchStandUpPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchStandUpPouchesPage'))
 const PouchFlatBottomBagsPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchFlatBottomBagsPage'))
 const PouchCompostablePage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCompostablePage'))
+const PouchBioPEPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchBioPEPage'))
+const PouchPCRPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchPCRPage'))
+const PouchHomeCompostablePage = lazyWithRetry(() => import('./pages/pouch/materials/PouchHomeCompostablePage'))
+const PouchIndustrialCompostablePage = lazyWithRetry(() => import('./pages/pouch/materials/PouchIndustrialCompostablePage'))
+const PouchKraftHighBarrierPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchKraftHighBarrierPage'))
 const PouchRecyclablePage = lazyWithRetry(() => import('./pages/pouch/materials/PouchRecyclablePage'))
 const PouchBabyFoodPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchBabyFoodPage'))
 const PouchSpoutPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchSpoutPouchesPage'))
@@ -510,6 +529,11 @@ if (getDomain() === 'pouch') {
                   <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
                   <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
                   <Route path="/materials/compostable" element={<PouchCompostablePage />} />
+                  <Route path="/materials/bio-pe" element={<PouchBioPEPage />} />
+                  <Route path="/materials/pcr" element={<PouchPCRPage />} />
+                  <Route path="/materials/home-compostable" element={<PouchHomeCompostablePage />} />
+                  <Route path="/materials/industrial-compostable" element={<PouchIndustrialCompostablePage />} />
+                  <Route path="/materials/kraft-high-barrier" element={<PouchKraftHighBarrierPage />} />
                   <Route path="/materials/recyclable" element={<PouchRecyclablePage />} />
                   <Route path="/materials/plastic-free-kraft" element={<PouchPlasticFreeKraftPage />} />
                   <Route path="/industry/baby-food" element={<PouchBabyFoodPage />} />
@@ -517,6 +541,18 @@ if (getDomain() === 'pouch') {
                   <Route path="/packaging/flat-pouches" element={<PouchFlatPouchesPage />} />
                   <Route path="/packaging/vacuum-pouches" element={<PouchVacuumPouchesPage />} />
                   <Route path="/industry/frozen-food" element={<PouchFrozenFoodPage />} />
+                  <Route path="/topics/eco-friendly-food-packaging" element={<PouchEcoFriendlyFoodPackagingPage />} />
+                  <Route path="/topics/compostable-baby-food-bags" element={<PouchCompostableBabyFoodBagsPage />} />
+                  <Route path="/topics/green-coffee-materials" element={<PouchGreenCoffeeMaterialsPage />} />
+                  <Route path="/topics/recyclable-snack-packaging" element={<PouchRecyclableSnackPackagingPage />} />
+                  <Route path="/topics/custom-printed-sustainable-pouches" element={<PouchCustomPrintedSustainablePouchesPage />} />
+                  <Route path="/topics/digital-printing-eco-packaging" element={<PouchDigitalPrintingEcoPackagingPage />} />
+                  <Route path="/topics/compostable-humidity-control" element={<PouchCompostableHumidityControlPage />} />
+                  <Route path="/topics/eco-packaging-regulations" element={<PouchEcoPackagingRegulationsPage />} />
+                  <Route path="/topics/custom-compostable-pouch-suppliers" element={<PouchCustomCompostablePouchSuppliersPage />} />
+                  <Route path="/topics/low-moq-startup-packaging" element={<PouchLowMOQStartupPackagingPage />} />
+                  <Route path="/topics/dtc-sustainable-packaging" element={<PouchDTCSustainablePackagingPage />} />
+                  <Route path="/topics/:slug" element={<DynamicPouchTopicPage />} />
                   {/* Industry Solution Pages */}
                   <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
                   <Route path="/industry/pet-food" element={<PouchPetFoodPage />} />
