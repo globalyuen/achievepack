@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Heart, Leaf, CheckCircle, Calendar, ArrowRight, Package, Shield, Clock, Sparkles, Star, PawPrint } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import ClickableImage from '../../../components/ClickableImage'
 
 export default function PouchPetFoodPage() {
   // Scroll detection
@@ -208,6 +210,40 @@ export default function PouchPetFoodPage() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-yellow-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Pet Packaging<br/>In Action</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/all-product-photos/IMG_4365.webp" 
+              alt="Compostable dog treat bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Dog Treat Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Cat food stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Kibble Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Bulk pet food flat bottom bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Bulk Food Bags"
+            />
+            <ClickableImage 
+              src="/imgs/topics/dtc_packaging_1778212333445.png" 
+              alt="Pet food DTC packaging" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="DTC Solutions"
+            />
           </div>
         </div>
       </section>

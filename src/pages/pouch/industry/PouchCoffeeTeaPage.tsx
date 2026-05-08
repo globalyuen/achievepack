@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Coffee, Leaf, CheckCircle, Calendar, ArrowRight, Package, Shield, Clock, Sparkles, TrendingUp, Heart } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import ClickableImage from '../../../components/ClickableImage'
 
 export default function PouchCoffeeTeaPage() {
   // Scroll detection for animations
@@ -216,6 +218,40 @@ export default function PouchCoffeeTeaPage() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-orange-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="cyan">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Specialty Coffee<br/>Showcase</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/all-product-photos/IMG_4363.webp" 
+              alt="Compostable coffee stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Flat Bottom Bags"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Specialty tea stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/side-gusset.webp" 
+              alt="Traditional side gusset coffee bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Side Gusset Bags"
+            />
+            <ClickableImage 
+              src="/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp" 
+              alt="Coffee beans in compostable packaging" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Bean Protection"
+            />
           </div>
         </div>
       </section>

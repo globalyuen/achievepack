@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Beaker, Sparkles, Star, Pill } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import ClickableImage from '../../../components/ClickableImage'
 
 export default function PouchSupplementsPage() {
   // Scroll detection
@@ -208,6 +210,40 @@ export default function PouchSupplementsPage() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-blue-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Supplements<br/>Gallery</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/all-product-photos/IMG_4370.webp" 
+              alt="Compostable protein powder pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Protein Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Superfood stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Superfood Bags"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Bulk supplement flat bottom bag" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Bulk Nutrition"
+            />
+            <ClickableImage 
+              src="/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp" 
+              alt="Supplement packaging barrier comparison" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Barrier Tech"
+            />
           </div>
         </div>
       </section>

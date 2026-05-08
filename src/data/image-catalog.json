@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-08",
-  "total_images": 1304,
-  "total_categories": 145,
+  "total_images": 1307,
+  "total_categories": 146,
   "extensions": {
     ".webp": 1077,
-    ".png": 194,
+    ".png": 197,
     ".jpg": 30,
     ".svg": 3
   },
@@ -8526,6 +8526,29 @@
           "path": "/imgs/testimonials/pouch-hover/morlife.webp",
           "extension": ".webp",
           "modified": "2025-12-09T00:04:38.000Z"
+        }
+      ]
+    },
+    "topics": {
+      "count": 3,
+      "images": [
+        {
+          "filename": "green_coffee_materials_1778212283713.png",
+          "path": "/imgs/topics/green_coffee_materials_1778212283713.png",
+          "extension": ".png",
+          "modified": "2026-05-08T03:54:44.215Z"
+        },
+        {
+          "filename": "baby_food_bags_1778212399332.png",
+          "path": "/imgs/topics/baby_food_bags_1778212399332.png",
+          "extension": ".png",
+          "modified": "2026-05-08T03:54:44.213Z"
+        },
+        {
+          "filename": "dtc_packaging_1778212333445.png",
+          "path": "/imgs/topics/dtc_packaging_1778212333445.png",
+          "extension": ".png",
+          "modified": "2026-05-08T03:54:44.213Z"
         }
       ]
     },

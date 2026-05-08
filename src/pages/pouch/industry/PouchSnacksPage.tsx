@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Package, Leaf, CheckCircle, Calendar, ArrowRight, Shield, Zap, Sparkles, Star, Cookie } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import ClickableImage from '../../../components/ClickableImage'
 
 export default function PouchSnacksPage() {
   // Scroll detection
@@ -208,6 +210,40 @@ export default function PouchSnacksPage() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Product Gallery Section */}
+      <section className="py-24 bg-lime-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Snack Brand<br/>Gallery</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <ClickableImage 
+              src="/all-product-photos/IMG_4376.webp" 
+              alt="Compostable snack pouch with window" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Window Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Granola stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Stand Up Pouches"
+            />
+            <ClickableImage 
+              src="/imgs/store/pouch shape/flat-pouch.webp" 
+              alt="Small snack flat pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Single Serve Packs"
+            />
+            <ClickableImage 
+              src="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp" 
+              alt="Sustainable snack packaging range" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Full Range"
+            />
           </div>
         </div>
       </section>
