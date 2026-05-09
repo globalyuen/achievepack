@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, RefreshCw, Image as ImageIcon, Video as VideoIcon } from 'lucide-react';
+import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, Image as ImageIcon, Video as VideoIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
@@ -29,6 +29,74 @@ const SharedQuotePage: React.FC = () => {
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [saveError, setSaveError] = useState('');
   const [copySuccess, setCopySuccess] = useState(false);
+  
+  const [lightbox, setLightbox] = useState<{ src: string, type: 'image' | 'video' } | null>(null);
+  const pwdRef = useRef<HTMLInputElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data && event.data.type === 'resize-iframe') {
+        setIframeHeight(event.data.height);
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
+
+  useEffect(() => {
+    const fetchQuote = async () => {
+      if (!id) return;
+      try {
+        const response = await fetch(`/api/get-shared-quote?id=${id}`);
+        const data = await response.json();
+        if (!response.ok || !data.success) throw new Error(data.error || 'Quote not found.');
+        if (!data.quoteHtml) throw new Error('Quote content is empty.');
+        
+        const html = data.quoteHtml;
+        setQuoteHtml(html);
+        setEditedHtml(html);
+        
+        // Parse media from comment if present
+        const mediaMatch = html.match(/<!-- MEDIA:(.*) -->/);
+        if (mediaMatch) {
+          try {
+            const media = JSON.parse(mediaMatch[1]);
+            setPhotos(media.photos || []);
+            setVideos(media.videos || []);
+          } catch (e) {
+            console.error("Failed to parse media metadata");
+          }
+        }
+      } catch (err: any) {
+        setError(err.message || 'Failed to load quotation');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchQuote();
+  }, [id]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrollable = document.documentElement.scrollHeight > window.innerHeight + 200;
+      if (window.scrollY > 150) {
+        setShowScrollIndicator(false);
+      } else if (isScrollable) {
+        setShowScrollIndicator(true);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    const timer = setTimeout(handleScroll, 1000);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      clearTimeout(timer);
+    };
+  }, [quoteHtml, iframeHeight]);
   
   const handleEditClick = () => {
     if (sessionStorage.getItem('admin_local_pwd') === ADMIN_PWD) {
