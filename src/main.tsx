@@ -232,6 +232,7 @@ const BlogPostPage = lazyWithRetry(() => import('./pages/blog/BlogPostPage'))
 const PackagingCostGuidePage = lazyWithRetry(() => import('./pages/blog/PackagingCostGuidePage'))
 const CompostableVsRecyclablePage = lazyWithRetry(() => import('./pages/blog/CompostableVsRecyclablePage'))
 const EcoPackagingMistakesPage = lazyWithRetry(() => import('./pages/blog/EcoPackagingMistakesPage'))
+const CompostableZipperNoRemovalPage = lazyWithRetry(() => import('./pages/blog/CompostableZipperNoRemovalPage'))
 
 // Learn Center - Lazy loaded
 const LearnSearchPage = lazyWithRetry(() => import('./pages/LearnSearchPage'))
@@ -784,7 +785,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/blog/packaging-cost-guide" element={<PackagingCostGuidePage />} />
                         <Route path="/blog/compostable-vs-recyclable" element={<CompostableVsRecyclablePage />} />
                         <Route path="/blog/eco-packaging-mistakes" element={<EcoPackagingMistakesPage />} />
-                        <Route path="/blog/compostable-zipper-no-removal" element={<PouchCompostableZipperNoRemovalPage />} />
+                        <Route path="/blog/compostable-zipper-no-removal" element={<CompostableZipperNoRemovalPage />} />
                         <Route path="/blog/:slug" element={<BlogPostPage />} />
 
                         {/* Learn Center */}
