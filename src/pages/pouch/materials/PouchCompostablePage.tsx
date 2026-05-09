@@ -175,8 +175,8 @@ export default function PouchCompostablePage() {
                 a: 'Under standard home composting conditions (ambient temperature, presence of moisture and microorganisms), our pouches break down into organic biomass within 180 days.'
               },
               {
-                q: 'Are the zippers and valves also compostable?',
-                a: 'Yes! To ensure a truly circular solution, every component of our compostable pouches—including the press-to-close zippers and coffee degassing valves—is made from certified compostable materials.'
+                q: 'Are the zippers and valves also compostable? Do I need to rip them off?',
+                a: 'Yes! Every single component of our compostable pouches—including the press-to-close zippers, coffee degassing valves, and tear notches—is made from certified compostable materials. You DO NOT need to rip off the zipper or remove the valve before composting. Just toss the entire empty bag directly into your compost bin!'
               },
               {
                 q: 'Can I print my brand design on compostable bags?',

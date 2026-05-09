@@ -89,6 +89,11 @@
     "images": 0,
     "lastUpdated": 1773367270486.8943
   },
+  "/blog/compostable-zipper-no-removal": {
+    "words": 439,
+    "images": 3,
+    "lastUpdated": 1778336509380.8909
+  },
   "/certifications": {
     "words": 171,
     "images": 10,
@@ -177,7 +182,7 @@
   "/materials/compostable": {
     "words": 656,
     "images": 8,
-    "lastUpdated": 1778333090672.5798
+    "lastUpdated": 1778336456528.4011
   },
   "/materials/bio-pe": {
     "words": 534,
