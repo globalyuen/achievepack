@@ -1,5 +1,6 @@
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import { Droplets, AlertTriangle, Shield, CheckCircle, Lightbulb } from 'lucide-react'
+import ClickableImage from '../../../components/ClickableImage'
 
 export default function CompostableHumidityControlGuide() {
   const sections = [
@@ -13,7 +14,7 @@ export default function CompostableHumidityControlGuide() {
             Cellulose compost bags are the ultimate eco-friendly choice, but they have one critical weakness:
           </p>
           
-          <img 
+          <ClickableImage 
             src="/imgs/samples/cracked-pouch.png" 
             alt="Cracked compostable packaging" 
             className="w-full h-auto border-4 border-black object-contain bg-gray-50"
@@ -60,7 +61,7 @@ export default function CompostableHumidityControlGuide() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white border-4 border-black p-6 flex flex-col">
-              <img src="/imgs/samples/humidity_pack_pro.png" alt="Professional 2-Way Packs" className="w-full h-auto border-4 border-black mb-4 aspect-square object-cover" />
+              <ClickableImage src="/imgs/samples/humidity_pack_pro.png" alt="Professional 2-Way Packs" className="w-full h-auto border-4 border-black mb-4 aspect-square object-cover" />
               <h4 className="font-black text-xl uppercase mb-2">1. Professional 2-Way Control Packs</h4>
               <p className="mb-4">Precisely maintains 58% or 62% RH. Utilizes imported Boveda-grade 2-way humidity control packs.</p>
               <ul className="space-y-2 mt-auto mb-4 bg-gray-100 p-4">
@@ -72,7 +73,7 @@ export default function CompostableHumidityControlGuide() {
 
             <div className="bg-[#D4FF00] border-4 border-black p-6 flex flex-col relative">
               <div className="absolute top-0 right-0 bg-black text-[#D4FF00] px-3 py-1 text-sm font-bold uppercase transform translate-x-1 -translate-y-1/2">Most Popular</div>
-              <img src="/imgs/samples/humidity_pack_eco.png" alt="Economical 2-Way Moisture Packs" className="w-full h-auto border-4 border-black mb-4 aspect-square object-cover" />
+              <ClickableImage src="/imgs/samples/humidity_pack_eco.png" alt="Economical 2-Way Moisture Packs" className="w-full h-auto border-4 border-black mb-4 aspect-square object-cover" />
               <h4 className="font-black text-xl uppercase mb-2">2. Economical 2-Way Moisture Packs</h4>
               <p className="mb-4">Direct from our factory, offering similar 2-way moisture control at a fraction of the cost.</p>
               <ul className="space-y-2 mt-auto mb-4 bg-white p-4 border border-black">
@@ -83,7 +84,7 @@ export default function CompostableHumidityControlGuide() {
             </div>
 
             <div className="bg-white border-4 border-black p-6 flex flex-col">
-              <img src="/imgs/samples/humidity_pack_diy.png" alt="DIY Low-Cost Humidification" className="w-full h-auto border-4 border-black mb-4 aspect-square object-cover" />
+              <ClickableImage src="/imgs/samples/humidity_pack_diy.png" alt="DIY Low-Cost Humidification" className="w-full h-auto border-4 border-black mb-4 aspect-square object-cover" />
               <h4 className="font-black text-xl uppercase mb-2">3. DIY Low-Cost Humidification</h4>
               <p className="mb-4">Place a sealed wet towel in a double-layer PE bag to slowly release moisture.</p>
               <ul className="space-y-2 mt-auto mb-4 bg-gray-100 p-4">

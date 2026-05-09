@@ -77,7 +77,7 @@ export default function PouchFrozenFoodPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-cyan-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp" 
                 alt="Frozen Food Packaging Performance" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"

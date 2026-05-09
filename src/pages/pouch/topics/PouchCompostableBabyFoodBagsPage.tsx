@@ -49,7 +49,7 @@ const PouchCompostableBabyFoodBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-[#00FFFF] translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/demo-site/baby/achieve_baby_realistic_hero.png" 
                 alt="Safe Baby Food Packaging" 
                 className="relative z-10 border-4 border-black w-full"
@@ -132,7 +132,7 @@ const PouchCompostableBabyFoodBagsPage: React.FC = () => {
             </div>
             <div className="relative order-1 lg:order-2">
               <div className="absolute inset-0 bg-pink-600 translate-x-4 translate-y-4 border-4 border-white" />
-              <img 
+              <ClickableImage 
                 src="/imgs/demo-site/baby/achieve_baby_pea_realistic.png" 
                 alt="Compostable Spout Pouch" 
                 className="relative z-10 border-4 border-white w-full"

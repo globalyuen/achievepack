@@ -58,7 +58,7 @@ export default function USACompostableGuide() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp" 
                 alt="US Compostable Compliance" 
                 className="relative z-10 border-4 border-black w-full"

@@ -62,7 +62,7 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-cyan-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_shipping_storage_savings_infographic_8051355.webp" 
                 alt="DTC Shipping Savings" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
@@ -112,7 +112,7 @@ const PouchDTCSustainablePackagingPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 relative">
               <div className="absolute inset-0 bg-white translate-x-4 translate-y-4 border-4 border-white" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_ecommerce_lightweight_pouch_achieve_pack_8535238.webp" 
                 alt="E-commerce Unboxing Moment" 
                 className="relative z-10 border-4 border-white w-full"

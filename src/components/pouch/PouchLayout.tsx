@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react'
-import { Calendar, Menu, X, Building2, Instagram, Linkedin } from 'lucide-react'
-import { NeoButton } from './PouchUI'
+import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight } from 'lucide-react'
+import { NeoButton, NeoBadge } from './PouchUI'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -295,7 +295,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 border-t-4 border-black pt-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 mb-16 border-t-4 border-black pt-12">
             <div>
               <h4 className="font-black uppercase mb-4 text-xl">Packaging</h4>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
@@ -326,6 +326,15 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               </ul>
             </div>
             <div>
+              <h4 className="font-black uppercase mb-4 text-xl">USA Market</h4>
+              <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
+                <li><Link to="/blog/usa-compostable-guide" className="hover:underline">[COMPOSTABLE USA]</Link></li>
+                <li><Link to="/blog/usa-coffee-packaging" className="hover:underline">[COFFEE USA]</Link></li>
+                <li><Link to="/blog/usa-snacks-packaging-guide" className="hover:underline">[SNACKS USA]</Link></li>
+                <li><Link to="/blog/usa-labeling-guide" className="hover:underline">[LABELING USA]</Link></li>
+              </ul>
+            </div>
+            <div>
               <h4 className="font-black uppercase mb-4 text-xl">Support</h4>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
                 <li><Link to="/blog" className="hover:underline">[BLOG]</Link></li>
@@ -344,6 +353,39 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:underline text-cyan-600">[OCEAN PLASTIC]</Link></li>
                 <li><Link to="/topics/minimalist-d2c-packaging" className="hover:underline">[MINIMALIST D2C]</Link></li>
               </ul>
+            </div>
+          </div>
+
+          {/* Topic Directory Grid - The "Topic Footer" */}
+          <div className="mb-16 border-t-4 border-black pt-12">
+            <div className="flex items-center gap-3 mb-8">
+              <NeoBadge color="magenta">TOPIC_DIRECTORY</NeoBadge>
+              <h3 className="font-black text-2xl uppercase italic">Explore All Sustainable Packaging Topics</h3>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {[
+                { name: 'DTC_ECO', path: '/topics/dtc-sustainable-packaging', color: 'bg-white' },
+                { name: 'BABY_FOOD', path: '/topics/compostable-baby-food-bags', color: 'bg-white' },
+                { name: 'RECYCLABLE_SNACK', path: '/topics/recyclable-snack-packaging', color: 'bg-white' },
+                { name: 'GREEN_COFFEE', path: '/topics/green-coffee-materials', color: 'bg-white' },
+                { name: 'LOW_MOQ_STARTUP', path: '/topics/low-moq-startup-packaging', color: 'bg-white' },
+                { name: 'PFAS_FREE', path: '/topics/pfas-free-food-packaging', color: 'bg-white' },
+                { name: 'MONO_PE', path: '/topics/mono-material-pe-pouches', color: 'bg-white' },
+                { name: 'HOME_COMPOST', path: '/topics/home-compostable-coffee-bags', color: 'bg-white' },
+                { name: 'OCEAN_PLASTIC', path: '/topics/recycled-ocean-plastic-packaging', color: 'bg-white' },
+                { name: 'MINIMALIST', path: '/topics/minimalist-d2c-packaging', color: 'bg-white' },
+                { name: 'CUSTOM_PRINTED', path: '/topics/custom-printed-sustainable-pouches', color: 'bg-white' },
+                { name: 'REGULATIONS', path: '/topics/eco-packaging-regulations', color: 'bg-white' },
+              ].map((topic, i) => (
+                <Link 
+                  key={i}
+                  to={topic.path}
+                  className={`border-4 border-black p-4 font-['JetBrains_Mono'] font-black text-xs uppercase hover:bg-[#D4FF00] hover:-translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-between group ${topic.color}`}
+                >
+                  {topic.name}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              ))}
             </div>
           </div>
 

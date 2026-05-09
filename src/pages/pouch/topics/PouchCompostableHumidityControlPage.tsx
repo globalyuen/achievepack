@@ -46,7 +46,7 @@ const PouchCompostableHumidityControlPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-yellow-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp" 
                 alt="Moisture Barrier Performance" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
@@ -120,7 +120,7 @@ const PouchCompostableHumidityControlPage: React.FC = () => {
             </div>
             <div className="relative order-1 lg:order-2">
               <div className="absolute inset-0 bg-cyan-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_closure_systems_infographic_4275938.webp" 
                 alt="Closure Systems Infographic" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"

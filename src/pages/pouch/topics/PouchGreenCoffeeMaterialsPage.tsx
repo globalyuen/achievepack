@@ -103,7 +103,7 @@ const PouchGreenCoffeeMaterialsPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-amber-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp" 
                 alt="Specialty Coffee Packaging" 
                 className="relative z-10 border-4 border-black w-full"

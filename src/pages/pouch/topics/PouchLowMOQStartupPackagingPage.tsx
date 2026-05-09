@@ -45,7 +45,7 @@ const PouchLowMOQStartupPackagingPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-cyan-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_cta_start_journey_banner_8370209.webp" 
                 alt="Startup Packaging Journey" 
                 className="relative z-10 border-4 border-black w-full"
@@ -144,14 +144,14 @@ const PouchLowMOQStartupPackagingPage: React.FC = () => {
             </p>
             <NeoButton variant="secondary" className="mt-8" to="/printing/digital">Explore Digital Tech</NeoButton>
           </div>
-          <div className="relative">
-            <div className="absolute inset-0 bg-black translate-x-4 translate-y-4 border-4 border-black" />
-            <img 
-              src="/imgs/seo-photos/a_platform_digital_workflow_0276726.webp" 
-              alt="Digital Workflow" 
-              className="relative z-10 border-4 border-black w-full"
-            />
-          </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-black translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_platform_digital_workflow_0276726.webp" 
+                alt="Digital Workflow" 
+                className="relative z-10 border-4 border-black w-full"
+              />
+            </div>
         </div>
       </section>
 

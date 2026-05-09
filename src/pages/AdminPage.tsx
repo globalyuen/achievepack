@@ -20,6 +20,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@radix-ui/react-collapsible'
+import TestimonialManagement from '../components/admin/TestimonialManagement'
 
 // Industry detection keywords
 const INDUSTRY_KEYWORDS: Record<string, string[]> = {
@@ -64,7 +65,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building' | 'testimonials'
 
 // Sidebar menu structure with collapsible groups
 const sidebarMenuItems = [
@@ -123,6 +124,7 @@ const sidebarMenuItems = [
       { id: 'ai-image-gen', label: 'AI Image Gen', icon: Wand2, externalLink: '/ctrl-x9k7m/ai-image' },
       { id: 'website', label: 'Website CMS', icon: FileCode },
       { id: 'website-demos', label: 'Demo Sites', icon: Globe },
+      { id: 'testimonials', label: 'Testimonials', icon: MessageSquare },
       { id: 'mockup', label: 'Mock Up', icon: Image, comingSoon: true },
       { id: 'design', label: 'Design', icon: Palette, comingSoon: true },
     ]
@@ -1952,6 +1954,10 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
         <main className="flex-1 overflow-y-auto p-4 md:p-6">
           {/* Dashboard Tab */}
+          {activeTab === 'testimonials' && (
+            <TestimonialManagement preselectId={searchParams.get('id')} />
+          )}
+
           {activeTab === 'dashboard' && (
             <div className="space-y-4 md:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">

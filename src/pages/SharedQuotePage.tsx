@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, Image as ImageIcon, Video as VideoIcon } from 'lucide-react';
+import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, RefreshCw, Image as ImageIcon, Video as VideoIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
@@ -29,6 +29,17 @@ const SharedQuotePage: React.FC = () => {
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [saveError, setSaveError] = useState('');
   const [copySuccess, setCopySuccess] = useState(false);
+  
+  // Calculator state
+  const [calcValues, setCalcValues] = useState({
+    quantity: 1000,
+    unitPrice: 0.00,
+    weight: 0,
+    seaRate: 0,
+    airRate: 0,
+    totalCost: 0
+  });
+
   const pwdRef = useRef<HTMLInputElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -192,6 +203,132 @@ const SharedQuotePage: React.FC = () => {
     }
   };
 
+  const handleCalcUpdate = (field: string, value: number) => {
+    const newValues = { ...calcValues, [field]: value };
+    
+    // Auto-calculate product total
+    const productTotal = newValues.quantity * newValues.unitPrice;
+    newValues.totalCost = productTotal;
+    
+    setCalcValues(newValues);
+    
+    // Update HTML
+    let newHtml = editedHtml;
+    
+    const qtyStr = newValues.quantity.toLocaleString('en-US');
+    const upStr = newValues.unitPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+    const weightStr = newValues.weight.toLocaleString('en-US');
+    const ptStr = productTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    
+    // 1. Update Unit Price
+    const upPattern = /(?:Unit Price|Price\/pc|Rate):\s*(?:USD\s*)?\$?\s*([0-9.,]+)/i;
+    if (upPattern.test(newHtml)) {
+      newHtml = newHtml.replace(upPattern, (match, p1) => match.replace(p1, upStr));
+    }
+    
+    // 2. Update Total Price / Product Total
+    const tpPattern = /(?:Total Price|Total Amount|Subtotal):\s*(?:USD\s*)?\$?\s*([0-9.,]+)/i;
+    if (tpPattern.test(newHtml)) {
+      newHtml = newHtml.replace(tpPattern, (match, p1) => match.replace(p1, ptStr));
+    }
+
+    // 3. Update Total Amount/Cost (Grand Total)
+    const tcPattern = /(?:Total (?:Cost|Amount)|Grand Total):\s*(?:USD\s*)?\$?\s*([0-9.,]+)/i;
+    if (tcPattern.test(newHtml)) {
+      newHtml = newHtml.replace(tcPattern, (match, p1) => match.replace(p1, ptStr));
+    }
+    
+    // 4. Update Quantity
+    const qPattern = /Quantity:\s*([0-9.,]+)/i;
+    if (qPattern.test(newHtml)) {
+      newHtml = newHtml.replace(qPattern, (match, p1) => match.replace(p1, qtyStr));
+    }
+
+    // 5. Update Weight
+    const wPattern = /(?:Weight|Total Weight):\s*([0-9.,]+)/i;
+    if (wPattern.test(newHtml)) {
+      newHtml = newHtml.replace(wPattern, (match, p1) => match.replace(p1, weightStr));
+    }
+
+    // --- SEA FREIGHT ---
+    const seaTotal = newValues.weight * newValues.seaRate;
+    const seaTotalStr = seaTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    
+    // Pattern for "Sea freight: 40 kg × $5 = $200"
+    const seaDetailed = /(Sea freight:\s*)([0-9.,]+)(\s*kg\s*×\s*\$?\s*)([0-9.,]+)(\s*=\s*\$?\s*)([0-9.,]+)/i;
+    if (seaDetailed.test(newHtml)) {
+      newHtml = newHtml.replace(seaDetailed, `$1${weightStr}$3${newValues.seaRate}$5${seaTotalStr}`);
+    } else {
+      // Pattern for "Sea Freight: $200"
+      const seaPattern = /(Sea Freight(?:\s*Cost)?:\s*(?:USD\s*)?\$?\s*)([0-9.,]+)/i;
+      if (seaPattern.test(newHtml)) {
+        newHtml = newHtml.replace(seaPattern, `$1${seaTotalStr}`);
+      }
+    }
+
+    // --- AIR FREIGHT ---
+    const airTotal = newValues.weight * newValues.airRate;
+    const airTotalStr = airTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    
+    // Pattern for "Air freight: 40 kg × $5 = $200"
+    const airDetailed = /(Air freight:\s*)([0-9.,]+)(\s*kg\s*×\s*\$?\s*)([0-9.,]+)(\s*=\s*\$?\s*)([0-9.,]+)/i;
+    if (airDetailed.test(newHtml)) {
+      newHtml = newHtml.replace(airDetailed, `$1${weightStr}$3${newValues.airRate}$5${airTotalStr}`);
+    } else {
+      // Pattern for "Air Freight: $200"
+      const airPattern = /(Air Freight(?:\s*Cost)?:\s*(?:USD\s*)?\$?\s*)([0-9.,]+)/i;
+      if (airPattern.test(newHtml)) {
+        newHtml = newHtml.replace(airPattern, `$1${airTotalStr}`);
+      }
+    }
+    
+    setEditedHtml(newHtml);
+  };
+
+  const syncFromHtml = () => {
+    const upMatch = editedHtml.match(/(?:Unit Price|Price\/pc|Rate):\s*(?:USD\s*)?\$?\s*([0-9.,]+)/i);
+    const qMatch = editedHtml.match(/Quantity:\s*([0-9.,]+)/i);
+    const wMatch = editedHtml.match(/(?:Weight|Total Weight):\s*([0-9.,]+)/i);
+    const tpMatch = editedHtml.match(/(?:Total Price|Total Amount|Subtotal):\s*(?:USD\s*)?\$?\s*([0-9.,]+)/i);
+    
+    const quantity = qMatch ? parseFloat(qMatch[1].replace(/,/g, '')) : calcValues.quantity;
+    const weight = wMatch ? parseFloat(wMatch[1].replace(/,/g, '')) : calcValues.weight;
+    const unitPrice = upMatch ? parseFloat(upMatch[1].replace(/,/g, '')) : calcValues.unitPrice;
+
+    // Sea Rate
+    let seaRate = calcValues.seaRate;
+    const seaDetailedMatch = editedHtml.match(/Sea freight:\s*[0-9.,]+\s*kg\s*×\s*\$?\s*([0-9.,]+)/i);
+    if (seaDetailedMatch) {
+      seaRate = parseFloat(seaDetailedMatch[1].replace(/,/g, ''));
+    } else {
+      const seaTotalMatch = editedHtml.match(/Sea Freight(?:\s*Cost)?:\s*(?:USD\s*)?\$?\s*([0-9.,]+)/i);
+      if (seaTotalMatch && weight > 0) {
+        seaRate = parseFloat(seaTotalMatch[1].replace(/,/g, '')) / weight;
+      }
+    }
+
+    // Air Rate
+    let airRate = calcValues.airRate;
+    const airDetailedMatch = editedHtml.match(/Air freight:\s*[0-9.,]+\s*kg\s*×\s*\$?\s*([0-9.,]+)/i);
+    if (airDetailedMatch) {
+      airRate = parseFloat(airDetailedMatch[1].replace(/,/g, ''));
+    } else {
+      const airTotalMatch = editedHtml.match(/Air Freight(?:\s*Cost)?:\s*(?:USD\s*)?\$?\s*([0-9.,]+)/i);
+      if (airTotalMatch && weight > 0) {
+        airRate = parseFloat(airTotalMatch[1].replace(/,/g, '')) / weight;
+      }
+    }
+
+    setCalcValues({
+      unitPrice,
+      quantity,
+      weight,
+      seaRate,
+      airRate,
+      totalCost: tpMatch ? parseFloat(tpMatch[1].replace(/,/g, '')) : (quantity * unitPrice)
+    });
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
@@ -291,7 +428,7 @@ const SharedQuotePage: React.FC = () => {
               {editMode ? <X className="w-3.5 h-3.5" /> : <Pencil className="w-3.5 h-3.5" />}
               {editMode ? 'Close' : 'Admin'}
             </button>
-            <button onClick={handleCopyLink} className={`flex items-center gap-2 \${copySuccess ? 'bg-emerald-600' : 'bg-gray-800'} text-white px-4 py-2 rounded-lg font-bold text-xs shadow-sm transition`.replace('\${copySuccess ? \'bg-emerald-600\' : \'bg-gray-800\'}', copySuccess ? 'bg-emerald-600' : 'bg-gray-800')}>
+            <button onClick={handleCopyLink} className={`flex items-center gap-2 ${copySuccess ? 'bg-emerald-600' : 'bg-gray-800'} text-white px-4 py-2 rounded-lg font-bold text-xs shadow-sm transition`}>
               {copySuccess ? <CheckCircle className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               {copySuccess ? 'Copied' : 'Copy Link'}
             </button>
@@ -319,6 +456,101 @@ const SharedQuotePage: React.FC = () => {
                 onChange={e => setEditedHtml(e.target.value)}
                 className="w-full h-80 border-4 border-black p-4 font-mono text-sm focus:outline-none bg-neutral-900 text-green-400"
               />
+            </div>
+
+            <div className="bg-[#D4FF00] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="font-black uppercase text-xl flex items-center gap-2">
+                  <RefreshCw className="w-5 h-5" /> Pricing Auto-Calculator
+                </h3>
+                <button 
+                  onClick={syncFromHtml}
+                  className="bg-black text-white px-4 py-2 font-bold text-xs uppercase hover:bg-neutral-800 transition-colors"
+                >
+                  Sync from HTML
+                </button>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+                <div>
+                  <label className="block text-[10px] font-black uppercase mb-1">Quantity (pcs)</label>
+                  <input 
+                    type="number" 
+                    value={calcValues.quantity}
+                    onChange={e => handleCalcUpdate('quantity', parseFloat(e.target.value) || 0)}
+                    className="w-full border-2 border-black p-2 font-black text-lg focus:outline-none focus:bg-white bg-white/50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black uppercase mb-1">Unit Price ($)</label>
+                  <input 
+                    type="number" 
+                    step="0.0001"
+                    value={calcValues.unitPrice}
+                    onChange={e => handleCalcUpdate('unitPrice', parseFloat(e.target.value) || 0)}
+                    className="w-full border-2 border-black p-2 font-black text-lg focus:outline-none focus:bg-white bg-white/50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black uppercase mb-1">Weight (kg)</label>
+                  <input 
+                    type="number" 
+                    value={calcValues.weight}
+                    onChange={e => handleCalcUpdate('weight', parseFloat(e.target.value) || 0)}
+                    className="w-full border-2 border-black p-2 font-black text-lg focus:outline-none focus:bg-white bg-white/50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black uppercase mb-1 text-cyan-700">Sea Rate ($/kg)</label>
+                  <input 
+                    type="number" 
+                    step="0.01"
+                    value={calcValues.seaRate}
+                    onChange={e => handleCalcUpdate('seaRate', parseFloat(e.target.value) || 0)}
+                    className="w-full border-2 border-black p-2 font-black text-lg focus:outline-none focus:bg-white bg-white/50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black uppercase mb-1 text-orange-700">Air Rate ($/kg)</label>
+                  <input 
+                    type="number" 
+                    step="0.01"
+                    value={calcValues.airRate}
+                    onChange={e => handleCalcUpdate('airRate', parseFloat(e.target.value) || 0)}
+                    className="w-full border-2 border-black p-2 font-black text-lg focus:outline-none focus:bg-white bg-white/50"
+                  />
+                </div>
+                <div className="col-span-2 md:col-span-1">
+                  <label className="block text-[10px] font-black uppercase mb-1 text-blue-700">Product Total</label>
+                  <div className="w-full border-2 border-black p-2 font-black text-lg bg-black text-[#D4FF00] flex justify-between items-center">
+                    <span>$</span>
+                    <span>{calcValues.totalCost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                <div className="bg-cyan-100/50 border-2 border-black p-3 flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
+                    <span className="text-[10px] font-black uppercase text-cyan-900">Sea Total</span>
+                  </div>
+                  <span className="font-black text-lg text-cyan-900 tracking-tighter">
+                    ${(calcValues.weight * calcValues.seaRate).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                </div>
+                <div className="bg-orange-100/50 border-2 border-black p-3 flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-orange-600 animate-pulse" />
+                    <span className="text-[10px] font-black uppercase text-orange-900">Air Total</span>
+                  </div>
+                  <span className="font-black text-lg text-orange-900 tracking-tighter">
+                    ${(calcValues.weight * calcValues.airRate).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                </div>
+              </div>
+              <p className="mt-4 text-[9px] font-bold text-black/60 uppercase">
+                * Changing values here will automatically find and replace matching labels in the HTML editor above.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">

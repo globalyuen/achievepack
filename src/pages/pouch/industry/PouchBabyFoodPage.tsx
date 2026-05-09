@@ -77,7 +77,7 @@ export default function PouchBabyFoodPage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-[#00FFFF] translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/demo-site/baby/achieve_baby_realistic_hero.png" 
                 alt="Safe Baby Food Packaging" 
                 className="relative z-10 border-4 border-black w-full"

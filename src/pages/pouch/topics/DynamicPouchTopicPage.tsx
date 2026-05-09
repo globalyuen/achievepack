@@ -5,6 +5,7 @@ import * as LucideIcons from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
+import ClickableImage from '../../../components/ClickableImage'
 
 // This will be populated by the migration script
 import migrationsData from '../../../data/pouch-migrations.json'
@@ -99,7 +100,7 @@ const DynamicPouchTopicPage: React.FC = () => {
               <div className={`relative ${idx % 2 !== 0 ? 'md:order-1' : ''}`}>
                 <div className="absolute inset-0 bg-black/5 translate-x-4 translate-y-4 border-4 border-black" />
                 {section.image ? (
-                  <img 
+                  <ClickableImage 
                     src={section.image} 
                     alt={section.title} 
                     className="relative z-10 border-4 border-black w-full grayscale hover:grayscale-0 transition-all duration-500"

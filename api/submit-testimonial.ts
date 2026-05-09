@@ -96,6 +96,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
   }
 
+  let testimonialId = ''
+  if (supabase) {
+    try {
+      const { data: logData, error: logError } = await supabase
+        .from('webhook_logs')
+        .insert([{
+          source: 'testimonial',
+          status: 'pending',
+          message: `New testimonial from ${name} (${email})`,
+          raw_data: {
+            name,
+            email,
+            company,
+            role,
+            quote,
+            attachmentUrls,
+            submitted_at: new Date().toISOString()
+          }
+        }])
+        .select()
+        .single()
+
+      if (!logError && logData) {
+        testimonialId = logData.id
+      }
+    } catch (error) {
+      console.error('Database logging error:', error)
+    }
+  }
+
   const emailToAdmin: any = {
     sender: { name: 'AchievePack Testimonials', email: 'noreply@achievepack.com' },
     to: [{ email: ADMIN_EMAIL, name: 'Ryan' }],
@@ -114,6 +144,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           .label { font-weight: 600; color: #6b7280; font-size: 12px; text-transform: uppercase; margin-bottom: 4px; }
           .value { font-size: 15px; color: #111827; }
           .message-box { background: #ecfdf5; padding: 15px; border-radius: 8px; border-left: 4px solid #10b981; margin-top: 15px; }
+          .btn { display: inline-block; padding: 12px 24px; background: #10b981; color: white !important; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 20px; }
         </style>
       </head>
       <body>
@@ -123,6 +154,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             <p style="margin: 10px 0 0; opacity: 0.9; font-size: 14px;">Review and approval required</p>
           </div>
           <div class="content">
+            <div style="text-align: center; margin-bottom: 25px;">
+              <a href="https://achievepack.com/admin?tab=testimonials${testimonialId ? `&id=${testimonialId}` : ''}" class="btn">Review & Approve Testimonial</a>
+            </div>
             <div class="field">
               <div class="label">Customer Name</div>
               <div class="value">${name}</div>

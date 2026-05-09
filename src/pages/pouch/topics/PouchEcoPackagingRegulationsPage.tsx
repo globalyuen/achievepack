@@ -46,7 +46,7 @@ const PouchEcoPackagingRegulationsPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-[#D4FF00] translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/usa/hub/a_label_compliance_requirements_0902238.webp" 
                 alt="Global Packaging Compliance" 
                 className="relative z-10 border-4 border-black w-full"
@@ -147,14 +147,14 @@ const PouchEcoPackagingRegulationsPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <NeoCard>
             <div className="relative mb-6">
-              <img src="/imgs/seo-photos/a_certificates_compliance_trust_4184896.webp" className="border-2 border-black w-full" alt="Certification Audit" />
+              <ClickableImage src="/imgs/seo-photos/a_certificates_compliance_trust_4184896.webp" className="border-2 border-black w-full" alt="Certification Audit" />
             </div>
             <h4 className="font-black text-2xl uppercase mb-4">Chain of Custody</h4>
             <p className="text-sm font-['JetBrains_Mono'] text-gray-600">We provide full traceability from resin supplier to finished pouch, ensuring your ESG reports are backed by hard data.</p>
           </NeoCard>
           <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(212,255,0,1)]">
             <div className="relative mb-6">
-              <img src="/imgs/seo-photos/a_eu_ppwr_compliant_pouch_achieve_pack_3186238.webp" className="border-2 border-black w-full" alt="EU Compliance" />
+              <ClickableImage src="/imgs/seo-photos/a_eu_ppwr_compliant_pouch_achieve_pack_3186238.webp" className="border-2 border-black w-full" alt="EU Compliance" />
             </div>
             <h4 className="font-black text-2xl uppercase mb-4">EPR Optimization</h4>
             <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Extended Producer Responsibility fees are calculated based on material choice. Our mono-material designs can reduce your fees by up to 60%.</p>

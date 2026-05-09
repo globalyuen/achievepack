@@ -49,7 +49,7 @@ const PouchRecyclableSnackPackagingPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp" 
                 alt="Recyclable Snack Packaging" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
@@ -117,12 +117,12 @@ const PouchRecyclableSnackPackagingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             <NeoCard>
-              <img src="/imgs/seo-photos/usa/snack/a_snacks_brand_sustainability_guide_7868632.webp" className="border-2 border-black w-full mb-6" alt="Snack Brand Guide" />
+              <ClickableImage src="/imgs/seo-photos/usa/snack/a_snacks_brand_sustainability_guide_7868632.webp" className="border-2 border-black w-full mb-6" alt="Snack Brand Guide" />
               <h4 className="font-black text-xl uppercase mb-2">Brand Loyalty</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">85% of snack consumers prefer brands that use verified recyclable packaging. Future-proof your shelf space.</p>
             </NeoCard>
             <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(37,99,235,1)]">
-              <img src="/imgs/seo-photos/usa/snack/a_snacks_pouch_format_comparison_8281669.webp" className="border-2 border-black w-full mb-6" alt="Snack Formats" />
+              <ClickableImage src="/imgs/seo-photos/usa/snack/a_snacks_pouch_format_comparison_8281669.webp" className="border-2 border-black w-full mb-6" alt="Snack Formats" />
               <h4 className="font-black text-xl uppercase mb-2">Format Versatility</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Available in stand-up pouches, flat bags, and rollstock for high-speed VFFS/HFFS automation lines.</p>
             </NeoCard>

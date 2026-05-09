@@ -46,7 +46,7 @@ const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-green-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp" 
                 alt="Eco Food Packaging Performance" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
@@ -111,12 +111,12 @@ const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             <NeoCard>
-              <img src="/imgs/seo-photos/a_food_beverage_vacation_lifestyle_2486493.webp" className="border-2 border-black w-full mb-6" alt="Food Lifestyle" />
+              <ClickableImage src="/imgs/seo-photos/a_food_beverage_vacation_lifestyle_2486493.webp" className="border-2 border-black w-full mb-6" alt="Food Lifestyle" />
               <h4 className="font-black text-xl uppercase mb-2">Artisan Appeal</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Perfect for premium organic brands looking to align their ethics with their aesthetics.</p>
             </NeoCard>
             <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(21,128,61,1)]">
-              <img src="/imgs/seo-photos/a_compostable_mixed_materials_lifestyle_kitchen_6722434.webp" className="border-2 border-black w-full mb-6" alt="Compostable Kitchen" />
+              <ClickableImage src="/imgs/seo-photos/a_compostable_mixed_materials_lifestyle_kitchen_6722434.webp" className="border-2 border-black w-full mb-6" alt="Compostable Kitchen" />
               <h4 className="font-black text-xl uppercase mb-2">Consumer Trust</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">73% of food shoppers are actively seeking brands with third-party verified eco-credentials.</p>
             </NeoCard>

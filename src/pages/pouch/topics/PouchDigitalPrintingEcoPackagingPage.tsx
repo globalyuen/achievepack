@@ -46,7 +46,7 @@ const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-yellow-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_digital_printing_customization_2717640.webp" 
                 alt="Advanced Digital Printing" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
@@ -111,12 +111,12 @@ const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             <NeoCard>
-              <img src="/imgs/seo-photos/a_printing_types_overview_4017325.webp" className="border-2 border-black w-full mb-6" alt="Digital Print Overview" />
+              <ClickableImage src="/imgs/seo-photos/a_printing_types_overview_4017325.webp" className="border-2 border-black w-full mb-6" alt="Digital Print Overview" />
               <h4 className="font-black text-xl uppercase mb-2">Multi-Flavor Agility</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Print 5 designs of 100 units each in a single 500-unit run. Ideal for testing market response.</p>
             </NeoCard>
             <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(255,0,128,1)]">
-              <img src="/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp" className="border-2 border-black w-full mb-6" alt="Premium Finishing" />
+              <ClickableImage src="/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp" className="border-2 border-black w-full mb-6" alt="Premium Finishing" />
               <h4 className="font-black text-xl uppercase mb-2">Premium Texture</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Combine digital precision with soft-touch matte or spot-UV finishes for a luxury unboxing feel.</p>
             </NeoCard>

@@ -513,7 +513,7 @@ export default function PouchSupplementsPage() {
               className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
             >
               <div className="border-b-4 border-black overflow-hidden">
-                <img 
+                <ClickableImage 
                   src="/all-product-photos/IMG_4376.webp"
                   alt="Compostable Snack Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
@@ -538,7 +538,7 @@ export default function PouchSupplementsPage() {
               className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
             >
               <div className="border-b-4 border-black overflow-hidden">
-                <img 
+                <ClickableImage 
                   src="/all-product-photos/IMG_4378.webp"
                   alt="Compostable Coffee Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
@@ -563,7 +563,7 @@ export default function PouchSupplementsPage() {
               className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
             >
               <div className="border-b-4 border-black overflow-hidden">
-                <img 
+                <ClickableImage 
                   src="/imgs/4-infograhic/compost.webp"
                   alt="Home Composting Guide"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"

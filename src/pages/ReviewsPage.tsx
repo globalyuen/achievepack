@@ -1,4 +1,5 @@
-import { useState, useCallback, useTransition, useMemo } from 'react'
+import { useState, useCallback, useTransition, useMemo, useEffect } from 'react'
+import { supabase } from '../lib/supabase'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
@@ -70,6 +71,38 @@ export default function ReviewsPage() {
   const [activeTestimonial, setActiveTestimonial] = useState<Testimonial | null>(null)
   const [videoTestimonial, setVideoTestimonial] = useState<Testimonial | null>(null)
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false)
+  const [dynamicTestimonials, setDynamicTestimonials] = useState<Testimonial[]>([])
+
+  // Fetch approved dynamic testimonials from Supabase
+  useEffect(() => {
+    const fetchDynamic = async () => {
+      const { data, error } = await supabase
+        .from('webhook_logs')
+        .select('*')
+        .eq('source', 'testimonial')
+        .eq('status', 'approved')
+
+      if (!error && data) {
+        const mapped: Testimonial[] = data.map((log: any) => ({
+          id: log.id,
+          name: log.raw_data.name,
+          company: log.raw_data.company || '',
+          role: log.raw_data.role || '',
+          quote: log.raw_data.quote,
+          shortQuote: log.raw_data.shortQuote || log.raw_data.quote,
+          extraInfo: 'Verified Customer',
+          ownerImage: `https://ui-avatars.com/api/?name=${log.raw_data.name}&background=10b981&color=fff&size=128`,
+          companyLogo: '',
+          brandLogo: '',
+          bgColor: log.raw_data.bgColor || 'bg-emerald-100',
+          pouchImage: log.raw_data.pouchImage || '',
+          priority: log.raw_data.priority || 0
+        }))
+        setDynamicTestimonials(mapped)
+      }
+    }
+    fetchDynamic()
+  }, [])
 
   // Random hero banner - changes on each page refresh
   const [heroBanner] = useState(() => 
@@ -78,7 +111,13 @@ export default function ReviewsPage() {
 
   // Sort testimonials: prioritize those with real photos AND unique products first
   const sortedTestimonials = useMemo(() => {
-    return [...TESTIMONIALS].sort((a, b) => {
+    const combined = [...TESTIMONIALS, ...dynamicTestimonials]
+    return combined.sort((a, b) => {
+      // If one has a custom priority set, use that first
+      const aPriority = (a as any).priority || 0
+      const bPriority = (b as any).priority || 0
+      if (aPriority !== bPriority) return bPriority - aPriority
+
       const aHasPhotoAndProduct = hasRealPhoto(a) && hasUniqueProduct(a)
       const bHasPhotoAndProduct = hasRealPhoto(b) && hasUniqueProduct(b)
       const aHasPhoto = hasRealPhoto(a)

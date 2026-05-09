@@ -66,7 +66,7 @@ const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-[#FF0080] translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_digital_printing_customization_2717640.webp" 
                 alt="Custom Printed Eco Packaging" 
                 className="relative z-10 border-4 border-black w-full"
@@ -115,12 +115,12 @@ const PouchCustomPrintedSustainablePouchesPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             <NeoCard>
-              <img src="/imgs/seo-photos/a_printing_types_overview_4017325.webp" className="border-2 border-black w-full mb-6" alt="Print Types" />
+              <ClickableImage src="/imgs/seo-photos/a_printing_types_overview_4017325.webp" className="border-2 border-black w-full mb-6" alt="Print Types" />
               <h4 className="font-black text-xl uppercase mb-2">Multi-SKU Agility</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Digital printing allows you to split your MOQ across 10+ flavors or designs without expensive setup fees.</p>
             </NeoCard>
             <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(212,255,0,1)]">
-              <img src="/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp" className="border-2 border-black w-full mb-6" alt="Finishing" />
+              <ClickableImage src="/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp" className="border-2 border-black w-full mb-6" alt="Finishing" />
               <h4 className="font-black text-xl uppercase mb-2">Premium Finishes</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Choose from matte, gloss, or soft-touch finishes. We also offer metallic effects even on compostable substrates.</p>
             </NeoCard>

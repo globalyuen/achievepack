@@ -62,7 +62,7 @@ const PouchCustomCompostablePouchSuppliersPage: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-pink-400 translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_factory_tour_quality_precision_0863191.webp" 
                 alt="Compostable Pouch Factory" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
@@ -112,7 +112,7 @@ const PouchCustomCompostablePouchSuppliersPage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 relative">
               <div className="absolute inset-0 bg-black translate-x-4 translate-y-4 border-4 border-black" />
-              <img 
+              <ClickableImage 
                 src="/imgs/seo-photos/a_solutions_hub_comprehensive_offerings_0357822.webp" 
                 alt="Global Solutions Hub" 
                 className="relative z-10 border-4 border-black w-full"
@@ -146,7 +146,7 @@ const PouchCustomCompostablePouchSuppliersPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <NeoCard>
               <div className="relative mb-6">
-                <img src="/imgs/seo-photos/a_certificates_compliance_trust_4184896.webp" className="border-2 border-black w-full" alt="Certification Audit" />
+                <ClickableImage src="/imgs/seo-photos/a_certificates_compliance_trust_4184896.webp" className="border-2 border-black w-full" alt="Certification Audit" />
               </div>
               <h4 className="font-black text-2xl uppercase mb-4">BRC Grade A</h4>
               <p className="text-sm font-['JetBrains_Mono'] text-gray-600">The highest global standard for food safety and packaging quality management.</p>
