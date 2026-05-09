@@ -1,14 +1,42 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { BookOpen, Calendar, ArrowRight, TrendingUp, Leaf, Coffee, Package, Search } from 'lucide-react'
+import { BookOpen, Calendar, ArrowRight, TrendingUp, Leaf, Coffee, Package, Search, Loader2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { createClient } from '@supabase/supabase-js'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL || '',
+  import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+)
 
 export default function PouchBlogPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All Posts')
+  const [dynamicPosts, setDynamicPosts] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchDynamicPosts() {
+      try {
+        const { data, error } = await supabase
+          .from('pouch_seo_blog')
+          .select('*')
+          .order('published_at', { ascending: false })
+        
+        if (error) throw error
+        setDynamicPosts(data || [])
+      } catch (err) {
+        console.error('Error fetching dynamic posts:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchDynamicPosts()
+  }, [])
+
   const featured = {
     title: 'USA Compostable Packaging Guide: Certifications, State Laws & Low MOQ',
     excerpt: 'Complete guide for US brands: ASTM D6400, BPI certification, state-by-state regulations, and where to buy with MOQ from 100 pieces.',
@@ -19,7 +47,7 @@ export default function PouchBlogPage() {
     link: '/blog/usa-compostable-packaging-guide'
   }
 
-  const posts = [
+  const hardcodedPosts = [
     {
       title: 'Compostable Humidity Control: Stop Packaging from Cracking',
       excerpt: 'Professional humidity control solutions to prevent compostable packaging from becoming brittle and cracking during ocean freight. Essential for cellulose-based bags.',
@@ -289,6 +317,25 @@ export default function PouchBlogPage() {
     }
   ]
 
+  // Combine hardcoded and dynamic posts
+  const posts = useMemo(() => {
+    const formattedDynamic = dynamicPosts.map(p => ({
+      title: p.title,
+      excerpt: p.excerpt,
+      image: p.image_url || '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp',
+      date: new Date(p.published_at).toISOString().split('T')[0],
+      category: p.category,
+      readTime: '10 min',
+      link: `/blog/${p.slug}`
+    }))
+
+    // Filter out hardcoded posts that are now dynamic (if any match by link)
+    const dynamicLinks = new Set(formattedDynamic.map(p => p.link))
+    const filteredHardcoded = hardcodedPosts.filter(p => !dynamicLinks.has(p.link))
+
+    return [...formattedDynamic, ...filteredHardcoded]
+  }, [dynamicPosts])
+
   const categories = [
     { name: 'All Posts', count: posts.length + 1, icon: BookOpen },
     { name: 'Sustainability Guide', count: 1, icon: Leaf },
@@ -499,7 +546,12 @@ export default function PouchBlogPage() {
             </div>
           </div>
 
-          {filteredPosts.length === 0 ? (
+          {loading ? (
+            <div className="flex flex-col items-center justify-center py-20">
+              <Loader2 className="w-12 h-12 animate-spin text-[#10b981] mb-4" />
+              <p className="font-['JetBrains_Mono'] font-bold text-gray-500 uppercase">Synchronizing knowledge base...</p>
+            </div>
+          ) : filteredPosts.length === 0 ? (
             <div className="text-center py-16">
               <div className="bg-white border-4 border-black p-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-md mx-auto">
                 <BookOpen className="w-16 h-16 mx-auto mb-4 text-gray-400" />

@@ -436,6 +436,7 @@ const GreenCoffeeMaterialsGuide = lazyWithRetry(() => import('./pages/pouch/blog
 const LowMOQStartupPackagingGuide = lazyWithRetry(() => import('./pages/pouch/blog/LowMOQStartupPackagingGuide'))
 
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
+const PouchBlogArticlePage = lazyWithRetry(() => import('./pages/pouch/blog/PouchBlogArticlePage'))
 const Product3DShowcasePage = lazyWithRetry(() => import('./pages/Product3DShowcasePage'))
 
 // Bio-PE Pages - Lazy loaded
@@ -507,6 +508,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/size-guide" element={<PouchSizeGuidePage />} />
                   <Route path="/testimonials" element={<PouchTestimonialsPage />} />
                   <Route path="/blog" element={<PouchBlogPage />} />
+                  <Route path="/blog/:slug" element={<PouchBlogArticlePage />} />
                   <Route path="/blog/usa-compostable-guide" element={<USACompostableGuide />} />
                   <Route path="/blog/coffee-packaging-guide" element={<CoffeePackagingGuide />} />
                   <Route path="/blog/compostable-humidity-control" element={<PouchHumidityControlGuide />} />
