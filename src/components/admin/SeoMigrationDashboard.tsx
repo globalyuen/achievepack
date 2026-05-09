@@ -6,31 +6,21 @@ import {
   RefreshCw, 
   CheckCircle, 
   AlertCircle, 
-  ArrowRight, 
   Image as ImageIcon, 
-  Edit3, 
   Zap, 
-  TrendingUp, 
   Target,
-  FileText,
   Clock,
   ExternalLink,
-  ChevronRight,
-  MoreVertical,
   Plus,
   BarChart3,
-  Server,
-  Filter,
-  Layers,
   ArrowUp,
   ArrowDown,
-  Eye,
   ArrowRightLeft,
   MessageCircle
 } from 'lucide-react'
 import { createClient } from '@supabase/supabase-js'
 import en from '../../locales/en.json'
-import allRoutes from '../../data/all-routes.json'
+import routeMapping from '../../data/route-mapping.json'
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL || '',
@@ -61,7 +51,7 @@ export default function SeoMigrationDashboard() {
   const [pages, setPages] = useState<PageStatus[]>([])
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
-  const [activeTab, setActiveTab] = useState<'pending' | 'migrated'>('pending')
+  const [activeTab, setActiveTab] = useState<'pending' | 'migrated'>('migrated') // Default to migrated to see the 49 pages
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [sortKey, setSortKey] = useState<SortKey>('traffic')
@@ -77,15 +67,21 @@ export default function SeoMigrationDashboard() {
         .from('pouch_seo_blog')
         .select('*')
       
-      if (error) throw error
+      if (error && error.code !== '42P01') console.error(error)
 
       const seoPages = (en as any).seoPages?.pages || {}
       
-      const allPages: PageStatus[] = (allRoutes as string[]).map(route => {
+      // Use the actual achieveRoutes from the mapping
+      const allPages: PageStatus[] = (routeMapping.achieve as string[]).map(route => {
         const slug = route.startsWith('/') ? route.substring(1) : route
         const parts = slug.split('/')
         const category = parts.length > 1 ? parts[0] : 'other'
-        const migrated = migratedData?.find(p => p.slug === slug || p.slug === parts[parts.length-1])
+        
+        // A page is migrated if it's in the synced array (exists in both main.tsx blocks) 
+        // OR if it's found in the supabase table
+        const isSyncedCodebase = routeMapping.synced.includes(route)
+        const isSyncedDatabase = migratedData?.find(p => p.slug === slug || p.slug === parts[parts.length-1])
+        const isMigrated = isSyncedCodebase || !!isSyncedDatabase
 
         let title = ''
         const key = Object.keys(seoPages).find(k => k.toLowerCase() === parts[parts.length-1].replace(/-/g, '').toLowerCase())
@@ -95,21 +91,19 @@ export default function SeoMigrationDashboard() {
           title = parts[parts.length-1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
         }
 
-        const hasContent = !!migrated?.content
-        
         let baseTraffic = 0
         if (['packaging', 'industry', 'materials'].includes(category)) baseTraffic = 1200 + Math.random() * 5000
         else if (category === 'topics') baseTraffic = 500 + Math.random() * 2000
         else if (category === 'spec') baseTraffic = 100 + Math.random() * 500
         else baseTraffic = 50 + Math.random() * 200
 
-        if (hasContent) baseTraffic *= 1.4
+        if (isMigrated) baseTraffic *= 1.4
 
-        const seoScore = (hasContent ? 85 : 40) + (migrated?.meta_description ? 10 : 0)
-        const aieoScore = (hasContent ? 70 : 30) + (migrated?.content?.faqs ? 20 : 0)
-        const wordCount = migrated?.content?.paragraphs?.reduce((acc: number, p: string) => acc + p.split(' ').length, 0) || (hasContent ? 850 : 200)
-        const imagesCount = migrated?.content?.images?.length || (hasContent ? 4 : 0)
-        const status = migrated ? 'migrated' : 'pending'
+        const seoScore = (isMigrated ? 85 : 40) + (isSyncedDatabase?.meta_description ? 10 : 0)
+        const aieoScore = (isMigrated ? 70 : 30) + (isSyncedDatabase?.content?.faqs ? 20 : 0)
+        const wordCount = isSyncedDatabase?.content?.paragraphs?.reduce((acc: number, p: string) => acc + p.split(' ').length, 0) || (isMigrated ? 850 : 200)
+        const imagesCount = isSyncedDatabase?.content?.images?.length || (isMigrated ? 4 : 0)
+        const status = isMigrated ? 'migrated' : 'pending'
 
         let recommendation = 'Ready for review'
         if (status === 'pending') {
@@ -135,9 +129,9 @@ export default function SeoMigrationDashboard() {
           seoScore,
           aieoScore,
           traffic: Math.floor(baseTraffic),
-          lastUpdated: migrated?.updated_at,
+          lastUpdated: isSyncedDatabase?.updated_at,
           sourceUrl: `https://achievepack.com/${slug}`,
-          pouchUrl: `https://pouch.eco/blog/${slug}`,
+          pouchUrl: `https://pouch.eco${route}`, // Exact route from mapping
           imagesCount,
           wordCount,
           recommendation
@@ -206,7 +200,6 @@ export default function SeoMigrationDashboard() {
 
   return (
     <div className="space-y-6">
-      {/* Premium Dashboard Header */}
       <div className="bg-black text-[#D4FF00] p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center overflow-hidden relative">
         <div className="relative z-10 flex w-full justify-between items-center">
             <div>
@@ -226,7 +219,6 @@ export default function SeoMigrationDashboard() {
         </div>
       </div>
 
-      {/* Domain Separation Tabs (The Big Toggles) */}
       <div className="flex gap-4">
         <button
           onClick={() => setActiveTab('pending')}
@@ -254,7 +246,6 @@ export default function SeoMigrationDashboard() {
         </button>
       </div>
 
-      {/* Controls & Search */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-1 bg-white border-4 border-black p-4 flex items-center gap-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
           <button 
@@ -287,7 +278,6 @@ export default function SeoMigrationDashboard() {
         </div>
       </div>
 
-      {/* Main Data Table */}
       <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
