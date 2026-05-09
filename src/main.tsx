@@ -784,6 +784,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/blog/packaging-cost-guide" element={<PackagingCostGuidePage />} />
                         <Route path="/blog/compostable-vs-recyclable" element={<CompostableVsRecyclablePage />} />
                         <Route path="/blog/eco-packaging-mistakes" element={<EcoPackagingMistakesPage />} />
+                        <Route path="/blog/compostable-zipper-no-removal" element={<PouchCompostableZipperNoRemovalPage />} />
                         <Route path="/blog/:slug" element={<BlogPostPage />} />
 
                         {/* Learn Center */}
