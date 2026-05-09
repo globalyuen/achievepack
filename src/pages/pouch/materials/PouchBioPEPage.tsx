@@ -125,6 +125,98 @@ const PouchBioPEPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Deep Dive SEO Content */}
+      <section className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+            The Ultimate Guide to <span className="text-[#10b981]">Bio-PE Packaging</span>
+          </h2>
+          
+          <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
+            <p>
+              As the world aggressively shifts away from fossil-fuel-based plastics, Bio-Polyethylene (Bio-PE) has emerged as a revolutionary drop-in replacement. Derived from renewable resources like sugarcane ethanol, Bio-PE represents a significant leap forward in sustainable flexible packaging. At POUCH.ECO, we harness the power of this plant-based plastic to create high-performance pouches that drastically reduce your brand's carbon footprint without compromising on durability or barrier properties.
+            </p>
+            
+            <img 
+              src="/imgs/spec/biope-pet-triplex-metalised.webp" 
+              alt="Bio-PE film structure showing renewable sugarcane origins" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Carbon Negative Origins</h3>
+            <p>
+              The most compelling argument for Bio-PE is its origin story. Traditional polyethylene is synthesized from crude oil, a finite resource that releases massive amounts of CO2 during extraction and refinement. In stark contrast, the sugarcane used to produce Bio-PE actually absorbs CO2 from the atmosphere as it grows. This remarkable process means that the production of Bio-PE resin can have a negative carbon footprint from cradle to gate, actively contributing to the fight against climate change.
+            </p>
+            <p>
+              For brands deeply committed to Environmental, Social, and Governance (ESG) goals, switching to Bio-PE packaging provides a verifiable, measurable reduction in greenhouse gas emissions. You are not just making a superficial "green" claim; you are fundamentally changing the chemistry of your packaging supply chain.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">A True Drop-In Replacement</h3>
+            <p>
+              A major hurdle in adopting sustainable packaging is often performance degradation. Fortunately, Bio-PE is chemically identical to conventional fossil-based polyethylene. It offers the exact same tensile strength, sealability, and printability. Whether you are packaging heavy pet food, sharp snacks, or liquid cosmetics, Bio-PE performs flawlessly on the filling line and on the retail shelf. 
+            </p>
+            
+            <img 
+              src="/imgs/spec/biope-pet-kraft-triplex-clear.webp" 
+              alt="Clear Bio-PE pouch structure for food packaging" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Recyclability and End of Life</h3>
+            <p>
+              It is important to understand that while Bio-PE is made from plants, it is not biodegradable or compostable. It is designed to be durable. However, because it is chemically identical to standard PE, it is 100% recyclable in the exact same recycling streams (such as store drop-off programs for soft plastics). This allows it to participate fully in a circular economy, unlike many mixed-material plastics that are destined for the landfill.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-gray-50 border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            Frequently Asked <span className="text-[#10b981]">Questions</span>
+          </h2>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: 'What exactly is Bio-PE?',
+                a: 'Bio-PE, or biopolyethylene, is a plastic made from renewable biomass (like sugarcane) rather than fossil fuels. It has the same chemical properties as regular PE but a significantly lower carbon footprint.'
+              },
+              {
+                q: 'Is Bio-PE compostable?',
+                a: 'No, Bio-PE is not compostable or biodegradable. It is designed to be as durable as traditional plastic. However, it is fully recyclable in the same streams as standard polyethylene (PE).'
+              },
+              {
+                q: 'Does Bio-PE perform differently than regular plastic?',
+                a: 'No. Because Bio-PE is a "drop-in" replacement, it is chemically identical to fossil-based PE. It offers the exact same durability, moisture barrier, and seal strength as traditional plastic packaging.'
+              },
+              {
+                q: 'What is the minimum order for Bio-PE pouches?',
+                a: 'Through our digital printing technology, we offer low Minimum Order Quantities (MOQs) starting at just 500 units for fully custom printed Bio-PE pouches, making it accessible for startups and growing brands.'
+              }
+            ].map((faq, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              >
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase mb-3 flex items-start gap-3">
+                  <span className="text-[#10b981] flex-shrink-0">Q:</span>
+                  {faq.q}
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm text-gray-700 pl-8">
+                  <span className="font-bold text-[#10b981]">A:</span> {faq.a}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-10">

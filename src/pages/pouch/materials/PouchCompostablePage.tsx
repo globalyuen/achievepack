@@ -108,6 +108,102 @@ export default function PouchCompostablePage() {
         </div>
       </section>
 
+      {/* Deep Dive SEO Content */}
+      <section className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+            The Ultimate Guide to <span className="text-[#10b981]">Compostable Packaging</span>
+          </h2>
+          
+          <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
+            <p>
+              The packaging industry is at a critical turning point. With plastic pollution becoming an undeniable global crisis, consumers are demanding brands take accountability for their environmental footprint. Compostable packaging is no longer a niche trend; it is the definitive solution for the future of FMCG (Fast-Moving Consumer Goods). At POUCH.ECO, we engineer certified compostable pouches that offer the barrier protection your product needs and the end-of-life solution the planet deserves.
+            </p>
+            
+            <img 
+              src="/imgs/4-infograhic/compost.webp" 
+              alt="Infographic showing the breakdown of compostable packaging in a home compost bin" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Home Compostable vs. Industrial Compostable</h3>
+            <p>
+              It is crucial for brands to understand the difference between the two primary types of compostable packaging. <strong>Industrial compostable</strong> materials (often PLA-based) require specific conditions—high temperatures (around 60°C/140°F), specific humidity levels, and specialized microbes—to break down. These conditions are typically only found in commercial composting facilities, which are not accessible to all consumers.
+            </p>
+            <p>
+              Our flagship solution is <strong>Home Compostable</strong> packaging. Certified by TUV Austria (OK Compost Home), these materials are formulated from plant-based polymers like cellulose and starch that can break down in a standard backyard compost bin at ambient temperatures. Within 180 days, the packaging decomposes entirely into water, CO2, and nutrient-rich biomass, leaving zero microplastics or toxic residue behind.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Overcoming the Barrier Challenge</h3>
+            <p>
+              Historically, compostable materials suffered from poor barrier properties, making them unsuitable for products that are sensitive to moisture or oxygen (like coffee, crispy snacks, or pet kibble). We have solved this issue. 
+            </p>
+            
+            <img 
+              src="/imgs/blog/Sustainable-pet/a_sustainable_pet_food_packaging_hero_2601845.webp" 
+              alt="Premium sustainable packaging providing high barrier protection" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <p>
+              Through advanced lamination techniques and proprietary plant-based metallization, our high-barrier compostable pouches achieve an Oxygen Transmission Rate (OTR) and Water Vapor Transmission Rate (WVTR) that rival traditional multi-layer plastics and aluminum foil. Your products stay fresh, crunchy, and aromatic throughout their entire shelf life.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">The Circular Economy in Action</h3>
+            <p>
+              Adopting compostable packaging is a powerful way to align your brand with the principles of the Circular Economy. Instead of a linear "take-make-dispose" model, our packaging follows a "grow-make-return" cycle. The plants used to create our films absorb CO2 during growth. After fulfilling their purpose as premium packaging, they return to the earth as compost, which can then be used to grow more plants. This closed-loop system is the gold standard of sustainability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-gray-50 border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            Frequently Asked <span className="text-[#10b981]">Questions</span>
+          </h2>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: 'What certifications do your compostable pouches hold?',
+                a: 'Our home compostable materials are certified by TUV Austria (OK Compost Home) and meet the stringent European standard EN 13432 as well as the American standard ASTM D6400.'
+              },
+              {
+                q: 'How long does it take for a home compostable bag to break down?',
+                a: 'Under standard home composting conditions (ambient temperature, presence of moisture and microorganisms), our pouches break down into organic biomass within 180 days.'
+              },
+              {
+                q: 'Are the zippers and valves also compostable?',
+                a: 'Yes! To ensure a truly circular solution, every component of our compostable pouches—including the press-to-close zippers and coffee degassing valves—is made from certified compostable materials.'
+              },
+              {
+                q: 'Can I print my brand design on compostable bags?',
+                a: 'Absolutely. We use state-of-the-art digital printing with compostable, low-migration inks to print high-resolution graphics, vibrant colors, and sharp text directly onto the packaging.'
+              }
+            ].map((faq, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              >
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase mb-3 flex items-start gap-3">
+                  <span className="text-[#10b981] flex-shrink-0">Q:</span>
+                  {faq.q}
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm text-gray-700 pl-8">
+                  <span className="font-bold text-[#10b981]">A:</span> {faq.a}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-[#14532d] border-t-4 border-black text-[#D4FF00]">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">

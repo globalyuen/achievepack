@@ -124,6 +124,102 @@ const PouchPCRPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Deep Dive SEO Content */}
+      <section className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+            The Ultimate Guide to <span className="text-[#3b82f6]">PCR Packaging</span>
+          </h2>
+          
+          <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
+            <p>
+              As consumers and regulatory bodies increasingly push for sustainable alternatives to virgin plastics, Post-Consumer Recycled (PCR) packaging has become a cornerstone of the circular economy. PCR packaging is manufactured using plastics that have already been used by consumers, collected through recycling programs, cleaned, melted down, and repurposed into new film. At POUCH.ECO, we utilize advanced PCR materials to help brands reduce their reliance on new fossil fuels while maintaining premium packaging aesthetics.
+            </p>
+            
+            <img 
+              src="/imgs/pcr/guide/a_pcr_barrier_performance_diagram_0887278.webp" 
+              alt="Diagram explaining the circular lifecycle of Post-Consumer Recycled packaging" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Why Choose PCR Over Virgin Plastic?</h3>
+            <p>
+              The primary benefit of PCR packaging is its immediate impact on carbon emissions and plastic waste. By utilizing recycled content, you are diverting plastic from landfills and oceans. Manufacturing PCR resins requires significantly less energy and water compared to producing virgin plastics from crude oil. This translates to a lower overall carbon footprint for your product packaging.
+            </p>
+            <p>
+              Furthermore, incorporating PCR materials signals to your customers that your brand is actively participating in environmental stewardship. In regions with strict plastic packaging taxes (like the UK and parts of the EU), using a high percentage of PCR content can also yield significant financial savings by exempting your brand from these taxes.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Addressing the "Cloudy" PCR Myth</h3>
+            <p>
+              Historically, a major drawback of PCR films was their appearance. Early iterations of recycled plastics often had a cloudy, yellowish, or inconsistent visual profile, making them unsuitable for premium brands that required high-clarity windows or vibrant printing. 
+            </p>
+            
+            <img 
+              src="/imgs/spec/pcr-pet-kraft-triplex-clear.webp" 
+              alt="Clear PCR pouch demonstrating high transparency and print quality" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <p>
+              Advancements in sorting and purification technologies have changed the game. Our modern PCR films boast excellent clarity and consistency. We use high-quality, FDA-approved PCR resins (typically rPET or rPE) sandwiched between thin layers of virgin material or functional barriers. This ensures that your custom artwork prints flawlessly, the colors pop, and any transparent windows remain crystal clear, showcasing your product perfectly.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Food Safety and PCR</h3>
+            <p>
+              A common concern regarding recycled plastics is food safety. Can you package consumables in plastic that was previously used? The answer is yes, provided the correct technologies are used. We utilize FDA Letter of No Objection (LNO) certified PCR resins. Through advanced super-cleaning processes, any potential contaminants from the plastic's previous life are completely removed. For added safety, the PCR layer is often encapsulated within the structural layers of the pouch, ensuring it never comes into direct contact with the food product.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-gray-50 border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            Frequently Asked <span className="text-[#3b82f6]">Questions</span>
+          </h2>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: 'What does PCR stand for?',
+                a: 'PCR stands for Post-Consumer Recycled. It refers to plastic materials that have been used by end consumers, disposed of in recycling bins, and then processed into new raw materials.'
+              },
+              {
+                q: 'Is your PCR packaging food safe?',
+                a: 'Yes. We use FDA-approved PCR resins that have undergone rigorous super-cleaning processes. To guarantee absolute safety, the recycled content is often layered between virgin materials, meaning it never directly touches your food product.'
+              },
+              {
+                q: 'Can I claim 100% PCR content?',
+                a: 'To maintain the structural integrity, sealability, and food safety of the pouch, it is currently impossible to make a flexible pouch from 100% PCR. Our high-performance pouches typically utilize between 30% and 50% PCR content by weight.'
+              },
+              {
+                q: 'Are PCR pouches recyclable?',
+                a: 'Yes, our mono-material PCR pouches (like our PE/PE structures) are fully recyclable at store drop-off locations. This means your packaging can be recycled again, continuing the circular lifecycle.'
+              }
+            ].map((faq, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              >
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase mb-3 flex items-start gap-3">
+                  <span className="text-[#3b82f6] flex-shrink-0">Q:</span>
+                  {faq.q}
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm text-gray-700 pl-8">
+                  <span className="font-bold text-[#3b82f6]">A:</span> {faq.a}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-cyan-500 text-black border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-10">

@@ -177,17 +177,17 @@
   "/materials/compostable": {
     "words": 656,
     "images": 8,
-    "lastUpdated": 1778201526165.4968
+    "lastUpdated": 1778333090672.5798
   },
   "/materials/bio-pe": {
     "words": 201,
-    "images": 2,
-    "lastUpdated": 1778206676478.9458
+    "images": 4,
+    "lastUpdated": 1778333068726.996
   },
   "/materials/pcr": {
     "words": 214,
-    "images": 2,
-    "lastUpdated": 1778206676480.2283
+    "images": 3,
+    "lastUpdated": 1778333113518.897
   },
   "/materials/home-compostable": {
     "words": 208,
@@ -332,7 +332,7 @@
   "/industry/pet-food": {
     "words": 150,
     "images": 9,
-    "lastUpdated": 1778314417604.2114
+    "lastUpdated": 1778332952592.8113
   },
   "/industry/snacks": {
     "words": 211,
