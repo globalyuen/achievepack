@@ -21,6 +21,7 @@ import {
 import { createClient } from '@supabase/supabase-js'
 import en from '../../locales/en.json'
 import routeMapping from '../../data/route-mapping.json'
+import pageMetrics from '../../data/page-metrics.json'
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL || '',
@@ -99,10 +100,15 @@ export default function SeoMigrationDashboard() {
 
         if (isMigrated) baseTraffic *= 1.4
 
+        const routeData = (pageMetrics as Record<string, {words: number, images: number}>)[route] || null
+
         const seoScore = (isMigrated ? 85 : 40) + (isSyncedDatabase?.meta_description ? 10 : 0)
         const aieoScore = (isMigrated ? 70 : 30) + (isSyncedDatabase?.content?.faqs ? 20 : 0)
-        const wordCount = isSyncedDatabase?.content?.paragraphs?.reduce((acc: number, p: string) => acc + p.split(' ').length, 0) || (isMigrated ? 850 : 200)
-        const imagesCount = isSyncedDatabase?.content?.images?.length || (isMigrated ? 4 : 0)
+        
+        // Use real extracted data if available, otherwise fallback to database, otherwise fallback to basic guess
+        const wordCount = routeData ? routeData.words : (isSyncedDatabase?.content?.paragraphs?.reduce((acc: number, p: string) => acc + p.split(' ').length, 0) || (isMigrated ? 850 : 200))
+        const imagesCount = routeData ? routeData.images : (isSyncedDatabase?.content?.images?.length || (isMigrated ? 4 : 0))
+        
         const status = isMigrated ? 'migrated' : 'pending'
 
         let recommendation = 'Ready for review'
