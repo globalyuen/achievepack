@@ -1,1150 +1,1437 @@
 {
   "/": {
     "words": 2012,
-    "images": 43
+    "images": 43,
+    "lastUpdated": 1778221769337.2322
   },
   "/solutions": {
     "words": 84,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778054013397.399
   },
   "/size-guide": {
     "words": 229,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1778206676478.164
   },
   "/testimonials": {
     "words": 149,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1778058111092.8833
   },
   "/blog": {
     "words": 123,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1778297545834.012
   },
   "/blog/usa-compostable-guide": {
     "words": 234,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1778245030005.267
   },
   "/blog/coffee-packaging-guide": {
     "words": 74,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770792124172.1392
   },
   "/blog/compostable-humidity-control": {
     "words": 877,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1778246405435.9883
   },
   "/blog/usa-coffee-packaging": {
     "words": 108,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1773277735712.9946
   },
   "/blog/compostable-stand-up-pouches-guide": {
     "words": 95,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770518630559.831
   },
   "/blog/low-moq-packaging-guide": {
     "words": 56,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770792308654.2405
   },
   "/blog/usa-snacks-packaging-guide": {
     "words": 61,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1778245147873.346
   },
   "/blog/usa-labeling-guide": {
     "words": 56,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1778246410037.0132
   },
   "/blog/industrial-compostable-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770789948971.3694
   },
   "/blog/bpi-certified-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770792953299.6997
   },
   "/blog/coffee-degassing-valve-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1773277735712.5369
   },
   "/blog/home-compostable-guide": {
     "words": 64,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770609460717.575
   },
   "/blog/organic-compliance-support": {
     "words": 80,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1773367270486.8943
   },
   "/certifications": {
     "words": 171,
-    "images": 10
+    "images": 10,
+    "lastUpdated": 1778056712943.9326
   },
   "/factory-tour": {
     "words": 112,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778056834123.2913
   },
   "/materials/cello-kraft-triplex": {
     "words": 280,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778201526165.2522
   },
   "/materials/kraft-duplex": {
     "words": 271,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778201526166.101
   },
   "/materials/data-sheet": {
     "words": 154,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1778058247104.5688
   },
   "/materials/catalog": {
     "words": 165,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778056860970.7632
   },
   "/options/reclosure": {
     "words": 139,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778056512587.8767
   },
   "/options/surface-finish": {
     "words": 241,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778056451921.5552
   },
   "/options/surface-and-reclosure": {
     "words": 445,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1773277735713.3079
   },
   "/barriers/overview": {
     "words": 354,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778056467245.069
   },
   "/barriers/material-properties": {
     "words": 238,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778056426847.334
   },
   "/printing/digital": {
     "words": 311,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778056400699.2898
   },
   "/products": {
     "words": 100,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778057145323.2964
   },
   "/materials": {
     "words": 85,
-    "images": 9
+    "images": 9,
+    "lastUpdated": 1778056438801.9238
   },
   "/seo-guide": {
     "words": 318,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778056599104.9539
   },
   "/packaging/stand-up-pouches": {
     "words": 140,
-    "images": 12
+    "images": 12,
+    "lastUpdated": 1778314250921.7354
   },
   "/packaging/flat-bottom-bags": {
     "words": 53,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1778314283237.8325
   },
   "/materials/compostable": {
     "words": 656,
-    "images": 8
+    "images": 8,
+    "lastUpdated": 1778201526165.4968
   },
   "/materials/bio-pe": {
     "words": 201,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1778206676478.9458
   },
   "/materials/pcr": {
     "words": 214,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1778206676480.2283
   },
   "/materials/home-compostable": {
     "words": 208,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1778206676479.7898
   },
   "/materials/industrial-compostable": {
     "words": 217,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778206676479.4343
   },
   "/materials/kraft-high-barrier": {
     "words": 70,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778206676480.6584
   },
   "/materials/recyclable": {
     "words": 136,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778201526167.0374
   },
   "/materials/plastic-free-kraft": {
     "words": 150,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778201526166.7744
   },
   "/industry/baby-food": {
     "words": 150,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1778246269690.8147
   },
   "/packaging/spout-pouches": {
     "words": 194,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1778053923726.1125
   },
   "/packaging/flat-pouches": {
     "words": 52,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1778053974420.8408
   },
   "/packaging/vacuum-pouches": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778053981109.9817
   },
   "/industry/frozen-food": {
     "words": 150,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1778246260489.1936
   },
   "/topics/eco-friendly-food-packaging": {
     "words": 59,
-    "images": 7
+    "images": 7,
+    "lastUpdated": 1778245120650.1929
   },
   "/topics/compostable-baby-food-bags": {
     "words": 150,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1778245086648.4585
   },
   "/topics/green-coffee-materials": {
     "words": 51,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1778246280336.4963
   },
   "/topics/recyclable-snack-packaging": {
     "words": 150,
-    "images": 7
+    "images": 7,
+    "lastUpdated": 1778245131274.8232
   },
   "/topics/custom-printed-sustainable-pouches": {
     "words": 150,
-    "images": 12
+    "images": 12,
+    "lastUpdated": 1778245097806.4124
   },
   "/topics/digital-printing-eco-packaging": {
     "words": 50,
-    "images": 7
+    "images": 7,
+    "lastUpdated": 1778245108982.5488
   },
   "/topics/compostable-humidity-control": {
     "words": 877,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1778246311095.9219
   },
   "/topics/eco-packaging-regulations": {
     "words": 150,
-    "images": 7
+    "images": 7,
+    "lastUpdated": 1778246291034.7666
   },
   "/topics/custom-compostable-pouch-suppliers": {
     "words": 325,
-    "images": 7
+    "images": 7,
+    "lastUpdated": 1778246301870.0332
   },
   "/topics/low-moq-startup-packaging": {
     "words": 50,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1778246320726.267
   },
   "/topics/dtc-sustainable-packaging": {
     "words": 54,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1778245021226.4673
   },
   "/topics/pfas-free-food-packaging": {
     "words": 150,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778224368327.9116
   },
   "/topics/home-compostable-coffee-bags": {
     "words": 150,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1778224384804.1536
   },
   "/topics/mono-material-pe-pouches": {
     "words": 150,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778224396445.7627
   },
   "/topics/child-resistant-mylar-bags": {
     "words": 150,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778224378706.8203
   },
   "/topics/recycled-ocean-plastic-packaging": {
     "words": 150,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778224402307.9414
   },
   "/topics/minimalist-d2c-packaging": {
     "words": 150,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778224390546.644
   },
   "/industry/coffee-tea": {
     "words": 150,
-    "images": 9
+    "images": 9,
+    "lastUpdated": 1778314302735.8276
   },
   "/industry/pet-food": {
     "words": 150,
-    "images": 9
+    "images": 9,
+    "lastUpdated": 1778314417604.2114
   },
   "/industry/snacks": {
     "words": 211,
-    "images": 7
+    "images": 7,
+    "lastUpdated": 1778246237447.5522
   },
   "/industry/supplements": {
     "words": 191,
-    "images": 7
+    "images": 7,
+    "lastUpdated": 1778246250805.1138
   },
   "/blog/eco-friendly-food-packaging-guide": {
     "words": 108,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770789905746.0808
   },
   "/blog/dtc-sustainable-packaging-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770789760911.5881
   },
   "/blog/recyclable-snack-packaging-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770789968603.0803
   },
   "/blog/compostable-baby-food-packaging-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770778372688.6208
   },
   "/blog/custom-compostable-pouch-suppliers-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770777511373.0654
   },
   "/blog/custom-printed-materials-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770796248303.746
   },
   "/blog/digital-printing-eco-packaging-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770796301510.4116
   },
   "/blog/eco-packaging-regulations-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770777609542.8062
   },
   "/blog/green-coffee-materials-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770793042862.5698
   },
   "/blog/low-moq-startup-packaging-guide": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1770789803161.2097
   },
   "/products/recyclable-mono-material-pouches": {
     "words": 61,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054283.327
   },
   "/products/coffee-bags-degassing-valve": {
     "words": 68,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054280.7727
   },
   "/products/low-moq-packaging": {
     "words": 95,
-    "images": 10
+    "images": 10,
+    "lastUpdated": 1777996054283.1064
   },
   "/products/compostable-stand-up-pouches": {
     "words": 63,
-    "images": 9
+    "images": 9,
+    "lastUpdated": 1777996054281.4702
   },
   "/tech-specs": {
     "words": 180,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1778054028627.8228
   },
   "/quotes/flat-bottom": {
     "words": 950,
-    "images": 14
+    "images": 14,
+    "lastUpdated": 1778223367360.113
   },
   "/quotes/three-side-seal": {
     "words": 497,
-    "images": 10
+    "images": 10,
+    "lastUpdated": 1778223398943.2156
   },
   "/quotes/stand-up-pouch": {
     "words": 2445,
-    "images": 51
+    "images": 51,
+    "lastUpdated": 1778224212457.4092
   },
   "/quotes/spouted-pouch": {
     "words": 606,
-    "images": 10
+    "images": 10,
+    "lastUpdated": 1778223383131.3787
   },
   "/quotes/rollstock": {
     "words": 455,
-    "images": 9
+    "images": 9,
+    "lastUpdated": 1778223342605.133
   },
   "/cert": {
     "words": 111,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1774490991765.284
   },
   "/sample": {
     "words": 208,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1778223223125.2837
   },
   "/quote": {
     "words": 287,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1778223529305.3274
   },
   "/support/sample-quote": {
     "words": 145,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054301.5964
   },
   "/reports/state-of-packaging-2026": {
     "words": 247,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1778063525726.5432
   },
   "/workshop-register": {
     "words": 111,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1778063470041.3696
   },
   "/store": {
     "words": 616,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777982252756.0051
   },
   "/store/checkout": {
     "words": 312,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1776319761178.1946
   },
   "/store/order-confirmation": {
     "words": 112,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1767516724350.7314
   },
   "/store/rfq-confirmation": {
     "words": 110,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1767439272568.389
   },
   "/signin": {
     "words": 206,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1768228914984.2324
   },
   "/forgot-password": {
     "words": 106,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1768270400098.1611
   },
   "/reset-password": {
     "words": 107,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1768270400085.6072
   },
   "/auth/callback": {
     "words": 63,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1768270400074.2053
   },
   "/dashboard": {
     "words": 3328,
-    "images": 12
+    "images": 12,
+    "lastUpdated": 1777470464066.4675
   },
   "/terms": {
     "words": 90,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1767068123645.056
   },
   "/terms-of-use": {
     "words": 1906,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1768228914956.6519
   },
   "/contact": {
     "words": 415,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1767451167357.5662
   },
   "/ctrl-x9k7m": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/management": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/order-workflow": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/customer-map": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/image-catalog": {
     "words": 782,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1774606554073.5342
   },
   "/ctrl-x9k7m/artwork-hub": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/artwork-batches": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/quotations": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/quote/coffee-pouch-2025": {
     "words": 255,
-    "images": 10
+    "images": 10,
+    "lastUpdated": 1773277735713.6619
   },
   "/ctrl-x9k7m/prospects": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/prospects/lists": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/shipments": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/document-templates": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/daily-reports": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/email-campaign": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/ctrl-x9k7m/ai-image": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1776430829528.5413
   },
   "/unsubscribe": {
     "words": 130,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1767282139140.8696
   },
   "/industry/snacks-food": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054245.443
   },
   "/industry/supplements-powders": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054245.9482
   },
   "/industry/sauces-condiments": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054245.086
   },
   "/packaging/side-gusset-bags": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054259.1062
   },
   "/packaging/custom-boxes": {
     "words": 123,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1777996054257.5366
   },
   "/materials/recyclable-mono-pe": {
     "words": 201,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054256.5537
   },
   "/materials/recyclable-mono-pp": {
     "words": 141,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054256.9612
   },
   "/printing/digital-printing": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054280.0542
   },
   "/printing/plate-printing": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054280.3826
   },
   "/features/reclosure-options": {
     "words": 84,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054232.2607
   },
   "/features/surface-finish": {
     "words": 82,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054232.5881
   },
   "/features/barrier-options": {
     "words": 78,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054230.5923
   },
   "/features/low-barrier": {
     "words": 95,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054231.2236
   },
   "/features/medium-barrier": {
     "words": 95,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054232.008
   },
   "/features/high-barrier": {
     "words": 95,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054230.8845
   },
   "/features/material-barrier-properties": {
     "words": 70,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054231.6775
   },
   "/function/microwave-steam-bags": {
     "words": 213,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054241.3418
   },
   "/function/carbon-neutral-bags": {
     "words": 220,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054240.3806
   },
   "/function/spout-pouches-juice": {
     "words": 218,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054242.8538
   },
   "/function/child-resistant-bags": {
     "words": 217,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054240.67
   },
   "/function/pre-zippered-rollstock": {
     "words": 202,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054242.0747
   },
   "/function/digital-printed-retort-bags": {
     "words": 218,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054241.0803
   },
   "/function/rice-paper-bags": {
     "words": 176,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054242.6033
   },
   "/function/pva-water-soluble-bags": {
     "words": 241,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054241.758
   },
   "/lab/lateral-filter-bags": {
     "words": 91,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054249.1875
   },
   "/lab/wire-closure-bags": {
     "words": 95,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054249.677
   },
   "/lab/lab-blender-bags": {
     "words": 91,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054248.7322
   },
   "/privacy": {
     "words": 927,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1768228914972.202
   },
   "/shipping": {
     "words": 382,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1767364659569.198
   },
   "/cookie-policy": {
     "words": 508,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1767364553003.9417
   },
   "/company/about": {
     "words": 107,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054223.0476
   },
   "/company/b-corp": {
     "words": 719,
-    "images": 8
+    "images": 8,
+    "lastUpdated": 1768581471485.811
   },
   "/company/bpi-certified": {
     "words": 1056,
-    "images": 10
+    "images": 10,
+    "lastUpdated": 1773638380863.1218
   },
   "/company/factory-tour": {
     "words": 134,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054224.19
   },
   "/company/certificates": {
     "words": 190,
-    "images": 12
+    "images": 12,
+    "lastUpdated": 1777996054223.9937
   },
   "/team/ryan-wong": {
     "words": 528,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1767359390239.42
   },
   "/knowledge/all-options": {
     "words": 288,
-    "images": 8
+    "images": 8,
+    "lastUpdated": 1777996054246.2246
   },
   "/knowledge/size-guide": {
     "words": 117,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054247.8372
   },
   "/knowledge/pouch-sizing": {
     "words": 89,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054247.2046
   },
   "/knowledge/printing-types": {
     "words": 100,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054247.4573
   },
   "/knowledge/workflow": {
     "words": 58,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054248.4531
   },
   "/knowledge/k-seal-stand-up-pouches": {
     "words": 605,
-    "images": 7
+    "images": 7,
+    "lastUpdated": 1768795825612.1208
   },
   "/knowledge/white-ink-underprint": {
     "words": 929,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1768882175327.573
   },
   "/knowledge/fin-seal-lap-seal": {
     "words": 756,
-    "images": 9
+    "images": 9,
+    "lastUpdated": 1768882175390.1191
   },
   "/support/faqs": {
     "words": 127,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054299.8992
   },
   "/support/lead-time": {
     "words": 54,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054300.1748
   },
   "/case-studies/coffee-roastery": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054221.199
   },
   "/case-studies/tea-brand": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054222.6794
   },
   "/case-studies/superfood-brand": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054222.1726
   },
   "/case-studies/pet-treats": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054221.9338
   },
   "/case-studies/chocolate-brand": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054220.6946
   },
   "/case-studies/candle-brand": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054220.468
   },
   "/case-studies/bakery": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054219.8718
   },
   "/case-studies/wellness-brand": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054222.833
   },
   "/case-studies/organic-nuts": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054221.3684
   },
   "/case-studies/bath-products": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054220.2146
   },
   "/case-studies/adaptogens": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054219.652
   },
   "/case-studies/outdoor-snacks": {
     "words": 150,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1777996054221.566
   },
   "/blog/packaging-cost-guide": {
     "words": 150,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054219.3464
   },
   "/blog/compostable-vs-recyclable": {
     "words": 58,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054218.7195
   },
   "/blog/eco-packaging-mistakes": {
     "words": 150,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054219.0105
   },
   "/learn": {
     "words": 252,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1769002347511.093
   },
   "/usa/compostable-packaging": {
     "words": 150,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054305.922
   },
   "/usa/coffee-packaging": {
     "words": 57,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054305.672
   },
   "/usa/snacks-packaging": {
     "words": 150,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054306.4133
   },
   "/usa/labeling-guide": {
     "words": 150,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054306.1724
   },
   "/products/compostable-coffee-bags": {
     "words": 74,
-    "images": 9
+    "images": 9,
+    "lastUpdated": 1777996054281.2327
   },
   "/products/custom-labels": {
     "words": 165,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054281.7563
   },
   "/products/custom-stickers": {
     "words": 111,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054282.0515
   },
   "/products/labels-and-stickers": {
     "words": 120,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054282.719
   },
   "/products/lab-bags": {
     "words": 123,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1777996054282.3757
   },
   "/solutions/startup-founder": {
     "words": 63,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054290.1875
   },
   "/solutions/ecommerce-brand": {
     "words": 52,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054288.308
   },
   "/solutions/corporate-sustainability": {
     "words": 150,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054287.2815
   },
   "/solutions/food-manufacturer": {
     "words": 150,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054288.776
   },
   "/solutions/product-developer": {
     "words": 150,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054289.1482
   },
   "/solutions/coffee-roaster": {
     "words": 51,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054286.8997
   },
   "/solutions/artisan-producer": {
     "words": 150,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054286.5876
   },
   "/solutions/snack-brand-manager": {
     "words": 150,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054289.609
   },
   "/topics/compostable-pouch-suppliers": {
     "words": 150,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1777996054303.2275
   },
   "/composting/biodegradable-vs-compostable": {
     "words": 882,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1777996054225.055
   },
   "/composting/composting-services": {
     "words": 1577,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054227.1123
   },
   "/composting/composting-benefits": {
     "words": 1700,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054227.6753
   },
   "/composting/commercial-composting": {
     "words": 1506,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054226.1367
   },
   "/composting/home-vs-industrial-compostable": {
     "words": 909,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054228.6414
   },
   "/composting/plastic-free": {
     "words": 1023,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054230.3035
   },
   "/composting/natural-cellulose-fiber": {
     "words": 781,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054229.492
   },
   "/composting/organic-compliance-support": {
     "words": 522,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1777996054229.8083
   },
   "/free-service/packaging-design-consultation": {
     "words": 634,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054237.7886
   },
   "/free-service/website-upgrade": {
     "words": 1193,
-    "images": 23
+    "images": 23,
+    "lastUpdated": 1777996054239.232
   },
   "/free-service/packaging-mockup": {
     "words": 713,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1777996054237.4622
   },
   "/free-service/customer-center": {
     "words": 706,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054237.0554
   },
   "/free-service/maxi-foods-demo": {
     "words": 870,
-    "images": 17
+    "images": 17,
+    "lastUpdated": 1768053788927.2627
   },
   "/free-service/achieve-chips-demo": {
     "words": 791,
-    "images": 17
+    "images": 17,
+    "lastUpdated": 1768443389518.945
   },
   "/free-service/pencil-demo": {
     "words": 242,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1769306653010.6838
   },
   "/free-service/achieve-chocolate-demo": {
     "words": 257,
-    "images": 2
+    "images": 2,
+    "lastUpdated": 1769389984635.3481
   },
   "/free-service/achieve-supplement-demo": {
     "words": 269,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1769433778489.8096
   },
   "/free-service/achieve-tea-demo": {
     "words": 340,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1769308941018.1792
   },
   "/free-service/achieve-energy-demo": {
     "words": 263,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1769914876923.7004
   },
   "/free-service/achieve-honey-demo": {
     "words": 298,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1769954819433.8108
   },
   "/free-service/achieve-superfood-demo": {
     "words": 291,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1770003997655.6528
   },
   "/free-service/achieve-cleaning-demo": {
     "words": 294,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1770107367040.0808
   },
   "/free-service/achieve-spreads-demo": {
     "words": 146,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1770126468642.2544
   },
   "/free-service/achieve-muesli-demo": {
     "words": 160,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1770126472307.071
   },
   "/free-service/achieve-bath-demo": {
     "words": 248,
-    "images": 4
+    "images": 4,
+    "lastUpdated": 1770126473559.4978
   },
   "/free-service/achieve-pet-demo": {
     "words": 251,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1770445242132.7678
   },
   "/free-service/achieve-skin-demo": {
     "words": 160,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1770445242132.8926
   },
   "/free-service/achieve-baby-demo": {
     "words": 215,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1770445242132.673
   },
   "/free-service/achieve-pouch-eco-demo": {
     "words": 129,
-    "images": 3
+    "images": 3,
+    "lastUpdated": 1770445242147.938
   },
   "/free-service/free-services-hub": {
     "words": 150,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1768564719262.2832
   },
   "/free-service": {
     "words": 263,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1769079943670.9011
   },
   "/demo": {
     "words": 343,
-    "images": 14
+    "images": 14,
+    "lastUpdated": 1778057125193.4102
   },
   "/start": {
     "words": 343,
-    "images": 14
+    "images": 14,
+    "lastUpdated": 1778057125193.4102
   },
   "/3d-showcase": {
     "words": 207,
-    "images": 0
+    "images": 0,
+    "lastUpdated": 1768466081914.0188
   },
   "/biope/what-is-bio-pe": {
     "words": 892,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1777996054218.11
   },
   "/biope/bio-pe-vs-compostable": {
     "words": 1107,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054216.652
   },
   "/biope/bio-pe-epr-regulations": {
     "words": 1210,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1777996054216.1294
   },
   "/biope/inside-im-green-bio-pe": {
     "words": 1047,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054217.019
   },
   "/pcr/pcr-plastic-guide": {
     "words": 1140,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1777996054261.582
   },
   "/pcr/7-checklist": {
     "words": 918,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054261.0708
   },
   "/pcr/realistic-pcr-content": {
     "words": 932,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054261.9802
   },
   "/pcr/recyclable-vs-pcr-biobased": {
     "words": 1131,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1777996054263.5222
   },
   "/recyclable/what-is-recyclable": {
     "words": 1274,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054286.2358
   },
   "/recyclable/roadmap-sme": {
     "words": 1070,
-    "images": 5
+    "images": 5,
+    "lastUpdated": 1777996054285.67
   },
   "/recyclable/mono-material-foundation": {
     "words": 1054,
-    "images": 6
+    "images": 6,
+    "lastUpdated": 1777996054285.1936
   },
   "/spec/pcr-pet-duplex-clear": {
     "words": 98,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054297.143
   },
   "/spec/pcr-pp-duplex-clear": {
     "words": 91,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054298.1526
   },
   "/spec/pcr-pet-kraft-triplex-clear": {
     "words": 83,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054297.5974
   },
   "/spec/pcr-pp-kraft-triplex-clear": {
     "words": 90,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054298.7295
   },
   "/spec/pcr-pet-duplex-nowindow": {
     "words": 94,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054297.268
   },
   "/spec/pcr-pp-duplex-nowindow": {
     "words": 91,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054298.3655
   },
   "/spec/pcr-pet-triplex-metalised": {
     "words": 93,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054297.9985
   },
   "/spec/pcr-pp-triplex-metalised": {
     "words": 92,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054299.5876
   },
   "/spec/pcr-kraft-vmpet": {
     "words": 87,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054296.6758
   },
   "/spec/pcr-pet-triplex-aluminum": {
     "words": 76,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054297.774
   },
   "/spec/pcr-pp-triplex-aluminum": {
     "words": 93,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054299.3005
   },
   "/spec/pcr-pet-kraft-quadlex-aluminum": {
     "words": 169,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054297.421
   },
   "/spec/pcr-pp-kraft-quadlex-aluminum": {
     "words": 83,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054298.5156
   },
   "/spec/pcr-kraft-duplex-low": {
     "words": 90,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054296.254
   },
   "/spec/mono-pe-duplex-clear": {
     "words": 84,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054294.3875
   },
   "/spec/mono-pp-duplex-clear": {
     "words": 86,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054294.7642
   },
   "/spec/mono-pe-duplex-nowindow": {
     "words": 79,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054294.5986
   },
   "/spec/mono-pp-duplex-nowindow": {
     "words": 87,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054295.774
   },
   "/spec/bio-cello-duplex-clear": {
     "words": 88,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054290.61
   },
   "/spec/bio-cello-triplex-highest": {
     "words": 92,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054290.8206
   },
   "/spec/bio-cello-triplex-metalised": {
     "words": 61,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054291.057
   },
   "/spec/bio-kraft-vm-cello": {
     "words": 87,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054291.509
   },
   "/spec/bio-kraft-pbat-low": {
     "words": 89,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054291.279
   },
   "/spec/biope-pet-duplex-clear": {
     "words": 88,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054292.071
   },
   "/spec/biope-pp-duplex-clear": {
     "words": 64,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054293.2454
   },
   "/spec/biope-pet-kraft-triplex-clear": {
     "words": 94,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054292.557
   },
   "/spec/biope-pp-kraft-triplex-clear": {
     "words": 68,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054293.7622
   },
   "/spec/biope-pet-duplex-nowindow": {
     "words": 84,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054292.228
   },
   "/spec/biope-pp-duplex-nowindow": {
     "words": 87,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054293.422
   },
   "/spec/biope-pet-triplex-metalised": {
     "words": 85,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054293.029
   },
   "/spec/biope-pp-triplex-metalised": {
     "words": 64,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054294.1274
   },
   "/spec/biope-kraft-vmpet": {
     "words": 85,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054291.867
   },
   "/spec/biope-pet-triplex-aluminum": {
     "words": 79,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054292.7349
   },
   "/spec/biope-pp-triplex-aluminum": {
     "words": 66,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054293.938
   },
   "/spec/biope-pet-kraft-quadlex-aluminum": {
     "words": 82,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054292.3906
   },
   "/spec/biope-pp-kraft-quadlex-aluminum": {
     "words": 63,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054293.5945
   },
   "/spec/biope-kraft-duplex-low": {
     "words": 90,
-    "images": 1
+    "images": 1,
+    "lastUpdated": 1777996054291.6985
   },
   "/reviews": {
     "words": 454,
-    "images": 12
+    "images": 12,
+    "lastUpdated": 1778291251998.3608
   }
 }

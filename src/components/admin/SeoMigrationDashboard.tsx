@@ -37,7 +37,7 @@ interface PageStatus {
   seoScore: number
   aieoScore: number
   traffic: number
-  lastUpdated?: string
+  lastUpdated?: number
   sourceUrl: string
   pouchUrl: string
   imagesCount: number
@@ -45,7 +45,7 @@ interface PageStatus {
   recommendation: string
 }
 
-type SortKey = 'title' | 'traffic' | 'seoScore' | 'aieoScore' | 'imagesCount' | 'wordCount'
+type SortKey = 'title' | 'traffic' | 'seoScore' | 'aieoScore' | 'imagesCount' | 'wordCount' | 'lastUpdated'
 type SortOrder = 'asc' | 'desc'
 
 export default function SeoMigrationDashboard() {
@@ -100,7 +100,7 @@ export default function SeoMigrationDashboard() {
 
         if (isMigrated) baseTraffic *= 1.4
 
-        const routeData = (pageMetrics as Record<string, {words: number, images: number}>)[route] || null
+        const routeData = (pageMetrics as Record<string, {words: number, images: number, lastUpdated: number}>)[route] || null
 
         const seoScore = (isMigrated ? 85 : 40) + (isSyncedDatabase?.meta_description ? 10 : 0)
         const aieoScore = (isMigrated ? 70 : 30) + (isSyncedDatabase?.content?.faqs ? 20 : 0)
@@ -135,7 +135,7 @@ export default function SeoMigrationDashboard() {
           seoScore,
           aieoScore,
           traffic: Math.floor(baseTraffic),
-          lastUpdated: isSyncedDatabase?.updated_at,
+          lastUpdated: routeData ? routeData.lastUpdated : (isSyncedDatabase ? new Date(isSyncedDatabase.updated_at).getTime() : 0),
           sourceUrl: `https://achievepack.com/${slug}`,
           pouchUrl: `https://pouch.eco${route}`, // Exact route from mapping
           imagesCount,
@@ -314,6 +314,11 @@ export default function SeoMigrationDashboard() {
                     AIEO 分數 <SortIcon active={sortKey === 'aieoScore'} order={sortOrder} />
                   </div>
                 </th>
+                <th className="p-4 cursor-pointer hover:bg-gray-200 transition-colors text-center" onClick={() => handleSort('lastUpdated')}>
+                  <div className="flex items-center justify-center gap-2 font-black uppercase text-xs">
+                    最後更新 (Last Updated) <SortIcon active={sortKey === 'lastUpdated'} order={sortOrder} />
+                  </div>
+                </th>
                 <th className="p-4 font-black uppercase text-xs">
                   優化建議 (Action)
                 </th>
@@ -352,6 +357,11 @@ export default function SeoMigrationDashboard() {
                     </td>
                     <td className="p-4 text-center">
                       <ScoreBadge value={page.aieoScore} color="purple" />
+                    </td>
+                    <td className="p-4 text-center">
+                      <div className="text-xs font-mono text-gray-500">
+                        {page.lastUpdated ? new Date(page.lastUpdated).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : '-'}
+                      </div>
                     </td>
                     <td className="p-4">
                       <div className="flex items-start gap-2">

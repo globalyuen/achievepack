@@ -101,7 +101,7 @@ export default function PouchPetFoodPage() {
         <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://pouch.eco/all-product-photos/IMG_4365.webp" />
+        <meta property="og:image" content="https://pouch.eco/imgs/illustrated/a_pet_treats_v2_seal_7677464.webp" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
@@ -221,7 +221,7 @@ export default function PouchPetFoodPage() {
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Pet Packaging<br/>In Action</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 
-              src="/all-product-photos/IMG_4365.webp" 
+              src="/imgs/illustrated/a_pet_treats_v2_seal_7677464.webp" 
               alt="Compostable dog treat bag" 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
               caption="Dog Treat Pouches"

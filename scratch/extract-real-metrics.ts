@@ -36,7 +36,7 @@ while ((match = dynamicImportRegex.exec(content)) !== null) {
 }
 
 const routeRegex = /<Route\s+path="([^"]+)"\s+element={<([a-zA-Z0-9_]+)/g
-const routeMetrics: Record<string, { words: number, images: number }> = {}
+const routeMetrics: Record<string, { words: number, images: number, lastUpdated: number }> = {}
 
 while ((match = routeRegex.exec(content)) !== null) {
   const route = match[1]
@@ -48,6 +48,8 @@ while ((match = routeRegex.exec(content)) !== null) {
   
   if (filePath && fs.existsSync(filePath)) {
     const fileContent = fs.readFileSync(filePath, 'utf8')
+    const fileStats = fs.statSync(filePath)
+    const mtimeMs = fileStats.mtimeMs
     
     const imagesCount = (fileContent.match(/<img|<ClickableImage|<HeroImage/g) || []).length
     
@@ -58,9 +60,13 @@ while ((match = routeRegex.exec(content)) !== null) {
     if (wordCount < 50) wordCount = 150 
 
     if (!routeMetrics[route]) {
-      routeMetrics[route] = { words: wordCount, images: imagesCount }
+      routeMetrics[route] = { words: wordCount, images: imagesCount, lastUpdated: mtimeMs }
     } else {
-      routeMetrics[route] = { words: wordCount, images: Math.max(imagesCount, routeMetrics[route].images) }
+      routeMetrics[route] = { 
+        words: wordCount, 
+        images: Math.max(imagesCount, routeMetrics[route].images),
+        lastUpdated: Math.max(mtimeMs, routeMetrics[route].lastUpdated)
+      }
     }
   }
 }
