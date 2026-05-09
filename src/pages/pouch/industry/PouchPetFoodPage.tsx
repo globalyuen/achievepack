@@ -485,7 +485,7 @@ export default function PouchPetFoodPage() {
             </p>
             
             <ClickableImage 
-              src="/all-product-photos/IMG_4376.webp" 
+              src="/imgs/blog/Sustainable-pet/a_pet_food_material_comparison_4636150.webp" 
               alt="High barrier compostable film structure for pet treats" 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
               caption="High-barrier protection without the permanent plastic."
@@ -606,7 +606,7 @@ export default function PouchPetFoodPage() {
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
-                  src="/all-product-photos/IMG_4378.webp"
+                  src="/imgs/topics/compostable_coffee_bags.png"
                   alt="Compostable Coffee Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
@@ -631,7 +631,7 @@ export default function PouchPetFoodPage() {
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
-                  src="/all-product-photos/IMG_4376.webp"
+                  src="/imgs/seo-photos/snacksmart_pouch.png"
                   alt="Compostable Snack Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
