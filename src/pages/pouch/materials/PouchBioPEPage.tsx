@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import { motion } from 'framer-motion'
 import { Leaf, Package, CheckCircle, Award, Globe, Shield, Zap, Recycle, ArrowRight, BarChart3, Factory } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
