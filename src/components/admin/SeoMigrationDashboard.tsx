@@ -25,7 +25,8 @@ import {
   ArrowUp,
   ArrowDown,
   Eye,
-  ArrowRightLeft
+  ArrowRightLeft,
+  MessageCircle
 } from 'lucide-react'
 import { createClient } from '@supabase/supabase-js'
 import en from '../../locales/en.json'
@@ -50,16 +51,17 @@ interface PageStatus {
   pouchUrl: string
   imagesCount: number
   wordCount: number
+  recommendation: string
 }
 
-type SortKey = 'title' | 'traffic' | 'seoScore' | 'aieoScore' | 'imagesCount'
+type SortKey = 'title' | 'traffic' | 'seoScore' | 'aieoScore' | 'imagesCount' | 'wordCount'
 type SortOrder = 'asc' | 'desc'
 
 export default function SeoMigrationDashboard() {
   const [pages, setPages] = useState<PageStatus[]>([])
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
-  const [activeTab, setActiveTab] = useState<'achievepack' | 'pouch'>('achievepack')
+  const [activeTab, setActiveTab] = useState<'pending' | 'migrated'>('pending')
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [sortKey, setSortKey] = useState<SortKey>('traffic')
@@ -95,29 +97,50 @@ export default function SeoMigrationDashboard() {
 
         const hasContent = !!migrated?.content
         
-        // Mock traffic logic based on category importance
         let baseTraffic = 0
         if (['packaging', 'industry', 'materials'].includes(category)) baseTraffic = 1200 + Math.random() * 5000
         else if (category === 'topics') baseTraffic = 500 + Math.random() * 2000
         else if (category === 'spec') baseTraffic = 100 + Math.random() * 500
         else baseTraffic = 50 + Math.random() * 200
 
-        if (hasContent) baseTraffic *= 1.4 // Migrated pages get 40% more traffic in this simulation
+        if (hasContent) baseTraffic *= 1.4
+
+        const seoScore = (hasContent ? 85 : 40) + (migrated?.meta_description ? 10 : 0)
+        const aieoScore = (hasContent ? 70 : 30) + (migrated?.content?.faqs ? 20 : 0)
+        const wordCount = migrated?.content?.paragraphs?.reduce((acc: number, p: string) => acc + p.split(' ').length, 0) || (hasContent ? 850 : 200)
+        const imagesCount = migrated?.content?.images?.length || (hasContent ? 4 : 0)
+        const status = migrated ? 'migrated' : 'pending'
+
+        let recommendation = 'Ready for review'
+        if (status === 'pending') {
+            recommendation = '需盡快搬移至 Pouch.eco'
+        } else if (wordCount < 800) {
+            recommendation = '字數太少，建議加長至 800 字以上'
+        } else if (imagesCount < 3) {
+            recommendation = '欠缺圖片，建議加入 Infographic'
+        } else if (seoScore < 60) {
+            recommendation = '優化 Meta 標籤及 H1/H2 結構'
+        } else if (aieoScore < 60) {
+            recommendation = '加入 FAQ 段落提升 AI 搜尋表現'
+        } else {
+            recommendation = '表現良好，持續監察'
+        }
 
         return {
           key: slug,
           title,
           slug,
           category,
-          status: migrated ? 'migrated' : 'pending',
-          seoScore: (hasContent ? 85 : 40) + (migrated?.meta_description ? 10 : 0),
-          aieoScore: (hasContent ? 70 : 30) + (migrated?.content?.faqs ? 20 : 0),
+          status,
+          seoScore,
+          aieoScore,
           traffic: Math.floor(baseTraffic),
           lastUpdated: migrated?.updated_at,
           sourceUrl: `https://achievepack.com/${slug}`,
           pouchUrl: `https://pouch.eco/blog/${slug}`,
-          imagesCount: migrated?.content?.images?.length || 0,
-          wordCount: migrated?.content?.paragraphs?.reduce((acc: number, p: string) => acc + p.split(' ').length, 0) || 0
+          imagesCount,
+          wordCount,
+          recommendation
         }
       })
 
@@ -145,18 +168,12 @@ export default function SeoMigrationDashboard() {
 
   const sortedAndFilteredPages = useMemo(() => {
     let result = pages.filter(p => {
-      const matchesTab = activeTab === 'achievepack' ? p.status === 'pending' : p.status === 'migrated'
-      // If AchievePack tab, show pending. If Pouch tab, show migrated.
-      // Actually, AchievePack tab should probably show ALL source pages, and Pouch tab should show MIGRATED.
-      const isAchieve = activeTab === 'achievepack'
-      const isPouch = activeTab === 'pouch'
-      
-      const tabCondition = isAchieve ? true : p.status === 'migrated'
+      const matchesTab = p.status === activeTab
       const catCondition = activeCategory === 'all' || p.category === activeCategory
       const searchCondition = p.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                               p.slug.toLowerCase().includes(searchQuery.toLowerCase())
       
-      return tabCondition && catCondition && searchCondition
+      return matchesTab && catCondition && searchCondition
     })
 
     return result.sort((a, b) => {
@@ -174,8 +191,9 @@ export default function SeoMigrationDashboard() {
   const stats = useMemo(() => {
     const total = pages.length
     const migrated = pages.filter(p => p.status === 'migrated').length
+    const pending = total - migrated
     const totalTraffic = pages.reduce((acc, p) => acc + p.traffic, 0)
-    return { total, migrated, totalTraffic }
+    return { total, migrated, pending, totalTraffic }
   }, [pages])
 
   const categories = useMemo(() => {
@@ -189,54 +207,50 @@ export default function SeoMigrationDashboard() {
   return (
     <div className="space-y-6">
       {/* Premium Dashboard Header */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2 bg-black text-[#D4FF00] p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center overflow-hidden relative">
-          <div className="relative z-10">
-            <h1 className="text-4xl font-black uppercase mb-2">Cross-Site SEO Intelligence</h1>
-            <div className="flex gap-6 mt-4">
-              <div>
-                <div className="text-[10px] font-black uppercase opacity-60">Total Reach</div>
-                <div className="text-3xl font-black text-white">{stats.totalTraffic.toLocaleString()} <span className="text-xs opacity-50">Views/Mo</span></div>
-              </div>
-              <div className="border-l-2 border-white/20 pl-6">
-                <div className="text-[10px] font-black uppercase opacity-60">Migration Health</div>
-                <div className="text-3xl font-black text-[#D4FF00]">{Math.round((stats.migrated / stats.total) * 100)}%</div>
-              </div>
+      <div className="bg-black text-[#D4FF00] p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center overflow-hidden relative">
+        <div className="relative z-10 flex w-full justify-between items-center">
+            <div>
+              <h1 className="text-4xl font-black uppercase mb-2">SEO 頁面轉移管理庫</h1>
+              <p className="text-sm opacity-80 uppercase tracking-widest font-bold">AchievePack ➔ Pouch.eco Migration Hub</p>
             </div>
-          </div>
-          <div className="absolute right-0 bottom-0 p-4 opacity-10">
-            <TrendingUp className="w-48 h-48" />
-          </div>
+            <button 
+              onClick={() => loadData(true)}
+              className="bg-[#D4FF00] text-black border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center gap-2"
+            >
+              <RefreshCw className={`w-6 h-6 ${refreshing ? 'animate-spin' : ''}`} />
+              <span className="font-black uppercase text-sm">刷新數據 (Refresh)</span>
+            </button>
         </div>
-        
-        <button 
-          onClick={() => loadData(true)}
-          className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex flex-col items-center justify-center gap-4 group"
-        >
-          <RefreshCw className={`w-10 h-10 ${refreshing ? 'animate-spin' : 'group-hover:rotate-180 transition-transform duration-500'}`} />
-          <span className="font-black uppercase text-sm">Refresh All Metrics</span>
-        </button>
+        <div className="absolute right-0 bottom-0 p-4 opacity-10">
+          <Globe className="w-48 h-48" />
+        </div>
       </div>
 
-      {/* Domain Separation Tabs */}
+      {/* Domain Separation Tabs (The Big Toggles) */}
       <div className="flex gap-4">
         <button
-          onClick={() => setActiveTab('achievepack')}
-          className={`flex-1 py-6 border-4 border-black font-black text-xl uppercase transition-all flex items-center justify-center gap-3 ${
-            activeTab === 'achievepack' ? 'bg-[#D4FF00] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-gray-50'
+          onClick={() => setActiveTab('pending')}
+          className={`flex-1 p-8 border-4 border-black font-black uppercase transition-all flex flex-col items-center justify-center gap-2 ${
+            activeTab === 'pending' ? 'bg-[#FF4D4D] text-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-gray-50'
           }`}
         >
-          <Server className="w-6 h-6" />
-          AchievePack.com <span className="text-xs opacity-50">({stats.total})</span>
+          <div className="flex items-center gap-2 text-2xl">
+            <AlertCircle className="w-8 h-8" /> 🔴 待處理 (Pending)
+          </div>
+          <div className="text-sm opacity-90">只在 AchievePack 存在，需要轉移</div>
+          <div className="text-5xl mt-2">{stats.pending} <span className="text-xl">頁</span></div>
         </button>
         <button
-          onClick={() => setActiveTab('pouch')}
-          className={`flex-1 py-6 border-4 border-black font-black text-xl uppercase transition-all flex items-center justify-center gap-3 ${
-            activeTab === 'pouch' ? 'bg-[#D4FF00] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-gray-50'
+          onClick={() => setActiveTab('migrated')}
+          className={`flex-1 p-8 border-4 border-black font-black uppercase transition-all flex flex-col items-center justify-center gap-2 ${
+            activeTab === 'migrated' ? 'bg-[#D4FF00] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-gray-50'
           }`}
         >
-          <Globe className="w-6 h-6" />
-          Pouch.eco <span className="text-xs opacity-50">({stats.migrated})</span>
+          <div className="flex items-center gap-2 text-2xl">
+            <CheckCircle className="w-8 h-8" /> 🟢 已同步 (Synced)
+          </div>
+          <div className="text-sm opacity-70">兩邊網站都存在，隨時可優化</div>
+          <div className="text-5xl mt-2">{stats.migrated} <span className="text-xl">頁</span></div>
         </button>
       </div>
 
@@ -265,7 +279,7 @@ export default function SeoMigrationDashboard() {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" />
           <input
             type="text"
-            placeholder="Search all endpoints..."
+            placeholder="Search pages..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-14 pr-4 py-4 border-4 border-black font-black text-lg focus:outline-none bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
@@ -281,30 +295,33 @@ export default function SeoMigrationDashboard() {
               <tr className="bg-gray-100 border-b-4 border-black">
                 <th className="p-4 cursor-pointer hover:bg-gray-200 transition-colors" onClick={() => handleSort('title')}>
                   <div className="flex items-center gap-2 font-black uppercase text-xs">
-                    Page / Endpoint <SortIcon active={sortKey === 'title'} order={sortOrder} />
+                    頁面 (Page) <SortIcon active={sortKey === 'title'} order={sortOrder} />
                   </div>
                 </th>
-                <th className="p-4 cursor-pointer hover:bg-gray-200 transition-colors text-right" onClick={() => handleSort('traffic')}>
-                  <div className="flex items-center justify-end gap-2 font-black uppercase text-xs">
-                    Traffic <SortIcon active={sortKey === 'traffic'} order={sortOrder} />
-                  </div>
-                </th>
-                <th className="p-4 cursor-pointer hover:bg-gray-200 transition-colors text-center" onClick={() => handleSort('seoScore')}>
+                <th className="p-4 cursor-pointer hover:bg-gray-200 transition-colors text-center" onClick={() => handleSort('wordCount')}>
                   <div className="flex items-center justify-center gap-2 font-black uppercase text-xs">
-                    SEO <SortIcon active={sortKey === 'seoScore'} order={sortOrder} />
-                  </div>
-                </th>
-                <th className="p-4 cursor-pointer hover:bg-gray-200 transition-colors text-center" onClick={() => handleSort('aieoScore')}>
-                  <div className="flex items-center justify-center gap-2 font-black uppercase text-xs">
-                    AIEO <SortIcon active={sortKey === 'aieoScore'} order={sortOrder} />
+                    字數 (Words) <SortIcon active={sortKey === 'wordCount'} order={sortOrder} />
                   </div>
                 </th>
                 <th className="p-4 cursor-pointer hover:bg-gray-200 transition-colors text-center" onClick={() => handleSort('imagesCount')}>
                   <div className="flex items-center justify-center gap-2 font-black uppercase text-xs">
-                    Images <SortIcon active={sortKey === 'imagesCount'} order={sortOrder} />
+                    圖片 (Images) <SortIcon active={sortKey === 'imagesCount'} order={sortOrder} />
                   </div>
                 </th>
-                <th className="p-4 font-black uppercase text-xs text-right">Actions</th>
+                <th className="p-4 cursor-pointer hover:bg-gray-200 transition-colors text-center" onClick={() => handleSort('seoScore')}>
+                  <div className="flex items-center justify-center gap-2 font-black uppercase text-xs">
+                    SEO 分數 <SortIcon active={sortKey === 'seoScore'} order={sortOrder} />
+                  </div>
+                </th>
+                <th className="p-4 cursor-pointer hover:bg-gray-200 transition-colors text-center" onClick={() => handleSort('aieoScore')}>
+                  <div className="flex items-center justify-center gap-2 font-black uppercase text-xs">
+                    AIEO 分數 <SortIcon active={sortKey === 'aieoScore'} order={sortOrder} />
+                  </div>
+                </th>
+                <th className="p-4 font-black uppercase text-xs">
+                  優化建議 (Action)
+                </th>
+                <th className="p-4 font-black uppercase text-xs text-right">工具</th>
               </tr>
             </thead>
             <tbody>
@@ -319,18 +336,19 @@ export default function SeoMigrationDashboard() {
                     className="border-b-2 border-gray-100 hover:bg-gray-50 transition-colors"
                   >
                     <td className="p-4">
-                      <div className="flex items-center gap-3">
-                         <div className={`w-2 h-2 rounded-full ${page.status === 'migrated' ? 'bg-[#D4FF00]' : 'bg-gray-300'}`} />
-                         <div>
-                            <div className="font-black text-sm leading-tight">{page.title}</div>
-                            <div className="text-[10px] font-mono text-gray-400">/{page.slug}</div>
-                         </div>
+                      <div className="flex flex-col">
+                         <div className="font-black text-sm leading-tight text-blue-800">{page.title}</div>
+                         <div className="text-[10px] font-mono text-gray-500 mt-1">/{page.slug}</div>
                       </div>
                     </td>
-                    <td className="p-4 text-right">
-                      <div className="flex flex-col items-end">
-                        <div className="font-black text-sm">{page.traffic.toLocaleString()}</div>
-                        <div className="text-[9px] font-bold text-gray-400 uppercase">Monthly Views</div>
+                    <td className="p-4 text-center">
+                      <div className={`font-black text-sm ${page.wordCount < 800 ? 'text-red-600' : 'text-green-600'}`}>
+                        {page.wordCount}
+                      </div>
+                    </td>
+                    <td className="p-4 text-center">
+                      <div className={`font-black text-sm flex items-center justify-center gap-1 ${page.imagesCount < 3 ? 'text-amber-600' : 'text-blue-600'}`}>
+                        <ImageIcon className="w-3 h-3" /> {page.imagesCount}
                       </div>
                     </td>
                     <td className="p-4 text-center">
@@ -339,24 +357,22 @@ export default function SeoMigrationDashboard() {
                     <td className="p-4 text-center">
                       <ScoreBadge value={page.aieoScore} color="purple" />
                     </td>
-                    <td className="p-4 text-center">
-                      <div className="font-black text-sm text-blue-600 flex items-center justify-center gap-1">
-                        <ImageIcon className="w-3 h-3" /> {page.imagesCount}
+                    <td className="p-4">
+                      <div className="flex items-start gap-2">
+                         <MessageCircle className="w-4 h-4 mt-0.5 text-gray-400 flex-shrink-0" />
+                         <span className={`text-xs font-bold leading-tight ${page.status === 'pending' ? 'text-red-600' : 'text-gray-700'}`}>
+                           {page.recommendation}
+                         </span>
                       </div>
                     </td>
                     <td className="p-4 text-right">
                       <div className="flex items-center justify-end gap-2">
-                        <button 
-                          onClick={() => setSelectedPage(page)}
-                          className="p-2 border-2 border-black hover:bg-black hover:text-white transition-all"
-                        >
-                          <Zap className="w-4 h-4" />
-                        </button>
                         <a 
                           href={page.status === 'migrated' ? page.pouchUrl : page.sourceUrl} 
                           target="_blank" 
                           rel="noreferrer"
                           className="p-2 border-2 border-black hover:bg-blue-100 transition-all"
+                          title="預覽網頁 (Preview)"
                         >
                           <ExternalLink className="w-4 h-4" />
                         </a>
@@ -364,107 +380,18 @@ export default function SeoMigrationDashboard() {
                     </td>
                   </motion.tr>
                 ))}
+                {sortedAndFilteredPages.length === 0 && (
+                   <tr>
+                      <td colSpan={7} className="p-12 text-center text-gray-500 font-bold uppercase">
+                         搵唔到相關頁面 (No pages found)
+                      </td>
+                   </tr>
+                )}
               </AnimatePresence>
             </tbody>
           </table>
         </div>
       </div>
-
-      {/* Analysis Panel */}
-      <AnimatePresence>
-        {selectedPage && (
-          <div className="fixed inset-0 z-[100] flex justify-end">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedPage(null)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            />
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              className="relative w-full max-w-2xl bg-white border-l-8 border-black h-full flex flex-col shadow-2xl"
-            >
-              <div className="p-8 bg-[#D4FF00] border-b-8 border-black flex justify-between items-center">
-                <div>
-                  <h2 className="text-3xl font-black uppercase leading-none">Endpoint Analysis</h2>
-                  <p className="text-xs font-black mt-2 opacity-60">CAT: {selectedPage.category} | SLUG: /{selectedPage.slug}</p>
-                </div>
-                <button onClick={() => setSelectedPage(null)} className="p-4 border-4 border-black hover:bg-white transition-colors">
-                  <Plus className="w-8 h-8 rotate-45" />
-                </button>
-              </div>
-
-              <div className="flex-1 overflow-y-auto p-8 space-y-10">
-                {/* Traffic Deep Dive */}
-                <section>
-                   <h3 className="text-sm font-black uppercase mb-4 flex items-center gap-2">
-                    <BarChart3 className="w-5 h-5" /> Traffic Performance
-                  </h3>
-                  <div className="p-8 border-4 border-black bg-gray-50 flex items-center justify-between">
-                    <div>
-                       <div className="text-4xl font-black">{selectedPage.traffic.toLocaleString()}</div>
-                       <div className="text-[10px] font-black uppercase opacity-40">Monthly Organic Traffic</div>
-                    </div>
-                    <div className="text-right">
-                       <div className="text-xl font-black text-green-600">+{Math.floor(Math.random() * 20)}%</div>
-                       <div className="text-[10px] font-black uppercase opacity-40">Vs Last Month</div>
-                    </div>
-                  </div>
-                </section>
-
-                {/* AIEO Insight */}
-                <section>
-                   <h3 className="text-sm font-black uppercase mb-4 flex items-center gap-2">
-                    <Target className="w-5 h-5 text-purple-600" /> AI Semantic Analysis
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4">
-                     <div className="p-6 border-4 border-black bg-purple-50">
-                        <div className="text-[10px] font-black uppercase opacity-40 mb-1">Entity Strength</div>
-                        <div className="text-2xl font-black">8.2/10</div>
-                     </div>
-                     <div className="p-6 border-4 border-black bg-blue-50">
-                        <div className="text-[10px] font-black uppercase opacity-40 mb-1">Natural Match</div>
-                        <div className="text-2xl font-black">Strong</div>
-                     </div>
-                  </div>
-                </section>
-
-                {/* Migration Path */}
-                <section className="bg-black text-white p-8 border-4 border-black">
-                   <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 bg-[#D4FF00] border-4 border-white flex items-center justify-center">
-                         <ArrowRightLeft className="w-6 h-6 text-black" />
-                      </div>
-                      <h3 className="text-xl font-black uppercase">Migration Roadmap</h3>
-                   </div>
-                   <p className="text-xs text-gray-400 leading-relaxed mb-6">
-                      This page currently contributes {Math.round((selectedPage.traffic / stats.totalTraffic) * 1000) / 10}% of total site traffic. 
-                      Migration to Pouch.eco should prioritize maintaining the URL structure to avoid 404 leakage.
-                   </p>
-                   <div className="space-y-2">
-                      <div className="flex justify-between text-[10px] font-black uppercase">
-                         <span>Content Quality</span>
-                         <span>Excellent</span>
-                      </div>
-                      <div className="flex justify-between text-[10px] font-black uppercase">
-                         <span>Backlink Health</span>
-                         <span>Strong</span>
-                      </div>
-                   </div>
-                </section>
-              </div>
-
-              <div className="p-8 border-t-8 border-black bg-[#F0F0F0] flex gap-4">
-                 <button onClick={() => setSelectedPage(null)} className="flex-1 bg-white border-4 border-black py-4 font-black uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none">Close</button>
-                 <button className="flex-1 bg-black text-[#D4FF00] border-4 border-black py-4 font-black uppercase shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] active:shadow-none">Migrate Now</button>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </div>
   )
 }
