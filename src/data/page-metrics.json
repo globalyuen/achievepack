@@ -79,6 +79,46 @@
     "images": 3,
     "lastUpdated": 1778340990514.4167
   },
+  "/knowledge/all-options": {
+    "words": 508,
+    "images": 8,
+    "lastUpdated": 1778341321746.0493
+  },
+  "/knowledge/size-guide": {
+    "words": 229,
+    "images": 4,
+    "lastUpdated": 1778206676478.164
+  },
+  "/knowledge/pouch-sizing": {
+    "words": 248,
+    "images": 5,
+    "lastUpdated": 1778341388980.81
+  },
+  "/knowledge/printing-types": {
+    "words": 492,
+    "images": 2,
+    "lastUpdated": 1778341390233.6099
+  },
+  "/knowledge/workflow": {
+    "words": 415,
+    "images": 4,
+    "lastUpdated": 1778341470338.8303
+  },
+  "/knowledge/k-seal-stand-up-pouches": {
+    "words": 605,
+    "images": 7,
+    "lastUpdated": 1778341471511.7717
+  },
+  "/knowledge/white-ink-underprint": {
+    "words": 929,
+    "images": 6,
+    "lastUpdated": 1778341528835.0588
+  },
+  "/knowledge/fin-seal-lap-seal": {
+    "words": 756,
+    "images": 9,
+    "lastUpdated": 1778341530010.6453
+  },
   "/blog/industrial-compostable-guide": {
     "words": 150,
     "images": 0,
@@ -823,46 +863,6 @@
     "words": 528,
     "images": 2,
     "lastUpdated": 1767359390239.42
-  },
-  "/knowledge/all-options": {
-    "words": 288,
-    "images": 8,
-    "lastUpdated": 1777996054246.2246
-  },
-  "/knowledge/size-guide": {
-    "words": 117,
-    "images": 3,
-    "lastUpdated": 1777996054247.8372
-  },
-  "/knowledge/pouch-sizing": {
-    "words": 89,
-    "images": 5,
-    "lastUpdated": 1777996054247.2046
-  },
-  "/knowledge/printing-types": {
-    "words": 100,
-    "images": 2,
-    "lastUpdated": 1777996054247.4573
-  },
-  "/knowledge/workflow": {
-    "words": 58,
-    "images": 4,
-    "lastUpdated": 1777996054248.4531
-  },
-  "/knowledge/k-seal-stand-up-pouches": {
-    "words": 605,
-    "images": 7,
-    "lastUpdated": 1768795825612.1208
-  },
-  "/knowledge/white-ink-underprint": {
-    "words": 929,
-    "images": 6,
-    "lastUpdated": 1768882175327.573
-  },
-  "/knowledge/fin-seal-lap-seal": {
-    "words": 756,
-    "images": 9,
-    "lastUpdated": 1768882175390.1191
   },
   "/support/faqs": {
     "words": 127,

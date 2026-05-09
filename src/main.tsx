@@ -158,6 +158,15 @@ const PouchUSACoffeePage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUS
 const PouchUSACompostableHubPage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSACompostableHubPage'))
 const PouchUSALabelingGuidePage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSALabelingGuidePage'))
 const PouchUSASnacksPage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSASnacksPage'))
+
+const PouchAllOptionsPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchAllOptionsPage'))
+const PouchSizeGuidePage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchSizeGuidePage'))
+const PouchPouchSizingPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchPouchSizingPage'))
+const PouchPrintingTypesPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchPrintingTypesPage'))
+const PouchWorkflowPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchWorkflowPage'))
+const PouchKSealStandUpPouchesPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchKSealStandUpPouchesPage'))
+const PouchWhiteInkUnderprintPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchWhiteInkUnderprintPage'))
+const PouchFinSealLapSealPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchFinSealLapSealPage'))
 const PouchRecycledOceanPlasticPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecycledOceanPlasticPackagingPage'))
 const PouchMinimalistD2CPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMinimalistD2CPackagingPage'))
 const DynamicPouchTopicPage = lazyWithRetry(() => import('./pages/pouch/topics/DynamicPouchTopicPage'))
@@ -529,6 +538,16 @@ if (getDomain() === 'pouch') {
                   <Route path="/usa/compostable-packaging" element={<PouchUSACompostableHubPage />} />
                   <Route path="/usa/labeling-guide" element={<PouchUSALabelingGuidePage />} />
                   <Route path="/usa/snacks-packaging" element={<PouchUSASnacksPage />} />
+
+                  {/* Knowledge Pages */}
+                  <Route path="/knowledge/all-options" element={<PouchAllOptionsPage />} />
+                  <Route path="/knowledge/size-guide" element={<PouchSizeGuidePage />} />
+                  <Route path="/knowledge/pouch-sizing" element={<PouchPouchSizingPage />} />
+                  <Route path="/knowledge/printing-types" element={<PouchPrintingTypesPage />} />
+                  <Route path="/knowledge/workflow" element={<PouchWorkflowPage />} />
+                  <Route path="/knowledge/k-seal-stand-up-pouches" element={<PouchKSealStandUpPouchesPage />} />
+                  <Route path="/knowledge/white-ink-underprint" element={<PouchWhiteInkUnderprintPage />} />
+                  <Route path="/knowledge/fin-seal-lap-seal" element={<PouchFinSealLapSealPage />} />
                   <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} />
                   <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} />
                   <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
