@@ -11,12 +11,11 @@
         "strict": true,
         "skipLibCheck": true,
         "noEmit": true,
-        "types": [
-            "node"
-        ],
         "resolveJsonModule": true,
         "allowJs": true,
-        "esModuleInterop": true
+        "types": [
+            "node"
+        ]
     },
     "include": [
         "api/**/*"
