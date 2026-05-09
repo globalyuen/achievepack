@@ -20,7 +20,7 @@
     "lastUpdated": 1778058111092.8833
   },
   "/blog": {
-    "words": 123,
+    "words": 241,
     "images": 2,
     "lastUpdated": 1778297545834.012
   },
@@ -165,12 +165,12 @@
     "lastUpdated": 1778056599104.9539
   },
   "/packaging/stand-up-pouches": {
-    "words": 140,
+    "words": 557,
     "images": 12,
     "lastUpdated": 1778314250921.7354
   },
   "/packaging/flat-bottom-bags": {
-    "words": 53,
+    "words": 524,
     "images": 4,
     "lastUpdated": 1778314283237.8325
   },
@@ -180,14 +180,14 @@
     "lastUpdated": 1778333090672.5798
   },
   "/materials/bio-pe": {
-    "words": 201,
+    "words": 534,
     "images": 4,
-    "lastUpdated": 1778333068726.996
+    "lastUpdated": 1778333253310.485
   },
   "/materials/pcr": {
-    "words": 214,
+    "words": 566,
     "images": 3,
-    "lastUpdated": 1778333113518.897
+    "lastUpdated": 1778333254545.4888
   },
   "/materials/home-compostable": {
     "words": 208,
@@ -200,7 +200,7 @@
     "lastUpdated": 1778206676479.4343
   },
   "/materials/kraft-high-barrier": {
-    "words": 70,
+    "words": 218,
     "images": 1,
     "lastUpdated": 1778206676480.6584
   },
@@ -210,12 +210,12 @@
     "lastUpdated": 1778201526167.0374
   },
   "/materials/plastic-free-kraft": {
-    "words": 150,
+    "words": 206,
     "images": 1,
     "lastUpdated": 1778201526166.7744
   },
   "/industry/baby-food": {
-    "words": 150,
+    "words": 305,
     "images": 5,
     "lastUpdated": 1778246269690.8147
   },
@@ -225,7 +225,7 @@
     "lastUpdated": 1778053923726.1125
   },
   "/packaging/flat-pouches": {
-    "words": 52,
+    "words": 148,
     "images": 4,
     "lastUpdated": 1778053974420.8408
   },
@@ -235,37 +235,37 @@
     "lastUpdated": 1778053981109.9817
   },
   "/industry/frozen-food": {
-    "words": 150,
+    "words": 279,
     "images": 5,
     "lastUpdated": 1778246260489.1936
   },
   "/topics/eco-friendly-food-packaging": {
-    "words": 59,
+    "words": 261,
     "images": 7,
     "lastUpdated": 1778245120650.1929
   },
   "/topics/compostable-baby-food-bags": {
-    "words": 150,
+    "words": 331,
     "images": 6,
     "lastUpdated": 1778245086648.4585
   },
   "/topics/green-coffee-materials": {
-    "words": 51,
+    "words": 263,
     "images": 5,
     "lastUpdated": 1778246280336.4963
   },
   "/topics/recyclable-snack-packaging": {
-    "words": 150,
+    "words": 301,
     "images": 7,
     "lastUpdated": 1778245131274.8232
   },
   "/topics/custom-printed-sustainable-pouches": {
-    "words": 150,
+    "words": 303,
     "images": 12,
     "lastUpdated": 1778245097806.4124
   },
   "/topics/digital-printing-eco-packaging": {
-    "words": 50,
+    "words": 296,
     "images": 7,
     "lastUpdated": 1778245108982.5488
   },
@@ -275,7 +275,7 @@
     "lastUpdated": 1778246311095.9219
   },
   "/topics/eco-packaging-regulations": {
-    "words": 150,
+    "words": 351,
     "images": 7,
     "lastUpdated": 1778246291034.7666
   },
@@ -285,12 +285,12 @@
     "lastUpdated": 1778246301870.0332
   },
   "/topics/low-moq-startup-packaging": {
-    "words": 50,
+    "words": 278,
     "images": 6,
     "lastUpdated": 1778246320726.267
   },
   "/topics/dtc-sustainable-packaging": {
-    "words": 54,
+    "words": 257,
     "images": 6,
     "lastUpdated": 1778245021226.4673
   },
@@ -305,7 +305,7 @@
     "lastUpdated": 1778224384804.1536
   },
   "/topics/mono-material-pe-pouches": {
-    "words": 150,
+    "words": 152,
     "images": 1,
     "lastUpdated": 1778224396445.7627
   },
@@ -315,22 +315,22 @@
     "lastUpdated": 1778224378706.8203
   },
   "/topics/recycled-ocean-plastic-packaging": {
-    "words": 150,
+    "words": 156,
     "images": 1,
     "lastUpdated": 1778224402307.9414
   },
   "/topics/minimalist-d2c-packaging": {
-    "words": 150,
+    "words": 155,
     "images": 1,
     "lastUpdated": 1778224390546.644
   },
   "/industry/coffee-tea": {
-    "words": 150,
+    "words": 710,
     "images": 9,
     "lastUpdated": 1778314302735.8276
   },
   "/industry/pet-food": {
-    "words": 150,
+    "words": 679,
     "images": 9,
     "lastUpdated": 1778332952592.8113
   },
@@ -395,12 +395,12 @@
     "lastUpdated": 1770789803161.2097
   },
   "/products/recyclable-mono-material-pouches": {
-    "words": 61,
+    "words": 150,
     "images": 5,
     "lastUpdated": 1777996054283.327
   },
   "/products/coffee-bags-degassing-valve": {
-    "words": 68,
+    "words": 150,
     "images": 5,
     "lastUpdated": 1777996054280.7727
   },
@@ -410,7 +410,7 @@
     "lastUpdated": 1777996054283.1064
   },
   "/products/compostable-stand-up-pouches": {
-    "words": 63,
+    "words": 95,
     "images": 9,
     "lastUpdated": 1777996054281.4702
   },

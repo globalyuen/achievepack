@@ -63,7 +63,7 @@ while ((match = routeRegex.exec(content)) !== null) {
       routeMetrics[route] = { words: wordCount, images: imagesCount, lastUpdated: mtimeMs }
     } else {
       routeMetrics[route] = { 
-        words: wordCount, 
+        words: Math.max(wordCount, routeMetrics[route].words), 
         images: Math.max(imagesCount, routeMetrics[route].images),
         lastUpdated: Math.max(mtimeMs, routeMetrics[route].lastUpdated)
       }
