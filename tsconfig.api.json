@@ -13,7 +13,10 @@
         "noEmit": true,
         "types": [
             "node"
-        ]
+        ],
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "esModuleInterop": true
     },
     "include": [
         "api/**/*"
