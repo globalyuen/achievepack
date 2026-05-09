@@ -172,6 +172,102 @@ export default function PouchStandUpPouchesPage() {
         </div>
       </section>
 
+      {/* Deep Dive SEO Content */}
+      <section className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+            The Ultimate Guide to <span className="text-[#00FFFF]">Stand-Up Pouches</span>
+          </h2>
+          
+          <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
+            <p>
+              Stand-up pouches (SUP) have revolutionized the flexible packaging industry. Also known as Doypacks, these innovative bags feature a bottom gusset that allows them to stand upright on retail shelves, maximizing brand visibility and shelf appeal. Whether you're packaging artisanal coffee, organic pet treats, or premium granola, stand-up pouches offer a versatile and cost-effective solution compared to rigid containers like glass jars or metal tins.
+            </p>
+            
+            <img 
+              src="/imgs/store/pouch shape/stand-up.webp" 
+              alt="Custom printed stand up pouch displaying high quality graphics" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Why Brands Prefer Stand-Up Pouches</h3>
+            <p>
+              The primary advantage of the stand-up pouch is its structural design. The bottom gusset expands when the bag is filled, creating a sturdy base. This not only allows the product to act as its own billboard on crowded retail shelves but also makes the pouch incredibly space-efficient during shipping and storage. Before filling, these pouches lie flat, taking up a fraction of the space required for rigid packaging, which significantly reduces shipping costs and carbon footprint.
+            </p>
+            <p>
+              Additionally, stand-up pouches are highly customizable. With our digital printing technology, brands can achieve photo-quality graphics, vibrant colors, and sharp text. You can incorporate clear windows to showcase your product, resealable zippers to maintain freshness after opening, and tear notches for easy consumer access.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Sustainability: Compostable and Recyclable Options</h3>
+            <p>
+              At POUCH.ECO, we understand the critical shift towards sustainable packaging. Traditional stand-up pouches often rely on mixed-material plastics that are impossible to recycle. We've engineered our pouches to meet the highest sustainability standards without compromising on barrier properties or aesthetic appeal.
+            </p>
+            
+            <img 
+              src="/imgs/materials/comp_film_2.png" 
+              alt="Compostable film layers for sustainable stand up pouches" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <p>
+              Our product lineup includes TUV-certified home compostable pouches that break down into organic matter within 180 days in a backyard compost bin. For brands requiring different end-of-life solutions, we also offer mono-material recyclable pouches (PE/PE or PP/PP) that are fully compatible with soft plastic recycling streams. By offering these eco-friendly alternatives, we help startup brands align their packaging with their environmental values and meet the growing consumer demand for plastic-free alternatives.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Low MOQ for Startups and Emerging Brands</h3>
+            <p>
+              Historically, custom printed packaging required massive minimum order quantities (MOQs) of 10,000 to 50,000 units, creating a significant barrier to entry for small businesses. We leverage state-of-the-art digital printing to offer MOQs starting at just 500 units. This allows startups to test new products, launch seasonal flavors, and run promotional campaigns without tying up capital in excessive packaging inventory.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-gray-50 border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
+            Frequently Asked <span className="text-[#FF00FF]">Questions</span>
+          </h2>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: 'What is the minimum order quantity for custom stand-up pouches?',
+                a: 'Our minimum order quantity (MOQ) for custom printed stand-up pouches is exceptionally low, starting at just 500 units. This is ideal for startups, limited editions, or market testing.'
+              },
+              {
+                q: 'Can stand-up pouches hold liquids?',
+                a: 'Yes, we offer specialized stand-up pouches with spout fitments specifically designed for liquids, purees, and beverages. These feature specialized high-barrier films and reinforced seals to prevent leaks.'
+              },
+              {
+                q: 'Are your stand-up pouches food safe?',
+                a: 'Absolutely. All our pouches are manufactured using FDA-approved, food-safe materials. We provide COAs (Certificates of Analysis) to guarantee the safety and compliance of your packaging.'
+              },
+              {
+                q: 'Do you offer eco-friendly stand-up pouches?',
+                a: 'Yes, sustainability is our core focus. We offer fully home compostable stand-up pouches, as well as recyclable mono-material options, allowing you to reduce your environmental impact.'
+              }
+            ].map((faq, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              >
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase mb-3 flex items-start gap-3">
+                  <span className="text-[#FF00FF] flex-shrink-0">Q:</span>
+                  {faq.q}
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm text-gray-700 pl-8">
+                  <span className="font-bold text-[#FF00FF]">A:</span> {faq.a}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-[#00FFFF] border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">

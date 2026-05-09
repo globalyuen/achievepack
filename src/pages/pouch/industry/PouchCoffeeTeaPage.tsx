@@ -562,6 +562,58 @@ export default function PouchCoffeeTeaPage() {
         </div>
       </section>
 
+      {/* Deep Dive SEO Content */}
+      <section className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+            The Ultimate Guide to <span className="text-[#FF00FF]">Sustainable Coffee Packaging</span>
+          </h2>
+          
+          <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
+            <p>
+              The specialty coffee industry thrives on freshness, aroma, and meticulous attention to detail. However, for decades, the packaging required to preserve these delicate characteristics has relied on unrecyclable, multi-layer plastic and aluminum foil laminates. At POUCH.ECO, we are revolutionizing coffee and tea packaging by offering high-barrier, sustainable solutions that protect your beans while protecting the planet.
+            </p>
+            
+            <img 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              alt="Freshly roasted coffee beans in a compostable flat bottom bag with degassing valve" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">The Importance of the Degassing Valve</h3>
+            <p>
+              Freshly roasted coffee beans release a significant amount of carbon dioxide (CO2) in the days immediately following the roasting process. If packaged in completely sealed, airtight bags, this trapped gas will cause the bag to inflate and eventually burst. Conversely, if the bag is not sealed airtight, oxygen will enter, leading to rapid staling and loss of the volatile compounds that give specialty coffee its complex flavor profile.
+            </p>
+            <p>
+              The solution is the one-way degassing valve. This crucial component allows the built-up CO2 to escape from the inside of the pouch while preventing ambient oxygen from entering. Traditionally, these valves have been made of rigid plastics. We are proud to offer fully compostable degassing valves integrated seamlessly into our home compostable coffee bags. This ensures that every single component of your packaging, from the zipper to the valve, can return to nature.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">High-Barrier Materials for Specialty Coffee</h3>
+            <p>
+              Coffee's three greatest enemies are oxygen, moisture, and UV light. To combat these, conventional packaging uses an inner layer of aluminum foil. While effective, foil makes the bag impossible to recycle or compost. 
+            </p>
+            
+            <img 
+              src="/all-product-photos/IMG_4378.webp" 
+              alt="High barrier compostable coffee bags stacked" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
+
+            <p>
+              Our sustainable coffee bags utilize advanced, plant-based metallized cellulose to achieve high-barrier protection. This innovative material mimics the barrier properties of aluminum, boasting an ultra-low Oxygen Transmission Rate (OTR) and Water Vapor Transmission Rate (WVTR). This guarantees that your meticulously roasted single-origin Ethiopian Yirgacheffe or robust espresso blend tastes just as vibrant when the consumer opens the bag as it did on roast day.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Packaging Formats for Coffee Roasters</h3>
+            <p>
+              Different roasters have different needs, which is why we offer our sustainable coffee packaging in various formats. The industry favorite is the <strong>Flat Bottom Bag (Box Pouch)</strong>. Its box-like structure offers maximum stability on cafe shelves and provides five printable panels for extensive brand storytelling. 
+            </p>
+            <p>
+              For smaller sizes, sample packs, or limited edition micro-lots, the classic <strong>Stand-Up Pouch</strong> is an excellent, cost-effective choice. We also offer side-gusset bags commonly used for wholesale accounts or 1kg/5lb bulk offerings. By maintaining a low Minimum Order Quantity (MOQ) of just 500 units, independent roasters can confidently order custom-printed, eco-friendly packaging for specific lots without the burden of massive inventory.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
