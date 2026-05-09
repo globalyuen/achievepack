@@ -34,11 +34,6 @@
     "images": 0,
     "lastUpdated": 1770792124172.1392
   },
-  "/blog/compostable-humidity-control": {
-    "words": 877,
-    "images": 5,
-    "lastUpdated": 1778246405435.9883
-  },
   "/blog/usa-coffee-packaging": {
     "words": 108,
     "images": 0,
@@ -64,6 +59,26 @@
     "images": 5,
     "lastUpdated": 1778246410037.0132
   },
+  "/usa/coffee-packaging": {
+    "words": 494,
+    "images": 3,
+    "lastUpdated": 1778340931844.9001
+  },
+  "/usa/compostable-packaging": {
+    "words": 445,
+    "images": 3,
+    "lastUpdated": 1778340933028.9385
+  },
+  "/usa/labeling-guide": {
+    "words": 513,
+    "images": 3,
+    "lastUpdated": 1778340989346.7263
+  },
+  "/usa/snacks-packaging": {
+    "words": 451,
+    "images": 3,
+    "lastUpdated": 1778340990514.4167
+  },
   "/blog/industrial-compostable-guide": {
     "words": 150,
     "images": 0,
@@ -88,6 +103,11 @@
     "words": 80,
     "images": 0,
     "lastUpdated": 1773367270486.8943
+  },
+  "/blog/compostable-humidity-control": {
+    "words": 877,
+    "images": 5,
+    "lastUpdated": 1777996054302.7083
   },
   "/blog/compostable-zipper-no-removal": {
     "words": 439,
@@ -933,26 +953,6 @@
     "words": 252,
     "images": 2,
     "lastUpdated": 1769002347511.093
-  },
-  "/usa/compostable-packaging": {
-    "words": 150,
-    "images": 3,
-    "lastUpdated": 1777996054305.922
-  },
-  "/usa/coffee-packaging": {
-    "words": 57,
-    "images": 3,
-    "lastUpdated": 1777996054305.672
-  },
-  "/usa/snacks-packaging": {
-    "words": 150,
-    "images": 3,
-    "lastUpdated": 1777996054306.4133
-  },
-  "/usa/labeling-guide": {
-    "words": 150,
-    "images": 3,
-    "lastUpdated": 1777996054306.1724
   },
   "/products/compostable-coffee-bags": {
     "words": 74,

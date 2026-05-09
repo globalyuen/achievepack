@@ -153,6 +153,11 @@ const PouchHomeCompostableCoffeeBagsPage = lazyWithRetry(() => import('./pages/p
 const PouchCompostableZipperNoRemovalPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostableZipperNoRemovalPage'))
 const PouchMonoPEPouchesPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMonoPEPouchesPage'))
 const PouchChildResistantMylarBagsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchChildResistantMylarBagsPage'))
+
+const PouchUSACoffeePage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSACoffeePage'))
+const PouchUSACompostableHubPage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSACompostableHubPage'))
+const PouchUSALabelingGuidePage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSALabelingGuidePage'))
+const PouchUSASnacksPage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSASnacksPage'))
 const PouchRecycledOceanPlasticPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecycledOceanPlasticPackagingPage'))
 const PouchMinimalistD2CPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMinimalistD2CPackagingPage'))
 const DynamicPouchTopicPage = lazyWithRetry(() => import('./pages/pouch/topics/DynamicPouchTopicPage'))
@@ -513,12 +518,17 @@ if (getDomain() === 'pouch') {
                   <Route path="/blog/:slug" element={<PouchBlogArticlePage />} />
                   <Route path="/blog/usa-compostable-guide" element={<USACompostableGuide />} />
                   <Route path="/blog/coffee-packaging-guide" element={<CoffeePackagingGuide />} />
-                  <Route path="/blog/compostable-humidity-control" element={<PouchHumidityControlGuide />} />
                   <Route path="/blog/usa-coffee-packaging" element={<USACoffeePackaging />} />
                   <Route path="/blog/compostable-stand-up-pouches-guide" element={<CompostableStandUpPouchesGuide />} />
                   <Route path="/blog/low-moq-packaging-guide" element={<LowMOQPackagingGuide />} />
                   <Route path="/blog/usa-snacks-packaging-guide" element={<USASnacksPackagingGuide />} />
                   <Route path="/blog/usa-labeling-guide" element={<USALabelingGuide />} />
+
+                  {/* USA Hub Pages */}
+                  <Route path="/usa/coffee-packaging" element={<PouchUSACoffeePage />} />
+                  <Route path="/usa/compostable-packaging" element={<PouchUSACompostableHubPage />} />
+                  <Route path="/usa/labeling-guide" element={<PouchUSALabelingGuidePage />} />
+                  <Route path="/usa/snacks-packaging" element={<PouchUSASnacksPage />} />
                   <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} />
                   <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} />
                   <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
