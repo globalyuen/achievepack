@@ -21,6 +21,7 @@ import {
   CollapsibleTrigger,
 } from '@radix-ui/react-collapsible'
 import TestimonialManagement from '../components/admin/TestimonialManagement'
+import SeoMigrationDashboard from '../components/admin/SeoMigrationDashboard'
 
 // Industry detection keywords
 const INDUSTRY_KEYWORDS: Record<string, string[]> = {
@@ -65,7 +66,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building' | 'testimonials'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building' | 'testimonials' | 'seo-migration'
 
 // Sidebar menu structure with collapsible groups
 const sidebarMenuItems = [
@@ -100,6 +101,7 @@ const sidebarMenuItems = [
       { id: 'email-marketing', label: 'Email Marketing (Legacy)', icon: Mail },
       { id: 'email-campaign', label: 'Email Campaign Manager', icon: Send, externalLink: '/ctrl-x9k7m/email-campaign' },
       { id: 'seo-ranking', label: 'SEO & Ranking', icon: TrendingUp },
+      { id: 'seo-migration', label: 'SEO Migration', icon: RefreshCw },
       { id: 'link-building', label: 'Link Building', icon: ExternalLink },
       { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
     ]
@@ -1931,6 +1933,10 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
           {/* Dashboard Tab */}
           {activeTab === 'testimonials' && (
             <TestimonialManagement preselectId={searchParams.get('id')} />
+          )}
+
+          {activeTab === 'seo-migration' && (
+            <SeoMigrationDashboard />
           )}
 
           {activeTab === 'dashboard' && (
