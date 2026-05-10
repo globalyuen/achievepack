@@ -3,16 +3,16 @@ import SEOPageLayout from '../../components/SEOPageLayout'
 import { Package, Clock, CheckCircle, ArrowRight, Truck, Palette, ScrollText, Factory, Calendar } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
-const SampleQuotePage: React.FC = () => {
+const CustomPrintedSamplePage: React.FC = () => {
   const { t } = useTranslation()
 
   return (
     <SEOPageLayout heroBgColor="#1f2937"
-      title="Sample Packaging Quotes & Timeline"
-      description="Request physical samples of stand-up pouches, flat bottom bags, and sustainable materials. Validate your construction, print quality, and branding before bulk production."
-      keywords={['packaging samples', 'prototype pouch', 'printed samples', 'material validation', 'Achieve Pack samples']}
-      heroTitle="Validate with Confidence: Request Samples"
-      heroSubtitle="Experience the texture, durability, and print precision of our eco-friendly packaging before committing to full-scale production."
+      title="Custom Printed Sample Packaging"
+      description="Request high-fidelity custom printed samples of your stand-up pouches and flat bottom bags. Validate your artwork, color accuracy, and branding before bulk production."
+      keywords={['custom printed samples', 'packaging prototype', 'printed pouch samples', 'artwork validation', 'Achieve Pack custom samples']}
+      heroTitle="High-Fidelity Validation: Custom Printed Samples"
+      heroSubtitle="See your brand come to life. Experience your custom artwork on our premium eco-friendly materials before committing to full-scale production."
       heroImage="/imgs/samples/achieve_pack_samples_hero.png"
       heroImageAlt="Achieve Pack sustainable packaging samples"
       introSummary="Real-world validation is the cornerstone of successful product launches. Achieve Pack offers three distinct sampling routes—from handcrafted material prototypes to full-scale commercial trials—ensuring your final packaging exceeds expectations without the risk of unknowns."
@@ -229,4 +229,4 @@ const SampleQuotePage: React.FC = () => {
   )
 }
 
-export default SampleQuotePage
+export default CustomPrintedSamplePage

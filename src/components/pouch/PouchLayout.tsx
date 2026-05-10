@@ -323,6 +323,9 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/industry/baby-food" className="hover:underline">[BABY FOOD]</Link></li>
                 <li><Link to="/industry/frozen-food" className="hover:underline">[FROZEN FOOD]</Link></li>
                 <li><Link to="/industry/snacks" className="hover:underline">[SNACKS]</Link></li>
+                <li><Link to="/industry/pet-food" className="hover:underline">[PET FOOD]</Link></li>
+                <li><Link to="/industry/supplements" className="hover:underline">[SUPPLEMENTS]</Link></li>
+                <li><Link to="/industry/sauces-condiments" className="hover:underline">[SAUCES & CONDIMENTS]</Link></li>
               </ul>
             </div>
             <div>
@@ -340,6 +343,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/blog" className="hover:underline">[BLOG]</Link></li>
                 <li><Link to="/certifications" className="hover:underline">[CERTIFICATIONS]</Link></li>
                 <li><Link to="/size-guide" className="hover:underline">[SIZE GUIDE]</Link></li>
+                <li><Link to="/unprinted-samples" className="hover:underline">[UNPRINTED SAMPLES]</Link></li>
+                <li><Link to="/sample" className="hover:underline">[CUSTOM PRINTED SAMPLE]</Link></li>
               </ul>
             </div>
             <div>
@@ -435,7 +440,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               <Link to="/quotes/stand-up-pouch?p=pouch2026" className="hover:underline">STAND UP</Link>
               <Link to="/quotes/spouted-pouch?p=pouch2026" className="hover:underline">SPOUTED</Link>
               <Link to="/quotes/rollstock?p=pouch2026" className="hover:underline">ROLL</Link>
-              <Link to="/sample?p=pouch2026" className="hover:underline font-black text-black bg-[#D4FF00] px-1">SAMPLE</Link>
+              <Link to="/sample?p=pouch2026" className="hover:underline font-black text-black bg-[#D4FF00] px-1">CUSTOM PRINTED SAMPLE</Link>
               <Link to="/cert?p=pouch2026" className="hover:underline">CERT</Link>
               <a href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" target="_blank" rel="noopener noreferrer" className="hover:underline text-[#10b981]">BPI CERT</a>
               <Link to="/privacy" className="hover:underline">PRIVACY</Link>

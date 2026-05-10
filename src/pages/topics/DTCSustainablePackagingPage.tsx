@@ -140,13 +140,13 @@ const DTCSustainablePackagingPage: React.FC = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
             <ClickableImage 
-              src="/imgs/store/shape/flat-bottom-pouch.webp" 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
               alt="Flat bottom pouch for DTC" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Flat Bottom"
             />
             <ClickableImage 
-              src="/imgs/store/shape/stand-up-pouch.webp" 
+              src="/imgs/store/pouch shape/stand-up.webp" 
               alt="Stand up pouch for DTC" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Stand Up"
@@ -158,7 +158,7 @@ const DTCSustainablePackagingPage: React.FC = () => {
               caption="Side Gusset"
             />
             <ClickableImage 
-              src="/imgs/store/shape/flat-pouch.webp" 
+              src="/imgs/store/pouch shape/3-side.webp" 
               alt="Flat pouch for DTC" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Flat Pouch"

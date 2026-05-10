@@ -101,7 +101,7 @@ export default function PouchPetFoodPage() {
         <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://pouch.eco/imgs/illustrated/a_pet_treats_v2_seal_7677464.webp" />
+        <meta property="og:image" content="https://pouch.eco/imgs/artifacts/pet_food_pouch.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
@@ -161,7 +161,7 @@ export default function PouchPetFoodPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/pouch-eco/consultation"
+                href="https://calendly.com/30-min-free-packaging-consultancy"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D4FF00] text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Calendar className="w-6 h-6" />
@@ -574,7 +574,7 @@ export default function PouchPetFoodPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/pouch-eco/consultation"
+                href="https://calendly.com/30-min-free-packaging-consultancy"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-[#D4FF00] font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Calendar className="w-6 h-6" />
@@ -606,7 +606,7 @@ export default function PouchPetFoodPage() {
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
-                  src="/imgs/topics/compostable_coffee_bags.png"
+                  src="/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg"
                   alt="Compostable Coffee Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
@@ -631,7 +631,7 @@ export default function PouchPetFoodPage() {
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
-                  src="/imgs/seo-photos/snacksmart_pouch.png"
+                  src="/imgs/artifacts/compostable_snack_pouch_window.jpg"
                   alt="Compostable Snack Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />

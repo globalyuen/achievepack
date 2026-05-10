@@ -26,6 +26,7 @@ export default function PouchBabyFoodPage() {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta property="og:image" content="https://pouch.eco/imgs/artifacts/baby_food_hero.jpg" />
         <link rel="canonical" href="https://pouch.eco/industry/baby-food" />
       </Helmet>
 
@@ -58,8 +59,12 @@ export default function PouchBabyFoodPage() {
 
             <div className="relative">
               <NeoCard className="bg-[#FF00FF] relative z-10 rotate-2 !p-0 overflow-hidden group border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-                <div className="aspect-square bg-gradient-to-br from-[#FF00FF] to-[#00FFFF] flex items-center justify-center relative">
-                  <Heart className="w-64 h-64 text-white opacity-80 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300" strokeWidth={1.5} />
+                <div className="aspect-square relative">
+                  <img 
+                    src="/imgs/artifacts/baby_food_hero.jpg" 
+                    alt="Safe Baby Food Packaging" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-[#D4FF00] border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20 text-black">
                     FOOD_GRADE_CERT
                   </motion.div>
@@ -164,6 +169,56 @@ export default function PouchBabyFoodPage() {
         </div>
       </section>
 
+      {/* Deep Dive SEO Content */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="pink">INDUSTRY_DEEP_DIVE</NeoBadge>
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-8 italic">
+            The New Standard in <span className="text-[#10b981]">Baby Food Packaging</span>
+          </h2>
+          
+          <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
+            <p>
+              When it comes to baby food packaging, there is zero room for error. Parents are increasingly vigilant about what goes into their children's bodies, and that scrutiny extends directly to the packaging that houses those organic purees, puffs, and formula powders. Historically, the baby food industry relied heavily on glass jars—which are heavy, fragile, and energy-intensive to ship—or multi-layer plastic squeeze pouches that are virtually impossible to recycle.
+            </p>
+            <p>
+              At POUCH.ECO, we are bridging the gap between uncompromising safety and environmental responsibility with our certified home-compostable baby food pouches. We provide packaging that protects the purity of your product while ensuring a healthier planet for the next generation.
+            </p>
+            
+            <ClickableImage 
+              src="/imgs/demo-site/baby/achieve_baby_realistic_hero.png" 
+              alt="Baby food pouch packaging safety features" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+              caption="Zero leaching. Zero microplastics. 100% peace of mind."
+            />
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Eradicating Chemical Leaching</h3>
+            <p>
+              The primary concern for any baby food brand is migration—the transfer of chemicals from the packaging material into the food. Traditional plastics, even those labeled "BPA-free," can sometimes leach alternative bisphenols (like BPS or BPF) or phthalates when subjected to the high heat of pasteurization or hot-fill processes.
+            </p>
+            <p>
+              Our compostable laminations are fundamentally different. They are synthesized from plant-based biopolymers (like PLA and PBAT) and utilize advanced, low-migration, water-based adhesives. Every component is rigorously tested against both FDA 21 CFR and strict EU 10/2011 standards. This guarantees that our packaging imparts absolutely zero chemicals, odors, or microplastics into your sensitive organic purees or formula.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">The Hot-Fill Process and Structural Integrity</h3>
+            <p>
+              Many baby food purees undergo a hot-fill process (filling at temperatures up to 95°C / 203°F) to ensure commercial sterility. Standard compostable materials often warp, delaminate, or fail under these extreme conditions. 
+            </p>
+            <p>
+              Through intensive R&D, POUCH.ECO has engineered heat-stable compostable films. Our high-barrier structures maintain their mechanical strength and seal integrity during hot-filling and subsequent cooling baths. Furthermore, our anti-choke spout technology and reinforced gussets ensure that the pouch can withstand the dropping, squeezing, and throwing that inevitably happens during feeding time.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Empowering Startup Brands</h3>
+            <p>
+              The organic baby food market is being disrupted by agile, health-conscious startup brands. However, these brands are often blocked by massive Minimum Order Quantities (MOQs) imposed by traditional packaging suppliers.
+            </p>
+            <p>
+              We level the playing field. With digital printing technology, we offer custom-printed, high-barrier, compostable baby food pouches starting at just 500 units. This allows you to test new flavor profiles, launch seasonal purees, and iterate on your branding without tying up crucial capital in excess inventory. Scale your brand sustainably from day one.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
@@ -200,7 +255,91 @@ export default function PouchBabyFoodPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <NeoButton variant="primary" to="/sample" className="!bg-white !text-pink-600">Get Safety Samples</NeoButton>
-            <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">Consult Safety Expert</NeoButton>
+            <NeoButton variant="secondary" className="!border-white" href="https://calendly.com/30-min-free-packaging-consultancy">Consult Safety Expert</NeoButton>
+          </div>
+        </div>
+      </section>
+      {/* Keep Reading */}
+      <section className="py-16 px-4 bg-white border-t-4 border-black">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-['Space_Grotesk'] font-black text-3xl md:text-4xl uppercase mb-8">
+            <span className="bg-[#D4FF00] px-2">Keep Reading</span>
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <a
+              href="/industry/frozen-food"
+              className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            >
+              <div className="border-b-4 border-black overflow-hidden">
+                <ClickableImage 
+                  src="/imgs/artifacts/frozen_food_hero.jpg"
+                  alt="Frozen Food Packaging"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
+                  Frozen Food
+                </h3>
+                <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
+                  Arctic-grade durability. Puncture resistant.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
+                  Read More
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="/packaging/spout-pouches"
+              className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            >
+              <div className="border-b-4 border-black overflow-hidden">
+                <ClickableImage 
+                  src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp"
+                  alt="Spout Pouches Guide"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
+                  Spout Pouches
+                </h3>
+                <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
+                  Spout pouches. Leak-proof. Compostable.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
+                  Read More
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="/blog/eco-friendly-food-packaging-guide"
+              className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            >
+              <div className="border-b-4 border-black overflow-hidden">
+                <ClickableImage 
+                  src="/imgs/seo-photos/usa/label/a_fda_labeling_compliance_checklist_8653787.webp"
+                  alt="Food Packaging Guide"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
+                  Food Safe Guide
+                </h3>
+                <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
+                  Safety protocols for food brands.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
+                  Read More
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </section>

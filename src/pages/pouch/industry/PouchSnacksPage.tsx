@@ -101,7 +101,7 @@ export default function PouchSnacksPage() {
         <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://pouch.eco/all-product-photos/IMG_4376.webp" />
+        <meta property="og:image" content="https://pouch.eco/imgs/artifacts/compostable_snack_pouch_window.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
@@ -161,7 +161,7 @@ export default function PouchSnacksPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/pouch-eco/consultation"
+                href="https://calendly.com/30-min-free-packaging-consultancy"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D4FF00] text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Calendar className="w-6 h-6" />
@@ -221,7 +221,7 @@ export default function PouchSnacksPage() {
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Snack Brand<br/>Gallery</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 
-              src="/all-product-photos/IMG_4376.webp" 
+              src="/imgs/artifacts/compostable_snack_pouch_window.jpg" 
               alt="Compostable snack pouch with window" 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
               caption="Window Pouches"
@@ -233,7 +233,7 @@ export default function PouchSnacksPage() {
               caption="Stand Up Pouches"
             />
             <ClickableImage 
-              src="/imgs/store/pouch shape/flat-pouch.webp" 
+              src="/imgs/store/pouch shape/3-side.webp" 
               alt="Small snack flat pouch" 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
               caption="Single Serve Packs"
@@ -465,6 +465,52 @@ export default function PouchSnacksPage() {
         </div>
       </section>
 
+      {/* Deep Dive SEO Content */}
+      <section className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+            The Ultimate Guide to <span className="text-[#10b981]">Sustainable Snack Packaging</span>
+          </h2>
+          
+          <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
+            <p>
+              The global snack food market is booming, driven by consumer demand for convenient, healthy, and on-the-go options. However, this convenience often comes at a high environmental cost. Traditional snack packaging, especially potato chip bags and granola pouches, relies heavily on multi-layer plastics and aluminum foils that are notoriously difficult to recycle. At POUCH.ECO, we provide an innovative alternative: high-barrier, home-compostable snack pouches that protect your product and the planet.
+            </p>
+            
+            <ClickableImage 
+              src="/imgs/artifacts/compostable_snack_pouch_window.jpg" 
+              alt="Sustainable snack packaging with transparent window" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+              caption="Showcase your product's freshness with a home-compostable window."
+            />
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">The Challenge of Grease Resistance</h3>
+            <p>
+              Snacks, by their nature, often contain oils and fats—whether it's the natural oils in roasted almonds or the cooking oils in organic potato chips. When packaging these items, grease resistance is paramount. If a package lacks a proper grease barrier, the oils will migrate through the film, causing unsightly stains on the outside of the bag and compromising the seal integrity.
+            </p>
+            <p>
+              Our compostable snack pouches utilize advanced, plant-based barrier coatings that act as an impenetrable shield against oil migration. This ensures your packaging remains pristine on the retail shelf while keeping the product inside perfectly fresh and crunchy.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Maintaining the Crunch: Moisture Barriers</h3>
+            <p>
+              Nothing ruins a snacking experience faster than a stale, chewy chip or a soggy piece of granola. Moisture is the enemy of crunch. Traditional packaging uses thick layers of fossil-fuel-based plastics (like PE or BOPP) to keep moisture out.
+            </p>
+            <p>
+              We achieve the same level of moisture protection using certified compostable materials. Our multi-layer laminations feature an ultra-low Water Vapor Transmission Rate (WVTR), effectively locking ambient humidity out of the bag. Whether your customer opens your product in the dry heat of Arizona or the humid summers of Florida, your snack will taste as fresh as the day it was baked.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Designing for the Modern Snack Consumer</h3>
+            <p>
+              Today's consumers want transparency—literally and figuratively. They want to know what's in their food, and they want to see it before they buy it. This is why our compostable snack pouches can be engineered with clear, high-clarity windows made from PLA (Polylactic Acid), a biodegradable plastic derived from corn starch. 
+            </p>
+            <p>
+              Coupled with our high-definition digital printing capabilities (available with a low Minimum Order Quantity of just 500 units), you can create vibrant, eye-catching designs that tell your brand's sustainability story while showcasing the mouth-watering quality of your snacks. Stand out on the shelf, reduce your carbon footprint, and give your customers a guilt-free snacking experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-gray-50 border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
@@ -533,7 +579,7 @@ export default function PouchSnacksPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/pouch-eco/consultation"
+                href="https://calendly.com/30-min-free-packaging-consultancy"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-[#D4FF00] font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Calendar className="w-6 h-6" />
@@ -565,7 +611,7 @@ export default function PouchSnacksPage() {
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
-                  src="/all-product-photos/IMG_4378.webp"
+                  src="/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg"
                   alt="Compostable Coffee Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
@@ -590,7 +636,7 @@ export default function PouchSnacksPage() {
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
-                  src="/all-product-photos/IMG_4365.webp"
+                  src="/imgs/artifacts/pet_food_pouch.jpg"
                   alt="Compostable Pet Food Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />

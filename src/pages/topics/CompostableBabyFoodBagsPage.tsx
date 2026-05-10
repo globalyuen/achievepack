@@ -97,7 +97,7 @@ const CompostableBabyFoodBagsPage: React.FC = () => {
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <div className="flex gap-4">
                 <ClickableImage 
-                  src="/imgs/store/shape/spout-pouch.webp" 
+                  src="/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp" 
                   alt="Compostable spout pouch for baby food" 
                   className="w-24 h-24 object-cover rounded-lg"
                   caption="Spout Pouch"
@@ -117,7 +117,7 @@ const CompostableBabyFoodBagsPage: React.FC = () => {
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <div className="flex gap-4">
                 <ClickableImage 
-                  src="/imgs/store/shape/stand-up-pouch.webp" 
+                  src="/imgs/store/pouch shape/stand-up.webp" 
                   alt="Compostable stand-up pouch for baby snacks" 
                   className="w-24 h-24 object-cover rounded-lg"
                   caption="Stand Up"
@@ -137,7 +137,7 @@ const CompostableBabyFoodBagsPage: React.FC = () => {
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <div className="flex gap-4">
                 <ClickableImage 
-                  src="/imgs/store/shape/flat-pouch.webp" 
+                  src="/imgs/store/pouch shape/3-side.webp" 
                   alt="Compostable sachet for baby food" 
                   className="w-24 h-24 object-cover rounded-lg"
                   caption="Sachets"
@@ -157,7 +157,7 @@ const CompostableBabyFoodBagsPage: React.FC = () => {
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <div className="flex gap-4">
                 <ClickableImage 
-                  src="/imgs/store/shape/flat-bottom-pouch.webp" 
+                  src="/imgs/store/pouch shape/flat-bottom.webp" 
                   alt="Compostable flat bottom bag" 
                   className="w-24 h-24 object-cover rounded-lg"
                   caption="Flat Bottom"

@@ -160,7 +160,7 @@ const PouchUSALabelingGuidePage = lazyWithRetry(() => import('./pages/pouch/usa/
 const PouchUSASnacksPage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSASnacksPage'))
 
 const PouchAllOptionsPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchAllOptionsPage'))
-const PouchSizeGuidePage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchSizeGuidePage'))
+const PouchKnowledgeSizeGuidePage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchSizeGuidePage'))
 const PouchPouchSizingPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchPouchSizingPage'))
 const PouchPrintingTypesPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchPrintingTypesPage'))
 const PouchWorkflowPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchWorkflowPage'))
@@ -224,7 +224,8 @@ const FinSealLapSealPage = lazyWithRetry(() => import('./pages/knowledge/FinSeal
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
 const LeadTimePage = lazyWithRetry(() => import('./pages/support/LeadTimePage'))
-const SampleQuotePage = lazyWithRetry(() => import('./pages/support/SampleQuotePage'))
+const CustomPrintedSamplePage = lazyWithRetry(() => import('./pages/support/CustomPrintedSamplePage'))
+const UnprintedSamplesPage = lazyWithRetry(() => import('./pages/support/UnprintedSamplesPage'))
 
 // Case Studies Pages - Lazy loaded
 const CoffeeRoasteryCaseStudy = lazyWithRetry(() => import('./pages/case-studies/CoffeeRoasteryCaseStudy'))
@@ -386,7 +387,8 @@ const PouchTestimonialsPage = lazyWithRetry(() => import('./pages/pouch/PouchTes
 const PouchBlogPage = lazyWithRetry(() => import('./pages/pouch/PouchBlogPage'))
 const PouchCertificationsPage = lazyWithRetry(() => import('./pages/pouch/PouchCertificationsPage'))
 const PouchFactoryTourPage = lazyWithRetry(() => import('./pages/pouch/PouchFactoryTourPage'))
-const PouchSampleQuotePage = lazyWithRetry(() => import('./pages/pouch/PouchSampleQuotePage'))
+const PouchCustomPrintedSamplePage = lazyWithRetry(() => import('./pages/pouch/PouchCustomPrintedSamplePage'))
+const PouchUnprintedSamplesPage = lazyWithRetry(() => import('./pages/pouch/PouchUnprintedSamplesPage'))
 const PackagingReport2026 = lazyWithRetry(() => import('./pages/pouch/reports/PackagingReport2026'))
 const WorkshopRegisterPage = lazyWithRetry(() => import('./pages/pouch/WorkshopRegisterPage'))
 // Blog Article Pages
@@ -437,6 +439,7 @@ const PouchSpoutPouchesPage = lazyWithRetry(() => import('./pages/pouch/packagin
 const PouchFlatPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchFlatPouchesPage'))
 const PouchVacuumPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchVacuumPouchesPage'))
 const PouchFrozenFoodPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchFrozenFoodPage'))
+const PouchSaucesPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchSaucesPage'))
 const PouchPlasticFreeKraftPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchPlasticFreeKraftPage'))
 
 const FreeServicesHubPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesHubPage'))
@@ -541,7 +544,7 @@ if (getDomain() === 'pouch') {
 
                   {/* Knowledge Pages */}
                   <Route path="/knowledge/all-options" element={<PouchAllOptionsPage />} />
-                  <Route path="/knowledge/size-guide" element={<PouchSizeGuidePage />} />
+                  <Route path="/knowledge/size-guide" element={<PouchKnowledgeSizeGuidePage />} />
                   <Route path="/knowledge/pouch-sizing" element={<PouchPouchSizingPage />} />
                   <Route path="/knowledge/printing-types" element={<PouchPrintingTypesPage />} />
                   <Route path="/knowledge/workflow" element={<PouchWorkflowPage />} />
@@ -587,6 +590,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/packaging/flat-pouches" element={<PouchFlatPouchesPage />} />
                   <Route path="/packaging/vacuum-pouches" element={<PouchVacuumPouchesPage />} />
                   <Route path="/industry/frozen-food" element={<PouchFrozenFoodPage />} />
+                  <Route path="/industry/sauces-condiments" element={<PouchSaucesPage />} />
                   <Route path="/topics/eco-friendly-food-packaging" element={<PouchEcoFriendlyFoodPackagingPage />} />
                   <Route path="/topics/compostable-baby-food-bags" element={<PouchCompostableBabyFoodBagsPage />} />
                   <Route path="/topics/green-coffee-materials" element={<PouchGreenCoffeeMaterialsPage />} />
@@ -631,10 +635,12 @@ if (getDomain() === 'pouch') {
                   <Route path="/quotes/spouted-pouch" element={<SpoutedPouchQuotePage />} />
                   <Route path="/quotes/rollstock" element={<RollstockQuotePage />} />
                   <Route path="/cert" element={<CertificateDownloadPage />} />
-                  <Route path="/sample" element={<PouchSampleQuotePage />} />
+                  <Route path="/sample" element={<PouchCustomPrintedSamplePage />} />
+                  <Route path="/unprinted-samples" element={<PouchUnprintedSamplesPage />} />
                   <Route path="/quote" element={<QuotationViewPage />} />
                   <Route path="/quote/:id" element={<QuotationViewPage />} />
-                  <Route path="/support/sample-quote" element={<SampleQuotePage />} />
+                  <Route path="/support/sample-quote" element={<CustomPrintedSamplePage />} />
+                  <Route path="/support/unprinted-samples" element={<UnprintedSamplesPage />} />
                   <Route path="/reports/state-of-packaging-2026" element={<PackagingReport2026 />} />
                   <Route path="/workshop-register" element={<WorkshopRegisterPage />} />
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
@@ -793,7 +799,10 @@ if (getDomain() === 'pouch') {
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />
                         <Route path="/support/lead-time" element={<LeadTimePage />} />
-                        <Route path="/support/sample-quote" element={<SampleQuotePage />} />
+                        <Route path="/support/sample-quote" element={<CustomPrintedSamplePage />} />
+                        <Route path="/support/unprinted-samples" element={<UnprintedSamplesPage />} />
+                        <Route path="/sample" element={<CustomPrintedSamplePage />} />
+                        <Route path="/unprinted-samples" element={<UnprintedSamplesPage />} />
 
                         {/* Case Studies Pages */}
                         <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />

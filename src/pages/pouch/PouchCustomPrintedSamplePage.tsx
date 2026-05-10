@@ -5,13 +5,13 @@ import { Lock } from 'lucide-react';
 import PouchLayout from '../../components/pouch/PouchLayout';
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
 
-const PouchSampleQuotePage: React.FC = () => {
+const PouchCustomPrintedSamplePage: React.FC = () => {
 
 
     return (
         <PouchLayout>
             <Helmet>
-                <title>Sample Quote - Pouch.eco</title>
+                <title>Custom Printed Samples - Pouch.eco</title>
             </Helmet>
 
             <div className="bg-[#f8f9fa] py-16 px-4">
@@ -21,10 +21,10 @@ const PouchSampleQuotePage: React.FC = () => {
                         <div className="flex flex-col md:flex-row justify-between items-start gap-8 border-b-4 border-black pb-8 mb-8">
                             <div>
                                 <h1 className="text-5xl md:text-6xl font-black uppercase leading-none mb-4">
-                                    Sample<br/>Quote
+                                    Custom Printed<br/>Sample
                                 </h1>
                                 <NeoBadge color="lime">
-                                    Flash Edition
+                                    High-Fidelity
                                 </NeoBadge>
                             </div>
                         </div>
@@ -170,10 +170,10 @@ const PouchSampleQuotePage: React.FC = () => {
                                 Fast-Track Timeline
                             </h3>
                             <div className="grid md:grid-cols-2 gap-8">
-                                <NeoCard className="bg-black text-white p-8">
+                                <NeoCard color="bg-black" className="text-white p-8">
                                     <h4 className="text-[#D4FF00] font-black uppercase text-xl mb-4">Production</h4>
                                     <p className="text-3xl font-black leading-tight">Lead Time is<br/>Approx 2 Weeks</p>
-                                    <p className="text-sm mt-4 font-bold opacity-60 uppercase tracking-widest">Post-Approval</p>
+                                    <p className="text-sm mt-4 font-bold text-[#D4FF00] uppercase tracking-widest">Post-Approval</p>
                                 </NeoCard>
                                 <NeoCard className="bg-white p-8">
                                     <h4 className="font-black uppercase text-xl mb-4 text-gray-400">FedEx Shipping</h4>
@@ -213,4 +213,4 @@ const PouchSampleQuotePage: React.FC = () => {
 );
 };
 
-export default PouchSampleQuotePage;
+export default PouchCustomPrintedSamplePage;

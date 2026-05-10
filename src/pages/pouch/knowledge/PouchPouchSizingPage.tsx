@@ -68,7 +68,7 @@ export default function PouchPouchSizingPage() {
                    Stand-up pouches (Doypacks) are the most popular flexible packaging format globally. They feature a bottom gusset that expands to hold volume and stand upright. The sizes below represent our most common tooling, allowing for faster turnaround times and no custom die fees.
                  </p>
                  <div className="border-4 border-black overflow-hidden bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4">
-                   <SortableSizesTable sizes={STAND_UP_SIZES} />
+                   <SortableSizesTable sizes={STAND_UP_SIZES} title="Stand-Up Pouch Dimensions" />
                  </div>
               </div>
 
@@ -80,7 +80,7 @@ export default function PouchPouchSizingPage() {
                    Flat Bottom Bags (Box Pouches) offer five printable panels and exceptional shelf stability. Because of their square base and side gussets, they often hold slightly more volume than a stand-up pouch of identical height and width.
                  </p>
                  <div className="border-4 border-black overflow-hidden bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4">
-                   <SortableSizesTable sizes={FLAT_BOTTOM_SIZES} />
+                   <SortableSizesTable sizes={FLAT_BOTTOM_SIZES} title="Flat Bottom Bag Dimensions" categoryColor="purple" />
                  </div>
               </div>
             </div>

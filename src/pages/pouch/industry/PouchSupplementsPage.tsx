@@ -101,7 +101,7 @@ export default function PouchSupplementsPage() {
         <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://pouch.eco/all-product-photos/IMG_4370.webp" />
+        <meta property="og:image" content="https://pouch.eco/imgs/artifacts/compostable_protein_powder_pouch.jpg" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
@@ -161,7 +161,7 @@ export default function PouchSupplementsPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/pouch-eco/consultation"
+                href="https://calendly.com/30-min-free-packaging-consultancy"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D4FF00] text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Calendar className="w-6 h-6" />
@@ -221,8 +221,8 @@ export default function PouchSupplementsPage() {
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Supplements<br/>Gallery</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 
-              src="/all-product-photos/IMG_4370.webp" 
-              alt="Compostable protein powder pouch" 
+              src="/imgs/artifacts/compostable_protein_powder_pouch.jpg" 
+              alt="Compostable Protein Powder Pouch" 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
               caption="Protein Pouches"
             />
@@ -414,6 +414,52 @@ export default function PouchSupplementsPage() {
         </div>
       </section>
 
+      {/* Deep Dive SEO Content */}
+      <section className="py-24 bg-white border-t-4 border-black">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
+            The Ultimate Guide to <span className="text-[#10b981]">Sustainable Supplement Packaging</span>
+          </h2>
+          
+          <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
+            <p>
+              The health and wellness industry is built on the promise of vitality, longevity, and taking care of one's body. Yet, ironically, a vast majority of the nutritional supplements on the market—from whey protein to organic superfood greens—are packaged in rigid plastic tubs or multi-layer plastic pouches that will outlive the consumer by centuries. At POUCH.ECO, we believe that products designed to improve human health shouldn't degrade planetary health. That's why we engineered high-barrier, home-compostable supplement pouches.
+            </p>
+            
+            <ClickableImage 
+              src="/imgs/artifacts/compostable_protein_powder_pouch.jpg" 
+              alt="Sustainable protein powder packaging with moisture barrier" 
+              className="w-full h-96 object-cover border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
+              caption="Click to enlarge"
+            />
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Combating Moisture: The Enemy of Powders</h3>
+            <p>
+              When packaging powdered supplements, moisture is the primary threat. Whether it's a pre-workout formula loaded with hygroscopic (water-absorbing) ingredients or a delicate probiotic blend, exposure to ambient humidity causes clumping, degradation of active ingredients, and a drastically shortened shelf life.
+            </p>
+            <p>
+              Traditionally, supplement brands rely on thick layers of fossil-fuel plastics (like PET and LLDPE) or aluminum foil to achieve the necessary Water Vapor Transmission Rate (WVTR). Our breakthrough lies in our certified compostable multi-layer laminations. By utilizing proprietary plant-based barrier coatings and metallized cellulose, we achieve an ultra-low WVTR that rivals conventional packaging, ensuring your powders remain dry and free-flowing.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">FDA Compliance and Food Contact Safety</h3>
+            <p>
+              Packaging supplements requires strict adherence to safety regulations. You need absolute certainty that the packaging material will not leach harmful chemicals into the product. This is known as "migration." 
+            </p>
+            <p>
+              Our compostable materials, including the films, the adhesives used for lamination, and the digital inks used for printing, are rigorously tested and are fully FDA 21 CFR compliant for direct food and supplement contact. We use low-migration, water-based inks and BPA-free plant-based plastics (PLA) to ensure that your premium ingredients—from delicate collagen peptides to potent adaptogenic mushrooms—remain pure and untainted.
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Flexible Formats vs. Rigid Tubs</h3>
+            <p>
+              The supplement industry has long been dominated by massive, rigid plastic tubs. These tubs are incredibly inefficient: they ship "air" when empty, taking up massive amounts of space in freight trucks and warehouses, which drastically increases your brand's carbon footprint before the product is even filled.
+            </p>
+            <p>
+              Switching to flexible stand-up pouches is a game-changer. Pouches ship flat, dramatically reducing transportation emissions and storage costs. Furthermore, our pouches feature high-quality, compostable zip closures, allowing consumers to easily reseal the package daily while maintaining freshness. By offering a low Minimum Order Quantity (MOQ) of just 500 units, we make it easy for startup wellness brands to launch professionally, sustainably, and efficiently.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
@@ -482,7 +528,7 @@ export default function PouchSupplementsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/pouch-eco/consultation"
+                href="https://calendly.com/30-min-free-packaging-consultancy"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-[#D4FF00] font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Calendar className="w-6 h-6" />
@@ -514,7 +560,7 @@ export default function PouchSupplementsPage() {
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
-                  src="/all-product-photos/IMG_4376.webp"
+                  src="/imgs/artifacts/compostable_snack_pouch_window.jpg"
                   alt="Compostable Snack Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
@@ -539,7 +585,7 @@ export default function PouchSupplementsPage() {
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
-                  src="/all-product-photos/IMG_4378.webp"
+                  src="/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg"
                   alt="Compostable Coffee Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />

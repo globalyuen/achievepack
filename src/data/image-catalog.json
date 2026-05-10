@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-09",
-  "total_images": 1313,
-  "total_categories": 146,
+  "generated": "2026-05-10",
+  "total_images": 1323,
+  "total_categories": 147,
   "extensions": {
     ".webp": 1077,
     ".png": 203,
-    ".jpg": 30,
+    ".jpg": 40,
     ".svg": 3
   },
   "categories": {
@@ -87,6 +87,71 @@
           "path": "/imgs/achieve-supplements/flat-pouch.png",
           "extension": ".png",
           "modified": "2026-01-26T13:21:43.052Z"
+        }
+      ]
+    },
+    "artifacts": {
+      "count": 10,
+      "images": [
+        {
+          "filename": "compostable_coffee_stand_up_pouch.jpg",
+          "path": "/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T12:17:43.380Z"
+        },
+        {
+          "filename": "pet_food_pouch.jpg",
+          "path": "/imgs/artifacts/pet_food_pouch.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T12:17:03.267Z"
+        },
+        {
+          "filename": "vacuum_pouch_frozen.jpg",
+          "path": "/imgs/artifacts/vacuum_pouch_frozen.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T05:44:18.986Z"
+        },
+        {
+          "filename": "stacked_coffee_bags.jpg",
+          "path": "/imgs/artifacts/stacked_coffee_bags.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T05:44:18.984Z"
+        },
+        {
+          "filename": "side_gusset_coffee_bag.jpg",
+          "path": "/imgs/artifacts/side_gusset_coffee_bag.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T05:44:18.982Z"
+        },
+        {
+          "filename": "flat_bottom_coffee_bags.jpg",
+          "path": "/imgs/artifacts/flat_bottom_coffee_bags.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T05:44:18.980Z"
+        },
+        {
+          "filename": "compostable_snack_pouch_window.jpg",
+          "path": "/imgs/artifacts/compostable_snack_pouch_window.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T05:44:18.976Z"
+        },
+        {
+          "filename": "compostable_protein_powder_pouch.jpg",
+          "path": "/imgs/artifacts/compostable_protein_powder_pouch.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T05:44:18.973Z"
+        },
+        {
+          "filename": "frozen_food_hero.jpg",
+          "path": "/imgs/artifacts/frozen_food_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T05:44:18.971Z"
+        },
+        {
+          "filename": "baby_food_hero.jpg",
+          "path": "/imgs/artifacts/baby_food_hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-10T05:44:18.968Z"
         }
       ]
     },

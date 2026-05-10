@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { CheckCircle, ArrowRight, Printer, PenTool, Truck, PackageCheck, Zap } from 'lucide-react'
+import { CheckCircle, ArrowRight, Printer, PenTool, Truck, PackageCheck, Zap, Layers } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard } from '../../../components/pouch/PouchUI'
 

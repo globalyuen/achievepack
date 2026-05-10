@@ -86,13 +86,13 @@ const CustomCompostablePouchSuppliersPage: React.FC = () => {
               caption="Compostable"
             />
             <ClickableImage 
-              src="/imgs/store/shape/stand-up-pouch.webp" 
+              src="/imgs/store/pouch shape/stand-up.webp" 
               alt="Compostable stand up pouch" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Stand Up"
             />
             <ClickableImage 
-              src="/imgs/store/shape/flat-bottom-pouch.webp" 
+              src="/imgs/store/pouch shape/flat-bottom.webp" 
               alt="Compostable flat bottom bag" 
               className="w-full h-24 object-cover rounded-lg"
               caption="Flat Bottom"

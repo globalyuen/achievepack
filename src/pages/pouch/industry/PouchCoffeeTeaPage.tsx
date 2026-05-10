@@ -103,7 +103,7 @@ export default function PouchCoffeeTeaPage() {
         <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://pouch.eco/all-product-photos/IMG_4363.webp" />
+        <meta property="og:image" content="https://pouch.eco/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -169,7 +169,7 @@ export default function PouchCoffeeTeaPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/pouch-eco/consultation"
+                href="https://calendly.com/30-min-free-packaging-consultancy"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D4FF00] text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Calendar className="w-6 h-6" />
@@ -229,19 +229,19 @@ export default function PouchCoffeeTeaPage() {
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Specialty Coffee<br/>Showcase</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 
-              src="/all-product-photos/IMG_4363.webp" 
+              src="/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg" 
               alt="Compostable coffee stand up pouch" 
+              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              caption="Compostable Stand Up"
+            />
+            <ClickableImage 
+              src="/imgs/artifacts/flat_bottom_coffee_bags.jpg" 
+              alt="Compostable flat bottom coffee bag" 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
               caption="Flat Bottom Bags"
             />
             <ClickableImage 
-              src="/imgs/store/pouch shape/stand-up.webp" 
-              alt="Specialty tea stand up pouch" 
-              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Stand Up Pouches"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/side-gusset.webp" 
+              src="/imgs/artifacts/side_gusset_coffee_bag.jpg" 
               alt="Traditional side gusset coffee bag" 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
               caption="Side Gusset Bags"
@@ -575,7 +575,7 @@ export default function PouchCoffeeTeaPage() {
             </p>
             
             <img 
-              src="/imgs/store/pouch shape/flat-bottom.webp" 
+              src="/imgs/artifacts/flat_bottom_coffee_bags.jpg" 
               alt="Freshly roasted coffee beans in a compostable flat bottom bag with degassing valve" 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
@@ -594,7 +594,7 @@ export default function PouchCoffeeTeaPage() {
             </p>
             
             <img 
-              src="/all-product-photos/IMG_4378.webp" 
+              src="/imgs/artifacts/stacked_coffee_bags.jpg" 
               alt="High barrier compostable coffee bags stacked" 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
@@ -682,7 +682,7 @@ export default function PouchCoffeeTeaPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/pouch-eco/consultation"
+                href="https://calendly.com/30-min-free-packaging-consultancy"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-[#D4FF00] font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Calendar className="w-6 h-6" />
@@ -709,37 +709,12 @@ export default function PouchCoffeeTeaPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <a
-              href="/industry/pet-food"
-              className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
-            >
-              <div className="border-b-4 border-black overflow-hidden">
-                <ClickableImage 
-                  src="/all-product-photos/IMG_4365.webp"
-                  alt="Compostable Pet Food Pouches"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  Pet Food Pouches
-                </h3>
-                <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Heavy-duty. Pet-safe. Home compostable.
-                </p>
-                <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </a>
-
-            <a
               href="/industry/snacks"
               className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
             >
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
-                  src="/all-product-photos/IMG_4376.webp"
+                  src="/imgs/artifacts/compostable_snack_pouch_window.jpg"
                   alt="Compostable Snack Pouches"
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
@@ -750,6 +725,31 @@ export default function PouchCoffeeTeaPage() {
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
                   Grease-resistant. Keeps crunch. Compostable.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
+                  Read More
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="/industry/pet-food"
+              className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
+            >
+              <div className="border-b-4 border-black overflow-hidden">
+                <ClickableImage 
+                  src="/imgs/artifacts/pet_food_pouch.jpg"
+                  alt="Compostable Pet Food Pouches"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
+                  Pet Food Pouches
+                </h3>
+                <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
+                  Heavy-duty. Pet-safe. Home compostable.
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
                   Read More
