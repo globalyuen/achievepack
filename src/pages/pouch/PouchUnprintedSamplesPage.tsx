@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import PouchLayout from '../../components/pouch/PouchLayout';
-import { NeoCard, NeoBadge, ClickableImage } from '../../components/pouch/PouchUI';
+import { NeoCard, NeoBadge } from '../../components/pouch/PouchUI';
+import ClickableImage from '../../components/ClickableImage';
 
 const PouchUnprintedSamplesPage: React.FC = () => {
     return (

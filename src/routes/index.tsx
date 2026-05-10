@@ -282,7 +282,10 @@ const routes = [
   // Support Pages
   { path: "/support/faqs", element: <LazyRoute component={() => import('../pages/support/FAQsPage')} fallback={<LoadingFallback />} /> },
   { path: "/support/lead-time", element: <LazyRoute component={() => import('../pages/support/LeadTimePage')} fallback={<LoadingFallback />} /> },
-  { path: "/support/sample-quote", element: <LazyRoute component={() => import('../pages/support/SampleQuotePage')} fallback={<LoadingFallback />} /> },
+  { path: "/support/sample-quote", element: <LazyRoute component={() => import('../pages/support/CustomPrintedSamplePage')} fallback={<LoadingFallback />} /> },
+  { path: "/support/unprinted-samples", element: <LazyRoute component={() => import('../pages/support/UnprintedSamplesPage')} fallback={<LoadingFallback />} /> },
+  { path: "/unprinted-samples", element: <LazyRoute component={() => import('../pages/pouch/PouchUnprintedSamplesPage')} fallback={<LoadingFallback />} /> },
+  { path: "/sample", element: <LazyRoute component={() => import('../pages/pouch/PouchCustomPrintedSamplePage')} fallback={<LoadingFallback />} /> },
 
   // Case Studies Pages
   { path: "/case-studies/coffee-roastery", element: <LazyRoute component={() => import('../pages/case-studies/CoffeeRoasteryCaseStudy')} fallback={<LoadingFallback />} /> },
