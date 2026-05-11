@@ -190,18 +190,20 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <NeoButton 
                                 href="https://calendly.com/30-min-free-packaging-consultancy"
-                                color="black"
+                                variant="dark"
                                 className="!px-12 !py-6 text-xl"
                             >
                                 Book Consultation
                             </NeoButton>
+
                             <NeoButton 
                                 to="/unprinted-samples"
-                                color="magenta"
+                                variant="primary"
                                 className="!px-12 !py-6 text-xl"
                             >
                                 Request Sample Kit
                             </NeoButton>
+
                         </div>
                         <p className="mt-8 font-['JetBrains_Mono'] font-bold text-sm">WE HAVE THE KNOWLEDGE. YOU HAVE THE VISION.</p>
                     </div>
