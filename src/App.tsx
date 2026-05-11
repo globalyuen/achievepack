@@ -2409,6 +2409,8 @@ function App() {
                 <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-500">K-Seal Pouches</Link></li>
                 <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-500">White Ink Underprint</Link></li>
                 <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-500">Fin vs Lap Seal</Link></li>
+                <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-500">Heat-Resistant Candle Pouches</Link></li>
+
               </ul>
             </div>
           </div>

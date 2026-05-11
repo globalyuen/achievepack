@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import PouchLayout from '../../components/pouch/PouchLayout';
-import { NeoCard, NeoBadge, NeoButton } from '../../components/pouch/PouchUI';
-import ClickableImage from '../../components/ClickableImage';
+import PouchLayout from '../../../components/pouch/PouchLayout';
+import { NeoCard, NeoBadge, NeoButton } from '../../../components/pouch/PouchUI';
+import ClickableImage from '../../../components/ClickableImage';
 import { Thermometer, Zap, Shield, Sparkles, Database, SearchCheck, CheckCircle, ArrowRight } from 'lucide-react';
 
 const PouchHighHeatCandlePackagingPage: React.FC = () => {

@@ -357,6 +357,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/topics/child-resistant-mylar-bags" className="hover:underline">[CHILD-RESISTANT]</Link></li>
                 <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:underline text-cyan-600">[OCEAN PLASTIC]</Link></li>
                 <li><Link to="/topics/minimalist-d2c-packaging" className="hover:underline">[MINIMALIST D2C]</Link></li>
+                <li><Link to="/topics/high-heat-compostable-candle-packaging" className="hover:underline text-orange-600">[CANDLE PACKAGING]</Link></li>
+
               </ul>
             </div>
           </div>
@@ -381,6 +383,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 { name: 'MINIMALIST', path: '/topics/minimalist-d2c-packaging', color: 'bg-white' },
                 { name: 'CUSTOM_PRINTED', path: '/topics/custom-printed-sustainable-pouches', color: 'bg-white' },
                 { name: 'REGULATIONS', path: '/topics/eco-packaging-regulations', color: 'bg-white' },
+                { name: 'CANDLE_WAX', path: '/topics/high-heat-compostable-candle-packaging', color: 'bg-white' },
+
               ].map((topic, i) => (
                 <Link 
                   key={i}
