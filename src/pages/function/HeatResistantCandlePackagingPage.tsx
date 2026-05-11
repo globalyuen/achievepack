@@ -159,6 +159,12 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
         </div>
       )
     },
+    {
+      id: 'supplier-insights',
+      title: 'Our Proprietary Supply Protocol',
+      icon: <SearchCheck className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
           <div className="bg-primary-50 p-8 rounded-xl border-4 border-primary-900 shadow-xl">
             <h3 className="text-2xl font-black text-neutral-900 mb-4 uppercase tracking-tight">Our Integrated Solution Network</h3>
             <p className="text-neutral-700 mb-6">
@@ -178,7 +184,9 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
           <div className="bg-neutral-100 p-6 rounded-lg text-sm leading-relaxed text-neutral-700 mt-6 border-l-8 border-neutral-900">
             <strong>The Achieve Pack Advantage:</strong> We remove the risk of trial and error. By working with us, you gain access to a pre-vetted supply chain and material engineering that has already been stress-tested for candle wax pouring.
           </div>
-
+        </div>
+      )
+    },
     {
       id: 'knowhow',
       title: 'Our Knowledge: Why the Seal Matters',
