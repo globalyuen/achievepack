@@ -153,6 +153,8 @@ const PouchHomeCompostableCoffeeBagsPage = lazyWithRetry(() => import('./pages/p
 const PouchCompostableZipperNoRemovalPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostableZipperNoRemovalPage'))
 const PouchMonoPEPouchesPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMonoPEPouchesPage'))
 const PouchChildResistantMylarBagsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchChildResistantMylarBagsPage'))
+const PouchHighHeatCandlePackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchHighHeatCandlePackagingPage'))
+
 
 const PouchUSACoffeePage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSACoffeePage'))
 const PouchUSACompostableHubPage = lazyWithRetry(() => import('./pages/pouch/usa/PouchUSACompostableHubPage'))
@@ -193,6 +195,8 @@ const PreZipperedRollstockPage = lazyWithRetry(() => import('./pages/function/Pr
 const DigitalPrintedRetortBagsPage = lazyWithRetry(() => import('./pages/function/DigitalPrintedRetortBagsPage'))
 const RicePaperBagsPage = lazyWithRetry(() => import('./pages/function/RicePaperBagsPage'))
 const PVAWaterSolubleBagsPage = lazyWithRetry(() => import('./pages/function/PVAWaterSolubleBagsPage'))
+const HeatResistantCandlePackagingPage = lazyWithRetry(() => import('./pages/function/HeatResistantCandlePackagingPage'))
+
 
 // Lab Pages - Lazy loaded
 const LateralFilterBagsPage = lazyWithRetry(() => import('./pages/lab/LateralFilterBagsPage'))
@@ -608,6 +612,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/child-resistant-mylar-bags" element={<PouchChildResistantMylarBagsPage />} />
                   <Route path="/topics/recycled-ocean-plastic-packaging" element={<PouchRecycledOceanPlasticPackagingPage />} />
                   <Route path="/topics/minimalist-d2c-packaging" element={<PouchMinimalistD2CPackagingPage />} />
+                  <Route path="/topics/high-heat-compostable-candle-packaging" element={<PouchHighHeatCandlePackagingPage />} />
                   <Route path="/topics/:slug" element={<DynamicPouchTopicPage />} />
                   {/* Industry Solution Pages */}
                   <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
@@ -765,6 +770,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/function/digital-printed-retort-bags" element={<DigitalPrintedRetortBagsPage />} />
                         <Route path="/function/rice-paper-bags" element={<RicePaperBagsPage />} />
                         <Route path="/function/pva-water-soluble-bags" element={<PVAWaterSolubleBagsPage />} />
+                        <Route path="/function/heat-resistant-compostable-pouches" element={<HeatResistantCandlePackagingPage />} />
 
                         {/* Lab Pages */}
                         <Route path="/lab/lateral-filter-bags" element={<LateralFilterBagsPage />} />
