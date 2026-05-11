@@ -90,7 +90,7 @@ const PouchUnprintedSamplesPage: React.FC = () => {
                         <div className="mt-16">
                             <h3 className="text-2xl font-black uppercase mb-8 italic">Visual Reference</h3>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <ClickableImage src="/imgs/artifacts/coffee_pouch_artifact.jpg" alt="Generic Coffee Sample" className="aspect-square object-cover border-2 border-black" />
+                                <ClickableImage src="/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg" alt="Generic Coffee Sample" className="aspect-square object-cover border-2 border-black" />
                                 <ClickableImage src="/imgs/artifacts/compostable_snack_pouch_window.jpg" alt="Generic Snack Sample" className="aspect-square object-cover border-2 border-black" />
                                 <ClickableImage src="/imgs/artifacts/pet_food_pouch.jpg" alt="Generic Pet Food Sample" className="aspect-square object-cover border-2 border-black" />
                                 <ClickableImage src="/imgs/artifacts/baby_food_hero.jpg" alt="Generic Baby Food Sample" className="aspect-square object-cover border-2 border-black" />
