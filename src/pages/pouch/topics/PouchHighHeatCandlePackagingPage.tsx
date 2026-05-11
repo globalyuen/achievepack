@@ -70,10 +70,11 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                                         <Shield size={24} />
                                     </div>
                                     <div>
-                                        <h3 className="font-black uppercase text-lg">Aromatic Seal</h3>
-                                        <p className="text-sm font-medium">High-barrier NatureFlex keeps fragrances locked in. No essential oil migration.</p>
+                                        <h3 className="font-black uppercase text-lg">Compostable Bio-NK</h3>
+                                        <p className="text-sm font-medium">NK / Kraft Paper / PBS structure ensures zero fragrance leakage and 100% home compostability.</p>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </NeoCard>
@@ -163,27 +164,28 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                     <NeoCard className="bg-[#D4FF00] p-8 md:p-12 mb-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
                         <div className="flex flex-col md:flex-row gap-8 items-center">
                             <div className="flex-1">
-                                <h3 className="text-4xl font-black uppercase mb-6 italic">Know-How: Seal Integrity</h3>
+                                <h3 className="text-4xl font-black uppercase mb-6 italic">NK / Kraft / PBS Structure</h3>
                                 <div className="space-y-4 font-bold text-lg">
                                     <p className="flex items-start gap-2">
                                         <ArrowRight className="mt-1 shrink-0" />
-                                        <span>Heavy Wax Pressure: A 99mm gusset must have a 5mm overlap seal to prevent corner leaks.</span>
+                                        <span>NatureFlex (NK) Outer: 100% bio-based heat-stable cellulose for premium printing.</span>
                                     </p>
                                     <p className="flex items-start gap-2">
                                         <ArrowRight className="mt-1 shrink-0" />
-                                        <span>Cooling Shrinkage: NatureFlex prevents the "crinkle" effect during wax thermal contraction.</span>
+                                        <span>FSC Kraft Middle: Added structural rigidity for heavy wax pours.</span>
                                     </p>
                                     <p className="flex items-start gap-2">
                                         <ArrowRight className="mt-1 shrink-0" />
-                                        <span>Microwave Safety: CPLA layers prevent localized melting during reheating.</span>
+                                        <span>PBS Sealant: High-heat Polybutylene succinate for 85°C+ safety.</span>
                                     </p>
                                 </div>
                             </div>
                             <div className="w-full md:w-1/3">
-                                <ClickableImage src="/imgs/topics/heat-resistant-layers-tech.png" alt="Tech layers" className="border-4 border-black" />
+                                <ClickableImage src="/imgs/spec/pcr-pet-kraft-triplex-clear.webp" alt="NK / Kraft / PBS structure" className="border-4 border-black" />
                             </div>
                         </div>
                     </NeoCard>
+
 
                     {/* CTA */}
                     <div className="text-center">

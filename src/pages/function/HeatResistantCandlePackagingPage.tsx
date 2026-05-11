@@ -7,8 +7,9 @@ import { useCalendly } from '../../contexts/CalendlyContext'
 // Gallery images for Candle Wax Packaging
 const candleGallery = [
   { src: '/imgs/function/heat-resistant-candle-hero.png', title: 'High-Heat Compostable Candle Pouch', desc: 'Capable of handling 85°C hot wax pour directly into the bag.' },
-  { src: '/imgs/function/heat-resistant-layers-tech.png', title: 'Multi-Layer Tech Cross-Section', desc: 'NatureFlex and PBS composite layers for maximum heat resistance.' },
+  { src: '/imgs/spec/pcr-pet-kraft-triplex-clear.webp', title: 'NK/Kraft/PBS Triplex Structure', desc: 'NatureFlex (NK), FSC Kraft Paper, and High-Heat PBS composite layers for maximum heat resistance.' },
 ]
+
 
 const HeatResistantCandlePackagingPage: React.FC = () => {
   const { openCalendly } = useCalendly()
@@ -105,20 +106,22 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
               To achieve 85°C microwave and stovetop safety, we move beyond basic starch-based films. The secret lies in our **Heat-Stable Barrier Architecture**:
             </p>
             <ul className="space-y-2">
-              <li><strong>NatureFlex™ Outer Layer:</strong> A wood-pulp based cellulose that offers excellent clarity and printability while remaining stable at high temperatures.</li>
-              <li><strong>High-Heat PBS Sealant:</strong> Unlike PLA, crystallized PBS can withstand boiling water temperatures (up to 100°C) without losing its hermetic seal.</li>
-              <li><strong>Bio-PE/CPLA Tiers:</strong> Optional layers for added puncture resistance, essential for sharp edges on hardened wax.</li>
+              <li><strong>NatureFlex™ (NK) Outer Layer:</strong> A wood-pulp based cellulose that offers excellent clarity and printability while remaining stable at high temperatures.</li>
+              <li><strong>FSC Kraft Paper Middle Layer:</strong> Provides the structural backbone and the natural, premium tactile feel desired by boutique candle brands.</li>
+              <li><strong>High-Heat PBS Sealant:</strong> Our bio-based Polybutylene succinate can withstand temperatures up to 100°C without losing its hermetic seal.</li>
             </ul>
+
           </div>
 
           <AlternatingSection
-            image="/imgs/function/heat-resistant-layers-tech.png"
-            imageAlt="Technical layer diagram"
-            title="Triplex Barrier Protection"
-            content="Our technical construction doesn't just resist heat; it protects your fragrance. The high-barrier NatureFlex layer ensures that the essential oils in your candles don't migrate through the film, preserving the 'cold throw' and 'hot throw' of your scents for months on the shelf."
+            image="/imgs/spec/pcr-pet-kraft-triplex-clear.webp"
+            imageAlt="NK / Kraft Paper / PBS Structure"
+            title="NK / Kraft Paper / PBS Triplex"
+            content="This 100% compostable bio-structure is specifically engineered for the candle industry. The NK layer handles the heat, the Kraft paper adds rigidity, and the PBS ensures a fail-safe seal even when pouring heavy, hot wax. It's the ultimate plastic-free alternative to traditional glass jars."
             imageLeft={false}
             index={1}
           />
+
         </div>
       )
     },
