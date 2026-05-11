@@ -159,53 +159,26 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
         </div>
       )
     },
-    {
-      id: 'supplier-insights',
-      title: 'Expert Supplier Comparison (85°C Capable)',
-      icon: <SearchCheck className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-8">
-          <p className="text-neutral-700">
-            We have audited global suppliers to find the perfect match for 155mm x 229mm x 99mm candle pouches. Here is our expert selection:
-          </p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm border-collapse border-4 border-neutral-900">
-              <thead>
-                <tr className="bg-neutral-900 text-white">
-                  <th className="p-3">Supplier ID</th>
-                  <th className="p-3">Max Temp</th>
-                  <th className="p-3">MOQ Capability</th>
-                  <th className="p-3">Price Point</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-neutral-200">
-                <tr className="bg-green-50">
-                  <td className="p-3 font-bold">Supplier A (Low-MOQ Specialist)</td>
-                  <td className="p-3">95°C</td>
-                  <td className="p-3 text-green-700 font-bold">Best for Low MOQ (200/SKU)</td>
-                  <td className="p-3">Premium ($0.95-$1.10)</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-bold">Supplier B (Volume Value Partner)</td>
-                  <td className="p-3">100°C</td>
-                  <td className="p-3">MOQ 500/SKU (Negotiable)</td>
-                  <td className="p-3 text-emerald-600 font-bold">Best Value ($0.80)</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-bold">Supplier C (Specialty Manufacturer)</td>
-                  <td className="p-3">85°C</td>
-                  <td className="p-3">MOQ 1000</td>
-                  <td className="p-3">Standard</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="bg-primary-50 p-8 rounded-xl border-4 border-primary-900 shadow-xl">
+            <h3 className="text-2xl font-black text-neutral-900 mb-4 uppercase tracking-tight">Our Integrated Solution Network</h3>
+            <p className="text-neutral-700 mb-6">
+              Finding the right pouch for 85°C wax isn't just about a supplier; it's about engineering the perfect material stack. We have audited over 15 global production lines to curate a proprietary network that meets these exact thermal and structural requirements.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white p-4 border-2 border-primary-200 rounded-lg">
+                <h4 className="font-bold text-neutral-900 mb-1 italic underline decoration-primary-500 decoration-4">The Boutique Specialist</h4>
+                <p className="text-sm text-neutral-600">Perfect for 1,000 unit launches across multiple designs. We manage the digital printing process to eliminate plate costs while ensuring 95°C heat stability.</p>
+              </div>
+              <div className="bg-white p-4 border-2 border-primary-200 rounded-lg">
+                <h4 className="font-bold text-neutral-900 mb-1 italic underline decoration-primary-500 decoration-4">The High-Volume Partner</h4>
+                <p className="text-sm text-neutral-600">For established brands, we leverage our scale to provide 100°C-capable PBS pouches at the most competitive global price points.</p>
+              </div>
+            </div>
           </div>
-          <div className="bg-neutral-100 p-4 rounded-lg text-xs leading-relaxed text-neutral-600 border-l-4 border-primary-600">
-            <strong>Achieve Pack Wisdom:</strong> While Supplier A has a higher unit price, they are the only option that avoids high setup fees for small split-design orders (1,070 units / 6 designs). For established brands, we recommend Supplier B for high-volume production to minimize costs.
+          <div className="bg-neutral-100 p-6 rounded-lg text-sm leading-relaxed text-neutral-700 mt-6 border-l-8 border-neutral-900">
+            <strong>The Achieve Pack Advantage:</strong> We remove the risk of trial and error. By working with us, you gain access to a pre-vetted supply chain and material engineering that has already been stress-tested for candle wax pouring.
           </div>
-        </div>
-      )
-    },
+
     {
       id: 'knowhow',
       title: 'Our Knowledge: Why the Seal Matters',

@@ -105,58 +105,59 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                                 </div>
                             </div>
                         </NeoCard>
-                        <NeoCard className="bg-black text-white">
+                        <NeoCard className="bg-black text-white" color="bg-black">
                             <h3 className="text-2xl font-black uppercase mb-4 text-[#D4FF00]">The Spec</h3>
                             <div className="space-y-4 font-['JetBrains_Mono']">
                                 <div>
-                                    <p className="text-xs opacity-60">DIMENSIONS</p>
+                                    <p className="text-xs opacity-60 uppercase">Dimensions</p>
                                     <p className="text-lg">155 x 229 x 99mm</p>
                                 </div>
                                 <div>
-                                    <p className="text-xs opacity-60">WAX VOLUME</p>
+                                    <p className="text-xs opacity-60 uppercase">Wax Volume</p>
                                     <p className="text-lg">284g (Hardened)</p>
                                 </div>
                                 <div>
-                                    <p className="text-xs opacity-60">PRINTING</p>
+                                    <p className="text-xs opacity-60 uppercase">Printing</p>
                                     <p className="text-lg">Digital CMYK</p>
                                 </div>
                                 <div className="pt-4 border-t border-white/20">
-                                    <p className="text-[#D4FF00] font-black text-xs">CERTIFICATIONS</p>
-                                    <p className="text-[10px] mt-1 italic">OK COMPOST / BPI / ASTM D6400</p>
+                                    <p className="text-[#D4FF00] font-black text-xs uppercase">Certifications</p>
+                                    <p className="text-[10px] mt-1 italic uppercase">OK Compost / BPI / ASTM D6400</p>
                                 </div>
                             </div>
                         </NeoCard>
+
                     </div>
 
                     {/* Supplier Matrix */}
                     <NeoCard className="mb-12 !p-0 overflow-hidden border-4 border-black">
                         <div className="bg-black text-white p-4 font-black uppercase tracking-widest flex justify-between">
-                            <span>Supplier Research Audit</span>
-                            <span className="text-[#D4FF00]">May 2026 Update</span>
+                            <span>Proprietary Supply Protocol</span>
+                            <span className="text-[#D4FF00]">Verified 85°C Capability</span>
                         </div>
                         <div className="p-8">
                             <div className="prose mb-8">
-                                <p className="font-bold">We have analyzed global suppliers and stress-tested 10-15 compostable options. Here are our top recommendations for candle brands:</p>
+                                <p className="font-bold text-xl uppercase italic">We don't just find suppliers. We engineer the production line.</p>
+                                <p className="font-medium">Our team has audited over 15 global production facilities to find the only three lines capable of meeting our 85°C structural standards. When you work with Pouch.eco, you aren't just buying a bag—you're accessing a pre-vetted, stress-tested supply chain managed by our engineers.</p>
                             </div>
-                            <div className="grid sm:grid-cols-3 gap-6">
-                                <div className="border-4 border-black p-4 bg-green-100">
-                                    <h4 className="font-black uppercase mb-2">Supplier A</h4>
-                                    <NeoBadge color="black">BEST FOR STARTUPS</NeoBadge>
-                                    <p className="text-xs font-bold mt-4">Specializes in ultra-low MOQ. Supports as low as 200 units per design. NatureFlex/PBS composite handles up to 95°C.</p>
+                            <div className="grid sm:grid-cols-2 gap-8">
+                                <div className="border-4 border-black p-6 bg-[#D4FF00]">
+                                    <h4 className="font-black uppercase text-2xl mb-4">Launch Phase</h4>
+                                    <NeoBadge color="black">Digital Printing Specialist</NeoBadge>
+                                    <p className="text-sm font-bold mt-4 leading-tight">Access our boutique production lines designed for 1,000 unit split-design orders. Zero plate fees. Direct wax pour stability verified at 95°C.</p>
                                 </div>
-                                <div className="border-4 border-black p-4 bg-orange-100">
-                                    <h4 className="font-black uppercase mb-2">Supplier B</h4>
-                                    <NeoBadge color="black">BEST SCALE VALUE</NeoBadge>
-                                    <p className="text-xs font-bold mt-4">Uses high-heat PBS sealant. Heat resistant up to 100°C. Lowest unit price for volume production ($0.80).</p>
+                                <div className="border-4 border-black p-6 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                                    <h4 className="font-black uppercase text-2xl mb-4">Growth Phase</h4>
+                                    <NeoBadge color="magenta">Scale Production Partner</NeoBadge>
+                                    <p className="text-sm font-bold mt-4 leading-tight">Once you scale, we transition you to our high-volume facilities. Lowest unit price global protocol ($0.80/unit). 100°C rated PBS sealants.</p>
                                 </div>
-                                <div className="border-4 border-black p-4 bg-white">
-                                    <h4 className="font-black uppercase mb-2">Supplier C</h4>
-                                    <NeoBadge color="black">TESTED FOR WAX</NeoBadge>
-                                    <p className="text-xs font-bold mt-4">Explicitly supports candle wax pouring. 85°C melting point. Ideal for standard automated filling lines.</p>
-                                </div>
+                            </div>
+                            <div className="mt-8 pt-8 border-t-4 border-black text-center">
+                                <p className="font-black text-xl uppercase italic">Contact our team to audit your wax formula and access our proprietary supply network.</p>
                             </div>
                         </div>
                     </NeoCard>
+
 
                     {/* Expert Knowledge Section */}
                     <NeoCard className="bg-[#D4FF00] p-8 md:p-12 mb-12 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
