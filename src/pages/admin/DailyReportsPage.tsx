@@ -1697,6 +1697,8 @@ export default function DailyReportsPage() {
                     <label className="block text-xs font-extrabold text-emerald-800 mb-1">Client Price Markup</label>
                     <select className="w-full border border-emerald-200 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-emerald-400"
                       value={quoteMarkup} onChange={e => setQuoteMarkup(e.target.value)}>
+                      <option value="1.1">1.1x — 10% Profit</option>
+                      <option value="1.2">1.2x — 20% Profit</option>
                       <option value="1.3">1.3x — 30% Profit</option>
                       <option value="1.5">1.5x — 50% Profit</option>
                       <option value="1.6">1.6x — 60% Profit</option>
@@ -2061,6 +2063,8 @@ export default function DailyReportsPage() {
                           <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Price Markup</label>
                           <select className="w-full border border-gray-300 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-blue-400"
                             value={quoteMarkup} onChange={e => setQuoteMarkup(e.target.value)}>
+                            <option value="1.1">1.1x</option>
+                            <option value="1.2">1.2x</option>
                             <option value="1.3">1.3x</option>
                             <option value="1.5">1.5x</option>
                             <option value="1.6">1.6x</option>
