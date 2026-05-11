@@ -11,7 +11,7 @@ const UnprintedSamplesPage: React.FC = () => {
       keywords={['unprinted samples', 'packaging materials', 'plain pouch samples', 'generic samples', 'material verification']}
       heroTitle="Material Mastery: Unprinted & Generic Samples"
       heroSubtitle="Get a physical feel for our certified sustainable materials and verify production quality with real-world generic samples."
-      heroImage="/imgs/artifacts/coffee_pouch_artifact.jpg"
+      heroImage="/imgs/artifacts/unprinted_samples_hero.png"
       heroImageAlt="Achieve Pack unprinted and generic packaging samples"
       introSummary="Before committing to custom printing, it's vital to ensure the material and structure are perfect for your product. Our Unprinted & Generic Samples allow you to conduct barrier testing, sizing verification, and quality audits at a fraction of the cost of a custom prototype."
       sections={[
