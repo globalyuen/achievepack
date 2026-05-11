@@ -2260,7 +2260,9 @@ function App() {
                 <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-500">Pre-Zippered Rollstock</Link></li>
                 <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-500">Digital Printed Retort</Link></li>
                 <li><Link to="/function/rice-paper-bags" className="hover:text-primary-500">Rice Paper Bags</Link></li>
-                                <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-500">PVA Water-Soluble Bags</Link></li>
+                <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-500">PVA Water-Soluble Bags</Link></li>
+                <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-500">compostable Heat-Resistant Pouches</Link></li>
+
               </ul>
             </div>
 
@@ -2409,7 +2411,7 @@ function App() {
                 <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-500">K-Seal Pouches</Link></li>
                 <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-500">White Ink Underprint</Link></li>
                 <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-500">Fin vs Lap Seal</Link></li>
-                <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-500">Heat-Resistant Candle Pouches</Link></li>
+
 
               </ul>
             </div>
