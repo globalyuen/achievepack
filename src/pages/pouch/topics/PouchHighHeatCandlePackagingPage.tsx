@@ -136,23 +136,23 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                         </div>
                         <div className="p-8">
                             <div className="prose mb-8">
-                                <p className="font-bold">我們研究了全球供應商，針對 10-15 款可堆肥袋進行了壓力測試。以下是我們為蠟燭品牌推薦的最佳選擇：</p>
+                                <p className="font-bold">We have analyzed global suppliers and stress-tested 10-15 compostable options. Here are our top recommendations for candle brands:</p>
                             </div>
                             <div className="grid sm:grid-cols-3 gap-6">
                                 <div className="border-4 border-black p-4 bg-green-100">
-                                    <h4 className="font-black uppercase mb-2">Anacotte</h4>
+                                    <h4 className="font-black uppercase mb-2">Supplier A</h4>
                                     <NeoBadge color="black">BEST FOR STARTUPS</NeoBadge>
-                                    <p className="text-xs font-bold mt-4">專精於極低起訂量。支持單款 200 個起訂。NatureFlex/PBS 複合膜耐熱達 95°C。</p>
+                                    <p className="text-xs font-bold mt-4">Specializes in ultra-low MOQ. Supports as low as 200 units per design. NatureFlex/PBS composite handles up to 95°C.</p>
                                 </div>
                                 <div className="border-4 border-black p-4 bg-orange-100">
-                                    <h4 className="font-black uppercase mb-2">DXC / Qiyu</h4>
+                                    <h4 className="font-black uppercase mb-2">Supplier B</h4>
                                     <NeoBadge color="black">BEST SCALE VALUE</NeoBadge>
-                                    <p className="text-xs font-bold mt-4">使用高耐熱 PBS 熱封層。耐熱達 100°C。批量生產單價最低 ($0.80)。</p>
+                                    <p className="text-xs font-bold mt-4">Uses high-heat PBS sealant. Heat resistant up to 100°C. Lowest unit price for volume production ($0.80).</p>
                                 </div>
                                 <div className="border-4 border-black p-4 bg-white">
-                                    <h4 className="font-black uppercase mb-2">Enviro Flex</h4>
+                                    <h4 className="font-black uppercase mb-2">Supplier C</h4>
                                     <NeoBadge color="black">TESTED FOR WAX</NeoBadge>
-                                    <p className="text-xs font-bold mt-4">官網明確標註支持蠟燭澆注。熔點 85°C。適合標準蠟燭灌裝流程。</p>
+                                    <p className="text-xs font-bold mt-4">Explicitly supports candle wax pouring. 85°C melting point. Ideal for standard automated filling lines.</p>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +195,6 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                             >
                                 Book Consultation
                             </NeoButton>
-
                             <NeoButton 
                                 to="/unprinted-samples"
                                 variant="primary"
@@ -203,7 +202,6 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                             >
                                 Request Sample Kit
                             </NeoButton>
-
                         </div>
                         <p className="mt-8 font-['JetBrains_Mono'] font-bold text-sm">WE HAVE THE KNOWLEDGE. YOU HAVE THE VISION.</p>
                     </div>

@@ -26,18 +26,14 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
     image, 
     imageAlt, 
     title, 
-    titleCn, 
     content, 
-    contentCn,
     imageLeft = true,
     index
   }: { 
     image: string
     imageAlt: string
     title: string
-    titleCn: string
     content: string | React.ReactNode
-    contentCn: string
     imageLeft?: boolean
     index: number
   }) => (
@@ -53,18 +49,14 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
-            <p className="text-sm text-primary-600 font-medium">{titleCn}</p>
             <div className="text-neutral-700">{content}</div>
-            <p className="text-neutral-600 text-sm italic">{contentCn}</p>
           </div>
         </>
       ) : (
         <>
           <div className="space-y-4 md:order-1">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
-            <p className="text-sm text-primary-600 font-medium">{titleCn}</p>
             <div className="text-neutral-700">{content}</div>
-            <p className="text-neutral-600 text-sm italic">{contentCn}</p>
           </div>
           <button 
             onClick={() => setGalleryEnlarged({ src: image, index })}
@@ -89,18 +81,13 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
             <p className="text-lg font-medium text-neutral-900 mb-4">
               <strong>Can compostable bags handle hot candle wax?</strong> Most eco-friendly materials fail at 50°C. We engineered a solution that withstands 85°C.
             </p>
-            <p className="text-neutral-700">
-              常规的可堆肥材料（如标准的 PLA）在 50-60°C 就会变形。我们的方案采用了高耐热 PBS 热封层，确保蜡烛浇注时的结构安全性。
-            </p>
           </div>
           
           <AlternatingSection
             image="/imgs/function/heat-resistant-candle-hero.png"
             imageAlt="Hot wax pouring into compostable pouch"
             title="Engineered for 85°C+ Performance"
-            titleCn="为 85°C+ 高温灌装而生"
             content="Pouring 284g of hardened candle wax at 85°C requires more than just a bag—it requires material excellence. Conventional compostable films like standard PLA soften and leak when exposed to heat. Our high-heat pouches utilize advanced PBS (Polybutylene succinate) or NatureFlex cellulose to ensure the bag holds its shape, seal, and integrity throughout the pouring and cooling process."
-            contentCn="浇注 284g 硬化蜡烛蜡需要材料具备极高的耐热性。我们采用 PBS 或 NatureFlex 纤维素复合材料，确保袋子在高温液体环境下不渗漏、不软化。"
             imageLeft={true}
             index={0}
           />
@@ -128,9 +115,7 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
             image="/imgs/function/heat-resistant-layers-tech.png"
             imageAlt="Technical layer diagram"
             title="Triplex Barrier Protection"
-            titleCn="三层复合高阻隔技术"
             content="Our technical construction doesn't just resist heat; it protects your fragrance. The high-barrier NatureFlex layer ensures that the essential oils in your candles don't migrate through the film, preserving the 'cold throw' and 'hot throw' of your scents for months on the shelf."
-            contentCn="我们的三层复合结构不仅能耐高温，还能有效锁住香精，确保蜡烛在货架上长期保持香味。"
             imageLeft={false}
             index={1}
           />
@@ -169,7 +154,7 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
             </div>
           </div>
           <p className="text-sm italic text-neutral-500">
-            针对 1070 个订单、6 款设计的需求，数码印刷（Digital Printing）是唯一的商业可行路径。我们精选的供应商如 Anacotte 支持单款 200 个起订。
+            For 1,070 units across 6 designs, digital printing is the only commercially viable path. Our selected partners support low MOQ requirements for boutique brands.
           </p>
         </div>
       )
@@ -184,10 +169,10 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
             We have audited global suppliers to find the perfect match for 155mm x 229mm x 99mm candle pouches. Here is our expert selection:
           </p>
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm border-collapse">
+            <table className="w-full text-left text-sm border-collapse border-4 border-neutral-900">
               <thead>
                 <tr className="bg-neutral-900 text-white">
-                  <th className="p-3">Supplier Name</th>
+                  <th className="p-3">Supplier ID</th>
                   <th className="p-3">Max Temp</th>
                   <th className="p-3">MOQ Capability</th>
                   <th className="p-3">Price Point</th>
@@ -195,19 +180,19 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-neutral-200">
                 <tr className="bg-green-50">
-                  <td className="p-3 font-bold">Anacotte Packaging</td>
+                  <td className="p-3 font-bold">Supplier A (Low-MOQ Specialist)</td>
                   <td className="p-3">95°C</td>
                   <td className="p-3 text-green-700 font-bold">Best for Low MOQ (200/SKU)</td>
                   <td className="p-3">Premium ($0.95-$1.10)</td>
                 </tr>
                 <tr>
-                  <td className="p-3 font-bold">DXC / Qiyu Pack</td>
+                  <td className="p-3 font-bold">Supplier B (Volume Value Partner)</td>
                   <td className="p-3">100°C</td>
                   <td className="p-3">MOQ 500/SKU (Negotiable)</td>
                   <td className="p-3 text-emerald-600 font-bold">Best Value ($0.80)</td>
                 </tr>
                 <tr>
-                  <td className="p-3 font-bold">Enviro Flex Pack</td>
+                  <td className="p-3 font-bold">Supplier C (Specialty Manufacturer)</td>
                   <td className="p-3">85°C</td>
                   <td className="p-3">MOQ 1000</td>
                   <td className="p-3">Standard</td>
@@ -215,8 +200,8 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
               </tbody>
             </table>
           </div>
-          <div className="bg-neutral-100 p-4 rounded-lg text-xs leading-relaxed text-neutral-600">
-            <strong>Achieve Pack Wisdom:</strong> 雖然 Anacotte 單價較高，但對於 1070 個、分 6 款設計嘅細訂單嚟講，佢係唯一唔需要付擔高昂「開機費」嘅選擇。對於成熟品牌，我哋建議搵 DXC 或者 Qiyu（齊裕）大批量生產以降低成本。
+          <div className="bg-neutral-100 p-4 rounded-lg text-xs leading-relaxed text-neutral-600 border-l-4 border-primary-600">
+            <strong>Achieve Pack Wisdom:</strong> While Supplier A has a higher unit price, they are the only option that avoids high setup fees for small split-design orders (1,070 units / 6 designs). For established brands, we recommend Supplier B for high-volume production to minimize costs.
           </div>
         </div>
       )
@@ -255,6 +240,44 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
               "We don't just sell bags; we sell the assurance that your 85°C wax won't end up on your factory floor. Our expertise in high-heat compostable polymers allows candle makers to ditch the glass jar without ditching performance." 
               <br/>— Achieve Pack Engineering Team
             </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'trust-eeat',
+      title: 'Why Trust Achieve Pack?',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-xl border border-primary-200">
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">Food-Grade Packaging Experts Since 2011</h3>
+            <p className="text-neutral-700 mb-4">
+              Achieve Pack has been manufacturing food-safe flexible packaging for over 13 years. Our high-heat compostable pouches are produced in BRC-certified facilities and tested to meet international food contact standards.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <FileCheck className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">FDA Compliant</h4>
+              <p className="text-xs text-neutral-500">Food contact approved</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Building2 className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">BRC Certified</h4>
+              <p className="text-xs text-neutral-500">Food safety standard</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Globe className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">500+ Brands</h4>
+              <p className="text-xs text-neutral-500">Trusted worldwide</p>
+            </div>
+            <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
+              <Users className="h-8 w-8 text-green-600 mx-auto mb-2" />
+              <h4 className="font-semibold text-neutral-800">13+ Years</h4>
+              <p className="text-xs text-neutral-500">Industry experience</p>
+            </div>
           </div>
         </div>
       )
