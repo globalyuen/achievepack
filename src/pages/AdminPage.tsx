@@ -91,6 +91,7 @@ const sidebarMenuItems = [
       { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },
       { id: 'email-followup', label: 'Email Follow Up', icon: Clock },
       { id: 'prospects', label: 'Prospect Finder', icon: Search, externalLink: '/ctrl-x9k7m/prospects' },
+      { id: 'rfq-generator', label: 'AI RFQ Generator', icon: Wand2, externalLink: '/ctrl-x9k7m/rfq-generator' },
     ]
   },
   {
