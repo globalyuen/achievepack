@@ -1,9 +1,9 @@
 {
   "generated": "2026-05-12",
-  "total_images": 1328,
-  "total_categories": 148,
+  "total_images": 1333,
+  "total_categories": 149,
   "extensions": {
-    ".webp": 1077,
+    ".webp": 1082,
     ".png": 208,
     ".jpg": 40,
     ".svg": 3
@@ -7753,6 +7753,41 @@
           "path": "/imgs/store/eco-stock/mailer/zip bag/3.webp",
           "extension": ".webp",
           "modified": "2025-12-18T01:35:07.633Z"
+        }
+      ]
+    },
+    "store/eco-stock/tea-bags": {
+      "count": 5,
+      "images": [
+        {
+          "filename": "sizes.webp",
+          "path": "/imgs/store/eco-stock/tea-bags/sizes.webp",
+          "extension": ".webp",
+          "modified": "2026-05-12T16:26:48.560Z"
+        },
+        {
+          "filename": "filled.webp",
+          "path": "/imgs/store/eco-stock/tea-bags/filled.webp",
+          "extension": ".webp",
+          "modified": "2026-05-12T16:26:48.558Z"
+        },
+        {
+          "filename": "material.webp",
+          "path": "/imgs/store/eco-stock/tea-bags/material.webp",
+          "extension": ".webp",
+          "modified": "2026-05-12T16:26:48.555Z"
+        },
+        {
+          "filename": "lifestyle.webp",
+          "path": "/imgs/store/eco-stock/tea-bags/lifestyle.webp",
+          "extension": ".webp",
+          "modified": "2026-05-12T16:26:48.553Z"
+        },
+        {
+          "filename": "holding.webp",
+          "path": "/imgs/store/eco-stock/tea-bags/holding.webp",
+          "extension": ".webp",
+          "modified": "2026-05-12T16:26:48.550Z"
         }
       ]
     },

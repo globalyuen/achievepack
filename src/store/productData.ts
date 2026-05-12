@@ -1350,6 +1350,50 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     ],
     stockProductId: 'eco-stock-mailer-zipbag',
   },
+  // Corn Fiber PLA Tea Filter Bags
+  {
+    id: 'eco-stock-tea-bags-pla',
+    name: 'Corn Fiber Tea Bags (Disposable PLA Filter Bags)',
+    category: 'eco-stock',
+    description: 'Food grade corn fiber (PLA) tea filter bags. Ideal for brewing tea, spices, and herbs. Lightweight, clean filtration, and strong permeability. Made from natural corn starch, safe and odorless. Fold-over type for easy filling and sealing. Price includes air shipping.',
+    shortDesc: 'From USD 4 for 100 pcs',
+    features: ['100% PLA Corn Fiber', 'Food Contact Grade', 'Fold-Over Flap Closure', 'Clean Filtration & High Permeability', 'Air Shipping Included'],
+    images: [
+      '/imgs/store/eco-stock/tea-bags/holding.webp',
+      '/imgs/store/eco-stock/tea-bags/lifestyle.webp',
+      '/imgs/store/eco-stock/tea-bags/material.webp',
+      '/imgs/store/eco-stock/tea-bags/filled.webp',
+      '/imgs/store/eco-stock/tea-bags/sizes.webp'
+    ],
+    badge: '🌱 PLA Corn Fiber',
+    rating: 4.9,
+    reviews: 84,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    shape: 'Tea Filter Bag',
+    material: 'PLA Corn Fiber Mesh',
+    basePrice: 4.00,
+    pricePerPiece: 0.04,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Multiple sizes available (6.5cm - 10cm)',
+    sizeWithQuantities: [
+      { id: 'size-6.5x7', label: '6.5×7cm', dimensions: '6.5×7cm', quantityOptions: [
+        { quantity: 100, totalPrice: 4.00, unitPrice: 0.04 },
+        { quantity: 400, totalPrice: 12.00, unitPrice: 0.03 }
+      ]},
+      { id: 'size-7x8', label: '7×8cm', dimensions: '7×8cm', quantityOptions: [
+        { quantity: 100, totalPrice: 5.00, unitPrice: 0.05 },
+        { quantity: 400, totalPrice: 14.00, unitPrice: 0.035 }
+      ]},
+      { id: 'size-7x10', label: '7×10cm', dimensions: '7×10cm', quantityOptions: [
+        { quantity: 100, totalPrice: 6.00, unitPrice: 0.06 },
+        { quantity: 400, totalPrice: 16.00, unitPrice: 0.04 }
+      ]}
+    ],
+    customPrintNote: 'Contact us for bulk wholesale orders or custom sizes.',
+  }
 ]
 
 // Custom Printed Boxes Products
