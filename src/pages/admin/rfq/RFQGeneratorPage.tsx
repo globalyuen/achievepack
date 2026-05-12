@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { 
   Sparkles, Plus, Trash2, Send, Check, AlertCircle, 
-  ChevronRight, Lock, Users, FileText, Package 
+  ChevronRight, Lock, Users, FileText, Package, Clock 
 } from 'lucide-react'
 import { supabase } from '../../../lib/supabase'
 
