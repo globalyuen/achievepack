@@ -131,7 +131,12 @@ const SupplierHubPage: React.FC = () => {
     } catch (err) {
       console.error('Submission failed:', err)
       alert('提交失败，请检查网络后重试。')
-    }   if (loading) return (
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (loading) return (
     <div className="min-h-screen bg-[#fcfcfc] text-black flex items-center justify-center font-sans">
       <div className="text-center">
         <Clock className="h-10 w-10 text-black animate-spin mx-auto mb-4" />
@@ -328,7 +333,5 @@ const SupplierHubPage: React.FC = () => {
     </div>
   )
 }
-
-export default SupplierHubPage
 
 export default SupplierHubPage
