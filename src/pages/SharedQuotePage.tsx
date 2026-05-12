@@ -212,6 +212,39 @@ const SharedQuotePage: React.FC = () => {
             html, body { margin: 0; padding: 0; background-color: white; font-family: sans-serif; overflow: hidden; }
             body { padding: 40px 20px; }
             .content { width: 100%; max-width: 1000px; margin: 0 auto; }
+            
+            /* GLOBAL OVERRIDES FOR SPECS LAYOUT */
+            .specs { 
+              display: flex !important; 
+              flex-direction: column !important; 
+              grid-template-columns: none !important;
+              gap: 8px !important; 
+            }
+            .spec-item { 
+              display: flex !important; 
+              align-items: flex-start !important; 
+              gap: 15px !important; 
+              padding: 8px 0 !important; 
+              border-bottom: 1px solid #f1f5f9 !important;
+              grid-column: span 1 !important;
+            }
+            .spec-item:last-child { border-bottom: none !important; }
+            .spec-item label { 
+              width: 120px !important; 
+              shrink: 0 !important; 
+              font-size: 8px !important; 
+              font-weight: 800 !important; 
+              color: #94a3b8 !important; 
+              text-transform: uppercase !important; 
+              margin-top: 2px !important;
+              display: block !important;
+            }
+            .spec-item span { 
+              font-size: 10px !important; 
+              font-weight: 700 !important; 
+              color: #1e293b !important; 
+              line-height: 1.4 !important; 
+            }
           </style>
           <script>
             function sendHeight() { const height = document.documentElement.scrollHeight; window.parent.postMessage({ type: 'resize-iframe', height: height }, '*'); }
