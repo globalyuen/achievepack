@@ -15,6 +15,10 @@ interface RFQBatch {
 interface RFQItem {
   id: string
   product_name: string
+  style: string
+  dimensions: string
+  material_spec: string
+  print_type: string
   target_quantities: number[]
 }
 
@@ -217,9 +221,32 @@ const RFQComparisonPage: React.FC = () => {
           <div className="space-y-16">
             {items.map(item => (
               <section key={item.id} className="bg-white border-2 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-center gap-4 mb-8">
-                  <Package className="h-6 w-6 text-black" />
-                  <h3 className="text-2xl font-black italic uppercase tracking-tight">{item.product_name}</h3>
+                <div className="flex flex-col lg:flex-row lg:items-start gap-12 mb-12 pb-12 border-b-2 border-neutral-100">
+                  <div className="flex-1 space-y-6">
+                    <div className="flex items-center gap-4">
+                      <Package className="h-6 w-6 text-black" />
+                      <h3 className="text-3xl font-black italic uppercase tracking-tight">{item.product_name}</h3>
+                    </div>
+                    
+                    <div className="space-y-4 max-w-2xl">
+                      <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-l-4 border-black pl-4">
+                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">Product Type</span>
+                        <span className="font-bold text-sm uppercase">{item.style || '-'}</span>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-l-4 border-black pl-4">
+                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">Dimensions</span>
+                        <span className="font-bold text-sm uppercase">{item.dimensions || '-'}</span>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-l-4 border-black pl-4">
+                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">Material Structure</span>
+                        <span className="font-bold text-sm uppercase leading-relaxed">{item.material_spec || '-'}</span>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:items-start gap-2 border-l-4 border-black pl-4">
+                        <span className="text-[10px] font-black uppercase text-neutral-400 w-32 shrink-0">Key Features</span>
+                        <span className="font-bold text-sm uppercase">{item.print_type || '-'}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="overflow-x-auto">
