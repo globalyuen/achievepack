@@ -106,6 +106,9 @@ const ImageGeneratorPage = lazyWithRetry(() => import('./pages/admin/ImageGenera
 const DailyReportsPage = lazyWithRetry(() => import('./pages/admin/DailyReportsPage'))
 const EmailCampaignPage = lazyWithRetry(() => import('./pages/admin/EmailCampaignPage'))
 const UnsubscribePage = lazyWithRetry(() => import('./pages/UnsubscribePage'))
+const RFQGeneratorPage = lazyWithRetry(() => import('./pages/admin/rfq/RFQGeneratorPage'))
+const RFQComparisonPage = lazyWithRetry(() => import('./pages/admin/rfq/RFQComparisonPage'))
+const SupplierHubPage = lazyWithRetry(() => import('./pages/rfq/SupplierHubPage'))
 
 // Industry Pages - Lazy loaded
 const CoffeeTeaPage = lazyWithRetry(() => import('./pages/industry/CoffeeTeaPage'))
@@ -713,6 +716,9 @@ if (getDomain() === 'pouch') {
                         <Route path="/ctrl-x9k7m/daily-reports" element={<AdminProtectedRoute><DailyReportsPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/email-campaign" element={<AdminProtectedRoute><EmailCampaignPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/rfq-generator" element={<AdminProtectedRoute><RFQGeneratorPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/rfq/:batchId/comparison" element={<AdminProtectedRoute><RFQComparisonPage /></AdminProtectedRoute>} />
+                        <Route path="/hub/:batchId" element={<SupplierHubPage />} />
                         <Route path="/shipment/:batchId" element={<ShipmentTrackingPage />} />
 
                         <Route path="/view-quote/:id" element={<SharedQuotePage />} />
