@@ -67,6 +67,7 @@ export default function Footer() {
               <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset Bags</Link></li>
               <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
               <li><Link to="/quotes/rollstock" className="hover:text-primary-400">Rollstock</Link></li>
+              <li><Link to="/store/product/eco-stock-tea-bags-pla" className="hover:text-primary-400 font-medium text-primary-400">PLA Tea Bags <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
           
