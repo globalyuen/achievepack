@@ -28,6 +28,12 @@ interface Submission {
 }
 
 const RFQComparisonPage: React.FC = () => {
+  const { batchId } = useParams<{ batchId: string }>()
+  const [batch, setBatch] = useState<RFQBatch | null>(null)
+  const [items, setItems] = useState<RFQItem[]>([])
+  const [submissions, setSubmissions] = useState<Submission[]>([])
+  const [loading, setLoading] = useState(true)
+
   const [isManualModalOpen, setIsManualModalOpen] = useState(false)
   const [manualText, setManualText] = useState('')
   const [manualSupplierName, setManualSupplierName] = useState('')
