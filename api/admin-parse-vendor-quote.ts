@@ -10,7 +10,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { text, imageBase64 } = req.body;
+  const { text, imageBase64, context } = req.body;
   if (!text && !imageBase64) {
     return res.status(400).json({ error: 'Missing content to parse (text or imageBase64)' });
   }
@@ -50,30 +50,40 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
 
+    const contextStr = context ? `
+MATCHING CONTEXT:
+The user is comparing this quote against these specific items and quantities:
+${JSON.stringify(context.items, null, 2)}
+` : '';
+
     const systemPrompt = `You are an expert procurement analyst for Achieve Pack.
-You will be given raw text or an image of a Chinese factory vendor quote (報價單).
-Your job is to extract the product specifications and pricing tiers into a structured JSON object.
+You will be given raw text or an image of a factory vendor quote (報價單).
+Your job is to extract the pricing tiers into a structured JSON object.
+
+${contextStr}
 
 REQUIRED OUTPUT JSON FORMAT:
 {
-  "product_name": "English name of product",
-  "size": "W x H + G mm",
-  "material": "Material structure e.g. PET/VMPET/PE",
-  "features": "Key features e.g. Ziplock, Valve",
-  "notes": "Any special remarks or MOQs",
-  "plate_fee_rmb": 500,
-  "pricing": [
-    { "qty": 1000, "unit_rmb": 1.55, "weight_kg": 25.5 },
-    { "qty": 5000, "unit_rmb": 1.20, "weight_kg": 120.0 }
-  ]
+  "supplier_name": "Extracted supplier name",
+  "prices": {
+    "ITEM_ID": {
+      "QUANTITY": 1.23,
+      "QUANTITY_2": 1.10
+    }
+  },
+  "raw_extraction": {
+    "product_name": "English name",
+    "size": "W x H + G mm",
+    "material": "PET/VMPET/PE",
+    "plate_fee_rmb": 500
+  }
 }
 
 RULES:
-1. Translate product names and specs to PROFESSIONAL English.
-2. Extract multiple pricing tiers if present.
-3. If unit price is given as a total for a qty, calculate the unit price (Total / Qty).
-4. If weight is mentioned per item or per batch, normalize it to TOTAL weight for that quantity in KG.
-5. Return ONLY raw JSON. No markdown blocks.`;
+1. If MATCHING CONTEXT is provided, try to map the extracted prices to the provided ITEM_IDs and QUANTITIES.
+2. If a quantity in the quote doesn't exactly match the context, use the closest one or extract as-is.
+3. If no context is provided, return a generic list of prices.
+4. Return ONLY raw JSON. No markdown blocks.`;
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 25000); 

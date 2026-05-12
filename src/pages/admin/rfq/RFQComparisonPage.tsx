@@ -28,11 +28,11 @@ interface Submission {
 }
 
 const RFQComparisonPage: React.FC = () => {
-  const { batchId } = useParams<{ batchId: string }>()
-  const [batch, setBatch] = useState<RFQBatch | null>(null)
-  const [items, setItems] = useState<RFQItem[]>([])
-  const [submissions, setSubmissions] = useState<Submission[]>([])
-  const [loading, setLoading] = useState(true)
+  const [isManualModalOpen, setIsManualModalOpen] = useState(false)
+  const [manualText, setManualText] = useState('')
+  const [manualSupplierName, setManualSupplierName] = useState('')
+  const [isParsingManual, setIsParsingManual] = useState(false)
+  const [manualPrices, setManualPrices] = useState<Record<string, Record<number, string>>>({})
 
   useEffect(() => {
     if (batchId) {
@@ -65,6 +65,92 @@ const RFQComparisonPage: React.FC = () => {
     }
   }
 
+  const handleParseManual = async () => {
+    if (!manualText.trim()) return
+    setIsParsingManual(true)
+    try {
+      // Use Grok to match text to the batch's items and quantities
+      const res = await fetch('/api/admin-parse-vendor-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          text: manualText,
+          context: {
+            items: items.map(it => ({ id: it.id, name: it.product_name, quantities: it.target_quantities }))
+          }
+        })
+      })
+      const data = await res.json()
+      if (data.success && data.extracted) {
+        // Map extracted prices to our internal format
+        // The API might return matched items. For now let's assume it returns a map
+        // or we help the user map them.
+        // Let's assume the API returns { itemId: { qty: price } } if we pass context
+        setManualPrices(data.extracted.prices || {})
+      }
+    } catch (err) {
+      console.error('Manual parse failed:', err)
+      alert('AI Parsing failed. Please input prices manually.')
+    } finally {
+      setIsParsingManual(false)
+    }
+  }
+
+  const handleSaveManual = async () => {
+    if (!manualSupplierName) {
+      alert('Please provide a supplier name.')
+      return
+    }
+
+    try {
+      // 1. Ensure participant exists or create new one
+      let participantId: string
+      const { data: existingPart } = await supabase
+        .from('rfq_participants')
+        .select('id')
+        .eq('batch_id', batchId)
+        .eq('supplier_name', manualSupplierName)
+        .single()
+      
+      if (existingPart) {
+        participantId = existingPart.id
+      } else {
+        const { data: newPart, error: partError } = await supabase
+          .from('rfq_participants')
+          .insert({
+            batch_id: batchId,
+            supplier_name: manualSupplierName,
+            access_password: manualSupplierName.substring(0, 4).toUpperCase() + Math.floor(1000 + Math.random() * 9000)
+          })
+          .select()
+          .single()
+        if (partError) throw partError
+        participantId = newPart.id
+      }
+
+      // 2. Insert Submission
+      const { error: subError } = await supabase
+        .from('rfq_submissions')
+        .insert({
+          batch_id: batchId,
+          participant_id: participantId,
+          prices: manualPrices,
+          supplier_comment: `Manual Entry: ${manualText.substring(0, 100)}...`
+        })
+      
+      if (subError) throw subError
+      
+      setIsManualModalOpen(false)
+      setManualText('')
+      setManualSupplierName('')
+      setManualPrices({})
+      fetchData()
+    } catch (err) {
+      console.error('Save manual failed:', err)
+      alert('Failed to save manual submission.')
+    }
+  }
+
   const getLowestPrice = (itemId: string, qty: number) => {
     let lowest = Infinity
     let supplier = ''
@@ -85,8 +171,8 @@ const RFQComparisonPage: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <Link to="/ctrl-x9k7m" className="text-neutral-400 hover:text-black flex items-center gap-1 text-xs font-black uppercase mb-4 transition-colors">
-              <ChevronLeft className="h-3 w-3" /> Back to Dashboard
+            <Link to="/ctrl-x9k7m/rfq-generator" className="text-neutral-400 hover:text-black flex items-center gap-1 text-xs font-black uppercase mb-4 transition-colors">
+              <ChevronLeft className="h-3 w-3" /> Back to Generator
             </Link>
             <div className="flex items-center gap-3 mb-2">
               <div className="bg-black text-white p-1">
@@ -98,11 +184,14 @@ const RFQComparisonPage: React.FC = () => {
           </div>
           
           <div className="flex gap-4">
-            <button className="bg-white text-black px-6 py-3 text-xs font-black uppercase italic border-2 border-black hover:bg-neutral-50 transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-              Export Excel
+            <button 
+              onClick={() => setIsManualModalOpen(true)}
+              className="bg-white text-black px-6 py-3 text-xs font-black uppercase italic border-2 border-black hover:bg-neutral-50 transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+            >
+              + Manual Input
             </button>
             <button className="bg-black text-white px-6 py-3 text-xs font-black uppercase italic border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] hover:shadow-none transition-all">
-              Notify Award
+              Export Excel
             </button>
           </div>
         </header>
@@ -170,6 +259,93 @@ const RFQComparisonPage: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Manual Input Modal */}
+      {isManualModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white border-4 border-black w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            <div className="flex justify-between items-start mb-8">
+              <div>
+                <h2 className="text-3xl font-black italic uppercase">Add Manual Quote</h2>
+                <p className="text-neutral-500 font-medium text-sm">Paste vendor's text or input prices directly.</p>
+              </div>
+              <button onClick={() => setIsManualModalOpen(false)} className="bg-black text-white p-2 hover:bg-red-500 transition-colors">
+                <ChevronLeft className="h-6 w-6 rotate-180" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Left: Input Text */}
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-xs font-black uppercase text-neutral-400 mb-2">Supplier Name</label>
+                  <input 
+                    value={manualSupplierName}
+                    onChange={(e) => setManualSupplierName(e.target.value)}
+                    placeholder="e.g. CWL Factory"
+                    className="w-full bg-neutral-50 border-2 border-black p-3 font-bold outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-black uppercase text-neutral-400 mb-2">Quote Text (Paste from WhatsApp/Email)</label>
+                  <textarea 
+                    value={manualText}
+                    onChange={(e) => setManualText(e.target.value)}
+                    placeholder="Paste the raw quote text here..."
+                    className="w-full h-64 bg-neutral-50 border-2 border-black p-4 font-mono text-xs outline-none"
+                  />
+                </div>
+                <button 
+                  onClick={handleParseManual}
+                  disabled={isParsingManual || !manualText.trim()}
+                  className="w-full py-4 bg-black text-white font-black uppercase italic hover:bg-neutral-800 disabled:opacity-50 transition-colors"
+                >
+                  {isParsingManual ? 'AI Parsing...' : 'Parse with AI'}
+                </button>
+              </div>
+
+              {/* Right: Price Matrix */}
+              <div className="space-y-6">
+                <h3 className="text-sm font-black uppercase border-b-2 border-black pb-2">Verified Prices</h3>
+                <div className="space-y-6">
+                  {items.map(item => (
+                    <div key={item.id} className="border-2 border-neutral-100 p-4">
+                      <div className="text-xs font-black uppercase mb-3 flex items-center gap-2">
+                        <Package className="h-3 w-3" /> {item.product_name}
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        {item.target_quantities.map(qty => (
+                          <div key={qty}>
+                            <label className="block text-[8px] font-black text-neutral-400 mb-1">{qty.toLocaleString()}</label>
+                            <input 
+                              type="number"
+                              step="0.001"
+                              value={manualPrices[item.id]?.[qty] || ''}
+                              onChange={(e) => {
+                                const newP = { ...manualPrices }
+                                if (!newP[item.id]) newP[item.id] = {}
+                                newP[item.id][qty] = e.target.value
+                                setManualPrices(newP)
+                              }}
+                              className="w-full bg-neutral-50 border border-black p-1.5 text-xs font-mono"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <button 
+                  onClick={handleSaveManual}
+                  className="w-full py-6 bg-green-500 text-black font-black uppercase italic text-xl border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:-translate-y-1 transition-transform"
+                >
+                  Save Submission
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
