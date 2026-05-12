@@ -183,5 +183,3 @@ const Package = ({ className }: { className?: string }) => (
 )
 
 export default RFQComparisonPage
-
-export default RFQComparisonPage

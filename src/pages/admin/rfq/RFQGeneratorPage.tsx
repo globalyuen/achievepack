@@ -20,6 +20,12 @@ interface Supplier {
   password: string
 }
 
+interface Batch {
+  id: string
+  name: string
+  created_at: string
+}
+
 const RFQGeneratorPage: React.FC = () => {
   const [rawText, setRawText] = useState('')
   const [batchName, setBatchName] = useState('')
@@ -31,6 +37,20 @@ const RFQGeneratorPage: React.FC = () => {
   const [isParsing, setIsParsing] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
   const [successLink, setSuccessLink] = useState<string | null>(null)
+  const [recentBatches, setRecentBatches] = useState<Batch[]>([])
+
+  React.useEffect(() => {
+    fetchRecentBatches()
+  }, [])
+
+  const fetchRecentBatches = async () => {
+    const { data } = await supabase
+      .from('rfq_batches')
+      .select('id, name, created_at')
+      .order('created_at', { ascending: false })
+      .limit(5)
+    if (data) setRecentBatches(data)
+  }
 
   const handleParse = async () => {
     if (!rawText.trim()) return
@@ -293,6 +313,39 @@ const RFQGeneratorPage: React.FC = () => {
                 <Plus className="h-5 w-5" /> Add Manual Item
               </button>
             </div>
+
+            {/* Recent Batches Section */}
+            {recentBatches.length > 0 && (
+              <div className="mt-16">
+                <h3 className="text-xl font-black italic uppercase mb-6 flex items-center gap-2">
+                  <Clock className="h-5 w-5" /> Recent Batches
+                </h3>
+                <div className="space-y-3">
+                  {recentBatches.map(b => (
+                    <div key={b.id} className="bg-white border-2 border-black p-4 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                      <div>
+                        <div className="font-black italic uppercase text-sm">{b.name}</div>
+                        <div className="text-[10px] text-neutral-400 font-bold">{new Date(b.created_at).toLocaleDateString()}</div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Link 
+                          to={`/ctrl-x9k7m/rfq/${b.id}/comparison`}
+                          className="bg-black text-white px-4 py-2 text-[10px] font-black uppercase italic hover:bg-neutral-800 transition-colors"
+                        >
+                          Comparison
+                        </Link>
+                        <button 
+                          onClick={() => window.open(`${window.location.origin}/hub/${b.id}`, '_blank')}
+                          className="border-2 border-black px-4 py-1.5 text-[10px] font-black uppercase italic hover:bg-neutral-50 transition-colors"
+                        >
+                          Hub Link
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
