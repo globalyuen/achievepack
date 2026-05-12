@@ -188,6 +188,10 @@ const LowMOQStartupPackagingPage = lazy(() => import('../pages/topics/LowMOQStar
 const CompostableBabyFoodBagsPage = lazy(() => import('../pages/topics/CompostableBabyFoodBagsPage'));
 const CompostableHumidityControlPage = lazy(() => import('../pages/topics/CompostableHumidityControlPage'));
 
+const RFQGeneratorPage = lazy(() => import('../pages/admin/rfq/RFQGeneratorPage'));
+const SupplierHubPage = lazy(() => import('../pages/rfq/SupplierHubPage'));
+const RFQComparisonPage = lazy(() => import('../pages/admin/rfq/RFQComparisonPage'));
+
 // 404 Page
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
@@ -210,6 +214,9 @@ const routes = [
   { path: "/reclosure-options", element: <LazyRoute component={() => import('../pages/PouchEcoReclosurePage')} fallback={<LoadingFallback />} /> },
   { path: "/ctrl-x9k7m", element: <LazyRoute component={() => import('../pages/AdminPage')} fallback={<LoadingFallback />} /> },
   { path: "/ctrl-x9k7m/management", element: <LazyRoute component={() => import('../pages/OrderManagementPage')} fallback={<LoadingFallback />} /> },
+  { path: "/ctrl-x9k7m/rfq-generator", element: <LazyRoute component={() => import('../pages/admin/rfq/RFQGeneratorPage')} fallback={<LoadingFallback />} /> },
+  { path: "/ctrl-x9k7m/rfq/:batchId/comparison", element: <LazyRoute component={() => import('../pages/admin/rfq/RFQComparisonPage')} fallback={<LoadingFallback />} /> },
+  { path: "/hub/:batchId", element: <LazyRoute component={() => import('../pages/rfq/SupplierHubPage')} fallback={<LoadingFallback />} /> },
   { path: "/quotes/flat-bottom", element: <LazyRoute component={() => import('../pages/quotes/FlatBottomQuotePage')} fallback={<LoadingFallback />} /> },
   { path: "/quotes/three-side-seal", element: <LazyRoute component={() => import('../pages/quotes/ThreeSideSealQuotePage')} fallback={<LoadingFallback />} /> },
   { path: "/quotes/stand-up-pouch", element: <LazyRoute component={() => import('../pages/quotes/StandUpPouchQuotePage')} fallback={<LoadingFallback />} /> },

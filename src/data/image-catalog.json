@@ -1,10 +1,10 @@
 {
-  "generated": "2026-05-10",
-  "total_images": 1323,
-  "total_categories": 147,
+  "generated": "2026-05-11",
+  "total_images": 1328,
+  "total_categories": 148,
   "extensions": {
     ".webp": 1077,
-    ".png": 203,
+    ".png": 208,
     ".jpg": 40,
     ".svg": 3
   },
@@ -91,8 +91,14 @@
       ]
     },
     "artifacts": {
-      "count": 10,
+      "count": 11,
       "images": [
+        {
+          "filename": "unprinted_samples_hero.png",
+          "path": "/imgs/artifacts/unprinted_samples_hero.png",
+          "extension": ".png",
+          "modified": "2026-05-11T00:09:14.007Z"
+        },
         {
           "filename": "compostable_coffee_stand_up_pouch.jpg",
           "path": "/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg",
@@ -2475,6 +2481,23 @@
           "path": "/imgs/free/website/hero.webp",
           "extension": ".webp",
           "modified": "2026-01-06T09:14:24.000Z"
+        }
+      ]
+    },
+    "function": {
+      "count": 2,
+      "images": [
+        {
+          "filename": "heat-resistant-layers-tech.png",
+          "path": "/imgs/function/heat-resistant-layers-tech.png",
+          "extension": ".png",
+          "modified": "2026-05-11T03:43:39.516Z"
+        },
+        {
+          "filename": "heat-resistant-candle-hero.png",
+          "path": "/imgs/function/heat-resistant-candle-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-11T03:43:39.514Z"
         }
       ]
     },
@@ -8595,8 +8618,20 @@
       ]
     },
     "topics": {
-      "count": 9,
+      "count": 11,
       "images": [
+        {
+          "filename": "heat-resistant-layers-tech.png",
+          "path": "/imgs/topics/heat-resistant-layers-tech.png",
+          "extension": ".png",
+          "modified": "2026-05-11T03:43:39.510Z"
+        },
+        {
+          "filename": "heat-resistant-candle-hero.png",
+          "path": "/imgs/topics/heat-resistant-candle-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-11T03:43:39.507Z"
+        },
         {
           "filename": "minimalist_d2c_packaging.png",
           "path": "/imgs/topics/minimalist_d2c_packaging.png",
