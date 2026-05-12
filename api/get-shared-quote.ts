@@ -63,7 +63,14 @@ export default async function handler(req: Request): Promise<Response> {
       return new Response(JSON.stringify({ error: 'Quote content is missing.' }), { status: 404 });
     }
 
-    return new Response(JSON.stringify({ success: true, quoteHtml }), { 
+    return new Response(JSON.stringify({ 
+      success: true, 
+      quoteHtml,
+      pricingData: rawData?.pricingData,
+      profitMultiplier: rawData?.profitMultiplier,
+      shippingMultiplier: rawData?.shippingMultiplier,
+      customer: rawData?.customer
+    }), { 
       status: 200, 
       headers: { 'Content-Type': 'application/json' } 
     });

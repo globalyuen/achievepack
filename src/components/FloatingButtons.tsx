@@ -10,6 +10,7 @@ export default function FloatingButtons() {
   // Hide on RFQ/Admin pages as requested
   const isRfqPage = location.pathname.includes('/rfq') || 
                    location.pathname.includes('/hub/') || 
+                   location.pathname.includes('/view-quote/') ||
                    location.pathname.includes('/ctrl-x9k7m')
 
   if (isRfqPage) return null

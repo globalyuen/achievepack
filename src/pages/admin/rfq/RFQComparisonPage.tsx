@@ -36,6 +36,7 @@ const RFQComparisonPage: React.FC = () => {
   const [batch, setBatch] = useState<RFQBatch | null>(null)
   const [items, setItems] = useState<RFQItem[]>([])
   const [submissions, setSubmissions] = useState<Submission[]>([])
+  const [participants, setParticipants] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
   const [isManualModalOpen, setIsManualModalOpen] = useState(false)
@@ -57,6 +58,9 @@ const RFQComparisonPage: React.FC = () => {
 
       const { data: itemsData } = await supabase.from('rfq_items').select('*').eq('batch_id', batchId)
       setItems(itemsData || [])
+
+      const { data: partsData } = await supabase.from('rfq_participants').select('*').eq('batch_id', batchId)
+      setParticipants(partsData || [])
 
       const { data: subsData } = await supabase
         .from('rfq_submissions')
@@ -318,11 +322,17 @@ const RFQComparisonPage: React.FC = () => {
                 <div>
                   <label className="block text-xs font-black uppercase text-neutral-400 mb-2">Supplier Name</label>
                   <input 
+                    list="participants-list"
                     value={manualSupplierName}
                     onChange={(e) => setManualSupplierName(e.target.value)}
                     placeholder="e.g. CWL Factory"
                     className="w-full bg-neutral-50 border-2 border-black p-3 font-bold outline-none"
                   />
+                  <datalist id="participants-list">
+                    {participants.map(p => (
+                      <option key={p.id} value={p.supplier_name} />
+                    ))}
+                  </datalist>
                 </div>
                 <div>
                   <label className="block text-xs font-black uppercase text-neutral-400 mb-2">Quote Text (Paste from WhatsApp/Email)</label>

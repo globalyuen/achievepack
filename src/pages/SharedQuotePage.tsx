@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, Image as ImageIcon, Video as VideoIcon } from 'lucide-react';
+import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, Image as ImageIcon, Video as VideoIcon, SlidersHorizontal, MessageCircle, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
@@ -11,7 +11,6 @@ const SharedQuotePage: React.FC = () => {
   const [quoteHtml, setQuoteHtml] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [iframeHeight, setIframeHeight] = useState(1200);
 
   // Media attachments state (stored in a hidden comment or separate metadata if available)
@@ -32,7 +31,6 @@ const SharedQuotePage: React.FC = () => {
   
   // Pricing and Recalculation
   const [pricingData, setPricingData] = useState<any[]>([]);
-  const [profitMultiplier, setProfitMultiplier] = useState(1.6);
   const [shippingMultiplier, setShippingMultiplier] = useState(1.0);
   const [customerName, setCustomerName] = useState('Valued Client');
   
@@ -76,8 +74,14 @@ const SharedQuotePage: React.FC = () => {
         }
 
         // Load pricing metadata from DB if available
-        if (data.pricingData) setPricingData(data.pricingData);
-        if (data.profitMultiplier) setProfitMultiplier(data.profitMultiplier);
+        if (data.pricingData) {
+          // Ensure every item has an adjustment field (default 100)
+          const itemsWithAdjustment = data.pricingData.map((it: any) => ({
+            ...it,
+            adjustment: it.adjustment || (data.profitMultiplier ? Math.round(data.profitMultiplier * 100) : 100)
+          }));
+          setPricingData(itemsWithAdjustment);
+        }
         if (data.shippingMultiplier) setShippingMultiplier(data.shippingMultiplier);
         if (data.customer) setCustomerName(data.customer);
       } catch (err: any) {
@@ -89,26 +93,8 @@ const SharedQuotePage: React.FC = () => {
     fetchQuote();
   }, [id]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrollable = document.documentElement.scrollHeight > window.innerHeight + 200;
-      if (window.scrollY > 150) {
-        setShowScrollIndicator(false);
-      } else if (isScrollable) {
-        setShowScrollIndicator(true);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    const timer = setTimeout(handleScroll, 1000);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-      clearTimeout(timer);
-    };
-  }, [quoteHtml, iframeHeight]);
+
+
   
   const handleEditClick = () => {
     if (sessionStorage.getItem('admin_local_pwd') === ADMIN_PWD) {
@@ -186,7 +172,8 @@ const SharedQuotePage: React.FC = () => {
 
       const sectionsHtml = pricingData.map((item: any, idx: number) => {
         const rows = (item.pricing || []).map((tier: any) => {
-          const unitUsd = (tier.unit_rmb / RMB_TO_USD) * profitMultiplier;
+          const itemAdjustment = (item.adjustment || 100) / 100;
+          const unitUsd = (tier.unit_rmb / RMB_TO_USD) * itemAdjustment;
           const exwTotal = Math.ceil(unitUsd * tier.qty);
           const weight = parseFloat(tier.weight_kg) || 0;
           
@@ -216,7 +203,8 @@ const SharedQuotePage: React.FC = () => {
           </tr>`;
         }).join('');
 
-        const plateFeeUsd = item.plate_fee_rmb ? Math.ceil((item.plate_fee_rmb / RMB_TO_USD) * profitMultiplier) : 0;
+        const itemAdjustment = (item.adjustment || 100) / 100;
+        const plateFeeUsd = item.plate_fee_rmb ? Math.ceil((item.plate_fee_rmb / RMB_TO_USD) * itemAdjustment) : 0;
 
         return `
         <div style="page-break-inside: avoid; margin-bottom: 40px;">
@@ -335,7 +323,7 @@ const SharedQuotePage: React.FC = () => {
     } catch (e: any) {
       console.error("Error building quote HTML:", e);
     }
-  }, [pricingData, profitMultiplier, shippingMultiplier, customerName]);
+  }, [pricingData, shippingMultiplier, customerName]);
 
   const handleSave = async () => {
     if (!id || !editedHtml.trim()) return;
@@ -356,7 +344,6 @@ const SharedQuotePage: React.FC = () => {
           id, 
           quoteHtml: finalHtml,
           pricingData,
-          profitMultiplier,
           shippingMultiplier,
           customer: customerName
         })
@@ -382,10 +369,10 @@ const SharedQuotePage: React.FC = () => {
     );
   }
 
-  const getSrcDoc = () => {
-    if (!quoteHtml) return '';
+  const getSrcDoc = (html: string | null) => {
+    if (!html) return '';
     // Clean metadata comment from display
-    const displayHtml = quoteHtml.replace(/<!-- MEDIA:.* -->/, '');
+    const displayHtml = html.replace(/<!-- MEDIA:.* -->/, '');
     return `
       <html>
         <head>
@@ -521,29 +508,37 @@ const SharedQuotePage: React.FC = () => {
         {editMode && (
           <div className="mb-8 space-y-6">
             <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-              <h3 className="font-black uppercase mb-4 flex items-center gap-2">Pricing Controls</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-[10px] font-black uppercase text-gray-400 mb-1">Profit Markup (e.g. 1.6)</label>
-                  <input 
-                    type="number" 
-                    step="0.05"
-                    value={profitMultiplier}
-                    onChange={(e) => setProfitMultiplier(parseFloat(e.target.value) || 1.0)}
-                    className="w-full border-2 border-black p-2 font-bold focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="block text-[10px] font-black uppercase text-gray-400 mb-1">Shipping Multiplier (e.g. 1.0)</label>
-                  <input 
-                    type="number" 
-                    step="0.1"
-                    value={shippingMultiplier}
-                    onChange={(e) => setShippingMultiplier(parseFloat(e.target.value) || 1.0)}
-                    className="w-full border-2 border-black p-2 font-bold focus:outline-none"
-                  />
-                </div>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-black uppercase flex items-center gap-2">Pricing Controls</h3>
+                {(!pricingData || pricingData.length === 0) && (
+                  <div className="bg-amber-100 text-amber-800 text-[10px] font-bold px-3 py-1 rounded-full border border-amber-200 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3" /> LEGACY QUOTE: AUTO-CALC DISABLED
+                  </div>
+                )}
               </div>
+              
+              {(!pricingData || pricingData.length === 0) ? (
+                <p className="text-xs text-gray-500 italic">This is an older quote with no pricing metadata. Please edit the HTML manually below.</p>
+              ) : (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2">
+                      <SlidersHorizontal className="w-4 h-4 text-blue-600" />
+                      <span className="text-xs font-black text-blue-800 uppercase">EXW adjustments in bottom bar ↓ Scroll down to see changes live</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <label className="text-[10px] font-black uppercase text-gray-400">Ship×</label>
+                      <input 
+                        type="number" 
+                        step="0.1"
+                        value={shippingMultiplier}
+                        onChange={(e) => setShippingMultiplier(parseFloat(e.target.value) || 1.0)}
+                        className="w-16 border-2 border-black p-1 text-xs font-bold text-center focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -598,10 +593,10 @@ const SharedQuotePage: React.FC = () => {
 
         {/* Quotation View */}
         <div className="bg-white border-2 border-gray-200 shadow-xl rounded-xl overflow-hidden">
-          {quoteHtml && (
+          {editedHtml && (
             <iframe
-              key={quoteHtml}
-              srcDoc={getSrcDoc()}
+              key={shippingMultiplier + '-' + customerName + '-' + (pricingData ? pricingData.map(it => it.adjustment).join(',') : '')}
+              srcDoc={getSrcDoc(editedHtml)}
               className="w-full border-none"
               style={{ height: iframeHeight + 'px', display: 'block' }}
               scrolling="no"
@@ -693,8 +688,116 @@ const SharedQuotePage: React.FC = () => {
         )}
       </AnimatePresence>
 
+      {/* 
+        FLOATING ACTION BARS 
+      */}
+      
+      {/* 1. Admin Adjustment Bar (Sticky Bottom) */}
+      {editMode && pricingData && pricingData.length > 0 && (
+        <div className="fixed bottom-0 left-0 right-0 z-[60] bg-black border-t-4 border-[#D4FF00] p-4 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] print:hidden">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-4">
+            <div className="flex items-center gap-3 pr-4 border-r border-gray-700">
+              <div className="bg-[#D4FF00] p-2 rounded-lg">
+                <SlidersHorizontal className="w-5 h-5 text-black" />
+              </div>
+              <div className="hidden sm:block">
+                <h4 className="text-[#D4FF00] text-[10px] font-black uppercase leading-tight">Live Pricing</h4>
+                <p className="text-white text-[8px] font-bold uppercase opacity-60">Fine-tune EXW Adjustments</p>
+              </div>
+            </div>
+            
+            <div className="flex-1 overflow-x-auto no-scrollbar py-1">
+              <div className="flex items-center gap-4 min-w-max">
+                {pricingData.map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2 bg-neutral-900 border border-gray-800 rounded-xl px-3 py-1.5 min-w-[160px]">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[8px] font-black text-gray-500 uppercase truncate mb-0.5">{item.product_name || `Item ${idx+1}`}</p>
+                      <div className="flex items-center gap-2">
+                        <input 
+                          type="number" 
+                          value={item.adjustment || 100}
+                          onChange={(e) => {
+                            const newData = [...pricingData];
+                            newData[idx].adjustment = parseInt(e.target.value) || 100;
+                            setPricingData(newData);
+                          }}
+                          className="w-16 bg-black border border-gray-700 text-white text-sm font-black p-1 rounded focus:border-[#D4FF00] outline-none"
+                        />
+                        <span className="text-[#D4FF00] font-black text-xs">%</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 pl-4 border-l border-gray-700">
+              <button 
+                onClick={handleSave} 
+                disabled={saving}
+                className="bg-[#D4FF00] text-black px-6 py-2.5 rounded-xl font-black uppercase text-xs shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+              >
+                {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                {saving ? 'Saving...' : 'SAVE QUOTE'}
+              </button>
+              <button 
+                onClick={() => setEditMode(false)}
+                className="bg-neutral-800 text-white p-2.5 rounded-xl border border-gray-700 hover:bg-neutral-700 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 2. Client Action Buttons (Floating Right) */}
+      {!editMode && (
+        <div className="fixed bottom-8 right-8 z-[60] flex flex-col gap-4 print:hidden">
+          {/* Book Meeting */}
+          <motion.a
+            href="https://calendly.com/30-min-free-packaging-consultancy"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            whileHover={{ scale: 1.05, x: -5 }}
+            className="flex items-center gap-3 bg-white border-4 border-black p-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all group"
+          >
+            <div className="hidden group-hover:block whitespace-nowrap">
+              <p className="text-[10px] font-black uppercase text-gray-500 leading-none mb-1">Expert Advice</p>
+              <p className="text-sm font-black uppercase">Book Meeting</p>
+            </div>
+            <div className="bg-blue-600 p-2 rounded-lg text-white">
+              <Calendar className="w-6 h-6" />
+            </div>
+          </motion.a>
+
+          {/* WhatsApp */}
+          <motion.a
+            href="https://wa.me/85269704411"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.1 }}
+            whileHover={{ scale: 1.05, x: -5 }}
+            className="flex items-center gap-3 bg-white border-4 border-black p-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all group"
+          >
+            <div className="hidden group-hover:block whitespace-nowrap">
+              <p className="text-[10px] font-black uppercase text-gray-500 leading-none mb-1">Quick Questions</p>
+              <p className="text-sm font-black uppercase">WhatsApp Me</p>
+            </div>
+            <div className="bg-[#25D366] p-2 rounded-lg text-white">
+              <MessageCircle className="w-6 h-6" />
+            </div>
+          </motion.a>
+        </div>
+      )}
+
       <style dangerouslySetInnerHTML={{ __html: printStyles }} />
     </div>
+
   );
 };
 

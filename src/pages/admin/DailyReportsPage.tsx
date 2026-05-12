@@ -89,7 +89,9 @@ const DEFAULT_QUICK_TERMS: Record<string, string[]> = {
 const RFQ_QUICK_TERMS = DEFAULT_QUICK_TERMS;
 
 export default function DailyReportsPage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return sessionStorage.getItem('admin_daily_reports_auth') === 'true';
+  });
   const [pin, setPin] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -132,7 +134,6 @@ export default function DailyReportsPage() {
   const [quoteHtml, setQuoteHtml] = useState<string>('');
   const [quoteData, setQuoteData] = useState<{ customerName: string; extracted?: any[]; dbLogId: string } | null>(null);
   const [quoteLoading, setQuoteLoading] = useState(false);
-  const [quoteMarkup, setQuoteMarkup] = useState('1.6');
   const [shippingDiscount, setShippingDiscount] = useState('1.0');
   const [quoteSearchTerm, setQuoteSearchTerm] = useState('');
   const [selectedDocCategory, setSelectedDocCategory] = useState('Quote');
@@ -219,6 +220,7 @@ export default function DailyReportsPage() {
     setLoading(true);
     if (pin === (import.meta.env.VITE_ADMIN_PIN || "8888****")) {
       setIsAuthenticated(true);
+      sessionStorage.setItem('admin_daily_reports_auth', 'true');
       fetchData();
     } else {
       setErrorMsg('Incorrect Secure PIN');
@@ -261,6 +263,7 @@ export default function DailyReportsPage() {
 
   const handleLogout = () => {
     setIsAuthenticated(false);
+    sessionStorage.removeItem('admin_daily_reports_auth');
     setReports([]);
     setPin('');
   };
@@ -385,7 +388,7 @@ export default function DailyReportsPage() {
       const resp = await fetch('/api/admin-generate-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ logId: dbLog.id, markup: quoteMarkup })
+        body: JSON.stringify({ logId: dbLog.id, markup: "1.6" })
       });
 
       const rawResp = await resp.text();
@@ -403,7 +406,10 @@ export default function DailyReportsPage() {
 
       // Set the extracted JSON variables into state, triggering useEffect to render HTML
       const { extracted, customerName } = data;
-      const itemsToRender = Array.isArray(extracted) ? extracted : [extracted];
+      const itemsToRender = (Array.isArray(extracted) ? extracted : [extracted]).map(it => ({
+        ...it,
+        adjustment: it.adjustment || 160
+      }));
       
       setQuoteData({
         customerName: customerName || 'Valued Client',
@@ -436,7 +442,8 @@ export default function DailyReportsPage() {
       const sectionsHtml = itemsToRender.map((item: any, idx: number) => {
         console.log(`Processing item ${idx}:`, item);
         const rows = (item.pricing || []).map((tier: any) => {
-          const unitUsd = (tier.unit_rmb / RMB_TO_USD) * parseFloat(quoteMarkup);
+          const itemAdjustment = (item.adjustment || 160) / 100;
+          const unitUsd = (tier.unit_rmb / RMB_TO_USD) * itemAdjustment;
           const exwTotal = Math.ceil(unitUsd * tier.qty);
           const weight = parseFloat(tier.weight_kg) || 0;
           
@@ -466,7 +473,8 @@ export default function DailyReportsPage() {
           </tr>`;
         }).join('');
 
-        const plateFeeUsd = item.plate_fee_rmb ? Math.ceil((item.plate_fee_rmb / RMB_TO_USD) * parseFloat(quoteMarkup)) : 0;
+        const itemAdjustment = (item.adjustment || 160) / 100;
+        const plateFeeUsd = item.plate_fee_rmb ? Math.ceil((item.plate_fee_rmb / RMB_TO_USD) * itemAdjustment) : 0;
         console.log(`Plate fee for item ${idx}:`, { rmb: item.plate_fee_rmb, usd: plateFeeUsd });
 
         return `
@@ -586,7 +594,7 @@ export default function DailyReportsPage() {
     } catch (e: any) {
       setQuoteHtml(`<div style="padding:2rem;font-family:sans-serif;color:#dc2626"><h2>⚠️ Error Building Quote</h2><p>${e.message}</p></div>`);
     }
-  }, [quoteData, quoteMarkup, shippingDiscount]);
+  }, [quoteData, shippingDiscount]);
 
   const handleSaveQuoteHistory = async () => {
     if (!quoteData || !quoteHtml) return;
@@ -599,8 +607,7 @@ export default function DailyReportsPage() {
           quoteHtml: quoteHtml,
           customer: quoteData.customerName,
           detailText: currentRecord.detail,
-          pricingData: quoteData.extracted,
-          profitMultiplier: parseFloat(quoteMarkup),
+          pricingData: quoteData?.extracted || null,
           shippingMultiplier: parseFloat(shippingDiscount)
         })
       });
@@ -637,7 +644,9 @@ export default function DailyReportsPage() {
           id: quoteData.dbLogId,
           quoteHtml: quoteHtml,
           customer: quoteData.customerName,
-          detailText: currentRecord.detail
+          detailText: currentRecord.detail,
+          pricingData: quoteData.extracted,
+          shippingMultiplier: parseFloat(shippingDiscount)
         })
       });
 
@@ -1574,7 +1583,7 @@ export default function DailyReportsPage() {
                 <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-3 sm:p-4 flex items-center justify-between">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <div className="p-2 bg-white rounded-lg shadow-sm font-bold text-emerald-700 text-[10px] sm:text-xs whitespace-nowrap">1 USD = 6.9 RMB</div>
-                    <div className="text-[10px] sm:text-[11px] font-bold text-emerald-800 uppercase tracking-tight">Active: Markup {quoteMarkup}x + Rounding</div>
+                    <div className="text-[10px] sm:text-[11px] font-bold text-emerald-800 uppercase tracking-tight">Active: Per-Item Pricing + Rounding</div>
                   </div>
                   <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-500 flex-shrink-0" />
                 </div>
@@ -1699,20 +1708,6 @@ export default function DailyReportsPage() {
 
                 <div className="flex flex-col gap-3 items-stretch sm:items-center p-3 sm:p-4 bg-emerald-50 border border-emerald-200 rounded-2xl">
                   <div className="flex-1 w-full">
-                    <label className="block text-xs font-extrabold text-emerald-800 mb-1">Client Price Markup</label>
-                    <select className="w-full border border-emerald-200 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-emerald-400"
-                      value={quoteMarkup} onChange={e => setQuoteMarkup(e.target.value)}>
-                      <option value="1.1">1.1x — 10% Profit</option>
-                      <option value="1.2">1.2x — 20% Profit</option>
-                      <option value="1.3">1.3x — 30% Profit</option>
-                      <option value="1.5">1.5x — 50% Profit</option>
-                      <option value="1.6">1.6x — 60% Profit</option>
-                      <option value="1.8">1.8x — 80% Profit</option>
-                      <option value="2.0">2.0x — 100% Profit</option>
-                      <option value="3.0">3.0x — 200% Profit</option>
-                    </select>
-                  </div>
-                  <div className="flex-1 w-full">
                     <label className="block text-xs font-extrabold text-emerald-800 mb-1">Shipping Discount (Closer Location)</label>
                     <select className="w-full border border-emerald-200 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-emerald-400"
                       value={shippingDiscount} onChange={e => setShippingDiscount(e.target.value)}>
@@ -1772,7 +1767,10 @@ export default function DailyReportsPage() {
                               setQuoteData({
                                 customerName: log.raw_data.customer || 'Unknown Client',
                                 dbLogId: log.id,
-                                extracted: log.raw_data.extracted || undefined
+                                extracted: (log.raw_data.extracted || []).map((it: any) => ({
+                                  ...it,
+                                  adjustment: it.adjustment || 160
+                                }))
                               });
                             }
                           }}
@@ -2063,23 +2061,8 @@ export default function DailyReportsPage() {
                         />
                       </div>
 
-                      <div className="grid grid-cols-2 gap-3">
-                        <div>
-                          <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Price Markup</label>
-                          <select className="w-full border border-gray-300 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-blue-400"
-                            value={quoteMarkup} onChange={e => setQuoteMarkup(e.target.value)}>
-                            <option value="1.1">1.1x</option>
-                            <option value="1.2">1.2x</option>
-                            <option value="1.3">1.3x</option>
-                            <option value="1.5">1.5x</option>
-                            <option value="1.6">1.6x</option>
-                            <option value="1.8">1.8x</option>
-                            <option value="2.0">2.0x</option>
-                            <option value="3.0">3.0x</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold text-gray-500 mb-1 uppercase">Shipping Disc.</label>
+                      <div>
+                          <label className="block text-xs font-bold text-gray-400 mb-1 uppercase">Global Shipping Disc.</label>
                           <select className="w-full border border-gray-300 bg-white rounded-lg p-2 text-sm font-bold text-gray-800 cursor-pointer focus:ring-2 focus:ring-blue-400"
                             value={shippingDiscount} onChange={e => setShippingDiscount(e.target.value)}>
                             <option value="1.0">1.0x</option>
@@ -2088,13 +2071,27 @@ export default function DailyReportsPage() {
                             <option value="0.3">0.3x</option>
                           </select>
                         </div>
-                      </div>
                       
                       <div className="space-y-3">
                         <label className="block text-xs font-bold text-gray-500 mb-1 uppercase border-b border-gray-200 pb-2">Item Names</label>
                         {quoteData.extracted.map((item: any, idx: number) => (
-                          <div key={idx} className="bg-white p-3 rounded-lg border border-gray-200">
-                            <label className="block text-[10px] font-bold text-gray-400 mb-1 uppercase border-b border-gray-100 pb-1">Product {idx+1}</label>
+                          <div key={idx} className="bg-white p-3 rounded-xl border border-gray-200 shadow-sm mb-4">
+                            <div className="flex justify-between items-center mb-2 border-b border-gray-50 pb-1">
+                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-tighter">Product {idx+1}</label>
+                              <div className="flex items-center gap-1">
+                                <span className="text-[10px] font-black text-blue-500 uppercase">EXW Adj %</span>
+                                <input 
+                                  type="number" 
+                                  value={item.adjustment || 160}
+                                  onChange={e => {
+                                    const newExtracted = [...quoteData.extracted];
+                                    newExtracted[idx].adjustment = parseInt(e.target.value) || 100;
+                                    setQuoteData({...quoteData, extracted: newExtracted});
+                                  }}
+                                  className="w-12 border-blue-200 rounded p-1 text-[10px] font-black bg-blue-50 text-blue-700 text-center focus:ring-1 focus:ring-blue-500 outline-none"
+                                />
+                              </div>
+                            </div>
                             <input 
                               type="text" 
                               value={item.product_name || ''} 
