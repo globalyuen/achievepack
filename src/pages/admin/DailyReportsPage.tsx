@@ -484,7 +484,7 @@ export default function DailyReportsPage() {
               </div>
               <div class="spec-item"><label>Material Structure</label><span>${item.material || '—'}</span></div>
               <div class="spec-item"><label>Key Features</label><span>${item.features || '—'}</span></div>
-              ${plateFeeUsd > 0 || item.plate_details ? `<div class="spec-item" style="grid-column: span 4; margin-top:6px; padding-top:6px; border-top:1px dashed #e2e8f0"><label>Cylinder Plate / Print Details</label><span style="color:#d97706;font-size:10px">${item.plate_details || 'Standard Setup'} ${plateFeeUsd > 0 ? `<strong>(Est. Total: $${plateFeeUsd} USD)</strong>` : ''}</span></div>` : ''}
+              ${plateFeeUsd > 0 || item.plate_details ? `<div class="spec-item" style="margin-top:6px; padding-top:6px; border-top:1px dashed #e2e8f0"><label>Plate / Print Details</label><span style="color:#d97706;font-size:10px">${item.plate_details || 'Standard Setup'} ${plateFeeUsd > 0 ? `<strong>(Est. Total: $${plateFeeUsd} USD)</strong>` : ''}</span></div>` : ''}
             </div>
             ${item.notes ? `<div style="margin-top:16px;padding:12px;background:#fef9c3;border-radius:8px;font-size:12px;color:#854d0e"><strong>⚠️ Note:</strong> ${item.notes}</div>` : ''}
           </div>
@@ -530,9 +530,11 @@ export default function DailyReportsPage() {
             .client-info { background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px; display: flex; justify-content: space-between; }
             .section { margin-bottom: 20px; page-break-inside: avoid; }
             .section-title { font-size: 12px; font-weight: 800; text-transform: uppercase; color: #64748b; margin-bottom: 10px; letter-spacing: 0.05em; border-left: 3px solid #3b82f6; padding-left: 10px; }
-            .specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: white; padding: 15px; border: 1px solid #e2e8f0; border-radius: 8px; }
-            .spec-item label { display: block; font-size: 8px; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 2px; }
-            .spec-item span { font-size: 10px; font-weight: 600; color: #334155; }
+            .specs { background: white; padding: 15px; border: 1px solid #e2e8f0; border-radius: 8px; display: flex; flex-direction: column; gap: 8px; }
+            .spec-item { display: flex; align-items: flex-start; gap: 15px; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
+            .spec-item:last-child { border-bottom: none; }
+            .spec-item label { width: 120px; shrink: 0; font-size: 8px; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-top: 2px; }
+            .spec-item span { font-size: 10px; font-weight: 700; color: #1e293b; line-height: 1.4; }
             table { width: 100%; border-collapse: collapse; font-size: 9px; table-layout: auto; }
             th { padding: 8px 10px; font-weight: 800; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 8px; white-space: nowrap; }
             td { vertical-align: middle; padding: 8px 10px; }
