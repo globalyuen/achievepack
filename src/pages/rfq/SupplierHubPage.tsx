@@ -241,21 +241,21 @@ const SupplierHubPage: React.FC = () => {
                     <h3 className="text-2xl font-black italic uppercase tracking-tight">{item.product_name}</h3>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                  <div className="space-y-6">
                     <div>
-                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">袋型样式 (Bag Style)</span>
+                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">袋型样式 (Bag Style & Features)</span>
                       <p className="font-bold text-sm uppercase">{item.style || '-'}</p>
                     </div>
                     <div>
-                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">尺寸大小 (Dimensions)</span>
+                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">尺寸大小 (Dimensions / Unfolded Size)</span>
                       <p className="font-bold text-sm uppercase">{item.dimensions || '-'}</p>
                     </div>
                     <div>
-                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">物料规格 (Materials)</span>
-                      <p className="font-bold text-sm uppercase text-neutral-700">{item.material_spec || '-'}</p>
+                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">物料规格 (Material Structure)</span>
+                      <p className="font-bold text-sm uppercase text-neutral-700 leading-relaxed">{item.material_spec || '-'}</p>
                     </div>
                     <div>
-                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">印刷工艺 (Print)</span>
+                      <span className="block text-[10px] font-black uppercase text-neutral-400 mb-1">印刷工艺 (Print Type)</span>
                       <p className="font-bold text-sm uppercase">{item.print_type || '-'}</p>
                     </div>
                   </div>

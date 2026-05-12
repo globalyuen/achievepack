@@ -51,42 +51,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const contextStr = context ? `
-MATCHING CONTEXT:
-The user is comparing this quote against these specific items and quantities:
-${JSON.stringify(context.items, null, 2)}
+CONTEXT: Match prices to these IDs/Qtys:
+${JSON.stringify(context.items.map((it: any) => ({ id: it.id, name: it.name, qtys: it.quantities })))}
 ` : '';
 
-    const systemPrompt = `You are an expert procurement analyst for Achieve Pack.
-You will be given raw text or an image of a factory vendor quote (報價單).
-Your job is to extract the pricing tiers into a structured JSON object.
-
+    const systemPrompt = `Analyze factory quote. Extract prices to JSON.
 ${contextStr}
-
-REQUIRED OUTPUT JSON FORMAT:
+FORMAT:
 {
-  "supplier_name": "Extracted supplier name",
-  "prices": {
-    "ITEM_ID": {
-      "QUANTITY": 1.23,
-      "QUANTITY_2": 1.10
-    }
-  },
-  "raw_extraction": {
-    "product_name": "English name",
-    "size": "W x H + G mm",
-    "material": "PET/VMPET/PE",
-    "plate_fee_rmb": 500
-  }
+  "supplier_name": "Name",
+  "prices": { "ITEM_ID": { "QTY": 1.23 } },
+  "raw": { "size": "...", "material": "..." }
 }
-
 RULES:
-1. If MATCHING CONTEXT is provided, try to map the extracted prices to the provided ITEM_IDs and QUANTITIES.
-2. If a quantity in the quote doesn't exactly match the context, use the closest one or extract as-is.
-3. If no context is provided, return a generic list of prices.
-4. Return ONLY raw JSON. No markdown blocks.`;
+1. Map to provided ITEM_IDs/Qtys if possible.
+2. Return ONLY raw JSON. No markdown.`;
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 25000); 
+    const timeoutId = setTimeout(() => controller.abort(), 28000); 
     
     let xaiResponse;
 
@@ -99,12 +81,12 @@ RULES:
            messages: [
              { role: 'system', content: systemPrompt },
              { role: 'user', content: [
-               { type: 'text', text: 'Extract this vendor quote into JSON:' },
+               { type: 'text', text: 'Extract JSON:' },
                { type: 'image_url', image_url: { url: imageBase64 } }
              ]}
            ],
-           max_tokens: 2000,
-           temperature: 0.1
+           max_tokens: 1000,
+           temperature: 0
         }),
         signal: controller.signal
       });
@@ -116,10 +98,10 @@ RULES:
            model: 'grok-3-beta', 
            messages: [
              { role: 'system', content: systemPrompt },
-             { role: 'user', content: extractedText.substring(0, 10000) }
+             { role: 'user', content: extractedText.substring(0, 8000) }
            ],
-           max_tokens: 2000,
-           temperature: 0.1
+           max_tokens: 1000,
+           temperature: 0
         }),
         signal: controller.signal
       });

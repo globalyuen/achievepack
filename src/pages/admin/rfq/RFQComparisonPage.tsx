@@ -86,17 +86,22 @@ const RFQComparisonPage: React.FC = () => {
           }
         })
       })
+      
+      if (!res.ok) {
+        if (res.status === 504) throw new Error('AI Timeout: The quote is too complex or long. Try pasting a shorter section.')
+        throw new Error('Failed to parse quote')
+      }
+
       const data = await res.json()
       if (data.success && data.extracted) {
-        // Map extracted prices to our internal format
-        // The API might return matched items. For now let's assume it returns a map
-        // or we help the user map them.
-        // Let's assume the API returns { itemId: { qty: price } } if we pass context
         setManualPrices(data.extracted.prices || {})
+        if (data.extracted.supplier_name && !manualSupplierName) {
+          setManualSupplierName(data.extracted.supplier_name)
+        }
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Manual parse failed:', err)
-      alert('AI Parsing failed. Please input prices manually.')
+      alert(err.message || 'AI Parsing failed. Please input prices manually.')
     } finally {
       setIsParsingManual(false)
     }

@@ -262,45 +262,45 @@ const RFQGeneratorPage: React.FC = () => {
                     <Trash2 className="h-4 w-4" />
                   </button>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-6">
                     <div>
                       <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Product Name</label>
                       <input 
                         value={item.product_name}
                         onChange={(e) => updateItem(i, 'product_name', e.target.value)}
-                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-bold focus:bg-white outline-none"
+                        className="w-full bg-neutral-50 border-2 border-black p-3 text-sm font-bold focus:bg-white outline-none"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Bag Style</label>
-                      <input 
-                        value={item.style}
-                        onChange={(e) => updateItem(i, 'style', e.target.value)}
-                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-bold focus:bg-white outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Dimensions</label>
+                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Dimensions (Unfolded Size)</label>
                       <input 
                         value={item.dimensions}
                         onChange={(e) => updateItem(i, 'dimensions', e.target.value)}
-                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-bold focus:bg-white outline-none"
+                        className="w-full bg-neutral-50 border-2 border-black p-3 text-sm font-bold focus:bg-white outline-none"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Material Spec</label>
-                      <input 
+                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Material Structure</label>
+                      <textarea 
                         value={item.material_spec}
                         onChange={(e) => updateItem(i, 'material_spec', e.target.value)}
-                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-bold focus:bg-white outline-none"
+                        className="w-full bg-neutral-50 border-2 border-black p-3 text-sm font-bold focus:bg-white outline-none h-20 resize-none"
                       />
                     </div>
-                    <div className="md:col-span-2">
+                    <div>
+                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Bag Style & Features</label>
+                      <input 
+                        value={item.style}
+                        onChange={(e) => updateItem(i, 'style', e.target.value)}
+                        className="w-full bg-neutral-50 border-2 border-black p-3 text-sm font-bold focus:bg-white outline-none"
+                      />
+                    </div>
+                    <div>
                       <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Quantities (Comma separated)</label>
                       <input 
                         value={item.target_quantities.join(', ')}
                         onChange={(e) => updateItem(i, 'target_quantities', e.target.value.split(',').map(n => parseInt(n.trim()) || 0))}
-                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-mono text-green-700 focus:bg-white outline-none"
+                        className="w-full bg-neutral-50 border-2 border-black p-3 text-sm font-mono text-green-700 focus:bg-white outline-none"
                       />
                     </div>
                   </div>
