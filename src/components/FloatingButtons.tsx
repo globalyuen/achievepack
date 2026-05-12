@@ -1,9 +1,18 @@
 import { useState } from 'react'
 import { Calendar, MessageCircle, X } from 'lucide-react'
+import { useLocation } from 'react-router-dom'
 
 export default function FloatingButtons() {
   const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
+  const location = useLocation()
+
+  // Hide on RFQ/Admin pages as requested
+  const isRfqPage = location.pathname.includes('/rfq') || 
+                   location.pathname.includes('/hub/') || 
+                   location.pathname.includes('/ctrl-x9k7m')
+
+  if (isRfqPage) return null
 
   const whatsappNumber = '85269704411'
   const whatsappUrl = `https://wa.me/${whatsappNumber}`

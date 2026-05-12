@@ -117,19 +117,19 @@ const RFQGeneratorPage: React.FC = () => {
 
   if (successLink) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center p-6">
-        <div className="max-w-md w-full border-4 border-green-500 p-8 bg-neutral-900 shadow-[8px_8px_0px_0px_rgba(34,197,94,1)]">
-          <Check className="h-16 w-16 text-green-500 mb-6 mx-auto" />
+      <div className="min-h-screen bg-[#fcfcfc] text-black flex items-center justify-center p-6">
+        <div className="max-w-md w-full border-4 border-black p-8 bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <Check className="h-16 w-16 text-green-600 mb-6 mx-auto" />
           <h1 className="text-3xl font-black mb-4 text-center italic uppercase">Batch Created!</h1>
-          <p className="text-neutral-400 mb-8 text-center font-medium">
+          <p className="text-neutral-600 mb-8 text-center font-medium">
             Your multi-supplier RFQ hub is live. Share this link with suppliers:
           </p>
-          <div className="bg-black p-4 border border-neutral-700 break-all text-green-400 font-mono mb-8 text-sm">
+          <div className="bg-neutral-50 p-4 border-2 border-black break-all text-black font-mono mb-8 text-sm">
             {window.location.origin}{successLink}
           </div>
           <button 
             onClick={() => window.location.reload()}
-            className="w-full py-4 bg-green-500 text-black font-black uppercase italic hover:translate-x-1 hover:-translate-y-1 transition-transform"
+            className="w-full py-4 bg-black text-white font-black uppercase italic hover:translate-x-1 hover:-translate-y-1 transition-transform"
           >
             Create Another
           </button>
@@ -139,11 +139,11 @@ const RFQGeneratorPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white p-4 sm:p-8 font-sans">
+    <div className="min-h-screen bg-[#fcfcfc] text-black p-4 sm:p-8 font-sans">
       <div className="max-w-5xl mx-auto">
         <header className="mb-12">
           <div className="flex items-center gap-3 mb-2">
-            <div className="bg-green-500 text-black p-1">
+            <div className="bg-black text-white p-1">
               <Sparkles className="h-6 w-6" />
             </div>
             <h1 className="text-4xl font-black italic uppercase tracking-tighter">AI RFQ Generator</h1>
@@ -154,7 +154,7 @@ const RFQGeneratorPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left: Input */}
           <div className="lg:col-span-1 space-y-6">
-            <div className="border-2 border-neutral-800 p-6 bg-neutral-900/50">
+            <div className="border-2 border-black p-6 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <label className="block text-xs font-black uppercase tracking-widest text-neutral-500 mb-4 flex items-center gap-2">
                 <FileText className="h-3 w-3" /> Raw RFQ Text
               </label>
@@ -162,19 +162,19 @@ const RFQGeneratorPage: React.FC = () => {
                 value={rawText}
                 onChange={(e) => setRawText(e.target.value)}
                 placeholder="Paste email, chat, or PDF text here..."
-                className="w-full h-80 bg-black border border-neutral-800 p-4 font-mono text-sm focus:border-green-500 outline-none transition-colors resize-none"
+                className="w-full h-80 bg-neutral-50 border-2 border-black p-4 font-mono text-sm focus:bg-white outline-none transition-colors resize-none"
               />
               <button 
                 onClick={handleParse}
                 disabled={isParsing || !rawText.trim()}
-                className="w-full mt-6 py-4 bg-white text-black font-black uppercase italic flex items-center justify-center gap-2 hover:bg-green-500 transition-colors disabled:opacity-50"
+                className="w-full mt-6 py-4 bg-black text-white font-black uppercase italic flex items-center justify-center gap-2 hover:bg-neutral-800 transition-colors disabled:opacity-50"
               >
                 {isParsing ? 'Parsing...' : 'Analyze with AI'}
                 {!isParsing && <ChevronRight className="h-4 w-4" />}
               </button>
             </div>
 
-            <div className="border-2 border-neutral-800 p-6 bg-neutral-900/50">
+            <div className="border-2 border-black p-6 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <label className="block text-xs font-black uppercase tracking-widest text-neutral-500 mb-4 flex items-center gap-2">
                 <Users className="h-3 w-3" /> Suppliers & Passwords
               </label>
@@ -186,9 +186,9 @@ const RFQGeneratorPage: React.FC = () => {
                       onChange={(e) => {
                         const newS = [...suppliers]; newS[i].name = e.target.value; setSuppliers(newS);
                       }}
-                      className="flex-1 bg-black border border-neutral-800 p-2 text-xs font-bold"
+                      className="flex-1 bg-white border-2 border-black p-2 text-xs font-bold"
                     />
-                    <div className="bg-neutral-800 p-2 flex items-center">
+                    <div className="bg-neutral-100 p-2 flex items-center border-y-2 border-l-2 border-black">
                       <Lock className="h-3 w-3 text-neutral-500" />
                     </div>
                     <input 
@@ -196,13 +196,13 @@ const RFQGeneratorPage: React.FC = () => {
                       onChange={(e) => {
                         const newS = [...suppliers]; newS[i].password = e.target.value; setSuppliers(newS);
                       }}
-                      className="w-24 bg-black border border-neutral-800 p-2 text-xs font-mono"
+                      className="w-24 bg-white border-2 border-black p-2 text-xs font-mono"
                     />
                   </div>
                 ))}
                 <button 
                   onClick={() => setSuppliers([...suppliers, { name: '', password: '' }])}
-                  className="w-full py-2 border border-dashed border-neutral-700 text-neutral-500 text-xs font-bold uppercase hover:border-neutral-500 hover:text-white transition-colors"
+                  className="w-full py-2 border-2 border-dashed border-neutral-300 text-neutral-400 text-xs font-bold uppercase hover:border-black hover:text-black transition-colors"
                 >
                   + Add Supplier
                 </button>
@@ -219,13 +219,13 @@ const RFQGeneratorPage: React.FC = () => {
                   value={batchName}
                   onChange={(e) => setBatchName(e.target.value)}
                   placeholder="e.g. Pet Food RFQ May 2024"
-                  className="w-full bg-black border-2 border-neutral-800 p-4 text-xl font-black italic uppercase placeholder:text-neutral-800 focus:border-green-500 outline-none"
+                  className="w-full bg-white border-2 border-black p-4 text-xl font-black italic uppercase placeholder:text-neutral-300 focus:bg-neutral-50 outline-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                 />
               </div>
               <button 
                 onClick={handleSave}
                 disabled={isSaving || items.length === 0}
-                className="bg-green-500 text-black px-8 py-4 font-black uppercase italic shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-x-1 hover:-translate-y-1 transition-transform disabled:opacity-50"
+                className="bg-green-500 text-black px-8 py-[1.125rem] font-black uppercase italic border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:-translate-y-1 transition-transform disabled:opacity-50"
               >
                 {isSaving ? 'Saving...' : 'Generate Hub'}
               </button>
@@ -233,53 +233,53 @@ const RFQGeneratorPage: React.FC = () => {
 
             <div className="space-y-4">
               {items.map((item, i) => (
-                <div key={i} className="group border-2 border-neutral-800 bg-neutral-900/30 p-6 relative">
+                <div key={i} className="group border-2 border-black bg-white p-6 relative shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <button 
                     onClick={() => removeItem(i)}
-                    className="absolute top-4 right-4 text-neutral-700 hover:text-red-500 transition-colors"
+                    className="absolute top-4 right-4 text-neutral-300 hover:text-red-500 transition-colors"
                   >
                     <Trash2 className="h-4 w-4" />
                   </button>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-neutral-600 mb-1">Product Name</label>
+                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Product Name</label>
                       <input 
                         value={item.product_name}
                         onChange={(e) => updateItem(i, 'product_name', e.target.value)}
-                        className="w-full bg-black border border-neutral-800 p-2 text-sm font-bold focus:border-white outline-none"
+                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-bold focus:bg-white outline-none"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-neutral-600 mb-1">Bag Style</label>
+                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Bag Style</label>
                       <input 
                         value={item.style}
                         onChange={(e) => updateItem(i, 'style', e.target.value)}
-                        className="w-full bg-black border border-neutral-800 p-2 text-sm font-bold focus:border-white outline-none"
+                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-bold focus:bg-white outline-none"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-neutral-600 mb-1">Dimensions</label>
+                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Dimensions</label>
                       <input 
                         value={item.dimensions}
                         onChange={(e) => updateItem(i, 'dimensions', e.target.value)}
-                        className="w-full bg-black border border-neutral-800 p-2 text-sm font-bold focus:border-white outline-none"
+                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-bold focus:bg-white outline-none"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase text-neutral-600 mb-1">Material Spec</label>
+                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Material Spec</label>
                       <input 
                         value={item.material_spec}
                         onChange={(e) => updateItem(i, 'material_spec', e.target.value)}
-                        className="w-full bg-black border border-neutral-800 p-2 text-sm font-bold focus:border-white outline-none"
+                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-bold focus:bg-white outline-none"
                       />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-[10px] font-black uppercase text-neutral-600 mb-1">Quantities (Comma separated)</label>
+                      <label className="block text-[10px] font-black uppercase text-neutral-400 mb-1">Quantities (Comma separated)</label>
                       <input 
                         value={item.target_quantities.join(', ')}
                         onChange={(e) => updateItem(i, 'target_quantities', e.target.value.split(',').map(n => parseInt(n.trim()) || 0))}
-                        className="w-full bg-black border border-neutral-800 p-2 text-sm font-mono text-green-400 focus:border-white outline-none"
+                        className="w-full bg-neutral-50 border-2 border-black p-2 text-sm font-mono text-green-700 focus:bg-white outline-none"
                       />
                     </div>
                   </div>
@@ -288,7 +288,7 @@ const RFQGeneratorPage: React.FC = () => {
 
               <button 
                 onClick={addItem}
-                className="w-full py-6 border-2 border-dashed border-neutral-800 text-neutral-600 font-black uppercase italic hover:border-neutral-500 hover:text-white transition-colors flex items-center justify-center gap-2"
+                className="w-full py-6 border-2 border-dashed border-neutral-300 text-neutral-400 font-black uppercase italic hover:border-black hover:text-black transition-colors flex items-center justify-center gap-2"
               >
                 <Plus className="h-5 w-5" /> Add Manual Item
               </button>

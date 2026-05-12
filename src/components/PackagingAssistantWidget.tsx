@@ -228,6 +228,13 @@ Ask me anything!`
     }
   }, [isOpen])
 
+  // Hide on RFQ/Admin pages as requested
+  const isRfqPage = location.pathname.includes('/rfq') || 
+                   location.pathname.includes('/hub/') || 
+                   location.pathname.includes('/ctrl-x9k7m')
+
+  if (isRfqPage) return null
+
   const sendMessage = useCallback(async () => {
     const question = inputValue.trim()
     if (!question || isLoading) return
