@@ -598,7 +598,10 @@ export default function DailyReportsPage() {
           id: quoteData.dbLogId,
           quoteHtml: quoteHtml,
           customer: quoteData.customerName,
-          detailText: currentRecord.detail
+          detailText: currentRecord.detail,
+          pricingData: quoteData.extracted,
+          profitMultiplier: parseFloat(quoteMarkup),
+          shippingMultiplier: parseFloat(shippingDiscount)
         })
       });
 

@@ -15,8 +15,16 @@ export default async function handler(req: Request): Promise<Response> {
   }
 
   try {
-    const body = await req.json() as { id?: string; quoteHtml?: string; customer?: string; detailText?: string };
-    const { id, quoteHtml, customer, detailText } = body;
+    const body = await req.json() as { 
+      id?: string; 
+      quoteHtml?: string; 
+      customer?: string; 
+      detailText?: string;
+      pricingData?: any;
+      profitMultiplier?: number;
+      shippingMultiplier?: number;
+    };
+    const { id, quoteHtml, customer, detailText, pricingData, profitMultiplier, shippingMultiplier } = body;
 
     if (!id || !quoteHtml) {
       return new Response(JSON.stringify({ error: 'Missing id or quoteHtml' }), { status: 400 });
@@ -40,6 +48,9 @@ export default async function handler(req: Request): Promise<Response> {
           text: detailText || '', 
           customer: customer || 'Valued Client',
           quoteHtml: quoteHtml,
+          pricingData: pricingData || null,
+          profitMultiplier: profitMultiplier || 1.6,
+          shippingMultiplier: shippingMultiplier || 1.0,
           generatedAt: new Date().toISOString()
         }
       })

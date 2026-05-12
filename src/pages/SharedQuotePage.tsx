@@ -30,6 +30,12 @@ const SharedQuotePage: React.FC = () => {
   const [saveError, setSaveError] = useState('');
   const [copySuccess, setCopySuccess] = useState(false);
   
+  // Pricing and Recalculation
+  const [pricingData, setPricingData] = useState<any[]>([]);
+  const [profitMultiplier, setProfitMultiplier] = useState(1.6);
+  const [shippingMultiplier, setShippingMultiplier] = useState(1.0);
+  const [customerName, setCustomerName] = useState('Valued Client');
+  
   const [lightbox, setLightbox] = useState<{ src: string, type: 'image' | 'video' } | null>(null);
   const pwdRef = useRef<HTMLInputElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -68,6 +74,12 @@ const SharedQuotePage: React.FC = () => {
             console.error("Failed to parse media metadata");
           }
         }
+
+        // Load pricing metadata from DB if available
+        if (data.pricingData) setPricingData(data.pricingData);
+        if (data.profitMultiplier) setProfitMultiplier(data.profitMultiplier);
+        if (data.shippingMultiplier) setShippingMultiplier(data.shippingMultiplier);
+        if (data.customer) setCustomerName(data.customer);
       } catch (err: any) {
         setError(err.message || 'Failed to load quotation');
       } finally {
@@ -162,6 +174,169 @@ const SharedQuotePage: React.FC = () => {
     setVideos(videos.filter((_, i) => i !== index));
   };
 
+  // RE-RENDER LOGIC (Copied from DailyReportsPage)
+  useEffect(() => {
+    if (!pricingData || pricingData.length === 0) return;
+    
+    try {
+      const RMB_TO_USD = 6.9;
+      const AIR_PER_KG = 15 * shippingMultiplier;
+      const SEA_PER_KG = 5 * shippingMultiplier;
+      const today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+      const sectionsHtml = pricingData.map((item: any, idx: number) => {
+        const rows = (item.pricing || []).map((tier: any) => {
+          const unitUsd = (tier.unit_rmb / RMB_TO_USD) * profitMultiplier;
+          const exwTotal = Math.ceil(unitUsd * tier.qty);
+          const weight = parseFloat(tier.weight_kg) || 0;
+          
+          const hasWeight = weight > 0;
+          const airTotal = hasWeight ? exwTotal + Math.ceil(weight * AIR_PER_KG) : 0;
+          const seaTotal = hasWeight ? exwTotal + Math.ceil(weight * SEA_PER_KG) : 0;
+          
+          const fUnit = (v: number) => `$${v.toFixed(3)}`;
+          const fC = (v: number) => `$${v.toLocaleString()}`;
+          
+          const designsCount = parseInt(item.designs_count) || 0;
+          const qtyPerDesign = designsCount > 0 ? Math.floor(tier.qty / designsCount) : tier.qty;
+          const qtyDisplay = designsCount > 1 
+            ? `${tier.qty.toLocaleString()}<br><span style="font-size:10px;color:#64748b;font-weight:400">${designsCount} designs x ${qtyPerDesign.toLocaleString()}pcs</span>`
+            : tier.qty.toLocaleString();
+
+          return `<tr>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${qtyDisplay}</td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right">${fUnit(unitUsd)}/ea<br><span style="font-size:11px;color:#64748b">Total: ${fC(exwTotal)}</span></td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">
+              ${hasWeight ? `${fUnit(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(airTotal)})</span>` : 'N/A'}
+            </td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#eff6ff;color:#1d4ed8;font-weight:700">
+              ${hasWeight ? `${fUnit(seaTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(seaTotal)})</span>` : 'N/A'}
+            </td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;color:#94a3b8">${hasWeight ? `${Math.ceil(weight)} kg` : 'N/A'}</td>
+          </tr>`;
+        }).join('');
+
+        const plateFeeUsd = item.plate_fee_rmb ? Math.ceil((item.plate_fee_rmb / RMB_TO_USD) * profitMultiplier) : 0;
+
+        return `
+        <div style="page-break-inside: avoid; margin-bottom: 40px;">
+          <div class="section">
+            <div class="section-title">Item ${idx+1}: Product Specifications ${item.print_type ? `<span style="background:#fef3c7;color:#b45309;padding:2px 6px;border-radius:4px;margin-left:8px;font-size:10px">${item.print_type}</span>` : ''}</div>
+            <div class="specs">
+              <div class="spec-item"><label>Product Type</label><span>${item.product_name || '—'}</span></div>
+              <div class="spec-item">
+                <label>Dimensions (Unfolded Size)</label>
+                <span>
+                  ${item.size || '—'}
+                  ${item.size && item.size.toLowerCase().includes('x') && item.size.split(/x|×/).length === 3 ? '<br><span style="font-size:8px;color:#64748b">(Last dimension is Gusset size)</span>' : ''}
+                </span>
+              </div>
+              <div class="spec-item"><label>Material Structure</label><span>${item.material || '—'}</span></div>
+              <div class="spec-item"><label>Key Features</label><span>${item.features || '—'}</span></div>
+              ${plateFeeUsd > 0 || item.plate_details ? `<div class="spec-item" style="margin-top:6px; padding-top:6px; border-top:1px dashed #e2e8f0"><label>Plate / Print Details</label><span style="color:#d97706;font-size:10px">${item.plate_details || 'Standard Setup'} ${plateFeeUsd > 0 ? `<strong>(Est. Total: $${plateFeeUsd} USD)</strong>` : ''}</span></div>` : ''}
+            </div>
+            ${item.notes ? `<div style="margin-top:16px;padding:12px;background:#fef9c3;border-radius:8px;font-size:12px;color:#854d0e"><strong>⚠️ Note:</strong> ${item.notes}</div>` : ''}
+          </div>
+
+          <div style="background:#f8fafc;border-radius:8px;overflow:hidden;margin-top:15px;">
+            <div style="background:#1e293b;padding:8px 15px;display:flex;justify-content:space-between;align-items:center">
+              <span style="color:#fff;font-weight:700;font-size:11px">Pricing Tiers (USD - Total Rounded)</span>
+              <span style="color:#94a3b8;font-size:8px">Incoterm: DDP Handle-to-Door</span>
+            </div>
+            <table><thead><tr>
+              <th style="width:15%">Quantity</th>
+              <th style="text-align:right;width:17%">EXW Unit</th>
+              <th style="text-align:right;background:#3b0764;color:#e9d5ff;width:22%">✈ Air DDP</th>
+              <th style="text-align:right;background:#1e3a5f;color:#bfdbfe;width:22%">🚢 Sea DDP</th>
+              <th style="text-align:right;width:14%">Weight</th>
+            </tr></thead><tbody>${rows}</tbody></table>
+          </div>
+
+          <div style="margin-top:10px; padding:8px 12px; background:#fff; border:1px solid #e2e8f0; border-radius:8px; display:flex; justify-content:space-between; align-items:center; gap:10px;">
+            <div style="font-size:9px; color:#64748b; font-weight:700; text-transform:uppercase; letter-spacing:0.025em;">Estimated Lead Times:</div>
+            <div style="display:flex; gap:15px;">
+              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#94a3b8">🏭</span> Ex-Work: <span style="color:#0f172a">3-4 Weeks</span></div>
+              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#7c3aed">✈</span> Air DDP: <span style="color:#7c3aed">2 Weeks</span></div>
+              <div style="font-size:10px; color:#1e293b; font-weight:600;"><span style="color:#1d4ed8">🚢</span> Sea DDP: <span style="color:#1d4ed8">7-8 Weeks</span></div>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+
+      const fullHtml = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            @page { size: A4 landscape; margin: 15mm; }
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 20px; color: #1e293b; background: white; -webkit-print-color-adjust: exact; }
+            .header { display: flex; justify-content: space-between; border-bottom: 2px solid #1e293b; padding-bottom: 15px; margin-bottom: 20px; }
+            .logo-section { display: flex; gap: 20px; align-items: center; }
+            .logo-text { font-size: 18px; font-weight: 800; color: #0f172a; }
+            .company-name { font-size: 20px; font-weight: 800; color: #0f172a; }
+            .contact-info { text-align: right; font-size: 9px; color: #64748b; line-height: 1.3; }
+            .quote-title { text-align: center; font-size: 24px; font-weight: 900; color: #1e293b; margin: 20px 0; letter-spacing: -0.025em; text-transform: uppercase; }
+            .client-info { background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px; display: flex; justify-content: space-between; }
+            .section { margin-bottom: 20px; page-break-inside: avoid; }
+            .section-title { font-size: 12px; font-weight: 800; text-transform: uppercase; color: #64748b; margin-bottom: 10px; letter-spacing: 0.05em; border-left: 3px solid #3b82f6; padding-left: 10px; }
+            .specs { display: flex; flex-direction: column; gap: 8px; background: white; padding: 15px; border: 1px solid #e2e8f0; border-radius: 8px; }
+            .spec-item { display: flex; align-items: flex-start; gap: 15px; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
+            .spec-item:last-child { border-bottom: none; }
+            .spec-item label { width: 120px; shrink: 0; font-size: 8px; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-top: 2px; }
+            .spec-item span { font-size: 10px; font-weight: 700; color: #1e293b; line-height: 1.4; }
+            table { width: 100%; border-collapse: collapse; font-size: 9px; table-layout: auto; }
+            th { padding: 8px 10px; font-weight: 800; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #e2e8f0; text-align: left; font-size: 8px; white-space: nowrap; }
+            td { vertical-align: middle; padding: 8px 10px; }
+            .footer { margin-top: 30px; padding-top: 15px; border-top: 1px solid #e2e8f0; font-size: 8px; color: #94a3b8; text-align: center; }
+            @media print { 
+              body { padding: 0; } 
+              .no-print { display: none; } 
+              @page { size: A4 landscape; margin: 10mm; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <div class="logo-section">
+              <img src="/logo.png" alt="Achieve Pack Logo" style="height: 48px; width: auto; object-fit: contain;" />
+            </div>
+            <div class="contact-info">
+              <div class="company-name">Achieve Pack</div>
+              HK BRN 41007097-000-07-14-4<br>
+              1 FLOOR, NO.41 WO LIU HANG TSUEN<br>
+              FOTAN, Hong Kong<br>
+              WhatsApp: +852 69704411 | ryan@achievepack.com<br>
+              www.achievepack.com | pouch.eco
+            </div>
+          </div>
+
+          <div class="quote-title">Official Quotation</div>
+
+          <div class="client-info">
+            <div>
+              <div style="font-size:10px; text-transform:uppercase; font-weight:800; color:#94a3b8; margin-bottom:4px">Prepared For</div>
+              <div style="font-size:18px; font-weight:800; color:#0f172a">${customerName}</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:10px; text-transform:uppercase; font-weight:800; color:#94a3b8; margin-bottom:4px">Date</div>
+              <div style="font-size:16px; font-weight:600; color:#0f172a">${today}</div>
+            </div>
+          </div>
+
+          ${sectionsHtml}
+
+          <div class="footer">
+            &copy; ${new Date().getFullYear()} Achieve Pack. All rates calculated at 6.9 RMB/USD. Final quote subject to artwork review and shipping fluctuations.
+          </div>
+        </body>
+        </html>
+      `;
+      setEditedHtml(fullHtml);
+    } catch (e: any) {
+      console.error("Error building quote HTML:", e);
+    }
+  }, [pricingData, profitMultiplier, shippingMultiplier, customerName]);
+
   const handleSave = async () => {
     if (!id || !editedHtml.trim()) return;
     setSaving(true);
@@ -177,7 +352,14 @@ const SharedQuotePage: React.FC = () => {
       const res = await fetch('/api/save-shared-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, quoteHtml: finalHtml })
+        body: JSON.stringify({ 
+          id, 
+          quoteHtml: finalHtml,
+          pricingData,
+          profitMultiplier,
+          shippingMultiplier,
+          customer: customerName
+        })
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.error || 'Failed to save.');
@@ -338,6 +520,32 @@ const SharedQuotePage: React.FC = () => {
         {/* Admin Editor Section */}
         {editMode && (
           <div className="mb-8 space-y-6">
+            <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <h3 className="font-black uppercase mb-4 flex items-center gap-2">Pricing Controls</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[10px] font-black uppercase text-gray-400 mb-1">Profit Markup (e.g. 1.6)</label>
+                  <input 
+                    type="number" 
+                    step="0.05"
+                    value={profitMultiplier}
+                    onChange={(e) => setProfitMultiplier(parseFloat(e.target.value) || 1.0)}
+                    className="w-full border-2 border-black p-2 font-bold focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black uppercase text-gray-400 mb-1">Shipping Multiplier (e.g. 1.0)</label>
+                  <input 
+                    type="number" 
+                    step="0.1"
+                    value={shippingMultiplier}
+                    onChange={(e) => setShippingMultiplier(parseFloat(e.target.value) || 1.0)}
+                    className="w-full border-2 border-black p-2 font-bold focus:outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
             <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="font-black uppercase text-xl">Quotation Content (HTML)</h3>
