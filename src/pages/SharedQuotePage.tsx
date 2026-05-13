@@ -48,14 +48,40 @@ const SharedQuotePage: React.FC = () => {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
+  const retryFetch = () => {
+    setLoading(true);
+    setError(null);
+  };
+
   useEffect(() => {
     const fetchQuote = async () => {
       if (!id) return;
-      try {
-        const response = await fetch(`/api/get-shared-quote?id=${id}`);
-        const data = await response.json();
-        if (!response.ok || !data.success) throw new Error(data.error || 'Quote not found.');
-        if (!data.quoteHtml) throw new Error('Quote content is empty.');
+      
+      // Retry logic with exponential backoff for transient errors
+      const maxRetries = 2;
+      let lastError = '';
+      
+      for (let attempt = 0; attempt <= maxRetries; attempt++) {
+        try {
+          if (attempt > 0) {
+            await new Promise(r => setTimeout(r, 1000 * attempt)); // 1s, 2s backoff
+          }
+          
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 15000); // 15s timeout
+          
+          const response = await fetch(`/api/get-shared-quote?id=${id}`, { signal: controller.signal });
+          clearTimeout(timeout);
+          
+          // Check if Cloudflare returned an HTML error page instead of JSON
+          const contentType = response.headers.get('content-type') || '';
+          if (contentType.includes('text/html') && !response.ok) {
+            throw new Error('Server timeout — please try again in a moment.');
+          }
+          
+          const data = await response.json();
+          if (!response.ok || !data.success) throw new Error(data.error || 'Quote not found.');
+          if (!data.quoteHtml) throw new Error('Quote content is empty.');
         
         const html = data.quoteHtml;
         setQuoteHtml(html);
@@ -91,14 +117,23 @@ const SharedQuotePage: React.FC = () => {
         }
         if (data.shippingMultiplier) setShippingMultiplier(data.shippingMultiplier);
         if (data.customer) setCustomerName(data.customer);
-      } catch (err: any) {
-        setError(err.message || 'Failed to load quotation');
-      } finally {
-        setLoading(false);
+          
+          setLoading(false);
+          return; // Success — exit retry loop
+        } catch (err: any) {
+          lastError = err.name === 'AbortError' 
+            ? 'Request timed out — the server took too long to respond.' 
+            : (err.message || 'Failed to load quotation');
+          console.warn(`Quote fetch attempt ${attempt + 1} failed:`, lastError);
+        }
       }
+      
+      // All retries exhausted
+      setError(lastError);
+      setLoading(false);
     };
     fetchQuote();
-  }, [id]);
+  }, [id, loading]);
 
 
 
@@ -378,6 +413,27 @@ const SharedQuotePage: React.FC = () => {
       <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
         <Loader2 className="w-12 h-12 text-blue-600 animate-spin mb-4" />
         <p className="text-gray-600 font-bold">Securely loading quotation...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
+        <div className="max-w-md w-full text-center">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-50 flex items-center justify-center">
+            <AlertCircle className="w-8 h-8 text-red-500" />
+          </div>
+          <h1 className="text-xl font-black text-gray-900 mb-2">Unable to Load Quotation</h1>
+          <p className="text-sm text-gray-500 mb-6">{error}</p>
+          <button
+            onClick={retryFetch}
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl transition shadow-sm"
+          >
+            <Loader2 className="w-4 h-4" /> Try Again
+          </button>
+          <p className="text-xs text-gray-400 mt-4">If this issue persists, please contact us via WhatsApp at +852 6970 4411</p>
+        </div>
       </div>
     );
   }
