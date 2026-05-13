@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useTransition, useCallback } from 'react'
 import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles, CheckCircle } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles, CheckCircle, Info } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import PopoverSelect, { SimplePopoverSelect } from '../components/ui/popover-select'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS, getProductType, isProductPurchasable } from '../store/productData'
@@ -1216,7 +1216,14 @@ const ProductPage: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500">Printing</dt>
-                        <dd className="text-neutral-900 col-span-2">Digital Print (Unlimited Colors)</dd>
+                        <dd className="text-neutral-900 col-span-2">
+                          Digital Print (Unlimited Colors)
+                          <div className="mt-1">
+                            <Link to="/support/color-accuracy-digital-printing" className="text-xs text-primary-600 hover:text-primary-700 flex items-center gap-1">
+                              <Info className="w-3 h-3" /> Color Accuracy Guide
+                            </Link>
+                          </div>
+                        </dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500">Lead Time</dt>
@@ -1694,7 +1701,14 @@ const ProductPage: React.FC = () => {
                     <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Ships in 3-5 days</span></div>
                     <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>No minimum order</span></div>
                     <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Eco-certified materials</span></div>
-                    <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print available</span></div>
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print available</span></div>
+                      {ecoStockProduct.customPrintQuantities && (
+                        <Link to="/support/color-accuracy-digital-printing" className="text-[10px] text-emerald-600 hover:text-emerald-800 flex items-center gap-1 ml-5">
+                          <Info className="w-3 h-3" /> Color Accuracy Guide
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div className="bg-emerald-100/50 px-5 py-3 border-t border-emerald-200">

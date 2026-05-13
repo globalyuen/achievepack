@@ -36,6 +36,10 @@ export const DEFAULT_FAQS: ProductFAQ[] = [
     answer: "We accept AI, PDF, PSD, and high-resolution PNG/JPG files. Our team provides free dieline templates and artwork checks before production."
   },
   {
+    question: "How accurate is the printed color compared to my screen?",
+    answer: "Due to the difference between digital screens (RGB) and physical printing inks (CMYK), a 10% color variance is standard industry-wide. Screens emit light while packaging absorbs it, making prints naturally slightly more matte. Read our full guide on [Digital Printing Color Accuracy](/support/color-accuracy-digital-printing) to learn more about standard group printing vs. precise individual runs."
+  },
+  {
     question: "Can I get samples before placing a bulk order?",
     answer: "Yes! We offer sample packs starting from $40 (including shipping). You can test materials, print quality, and barrier performance before committing to larger orders."
   }
