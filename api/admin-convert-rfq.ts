@@ -132,6 +132,6 @@ EXAMPLE STRUCTURE (adapt based on actual input):
       }
     } catch {}
 
-    return new Response(JSON.stringify({ error: e.message || 'Server error' }), { status: 500 });
+    return new Response(JSON.stringify({ error: e.message || 'Server error' }), { status: 500, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } });
   }
 }

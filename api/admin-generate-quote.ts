@@ -60,7 +60,7 @@ Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
-        model: 'grok-3-beta', // Using grok-3-beta for consistency with working modules
+        model: 'grok-3', // Changed to grok-3 for faster, non-reasoning response
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 4000) }],
         max_tokens: 1500,
         temperature: 0,
@@ -106,6 +106,6 @@ Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款
       success: false,
       error: 'Quote generation failed', 
       details: err.message 
-    }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+    }), { status: 500, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } });
   }
 }

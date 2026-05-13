@@ -42,7 +42,7 @@ async function test() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${env.XAI_API_KEY || env.VITE_XAI_API_KEY}` },
       body: JSON.stringify({
-        model: 'grok-2-latest',
+        model: 'grok-3',
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: testText }],
         max_tokens: 1500,
         temperature: 0,

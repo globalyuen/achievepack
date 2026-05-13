@@ -46,7 +46,7 @@ export default async function handler(req: Request): Promise<Response> {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
       body: JSON.stringify({
-        model: 'grok-3-beta',
+        model: 'grok-3',
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: rawText.substring(0, 3000) }],
         max_tokens: 400, temperature: 0,
       }),
@@ -61,6 +61,6 @@ export default async function handler(req: Request): Promise<Response> {
     
     return new Response(JSON.stringify({ success: true, parsed }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (err: any) {
-    return new Response(JSON.stringify({ error: 'Parse failed', details: err.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: 'Parse failed', details: err.message }), { status: 500, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } });
   }
 }
