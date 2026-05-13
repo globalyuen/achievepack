@@ -66,10 +66,12 @@ const RFQGeneratorPage: React.FC = () => {
       if (data.success) {
         setBatchName(data.parsed.batch_name)
         setItems(data.parsed.items)
+      } else {
+        alert(`AI Parsing failed: ${data.error || 'Unknown error'}. ${data.details || ''}`)
       }
     } catch (err) {
       console.error('Parse failed:', err)
-      alert('AI Parsing failed. Please try again.')
+      alert('AI Parsing timed out or service is unavailable. Please try again in 30 seconds.')
     } finally {
       setIsParsing(false)
     }

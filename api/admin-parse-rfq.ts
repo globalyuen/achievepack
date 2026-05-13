@@ -54,14 +54,29 @@ export default async function handler(req: Request): Promise<Response> {
 
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
+      headers: { 
+        'Content-Type': 'application/json', 
+        'Authorization': `Bearer ${XAI_API_KEY}` 
+      },
       body: JSON.stringify({
-        model: 'grok-3-beta',
-        messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 5000) }],
+        model: 'grok-beta',
+        messages: [
+          { role: 'system', content: systemPrompt }, 
+          { role: 'user', content: text.substring(0, 5000) }
+        ],
         max_tokens: 2000,
         temperature: 0,
       })
     });
+    
+    if (!xaiResponse.ok) {
+      const errorText = await xaiResponse.text();
+      console.error('X.AI API Error:', errorText);
+      return new Response(JSON.stringify({ 
+        error: 'AI service unavailable', 
+        details: `API returned ${xaiResponse.status}` 
+      }), { status: 502 });
+    }
     
     const xaiData: any = await xaiResponse.json();
     const content = xaiData.choices?.[0]?.message?.content || '{}';
