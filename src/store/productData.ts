@@ -1359,11 +1359,10 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     shortDesc: 'From USD 4 for 100 pcs',
     features: ['100% PLA Corn Fiber', 'Food Contact Grade', 'Fold-Over Flap Closure', 'Clean Filtration & High Permeability', 'Air Shipping Included'],
     images: [
-      '/imgs/store/eco-stock/tea-bags/holding.webp',
-      '/imgs/store/eco-stock/tea-bags/lifestyle.webp',
-      '/imgs/store/eco-stock/tea-bags/material.webp',
-      '/imgs/store/eco-stock/tea-bags/filled.webp',
-      '/imgs/store/eco-stock/tea-bags/sizes.webp'
+      '/imgs/store/eco-stock/tea-bags/1.jpg',
+      '/imgs/store/eco-stock/tea-bags/2.jpg',
+      '/imgs/store/eco-stock/tea-bags/3.jpg',
+      '/imgs/store/eco-stock/tea-bags/4.jpg'
     ],
     badge: '🌱 PLA Corn Fiber',
     rating: 4.9,

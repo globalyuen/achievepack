@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-12",
-  "total_images": 1333,
+  "generated": "2026-05-13",
+  "total_images": 1337,
   "total_categories": 149,
   "extensions": {
     ".webp": 1082,
     ".png": 208,
-    ".jpg": 40,
+    ".jpg": 44,
     ".svg": 3
   },
   "categories": {
@@ -7757,8 +7757,32 @@
       ]
     },
     "store/eco-stock/tea-bags": {
-      "count": 5,
+      "count": 9,
       "images": [
+        {
+          "filename": "4.jpg",
+          "path": "/imgs/store/eco-stock/tea-bags/4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-13T03:06:41.338Z"
+        },
+        {
+          "filename": "3.jpg",
+          "path": "/imgs/store/eco-stock/tea-bags/3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-13T03:06:41.336Z"
+        },
+        {
+          "filename": "2.jpg",
+          "path": "/imgs/store/eco-stock/tea-bags/2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-13T03:06:41.334Z"
+        },
+        {
+          "filename": "1.jpg",
+          "path": "/imgs/store/eco-stock/tea-bags/1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-13T03:06:41.332Z"
+        },
         {
           "filename": "sizes.webp",
           "path": "/imgs/store/eco-stock/tea-bags/sizes.webp",

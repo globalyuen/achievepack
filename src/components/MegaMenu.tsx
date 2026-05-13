@@ -125,7 +125,7 @@ const STOCK_ORDER_TYPES = [
 ]
 
 const STOCK_PRODUCTS = [
-  { name: 'PLA Tea Bags', link: '/store/product/eco-stock-tea-bags-pla', image: '/imgs/store/eco-stock/tea-bags/lifestyle.webp', badge: '🌱 Eco' },
+  { name: 'PLA Tea Bags', link: '/store/product/eco-stock-tea-bags-pla', image: '/imgs/store/eco-stock/tea-bags/1.jpg', badge: '🌱 Eco' },
   { name: 'Conventional Digital', link: '/store?category=conventional-digital', image: '/imgs/store/con-digital/3ss-clear-zip/1.webp', badge: '📝 Stock Size' },
   { name: 'Zipper Stand Up Pouch', link: '/store?category=eco-stock', image: '/imgs/illustrated/a_achievepack_standup_pouches_9884402.webp', badge: '📦 Ready' },
   { name: 'Zipper 3 Side Sealed', link: '/store?category=eco-stock', image: '/imgs/store/eco-stock/flat-bottom/clear/1.webp', badge: '' },
