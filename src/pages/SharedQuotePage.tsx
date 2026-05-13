@@ -15,8 +15,8 @@ const SharedQuotePage: React.FC = () => {
 
   // Media attachments state (stored in a hidden comment or separate metadata if available)
   // For now, we'll extract them from a specific comment block <!-- MEDIA:{"photos":[], "videos":[]} --> or similar
-  const [photos, setPhotos] = useState<string[]>([]);
-  const [videos, setVideos] = useState<string[]>([]);
+  const [photos, setPhotos] = useState<{ url: string; name: string }[]>([]);
+  const [videos, setVideos] = useState<{ url: string; name: string }[]>([]);
   
   // Admin edit state
   const [editMode, setEditMode] = useState(false);
@@ -66,8 +66,15 @@ const SharedQuotePage: React.FC = () => {
         if (mediaMatch) {
           try {
             const media = JSON.parse(mediaMatch[1]);
-            setPhotos(media.photos || []);
-            setVideos(media.videos || []);
+            // Handle both legacy string format and new object format
+            const parsedPhotos = (media.photos || []).map((p: any) => 
+              typeof p === 'string' ? { url: p, name: '' } : p
+            );
+            const parsedVideos = (media.videos || []).map((v: any) => 
+              typeof v === 'string' ? { url: v, name: '' } : v
+            );
+            setPhotos(parsedPhotos);
+            setVideos(parsedVideos);
           } catch (e) {
             console.error("Failed to parse media metadata");
           }
@@ -144,12 +151,18 @@ const SharedQuotePage: React.FC = () => {
 
   const handleAddPhoto = () => {
     const url = prompt('Enter photo URL:');
-    if (url) setPhotos([...photos, url]);
+    if (url) {
+      const name = prompt('Enter photo label (optional):') || '';
+      setPhotos([...photos, { url, name }]);
+    }
   };
 
   const handleAddVideo = () => {
     const url = prompt('Enter video URL:');
-    if (url) setVideos([...videos, url]);
+    if (url) {
+      const name = prompt('Enter video label (optional):') || '';
+      setVideos([...videos, { url, name }]);
+    }
   };
 
   const handleRemovePhoto = (index: number) => {
@@ -559,31 +572,57 @@ const SharedQuotePage: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <h3 className="font-black uppercase mb-4 flex items-center gap-2"><ImageIcon className="w-5 h-5" /> Product Photos</h3>
-                <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-3 mb-4">
-                  {photos.map((url, i) => (
-                    <div key={i} className="relative group w-20 h-20 border-2 border-black bg-white">
-                      <img src={url} className="w-full h-full object-cover" alt="" />
-                      <button onClick={() => handleRemovePhoto(i)} className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full border-2 border-black opacity-0 group-hover:opacity-100 transition-opacity z-10"><X className="w-2.5 h-2.5" /></button>
+                <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-x-3 gap-y-6 mb-4">
+                  {photos.map((item, i) => (
+                    <div key={i} className="flex flex-col gap-2">
+                      <div className="relative group w-20 h-20 border-2 border-black bg-white">
+                        <img src={item.url} className="w-full h-full object-cover" alt="" />
+                        <button onClick={() => handleRemovePhoto(i)} className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full border-2 border-black opacity-0 group-hover:opacity-100 transition-opacity z-10"><X className="w-2.5 h-2.5" /></button>
+                      </div>
+                      <input 
+                        type="text"
+                        placeholder="Label..."
+                        value={item.name}
+                        onChange={(e) => {
+                          const newPhotos = [...photos];
+                          newPhotos[i].name = e.target.value;
+                          setPhotos(newPhotos);
+                        }}
+                        className="w-20 text-[8px] font-black uppercase border border-gray-200 p-1 focus:border-black outline-none"
+                      />
                     </div>
                   ))}
                   <button onClick={handleAddPhoto} className="w-20 h-20 border-2 border-dashed border-neutral-300 flex flex-col items-center justify-center text-neutral-400 hover:border-black hover:text-black transition-colors">
                     <ImageIcon className="w-5 h-5" />
-                    <span className="text-[8px] font-black">ADD</span>
+                    <span className="text-[8px] font-black uppercase">ADD</span>
                   </button>
                 </div>
               </div>
               <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <h3 className="font-black uppercase mb-4 flex items-center gap-2"><VideoIcon className="w-5 h-5" /> Product Videos</h3>
-                <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-3 mb-4">
-                  {videos.map((url, i) => (
-                    <div key={i} className="relative group w-20 h-20 border-2 border-black bg-black flex items-center justify-center">
-                      <VideoIcon className="w-5 h-5 text-white" />
-                      <button onClick={() => handleRemoveVideo(i)} className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full border-2 border-black opacity-0 group-hover:opacity-100 transition-opacity z-10"><X className="w-2.5 h-2.5" /></button>
+                <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-x-3 gap-y-6 mb-4">
+                  {videos.map((item, i) => (
+                    <div key={i} className="flex flex-col gap-2">
+                      <div className="relative group w-20 h-20 border-2 border-black bg-black flex items-center justify-center">
+                        <VideoIcon className="w-5 h-5 text-white" />
+                        <button onClick={() => handleRemoveVideo(i)} className="absolute -top-2 -right-2 bg-red-500 text-white p-1 rounded-full border-2 border-black opacity-0 group-hover:opacity-100 transition-opacity z-10"><X className="w-2.5 h-2.5" /></button>
+                      </div>
+                      <input 
+                        type="text"
+                        placeholder="Label..."
+                        value={item.name}
+                        onChange={(e) => {
+                          const newVideos = [...videos];
+                          newVideos[i].name = e.target.value;
+                          setVideos(newVideos);
+                        }}
+                        className="w-20 text-[8px] font-black uppercase border border-gray-200 p-1 focus:border-black outline-none"
+                      />
                     </div>
                   ))}
                   <button onClick={handleAddVideo} className="w-20 h-20 border-2 border-dashed border-neutral-300 flex flex-col items-center justify-center text-neutral-400 hover:border-black hover:text-black transition-colors">
                     <VideoIcon className="w-5 h-5" />
-                    <span className="text-[8px] font-black">ADD</span>
+                    <span className="text-[8px] font-black uppercase">ADD</span>
                   </button>
                 </div>
               </div>
@@ -612,16 +651,22 @@ const SharedQuotePage: React.FC = () => {
               {photos.length > 0 && (
                 <div className="mb-12">
                   <h3 className="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Photo Gallery</h3>
-                  <div className="flex flex-wrap gap-4">
-                    {photos.map((url, i) => (
-                      <motion.div 
-                        key={i} 
-                        whileHover={{ scale: 1.1, translateY: -5 }}
-                        className="w-24 h-24 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer overflow-hidden bg-white"
-                        onClick={() => setLightbox({ src: url, type: 'image' })}
-                      >
-                        <img src={url} className="w-full h-full object-cover" alt={`Product ${i+1}`} />
-                      </motion.div>
+                  <div className="flex flex-wrap gap-x-6 gap-y-10">
+                    {photos.map((item, i) => (
+                      <div key={i} className="flex flex-col gap-3">
+                        <motion.div 
+                          whileHover={{ scale: 1.1, translateY: -5 }}
+                          className="w-24 h-24 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer overflow-hidden bg-white"
+                          onClick={() => setLightbox({ src: item.url, type: 'image' })}
+                        >
+                          <img src={item.url} className="w-full h-full object-cover" alt={item.name || `Product ${i+1}`} />
+                        </motion.div>
+                        {item.name && (
+                          <p className="text-[10px] font-black uppercase text-neutral-500 tracking-tight text-center max-w-[96px] leading-tight italic border-l-2 border-neutral-300 pl-1.5 py-0.5">
+                            {item.name}
+                          </p>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -630,21 +675,27 @@ const SharedQuotePage: React.FC = () => {
               {videos.length > 0 && (
                 <div>
                   <h3 className="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Video Documentation</h3>
-                  <div className="flex flex-wrap gap-4">
-                    {videos.map((url, i) => (
-                      <motion.div 
-                        key={i} 
-                        whileHover={{ scale: 1.1, translateY: -5 }}
-                        className="w-24 h-24 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer relative bg-black group"
-                        onClick={() => setLightbox({ src: url, type: 'video' })}
-                      >
-                        <video src={url} className="w-full h-full object-cover opacity-60" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:scale-110 transition-transform">
-                            <VideoIcon className="w-4 h-4 text-white" />
+                  <div className="flex flex-wrap gap-x-6 gap-y-10">
+                    {videos.map((item, i) => (
+                      <div key={i} className="flex flex-col gap-3">
+                        <motion.div 
+                          whileHover={{ scale: 1.1, translateY: -5 }}
+                          className="w-24 h-24 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] cursor-pointer relative bg-black group"
+                          onClick={() => setLightbox({ src: item.url, type: 'video' })}
+                        >
+                          <video src={item.url} className="w-full h-full object-cover opacity-60" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:scale-110 transition-transform">
+                              <VideoIcon className="w-4 h-4 text-white" />
+                            </div>
                           </div>
-                        </div>
-                      </motion.div>
+                        </motion.div>
+                        {item.name && (
+                          <p className="text-[10px] font-black uppercase text-neutral-500 tracking-tight text-center max-w-[96px] leading-tight italic border-l-2 border-neutral-300 pl-1.5 py-0.5">
+                            {item.name}
+                          </p>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>
