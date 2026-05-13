@@ -145,7 +145,7 @@ export const PRODUCT_FAQ_DATA: Record<string, ProductFAQCategory> = {
       },
       {
         question: "Can I home compost these pouches?",
-        answer: "Our flat bottom pouches are certified for industrial composting. For home compostable options, please contact us for specialized materials that break down in backyard compost conditions."
+        answer: "PLA is industrial compostable. If composting conditions are partially fulfilled, such as temperatures higher than 50°C, they can decompose slowly, but may not break down 90% within 180 days."
       },
       {
         question: "What barrier protection do compostable pouches offer?",
