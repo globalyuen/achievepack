@@ -233,6 +233,7 @@ const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
 const LeadTimePage = lazyWithRetry(() => import('./pages/support/LeadTimePage'))
 const CustomPrintedSamplePage = lazyWithRetry(() => import('./pages/support/CustomPrintedSamplePage'))
 const UnprintedSamplesPage = lazyWithRetry(() => import('./pages/support/UnprintedSamplesPage'))
+const ColorAccuracyDigitalPrintingPage = lazyWithRetry(() => import('./pages/support/ColorAccuracyDigitalPrintingPage'))
 
 // Case Studies Pages - Lazy loaded
 const CoffeeRoasteryCaseStudy = lazyWithRetry(() => import('./pages/case-studies/CoffeeRoasteryCaseStudy'))
@@ -424,6 +425,7 @@ const PouchMaterialBarrierPropertiesPage = lazyWithRetry(() => import('./pages/p
 const PouchDigitalPrintingPage = lazyWithRetry(() => import('./pages/pouch/PouchDigitalPrintingPage'))
 const PouchMaterialCatalogPage = lazyWithRetry(() => import('./pages/pouch/PouchMaterialCatalogPage'))
 const PouchSEOPage = lazyWithRetry(() => import('./pages/pouch/PouchSEOPage'))
+const PouchColorAccuracyPage = lazyWithRetry(() => import('./pages/pouch/support/PouchColorAccuracyPage'))
 // Industry Pages
 const PouchCoffeeTeaPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchCoffeeTeaPage'))
 const PouchPetFoodPage = lazyWithRetry(() => import('./pages/pouch/industry/PouchPetFoodPage'))
@@ -645,10 +647,12 @@ if (getDomain() === 'pouch') {
                   <Route path="/cert" element={<CertificateDownloadPage />} />
                   <Route path="/sample" element={<PouchCustomPrintedSamplePage />} />
                   <Route path="/unprinted-samples" element={<PouchUnprintedSamplesPage />} />
+                  <Route path="/support/color-accuracy-digital-printing" element={<PouchColorAccuracyPage />} />
                   <Route path="/quote" element={<QuotationViewPage />} />
                   <Route path="/quote/:id" element={<QuotationViewPage />} />
                   <Route path="/support/sample-quote" element={<CustomPrintedSamplePage />} />
                   <Route path="/support/unprinted-samples" element={<UnprintedSamplesPage />} />
+                  <Route path="/support/color-accuracy-digital-printing" element={<ColorAccuracyDigitalPrintingPage />} />
                   <Route path="/reports/state-of-packaging-2026" element={<PackagingReport2026 />} />
                   <Route path="/workshop-register" element={<WorkshopRegisterPage />} />
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
