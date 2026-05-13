@@ -1,35 +1,41 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
 
-export const config = {
-  runtime: 'edge'
-}
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Handle CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-export default async function handler(req: Request): Promise<Response> {
   if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS' } });
+    return res.status(200).end();
   }
-  if (req.method !== 'POST') return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
+  
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
   try {
-    const { logId } = await req.json() as any;
-    if (!logId) return new Response(JSON.stringify({ error: 'No DB tunnel logId provided' }), { status: 400 });
+    const body = req.body || {};
+    const { logId } = body;
+    if (!logId) return res.status(400).json({ error: 'No DB tunnel logId provided' });
 
     const SUPABASE_URL = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
     const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY;
-    if (!SUPABASE_URL || !SUPABASE_KEY) return new Response(JSON.stringify({ error: 'Supabase keys missing' }), { status: 500 });
+    if (!SUPABASE_URL || !SUPABASE_KEY) return res.status(500).json({ error: 'Supabase keys missing' });
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
     const { data: logRow, error: logError } = await supabase.from('webhook_logs').select('raw_data').eq('id', logId).single();
-    if (logError || !logRow) return new Response(JSON.stringify({ error: 'Failed to retrieve tunnel payload' }), { status: 400 });
+    if (logError || !logRow) return res.status(400).json({ error: 'Failed to retrieve tunnel payload' });
 
     let text = logRow.raw_data?.text;
     if (!text && logRow.raw_data?.text_base64) {
       text = decodeURIComponent(Buffer.from(logRow.raw_data.text_base64, 'base64').toString('utf-8'));
     }
-    if (!text) return new Response(JSON.stringify({ error: 'DB row empty' }), { status: 400 });
+    if (!text) return res.status(400).json({ error: 'DB row empty' });
 
     const XAI_API_KEY = process.env.XAI_API_KEY;
-    if (!XAI_API_KEY) return new Response(JSON.stringify({ error: 'XAI API key missing' }), { status: 500 });
+    if (!XAI_API_KEY) return res.status(500).json({ error: 'XAI API key missing' });
 
     // Professional RFQ conversion prompt based on user's sample
     const systemPrompt = `You are an expert procurement specialist for Achieve Pack.
@@ -64,9 +70,6 @@ EXAMPLE STRUCTURE (adapt based on actual input):
 5）报价内容（请分别列明）...
 如对材料结构或厚度有优化建议，请同时提供技术意见及对应报价。谢谢！`;
 
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 20000); // 20s timeout
-
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -81,10 +84,8 @@ EXAMPLE STRUCTURE (adapt based on actual input):
         ],
         temperature: 0.7,
         max_tokens: 1000
-      }),
-      signal: controller.signal
+      })
     });
-    clearTimeout(timeout);
 
     if (!xaiResponse.ok) {
       const errorText = await xaiResponse.text();
@@ -105,13 +106,10 @@ EXAMPLE STRUCTURE (adapt based on actual input):
       message: 'RFQ converted successfully'
     }).eq('id', logId);
 
-    return new Response(JSON.stringify({ 
+    return res.status(200).json({ 
       success: true, 
       chineseRFQ,
       rfq: chineseRFQ // fallback field name
-    }), { 
-      status: 200,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     });
 
   } catch (e: any) {
@@ -119,7 +117,8 @@ EXAMPLE STRUCTURE (adapt based on actual input):
     
     // Try to update log if we have logId
     try {
-      const { logId: errLogId } = await req.json() as any;
+      const body = req.body || {};
+      const { logId: errLogId } = body;
       if (errLogId) {
         const supabase = createClient(
           process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || '',
@@ -132,6 +131,6 @@ EXAMPLE STRUCTURE (adapt based on actual input):
       }
     } catch {}
 
-    return new Response(JSON.stringify({ error: e.message || 'Server error' }), { status: 500, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } });
+    return res.status(500).json({ error: e.message || 'Server error' });
   }
 }

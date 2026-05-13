@@ -1,26 +1,32 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
 
-export const config = {
-  runtime: 'edge'
-}
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Handle CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-export default async function handler(req: Request): Promise<Response> {
   if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS' } });
+    return res.status(200).end();
   }
-  if (req.method !== 'POST') return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
+  
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
   try {
-    const { logId, markup = 1.6 } = await req.json() as any;
-    if (!logId) return new Response(JSON.stringify({ error: 'No DB tunnel logId provided' }), { status: 400 });
+    const body = req.body || {};
+    const { logId, markup = 1.6 } = body;
+    if (!logId) return res.status(400).json({ error: 'No DB tunnel logId provided' });
 
     const SUPABASE_URL = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
     const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY;
-    if (!SUPABASE_URL || !SUPABASE_KEY) return new Response(JSON.stringify({ error: 'Supabase keys missing' }), { status: 500 });
+    if (!SUPABASE_URL || !SUPABASE_KEY) return res.status(500).json({ error: 'Supabase keys missing' });
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
     const { data: logRow, error: logError } = await supabase.from('webhook_logs').select('raw_data').eq('id', logId).single();
-    if (logError || !logRow) return new Response(JSON.stringify({ error: 'Failed to retrieve tunnel payload' }), { status: 400 });
+    if (logError || !logRow) return res.status(400).json({ error: 'Failed to retrieve tunnel payload' });
 
     let text = logRow.raw_data?.text;
     if (!text && logRow.raw_data?.text_base64) {
@@ -53,9 +59,6 @@ IMPORTANT: Translate ALL Chinese text into professional English (including produ
 ]
 Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款數) are mentioned (e.g. 款數4), capture it in designs_count. Total qty should still be in pricing.qty. Identify if it's Digital (數碼) or Cylinder Print (凹版/制版). If cylinder, capture plate cost details per color/design and note if flat bottom gusset requires separate plates. The output must be completely translated to professional English.`;
 
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 25000); // 25 second timeout
-
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
@@ -64,12 +67,9 @@ Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 4000) }],
         max_tokens: 1500,
         temperature: 0,
-      }),
-      signal: controller.signal
+      })
     });
     
-    clearTimeout(timeout);
-
     const xaiData: any = await xaiResponse.json();
     
     if (!xaiResponse.ok) {
@@ -93,19 +93,19 @@ Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款
       throw new Error("AI returned invalid data format. Please try again with clearer text.");
     }
 
-    return new Response(JSON.stringify({
+    return res.status(200).json({
       success: true,
       extracted,
       customerName,
       markup: parseFloat(markup)
-    }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    });
 
   } catch (err: any) {
     console.error("Quote API Error:", err.message);
-    return new Response(JSON.stringify({ 
+    return res.status(500).json({ 
       success: false,
       error: 'Quote generation failed', 
       details: err.message 
-    }), { status: 500, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } });
+    });
   }
 }
