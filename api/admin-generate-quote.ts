@@ -1,9 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Removed edge config to allow longer maxDuration in Vercel
-// export const config = {
-//   runtime: 'edge'
-// }
+export const config = {
+  runtime: 'edge'
+}
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method === 'OPTIONS') {

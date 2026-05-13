@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js'
 
-// export const config = {
-//   runtime: 'edge'
-// }
+export const config = {
+  runtime: 'edge'
+}
 
 export default async function handler(req: Request): Promise<Response> {
   // Handle CORS Preflight
@@ -39,6 +39,9 @@ export default async function handler(req: Request): Promise<Response> {
     
     Return RAW JSON ONLY: { "customer": "Name", "status": "...", "category": "...", "detail": "..." }`;
 
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000); // 20s timeout
+
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
@@ -46,8 +49,10 @@ export default async function handler(req: Request): Promise<Response> {
         model: 'grok-3-beta',
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: rawText.substring(0, 3000) }],
         max_tokens: 400, temperature: 0,
-      })
+      }),
+      signal: controller.signal
     });
+    clearTimeout(timeout);
     
     const xaiData: any = await xaiResponse.json();
     const content = xaiData.choices?.[0]?.message?.content || '{}';

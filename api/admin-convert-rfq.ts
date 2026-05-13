@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
-// export const config = {
-//   runtime: 'edge'
-// }
+export const config = {
+  runtime: 'edge'
+}
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method === 'OPTIONS') {
@@ -64,6 +64,9 @@ EXAMPLE STRUCTURE (adapt based on actual input):
 5）报价内容（请分别列明）...
 如对材料结构或厚度有优化建议，请同时提供技术意见及对应报价。谢谢！`;
 
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000); // 20s timeout
+
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -78,8 +81,10 @@ EXAMPLE STRUCTURE (adapt based on actual input):
         ],
         temperature: 0.7,
         max_tokens: 1000
-      })
+      }),
+      signal: controller.signal
     });
+    clearTimeout(timeout);
 
     if (!xaiResponse.ok) {
       const errorText = await xaiResponse.text();
