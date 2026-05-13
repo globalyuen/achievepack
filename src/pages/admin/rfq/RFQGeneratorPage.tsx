@@ -45,12 +45,17 @@ const RFQGeneratorPage: React.FC = () => {
   }, [])
 
   const fetchRecentBatches = async () => {
-    const { data } = await supabase
-      .from('rfq_batches')
-      .select('id, name, created_at')
-      .order('created_at', { ascending: false })
-      .limit(5)
-    if (data) setRecentBatches(data)
+    try {
+      const { data, error } = await supabase
+        .from('rfq_batches')
+        .select('id, name, created_at')
+        .order('created_at', { ascending: false })
+        .limit(10)
+      if (error) throw error
+      if (data) setRecentBatches(data)
+    } catch (err) {
+      console.error('Error fetching history:', err)
+    }
   }
 
   const handleParse = async () => {
@@ -66,6 +71,9 @@ const RFQGeneratorPage: React.FC = () => {
       if (data.success) {
         setBatchName(data.parsed.batch_name)
         setItems(data.parsed.items)
+        if (data.parsed.items.length === 0) {
+          alert('AI didn\'t detect any specific items. You can add them manually.')
+        }
       } else {
         alert(`AI Parsing failed: ${data.error || 'Unknown error'}. ${data.details || ''}`)
       }
@@ -115,6 +123,7 @@ const RFQGeneratorPage: React.FC = () => {
       const { error: participantsError } = await supabase.from('rfq_participants').insert(participantsToInsert)
       if (participantsError) throw participantsError
 
+      await fetchRecentBatches()
       setSuccessLink(`/hub/${batchData.id}`)
     } catch (err) {
       console.error('Save failed:', err)
@@ -318,13 +327,13 @@ const RFQGeneratorPage: React.FC = () => {
             </div>
 
             {/* Recent Batches Section */}
-            {recentBatches.length > 0 && (
-              <div className="mt-16">
-                <h3 className="text-xl font-black italic uppercase mb-6 flex items-center gap-2">
-                  <Clock className="h-5 w-5" /> Recent Batches
-                </h3>
-                <div className="space-y-3">
-                  {recentBatches.map(b => (
+            <div className="mt-16">
+              <h3 className="text-xl font-black italic uppercase mb-6 flex items-center gap-2">
+                <Clock className="h-5 w-5" /> Past RFQ History
+              </h3>
+              <div className="space-y-3">
+                {recentBatches.length > 0 ? (
+                  recentBatches.map(b => (
                     <div key={b.id} className="bg-white border-2 border-black p-4 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                       <div>
                         <div className="font-black italic uppercase text-sm">{b.name}</div>
@@ -345,10 +354,14 @@ const RFQGeneratorPage: React.FC = () => {
                         </button>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  ))
+                ) : (
+                  <div className="p-8 border-2 border-dashed border-neutral-200 text-center text-neutral-400 text-xs font-bold uppercase">
+                    No recent history found. Create your first RFQ above.
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
