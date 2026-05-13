@@ -32,6 +32,18 @@
       "memory": 1024,
       "maxDuration": 60
     },
+    "api/admin-generate-quote.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
+    "api/admin-convert-rfq.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
+    "api/admin-magic-parse.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    },
     "api/**/*.ts": {
       "memory": 1024,
       "maxDuration": 10,

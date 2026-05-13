@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
-export const config = {
-  runtime: 'edge'
-}
+// Removed edge config to allow longer maxDuration in Vercel
+// export const config = {
+//   runtime: 'edge'
+// }
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method === 'OPTIONS') {
@@ -53,6 +54,9 @@ IMPORTANT: Translate ALL Chinese text into professional English (including produ
 ]
 Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款數) are mentioned (e.g. 款數4), capture it in designs_count. Total qty should still be in pricing.qty. Identify if it's Digital (數碼) or Cylinder Print (凹版/制版). If cylinder, capture plate cost details per color/design and note if flat bottom gusset requires separate plates. The output must be completely translated to professional English.`;
 
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 25000); // 25 second timeout
+
     const xaiResponse = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${XAI_API_KEY}` },
@@ -61,8 +65,11 @@ Exhaustive items, but MINIMAL text tokens. No markdown. If multiple designs (款
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: text.substring(0, 4000) }],
         max_tokens: 1500,
         temperature: 0,
-      })
+      }),
+      signal: controller.signal
     });
+    
+    clearTimeout(timeout);
 
     const xaiData: any = await xaiResponse.json();
     
