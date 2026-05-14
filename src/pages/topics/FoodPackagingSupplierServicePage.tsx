@@ -1,90 +1,158 @@
 import React from 'react';
-import { Factory, ShieldCheck, AlertTriangle, CheckCircle, Info, Users } from 'lucide-react';
+import { Factory, ShieldCheck, Info, ClipboardCheck, Search, Zap, Globe, FileCheck, HelpCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import ClickableImage from '../../components/ClickableImage';
 
 const FoodPackagingSupplierServicePage: React.FC = () => {
   const sections = [
     {
-      id: 'how-to-choose',
-      title: '食品包裝供應商點揀？',
-      icon: <Users className="h-5 w-5 text-primary-600" />,
+      id: 'auditing-standards',
+      title: 'Global Auditing Standards: BRCGS, SQF, and ISO 22000',
+      icon: <ClipboardCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg leading-relaxed">
-            食品安全關乎人命，亦都關乎品牌嘅生存。揀供應商唔可以只睇價錢，要睇佢有無完善嘅質量管理體系同埋對食品級物料嘅專業知識。
+            Selecting a food packaging supplier is one of the most critical decisions in your supply chain. In an era of global food safety regulations, a simple "ISO 9001" certificate is no longer sufficient. Trustworthy suppliers must adhere to the <strong>Global Food Safety Initiative (GFSI)</strong> recognized standards.
           </p>
-          <div className="grid md:grid-cols-2 gap-6 mt-6">
-            <div className="bg-white p-5 rounded-lg border border-neutral-200 shadow-sm">
-              <h4 className="font-bold text-neutral-900">核心認證</h4>
-              <p className="text-sm text-neutral-600 mt-2">供應商必須具備 BRCGS, ISO 22000 或相應嘅食品安全管理認證。</p>
+          <div className="grid md:grid-cols-2 gap-8 py-4">
+            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-primary-600" /> BRCGS (AA Grade)
+              </h4>
+              <p className="text-sm leading-relaxed text-neutral-600">
+                The <strong>British Retail Consortium Global Standard (BRCGS)</strong> is the gold standard for packaging. It covers everything from hazard analysis and critical control points (HACCP) to site security and senior management commitment. We only work with factories that maintain an 'AA' or 'A' grade audit result.
+              </p>
             </div>
-            <div className="bg-white p-5 rounded-lg border border-neutral-200 shadow-sm">
-              <h4 className="font-bold text-neutral-900">追溯能力</h4>
-              <p className="text-sm text-neutral-600 mt-2">每一批物料都要有追溯代碼，確保出現問題時可以快速反應。</p>
+            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                <FileCheck className="h-4 w-4 text-primary-600" /> SQF (Safe Quality Food)
+              </h4>
+              <p className="text-sm leading-relaxed text-neutral-600">
+                Common in North America, <strong>SQF Level 2/3</strong> ensures that a food safety plan has been implemented and that all packaging materials are manufactured under strict hygiene controls to prevent physical, chemical, or biological contamination.
+              </p>
             </div>
           </div>
         </div>
       )
     },
     {
-      id: 'common-mistakes',
-      title: '品牌常見 6 個錯誤',
-      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      id: 'migration-testing',
+      title: 'Technical Expertise: Migration Testing & Chemical Safety',
+      icon: <Zap className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="grid md:grid-cols-2 gap-4 mt-4">
-          {[
-            { t: "只追求最低價", d: "低價往往代表回收料比例不明，或生產環境唔達標。" },
-            { t: "忽視阻隔性能測試", d: "包裝唔夠防潮，會導致食品過期，造成更大損失。" },
-            { t: "無索取證書副本", d: "只聽口頭承諾，無查核 BRC 或 FDA 證書嘅真實性。" },
-            { t: "低估運輸損耗", d: "袋身封口強度唔夠，喺物流過程中容易爆開。" },
-            { t: "忽視印刷油墨安全性", d: "使用非食品級油墨，有害物質可能會滲透入食品。" },
-            { t: "無預留足夠交期", d: "急單往往會導致產品質量檢測被簡化。" }
-          ].map((item, i) => (
-            <div key={i} className="p-4 bg-red-50 border-l-4 border-red-500 rounded-r-lg">
-              <h5 className="font-bold text-red-900 text-sm">{item.t}</h5>
-              <p className="text-xs text-red-800 mt-1">{item.d}</p>
-            </div>
-          ))}
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-md leading-relaxed">
+            Safety in flexible packaging is often invisible. It involves the complex chemistry of how resins, adhesives, and inks interact with the food inside.
+          </p>
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-2xl">
+            <h4 className="text-blue-900 font-bold mb-3">Expert Insight: OML vs. SML</h4>
+            <p className="text-sm text-blue-800 leading-relaxed mb-4">
+              We subject every new material structure to <strong>Overall Migration Limit (OML)</strong> and <strong>Specific Migration Limit (SML)</strong> testing using food simulants (like 3% Acetic Acid or 95% Ethanol). This ensures that the concentration of substances transferring from the pouch to the food remains well below the safety thresholds set by the EU Regulation 10/2011 and the US FDA.
+            </p>
+            <p className="text-xs text-blue-700 italic">
+              Don't just ask for a "food grade" certificate. Ask for the specific migration data for your product category (Dry, Fatty, Acidic).
+            </p>
+          </div>
+          <ClickableImage 
+            src="/imgs/generated/food_supplier.png" 
+            alt="Modern Clean-Room Food Packaging Factory" 
+            className="rounded-3xl border border-neutral-200 shadow-2xl"
+          />
         </div>
       )
     },
     {
-      id: 'our-factory',
-      title: '專業食品包裝生產線',
-      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      id: 'ink-safety',
+      title: 'Low-Migration Inks: The Foundation of Safe Branding',
+      icon: <Info className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6">
-          <ClickableImage 
-            src="/imgs/factory/factory_machine_v1.webp" 
-            alt="Food grade packaging production line" 
-            className="w-full h-80 object-cover rounded-xl border border-neutral-200 shadow-lg"
-          />
-          <div className="bg-primary-50 p-6 rounded-xl text-center">
-            <h4 className="font-bold text-primary-900 mb-2 italic">點解選擇 Achieve Pack？</h4>
-            <p className="text-sm text-neutral-600">
-              我哋擁有十多年食品包裝經驗，由無溶劑複合到萬級無塵車間，全方位守護你嘅產品安全。
-            </p>
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-md">
+            The external printing on your pouch can penetrate the substrate and contaminate the food. This is known as "set-off" or "diffusion" migration.
+          </p>
+          <ul className="space-y-4">
+            <li className="flex gap-4 p-5 bg-white border border-neutral-200 rounded-xl shadow-sm">
+              <div className="bg-primary-100 p-2 rounded-lg h-fit text-primary-600 font-bold">01</div>
+              <div>
+                <h4 className="font-bold">Nestlé Guidance Compliance</h4>
+                <p className="text-xs text-neutral-500 mt-1">We utilize inks that comply with the Swiss Ordinance and the Nestlé Guidance Note on Packaging Inks, which prohibits the use of harmful photo-initiators like ITX.</p>
+              </div>
+            </li>
+            <li className="flex gap-4 p-5 bg-white border border-neutral-200 rounded-xl shadow-sm">
+              <div className="bg-primary-100 p-2 rounded-lg h-fit text-primary-600 font-bold">02</div>
+              <div>
+                <h4 className="font-bold">Solvent-Free Lamination</h4>
+                <p className="text-xs text-neutral-500 mt-1">By removing solvents from the lamination process, we eliminate the risk of residual solvent smell and improve the overall purity of the package.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      )
+    },
+    {
+      id: 'factory-audit-checklist',
+      title: 'Expert Audit: How to Screen a Packaging Partner',
+      icon: <Search className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-md">
+            When performing an E-E-A-T audit of a potential supplier, look for these specific operational indicators:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              "Class 100,000 Clean Room environment for conversion.",
+              "Full batch traceability from raw resin to finished pallet.",
+              "In-house laboratory for OTR, WVTR, and Bond Strength testing.",
+              "Pest control system with independent monthly audits.",
+              "Incoming raw material inspection (COA verification).",
+              "Retention of samples for every batch for at least 2 years."
+            ].map((text, i) => (
+              <div key={i} className="flex items-center gap-3 p-4 bg-neutral-50 rounded-lg border border-neutral-100">
+                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
+                <span className="text-sm font-medium">{text}</span>
+              </div>
+            ))}
           </div>
         </div>
       )
     }
   ];
 
+  const faqs = [
+    {
+      question: "What is the difference between food-safe and food-grade?",
+      answer: "Food-grade refers to the material's properties (safe for contact), while food-safe refers to the entire environment in which the package was made (clean-room, audited staff hygiene, migration testing)."
+    },
+    {
+      question: "Do you provide COC (Certificate of Conformance) with every order?",
+      answer: "Yes. Every shipment includes a COC that references the batch number, the test results for seal strength, and the raw material lot numbers for full traceability."
+    },
+    {
+      question: "How do I know your inks won't smell?",
+      answer: "We use a GC-MS (Gas Chromatography-Mass Spectrometry) test to measure residual solvents. This ensures the pouch is 'odorless' and 'taint-free' before it leaves the factory floor."
+    },
+    {
+      question: "Are your factories Sedex or BSCI audited?",
+      answer: "Yes. In addition to food safety audits, our production partners undergo social responsibility audits like Sedex (SMETA) or BSCI to ensure ethical labor practices and environmental management."
+    },
+    {
+      question: "Can I audit your facility personally?",
+      answer: "Absolutely. We encourage technical audits from our brand partners. Transparency is the foundation of trust, and we welcome your quality control team to inspect our production lines."
+    }
+  ];
+
   return (
     <SEOPageLayout
-      title="食品包裝供應商點揀？品牌常見 6 個錯誤及解決方案"
-      description="選擇食品包裝供應商的專業指南。分析品牌在採購過程中的常見錯誤，並提供如何審查 BRC、FDA 認證及阻隔性能的實務建議。"
-      heroTitle="專業食品包裝供應方案"
-      heroSubtitle="由原材料到生產工藝，全方位確保你嘅產品安全合規、新鮮持久。"
-      heroImage="/imgs/factory/factory_machine_v1.webp"
-      introSummary="喺食品行業，包裝唔單止係裝飾，更加係安全嘅屏障。揀啱供應商，就係揀啱咗品牌嘅未來。"
+      title="Food Packaging Supplier Audit: The Expert Guide to Safety & Compliance"
+      description="Learn how to audit food packaging suppliers using E-E-A-T principles. Explore BRCGS/SQF standards, migration testing (OML/SML), and ink safety for flexible pouches."
+      heroTitle="Selecting a Food-Safe Packaging Partner"
+      heroSubtitle="Moving beyond the quote to technical verification of safety, hygiene, and global regulatory compliance."
+      heroImage="/imgs/generated/food_supplier.png"
+      introSummary="In the food industry, your packaging is your final point of safety. A failure in material integrity or a migration issue can lead to catastrophic recalls and brand damage. This guide provides the expert framework needed to audit suppliers based on the rigorous technical standards of the global food safety initiative."
       sections={sections}
-      keywords={['food packaging supplier', '食品包裝供應商', '食品安全認證', 'BRCGS', 'FDA 包裝', '包裝採購建議']}
+      faqs={faqs}
+      keywords={['food packaging supplier audit', 'BRCGS packaging standards', 'migration testing flexible pouches', 'food safe clean room packaging', 'low migration inks Nestle guidance', 'packaging traceability systems']}
       canonicalUrl="https://achievepack.com/topics/food-packaging-supplier"
-      ctaTitle="想為你嘅品牌定制安全包裝？"
-      ctaButtonText="立即諮詢與報價"
-      ctaButtonUrl="/#contact"
     />
   );
 };

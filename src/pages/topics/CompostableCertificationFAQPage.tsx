@@ -1,47 +1,71 @@
 import React from 'react';
-import { ShieldCheck, Info, HelpCircle, FileCheck, ArrowLeftRight, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Info, HelpCircle, FileCheck, ArrowLeftRight, ArrowRight, ClipboardCheck, Scale, Search } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 
 const CompostableCertificationFAQPage: React.FC = () => {
   const sections = [
     {
-      id: 'comparison',
-      title: 'EN13432 同 ASTM D6400 有咩分別？',
+      id: 'why-certification-matters',
+      title: 'Why Certification is the Only Trustworthy Proof of Compostability',
       icon: <ShieldCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg leading-relaxed">
-            雖然兩者都係針對「工業堆肥」嘅國際標準，但佢哋分別代表咗歐洲（EN）同美國（ASTM）嘅不同檢測體系。
+            In the global packaging market, the term "compostable" is a regulated claim. Without a third-party certification number from a recognized body, any claim of compostability should be viewed with skepticism. Certification ensures that the material has been <strong>independently tested</strong> in a laboratory to vanish completely without leaving toxic trace elements behind.
           </p>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse border border-neutral-200 text-sm">
-              <thead className="bg-neutral-50">
+          <p className="text-md leading-relaxed">
+            For brands, certification is more than just an "eco-badge"—it is <strong>legal protection</strong>. Regulators like the FTC in the US and the CMA in the UK are actively fining brands that use vague environmental claims without technical proof.
+          </p>
+          <div className="bg-primary-50 p-8 rounded-2xl border border-primary-100 flex gap-6 items-start">
+            <ClipboardCheck className="h-8 w-8 text-primary-600 flex-shrink-0" />
+            <div>
+              <h4 className="font-bold text-primary-900 mb-2">The E-E-A-T Standard of Proof</h4>
+              <p className="text-sm text-primary-800 leading-relaxed">
+                A trustworthy supplier will provide a <strong>Certificate of Compliance</strong> and a unique <strong>License Number</strong>. You can verify these numbers on the official databases of BPI (North America) or TUV Austria (Europe). If a supplier only offers a "test report" but no license number, they have likely not completed the full certification process.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'technical-comparison',
+      title: 'Technical Breakdown: EN 13432 vs. ASTM D6400',
+      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-md leading-relaxed">
+            While both standards cover industrially compostable packaging, they serve different jurisdictions and have slightly different testing protocols.
+          </p>
+          <div className="overflow-x-auto border-4 border-black rounded-2xl shadow-[12px_12px_0px_0px_rgba(0,0,0,0.1)]">
+            <table className="w-full border-collapse text-sm">
+              <thead className="bg-black text-white">
                 <tr>
-                  <th className="border border-neutral-200 p-3 text-left">標準項目</th>
-                  <th className="border border-neutral-200 p-3 text-left font-bold text-primary-700">EN 13432 (歐洲)</th>
-                  <th className="border border-neutral-200 p-3 text-left font-bold text-blue-700">ASTM D6400 (美國)</th>
+                  <th className="p-4 text-left border-r border-white/20">Testing Pillar</th>
+                  <th className="p-4 text-left border-r border-white/20">EN 13432 (Europe)</th>
+                  <th className="p-4 text-left">ASTM D6400 (USA)</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-neutral-200 p-3 font-semibold">生物降解性</td>
-                  <td className="border border-neutral-200 p-3">6 個月內 90% 轉化為 CO2</td>
-                  <td className="border border-neutral-200 p-3">180 日內 90% 轉化為 CO2</td>
+              <tbody className="divide-y divide-neutral-200">
+                <tr className="bg-white">
+                  <td className="p-4 font-bold border-r border-neutral-100 italic">Disintegration</td>
+                  <td className="p-4 border-r border-neutral-100">90% of fragments must pass through a 2mm sieve within 12 weeks.</td>
+                  <td className="p-4">Same requirement (90% fragmentation within 84 days).</td>
                 </tr>
-                <tr>
-                  <td className="border border-neutral-200 p-3 font-semibold">碎裂程度</td>
-                  <td className="border border-neutral-200 p-3">3 個月內通過 2mm 篩網</td>
-                  <td className="border border-neutral-200 p-3">12 星期內通過 2mm 篩網</td>
+                <tr className="bg-neutral-50">
+                  <td className="p-4 font-bold border-r border-neutral-100 italic">Biodegradability</td>
+                  <td className="p-4 border-r border-neutral-100">90% of organic carbon converted to CO2 within 180 days.</td>
+                  <td className="p-4">Relative biodegradation of 90% vs. positive control (cellulose).</td>
                 </tr>
-                <tr>
-                  <td className="border border-neutral-200 p-3 font-semibold">毒性測試</td>
-                  <td className="border border-neutral-200 p-3">嚴格限制重金屬含量</td>
-                  <td className="border border-neutral-200 p-3">符合 EPA 標準嘅金屬限制</td>
+                <tr className="bg-white">
+                  <td className="p-4 font-bold border-r border-neutral-100 italic">Eco-toxicity</td>
+                  <td className="p-4 border-r border-neutral-100">Plant growth in the resulting compost must be >90% of control compost.</td>
+                  <td className="p-4">Similar terrestrial plant growth and seed germination tests.</td>
                 </tr>
-                <tr>
-                  <td className="border border-neutral-200 p-3 font-semibold">應用範圍</td>
-                  <td className="border border-neutral-200 p-3">歐盟、英、澳等市場認可度高</td>
-                  <td className="border border-neutral-200 p-3">北美市場（美、加）必備認證</td>
+                <tr className="bg-neutral-50">
+                  <td className="p-4 font-bold border-r border-neutral-100 italic">Heavy Metals</td>
+                  <td className="p-4 border-r border-neutral-100">Strict limits on 11 elements including Cadmium, Mercury, and Lead.</td>
+                  <td className="p-4">Compliance with EPA 40 CFR 503.13 metal limits.</td>
                 </tr>
               </tbody>
             </table>
@@ -50,23 +74,57 @@ const CompostableCertificationFAQPage: React.FC = () => {
       )
     },
     {
-      id: 'why-important',
-      title: '點解認證咁重要？',
-      icon: <FileCheck className="h-5 w-5 text-primary-600" />,
+      id: 'certification-bodies',
+      title: 'Who Certifies What? The Global Authorities',
+      icon: <Search className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-4">
-          <p className="text-neutral-700">
-            如果你嘅包裝無呢啲認證標誌，海關可能會拒絕入境，或者零售商會拒絕上架。最重要嘅係，認證確保咗：
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-md">
+            To navigate the market, you must recognize the logos of the primary certification bodies. Each logo signifies a different level of expertise and environmental rigor.
           </p>
-          <ul className="grid md:grid-cols-2 gap-4">
-            <li className="p-4 bg-white border border-neutral-200 rounded-lg shadow-sm">
-              <h5 className="font-bold text-neutral-900 mb-1">✅ 法律合規性</h5>
-              <p className="text-xs text-neutral-500">符合各國對環保聲明（Green Claims）嘅監管，避免巨額罰款。</p>
-            </li>
-            <li className="p-4 bg-white border border-neutral-200 rounded-lg shadow-sm">
-              <h5 className="font-bold text-neutral-900 mb-1">✅ 消費者信任</h5>
-              <p className="text-xs text-neutral-500">透明嘅認證標誌能顯著提升品牌溢價同客戶忠誠度。</p>
-            </li>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-6 bg-white border-2 border-neutral-200 rounded-xl">
+              <h5 className="font-bold mb-3 flex items-center gap-2"><Scale className="h-4 w-4 text-primary-600" /> TUV Austria (OK Compost)</h5>
+              <p className="text-xs leading-relaxed">The global gold standard. Their "OK Compost INDUSTRIAL" (EN13432) and "OK Compost HOME" marks are the most recognized labels in Europe and Asia.</p>
+            </div>
+            <div className="p-6 bg-white border-2 border-neutral-200 rounded-xl">
+              <h5 className="font-bold mb-3 flex items-center gap-2"><Scale className="h-4 w-4 text-primary-600" /> BPI (Biodegradable Products Institute)</h5>
+              <p className="text-xs leading-relaxed">The primary authority in North America. BPI certification (ASTM D6400) is mandatory for many retailers and municipal composting programs in the US and Canada.</p>
+            </div>
+            <div className="p-6 bg-white border-2 border-neutral-200 rounded-xl">
+              <h5 className="font-bold mb-3 flex items-center gap-2"><Scale className="h-4 w-4 text-primary-600" /> DIN CERTCO / Seedling</h5>
+              <p className="text-xs leading-relaxed">A collaboration between European Bioplastics and DIN CERTCO. The "Seedling" logo is widely used to denote compliance with EN 13432 across the EU.</p>
+            </div>
+            <div className="p-6 bg-white border-2 border-neutral-200 rounded-xl">
+              <h5 className="font-bold mb-3 flex items-center gap-2"><Scale className="h-4 w-4 text-primary-600" /> ABA (Australasian Bioplastics Association)</h5>
+              <p className="text-xs leading-relaxed">Authorizes the use of the "Home Compostable" (AS 5810) and "Industrially Compostable" (AS 4736) logos in Australia and New Zealand.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'compliance-checklist',
+      title: 'Expert Audit: How to Verify a Compostable Supplier',
+      icon: <ClipboardCheck className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-md">
+            As a brand owner, you are responsible for the claims on your packaging. Use this <strong>E-E-A-T verification checklist</strong> when auditing a supplier:
+          </p>
+          <ul className="space-y-3">
+            {[
+              "Does the supplier have a valid License Number (not just a test report)?",
+              "Is the certification issued in the supplier's company name?",
+              "Does the certificate cover the specific material structure you are buying?",
+              "Is the certificate still within its validity period?",
+              "If using ink or zippers, are those individual components also certified?"
+            ].map((text, i) => (
+              <li key={i} className="flex items-start gap-3 p-4 bg-neutral-50 rounded-lg border border-neutral-100">
+                <ShieldCheck className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                <span className="text-sm font-medium">{text}</span>
+              </li>
+            ))}
           </ul>
         </div>
       )
@@ -75,30 +133,39 @@ const CompostableCertificationFAQPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "如果我已經有 EN13432，仲需唔需要 ASTM D6400？",
-      answer: "如果你嘅產品主要銷往美國市場，我哋建議同時持有 BPI 認證（基於 ASTM D6400）。如果係銷往歐洲或東南亞，EN13432 通常已經足夠。"
+      question: "Is 'biodegradable' the same as 'compostable'?",
+      answer: "No. Everything biodegradable is not necessarily compostable. 'Biodegradable' simply means a material will eventually break down, but it specifies no timeframe and no toxicity limits. 'Compostable' is a strictly defined, certified claim with clear time and safety parameters."
     },
     {
-      question: "有無「家用堆肥」嘅認證？",
-      answer: "有，常見嘅係 TUV AUSTRIA 嘅 OK compost HOME 認證。家用堆肥嘅要求比工業堆肥更嚴苛，因為家用堆肥溫度較低。"
+      question: "Can I use the OK Compost logo if my material isn't certified?",
+      answer: "Absolutely not. Using these registered trademarks without a license is trademark infringement and a primary form of greenwashing. It can lead to legal action and immediate loss of consumer trust."
+    },
+    {
+      question: "How long does the certification process take?",
+      answer: "A full industrial composting certification (EN13432) typically takes 6 to 9 months, as the biodegradation test itself requires 180 days of continuous monitoring in a laboratory."
+    },
+    {
+      question: "Do individual components (zippers, valves) need their own certification?",
+      answer: "Yes. For a finished pouch to be certified, all sub-components including the zipper, one-way valve, and the adhesive must be proven to be compostable to avoid contaminating the final compost."
+    },
+    {
+      question: "Why do some compostable bags feel 'plastic-y'?",
+      answer: "Materials like PBS (Polybutylene Succinate) and PBAT (Polybutylene adipate terephthalate) are bio-polymers designed to behave like plastic (stretchy, heat-sealable) while remaining fully susceptible to microbial breakdown. High-quality engineering allows for this 'best of both worlds' performance."
     }
   ];
 
   return (
     <SEOPageLayout
-      title="EN13432 同 ASTM D6400 有咩分別？可堆肥認證全攻略"
-      description="詳盡比較 EN13432 與 ASTM D6400 兩大主流工業堆肥認證。教品牌如何根據目標市場選擇正確的認證，確保環保合規。"
-      heroTitle="可堆肥認證：標準與差異"
-      heroSubtitle="專業分析歐洲與美國標準，助你嘅品牌產品順利開拓全球環保市場。"
-      heroImage="/imgs/company/bpi/bpi.svg"
-      introSummary="喺揀選可堆肥包裝供應商時，認證文件係唯一嘅證明。了解 EN13432 同 ASTM D6400 嘅核心差異，係每位採購經理嘅必修課。"
+      title="Compostable Certification Standards: The Expert Guide to EN 13432 & ASTM D6400"
+      description="Deep technical analysis of global compostable packaging certifications. Learn the differences between EN 13432 and ASTM D6400, and how to verify supplier claims using E-E-A-T."
+      heroTitle="Compostable Certification: The Global Standard of Proof"
+      heroSubtitle="Navigating the technical requirements, testing protocols, and legal obligations of certified compostable packaging for global brands."
+      heroImage="/imgs/generated/certification_faq.png"
+      introSummary="In the absence of clear certification, environmental claims are merely marketing promises. This authority guide provides the technical expertise needed to understand the four pillars of compostability testing and the differences between major global standards, ensuring your brand stays compliant and trustworthy."
       sections={sections}
       faqs={faqs}
-      keywords={['compostable packaging certification', 'EN13432', 'ASTM D6400', 'BPI 認證', '工業堆肥標準', '環保認證']}
+      keywords={['compostable certification EN 13432', 'ASTM D6400 vs EN 13432', 'BPI certification guide', 'TUV OK Compost standards', 'disintegration testing packaging', 'compostable supplier audit']}
       canonicalUrl="https://achievepack.com/topics/compostable-certification"
-      ctaTitle="需要認證證書或報價？"
-      ctaButtonText="獲取專業報價"
-      ctaButtonUrl="/quote"
     />
   );
 };
