@@ -27,15 +27,27 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#064e3b_1px,transparent_1px)] [background-size:24px_24px] bg-emerald-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="magenta">SUPPLY_AUDIT_V1.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Pure.<br/>Truth.<br/><span className="text-emerald-900 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Verified.</span></h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Sustainability without verification is just greenwashing. We provide a transparent, audit-ready supply chain backed by global standards like SMETA, ISO 14001, and GRS.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Browse Verified Solutions</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Request Audit Reports</NeoButton>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <NeoBadge color="magenta">SUPPLY_AUDIT_V1.0</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Pure.<br/>Truth.<br/><span className="text-emerald-900 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Verified.</span></h1>
+              <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                Sustainability without verification is just greenwashing. We provide a transparent, audit-ready supply chain backed by global standards.
+              </p>
+              <div className="flex flex-wrap gap-6 mt-12">
+                <NeoButton variant="primary" to="/products">Browse Verified Solutions</NeoButton>
+                <NeoButton variant="secondary" to="/sample">Request Audit Reports</NeoButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
+                alt="Eco-Friendly Supplier Service Hero" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -47,7 +59,7 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
                 alt="Sustainable Packaging Manufacturing Verification" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +152,7 @@ const PouchEcoFriendlySupplierServicePage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_quality_inspector_checking_pouches_in_factory_9918233.webp" 
+                src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt="On-site Supplier Verification" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

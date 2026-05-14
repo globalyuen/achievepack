@@ -42,7 +42,7 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
 
                         <div className="grid md:grid-cols-2 gap-8">
                             <ClickableImage 
-                                src="/imgs/topics/heat-resistant-candle-hero.png" 
+                                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
                                 alt="Hot wax pouring into pouch" 
                                 className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" 
                             />
@@ -181,7 +181,7 @@ const PouchHighHeatCandlePackagingPage: React.FC = () => {
                                 </div>
                             </div>
                             <div className="w-full md:w-1/3">
-                                <ClickableImage src="/imgs/spec/pcr-pet-kraft-triplex-clear.webp" alt="NK / Kraft / PBS structure" className="border-4 border-black" />
+                                <ClickableImage src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" alt="NK / Kraft / PBS structure" className="border-4 border-black" />
                             </div>
                         </div>
                     </NeoCard>

@@ -240,7 +240,7 @@ const CustomBrandPackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Service"
-        heroImage="/imgs/seo-photos/a_pouch_packaging_manufacturing_design_7718222.webp"
+        heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
       />
     </>
   )

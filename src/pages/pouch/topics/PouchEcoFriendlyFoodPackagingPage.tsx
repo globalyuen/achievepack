@@ -27,15 +27,27 @@ const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#064e3b_1px,transparent_1px)] [background-size:24px_24px] bg-emerald-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="magenta">FOOD_SAFE_V1.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Fresh.<br/>Pure.<br/><span className="text-emerald-900 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Planet.</span></h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Sustainability must not compromise safety. We engineer high-barrier, food-safe pouches that protect your product's shelf life while meeting the world's strictest environmental standards.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Browse Food Solutions</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Request Lab Evidence</NeoButton>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <NeoBadge color="magenta">FOOD_SAFE_V1.0</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Fresh.<br/>Pure.<br/><span className="text-emerald-900 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Planet.</span></h1>
+              <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                Sustainability must not compromise safety. We engineer high-barrier, food-safe pouches that protect your product's shelf life while meeting the world's strictest environmental standards.
+              </p>
+              <div className="flex flex-wrap gap-6 mt-12">
+                <NeoButton variant="primary" to="/products">Browse Food Solutions</NeoButton>
+                <NeoButton variant="secondary" to="/sample">Request Lab Evidence</NeoButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_a_0799522.webp" 
+                alt="Eco-Friendly Food Packaging Hero" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -47,7 +59,7 @@ const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp" 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
                 alt="High Barrier Food Packaging Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +152,7 @@ const PouchEcoFriendlyFoodPackagingPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_c_4560298.webp" 
                 alt="Technical Food Pouch Manufacturing" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

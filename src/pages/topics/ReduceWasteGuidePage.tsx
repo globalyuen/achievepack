@@ -253,7 +253,7 @@ const ReduceWasteGuidePage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp"
+        heroImage="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp"
       />
     </>
   )

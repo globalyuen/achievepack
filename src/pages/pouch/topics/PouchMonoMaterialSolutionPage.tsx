@@ -27,15 +27,27 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] [background-size:24px_24px] bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="magenta">MONO_TECH_V1.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Single.<br/>Source.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Pure.</span></h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Traditional multi-layer plastic is a recycling failure. We solve the circularity puzzle with 100% <strong>Mono-Material</strong> engineering—using MDO-PE to deliver PET performance in a recyclable package.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Browse Mono Solutions</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Order Material Proof</NeoButton>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <NeoBadge color="magenta">MONO_TECH_V1.0</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Single.<br/>Source.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Pure.</span></h1>
+              <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                Traditional multi-layer plastic is a recycling failure. We solve the circularity puzzle with 100% <strong>Mono-Material</strong> engineering.
+              </p>
+              <div className="flex flex-wrap gap-6 mt-12">
+                <NeoButton variant="primary" to="/products">Browse Mono Solutions</NeoButton>
+                <NeoButton variant="secondary" to="/sample">Order Material Proof</NeoButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/illustrated/a_monomaterial_warm_4127359.webp" 
+                alt="Mono-Material Solution Hero" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -47,7 +59,7 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp" 
+                src="/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp" 
                 alt="Mono-Material Structural Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +152,7 @@ const PouchMonoMaterialSolutionPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt="Verified Mono-Material Manufacturing" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

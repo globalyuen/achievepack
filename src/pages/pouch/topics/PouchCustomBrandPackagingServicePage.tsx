@@ -70,7 +70,7 @@ const PouchCustomBrandPackagingServicePage: React.FC = () => {
             <div className="absolute inset-0 bg-magenta-400 translate-x-6 translate-y-6 border-4 border-black" />
             <div className="relative z-10 border-8 border-black bg-white overflow-hidden">
               <ClickableImage 
-                src="/imgs/generated/custom_packaging.png" 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
                 alt="Custom Pouch Design Gallery" 
                 className="w-full h-auto"
               />

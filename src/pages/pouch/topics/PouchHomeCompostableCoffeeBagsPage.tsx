@@ -47,7 +47,7 @@ const PouchHomeCompostableCoffeeBagsPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-amber-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/a_kraft_coffee_bag_with_compostable_valve_6857122.webp" 
+                src="/imgs/seo-photos/usa/coffee/a_coffee_sustainability_roaster_guide_0801372.webp" 
                 alt="Compostable Coffee Valve Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

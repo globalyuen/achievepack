@@ -244,7 +244,7 @@ const FoodPackagingSupplierServicePage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp"
+        heroImage="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp"
       />
     </>
   )

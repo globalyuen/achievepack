@@ -244,7 +244,7 @@ const DTCSustainablePackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/seo-photos/a_d2c_shipping_box_and_pouches_flat_lay_1182744.webp"
+        heroImage="/imgs/topics/dtc_packaging_1778212333445.png"
       />
     </>
   )

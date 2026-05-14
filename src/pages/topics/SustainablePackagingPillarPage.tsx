@@ -231,7 +231,7 @@ const SustainablePackagingPillarPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp"
+        heroImage="/imgs/seo-photos/a_about_sustainability_mission_5914909.webp"
       />
     </>
   )

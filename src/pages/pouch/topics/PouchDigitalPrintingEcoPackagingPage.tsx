@@ -27,15 +27,27 @@ const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#083344_1px,transparent_1px)] [background-size:24px_24px] bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="magenta">DIGITAL_STRATEGY_V1.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Zero.<br/>Plate.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Agile.</span></h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Traditional printing is a waste engine. We utilize HP Indigo 25K digital technology to eliminate plate fees, slash setup waste, and deliver ultra-high-definition sustainable packaging.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Browse Digital Styles</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Request Print Proofs</NeoButton>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <NeoBadge color="magenta">DIGITAL_STRATEGY_V1.0</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Zero.<br/>Plate.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Agile.</span></h1>
+              <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                Traditional printing is a waste engine. We utilize HP Indigo 25K digital technology to eliminate plate fees.
+              </p>
+              <div className="flex flex-wrap gap-6 mt-12">
+                <NeoButton variant="primary" to="/products">Browse Digital Styles</NeoButton>
+                <NeoButton variant="secondary" to="/sample">Request Print Proofs</NeoButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/illustrated/a_printing_types_card_v2_6243973.webp" 
+                alt="Digital Printing Hero" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -47,7 +59,7 @@ const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
+                src="/imgs/seo-photos/a_digital_printing_customization_2717640.webp" 
                 alt="Digital Printing Precision" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +152,7 @@ const PouchDigitalPrintingEcoPackagingPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
                 alt="Verified Digital Printing Manufacturing" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

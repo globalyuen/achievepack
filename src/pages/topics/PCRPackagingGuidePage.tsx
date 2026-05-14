@@ -237,7 +237,7 @@ const PCRPackagingGuidePage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp"
+        heroImage="/imgs/pcr/guide/a_pcr_sustainability_impact_story_3330780.webp"
       />
     </>
   )

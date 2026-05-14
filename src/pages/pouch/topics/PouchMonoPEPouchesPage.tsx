@@ -27,15 +27,27 @@ const PouchMonoPEPouchesPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] [background-size:24px_24px] bg-blue-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="blue">CIRCULAR_SYSTEM_V2</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Pure.<br/>Recycled.<br/><span className="text-blue-800 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Proven.</span></h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Multi-layer laminates are obsolete. We engineer high-stiffness, high-barrier 100% Mono-PE pouches that deliver elite shelf life and full recyclability in standard municipal streams.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Browse Mono-PE Styles</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Order Material Proof</NeoButton>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <NeoBadge color="blue">CIRCULAR_SYSTEM_V2</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Pure.<br/>Recycled.<br/><span className="text-blue-800 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Proven.</span></h1>
+              <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                Multi-layer laminates are obsolete. We engineer high-stiffness, high-barrier 100% Mono-PE pouches.
+              </p>
+              <div className="flex flex-wrap gap-6 mt-12">
+                <NeoButton variant="primary" to="/products">Browse Mono-PE Styles</NeoButton>
+                <NeoButton variant="secondary" to="/sample">Order Material Proof</NeoButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp" 
+                alt="Mono-PE Pouches Hero" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -47,7 +59,7 @@ const PouchMonoPEPouchesPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/a_mono_material_pe_pouch_isolated_1182245.webp" 
+                src="/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp" 
                 alt="Mono-PE Structural Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +152,7 @@ const PouchMonoPEPouchesPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_c_4560298.webp" 
                 alt="Mono-PE Manufacturing Verification" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

@@ -244,7 +244,7 @@ const RealWorldSustainabilityPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp"
+        heroImage="/imgs/topics/real-world-sustainability-hero.png"
       />
     </>
   )

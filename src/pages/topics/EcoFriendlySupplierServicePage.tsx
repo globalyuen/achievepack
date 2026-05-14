@@ -258,7 +258,7 @@ const EcoFriendlySupplierServicePage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Service"
-        heroImage="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp"
+        heroImage="/imgs/seo-photos/a_about_sustainability_mission_5914909.webp"
       />
     </>
   )

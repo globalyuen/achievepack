@@ -47,7 +47,7 @@ const PouchReducePackagingWasteGuidePage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp" 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
                 alt="Packaging Waste Reduction Framework" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +140,7 @@ const PouchReducePackagingWasteGuidePage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
+                src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt="Verified Waste Reduction Manufacturing" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

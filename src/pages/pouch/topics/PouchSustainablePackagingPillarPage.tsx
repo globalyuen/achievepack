@@ -27,15 +27,27 @@ const PouchSustainablePackagingPillarPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#1e1b4b_1px,transparent_1px)] [background-size:24px_24px] bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="magenta">PILLAR_TECH_V1.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Build.<br/>The.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Future.</span></h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Sustainability is not a feature—it's an architecture. We engineer your packaging across five critical pillars: Source Reduction, Recyclability, Compostability, PCR Content, and Carbon Neutrality.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Browse 5-Pillar Solutions</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Order Material Proof</NeoButton>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <NeoBadge color="magenta">PILLAR_TECH_V1.0</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Build.<br/>The.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Future.</span></h1>
+              <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                Sustainability is not a feature—it's an architecture. We engineer your packaging across five critical pillars: Source Reduction, Recyclability, Compostability, PCR, and Carbon Neutrality.
+              </p>
+              <div className="flex flex-wrap gap-6 mt-12">
+                <NeoButton variant="primary" to="/products">Browse 5-Pillar Solutions</NeoButton>
+                <NeoButton variant="secondary" to="/sample">Order Material Proof</NeoButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
+                alt="Sustainable Packaging Pillars Hero" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -47,7 +59,7 @@ const PouchSustainablePackagingPillarPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp" 
+                src="/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp" 
                 alt="5 Pillars of Sustainable Packaging Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +152,7 @@ const PouchSustainablePackagingPillarPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp" 
+                src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt="Technical Pouch Material Layers" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

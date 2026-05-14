@@ -20,18 +20,30 @@ const PouchCompostablePackagingBlogPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative pt-20 pb-32 border-b-8 border-black bg-emerald-400 overflow-hidden text-white">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <NeoBadge color="blue">BIO_LOOP_V2</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-[8rem] leading-[0.8] uppercase tracking-tighter italic drop-shadow-[8px_8px_0px_rgba(0,0,0,1)]">
-            BIOLOGICAL<br/>
-            RECOVERY<br/>
-            PURE_COMPOST
-          </h1>
-          <p className="mt-12 text-2xl md:text-3xl font-black font-['JetBrains_Mono'] text-black max-w-4xl bg-white border-4 border-black p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]">
-            Returning packaging to the earth. We engineer high-performance biological barriers using PBS and NK technology. This is the 800+ word science of the compostable loop.
-          </p>
-          <div className="mt-16 flex flex-wrap gap-6">
-            <NeoButton variant="dark" to="/quote">START_COMPOST_PROJECT</NeoButton>
-            <NeoButton variant="secondary" className="!text-white border-white" to="/materials">MATERIAL_LAB</NeoButton>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <NeoBadge color="blue">BIO_LOOP_V2</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-[0.8] uppercase tracking-tighter italic drop-shadow-[8px_8px_0px_rgba(0,0,0,1)]">
+                BIOLOGICAL<br/>
+                RECOVERY<br/>
+                PURE_COMPOST
+              </h1>
+              <p className="mt-12 text-2xl font-black font-['JetBrains_Mono'] text-black bg-white border-4 border-black p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]">
+                Returning packaging to the earth. We engineer high-performance biological barriers using PBS and NK technology.
+              </p>
+              <div className="mt-16 flex flex-wrap gap-6">
+                <NeoButton variant="dark" to="/quote">START_BIO_TRANSITION</NeoButton>
+                <NeoButton variant="secondary" className="!text-white border-white" to="/materials">MATERIAL_LAB</NeoButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-600 translate-x-6 translate-y-6 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/composting/homevs/a_blog_hero_banner_compostable_choice_5307332.webp" 
+                alt="Compostable Packaging Hero" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -70,7 +82,7 @@ const PouchCompostablePackagingBlogPage: React.FC = () => {
             <div className="absolute inset-0 bg-emerald-400 translate-x-6 translate-y-6 border-4 border-black" />
             <div className="relative z-10 border-8 border-black bg-white overflow-hidden">
               <ClickableImage 
-                src="/imgs/generated/compostable_blog.png" 
+                src="/imgs/illustrated/a_home_compostable_card_v1_2166648.webp" 
                 alt="Compostable Material Science" 
                 className="w-full h-auto"
               />

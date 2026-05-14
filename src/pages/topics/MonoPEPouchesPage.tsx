@@ -233,7 +233,7 @@ const MonoPEPouchesPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/pouch-shape/a_mono_material_pe_pouch_isolated_1182245.webp"
+        heroImage="/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp"
       />
     </>
   )

@@ -47,7 +47,7 @@ const PouchCompostableHumidityControlPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp" 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
                 alt="Humidity Control Packaging Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +140,7 @@ const PouchCompostableHumidityControlPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt="Verified Humidity Control Manufacturing" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

@@ -263,7 +263,7 @@ const CompostableCertificationFAQPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/pouch-shape/a_kraft_coffee_bag_with_compostable_valve_6857122.webp"
+        heroImage="/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp"
       />
     </>
   )

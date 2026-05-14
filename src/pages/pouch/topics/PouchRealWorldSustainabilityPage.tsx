@@ -27,15 +27,27 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#171717_1px,transparent_1px)] [background-size:24px_24px] bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="magenta">IMPACT_ENGINE_V1.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Data.<br/>Not.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Hype.</span></h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Sustainability is an engineering deliverable. We provide the ISO 14040 Life Cycle Assessment (LCA) data and third-party certifications required to back your brand's claims with absolute technical authority.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Browse Verified Solutions</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Order Evidence Kit</NeoButton>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <NeoBadge color="magenta">IMPACT_ENGINE_V1.0</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Data.<br/>Not.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Hype.</span></h1>
+              <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                Sustainability is an engineering deliverable. We provide the ISO 14040 Life Cycle Assessment (LCA) data and third-party certifications required to back your brand's claims.
+              </p>
+              <div className="flex flex-wrap gap-6 mt-12">
+                <NeoButton variant="primary" to="/products">Browse Verified Solutions</NeoButton>
+                <NeoButton variant="secondary" to="/sample">Order Evidence Kit</NeoButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp" 
+                alt="Real-World Sustainability Hero" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -47,7 +59,7 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp" 
+                src="/imgs/illustrated/a_sustainable_pet_food_packaging_hero_2601845.webp" 
                 alt="LCA Engineering Framework" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +152,7 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                src="/imgs/illustrated/a_eco_packaging_hero_collection_4454797.webp" 
                 alt="Verified Sustainability Manufacturing" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

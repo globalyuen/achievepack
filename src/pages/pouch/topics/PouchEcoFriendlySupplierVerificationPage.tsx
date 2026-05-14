@@ -47,7 +47,7 @@ const PouchEcoFriendlySupplierVerificationPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
                 alt="High-Tech Verified Packaging Factory" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +140,7 @@ const PouchEcoFriendlySupplierVerificationPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_quality_inspector_checking_pouches_in_factory_9918233.webp" 
+                src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt="On-site Supplier Verification" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

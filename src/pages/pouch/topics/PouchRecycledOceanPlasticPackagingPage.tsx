@@ -27,15 +27,27 @@ const PouchRecycledOceanPlasticPackagingPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#075985_1px,transparent_1px)] [background-size:24px_24px] bg-sky-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="blue">OCEAN_GUARD_V1.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Clean.<br/>Ocean.<br/><span className="text-sky-800 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Plastic.</span></h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Don't just talk about the ocean—protect it. We engineer flexible packaging using certified Ocean-Bound Plastic (OBP), recovered from high-risk coastal zones before it can damage marine ecosystems.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Browse OBP Solutions</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Order Impact Samples</NeoButton>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <NeoBadge color="blue">OCEAN_GUARD_V1.0</NeoBadge>
+              <h1 className="mt-8 font-black text-6xl md:text-8xl leading-none uppercase italic">Clean.<br/>Ocean.<br/><span className="text-sky-800 drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Plastic.</span></h1>
+              <p className="mt-8 text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+                Don't just talk about the ocean—protect it. We engineer flexible packaging using certified Ocean-Bound Plastic (OBP).
+              </p>
+              <div className="flex flex-wrap gap-6 mt-12">
+                <NeoButton variant="primary" to="/products">Browse OBP Solutions</NeoButton>
+                <NeoButton variant="secondary" to="/sample">Order Impact Samples</NeoButton>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-sky-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/illustrated/a_pcr_card_v1_0334493.webp" 
+                alt="Recycled Ocean Plastic Packaging Hero" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -47,7 +59,7 @@ const PouchRecycledOceanPlasticPackagingPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-sky-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_coastal_plastic_waste_collection_team_action_shot_1182744.webp" 
+                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
                 alt="OBP Collection Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -140,7 +152,7 @@ const PouchRecycledOceanPlasticPackagingPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-sky-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/pouch-shape/a_recycled_ocean_plastic_pouch_mockup_on_sand_4418223.webp" 
+                src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
                 alt="OBP Material Verification" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

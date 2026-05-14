@@ -46,11 +46,11 @@ export default function PouchCompostableZipperNoRemovalPage() {
             <div className="relative">
               <NeoCard className="bg-[#D4FF00] relative z-10 rotate-2 !p-0 overflow-hidden group border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
                 <div className="aspect-square relative overflow-hidden">
-                  <img 
-                    src="/imgs/samples/kraft-compostable-zipper.png" 
-                    alt="Kraft compostable pouch with fully compostable zipper" 
-                    className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
-                  />
+                    <img 
+                      src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_b_3398751.webp" 
+                      alt="Kraft compostable pouch with fully compostable zipper" 
+                      className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
+                    />
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
                     ZERO_REMOVAL_REQD
                   </motion.div>
@@ -75,7 +75,7 @@ export default function PouchCompostableZipperNoRemovalPage() {
             </p>
             
             <img 
-              src="/imgs/store/closure/normal-zipper.webp" 
+              src="/imgs/illustrated/a_topic_02_dtc_pkg_var_c_7412861.webp" 
               alt="Close up of a compostable press-to-close zipper" 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
@@ -94,7 +94,7 @@ export default function PouchCompostableZipperNoRemovalPage() {
             </p>
             
             <img 
-              src="/imgs/4-infograhic/compost.webp" 
+              src="/imgs/seo-photos/a_compostable_packaging_cycle_infographic_style_1182744.webp" 
               alt="Infographic showing how a fully compostable bag breaks down into biomass" 
               className="w-full h-80 object-contain bg-gray-100 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
