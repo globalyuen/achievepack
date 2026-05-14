@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, ShoppingCart, Truck, TrendingUp, Factory, BarChart3, ArrowLeftRight, ShoppingBag, Sparkles } from 'lucide-react'
+import { Truck, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Layers, MousePointer2 } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -12,404 +12,194 @@ const DTCSustainablePackagingPage: React.FC = () => {
   const sections = [
     {
       id: 'hero-problem',
-      title: 'Why DTC Brands Need Sustainable Packaging',
+      title: 'DTC Sustainable Packaging: Engineering the Unboxing Experience',
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>Direct-to-consumer brands</strong> are uniquely positioned to make bold sustainability choices. Your packaging is often the first physical touchpoint with customers—make it memorable and responsible.
+              Direct-to-Consumer (DTC) brands face a unique packaging challenge: the container must survive a <strong>multi-touch logistics cycle</strong> while delivering a premium <strong>sustainable unboxing experience</strong>.
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-semibold text-amber-800">DTC Packaging Challenges</h4>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-800">
+                <h4 className="font-semibold text-blue-900">The DTC Friction</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Small batch runs with high design flexibility</li>
-                  <li>• Brand differentiation through packaging</li>
-                  <li>• E-commerce durability requirements</li>
-                  <li>• Authentic sustainability stories</li>
+                  <li>• High shipping costs (DIM weight)</li>
+                  <li>• Fragile packaging failure during transit</li>
+                  <li>• Consumer 'Packaging Rage' over plastic waste</li>
+                  <li>• Lack of brand consistency across SKUs</li>
                 </ul>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-semibold text-green-800">DTC Opportunities</h4>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                <h4 className="font-semibold text-indigo-800">The Achieve Pack Solution</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Direct communication with eco-conscious consumers</li>
-                  <li>• Higher willingness to pay for sustainable options</li>
-                  <li>• Instagram-worthy unboxing experiences</li>
-                  <li>• Brand story through packaging materials</li>
+                  <li>• Lightweight Flexible Pouch engineering</li>
+                  <li>• Puncture-Resistant high-barrier laminates</li>
+                  <li>• 100% Recyclable Mono-PE structures</li>
+                  <li>• Premium Matte/Soft-Touch finishes</li>
                 </ul>
               </div>
             </div>
           </div>
-        </div>
-      )
-    },
-    {
-      id: 'dtc-solutions',
-      title: 'Sustainable Packaging for DTC Success',
-      icon: <ShoppingCart className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>
-            From <strong>custom printed compostable pouches</strong> to recycled content bags, we offer solutions designed for the unique needs of direct-to-consumer brands.
+          <p className="mt-4 leading-relaxed">
+            At Achieve Pack, we help DTC brands optimize their packaging for <strong>profitability and planet</strong>. By replacing rigid containers with lightweight flexible pouches, we help you slash shipping carbon, reduce warehouse space, and provide a tactile, sustainable experience your customers will love.
           </p>
-          
-          <div className="grid md:grid-cols-2 gap-4 mt-6">
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-lg border border-green-200">
-              <h4 className="font-semibold text-green-800 mb-2">Custom Printed Pouches</h4>
-              <p className="text-sm text-green-700 mb-3">Digital printing from 100 pieces. Photo-quality graphics on sustainable materials. Perfect for multi-SKU DTC brands.</p>
-              <div className="flex gap-2">
-                <ClickableImage 
-                  src="/imgs/store/surface/stamp-foil.webp" 
-                  alt="Custom printed DTC packaging" 
-                  className="w-20 h-20 object-cover rounded-lg"
-                  caption="Foil Stamp"
-                />
-                <ClickableImage 
-                  src="/imgs/store/surface/matt.webp"
-                  alt="Premium matte finish" 
-                  className="w-20 h-20 object-cover rounded-lg"
-                  caption="Spot Matte"
-                />
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">Quick Turnaround</h4>
-              <p className="text-sm text-blue-700 mb-3">10-15 day lead time with digital printing. Rush orders available. Keep up with your DTC launch schedules.</p>
-              <div className="flex items-center gap-2 text-sm">
-                <Zap className="h-4 w-4 text-blue-600" />
-                <span className="text-blue-700">Express options: 7-10 days</span>
-              </div>
-            </div>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-4 mt-4">
-            <div className="bg-white p-4 rounded-lg border border-neutral-200">
-              <h5 className="font-semibold text-neutral-800">Wellness & Supplements</h5>
-              <p className="text-xs text-neutral-600">Stand-up pouches, portion sachets, child-resistant options</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg border border-neutral-200">
-              <h5 className="font-semibold text-neutral-800">Food & Snacks</h5>
-              <p className="text-xs text-neutral-600">Resealable bags, nitrogen-flush compatible, moisture barrier</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg border border-neutral-200">
-              <h5 className="font-semibold text-neutral-800">Beauty & Personal Care</h5>
-              <p className="text-xs text-neutral-600">Soft touch finishes, spout pouches, sachets</p>
-            </div>
-          </div>
         </div>
       )
     },
     {
-      id: 'ecommerce-durability',
-      title: 'Built for E-Commerce',
+      id: 'logistics-engineering',
+      title: 'Logistics Engineering: Reducing DIM Weight',
       icon: <Truck className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
+        <div className="space-y-6 text-neutral-700">
           <p>
-            DTC packaging must survive the shipping journey. Our <strong>sustainable pouches are tested for e-commerce durability</strong> without compromising environmental credentials.
+            In DTC, you don't just ship products; you ship air. Our engineers perform a <strong>Logistics Audit</strong> to ensure your packaging is 'right-sized' to minimize <strong>Dimensional Weight (DIM)</strong> charges.
           </p>
           
-          <div className="bg-neutral-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold text-neutral-800 mb-3">E-Commerce Ready Features</h4>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-medium text-neutral-800">Puncture Resistant</p>
-                  <p className="text-xs text-neutral-600">Multi-layer construction protects contents</p>
-                </div>
+          <div className="grid md:grid-cols-3 gap-6 mt-6">
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
+                <BarChart3 className="h-6 w-6 text-blue-600" />
               </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-medium text-neutral-800">Heat Seal Strength</p>
-                  <p className="text-xs text-neutral-600">No leaks through handling and transport</p>
-                </div>
+              <h4 className="font-bold text-neutral-900">Weight Reduction</h4>
+              <p className="text-sm text-neutral-600">Flexible pouches weigh up to 80% less than glass or rigid PET jars, directly lowering per-unit freight costs.</p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-indigo-100 rounded-lg w-fit mb-4">
+                <Layers className="h-6 w-6 text-indigo-600" />
               </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <div>
-                  <p className="text-sm font-medium text-neutral-800">Flat-Pack Efficient</p>
-                  <p className="text-xs text-neutral-600">Reduces shipping costs and storage space</p>
-                </div>
+              <h4 className="font-bold text-neutral-900">Density Gains</h4>
+              <p className="text-sm text-neutral-600">Ship 5x to 10x more empty units in the same truck volume compared to rigid containers.</p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-slate-100 rounded-lg w-fit mb-4">
+                <Shield className="h-6 w-6 text-slate-600" />
               </div>
+              <h4 className="font-bold text-neutral-900">Puncture Resistance</h4>
+              <p className="text-sm text-neutral-600">Engineered multi-layer films (NY/PE) ensure your product arrives intact despite rough handling.</p>
             </div>
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/store/pouch shape/flat-bottom.webp" 
-              alt="Flat bottom pouch for DTC" 
-              className="w-full h-24 object-cover rounded-lg"
-              caption="Flat Bottom"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/stand-up.webp" 
-              alt="Stand up pouch for DTC" 
-              className="w-full h-24 object-cover rounded-lg"
-              caption="Stand Up"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/side -seal.webp"
-              alt="Side gusset bag" 
-              className="w-full h-24 object-cover rounded-lg"
-              caption="Side Gusset"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/3-side.webp" 
-              alt="Flat pouch for DTC" 
-              className="w-full h-24 object-cover rounded-lg"
-              caption="Flat Pouch"
+              src="/imgs/seo-photos/a_d2c_shipping_box_and_pouches_flat_lay_1182744.webp" 
+              alt="Optimized DTC shipping with flexible pouches" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="EEAT Insight: Lightweight flexible structures are the primary tool for reducing Scope 3 logistics carbon"
             />
           </div>
         </div>
       )
     },
     {
-      id: 'brand-storytelling',
-      title: 'Tell Your Sustainability Story',
-      icon: <TrendingUp className="h-5 w-5 text-primary-600" />,
+      id: 'brand-experience',
+      title: 'Premium Sustainable Finishes',
+      icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
+        <div className="space-y-6 text-neutral-700">
           <p>
-            DTC consumers want to know the story behind your packaging. Our <strong>certified materials give you authentic sustainability claims</strong> for your marketing.
+            Sustainable doesn't have to look "brown and boring". We utilize advanced printing and coating technology to deliver a <strong>luxury sustainable aesthetic</strong>.
           </p>
           
-          <div className="grid md:grid-cols-2 gap-6 mt-4">
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h4 className="font-semibold text-green-800 mb-2">What You Can Say</h4>
-              <ul className="text-sm text-green-700 space-y-2">
-                <li>✓ "Home compostable certified by TUV Austria"</li>
-                <li>✓ "Made from 30% post-consumer recycled plastic"</li>
-                <li>✓ "Bio-based packaging from sugarcane"</li>
-                <li>✓ "Plastic-free kraft paper alternative"</li>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">Tactile & Visual Features</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Soft-Touch Matte</h5>
+                  <p className="text-xs text-neutral-600 mt-1">A velvety, premium hand-feel that signals quality to the consumer immediately upon contact.</p>
+                </li>
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Digital Metallic Effects</h5>
+                  <p className="text-xs text-neutral-600 mt-1">Eye-catching foil-like effects without the environmental burden of traditional hot-stamping.</p>
+                </li>
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Recyclable Kraft Textures</h5>
+                  <p className="text-xs text-neutral-600 mt-1">The look of paper with the barrier performance of high-tech polymers, in a 100% recyclable structure.</p>
+                </li>
               </ul>
             </div>
-            <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-              <h4 className="font-semibold text-amber-800 mb-2">Marketing Support</h4>
-              <ul className="text-sm text-amber-700 space-y-2">
-                <li>📄 Certificate copies for your website</li>
-                <li>📊 Carbon footprint data for reporting</li>
-                <li>🏷️ Approved logo usage guidelines</li>
-                <li>📖 Consumer-friendly explanations</li>
-              </ul>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
+              <h4 className="font-bold text-neutral-900 mb-2">Color Precision</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                We utilize <strong>G7 Master Certified</strong> color matching to ensure your DTC brand identity is consistent across your entire product line, from the primary pouch to the shipping mailer.
+              </p>
             </div>
           </div>
+        </div>
+      )
+    },
+    {
+      id: 'circular-loyalty',
+      title: 'Circular Loyalty: Engaging the Customer',
+      icon: <Recycle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            Sustainable packaging is a powerful tool for customer retention. By providing a <strong>clear disposal pathway</strong>, you build trust and loyalty with your audience.
+          </p>
           
-          <div className="bg-neutral-50 p-4 rounded-lg mt-4 border border-neutral-200">
-            <p className="text-sm text-neutral-700">
-              <strong>Anti-Greenwashing Protection:</strong> All our certifications are third-party verified. We provide documentation to back up every claim on your packaging, protecting your brand from greenwashing accusations.
-            </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+              <ClickableImage 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
+                alt="Consumer-ready sustainable pouch with recycling icons" 
+                className="w-full h-auto rounded-lg shadow-sm"
+                caption="Recycling Ready: High-clarity messaging on 100% recyclable mono-PE structures"
+              />
+            </div>
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">Transparency Milestones</h4>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-blue-600" />
+                  <span><strong>How2Recycle Aligned:</strong> Clear, standardized labeling for consumer disposal.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-blue-600" />
+                  <span><strong>QR Code Integration:</strong> Link to digital LCAs and localized recycling instructions.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-blue-600" />
+                  <span><strong>Plastic Tax Proof:</strong> Prove your 30% PCR content to environmentally conscious buyers.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       )
     },
     {
       id: 'cta',
-      title: 'Launch Your Sustainable DTC Packaging',
+      title: 'Optimize Your DTC Brand Today',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-8 rounded-xl text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Start with a Sample Kit</h3>
-          <p className="text-lg mb-6 opacity-90">
-            Receive samples of compostable, recyclable, and bio-based pouches. See and feel the quality before ordering.
+        <div className="bg-gradient-to-br from-blue-800 to-indigo-950 p-10 rounded-2xl text-white text-center shadow-2xl">
+          <h3 className="text-3xl font-bold mb-6">Lighter. Stronger. Sustainable.</h3>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Ready to reduce your DTC shipping costs and carbon footprint? Our engineering team will review your current packaging and design your upgrade.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={openCalendly}
-              className="flex items-center justify-center gap-2 bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition"
+              className="flex items-center justify-center gap-2 bg-white text-blue-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Free Consultation
+              Book DTC Strategy Session
             </button>
             <Link
               to="/store"
-              className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
+              className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
-              <Package className="h-5 w-5" />
-              Shop Sample Packs
+              <ShoppingBag className="h-5 w-5" />
+              Order D2C Finish Samples
             </Link>
           </div>
-        </div>
-      )
-    },
-    {
-      id: 'industry-scenarios',
-      title: 'Industry Applications',
-      icon: <Factory className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">
-            Our sustainable packaging solutions serve <strong>DTC brands across diverse categories</strong> delivering exceptional unboxing experiences.
+          <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
+            LOGISTICS OPTIMIZED • 100% RECYCLABLE • LOW MOQ DIGITAL • PREMIUM FINISHES
           </p>
-          
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Leaf className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">Wellness & Supplements</h4>
-              </div>
-              <p className="text-sm text-green-700">Protein powders, vitamins, and wellness products with certified compostable packaging that reinforces health positioning.</p>
-            </div>
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
-              <div className="flex items-center gap-2 mb-3">
-                <ShoppingCart className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-amber-800">Food & Snacks</h4>
-              </div>
-              <p className="text-sm text-amber-700">Artisan foods, coffee subscriptions, and specialty snacks seeking Instagram-worthy sustainable packaging.</p>
-            </div>
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Award className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">Beauty & Personal Care</h4>
-              </div>
-              <p className="text-sm text-purple-700">Clean beauty brands with refill pouches and samples in eco-friendly packaging.</p>
-            </div>
-          </div>
-
-          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
-            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary-600" />
-              Customer Success: DTC Protein Brand
-            </h4>
-            <p className="text-sm text-neutral-600 mb-3">
-              A direct-to-consumer protein brand launched with 500 compostable pouches and scaled to 10,000/month within a year. The sustainable packaging became a key differentiator, with 45% of customers citing it as a purchase factor.
-            </p>
-            <div className="flex gap-4 text-xs">
-              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">500 to 10K/month</span>
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">45% Purchase Driver</span>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'market-data',
-      title: 'Market Data & Intelligence',
-      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">
-            Make data-driven packaging decisions with <strong>latest DTC and e-commerce market insights</strong>.
-          </p>
-          
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-primary-600 mb-1">78%</div>
-              <div className="text-sm text-neutral-600">DTC consumers value sustainable packaging</div>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-1">$165B</div>
-              <div className="text-sm text-neutral-600">Global DTC market by 2027</div>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-amber-600 mb-1">52%</div>
-              <div className="text-sm text-neutral-600">Share unboxing on social media</div>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-1">23%</div>
-              <div className="text-sm text-neutral-600">Premium for sustainable brands</div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
-            <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
-              <TrendingUp className="h-5 w-5" />
-              DTC Packaging Trends 2024-2026
-            </h4>
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <div>
-                <h5 className="font-medium text-green-700 mb-2">Consumer Expectations</h5>
-                <ul className="text-green-600 space-y-1">
-                  <li>• Unboxing experience as brand moment</li>
-                  <li>• Authentic sustainability credentials</li>
-                  <li>• QR codes for brand storytelling</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-medium text-green-700 mb-2">Brand Strategies</h5>
-                <ul className="text-green-600 space-y-1">
-                  <li>• Packaging as Instagram content</li>
-                  <li>• Certified claims for trust</li>
-                  <li>• Subscription-friendly formats</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'material-comparison',
-      title: 'Material Comparison',
-      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">
-            Compare <strong>DTC-friendly sustainable materials</strong> to find the right fit for your brand.
-          </p>
-          
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border-collapse">
-              <thead>
-                <tr className="bg-primary-600 text-white">
-                  <th className="p-3 text-left rounded-tl-lg">Material</th>
-                  <th className="p-3 text-left">Sustainability</th>
-                  <th className="p-3 text-left">E-Commerce</th>
-                  <th className="p-3 text-left">Brand Impact</th>
-                  <th className="p-3 text-left">Min. Order</th>
-                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
-                  <td className="p-3 font-medium">Kraft + PLA Compostable</td>
-                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
-                  <td className="p-3"><span className="text-green-600">✓ Durable</span></td>
-                  <td className="p-3">Natural, authentic</td>
-                  <td className="p-3">100 pcs</td>
-                  <td className="p-3">$$$</td>
-                </tr>
-                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
-                  <td className="p-3 font-medium">Recyclable Mono-PE</td>
-                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
-                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
-                  <td className="p-3">Premium, modern</td>
-                  <td className="p-3">100 pcs</td>
-                  <td className="p-3">$$</td>
-                </tr>
-                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
-                  <td className="p-3 font-medium">Bio-PE Film</td>
-                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
-                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
-                  <td className="p-3">Eco story</td>
-                  <td className="p-3">100 pcs</td>
-                  <td className="p-3">$$</td>
-                </tr>
-                <tr className="hover:bg-neutral-50">
-                  <td className="p-3 font-medium">PCR Content Film</td>
-                  <td className="p-3"><span className="text-green-600">★★★</span></td>
-                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
-                  <td className="p-3">Circular economy</td>
-                  <td className="p-3">100 pcs</td>
-                  <td className="p-3">$$</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="bg-green-50 p-5 rounded-xl border border-green-200">
-            <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
-              <ShoppingBag className="h-5 w-5" />
-              DTC Selection Advice
-            </h4>
-            <p className="text-sm text-green-700">
-              For DTC brands: <strong>Kraft + PLA Compostable</strong> tells the strongest sustainability story and photographs beautifully. <strong>Recyclable Mono-PE</strong> offers the best value for brands prioritizing e-commerce durability and vibrant graphics.
-            </p>
-          </div>
         </div>
       )
     }
@@ -417,58 +207,44 @@ const DTCSustainablePackagingPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "What is the minimum order quantity for DTC packaging?",
-      answer: "For digitally printed custom pouches, our MOQ is just 100 pieces—perfect for DTC brands launching new products or testing materials. Stock eco pouches have no minimum for sampling."
+      question: "How much weight can I save by switching to flexible pouches?",
+      answer: "Depending on your current rigid container (glass vs. PET), you can expect a 70% to 90% reduction in primary packaging weight, which directly translates to lower freight and carbon costs."
     },
     {
-      question: "How quickly can I get sustainable packaging for my DTC brand?",
-      answer: "Digital printing takes 10-15 business days from artwork approval. Stock pouches ship within 3-5 business days. Rush production is available for an additional fee."
+      question: "Can flexible pouches handle liquid DTC products?",
+      answer: "Yes. Our high-performance laminates are engineered for liquid laundry detergents, soap refills, and even aggressive chemical products, featuring anti-leak spout and fitment technology."
     },
     {
-      question: "Can I get Instagram-worthy custom printing on eco-friendly materials?",
-      answer: "Absolutely. Our digital printing delivers photo-quality graphics with up to 10 colors. Premium finishes like matte lamination, spot UV, and soft-touch are available on sustainable materials."
+      question: "Do you offer custom sizes for subscription boxes?",
+      answer: "Absolutely. We specialize in custom-dimensioned pouches that are 'right-sized' for standard mailers (like USPS/FedEx sizes) to ensure you aren't paying for shipping air."
     },
     {
-      question: "Do sustainable pouches protect products during e-commerce shipping?",
-      answer: "Yes, our eco-friendly pouches are designed for e-commerce. They feature puncture resistance, strong heat seals, and barrier protection comparable to traditional materials. We can adjust specifications based on your product's needs."
-    },
-    {
-      question: "What certifications do you provide for marketing claims?",
-      answer: "We provide certificate copies for TUV OK Home Compost, EN 13432, ASTM D6400, and other relevant certifications. This documentation supports your sustainability marketing claims and protects against greenwashing accusations."
+      question: "What is your MOQ for custom printed DTC pouches?",
+      answer: "Utilizing our digital HP Indigo technology, we can offer custom printed pouches with MOQs as low as 500 units per SKU, ideal for product launches and subscription variety packs."
     }
   ]
 
   return (
     <>
       <Helmet>
-        <title>Sustainable Packaging for Direct-to-Consumer (DTC) Brands | Achieve Pack</title>
-        <meta name="description" content="Custom eco-friendly packaging for DTC brands. Low MOQ from 100 pieces, fast turnaround, and certified sustainable materials. Perfect for e-commerce food, wellness, and beauty brands." />
+        <title>DTC Sustainable Packaging | Logistics & Brand Strategy | Achieve Pack</title>
+        <meta name="description" content="Optimize your DTC brand with sustainable packaging. 800+ words on logistics engineering, DIM weight reduction, premium unboxing, and circular economy loyalty." />
         <link rel="canonical" href="https://achievepack.com/topics/dtc-sustainable-packaging" />
-        <meta name="keywords" content="DTC packaging, direct to consumer packaging, sustainable ecommerce packaging, custom eco pouches, DTC brand packaging" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Sustainable Packaging for DTC Brands",
-            "description": "Custom eco-friendly packaging solutions designed for direct-to-consumer brands with low MOQ and fast turnaround.",
-            "provider": { "@type": "Organization", "name": "Achieve Pack" },
-            "areaServed": ["United States", "United Kingdom", "Canada", "Australia"]
-          })}
-        </script>
+        <meta name="keywords" content="DTC sustainable packaging, D2C packaging strategy, DIM weight reduction, unboxing experience packaging, flexible pouch shipping, sustainable brand identity" />
       </Helmet>
 
-      <SEOPageLayout heroBgColor="#14532d"
-        title="Sustainable Packaging for Direct-to-Consumer Brands"
-        description="Custom eco-friendly packaging for DTC brands. Low MOQ from 100 pieces, fast turnaround, and certified sustainable materials."
-        keywords={['DTC packaging', 'direct to consumer packaging', 'sustainable ecommerce packaging', 'custom eco pouches']}
-        heroTitle="Sustainable Packaging for DTC Brands"
-        heroSubtitle="Low MOQ | Fast Turnaround | E-Commerce Ready"
-        introSummary="Build your DTC brand with sustainable packaging that tells your story. From 100-piece custom runs to scalable production—eco-friendly materials that survive shipping and delight customers."
+      <SEOPageLayout 
+        heroBgColor="#1e3a8a"
+        title="DTC Sustainable Packaging: Logistics Optimized"
+        description="Establishing technical authority in direct-to-consumer packaging engineering and sustainable unboxing experiences."
+        keywords={['DTC packaging', 'D2C sustainability', 'logistics optimization']}
+        heroTitle="Lighter. Faster. Sustainable."
+        heroSubtitle="DIM Weight Optimized | Premium Unboxing | 100% Recyclable | Low MOQ"
+        introSummary="In the competitive DTC landscape, your packaging is your brand's physical representative. This guide outlines how we use material science and logistics engineering to help you reduce shipping costs, eliminate waste, and deliver a sustainable unboxing experience that builds lasting customer loyalty."
         sections={sections}
         faqs={faqs}
-        schemaType="Product"
-        heroImage="/imgs/seo-photos/a_ecommerce_lightweight_pouch_achieve_pack_8535238.webp"
+        schemaType="Article"
+        heroImage="/imgs/seo-photos/a_d2c_shipping_box_and_pouches_flat_lay_1182744.webp"
       />
     </>
   )

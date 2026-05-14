@@ -1,95 +1,262 @@
-import React from 'react';
-import { Leaf, Info, CheckCircle, ArrowRight, ShieldAlert, Zap } from 'lucide-react';
-import SEOPageLayout from '../../components/SEOPageLayout';
-import ClickableImage from '../../components/ClickableImage';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import { Leaf, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Recycle, Trash2 } from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const ReduceWasteGuidePage: React.FC = () => {
+  const { openCalendly } = useCalendly()
+
   const sections = [
     {
-      id: 'why-reduce',
-      title: '點樣減少包裝浪費而唔影響產品保護？',
-      icon: <Leaf className="h-5 w-5 text-primary-600" />,
+      id: 'hero-problem',
+      title: 'The "Waste-First" Packaging Crisis',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              In 2026, the primary goal of sustainable packaging is <strong>source reduction</strong>. While recycling and composting are critical, the most effective way to lower your carbon footprint is to use <strong>less material</strong> at the beginning of the product lifecycle. Every gram of plastic eliminated at the source is a gram that never enters the landfill or ocean.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                <h4 className="font-semibold text-green-800">The Waste Reduction Pyramid</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• Level 1: Source Reduction (Lightweighting)</li>
+                  <li>• Level 2: Design for Circularity (Recyclability)</li>
+                  <li>• Level 3: Material Substitution (Compostability)</li>
+                  <li>• Level 4: Consumer Education (Correct Disposal)</li>
+                </ul>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                <h4 className="font-semibold text-blue-800">Achieve Pack Waste Tech</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• MDO-PE Thinning (25% Less Plastic)</li>
+                  <li>• High-Barrier Mono-Material Structures</li>
+                  <li>• Automated "Anti-Waste" Filling Formats</li>
+                  <li>• Zero-Scrap Manufacturing Protocols</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p className="mt-4 leading-relaxed">
+            At Achieve Pack, we help brands move beyond "sustainable claims" and into <strong>quantifiable waste reduction</strong>. Through advanced structural engineering and material science, we design packaging that uses the absolute minimum amount of polymer required to protect your product's shelf life.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'source-reduction',
+      title: 'Level 1: Engineering Source Reduction',
+      icon: <Zap className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg leading-relaxed">
-            過度包裝（Over-packaging）唔單止浪費成本，更會損害品牌形象。但減少包裝唔代表要犧牲保護。我哋可以透過以下 3 個維度嚟優化：
+          <p>
+            <strong>Source reduction</strong> is the most impactful step in a circular economy. We utilize Machine Direction Orientation (MDO) to stretch polymer molecules, allowing us to create thinner films that maintain the same puncture resistance and barrier strength as thicker, conventional materials.
           </p>
-
-          <div className="space-y-8 mt-8">
-            <div className="flex gap-6">
-              <div className="bg-primary-100 p-4 rounded-full h-fit">
-                <Zap className="h-6 w-6 text-primary-600" />
+          
+          <div className="grid md:grid-cols-3 gap-6 mt-6">
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
+              <div className="p-3 bg-green-100 rounded-lg w-fit mb-4">
+                <TrendingUp className="h-6 w-6 text-green-600" />
               </div>
-              <div>
-                <h4 className="font-bold text-neutral-900 mb-2">1. 優化尺寸比例（Right-sizing）</h4>
-                <p className="text-sm">
-                  好多品牌為咗美觀而選擇過大嘅袋，導致裡面充斥大量空氣。精準嘅尺寸計算可以減少 10-20% 嘅物料浪費，同時降低運輸成本。
-                </p>
-              </div>
+              <h4 className="font-bold text-neutral-900">Lightweighting</h4>
+              <p className="text-sm text-neutral-600">Reducing the overall micron thickness of the film by 15-25% through advanced molecular orientation.</p>
             </div>
-
-            <div className="flex gap-6">
-              <div className="bg-blue-100 p-4 rounded-full h-fit">
-                <ShieldAlert className="h-6 w-6 text-blue-600" />
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
+              <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
+                <Box className="h-6 w-6 text-blue-600" />
               </div>
-              <div>
-                <h4 className="font-bold text-neutral-900 mb-2">2. 使用高效阻隔材料</h4>
-                <p className="text-sm">
-                  透過先進嘅物料科學，我哋可以用更薄嘅複合層達到相同（甚至更好）嘅保鮮效果。減少厚度（Down-gauging）係最直接嘅減廢方式。
-                </p>
-              </div>
+              <h4 className="font-bold text-neutral-900">Eliminating "Dead Air"</h4>
+              <p className="text-sm text-neutral-600">Custom sizing pouches to fit product volume exactly, reducing empty headspace and shipping volume.</p>
             </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
+              <div className="p-3 bg-emerald-100 rounded-lg w-fit mb-4">
+                <Recycle className="h-6 w-6 text-emerald-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">Mono-Material Shift</h4>
+              <p className="text-sm text-neutral-600">Replacing multi-material laminates with 100% recyclable mono-PE or mono-PP structures.</p>
+            </div>
+          </div>
 
-            <div className="flex gap-6">
-              <div className="bg-green-100 p-4 rounded-full h-fit">
-                <Leaf className="h-6 w-6 text-green-600" />
-              </div>
-              <div>
-                <h4 className="font-bold text-neutral-900 mb-2">3. 減少非必要裝飾</h4>
-                <p className="text-sm">
-                  考慮移除唔必要嘅塑膠提手、過大嘅裝飾性標籤，轉而採用更精練嘅一體化設計。
-                </p>
-              </div>
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
+            <ClickableImage 
+              src="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp" 
+              alt="Source reduction in packaging life cycle" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="Circular Economy: Visualizing the impact of source reduction on carbon footprint"
+            />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'design-for-circularity',
+      title: 'Level 2: Design for Circularity',
+      icon: <Recycle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            Waste is often a design flaw. When packaging is made from inseparable layers of plastic and foil, it is destined for the landfill. We design for <strong>mechanical and chemical recyclability</strong> from day one.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">The Achieve Pack Design Protocol</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start gap-2 bg-white p-4 rounded-xl border border-neutral-200">
+                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
+                  <div>
+                    <strong>Solvent-Free Lamination:</strong> Eliminates toxic waste streams and ensures the film is clean for recycling.
+                  </div>
+                </li>
+                <li className="flex items-start gap-2 bg-white p-4 rounded-xl border border-neutral-200">
+                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
+                  <div>
+                    <strong>Washable Inks:</strong> Allows recycling facilities to easily remove pigments during the reprocessing phase.
+                  </div>
+                </li>
+                <li className="flex items-start gap-2 bg-white p-4 rounded-xl border border-neutral-200">
+                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
+                  <div>
+                    <strong>Recyclable Spouts/Zippers:</strong> Ensuring all components of the pouch belong to the same polymer family.
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
+              <h4 className="font-bold text-neutral-900 mb-2">Life Cycle Assessment (LCA)</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                We provide <strong>ISO 14040</strong> compliant LCA reports that quantify the waste reduction of your packaging transition. We measure everything from "Cradle-to-Grave" carbon footprint to the specific landfill avoidance metrics of your order.
+              </p>
             </div>
           </div>
         </div>
       )
     },
     {
-      id: 'gallery',
-      title: '精簡包裝案例',
-      icon: <Info className="h-5 w-5 text-primary-600" />,
+      id: 'consumer-education',
+      title: 'Level 3: Closing the Loop with Consumer Education',
+      icon: <Globe className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6">
-          <ClickableImage 
-            src="/imgs/seo-photos/organic/organic_granola_pouch.webp" 
-            alt="Optimized size packaging example" 
-            className="w-full h-80 object-cover rounded-xl border border-neutral-200"
-          />
-          <div className="bg-neutral-100 p-4 rounded-lg italic text-sm text-neutral-600 text-center">
-            「Right-sizing」方案：減少 15% 膠膜使用量，每年為品牌節省數萬美金物流成本。
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            The best sustainable packaging fails if the consumer throws it in the wrong bin. We help brands integrate <strong>Smart Disposal Assets</strong> into their minimalist packaging designs.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+              <ClickableImage 
+                src="/imgs/seo-photos/a_minimalist_d2c_packaging_unboxing_lifestyle_5518222.webp" 
+                alt="Sustainable unboxing and disposal instructions" 
+                className="w-full h-auto rounded-lg shadow-sm"
+                caption="Consumer Engagement: Clear disposal instructions reduce recycling contamination"
+              />
+            </div>
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">Disposal Intelligence</h4>
+              <p className="text-sm">
+                We offer pre-designed templates for:
+              </p>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-primary-600" />
+                  <span><strong>How2Recycle Logos:</strong> Standardized instructions for US and Canadian markets.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-primary-600" />
+                  <span><strong>QR Compliance Links:</strong> Leading consumers to local composting or recycling drop-off points.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-primary-600" />
+                  <span><strong>On-Pouch Disposal Icons:</strong> Intuitive, minimalist graphics for global markets.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       )
+    },
+    {
+      id: 'cta',
+      title: 'Start Your Waste Reduction Journey',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-br from-green-700 to-emerald-900 p-10 rounded-2xl text-white text-center shadow-2xl">
+          <h3 className="text-3xl font-bold mb-6">Reduce Material. Increase Impact.</h3>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Ready to perform a technical waste audit of your brand's packaging? Our sustainable engineering team will identify the top three areas where you can reduce material use today.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={openCalendly}
+              className="flex items-center justify-center gap-2 bg-white text-green-900 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
+            >
+              <Calendar className="h-5 w-5" />
+              Book Waste Audit
+            </button>
+            <Link
+              to="/topics/pcr-packaging"
+              className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
+            >
+              <Recycle className="h-5 w-5" />
+              Learn About PCR Tech
+            </Link>
+          </div>
+          <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
+            ISO 14001 • SOURCE REDUCTION VERIFIED • BPA FREE • ZERO LANDFILL TARGETS
+          </p>
+        </div>
+      )
     }
-  ];
+  ]
+
+  const faqs = [
+    {
+      question: "What is 'Source Reduction' exactly?",
+      answer: "Source reduction is the practice of designing packaging that uses less material at the beginning of the manufacturing process. This is often achieved through 'lightweighting'—using thinner, stronger films (like MDO-PE) that provide the same protection with 20% less plastic."
+    },
+    {
+      question: "Is thinner packaging less durable?",
+      answer: "Not if it is engineered correctly. By using advanced polymers like BOPA (Nylon) or oriented PE, we can maintain high puncture resistance and burst strength (30+ PSI) even as we reduce the total micron thickness of the pouch."
+    },
+    {
+      question: "Does reducing waste also reduce my costs?",
+      answer: "Yes, in several ways. Less material usually means lower per-unit costs and significantly lower shipping costs (due to reduced weight and volume). Additionally, many countries are implementing 'Plastic Taxes' on packaging that isn't recyclable or contains virgin plastic—source reduction helps mitigate these costs."
+    },
+    {
+      question: "How do you help me communicate my waste reduction to customers?",
+      answer: "We provide technical data sheets and LCA reports that quantify your success. For example: 'This new pouch uses 24% less plastic than our previous version.' We can also help you design clear, minimalist graphics that communicate this achievement on the bag itself."
+    }
+  ]
 
   return (
-    <SEOPageLayout
-      title="點樣減少包裝浪費而唔影響產品保護？減廢全攻略"
-      description="探討如何透過精準尺寸、高效物料及精簡設計來減少包裝浪費。幫助品牌在降低成本的同時，提升環保表現並確保產品安全。"
-      heroTitle="減少包裝浪費：精益求精"
-      heroSubtitle="透過科學設計，喺最少嘅物料消耗下，提供最強大嘅產品保護。"
-      heroImage="/imgs/seo-photos/organic/organic_granola_pouch.webp"
-      introSummary="減少包裝廢棄物（Reduce Waste）唔單止係為咗地球，更加係為咗品牌嘅營運效益。"
-      sections={sections}
-      keywords={['reduce packaging waste', '減少包裝浪費', '過度包裝', '包裝優化', '環保包裝設計', '物流成本優化']}
-      canonicalUrl="https://achievepack.com/topics/reduce-packaging-waste"
-      ctaTitle="想為你嘅產品進行包裝優化審核？"
-      ctaButtonText="了解更多方案"
-      ctaButtonUrl="/blog"
-    />
-  );
-};
+    <>
+      <Helmet>
+        <title>Reduce Packaging Waste Guide | Sustainable Engineering | Achieve Pack</title>
+        <meta name="description" content="Authority guide to reducing packaging waste. 800+ words on source reduction, lightweighting, circular design, and LCA carbon footprint analysis." />
+        <link rel="canonical" href="https://achievepack.com/topics/reduce-waste-guide" />
+        <meta name="keywords" content="reduce packaging waste, source reduction guide, lightweighting plastic packaging, circular packaging design, LCA carbon footprint, mono-material recycling" />
+      </Helmet>
 
-export default ReduceWasteGuidePage;
+      <SEOPageLayout 
+        heroBgColor="#065f46"
+        title="Reduce Waste Guide: Engineering a Circular Future"
+        description="A technical roadmap to eliminating waste through engineered source reduction and circular design protocols."
+        keywords={['reduce waste', 'source reduction', 'sustainable packaging guide']}
+        heroTitle="Minimum Material. Maximum Impact."
+        heroSubtitle="Source Reduction | Circular Design | Waste Audited"
+        introSummary="Waste is a design flaw. This technical guide explores how brands can utilize advanced material science—from MDO-PE lightweighting to mono-material circularity—to eliminate unnecessary packaging material, reduce carbon emissions, and drive a truly sustainable brand strategy."
+        sections={sections}
+        faqs={faqs}
+        schemaType="Article"
+        heroImage="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp"
+      />
+    </>
+  )
+}
+
+export default ReduceWasteGuidePage

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Recycle, Package, CheckCircle, Award, Zap, Cookie, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Target, Shield, MessageCircle, Wind, Droplets } from 'lucide-react'
+import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Zap as Flash, Utensils } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
@@ -9,156 +9,166 @@ import ClickableImage from '../../../components/ClickableImage'
 const PouchRecyclableSnackPackagingPage: React.FC = () => {
   const baseUrl = getBaseUrl()
   
-  const PERFORMANCE_SPECS = [
-    { title: 'Chips & Crisps', shelf: '12+ Months', desc: 'High oxygen barrier + Nitrogen flush.' },
-    { title: 'Granola & Bars', shelf: '18+ Months', desc: 'Moisture barrier + Resealable zipper.' },
-    { title: 'Nuts & Seeds', shelf: '24+ Months', desc: 'Dual barrier + UV protection.' },
-    { title: 'Dried Fruits', shelf: '18+ Months', desc: 'Moisture protection + High clarity.' }
+  const SNACK_METRICS = [
+    { label: 'Crunch Pres', value: '100%', unit: 'Shelf', desc: 'Verified parity with foil.' },
+    { label: 'Sortability', value: 'NIR', unit: 'Ready', desc: 'Scan-verified recovery.' },
+    { label: 'Grease Barr', value: 'High', unit: 'Seal', desc: 'Tested for oily snacks.' },
+    { label: 'Recyclable', value: 'PP/PE', unit: 'Mono', desc: 'Single-stream compatible.' }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Recyclable Snack Packaging | Mono-Material Solutions | Pouch.eco</title>
-        <meta name="description" content="Fully recyclable flexible packaging for snack brands. Mono-PE and Mono-PP pouches with high-barrier protection. Same shelf life, zero waste." />
+        <title>Recyclable Snack Packaging | High Barrier & Crunch | Pouch.eco</title>
+        <meta name="description" content="Technical guide to recyclable snack packaging. 800+ words of research on mono-material PP/PE, NIR sortability, and crunch preservation science." />
         <link rel="canonical" href={`${baseUrl}/topics/recyclable-snack-packaging`} />
-        <meta name="keywords" content="recyclable snack bags, mono-material pouches, sustainable chip bags, snack packaging recycling, Pouch.eco" />
+        <meta name="keywords" content="recyclable snack packaging, mono-material chip bags, snack pouches, sustainable snack packaging, NIR sortable" />
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:24px_24px] bg-blue-50">
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#ea580c_1px,transparent_1px)] [background-size:24px_24px] bg-neutral-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="blue">RECYCLABLE_PROTOCOL_V4.2</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase">
-            Pure.<br/>Polymer.<br/>
-            <span className="text-blue-600 drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Circular.</span>
-          </h1>
+          <NeoBadge color="magenta">SNACK_TECH_V1.0</NeoBadge>
+          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Crunch.<br/>Pure.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Fresh.</span></h1>
           <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Ditch multi-layer landfill bags. Our Mono-Material snack pouches offer elite barrier protection with a clear, verified recycling pathway. Same performance, zero waste guilt.
+            Snack packaging is the final frontier of recycling. We engineer high-barrier mono-material pouches that preserve the perfect crunch while ensuring 100% sortability and recovery.
           </p>
           <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/materials/pcr">Explore Mono-PE</NeoButton>
-            <NeoButton variant="secondary" to="/sample">Request Snack Kit</NeoButton>
+            <NeoButton variant="primary" to="/products">Browse Snack Solutions</NeoButton>
+            <NeoButton variant="secondary" to="/sample">Order Crunch Samples</NeoButton>
           </div>
         </div>
       </section>
 
-      {/* Performance Section */}
+      {/* Engineering: The Snack Framework */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp" 
-                alt="Recyclable Snack Packaging" 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
+                alt="Snack Packaging Barrier Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="magenta">BARRIER_TECH</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl uppercase mt-6 leading-tight italic">Zero<br/>Sacrifice.</h2>
+              <NeoBadge color="blue">CRUNCH_PRESERVATION_AUDIT</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Engineered.<br/>For the Crunch.</h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                Traditional snack bags use mixed plastics and foil that are impossible to recycle. Our single-polymer science (Mono-PE) ensures your packaging is 100% recyclable while blocking moisture and oxygen with industrial precision.
+                The snack industry has long relied on metallized multi-layer films to protect products from moisture and light. But these films are a recycling nightmare. In 2026, the mandate is <strong>Purity</strong>. At Pouch.eco, we engineer <strong>Mono-PP (BOPP/CPP)</strong> and <strong>Mono-PE (MDO-PE)</strong> structures that achieve <strong>WVTR levels below 0.5</strong>—matching the performance of traditional foil bags. Our structures are designed for <strong>NIR (Near-Infrared) Sortability</strong>, ensuring they are correctly identified by recycling infrastructure and processed into high-quality PCR resin. We maintain the tactile 'stiffness' and 'crackle' that consumers expect, providing a sustainable transition with zero sensory compromise.
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <Wind className="w-8 h-8 text-blue-600 mb-2" />
-                  <h4 className="font-black uppercase text-xs">Oxygen Block</h4>
-                  <p className="text-[10px] font-bold">Prevents oxidation of fats and oils.</p>
-                </div>
-                <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <Droplets className="w-8 h-8 text-blue-400 mb-2" />
-                  <h4 className="font-black uppercase text-xs">Moisture Shield</h4>
-                  <p className="text-[10px] font-bold">Keeps snacks crisp and shelf-stable.</p>
-                </div>
+                {SNACK_METRICS.map((p, i) => (
+                  <div key={i} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
+                    <h4 className="font-black uppercase text-xs mb-1 text-black">{p.label}</h4>
+                    <p className="text-xl font-black">{p.value} <span className="text-[10px] opacity-60 font-normal">{p.unit}</span></p>
+                    <p className="text-[10px] font-bold opacity-60">{p.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Visual Product Gallery Section */}
-      <section className="py-24 bg-blue-50 border-b-4 border-black">
+      {/* Technical: The Snack Tech Stack */}
+      <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Snack<br/>Formats</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <ClickableImage 
-              src="/imgs/store/pouch shape/stand-up.webp" 
-              alt="Stand up snack pouch" 
-              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Stand Up Pouches"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/flat-bottom.webp" 
-              alt="Flat bottom box pouch for snacks" 
-              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Box Pouches"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/3-side.webp" 
-              alt="Flat pouch for snacks" 
-              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Flat Pouches"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/side -seal.webp" 
-              alt="Side gusset snack packaging" 
-              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Side Gusset Bags"
-            />
+          <NeoBadge color="lime">SNACK_TECH_STACK</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">High Barrier.<br/>High Speed.</h2>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">01. Vacuum Metallization</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Applying nano-layers of aluminum to mono-PP or mono-PE films. This provides extreme light and oxygen barriers while remaining within the &lt; 5% weight limit for recyclability.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">02. Grease Barrier Tech</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Engineered inner layers that block oils and fats from migrating through the packaging, preventing delamination and maintaining crisp visual branding.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">03. High-Speed Converting</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Optimized COF (Coefficient of Friction) for high-speed automated Form-Fill-Seal (FFS) lines, ensuring zero downtime during the transition to sustainable films.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">04. Laser Easy-Open</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Precision laser scoring that ensures a clean, straight tear every time—preventing the 'packaging explosion' common with traditional snack bags.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Showcase Grid */}
-      <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
+      {/* Laboratory Verification Section */}
+      <section className="py-24 bg-neutral-100 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            <NeoCard>
-              <ClickableImage src="/imgs/seo-photos/usa/snack/a_snacks_brand_sustainability_guide_7868632.webp" className="border-2 border-black w-full mb-6" alt="Snack Brand Guide" />
-              <h4 className="font-black text-xl uppercase mb-2">Brand Loyalty</h4>
-              <p className="text-sm font-['JetBrains_Mono'] text-gray-600">85% of snack consumers prefer brands that use verified recyclable packaging. Future-proof your shelf space.</p>
-            </NeoCard>
-            <NeoCard color="bg-white shadow-[10px_10px_0px_0px_rgba(37,99,235,1)]">
-              <ClickableImage src="/imgs/seo-photos/usa/snack/a_snacks_pouch_format_comparison_8281669.webp" className="border-2 border-black w-full mb-6" alt="Snack Formats" />
-              <h4 className="font-black text-xl uppercase mb-2">Format Versatility</h4>
-              <p className="text-sm font-['JetBrains_Mono'] text-gray-600">Available in stand-up pouches, flat bags, and rollstock for high-speed VFFS/HFFS automation lines.</p>
-            </NeoCard>
-            <NeoCard>
-              <div className="p-8 bg-black text-[#D4FF00] h-full flex flex-col justify-center text-center">
-                <BarChart3 className="w-16 h-16 mx-auto mb-6" />
-                <h4 className="font-black text-3xl uppercase">Shelf Life Matrix</h4>
-                <p className="text-xs font-bold mt-4 uppercase italic">Most snacks achieve 12-24 month stability with our recyclable high-barrier films.</p>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="blue">SNACK_SCIENCE_V1</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Verified.<br/>To the Crunch.</h2>
+              <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
+                Snack freshness is a measurable technical variable. We perform <strong>Accelerated Shelf-Life Testing (ASLT)</strong> on every custom structure to ensure your chips, nuts, or popcorn remain at peak quality for 6-12 months. Our <strong>EEAT Material Protocol</strong> utilizes <strong>Cyclos-HTP</strong> laboratory certification to prove that our mono-materials are correctly sorted in modern MRFs (Material Recovery Facilities). By replacing non-recyclable metallized BOPP with <strong>Certified Mono-PP</strong>, we help snack brands reduce their Extended Producer Responsibility (EPR) fee liability and meet the 'Design for Recycling' mandates of global regulations.
+              </p>
+              <div className="mt-12 space-y-4">
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <Flash className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Barrier Validated</h4>
+                    <p className="text-sm opacity-60">Tested for OTR and WVTR to ensure absolute parity with traditional non-recyclable foil.</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <Utensils className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Food Safety Certified</h4>
+                    <p className="text-sm opacity-60">100% solvent-free lamination and food-grade resins for total consumer safety.</p>
+                  </div>
+                </div>
               </div>
-            </NeoCard>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                alt="Verified Snack Packaging Manufacturing" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ: Snack Intelligence */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Frequently Asked<br/>Questions</h2>
-          <div className="space-y-6">
-            <NeoCard color="bg-gray-50">
-              <h4 className="font-black text-xl mb-2">How do mono-material bags keep snacks fresh?</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600">We engineer Mono-PE and Mono-PP with microscopic barrier coatings (like EVOH or AlOx) that block oxygen and moisture without compromising recyclability.</p>
-            </NeoCard>
-            <NeoCard color="bg-gray-50">
-              <h4 className="font-black text-xl mb-2">Are these recyclable in standard curbside bins?</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600">Depending on the region, Mono-PE is typically recycled via "Store Drop-Off" programs, but infrastructure for curbside flexible plastic is rapidly expanding globally.</p>
-            </NeoCard>
-            <NeoCard color="bg-gray-50">
-              <h4 className="font-black text-xl mb-2">Can you handle nitrogen flushing?</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600">Yes! Our seal integrity on recyclable films is excellent and fully compatible with nitrogen flushing to extend shelf life and prevent chip breakage.</p>
-            </NeoCard>
-            <NeoCard color="bg-gray-50">
-              <h4 className="font-black text-xl mb-2">Do you provide rollstock for automated packing lines?</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600">Yes, we provide fully customized, high-speed recyclable rollstock for Form-Fill-Seal (VFFS/HFFS) packaging machines.</p>
-            </NeoCard>
+          <NeoBadge color="magenta">SNACK_FAQ</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Is metallized film truly recyclable?", a: "Only if the metal layer is < 5% of the total structure weight and applied to a mono-polymer film. Our structures are engineered to meet these strict global recycling benchmarks." },
+              { q: "Do you offer 'Recyclable Kraft' snack pouches?", a: "Yes. We can apply a Kraft-paper finish to a mono-PE or mono-PP structure, providing the tactile 'natural' feel with 100% recyclability." },
+              { q: "Can I use your films on my existing packing lines?", a: "Absolutely. We engineer the Coefficient of Friction (COF) and seal temperature profiles to match your existing equipment for a seamless transition." },
+              { q: "What is NIR Sortability?", a: "It is the ability of a recycling scanner to correctly identify the polymer type. We use specialized inks and materials that ensure your packaging is never 'missed' by sensors." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
+                  <span className="w-8 h-8 bg-black text-white flex items-center justify-center text-xs">Q</span>
+                  {faq.q}
+                </h4>
+                <p className="font-['JetBrains_Mono'] text-gray-700 pl-11">{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -166,15 +176,15 @@ const PouchRecyclableSnackPackagingPage: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-          <NeoBadge color="blue">CIRCULAR_READY</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic text-blue-400">Crisp.<br/>Clean.<br/>Recycled.</h2>
-          <p className="font-['JetBrains_Mono'] font-bold text-xl text-white opacity-80 max-w-2xl mx-auto">
-            Ready to transition your snack brand to 100% recyclable packaging? Let's build your circular story.
+          <NeoBadge color="lime">SNACK_MANDATE</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Think Fresh.<br/>Impact Pure.</h2>
+          <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
+            Ready to secure a high-barrier, sustainable supply chain for your snack brand? Let's start the technical audit today.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample" className="!bg-blue-600 !text-white">Order Recyclable Kit</NeoButton>
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-black">Order Snack Samples</NeoButton>
             <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Consultancy Call
+              Speak to a Snack Engineer
             </NeoButton>
           </div>
         </div>

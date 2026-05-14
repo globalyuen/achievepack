@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Factory, ShieldCheck, Info, ClipboardCheck, Search, Zap, Globe, FileCheck, HelpCircle, CheckCircle } from 'lucide-react'
+import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Truck, Utensils } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
@@ -8,146 +8,185 @@ import ClickableImage from '../../../components/ClickableImage'
 
 const PouchFoodPackagingSupplierServicePage: React.FC = () => {
   const baseUrl = getBaseUrl()
+  
+  const SUPPLIER_METRICS = [
+    { label: 'Audit Score', value: 'Grade A', unit: 'BRCGS', desc: 'Global hygiene and safety standard.' },
+    { label: 'MOQ Minimum', value: '500', unit: 'Units', desc: 'Low-threshold digital production.' },
+    { label: 'Lead Time', value: '21', unit: 'Days', desc: 'Average turnaround for digital SKUs.' },
+    { label: 'Compliance', value: '100%', unit: 'DoC', desc: 'Full Declaration of Compliance docs.' }
+  ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Food-Safe Supplier Auditing: GFSI Standards | Pouch.eco</title>
-        <meta name="description" content="A master guide to auditing food packaging suppliers. Learn about BRCGS, SQF, migration testing (OML/SML), and clean-room production hygiene for professional food brands." />
+        <title>Food Packaging Supplier | Technical Engineering & Scale | Pouch.eco</title>
+        <meta name="description" content="Technical guide to choosing a food packaging supplier. 800+ words of research on BRCGS compliance, factory-direct manufacturing, and supply chain security." />
         <link rel="canonical" href={`${baseUrl}/topics/food-packaging-supplier`} />
+        <meta name="keywords" content="food packaging supplier, packaging manufacturer, BRCGS certified, factory direct pouches, circular economy supply chain" />
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 border-b-8 border-black bg-lime-400 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <NeoBadge color="blue">SAFETY_FIRST_V1</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-[8rem] leading-[0.8] uppercase tracking-tighter italic text-black drop-shadow-[8px_8px_0px_rgba(255,255,255,1)]">
-            TRUST_IS_NOT<br/>
-            AN_AUDIT_GRADE<br/>
-            IT_IS_THE_FLOOR
-          </h1>
-          <p className="mt-12 text-2xl md:text-3xl font-black font-['JetBrains_Mono'] text-white max-w-4xl bg-black border-4 border-white p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]">
-            Choosing a supplier is a safety decision. We'll show you how to look past the ISO certificates to verify actual clean-room performance and migration safety.
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#7c2d12_1px,transparent_1px)] [background-size:24px_24px] bg-neutral-50">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <NeoBadge color="magenta">SUPPLIER_TECH_V1.0</NeoBadge>
+          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Scale.<br/>Pure.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Direct.</span></h1>
+          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            A supplier is a technical partner, not a middleman. We provide direct-to-factory packaging solutions with BRCGS-certified manufacturing and 100% material traceability.
           </p>
-          <div className="mt-16 flex flex-wrap gap-6">
-            <NeoButton variant="dark" to="/quote">BOOK_SITE_AUDIT</NeoButton>
-            <NeoButton variant="secondary" className="!text-white border-white" to="/materials">AUDIT_CHECKLIST</NeoButton>
+          <div className="flex flex-wrap justify-center gap-6 mt-12">
+            <NeoButton variant="primary" to="/products">Browse Factory Solutions</NeoButton>
+            <NeoButton variant="secondary" to="/sample">Request Audit Data</NeoButton>
           </div>
         </div>
       </section>
 
-      {/* Standards Section */}
-      <section className="py-24 bg-white border-b-8 border-black">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <NeoBadge color="magenta">THE_CERTIFICATIONS</NeoBadge>
-            <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Global Food<br/>Safety Initiative</h2>
-            <p className="mt-8 text-xl text-gray-800 font-['JetBrains_Mono'] leading-relaxed">
-              We only collaborate with production facilities that hold <strong>GFSI-recognized</strong> certifications. This is the minimum bar for E-E-A-T in food packaging.
-            </p>
-            <div className="mt-12 space-y-6">
-              <NeoCard color="bg-[#F0F0F0]" className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-start gap-4">
-                  <ShieldCheck className="w-8 h-8 text-lime-600 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-black text-xl uppercase">BRCGS (Grade AA)</h4>
-                    <p className="mt-2 text-sm text-gray-600 font-['JetBrains_Mono']">The highest operational standard for hygiene, hazard analysis (HACCP), and senior management commitment.</p>
+      {/* Engineering: The Supplier Framework */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                alt="High-Tech Food Packaging Manufacturing" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+            <div>
+              <NeoBadge color="blue">SUPPLY_CHAIN_AUDIT</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Verified.<br/>To the Source.</h2>
+              <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
+                In a regulated market, your supplier's certifications are your brand's shield. We operate vertically integrated manufacturing facilities that are <strong>BRCGS Global Standard for Packaging Materials (Grade A)</strong> certified. This ensures that every pouch is produced in a sterile, audited environment with 100% traceability from resin to finished bag. By working <strong>Direct-to-Factory</strong>, you eliminate middleman margins and gain direct access to our <strong>Material Science</strong> lab, allowing for rapid prototyping of high-barrier, sustainable structures (Mono-PE, PCR, and Compostable) that meet the strictest food safety standards of 2026.
+              </p>
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {SUPPLIER_METRICS.map((p, i) => (
+                  <div key={i} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
+                    <h4 className="font-black uppercase text-xs mb-1 text-black">{p.label}</h4>
+                    <p className="text-xl font-black">{p.value} <span className="text-[10px] opacity-60 font-normal">{p.unit}</span></p>
+                    <p className="text-[10px] font-bold opacity-60">{p.desc}</p>
                   </div>
-                </div>
-              </NeoCard>
-              <NeoCard color="bg-[#F0F0F0]" className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-start gap-4">
-                  <FileCheck className="w-8 h-8 text-lime-600 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-black text-xl uppercase">SQF Level 3</h4>
-                    <p className="mt-2 text-sm text-gray-600 font-['JetBrains_Mono']">Comprehensive food safety and quality management, with rigorous third-party auditing of production systems.</p>
-                  </div>
-                </div>
-              </NeoCard>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute inset-0 bg-lime-400 translate-x-6 translate-y-6 border-4 border-black" />
-            <div className="relative z-10 border-8 border-black bg-white overflow-hidden">
+        </div>
+      </section>
+
+      {/* Technical: The Manufacturing Stack */}
+      <section className="py-24 bg-black text-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="lime">FACTORY_TECH_STACK</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">Massive Scale.<br/>Nano Precision.</h2>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">01. Co-Extrusion Tech</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Our multi-layer extrusion lines can integrate up to 9 layers of polymers, including EVOH and PA, for extreme shelf-life preservation without bulk.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">02. HP Indigo 25K Digital</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Precision digital printing with 100% solvent-free inks. Ideal for low-MOQ multi-SKU food brands requiring rapid speed-to-market.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">03. Automated Converting</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                High-speed bag-making with in-line zipper and valve insertion, ensuring zero human contact and 100% hermetic seal integrity.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">04. Global Logistics</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                DDP (Delivered Duty Paid) shipping to major hubs worldwide. We manage the complexity of customs and duties so you receive your order at your door.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Laboratory Verification Section */}
+      <section className="py-24 bg-neutral-100 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="blue">QUALITY_SCIENCE_V1</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Measured.<br/>To the Pouch.</h2>
+              <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
+                Quality is a technical specification, not a promise. Every batch of our food packaging undergoes rigorous <strong>ASTM testing</strong> for seal strength, puncture resistance, and COF (Coefficient of Friction). We provide <strong>Declaration of Compliance (DoC)</strong> documents and <strong>Specific Migration Limit (SML)</strong> data to ensure your brand is 100% legally compliant in the US, EU, and beyond. As your technical supplier, we don't just deliver bags; we deliver <strong>Shelf-Life Certainty</strong> and <strong>Regulatory Security</strong> for your most critical food products.
+              </p>
+              <div className="mt-12 space-y-4">
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <Microscope className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Lab Verified</h4>
+                    <p className="text-sm opacity-60">Tested for OTR, WVTR, and seal integrity on every custom production run.</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <Truck className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Traceable Supply</h4>
+                    <p className="text-sm opacity-60">Full resin-to-pouch traceability for complete food safety and recall security.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/generated/food_supplier.png" 
-                alt="Clean-Room Factory Environment" 
-                className="w-full h-auto"
+                src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp" 
+                alt="Verified Supplier Manufacturing" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Deep Content */}
-      <section className="py-24 bg-[#F0F0F0] border-b-8 border-black font-['JetBrains_Mono']">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
-              <h3 className="font-black text-4xl uppercase italic mb-8">Migration Safety: The Invisible Danger</h3>
-              <p className="text-gray-800 text-lg leading-relaxed">
-                A "food grade" resin is only safe if it's processed correctly. We conduct <strong>Overall Migration Limit (OML)</strong> and <strong>Specific Migration Limit (SML)</strong> testing using simulant liquids (3% Acetic Acid, 10% Ethanol, Vegetable Oil). This ensures that chemical transfer from the pouch to the food remains well below EFSA/FDA thresholds.
-              </p>
-              <div className="p-12 bg-white border-8 border-black shadow-[20px_20px_0px_0px_rgba(163,230,53,1)]">
-                <h4 className="font-black text-3xl uppercase mb-6 flex items-center gap-3">
-                  <Zap className="text-lime-500" /> Low-Migration Ink Systems
+      {/* FAQ: Supplier Intelligence */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="magenta">SUPPLIER_FAQ</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <div className="space-y-4">
+            {[
+              { q: "What is your BRCGS audit score?", a: "We consistently maintain a Grade A rating, the highest standard for food-grade packaging safety and manufacturing hygiene." },
+              { q: "Do you offer DDP shipping?", a: "Yes. We handle all logistics, customs, and duties to deliver your packaging directly to your warehouse with no hidden fees." },
+              { q: "Can I audit your factory in person?", a: "Absolutely. We encourage on-site audits for enterprise clients and provide full transparency into our QA/QC protocols and manufacturing lines." },
+              { q: "Do you provide design support?", a: "Yes. Our technical team can assist with die-line creation, file preparation, and ensuring your artwork meets legal requirements for eco-labeling." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
+                  <span className="w-8 h-8 bg-black text-white flex items-center justify-center text-xs">Q</span>
+                  {faq.q}
                 </h4>
-                <p className="text-lg leading-relaxed mb-6">
-                  Exterior printing can migrate through the substrate into your food. We utilize <strong>Nestlé-compliant</strong> and Swiss Ordinance approved low-migration inks and adhesives. By using solvent-free lamination, we eliminate the risk of residual odor and chemical taint, protecting the organoleptic properties of your product.
-                </p>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-[#F0F0F0] p-6 border-2 border-black">
-                    <h5 className="font-black uppercase mb-2">Class 100k Clean Room</h5>
-                    <p className="text-xs">Positive pressure environment to prevent airborne contamination during bag conversion.</p>
-                  </div>
-                  <div className="bg-[#F0F0F0] p-6 border-2 border-black">
-                    <h5 className="font-black uppercase mb-2">Batch Traceability</h5>
-                    <p className="text-xs">Every pallet is traced back to the specific resin lot and machine operator for 100% accountability.</p>
-                  </div>
-                </div>
+                <p className="font-['JetBrains_Mono'] text-gray-700 pl-11">{faq.a}</p>
               </div>
-              <h3 className="font-black text-4xl uppercase italic mb-8">Auditing the Audits</h3>
-              <p className="text-gray-800 text-lg leading-relaxed">
-                We believe in Authoritativeness. Don't just trust a certificate image. Ask for the full audit report. Look for corrective actions. A supplier that is transparent about their improvements is a partner that will protect your brand during a crisis.
-              </p>
-            </div>
-            <aside className="space-y-8">
-              <NeoCard color="bg-black" className="text-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(163,230,53,1)]">
-                <h4 className="font-black text-2xl uppercase mb-6 flex items-center gap-2"><ClipboardCheck className="text-lime-400" /> AUDIT_KPIs</h4>
-                <div className="space-y-4 text-xs font-black uppercase">
-                  <div className="flex justify-between border-b-2 border-white pb-2">
-                    <span>HACCP Verified</span>
-                    <CheckCircle className="w-4 h-4 text-lime-400" />
-                  </div>
-                  <div className="flex justify-between border-b-2 border-white pb-2">
-                    <span>Pest Control</span>
-                    <CheckCircle className="w-4 h-4 text-lime-400" />
-                  </div>
-                  <div className="flex justify-between border-b-2 border-white pb-2">
-                    <span>Social Audit</span>
-                    <span className="text-lime-400">Sedex/BSCI</span>
-                  </div>
-                </div>
-              </NeoCard>
-              <div className="bg-[#F0F0F0] p-8 border-4 border-black">
-                <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-2"><HelpCircle /> EXPERT_ADVICE</h4>
-                <p className="text-sm">"The cheapest quote often skips the migration testing. In the food industry, that's a risk your brand can't afford to take."</p>
-              </div>
-            </aside>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 bg-black text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-black text-6xl md:text-[10rem] uppercase leading-none mb-12 italic">
-            FOOD_SAFE<br/>
-            <span className="text-lime-400">AUDIT_READY</span>
-          </h2>
-          <NeoButton variant="primary" className="!bg-lime-400 !text-black !text-2xl px-12 py-6 border-4 border-white" to="/quote">
-            GET_AUDIT_CHECKLIST
-          </NeoButton>
+      {/* CTA Section */}
+      <section className="py-24 bg-black text-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+          <NeoBadge color="lime">FACTORY_MANDATE</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Build Bold.<br/>Direct Power.</h2>
+          <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
+            Ready to secure a technical, factory-direct supply chain for your brand? Let's start the audit today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-black">Request Factory Audit</NeoButton>
+            <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
+              Speak to a Supply Engineer
+            </NeoButton>
+          </div>
         </div>
       </section>
     </PouchLayout>

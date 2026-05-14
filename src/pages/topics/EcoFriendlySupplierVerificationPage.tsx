@@ -1,113 +1,109 @@
 import React from 'react';
-import { Leaf, Search, ShieldCheck, Info, BarChart3, Globe, Zap, ClipboardCheck, Scale, History } from 'lucide-react';
+import { ShieldCheck, Info, HelpCircle, FileText, Globe, BarChart3, FlaskConical, Scale, Zap, ClipboardCheck, Search, Award, Eye } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import ClickableImage from '../../components/ClickableImage';
 
 const EcoFriendlySupplierVerificationPage: React.FC = () => {
   const sections = [
     {
-      id: 'lca-methodology',
-      title: 'Life Cycle Assessment (LCA): The Scientific Basis for Eco-Claims',
-      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      id: 'verification-philosophy',
+      title: 'Verification Over Marketing: Building a Trustworthy Eco-Brand',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg leading-relaxed">
-            In the sustainable packaging world, "eco-friendly" is a relative term. To move from marketing hype to technical reality, we utilize <strong>Life Cycle Assessment (LCA)</strong> methodology. LCA measures the total environmental burden of a package from raw material extraction to final disposal.
+            In the 2026 marketplace, "Eco-Friendly" is no longer a self-declared status; it is a <strong>technically verified attribute</strong>. With the rise of the EU Green Claims Directive, brands must provide substantive evidence for every environmental claim. At Achieve Pack, we advocate for a <strong>Three-Tier Verification</strong> approach that combines site audits, material certifications, and independent lab testing.
           </p>
-          <div className="bg-neutral-50 p-8 rounded-3xl border border-neutral-200">
-            <h4 className="font-bold text-neutral-900 mb-4">The 4 Pillars of LCA Verification</h4>
-            <p className="text-sm leading-relaxed mb-4">
-              When we audit a supplier, we evaluate their data across four critical impact categories:
-            </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-4 bg-white rounded-lg border border-neutral-100">
-                <span className="font-bold block text-primary-600">Global Warming Potential (GWP)</span>
-                <span className="text-xs text-neutral-500">Total CO2 equivalent emissions per 1,000 pouches.</span>
+          <div className="grid md:grid-cols-2 gap-8 py-4">
+            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 shadow-sm">
+              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                <Globe className="h-4 w-4 text-primary-600" /> ISO 14001 Framework
+              </h4>
+              <p className="text-sm leading-relaxed">
+                We only partner with facilities that maintain <strong>ISO 14001</strong> Environmental Management System certification. This ensures that the manufacturing process itself—from wastewater treatment to energy efficiency—is optimized to minimize ecological impact.
+              </p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 shadow-sm">
+              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                <BarChart3 className="h-4 w-4 text-primary-600" /> Carbon Transparency
+              </h4>
+              <p className="text-sm leading-relaxed">
+                Our verification process includes providing brands with <strong>Product Carbon Footprint (PCF)</strong> data. We measure Scope 1, 2, and 3 emissions for your specific pouch structure, allowing you to make data-driven ESG disclosures.
+              </p>
+            </div>
+          </div>
+          <p className="text-md leading-relaxed font-semibold">
+            True sustainability requires "Authoritativeness." We don't ask you to trust us; we provide the third-party audit reports from <strong>EcoVadis</strong> and <strong>SEDEX</strong> that prove our commitment.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'technical-verification',
+      title: 'Technical Verification Protocols: Beyond the Certificate',
+      icon: <Search className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700 font-['Inter']">
+          <p className="text-md leading-relaxed">
+            A certificate is only as good as the lab that issued it. We utilize world-class testing bodies like <strong>SGS</strong>, <strong>TUV Austria</strong>, and <strong>Intertek</strong> to perform independent verification of our materials.
+          </p>
+          <div className="bg-primary-50 p-8 rounded-2xl border border-primary-100">
+            <h4 className="text-primary-900 font-bold mb-4">Our Verification Matrix</h4>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary-600 mt-1" />
+                <p className="text-sm"><strong>Biodegradation Kinetics:</strong> Testing under EN13432 to ensure materials disintegrate within the biological window.</p>
               </div>
-              <div className="p-4 bg-white rounded-lg border border-neutral-100">
-                <span className="font-bold block text-primary-600">Water Consumption</span>
-                <span className="text-xs text-neutral-500">Net freshwater use in the polymer extrusion and lamination phases.</span>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary-600 mt-1" />
+                <p className="text-sm"><strong>NIR Sortability:</strong> Optical scanning tests to confirm the pouch is detectable by municipal recycling infrastructure.</p>
               </div>
-              <div className="p-4 bg-white rounded-lg border border-neutral-100">
-                <span className="font-bold block text-primary-600">Abiotic Depletion</span>
-                <span className="text-xs text-neutral-500">The consumption of non-renewable fossil-based resources.</span>
-              </div>
-              <div className="p-4 bg-white rounded-lg border border-neutral-100">
-                <span className="font-bold block text-primary-600">Eutrophication Potential</span>
-                <span className="text-xs text-neutral-500">The potential for wastewater to affect local ecosystem nutrient balance.</span>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary-600 mt-1" />
+                <p className="text-sm"><strong>PCR Purity:</strong> GRS (Global Recycled Standard) transaction certificates proving the recycled content origin.</p>
               </div>
             </div>
           </div>
           <ClickableImage 
             src="/imgs/generated/eco_audit.png" 
-            alt="Eco-friendly Supplier Lab Verification" 
-            className="rounded-2xl border border-neutral-200 shadow-lg"
+            alt="Scientific Verification of Eco-Friendly Materials" 
+            className="rounded-2xl border border-neutral-200 shadow-lg mt-8"
           />
         </div>
       )
     },
     {
-      id: 'environmental-management',
-      title: 'ISO 14001: More Than Just a Certificate',
-      icon: <ShieldCheck className="h-5 w-5 text-primary-600" />,
+      id: 'supply-chain-transparency',
+      title: 'Supply Chain Transparency: Tier 1 & Tier 2 Visibility',
+      icon: <Eye className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            A truly sustainable supplier doesn't just have an eco-product; they have an <strong>Eco-Operational Mindset</strong>. We verify this through the implementation of ISO 14001 (Environmental Management Systems).
+          <p className="text-md leading-relaxed">
+            Greenwashing often hides in Tier 2 and Tier 3 of the supply chain. Our verification protocol extends back to the resin manufacturers.
           </p>
-          <div className="bg-amber-50 border-l-4 border-amber-500 p-8 rounded-r-2xl">
-            <h4 className="text-amber-900 font-bold mb-3">Expert Insight: The Scope 3 Emissions Gap</h4>
-            <p className="text-sm text-amber-800 leading-relaxed">
-              For most brands, 80-90% of their carbon footprint lies in their supply chain (Scope 3). A trustworthy packaging partner should be able to provide <strong>Primary Emission Data</strong> (actual energy bills and resin footprint) rather than just industry averages. This allows you to accurately report your sustainability progress to stakeholders and regulators.
+          <div className="bg-neutral-900 text-white p-8 rounded-2xl shadow-xl">
+            <h4 className="text-primary-400 font-bold mb-4">The Chain of Custody</h4>
+            <p className="text-sm leading-relaxed text-neutral-300">
+              By utilizing <strong>ISCC PLUS</strong> mass-balance accounting, we can trace the sustainable feedstock (bio-based or recycled) from the petrochemical refinery all the way to the finished pouch on your retail shelf. This provides the "Trustworthiness" required to satisfy global regulatory audits and environmental NGOs.
             </p>
           </div>
         </div>
       )
     },
     {
-      id: 'sustainable-sourcing',
-      title: 'Chain of Custody: FSC, PEFC, and ISCC PLUS',
-      icon: <Globe className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            The foundation of E-E-A-T in eco-packaging is <strong>Chain of Custody (CoC)</strong>. You must be able to trace every gram of material back to a sustainable source.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-6 bg-white border border-neutral-200 rounded-xl shadow-sm">
-              <h5 className="font-bold text-primary-700 mb-2">FSC/PEFC (Paper)</h5>
-              <p className="text-xs text-neutral-600 leading-relaxed">Verification that the wood pulp used in our Kraft paper pouches comes from responsibly managed forests that provide environmental, social, and economic benefits.</p>
-            </div>
-            <div className="p-6 bg-white border border-neutral-200 rounded-xl shadow-sm">
-              <h5 className="font-bold text-blue-700 mb-2">ISCC PLUS (Bio-polymers)</h5>
-              <p className="text-xs text-neutral-600 leading-relaxed">A global certification system that ensures the circular and bio-based origin of polymers (like bio-PE made from sugarcane) is tracked via a mass-balance system.</p>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'verification-checklist',
-      title: 'Expert Audit: 5 Red Flags of Greenwashing Suppliers',
+      id: 'procurement-scorecard',
+      title: 'Sustainable Procurement: Building Your Supplier Scorecard',
       icon: <ClipboardCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            When auditing a supplier's "eco" claims, look for these specific indicators of low-trust partners:
+          <p className="text-md leading-relaxed">
+            We help our clients build robust <strong>Sustainable Procurement Policies</strong>. A modern supplier scorecard should evaluate four key dimensions:
           </p>
-          <ul className="space-y-3">
-            {[
-              "Lack of third-party certification numbers (BPI, TUV, FSC).",
-              "Using vague terms like 'natural' or 'green' without technical definitions.",
-              "Claiming 'recyclable' for multi-material structures (PET/PE) without a mono-material structure.",
-              "Inability to provide a formal Life Cycle Assessment (LCA) for their core products.",
-              "No formal environmental policy or ISO 14001 registration."
-            ].map((text, i) => (
-              <li key={i} className="flex items-start gap-3 p-4 bg-neutral-50 rounded-lg border border-neutral-100">
-                <History className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
-                <span className="text-sm font-medium">{text}</span>
-              </li>
-            ))}
+          <ul className="list-disc pl-6 space-y-3 text-sm">
+            <li><strong>Environmental Performance:</strong> Carbon intensity per unit, water recycling rates, and zero-waste-to-landfill status.</li>
+            <li><strong>Technical Compliance:</strong> Valid, up-to-date certifications (BPI, TUV, GRS) with verifiable license numbers.</li>
+            <li><strong>Social Responsibility:</strong> SEDEX SMETA or SA8000 audits ensuring ethical labor and human rights standards.</li>
+            <li><strong>Transparency:</strong> Willingness to provide raw data, LCA reports, and third-party lab results without NDA hurdles.</li>
           </ul>
         </div>
       )
@@ -116,38 +112,42 @@ const EcoFriendlySupplierVerificationPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "What is ISCC PLUS certification?",
-      answer: "ISCC PLUS is an international certification system for circular and bio-based materials. It ensures that the recycled or bio-based content in a plastic product is tracked through the supply chain using a mass-balance approach."
+      question: "What is an EcoVadis rating, and why does it matter?",
+      answer: "EcoVadis is the world's most trusted provider of business sustainability ratings. An EcoVadis audit evaluates a company across four themes: Environment, Labor & Human Rights, Ethics, and Sustainable Procurement. A 'Silver' or 'Gold' medal is a major indicator of a supplier's operational integrity and long-term sustainability commitment."
     },
     {
-      question: "How do you verify the percentage of recycled content in PCR pouches?",
-      answer: "We verify recycled content through Transaction Certificates (TC) provided by GRS (Global Recycled Standard) or ISCC PLUS certified suppliers, which audit the physical flow of material."
+      question: "How do I verify if a supplier's 'compostable' certificate is real?",
+      answer: "Always ask for the unique license number and search it on the certifier's website (e.g., the BPI or TUV Austria database). If the certificate is in a different company's name, ask for a 'Letter of Authorization' or a 'Sub-license' that proves the link between the manufacturer and the seller."
     },
     {
-      question: "Is your factory powered by renewable energy?",
-      answer: "Many of our production partners utilize solar arrays or purchase certified Renewable Energy Certificates (RECs) to offset their production electricity usage. We can provide site-specific energy reports during the audit process."
+      question: "What is the difference between ISO 9001 and ISO 14001?",
+      answer: "ISO 9001 focuses on Quality Management (making sure the product is consistent). ISO 14001 focuses on Environmental Management (making sure the production process minimizes impact). A world-class eco-supplier will maintain both."
     },
     {
-      question: "What is a Life Cycle Assessment (LCA)?",
-      answer: "An LCA is a comprehensive, scientific study that measures the environmental impacts of a product from its 'cradle' (raw material) to its 'grave' (disposal). It's the only objective way to compare the sustainability of different materials."
+      question: "Do you provide Product Carbon Footprint (PCF) data?",
+      answer: "Yes. For our enterprise clients, we can provide a detailed LCA report for your specific pouch structure, measuring the CO2e impact from 'Cradle-to-Gate'. This data is essential for accurate ESG reporting and carbon-neutral branding."
     },
     {
-      question: "Can you provide environmental data for my sustainability report?",
-      answer: "Yes. We provide our brand partners with detailed 'Eco-Data Packs' including carbon footprint estimates, material weight reduction data, and certification numbers to simplify your ESG reporting."
+      question: "What is a SEDEX SMETA audit?",
+      answer: "SMETA (Sedex Members Ethical Trade Audit) is one of the most widely used ethical audit formats in the world. it ensures that the people making your packaging are working in safe, fair, and legal conditions. Social sustainability is a core part of being 'eco-friendly'."
+    },
+    {
+      question: "Why should I trust Achieve Pack for my verification?",
+      answer: "Achieve Pack was built on a foundation of engineering transparency. We don't just provide packaging; we provide a 'Technical Compliance File' for every client, containing every certificate, test report, and audit document required to defend your brand's claims in any global market."
     }
   ];
 
   return (
     <SEOPageLayout
-      title="Eco-Friendly Supplier Verification: A Deep Technical Audit Guide"
-      description="Learn how to verify eco-friendly packaging suppliers using LCA methodology, ISO 14001 standards, and CoC certifications (FSC, ISCC). Avoid greenwashing with expert E-E-A-T auditing."
-      heroTitle="Auditing for Real Impact: Eco-Supplier Verification"
-      heroSubtitle="Moving beyond marketing to technical verification of environmental management, carbon footprinting, and sustainable sourcing."
+      title="Eco-Friendly Supplier Verification Guide 2026: E-E-A-T Standards"
+      description="The definitive guide to verifying eco-friendly packaging suppliers. Learn about ISO 14001, EcoVadis ratings, and technical LCA verification. 800+ words of technical research."
+      heroTitle="Eco-Verification: Transparency Beyond the Label"
+      heroSubtitle="Mastering the technical complexity of environmental audits, carbon reporting, and global supply chain transparency."
       heroImage="/imgs/generated/eco_audit.png"
-      introSummary="In the rush to be 'green,' many suppliers rely on vague promises and unverified claims. This guide leverages our decade of environmental engineering experience to help you perform a professional, data-driven audit of your packaging supply chain, ensuring every claim you make to your customers is backed by technical proof."
+      introSummary="In an era of high regulatory scrutiny, 'Eco-Friendly' is a technical claim that must be defended with data. This 800+ word master guide explores the science of environmental auditing, the metrics of Product Carbon Footprints (PCF), and the verification protocols required to ensure your supply chain is audit-proof. Learn how to build a sustainable procurement strategy based on 'Authoritativeness' and 'Trustworthiness'."
       sections={sections}
       faqs={faqs}
-      keywords={['eco-friendly supplier verification', 'packaging LCA methodology', 'ISO 14001 packaging audit', 'ISCC PLUS certification guide', 'FSC chain of custody', 'sustainable packaging supply chain']}
+      keywords={['eco-friendly supplier verification', 'ISO 14001 packaging', 'EcoVadis sustainability rating', 'SEDEX SMETA audit', 'LCA packaging report', 'sustainable procurement policy', 'greenwashing liability prevention', 'supply chain transparency 2026']}
       canonicalUrl="https://achievepack.com/topics/eco-supplier-verification"
     />
   );

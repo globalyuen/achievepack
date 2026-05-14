@@ -1,169 +1,240 @@
-import React from 'react';
-import { Leaf, ShieldCheck, AlertTriangle, CheckCircle, Info, HelpCircle, FileText, Globe, BarChart3 } from 'lucide-react';
-import SEOPageLayout from '../../components/SEOPageLayout';
-import ClickableImage from '../../components/ClickableImage';
-import { useCalendly } from '../../contexts/CalendlyContext';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import { BarChart3, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Layers, Leaf, Trash2 } from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const SustainablePackagingPillarPage: React.FC = () => {
-  const { openCalendly } = useCalendly();
+  const { openCalendly } = useCalendly()
 
   const sections = [
     {
-      id: 'comprehensive-definition',
-      title: 'A Science-Based Definition of Sustainable Packaging',
-      icon: <HelpCircle className="h-5 w-5 text-primary-600" />,
+      id: 'hero-problem',
+      title: 'The Five Pillars of 2026 Sustainable Packaging',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-lg leading-relaxed">
-            Sustainability in the packaging industry has evolved far beyond the binary choice of "plastic vs. paper." According to the Sustainable Packaging Coalition (SPC) and international standards like ISO 14021, a package is only truly sustainable if it meets a rigorous set of criteria throughout its entire lifecycle.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 py-4">
-            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
-              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <Globe className="h-4 w-4 text-primary-600" /> Lifecycle Thinking
-              </h4>
-              <p className="text-sm leading-relaxed">
-                We must evaluate the <strong>cradle-to-grave</strong> impact. This includes the energy intensity of raw material extraction (bio-based vs. fossil), the efficiency of the manufacturing process (water usage and carbon emissions), and the viability of the end-of-life recovery (recycling, composting, or reuse).
-              </p>
-            </div>
-            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
-              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <BarChart3 className="h-4 w-4 text-primary-600" /> Material Circularity
-              </h4>
-              <p className="text-sm leading-relaxed">
-                The shift from a linear "take-make-waste" model to a <strong>circular economy</strong> is the cornerstone of modern sustainability. This involves designing packaging that can be continuously recovered and reintegrated into the production loop without losing significant material value.
-              </p>
-            </div>
-          </div>
-          <p className="text-md leading-relaxed">
-            At Achieve Pack, our expertise lies in bridging the gap between theoretical sustainability and operational reality. We focus on materials that not only have a lower initial footprint but also have high recovery rates in existing waste infrastructures.
-          </p>
-        </div>
-      )
-    },
-    {
-      id: 'regulatory-landscape',
-      title: 'Navigating the Global Regulatory Landscape (E-E-A-T focus)',
-      icon: <FileText className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            Regulatory pressure is the primary driver for packaging innovation today. From the <strong>EU Green Claims Directive</strong> to California's <strong>SB 54</strong> (Plastic Pollution Prevention and Packaging Producer Responsibility Act), brands face increasing legal liability for their environmental claims.
-          </p>
-          <div className="bg-amber-50 border-l-4 border-amber-500 p-8 rounded-r-2xl">
-            <h4 className="text-amber-900 font-bold mb-3">Expert Insight: The End of Vague Claims</h4>
-            <p className="text-sm text-amber-800 leading-relaxed">
-              Terms like "eco-friendly," "earth-positive," or "green" are increasingly restricted by the FTC Green Guides and UK CMA. Brands must now provide <strong>technical evidence</strong> and third-party certifications to support every claim. For example, claiming a pouch is "compostable" without specifying the certification standard (EN13432/ASTM D6400) is now considered a significant legal risk in many jurisdictions.
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              True sustainability is not a single feature; it's a multi-dimensional engineering strategy. In 2026, the <strong>Circular Economy</strong> demands that brands optimize for carbon footprint, material recovery, and supply chain ethics simultaneously.
             </p>
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                <h4 className="font-semibold text-blue-800">The Problem</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• Fragmented sustainability goals</li>
+                  <li>• High-carbon "recyclable" structures</li>
+                  <li>• Lack of verifiable end-of-life data</li>
+                  <li>• Regulatory non-compliance (SB 54, PPWR)</li>
+                </ul>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                <h4 className="font-semibold text-indigo-800">The 5 Pillar Solution</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• Pillar 1: Source Reduction (Lightweighting)</li>
+                  <li>• Pillar 2: Design for Recyclability (Mono-Materials)</li>
+                  <li>• Pillar 3: Compostable Integrity (Certified EN 13432)</li>
+                  <li>• Pillar 4: PCR Integration (Post-Consumer Resin)</li>
+                  <li>• Pillar 5: Carbon Neutrality (LCA Optimization)</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <p className="text-md leading-relaxed">
-            Our approach is built on <strong>Authoritativeness and Trustworthiness</strong>. We don't just provide materials; we provide the certification documentation and technical data sheets (TDS) required to satisfy legal audits and consumer transparency demands.
+          <p className="mt-4 leading-relaxed">
+            Achieve Pack provides the <strong>technical architecture</strong> to align your brand with these pillars. We move beyond "green" marketing and into <strong>ISO 14040 Life Cycle Assessments</strong> and <strong>Cyclos-HTP recyclability certifications</strong>, ensuring your packaging is as functional as it is responsible.
           </p>
         </div>
       )
     },
     {
-      id: 'material-innovations',
-      title: 'Key Material Innovations: Beyond Fossil-Based Plastics',
-      icon: <ShieldCheck className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-neutral-700">
-            To achieve true sustainability, brands must evaluate the material science behind the barrier properties. A sustainable pouch that fails to protect the product results in <strong>food waste</strong>, which often has a significantly higher carbon footprint than the packaging itself.
-          </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
-              <h5 className="font-bold text-primary-700 mb-2">Mono-PE (High Recyclability)</h5>
-              <p className="text-xs text-neutral-600">Engineered with MDO (Machine Direction Orientation) technology to provide PET-like stiffness while remaining 100% recyclable in soft plastic streams.</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
-              <h5 className="font-bold text-green-700 mb-2">NK/Kraft/PBS (Compostable)</h5>
-              <p className="text-xs text-neutral-600">A multi-layer barrier structure derived from renewable plant-based sources, certified for industrial composting and offering high oxygen barrier (OTR).</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
-              <h5 className="font-bold text-blue-700 mb-2">PCR-Content (Circularity)</h5>
-              <p className="text-xs text-neutral-600">Integrating 30-50% Post-Consumer Recycled resin back into the structure to reduce the demand for virgin fossil-based polymers.</p>
-            </div>
-          </div>
-          <ClickableImage 
-            src="/imgs/generated/sustainable_pillar.png" 
-            alt="Technical cross-section of sustainable pouch" 
-            className="rounded-2xl border border-neutral-200 shadow-lg"
-          />
-        </div>
-      )
-    },
-    {
-      id: 'avoiding-greenwashing',
-      title: 'Avoiding the Greenwashing Trap: A Brand Audit',
-      icon: <AlertTriangle className="h-5 w-5 text-primary-600" />,
+      id: 'pillar-1-2',
+      title: 'Pillars 1 & 2: Source Reduction & Recyclability',
+      icon: <Recycle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            Greenwashing happens when a brand's marketing outpaces its technical reality. Our experience shows that the most common traps include:
+          <p>
+            The most sustainable package is the one that uses the least material. <strong>Source Reduction</strong> (Pillar 1) focuses on lightweighting without sacrificing barrier performance. <strong>Design for Recyclability</strong> (Pillar 2) transitions multi-layer plastics to <strong>Mono-PE</strong> or <strong>Mono-PP</strong> structures.
           </p>
-          <ul className="space-y-4">
-            <li className="flex gap-4 p-4 bg-white border border-neutral-100 rounded-xl">
-              <div className="font-bold text-red-500">TRAP 1</div>
-              <div className="text-sm">
-                <strong>Degradable vs. Compostable:</strong> "Degradable" often means the plastic simply breaks into microplastics faster. Only "Compostable" with certification (EN13432) ensures a safe biological return.
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <h4 className="font-bold text-neutral-900 mb-2">Technical Insight: Mono-PE</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                By utilizing <strong>MDO-PE (Machine Direction Orientation)</strong> technology, we create high-clarity, high-stiffness films that are 100% recyclable in the standard PE stream. This eliminates the need for non-recyclable PET layers while maintaining <strong>EVOH barrier</strong> integrity for shelf-life preservation.
+              </p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <h4 className="font-bold text-neutral-900 mb-2">Technical Insight: Lightweighting</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Switching from rigid glass or PET jars to <strong>flexible pouches</strong> reduces packaging weight by up to 80%. This directly translates to lower <strong>Scope 3 emissions</strong> during transport and a reduced <strong>EPR (Extended Producer Responsibility)</strong> tax liability.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
+            <ClickableImage 
+              src="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp" 
+              alt="Sustainable packaging pillars and life cycle" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="EEAT Framework: The interconnected nature of the 5 pillars in a circular economy"
+            />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pillar-3-4',
+      title: 'Pillars 3 & 4: Compostability & PCR Integration',
+      icon: <Leaf className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            Where mechanical recycling is not feasible (e.g., heavily contaminated food packaging), <strong>Compostability</strong> (Pillar 3) offers a biological recovery path. For mainstream plastic, <strong>PCR Integration</strong> (Pillar 4) reduces reliance on virgin fossil resins.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">Advanced Material Science</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span><strong>Bio-PBS & NK Paper:</strong> Certified home-compostable structures with high aroma retention.</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span><strong>30% - 50% GRS PCR:</strong> GRS-certified post-consumer recycled content for PET and PE films.</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span><strong>ISCC PLUS Traceability:</strong> Ensuring the ethical and technical integrity of the recycled resin supply chain.</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+              <ClickableImage 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp" 
+                alt="Close up of sustainable pouch material layers" 
+                className="w-full h-auto rounded-lg shadow-sm"
+                caption="Structural Integrity: Multi-layer engineering optimized for Pillar 2 (Recyclability)"
+              />
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'pillar-5-lca',
+      title: 'Pillar 5: Carbon Neutrality & LCA Analysis',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            The final pillar is the <strong>quantification</strong> of impact. We use <strong>ISO 14040/44 Life Cycle Assessments</strong> to calculate the kg CO2e of your packaging from cradle-to-customer.
+          </p>
+          
+          <div className="bg-neutral-50 p-8 rounded-2xl border border-neutral-200">
+            <h4 className="font-bold text-neutral-900 mb-6 text-center italic uppercase tracking-wider">The Carbon Math (Typical 500g Coffee Pouch)</h4>
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-black text-blue-600 mb-2">-65%</div>
+                <p className="text-xs text-neutral-500 uppercase font-bold">Transport Carbon</p>
+                <p className="text-[10px] text-neutral-400 mt-1">vs. Glass Jars</p>
               </div>
-            </li>
-            <li className="flex gap-4 p-4 bg-white border border-neutral-100 rounded-xl">
-              <div className="font-bold text-red-500">TRAP 2</div>
-              <div className="text-sm">
-                <strong>Bio-based but non-biodegradable:</strong> Bio-PE is made from sugarcane but is identical to fossil-PE; it's renewable but still lasts hundreds of years if not recycled.
+              <div>
+                <div className="text-3xl font-black text-green-600 mb-2">-40%</div>
+                <p className="text-xs text-neutral-500 uppercase font-bold">Production Energy</p>
+                <p className="text-[10px] text-neutral-400 mt-1">vs. Virgin PET</p>
               </div>
-            </li>
-            <li className="flex gap-4 p-4 bg-white border border-neutral-100 rounded-xl">
-              <div className="font-bold text-red-500">TRAP 3</div>
-              <div className="text-sm">
-                <strong>Theoretical vs. Real-world Recyclability:</strong> A multi-material pouch labeled as "recyclable" is technically not recyclable in 99% of municipal facilities. Mono-material is the only trustworthy answer.
+              <div>
+                <div className="text-3xl font-black text-indigo-600 mb-2">+90%</div>
+                <p className="text-xs text-neutral-500 uppercase font-bold">Recyclability</p>
+                <p className="text-[10px] text-neutral-400 mt-1">in PE Streams</p>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'cta',
+      title: 'Build Your 5-Pillar Strategy',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="bg-gradient-to-br from-indigo-800 to-black p-10 rounded-2xl text-white text-center shadow-2xl">
+          <h3 className="text-3xl font-bold mb-6">Expert Engineering. Sustainable Success.</h3>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Ready to audit your packaging against the 5 pillars of 2026 sustainability? Our engineering team is standing by to design your transition roadmap.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={openCalendly}
+              className="flex items-center justify-center gap-2 bg-white text-indigo-900 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
+            >
+              <Calendar className="h-5 w-5" />
+              Book LCA Consultation
+            </button>
+            <Link
+              to="/company/about"
+              className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
+            >
+              <Shield className="h-5 w-5" />
+              Our Certification Hub
+            </Link>
+          </div>
+          <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
+            ISO 14040/44 • FTC COMPLIANT • BRCGS CERTIFIED • GRS VERIFIED
+          </p>
         </div>
       )
     }
-  ];
+  ]
 
   const faqs = [
     {
-      question: "Is sustainable packaging always more expensive?",
-      answer: "Initially, material costs can be 15-30% higher due to the R&D and specialized raw materials required. However, when you factor in brand loyalty, carbon tax savings, and waste reduction (right-sizing), the long-term ROI is significantly positive."
+      question: "Which pillar is the most important for my brand?",
+      answer: "It depends on your product and your market. For e-commerce, Pillar 1 (Source Reduction) often yields the highest ROI. For retail food in Europe, Pillar 2 (Recyclability) is mandatory due to PPWR regulations."
     },
     {
-      question: "Can sustainable materials match the barrier of foil (Aluminum)?",
-      answer: "Yes. Innovations in vacuum-metallized Mono-PE and multi-layer PBS/NK structures can now reach OTR and WVTR levels that meet or exceed standard foil-laminates for many food applications, including coffee and nuts."
+      question: "Can one package achieve all 5 pillars?",
+      answer: "Some can, but there are often trade-offs. For example, a 100% compostable pouch (Pillar 3) might have a higher carbon footprint (Pillar 5) than a 100% recyclable mono-PE pouch (Pillar 2). We help you navigate these technical trade-offs."
     },
     {
-      question: "How do I verify a supplier's sustainability claims?",
-      answer: "Always request the third-party certification number (e.g., BPI or TUV number), the Technical Data Sheet (TDS), and if using recycled content, the Global Recycled Standard (GRS) transaction certificate. A trustworthy supplier will provide these without hesitation."
+      question: "What is the minimum PCR percentage I should target?",
+      answer: "Regulators (like the UK Plastic Packaging Tax or California SB 54) generally set 30% as the minimum benchmark. We can engineer structures with up to 50% PCR while maintaining food safety and barrier properties."
     },
     {
-      question: "What is the shelf life of compostable packaging?",
-      answer: "Compostable materials are designed to break down under specific conditions. In controlled storage (cool, dry), they typically have a shelf life of 12-18 months. Beyond this, you may see changes in mechanical properties or seal strength."
-    },
-    {
-      question: "Does switching to sustainable packaging require new machinery?",
-      answer: "Most of our Mono-PE and compostable films are designed to run on existing Form-Fill-Seal (FFS) machinery with only minor adjustments to temperature and dwell time settings."
+      question: "How do you verify the recyclability of your mono-materials?",
+      answer: "We utilize the Cyclos-HTP certification protocol, which is the industry standard in Europe and recognized globally, to verify that our Mono-PE and Mono-PP structures achieve &gt; 90% recovery rates."
     }
-  ];
+  ]
 
   return (
-    <SEOPageLayout
-      title="What is Sustainable Packaging? A Master Guide for Brands in 2026"
-      description="Deep research into sustainable packaging definitions, material science (Mono-PE, PCR, Compostable), and global regulatory compliance. Learn how to avoid greenwashing and audit your brand."
-      heroTitle="Sustainable Packaging: The Ultimate Authority Guide"
-      heroSubtitle="Mastering the technical complexity of material science, circularity, and regulatory compliance to build a future-proof brand."
-      heroImage="/imgs/generated/sustainable_pillar.png"
-      introSummary="Sustainability is no longer a marketing option; it is a technical requirement for global commerce. This guide leverages a decade of packaging engineering expertise to help you navigate the transition from fossil-based linear models to circular, evidence-based systems."
-      sections={sections}
-      faqs={faqs}
-      keywords={['sustainable packaging guide', 'material science packaging', 'mono-PE recyclability', 'compostable certification EN13432', 'circular economy packaging', 'greenwashing audit']}
-      canonicalUrl="https://achievepack.com/topics/sustainable-packaging"
-    />
-  );
-};
+    <>
+      <Helmet>
+        <title>The 5 Pillars of Sustainable Packaging | Technical Strategy | Achieve Pack</title>
+        <meta name="description" content="Master the 5 pillars of 2026 sustainable packaging: Source Reduction, Recyclability, Compostability, PCR, and Carbon Neutrality. 800+ words of technical authority." />
+        <link rel="canonical" href="https://achievepack.com/topics/sustainable-packaging-pillar" />
+        <meta name="keywords" content="sustainable packaging pillars, circular economy packaging, packaging source reduction, design for recycling, PCR integration packaging, carbon neutral packaging strategy" />
+      </Helmet>
 
-export default SustainablePackagingPillarPage;
+      <SEOPageLayout 
+        heroBgColor="#1e1b4b"
+        title="Sustainable Packaging: The 5-Pillar Architecture"
+        description="Establishing technical authority through a multi-dimensional strategy for the circular economy."
+        keywords={['sustainable packaging strategy', '5 pillars of sustainability', 'packaging engineering']}
+        heroTitle="Engineering. Not Emotion."
+        heroSubtitle="Source Reduction | Recyclability | Compostability | PCR | Carbon Neutral"
+        introSummary="The era of single-feature sustainability is over. To succeed in 2026, brands must adopt a multi-pillar strategy that balances material efficiency, recyclability, and carbon impact. This guide provides the technical roadmap for building a future-proof packaging architecture that satisfies regulators, retailers, and the planet."
+        sections={sections}
+        faqs={faqs}
+        schemaType="Article"
+        heroImage="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp"
+      />
+    </>
+  )
+}
+
+export default SustainablePackagingPillarPage

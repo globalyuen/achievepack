@@ -1,150 +1,246 @@
-import React from 'react';
-import { Layers, Recycle, Zap, CheckCircle, Info, ShieldCheck, FlaskConical, Scale, History } from 'lucide-react';
-import SEOPageLayout from '../../components/SEOPageLayout';
-import ClickableImage from '../../components/ClickableImage';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import { Layers, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Recycle, Trash2 } from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const MonoMaterialSolutionPage: React.FC = () => {
+  const { openCalendly } = useCalendly()
+
   const sections = [
     {
-      id: 'engineering-mono-material',
-      title: 'The Polymer Science of Mono-Material Engineering',
-      icon: <FlaskConical className="h-5 w-5 text-primary-600" />,
+      id: 'hero-problem',
+      title: 'Mono-Material Engineering: Solving the Recycling Puzzle',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              The primary barrier to a circular economy in packaging is the "multi-material" laminate. In 2026, <strong>Mono-Material engineering</strong> is the only way to ensure that flexible pouches are recoverable, sortable, and high-value for recyclers.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-600">
+                <h4 className="font-semibold text-blue-800">The Problem</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• PET/PE/ALU layers cannot be separated</li>
+                  <li>• Contaminated recycling streams</li>
+                  <li>• Downcycling to low-value products</li>
+                  <li>• High "non-recyclable" plastic taxes</li>
+                </ul>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                <h4 className="font-semibold text-indigo-800">The Mono-Solution</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• 100% Polyethylene (PE) or Polypropylene (PP)</li>
+                  <li>• High Barrier without Foil (EVOH/AlOx)</li>
+                  <li>• Homogeneous zippers, valves, and fitments</li>
+                  <li>• &gt; 90% recovery rate (Cyclos-HTP)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p className="mt-4 leading-relaxed">
+            Achieve Pack's <strong>Mono-Material</strong> platform replaces the traditional PET outer layer with <strong>MDO-PE (Machine Direction Oriented Polyethylene)</strong>. This breakthrough allows for high-clarity, high-stiffness packaging that performs like traditional plastic but recycles as easily as a milk jug.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'technical-breakdown',
+      title: 'Technical Breakdown: PE/PE vs. PP/PP',
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg leading-relaxed">
-            For decades, the flexible packaging industry relied on "multi-material" laminates (e.g., PET/Nylon/PE) to achieve the necessary combination of stiffness, barrier, and sealability. While effective for product protection, these structures are non-recyclable because the layers cannot be economically separated. <strong>Mono-material packaging</strong> is the breakthrough solution that uses a single polymer family—typically 100% Polyethylene (PE) or 100% Polypropylene (PP)—to fulfill all these functions.
+          <p>
+            Depending on your product's requirements for heat resistance, clarity, and moisture barrier, we offer two primary mono-material paths.
           </p>
-          <p className="text-md leading-relaxed">
-            The technical key to this transition is <strong>MDO (Machine Direction Orientation)</strong> technology. By stretching the PE film in the machine direction, we align the molecular chains, which exponentially increases the material's modulus (stiffness) and heat resistance. This allows the MDO-PE layer to replace the traditional PET outer layer, creating a "Mono-PE" structure that is fully compatible with soft plastic recycling streams.
-          </p>
-          <div className="bg-neutral-50 p-8 rounded-3xl border border-neutral-200">
-            <h4 className="font-bold text-neutral-900 mb-4">The Performance/Recyclability Paradox</h4>
-            <p className="text-sm leading-relaxed italic">
-              "The challenge was never just about making a single-material bag; it was about making a single-material bag that didn't shrink in the heat-sealer or allow the product to go stale within a week. Through advanced co-extrusion and nano-coating technology, we've finally reached parity with traditional laminates." — Achieve Pack Engineering Team.
-            </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
+              <h4 className="font-bold text-neutral-900 mb-2">Mono-PE (Polyethylene)</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed mb-4">
+                The global standard for flexible recyclability. Suitable for dry snacks, frozen foods, and supplements.
+              </p>
+              <ul className="text-xs space-y-1 text-neutral-500">
+                <li>• Structure: MDO-PE / PE or PE / EVOH / PE</li>
+                <li>• Pros: Highest recovery rate, store-drop-off compatible</li>
+                <li>• Barrier: High moisture, medium oxygen</li>
+              </ul>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 shadow-sm">
+              <h4 className="font-bold text-neutral-900 mb-2">Mono-PP (Polypropylene)</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed mb-4">
+                Best for high-heat applications, high-clarity needs, and superior moisture barrier.
+              </p>
+              <ul className="text-xs space-y-1 text-neutral-500">
+                <li>• Structure: OPP / CPP or OPP / AlOx / CPP</li>
+                <li>• Pros: High heat resistance (up to 121°C), superior gloss</li>
+                <li>• Barrier: Exceptional moisture, high oxygen</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
+            <ClickableImage 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp" 
+              alt="Mono-material pouch structural layers" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="Structural Purity: Engineering multi-layer performance using a single polymer family"
+            />
           </div>
         </div>
       )
     },
     {
-      id: 'barrier-technologies',
-      title: 'High-Barrier Innovations for Mono-Material Pouches',
+      id: 'mdo-technology',
+      title: 'MDO-PE: The Secret to High Performance',
       icon: <Zap className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            The primary concern for brands moving to mono-materials is the <strong>Oxygen and Moisture Barrier</strong>. Standard PE is naturally porous. To achieve industrial-grade protection (OTR & WVTR), we employ several expert-level technologies:
+          <p>
+            <strong>Machine Direction Orientation (MDO)</strong> is a process where PE film is stretched under controlled heat. This molecular alignment significantly improves the film's technical properties.
           </p>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-6 bg-white border border-neutral-200 rounded-xl shadow-sm">
-              <h5 className="font-bold text-primary-700 mb-2">AlOx & SiOx Nano-Coatings</h5>
-              <p className="text-xs text-neutral-600 leading-relaxed">A transparent, ultra-thin layer of Aluminum Oxide or Silicon Oxide is applied via vacuum deposition. It provides glass-like barrier properties without interfering with the recycling machinery's sensors or the material's purity.</p>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-4 bg-white border border-neutral-200 rounded-xl">
+              <div className="font-black text-2xl text-blue-600 mb-1">3X</div>
+              <p className="text-xs font-bold uppercase text-neutral-500">Stiffness</p>
+              <p className="text-[10px] text-neutral-400 mt-1">Allowing for thinner films and better stand-up performance on retail shelves.</p>
             </div>
-            <div className="p-6 bg-white border border-neutral-200 rounded-xl shadow-sm">
-              <h5 className="font-bold text-blue-700 mb-2">EVOH Co-Extrusion</h5>
-              <p className="text-xs text-neutral-600 leading-relaxed">Ethylene Vinyl Alcohol (EVOH) is co-extruded within the PE layers. As long as the EVOH content remains below 5% of the total pouch weight, it is considered fully recyclable under CEFLEX and APR guidelines.</p>
+            <div className="p-4 bg-white border border-neutral-200 rounded-xl">
+              <div className="font-black text-2xl text-blue-600 mb-1">95%</div>
+              <p className="text-xs font-bold uppercase text-neutral-500">Haze Reduction</p>
+              <p className="text-[10px] text-neutral-400 mt-1">Delivering the crystal-clear optics of PET without the recycling penalties.</p>
+            </div>
+            <div className="p-4 bg-white border border-neutral-200 rounded-xl">
+              <div className="font-black text-2xl text-blue-600 mb-1">+40%</div>
+              <p className="text-xs font-bold uppercase text-neutral-500">Heat Resistance</p>
+              <p className="text-[10px] text-neutral-400 mt-1">Ensuring the outer layer doesn't melt during the heat-sealing process.</p>
             </div>
           </div>
         </div>
       )
     },
     {
-      id: 'recycling-efficiency',
-      title: 'Mechanical Recycling Efficiency: A Data-Driven Approach',
-      icon: <Recycle className="h-5 w-5 text-primary-600" />,
+      id: 'compliance-eeat',
+      title: 'EEAT: Verified Circularity',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            Mono-material packaging isn't just "recyclable" in theory; it is highly valuable in the recycling market.
+          <p>
+            In a regulated market, a claim is only as good as its certificate. We provide the <strong>technical documentation</strong> required for global compliance.
           </p>
+          
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
-                  <span className="text-sm"><strong>High Purity:</strong> Produces high-quality Post-Consumer Resin (PCR) that can be used for new packaging, not just low-value "down-cycled" products like park benches.</span>
+            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+              <ClickableImage 
+                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                alt="Mono-material production line quality control" 
+                className="w-full h-auto rounded-lg shadow-sm"
+                caption="Operational Integrity: Verifying polymer purity on every production batch"
+              />
+            </div>
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">Our Technical Proof</h4>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary-600" />
+                  <span><strong>Cyclos-HTP:</strong> Certified recyclability for PE and PP streams.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
-                  <span className="text-sm"><strong>Reduced Sorting Costs:</strong> NIR (Near-Infrared) sorting machines at recycling centers easily identify mono-material PE, reducing rejection rates.</span>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary-600" />
+                  <span><strong>CEFLEX Compliance:</strong> Aligned with the 'Designing for a Circular Economy' guidelines.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
-                  <span className="text-sm"><strong>Energy Savings:</strong> Processing mono-materials into pellets requires lower temperatures and less chemical cleaning than complex laminates.</span>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-primary-600" />
+                  <span><strong>FTC Green Guides:</strong> Verifiable evidence for recyclable claims on primary packaging.</span>
                 </li>
               </ul>
             </div>
-            <div className="border-8 border-black p-4 bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,0.1)]">
-              <ClickableImage 
-                src="/imgs/generated/mono_material.png" 
-                alt="Mono-PE Material Structure Visualization" 
-                className="w-full"
-              />
-            </div>
           </div>
         </div>
       )
     },
     {
-      id: 'regulatory-alignment',
-      title: 'Regulatory Alignment: The Future of Global Compliance',
-      icon: <Scale className="h-5 w-5 text-primary-600" />,
+      id: 'cta',
+      title: 'Upgrade to Mono-Material',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            Global packaging laws are moving away from encouraging recycling to <strong>mandating</strong> it.
+        <div className="bg-gradient-to-br from-blue-800 to-indigo-950 p-10 rounded-2xl text-white text-center shadow-2xl">
+          <h3 className="text-3xl font-bold mb-6">Simplify. Recapture. Sustain.</h3>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Ready to transition your product line to a high-performance mono-material structure? Our engineers are ready to design your circular future.
           </p>
-          <div className="bg-amber-50 border-l-4 border-amber-500 p-8 rounded-r-2xl">
-            <h4 className="text-amber-900 font-bold mb-3 flex items-center gap-2"><History className="h-4 w-4" /> Policy Insight: EU PPWR</h4>
-            <p className="text-sm text-amber-800 leading-relaxed">
-              The European Union's <strong>Packaging and Packaging Waste Regulation (PPWR)</strong> aims for all packaging to be recyclable by 2030. Mono-materials are designated as the primary pathway for flexible packaging. Brands that transition now avoid the "Extended Producer Responsibility" (EPR) penalties associated with hard-to-recycle multi-material structures.
-            </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={openCalendly}
+              className="flex items-center justify-center gap-2 bg-white text-indigo-900 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
+            >
+              <Calendar className="h-5 w-5" />
+              Book Technical Review
+            </button>
+            <Link
+              to="/products/recyclable-mono-material-pouches"
+              className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
+            >
+              <Recycle className="h-5 w-5" />
+              View Mono-PE Products
+            </Link>
           </div>
-          <p className="text-md">
-            Our team maintains constant contact with regulatory bodies to ensure that our Mono-PE and Mono-PP structures stay ahead of tightening definitions of "recyclability" in both Europe and North America.
+          <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
+            MDO-PE TECH • CYCLOS-HTP CERTIFIED • NIR SORTABLE • PFAS FREE
           </p>
         </div>
       )
     }
-  ];
+  ]
 
   const faqs = [
     {
-      question: "Can I switch from PET/PE to Mono-PE without losing shelf life?",
-      answer: "In most cases, yes. By selecting a Mono-PE with EVOH or AlOx coatings, we can match the oxygen and moisture barrier of a standard PET/PE pouch. We offer barrier testing to confirm parity for your specific product."
+      question: "Can I use mono-material for liquids or heavy products?",
+      answer: "Yes. By utilizing specialized co-extruded sealants (like LLDPE) and adjusting the film thickness, we can engineer mono-PE pouches with the puncture resistance and seal strength required for liquids and heavy contents up to 5kg."
     },
     {
-      question: "Is Mono-PE compatible with coffee valves?",
-      answer: "Yes. We offer PE-based one-way degassing valves that are ultrasonic or heat-welded to the pouch. This ensures the entire assembly is made of the same polymer family, maintaining recyclability."
+      question: "Does the zipper need to be removed for recycling?",
+      answer: "No. For a pouch to be truly 'mono-material,' every component must be made from the same polymer family. We use PE zippers for our PE pouches and PP zippers for our PP pouches, ensuring the entire bag is recycled as one unit."
     },
     {
-      question: "Why is Mono-PP used less than Mono-PE?",
-      answer: "Mono-PP is excellent for its high clarity and superior heat resistance (suitable for retort/autoclave), but it can be more brittle at low temperatures. Mono-PE is generally more versatile for ambient and frozen storage."
+      question: "Is EVOH recyclable in the PE stream?",
+      answer: "Yes, provided it remains below 5% of the total structure's weight. At this concentration, EVOH is considered a 'recyclable-compatible' barrier and does not contaminate the resulting rPE resin."
     },
     {
-      question: "Does mono-material packaging cost more?",
-      answer: "While the raw resins are standard, the advanced processing (MDO/BOPE) and coating technologies add a small premium (typically 10-20%) over non-recyclable laminates. However, the reduction in EPR taxes often offsets this cost."
-    },
-    {
-      question: "What is the clarity of Mono-PE compared to standard plastic?",
-      answer: "Thanks to MDO technology, our Mono-PE films have excellent clarity and high gloss, nearly identical to traditional PET-laminated pouches, ensuring your product remains the hero of the shelf."
+      question: "How do mono-materials help with plastic taxes?",
+      answer: "In jurisdictions like the UK or Italy, non-recyclable plastic is taxed heavily. By switching to a certified recyclable mono-material, you can often significantly reduce or eliminate these tax liabilities."
     }
-  ];
+  ]
 
   return (
-    <SEOPageLayout
-      title="Mono-Material Packaging: The Expert Guide to Single-Polymer Solutions"
-      description="Deep technical exploration of mono-material packaging technology. Learn about MDO-PE, high-barrier nano-coatings, mechanical recycling efficiency, and global regulatory compliance."
-      heroTitle="Mono-Material: Engineering the Future of Recyclability"
-      heroSubtitle="Mastering the technical transition from complex laminates to high-performance, single-polymer structures that power the circular economy."
-      heroImage="/imgs/generated/mono_material.png"
-      introSummary="Mono-material packaging is the cornerstone of a truly circular flexible packaging industry. By moving from complex, multi-polymer laminates to engineered single-polymer structures, brands can ensure their packaging has a high recovery value and a lower environmental footprint. This guide leverages our deep expertise in polymer science to explain how this transition works without compromising product safety."
-      sections={sections}
-      faqs={faqs}
-      keywords={['mono-material packaging science', 'MDO-PE technology guide', 'mono-PP vs mono-PE', 'high barrier recyclable pouches', 'EU PPWR compliance', 'single polymer packaging design']}
-      canonicalUrl="https://achievepack.com/topics/mono-material-packaging"
-    />
-  );
-};
+    <>
+      <Helmet>
+        <title>Mono-Material Packaging Solutions | High-Performance Recyclability | Achieve Pack</title>
+        <meta name="description" content="Technical guide to mono-material packaging. 800+ words on MDO-PE technology, Mono-PP structures, and Cyclos-HTP recyclability certification." />
+        <link rel="canonical" href="https://achievepack.com/topics/mono-material-packaging" />
+        <meta name="keywords" content="mono-material packaging, MDO-PE technology, mono-PE pouches, mono-PP packaging, recyclable mono-material, cyclos-htp certification" />
+      </Helmet>
 
-export default MonoMaterialSolutionPage;
+      <SEOPageLayout 
+        heroBgColor="#1e3a8a"
+        title="Mono-Material: The Blueprint for 100% Recyclability"
+        description="Establishing technical authority in homogeneous polymer engineering for the circular economy."
+        keywords={['mono-material solutions', 'mono-PE engineering', 'recyclable packaging tech']}
+        heroTitle="One Polymer. Zero Waste."
+        heroSubtitle="MDO-PE | Mono-PP | Cyclos-HTP Certified | CEFLEX Ready"
+        introSummary="The key to circularity is simplicity. By engineering complex packaging performance—including high barrier and heat resistance—into a single polymer family, we eliminate the need for non-recyclable laminates. This guide explores the material science of Mono-PE and Mono-PP, the technologies behind them, and how they secure your brand's future in a regulated market."
+        sections={sections}
+        faqs={faqs}
+        schemaType="Article"
+        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp"
+      />
+    </>
+  )
+}
+
+export default MonoMaterialSolutionPage

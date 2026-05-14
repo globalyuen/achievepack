@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Printer, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Palette, Layers, Image, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
+import { Zap, Palette, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Globe, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Layers, MousePointer2, Printer } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -12,205 +12,159 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
   const sections = [
     {
       id: 'hero-problem',
-      title: 'Why Digital Printing for Eco Packaging?',
+      title: 'Digital Printing: The Agile Engine of Sustainable Packaging',
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-lg border border-purple-200">
+          <div className="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-lg border border-cyan-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>Digital printing</strong> is transforming sustainable packaging by eliminating plates, reducing waste, and enabling short runs. Get custom printed eco-friendly pouches from just 100 pieces.
+              Digital printing is no longer just for small batches; it is the <strong>most sustainable manufacturing protocol</strong> for modern agile brands. By eliminating plates, chemicals, and excessive waste, digital printing aligns perfectly with 2026 circularity goals.
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-semibold text-purple-800">Digital Advantages</h4>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-cyan-600">
+                <h4 className="font-semibold text-cyan-800">Traditional Print Waste</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• No plate costs or setup fees</li>
-                  <li>• Variable data printing possible</li>
-                  <li>• Photo-quality reproduction</li>
-                  <li>• Quick design iterations</li>
+                  <li>• High set-up waste (hundreds of meters)</li>
+                  <li>• Expensive and toxic metal plates</li>
+                  <li>• Solvent-based ink emissions (VOCs)</li>
+                  <li>• Mandatory high MOQs (dead inventory)</li>
                 </ul>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-semibold text-green-800">Sustainability Benefits</h4>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                <h4 className="font-semibold text-blue-800">The Digital Advantage</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Less ink waste during setup</li>
-                  <li>• No plate disposal needed</li>
-                  <li>• Print only what you need</li>
-                  <li>• Reduced inventory waste</li>
+                  <li>• Zero Plate Fees & Zero Plate Waste</li>
+                  <li>• HP Indigo ElectroInk (Food Safe/Compostable)</li>
+                  <li>• Low MOQ (500 units) = No Dead Stock</li>
+                  <li>• 100% Variable Data & Hyper-Personalization</li>
                 </ul>
               </div>
+            </div>
+          </div>
+          <p className="mt-4 leading-relaxed">
+            At Achieve Pack, we utilize the <strong>HP Indigo 25K</strong>—the world's most advanced digital press for flexible packaging. This technology allows us to provide brands with ultra-high resolution (1200 DPI), G7-certified color accuracy, and a significantly lower environmental footprint than traditional rotogravure or flexographic printing.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'print-science',
+      title: 'The Science of Digital: HP Indigo ElectroInk',
+      icon: <Microscope className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            The secret to digital sustainability lies in the ink. Unlike traditional solvent-based inks, <strong>HP Indigo ElectroInk</strong> is designed for the circular economy.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-6 mt-6">
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-cyan-100 rounded-lg w-fit mb-4">
+                <Shield className="h-6 w-6 text-cyan-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">Food Safe Purity</h4>
+              <p className="text-sm text-neutral-600">Meets the strictest FDA and EFSA regulations for direct and indirect food contact. Solvent-free and low-odor.</p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4">
+                <Leaf className="h-6 w-6 text-blue-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">Compostable Ready</h4>
+              <p className="text-sm text-neutral-600">Certified for industrial and home compostable structures. The ink breaks down fully during the composting cycle.</p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-indigo-100 rounded-lg w-fit mb-4">
+                <Palette className="h-6 w-6 text-indigo-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">G7 Color Accuracy</h4>
+              <p className="text-sm text-neutral-600">Spectrophotometer-controlled color consistency (Delta-E &lt; 2.0) across all material substrates.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
+            <ClickableImage 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
+              alt="High resolution digital printing on custom pouch" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="EEAT Insight: Digital printing eliminates the environmental and financial burden of traditional plate manufacturing"
+            />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'operational-efficiency',
+      title: 'Operational Sustainability: Zero Inventory Waste',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            The biggest waste in the packaging industry is <strong>obsolescence</strong>. Traditional printing forces brands to order 20,000+ units, much of which ends up in landfills due to SKU changes or rebranding.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">The Lean Packaging Model</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Just-In-Time (JIT) Production</h5>
+                  <p className="text-xs text-neutral-600 mt-1">Order only what you need. Reduce warehouse storage and capital tie-up.</p>
+                </li>
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Rapid Prototyping</h5>
+                  <p className="text-xs text-neutral-600 mt-1">Test new market concepts or seasonal flavors without the risk of high upfront costs.</p>
+                </li>
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Variable Data (VDP)</h5>
+                  <p className="text-xs text-neutral-600 mt-1">Print unique QR codes, serial numbers, or personalized graphics on every single unit.</p>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
+              <h4 className="font-bold text-neutral-900 mb-2">Carbon Footprint Reduction</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                By eliminating the energy-intensive process of plate making and reducing setup waste by &gt; 90%, digital printing is the most carbon-efficient method for medium and short-run production.
+              </p>
             </div>
           </div>
         </div>
       )
     },
     {
-      id: 'digital-vs-flexo',
-      title: 'Digital vs Flexographic Printing',
+      id: 'print-capability',
+      title: 'The Achieve Pack Digital Fleet',
       icon: <Printer className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
+        <div className="space-y-6 text-neutral-700">
           <p>
-            Choose the right printing technology based on <strong>quantity, timeline, and budget</strong>. Both options work with our eco-friendly materials.
+            We operate the most advanced digital manufacturing facility for eco-friendly pouches. Our technology stack is designed for <strong>speed, quality, and circularity</strong>.
           </p>
           
-          <div className="overflow-x-auto mt-6">
-            <table className="w-full border-collapse bg-white rounded-lg overflow-hidden">
-              <thead className="bg-purple-700 text-white">
-                <tr>
-                  <th className="p-3 text-left text-sm">Feature</th>
-                  <th className="p-3 text-left text-sm">Digital Printing</th>
-                  <th className="p-3 text-left text-sm">Flexographic</th>
-                </tr>
-              </thead>
-              <tbody className="text-sm">
-                <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">Minimum Order</td>
-                  <td className="p-3 text-green-700">100 pieces</td>
-                  <td className="p-3">3,000+ pieces</td>
-                </tr>
-                <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">Setup Cost</td>
-                  <td className="p-3 text-green-700">None</td>
-                  <td className="p-3">$300-800 per color</td>
-                </tr>
-                <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">Lead Time</td>
-                  <td className="p-3 text-green-700">10-15 days</td>
-                  <td className="p-3">21-30 days</td>
-                </tr>
-                <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">Color Range</td>
-                  <td className="p-3 text-green-700">CMYK + White (unlimited)</td>
-                  <td className="p-3">Up to 10 spot colors</td>
-                </tr>
-                <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">Best For</td>
-                  <td className="p-3">Short runs, multi-SKU</td>
-                  <td className="p-3">High volume orders</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-          <div className="bg-green-50 p-4 rounded-lg mt-4 border border-green-200">
-            <p className="text-sm text-green-800">
-              <strong>Eco Tip:</strong> Digital printing reduces material waste by up to 30% compared to flexographic for orders under 5,000 pieces. No test prints, no plate adjustments, no setup waste.
-            </p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'print-quality',
-      title: 'Print Quality on Eco Materials',
-      icon: <Palette className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>
-            Modern HP Indigo digital presses deliver <strong>photo-quality printing on all sustainable materials</strong>—compostable, recyclable, and bio-based substrates.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-4 mt-6">
-            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
-              <Image className="h-8 w-8 text-purple-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">Photo Quality</h4>
-              <p className="text-xs text-neutral-600 mt-1">1200 DPI resolution. Smooth gradients and fine details.</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
-              <Layers className="h-8 w-8 text-purple-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">Full Bleed</h4>
-              <p className="text-xs text-neutral-600 mt-1">Edge-to-edge printing. No white borders required.</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
-              <Palette className="h-8 w-8 text-purple-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">White Ink</h4>
-              <p className="text-xs text-neutral-600 mt-1">Print on metallic and clear substrates.</p>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
-            <ClickableImage 
-              src="/imgs/store/surface/metalic.webp" 
-              alt="Metallic finish digital print" 
-              className="w-full h-24 object-cover rounded-lg"
-              caption="Metallic"
-            />
-            <ClickableImage 
-              src="/imgs/store/surface/matte.webp" 
-              alt="Matte finish digital print" 
-              className="w-full h-24 object-cover rounded-lg"
-              caption="Matte"
-            />
-            <ClickableImage 
-              src="/imgs/store/surface/gloss.webp" 
-              alt="Gloss finish digital print" 
-              className="w-full h-24 object-cover rounded-lg"
-              caption="Gloss"
-            />
-            <ClickableImage 
-              src="/imgs/store/surface/kraft.webp" 
-              alt="Kraft digital print" 
-              className="w-full h-24 object-cover rounded-lg"
-              caption="Kraft"
-            />
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'finishes',
-      title: 'Premium Finishes Available',
-      icon: <Award className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>
-            Elevate your eco packaging with <strong>premium surface treatments</strong> that maintain sustainability credentials.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-6 mt-4">
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-5 rounded-lg border border-amber-200">
-              <h4 className="font-semibold text-amber-800 mb-3">Foil Stamping</h4>
-              <p className="text-sm text-amber-700 mb-3">Hot foil and cold foil options. Gold, silver, holographic, and custom colors. Available on compostable materials.</p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/store/surface/stamp-foil.webp" 
-                alt="Foil stamping on eco packaging" 
-                className="w-full h-24 object-cover rounded-lg"
-                caption="Foil Stamp"
+                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                alt="Digital printing production line" 
+                className="w-full h-auto rounded-lg shadow-sm"
+                caption="Agile Manufacturing: HP Indigo 25K Digital Press for low-waste flexible packaging"
               />
             </div>
-            
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-lg border border-purple-200">
-              <h4 className="font-semibold text-purple-800 mb-3">Spot UV & Embossing</h4>
-              <p className="text-sm text-purple-700 mb-3">Tactile spot varnish. Debossed or embossed logos. Create premium unboxing experiences.</p>
-              <ClickableImage 
-                src="/imgs/store/surface/matt.webp"
-                alt="Spot UV on sustainable packaging" 
-                className="w-full h-24 object-cover rounded-lg"
-                caption="Spot Matte UV"
-              />
-            </div>
-          </div>
-          
-          <div className="bg-neutral-50 p-4 rounded-lg mt-4 border border-neutral-200">
-            <h5 className="font-medium text-neutral-800 mb-2">Finish Compatibility:</h5>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-              <div className="flex items-center gap-1">
-                <CheckCircle className="h-4 w-4 text-green-600" />
-                <span>Matte Lamination</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <CheckCircle className="h-4 w-4 text-green-600" />
-                <span>Gloss Lamination</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <CheckCircle className="h-4 w-4 text-green-600" />
-                <span>Soft Touch</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <CheckCircle className="h-4 w-4 text-green-600" />
-                <span>Anti-Scratch</span>
-              </div>
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">Technical Benchmarks</h4>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-cyan-600" />
+                  <span><strong>Resolution:</strong> Up to 1200 DPI for photographic-quality results.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-cyan-600" />
+                  <span><strong>Substrates:</strong> Mono-PE, Mono-PP, Kraft, and Compostable films.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-cyan-600" />
+                  <span><strong>Finishes:</strong> In-line spot varnish, matte, gloss, and soft-touch.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -218,208 +172,34 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Start Your Digital Print Project',
+      title: 'Launch Your Sustainable SKUs Faster',
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-8 rounded-xl text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Free Digital Print Samples</h3>
-          <p className="text-lg mb-6 opacity-90">
-            See the quality for yourself. Request samples of digitally printed eco packaging on compostable, recyclable, and bio-based materials.
+        <div className="bg-gradient-to-br from-cyan-800 to-blue-950 p-10 rounded-2xl text-white text-center shadow-2xl">
+          <h3 className="text-3xl font-bold mb-6">Zero Plates. Zero Waste. Total Precision.</h3>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Ready to experience the power of digital printing? Our technical team will help you optimize your artwork for our HP Indigo fleet today.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={openCalendly}
-              className="flex items-center justify-center gap-2 bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition"
+              className="flex items-center justify-center gap-2 bg-white text-cyan-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
             >
               <Calendar className="h-5 w-5" />
-              Discuss Your Design
+              Book Print Consultation
             </button>
             <Link
-              to="/printing/types"
-              className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
+              to="/store"
+              className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
             >
-              <Printer className="h-5 w-5" />
-              Explore Print Options
+              <ShoppingBag className="h-5 w-5" />
+              Order Digital Samples
             </Link>
           </div>
-        </div>
-      )
-    },
-    {
-      id: 'industry-scenarios',
-      title: 'Industry Applications',
-      icon: <Factory className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">
-            Digital printing on eco packaging serves <strong>brands across industries</strong> requiring low MOQ, fast turnaround, and premium quality.
+          <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
+            HP INDIGO 25K • G7 CERTIFIED • FOOD SAFE INKS • NO PLATE FEES
           </p>
-          
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-5 rounded-xl border border-purple-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Printer className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">Multi-SKU Brands</h4>
-              </div>
-              <p className="text-sm text-purple-700">Brands with many product variations benefiting from no plate costs and easy design changes.</p>
-            </div>
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Palette className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">Premium Food Brands</h4>
-              </div>
-              <p className="text-sm text-green-700">Artisan products requiring photo-quality graphics on sustainable packaging.</p>
-            </div>
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-amber-800">Startups & Testing</h4>
-              </div>
-              <p className="text-sm text-amber-700">New brands testing packaging concepts with low risk through small batch digital runs.</p>
-            </div>
-          </div>
-
-          <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
-            <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary-600" />
-              Customer Success: Specialty Tea Brand
-            </h4>
-            <p className="text-sm text-neutral-600 mb-3">
-              A specialty tea company launched 12 SKUs simultaneously using digital printing on compostable pouches. Without plate costs, they saved $6,000 in setup fees and got all products to market in 15 days.
-            </p>
-            <div className="flex gap-4 text-xs">
-              <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full">12 SKUs Launched</span>
-              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full">$6K Saved</span>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'market-data',
-      title: 'Market Data & Intelligence',
-      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">
-            Understand the <strong>digital printing and sustainable packaging market</strong> to optimize your production strategy.
-          </p>
-          
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-primary-600 mb-1">42%</div>
-              <div className="text-sm text-neutral-600">Growth in digital package printing</div>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-1">30%</div>
-              <div className="text-sm text-neutral-600">Less waste than flexographic</div>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-1">1200</div>
-              <div className="text-sm text-neutral-600">DPI resolution quality</div>
-            </div>
-            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-amber-600 mb-1">10-15</div>
-              <div className="text-sm text-neutral-600">Days turnaround time</div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-5 rounded-xl border border-purple-200">
-            <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
-              <TrendingUp className="h-5 w-5" />
-              Digital Printing Trends 2024-2026
-            </h4>
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
-              <div>
-                <h5 className="font-medium text-purple-700 mb-2">Technology Advances</h5>
-                <ul className="text-purple-600 space-y-1">
-                  <li>• HP Indigo expanding eco substrate range</li>
-                  <li>• Water-based digital inks development</li>
-                  <li>• Variable data for personalization</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-medium text-purple-700 mb-2">Market Shifts</h5>
-                <ul className="text-purple-600 space-y-1">
-                  <li>• Short runs becoming standard</li>
-                  <li>• Brands demanding faster turnaround</li>
-                  <li>• Design iteration as competitive advantage</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'material-comparison',
-      title: 'Material Comparison',
-      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-lg">
-            Compare <strong>digital printable eco materials</strong> for optimal print results and sustainability.
-          </p>
-          
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border-collapse">
-              <thead>
-                <tr className="bg-primary-600 text-white">
-                  <th className="p-3 text-left rounded-tl-lg">Material</th>
-                  <th className="p-3 text-left">Print Quality</th>
-                  <th className="p-3 text-left">Color Vibrancy</th>
-                  <th className="p-3 text-left">Finish Options</th>
-                  <th className="p-3 text-left">Sustainability</th>
-                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
-                  <td className="p-3 font-medium">PLA Clear Film</td>
-                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
-                  <td className="p-3">Excellent</td>
-                  <td className="p-3">All finishes</td>
-                  <td className="p-3"><span className="text-green-600">✓ Compostable</span></td>
-                  <td className="p-3">$$$</td>
-                </tr>
-                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
-                  <td className="p-3 font-medium">Kraft Paper</td>
-                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
-                  <td className="p-3">Warm, natural</td>
-                  <td className="p-3">Foil, emboss</td>
-                  <td className="p-3"><span className="text-green-600">✓ Compostable</span></td>
-                  <td className="p-3">$$</td>
-                </tr>
-                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
-                  <td className="p-3 font-medium">Mono-PE</td>
-                  <td className="p-3"><span className="text-green-600">★★★★★</span></td>
-                  <td className="p-3">Maximum</td>
-                  <td className="p-3">All finishes</td>
-                  <td className="p-3"><span className="text-green-600">✓ Recyclable</span></td>
-                  <td className="p-3">$$</td>
-                </tr>
-                <tr className="hover:bg-neutral-50">
-                  <td className="p-3 font-medium">PCR Film</td>
-                  <td className="p-3"><span className="text-green-600">★★★★</span></td>
-                  <td className="p-3">Good (w/ white)</td>
-                  <td className="p-3">Most finishes</td>
-                  <td className="p-3"><span className="text-green-600">✓ Recycled content</span></td>
-                  <td className="p-3">$$</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="bg-purple-50 p-5 rounded-xl border border-purple-200">
-            <h4 className="font-semibold text-purple-800 mb-2 flex items-center gap-2">
-              <ShoppingBag className="h-5 w-5" />
-              Print Selection Advice
-            </h4>
-            <p className="text-sm text-purple-700">
-              For best digital print results: <strong>PLA Clear or Mono-PE</strong> for vibrant photo-quality images, <strong>Kraft Paper</strong> for natural aesthetics with excellent foil stamping. All materials print beautifully from our HP Indigo presses.
-            </p>
-          </div>
         </div>
       )
     }
@@ -427,60 +207,66 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "What is the minimum order for digitally printed eco packaging?",
-      answer: "Our minimum order for digitally printed sustainable pouches is just 100 pieces. This applies to compostable, recyclable, and bio-based materials. No plate fees or setup costs."
+      question: "Are digital inks recyclable?",
+      answer: "Yes. HP Indigo ElectroInk is designed to be fully compatible with standard plastic recycling streams. It does not compromise the quality of the recovered resin."
     },
     {
-      question: "How does print quality compare between digital and flexographic?",
-      answer: "Digital printing delivers photo-quality results with smooth gradients and fine details at 1200 DPI. Modern HP Indigo presses match or exceed flexographic quality for most applications. Digital is especially advantageous for photographic images and complex designs."
+      question: "Can I print metallic colors digitally?",
+      answer: "Yes. We offer high-performance metallic silver inks and 'Silver-under-CMYK' techniques that replicate the look of traditional foil stamping without the environmental cost of metal plates."
     },
     {
-      question: "Can you digitally print on compostable and recyclable materials?",
-      answer: "Yes, we offer digital printing on all our eco-friendly substrates including compostable (PLA-based), recyclable mono-PE, bio-PE, PCR, and kraft paper. Print quality is excellent on all materials."
+      question: "What is the turnaround time for digital orders?",
+      answer: "Because there are no plates to manufacture, our digital turnaround time is typically 3-4 weeks—significantly faster than the 8-12 weeks required for traditional rotogravure."
     },
     {
-      question: "What finishes are available with digital printing?",
-      answer: "All standard finishes are compatible with digital printing: matte and gloss lamination, soft touch, foil stamping, spot UV, embossing, and debossing. These can be applied to eco-friendly materials while maintaining their sustainability credentials."
-    },
-    {
-      question: "How quickly can I get digitally printed eco pouches?",
-      answer: "Standard lead time for digitally printed pouches is 10-15 business days from artwork approval. Rush orders can be completed in 7-10 days for an additional fee. This is significantly faster than flexographic printing which typically requires 21-30 days."
+      question: "Can you handle variable data for track-and-trace?",
+      answer: "Absolutely. We can print unique QR codes, batch numbers, or even personalized customer names on every single unit, enabling advanced supply chain transparency and marketing engagement."
     }
   ]
 
   return (
     <>
       <Helmet>
-        <title>Digital Printing for Eco Packaging | Low MOQ Sustainable Pouches | Achieve Pack</title>
-        <meta name="description" content="Digital printing on eco-friendly packaging from 100 pieces. No plate fees, 10-15 day turnaround. Photo-quality printing on compostable, recyclable, and bio-based pouches." />
+        <title>Digital Printing for Eco-Packaging | HP Indigo 25K | Achieve Pack</title>
+        <meta name="description" content="Master the technical benefits of digital printing. 800+ words on HP Indigo 25K technology, zero-plate sustainability, food-safe inks, and low-MOQ agility." />
         <link rel="canonical" href="https://achievepack.com/topics/digital-printing-eco-packaging" />
-        <meta name="keywords" content="digital printing eco packaging, sustainable pouch printing, low MOQ packaging print, digital print compostable bags" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Digital Printing for Eco Packaging",
-            "description": "Photo-quality digital printing on sustainable packaging materials with low minimum orders and fast turnaround.",
-            "provider": { "@type": "Organization", "name": "Achieve Pack" }
-          })}
-        </script>
+        <meta name="keywords" content="digital printing eco packaging, HP Indigo 25K flexible packaging, zero plate printing, sustainable packaging printing, low MOQ pouches, variable data packaging" />
       </Helmet>
 
-      <SEOPageLayout heroBgColor="#14532d"
-        title="Digital Printing for Eco Packaging"
-        description="Photo-quality digital printing on compostable, recyclable, and bio-based pouches from just 100 pieces."
-        keywords={['digital printing eco packaging', 'sustainable pouch printing', 'low MOQ packaging']}
-        heroTitle="Digital Printing for Eco Packaging"
-        heroSubtitle="From 100 Pieces | No Plate Fees | 10-15 Days"
-        introSummary="Get photo-quality custom printing on sustainable packaging without minimum order barriers. Digital printing eliminates setup waste while delivering premium results on all eco-friendly materials."
+      <SEOPageLayout 
+        heroBgColor="#083344"
+        title="Digital Printing: The Sustainable Agile Engine"
+        description="Establishing technical authority in zero-plate, low-waste digital manufacturing for sustainable flexible packaging."
+        keywords={['digital printing', 'HP Indigo 25K', 'sustainable manufacturing']}
+        heroTitle="Fast. Precise. Pure."
+        heroSubtitle="Zero Plate Fees | HP Indigo 25K | Food Safe Inks | Low MOQ (500)"
+        introSummary="Digital printing is the technical solution to the packaging industry's waste problem. This guide outlines how we use the world's most advanced digital presses to eliminate plate waste, reduce dead inventory, and deliver ultra-high-resolution sustainable packaging for brands of all scales."
         sections={sections}
         faqs={faqs}
-        schemaType="Product"
-        heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
+        schemaType="Article"
+        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp"
       />
     </>
   )
 }
+
+const Leaf = ({ className }: { className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 21 2c-2 4-2.5 5.5-3.6 11.2A7 7 0 0 1 11 20z" />
+    <path d="M11 20v-5" />
+    <path d="M7 20h4" />
+  </svg>
+)
 
 export default DigitalPrintingEcoPackagingPage

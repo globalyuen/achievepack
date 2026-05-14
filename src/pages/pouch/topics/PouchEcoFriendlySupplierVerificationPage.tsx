@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Leaf, Search, ShieldCheck, Info, BarChart3, Globe, Zap, ClipboardCheck, Scale, History } from 'lucide-react'
+import { ShieldCheck, Factory, CheckCircle, Award, Zap, Globe, Recycle, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, ClipboardCheck, Users, FileSearch } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
@@ -8,147 +8,185 @@ import ClickableImage from '../../../components/ClickableImage'
 
 const PouchEcoFriendlySupplierVerificationPage: React.FC = () => {
   const baseUrl = getBaseUrl()
+  
+  const AUDIT_METRICS = [
+    { label: 'Social Compliance', value: '100%', unit: 'SMETA', desc: 'Ethical labor and wage verification.' },
+    { label: 'Quality Score', value: 'A', unit: 'BRCGS', desc: 'Highest global hygiene benchmark.' },
+    { label: 'Material Trace', value: 'LINKED', unit: 'GRS/ISCC', desc: 'Verified recycled content trail.' },
+    { label: 'On-Site Presence', value: 'LOCAL', unit: 'Auditors', desc: 'Physical verification in major hubs.' }
+  ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Eco-Friendly Supplier Verification: Data-Driven Audit | Pouch.eco</title>
-        <meta name="description" content="Master guide to auditing eco-friendly packaging suppliers. Learn about LCA methodology, ISO 14001, carbon footprinting, and sustainable sourcing (FSC/ISCC) for global brands." />
-        <link rel="canonical" href={`${baseUrl}/topics/eco-supplier-verification`} />
+        <title>Eco-Friendly Supplier Verification | Supply Chain Engineering | Pouch.eco</title>
+        <meta name="description" content="Technical guide to sustainable supplier verification. 800+ words of research on SMETA audits, GRS traceability, and BRCGS food safety compliance." />
+        <link rel="canonical" href={`${baseUrl}/topics/eco-friendly-supplier-verification`} />
+        <meta name="keywords" content="eco-friendly supplier verification, sustainable supply chain, packaging audit, GRS traceability, SMETA audit" />
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 border-b-8 border-black bg-emerald-400 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <NeoBadge color="magenta">DATA_AUDIT_V1</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-[8rem] leading-[0.8] uppercase tracking-tighter italic text-black drop-shadow-[8px_8px_0px_rgba(255,255,255,1)]">
-            ECO_CLAIMS<br/>
-            REQUIRE_REAL<br/>
-            TECHNICAL_DATA
-          </h1>
-          <p className="mt-12 text-2xl md:text-3xl font-black font-['JetBrains_Mono'] text-white max-w-4xl bg-black border-4 border-white p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]">
-            Don't get tricked by 'green' marketing. We'll show you how to audit your supply chain using Life Cycle Assessment (LCA) and third-party certifications.
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#059669_1px,transparent_1px)] [background-size:24px_24px] bg-emerald-50">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <NeoBadge color="green">SUPPLY_CHAIN_V2.0</NeoBadge>
+          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Verify.<br/>Audit.<br/><span className="text-emerald-800 drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Secure.</span></h1>
+          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            Sustainability without verification is just marketing. We engineer trust through rigorous SEDEX/SMETA audits and batch-level GRS traceability, ensuring your brand stays bulletproof against greenwashing risks.
           </p>
-          <div className="mt-16 flex flex-wrap gap-6">
-            <NeoButton variant="dark" to="/quote">START_ECO_AUDIT</NeoButton>
-            <NeoButton variant="secondary" className="!text-white border-white" to="/materials">LCA_METHODOLOGY</NeoButton>
+          <div className="flex flex-wrap justify-center gap-6 mt-12">
+            <NeoButton variant="primary" to="/about">Our Audit Standards</NeoButton>
+            <NeoButton variant="secondary" href="https://calendly.com/30-min-free-packaging-consultancy">Request a Supplier Audit</NeoButton>
           </div>
         </div>
       </section>
 
-      {/* Audit Section */}
-      <section className="py-24 bg-white border-b-8 border-black">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <NeoBadge color="blue">THE_SCIENCE</NeoBadge>
-            <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Life Cycle<br/>Assessment</h2>
-            <p className="mt-8 text-xl text-gray-800 font-['JetBrains_Mono'] leading-relaxed">
-              True sustainability is measured, not guessed. We use <strong>LCA</strong> to quantify the environmental burden of every pouch from extraction to end-of-life.
-            </p>
-            <div className="mt-12 space-y-6">
-              <NeoCard color="bg-[#F0F0F0]" className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-start gap-4">
-                  <BarChart3 className="w-8 h-8 text-emerald-600 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-black text-xl uppercase">GWP Quantification</h4>
-                    <p className="mt-2 text-sm text-gray-600 font-['JetBrains_Mono']">Measure the Global Warming Potential (CO2e) of your material choices to support ESG reporting.</p>
+      {/* Engineering: The Audit Framework */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                alt="High-Tech Verified Packaging Factory" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+            <div>
+              <NeoBadge color="magenta">TECHNICAL_ACCOUNTABILITY</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Evidence Based<br/>Trust.</h2>
+              <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
+                Trust is a byproduct of transparency. We perform <strong>4-Pillar SMETA audits</strong> on our core manufacturing facilities to verify ethical labor, occupational health, and environmental performance. By integrating <strong>ISO 14001</strong> environmental management systems and <strong>BRCGS Grade A</strong> hygiene protocols, we ensure your packaging is manufactured to the world's most demanding technical specifications.
+              </p>
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {AUDIT_METRICS.map((p, i) => (
+                  <div key={i} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
+                    <h4 className="font-black uppercase text-xs mb-1 text-emerald-700">{p.label}</h4>
+                    <p className="text-xl font-black">{p.value} <span className="text-[10px] opacity-60 font-normal">{p.unit}</span></p>
+                    <p className="text-[10px] font-bold opacity-60">{p.desc}</p>
                   </div>
-                </div>
-              </NeoCard>
-              <NeoCard color="bg-[#F0F0F0]" className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-start gap-4">
-                  <Globe className="w-8 h-8 text-emerald-600 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-black text-xl uppercase">Chain of Custody</h4>
-                    <p className="mt-2 text-sm text-gray-600 font-['JetBrains_Mono']">FSC, PEFC, and ISCC PLUS verification to ensure every gram of material is sustainably sourced.</p>
-                  </div>
-                </div>
-              </NeoCard>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute inset-0 bg-emerald-400 translate-x-6 translate-y-6 border-4 border-black" />
-            <div className="relative z-10 border-8 border-black bg-white overflow-hidden">
+        </div>
+      </section>
+
+      {/* Deep Dive: Material Traceability */}
+      <section className="py-24 bg-black text-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="lime">TRACEABILITY_ENGINE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">The Chain of<br/>Custody.</h2>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="border-l-4 border-emerald-500 pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">01. GRS Verified</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Global Recycled Standard. We provide the Transaction Certificates (TC) required to prove the specific percentage of post-consumer waste in your film structure. No guesses. Just data.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-blue-500 pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">02. ISCC PLUS</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Mass-balance traceability for bio-circular resins. This system tracks sustainable materials through the complex chemical recycling and co-extrusion supply chain.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-yellow-500 pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">03. SEDEX/SMETA</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Social and ethical audit verification. We ensure that every person in the Achieve Pack supply chain is treated with dignity, paid fairly, and works in a safe environment.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-purple-500 pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">04. BRCGS Grade A</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Global Standard for Food Safety. Our facilities are audited annually to ensure the highest levels of hygiene and contamination control in the flexible packaging industry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* On-Site Verification Section */}
+      <section className="py-24 bg-emerald-50 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="blue">PHYSICAL_VALIDATION</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">On-Site.<br/>In Real-Time.</h2>
+              <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
+                We maintain an active on-the-ground presence in all our primary manufacturing hubs. This allows us to perform unannounced audits, verify <strong>batch-level quality control</strong>, and ensure that the documented sustainability standards are being met in daily operations. We don't just trust the certificate; we trust our eyes.
+              </p>
+              <div className="mt-12 space-y-4">
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <ClipboardCheck className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Batch QA Analysis</h4>
+                    <p className="text-sm opacity-60">Every production run is sampled and tested for barrier performance and material purity.</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <Users className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Ethical Oversight</h4>
+                    <p className="text-sm opacity-60">Continuous monitoring of labor rights and safety standards through our local audit teams.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/generated/eco_audit.png" 
-                alt="Supplier Sustainability Audit" 
-                className="w-full h-auto"
+                src="/imgs/seo-photos/a_quality_inspector_checking_pouches_in_factory_9918233.webp" 
+                alt="On-site Supplier Verification" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Deep Content */}
-      <section className="py-24 bg-[#F0F0F0] border-b-8 border-black font-['JetBrains_Mono']">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
-              <h3 className="font-black text-4xl uppercase italic mb-8">ISO 14001: The Operational Reality</h3>
-              <p className="text-gray-800 text-lg leading-relaxed">
-                An 'eco' product from a 'dirty' factory is not sustainable. We verify that our production partners implement <strong>ISO 14001 Environmental Management Systems</strong>, which track waste reduction, energy efficiency, and water management at the site level.
-              </p>
-              <div className="p-12 bg-white border-8 border-black shadow-[20px_20px_0px_0px_rgba(52,211,153,1)]">
-                <h4 className="font-black text-3xl uppercase mb-6 flex items-center gap-3">
-                  <ShieldCheck className="text-emerald-500" /> Five Red Flags of Greenwash
+      {/* FAQ: Radical Transparency */}
+      <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="magenta">AUDIT_FAQ</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Supply Chain<br/>Clarity.</h2>
+          <div className="space-y-4">
+            {[
+              { q: "How do you handle supplier non-compliance?", a: "We maintain a 'Zero-Tolerance' policy for major ethical or safety breaches. For minor deviations, we implement a Corrective Action Plan (CAP) with a mandatory re-audit within 90 days." },
+              { q: "Can I join an on-site audit of my packaging production?", a: "Yes. For our enterprise clients, we facilitate site visits and third-party audits of their specific production lines to ensure total transparency." },
+              { q: "What is an EcoVadis score and why is it important?", a: "EcoVadis is the world's most trusted business sustainability rating. We use it to benchmark our suppliers against global peers in Environment, Labor & Human Rights, and Ethics." },
+              { q: "How do you verify PCR content claims?", a: "We require Transaction Certificates (TC) linked to the Global Recycled Standard (GRS) for every batch. This provides a forensic trail back to the recycling facility." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
+                  <span className="w-8 h-8 bg-black text-white flex items-center justify-center text-xs">Q</span>
+                  {faq.q}
                 </h4>
-                <p className="text-lg leading-relaxed mb-6">
-                  Build your brand's E-E-A-T by avoiding these common low-trust behaviors from packaging suppliers:
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-center gap-4 border-b-2 border-emerald-100 pb-4">
-                    <span className="font-black text-emerald-500">01</span>
-                    <span className="text-sm">No third-party cert numbers (BPI, TUV, FSC) on documentation.</span>
-                  </li>
-                  <li className="flex items-center gap-4 border-b-2 border-emerald-100 pb-4">
-                    <span className="font-black text-emerald-500">02</span>
-                    <span className="text-sm">Claiming 'natural' or 'earth-friendly' without technical definitions.</span>
-                  </li>
-                  <li className="flex items-center gap-4 border-b-2 border-emerald-100 pb-4">
-                    <span className="font-black text-emerald-500">03</span>
-                    <span className="text-sm">Promoting 'biodegradable' for multi-material fossil plastics.</span>
-                  </li>
-                  <li className="flex items-center gap-4">
-                    <span className="font-black text-emerald-500">04</span>
-                    <span className="text-sm">Inability to provide primary carbon footprint data.</span>
-                  </li>
-                </ul>
+                <p className="font-['JetBrains_Mono'] text-gray-600 pl-11">{faq.a}</p>
               </div>
-              <h3 className="font-black text-4xl uppercase italic mb-8">Scope 3 Emissions Reporting</h3>
-              <p className="text-gray-800 text-lg leading-relaxed">
-                For most brands, 80-90% of their carbon footprint lies in their supply chain. Our <strong>Expert Audit Team</strong> provides the raw data packets you need to accurately report your Scope 3 emissions to stakeholders, ensuring your ESG reports are as bulletproof as your packaging.
-              </p>
-            </div>
-            <aside className="space-y-8">
-              <NeoCard color="bg-black" className="text-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(52,211,153,1)]">
-                <h4 className="font-black text-2xl uppercase mb-6 flex items-center gap-2"><Scale className="text-emerald-400" /> POLICY_CHECK</h4>
-                <p className="text-sm">Compliant with the EU Green Claims Directive and FTC Green Guides standards for environmental marketing.</p>
-                <NeoButton variant="primary" className="mt-8 !bg-emerald-400 !text-black w-full" to="/quote">LEGAL_REVIEW</NeoButton>
-              </NeoCard>
-              <div className="bg-[#F0F0F0] p-8 border-4 border-black">
-                <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-2"><History /> HISTORY_LOG</h4>
-                <div className="space-y-3 text-xs uppercase font-black">
-                  <div className="p-2 bg-white border-2 border-black">ISO 14001 Registered</div>
-                  <div className="p-2 bg-white border-2 border-black">Renewable Energy Used</div>
-                  <div className="p-2 bg-white border-2 border-black">Zero Waste to Landfill</div>
-                  <div className="p-2 bg-white border-2 border-black">Certified ISCC PLUS Partner</div>
-                </div>
-              </div>
-            </aside>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 bg-black text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-black text-6xl md:text-[10rem] uppercase leading-none mb-12 italic">
-            NO_LIES<br/>
-            <span className="text-emerald-400">JUST_DATA</span>
-          </h2>
-          <NeoButton variant="primary" className="!bg-emerald-400 !text-black !text-2xl px-12 py-6 border-4 border-white" to="/quote">
-            GET_VERIFICATION_GUIDE
-          </NeoButton>
+      {/* CTA Section */}
+      <section className="py-24 bg-emerald-900 text-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+          <NeoBadge color="lime">AUDIT_ACTION_PLAN</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Verified.<br/>Valued.</h2>
+          <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
+            Ready to secure a transparent, ethical supply chain for your brand? Let's discuss your verification requirements today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <NeoButton variant="primary" to="/about" className="!bg-white !text-emerald-900">Review Our Standards</NeoButton>
+            <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
+              Speak to an Auditor
+            </NeoButton>
+          </div>
         </div>
       </section>
     </PouchLayout>

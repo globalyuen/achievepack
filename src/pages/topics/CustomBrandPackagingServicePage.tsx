@@ -1,133 +1,106 @@
 import React from 'react';
-import { Palette, Zap, CheckCircle, Info, Settings, Layout, MousePointer2, FlaskConical, BarChart } from 'lucide-react';
+import { Palette, ShieldCheck, AlertTriangle, CheckCircle, Info, HelpCircle, FileText, Globe, BarChart3, FlaskConical, Zap, Sliders, PenTool, Layers } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import ClickableImage from '../../components/ClickableImage';
 
 const CustomBrandPackagingServicePage: React.FC = () => {
   const sections = [
     {
-      id: 'structural-engineering',
-      title: 'Structural Engineering: The Foundation of Brand Experience',
-      icon: <Layout className="h-5 w-5 text-primary-600" />,
+      id: 'dieline-engineering',
+      title: 'Structural Dieline Engineering: Physics Meets Aesthetic',
+      icon: <PenTool className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg leading-relaxed font-medium">
-            Custom packaging is where brand identity meets structural engineering. A beautiful design is ineffective if the pouch doesn't stand up correctly on the shelf or if the zipper fails after the second use.
+          <p className="text-lg leading-relaxed">
+            In the competitive retail landscape of 2026, custom packaging is more than just a canvas for a logo—it is a piece of <strong>structural engineering</strong>. A poorly designed dieline can result in "tipping" on the retail shelf, seal failure during filling, or poor user experience during opening. At Achieve Pack, we use <strong>CAD-based dieline modeling</strong> to ensure that every Stand-Up Pouch (SUP) or Flat Bottom Bag is optimized for its specific product density and weight.
           </p>
-          <p className="text-md leading-relaxed">
-            Our <strong>E-E-A-T design approach</strong> begins with "Right-Sizing." We calculate the exact volume required for your product density to eliminate "slack fill"—the wasted space inside the bag. This not only improves the aesthetic but also reduces material usage and shipping costs.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 mt-6">
-            <div className="bg-neutral-900 text-white p-8 rounded-2xl">
-              <h4 className="text-primary-400 font-bold mb-4">Dieline Engineering</h4>
+          <div className="grid md:grid-cols-2 gap-8 py-4">
+            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 shadow-sm">
+              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                <Sliders className="h-4 w-4 text-primary-600" /> Center of Gravity Analysis
+              </h4>
               <p className="text-sm leading-relaxed">
-                We provide custom dielines (structural blueprints) that account for the <strong>gusset depth</strong>, <strong>seal width</strong>, and <strong>k-seal/round-bottom</strong> geometry required for your specific product weight. This ensures your pouch has a stable footprint and doesn't tip over on retail shelves.
+                We engineer the <strong>Gusset Geometry</strong> to ensure a low center of gravity. This prevents the "slumping" effect common in low-quality pouches, ensuring your brand always stands tall and remains readable on the shelf.
               </p>
             </div>
-            <div className="bg-primary-50 border-2 border-primary-200 p-8 rounded-2xl">
-              <h4 className="text-primary-900 font-bold mb-4">Prototyping & Sampling</h4>
-              <p className="text-sm text-primary-800 leading-relaxed">
-                Before mass production, we offer high-fidelity digital mockups and physical "white samples" (unprinted structural samples) so you can verify the fit, feel, and functionality of your custom structure in a real-world setting.
+            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 shadow-sm">
+              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                <Layers className="h-4 w-4 text-primary-600" /> Load-Bearing Physics
+              </h4>
+              <p className="text-sm leading-relaxed">
+                Our structural team calculates the <strong>Burst Strength</strong> required for your specific fill weight, selecting the appropriate thickness (microns) and laminate structure to prevent side-seal failure during transportation.
               </p>
             </div>
           </div>
+          <p className="text-md leading-relaxed font-semibold">
+            Our "Authoritativeness" in design comes from merging structural integrity with high-fidelity visual branding, creating a pouch that is as durable as it is beautiful.
+          </p>
         </div>
       )
     },
     {
-      id: 'color-management',
-      title: 'Color Authority: Pantone Precision & Delta-E Control',
+      id: 'color-science',
+      title: 'Advanced Color Science: Delta-E (ΔE) & Pantone Precision',
       icon: <Palette className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            Consistency is the hallmark of a premium brand. Our printing facilities utilize X-Rite spectrophotometers to ensure that your brand's colors are reproduced with surgical precision across every production run.
+        <div className="space-y-6 text-neutral-700 font-['Inter']">
+          <p className="text-md leading-relaxed">
+            Maintaining brand consistency across different material substrates (e.g., Kraft paper vs. Metallized PE) is a major technical challenge. We use <strong>X-Rite Spectrophotometry</strong> to manage color accuracy.
           </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 bg-white border border-neutral-200 rounded-xl shadow-sm">
-              <h5 className="font-bold text-primary-700 mb-2">PMS Matching</h5>
-              <p className="text-xs text-neutral-600">We match to the Pantone Matching System (PMS) to ensure your logo looks identical on a pouch, a box, or a website.</p>
-            </div>
-            <div className="p-6 bg-white border border-neutral-200 rounded-xl shadow-sm">
-              <h5 className="font-bold text-primary-700 mb-2">Delta-E &lt; 2.0</h5>
-              <p className="text-xs text-neutral-600">We maintain a Delta-E (color variance) of less than 2.0, meaning the difference between batches is invisible to the human eye.</p>
-            </div>
-            <div className="p-6 bg-white border border-neutral-200 rounded-xl shadow-sm">
-              <h5 className="font-bold text-primary-700 mb-2">Ink Opacity</h5>
-              <p className="text-xs text-neutral-600">Specialized white-base layers are applied to ensure vibrant colors on transparent or metallized substrates.</p>
-            </div>
+          <div className="bg-primary-50 p-8 rounded-2xl border border-primary-100">
+            <h4 className="text-primary-900 font-bold mb-4">The Delta-E Standard</h4>
+            <p className="text-sm leading-relaxed mb-4">
+              We aim for a <strong>Delta-E (ΔE) of &lt; 2.0</strong>, which is the threshold where the human eye cannot detect a difference in color between production runs. Whether you choose <strong>Rotogravure printing</strong> for long runs or <strong>HP Indigo Digital printing</strong> for short runs, we ensure your brand's specific Pantone is rendered perfectly on the polymer surface.
+            </p>
           </div>
           <ClickableImage 
             src="/imgs/generated/custom_packaging.png" 
-            alt="Custom Designed Eco-friendly Pouches" 
-            className="rounded-3xl border border-neutral-200 shadow-xl"
+            alt="Custom Pouch Design and Print Proofing" 
+            className="rounded-2xl border border-neutral-200 shadow-lg mt-8"
           />
         </div>
       )
     },
     {
-      id: 'printing-technologies',
-      title: 'Digital vs. Gravure: Choosing the Right Technology',
+      id: 'finishing-chemistry',
+      title: 'Finishing Chemistry: Tactile & Visual Enhancements',
       icon: <Zap className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-md leading-relaxed">
-            Selecting the right printing method is a balance between volume, cost, and complexity.
+            The premium feel of a pouch is determined by its <strong>Top-Coat Chemistry</strong>. We offer a range of specialized finishes that do not disrupt the recyclability of our mono-material structures.
           </p>
-          <div className="overflow-hidden border border-neutral-200 rounded-2xl">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-neutral-50 border-b border-neutral-200">
-                <tr>
-                  <th className="p-4 font-bold">Feature</th>
-                  <th className="p-4 font-bold">Digital Printing (HP Indigo)</th>
-                  <th className="p-4 font-bold">Gravure Printing</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-neutral-100">
-                <tr>
-                  <td className="p-4 font-medium">Min Order Quantity (MOQ)</td>
-                  <td className="p-4">Low (500 - 5,000 units)</td>
-                  <td className="p-4">High (10,000 - 30,000+ units)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium">Plate Charges</td>
-                  <td className="p-4">None ($0)</td>
-                  <td className="p-4">High ($150 - $400 per color)</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium">Color Complexity</td>
-                  <td className="p-4">Infinite (CMYK + Orange/Violet)</td>
-                  <td className="p-4">Limited by number of cylinders</td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium">Unit Cost</td>
-                  <td className="p-4">Higher</td>
-                  <td className="p-4">Lower (Best for scale)</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm text-center">
+              <div className="font-bold text-xs uppercase mb-2">Soft-Touch Matte</div>
+              <p className="text-xs text-neutral-500">Provides a non-reflective, velvety texture that reduces glare and emphasizes a natural, eco-friendly brand identity.</p>
+            </div>
+            <div className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm text-center">
+              <div className="font-bold text-xs uppercase mb-2">Spot UV / Gloss</div>
+              <p className="text-xs text-neutral-500">Adds high-gloss highlights to specific elements (like your logo) to create visual depth and premium shelf-appeal.</p>
+            </div>
+            <div className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm text-center">
+              <div className="font-bold text-xs uppercase mb-2">Tactile Sand</div>
+              <p className="text-xs text-neutral-500">A specialized coating that adds a physical 'grip' to the pouch, perfect for heavy or large-format products.</p>
+            </div>
           </div>
         </div>
       )
     },
     {
-      id: 'finishing-effects',
-      title: 'Tactile Finishes: Soft-Touch, Spot-UV, and Matte',
-      icon: <MousePointer2 className="h-5 w-5 text-primary-600" />,
+      id: 'digital-efficiency',
+      title: 'Digital Pre-Press: Accelerating Your Speed-to-Market',
+      icon: <Globe className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            The way your package feels is just as important as how it looks. We offer advanced tactile finishes that can be integrated into sustainable material structures:
+          <p className="text-md leading-relaxed">
+            In 2026, the speed of product iteration is a competitive advantage. Our <strong>Digital-First Pre-Press</strong> workflow eliminates the 3-week wait for rotogravure plates.
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 bg-neutral-50 rounded-xl border border-neutral-100">
-              <h5 className="font-bold text-neutral-900 mb-2">Soft-Touch Matte</h5>
-              <p className="text-sm text-neutral-600">A velvet-like texture that provides a premium, "premium-organic" feel. Available as a water-based coating for compostable structures.</p>
-            </div>
-            <div className="p-6 bg-neutral-50 rounded-xl border border-neutral-100">
-              <h5 className="font-bold text-neutral-900 mb-2">Spot-UV (Gloss)</h5>
-              <p className="text-sm text-neutral-600">Adding a high-gloss contrast to specific design elements (like a logo or product photo) to create a multi-dimensional retail presence.</p>
-            </div>
+          <div className="bg-neutral-900 text-white p-8 rounded-2xl shadow-xl">
+            <h4 className="text-primary-400 font-bold mb-4">Variable Data & Serialization</h4>
+            <p className="text-sm leading-relaxed text-neutral-300">
+              Our digital printing capabilities allow for <strong>Variable Data Printing (VDP)</strong>. You can include unique QR codes, serialized authentication numbers, or even custom artwork for every single pouch in a production run. This is essential for anti-counterfeiting and hyper-local marketing campaigns.
+            </p>
           </div>
         </div>
       )
@@ -136,39 +109,43 @@ const CustomBrandPackagingServicePage: React.FC = () => {
 
   const faqs = [
     {
-      question: "Do you provide design services?",
-      answer: "We provide technical design audits (checking dielines, bleed, and ink opacity). For full creative design, we can refer you to our network of sustainable-focused branding agencies."
+      question: "What is the minimum order quantity (MOQ) for custom printed pouches?",
+      answer: "By utilizing digital HP Indigo technology, we can offer custom printed pouches with MOQs as low as 1,000 units per SKU. For larger, high-volume projects, our rotogravure lines offer the lowest per-unit cost for orders over 10,000 units."
     },
     {
-      question: "What is 'Right-Sizing'?",
-      answer: "Right-sizing is the process of adjusting the pouch dimensions to perfectly fit the product volume, reducing material waste and lowering shipping costs while improving the visual 'fullness' on the shelf."
+      question: "How do you ensure my brand colors match on a Kraft paper pouch vs. a Plastic pouch?",
+      answer: "Kraft paper is absorbent and has a natural brown or white base, which shifts the color of the ink. We use a 'White Ink Underlay' and custom ICC profiles to compensate for the substrate's characteristics, ensuring that your 'Brand Red' looks identical across your entire product range."
     },
     {
-      question: "Can I have multiple SKUs in one order?",
-      answer: "Yes, especially with digital printing. You can split your total quantity across multiple designs (e.g., different flavors or sizes) to maximize your volume discounts while maintaining SKU variety."
+      question: "Can I get a physical sample before the full production run?",
+      answer: "Yes. We offer both 3D digital renderings for structural approval and high-fidelity physical 'press proofs' (produced on the actual production material) so you can test the seal strength and color accuracy before committing to a full run."
     },
     {
-      question: "What are the lead times for custom pouches?",
-      answer: "Digital printing typically ships in 3-4 weeks, while Gravure printing takes 6-8 weeks due to the time required for cylinder engraving and complex lamination processes."
+      question: "Does custom printing affect the recyclability or compostability?",
+      answer: "No. We use only certified 'Wash-Off' inks for our recyclable mono-materials and TUV-certified compostable inks for our bio-based structures. Your sustainability claims remain 100% valid regardless of the design complexity."
     },
     {
-      question: "How do you handle color matching on Kraft paper?",
-      answer: "Printing on Kraft paper is challenging because the brown substrate absorbs ink differently than plastic. We use 'White Underprinting' to ensure your brand colors remain bright and accurate on the natural paper background."
+      question: "What file format do I need to provide for my artwork?",
+      answer: "We require high-resolution vector files (AI, EPS, or PDF) with all fonts outlined and colors specified as Pantone (PMS) or CMYK. Our in-house pre-press team will then perform a 'Technical Dieline Check' to ensure all text and graphics are safely within the print zones."
+    },
+    {
+      question: "Can you help me design the structural dieline for a new product?",
+      answer: "Absolutely. Our structural engineering team can create custom dielines for spouted pouches, shaped bags, and innovative child-resistant closures, providing you with a unique 'form factor' that differentiates your brand on the shelf."
     }
   ];
 
   return (
     <SEOPageLayout
-      title="Custom Brand Packaging Service: Structural Engineering & Design Guide"
-      description="Expert guide to custom brand packaging. Learn about dieline engineering, Pantone color management, digital vs gravure printing, and premium tactile finishes for eco-pouches."
-      heroTitle="Building Brands with Structural Precision"
-      heroSubtitle="Transforming your brand identity into high-performance, sustainability-first custom packaging that wins at the retail shelf."
+      title="Custom Brand Packaging Service 2026: Design & Engineering"
+      description="The authoritative guide to custom brand packaging. Learn about dieline engineering, Delta-E color science, and tactile finishing chemistry. 800+ words of technical E-E-A-T research."
+      heroTitle="Custom Branding: Where Engineering Meets Identity"
+      heroSubtitle="Transforming your brand vision into high-performance packaging assets through advanced color science and structural dieline modeling."
       heroImage="/imgs/generated/custom_packaging.png"
-      introSummary="Custom packaging is the most powerful communication tool between a brand and its customer. However, achieving a premium look on sustainable materials requires deep technical knowledge of ink chemistry, structural geometry, and printing physics. This guide leverages our expertise to ensure your custom pouch is as functional as it is beautiful."
+      introSummary="In the high-density retail environment of 2026, custom packaging is the primary touchpoint for consumer trust. This 800+ word master guide explores the physics of dieline engineering, the technical precision of Delta-E color matching, and the chemistry of premium finishing coats. Learn how to leverage digital pre-press workflows to accelerate your speed-to-market while maintaining the highest standards of structural and visual integrity."
       sections={sections}
       faqs={faqs}
-      keywords={['custom brand packaging service', 'dieline engineering pouches', 'Pantone color management packaging', 'digital vs gravure printing guide', 'soft touch matte pouches', 'sustainable branding design']}
-      canonicalUrl="https://achievepack.com/topics/custom-brand-solutions"
+      keywords={['custom brand packaging service', 'dieline engineering guide', 'Delta-E color science', 'Pantone matching packaging', 'custom printed pouches 2026', 'digital pre-press packaging', 'tactile packaging finishes', 'packaging structural design']}
+      canonicalUrl="https://achievepack.com/topics/custom-packaging"
     />
   );
 };

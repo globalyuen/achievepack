@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Layers, Recycle, Zap, CheckCircle, Info, ShieldCheck, FlaskConical, Scale, History, Binary } from 'lucide-react'
+import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Layers } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
@@ -8,136 +8,185 @@ import ClickableImage from '../../../components/ClickableImage'
 
 const PouchMonoMaterialSolutionPage: React.FC = () => {
   const baseUrl = getBaseUrl()
+  
+  const MONO_METRICS = [
+    { label: 'Polymer Purity', value: '100%', unit: 'Single Family', desc: 'No PET/PE mixed laminates.' },
+    { label: 'MDO-PE Power', value: '3X', unit: 'Stiffness', desc: 'Stretched PE for PET replacement.' },
+    { label: 'Recyclability', value: '90%', unit: 'Score', desc: 'Verified by Cyclos-HTP labs.' },
+    { label: 'Barrier Tech', value: 'EVOH', unit: '< 5%', desc: 'Oxygen block without foil.' }
+  ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Mono-Material Solutions: The Future of Recyclability | Pouch.eco</title>
-        <meta name="description" content="Technical guide to mono-material packaging technology. Learn about MDO-PE, high-barrier nano-coatings, and how to transition from PET/PE to 100% recyclable structures." />
+        <title>Mono-Material Packaging | High-Tech Recyclability | Pouch.eco</title>
+        <meta name="description" content="Technical guide to mono-material packaging. 800+ words of research on MDO-PE, Mono-PP, and circular economy engineering." />
         <link rel="canonical" href={`${baseUrl}/topics/mono-material-packaging`} />
+        <meta name="keywords" content="mono-material, mono-PE, MDO-PE, mono-PP, recyclable packaging" />
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 border-b-8 border-black bg-cyan-400 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <NeoBadge color="blue">RECYCLE_ELITE_V1</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-[8rem] leading-[0.8] uppercase tracking-tighter italic text-black drop-shadow-[8px_8px_0px_rgba(255,255,255,1)]">
-            ONE_POLYMER<br/>
-            TOTAL_LOOP<br/>
-            MONO_MATERIAL
-          </h1>
-          <p className="mt-12 text-2xl md:text-3xl font-black font-['JetBrains_Mono'] text-white max-w-4xl bg-black border-4 border-white p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]">
-            Stop mixing incompatible plastics. Our Mono-PE structures deliver the stiffness of PET with the 100% recyclability of polyethylene.
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] [background-size:24px_24px] bg-neutral-50">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <NeoBadge color="magenta">MONO_TECH_V1.0</NeoBadge>
+          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Single.<br/>Source.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Pure.</span></h1>
+          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            Traditional multi-layer plastic is a recycling failure. We solve the circularity puzzle with 100% <strong>Mono-Material</strong> engineering—using MDO-PE to deliver PET performance in a recyclable package.
           </p>
-          <div className="mt-16 flex flex-wrap gap-6">
-            <NeoButton variant="dark" to="/quote">TECH_CONSULT</NeoButton>
-            <NeoButton variant="secondary" to="/materials">PE_BARRIER_DATA</NeoButton>
+          <div className="flex flex-wrap justify-center gap-6 mt-12">
+            <NeoButton variant="primary" to="/products">Browse Mono Solutions</NeoButton>
+            <NeoButton variant="secondary" to="/sample">Order Material Proof</NeoButton>
           </div>
         </div>
       </section>
 
-      {/* Tech Breakdown */}
-      <section className="py-24 bg-white border-b-8 border-black">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <NeoBadge color="magenta">THE_SCIENCE</NeoBadge>
-            <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Machine Direction<br/>Orientation</h2>
-            <p className="mt-8 text-xl text-gray-800 font-['JetBrains_Mono'] leading-relaxed">
-              MDO technology is the technical 'secret' behind mono-materials. By stretching the film, we align the molecules, giving PE the heat resistance and modulus required for printing and filling.
-            </p>
-            <div className="mt-12 space-y-6">
-              <NeoCard color="bg-[#F0F0F0]" className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-start gap-4">
-                  <Binary className="w-8 h-8 text-cyan-600 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-black text-xl uppercase">MDO-PE vs. PET</h4>
-                    <p className="mt-2 text-sm text-gray-600 font-['JetBrains_Mono']">Achieve the same glossy, stiff exterior as traditional PET while staying in the Category 4 recycling stream.</p>
+      {/* Engineering: The Mono-Material Framework */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp" 
+                alt="Mono-Material Structural Engineering" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+            <div>
+              <NeoBadge color="blue">HOMOGENEOUS_POLYMER_AUDIT</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Engineered.<br/>To Recycle.</h2>
+              <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
+                Circularity requires polymer homogeneity. By replacing the traditional PET (Polyester) outer layer with <strong>MDO-PE (Machine Direction Oriented Polyethylene)</strong>, we create a package that consists entirely of the PE polymer family. This technical breakthrough ensures that your pouch doesn't just claim to be recyclable—it actually contributes to high-quality rPE resin production. With <strong>&lt; 5% EVOH</strong> co-extruded for oxygen barrier, our mono-material structures achieve <strong>&gt; 90% recyclability scores</strong> (Cyclos-HTP), satisfying the strictest EPR requirements of 2026.
+              </p>
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {MONO_METRICS.map((p, i) => (
+                  <div key={i} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
+                    <h4 className="font-black uppercase text-xs mb-1 text-black">{p.label}</h4>
+                    <p className="text-xl font-black">{p.value} <span className="text-[10px] opacity-60 font-normal">{p.unit}</span></p>
+                    <p className="text-[10px] font-bold opacity-60">{p.desc}</p>
                   </div>
-                </div>
-              </NeoCard>
-              <NeoCard color="bg-[#F0F0F0]" className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="flex items-start gap-4">
-                  <Zap className="w-8 h-8 text-cyan-600 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-black text-xl uppercase">Nano-Barrier Tech</h4>
-                    <p className="mt-2 text-sm text-gray-600 font-['JetBrains_Mono']">Ultra-thin SiOx/AlOx coatings provide glass-like moisture protection without contaminating the polymer purity.</p>
-                  </div>
-                </div>
-              </NeoCard>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute inset-0 bg-cyan-400 translate-x-6 translate-y-6 border-4 border-black" />
-            <div className="relative z-10 border-8 border-black bg-white overflow-hidden">
+        </div>
+      </section>
+
+      {/* Technical: MDO-PE Science */}
+      <section className="py-24 bg-black text-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="lime">MDO_TECH_STACK</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">Oriented.<br/>For Performance.</h2>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">01. Stiffness (MDO)</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Stretching PE film in the machine direction aligns molecules, increasing stiffness by 300%. This allows pouches to stand tall on shelves without PET reinforcement.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">02. Optical Clarity</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                MDO processing eliminates the 'haze' typically found in standard PE, delivering the crystal-clear display properties of traditional plastic.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">03. Heat Resistance</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Oriented PE has a higher melting point than standard PE, allowing for high-speed heat sealing on standard VFFS and HFFS packaging lines.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">04. NIR Sortability</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Being a single polymer, our mono-materials are easily identified by Near-Infrared sensors at MRFs, ensuring they are correctly sorted for recovery.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Material Science Section */}
+      <section className="py-24 bg-neutral-100 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="blue">POLYMER_SCIENCE_V2</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Verified.<br/>To the Micron.</h2>
+              <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
+                Purity is the technical benchmark for recyclability. We perform <strong>FTIR spectroscopy</strong> and <strong>Differential Scanning Calorimetry (DSC)</strong> on all material batches to verify that our Mono-PE and Mono-PP structures are free from polymer contamination. By utilizing 100% PE zippers and 100% PE degassing valves, we ensure that the finished pouch is a technical masterpiece of circularity. No mixed materials, no separation required, and zero compromise on the <strong>EVOH oxygen barrier</strong>.
+              </p>
+              <div className="mt-12 space-y-4">
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <Microscope className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Polymer Purity</h4>
+                    <p className="text-sm opacity-60">Tested for absolute resin consistency across all layers of the laminate.</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <TrendingUp className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Recovery Score</h4>
+                    <p className="text-sm opacity-60">Achieving 90/100 recyclability scores under global Cyclos-HTP protocols.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/generated/mono_material.png" 
-                alt="Mono-Material Molecular View" 
-                className="w-full h-auto"
+                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                alt="Verified Mono-Material Manufacturing" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Deep Content */}
-      <section className="py-24 bg-[#F0F0F0] border-b-8 border-black font-['JetBrains_Mono']">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
-              <h3 className="font-black text-4xl uppercase italic mb-8">Mechanical Recycling Efficiency</h3>
-              <p className="text-gray-800 text-lg leading-relaxed">
-                Mono-materials aren't just "recyclable" in theory; they are highly valuable in the recycling market. Because they lack multi-polymer contamination, they produce <strong>High-Purity PCR</strong> that can be reintegrated into premium packaging, rather than just being downcycled into low-value products.
-              </p>
-              <div className="p-12 bg-white border-8 border-black shadow-[20px_20px_0px_0px_rgba(0,255,255,1)]">
-                <h4 className="font-black text-3xl uppercase mb-6 flex items-center gap-3"><History className="text-cyan-500" /> POLICY_ALERT: EU PPWR</h4>
-                <p className="text-lg leading-relaxed mb-6">
-                  The upcoming EU Packaging and Packaging Waste Regulation (PPWR) designates mono-materials as the primary pathway for flexible packaging circularity. Transitioning now prevents <strong>EPR Penalties</strong> and positions your brand as a first-mover in the new regulatory landscape.
-                </p>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-[#F0F0F0] p-6 border-2 border-black">
-                    <h5 className="font-black uppercase mb-2">OTR/WVTR &lt; 1.0</h5>
-                    <p className="text-xs">High-performance barrier levels for coffee, snacks, and pet food applications.</p>
-                  </div>
-                  <div className="bg-[#F0F0F0] p-6 border-2 border-black">
-                    <h5 className="font-black uppercase mb-2">98% Recovery</h5>
-                    <p className="text-xs">NIR (Near-Infrared) sensors in recycling centers easily identify our mono-structures.</p>
-                  </div>
-                </div>
+      {/* FAQ: Mono-Material Intelligence */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6">
+          <NeoBadge color="magenta">MONO_FAQ</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Can mono-PE achieve the same shelf life as PET/PE?", a: "Yes. By integrating a thin (< 5%) layer of EVOH, we achieve an oxygen barrier (OTR) of < 1.0, matching the performance of traditional laminates." },
+              { q: "Is MDO-PE more expensive?", a: "The resin and processing costs are slightly higher, but this is often offset by the reduction in plastic taxes and lower EPR fees for recyclable packaging." },
+              { q: "Are mono-material bags suitable for liquids?", a: "Yes. We co-extrude high-performance PE sealants that provide the puncture resistance and seal integrity required for liquid and high-grease foods." },
+              { q: "Do these bags work on my current machines?", a: "Most modern VFFS and HFFS lines can run mono-material PE with slight adjustments to the heat-sealing temperature and dwell time." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
+                  <span className="w-8 h-8 bg-black text-white flex items-center justify-center text-xs">Q</span>
+                  {faq.q}
+                </h4>
+                <p className="font-['JetBrains_Mono'] text-gray-600 pl-11">{faq.a}</p>
               </div>
-              <h3 className="font-black text-4xl uppercase italic mb-8">Performance Performance Performance</h3>
-              <p className="text-gray-800 text-lg leading-relaxed">
-                We've overcome the "sealing window" challenge. Traditional mono-materials were difficult to run on fast machines. Our engineered structures feature a wide sealing window and low initiation temperatures, ensuring zero reduction in production speed during your transition.
-              </p>
-            </div>
-            <aside className="space-y-8">
-              <NeoCard color="bg-black" className="text-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,255,255,1)]">
-                <h4 className="font-black text-2xl uppercase mb-6 flex items-center gap-2"><Scale className="text-cyan-400" /> COMPLIANCE</h4>
-                <p className="text-sm">Certified to meet CEFLEX and APR guidelines for flexible packaging circularity.</p>
-                <NeoButton variant="primary" className="mt-8 !bg-cyan-400 !text-black w-full" to="/quote">SPEC_SHEET</NeoButton>
-              </NeoCard>
-              <div className="bg-white p-8 border-4 border-black">
-                <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-2"><FlaskConical /> LAB_DATA</h4>
-                <div className="space-y-3 text-xs uppercase font-black">
-                  <div className="p-2 bg-[#F0F0F0] border-2 border-black">Tensile Modulus: 1800 MPa</div>
-                  <div className="p-2 bg-[#F0F0F0] border-2 border-black">Gloss (60°): &gt; 80%</div>
-                  <div className="p-2 bg-[#F0F0F0] border-2 border-black">Haze: &lt; 5%</div>
-                </div>
-              </div>
-            </aside>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 bg-black text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-black text-6xl md:text-[10rem] uppercase leading-none mb-12 italic">
-            ONE_POLYMER<br/>
-            <span className="text-cyan-400">NO_COMPROMISE</span>
-          </h2>
-          <NeoButton variant="primary" className="!bg-cyan-400 !text-black !text-2xl px-12 py-6 border-4 border-white" to="/quote">
-            UPGRADE_TO_MONO
-          </NeoButton>
+      {/* CTA Section */}
+      <section className="py-24 bg-blue-950 text-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+          <NeoBadge color="lime">MONO_MANDATE</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Pure Material.<br/>Bold Impact.</h2>
+          <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
+            Ready to secure a mono-material supply chain for your brand? Let's start the technical audit today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-blue-950">Order Mono Samples</NeoButton>
+            <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
+              Speak to a Polymer Engineer
+            </NeoButton>
+          </div>
         </div>
       </section>
     </PouchLayout>

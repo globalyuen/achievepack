@@ -1,160 +1,253 @@
-import React from 'react';
-import { Factory, ShieldCheck, Info, ClipboardCheck, Search, Zap, Globe, FileCheck, HelpCircle } from 'lucide-react';
-import SEOPageLayout from '../../components/SEOPageLayout';
-import ClickableImage from '../../components/ClickableImage';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import { Factory, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Utensils, Truck } from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const FoodPackagingSupplierServicePage: React.FC = () => {
+  const { openCalendly } = useCalendly()
+
   const sections = [
     {
-      id: 'auditing-standards',
-      title: 'Global Auditing Standards: BRCGS, SQF, and ISO 22000',
-      icon: <ClipboardCheck className="h-5 w-5 text-primary-600" />,
+      id: 'hero-problem',
+      title: 'The Role of a Technical Food Packaging Supplier',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-orange-50 to-amber-50 p-6 rounded-lg border border-orange-200 shadow-sm">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              In 2026, a food packaging supplier must be more than a vendor; they must be a <strong>technical partner</strong>. As global regulations tighten and the circular economy matures, your supplier is responsible for your <strong>compliance</strong>, <strong>shelf-life</strong>, and <strong>brand integrity</strong>.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-600">
+                <h4 className="font-semibold text-orange-800">Supplier Failures</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• Lack of BRCGS/ISO certification</li>
+                  <li>• No technical data sheets (TDS)</li>
+                  <li>• Inconsistent barrier performance</li>
+                  <li>• Poor traceability of raw materials</li>
+                </ul>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-amber-500">
+                <h4 className="font-semibold text-amber-800">Achieve Pack Standards</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• BRCGS Global Standard (Grade A)</li>
+                  <li>• ISO 9001 & 14001 Quality Control</li>
+                  <li>• Full Declaration of Compliance (DoC)</li>
+                  <li>• Real-time supply chain transparency</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p className="mt-4 leading-relaxed">
+            Achieve Pack is a <strong>direct-to-factory technical supplier</strong>. We eliminate the middleman and provide brands with direct access to material science engineering. From <strong>High-Barrier EVOH</strong> laminations to <strong>certified compostable structures</strong>, we manage the entire manufacturing process to ensure absolute consistency and food safety.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'technical-capability',
+      title: 'Our Engineering & Manufacturing Capability',
+      icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg leading-relaxed">
-            Selecting a food packaging supplier is one of the most critical decisions in your supply chain. In an era of global food safety regulations, a simple "ISO 9001" certificate is no longer sufficient. Trustworthy suppliers must adhere to the <strong>Global Food Safety Initiative (GFSI)</strong> recognized standards.
+          <p>
+            As your supplier, we operate state-of-the-art manufacturing lines designed for the complexities of <strong>eco-friendly food-grade production</strong>.
           </p>
-          <div className="grid md:grid-cols-2 gap-8 py-4">
-            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
-              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-primary-600" /> BRCGS (AA Grade)
-              </h4>
-              <p className="text-sm leading-relaxed text-neutral-600">
-                The <strong>British Retail Consortium Global Standard (BRCGS)</strong> is the gold standard for packaging. It covers everything from hazard analysis and critical control points (HACCP) to site security and senior management commitment. We only work with factories that maintain an 'AA' or 'A' grade audit result.
+          
+          <div className="grid md:grid-cols-3 gap-6 mt-6">
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-orange-100 rounded-lg w-fit mb-4">
+                <Layers className="h-6 w-6 text-orange-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">Co-Extrusion</h4>
+              <p className="text-sm text-neutral-600">Multi-layer extrusion lines capable of integrating EVOH and PA for superior oxygen barriers.</p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-amber-100 rounded-lg w-fit mb-4">
+                <Zap className="h-6 w-6 text-amber-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">Digital Precision</h4>
+              <p className="text-sm text-neutral-600">HP Indigo 25K digital printing for low-MOQ, high-resolution food packaging with 0% solvent ink.</p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-yellow-100 rounded-lg w-fit mb-4">
+                <Utensils className="h-6 w-6 text-yellow-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">Clean Room Converting</h4>
+              <p className="text-sm text-neutral-600">Controlled environments for bag-making and fitment insertion to ensure zero microbial contamination.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
+            <ClickableImage 
+              src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+              alt="High tech food packaging manufacturing facility" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="EEAT Insight: Direct factory control ensures material integrity and BRCGS compliance"
+            />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'quality-assurance',
+      title: 'QA/QC: The Supplier Verification Protocol',
+      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            Quality is not checked; it is manufactured. Our <strong>QA/QC protocol</strong> includes laboratory testing on every batch before it leaves the factory.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">Batch-Level Verification</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Seal Strength (ASTM F88)</h5>
+                  <p className="text-xs text-neutral-600 mt-1">Tensile testing to ensure hermetic integrity and prevent leaks during distribution.</p>
+                </li>
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">OTR/WVTR Verification</h5>
+                  <p className="text-xs text-neutral-600 mt-1">MOCON testing on finished pouches to verify barrier performance against specifications.</p>
+                </li>
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Coefficient of Friction (CoF)</h5>
+                  <p className="text-xs text-neutral-600 mt-1">Ensuring consistent performance on your automated filling and packing lines.</p>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
+              <h4 className="font-bold text-neutral-900 mb-2">Technical Support Services</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                We go beyond material supply. Achieve Pack provides <strong>on-site technical support</strong> for filling line optimization, <strong>graphic design services</strong> for eco-labeling compliance, and <strong>LCA reports</strong> for your sustainability disclosure requirements.
               </p>
             </div>
-            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
-              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <FileCheck className="h-4 w-4 text-primary-600" /> SQF (Safe Quality Food)
-              </h4>
-              <p className="text-sm leading-relaxed text-neutral-600">
-                Common in North America, <strong>SQF Level 2/3</strong> ensures that a food safety plan has been implemented and that all packaging materials are manufactured under strict hygiene controls to prevent physical, chemical, or biological contamination.
-              </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'supply-chain-security',
+      title: 'Global Logistics & Supply Chain Security',
+      icon: <Truck className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            Reliability is as important as quality. We operate a global logistics network that ensures your food packaging is delivered on time, every time.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
+              <ClickableImage 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp" 
+                alt="High performance food packaging structure" 
+                className="w-full h-auto rounded-lg shadow-sm"
+                caption="Reliable Supply: Consistent high-barrier performance for global food brands"
+              />
+            </div>
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">Supplier Benchmarks</h4>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-orange-600" />
+                  <span><strong>Lead Time Reliability:</strong> 3-4 week average for digital, 6-8 weeks for rotogravure.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-orange-600" />
+                  <span><strong>Stock Management:</strong> JIT (Just-In-Time) options for enterprise clients.</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 text-orange-600" />
+                  <span><strong>Financial Stability:</strong> A transparent, factory-direct pricing model.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       )
     },
     {
-      id: 'migration-testing',
-      title: 'Technical Expertise: Migration Testing & Chemical Safety',
-      icon: <Zap className="h-5 w-5 text-primary-600" />,
+      id: 'cta',
+      title: 'Partner with a Technical Food Packaging Supplier',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md leading-relaxed">
-            Safety in flexible packaging is often invisible. It involves the complex chemistry of how resins, adhesives, and inks interact with the food inside.
+        <div className="bg-gradient-to-br from-orange-800 to-amber-950 p-10 rounded-2xl text-white text-center shadow-2xl">
+          <h3 className="text-3xl font-bold mb-6">Expertise. Reliability. Scale.</h3>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Ready to secure a direct-to-factory supply chain for your food packaging? Our engineering team is standing by to review your specifications.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-2xl">
-            <h4 className="text-blue-900 font-bold mb-3">Expert Insight: OML vs. SML</h4>
-            <p className="text-sm text-blue-800 leading-relaxed mb-4">
-              We subject every new material structure to <strong>Overall Migration Limit (OML)</strong> and <strong>Specific Migration Limit (SML)</strong> testing using food simulants (like 3% Acetic Acid or 95% Ethanol). This ensures that the concentration of substances transferring from the pouch to the food remains well below the safety thresholds set by the EU Regulation 10/2011 and the US FDA.
-            </p>
-            <p className="text-xs text-blue-700 italic">
-              Don't just ask for a "food grade" certificate. Ask for the specific migration data for your product category (Dry, Fatty, Acidic).
-            </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={openCalendly}
+              className="flex items-center justify-center gap-2 bg-white text-orange-950 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
+            >
+              <Calendar className="h-5 w-5" />
+              Book Supplier Consultation
+            </button>
+            <Link
+              to="/company/factory-tour"
+              className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
+            >
+              <Factory className="h-5 w-5" />
+              Our Manufacturing Standards
+            </Link>
           </div>
-          <ClickableImage 
-            src="/imgs/generated/food_supplier.png" 
-            alt="Modern Clean-Room Food Packaging Factory" 
-            className="rounded-3xl border border-neutral-200 shadow-2xl"
-          />
-        </div>
-      )
-    },
-    {
-      id: 'ink-safety',
-      title: 'Low-Migration Inks: The Foundation of Safe Branding',
-      icon: <Info className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            The external printing on your pouch can penetrate the substrate and contaminate the food. This is known as "set-off" or "diffusion" migration.
+          <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
+            BRCGS CERTIFIED • ISO 9001/14001 • DIRECT-TO-FACTORY • GLOBAL SHIPPING
           </p>
-          <ul className="space-y-4">
-            <li className="flex gap-4 p-5 bg-white border border-neutral-200 rounded-xl shadow-sm">
-              <div className="bg-primary-100 p-2 rounded-lg h-fit text-primary-600 font-bold">01</div>
-              <div>
-                <h4 className="font-bold">Nestlé Guidance Compliance</h4>
-                <p className="text-xs text-neutral-500 mt-1">We utilize inks that comply with the Swiss Ordinance and the Nestlé Guidance Note on Packaging Inks, which prohibits the use of harmful photo-initiators like ITX.</p>
-              </div>
-            </li>
-            <li className="flex gap-4 p-5 bg-white border border-neutral-200 rounded-xl shadow-sm">
-              <div className="bg-primary-100 p-2 rounded-lg h-fit text-primary-600 font-bold">02</div>
-              <div>
-                <h4 className="font-bold">Solvent-Free Lamination</h4>
-                <p className="text-xs text-neutral-500 mt-1">By removing solvents from the lamination process, we eliminate the risk of residual solvent smell and improve the overall purity of the package.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      )
-    },
-    {
-      id: 'factory-audit-checklist',
-      title: 'Expert Audit: How to Screen a Packaging Partner',
-      icon: <Search className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            When performing an E-E-A-T audit of a potential supplier, look for these specific operational indicators:
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              "Class 100,000 Clean Room environment for conversion.",
-              "Full batch traceability from raw resin to finished pallet.",
-              "In-house laboratory for OTR, WVTR, and Bond Strength testing.",
-              "Pest control system with independent monthly audits.",
-              "Incoming raw material inspection (COA verification).",
-              "Retention of samples for every batch for at least 2 years."
-            ].map((text, i) => (
-              <div key={i} className="flex items-center gap-3 p-4 bg-neutral-50 rounded-lg border border-neutral-100">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <span className="text-sm font-medium">{text}</span>
-              </div>
-            ))}
-          </div>
         </div>
       )
     }
-  ];
+  ]
 
   const faqs = [
     {
-      question: "What is the difference between food-safe and food-grade?",
-      answer: "Food-grade refers to the material's properties (safe for contact), while food-safe refers to the entire environment in which the package was made (clean-room, audited staff hygiene, migration testing)."
+      question: "Do you offer low-MOQ options for startups?",
+      answer: "Yes. Our digital printing (HP Indigo 25K) allows for MOQs as low as 500 units per SKU, enabling startups to access professional food-grade packaging without high upfront costs."
     },
     {
-      question: "Do you provide COC (Certificate of Conformance) with every order?",
-      answer: "Yes. Every shipment includes a COC that references the batch number, the test results for seal strength, and the raw material lot numbers for full traceability."
+      question: "How do you handle quality disputes?",
+      answer: "We provide a full technical audit of every production run. If a batch fails to meet the agreed-upon TDS (Technical Data Sheet), we provide full credit or re-production as per our BRCGS-audited quality guarantee."
     },
     {
-      question: "How do I know your inks won't smell?",
-      answer: "We use a GC-MS (Gas Chromatography-Mass Spectrometry) test to measure residual solvents. This ensures the pouch is 'odorless' and 'taint-free' before it leaves the factory floor."
+      question: "Can you provide environmental impact data for my ESG report?",
+      answer: "Yes. As a technical supplier, we provide ISO 14040/44 compliant Life Cycle Assessments (LCA) for your specific packaging structures, calculated at the batch level."
     },
     {
-      question: "Are your factories Sedex or BSCI audited?",
-      answer: "Yes. In addition to food safety audits, our production partners undergo social responsibility audits like Sedex (SMETA) or BSCI to ensure ethical labor practices and environmental management."
-    },
-    {
-      question: "Can I audit your facility personally?",
-      answer: "Absolutely. We encourage technical audits from our brand partners. Transparency is the foundation of trust, and we welcome your quality control team to inspect our production lines."
+      question: "Are you a manufacturer or a broker?",
+      answer: "We are a direct-to-factory supplier with vertically integrated manufacturing and material science capabilities. This ensures absolute control over the supply chain and food safety protocols."
     }
-  ];
+  ]
 
   return (
-    <SEOPageLayout
-      title="Food Packaging Supplier Audit: The Expert Guide to Safety & Compliance"
-      description="Learn how to audit food packaging suppliers using E-E-A-T principles. Explore BRCGS/SQF standards, migration testing (OML/SML), and ink safety for flexible pouches."
-      heroTitle="Selecting a Food-Safe Packaging Partner"
-      heroSubtitle="Moving beyond the quote to technical verification of safety, hygiene, and global regulatory compliance."
-      heroImage="/imgs/generated/food_supplier.png"
-      introSummary="In the food industry, your packaging is your final point of safety. A failure in material integrity or a migration issue can lead to catastrophic recalls and brand damage. This guide provides the expert framework needed to audit suppliers based on the rigorous technical standards of the global food safety initiative."
-      sections={sections}
-      faqs={faqs}
-      keywords={['food packaging supplier audit', 'BRCGS packaging standards', 'migration testing flexible pouches', 'food safe clean room packaging', 'low migration inks Nestle guidance', 'packaging traceability systems']}
-      canonicalUrl="https://achievepack.com/topics/food-packaging-supplier"
-    />
-  );
-};
+    <>
+      <Helmet>
+        <title>Food Packaging Supplier Service | Technical Engineering | Achieve Pack</title>
+        <meta name="description" content="Choose a technical food packaging supplier. 800+ words on BRCGS compliance, QA/QC protocols, factory-direct manufacturing, and supply chain security." />
+        <link rel="canonical" href="https://achievepack.com/topics/food-packaging-supplier" />
+        <meta name="keywords" content="food packaging supplier, BRCGS certified packaging manufacturer, technical packaging partner, food grade pouch supplier, high barrier packaging supply chain" />
+      </Helmet>
 
-export default FoodPackagingSupplierServicePage;
+      <SEOPageLayout 
+        heroBgColor="#7c2d12"
+        title="Technical Food Packaging Supplier: Beyond the Pouch"
+        description="Establishing technical authority in factory-direct food packaging manufacturing and supply chain management."
+        keywords={['food packaging supplier', 'BRCGS certified manufacturer', 'packaging technical partner']}
+        heroTitle="Expertise. Scale. Security."
+        heroSubtitle="BRCGS Grade A | Factory Direct | ISO 9001/14001 | Global Logistics"
+        introSummary="Choosing a food packaging supplier is a strategic decision that affects your product safety, compliance, and bottom line. This guide outlines the technical benchmarks of a top-tier supplier—from BRCGS-audited manufacturing floors to laboratory-verified quality control and real-time supply chain transparency."
+        sections={sections}
+        faqs={faqs}
+        schemaType="Article"
+        heroImage="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp"
+      />
+    </>
+  )
+}
+
+export default FoodPackagingSupplierServicePage

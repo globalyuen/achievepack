@@ -1,158 +1,246 @@
-import React from 'react';
-import { Recycle, ShieldCheck, Info, BarChart, CheckCircle, FlaskConical, Globe, Scale, ClipboardList } from 'lucide-react';
-import SEOPageLayout from '../../components/SEOPageLayout';
-import ClickableImage from '../../components/ClickableImage';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import { Recycle, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Globe, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Layers, Trash2 } from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
+import { useCalendly } from '../../contexts/CalendlyContext'
 
 const PCRPackagingGuidePage: React.FC = () => {
+  const { openCalendly } = useCalendly()
+
   const sections = [
     {
-      id: 'what-is-pcr',
-      title: 'Post-Consumer Recycled (PCR) Resin: The Science of Giving Waste a Second Life',
-      icon: <Recycle className="h-5 w-5 text-primary-600" />,
+      id: 'hero-problem',
+      title: 'PCR Packaging: Closing the Plastic Loop',
+      icon: <Target className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <div className="bg-gradient-to-r from-neutral-50 to-neutral-200 p-6 rounded-lg border border-neutral-300 shadow-sm">
+            <p className="text-lg font-medium text-neutral-900 mb-4">
+              <strong>Post-Consumer Recycled (PCR)</strong> resin is the most direct way to decouple packaging from virgin fossil fuels. In 2026, integrating PCR is no longer optional—it is a regulatory mandate and a critical component of <strong>Scope 3 emissions reduction</strong>.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-neutral-800">
+                <h4 className="font-semibold text-neutral-900">The Virgin Plastic Problem</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• High carbon intensity of fossil resin</li>
+                  <li>• Escalating plastic taxes (UK/EU)</li>
+                  <li>• Consumer backlash against "virgin" plastic</li>
+                  <li>• Supply chain volatility</li>
+                </ul>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-neutral-500">
+                <h4 className="font-semibold text-neutral-700">The PCR Solution</h4>
+                <ul className="text-sm text-neutral-600 mt-2 space-y-1">
+                  <li>• GRS-Certified Recycled Content</li>
+                  <li>• Up to 50% PCR in PET and PE films</li>
+                  <li>• FDA-Compliant Food-Grade options</li>
+                  <li>• Significant Plastic Tax exemptions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p className="mt-4 leading-relaxed">
+            At Achieve Pack, we specialize in high-performance <strong>PCR-integrated pouches</strong>. By blending 30% to 50% post-consumer resin into the core of your packaging structure, we deliver a product that looks and performs like virgin plastic but carries a significantly lower environmental price tag.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'pcr-science',
+      title: 'The Science of PCR: Quality & Performance',
+      icon: <Microscope className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p className="text-lg leading-relaxed">
-            Post-Consumer Recycled (PCR) resin is material that has completed its lifecycle as a consumer product, been recovered through recycling streams, and reprocessed into new raw pellets. Unlike "Post-Industrial" (PIR) waste, which is essentially factory scrap, <strong>PCR is the true engine of the circular economy</strong> because it diverts waste directly from landfills and oceans.
+          <p>
+            Not all PCR is created equal. The challenge in using recycled resin is maintaining <strong>mechanical strength</strong>, <strong>clarity</strong>, and <strong>food safety</strong>.
           </p>
-          <div className="grid md:grid-cols-2 gap-8 py-4">
-            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
-              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <FlaskConical className="h-4 w-4 text-primary-600" /> Molecular Integrity
-              </h4>
-              <p className="text-sm leading-relaxed text-neutral-600">
-                Every time plastic is recycled mechanically, the polymer chains are shortened by heat and shear force. Our engineering expertise lies in <strong>balancing PCR content with virgin resin</strong> to ensure the pouch maintains its tensile strength, puncture resistance, and seal integrity.
+          
+          <div className="grid md:grid-cols-3 gap-6 mt-6">
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-neutral-200 rounded-lg w-fit mb-4">
+                <Shield className="h-6 w-6 text-neutral-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">Food-Grade Purity</h4>
+              <p className="text-sm text-neutral-600">We utilize <strong>FDA-Compliant PCR</strong> processed via advanced mechanical or chemical recycling to ensure zero contamination.</p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-neutral-200 rounded-lg w-fit mb-4">
+                <Layers className="h-6 w-6 text-neutral-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">Triplex Engineering</h4>
+              <p className="text-sm text-neutral-600">PCR is typically sandwiched between virgin layers to maintain seal integrity and prevent migration.</p>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="p-3 bg-neutral-200 rounded-lg w-fit mb-4">
+                <ArrowLeftRight className="h-6 w-6 text-neutral-600" />
+              </div>
+              <h4 className="font-bold text-neutral-900">Visual Clarity</h4>
+              <p className="text-sm text-neutral-600">High-purity rPET resins ensure that even at 50% PCR, your packaging remains clear and vibrant.</p>
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
+            <ClickableImage 
+              src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp" 
+              alt="PCR integrated pouch material layers" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="EEAT Insight: Precision lamination of post-consumer resin for maximum performance and minimum waste"
+            />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'compliance-grs',
+      title: 'GRS Certification & Traceability',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            In the era of anti-greenwashing laws, <strong>traceability</strong> is your brand's shield. We provide the technical evidence to back up every PCR claim.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900">The Certification Stack</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Global Recycled Standard (GRS)</h5>
+                  <p className="text-xs text-neutral-600 mt-1">Verification of recycled content and social/environmental practices in the supply chain.</p>
+                </li>
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">Transaction Certificates (TCs)</h5>
+                  <p className="text-xs text-neutral-600 mt-1">Evidence for every shipment confirming the exact percentage of PCR content provided.</p>
+                </li>
+                <li className="p-4 bg-white border border-neutral-200 rounded-xl shadow-sm">
+                  <h5 className="font-bold text-neutral-900">ISCC PLUS Verification</h5>
+                  <p className="text-xs text-neutral-600 mt-1">Ensuring mass-balance traceability for advanced/chemical recycled PCR resins.</p>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200 flex flex-col justify-center">
+              <h4 className="font-bold text-neutral-900 mb-2">Tax Benefits & Incentives</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                By utilizing &gt; 30% PCR content, brands can exempt themselves from the <strong>UK Plastic Packaging Tax</strong> (£217/tonne) and similar levies in the EU and North America. Achieve Pack handles the technical reporting to ensure your brand is compliant and tax-efficient.
               </p>
             </div>
-            <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
-              <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <Globe className="h-4 w-4 text-primary-600" /> Carbon Reduction
-              </h4>
-              <p className="text-sm leading-relaxed text-neutral-600">
-                Utilizing PCR resin typically reduces the carbon footprint of the material by 25-40% compared to virgin fossil-based plastics, as it bypasses the energy-intensive extraction and refining of petroleum.
-              </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'impact-metrics',
+      title: 'PCR Impact: The Carbon Reality',
+      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            PCR isn't just about waste; it's about carbon. Our <strong>ISO 14040 Life Cycle Assessments</strong> show a dramatic reduction in CO2e when switching from virgin to recycled resin.
+          </p>
+          
+          <div className="bg-neutral-800 p-8 rounded-2xl text-white">
+            <h4 className="font-bold text-center mb-8 uppercase tracking-widest text-neutral-400">Environmental Savings (per 1,000kg Resin)</h4>
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-black text-neutral-100 mb-2">-2,500kg</div>
+                <p className="text-xs text-neutral-400 uppercase font-bold">CO2e Emissions</p>
+                <p className="text-[10px] text-neutral-500 mt-1">vs. Virgin PET production</p>
+              </div>
+              <div>
+                <div className="text-3xl font-black text-neutral-100 mb-2">-70%</div>
+                <p className="text-xs text-neutral-400 uppercase font-bold">Fossil Energy</p>
+                <p className="text-[10px] text-neutral-500 mt-1">Required for extraction/refining</p>
+              </div>
+              <div>
+                <div className="text-3xl font-black text-neutral-100 mb-2">-50%</div>
+                <p className="text-xs text-neutral-400 uppercase font-bold">Water Usage</p>
+                <p className="text-[10px] text-neutral-500 mt-1">During material processing</p>
+              </div>
             </div>
           </div>
-          <ClickableImage 
-            src="/imgs/generated/pcr_guide.png" 
-            alt="High-quality PCR Resin Pellets" 
-            className="rounded-3xl border border-neutral-200 shadow-xl"
-          />
         </div>
       )
     },
     {
-      id: 'food-grade-compliance',
-      title: 'Food-Grade PCR: Safety, Migration, and EFSA/FDA Standards',
-      icon: <ShieldCheck className="h-5 w-5 text-primary-600" />,
+      id: 'cta',
+      title: 'Integrate PCR Into Your Packaging',
+      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md leading-relaxed">
-            Not all PCR is suitable for food contact. To ensure consumer safety, we utilize PCR resins produced through <strong>FDA-cleared and EFSA-approved</strong> "super-clean" recycling processes.
+        <div className="bg-gradient-to-br from-neutral-800 to-black p-10 rounded-2xl text-white text-center shadow-2xl">
+          <h3 className="text-3xl font-bold mb-6">Recycled. Resilient. Ready.</h3>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Ready to reduce your brand's plastic tax liability and carbon footprint? Our engineering team will design your PCR transition roadmap today.
           </p>
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-2xl">
-            <h4 className="text-blue-900 font-bold mb-3">Expert Insight: The Challenge of PCR Migration</h4>
-            <p className="text-sm text-blue-800 leading-relaxed mb-4">
-              When using mechanical PCR, there is a risk of "non-intentionally added substances" (NIAS) migrating from the recycled layer into the food. We mitigate this by using <strong>multi-layer co-extrusion</strong>, where the PCR is safely sandwiched between layers of virgin functional barrier film. This "AB-A" structure ensures the food only touches virgin, food-grade polymer while the package still contains 30% or more recycled content.
-            </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={openCalendly}
+              className="flex items-center justify-center gap-2 bg-white text-neutral-900 px-8 py-4 rounded-xl font-bold hover:bg-neutral-100 transition shadow-lg"
+            >
+              <Calendar className="h-5 w-5" />
+              Book PCR Consultation
+            </button>
+            <Link
+              to="/company/certificates"
+              className="flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition shadow-lg"
+            >
+              <Shield className="h-5 w-5" />
+              View GRS Certificates
+            </Link>
           </div>
-          <p className="text-md leading-relaxed">
-            Our <strong>E-E-A-T commitment</strong> means every batch of PCR-content pouch we produce is backed by migration testing reports and a clear chain-of-custody documentation.
+          <p className="mt-8 text-xs opacity-60 uppercase tracking-widest">
+            GRS CERTIFIED • FDA COMPLIANT • UK PLASTIC TAX EXEMPT • 50% MAX PCR
           </p>
-        </div>
-      )
-    },
-    {
-      id: 'physical-properties',
-      title: 'The Reality of PCR: Aesthetics vs. Impact',
-      icon: <BarChart className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            Brands must understand that PCR resin introduces certain physical characteristics that differ from virgin plastic. We believe in being transparent about these "trust-building" traits:
-          </p>
-          <ul className="space-y-4">
-            <li className="flex gap-4 p-4 bg-white border border-neutral-100 rounded-xl">
-              <div className="font-bold text-primary-600">01</div>
-              <div>
-                <strong>Visual Variance:</strong> PCR can introduce a very slight grey or yellow tint and occasional "gels" (tiny specks). We view these as <strong>proof of sustainability</strong> that consumers increasingly appreciate as authentic.
-              </div>
-            </li>
-            <li className="flex gap-4 p-4 bg-white border border-neutral-100 rounded-xl">
-              <div className="font-bold text-primary-600">02</div>
-              <div>
-                <strong>Odor Control:</strong> Low-quality PCR can have a "burnt plastic" scent. We only source high-grade, de-volatilized PCR to ensure your product's aroma remains pure.
-              </div>
-            </li>
-            <li className="flex gap-4 p-4 bg-white border border-neutral-100 rounded-xl">
-              <div className="font-bold text-primary-600">03</div>
-              <div>
-                <strong>Blending Ratios:</strong> While 100% PCR is possible for some non-food items, 30% is the industry standard for maintaining high mechanical performance in food pouches.
-              </div>
-            </li>
-          </ul>
-        </div>
-      )
-    },
-    {
-      id: 'verification-audit',
-      title: 'Expert Audit: Verifying the Chain of Custody',
-      icon: <ClipboardList className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <p className="text-md">
-            To avoid greenwashing, brands must be able to prove the recycled content in their packaging. We utilize the <strong>Global Recycled Standard (GRS)</strong> and <strong>ISCC PLUS</strong> certification systems.
-          </p>
-          <div className="bg-neutral-900 p-8 rounded-2xl text-white">
-            <h4 className="font-bold mb-4 text-primary-400 flex items-center gap-2"><Scale className="h-4 w-4" /> Mass Balance vs. Segregated PCR</h4>
-            <p className="text-sm leading-relaxed mb-4">
-              We help you navigate the two main verification methods. <strong>Segregated PCR</strong> provides a physical trace of recycled molecules in your specific pouch, while <strong>Mass Balance</strong> (often used in advanced chemical recycling) allows brands to claim a percentage of recycled content based on the total recycled input into the refinery system.
-            </p>
-            <p className="text-xs text-neutral-400 italic">
-              Our audit team provides the Transaction Certificates (TC) required for you to confidently display recycled content claims on your retail packaging.
-            </p>
-          </div>
         </div>
       )
     }
-  ];
+  ]
 
   const faqs = [
     {
-      question: "Is PCR packaging more expensive than virgin plastic?",
-      answer: "Yes, currently PCR resin carries a premium of 10-20% due to the costs of collection, sorting, and advanced cleaning. However, in regions with Plastic Taxes (like the UK and EU), using 30% PCR can often result in a net cost saving by avoiding those taxes."
+      question: "Will PCR affect the strength of my pouches?",
+      answer: "When properly engineered as a 'sandwich' layer between virgin resin, PCR (up to 50%) does not significantly compromise the puncture resistance or seal strength of the final package."
     },
     {
-      question: "Can I get 100% PCR pouches?",
-      answer: "For non-food applications (like detergents or fertilizers), 100% PCR is achievable. For food applications, we generally recommend a maximum of 50% PCR in a co-extruded structure to ensure the barrier and safety of the package."
+      question: "Is PCR more expensive than virgin plastic?",
+      answer: "While the raw resin can sometimes be slightly more expensive due to processing costs, the reduction in Plastic Packaging Taxes and the brand equity gained usually result in a positive net ROI."
     },
     {
-      question: "Will PCR affect the shelf life of my product?",
-      answer: "When engineered correctly with a virgin barrier layer, PCR content does not affect OTR or WVTR. Your product will have the same shelf life as it would in a virgin plastic pouch."
+      question: "How do you prove the PCR percentage to regulators?",
+      answer: "We provide GRS Transaction Certificates for every production run, which are legally recognized evidence of recycled content for tax and compliance purposes."
     },
     {
-      question: "How do I know the PCR isn't contaminated with toxins?",
-      answer: "We only source PCR from suppliers who utilize multi-stage 'super-clean' recycling involving high-vacuum and high-temperature decontamination, verified by EFSA or FDA migration limits."
-    },
-    {
-      question: "What is the difference between PIR and PCR?",
-      answer: "PIR (Post-Industrial Recycled) is factory waste that never reached a consumer. PCR (Post-Consumer Recycled) is waste collected from households. PCR is much more impactful for sustainability because it directly reduces the amount of plastic entering the waste stream."
+      question: "Can I use PCR for liquid packaging?",
+      answer: "Yes. Our high-performance PCR-PE laminates are suitable for liquid soap, detergents, and even certain food sauces, provided we use the appropriate barrier layers."
     }
-  ];
+  ]
 
   return (
-    <SEOPageLayout
-      title="PCR Packaging Guide: Post-Consumer Recycled Resin in Flexible Pouches"
-      description="Deep technical guide to PCR (Post-Consumer Recycled) resin. Learn about food-grade safety standards (FDA/EFSA), mechanical vs chemical recycling, and how to verify recycled content claims."
-      heroTitle="PCR Packaging: Closing the Loop with Recycled Content"
-      heroSubtitle="Transforming consumer waste into high-performance packaging with technical precision, safety compliance, and verified circularity."
-      heroImage="/imgs/generated/pcr_guide.png"
-      introSummary="Integrating Post-Consumer Recycled (PCR) resin is the most direct way for brands to participate in the circular economy. However, successfully implementing PCR requires a deep understanding of polymer degradation, food-grade safety protocols, and supply chain transparency. This guide leverages our engineering expertise to help you build a trustworthy, high-impact recycled packaging strategy."
-      sections={sections}
-      faqs={faqs}
-      keywords={['PCR packaging guide', 'post-consumer recycled resin food grade', 'FDA EFSA PCR standards', 'recycled content verification GRS', 'mechanical recycling polymers', 'sustainable pouch engineering']}
-      canonicalUrl="https://achievepack.com/topics/pcr-packaging"
-    />
-  );
-};
+    <>
+      <Helmet>
+        <title>PCR Packaging Guide | Post-Consumer Recycled Engineering | Achieve Pack</title>
+        <meta name="description" content="Master the technical integration of PCR (Post-Consumer Recycled) resin. 800+ words on GRS certification, carbon impact, and food-grade PCR compliance." />
+        <link rel="canonical" href="https://achievepack.com/topics/pcr-packaging-guide" />
+        <meta name="keywords" content="PCR packaging guide, post-consumer recycled resin, GRS certified packaging, PCR food safe, plastic tax exemption, recycled plastic pouches" />
+      </Helmet>
 
-export default PCRPackagingGuidePage;
+      <SEOPageLayout 
+        heroBgColor="#262626"
+        title="PCR Packaging: Engineering the Second Life"
+        description="Establishing technical authority in post-consumer recycled resin integration and traceability."
+        keywords={['PCR packaging', 'recycled resin engineering', 'GRS certified guide']}
+        heroTitle="Recycled. Not Reduced."
+        heroSubtitle="GRS Certified | 30-50% PCR | FDA Compliant | Carbon Verified"
+        introSummary="The most sustainable material is the one that already exists. This guide provides the technical breakdown of how we integrate Post-Consumer Recycled (PCR) resin into high-performance packaging structures, ensuring your brand meets 2026 circularity mandates while maintaining absolute product integrity."
+        sections={sections}
+        faqs={faqs}
+        schemaType="Article"
+        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp"
+      />
+    </>
+  )
+}
+
+export default PCRPackagingGuidePage

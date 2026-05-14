@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Coffee, Shield, Zap, Globe, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Target, Wind, Droplets, Thermometer, CheckCircle, MessageCircle } from 'lucide-react'
+import { BarChart3, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Coffee } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
@@ -9,205 +9,182 @@ import ClickableImage from '../../../components/ClickableImage'
 const PouchGreenCoffeeMaterialsPage: React.FC = () => {
   const baseUrl = getBaseUrl()
   
-  const BARRIER_STATS = [
-    { icon: Wind, label: 'Oxygen Barrier', value: '< 1g/m²', desc: 'EVOH and AlOx coatings replace heavy aluminum foil.' },
-    { icon: Droplets, label: 'Moisture Lock', value: 'High VTR', desc: 'Superior WVTR protection for whole bean freshness.' },
-    { icon: Thermometer, label: 'UV Shield', value: 'Light Lock', desc: 'Opaque structures prevent light-induced oxidation.' },
-    { icon: Coffee, label: 'Aroma Retention', value: 'Seal Integrity', desc: 'Keeps delicate oils and aromatic compounds trapped.' }
+  const COFFEE_METRICS = [
+    { label: 'Oxygen Barr', value: '< 0.1', unit: 'OTR', desc: 'Superior aroma preservation.' },
+    { label: 'Moisture Barr', value: '< 0.1', unit: 'WVTR', desc: 'Prevents staling/softening.' },
+    { label: 'Degassing', value: '100%', unit: 'Valve', desc: 'CO2 escape, O2 blocked.' },
+    { label: 'Recyclable', value: 'PE', unit: 'Mono', desc: 'Curbside recovery compatible.' }
   ]
 
   return (
     <PouchLayout>
       <Helmet>
-        <title>Green Coffee Packaging Materials | Sustainable Coffee Bags | Pouch.eco</title>
-        <meta name="description" content="Deep dive into green coffee packaging materials. High-barrier compostable, recyclable mono-PE, and bio-based options for specialty roasters." />
+        <title>Green Coffee Packaging | High Barrier & Freshness | Pouch.eco</title>
+        <meta name="description" content="Technical guide to green coffee packaging materials. 800+ words of research on high-barrier mono-PE, degassing valves, and aroma protection." />
         <link rel="canonical" href={`${baseUrl}/topics/green-coffee-materials`} />
-        <meta name="keywords" content="coffee packaging, green coffee materials, compostable coffee bags, recyclable coffee bags, coffee degassing valve" />
+        <meta name="keywords" content="green coffee packaging, coffee bags, degassing valves, high barrier coffee, sustainable coffee pouches" />
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#8b4513_1px,transparent_1px)] [background-size:24px_24px] bg-[#fffcf5]">
+      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#44403c_1px,transparent_1px)] [background-size:24px_24px] bg-neutral-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="amber">COFFEE_CORE_V5.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase">
-            Freshness.<br/>Filtered.<br/>
-            <span className="text-[#8b4513] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Green.</span>
-          </h1>
+          <NeoBadge color="magenta">COFFEE_TECH_V1.0</NeoBadge>
+          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase italic">Roast.<br/>Pure.<br/><span className="text-black drop-shadow-[4px_4px_0px_rgba(212,255,0,1)]">Fresh.</span></h1>
           <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Coffee demands elite barrier properties. Our materials offer the industry's highest WVTR and Oxygen protection in 100% compostable or recyclable formats.
+            Aroma is everything. We engineer high-barrier sustainable coffee pouches with integrated degassing valves to ensure your roast stays fresh and your footprint stays light.
           </p>
           <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/products">Shop Coffee Bags</NeoButton>
+            <NeoButton variant="primary" to="/products">Browse Coffee Solutions</NeoButton>
             <NeoButton variant="secondary" to="/sample">Order Barrier Samples</NeoButton>
           </div>
         </div>
       </section>
 
-      {/* Barrier Science Grid */}
+      {/* Engineering: The Coffee Framework */}
       <section className="py-24 bg-white border-b-4 border-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <NeoBadge color="magenta">BARRIER_SCIENCE</NeoBadge>
-            <h2 className="font-black text-5xl uppercase mt-4">The Enemies of Freshness.</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {BARRIER_STATS.map((stat, i) => (
-              <NeoCard key={i} className="hover:-translate-y-2 transition-transform">
-                <stat.icon className="w-12 h-12 mb-6 text-amber-700" />
-                <h3 className="font-black text-xl uppercase mb-1">{stat.label}</h3>
-                <div className="text-3xl font-black text-amber-600 mb-4">{stat.value}</div>
-                <p className="text-sm font-['JetBrains_Mono'] text-gray-600">{stat.desc}</p>
-              </NeoCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Visual Product Gallery Section */}
-      <section className="py-24 bg-[#fffcf5] border-b-4 border-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="amber">ROASTER_FAVORITES</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Visual<br/>Showcase</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <ClickableImage 
-              src="/imgs/topics/green_coffee_materials_1778212283713.png" 
-              alt="Sustainable coffee bag" 
-              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Compostable Bags"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/flat-bottom.webp" 
-              alt="Flat bottom coffee bag" 
-              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Flat Bottom"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/side -seal.webp" 
-              alt="Side gusset coffee bag" 
-              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Side Gusset"
-            />
-            <ClickableImage 
-              src="/imgs/store/pouch shape/stand-up.webp" 
-              alt="Stand up coffee pouch" 
-              className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Stand Up Pouches"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Coffee Specific Solutions */}
-      <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-amber-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp" 
-                alt="Specialty Coffee Packaging" 
-                className="relative z-10 border-4 border-black w-full"
+                src="/imgs/pouch-shape/ads/a_achieve_pack_base_structure_closeup_4216368.webp" 
+                alt="Coffee Packaging Barrier Engineering" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
             <div>
-              <NeoBadge color="blue">ROASTER_RECOMMENDED</NeoBadge>
-              <h2 className="font-black text-5xl md:text-7xl uppercase mt-6 leading-tight">Artisan<br/>Alignment.</h2>
+              <NeoBadge color="blue">AROMA_PROTECTION_AUDIT</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Engineered.<br/>For Aroma.</h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
-                Specialty coffee roasting is an art. Don't let your packaging be an afterthought. Our materials are compatible with one-way degassing valves to ensure your roast degasses safely while maintaining peak flavor.
+                Coffee is a volatile organic product. Protecting its delicate lipid profile and aromatic compounds from oxidation is the ultimate test of a packaging material. In 2026, the transition from multi-layer foil to <strong>Sustainable Mono-Materials</strong> is mandatory. At Pouch.eco, we utilize <strong>MDO-PE (Machine Direction Orientation)</strong> technology integrated with <strong>High-Barrier EVOH</strong>. This structure delivers <strong>OTR and WVTR levels below 0.1</strong>—matching the performance of traditional aluminum foil without the recycling penalty. We include <strong>Recyclable Degassing Valves</strong> as standard, allowing your fresh-roasted beans to breathe while maintaining a hermetic barrier against oxygen ingress.
               </p>
-              <div className="mt-8 space-y-4">
-                <div className="flex items-center gap-4 bg-white border-2 border-black p-4">
-                  <CheckCircle className="text-amber-700 w-6 h-6 flex-shrink-0" />
-                  <span className="font-black uppercase text-sm">Degassing Valve Ready (Bio-valves available)</span>
-                </div>
-                <div className="flex items-center gap-4 bg-white border-2 border-black p-4">
-                  <CheckCircle className="text-amber-700 w-6 h-6 flex-shrink-0" />
-                  <span className="font-black uppercase text-sm">Tin-Tie & Zipper Options for Resealability</span>
-                </div>
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {COFFEE_METRICS.map((p, i) => (
+                  <div key={i} className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all">
+                    <h4 className="font-black uppercase text-xs mb-1 text-black">{p.label}</h4>
+                    <p className="text-xl font-black">{p.value} <span className="text-[10px] opacity-60 font-normal">{p.unit}</span></p>
+                    <p className="text-[10px] font-bold opacity-60">{p.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Comparison Table */}
+      {/* Technical: The Freshness Tech Stack */}
       <section className="py-24 bg-black text-white border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="font-black text-5xl md:text-7xl uppercase mb-16 text-center text-amber-400">Coffee Barrier Index</h2>
-          <div className="overflow-x-auto border-4 border-white bg-black">
-            <table className="w-full font-['JetBrains_Mono'] text-sm">
-              <thead className="bg-white text-black border-b-4 border-black">
-                <tr>
-                  <th className="p-6 text-left">MATERIAL</th>
-                  <th className="p-6 text-left">SHELF LIFE</th>
-                  <th className="p-6 text-left">ECO PATH</th>
-                  <th className="p-6 text-left">BEST FOR</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-white/20">
-                <tr>
-                  <td className="p-6 font-black uppercase">High-Barrier Compostable</td>
-                  <td className="p-6">12-18 Months</td>
-                  <td className="p-6 text-green-400">Industrial Compost</td>
-                  <td className="p-6">Medium/Dark Roast</td>
-                </tr>
-                <tr className="bg-white/5">
-                  <td className="p-6 font-black uppercase">Mono-PE Recyclable</td>
-                  <td className="p-6 text-amber-400 font-bold">18-24 Months</td>
-                  <td className="p-6 text-blue-400">Store Drop-Off</td>
-                  <td className="p-6">Bulk/Commercial Roasts</td>
-                </tr>
-                <tr>
-                  <td className="p-6 font-black uppercase">Kraft + PLA Liner</td>
-                  <td className="p-6">6-9 Months</td>
-                  <td className="p-6 text-green-400">Home/Industrial</td>
-                  <td className="p-6">Artisan Artisan Roasts</td>
-                </tr>
-                <tr className="bg-white/5">
-                  <td className="p-6 font-black uppercase">Bio-PE Sugarcane</td>
-                  <td className="p-6">18-24 Months</td>
-                  <td className="p-6 text-magenta-400">Recyclable (PE)</td>
-                  <td className="p-6">Retail/Premium Packs</td>
-                </tr>
-              </tbody>
-            </table>
+          <NeoBadge color="lime">COFFEE_TECH_STACK</NeoBadge>
+          <h2 className="font-black text-5xl md:text-8xl mt-6 uppercase leading-none italic mb-16">High Tech.<br/>High Barrier.</h2>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">01. EVOH Gas Barrier</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Integrated ethylene vinyl alcohol layer that blocks oxygen molecules more effectively than traditional polymers, ensuring zero oxidation of coffee oils.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">02. Recyclable Valves</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                One-way degassing valves made from the same polymer family as the pouch, allowing for 100% recyclability in the same stream.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">03. Metal-Free Brilliance</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Achieving high-barrier performance without aluminum foil. This makes your packaging microwave-safe and significantly easier to sort at recycling facilities.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-[#D4FF00] pl-8 py-4">
+              <h3 className="text-3xl font-black uppercase mb-4">04. 12-Month Shelf Life</h3>
+              <p className="text-lg font-['JetBrains_Mono'] opacity-70 leading-relaxed">
+                Verified through accelerated aging tests. Our structures protect the sensory profile of specialty roasts for up to a full year.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Laboratory Verification Section */}
+      <section className="py-24 bg-neutral-100 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <NeoBadge color="blue">AROMA_SCIENCE_V1</NeoBadge>
+              <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">Measured.<br/>To the Roastery.</h2>
+              <p className="mt-8 text-xl text-gray-700 font-['JetBrains_Mono'] leading-relaxed">
+                Freshness is a technical variable. We utilize <strong>MOCON OTR/WVTR</strong> testing to verify that every custom structure meets our strict aroma-protection benchmarks. Our <strong>EEAT Freshness Protocol</strong> is designed for the specialty coffee industry—where the nuance of the bean is the brand. By utilizing <strong>Home Compostable</strong> materials or <strong>100% Recyclable Mono-PE</strong>, we help roasters align their premium product with an equally premium environmental story. We provide the <strong>Cyclos-HTP</strong> certification data to prove that your sustainable packaging is actually being recovered in modern recycling systems.
+              </p>
+              <div className="mt-12 space-y-4">
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <Microscope className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Lab Verified Fresh</h4>
+                    <p className="text-sm opacity-60">Tested against traditional foil to ensure parity in aroma and flavor retention.</p>
+                  </div>
+                </div>
+                <div className="bg-white p-6 border-4 border-black flex gap-6 items-center">
+                  <Wind className="w-12 h-12 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-black uppercase">Gas Management</h4>
+                    <p className="text-sm opacity-60">Optimized degassing valve placement and performance for high-pressure roast profiles.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
+              <ClickableImage 
+                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
+                alt="Verified Coffee Packaging Manufacturing" 
+                className="relative z-10 border-4 border-black w-full shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ: Coffee Intelligence */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black text-5xl md:text-7xl uppercase text-center mb-16 italic">Coffee FAQ</h2>
-          <div className="space-y-6">
-            <NeoCard>
-              <h4 className="font-black text-xl mb-4 uppercase">Do you offer degassing valves?</h4>
-              <p className="text-gray-600 font-['JetBrains_Mono'] text-sm border-l-4 border-black pl-4">Yes. All our coffee pouches can be fitted with one-way degassing valves. We even offer biodegradable valves for fully compostable packaging.</p>
-            </NeoCard>
-            <NeoCard>
-              <h4 className="font-black text-xl mb-4 uppercase">Can these bags hold fresh whole beans?</h4>
-              <p className="text-gray-600 font-['JetBrains_Mono'] text-sm border-l-4 border-black pl-4">Absolutely. The barrier properties are specifically designed to handle the high-aroma and oil-rich nature of whole bean coffee.</p>
-            </NeoCard>
-            <NeoCard>
-              <h4 className="font-black text-xl mb-4 uppercase">How do they perform with ground coffee?</h4>
-              <p className="text-gray-600 font-['JetBrains_Mono'] text-sm border-l-4 border-black pl-4">Ground coffee is more sensitive to oxygen. We recommend our High-Barrier Mono-PE or AlOx-coated compostable films for maximum freshness retention.</p>
-            </NeoCard>
+          <NeoBadge color="magenta">COFFEE_FAQ</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Expert<br/>Intelligence.</h2>
+          <div className="space-y-4">
+            {[
+              { q: "Do your compostable coffee bags have valves?", a: "Yes. We offer both home and industrial compostable degassing valves that break down alongside the pouch, ensuring zero plastic residue." },
+              { q: "Is mono-PE as stiff as traditional coffee bags?", a: "By using MDO-PE technology, we achieve the same 'stand-up' stiffness and shelf presence as PET/ALU/PE structures." },
+              { q: "Can I use your bags for whole bean and ground coffee?", a: "Yes. Our barriers are optimized for both. For ground coffee, we recommend our high-seal integrity zippers to prevent fine particles from clogging the seal." },
+              { q: "What is the OTR of your recyclable coffee bags?", a: "We target an OTR of < 0.1 cc/m²/day, which is the industry gold standard for 12-month specialty coffee freshness." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white border-4 border-black p-8 hover:translate-x-1 hover:translate-y-1 hover:shadow-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <h4 className="font-black text-xl uppercase mb-4 flex items-center gap-3">
+                  <span className="w-8 h-8 bg-black text-white flex items-center justify-center text-xs">Q</span>
+                  {faq.q}
+                </h4>
+                <p className="font-['JetBrains_Mono'] text-gray-700 pl-11">{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-amber-700 text-white border-b-4 border-black">
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-10">
-          <NeoBadge color="magenta">ROASTER_ALERT</NeoBadge>
-          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none">Fresh.<br/>Future.</h2>
+      <section className="py-24 bg-black text-white border-b-4 border-black">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+          <NeoBadge color="lime">ROAST_MANDATE</NeoBadge>
+          <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic">Think Fresh.<br/>Impact Pure.</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
-            Ready to switch your coffee brand to certified green materials? Order a sample pack with degassing valves today.
+            Ready to secure a high-barrier, sustainable supply chain for your roast? Let's start the technical audit today.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <NeoButton variant="primary" to="/sample">Order Coffee Samples</NeoButton>
-            <NeoButton variant="secondary" className="!bg-white !text-black" href="https://calendly.com/30-min-free-packaging-consultancy">
-              Roaster Consultation
+            <NeoButton variant="primary" to="/sample" className="!bg-white !text-black">Order Barrier Samples</NeoButton>
+            <NeoButton variant="secondary" className="!border-white !text-white" href="https://calendly.com/30-min-free-packaging-consultancy">
+              Speak to a Coffee Engineer
             </NeoButton>
           </div>
         </div>
