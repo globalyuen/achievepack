@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Globe, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Waves, Anchor, Ship } from 'lucide-react'
+import { Globe, Package, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Zap, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Microscope, Beaker, Waves, Anchor, Ship  , Recycle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'

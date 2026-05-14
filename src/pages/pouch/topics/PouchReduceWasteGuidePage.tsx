@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Leaf, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Trash2, Layers } from 'lucide-react'
+import { Leaf, Package, CheckCircle, Award, Zap, Globe, Factory, Recycle, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Target, Shield, MessageCircle, Thermometer, Wind, Droplets, Microscope, Beaker, Trash2, Layers  , Box } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
