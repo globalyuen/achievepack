@@ -817,6 +817,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/support/lead-time" element={<LeadTimePage />} />
                         <Route path="/support/sample-quote" element={<CustomPrintedSamplePage />} />
                         <Route path="/support/unprinted-samples" element={<UnprintedSamplesPage />} />
+                        <Route path="/support/color-accuracy-digital-printing" element={<ColorAccuracyDigitalPrintingPage />} />
                         <Route path="/sample" element={<CustomPrintedSamplePage />} />
                         <Route path="/unprinted-samples" element={<UnprintedSamplesPage />} />
 
