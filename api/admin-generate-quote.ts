@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void | VercelResponse> {
   // Handle CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -33,10 +33,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       text = decodeURIComponent(Buffer.from(logRow.raw_data.text_base64, 'base64').toString('utf-8'));
     }
     const customerName = logRow.raw_data?.customer || 'Valued Client';
-    if (!text) return new Response(JSON.stringify({ error: 'DB row empty' }), { status: 400 });
+    if (!text) return res.status(400).json({ error: 'DB row empty' });
 
     const XAI_API_KEY = process.env.XAI_API_KEY;
-    if (!XAI_API_KEY) return new Response(JSON.stringify({ error: 'XAI API key missing' }), { status: 500 });
+    if (!XAI_API_KEY) return res.status(500).json({ error: 'XAI API key missing' });
 
     // FAST PROMPT: Only ask AI to translate/extract into compact JSON - NOT generate HTML (avoids timeout!)
     const systemPrompt = `You are an expert logistics extractor for Achieve Pack.
