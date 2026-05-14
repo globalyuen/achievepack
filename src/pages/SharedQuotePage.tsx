@@ -589,22 +589,102 @@ const SharedQuotePage: React.FC = () => {
               {(!pricingData || pricingData.length === 0) ? (
                 <p className="text-xs text-gray-500 italic">This is an older quote with no pricing metadata. Please edit the HTML manually below.</p>
               ) : (
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2">
-                      <SlidersHorizontal className="w-4 h-4 text-blue-600" />
-                      <span className="text-xs font-black text-blue-800 uppercase">EXW adjustments in bottom bar ↓ Scroll down to see changes live</span>
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-lg px-4 py-3">
+                      <div className="flex flex-col flex-1">
+                        <label className="text-[10px] font-black uppercase text-blue-400">Customer Name</label>
+                        <input 
+                          type="text" 
+                          value={customerName}
+                          onChange={(e) => setCustomerName(e.target.value)}
+                          className="w-full bg-transparent border-none text-sm font-black text-blue-900 focus:outline-none"
+                        />
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <label className="text-[10px] font-black uppercase text-gray-400">Ship×</label>
-                      <input 
-                        type="number" 
-                        step="0.1"
-                        value={shippingMultiplier}
-                        onChange={(e) => setShippingMultiplier(parseFloat(e.target.value) || 1.0)}
-                        className="w-16 border-2 border-black p-1 text-xs font-bold text-center focus:outline-none"
-                      />
+                    <div className="flex items-center gap-3 bg-indigo-50 border border-indigo-200 rounded-lg px-4 py-3">
+                      <div className="flex flex-col flex-1">
+                        <label className="text-[10px] font-black uppercase text-indigo-400">Global Shipping Multiplier (1.0 = Default)</label>
+                        <div className="flex items-center gap-2">
+                          <input 
+                            type="number" 
+                            step="0.05"
+                            value={shippingMultiplier}
+                            onChange={(e) => setShippingMultiplier(parseFloat(e.target.value) || 1.0)}
+                            className="w-full bg-transparent border-none text-sm font-black text-indigo-900 focus:outline-none"
+                          />
+                          <SlidersHorizontal className="w-4 h-4 text-indigo-400" />
+                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-6">
+                    {pricingData.map((item, idx) => (
+                      <div key={idx} className="border-2 border-black rounded-xl overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] bg-white">
+                        <div className="bg-black text-white px-4 py-2 flex justify-between items-center">
+                          <h4 className="font-black text-xs uppercase truncate flex-1">{item.product_name || `Item ${idx+1}`}</h4>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[9px] font-black text-gray-400 uppercase">Adjustment:</span>
+                            <input 
+                              type="number" 
+                              value={item.adjustment || 100}
+                              onChange={(e) => {
+                                const newData = [...pricingData];
+                                newData[idx].adjustment = parseInt(e.target.value) || 100;
+                                setPricingData(newData);
+                              }}
+                              className="w-12 bg-neutral-800 text-[#D4FF00] border-none text-xs font-black p-0.5 rounded text-center focus:ring-1 focus:ring-[#D4FF00] outline-none"
+                            />
+                            <span className="text-[#D4FF00] font-black text-[10px]">%</span>
+                          </div>
+                        </div>
+                        <div className="p-4 grid grid-cols-1 gap-3">
+                          {(item.pricing || []).map((tier: any, tidx: number) => (
+                            <div key={tidx} className="flex flex-wrap items-center gap-4 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                              <div className="min-w-[100px]">
+                                <span className="text-[10px] font-black text-gray-400 uppercase block mb-1">Quantity</span>
+                                <span className="text-sm font-black">{tier.qty.toLocaleString()} <span className="text-[10px] text-gray-400">PCS</span></span>
+                              </div>
+                              <div className="flex-1 min-w-[120px]">
+                                <label className="text-[10px] font-black uppercase text-gray-400 block mb-1">Unit Price (RMB)</label>
+                                <div className="flex items-center gap-2">
+                                  <span className="text-xs font-bold text-gray-400">¥</span>
+                                  <input 
+                                    type="number" 
+                                    step="0.001"
+                                    value={tier.unit_rmb}
+                                    onChange={(e) => {
+                                      const newData = [...pricingData];
+                                      newData[idx].pricing[tidx].unit_rmb = parseFloat(e.target.value) || 0;
+                                      setPricingData(newData);
+                                    }}
+                                    className="w-full border-b-2 border-gray-200 bg-transparent py-1 text-sm font-black focus:border-black outline-none transition-colors"
+                                  />
+                                </div>
+                              </div>
+                              <div className="flex-1 min-w-[120px]">
+                                <label className="text-[10px] font-black uppercase text-gray-400 block mb-1">Total Weight (kg)</label>
+                                <div className="flex items-center gap-2">
+                                  <input 
+                                    type="number" 
+                                    step="0.1"
+                                    value={tier.weight_kg}
+                                    onChange={(e) => {
+                                      const newData = [...pricingData];
+                                      newData[idx].pricing[tidx].weight_kg = parseFloat(e.target.value) || 0;
+                                      setPricingData(newData);
+                                    }}
+                                    className="w-full border-b-2 border-gray-200 bg-transparent py-1 text-sm font-black focus:border-black outline-none transition-colors"
+                                  />
+                                  <span className="text-xs font-bold text-gray-400">KG</span>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
