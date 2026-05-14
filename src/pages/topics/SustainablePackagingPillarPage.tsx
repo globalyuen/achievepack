@@ -75,7 +75,7 @@ const SustainablePackagingPillarPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp" 
+              src="/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp" 
               alt="Sustainable packaging pillars and life cycle" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Framework: The interconnected nature of the 5 pillars in a circular economy"

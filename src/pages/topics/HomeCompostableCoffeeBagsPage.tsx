@@ -78,14 +78,14 @@ const HomeCompostableCoffeeBagsPage: React.FC = () => {
                 </li>
               </ul>
             </div>
-            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
-              <ClickableImage 
-                src="/imgs/pouch-shape/a_kraft_coffee_bag_with_compostable_valve_6857122.webp" 
-                alt="Kraft coffee bag with compostable degassing valve" 
-                className="w-full h-auto rounded-lg shadow-sm"
-                caption="Aroma Engineering: One-way compostable valve integrated into high-barrier Kraft"
-              />
-            </div>
+            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
+            <ClickableImage 
+              src="/imgs/illustrated/a_coffee_bags_warm_4136520.webp" 
+              alt="Home compostable coffee packaging structure" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="EEAT Insight: Oxygen barriers that meet ASTM D6400 while remaining home compostable"
+            />
+          </div>
           </div>
         </div>
       )
@@ -233,7 +233,7 @@ const HomeCompostableCoffeeBagsPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/pouch-shape/a_kraft_coffee_bag_with_compostable_valve_6857122.webp"
+        heroImage="/imgs/illustrated/a_coffee_bags_warm_4136520.webp"
       />
     </>
   )

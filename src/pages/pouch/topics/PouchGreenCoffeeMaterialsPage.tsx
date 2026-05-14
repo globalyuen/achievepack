@@ -59,7 +59,7 @@ const PouchGreenCoffeeMaterialsPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/seo-photos/a_green_coffee_beans_and_sustainable_pouch_1182744.webp" 
+                src="/imgs/illustrated/a_coffee_bags_warm_4136520.webp" 
                 alt="Coffee Packaging Barrier Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

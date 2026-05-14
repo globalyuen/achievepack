@@ -83,7 +83,7 @@ const EcoPackagingRegulationsPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+              src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
               alt="Compliance testing in packaging manufacturing" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Protocol: Verifying material compliance with global PPWR and SB 54 standards"
@@ -244,7 +244,7 @@ const EcoPackagingRegulationsPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp"
+        heroImage="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp"
       />
     </>
   )

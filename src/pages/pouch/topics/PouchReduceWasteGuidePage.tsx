@@ -152,8 +152,8 @@ const PouchReduceWasteGuidePage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/illustrated/a_topic_01_eco_food_pkg_var_c_4560298.webp" 
-                alt="Source Reduction Engineering" 
+                src="/imgs/illustrated/a_topic_04_digital_print_var_c_4560298.webp" 
+                alt="Verified Waste Reduction Manufacturing" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

@@ -59,8 +59,8 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/illustrated/a_sustainable_pet_food_packaging_hero_2601845.webp" 
-                alt="LCA Engineering Framework" 
+                src="/imgs/illustrated/a_pet_food_hero_v3_7652587.webp" 
+                alt="Real-World Sustainable Packaging Case Study" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -152,8 +152,8 @@ const PouchRealWorldSustainabilityPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/illustrated/a_eco_packaging_hero_collection_4454797.webp" 
-                alt="Verified Sustainability Manufacturing" 
+                src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
+                alt="Verified Sustainable Packaging Operations" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>

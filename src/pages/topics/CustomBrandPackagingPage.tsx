@@ -83,7 +83,7 @@ const CustomBrandPackagingPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/seo-photos/a_pouch_packaging_manufacturing_design_7718222.webp" 
+              src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
               alt="Structural engineering of a custom pouch" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="CAD Prototyping: Optimizing internal volume and shelf stability"
@@ -139,7 +139,7 @@ const CustomBrandPackagingPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/seo-photos/a_d2c_shipping_box_and_pouches_flat_lay_1182744.webp" 
+                src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
                 alt="Optimized D2C packaging for shipping" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Logistics Audit: Reducing shipping costs through dimensional optimization"

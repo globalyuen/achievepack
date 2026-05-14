@@ -83,7 +83,7 @@ const RealWorldSustainabilityPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp" 
+              src="/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp" 
               alt="LCA Cradle-to-Grave Analysis" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="Evidence-Based Sustainability: A visual representation of ISO 14040 LCA metrics"
@@ -143,7 +143,7 @@ const RealWorldSustainabilityPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
                 alt="Verified circular manufacturing facility" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Operational Transparency: Verified manufacturing for circular packaging assets"

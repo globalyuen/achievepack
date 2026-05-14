@@ -83,7 +83,7 @@ const ReduceWasteGuidePage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/seo-photos/a_sustainable_packaging_life_cycle_infographic_style_3318244.webp" 
+              src="/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp" 
               alt="Source reduction in packaging life cycle" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="Circular Economy: Visualizing the impact of source reduction on carbon footprint"
@@ -149,7 +149,7 @@ const ReduceWasteGuidePage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/seo-photos/a_minimalist_d2c_packaging_unboxing_lifestyle_5518222.webp" 
+                src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
                 alt="Sustainable unboxing and disposal instructions" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Consumer Engagement: Clear disposal instructions reduce recycling contamination"

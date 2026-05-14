@@ -143,7 +143,7 @@ const RecyclableSnackPackagingPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/seo-photos/a_modern_high_tech_packaging_factory_floor_2218843.webp" 
+                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
                 alt="High speed snack packaging manufacturing" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Operational Excellence: High-speed mono-material converting for global snack brands"

@@ -78,14 +78,14 @@ const MonoPEPouchesPage: React.FC = () => {
                 </li>
               </ul>
             </div>
-            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
-              <ClickableImage 
-                src="/imgs/pouch-shape/a_mono_material_pe_pouch_isolated_1182245.webp" 
-                alt="High-stiffness Mono-PE stand-up pouch" 
-                className="w-full h-auto rounded-lg shadow-sm"
-                caption="Structural Integrity: MDO-PE enables 100% recyclable mono-material pouches"
-              />
-            </div>
+            <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
+            <ClickableImage 
+              src="/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp" 
+              alt="Mono-PE Material Structure" 
+              className="w-full h-auto rounded-lg shadow-sm"
+              caption="EEAT Insight: Single-polymer engineering that enables 100% recyclability"
+            />
+          </div>
           </div>
         </div>
       )
