@@ -342,6 +342,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
                 <li><Link to="/blog" className="hover:underline">[BLOG]</Link></li>
                 <li><Link to="/certifications" className="hover:underline">[CERTIFICATIONS]</Link></li>
+                <li><Link to="/support/color-accuracy-digital-printing" className="hover:underline text-[#10B981]">[COLOR ACCURACY]</Link></li>
                 <li><Link to="/size-guide" className="hover:underline">[SIZE GUIDE]</Link></li>
                 <li><Link to="/unprinted-samples" className="hover:underline">[UNPRINTED SAMPLES]</Link></li>
                 <li><Link to="/sample" className="hover:underline">[CUSTOM PRINTED SAMPLE]</Link></li>

@@ -146,6 +146,7 @@ export default function Footer() {
             <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
               <li><Link to="/support/lead-time" className="hover:text-primary-400">Lead Time</Link></li>
+              <li><Link to="/support/color-accuracy-digital-printing" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Color Accuracy Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/support/unprinted-samples" className="hover:text-primary-400">Unprinted Samples</Link></li>
               <li><Link to="/support/sample-quote" className="hover:text-primary-400">Custom Printed Sample</Link></li>
               <li><Link to="/blog" className="hover:text-primary-400">All Articles</Link></li>

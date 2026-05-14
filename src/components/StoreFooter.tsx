@@ -89,6 +89,7 @@ export default function StoreFooter() {
             <h4 className="font-semibold text-sm mb-4">Help & Support</h4>
             <ul className="space-y-2 text-xs text-neutral-400">
               <li><Link to="/support/faqs" className="hover:text-primary-400">FAQs</Link></li>
+              <li><Link to="/support/color-accuracy-digital-printing" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Color Accuracy Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/knowledge/workflow" className="hover:text-primary-400">How It Works</Link></li>
               <li><Link to="/blog" className="hover:text-primary-400">Blog</Link></li>
               <li><a href="mailto:ryan@achievepack.com" className="hover:text-primary-400">Contact Us</a></li>
