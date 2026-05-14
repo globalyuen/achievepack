@@ -482,7 +482,7 @@ interface SEOPageLayoutProps {
   }[]
   
   // Schema Type
-  schemaType?: 'Article' | 'Product' | 'FAQPage' | 'WebPage'
+  schemaType?: 'Article' | 'Product' | 'FAQPage' | 'WebPage' | 'Service'
   contentCategory?: string // 用於選擇合適的作者實體
   
   // Related Links

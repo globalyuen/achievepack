@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Info, HelpCircle, FileText, Globe, BarChart3, FlaskConical, Scale, Zap, ClipboardCheck, Search, Award, Eye } from 'lucide-react';
+import { ShieldCheck, Info, HelpCircle, FileText, Globe, BarChart3, FlaskConical, Scale, Zap, ClipboardCheck, Search, Award, Eye, CheckCircle } from 'lucide-react';
 import SEOPageLayout from '../../components/SEOPageLayout';
 import ClickableImage from '../../components/ClickableImage';
 
