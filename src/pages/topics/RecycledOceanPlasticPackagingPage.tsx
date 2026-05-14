@@ -149,7 +149,7 @@ const RecycledOceanPlasticPackagingPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp" 
+                src="/imgs/topics/ocean-bound-plastic-hero.png" 
                 alt="OBP Pouch on beach mockup" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Marketing Transparency: Communicating the OBP mission to your customers"
@@ -253,7 +253,7 @@ const RecycledOceanPlasticPackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp"
+        heroImage="/imgs/topics/ocean-bound-plastic-hero.png"
       />
     </>
   )

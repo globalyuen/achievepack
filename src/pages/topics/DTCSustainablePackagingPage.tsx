@@ -83,7 +83,7 @@ const DTCSustainablePackagingPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
+              src="/imgs/topics/minimalist-d2c-unboxing-hero.png" 
               alt="Optimized DTC shipping with flexible pouches" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Lightweight flexible structures are the primary tool for reducing Scope 3 logistics carbon"

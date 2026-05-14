@@ -83,7 +83,7 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp" 
+              src="/imgs/topics/eco-friendly-food-hero.png" 
               alt="High-barrier food packaging structure overview" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Multi-layer engineering for maximum food protection and minimum environmental impact"
@@ -143,7 +143,7 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/pouch-shape/ads/a_achieve_pack_3side_seal_closeup_7717814.webp" 
+                src="/imgs/topics/recyclable-snack-hero.png" 
                 alt="Sustainable food grade pouch samples" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Material Versatility: From Mono-PE Recyclable to Certified Compostable structures"
@@ -244,7 +244,7 @@ const EcoFriendlyFoodPackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp"
+        heroImage="/imgs/topics/eco-friendly-food-hero.png"
       />
     </>
   )

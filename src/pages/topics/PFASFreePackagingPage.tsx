@@ -83,7 +83,7 @@ const PFASFreePackagingPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp" 
+              src="/imgs/topics/pfas-free-lab-hero.png" 
               alt="Laboratory testing for PFAS absence" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Verifying PFAS-Free status through Total Fluorine (TF) Analysis"
@@ -203,7 +203,7 @@ const PFASFreePackagingPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Service"
-        heroImage="/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp"
+        heroImage="/imgs/topics/pfas-free-lab-hero.png"
       />
     </>
   )

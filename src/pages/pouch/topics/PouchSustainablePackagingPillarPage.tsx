@@ -43,7 +43,7 @@ const PouchSustainablePackagingPillarPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/illustrated/a_all_options_card_v3_3800862.webp" 
+                src="/imgs/topics/sustainable-lifecycle-pillar.png" 
                 alt="Sustainable Packaging Pillars Hero" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
@@ -59,7 +59,7 @@ const PouchSustainablePackagingPillarPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/illustrated/a_barrier_options_presentation_c_6124347.webp" 
+                src="/imgs/topics/pfas-free-lab-hero.png" 
                 alt="5 Pillars of Sustainable Packaging Engineering" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

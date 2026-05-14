@@ -83,7 +83,7 @@ const RealWorldSustainabilityPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp" 
+              src="/imgs/topics/sustainable-lifecycle-pillar.png" 
               alt="LCA Cradle-to-Grave Analysis" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="Evidence-Based Sustainability: A visual representation of ISO 14040 LCA metrics"

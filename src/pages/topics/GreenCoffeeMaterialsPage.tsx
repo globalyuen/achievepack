@@ -244,7 +244,7 @@ const GreenCoffeeMaterialsPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/seo-photos/usa/coffee/a_coffee_sustainability_roaster_guide_0801372.webp"
+        heroImage="/imgs/topics/home-compostable-coffee-hero.png"
       />
     </>
   )

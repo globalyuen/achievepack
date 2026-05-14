@@ -83,7 +83,7 @@ const FoodPackagingSupplierServicePage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
+              src="/imgs/topics/food-safety-qc-hero.png" 
               alt="High tech food packaging manufacturing facility" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Direct factory control ensures material integrity and BRCGS compliance"

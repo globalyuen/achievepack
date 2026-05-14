@@ -43,7 +43,7 @@ const PouchPCRPackagingGuidePage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/illustrated/a_pcr_card_v1_0334493.webp" 
+                src="/imgs/topics/pcr-recycling-hero.png" 
                 alt="PCR Packaging Hero" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

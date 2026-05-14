@@ -43,7 +43,7 @@ const PouchRecyclablePackagingGuidePage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-blue-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp" 
+                src="/imgs/topics/ocean-bound-plastic-hero.png" 
                 alt="Recyclable Packaging Hero" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

@@ -87,7 +87,7 @@ const CompostableCertificationFAQPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp" 
+              src="/imgs/topics/sustainable-lifecycle-pillar.png" 
               alt="Compostable Certification Logos" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Understanding the difference between BPI, TUV, and ABA certifications"

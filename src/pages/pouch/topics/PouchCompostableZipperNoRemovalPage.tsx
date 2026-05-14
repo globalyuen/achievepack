@@ -94,7 +94,7 @@ export default function PouchCompostableZipperNoRemovalPage() {
             </p>
             
             <img 
-              src="/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp" 
+              src="/imgs/topics/sustainable-lifecycle-pillar.png" 
               alt="Infographic showing how a fully compostable bag breaks down into biomass" 
               className="w-full h-80 object-contain bg-gray-100 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />

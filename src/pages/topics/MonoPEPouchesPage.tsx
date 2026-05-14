@@ -80,7 +80,7 @@ const MonoPEPouchesPage: React.FC = () => {
             </div>
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp" 
+              src="/imgs/topics/mono-pe-recyclable-hero.png" 
               alt="Mono-PE Material Structure" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Single-polymer engineering that enables 100% recyclability"

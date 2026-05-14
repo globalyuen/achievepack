@@ -143,7 +143,7 @@ const DigitalPrintingEcoPackagingPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200">
               <ClickableImage 
-                src="/imgs/illustrated/a_topic_04_digital_print_var_b_3318604.webp" 
+                src="/imgs/topics/digital-printing-press-hero.png" 
                 alt="Digital printing production line" 
                 className="w-full h-auto rounded-lg shadow-sm"
                 caption="Agile Manufacturing: HP Indigo 25K Digital Press for low-waste flexible packaging"

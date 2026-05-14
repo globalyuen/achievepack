@@ -43,7 +43,7 @@ const PouchPFASFreePackagingPage: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-slate-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
-                src="/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp" 
+                src="/imgs/topics/sustainable-lifecycle-pillar.png" 
                 alt="PFAS-Free Packaging Hero" 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />

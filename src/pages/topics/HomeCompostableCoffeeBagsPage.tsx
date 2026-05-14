@@ -80,7 +80,7 @@ const HomeCompostableCoffeeBagsPage: React.FC = () => {
             </div>
             <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/a_coffee_bags_warm_4136520.webp" 
+              src="/imgs/topics/home-compostable-coffee-hero.png" 
               alt="Home compostable coffee packaging structure" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Oxygen barriers that meet ASTM D6400 while remaining home compostable"
@@ -233,7 +233,7 @@ const HomeCompostableCoffeeBagsPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Product"
-        heroImage="/imgs/illustrated/a_coffee_bags_warm_4136520.webp"
+        heroImage="/imgs/topics/home-compostable-coffee-hero.png"
       />
     </>
   )
