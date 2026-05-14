@@ -181,6 +181,17 @@ const LEARN_PAGES = {
       { name: 'Compostable Suppliers', link: '/topics/compostable-pouch-suppliers', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
       { name: 'Low MOQ Startup', link: '/topics/low-moq-startup-packaging', image: '/imgs/illustrated/a_startup_founder_variation_3_2900816.webp' },
       { name: 'Baby Food Bags', link: '/topics/compostable-baby-food-bags', image: '/imgs/illustrated/a_baby_food_hero_v1_7008467.webp' },
+      { name: 'Real-World Sustainability', link: '/topics/real-world-sustainability', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'Sustainable Packaging', link: '/topics/sustainable-packaging', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'Recyclable Design', link: '/topics/recyclable-packaging', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'Compostable Truths', link: '/topics/compostable-packaging', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'Certifications (EN13432)', link: '/topics/compostable-certification', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'Mono-Material Solutions', link: '/topics/mono-material-packaging', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'PCR Content Guide', link: '/topics/pcr-packaging', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'Choosing Suppliers', link: '/topics/food-packaging-supplier', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'Eco-Supplier Audit', link: '/topics/eco-friendly-packaging-supplier', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'Custom Brand Solutions', link: '/topics/custom-packaging', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
+      { name: 'Reducing Waste', link: '/topics/reduce-packaging-waste', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
     ]
   },
   caseStudies: {

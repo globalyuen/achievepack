@@ -109,6 +109,7 @@ const UnsubscribePage = lazyWithRetry(() => import('./pages/UnsubscribePage'))
 const RFQGeneratorPage = lazyWithRetry(() => import('./pages/admin/rfq/RFQGeneratorPage'))
 const RFQComparisonPage = lazyWithRetry(() => import('./pages/admin/rfq/RFQComparisonPage'))
 const SupplierHubPage = lazyWithRetry(() => import('./pages/rfq/SupplierHubPage'))
+const QuoteAnalyticsPage = lazyWithRetry(() => import('./pages/admin/QuoteAnalyticsPage'))
 
 // Industry Pages - Lazy loaded
 const CoffeeTeaPage = lazyWithRetry(() => import('./pages/industry/CoffeeTeaPage'))
@@ -141,6 +142,17 @@ const PlasticFreeKraftPage = lazyWithRetry(() => import('./pages/materials/Plast
 
 // Pouch Topics
 const PouchEcoFriendlyFoodPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchEcoFriendlyFoodPackagingPage'))
+const PouchRealWorldSustainabilityPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRealWorldSustainabilityPage'))
+const PouchSustainablePackagingPillarPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchSustainablePackagingPillarPage'))
+const PouchRecyclablePackagingGuidePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecyclablePackagingGuidePage'))
+const PouchCompostablePackagingBlogPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostablePackagingBlogPage'))
+const PouchCompostableCertificationFAQPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostableCertificationFAQPage'))
+const PouchMonoMaterialSolutionPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMonoMaterialSolutionPage'))
+const PouchPCRPackagingGuidePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchPCRPackagingGuidePage'))
+const PouchFoodPackagingSupplierServicePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchFoodPackagingSupplierServicePage'))
+const PouchEcoFriendlySupplierServicePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchEcoFriendlySupplierServicePage'))
+const PouchCustomBrandPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCustomBrandPackagingPage'))
+const PouchReduceWasteGuidePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchReduceWasteGuidePage'))
 const PouchCompostableBabyFoodBagsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostableBabyFoodBagsPage'))
 const PouchGreenCoffeeMaterialsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchGreenCoffeeMaterialsPage'))
 const PouchRecyclableSnackPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecyclableSnackPackagingPage'))
@@ -333,6 +345,17 @@ const SnackBrandManagerPage = lazyWithRetry(() => import('./pages/solutions/Snac
 
 // Topics Pages - AI Search Volume SEO - Lazy loaded
 const EcoFriendlyFoodPackagingPage = lazyWithRetry(() => import('./pages/topics/EcoFriendlyFoodPackagingPage'))
+const RealWorldSustainabilityPage = lazyWithRetry(() => import('./pages/topics/RealWorldSustainabilityPage'))
+const SustainablePackagingPillarPage = lazyWithRetry(() => import('./pages/topics/SustainablePackagingPillarPage'))
+const RecyclablePackagingGuidePage = lazyWithRetry(() => import('./pages/topics/RecyclablePackagingGuidePage'))
+const CompostablePackagingBlogPage = lazyWithRetry(() => import('./pages/topics/CompostablePackagingBlogPage'))
+const CompostableCertificationFAQPage = lazyWithRetry(() => import('./pages/topics/CompostableCertificationFAQPage'))
+const MonoMaterialSolutionPage = lazyWithRetry(() => import('./pages/topics/MonoMaterialSolutionPage'))
+const PCRPackagingGuidePage = lazyWithRetry(() => import('./pages/topics/PCRPackagingGuidePage'))
+const FoodPackagingSupplierServicePage = lazyWithRetry(() => import('./pages/topics/FoodPackagingSupplierServicePage'))
+const EcoFriendlySupplierServicePage = lazyWithRetry(() => import('./pages/topics/EcoFriendlySupplierServicePage'))
+const CustomBrandPackagingPage = lazyWithRetry(() => import('./pages/topics/CustomBrandPackagingPage'))
+const ReduceWasteGuidePage = lazyWithRetry(() => import('./pages/topics/ReduceWasteGuidePage'))
 const DTCSustainablePackagingPage = lazyWithRetry(() => import('./pages/topics/DTCSustainablePackagingPage'))
 const GreenCoffeeMaterialsPage = lazyWithRetry(() => import('./pages/topics/GreenCoffeeMaterialsPage'))
 const DigitalPrintingEcoPackagingPage = lazyWithRetry(() => import('./pages/topics/DigitalPrintingEcoPackagingPage'))
@@ -601,6 +624,17 @@ if (getDomain() === 'pouch') {
                   <Route path="/industry/frozen-food" element={<PouchFrozenFoodPage />} />
                   <Route path="/industry/sauces-condiments" element={<PouchSaucesPage />} />
                   <Route path="/topics/eco-friendly-food-packaging" element={<PouchEcoFriendlyFoodPackagingPage />} />
+                  <Route path="/topics/real-world-sustainability" element={<PouchRealWorldSustainabilityPage />} />
+                  <Route path="/topics/sustainable-packaging" element={<PouchSustainablePackagingPillarPage />} />
+                  <Route path="/topics/recyclable-packaging" element={<PouchRecyclablePackagingGuidePage />} />
+                  <Route path="/topics/compostable-packaging" element={<PouchCompostablePackagingBlogPage />} />
+                  <Route path="/topics/compostable-certification" element={<PouchCompostableCertificationFAQPage />} />
+                  <Route path="/topics/mono-material-packaging" element={<PouchMonoMaterialSolutionPage />} />
+                  <Route path="/topics/pcr-packaging" element={<PouchPCRPackagingGuidePage />} />
+                  <Route path="/topics/food-packaging-supplier" element={<PouchFoodPackagingSupplierServicePage />} />
+                  <Route path="/topics/eco-friendly-packaging-supplier" element={<PouchEcoFriendlySupplierServicePage />} />
+                  <Route path="/topics/custom-packaging" element={<PouchCustomBrandPackagingPage />} />
+                  <Route path="/topics/reduce-packaging-waste" element={<PouchReduceWasteGuidePage />} />
                   <Route path="/topics/compostable-baby-food-bags" element={<PouchCompostableBabyFoodBagsPage />} />
                   <Route path="/topics/green-coffee-materials" element={<PouchGreenCoffeeMaterialsPage />} />
                   <Route path="/topics/recyclable-snack-packaging" element={<PouchRecyclableSnackPackagingPage />} />
@@ -718,6 +752,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/ctrl-x9k7m/shipments/:id" element={<AdminProtectedRoute><ShipmentDetailPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/document-templates" element={<AdminProtectedRoute><DocumentTemplatesPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/daily-reports" element={<AdminProtectedRoute><DailyReportsPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/quote-analytics" element={<AdminProtectedRoute><QuoteAnalyticsPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/email-campaign" element={<AdminProtectedRoute><EmailCampaignPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/rfq-generator" element={<AdminProtectedRoute><RFQGeneratorPage /></AdminProtectedRoute>} />
@@ -875,6 +910,17 @@ if (getDomain() === 'pouch') {
 
                         {/* Topics Pages - AI Search Volume SEO */}
                         <Route path="/topics/eco-friendly-food-packaging" element={<EcoFriendlyFoodPackagingPage />} />
+                        <Route path="/topics/real-world-sustainability" element={<RealWorldSustainabilityPage />} />
+                        <Route path="/topics/sustainable-packaging" element={<SustainablePackagingPillarPage />} />
+                        <Route path="/topics/recyclable-packaging" element={<RecyclablePackagingGuidePage />} />
+                        <Route path="/topics/compostable-packaging" element={<CompostablePackagingBlogPage />} />
+                        <Route path="/topics/compostable-certification" element={<CompostableCertificationFAQPage />} />
+                        <Route path="/topics/mono-material-packaging" element={<MonoMaterialSolutionPage />} />
+                        <Route path="/topics/pcr-packaging" element={<PCRPackagingGuidePage />} />
+                        <Route path="/topics/food-packaging-supplier" element={<FoodPackagingSupplierServicePage />} />
+                        <Route path="/topics/eco-friendly-packaging-supplier" element={<EcoFriendlySupplierServicePage />} />
+                        <Route path="/topics/custom-packaging" element={<CustomBrandPackagingPage />} />
+                        <Route path="/topics/reduce-packaging-waste" element={<ReduceWasteGuidePage />} />
                         <Route path="/topics/dtc-sustainable-packaging" element={<DTCSustainablePackagingPage />} />
                         <Route path="/topics/green-coffee-materials" element={<GreenCoffeeMaterialsPage />} />
                         <Route path="/topics/digital-printing-eco-packaging" element={<DigitalPrintingEcoPackagingPage />} />

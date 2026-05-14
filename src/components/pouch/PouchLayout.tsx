@@ -358,6 +358,17 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/topics/child-resistant-mylar-bags" className="hover:underline">[CHILD-RESISTANT]</Link></li>
                 <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:underline text-cyan-600">[OCEAN PLASTIC]</Link></li>
                 <li><Link to="/topics/minimalist-d2c-packaging" className="hover:underline">[MINIMALIST D2C]</Link></li>
+                <li><Link to="/topics/real-world-sustainability" className="hover:underline text-green-600 font-black underline">[REAL SUSTAINABILITY]</Link></li>
+                <li><Link to="/topics/sustainable-packaging" className="hover:underline text-magenta-600">[SUSTAINABLE PILLAR]</Link></li>
+                <li><Link to="/topics/recyclable-packaging" className="hover:underline text-blue-600">[RECYCLABLE DESIGN]</Link></li>
+                <li><Link to="/topics/compostable-packaging" className="hover:underline text-emerald-600">[COMPOSTABLE TRUTH]</Link></li>
+                <li><Link to="/topics/compostable-certification" className="hover:underline text-amber-600">[CERTIFICATION FAQ]</Link></li>
+                <li><Link to="/topics/mono-material-packaging" className="hover:underline">[MONO MATERIAL]</Link></li>
+                <li><Link to="/topics/pcr-packaging" className="hover:underline">[PCR CONTENT]</Link></li>
+                <li><Link to="/topics/food-packaging-supplier" className="hover:underline">[SUPPLIER AUDIT]</Link></li>
+                <li><Link to="/topics/eco-friendly-packaging-supplier" className="hover:underline">[ECO AUDIT]</Link></li>
+                <li><Link to="/topics/custom-packaging" className="hover:underline">[CUSTOM SOLUTIONS]</Link></li>
+                <li><Link to="/topics/reduce-packaging-waste" className="hover:underline">[REDUCING WASTE]</Link></li>
                 <li><Link to="/topics/high-heat-compostable-candle-packaging" className="hover:underline text-orange-600">[CANDLE PACKAGING]</Link></li>
 
               </ul>
@@ -385,6 +396,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 { name: 'CUSTOM_PRINTED', path: '/topics/custom-printed-sustainable-pouches', color: 'bg-white' },
                 { name: 'REGULATIONS', path: '/topics/eco-packaging-regulations', color: 'bg-white' },
                 { name: 'CANDLE_WAX', path: '/topics/high-heat-compostable-candle-packaging', color: 'bg-white' },
+                { name: 'REAL_WORLD', path: '/topics/real-world-sustainability', color: 'bg-[#D4FF00]' },
 
               ].map((topic, i) => (
                 <Link 

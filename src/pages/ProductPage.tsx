@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles, CheckCircle, Info } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import PopoverSelect, { SimplePopoverSelect } from '../components/ui/popover-select'
-import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, QUANTITY_OPTIONS, getProductType, isProductPurchasable } from '../store/productData'
+import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, formatPouchSizeLabel, QUANTITY_OPTIONS, getProductType, isProductPurchasable } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureInfo } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { TESTIMONIALS } from '../data/testimonialsData'
@@ -672,7 +672,12 @@ const ProductPage: React.FC = () => {
     if (!priceData) return []
     return Object.keys(priceData).map(sizeId => {
       const sizeInfo = POUCH_SIZES.find(s => s.id === sizeId)
-      return sizeInfo || { id: sizeId, label: sizeId, dimensions: sizeId, imperial: '' }
+      if (!sizeInfo) return { id: sizeId, label: sizeId, dimensions: sizeId, imperial: '' }
+      
+      return { 
+        ...sizeInfo, 
+        label: formatPouchSizeLabel(sizeInfo, conventionalProduct.shape)
+      }
     })
   }, [isConventionalDigital, conventionalProduct])
   
@@ -1200,7 +1205,14 @@ const ProductPage: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500">Size</dt>
-                        <dd className="text-neutral-900 col-span-2">{POUCH_SIZES.find(s => s.id === selectedConvSize)?.label || selectedConvSize}</dd>
+                        <dd className="text-neutral-900 col-span-2">
+                          {(() => {
+                            const sizeInfo = POUCH_SIZES.find(s => s.id === selectedConvSize);
+                            return sizeInfo && conventionalProduct 
+                              ? formatPouchSizeLabel(sizeInfo, conventionalProduct.shape) 
+                              : selectedConvSize;
+                          })()}
+                        </dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500">Quantity</dt>
@@ -1351,7 +1363,12 @@ const ProductPage: React.FC = () => {
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                      <span className="font-medium">📐 Size: {selectedConvSize}mm</span>
+                      <span className="font-medium">📐 Size: {(() => {
+                        const sizeInfo = POUCH_SIZES.find(s => s.id === selectedConvSize);
+                        return sizeInfo && conventionalProduct 
+                          ? formatPouchSizeLabel(sizeInfo, conventionalProduct.shape) 
+                          : selectedConvSize;
+                      })()}</span>
                     </div>
                     <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
                       <span className="font-medium">📦 Qty: {selectedConvQuantity} pcs</span>

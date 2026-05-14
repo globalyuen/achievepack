@@ -192,6 +192,7 @@ export interface PouchSize {
   label: string
   dimensions: string
   imperial: string
+  gusset?: string
 }
 
 export interface PouchShape {
@@ -208,21 +209,40 @@ export const POUCH_SHAPES: PouchShape[] = [
 ]
 
 export const POUCH_SIZES: PouchSize[] = [
-  { id: '90x130', label: '90 × 130+60mm', dimensions: '90x130', imperial: '3.5" × 5.1"' },
-  { id: '100x150', label: '100 × 150+50mm', dimensions: '100x150', imperial: '3.9" × 5.9"' },
-  { id: '110x160', label: '110 × 160+60mm', dimensions: '110x160', imperial: '4.3" × 6.3"' },
-  { id: '120x170', label: '120 × 170+80mm', dimensions: '120x170', imperial: '4.7" × 6.7"' },
-  { id: '120x200', label: '120 × 200+80mm', dimensions: '120x200', imperial: '4.7" × 7.9"' },
-  { id: '130x180', label: '130 × 180+80mm', dimensions: '130x180', imperial: '5.1" × 7.1"' },
-  { id: '140x200', label: '140 × 200+80mm', dimensions: '140x200', imperial: '5.5" × 7.9"' },
-  { id: '150x220', label: '150 × 220+80mm', dimensions: '150x220', imperial: '5.9" × 8.7"' },
-  { id: '160x240', label: '160 × 240+80mm', dimensions: '160x240', imperial: '6.3" × 9.4"' },
-  { id: '180x260', label: '180 × 260+80mm', dimensions: '180x260', imperial: '7.1" × 10.2"' },
-  { id: '200x300', label: '200 × 300+100mm', dimensions: '200x300', imperial: '7.9" × 11.8"' },
-  { id: '210x310', label: '210 × 310+100mm', dimensions: '210x310', imperial: '8.3" × 12.2"' },
-  { id: '230x350', label: '230 × 350+100mm', dimensions: '230x350', imperial: '9.1" × 13.8"' },
-  { id: '260x350', label: '260 × 350+100mm', dimensions: '260x350', imperial: '10.2" × 13.8"' },
+  { id: '90x130', label: '90 × 130mm', dimensions: '90x130', imperial: '3.5" × 5.1"', gusset: '60' },
+  { id: '100x150', label: '100 × 150mm', dimensions: '100x150', imperial: '3.9" × 5.9"', gusset: '50' },
+  { id: '110x160', label: '110 × 160mm', dimensions: '110x160', imperial: '4.3" × 6.3"', gusset: '60' },
+  { id: '120x170', label: '120 × 170mm', dimensions: '120x170', imperial: '4.7" × 6.7"', gusset: '80' },
+  { id: '120x200', label: '120 × 200mm', dimensions: '120x200', imperial: '4.7" × 7.9"', gusset: '80' },
+  { id: '130x180', label: '130 × 180mm', dimensions: '130x180', imperial: '5.1" × 7.1"', gusset: '80' },
+  { id: '140x200', label: '140 × 200mm', dimensions: '140x200', imperial: '5.5" × 7.9"', gusset: '80' },
+  { id: '150x220', label: '150 × 220mm', dimensions: '150x220', imperial: '5.9" × 8.7"', gusset: '80' },
+  { id: '160x240', label: '160 × 240mm', dimensions: '160x240', imperial: '6.3" × 9.4"', gusset: '80' },
+  { id: '180x260', label: '180 × 260mm', dimensions: '180x260', imperial: '7.1" × 10.2"', gusset: '80' },
+  { id: '200x300', label: '200 × 300mm', dimensions: '200x300', imperial: '7.9" × 11.8"', gusset: '100' },
+  { id: '210x310', label: '210 × 310mm', dimensions: '210x310', imperial: '8.3" × 12.2"', gusset: '100' },
+  { id: '230x350', label: '230 × 350mm', dimensions: '230x350', imperial: '9.1" × 13.8"', gusset: '100' },
+  { id: '260x350', label: '260 × 350mm', dimensions: '260x350', imperial: '10.2" × 13.8"', gusset: '100' },
 ]
+
+/**
+ * Formats a size label based on the pouch shape.
+ * Removes gusset info for 3-side seal pouches.
+ */
+export const formatPouchSizeLabel = (size: PouchSize, shapeId: string): string => {
+  const isFlat = shapeId.includes('3-side-seal')
+  if (isFlat) {
+    return `${size.label} (${size.imperial})`
+  }
+  
+  if (size.gusset) {
+    // Add gusset back for stand-up pouches
+    const cleanLabel = size.label.replace('mm', '')
+    return `${cleanLabel}+${size.gusset}mm (${size.imperial})`
+  }
+  
+  return `${size.label} (${size.imperial})`
+}
 
 export const BARRIER_OPTIONS = [
   { id: 'clear', label: 'Clear - Low Barrier (Glossy)', finish: 'glossy' },

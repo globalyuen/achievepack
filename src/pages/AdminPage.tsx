@@ -3,7 +3,7 @@ import { useNavigate, Link, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { supabase, Order, Profile, NewsletterSubscriber, Document, Quote, ArtworkFile, EmailDraft, CRMInquiry, CRMActivity, CustomerActivityLog } from '../lib/supabase'
 import { blogPosts } from '../data/blogData'
-import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download, Folder, Palette, Wand2, Bot, Terminal, Copy } from 'lucide-react'
+import { Home, Users, Package, Settings, Search, ChevronDown, ChevronLeft, ChevronRight, LogOut, Eye, Edit, Trash2, ArrowLeft, RefreshCw, Mail, Phone, Building, Calendar, DollarSign, TrendingUp, BarChart3, ShoppingBag, Newspaper, FileText, Upload, Truck, ExternalLink, X, FileCheck, Image, CheckCircle, Clock, AlertCircle, MessageSquare, Sparkles, Inbox, Send, FileCode, Check, Globe, Filter, MapPin, Factory, Tag, History, Zap, Bell, Loader2, Download, Folder, Palette, Wand2, Bot, Terminal, Copy } from 'lucide-react'
 import CRMPanelAdvanced from '../components/admin/CRMPanelAdvanced'
 import EmailFollowUpPage from './admin/EmailFollowUpPage'
 import LinkBuildingPage from './admin/LinkBuildingPage'
@@ -88,6 +88,7 @@ const sidebarMenuItems = [
     items: [
       { id: 'artwork-batches', label: 'Artwork Batches', icon: Folder, externalLink: '/ctrl-x9k7m/artwork-batches' },
       { id: 'document-templates', label: 'Doc Templates', icon: FileText, externalLink: '/ctrl-x9k7m/document-templates' },
+      { id: 'quote-analytics', label: 'Quote Analytics', icon: BarChart3, externalLink: '/ctrl-x9k7m/quote-analytics' },
       { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },
       { id: 'email-followup', label: 'Email Follow Up', icon: Clock },
       { id: 'prospects', label: 'Prospect Finder', icon: Search, externalLink: '/ctrl-x9k7m/prospects' },

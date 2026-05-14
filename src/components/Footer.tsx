@@ -204,6 +204,16 @@ export default function Footer() {
               <li><Link to="/recyclable/mono-material-foundation" className="hover:text-primary-400">Mono-Material Foundation</Link></li>
               <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
               <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">Recyclable Mono-PP</Link></li>
+              <li><Link to="/topics/real-world-sustainability" className="text-gray-400 hover:text-white transition-colors">Real-World Sustainability</Link></li>
+              <li><Link to="/topics/sustainable-packaging" className="text-gray-400 hover:text-white transition-colors">Sustainable Pillar</Link></li>
+              <li><Link to="/topics/recyclable-packaging" className="text-gray-400 hover:text-white transition-colors">Recyclable Design</Link></li>
+              <li><Link to="/topics/compostable-packaging" className="text-gray-400 hover:text-white transition-colors">Compostable Facts</Link></li>
+              <li><Link to="/topics/compostable-certification" className="text-gray-400 hover:text-white transition-colors">Certification Guide</Link></li>
+              <li><Link to="/topics/mono-material-packaging" className="text-gray-400 hover:text-white transition-colors">Mono-Material Guide</Link></li>
+              <li><Link to="/topics/pcr-packaging" className="text-gray-400 hover:text-white transition-colors">PCR Guide</Link></li>
+              <li><Link to="/topics/food-packaging-supplier" className="text-gray-400 hover:text-white transition-colors">Supplier Audit</Link></li>
+              <li><Link to="/topics/custom-packaging" className="text-gray-400 hover:text-white transition-colors">Custom Solutions</Link></li>
+              <li><Link to="/topics/reduce-packaging-waste" className="text-gray-400 hover:text-white transition-colors">Reducing Waste</Link></li>
             </ul>
           </div>
 

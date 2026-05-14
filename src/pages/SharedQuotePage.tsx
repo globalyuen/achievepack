@@ -83,6 +83,18 @@ const SharedQuotePage: React.FC = () => {
           if (!response.ok || !data.success) throw new Error(data.error || 'Quote not found.');
           if (!data.quoteHtml) throw new Error('Quote content is empty.');
         
+          // Track the view (skip if admin is logged in)
+          if (sessionStorage.getItem('admin_local_pwd') !== ADMIN_PWD) {
+            fetch('/api/track-quote-view', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                quoteId: id,
+                customerName: data.customer || 'Unknown'
+              })
+            }).catch(err => console.error("Tracking failed:", err));
+          }
+
         const html = data.quoteHtml;
         setQuoteHtml(html);
         setEditedHtml(html);

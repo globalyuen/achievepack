@@ -4,6 +4,7 @@ import { X, ShoppingBag, Trash2, Loader2, CheckCircle, Edit3, FileText, Send, Cr
 import { useStore, CartItem } from '../../store/StoreContext'
 import { useAuth } from '../../hooks/useAuth'
 import { supabase } from '../../lib/supabase'
+import { POUCH_SIZES, formatPouchSizeLabel } from '../../store/productData'
 
 // Generate URL with configuration parameters
 const generateEditUrl = (item: any): string => {
@@ -182,7 +183,12 @@ const CartSidebar: React.FC = () => {
                       <p className="text-xs text-neutral-500">Sample Pack</p>
                     ) : (
                       <p className="text-xs text-neutral-500 truncate">
-                        {item.variant.shape} • {item.variant.size} • {item.variant.barrier}
+                        {item.variant.shape} • {(() => {
+                          const sizeInfo = POUCH_SIZES.find(s => s.id === item.variant.size);
+                          return sizeInfo 
+                            ? formatPouchSizeLabel(sizeInfo, item.variant.shape || '') 
+                            : item.variant.size;
+                        })()} • {item.variant.barrier}
                       </p>
                     )}
                     <div className="flex items-center justify-between mt-2">
@@ -289,7 +295,12 @@ const CartSidebar: React.FC = () => {
                         <h3 className="font-medium text-neutral-900 truncate">{item.name}</h3>
                       </Link>
                       <p className="text-xs text-neutral-500 truncate">
-                        {item.variant.shape} • {item.variant.size} • {item.variant.barrier}
+                        {item.variant.shape} • {(() => {
+                          const sizeInfo = POUCH_SIZES.find(s => s.id === item.variant.size);
+                          return sizeInfo 
+                            ? formatPouchSizeLabel(sizeInfo, item.variant.shape || '') 
+                            : item.variant.size;
+                        })()} • {item.variant.barrier}
                       </p>
                       {item.customSize && (
                         <p className="text-xs text-amber-600 mt-1">
