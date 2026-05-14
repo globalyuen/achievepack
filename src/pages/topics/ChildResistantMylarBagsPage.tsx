@@ -83,7 +83,7 @@ const ChildResistantMylarBagsPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/pouch-shape/ads/a_achieve_pack_child_resistant_mechanism_881726.webp" 
+              src="/imgs/topics/child-resistant-mylar-hero.png" 
               alt="Certified child resistant zipper mechanism" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Advanced locking mechanisms that meet federal safety mandates while remaining 100% recyclable"
@@ -204,7 +204,7 @@ const ChildResistantMylarBagsPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/pouch-shape/ads/a_achieve_pack_child_resistant_mechanism_881726.webp"
+        heroImage="/imgs/topics/child-resistant-mylar-hero.png"
       />
     </>
   )
