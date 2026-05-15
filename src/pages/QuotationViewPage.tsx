@@ -196,7 +196,8 @@ const QuotationViewPage: React.FC = () => {
                     <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Item</th>
                     <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Specifications</th>
                     <th className="text-right px-4 py-3 text-sm font-medium text-gray-600">Qty</th>
-                    <th className="text-right px-4 py-3 text-sm font-medium text-gray-600">Unit Price</th>
+                    <th className="text-right px-4 py-3 text-sm font-medium text-gray-600">EXW Unit</th>
+                    <th className="text-right px-4 py-3 text-sm font-medium text-gray-600">FOB SZ Unit</th>
                     <th className="text-right px-4 py-3 text-sm font-medium text-gray-600">Total</th>
                   </tr>
                 </thead>
@@ -222,6 +223,7 @@ const QuotationViewPage: React.FC = () => {
                       </td>
                       <td className="px-4 py-4 text-right">{item.quantity?.toLocaleString()}</td>
                       <td className="px-4 py-4 text-right">${item.unit_price?.toFixed(4)}</td>
+                      <td className="px-4 py-4 text-right font-medium text-green-700">${(item.unit_price * 1.03)?.toFixed(4)}</td>
                       <td className="px-4 py-4 text-right font-medium">${item.line_total?.toFixed(2)}</td>
                     </tr>
                   ))}
@@ -271,7 +273,7 @@ const QuotationViewPage: React.FC = () => {
               <li>Prices are valid for the period specified above</li>
               <li>Production time: 4-6 weeks after artwork approval</li>
               <li>Payment terms: 50% deposit, 50% before shipping</li>
-              <li>Prices are FOB China, shipping costs calculated separately</li>
+              <li>EXW: Ex-Factory China / FOB SZ: FOB Shenzhen (EXW + 3%)</li>
             </ul>
           </div>
 

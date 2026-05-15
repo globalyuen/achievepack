@@ -241,6 +241,9 @@ const SharedQuotePage: React.FC = () => {
           const airTotal = hasWeight ? exwTotal + Math.ceil(weight * AIR_PER_KG) : 0;
           const seaTotal = hasWeight ? exwTotal + Math.ceil(weight * SEA_PER_KG) : 0;
           
+          const fobSzUnit = unitUsd * 1.03;
+          const fobSzTotal = Math.ceil(fobSzUnit * tier.qty);
+          
           const fUnit = (v: number) => `$${v.toFixed(3)}`;
           const fC = (v: number) => `$${v.toLocaleString()}`;
           
@@ -253,6 +256,7 @@ const SharedQuotePage: React.FC = () => {
           return `<tr>
             <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;font-weight:700">${qtyDisplay}</td>
             <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right">${fUnit(unitUsd)}/ea<br><span style="font-size:11px;color:#64748b">Total: ${fC(exwTotal)}</span></td>
+            <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#f0fdf4;color:#15803d;font-weight:700">${fUnit(fobSzUnit)}/ea<br><span style="font-size:11px;color:#166534">Total: ${fC(fobSzTotal)}</span></td>
             <td style="padding:14px 16px;border-bottom:1px solid #f1f5f9;text-align:right;background:#faf5ff;color:#7c3aed;font-weight:700">
               ${hasWeight ? `${fUnit(airTotal/tier.qty)}/ea<br><span style="font-size:11px;font-weight:400">(${fC(airTotal)})</span>` : 'N/A'}
             </td>
@@ -292,11 +296,12 @@ const SharedQuotePage: React.FC = () => {
               <span style="color:#94a3b8;font-size:8px">Incoterm: DDP Handle-to-Door</span>
             </div>
             <table><thead><tr>
-              <th style="width:15%">Quantity</th>
-              <th style="text-align:right;width:17%">EXW Unit</th>
-              <th style="text-align:right;background:#3b0764;color:#e9d5ff;width:22%">✈ Air DDP</th>
-              <th style="text-align:right;background:#1e3a5f;color:#bfdbfe;width:22%">🚢 Sea DDP</th>
-              <th style="text-align:right;width:14%">Weight</th>
+              <th style="width:14%">Quantity</th>
+              <th style="text-align:right;width:15%">EXW Unit</th>
+              <th style="text-align:right;background:#dcfce7;color:#166534;width:16%">FOB SZ Unit</th>
+              <th style="text-align:right;background:#3b0764;color:#e9d5ff;width:20%">✈ Air DDP</th>
+              <th style="text-align:right;background:#1e3a5f;color:#bfdbfe;width:20%">🚢 Sea DDP</th>
+              <th style="text-align:right;width:12%">Weight</th>
             </tr></thead><tbody>${rows}</tbody></table>
           </div>
 
@@ -374,7 +379,7 @@ const SharedQuotePage: React.FC = () => {
           ${sectionsHtml}
 
           <div class="footer">
-            &copy; ${new Date().getFullYear()} Achieve Pack. All rates calculated at 6.9 RMB/USD. Final quote subject to artwork review and shipping fluctuations.
+            &copy; ${new Date().getFullYear()} Achieve Pack. All rates calculated at 6.9 RMB/USD. EXW: Ex-Factory China / FOB SZ: FOB Shenzhen (EXW + 3%). Final quote subject to artwork review and shipping fluctuations.
           </div>
         </body>
         </html>
