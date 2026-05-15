@@ -4,7 +4,7 @@ import {
   BarChart3, Users, Globe2, Clock, ArrowUpRight, 
   ChevronRight, ExternalLink, Search, Filter, 
   Calendar, MapPin, MousePointer2, Loader2, AlertCircle,
-  TrendingUp, Activity, MessageSquare, History
+  TrendingUp, Activity, MessageSquare, History, List, Grid
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase, WebhookLog } from '../../lib/supabase';
@@ -21,6 +21,8 @@ const QuoteAnalyticsPage: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const [logs, setLogs] = useState<WebhookLog[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [viewMode, setViewMode] = useState<'timeline' | 'summary'>('summary');
+  const [sortMode, setSortMode] = useState<'views' | 'recent' | 'name'>('recent');
 
   const handleVerifyPin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -107,6 +109,45 @@ const QuoteAnalyticsPage: React.FC = () => {
     }, {});
     return Object.entries(counts).sort((a: any, b: any) => b[1] - a[1]).slice(0, 5);
   }, [logs]);
+
+  const quoteSummary = useMemo(() => {
+    const summary: Record<string, { id: string, name: string, count: number, lastView: Date, uniqueIps: Set<string> }> = {};
+    logs.forEach(l => {
+      const qid = l.raw_data?.quoteId;
+      if (!qid) return;
+      if (!summary[qid]) {
+        summary[qid] = {
+          id: qid,
+          name: l.raw_data?.customerName || 'Unknown',
+          count: 0,
+          lastView: new Date(0),
+          uniqueIps: new Set()
+        };
+      }
+      summary[qid].count++;
+      const date = new Date(l.created_at);
+      if (date > summary[qid].lastView) {
+        summary[qid].lastView = date;
+      }
+      if (l.raw_data?.ip) {
+        summary[qid].uniqueIps.add(l.raw_data.ip);
+      }
+    });
+    return Object.values(summary);
+  }, [logs]);
+
+  const sortedSummary = useMemo(() => {
+    let filtered = quoteSummary;
+    if (searchTerm) {
+      const s = searchTerm.toLowerCase();
+      filtered = filtered.filter(q => q.name.toLowerCase().includes(s) || q.id.toLowerCase().includes(s));
+    }
+    return filtered.sort((a, b) => {
+      if (sortMode === 'views') return b.count - a.count;
+      if (sortMode === 'recent') return b.lastView.getTime() - a.lastView.getTime();
+      return a.name.localeCompare(b.name);
+    });
+  }, [quoteSummary, searchTerm, sortMode]);
 
   if (!isAuthenticated) {
     return (
@@ -241,17 +282,48 @@ const QuoteAnalyticsPage: React.FC = () => {
           {/* Main List */}
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-[#111] border border-white/5 rounded-3xl overflow-hidden">
-              <div className="px-8 py-6 border-b border-white/5 flex justify-between items-center bg-white/[0.02]">
+              <div className="px-8 py-6 border-b border-white/5 flex flex-col md:flex-row md:justify-between md:items-center gap-4 bg-white/[0.02]">
                 <h3 className="font-black text-lg flex items-center gap-3">
                   <Clock className="w-5 h-5 text-blue-500" />
-                  Recent Engagements
+                  {viewMode === 'timeline' ? 'Recent Engagements' : 'Quote Summaries'}
                 </h3>
-                <span className="text-xs font-bold text-gray-500 px-3 py-1 bg-white/5 rounded-full border border-white/5">
-                  {filteredLogs.length} Records Found
-                </span>
+                <div className="flex items-center gap-4">
+                  {viewMode === 'summary' && (
+                    <div className="flex items-center gap-2 text-xs">
+                      <span className="text-gray-500 font-bold uppercase tracking-widest">Sort:</span>
+                      <select 
+                        value={sortMode}
+                        onChange={(e) => setSortMode(e.target.value as any)}
+                        className="bg-black border border-white/10 rounded-lg px-3 py-1.5 text-white font-bold focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      >
+                        <option value="recent">Most Recent</option>
+                        <option value="views">Most Views</option>
+                        <option value="name">Customer Name</option>
+                      </select>
+                    </div>
+                  )}
+                  <div className="flex bg-white/5 border border-white/10 rounded-xl overflow-hidden p-1">
+                    <button 
+                      onClick={() => setViewMode('timeline')}
+                      className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded-lg transition-colors flex items-center gap-2 ${viewMode === 'timeline' ? 'bg-blue-600 text-white' : 'text-gray-500 hover:text-white'}`}
+                    >
+                      <List className="w-3.5 h-3.5" /> Timeline
+                    </button>
+                    <button 
+                      onClick={() => setViewMode('summary')}
+                      className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded-lg transition-colors flex items-center gap-2 ${viewMode === 'summary' ? 'bg-blue-600 text-white' : 'text-gray-500 hover:text-white'}`}
+                    >
+                      <Grid className="w-3.5 h-3.5" /> Summary
+                    </button>
+                  </div>
+                  <span className="text-xs font-bold text-gray-500 px-3 py-1.5 bg-white/5 rounded-xl border border-white/5">
+                    {viewMode === 'timeline' ? filteredLogs.length : sortedSummary.length} Records
+                  </span>
+                </div>
               </div>
 
               <div className="overflow-x-auto">
+                {viewMode === 'timeline' ? (
                 <table className="w-full text-left">
                   <thead>
                     <tr className="text-[10px] font-black text-gray-500 uppercase tracking-[0.1em] border-b border-white/5">
@@ -339,6 +411,76 @@ const QuoteAnalyticsPage: React.FC = () => {
                     )}
                   </tbody>
                 </table>
+                ) : (
+                  <table className="w-full text-left">
+                    <thead>
+                      <tr className="text-[10px] font-black text-gray-500 uppercase tracking-[0.1em] border-b border-white/5">
+                        <th className="px-8 py-5">Customer / Quote</th>
+                        <th className="px-6 py-5 text-center">Total Views</th>
+                        <th className="px-6 py-5 text-center">Unique IPs</th>
+                        <th className="px-6 py-5">Last Active</th>
+                        <th className="px-8 py-5 text-right">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-white/5">
+                      {sortedSummary.length === 0 ? (
+                        <tr>
+                          <td colSpan={5} className="px-8 py-20 text-center text-gray-500 font-bold italic">
+                            No quote summaries matching your search.
+                          </td>
+                        </tr>
+                      ) : (
+                        sortedSummary.map((q, i) => (
+                          <motion.tr 
+                            key={q.id}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: i * 0.02 }}
+                            className="hover:bg-white/[0.03] transition-colors group"
+                          >
+                            <td className="px-8 py-5">
+                              <div className="text-sm font-black text-white group-hover:text-blue-400 transition-colors">
+                                {q.name}
+                              </div>
+                              <div className="text-[10px] font-bold text-gray-600 mt-0.5 font-mono">
+                                ID: {q.id.substring(0, 8)}...
+                              </div>
+                            </td>
+                            <td className="px-6 py-5 text-center">
+                              <span className="text-lg font-black text-blue-500 bg-blue-500/10 px-3 py-1 rounded-lg border border-blue-500/20">
+                                {q.count}
+                              </span>
+                            </td>
+                            <td className="px-6 py-5 text-center">
+                              <span className="text-sm font-bold text-emerald-500 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
+                                {q.uniqueIps.size}
+                              </span>
+                            </td>
+                            <td className="px-6 py-5">
+                              <div className="text-sm font-bold text-gray-300">
+                                {q.lastView.toLocaleDateString()}
+                              </div>
+                              <div className="text-[10px] font-bold text-gray-600 mt-0.5 uppercase tracking-tighter">
+                                {q.lastView.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                              </div>
+                            </td>
+                            <td className="px-8 py-5 text-right">
+                              <a 
+                                href={`/view-quote/${q.id}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-tighter bg-white/5 hover:bg-blue-600 text-gray-400 hover:text-white px-3 py-1.5 rounded-lg border border-white/10 transition-all"
+                              >
+                                View
+                                <ExternalLink className="w-3 h-3" />
+                              </a>
+                            </td>
+                          </motion.tr>
+                        ))
+                      )}
+                    </tbody>
+                  </table>
+                )}
               </div>
             </div>
           </div>
