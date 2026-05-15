@@ -43,28 +43,54 @@ const ReturnPolicyPage: React.FC = () => {
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
               <h2 className="font-semibold text-blue-800 mb-2">Quick Summary</h2>
               <ul className="text-sm text-blue-700 space-y-1">
-                <li>• <strong>Stock Items:</strong> Returnable within 30 days of delivery (unused, original condition).</li>
-                <li>• <strong>Custom Printed Packaging:</strong> Non-returnable unless there is a manufacturing defect.</li>
-                <li>• <strong>Samples:</strong> Non-returnable.</li>
-                <li>• <strong>Defective Items:</strong> Must be reported within 14 days of delivery.</li>
+                <li>• <strong>No Physical Returns:</strong> Due to food safety and hygiene regulations, we cannot accept physical returns of packaging materials.</li>
+                <li>• <strong>Custom Printed Packaging:</strong> Non-refundable unless there is a confirmed manufacturing defect.</li>
+                <li>• <strong>Defective Items:</strong> Must be reported within 14 days and destroyed with proof.</li>
+                <li>• <strong>Proof of Destruction:</strong> Required for all claims involving defective batches.</li>
               </ul>
             </div>
 
             <section>
               <h2 className="text-2xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <Package className="h-6 w-6 text-blue-600" />
-                Stock Items Return Policy
+                <AlertCircle className="h-6 w-6 text-red-600" />
+                Hygiene & Food Safety Notice
+              </h2>
+              <div className="text-neutral-700 space-y-4">
+                <p className="font-medium text-red-700">
+                  As a supplier of food-grade packaging, Achieve Pack maintains strict hygiene and safety protocols.
+                </p>
+                <p>
+                  To prevent the risk of cross-contamination and ensure the integrity of our food-safe environment, <strong>we do not accept the physical return of any packaging materials</strong> once they have left our controlled facility and been delivered to the customer.
+                </p>
+                <p>
+                  This policy applies to all products, including plain stock items and custom-printed orders.
+                </p>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                <RefreshCw className="h-6 w-6 text-blue-600" />
+                Defective Goods & Quality Claims
               </h2>
               <div className="text-neutral-700 space-y-4">
                 <p>
-                  For non-customized, standard stock items (e.g., plain eco stock pouches, plain mailer boxes), we accept returns within <strong>30 days</strong> of the delivery date.
+                  We stand by our quality standards. If your order arrives with a manufacturing defect (e.g., sealing failure, printing error, or material delamination) that does not match the approved specifications:
                 </p>
-                <h3 className="font-semibold mt-4">Conditions for Stock Returns:</h3>
+                <h3 className="font-semibold mt-4">1. Reporting Defects:</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Items must be unused, undamaged, and in their original packaging.</li>
-                  <li>A Return Merchandise Authorization (RMA) number must be requested before sending items back.</li>
-                  <li>The customer is responsible for return shipping costs unless the return is due to our error.</li>
-                  <li>A restocking fee of 15% may apply to large bulk orders returned without defect.</li>
+                  <li>Defects must be reported within <strong>14 days</strong> of delivery.</li>
+                  <li>Provide a detailed description of the issue along with high-resolution photos and videos.</li>
+                </ul>
+
+                <h3 className="font-semibold mt-4">2. Destruction with Third-Party Proof:</h3>
+                <p>
+                  Instead of a physical return, we require the customer to destroy the defective batch and provide verifiable proof. This ensures defective food packaging does not enter the market.
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Visual Proof:</strong> Photos or videos showing the destruction process (e.g., cutting through the pouches, shredding, or indelible marking).</li>
+                  <li><strong>Third-Party Verification:</strong> For large-scale batch claims (over $1,000 USD), we may require a signed certificate of destruction from an independent third-party inspection company or a professional waste disposal service.</li>
+                  <li><strong>Inventory Count:</strong> Verification of the total quantity of destroyed items.</li>
                 </ul>
               </div>
             </section>
@@ -105,14 +131,14 @@ const ReturnPolicyPage: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">Refund Process</h2>
+              <h2 className="text-2xl font-bold text-neutral-900 mb-4">Refund or Replacement</h2>
               <div className="text-neutral-700 space-y-4">
                 <p>
-                  Once your return is received and inspected, we will send you an email to notify you of the approval or rejection of your refund.
+                  Once your claim and destruction proof have been verified by our quality control team:
                 </p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Approved refunds will be processed and a credit will automatically be applied to your credit card or original method of payment within 5-10 business days.</li>
-                  <li>Original shipping charges are non-refundable.</li>
+                  <li><strong>Replacement:</strong> We will expedite a reprint/remake of the defective items at no additional cost.</li>
+                  <li><strong>Refund:</strong> If a replacement is not possible or desired, a refund will be issued to your original payment method.</li>
                 </ul>
               </div>
             </section>
