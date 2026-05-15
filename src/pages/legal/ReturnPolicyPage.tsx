@@ -122,6 +122,30 @@ const ReturnPolicyPage: React.FC = () => {
                   <li><strong>Third-Party Verification:</strong> For large-scale batch claims (over $1,000 USD), we may require a signed certificate of destruction from an independent third-party inspection company or a professional waste disposal service.</li>
                   <li><strong>Inventory Count:</strong> Verification of the total quantity of destroyed items.</li>
                 </ul>
+
+                <h3 className="font-semibold mt-6 text-neutral-900 flex items-center gap-2">
+                  <span className="w-8 h-8 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center text-sm">3</span>
+                  Color Accuracy & Discrepancy
+                </h3>
+                <p>
+                  We understand the importance of brand consistency. Our printing process is calibrated to match your approved color proofs.
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><strong>Tolerance Level:</strong> A color discrepancy of up to 15% is considered within the acceptable industry standard for flexible packaging printing.</li>
+                  <li><strong>Valid Claims:</strong> If the printed color discrepancy is <strong>higher than 15%</strong> against the approved color proof, the order qualifies for a full replacement or refund.</li>
+                </ul>
+
+                <div className="my-8 rounded-2xl overflow-hidden shadow-lg border border-neutral-200 bg-white p-4">
+                  <h4 className="text-sm font-bold text-neutral-800 mb-4 text-center uppercase tracking-wider">Color Accuracy Comparison Guide</h4>
+                  <img 
+                    src="/imgs/legal/color-discrepancy.png" 
+                    alt="Color Discrepancy Comparison: Approved Proof vs Delivered Product" 
+                    className="w-full h-auto rounded-lg"
+                  />
+                  <p className="mt-4 text-xs text-neutral-500 text-center italic">
+                    Example: When the delivered product (right) shows a shift of >15% from the approved proof (left), a replacement is guaranteed.
+                  </p>
+                </div>
               </div>
             </section>
 
