@@ -59,6 +59,18 @@ const ReturnPolicyPage: React.FC = () => {
                 <p className="font-medium text-red-700">
                   As a supplier of food-grade packaging, Achieve Pack maintains strict hygiene and safety protocols.
                 </p>
+                
+                <div className="my-8 rounded-2xl overflow-hidden shadow-lg border border-neutral-200">
+                  <img 
+                    src="/imgs/legal/hygiene-safety.png" 
+                    alt="Food Safe Packaging Environment" 
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="bg-neutral-50 px-4 py-2 text-xs text-neutral-500 italic">
+                    Our sterile facility ensures every pouch meets strict international hygiene standards.
+                  </div>
+                </div>
+
                 <p>
                   To prevent the risk of cross-contamination and ensure the integrity of our food-safe environment, <strong>we do not accept the physical return of any packaging materials</strong> once they have left our controlled facility and been delivered to the customer.
                 </p>
@@ -83,10 +95,28 @@ const ReturnPolicyPage: React.FC = () => {
                   <li>Provide a detailed description of the issue along with high-resolution photos and videos.</li>
                 </ul>
 
+                <div className="my-8 rounded-2xl overflow-hidden shadow-lg border border-neutral-200">
+                  <img 
+                    src="/imgs/legal/quality-control.png" 
+                    alt="Quality Control Inspection" 
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+
                 <h3 className="font-semibold mt-4">2. Destruction with Third-Party Proof:</h3>
                 <p>
                   Instead of a physical return, we require the customer to destroy the defective batch and provide verifiable proof. This ensures defective food packaging does not enter the market.
                 </p>
+                
+                <div className="my-8 flex justify-center">
+                  <div className="max-w-md rounded-2xl overflow-hidden shadow-md border border-neutral-100">
+                    <img 
+                      src="/imgs/legal/verified-destruction.png" 
+                      alt="Verified Quality Assurance" 
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
                 <ul className="list-disc pl-6 space-y-2">
                   <li><strong>Visual Proof:</strong> Photos or videos showing the destruction process (e.g., cutting through the pouches, shredding, or indelible marking).</li>
                   <li><strong>Third-Party Verification:</strong> For large-scale batch claims (over $1,000 USD), we may require a signed certificate of destruction from an independent third-party inspection company or a professional waste disposal service.</li>
