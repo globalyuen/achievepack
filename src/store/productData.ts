@@ -596,13 +596,12 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$100 for 100 pcs',
     features: ['Metalised Material', 'Stand Up + Zipper', 'High Barrier (Matte)', 'Best Seller'],
     images: [
-      '/imgs/store/hero/conventional.png',
-      'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1776490853002_3rf9qwsi0za.jpg',
       '/imgs/store/con-digital/sup-met-zip/1.webp',
       '/imgs/store/con-digital/sup-met-zip/2.webp',
       '/imgs/store/con-digital/sup-met-zip/3.webp',
       '/imgs/store/con-digital/sup-met-zip/silver_gusset.webp',
       '/imgs/store/con-digital/sup-met-zip/tear.webp',
+      'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1776490853002_3rf9qwsi0za.jpg',
       '/imgs/store/con-digital/sup-met-zip/4.webp'
     ],
     badge: '⭐ Best Seller',
