@@ -48,8 +48,9 @@ export interface BaseStoreProduct {
   inStock: boolean
   turnaround: string
   minOrder: number
-  // YouTube video URL for product demo
-  videoUrl?: string
+  // YouTube or MP4 video URLs for product demo
+  videoUrl?: string;
+  videoUrls?: string[];
   // Allow custom size input (for custom products)
   allowCustomSize?: boolean
 }
@@ -611,6 +612,10 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shape: 'zipper-stand-up',
     basePrice: 100,
     videoUrl: 'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1777910170433_yt1h1k19q0g.mp4',
+    videoUrls: [
+      'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1777910170433_yt1h1k19q0g.mp4',
+      'https://youtu.be/xKusl5lOEYM'
+    ],
   },
 ]
 

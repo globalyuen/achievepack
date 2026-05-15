@@ -319,6 +319,7 @@ const ProductPage: React.FC = () => {
   
   // Video modal state for eco-stock products
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
+  const [selectedVideoUrl, setSelectedVideoUrl] = useState<string | null>(null)
   
   // Collapsible section states
   const [isLeftCollapsed, setIsLeftCollapsed] = useState(true)
@@ -1120,10 +1121,14 @@ const ProductPage: React.FC = () => {
                       <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover p-1 pointer-events-none" loading="lazy" decoding="async" />
                     </button>
                   ))}
-                  {/* Separate YouTube Video Thumbnail */}
-                  {conventionalProduct.videoUrl && (
+                  {/* Separate Video Thumbnails */}
+                  {(product as any).videoUrls?.map((vUrl: string, vIdx: number) => (
                     <button
-                      onClick={() => setIsVideoModalOpen(true)}
+                      key={`video-${vIdx}`}
+                      onClick={() => {
+                        setSelectedVideoUrl(vUrl);
+                        setIsVideoModalOpen(true);
+                      }}
                       className="relative aspect-square bg-neutral-900 rounded-lg border-2 border-neutral-200 overflow-hidden transition-all hover:shadow-md hover:border-red-400"
                     >
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -1134,10 +1139,29 @@ const ProductPage: React.FC = () => {
                         </div>
                       </div>
                       <div className="absolute bottom-1 left-0 right-0 text-center">
-                        <span className="text-xs text-white font-medium">Video</span>
+                        <span className="text-[10px] text-white font-medium uppercase tracking-wider">Video {vIdx + 1}</span>
                       </div>
                     </button>
-                  )}
+                  )) || (product.videoUrl && (
+                    <button
+                      onClick={() => {
+                        setSelectedVideoUrl(product.videoUrl!);
+                        setIsVideoModalOpen(true);
+                      }}
+                      className="relative aspect-square bg-neutral-900 rounded-lg border-2 border-neutral-200 overflow-hidden transition-all hover:shadow-md hover:border-red-400"
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                          <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="absolute bottom-1 left-0 right-0 text-center">
+                        <span className="text-[10px] text-white font-medium uppercase tracking-wider">Video</span>
+                      </div>
+                    </button>
+                  ))}
                 </div>
               )}
               
@@ -3957,8 +3981,8 @@ const ProductPage: React.FC = () => {
         </div>
       )}
 
-      {/* YouTube Video Modal */}
-      {isVideoModalOpen && (product as any)?.videoUrl && (
+      {/* Video Modal - Supports YouTube and MP4 */}
+      {isVideoModalOpen && selectedVideoUrl && (
         <div 
           className="fixed inset-0 bg-black flex items-center justify-center z-50"
           onClick={() => setIsVideoModalOpen(false)}
@@ -3972,17 +3996,26 @@ const ProductPage: React.FC = () => {
             </svg>
           </button>
           <div 
-            className="w-full max-w-4xl aspect-video"
+            className="w-full max-w-4xl aspect-video px-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <iframe
-              src={`https://www.youtube.com/embed/${(product as any).videoUrl.split('/').pop()}?autoplay=1`}
-              title="Product Video"
-              className="w-full h-full"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            {selectedVideoUrl.includes('youtube.com') || selectedVideoUrl.includes('youtu.be') ? (
+              <iframe
+                src={selectedVideoUrl.includes('youtu.be') 
+                  ? `https://www.youtube.com/embed/${selectedVideoUrl.split('/').pop()}?autoplay=1` 
+                  : selectedVideoUrl.replace('watch?v=', 'embed/') + '?autoplay=1'}
+                className="w-full h-full rounded-xl"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <video 
+                src={selectedVideoUrl} 
+                className="w-full h-full rounded-xl shadow-2xl" 
+                controls 
+                autoPlay 
+              />
+            )}
           </div>
         </div>
       )}
