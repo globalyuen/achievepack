@@ -547,8 +547,8 @@ const StorePage: React.FC = () => {
                         {mediaItem.type === 'video' ? (
                           <video 
                             src={mediaItem.src} 
-                            className={`absolute inset-0 w-full h-full object-cover ${mediaItem.rotate ? 'rotate-180' : ''}`}
-                            ref={(el) => { if(el && mediaItem.slow) el.playbackRate = 0.3; }}
+                            className={`absolute inset-0 w-full h-full object-cover ${(mediaItem as any).rotate ? 'rotate-180' : ''}`}
+                            ref={(el) => { if(el && (mediaItem as any).slow) el.playbackRate = 0.3; }}
                             autoPlay 
                             loop 
                             muted 

@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-15",
-  "total_images": 1366,
-  "total_categories": 152,
+  "total_images": 1368,
+  "total_categories": 153,
   "extensions": {
     ".webp": 1082,
-    ".png": 237,
+    ".png": 239,
     ".jpg": 44,
     ".svg": 3
   },
@@ -7906,6 +7906,23 @@
           "path": "/imgs/store/eco-stock/tea-bags/holding.webp",
           "extension": ".webp",
           "modified": "2026-05-12T16:26:48.550Z"
+        }
+      ]
+    },
+    "store/hero": {
+      "count": 2,
+      "images": [
+        {
+          "filename": "eco-digital.png",
+          "path": "/imgs/store/hero/eco-digital.png",
+          "extension": ".png",
+          "modified": "2026-05-15T04:57:32.738Z"
+        },
+        {
+          "filename": "conventional.png",
+          "path": "/imgs/store/hero/conventional.png",
+          "extension": ".png",
+          "modified": "2026-05-15T04:57:32.733Z"
         }
       ]
     },
