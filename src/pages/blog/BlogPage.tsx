@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { blogPosts, blogCategories } from '../../data/blogData';
 import { Calendar, Clock, ArrowRight, Search } from 'lucide-react';
 import SiteHeader from '../../components/SiteHeader';
-import StoreFooter from '../../components/StoreFooter';
+import Footer from '../../components/Footer';
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -202,7 +202,7 @@ export default function BlogPage() {
           </div>
         </section>
 
-        <StoreFooter />
+        <Footer />
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import { blogPosts } from '../../data/blogData';
 import { Calendar, Clock, Tag, Share2, List, ChevronRight, ArrowUp, ArrowLeft } from 'lucide-react';
 import { useState, useMemo, useEffect, useTransition, useCallback } from 'react';
 import SiteHeader from '../../components/SiteHeader';
-import StoreFooter from '../../components/StoreFooter';
+import Footer from '../../components/Footer';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -358,7 +358,7 @@ export default function BlogPostPage() {
         )}
 
         {/* Unified Footer */}
-        <StoreFooter />
+        <Footer />
 
         {/* Back to Top Button */}
         {showBackToTop && (

@@ -11,7 +11,7 @@ import { TESTIMONIALS } from '../data/testimonialsData'
 import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, type ProductFAQ } from '../data/productFAQData'
 import { getAISellingPoints, hasAISellingPoints, type AISellingPoint } from '../data/aiSellingPoints'
 import { CLOSURE_OPTIONS, SURFACE_OPTIONS, type ClosureOption, type SurfaceOption } from '../components/SortableOptionsTable'
-import StoreFooter from '../components/StoreFooter'
+import Footer from '../components/Footer'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 import { Checkbox } from '../components/animate-ui/components/radix/checkbox'
 import {
@@ -4029,7 +4029,7 @@ const ProductPage: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <StoreFooter />
+      <Footer />
     </div>
 
     {/* Share Configuration Modal */}

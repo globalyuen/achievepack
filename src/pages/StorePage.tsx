@@ -8,7 +8,7 @@ import { FEATURED_PRODUCTS, type StoreProduct, type EcoDigitalProduct, type Conv
 import { getProductImage } from '../utils/productImageMapper'
 import type { ShapeType } from '../utils/productImageMapper'
 import MegaMenu from '../components/MegaMenu'
-import StoreFooter from '../components/StoreFooter'
+import Footer from '../components/Footer'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 
 type ViewMode = 'grid' | 'list'
@@ -971,7 +971,7 @@ const StorePage: React.FC = () => {
 
 
       {/* Footer */}
-      <StoreFooter />
+      <Footer />
     </div>
     </>
   )
