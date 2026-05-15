@@ -29,6 +29,8 @@ export interface PouchProduct {
   inStock: boolean
   turnaround: string
   minOrder: number
+  videoUrl?: string
+  videoUrls?: string[]
 }
 
 // New store product types

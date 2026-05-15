@@ -1142,10 +1142,10 @@ const ProductPage: React.FC = () => {
                         <span className="text-[10px] text-white font-medium uppercase tracking-wider">Video {vIdx + 1}</span>
                       </div>
                     </button>
-                  )) || (product.videoUrl && (
+                  )) || ((product as any).videoUrl && (
                     <button
                       onClick={() => {
-                        setSelectedVideoUrl(product.videoUrl!);
+                        setSelectedVideoUrl((product as any).videoUrl!);
                         setIsVideoModalOpen(true);
                       }}
                       className="relative aspect-square bg-neutral-900 rounded-lg border-2 border-neutral-200 overflow-hidden transition-all hover:shadow-md hover:border-red-400"
