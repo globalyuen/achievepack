@@ -221,6 +221,7 @@ const LabBlenderBagsPage = lazyWithRetry(() => import('./pages/lab/LabBlenderBag
 // Legal Pages - Lazy loaded
 const PrivacyPolicyPage = lazyWithRetry(() => import('./pages/legal/PrivacyPolicyPage'))
 const ShippingPolicyPage = lazyWithRetry(() => import('./pages/legal/ShippingPolicyPage'))
+const ReturnPolicyPage = lazyWithRetry(() => import('./pages/legal/ReturnPolicyPage'))
 const CookiePolicyPage = lazyWithRetry(() => import('./pages/legal/CookiePolicyPage'))
 
 // Company Pages - Lazy loaded
@@ -825,6 +826,7 @@ if (getDomain() === 'pouch') {
                         {/* Legal Pages */}
                         <Route path="/privacy" element={<PrivacyPolicyPage />} />
                         <Route path="/shipping" element={<ShippingPolicyPage />} />
+                        <Route path="/return-policy" element={<ReturnPolicyPage />} />
                         <Route path="/cookie-policy" element={<CookiePolicyPage />} />
 
                         {/* Company Pages */}

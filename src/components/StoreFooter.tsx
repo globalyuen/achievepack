@@ -78,7 +78,7 @@ export default function StoreFooter() {
             <h4 className="font-semibold text-sm mb-4">Store Policies</h4>
             <ul className="space-y-2 text-xs text-neutral-400">
               <li><Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link></li>
-              <li><Link to="/support/faqs" className="hover:text-primary-400">Return Policy</Link></li>
+              <li><Link to="/return-policy" className="hover:text-primary-400">Return Policy</Link></li>
               <li><Link to="/support/lead-time" className="hover:text-primary-400">Shipping & Lead Time</Link></li>
               <li><Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link></li>
             </ul>

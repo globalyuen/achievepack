@@ -323,6 +323,7 @@ export default function Footer() {
             <Link to="/terms" className="hover:text-primary-400">Terms & Conditions</Link>
             <Link to="/privacy" className="hover:text-primary-400">Privacy Policy</Link>
             <Link to="/shipping" className="hover:text-primary-400">Shipping Policy</Link>
+            <Link to="/return-policy" className="hover:text-primary-400">Return Policy</Link>
           </div>
         </div>
       </div>
