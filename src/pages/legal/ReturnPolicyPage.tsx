@@ -143,7 +143,7 @@ const ReturnPolicyPage: React.FC = () => {
                     className="w-full h-auto rounded-lg"
                   />
                   <p className="mt-4 text-xs text-neutral-500 text-center italic">
-                    Example: When the delivered product (right) shows a shift of >15% from the approved proof (left), a replacement is guaranteed.
+                    Example: When the delivered product (right) shows a shift of &gt;15% from the approved proof (left), a replacement is guaranteed.
                   </p>
                 </div>
               </div>

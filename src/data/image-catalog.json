@@ -1,10 +1,10 @@
 {
-  "generated": "2026-05-14",
-  "total_images": 1338,
-  "total_categories": 150,
+  "generated": "2026-05-15",
+  "total_images": 1366,
+  "total_categories": 152,
   "extensions": {
     ".webp": 1082,
-    ".png": 209,
+    ".png": 237,
     ".jpg": 44,
     ".svg": 3
   },
@@ -3152,6 +3152,71 @@
         }
       ]
     },
+    "generated": {
+      "count": 10,
+      "images": [
+        {
+          "filename": "reduce_waste.png",
+          "path": "/imgs/generated/reduce_waste.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.458Z"
+        },
+        {
+          "filename": "custom_packaging.png",
+          "path": "/imgs/generated/custom_packaging.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.456Z"
+        },
+        {
+          "filename": "eco_audit.png",
+          "path": "/imgs/generated/eco_audit.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.454Z"
+        },
+        {
+          "filename": "food_supplier.png",
+          "path": "/imgs/generated/food_supplier.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.452Z"
+        },
+        {
+          "filename": "pcr_guide.png",
+          "path": "/imgs/generated/pcr_guide.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.450Z"
+        },
+        {
+          "filename": "mono_material.png",
+          "path": "/imgs/generated/mono_material.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.448Z"
+        },
+        {
+          "filename": "certification_faq.png",
+          "path": "/imgs/generated/certification_faq.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.445Z"
+        },
+        {
+          "filename": "compostable_blog.png",
+          "path": "/imgs/generated/compostable_blog.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.442Z"
+        },
+        {
+          "filename": "recyclable_guide.png",
+          "path": "/imgs/generated/recyclable_guide.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.440Z"
+        },
+        {
+          "filename": "sustainable_pillar.png",
+          "path": "/imgs/generated/sustainable_pillar.png",
+          "extension": ".png",
+          "modified": "2026-05-14T11:46:43.438Z"
+        }
+      ]
+    },
     "group": {
       "count": 1,
       "images": [
@@ -4003,6 +4068,35 @@
           "path": "/imgs/label/custom-sticker/hero.webp",
           "extension": ".webp",
           "modified": "2025-12-30T04:38:10.000Z"
+        }
+      ]
+    },
+    "legal": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "color-discrepancy.png",
+          "path": "/imgs/legal/color-discrepancy.png",
+          "extension": ".png",
+          "modified": "2026-05-15T03:23:28.404Z"
+        },
+        {
+          "filename": "verified-destruction.png",
+          "path": "/imgs/legal/verified-destruction.png",
+          "extension": ".png",
+          "modified": "2026-05-15T03:15:45.330Z"
+        },
+        {
+          "filename": "hygiene-safety.png",
+          "path": "/imgs/legal/hygiene-safety.png",
+          "extension": ".png",
+          "modified": "2026-05-15T03:15:45.324Z"
+        },
+        {
+          "filename": "quality-control.png",
+          "path": "/imgs/legal/quality-control.png",
+          "extension": ".png",
+          "modified": "2026-05-15T03:15:45.318Z"
         }
       ]
     },
@@ -8688,8 +8782,92 @@
       ]
     },
     "topics": {
-      "count": 11,
+      "count": 25,
       "images": [
+        {
+          "filename": "eco-friendly-food-hero.png",
+          "path": "/imgs/topics/eco-friendly-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T23:45:40.303Z"
+        },
+        {
+          "filename": "compostable-cert-hero.png",
+          "path": "/imgs/topics/compostable-cert-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T23:37:40.781Z"
+        },
+        {
+          "filename": "recyclable-snack-hero.png",
+          "path": "/imgs/topics/recyclable-snack-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T23:37:40.778Z"
+        },
+        {
+          "filename": "pcr-recycling-hero.png",
+          "path": "/imgs/topics/pcr-recycling-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T23:37:40.774Z"
+        },
+        {
+          "filename": "food-safety-qc-hero.png",
+          "path": "/imgs/topics/food-safety-qc-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T23:37:40.770Z"
+        },
+        {
+          "filename": "digital-printing-press-hero.png",
+          "path": "/imgs/topics/digital-printing-press-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T23:37:40.768Z"
+        },
+        {
+          "filename": "minimalist-d2c-unboxing-hero.png",
+          "path": "/imgs/topics/minimalist-d2c-unboxing-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T23:37:40.766Z"
+        },
+        {
+          "filename": "sustainable-lifecycle-pillar.png",
+          "path": "/imgs/topics/sustainable-lifecycle-pillar.png",
+          "extension": ".png",
+          "modified": "2026-05-14T22:42:01.928Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-hero.png",
+          "path": "/imgs/topics/mono-pe-recyclable-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T22:42:01.926Z"
+        },
+        {
+          "filename": "home-compostable-coffee-hero.png",
+          "path": "/imgs/topics/home-compostable-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T22:42:01.922Z"
+        },
+        {
+          "filename": "ocean-bound-plastic-hero.png",
+          "path": "/imgs/topics/ocean-bound-plastic-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T22:42:01.919Z"
+        },
+        {
+          "filename": "pfas-free-lab-hero.png",
+          "path": "/imgs/topics/pfas-free-lab-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T22:42:01.917Z"
+        },
+        {
+          "filename": "child-resistant-mylar-hero.png",
+          "path": "/imgs/topics/child-resistant-mylar-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T15:50:49.119Z"
+        },
+        {
+          "filename": "real-world-sustainability-hero.png",
+          "path": "/imgs/topics/real-world-sustainability-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-14T13:42:23.040Z"
+        },
         {
           "filename": "heat-resistant-layers-tech.png",
           "path": "/imgs/topics/heat-resistant-layers-tech.png",
