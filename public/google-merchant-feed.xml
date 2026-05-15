@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
   <channel>
-    <title>Achieve Pack</title>
+    <title>Achieve Pack Product Feed</title>
     <link>https://achievepack.com</link>
-    <description>Sustainable and Custom Packaging Solutions</description>
+    <description>Sustainable and Custom Packaging Solutions - Automated Feed</description>
     <item>
       <g:id>sample-sizing-pack</g:id>
       <g:title>Sizing Pack (Conventional Plastic)</g:title>
@@ -13,7 +13,10 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>40.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>sample</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>sample-assorted-eco</g:id>
@@ -24,7 +27,10 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>40.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>sample</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>sample-top-film</g:id>
@@ -35,7 +41,10 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>60.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>sample</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>sample-hand-sealed</g:id>
@@ -46,7 +55,10 @@
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>60.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>sample</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>conven-3ss-clear-xzip</g:id>
@@ -54,10 +66,16 @@
       <g:description>Crystal clear 3-side seal pouch with low barrier finish. Perfect for showcasing your products with full visibility.</g:description>
       <g:link>https://achievepack.com/store/product/conven-3ss-clear-xzip</g:link>
       <g:image_link>https://achievepack.com/imgs/store/con-digital/3ss-clear-xzip/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-clear-xzip/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-clear-xzip/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-clear-xzip/tear.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>90.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>conventional digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>conven-3ss-clear-zip</g:id>
@@ -65,10 +83,16 @@
       <g:description>Resealable clear 3-side seal pouch. Combines product visibility with convenient resealing functionality.</g:description>
       <g:link>https://achievepack.com/store/product/conven-3ss-clear-zip</g:link>
       <g:image_link>https://achievepack.com/imgs/store/con-digital/3ss-clear-zip/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-clear-zip/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-clear-zip/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-clear-zip/tear.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>110.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>conventional digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>conven-3ss-met-xzip</g:id>
@@ -76,10 +100,16 @@
       <g:description>Metalised 3-side seal pouch with high barrier protection. Ideal for light-sensitive and moisture-sensitive products.</g:description>
       <g:link>https://achievepack.com/store/product/conven-3ss-met-xzip</g:link>
       <g:image_link>https://achievepack.com/imgs/store/con-digital/3ss-met-xzip/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-met-xzip/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-met-xzip/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-met-xzip/tear.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>90.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>conventional digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>conven-3ss-met-zip</g:id>
@@ -87,10 +117,16 @@
       <g:description>Premium metalised 3-side seal with zipper. Maximum protection with convenient reseal for freshness retention.</g:description>
       <g:link>https://achievepack.com/store/product/conven-3ss-met-zip</g:link>
       <g:image_link>https://achievepack.com/imgs/store/con-digital/3ss-met-zip/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-met-zip/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-met-zip/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/3ss-met-zip/tear.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>110.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>conventional digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>conven-sup-clear-xzip</g:id>
@@ -98,10 +134,18 @@
       <g:description>Clear stand-up pouch with excellent shelf presence. Showcases your product while standing upright on shelves.</g:description>
       <g:link>https://achievepack.com/store/product/conven-sup-clear-xzip</g:link>
       <g:image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-xzip/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-xzip/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-xzip/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-xzip/transparent_gusset.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-xzip/tear.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-xzip/4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>90.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>conventional digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>conven-sup-clear-zip</g:id>
@@ -109,10 +153,18 @@
       <g:description>Resealable clear stand-up pouch. Perfect blend of visibility, shelf appeal, and resealable convenience.</g:description>
       <g:link>https://achievepack.com/store/product/conven-sup-clear-zip</g:link>
       <g:image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-zip/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-zip/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-zip/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-zip/transparent_gusset.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-zip/tear.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-clear-zip/4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>100.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>conventional digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>conven-sup-met-xzip</g:id>
@@ -120,10 +172,18 @@
       <g:description>Metalised stand-up pouch with high barrier protection. Combines premium appearance with product protection.</g:description>
       <g:link>https://achievepack.com/store/product/conven-sup-met-xzip</g:link>
       <g:image_link>https://achievepack.com/imgs/store/con-digital/sup-met-xzip/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-xzip/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-xzip/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-xzip/silver_gusset.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-xzip/tear.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-xzip/4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>90.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>conventional digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>conven-sup-met-zip</g:id>
@@ -131,10 +191,20 @@
       <g:description>Premium metalised stand-up pouch with zipper. Our best-selling option combining all premium features.</g:description>
       <g:link>https://achievepack.com/store/product/conven-sup-met-zip</g:link>
       <g:image_link>https://achievepack.com/imgs/store/hero/conventional.png</g:image_link>
+      <g:additional_image_link>https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1776490853002_3rf9qwsi0za.jpg</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-zip/1.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-zip/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-zip/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-zip/silver_gusset.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-zip/tear.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/con-digital/sup-met-zip/4.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>100.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>conventional digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-3side</g:id>
@@ -142,10 +212,15 @@
       <g:description>Eco-friendly 3-side seal pouch. Choose from PCR/Bio Plastic, Mono Recyclable, or Biodegradable materials.</g:description>
       <g:link>https://achievepack.com/store/product/eco-3side</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/pouch shape/3-side.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>100.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-centerseal</g:id>
@@ -153,10 +228,15 @@
       <g:description>Eco-friendly center seal. Simple and cost-effective design with sustainable material options.</g:description>
       <g:link>https://achievepack.com/store/product/eco-centerseal</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/pouch shape/center.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>100.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-standup</g:id>
@@ -164,10 +244,17 @@
       <g:description>Premium eco stand-up pouch. Excellent shelf presence with sustainable materials.</g:description>
       <g:link>https://achievepack.com/store/product/eco-standup</g:link>
       <g:image_link>https://achievepack.com/imgs/store/hero/eco-digital.png</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/pouch shape/stand-up.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>120.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-boxbottom</g:id>
@@ -175,10 +262,15 @@
       <g:description>Eco box bottom pouch. Maximum stability and capacity with sustainable materials.</g:description>
       <g:link>https://achievepack.com/store/product/eco-boxbottom</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/pouch shape/box.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>170.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-flatbottom</g:id>
@@ -186,10 +278,16 @@
       <g:description>Eco flat bottom pouch. Premium flat bottom design with eco-friendly materials.</g:description>
       <g:link>https://achievepack.com/store/product/eco-flatbottom</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/pouch shape/flat-bottom.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>190.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-quadseal</g:id>
@@ -197,10 +295,16 @@
       <g:description>Eco quad seal pouch. Four-corner seal for maximum stability with sustainable materials.</g:description>
       <g:link>https://achievepack.com/store/product/eco-quadseal</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/pouch shape/quad-seal.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>160.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-sidegusset</g:id>
@@ -208,10 +312,15 @@
       <g:description>Eco side gusset pouch. Classic coffee bag style with sustainable materials.</g:description>
       <g:link>https://achievepack.com/store/product/eco-sidegusset</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/pouch shape/side -seal.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>140.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco digital</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-stock-flatbottom-kraft</g:id>
@@ -219,10 +328,17 @@
       <g:description>100% compostable flat bottom pouch with natural kraft finish. Made from plant-based materials that break down in industrial composting facilities. Features one-sided zipper for resealability.</g:description>
       <g:link>https://achievepack.com/store/product/eco-stock-flatbottom-kraft</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/kraft/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/kraft/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/kraft/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/kraft/4.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/kraft/5.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>1000.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco stock</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-stock-flatbottom-clear</g:id>
@@ -230,10 +346,17 @@
       <g:description>100% compostable flat bottom pouch with milky clear finish for product visibility. Made from plant-based materials with industrial composting certification. Features one-sided zipper for convenience.</g:description>
       <g:link>https://achievepack.com/store/product/eco-stock-flatbottom-clear</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/clear/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/clear/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/clear/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/clear/4.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/flat-bottom/clear/5.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>1000.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco stock</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-stock-header-adhesive</g:id>
@@ -241,10 +364,23 @@
       <g:description>100% certified compostable gusseted bag with adhesive header for secure sealing. Made from plant-based materials. Price includes air shipping. Multiple sizes available with optional hanging hole.</g:description>
       <g:link>https://achievepack.com/store/product/eco-stock-header-adhesive</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v1/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v1/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v1/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v1/4.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v1/5.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v2/a_hero_kv_unprinted_milky_7789289.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v2/a_comparison_unprinted_milky_3707943.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v2/a_seal_detail_unprinted_0724101.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v2/a_durability_test_unprinted_7520599.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v2/a_unboxing_unprinted_milky_3877400.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/v2/a_disposal_unprinted_milky_9571422.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>5.56 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco stock</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-stock-header-adhesive-custom</g:id>
@@ -252,10 +388,21 @@
       <g:description>Custom printed 100% certified compostable gusseted bag with adhesive header. Full-color digital printing available. MOQ 5,000 pcs per design. Volume discounts available up to 50,000 pcs.</g:description>
       <g:link>https://achievepack.com/store/product/eco-stock-header-adhesive-custom</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/custom print/a_hero_kv_compost_mailer_transparent_5939909.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/custom print/a_custom_printing_showcase_transparent_0406760.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/custom print/a_comparison_compostable_transparent_7910662.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/custom print/a_compost_mailer_seal_detail_closeup_3236876.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/custom print/a_durability_test_material_pull_6142959.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/custom print/a_unboxing_scene_transparent_mailer_7400547.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/custom print/a_ecommerce_packing_scene_transparent_8524468.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/custom print/a_disposal_instructions_transparent_mailer_4494569.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/header/adhesive/custom print/a_brand_closing_earth_return_transparent_9888178.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>560.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco stock</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-stock-mailer-zipbag</g:id>
@@ -263,10 +410,17 @@
       <g:description>100% biodegradable resealable mailer bag made from PLA+PBAT. Features durable zip-lock closure for multiple uses, moisture and dust protection. Certified compostable - decomposes in 3 months (industrial) or 1-2 years (natural conditions).</g:description>
       <g:link>https://achievepack.com/store/product/eco-stock-mailer-zipbag</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-stock/mailer/zip bag/1.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/mailer/zip bag/2.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/mailer/zip bag/3.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/mailer/zip bag/4.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/mailer/zip bag/5.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>5.83 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco stock</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-stock-mailer-zipbag-custom</g:id>
@@ -274,10 +428,17 @@
       <g:description>Custom printed 100% biodegradable resealable mailer bag made from PLA+PBAT. Full-color printing with your brand logo and design. Features durable zip-lock closure for multiple uses, moisture and dust protection. Certified compostable.</g:description>
       <g:link>https://achievepack.com/store/product/eco-stock-mailer-zipbag-custom</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-stock/mailer/custom-print/a_custom_printing_showcase_transparent_0406760.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/mailer/custom-print/a_comparison_compostable_transparent_7910662.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/mailer/custom-print/a_durability_test_material_pull_6142959.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/mailer/custom-print/944af2cf-100b-4861-868e-be855852b5f7_upscayl_3x_upscayl-standard-4x.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/mailer/custom-print/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>124.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco stock</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>eco-stock-tea-bags-pla</g:id>
@@ -285,10 +446,16 @@
       <g:description>Food grade corn fiber (PLA) tea filter bags. Ideal for brewing tea, spices, and herbs. Lightweight, clean filtration, and strong permeability. Made from natural corn starch, safe and odorless. Fold-over type for easy filling and sealing. Price includes air shipping.</g:description>
       <g:link>https://achievepack.com/store/product/eco-stock-tea-bags-pla</g:link>
       <g:image_link>https://achievepack.com/imgs/store/eco-stock/tea-bags/1.jpg</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/tea-bags/2.jpg</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/tea-bags/3.jpg</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/eco-stock/tea-bags/4.jpg</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>4.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>eco stock</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>box-corrugated-custom</g:id>
@@ -296,10 +463,23 @@
       <g:description>Premium custom printed corrugated mailer boxes ideal for coffee, tea, chocolate, and artisan food products. Features four-color CMYK printing with matte finish, optional gold foil and embossing. Made with FSC certified recycled paper—perfect for eco-conscious brands seeking sustainable premium packaging.</g:description>
       <g:link>https://achievepack.com/store/product/box-corrugated-custom</g:link>
       <g:image_link>https://achievepack.com/imgs/store/box/corrugated-box/2be65396-ac07-44d0-b54c-2422d3bfe981.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/90f309ab-e30c-49e3-891c-83b47a7fe7a6.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/a_mockup_premium_layflat_applied_2105634.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/8ffb866f-c5a2-4d0c-abdd-7398c6fe1387.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/ads/a_brand_closing_collection_9526391.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/ads/a_foil_stamping_detail_logo_3101304.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/ads/a_hero_kv_black_gold_mailer_4737831.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/ads/a_insert_detail_arrangement_4804418.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/ads/a_load_bearing_structure_detail_7538740.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/corrugated-box/ads/a_material_benefits_page_4228725.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>514.50 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>boxes</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
     <item>
       <g:id>box-tuck-custom</g:id>
@@ -307,10 +487,23 @@
       <g:description>Premium custom printed tuck boxes (cartons) with elegant matte finish, gold foil stamping, and embossed details. Perfect for chocolate bars, tea sachets, small confectionery, and artisan products requiring a sophisticated presentation. Made from FSC certified paper for eco-conscious brands.</g:description>
       <g:link>https://achievepack.com/store/product/box-tuck-custom</g:link>
       <g:image_link>https://achievepack.com/imgs/store/box/tuck-box/8a2918bb-a48c-44a3-875d-6e766e5f305f.webp</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/247e2fdf-3274-4be8-b656-03d7e20b5a0f.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/ads/a_detail_base_loading_4721904.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/ads/a_detail_edge_finish_8463428.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/ads/a_detail_gold_foil_embossing_5696847.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/ads/a_detail_interior_unboxing_9052534.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/ads/a_detail_tuck_flaps_folds_9224764.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/ads/a_hero_kv_tuck_box_3590474.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/ads/a_material_sustainability_page_9060501.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/ads/a_range_collection_closing_9211739.webp</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/box/tuck-box/ads/a_retail_display_scene_3099119.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
       <g:price>1105.50 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
       <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>boxes</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>
   </channel>
 </rss>

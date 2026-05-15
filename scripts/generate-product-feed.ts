@@ -13,49 +13,55 @@ function generateFeed() {
   console.log('🔄 Starting Google Merchant Feed generation...');
 
   const items = FEATURED_PRODUCTS.map((product) => {
-    // Only include purchasable/real products (can filter out categories if needed)
-    // We'll include all of them for now
-    
     const id = product.id;
     const title = product.name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     const description = product.description.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     const link = `${BASE_URL}/store/product/${id}`;
     
-    // Ensure the image URL is absolute
-    let imageUrl = product.images[0] || '';
-    if (imageUrl && !imageUrl.startsWith('http')) {
-      imageUrl = `${BASE_URL}${imageUrl}`;
-    }
-
+    // Ensure image URLs are absolute
+    const imageUrls = product.images.map(img => img.startsWith('http') ? img : `${BASE_URL}${img}`);
+    const primaryImage = imageUrls[0] || '';
+    const additionalImages = imageUrls.slice(1, 11); // Up to 10 extra images
+    
     // Default base price
     let price = product.basePrice || 0;
-    // Format price properly: "100.00 USD"
     const priceStr = `${price.toFixed(2)} USD`;
-    
     const inStock = product.inStock !== false ? 'in_stock' : 'out_of_stock';
     
-    // Determine Google Product Category if needed (optional but recommended)
-    // 6848 = Business & Industrial > Packaging & Shipping > Packaging Materials
-    
-    return `    <item>
+    // Google Product Category: 6848 = Business & Industrial > Packaging & Shipping > Packaging Materials
+    const googleCategory = '6848';
+    const productType = product.category.replace(/-/g, ' ');
+
+    let itemXml = `    <item>
       <g:id>${id}</g:id>
       <g:title>${title}</g:title>
       <g:description>${description}</g:description>
       <g:link>${link}</g:link>
-      <g:image_link>${imageUrl}</g:image_link>
+      <g:image_link>${primaryImage}</g:image_link>`;
+
+    additionalImages.forEach(img => {
+      itemXml += `\n      <g:additional_image_link>${img}</g:additional_image_link>`;
+    });
+
+    itemXml += `
       <g:condition>new</g:condition>
       <g:availability>${inStock}</g:availability>
       <g:price>${priceStr}</g:price>
-      <g:google_product_category>6848</g:google_product_category>
+      <g:brand>Achieve Pack</g:brand>
+      <g:google_product_category>${googleCategory}</g:google_product_category>
+      <g:product_type>${productType}</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
     </item>`;
+
+    return itemXml;
   });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
   <channel>
-    <title>Achieve Pack</title>
+    <title>Achieve Pack Product Feed</title>
     <link>${BASE_URL}</link>
-    <description>Sustainable and Custom Packaging Solutions</description>
+    <description>Sustainable and Custom Packaging Solutions - Automated Feed</description>
 ${items.join('\n')}
   </channel>
 </rss>`;
