@@ -101,16 +101,15 @@ const STORE_FEATURES = [
     description: 'Metallised with Zipper. Get high barrier protection with an optional premium foiling effect.',
     link: '/store/product/conven-sup-met-zip',
     media: [
-      { type: 'video', src: 'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1777910170433_yt1h1k19q0g.mp4', rotate: true, slow: true },
-      { type: 'image', src: 'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1776490853002_3rf9qwsi0za.jpg' }
+      { type: 'image', src: '/imgs/store/hero/conventional.png' }
     ],
     benefits: [
-      { title: 'Low Cost', desc: 'Start from USD 140', icon: DollarSign, colors: 'from-green-500 to-emerald-500', bgBorder: 'border-green-100 hover:border-green-300', textGroup: 'group-hover:text-green-600' },
-      { title: 'Low MOQ', desc: 'Start from 100 pcs', icon: Package, colors: 'from-blue-500 to-indigo-500', bgBorder: 'border-blue-100 hover:border-blue-300', textGroup: 'group-hover:text-blue-600' },
+      { title: 'Low Cost', desc: 'From USD 140', icon: DollarSign, colors: 'from-green-500 to-emerald-500', bgBorder: 'border-green-100 hover:border-green-300', textGroup: 'group-hover:text-green-600' },
+      { title: 'Low MOQ', desc: 'From 100 pcs', icon: Package, colors: 'from-blue-500 to-indigo-500', bgBorder: 'border-blue-100 hover:border-blue-300', textGroup: 'group-hover:text-blue-600' },
       { title: 'High Barrier', desc: 'Metallised material', icon: Shield, colors: 'from-purple-500 to-violet-500', bgBorder: 'border-purple-100 hover:border-purple-300', textGroup: 'group-hover:text-purple-600' },
-      { title: 'Highly Attractive', desc: 'Foiling optional feature', icon: Sparkles, colors: 'from-orange-500 to-amber-500', bgBorder: 'border-orange-100 hover:border-orange-300', textGroup: 'group-hover:text-orange-600' },
+      { title: 'Highly Attractive', desc: 'Foiling optional', icon: Sparkles, colors: 'from-orange-500 to-amber-500', bgBorder: 'border-orange-100 hover:border-orange-300', textGroup: 'group-hover:text-orange-600' },
       { title: 'High Resolution', desc: 'HP digital print', icon: Printer, colors: 'from-rose-500 to-red-500', bgBorder: 'border-rose-100 hover:border-rose-300', textGroup: 'group-hover:text-rose-600' },
-      { title: 'Air Freight', desc: 'Included air freight', icon: Plane, colors: 'from-cyan-500 to-sky-500', bgBorder: 'border-cyan-100 hover:border-cyan-300', textGroup: 'group-hover:text-cyan-600' },
+      { title: 'Air Freight', desc: 'Included', icon: Plane, colors: 'from-cyan-500 to-sky-500', bgBorder: 'border-cyan-100 hover:border-cyan-300', textGroup: 'group-hover:text-cyan-600' },
     ]
   },
   {
@@ -119,16 +118,15 @@ const STORE_FEATURES = [
     description: 'Premium eco stand-up pouch. Excellent shelf presence with sustainable materials.',
     link: '/store/product/eco-standup',
     media: [
-      { type: 'image', src: '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp' },
-      { type: 'image', src: '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp' }
+      { type: 'image', src: '/imgs/store/hero/eco-digital.png' }
     ],
     benefits: [
-      { title: 'Eco Materials', desc: 'Mono Recyclable or PCR', icon: Leaf, colors: 'from-green-500 to-emerald-500', bgBorder: 'border-green-100 hover:border-green-300', textGroup: 'group-hover:text-green-600' },
-      { title: 'Minimum Order', desc: 'Start from 1000 pcs', icon: Package, colors: 'from-blue-500 to-indigo-500', bgBorder: 'border-blue-100 hover:border-blue-300', textGroup: 'group-hover:text-blue-600' },
-      { title: 'Lower Carbon', desc: '30% lower carbon footprint', icon: Globe, colors: 'from-teal-500 to-emerald-500', bgBorder: 'border-teal-100 hover:border-teal-300', textGroup: 'group-hover:text-teal-600' },
+      { title: 'Eco Materials', desc: 'Mono PE or PCR', icon: Leaf, colors: 'from-green-500 to-emerald-500', bgBorder: 'border-green-100 hover:border-green-300', textGroup: 'group-hover:text-green-600' },
+      { title: 'Minimum Order', desc: 'From 1000 pcs', icon: Package, colors: 'from-blue-500 to-indigo-500', bgBorder: 'border-blue-100 hover:border-blue-300', textGroup: 'group-hover:text-blue-600' },
+      { title: 'Lower Carbon', desc: '30% lower footprint', icon: Globe, colors: 'from-teal-500 to-emerald-500', bgBorder: 'border-teal-100 hover:border-teal-300', textGroup: 'group-hover:text-teal-600' },
       { title: 'Premium Look', desc: 'Excellent shelf presence', icon: Star, colors: 'from-amber-500 to-orange-500', bgBorder: 'border-amber-100 hover:border-amber-300', textGroup: 'group-hover:text-amber-600' },
       { title: 'High Resolution', desc: 'HP digital print', icon: Printer, colors: 'from-rose-500 to-red-500', bgBorder: 'border-rose-100 hover:border-rose-300', textGroup: 'group-hover:text-rose-600' },
-      { title: 'Air Freight', desc: 'Included air freight', icon: Plane, colors: 'from-cyan-500 to-sky-500', bgBorder: 'border-cyan-100 hover:border-cyan-300', textGroup: 'group-hover:text-cyan-600' },
+      { title: 'Air Freight', desc: 'Included', icon: Plane, colors: 'from-cyan-500 to-sky-500', bgBorder: 'border-cyan-100 hover:border-cyan-300', textGroup: 'group-hover:text-cyan-600' },
     ]
   }
 ]
@@ -501,7 +499,7 @@ const StorePage: React.FC = () => {
       </div>
 
       {/* Feature Carousel Section */}
-      <section className="bg-white py-12 border-b border-neutral-200 mb-8 relative overflow-hidden">
+      <section className="bg-white py-6 border-b border-neutral-200 mb-6 relative overflow-hidden">
         <div className="absolute inset-y-0 left-0 sm:left-4 flex items-center z-20 pointer-events-none">
           <button 
             onClick={prevFeature}
@@ -526,11 +524,11 @@ const StorePage: React.FC = () => {
                 key={feature.id}
                 className={`transition-opacity duration-500 ease-in-out ${idx === currentFeatureIndex ? 'opacity-100 relative z-10' : 'opacity-0 absolute inset-0 z-0 pointer-events-none'}`}
               >
-                <div className="text-center max-w-3xl mx-auto mb-12">
-                  <h2 className="text-3xl font-bold text-neutral-900 mb-4">
+                <div className="text-center max-w-3xl mx-auto mb-6">
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-2">
                     {feature.title}
                   </h2>
-                  <p className="text-lg text-neutral-600 mb-8 h-14">
+                  <p className="text-base text-neutral-600 mb-4 h-10">
                     {feature.description}
                   </p>
                   <Link 
@@ -542,10 +540,10 @@ const StorePage: React.FC = () => {
                   </Link>
                 </div>
                 
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  <div className="space-y-6">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="space-y-4">
                     {feature.media.map((mediaItem, mediaIdx) => (
-                      <div key={mediaIdx} className="relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-neutral-100">
+                      <div key={mediaIdx} className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-md bg-neutral-100">
                         {mediaItem.type === 'video' ? (
                           <video 
                             src={mediaItem.src} 
@@ -567,16 +565,16 @@ const StorePage: React.FC = () => {
                     ))}
                   </div>
                   
-                  <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 sm:gap-4">
                     {feature.benefits.map((benefit, bIdx) => {
                       const Icon = benefit.icon
                       return (
-                        <div key={bIdx} className={`group bg-white rounded-2xl p-6 shadow-sm border ${benefit.bgBorder} transition-all hover:shadow-xl hover:-translate-y-1 pointer-events-auto`}>
-                          <div className={`w-12 h-12 bg-gradient-to-br ${benefit.colors} rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
-                            <Icon className="w-6 h-6 text-white" />
+                        <div key={bIdx} className={`group bg-white rounded-xl p-3 sm:p-4 shadow-sm border ${benefit.bgBorder} transition-all hover:shadow-md hover:-translate-y-0.5 pointer-events-auto`}>
+                          <div className={`w-10 h-10 bg-gradient-to-br ${benefit.colors} rounded-lg flex items-center justify-center mb-2 shadow-md group-hover:scale-105 transition-transform`}>
+                            <Icon className="w-5 h-5 text-white" />
                           </div>
-                          <h3 className={`font-bold text-neutral-900 mb-2 transition-colors ${benefit.textGroup}`}>{benefit.title}</h3>
-                          <p className="text-sm text-neutral-600">{benefit.desc}</p>
+                          <h3 className={`font-bold text-neutral-900 text-sm mb-1 transition-colors ${benefit.textGroup}`}>{benefit.title}</h3>
+                          <p className="text-xs text-neutral-600 leading-tight">{benefit.desc}</p>
                         </div>
                       )
                     })}
@@ -586,7 +584,7 @@ const StorePage: React.FC = () => {
             ))}
           </div>
           
-          <div className="flex justify-center mt-12 gap-2 relative z-20 pointer-events-auto">
+          <div className="flex justify-center mt-6 gap-2 relative z-20 pointer-events-auto">
             {STORE_FEATURES.map((_, idx) => (
               <button
                 key={idx}

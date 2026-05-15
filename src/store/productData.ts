@@ -590,6 +590,8 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$100 for 100 pcs',
     features: ['Metalised Material', 'Stand Up + Zipper', 'High Barrier (Matte)', 'Best Seller'],
     images: [
+      '/imgs/store/hero/conventional.png',
+      'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1776490853002_3rf9qwsi0za.jpg',
       '/imgs/store/con-digital/sup-met-zip/1.webp',
       '/imgs/store/con-digital/sup-met-zip/2.webp',
       '/imgs/store/con-digital/sup-met-zip/3.webp',
@@ -605,7 +607,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 100,
     shape: 'zipper-stand-up',
     basePrice: 100,
-    videoUrl: 'https://youtu.be/xKusl5lOEYM',
+    videoUrl: 'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1777910170433_yt1h1k19q0g.mp4',
   },
 ]
 
@@ -688,6 +690,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     shortDesc: 'From US$120 for 1,000 pcs',
     features: ['Eco Materials', 'Stand Up', 'Digital Print', 'Premium'],
     images: [
+      '/imgs/store/hero/eco-digital.png',
       '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp',
       '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp',
       '/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp',
