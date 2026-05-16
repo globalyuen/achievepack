@@ -414,11 +414,11 @@ export default function PouchTechSpecsPage() {
             </div>
           </div>
 
-          {/* Mono-Material & Compostable Series Section */}
-          <div>
+          {/* Recyclable Mono-Material Section */}
+          <div className="mb-20">
             <div className="flex items-center gap-3 mb-8 border-b border-neutral-200 pb-4">
-              <h2 className="text-3xl font-bold text-neutral-900">Mono & Compostable</h2>
-              <span className="bg-amber-100 text-amber-700 text-xs font-bold px-2 py-1 rounded uppercase">100% Recyclable or Compostable</span>
+              <h2 className="text-3xl font-bold text-neutral-900">Recyclable Mono-Materials</h2>
+              <span className="bg-cyan-100 text-cyan-700 text-xs font-bold px-2 py-1 rounded uppercase">100% Recyclable (PE/PP)</span>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
@@ -426,6 +426,25 @@ export default function PouchTechSpecsPage() {
                 { name: 'Mono-PP Duplex Clear', path: '/spec/mono-pp-duplex-clear' },
                 { name: 'Mono-PE Duplex No Window', path: '/spec/mono-pe-duplex-nowindow' },
                 { name: 'Mono-PP Duplex No Window', path: '/spec/mono-pp-duplex-nowindow' },
+              ].map((item) => (
+                <Link key={item.path} to={item.path} className="group bg-white p-6 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md hover:border-primary-500 transition-all">
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold text-neutral-800 group-hover:text-primary-600">{item.name}</span>
+                    <ArrowRight className="w-4 h-4 text-neutral-300 group-hover:text-primary-500" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Compostable Series Section */}
+          <div>
+            <div className="flex items-center gap-3 mb-8 border-b border-neutral-200 pb-4">
+              <h2 className="text-3xl font-bold text-neutral-900">Compostable Series</h2>
+              <span className="bg-amber-100 text-amber-700 text-xs font-bold px-2 py-1 rounded uppercase">Certified Compostable (EN 13432)</span>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
                 { name: 'Bio-Cello Duplex Clear', path: '/spec/bio-cello-duplex-clear' },
                 { name: 'Bio-Cello Triplex Highest', path: '/spec/bio-cello-triplex-highest' },
                 { name: 'Bio-Cello Triplex Metalized', path: '/spec/bio-cello-triplex-metalised' },
