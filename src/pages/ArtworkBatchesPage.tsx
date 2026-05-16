@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { 
   ArrowLeft, Plus, Search, Upload, Trash2, Eye, Copy, Check, 
-  RefreshCw, Sparkles, X, ChevronRight, Lock, Mail, ExternalLink,
+  RefreshCw, Sparkles, X, ChevronRight, ChevronLeft, Lock, Mail, ExternalLink,
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
   Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files, Pin,
   LayoutGrid, MessageSquare, CircleDashed, CheckCircle2,
@@ -1293,19 +1293,30 @@ const ArtworkBatchesPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col lg:flex-row gap-6 relative">
-          {/* Sidebar Toggle Button (Floating when collapsed) */}
+          {/* Sidebar Toggle Button - Subtle Floating Sidebar Tab */}
           <button
             onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            className={`fixed left-4 bottom-4 z-50 lg:static flex items-center justify-center h-10 w-10 bg-white border border-gray-200 rounded-full shadow-lg hover:bg-gray-50 transition lg:mb-4 lg:rounded-lg ${sidebarCollapsed ? 'lg:w-full lg:px-4 lg:gap-2' : ''}`}
-            title={sidebarCollapsed ? "Show Sidebar" : "Hide Sidebar"}
+            className={`hidden lg:flex fixed left-0 top-1/2 -translate-y-1/2 z-50 items-center justify-center h-12 w-6 bg-white border border-gray-200 rounded-r-lg shadow-md hover:bg-gray-50 transition-all hover:w-8 group ${sidebarCollapsed ? 'translate-x-0' : 'translate-x-0 opacity-0 hover:opacity-100'}`}
+            style={{ left: sidebarCollapsed ? '0' : '320px' }} // 320px is lg:w-80
+            title={sidebarCollapsed ? "Show Batch List" : "Hide Batch List"}
           >
-            <LayoutGrid className="h-5 w-5 text-gray-600" />
-            {sidebarCollapsed && <span className="hidden lg:inline text-sm font-medium text-gray-600">Show Navigation</span>}
+            {sidebarCollapsed ? (
+              <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-primary-600" />
+            ) : (
+              <ChevronLeft className="h-4 w-4 text-gray-400 group-hover:text-primary-600" />
+            )}
           </button>
 
           {/* Left: Batch List */}
           {!sidebarCollapsed && (
-            <div className="w-full lg:w-80 flex-shrink-0 animate-in fade-in slide-in-from-left duration-200">
+            <div className="w-full lg:w-80 flex-shrink-0 animate-in slide-in-from-left duration-200 relative">
+              {/* Internal Collapse Button */}
+              <button 
+                onClick={() => setSidebarCollapsed(true)}
+                className="hidden lg:flex absolute -right-3 top-4 z-10 h-6 w-6 bg-white border border-gray-200 rounded-full items-center justify-center shadow-sm hover:text-primary-600 transition"
+              >
+                <ChevronLeft className="h-3 w-3" />
+              </button>
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
               <div className="p-4 border-b border-gray-100">
                 <div className="flex items-center justify-between mb-3">
