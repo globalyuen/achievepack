@@ -1,10 +1,14 @@
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
+import SiteHeader from '../../components/SiteHeader'
+import Footer from '../../components/Footer'
+import { isPouch } from '../../utils/domain'
 import { ArrowRight, Eye, FileText, FlaskConical, Home, Layers, ShieldCheck, Zap } from 'lucide-react'
 
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
 export default function PouchTechSpecsPage() {
+  const pouchMode = isPouch()
   const specs = [
     {
       id: 'home-compostable',
@@ -105,7 +109,7 @@ export default function PouchTechSpecsPage() {
       layers: [
         { name: 'Print', desc: 'Bio-PET / Paper' },
         { name: 'Barrier', desc: 'AL / VMPET' },
-        { name: 'Sealant', desc: 'Bio-PE (Sugar Cane)' }
+        { name: 'Inner', desc: 'Bio-PE (Sugar Cane)' }
       ],
       features: ['Renewable Resource', 'Carbon Negative', 'High Strength', 'Drop-in Replacement'],
       certifications: ['Bonsucro', 'ASTM D6866', 'Carbon Trust'],
@@ -113,10 +117,10 @@ export default function PouchTechSpecsPage() {
     }
   ]
 
-  return (
-    <PouchLayout>
+  const Content = (
+    <>
       <Helmet>
-        <title>Technical Specifications | POUCH.ECO</title>
+        <title>{pouchMode ? 'Technical Specifications | POUCH.ECO' : 'Technical Specifications | Achieve Pack'}</title>
         <meta name="description" content="Detailed technical specifications for our eco-friendly packaging materials. Download data sheets and view layer structures." />
       </Helmet>
 
@@ -139,7 +143,7 @@ export default function PouchTechSpecsPage() {
               <div className="flex flex-wrap gap-4">
                  <NeoButton onClick={() => document.getElementById('specs-grid')?.scrollIntoView({ behavior: 'smooth' })}>
                   View Specs <ArrowRight className="w-5 h-5" />
-                </NeoButton>
+                 </NeoButton>
               </div>
             </div>
             <div className="flex-1 relative">
@@ -418,7 +422,24 @@ export default function PouchTechSpecsPage() {
            </div>
         </div>
       </section>
+    </>
+  )
 
-    </PouchLayout>
+  if (pouchMode) {
+    return (
+      <PouchLayout>
+        {Content}
+      </PouchLayout>
+    )
+  }
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <SiteHeader />
+      <main className="flex-grow">
+        {Content}
+      </main>
+      <Footer />
+    </div>
   )
 }

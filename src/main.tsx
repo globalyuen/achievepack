@@ -1048,6 +1048,7 @@ if (getDomain() === 'pouch') {
                         {/* Campaign Pages */}
                         <Route path="/reports/state-of-packaging-2026" element={<PackagingReport2026 />} />
                         <Route path="/workshop-register" element={<WorkshopRegisterPage />} />
+                        <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
                         <Route path="/ctrl-x9k7m/email-campaign" element={<AdminProtectedRoute><EmailCampaignPage /></AdminProtectedRoute>} />
 
                         {/* 404 - Catch All Route */}

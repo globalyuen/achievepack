@@ -345,6 +345,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/support/color-accuracy-digital-printing" className="hover:underline text-[#10B981]">[COLOR ACCURACY]</Link></li>
                 <li><Link to="/size-guide" className="hover:underline">[SIZE GUIDE]</Link></li>
                 <li><Link to="/unprinted-samples" className="hover:underline">[UNPRINTED SAMPLES]</Link></li>
+                <li><Link to="/tech-specs" className="hover:underline text-[#10B981]">[TECH SPECS]</Link></li>
                 <li><Link to="/sample" className="hover:underline">[CUSTOM PRINTED SAMPLE]</Link></li>
               </ul>
             </div>

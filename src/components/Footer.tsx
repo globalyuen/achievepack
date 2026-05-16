@@ -151,6 +151,7 @@ export default function Footer() {
               <li><Link to="/support/sample-quote" className="hover:text-primary-400">Custom Printed Sample</Link></li>
               <li><Link to="/blog" className="hover:text-primary-400">All Articles</Link></li>
               <li><Link to="/store" className="hover:text-primary-400">Online Store</Link></li>
+              <li><Link to="/tech-specs" className="hover:text-primary-400 font-medium text-[#D4FF00]">Technical Specifications</Link></li>
               <li><Link to="/reviews" className="hover:text-primary-400">Customer Reviews</Link></li>
             </ul>
           </div>
