@@ -3,6 +3,7 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 import SiteHeader from '../../components/SiteHeader'
 import Footer from '../../components/Footer'
 import { isPouch } from '../../utils/domain'
+import { Link } from 'react-router-dom'
 import { ArrowRight, Eye, FileText, FlaskConical, Home, Layers, ShieldCheck, Zap } from 'lucide-react'
 
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
