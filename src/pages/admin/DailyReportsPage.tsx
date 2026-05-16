@@ -590,7 +590,7 @@ export default function DailyReportsPage() {
           ${sectionsHtml}
 
           <div class="footer">
-            &copy; ${new Date().getFullYear()} Achieve Pack. All rates calculated at 6.9 RMB/USD. EXW: Ex-Factory China / FOB SZ: FOB Shenzhen (EXW + 3%). Final quote subject to artwork review and shipping fluctuations.
+            &copy; ${new Date().getFullYear()} Achieve Pack. Final quote subject to artwork review and shipping fluctuations.
           </div>
         </body>
         </html>
