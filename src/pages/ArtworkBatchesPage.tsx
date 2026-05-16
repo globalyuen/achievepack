@@ -128,6 +128,11 @@ const ArtworkBatchesPage: React.FC = () => {
   }
   const [fileProgresses, setFileProgresses] = useState<FileProgress[]>([])
 
+  // Layout states for admin customization
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+  const [gridCols, setGridCols] = useState(3)
+  const [cardSize, setCardSize] = useState<'small' | 'large'>('large')
+
   useEffect(() => {
     if (croppingItem) {
       const crop = croppingItem.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
@@ -1287,9 +1292,20 @@ const ArtworkBatchesPage: React.FC = () => {
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex flex-col lg:flex-row gap-6">
+        <div className="flex flex-col lg:flex-row gap-6 relative">
+          {/* Sidebar Toggle Button (Floating when collapsed) */}
+          <button
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            className={`fixed left-4 bottom-4 z-50 lg:static flex items-center justify-center h-10 w-10 bg-white border border-gray-200 rounded-full shadow-lg hover:bg-gray-50 transition lg:mb-4 lg:rounded-lg ${sidebarCollapsed ? 'lg:w-full lg:px-4 lg:gap-2' : ''}`}
+            title={sidebarCollapsed ? "Show Sidebar" : "Hide Sidebar"}
+          >
+            <LayoutGrid className="h-5 w-5 text-gray-600" />
+            {sidebarCollapsed && <span className="hidden lg:inline text-sm font-medium text-gray-600">Show Navigation</span>}
+          </button>
+
           {/* Left: Batch List */}
-          <div className="w-full lg:w-80 flex-shrink-0">
+          {!sidebarCollapsed && (
+            <div className="w-full lg:w-80 flex-shrink-0 animate-in fade-in slide-in-from-left duration-200">
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
               <div className="p-4 border-b border-gray-100">
                 <div className="flex items-center justify-between mb-3">
@@ -1373,7 +1389,8 @@ const ArtworkBatchesPage: React.FC = () => {
                 </div>
               )}
             </div>
-          </div>
+            </div>
+          )}
 
           {/* Right: Batch Detail */}
           <div className="flex-1 min-w-0">
@@ -1713,23 +1730,69 @@ const ArtworkBatchesPage: React.FC = () => {
                   </div>
                 )}
 
-                {/* Items Count & Sort */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                {/* Items Count, Grid Controls & Sort */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 bg-gray-50/50 p-3 rounded-lg border border-gray-100">
                   <div className="text-sm text-gray-500 font-medium">
                     Showing {filteredItems.length} of {batchItems.length} artworks
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] uppercase font-bold text-gray-400">Sort by:</span>
-                    <select 
-                      value={itemSortOption}
-                      onChange={(e) => setItemSortOption(e.target.value as any)}
-                      className="text-xs border-gray-200 rounded-lg focus:ring-primary-500 focus:border-primary-500 bg-white"
-                    >
-                      <option value="activity">Latest Activity</option>
-                      <option value="newest">Newest First</option>
-                      <option value="oldest">Oldest First</option>
-                      <option value="name">Name (A-Z)</option>
-                    </select>
+                  
+                  <div className="flex flex-wrap items-center gap-4">
+                    {/* Grid Column Selector */}
+                    <div className="flex items-center gap-1.5 bg-white p-1 rounded-lg border border-gray-200 shadow-sm">
+                      <span className="text-[10px] uppercase font-black text-gray-400 px-2">Columns:</span>
+                      {[1, 2, 3, 4, 5, 6].map(num => (
+                        <button
+                          key={num}
+                          onClick={() => setGridCols(num)}
+                          className={`h-7 w-7 flex items-center justify-center rounded text-xs font-bold transition ${
+                            gridCols === num 
+                              ? 'bg-primary-600 text-white shadow-sm' 
+                              : 'text-gray-500 hover:bg-gray-100'
+                          }`}
+                        >
+                          {num}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Card Size Toggle */}
+                    <div className="flex items-center gap-1 bg-white p-1 rounded-lg border border-gray-200 shadow-sm">
+                      <button
+                        onClick={() => setCardSize('small')}
+                        className={`px-3 py-1 rounded text-[10px] font-bold uppercase transition ${
+                          cardSize === 'small' 
+                            ? 'bg-gray-800 text-white shadow-sm' 
+                            : 'text-gray-500 hover:bg-gray-100'
+                        }`}
+                      >
+                        Small
+                      </button>
+                      <button
+                        onClick={() => setCardSize('large')}
+                        className={`px-3 py-1 rounded text-[10px] font-bold uppercase transition ${
+                          cardSize === 'large' 
+                            ? 'bg-gray-800 text-white shadow-sm' 
+                            : 'text-gray-500 hover:bg-gray-100'
+                        }`}
+                      >
+                        Large
+                      </button>
+                    </div>
+
+                    {/* Sort Selector */}
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] uppercase font-bold text-gray-400">Sort:</span>
+                      <select 
+                        value={itemSortOption}
+                        onChange={(e) => setItemSortOption(e.target.value as any)}
+                        className="text-xs border-gray-200 rounded-lg focus:ring-primary-500 focus:border-primary-500 bg-white"
+                      >
+                        <option value="activity">Latest Activity</option>
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="name">Name (A-Z)</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
 
@@ -1776,16 +1839,21 @@ const ArtworkBatchesPage: React.FC = () => {
                     <p className="text-sm text-gray-400 mt-1">Upload files to get started</p>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div 
+                    className="grid gap-4"
+                    style={{ 
+                      gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))` 
+                    }}
+                  >
                     {filteredItems.map(item => {
                       const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
                       const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
                       const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
                       return (
-                        <div key={item.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition">
+                        <div key={item.id} className={`bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition ${cardSize === 'small' ? 'p-2' : ''}`}>
                           {/* Preview — supports drag-and-drop to replace proof */}
                           <div
-                            className={`aspect-[4/3] bg-gray-100 relative group/preview overflow-hidden transition-all ${
+                            className={`${cardSize === 'small' ? 'aspect-square' : 'aspect-[4/3]'} bg-gray-100 relative group/preview overflow-hidden transition-all ${
                               dragOverItemId === item.id
                                 ? 'ring-4 ring-blue-400 ring-inset bg-blue-50'
                                 : ''
@@ -1914,7 +1982,7 @@ const ArtworkBatchesPage: React.FC = () => {
                           </div>
                           
                           {/* Info */}
-                          <div className="p-4">
+                          <div className={cardSize === 'small' ? 'p-2' : 'p-4'}>
                             {editingFileName === item.id ? (
                               <div className="flex items-center gap-2 mb-2">
                                 <input
@@ -1962,10 +2030,10 @@ const ArtworkBatchesPage: React.FC = () => {
                                 </button>
                               </h3>
                             )}
-                            {item.ai_analysis?.title && (
+                            {item.ai_analysis?.title && cardSize === 'large' && (
                               <p className="text-sm text-gray-500 truncate mt-1">{item.ai_analysis.title}</p>
                             )}
-                            {item.ai_analysis?.keywords && (
+                            {item.ai_analysis?.keywords && cardSize === 'large' && (
                               <div className="flex flex-wrap gap-1 mt-2">
                                 {item.ai_analysis.keywords.slice(0, 3).map((kw, i) => (
                                   <span key={i} className="px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded">
