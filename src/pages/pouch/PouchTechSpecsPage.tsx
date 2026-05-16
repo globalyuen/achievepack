@@ -117,14 +117,14 @@ export default function PouchTechSpecsPage() {
     }
   ]
 
-  const Content = (
+  const Content = pouchMode ? (
     <>
       <Helmet>
-        <title>{pouchMode ? 'Technical Specifications | POUCH.ECO' : 'Technical Specifications | Achieve Pack'}</title>
+        <title>Technical Specifications | POUCH.ECO</title>
         <meta name="description" content="Detailed technical specifications for our eco-friendly packaging materials. Download data sheets and view layer structures." />
       </Helmet>
 
-      {/* Hero Section */}
+      {/* Hero Section - Neo-Brutalist */}
       <section className="relative py-24 border-b-4 border-black overflow-hidden bg-[#F0F0F0]">
         <div className="absolute inset-0 bg-[url('/imgs/noise.png')] opacity-5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
@@ -185,7 +185,6 @@ export default function PouchTechSpecsPage() {
                         </div>
                       </div>
                       <p className="font-['Space_Grotesk'] mb-6">{spec.description}</p>
-                      {/* Barrier Properties */}
                       <div className="mb-6">
                         <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
                           <Zap className="w-4 h-4" /> Barrier Properties
@@ -199,7 +198,6 @@ export default function PouchTechSpecsPage() {
                           ))}
                         </div>
                       </div>
-                      {/* Structure */}
                       <div className="mb-6">
                         <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
                           <Layers className="w-4 h-4" /> Structure
@@ -213,7 +211,6 @@ export default function PouchTechSpecsPage() {
                           ))}
                         </div>
                       </div>
-                      {/* Certs */}
                       <div className="mb-6">
                         <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
                           <ShieldCheck className="w-4 h-4" /> Certifications
@@ -252,7 +249,6 @@ export default function PouchTechSpecsPage() {
                               <span className="text-gray-700">{(spec as any).dataSheet.totalWeight}</span>
                             </div>
                           </div>
-                          {/* Layer Table */}
                           <div className="overflow-x-auto">
                             <table className="w-full text-xs border border-black border-collapse">
                               <thead className="bg-black text-white">
@@ -281,11 +277,6 @@ export default function PouchTechSpecsPage() {
                               </tbody>
                             </table>
                           </div>
-                          <div className="mt-4 text-xs text-gray-500 font-['JetBrains_Mono'] space-y-1">
-                            <p>* 60gsm kraft paper typical thickness range 70–85μ; nominal 80μ taken here.</p>
-                            <p>* Compostable film 50μ at ρ=1.4 g/cm³ ≈ 70 g/m² basis weight.</p>
-                            <p>* Thickness share = layer thickness ÷ total thickness × 100%</p>
-                          </div>
                         </div>
                       </div>
                     )}
@@ -298,11 +289,8 @@ export default function PouchTechSpecsPage() {
                           <Eye className="text-white w-12 h-12" />
                        </div>
                     </div>
-
                     <p className="font-['Space_Grotesk'] mb-6 flex-grow">{spec.description}</p>
-
                     <div className="space-y-6 mb-8">
-                       {/* Layers */}
                        <div>
                           <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
                              <Layers className="w-4 h-4" /> Structure
@@ -316,20 +304,7 @@ export default function PouchTechSpecsPage() {
                              ))}
                           </div>
                        </div>
-                       
-                       {/* Certs */}
-                       <div>
-                          <div className="flex items-center gap-2 mb-2 font-bold font-['JetBrains_Mono'] uppercase text-sm">
-                             <ShieldCheck className="w-4 h-4" /> Certifications
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                             {spec.certifications.map((cert) => (
-                                <NeoBadge key={cert} color="bg-[#00FFFF]">{cert}</NeoBadge>
-                             ))}
-                          </div>
-                       </div>
                     </div>
-
                     <NeoButton variant="dark" className="w-full justify-center mt-auto" href={spec.pdfUrl} target="_blank">
                        <FileText className="w-4 h-4" /> Download PDF
                     </NeoButton>
@@ -337,89 +312,165 @@ export default function PouchTechSpecsPage() {
                 )}
               </NeoCard>
             ))}
-            
-            {/* Tailor-Made CTA Card */}
-            <NeoCard className="flex flex-col h-full text-[#D4FF00]" color="bg-black">
-               <div className="border-b-4 border-[#D4FF00] pb-4 mb-6">
-                  <div className="flex justify-between items-start mb-2">
-                     <h2 className="font-black text-2xl uppercase text-[#D4FF00]">Tailor-Made</h2>
-                     <div className="bg-[#D4FF00] text-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold">
-                       CUSTOM
-                     </div>
-                  </div>
-                  <p className="font-['JetBrains_Mono'] font-bold text-gray-400">Unique Performance Needs</p>
-               </div>
+          </div>
+        </div>
+      </section>
+    </>
+  ) : (
+    <>
+      <Helmet>
+        <title>Technical Specifications | Achieve Pack</title>
+        <meta name="description" content="Technical data sheets and detailed material specifications for sustainable packaging. Achieve Pack engineering hub." />
+      </Helmet>
 
-               <div className="mb-6 border-4 border-[#D4FF00] overflow-hidden relative group h-48 flex items-center justify-center bg-[#1a1a1a]">
-                  <FlaskConical className="w-24 h-24 text-[#D4FF00]" />
-               </div>
-
-               <p className="font-['Space_Grotesk'] mb-6 flex-grow text-[#D4FF00]">
-                  Don't see what you need? We engineer custom material structures tailored to your specific product requirements, shelf-life goals, and machinery.
-               </p>
-
-               <div className="space-y-6 mb-8">
-                   <div className="flex flex-wrap gap-2">
-                      <NeoBadge color="bg-[#D4FF00]">Custom Barrier</NeoBadge>
-                      <NeoBadge color="bg-[#D4FF00]">Specific Thickness</NeoBadge>
-                      <NeoBadge color="bg-[#D4FF00]">Unique Sealants</NeoBadge>
-                   </div>
-               </div>
-
-               <NeoButton variant="primary" className="w-full justify-center mt-auto" href="https://calendly.com/30-min-free-packaging-consultancy">
-                  <ArrowRight className="w-4 h-4" /> Book Consultation
-               </NeoButton>
-            </NeoCard>
+      {/* Hero Section - Professional */}
+      <section className="bg-neutral-900 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">Technical Specification Hub</h1>
+            <p className="text-xl text-neutral-400 mb-8">
+              A comprehensive directory of our sustainable material structures, barrier performance data, and regulatory certifications.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="#series-index" className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-bold transition-colors">
+                Explore Material Series
+              </a>
+              <Link to="/materials/data-sheet" className="bg-neutral-800 hover:bg-neutral-700 text-white px-8 py-3 rounded-lg font-bold transition-colors">
+                All Data Sheets
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Lab Testing Section */}
-      <section className="py-24 border-t-4 border-black bg-[#D4FF00]">
+      {/* Technical Index Hub */}
+      <section id="series-index" className="py-20 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-           <div className="flex flex-col md:flex-row gap-12 items-center">
-              <div className="flex-1">
-                 <h2 className="font-black text-4xl md:text-6xl uppercase mb-6 leading-none">
-                    Verified<br/>Performance.
-                 </h2>
-                 <p className="font-['Space_Grotesk'] text-xl mb-8 font-bold border-l-4 border-black pl-6">
-                    We don't just guess. Every material undergoes rigorous testing for barrier properties, seal strength, and compostability.
-                 </p>
-                 <ul className="space-y-4 font-['JetBrains_Mono'] mb-8">
-                    <li className="flex items-center gap-3">
-                       <FlaskConical className="w-6 h-6 border-2 border-black rounded-full p-1 bg-white" />
-                       WVTR (Water Vapor Transmission Rate) Testing
-                    </li>
-                    <li className="flex items-center gap-3">
-                       <Zap className="w-6 h-6 border-2 border-black rounded-full p-1 bg-white" />
-                       OTR (Oxygen Transmission Rate) Analysis
-                    </li>
-                    <li className="flex items-center gap-3">
-                       <ShieldCheck className="w-6 h-6 border-2 border-black rounded-full p-1 bg-white" />
-                       Tensile & Puncture Strength Verification
-                    </li>
-                 </ul>
-                 <NeoButton variant="secondary" href="https://calendly.com/30-min-free-packaging-consultancy">
-                    Request Test Reports
-                 </NeoButton>
+          
+          {/* PCR Series Section */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8 border-b border-neutral-200 pb-4">
+              <h2 className="text-3xl font-bold text-neutral-900">PCR Series</h2>
+              <span className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded uppercase">Post-Consumer Recycled</span>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { name: 'PCR PET Duplex Clear', path: '/spec/pcr-pet-duplex-clear' },
+                { name: 'PCR PP Duplex Clear', path: '/spec/pcr-pp-duplex-clear' },
+                { name: 'PCR PET Kraft Triplex Clear', path: '/spec/pcr-pet-kraft-triplex-clear' },
+                { name: 'PCR PP Kraft Triplex Clear', path: '/spec/pcr-pp-kraft-triplex-clear' },
+                { name: 'PCR PET Duplex No Window', path: '/spec/pcr-pet-duplex-nowindow' },
+                { name: 'PCR PP Duplex No Window', path: '/spec/pcr-pp-duplex-nowindow' },
+                { name: 'PCR PET Triplex Metalized', path: '/spec/pcr-pet-triplex-metalised' },
+                { name: 'PCR PP Triplex Metalized', path: '/spec/pcr-pp-triplex-metalised' },
+                { name: 'PCR Kraft VMPET', path: '/spec/pcr-kraft-vmpet' },
+                { name: 'PCR PET Triplex Aluminum', path: '/spec/pcr-pet-triplex-aluminum' },
+                { name: 'PCR PP Triplex Aluminum', path: '/spec/pcr-pp-triplex-aluminum' },
+                { name: 'PCR PET Kraft Quadlex Aluminum', path: '/spec/pcr-pet-kraft-quadlex-aluminum' },
+                { name: 'PCR PP Kraft Quadlex Aluminum', path: '/spec/pcr-pp-kraft-quadlex-aluminum' },
+                { name: 'PCR Kraft Duplex Low', path: '/spec/pcr-kraft-duplex-low' },
+              ].map((item) => (
+                <Link key={item.path} to={item.path} className="group bg-white p-6 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md hover:border-primary-500 transition-all">
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold text-neutral-800 group-hover:text-primary-600">{item.name}</span>
+                    <ArrowRight className="w-4 h-4 text-neutral-300 group-hover:text-primary-500" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Bio-PE Series Section */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8 border-b border-neutral-200 pb-4">
+              <h2 className="text-3xl font-bold text-neutral-900">Bio-PE Series</h2>
+              <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded uppercase">Plant-Based Bio-Polyethylene</span>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { name: 'Bio-PE PET Duplex Clear', path: '/spec/biope-pet-duplex-clear' },
+                { name: 'Bio-PE PP Duplex Clear', path: '/spec/biope-pp-duplex-clear' },
+                { name: 'Bio-PE PET Kraft Triplex Clear', path: '/spec/biope-pet-kraft-triplex-clear' },
+                { name: 'Bio-PE PP Kraft Triplex Clear', path: '/spec/biope-pp-kraft-triplex-clear' },
+                { name: 'Bio-PE PET Duplex No Window', path: '/spec/biope-pet-duplex-nowindow' },
+                { name: 'Bio-PE PP Duplex No Window', path: '/spec/biope-pp-duplex-nowindow' },
+                { name: 'Bio-PE PET Triplex Metalized', path: '/spec/biope-pet-triplex-metalised' },
+                { name: 'Bio-PE PP Triplex Metalized', path: '/spec/biope-pp-triplex-metalised' },
+                { name: 'Bio-PE Kraft VMPET', path: '/spec/biope-kraft-vmpet' },
+                { name: 'Bio-PE PET Triplex Aluminum', path: '/spec/biope-pet-triplex-aluminum' },
+                { name: 'Bio-PE PP Triplex Aluminum', path: '/spec/biope-pp-triplex-aluminum' },
+                { name: 'Bio-PE PET Kraft Quadlex Aluminum', path: '/spec/biope-pet-kraft-quadlex-aluminum' },
+                { name: 'Bio-PE PP Kraft Quadlex Aluminum', path: '/spec/biope-pp-kraft-quadlex-aluminum' },
+                { name: 'Bio-PE Kraft Duplex Low', path: '/spec/biope-kraft-duplex-low' },
+              ].map((item) => (
+                <Link key={item.path} to={item.path} className="group bg-white p-6 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md hover:border-primary-500 transition-all">
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold text-neutral-800 group-hover:text-primary-600">{item.name}</span>
+                    <ArrowRight className="w-4 h-4 text-neutral-300 group-hover:text-primary-500" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Mono-Material & Compostable Series Section */}
+          <div>
+            <div className="flex items-center gap-3 mb-8 border-b border-neutral-200 pb-4">
+              <h2 className="text-3xl font-bold text-neutral-900">Mono & Compostable</h2>
+              <span className="bg-amber-100 text-amber-700 text-xs font-bold px-2 py-1 rounded uppercase">100% Recyclable or Compostable</span>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { name: 'Mono-PE Duplex Clear', path: '/spec/mono-pe-duplex-clear' },
+                { name: 'Mono-PP Duplex Clear', path: '/spec/mono-pp-duplex-clear' },
+                { name: 'Mono-PE Duplex No Window', path: '/spec/mono-pe-duplex-nowindow' },
+                { name: 'Mono-PP Duplex No Window', path: '/spec/mono-pp-duplex-nowindow' },
+                { name: 'Bio-Cello Duplex Clear', path: '/spec/bio-cello-duplex-clear' },
+                { name: 'Bio-Cello Triplex Highest', path: '/spec/bio-cello-triplex-highest' },
+                { name: 'Bio-Cello Triplex Metalized', path: '/spec/bio-cello-triplex-metalised' },
+                { name: 'Bio-Kraft VM-Cello', path: '/spec/bio-kraft-vm-cello' },
+                { name: 'Bio-Kraft PBAT Low', path: '/spec/bio-kraft-pbat-low' },
+              ].map((item) => (
+                <Link key={item.path} to={item.path} className="group bg-white p-6 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md hover:border-primary-500 transition-all">
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold text-neutral-800 group-hover:text-primary-600">{item.name}</span>
+                    <ArrowRight className="w-4 h-4 text-neutral-300 group-hover:text-primary-500" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Lab Verification Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="bg-neutral-900 rounded-3xl p-8 md:p-16 text-white overflow-hidden relative">
+            <div className="relative z-10 max-w-2xl">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Verified Lab Performance</h2>
+              <p className="text-xl text-neutral-400 mb-8">
+                Every material structure in our catalog undergoes rigorous third-party testing to verify barrier properties, seal integrity, and environmental compliance.
+              </p>
+              <div className="grid grid-cols-2 gap-8 mb-8">
+                <div>
+                  <div className="text-4xl font-bold text-primary-500 mb-2">0.5</div>
+                  <div className="text-sm text-neutral-400 uppercase font-bold tracking-wider">WVTR g/m²/day</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-primary-500 mb-2">&lt;1.0</div>
+                  <div className="text-sm text-neutral-400 uppercase font-bold tracking-wider">OTR cc/m²/day</div>
+                </div>
               </div>
-              <div className="flex-1">
-                 <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                       <div className="font-black text-4xl mb-2">0.5</div>
-                       <div className="font-['JetBrains_Mono'] text-xs font-bold uppercase">g/m²/day WVTR</div>
-                    </div>
-                    <div className="bg-black text-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
-                       <div className="font-black text-4xl mb-2 text-[#D4FF00]">&lt;1.0</div>
-                       <div className="font-['JetBrains_Mono'] text-xs font-bold uppercase">cc/m²/day OTR</div>
-                    </div>
-                    <div className="bg-[#00FFFF] border-4 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] col-span-2">
-                       <div className="font-black text-4xl mb-2">100%</div>
-                       <div className="font-['JetBrains_Mono'] text-xs font-bold uppercase">BPI Certified Compostable</div>
-                    </div>
-                 </div>
-              </div>
-           </div>
+              <a href="https://calendly.com/30-min-free-packaging-consultancy" className="inline-block bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-neutral-200 transition-colors">
+                Request Test Reports
+              </a>
+            </div>
+            <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/3 opacity-20">
+               <FlaskConical className="w-full h-full p-20" />
+            </div>
+          </div>
         </div>
       </section>
     </>

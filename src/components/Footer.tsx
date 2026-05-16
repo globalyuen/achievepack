@@ -73,27 +73,28 @@ export default function Footer() {
           
           {/* Materials */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Materials</h4>
+            <h4 className="font-semibold text-sm mb-2 text-primary-400">Sustainability</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
               <li><Link to="/materials/industrial-compostable" className="hover:text-primary-400">Industrial Compostable</Link></li>
               <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono PE</Link></li>
               <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">Recyclable Mono PP</Link></li>
-              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE</Link></li>
-              <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR Recycled</Link></li>
+              <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE (Plant-Based)</Link></li>
+              <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR (Recycled Content)</Link></li>
               <li><Link to="/materials/plastic-free-kraft" className="hover:text-primary-400 font-medium text-primary-400">Plastic-Free Kraft <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/materials/data-sheet" className="hover:text-primary-400">Material Data Sheet</Link></li>
             </ul>
           </div>
           
           {/* Structure Spec */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Structure Spec</h4>
+            <h4 className="font-semibold text-sm mb-2 text-primary-400">Technical Specs</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
-              <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-400">PCR PET Duplex Clear</Link></li>
-              <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">Bio-PE PET Duplex Clear</Link></li>
-              <li><Link to="/spec/bio-cello-duplex-clear" className="hover:text-primary-400">Bio-Cello Duplex Clear</Link></li>
-              <li><Link to="/spec/mono-pe-duplex-clear" className="hover:text-primary-400">Mono PE Duplex Clear</Link></li>
+              <li><Link to="/tech-specs" className="hover:text-primary-400 font-bold text-white">Technical Spec Hub</Link></li>
+              <li><Link to="/materials/data-sheet" className="hover:text-primary-400">Material Data Sheets</Link></li>
+              <li><Link to="/spec/pcr-pet-duplex-clear" className="hover:text-primary-400">PCR Series Specs</Link></li>
+              <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">Bio-PE Series Specs</Link></li>
+              <li><Link to="/spec/mono-pe-duplex-clear" className="hover:text-primary-400">Mono-Material Specs</Link></li>
+              <li><Link to="/spec/bio-cello-duplex-clear" className="hover:text-primary-400">Compostable Specs</Link></li>
             </ul>
           </div>
           
@@ -112,7 +113,7 @@ export default function Footer() {
 
           {/* Featured Products */}
           <div>
-            <h4 className="font-semibold text-sm mb-2">Featured Products</h4>
+            <h4 className="font-semibold text-sm mb-2">Featured</h4>
             <ul className="space-y-1 text-xs text-neutral-400">
               <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-400">Compostable Coffee Bags</Link></li>
               <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-400">Coffee Bags with Valve</Link></li>
@@ -134,9 +135,6 @@ export default function Footer() {
               <li><Link to="/features/reclosure-options" className="hover:text-primary-400">Reclosure Option</Link></li>
               <li><Link to="/knowledge/printing-types" className="hover:text-primary-400">Printing Types</Link></li>
               <li><Link to="/support/sample-quote" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Custom Printed Sample <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
-              <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-400">K-Seal Pouches</Link></li>
-              <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-400">White Ink Underprint</Link></li>
-              <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-400">Fin Seal vs Lap Seal</Link></li>
             </ul>
           </div>
 
@@ -148,10 +146,8 @@ export default function Footer() {
               <li><Link to="/support/lead-time" className="hover:text-primary-400">Lead Time</Link></li>
               <li><Link to="/support/color-accuracy-digital-printing" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Color Accuracy Guide <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/support/unprinted-samples" className="hover:text-primary-400">Unprinted Samples</Link></li>
-              <li><Link to="/support/sample-quote" className="hover:text-primary-400">Custom Printed Sample</Link></li>
               <li><Link to="/blog" className="hover:text-primary-400">All Articles</Link></li>
               <li><Link to="/store" className="hover:text-primary-400">Online Store</Link></li>
-              <li><Link to="/tech-specs" className="hover:text-primary-400 font-medium text-[#D4FF00]">Technical Specifications</Link></li>
               <li><Link to="/reviews" className="hover:text-primary-400">Customer Reviews</Link></li>
             </ul>
           </div>
