@@ -976,6 +976,7 @@ if (getDomain() === 'pouch') {
             <Route path="/free-service/achieve-baby-demo" element={<AchieveBabyDemoPage />} />
             <Route path="/free-service/achieve-pouch-eco-demo" element={<AchievePouchEcoDemoPage />} />
             <Route path="/free-service/free-services-hub" element={<FreeServicesHubPage />} />
+            <Route path="/free-service/all" element={<FreeServicesHubPage />} />
                                               <Route path="/free-service" element={<FreeServicesPage />} />
                         
                         {/* Pouch.eco Design Demo - Denterity Inspired */}
