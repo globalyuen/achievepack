@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { Gift, ArrowRight, Calendar } from 'lucide-react'
+import { Gift, ArrowRight, Calendar, Sparkles } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const FREE_SERVICES = [
   {
@@ -49,6 +50,19 @@ const FREE_SERVICES = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+}
+
 export default function FreeServicesHubPage() {
   return (
     <>
@@ -57,81 +71,106 @@ export default function FreeServicesHubPage() {
         <meta name="description" content="Explore exclusive FREE services for Achieve Pack customers: design consultation, website design, management tools, and 3D mockups." />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-green-50">
+      {/* Modern Dark/Light Mesh Background */}
+      <div className="min-h-screen bg-[#FAFAFA] text-neutral-900 selection:bg-green-500/30 font-sans relative overflow-hidden">
+        {/* Decorative Blurs */}
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
+
         {/* Hero Section */}
-        <section className="pt-8 pb-6 px-4">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full mb-4 shadow-xl">
-              <Gift className="h-8 w-8 text-white" />
+        <section className="pt-16 pb-10 px-4 md:pt-24 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-center max-w-2xl mx-auto"
+          >
+            <div className="inline-flex items-center justify-center p-3 bg-white/80 backdrop-blur-md rounded-2xl mb-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-100 ring-1 ring-neutral-900/5">
+              <Gift className="h-6 w-6 text-emerald-600" />
             </div>
-            <h1 className="text-2xl font-bold text-neutral-900 mb-2">FREE Services</h1>
-            <p className="text-neutral-600 max-w-md mx-auto">
-              Exclusive benefits for our customers. Choose a service to get started.
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900">
+              Exclusive Free Services
+            </h1>
+            <p className="text-lg text-neutral-500 max-w-md mx-auto leading-relaxed">
+              Unlock premium packaging benefits at no extra cost. Elevate your brand with our complimentary expert tools.
             </p>
-          </div>
+          </motion.div>
         </section>
 
         {/* Services Grid */}
-        <section className="px-4 pb-8">
-          <div className="space-y-4 max-w-lg mx-auto">
+        <section className="px-4 pb-16 relative z-10">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+          >
             {FREE_SERVICES.map((service) => (
-              <Link
-                key={service.id}
-                to={service.link}
-                className={`block bg-white rounded-2xl overflow-hidden shadow-md border ${service.borderColor} hover:shadow-xl transition-all duration-300`}
-              >
-                {/* Hero Image */}
-                <div className={`relative h-36 bg-gradient-to-br ${service.bgGradient}`}>
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    onError={(e) => {
-                      // Fallback to gradient background if image fails
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
-                  {/* Emoji Badge */}
-                  <div className={`absolute top-3 left-3 w-10 h-10 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
-                    <span className="text-xl">{service.emoji}</span>
+              <motion.div key={service.id} variants={itemVariants} whileHover={{ y: -4 }}>
+                <Link
+                  to={service.link}
+                  className={`group flex flex-col h-full bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-100 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500`}
+                >
+                  {/* Hero Image */}
+                  <div className={`relative h-48 bg-gradient-to-br ${service.bgGradient} overflow-hidden`}>
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none'
+                      }}
+                    />
+                    {/* Glassmorphism Badge */}
+                    <div className={`absolute top-4 left-4 w-12 h-12 bg-white/70 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-sm border border-white/50`}>
+                      <span className="text-2xl drop-shadow-sm">{service.emoji}</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-4">
-                  <h2 className="text-lg font-bold text-neutral-900 mb-1">{service.title}</h2>
-                  <p className="text-sm text-neutral-600 mb-3 line-clamp-2">{service.description}</p>
-                  <div className="flex items-center text-sm font-semibold text-green-600">
-                    Get Started <ArrowRight className="h-4 w-4 ml-1" />
+                  {/* Content */}
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h2 className="text-xl font-bold text-neutral-900 mb-2 group-hover:text-emerald-600 transition-colors">{service.title}</h2>
+                    <p className="text-neutral-500 mb-6 leading-relaxed flex-1">{service.description}</p>
+                    <div className="flex items-center text-sm font-bold text-neutral-900 group-hover:text-emerald-600 transition-colors mt-auto">
+                      Explore Service 
+                      <ArrowRight className="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
 
         {/* CTA Section */}
-        <section className="px-4 pb-24">
-          <div className="max-w-lg mx-auto space-y-3">
+        <section className="px-4 pb-24 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="max-w-lg mx-auto space-y-4"
+          >
             <a
               href="https://calendly.com/30-min-free-packaging-consultancy"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-xl shadow-lg hover:from-green-600 hover:to-emerald-600 transition-all"
+              className="group relative flex items-center justify-center gap-2 w-full py-4 bg-neutral-900 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
             >
-              <Calendar className="h-5 w-5" />
-              Book Free Consultation
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Calendar className="h-5 w-5 relative z-10" />
+              <span className="relative z-10 flex items-center gap-2">Book Free Consultation <Sparkles className="h-4 w-4 text-emerald-200" /></span>
             </a>
             <Link
               to="/"
-              className="flex items-center justify-center w-full py-3 bg-neutral-100 text-neutral-700 font-medium rounded-xl hover:bg-neutral-200 transition-colors"
+              className="flex items-center justify-center w-full py-4 bg-white border border-neutral-200 text-neutral-600 font-medium rounded-2xl hover:bg-neutral-50 hover:text-neutral-900 transition-colors"
             >
               ← Back to Home
             </Link>
-          </div>
+          </motion.div>
         </section>
       </div>
     </>
   )
 }
+

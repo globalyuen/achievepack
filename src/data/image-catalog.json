@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-15",
+  "generated": "2026-05-18",
   "total_images": 1368,
   "total_categories": 153,
   "extensions": {
@@ -7913,16 +7913,16 @@
       "count": 2,
       "images": [
         {
+          "filename": "conventional.png",
+          "path": "/imgs/store/hero/conventional.png",
+          "extension": ".png",
+          "modified": "2026-05-15T12:59:40.883Z"
+        },
+        {
           "filename": "eco-digital.png",
           "path": "/imgs/store/hero/eco-digital.png",
           "extension": ".png",
           "modified": "2026-05-15T07:02:34.926Z"
-        },
-        {
-          "filename": "conventional.png",
-          "path": "/imgs/store/hero/conventional.png",
-          "extension": ".png",
-          "modified": "2026-05-15T07:02:34.923Z"
         }
       ]
     },

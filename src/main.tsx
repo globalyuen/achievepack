@@ -517,6 +517,7 @@ const ReviewsPage = lazyWithRetry(() => import('./pages/ReviewsPage'))
 // Artwork Batch Pages - Lazy loaded
 const ArtworkBatchesPage = lazyWithRetry(() => import('./pages/ArtworkBatchesPage'))
 const ArtworkReviewPage = lazyWithRetry(() => import('./pages/ArtworkReviewPage'))
+const RyanHologramPage = lazyWithRetry(() => import('./pages/RyanHologramPage'))
 
 // Quotation Pages - Lazy loaded
 const QuotationBatchesPage = lazyWithRetry(() => import('./pages/QuotationBatchesPage'))
@@ -838,6 +839,7 @@ if (getDomain() === 'pouch') {
 
                         {/* Team Pages */}
                         <Route path="/team/ryan-wong" element={<RyanWongPage />} />
+                        <Route path="/ryan" element={<RyanHologramPage />} />
 
                         {/* Knowledge Pages */}
                         <Route path="/knowledge/all-options" element={<AllOptionsPage />} />

@@ -86,7 +86,7 @@ const sidebarMenuItems = [
   {
     group: 'CRM',
     items: [
-      { id: 'artwork-batches', label: 'Artwork Batches', icon: Folder, externalLink: '/ctrl-x9k7m/artwork-batches' },
+      { id: 'artwork-batches', label: 'Artwork & Document System', icon: Folder, externalLink: '/ctrl-x9k7m/artwork-batches' },
       { id: 'document-templates', label: 'Doc Templates', icon: FileText, externalLink: '/ctrl-x9k7m/document-templates' },
       { id: 'quote-analytics', label: 'Quote Analytics', icon: BarChart3, externalLink: '/ctrl-x9k7m/quote-analytics' },
       { id: 'crm', label: 'CRM / Inquiries', icon: Inbox },

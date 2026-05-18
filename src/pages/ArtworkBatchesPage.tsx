@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { 
   ArrowLeft, Plus, Search, Upload, Trash2, Eye, Copy, Check, 
-  RefreshCw, Sparkles, X, ChevronRight, ChevronLeft, Lock, Mail, ExternalLink,
+  RefreshCw, Sparkles, X, ChevronRight, ChevronLeft, ChevronUp, ChevronDown, Lock, Mail, ExternalLink,
   CheckCircle, Clock, AlertCircle, FileImage, Download, MoreHorizontal,
   Folder, Package, Code, ArrowUpDown, ArrowUp, ArrowDown, Link2, Pencil, Files, Pin,
   LayoutGrid, MessageSquare, CircleDashed, CheckCircle2,
@@ -69,6 +69,26 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Batch item counts (actual count from database)
   const [batchItemCounts, setBatchItemCounts] = useState<Record<string, number>>({})
+
+  // Section and zoning management states
+  const [createdSections, setCreatedSections] = useState<Record<string, string[]>>(() => {
+    try {
+      const saved = localStorage.getItem('ap_created_sections')
+      return saved ? JSON.parse(saved) : {}
+    } catch {
+      return {}
+    }
+  })
+  const [activeSection, setActiveSection] = useState<string>('all')
+  const [sectionOrder, setSectionOrder] = useState<string[]>([])
+
+  useEffect(() => {
+    localStorage.setItem('ap_created_sections', JSON.stringify(createdSections))
+  }, [createdSections])
+
+  useEffect(() => {
+    setActiveSection('all')
+  }, [selectedBatch])
 
   // Source link editing state
   const [editingSourceLink, setEditingSourceLink] = useState<string | null>(null)
@@ -285,7 +305,12 @@ const ArtworkBatchesPage: React.FC = () => {
         .order('created_at', { ascending: true })
       
       if (error) throw error
-      setBatchItems(data || [])
+      
+      const systemItem = data?.find(i => i.name === '__section_order__')
+      const normalItems = data?.filter(i => i.name !== '__section_order__') || []
+      
+      setBatchItems(normalItems)
+      setSectionOrder(systemItem?.ai_analysis?.section_order || [])
     } catch (err) {
       console.error('Error fetching batch items:', err)
     }
@@ -309,8 +334,10 @@ const ArtworkBatchesPage: React.FC = () => {
       // Group by batch_id
       const cache: Record<string, ArtworkBatchItem[]> = {}
       data?.forEach(item => {
-        if (!cache[item.batch_id]) cache[item.batch_id] = []
-        cache[item.batch_id].push(item as ArtworkBatchItem)
+        if (item.name !== '__section_order__') {
+          if (!cache[item.batch_id]) cache[item.batch_id] = []
+          cache[item.batch_id].push(item as ArtworkBatchItem)
+        }
       })
       setBatchItemsCache(cache)
     } catch (err) {
@@ -423,7 +450,7 @@ const ArtworkBatchesPage: React.FC = () => {
   }
 
   // Upload files to batch (supports 100+ files with concurrent upload)
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, sectionName?: string) => {
     if (!selectedBatch || !e.target.files?.length) return
     
     const MAX_FILE_BYTES = 500 * 1024 * 1024 // 500 MB
@@ -501,7 +528,8 @@ const ArtworkBatchesPage: React.FC = () => {
                 file_url: urlData.publicUrl,
                 file_type: file.type,
                 file_size: file.size,
-                status: 'pending'
+                status: 'pending',
+                ai_analysis: sectionName ? { section_name: sectionName } : null
               })
               .select()
               .single()
@@ -714,7 +742,7 @@ const ArtworkBatchesPage: React.FC = () => {
 
 
   // Create blank artwork slot
-  const handleCreateBlankArtwork = async () => {
+  const handleCreateBlankArtwork = async (sectionName?: string) => {
     if (!selectedBatch) return;
     
     setUploading(true);
@@ -727,7 +755,8 @@ const ArtworkBatchesPage: React.FC = () => {
           file_url: '', // Empty or could be a placeholder URL
           file_type: 'placeholder',
           file_size: 0,
-          status: 'pending'
+          status: 'pending',
+          ai_analysis: sectionName ? { section_name: sectionName } : null
         })
         .select()
         .single();
@@ -821,7 +850,7 @@ const ArtworkBatchesPage: React.FC = () => {
   const handleCopyLink = () => {
     if (!selectedBatch) return
     const link = `${window.location.origin}/artwork-review/${selectedBatch.id}`
-    const textToCopy = `Artwork Review Link: ${link}\nPassword: ${selectedBatch.password}`
+    const textToCopy = `Artwork & Document Review Link: ${link}\nPassword: ${selectedBatch.password}`
     navigator.clipboard.writeText(textToCopy)
     setCopiedLink(true)
     setTimeout(() => setCopiedLink(false), 2000)
@@ -1239,7 +1268,1026 @@ const ArtworkBatchesPage: React.FC = () => {
     })
   }, [batchItems, searchQuery, itemFilter, itemSortOption])
 
+  // Sections derived list
+  const sectionsList = useMemo(() => {
+    if (!selectedBatch) return []
+    const secSet = new Set<string>()
+    
+    // 1. Add any sections from existing items
+    batchItems.forEach(item => {
+      const name = item.ai_analysis?.section_name || 'Uncategorized'
+      secSet.add(name)
+    })
+    
+    // 2. Add any manually created empty sections for this batch
+    const manuallyCreated = createdSections[selectedBatch.id] || []
+    manuallyCreated.forEach(name => {
+      secSet.add(name)
+    })
+    
+    // If there's nothing, we can have "Uncategorized" as the default
+    if (secSet.size === 0) {
+      secSet.add('Uncategorized')
+    }
+    
+    const list = Array.from(secSet)
+    
+    // Sort according to sectionOrder:
+    if (sectionOrder && sectionOrder.length > 0) {
+      list.sort((a, b) => {
+        const idxA = sectionOrder.indexOf(a)
+        const idxB = sectionOrder.indexOf(b)
+        if (idxA === -1 && idxB === -1) return 0
+        if (idxA === -1) return 1
+        if (idxB === -1) return -1
+        return idxA - idxB
+      })
+    }
+    
+    return list
+  }, [batchItems, selectedBatch, createdSections, sectionOrder])
+
+  // Sections grouping
+  const groupedItems = useMemo(() => {
+    const groups: Record<string, ArtworkBatchItem[]> = {};
+    
+    // Initialize all sections in sectionsList
+    sectionsList.forEach(sec => {
+      groups[sec] = [];
+    });
+    
+    filteredItems.forEach(item => {
+      const sec = item.ai_analysis?.section_name || 'Uncategorized';
+      if (!groups[sec]) {
+        groups[sec] = [];
+      }
+      groups[sec].push(item);
+    });
+    
+    return groups;
+  }, [filteredItems, sectionsList]);
+
+  const sectionsToDisplay = useMemo(() => {
+    if (activeSection === 'all') {
+      return sectionsList;
+    }
+    return sectionsList.filter(s => s === activeSection);
+  }, [sectionsList, activeSection]);
+
+  const handleCreateSection = () => {
+    if (!selectedBatch) return;
+    const name = prompt('Enter new section name (e.g. Order #1002):');
+    if (!name || !name.trim()) return;
+    
+    const newName = name.trim();
+    if (sectionsList.includes(newName)) {
+      alert('A section with this name already exists.');
+      return;
+    }
+    
+    setCreatedSections(prev => {
+      const batchSecs = prev[selectedBatch.id] || [];
+      return {
+        ...prev,
+        [selectedBatch.id]: [...batchSecs, newName]
+      };
+    });
+    
+    setActiveSection(newName);
+  };
+
+  const handleRenameSection = async (oldName: string, newName: string) => {
+    if (!selectedBatch || !newName.trim() || oldName === newName) return;
+    
+    try {
+      setUploading(true);
+      const itemsToUpdate = batchItems.filter(item => (item.ai_analysis?.section_name || 'Uncategorized') === oldName);
+      
+      await Promise.all(itemsToUpdate.map(async (item) => {
+        const updatedAnalysis = {
+          ...(item.ai_analysis || {}),
+          section_name: newName.trim()
+        };
+        
+        await supabase
+          .from('artwork_batch_items')
+          .update({ ai_analysis: updatedAnalysis })
+          .eq('id', item.id);
+      }));
+      
+      setBatchItems(prev => prev.map(item => {
+        if ((item.ai_analysis?.section_name || 'Uncategorized') === oldName) {
+          return {
+            ...item,
+            ai_analysis: {
+              ...(item.ai_analysis || {}),
+              section_name: newName.trim()
+            }
+          };
+        }
+        return item;
+      }));
+      
+      setCreatedSections(prev => {
+        const batchSecs = prev[selectedBatch.id] || [];
+        const updated = batchSecs.map(s => s === oldName ? newName.trim() : s);
+        return {
+          ...prev,
+          [selectedBatch.id]: updated
+        };
+      });
+      
+      if (activeSection === oldName) {
+        setActiveSection(newName.trim());
+      }
+      
+      alert('Section renamed successfully!');
+    } catch (err) {
+      console.error('Rename section error:', err);
+      alert('Failed to rename section');
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleDeleteSection = async (secName: string) => {
+    if (!selectedBatch) return;
+    if (!confirm(`Are you sure you want to delete the section "${secName}"? All items inside will be moved to "Uncategorized".`)) return;
+    
+    try {
+      setUploading(true);
+      const itemsToUpdate = batchItems.filter(item => (item.ai_analysis?.section_name || 'Uncategorized') === secName);
+      
+      await Promise.all(itemsToUpdate.map(async (item) => {
+        const updatedAnalysis = {
+          ...(item.ai_analysis || {}),
+          section_name: 'Uncategorized'
+        };
+        
+        await supabase
+          .from('artwork_batch_items')
+          .update({ ai_analysis: updatedAnalysis })
+          .eq('id', item.id);
+      }));
+      
+      setBatchItems(prev => prev.map(item => {
+        if ((item.ai_analysis?.section_name || 'Uncategorized') === secName) {
+          return {
+            ...item,
+            ai_analysis: {
+              ...(item.ai_analysis || {}),
+              section_name: 'Uncategorized'
+            }
+          };
+        }
+        return item;
+      }));
+      
+      setCreatedSections(prev => {
+        const batchSecs = prev[selectedBatch.id] || [];
+        return {
+          ...prev,
+          [selectedBatch.id]: batchSecs.filter(s => s !== secName)
+        };
+      });
+      
+      if (activeSection === secName) {
+        setActiveSection('all');
+      }
+      
+      alert('Section deleted!');
+    } catch (err) {
+      console.error('Delete section error:', err);
+      alert('Failed to delete section');
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleMoveSection = async (sectionName: string, direction: 'up' | 'down') => {
+    if (!selectedBatch) return;
+
+    const index = sectionsList.indexOf(sectionName);
+    if (index === -1) return;
+
+    const newList = [...sectionsList];
+    const targetIndex = direction === 'up' ? index - 1 : index + 1;
+    
+    if (targetIndex < 0 || targetIndex >= newList.length) return;
+
+    // Swap elements
+    const temp = newList[index];
+    newList[index] = newList[targetIndex];
+    newList[targetIndex] = temp;
+
+    // Save the new order in state immediately for an instant UI update
+    setSectionOrder(newList);
+
+    // Save to the database
+    try {
+      // Find the __section_order__ item in the database
+      const { data: existingItems, error: findError } = await supabase
+        .from('artwork_batch_items')
+        .select('id')
+        .eq('batch_id', selectedBatch.id)
+        .eq('name', '__section_order__');
+
+      if (findError) throw findError;
+
+      if (existingItems && existingItems.length > 0) {
+        // Update existing section order item
+        const { error: updateError } = await supabase
+          .from('artwork_batch_items')
+          .update({
+            ai_analysis: { section_order: newList },
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', existingItems[0].id);
+        
+        if (updateError) throw updateError;
+      } else {
+        // Insert new section order item
+        const { error: insertError } = await supabase
+          .from('artwork_batch_items')
+          .insert({
+            batch_id: selectedBatch.id,
+            name: '__section_order__',
+            file_url: '',
+            ai_analysis: { section_order: newList }
+          });
+        
+        if (insertError) throw insertError;
+      }
+    } catch (err) {
+      console.error('Failed to save section order:', err);
+    }
+  };
+
+  const handleMoveItemToSection = async (item: ArtworkBatchItem, targetSection: string) => {
+    try {
+      const updatedAnalysis = {
+        ...(item.ai_analysis || {}),
+        section_name: targetSection
+      };
+      
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({ ai_analysis: updatedAnalysis })
+        .eq('id', item.id);
+        
+      if (error) throw error;
+      
+      setBatchItems(prev => prev.map(i => i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i));
+    } catch (err) {
+      console.error(err);
+      alert('Failed to move item to section');
+    }
+  };
+
+  const handleToggleItemZone = async (item: ArtworkBatchItem) => {
+    try {
+      const currentZone = item.ai_analysis?.zone || 'current';
+      const newZone = currentZone === 'current' ? 'old' : 'current';
+      
+      const updatedAnalysis = {
+        ...(item.ai_analysis || {}),
+        zone: newZone as 'current' | 'old'
+      };
+      
+      const { error } = await supabase
+        .from('artwork_batch_items')
+        .update({ ai_analysis: updatedAnalysis })
+        .eq('id', item.id);
+        
+      if (error) throw error;
+      
+      setBatchItems(prev => prev.map(i => i.id === item.id ? { ...i, ai_analysis: updatedAnalysis } : i));
+    } catch (err) {
+      console.error(err);
+      alert('Failed to toggle visibility');
+    }
+  };
+
   // Status badge
+
+
+  const renderItemCard = (item: ArtworkBatchItem) => {
+    const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
+    const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
+    const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
+    return (
+      <div key={item.id} className={`bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition ${cardSize === 'small' ? 'p-2' : ''}`}>
+        {/* Preview — supports drag-and-drop to replace proof */}
+        <div
+          className={`${cardSize === 'small' ? 'aspect-square' : 'aspect-[4/3]'} bg-gray-100 relative group/preview overflow-hidden transition-all ${
+            dragOverItemId === item.id
+              ? 'ring-4 ring-blue-400 ring-inset bg-blue-50'
+              : ''
+          }`}
+          onDragOver={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            setDragOverItemId(item.id)
+          }}
+          onDragEnter={(e) => {
+            e.preventDefault()
+            setDragOverItemId(item.id)
+          }}
+          onDragLeave={(e) => {
+            // Only clear if truly leaving the div (not entering a child)
+            if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+              setDragOverItemId(null)
+            }
+          }}
+          onDrop={async (e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            setDragOverItemId(null)
+            
+            const files = e.dataTransfer.files
+            if (files && files.length > 0) {
+              const file = files[0]
+              try {
+                setUploading(true)
+                setUploadProgress(10)
+                
+                                const fileExt = file.name.split('.').pop()
+                const fileName = `artwork_proof_${Date.now()}.${fileExt}`
+                const filePath = `batches/${selectedBatch?.id}/${fileName}`
+                
+                setUploadProgress(30)
+                await uploadWithTus('artworks', filePath, file)
+                
+                const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(filePath)
+                const publicUrl = urlData.publicUrl
+                
+                setUploadProgress(70)
+                const { error: updateError } = await supabase
+                  .from('artwork_batch_items')
+                  .update({
+                    file_url: publicUrl,
+                    file_size: file.size,
+                    updated_at: new Date().toISOString()
+                  })
+                  .eq('id', item.id)
+                  
+                if (updateError) throw updateError
+                
+                // Fetch latest batch items
+                const { data: updatedItems, error: fetchError } = await supabase
+                  .from('artwork_batch_items')
+                  .select('*')
+                  .eq('batch_id', selectedBatch?.id)
+                  
+                if (fetchError) throw fetchError
+                if (updatedItems) {
+                  setBatchItems(updatedItems)
+                }
+                
+                setUploadProgress(100)
+                alert('Artwork proof replaced successfully!')
+              } catch (err: any) {
+                console.error(err)
+                alert(`Upload failed: ${err.message || err}`)
+              } finally {
+                setUploading(false)
+                setUploadProgress(0)
+              }
+            }
+          }}
+        >
+          {item.file_url ? (
+            <>
+              {(() => {
+                const displayUrl = item.ai_analysis?.thumbnail_url || (isImage ? item.file_url : null)
+                const crop = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
+
+                if (displayUrl) {
+                  return (
+                    <div className="w-full h-full overflow-hidden relative bg-gray-50 flex items-center justify-center">
+                      <img 
+                        src={displayUrl} 
+                        alt={item.name} 
+                        className="w-full h-full pointer-events-none object-contain"
+                        style={{
+                          transform: `translate(${crop.x}%, ${crop.y}%) scale(${crop.scale})`,
+                        }}
+                      />
+                      {!isImage && (
+                        <div className="absolute top-2 left-2 bg-black/60 px-2 py-0.5 rounded text-[8px] font-bold text-white uppercase tracking-wider">
+                          {isPdf ? 'PDF' : isVideo ? 'Video' : 'Doc'}
+                        </div>
+                      )}
+                    </div>
+                  )
+                }
+
+                if (isVideo) {
+                  return (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-900 text-white relative">
+                      <video src={item.file_url} className="w-full h-full object-cover" controls={false} muted />
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                        <span className="px-2 py-1 bg-black/60 rounded text-[10px] font-bold tracking-wider uppercase">Video</span>
+                      </div>
+                    </div>
+                  )
+                }
+
+                if (isPdf) {
+                  return (
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-red-50 text-red-600 gap-1 p-2">
+                      <Files className="h-8 w-8 text-red-400" />
+                      <span className="text-[10px] font-bold uppercase tracking-wider">PDF Document</span>
+                      <span className="text-[9px] text-gray-500 max-w-full truncate px-2">{item.name}</span>
+                    </div>
+                  )
+                }
+
+                return (
+                  <div className="w-full h-full flex flex-col items-center justify-center bg-gray-50 text-gray-400 gap-1 p-2">
+                    <Files className="h-8 w-8 text-gray-300" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider">File</span>
+                  </div>
+                )
+              })()}
+            </>
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center">
+              <CircleDashed className="h-8 w-8 text-gray-300 animate-spin mb-1" />
+              <span className="text-xs text-gray-400">Waiting for upload...</span>
+              <label className="mt-2 cursor-pointer">
+                <span className="px-3 py-1.5 bg-primary-600 hover:bg-primary-700 text-white rounded text-[10px] font-bold shadow-sm transition block">
+                  Upload Now
+                </span>
+                <input 
+                  type="file" 
+                  className="hidden" 
+                  onChange={(e) => handleUpdateItemFile(e, item.id)}
+                />
+              </label>
+            </div>
+          )}
+
+          {/* Quick status overlays removed from here and moved to info section */}
+
+
+          {/* Drag-over overlay */}
+          {dragOverItemId === item.id && (
+            <div className="absolute inset-0 bg-blue-500/20 backdrop-blur-[1px] flex flex-col items-center justify-center z-20 border-4 border-dashed border-blue-400 rounded pointer-events-none">
+              <Upload className="h-8 w-8 text-blue-600 mb-2 animate-bounce" />
+              <span className="text-sm font-bold text-blue-700 bg-white/90 px-3 py-1.5 rounded-full shadow">
+                Drop to Replace Proof
+              </span>
+            </div>
+          )}
+
+          {/* Hover Replace Overlay (only if file exists and not dragging) */}
+          {item.file_url && dragOverItemId !== item.id && (
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/preview:opacity-100 transition flex items-center justify-center pointer-events-none group-hover/preview:pointer-events-auto">
+              <label className="cursor-pointer">
+                <span className="px-4 py-2 bg-white rounded-lg text-xs font-semibold text-gray-900 shadow-xl border border-gray-200 hover:bg-gray-50 flex items-center gap-2 transition transform scale-90 group-hover/preview:scale-100">
+                  <RefreshCw className="h-4 w-4" />
+                  Replace Proof
+                </span>
+                <input 
+                  type="file" 
+                  className="hidden" 
+                  onChange={(e) => handleUpdateItemFile(e, item.id)}
+                />
+              </label>
+            </div>
+          )}
+        </div>
+        
+        {/* Info */}
+        <div className={cardSize === 'small' ? 'p-2' : 'p-4'}>
+          {item.status && (
+            <div className="mb-2 flex items-center">
+              {getStatusBadge(item.status)}
+            </div>
+          )}
+          {editingFileName === item.id ? (
+            <div className="flex items-center gap-2 mb-2">
+              <input
+                type="text"
+                value={fileNameValue}
+                onChange={(e) => setFileNameValue(e.target.value)}
+                className="flex-1 px-2 py-1 text-sm font-medium border border-gray-300 rounded focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
+                autoFocus
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleRenameFile(item.id)
+                  if (e.key === 'Escape') {
+                    setEditingFileName(null)
+                    setFileNameValue('')
+                  }
+                }}
+              />
+              <button
+                onClick={() => handleRenameFile(item.id)}
+                disabled={savingFileName}
+                className="p-1 text-green-600 hover:bg-green-50 rounded"
+              >
+                {savingFileName ? <RefreshCw className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3" />}
+              </button>
+              <button
+                onClick={() => {
+                  setEditingFileName(null)
+                  setFileNameValue('')
+                }}
+                className="p-1 text-gray-400 hover:bg-gray-100 rounded"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </div>
+          ) : (
+            <h3 className="text-xs font-semibold text-gray-900 line-clamp-2 leading-snug flex items-start justify-between gap-1 group/name" title={item.name}>
+              <span className="break-words min-w-0">{item.name}</span>
+              <button 
+                onClick={() => {
+                  setFileNameValue(item.name)
+                  setEditingFileName(item.id)
+                }}
+                className="opacity-0 group-hover/name:opacity-100 p-1 text-gray-400 hover:text-primary-600 rounded transition"
+              >
+                <Pencil className="h-3 w-3" />
+              </button>
+            </h3>
+          )}
+          {item.ai_analysis?.title && cardSize === 'large' && (
+            <p className="text-sm text-gray-500 truncate mt-1">{item.ai_analysis.title}</p>
+          )}
+          {item.ai_analysis?.keywords && cardSize === 'large' && (
+            <div className="flex flex-wrap gap-1 mt-2">
+              {item.ai_analysis.keywords.slice(0, 3).map((kw, i) => (
+                <span key={i} className="px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded">
+                  {kw}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* Section & Zone controls */}
+          <div className="mt-3 pt-3 border-t border-gray-100 flex flex-col gap-2 bg-gray-50/50 p-2 rounded-lg">
+            {/* Section Selector */}
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-[10px] uppercase font-bold text-gray-400">Section:</span>
+              <select
+                value={item.ai_analysis?.section_name || 'Uncategorized'}
+                onChange={(e) => handleMoveItemToSection(item, e.target.value)}
+                className="text-xs font-semibold text-gray-700 bg-white border border-gray-200 rounded px-2 py-1 max-w-[130px] truncate"
+              >
+                {sectionsList.map(sec => (
+                  <option key={sec} value={sec}>{sec}</option>
+                ))}
+              </select>
+            </div>
+            
+            {/* Customer Visibility Toggle */}
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-[10px] uppercase font-bold text-gray-400">Customer:</span>
+              <button
+                onClick={() => handleToggleItemZone(item)}
+                className={`text-[10px] font-bold px-2 py-1 rounded transition border ${
+                  (item.ai_analysis?.zone || 'current') === 'current'
+                    ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100'
+                    : 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100'
+                }`}
+                title={(item.ai_analysis?.zone || 'current') === 'current' ? 'Visible to Customer. Click to hide.' : 'Hidden from Customer. Click to make visible.'}
+              >
+                {(item.ai_analysis?.zone || 'current') === 'current' ? 'VISIBLE' : 'HIDDEN'}
+              </button>
+            </div>
+          </div>
+          
+          <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
+            <div className="flex flex-col gap-0.5">
+              <span className="text-[10px] text-gray-400 flex items-center gap-1">
+                <Clock className="h-2.5 w-2.5" />
+                Updated: {new Date(item.updated_at).toLocaleDateString()}
+              </span>
+              {item.file_size > 0 && (
+                <span className="text-[10px] text-gray-400 font-medium">
+                  Size: {formatFileSize(item.file_size)}
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
+                <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
+                  <MessageSquare className="h-2.5 w-2.5" />
+                  {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
+                </span>
+              )}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDeleteItem(item.id);
+                }}
+                className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition"
+                title="Delete artwork"
+              >
+                <Trash2 className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          </div>
+          
+          {/* Comment Thread */}
+          {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
+            <div className="mt-2 rounded-lg overflow-hidden border border-yellow-100">
+              {/* Customer comment bubble */}
+              {item.customer_comment && (
+                <div className="p-2.5 bg-yellow-50">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-yellow-700">Customer</span>
+                    <span className="text-[10px] text-yellow-500">{new Date(item.updated_at).toLocaleDateString()}</span>
+                  </div>
+                  <p className="text-xs text-yellow-900">{item.customer_comment}</p>
+                </div>
+              )}
+              {/* Admin replies */}
+              {(item.ai_analysis?.replies ?? []).map((reply: any, idx: number) => (
+                <div key={idx} className="p-2.5 bg-blue-50 border-t border-blue-100 flex items-start justify-between gap-2 group/reply">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wide text-blue-700">{reply.author}</span>
+                      <span className="text-[10px] text-blue-400">{new Date(reply.at).toLocaleDateString()}</span>
+                    </div>
+                    {reply.text && <p className="text-xs text-blue-900">{reply.text}</p>}
+                    
+                    {/* Reply Assets */}
+                    {reply.assets && reply.assets.length > 0 && (
+                      <div className="mt-2 space-y-1 pt-1 border-t border-blue-100/50">
+                        {reply.assets.map((asset: any, aidx: number) => (
+                          <div key={aidx}>
+                            {asset.type === 'image' ? (
+                              <a 
+                                href={asset.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block rounded border border-blue-200 overflow-hidden hover:opacity-90 transition"
+                              >
+                                <img src={asset.url} alt="Attachment" className="max-h-24 w-auto object-contain bg-white" />
+                              </a>
+                            ) : (
+                              <a 
+                                href={asset.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1.5 text-[10px] font-bold text-blue-600 hover:text-blue-800 underline decoration-1"
+                              >
+                                <LinkIcon className="h-2.5 w-2.5" />
+                                {asset.name || 'View Link'}
+                              </a>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => handleDeleteReply(item, idx)}
+                    className="opacity-0 group-hover/reply:opacity-100 p-1 text-red-400 hover:text-red-600 hover:bg-red-50 rounded transition mt-0.5"
+                    title="Delete reply"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                </div>
+              ))}
+              {/* Reply input */}
+              {replyingToItem === item.id ? (
+                <div className="p-2 bg-gray-50 border-t border-gray-100">
+                  {/* Pending Assets Preview */}
+                  {adminPendingAssets.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mb-2">
+                      {adminPendingAssets.map((asset, idx) => (
+                        <div key={idx} className="relative group bg-white rounded border border-gray-200 p-0.5 pr-5">
+                          {asset.type === 'image' ? (
+                            <img src={asset.url} alt="Pending" className="h-6 w-6 object-cover rounded" />
+                          ) : (
+                            <div className="h-6 flex items-center px-1 gap-1 text-[9px] font-bold text-gray-600">
+                              <LinkIcon className="h-2.5 w-2.5" />
+                              <span className="max-w-[40px] truncate">{asset.name || 'Link'}</span>
+                            </div>
+                          )}
+                          <button 
+                            onClick={() => handleRemoveAdminPendingAsset(idx)}
+                            className="absolute right-0.5 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-red-500 transition"
+                          >
+                            <X className="h-2 w-2" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Link Input Overlay */}
+                  {showAdminLinkInput && (
+                    <div className="mb-2 p-2 bg-primary-50 rounded border border-primary-100 space-y-1.5 shadow-sm">
+                      <input 
+                        type="url" 
+                        value={adminLinkUrl}
+                        onChange={e => setAdminLinkUrl(e.target.value)}
+                        placeholder="Paste URL here..."
+                        className="w-full px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
+                        autoFocus
+                      />
+                      <div className="flex gap-1.5">
+                        <input 
+                          type="text" 
+                          value={adminLinkLabel}
+                          onChange={e => setAdminLinkLabel(e.target.value)}
+                          placeholder="Label (optional)"
+                          className="flex-1 px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
+                        />
+                        <button 
+                          onClick={handleAdminAddLink}
+                          className="px-2 py-1 bg-primary-600 text-white text-[10px] font-bold rounded hover:bg-primary-700"
+                        >Add</button>
+                        <button 
+                          onClick={() => setShowAdminLinkInput(false)}
+                          className="px-2 py-1 bg-white text-gray-500 text-[10px] font-bold rounded border border-gray-200"
+                        >✕</button>
+                      </div>
+                    </div>
+                  )}
+
+                  <textarea
+                    value={replyText}
+                    onChange={e => setReplyText(e.target.value)}
+                    placeholder="Type your reply..."
+                    rows={2}
+                    className="w-full px-2 py-1.5 text-xs border border-gray-200 rounded resize-none focus:ring-1 focus:ring-primary-500"
+                    autoFocus
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddReply(item) }
+                      if (e.key === 'Escape') { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }
+                    }}
+                  />
+                  <div className="flex items-center gap-1.5 mt-1.5">
+                    <div className="flex gap-0.5">
+                      <label className="cursor-pointer p-1.5 text-gray-400 hover:text-primary-600 hover:bg-white rounded transition" title="Attach Image">
+                        {adminUploadingAsset ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <ImageIcon className="h-3.5 w-3.5" />}
+                        <input type="file" accept="image/*" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
+                      </label>
+                      <button 
+                        onClick={() => setShowAdminLinkInput(!showAdminLinkInput)}
+                        className={`p-1.5 transition rounded ${showAdminLinkInput ? 'text-primary-600 bg-white' : 'text-gray-400 hover:text-primary-600 hover:bg-white'}`}
+                        title="Add Link"
+                      >
+                        <LinkIcon className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                    <button
+                      onClick={() => handleAddReply(item)}
+                      disabled={(!replyText.trim() && adminPendingAssets.length === 0) || sendingReply || adminUploadingAsset}
+                      className="flex-1 py-1 text-[11px] font-semibold bg-primary-600 text-white rounded hover:bg-primary-700 disabled:opacity-50 transition"
+                    >{sendingReply ? 'Sending...' : 'Send Reply'}</button>
+                    <button
+                      onClick={() => { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
+                      className="py-1 px-3 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
+                    >Cancel</button>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  onClick={() => { setReplyingToItem(item.id); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
+                  className="w-full py-1.5 text-[11px] font-semibold text-blue-600 hover:bg-blue-50 transition border-t border-yellow-100"
+                >↩ Reply</button>
+              )}
+            </div>
+          )}
+          {/* Show reply button even if no comment yet */}
+          {!item.customer_comment && (item.ai_analysis?.replies?.length ?? 0) === 0 && (
+            <div className="mt-2">
+              {replyingToItem === item.id ? (
+                <div className="rounded-lg border border-gray-200 overflow-hidden shadow-sm">
+                  <div className="p-2 bg-gray-50">
+                    {/* Pending Assets Preview */}
+                    {adminPendingAssets.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {adminPendingAssets.map((asset, idx) => (
+                          <div key={idx} className="relative group bg-white rounded border border-gray-200 p-0.5 pr-5">
+                            {asset.type === 'image' ? (
+                              <img src={asset.url} alt="Pending" className="h-6 w-6 object-cover rounded" />
+                            ) : (
+                              <div className="h-6 flex items-center px-1 gap-1 text-[9px] font-bold text-gray-600">
+                                <LinkIcon className="h-2.5 w-2.5" />
+                                <span className="max-w-[40px] truncate">{asset.name || 'Link'}</span>
+                              </div>
+                            )}
+                            <button 
+                              onClick={() => handleRemoveAdminPendingAsset(idx)}
+                              className="absolute right-0.5 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-red-500 transition"
+                            >
+                              <X className="h-2 w-2" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Link Input Overlay */}
+                    {showAdminLinkInput && (
+                      <div className="mb-2 p-2 bg-primary-50 rounded border border-primary-100 space-y-1.5 shadow-sm">
+                        <input 
+                          type="url" 
+                          value={adminLinkUrl}
+                          onChange={e => setAdminLinkUrl(e.target.value)}
+                          placeholder="Paste URL here..."
+                          className="w-full px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
+                          autoFocus
+                        />
+                        <div className="flex gap-1.5">
+                          <input 
+                            type="text" 
+                            value={adminLinkLabel}
+                            onChange={e => setAdminLinkLabel(e.target.value)}
+                            placeholder="Label (optional)"
+                            className="flex-1 px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
+                          />
+                          <button 
+                            onClick={handleAdminAddLink}
+                            className="px-2 py-1 bg-primary-600 text-white text-[10px] font-bold rounded hover:bg-primary-700"
+                          >Add</button>
+                          <button 
+                            onClick={() => setShowAdminLinkInput(false)}
+                            className="px-2 py-1 bg-white text-gray-500 text-[10px] font-bold rounded border border-gray-200"
+                          >✕</button>
+                        </div>
+                      </div>
+                    )}
+
+                    <textarea
+                      value={replyText}
+                      onChange={e => setReplyText(e.target.value)}
+                      placeholder="Type your note for the customer..."
+                      rows={2}
+                      className="w-full px-2 py-1.5 text-xs border border-gray-200 rounded resize-none focus:ring-1 focus:ring-primary-500"
+                      autoFocus
+                      onKeyDown={e => {
+                        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddReply(item) }
+                        if (e.key === 'Escape') { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }
+                      }}
+                    />
+                    <div className="flex items-center gap-1.5 mt-1.5">
+                      <div className="flex gap-0.5">
+                        <label className="cursor-pointer p-1.5 text-gray-400 hover:text-primary-600 hover:bg-white rounded transition" title="Attach Image">
+                          {adminUploadingAsset ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <ImageIcon className="h-3.5 w-3.5" />}
+                          <input type="file" accept="image/*" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
+                        </label>
+                        <button 
+                          onClick={() => setShowAdminLinkInput(!showAdminLinkInput)}
+                          className={`p-1.5 transition rounded ${showAdminLinkInput ? 'text-primary-600 bg-white' : 'text-gray-400 hover:text-primary-600 hover:bg-white'}`}
+                          title="Add Link"
+                        >
+                          <LinkIcon className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                      <button
+                        onClick={() => handleAddReply(item)}
+                        disabled={(!replyText.trim() && adminPendingAssets.length === 0) || sendingReply || adminUploadingAsset}
+                        className="flex-1 py-1 text-[11px] font-semibold bg-primary-600 text-white rounded hover:bg-primary-700 disabled:opacity-50 transition"
+                      >{sendingReply ? 'Sending...' : 'Send Note'}</button>
+                      <button
+                        onClick={() => { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
+                        className="py-1 px-3 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
+                      >Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  onClick={() => { setReplyingToItem(item.id); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
+                  className="text-[11px] text-gray-400 hover:text-primary-600 transition"
+                >+ Add note</button>
+              )}
+            </div>
+          )}
+          
+          {/* Original Artwork Link */}
+          <div className="mt-3 pt-3 border-t border-gray-100">
+            <label className="text-xs font-semibold text-gray-700 block mb-1.5 flex items-center gap-1">
+              <Link2 className="h-3 w-3" /> Original Source File
+            </label>
+            {editingSourceLink === item.id ? (
+              <div className="flex items-center gap-2">
+                <input
+                  type="url"
+                  value={sourceLinkValue}
+                  onChange={(e) => setSourceLinkValue(e.target.value)}
+                  placeholder="Google Drive, WeTransfer..."
+                  className="flex-1 px-2 py-1 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
+                  autoFocus
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleSaveSourceLink(item.id)
+                    if (e.key === 'Escape') {
+                      setEditingSourceLink(null)
+                      setSourceLinkValue('')
+                    }
+                  }}
+                />
+                <button
+                  onClick={() => handleSaveSourceLink(item.id)}
+                  disabled={savingSourceLink}
+                  className="p-1 px-2 text-xs font-medium bg-green-100 text-green-700 hover:bg-green-200 rounded transition"
+                >
+                  {savingSourceLink ? 'Saving...' : 'Save'}
+                </button>
+                <button
+                  onClick={() => {
+                    setEditingSourceLink(null)
+                    setSourceLinkValue('')
+                  }}
+                  className="p-1 px-2 text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 rounded transition"
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center justify-between gap-2 p-2 bg-gray-50 rounded-lg">
+                {item.source_link ? (
+                  <a
+                    href={item.source_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-xs text-blue-600 hover:text-blue-800 truncate flex items-center gap-1 font-medium"
+                    title={item.source_link}
+                  >
+                    <Download className="h-3 w-3 flex-shrink-0" />
+                    <span className="truncate font-mono tracking-tight" style={{ fontSize: '10px' }}>
+                      {item.source_link.length > 15
+                        ? `...${item.source_link.slice(-10)}`
+                        : item.source_link}
+                    </span>
+                  </a>
+                ) : (
+                  <span className="text-[10px] text-gray-400 italic">No link</span>
+                )}
+                <button
+                  onClick={() => {
+                    setSourceLinkValue(item.source_link || '')
+                    setEditingSourceLink(item.id)
+                  }}
+                  className="p-1 px-2 text-[10px] font-medium bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 rounded transition flex-shrink-0"
+                >
+                  {item.source_link ? 'Edit' : '+ Add Link'}
+                </button>
+              </div>
+            )}
+          </div>
+
+          <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-400">
+            <span className="flex items-center gap-1">
+              <Clock className="h-3 w-3" />
+              Updated: {new Date(item.updated_at).toLocaleDateString()}
+            </span>
+            <span>{item.file_size ? (item.file_size / 1024 / 1024).toFixed(2) + ' MB' : ''}</span>
+          </div>
+          
+          {/* Actions */}
+          <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
+            <label className="cursor-pointer p-2 text-gray-500 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition" title="Replace File">
+              <Upload className="h-4 w-4" />
+              <input type="file" className="hidden" onChange={(e) => handleUpdateItemFile(e, item.id)} />
+            </label>
+            <a
+              href={item.file_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition"
+              title="Download"
+            >
+              <Download className="h-4 w-4" />
+            </a>
+            <button
+              onClick={() => setCroppingItem(item)}
+              className="p-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition"
+              title="Customize Thumbnail (Crop & Zoom)"
+            >
+              <Crop className="h-4 w-4" />
+            </button>
+            {/* View JSON Button */}
+            {/* Copy to Batch Button */}
+            <button
+              onClick={() => setCopyTargetItem(item)}
+              className="p-2 text-primary-500 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition"
+              title="Copy to Another Batch"
+            >
+              <Files className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => handleDeleteItem(item.id)}
+              className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition ml-auto"
+              title="Delete"
+            >
+              <Trash2 className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'approved':
@@ -1278,14 +2326,14 @@ const ArtworkBatchesPage: React.FC = () => {
                 <span className="hidden sm:inline">Back to Admin</span>
               </Link>
               <div className="h-6 w-px bg-gray-200" />
-              <h1 className="text-lg font-semibold text-gray-900">Artwork Batches</h1>
+              <h1 className="text-lg font-semibold text-gray-900">Artwork & Document System</h1>
             </div>
             <button
               onClick={() => setShowCreateModal(true)}
               className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
             >
               <Plus className="h-4 w-4" />
-              <span className="hidden sm:inline">New Batch</span>
+              <span className="hidden sm:inline">New System</span>
             </button>
           </div>
         </div>
@@ -1337,7 +2385,7 @@ const ArtworkBatchesPage: React.FC = () => {
                     type="text"
                     value={batchSearchQuery}
                     onChange={(e) => setBatchSearchQuery(e.target.value)}
-                    placeholder="Search batch, customer, artwork..."
+                    placeholder="Search system, customer, artwork/document..."
                     className="w-full pl-8 pr-8 py-2 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
                   />
                   {batchSearchQuery && (
@@ -1350,7 +2398,7 @@ const ArtworkBatchesPage: React.FC = () => {
                   )}
                 </div>
                 <p className="text-xs text-gray-500 mt-2">
-                  {batchSearchQuery ? `${filteredBatches.length} of ${batches.length}` : `${batches.length}`} batches
+                  {batchSearchQuery ? `${filteredBatches.length} of ${batches.length}` : `${batches.length}`} systems
                 </p>
               </div>
               
@@ -1362,41 +2410,122 @@ const ArtworkBatchesPage: React.FC = () => {
                 <div className="p-8 text-center">
                   <Folder className="h-10 w-10 text-gray-300 mx-auto mb-2" />
                   <p className="text-sm text-gray-500">
-                    {batchSearchQuery ? 'No matching batches' : 'No batches yet'}
+                    {batchSearchQuery ? 'No matching systems' : 'No systems yet'}
                   </p>
                   {!batchSearchQuery && (
                     <button
                       onClick={() => setShowCreateModal(true)}
                       className="mt-3 text-sm text-primary-600 hover:text-primary-700"
                     >
-                      Create your first batch
+                      Create your first system
                     </button>
                   )}
                 </div>
               ) : (
                 <div className="divide-y divide-gray-100 max-h-[calc(100vh-350px)] overflow-y-auto">
-                  {filteredBatches.map(batch => (
-                    <button
-                      key={batch.id}
-                      onClick={() => setSelectedBatch(batch)}
-                      className={`w-full p-4 text-left hover:bg-gray-50 transition ${
-                        selectedBatch?.id === batch.id ? 'bg-primary-50 border-l-4 border-primary-500' : ''
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="font-medium text-gray-900">Batch {batch.batch_name}</span>
-                        <ChevronRight className="h-4 w-4 text-gray-400" />
+                  {filteredBatches.map(batch => {
+                    const isSelected = selectedBatch?.id === batch.id
+                    return (
+                      <div 
+                        key={batch.id}
+                        className={`transition ${
+                          isSelected ? 'bg-primary-50 border-l-4 border-primary-500' : 'hover:bg-gray-50'
+                        }`}
+                      >
+                        {/* Batch Item Row */}
+                        <button
+                          onClick={() => setSelectedBatch(batch)}
+                          className="w-full p-4 text-left focus:outline-none"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-medium text-gray-900">System {batch.batch_name}</span>
+                            <ChevronRight className={`h-4 w-4 text-gray-400 transform transition-transform ${isSelected ? 'rotate-90' : ''}`} />
+                          </div>
+                          <div className="flex items-center gap-2 mt-1">
+                            <span className="text-xs text-gray-500">{batchItemCounts[batch.id] ?? batch.total_items} files</span>
+                            <span className="text-xs text-gray-400">•</span>
+                            {getStatusBadge(batch.status)}
+                          </div>
+                          {batch.customer_name && (
+                            <p className="text-xs text-gray-500 mt-1">{batch.customer_name}</p>
+                          )}
+                        </button>
+                        
+                        {/* Sections list inside selected batch */}
+                        {isSelected && (
+                          <div className="px-4 pb-4 space-y-2 border-t border-primary-100/50 pt-2 bg-white/50">
+                            <div className="flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-wider">
+                              <span>Sections ({sectionsList.length})</span>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation()
+                                  handleCreateSection()
+                                }}
+                                className="p-1 hover:bg-primary-100 rounded text-primary-600 transition"
+                                title="Add Section"
+                              >
+                                <Plus className="h-3 w-3" />
+                              </button>
+                            </div>
+                            
+                            <div className="space-y-1">
+                              {/* All Items filter in sidebar */}
+                              <button
+                                onClick={() => setActiveSection('all')}
+                                className={`w-full text-left py-1.5 px-2.5 text-xs rounded-lg transition flex items-center justify-between ${
+                                  activeSection === 'all'
+                                    ? 'bg-primary-600 text-white font-semibold shadow-sm'
+                                    : 'text-gray-600 hover:bg-primary-100'
+                                }`}
+                              >
+                                <span>All Artworks</span>
+                                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${activeSection === 'all' ? 'bg-primary-500 text-white' : 'bg-gray-100 text-gray-500'}`}>
+                                  {batchItems.length}
+                                </span>
+                              </button>
+                              
+                              {/* Individual sections */}
+                              {sectionsList.map(sec => {
+                                const secItemsCount = batchItems.filter(item => (item.ai_analysis?.section_name || 'Uncategorized') === sec).length
+                                return (
+                                  <button
+                                    key={sec}
+                                    onClick={() => setActiveSection(sec)}
+                                    className={`w-full text-left py-1.5 px-2.5 text-xs rounded-lg transition flex items-center justify-between group ${
+                                      activeSection === sec
+                                        ? 'bg-primary-600 text-white font-semibold shadow-sm'
+                                        : 'text-gray-600 hover:bg-primary-100'
+                                    }`}
+                                  >
+                                    <span className="truncate pr-1">{sec}</span>
+                                    <div className="flex items-center gap-1 flex-shrink-0">
+                                      <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${activeSection === sec ? 'bg-primary-500 text-white' : 'bg-gray-100 text-gray-500'}`}>
+                                        {secItemsCount}
+                                      </span>
+                                      {sec !== 'Uncategorized' && (
+                                        <button
+                                          onClick={(e) => {
+                                            e.stopPropagation()
+                                            handleDeleteSection(sec)
+                                          }}
+                                          className={`p-0.5 rounded hover:bg-red-500 hover:text-white transition ${
+                                            activeSection === sec ? 'text-primary-100' : 'text-gray-400 opacity-0 group-hover:opacity-100'
+                                          }`}
+                                          title="Delete Section"
+                                        >
+                                          <Trash2 className="h-2.5 w-2.5" />
+                                        </button>
+                                      )}
+                                    </div>
+                                  </button>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        )}
                       </div>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs text-gray-500">{batchItemCounts[batch.id] ?? batch.total_items} files</span>
-                        <span className="text-xs text-gray-400">•</span>
-                        {getStatusBadge(batch.status)}
-                      </div>
-                      {batch.customer_name && (
-                        <p className="text-xs text-gray-500 mt-1">{batch.customer_name}</p>
-                      )}
-                    </button>
-                  ))}
+                    )
+                  })}
                 </div>
               )}
             </div>
@@ -1418,7 +2547,7 @@ const ArtworkBatchesPage: React.FC = () => {
                             value={batchNameValue}
                             onChange={(e) => setBatchNameValue(e.target.value)}
                             className="text-xl font-bold text-gray-900 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                            placeholder="Batch name"
+                            placeholder="System name"
                             autoFocus
                             onKeyDown={(e) => {
                               if (e.key === 'Enter') handleRenameBatch()
@@ -1449,21 +2578,21 @@ const ArtworkBatchesPage: React.FC = () => {
                         </div>
                       ) : (
                         <div className="flex items-center gap-2">
-                          <h2 className="text-xl font-bold text-gray-900">Batch {selectedBatch.batch_name}</h2>
+                          <h2 className="text-xl font-bold text-gray-900">System {selectedBatch.batch_name}</h2>
                           <button
                             onClick={() => {
                               setBatchNameValue(selectedBatch.batch_name)
                               setEditingBatchName(true)
                             }}
                             className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition"
-                            title="Rename batch"
+                            title="Rename system"
                           >
                             <Pencil className="h-4 w-4" />
                           </button>
                         </div>
                       )}
                       <p className="text-sm text-gray-500 mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                        <span>{batchItems.length} artworks</span>
+                        <span>{batchItems.length} artworks / documents</span>
                         <span className="flex items-center gap-1 font-medium text-gray-400">
                           <Plus className="h-3 w-3" />
                           Created: {new Date(selectedBatch.created_at).toLocaleDateString()}
@@ -1481,6 +2610,14 @@ const ArtworkBatchesPage: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <button
+                        onClick={handleCreateSection}
+                        className="flex items-center gap-2 px-4 py-2 border border-primary-200 bg-primary-50 text-primary-700 rounded-lg hover:bg-primary-100 transition shadow-sm font-semibold"
+                        title="Add Section"
+                      >
+                        <Plus className="h-4 w-4" />
+                        <span className="hidden sm:inline text-sm">Add Section</span>
+                      </button>
+                      <button
                         onClick={() => handleTogglePinBatch(selectedBatch)}
                         className={`flex items-center gap-2 px-4 py-2 border rounded-lg transition ${selectedBatch.batch_name.startsWith('📌 ') ? 'bg-primary-50 border-primary-200 text-primary-700' : 'border-gray-200 hover:bg-gray-50'}`}
                         title={selectedBatch.batch_name.startsWith('📌 ') ? "Unpin Batch" : "Pin Batch for Templates"}
@@ -1492,7 +2629,7 @@ const ArtworkBatchesPage: React.FC = () => {
                         onClick={handleCloneBatch}
                         disabled={cloningBatch}
                         className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition disabled:opacity-50"
-                        title="Clone entire batch for a new project"
+                        title="Clone entire system for a new project"
                       >
                         {cloningBatch ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Files className="h-4 w-4" />}
                         <span className="hidden sm:inline text-sm">Clone</span>
@@ -1516,7 +2653,7 @@ const ArtworkBatchesPage: React.FC = () => {
                       <button
                         onClick={() => handleDeleteBatch(selectedBatch.id)}
                         className="flex items-center gap-2 px-4 py-2 border border-red-200 text-red-600 rounded-lg hover:bg-red-50 transition"
-                        title="Delete Batch"
+                        title="Delete System"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>
@@ -1654,7 +2791,7 @@ const ArtworkBatchesPage: React.FC = () => {
                     />
                   </div>
                   <button
-                    onClick={handleCreateBlankArtwork}
+                    onClick={() => handleCreateBlankArtwork()}
                     disabled={uploading}
                     className="flex items-center gap-2 px-4 py-2 border border-gray-200 text-gray-700 bg-white rounded-lg hover:bg-gray-50 transition"
                     title="Create a placeholder to input original artwork link while waiting for press-ready files"
@@ -1808,38 +2945,48 @@ const ArtworkBatchesPage: React.FC = () => {
                 </div>
 
                 {/* Filter Tabs */}
-                <div className="flex flex-wrap items-center gap-2 mb-6 border-b border-gray-100 pb-4">
-                  {[
-                    { id: 'all', label: 'All Items', icon: LayoutGrid },
-                    { id: 'with-comment', label: 'With Comments', icon: MessageSquare },
-                    { id: 'with-artwork', label: 'With Artwork', icon: FileImage },
-                    { id: 'blank', label: 'Blank Cards', icon: CircleDashed },
-                    { id: 'approved', label: 'Approved', icon: CheckCircle2 },
-                    { id: 'rejected', label: 'Rejected', icon: AlertCircle },
-                    { id: 'pending', label: 'Pending', icon: Clock },
-                  ].map(f => {
-                    const Icon = f.icon
-                    const isActive = itemFilter === f.id
-                    return (
-                      <button
-                        key={f.id}
-                        onClick={() => setItemFilter(f.id as any)}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition ${
-                          isActive 
-                            ? 'bg-primary-50 text-primary-600 border border-primary-200 shadow-sm' 
-                            : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'
-                        }`}
-                      >
-                        <Icon className={`h-4 w-4 ${isActive ? 'text-primary-600' : 'text-gray-400'}`} />
-                        {f.label}
-                        {isActive && (
-                          <span className="ml-1 px-1.5 py-0.5 bg-primary-100 text-primary-700 rounded-full text-[10px]">
-                            {filteredItems.length}
-                          </span>
-                        )}
-                      </button>
-                    )
-                  })}
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-gray-100 pb-4">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {[
+                      { id: 'all', label: 'All Items', icon: LayoutGrid },
+                      { id: 'with-comment', label: 'With Comments', icon: MessageSquare },
+                      { id: 'with-artwork', label: 'With Artwork', icon: FileImage },
+                      { id: 'blank', label: 'Blank Cards', icon: CircleDashed },
+                      { id: 'approved', label: 'Approved', icon: CheckCircle2 },
+                      { id: 'rejected', label: 'Rejected', icon: AlertCircle },
+                      { id: 'pending', label: 'Pending', icon: Clock },
+                    ].map(f => {
+                      const Icon = f.icon
+                      const isActive = itemFilter === f.id
+                      return (
+                        <button
+                          key={f.id}
+                          onClick={() => setItemFilter(f.id as any)}
+                          className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition ${
+                            isActive 
+                              ? 'bg-primary-50 text-primary-600 border border-primary-200 shadow-sm' 
+                              : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'
+                          }`}
+                        >
+                          <Icon className={`h-4 w-4 ${isActive ? 'text-primary-600' : 'text-gray-400'}`} />
+                          {f.label}
+                          {isActive && (
+                            <span className="ml-1 px-1.5 py-0.5 bg-primary-100 text-primary-700 rounded-full text-[10px]">
+                              {filteredItems.length}
+                            </span>
+                          )}
+                        </button>
+                      )
+                    })}
+                  </div>
+
+                  <button
+                    onClick={handleCreateSection}
+                    className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition shadow-sm font-semibold text-sm"
+                  >
+                    <Plus className="h-4 w-4" />
+                    Create New Section
+                  </button>
                 </div>
 
                 {/* Items Grid */}
@@ -1850,635 +2997,97 @@ const ArtworkBatchesPage: React.FC = () => {
                     <p className="text-sm text-gray-400 mt-1">Upload files to get started</p>
                   </div>
                 ) : (
-                  <div 
-                    className="grid gap-4"
-                    style={{ 
-                      gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))` 
-                    }}
-                  >
-                    {filteredItems.map(item => {
-                      const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
-                      const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
-                      const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
+                  <div className="space-y-12">
+                    {sectionsToDisplay.map(secName => {
+                      const sectionItems = groupedItems[secName] || []
+                      const isEmpty = sectionItems.length === 0
+                      
                       return (
-                        <div key={item.id} className={`bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition ${cardSize === 'small' ? 'p-2' : ''}`}>
-                          {/* Preview — supports drag-and-drop to replace proof */}
-                          <div
-                            className={`${cardSize === 'small' ? 'aspect-square' : 'aspect-[4/3]'} bg-gray-100 relative group/preview overflow-hidden transition-all ${
-                              dragOverItemId === item.id
-                                ? 'ring-4 ring-blue-400 ring-inset bg-blue-50'
-                                : ''
-                            }`}
-                            onDragOver={(e) => {
-                              e.preventDefault()
-                              e.stopPropagation()
-                              setDragOverItemId(item.id)
-                            }}
-                            onDragEnter={(e) => {
-                              e.preventDefault()
-                              setDragOverItemId(item.id)
-                            }}
-                            onDragLeave={(e) => {
-                              // Only clear if truly leaving the div (not entering a child)
-                              if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-                                setDragOverItemId(null)
-                              }
-                            }}
-                            onDrop={async (e) => {
-                              e.preventDefault()
-                              e.stopPropagation()
-                              setDragOverItemId(null)
-                              const file = e.dataTransfer.files?.[0]
-                              if (!file) return
-                              await uploadProofFile(file, item.id)
-                            }}
-                          >
-                            {(() => {
-                              const customThumbUrl = item.ai_analysis?.thumbnail_url
-                              const displayUrl = customThumbUrl || (isImage ? item.file_url : null)
-                              const cropSettings = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
-
-                              if (displayUrl) {
-                                return (
-                                  <img 
-                                    src={displayUrl} 
-                                    alt={item.name}
-                                    className="w-full h-full object-contain"
-                                    style={{
-                                      transform: `translate(${cropSettings.x}%, ${cropSettings.y}%) scale(${cropSettings.scale})`
-                                    }}
-                                  />
-                                )
-                              } else if (isVideo) {
-                                return (
-                                  <video 
-                                    src={item.file_url} 
-                                    controls
-                                    className="w-full h-full object-contain bg-black"
-                                  />
-                                )
-                              } else if (isPdf) {
-                                return (
-                                  <iframe 
-                                    src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
-                                    className="w-full h-full border-0 pointer-events-none" 
-                                    scrolling="no"
-                                  />
-                                )
-                              } else {
-                                return (
-                                  <div className="w-full h-full flex flex-col items-center justify-center p-4">
-                                    <FileImage className="h-12 w-12 text-gray-300 mb-3" />
-                                    <label className="cursor-pointer">
-                                      <span className="px-4 py-2 bg-primary-600 text-white rounded-lg text-xs font-medium hover:bg-primary-700 shadow-sm transition flex items-center gap-2">
-                                        <Upload className="h-3.5 w-3.5" />
-                                        Upload Proof
-                                      </span>
-                                      <input 
-                                        type="file" 
-                                        className="hidden" 
-                                        onChange={(e) => handleUpdateItemFile(e, item.id)}
-                                      />
-                                    </label>
-                                  </div>
-                                )
-                              }
-                            })()}
-                            {/* Status Badge */}
-                            <div className="absolute top-2 left-2 flex flex-col gap-1">
-                              {getStatusBadge(item.status)}
-                              {/* Revision badge — shown when admin has uploaded at least 1 new proof after rejection */}
-                              {(item.revision_count ?? 0) > 0 && (
-                                <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-bold rounded-full bg-orange-100 text-orange-700 border border-orange-200">
-                                  🔄 {getRevisionLabel(item.revision_count!)} Pending
-                                </span>
+                        <div key={secName} className="bg-white rounded-2xl border border-gray-200 p-6 space-y-6 shadow-sm">
+                          {/* Section Header */}
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100 pb-4">
+                            <div className="flex items-center gap-3">
+                              <SectionTitleEditor 
+                                name={secName} 
+                                onSave={(newName) => handleRenameSection(secName, newName)} 
+                              />
+                              
+                              {sectionsList.length > 1 && (
+                                <div className="flex items-center bg-gray-50 border border-gray-200 rounded-xl p-0.5 shadow-sm">
+                                  <button
+                                    onClick={() => handleMoveSection(secName, 'up')}
+                                    disabled={sectionsList.indexOf(secName) === 0}
+                                    className="p-1 hover:bg-white text-gray-500 hover:text-gray-900 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-gray-500 rounded-lg transition"
+                                    title="Move Section Up"
+                                  >
+                                    <ChevronUp className="h-4 w-4" />
+                                  </button>
+                                  <div className="h-3 w-[1px] bg-gray-200 mx-0.5" />
+                                  <button
+                                    onClick={() => handleMoveSection(secName, 'down')}
+                                    disabled={sectionsList.indexOf(secName) === sectionsList.length - 1}
+                                    className="p-1 hover:bg-white text-gray-500 hover:text-gray-900 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-gray-500 rounded-lg transition"
+                                    title="Move Section Down"
+                                  >
+                                    <ChevronDown className="h-4 w-4" />
+                                  </button>
+                                </div>
                               )}
                             </div>
-                            {/* AI Badge */}
-                            {item.ai_analysis?.analyzed_at && (
-                              <div className="absolute top-2 right-2">
-                                <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-indigo-100 text-indigo-700">
-                                  <Sparkles className="h-3 w-3" />
-                                  AI
-                                </span>
-                              </div>
-                            )}
-
-                            {/* Drag-over overlay */}
-                            {dragOverItemId === item.id && (
-                              <div className="absolute inset-0 bg-blue-500/20 backdrop-blur-[1px] flex flex-col items-center justify-center z-20 border-4 border-dashed border-blue-400 rounded pointer-events-none">
-                                <Upload className="h-8 w-8 text-blue-600 mb-2 animate-bounce" />
-                                <span className="text-sm font-bold text-blue-700 bg-white/90 px-3 py-1.5 rounded-full shadow">
-                                  Drop to Replace Proof
-                                </span>
-                              </div>
-                            )}
-
-                            {/* Hover Replace Overlay (only if file exists and not dragging) */}
-                            {item.file_url && dragOverItemId !== item.id && (
-                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/preview:opacity-100 transition flex items-center justify-center pointer-events-none group-hover/preview:pointer-events-auto">
-                                <label className="cursor-pointer">
-                                  <span className="px-4 py-2 bg-white rounded-lg text-xs font-semibold text-gray-900 shadow-xl border border-gray-200 hover:bg-gray-50 flex items-center gap-2 transition transform scale-90 group-hover/preview:scale-100">
-                                    <RefreshCw className="h-4 w-4" />
-                                    Replace Proof
-                                  </span>
-                                  <input 
-                                    type="file" 
-                                    className="hidden" 
-                                    onChange={(e) => handleUpdateItemFile(e, item.id)}
-                                  />
-                                </label>
-                              </div>
-                            )}
-                          </div>
-                          
-                          {/* Info */}
-                          <div className={cardSize === 'small' ? 'p-2' : 'p-4'}>
-                            {editingFileName === item.id ? (
-                              <div className="flex items-center gap-2 mb-2">
-                                <input
-                                  type="text"
-                                  value={fileNameValue}
-                                  onChange={(e) => setFileNameValue(e.target.value)}
-                                  className="flex-1 px-2 py-1 text-sm font-medium border border-gray-300 rounded focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
-                                  autoFocus
-                                  onKeyDown={(e) => {
-                                    if (e.key === 'Enter') handleRenameFile(item.id)
-                                    if (e.key === 'Escape') {
-                                      setEditingFileName(null)
-                                      setFileNameValue('')
-                                    }
-                                  }}
-                                />
-                                <button
-                                  onClick={() => handleRenameFile(item.id)}
-                                  disabled={savingFileName}
-                                  className="p-1 text-green-600 hover:bg-green-50 rounded"
-                                >
-                                  {savingFileName ? <RefreshCw className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3" />}
-                                </button>
-                                <button
-                                  onClick={() => {
-                                    setEditingFileName(null)
-                                    setFileNameValue('')
-                                  }}
-                                  className="p-1 text-gray-400 hover:bg-gray-100 rounded"
-                                >
-                                  <X className="h-3 w-3" />
-                                </button>
-                              </div>
-                            ) : (
-                              <h3 className="text-xs font-medium text-gray-900 line-clamp-2 leading-snug flex items-start justify-between gap-1 group/name" title={item.name}>
-                                <span className="break-words min-w-0">{item.name}</span>
-                                <button 
-                                  onClick={() => {
-                                    setFileNameValue(item.name)
-                                    setEditingFileName(item.id)
-                                  }}
-                                  className="opacity-0 group-hover/name:opacity-100 p-1 text-gray-400 hover:text-primary-600 rounded transition"
-                                >
-                                  <Pencil className="h-3 w-3" />
-                                </button>
-                              </h3>
-                            )}
-                            {item.ai_analysis?.title && cardSize === 'large' && (
-                              <p className="text-sm text-gray-500 truncate mt-1">{item.ai_analysis.title}</p>
-                            )}
-                            {item.ai_analysis?.keywords && cardSize === 'large' && (
-                              <div className="flex flex-wrap gap-1 mt-2">
-                                {item.ai_analysis.keywords.slice(0, 3).map((kw, i) => (
-                                  <span key={i} className="px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded">
-                                    {kw}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
                             
-                            <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
-                              <div className="flex flex-col gap-0.5">
-                                <span className="text-[10px] text-gray-400 flex items-center gap-1">
-                                  <Clock className="h-2.5 w-2.5" />
-                                  Updated: {new Date(item.updated_at).toLocaleDateString()}
-                                </span>
-                                {item.file_size > 0 && (
-                                  <span className="text-[10px] text-gray-400 font-medium">
-                                    Size: {formatFileSize(item.file_size)}
-                                  </span>
-                                )}
-                              </div>
-                              <div className="flex items-center gap-2">
-                                {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
-                                  <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
-                                    <MessageSquare className="h-2.5 w-2.5" />
-                                    {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
-                                  </span>
-                                )}
+                            <div className="flex flex-wrap items-center gap-2">
+                              {/* Add card directly to this section */}
+                              <button
+                                onClick={() => handleCreateBlankArtwork(secName)}
+                                disabled={uploading}
+                                className="text-xs font-bold text-gray-700 hover:text-gray-900 flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-xl transition"
+                                title="Create a blank artwork slot directly in this section"
+                              >
+                                <Plus className="h-3.5 w-3.5" />
+                                <span>Blank Card</span>
+                              </button>
+                              
+                              <label className="text-xs font-bold text-white bg-primary-600 hover:bg-primary-700 flex items-center gap-1.5 px-3 py-1.5 rounded-xl cursor-pointer transition">
+                                <Upload className="h-3.5 w-3.5" />
+                                <span>Upload Artwork</span>
+                                <input
+                                  type="file"
+                                  multiple
+                                  accept=".png,.jpg,.jpeg,.webp,.gif,.pdf,.ai,.eps,.tiff,.tif,.psd,.zip,.mp4,.mov,.webm"
+                                  onChange={(e) => handleFileUpload(e, secName)}
+                                  className="hidden"
+                                  disabled={uploading}
+                                />
+                              </label>
+
+                              {secName !== 'Uncategorized' && (
                                 <button
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleDeleteItem(item.id);
-                                  }}
-                                  className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition"
-                                  title="Delete artwork"
+                                  onClick={() => handleDeleteSection(secName)}
+                                  className="text-xs font-bold text-red-600 hover:text-red-700 flex items-center gap-1.5 px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-xl transition"
                                 >
                                   <Trash2 className="h-3.5 w-3.5" />
+                                  Delete Section
                                 </button>
-                              </div>
-                            </div>
-                            
-                            {/* Comment Thread */}
-                            {(item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
-                              <div className="mt-2 rounded-lg overflow-hidden border border-yellow-100">
-                                {/* Customer comment bubble */}
-                                {item.customer_comment && (
-                                  <div className="p-2.5 bg-yellow-50">
-                                    <div className="flex items-center gap-1.5 mb-1">
-                                      <span className="text-[10px] font-bold uppercase tracking-wide text-yellow-700">Customer</span>
-                                      <span className="text-[10px] text-yellow-500">{new Date(item.updated_at).toLocaleDateString()}</span>
-                                    </div>
-                                    <p className="text-xs text-yellow-900">{item.customer_comment}</p>
-                                  </div>
-                                )}
-                                {/* Admin replies */}
-                                {(item.ai_analysis?.replies ?? []).map((reply: any, idx: number) => (
-                                  <div key={idx} className="p-2.5 bg-blue-50 border-t border-blue-100 flex items-start justify-between gap-2 group/reply">
-                                    <div className="flex-1">
-                                      <div className="flex items-center gap-1.5 mb-1">
-                                        <span className="text-[10px] font-bold uppercase tracking-wide text-blue-700">{reply.author}</span>
-                                        <span className="text-[10px] text-blue-400">{new Date(reply.at).toLocaleDateString()}</span>
-                                      </div>
-                                      {reply.text && <p className="text-xs text-blue-900">{reply.text}</p>}
-                                      
-                                      {/* Reply Assets */}
-                                      {reply.assets && reply.assets.length > 0 && (
-                                        <div className="mt-2 space-y-1 pt-1 border-t border-blue-100/50">
-                                          {reply.assets.map((asset: any, aidx: number) => (
-                                            <div key={aidx}>
-                                              {asset.type === 'image' ? (
-                                                <a 
-                                                  href={asset.url}
-                                                  target="_blank"
-                                                  rel="noopener noreferrer"
-                                                  className="block rounded border border-blue-200 overflow-hidden hover:opacity-90 transition"
-                                                >
-                                                  <img src={asset.url} alt="Attachment" className="max-h-24 w-auto object-contain bg-white" />
-                                                </a>
-                                              ) : (
-                                                <a 
-                                                  href={asset.url} 
-                                                  target="_blank" 
-                                                  rel="noopener noreferrer"
-                                                  className="flex items-center gap-1.5 text-[10px] font-bold text-blue-600 hover:text-blue-800 underline decoration-1"
-                                                >
-                                                  <LinkIcon className="h-2.5 w-2.5" />
-                                                  {asset.name || 'View Link'}
-                                                </a>
-                                              )}
-                                            </div>
-                                          ))}
-                                        </div>
-                                      )}
-                                    </div>
-                                    <button
-                                      onClick={() => handleDeleteReply(item, idx)}
-                                      className="opacity-0 group-hover/reply:opacity-100 p-1 text-red-400 hover:text-red-600 hover:bg-red-50 rounded transition mt-0.5"
-                                      title="Delete reply"
-                                    >
-                                      <X className="h-3 w-3" />
-                                    </button>
-                                  </div>
-                                ))}
-                                {/* Reply input */}
-                                {replyingToItem === item.id ? (
-                                  <div className="p-2 bg-gray-50 border-t border-gray-100">
-                                    {/* Pending Assets Preview */}
-                                    {adminPendingAssets.length > 0 && (
-                                      <div className="flex flex-wrap gap-1 mb-2">
-                                        {adminPendingAssets.map((asset, idx) => (
-                                          <div key={idx} className="relative group bg-white rounded border border-gray-200 p-0.5 pr-5">
-                                            {asset.type === 'image' ? (
-                                              <img src={asset.url} alt="Pending" className="h-6 w-6 object-cover rounded" />
-                                            ) : (
-                                              <div className="h-6 flex items-center px-1 gap-1 text-[9px] font-bold text-gray-600">
-                                                <LinkIcon className="h-2.5 w-2.5" />
-                                                <span className="max-w-[40px] truncate">{asset.name || 'Link'}</span>
-                                              </div>
-                                            )}
-                                            <button 
-                                              onClick={() => handleRemoveAdminPendingAsset(idx)}
-                                              className="absolute right-0.5 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-red-500 transition"
-                                            >
-                                              <X className="h-2 w-2" />
-                                            </button>
-                                          </div>
-                                        ))}
-                                      </div>
-                                    )}
-
-                                    {/* Link Input Overlay */}
-                                    {showAdminLinkInput && (
-                                      <div className="mb-2 p-2 bg-primary-50 rounded border border-primary-100 space-y-1.5 shadow-sm">
-                                        <input 
-                                          type="url" 
-                                          value={adminLinkUrl}
-                                          onChange={e => setAdminLinkUrl(e.target.value)}
-                                          placeholder="Paste URL here..."
-                                          className="w-full px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
-                                          autoFocus
-                                        />
-                                        <div className="flex gap-1.5">
-                                          <input 
-                                            type="text" 
-                                            value={adminLinkLabel}
-                                            onChange={e => setAdminLinkLabel(e.target.value)}
-                                            placeholder="Label (optional)"
-                                            className="flex-1 px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
-                                          />
-                                          <button 
-                                            onClick={handleAdminAddLink}
-                                            className="px-2 py-1 bg-primary-600 text-white text-[10px] font-bold rounded hover:bg-primary-700"
-                                          >Add</button>
-                                          <button 
-                                            onClick={() => setShowAdminLinkInput(false)}
-                                            className="px-2 py-1 bg-white text-gray-500 text-[10px] font-bold rounded border border-gray-200"
-                                          >✕</button>
-                                        </div>
-                                      </div>
-                                    )}
-
-                                    <textarea
-                                      value={replyText}
-                                      onChange={e => setReplyText(e.target.value)}
-                                      placeholder="Type your reply..."
-                                      rows={2}
-                                      className="w-full px-2 py-1.5 text-xs border border-gray-200 rounded resize-none focus:ring-1 focus:ring-primary-500"
-                                      autoFocus
-                                      onKeyDown={e => {
-                                        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddReply(item) }
-                                        if (e.key === 'Escape') { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }
-                                      }}
-                                    />
-                                    <div className="flex items-center gap-1.5 mt-1.5">
-                                      <div className="flex gap-0.5">
-                                        <label className="cursor-pointer p-1.5 text-gray-400 hover:text-primary-600 hover:bg-white rounded transition" title="Attach Image">
-                                          {adminUploadingAsset ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <ImageIcon className="h-3.5 w-3.5" />}
-                                          <input type="file" accept="image/*" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
-                                        </label>
-                                        <button 
-                                          onClick={() => setShowAdminLinkInput(!showAdminLinkInput)}
-                                          className={`p-1.5 transition rounded ${showAdminLinkInput ? 'text-primary-600 bg-white' : 'text-gray-400 hover:text-primary-600 hover:bg-white'}`}
-                                          title="Add Link"
-                                        >
-                                          <LinkIcon className="h-3.5 w-3.5" />
-                                        </button>
-                                      </div>
-                                      <button
-                                        onClick={() => handleAddReply(item)}
-                                        disabled={(!replyText.trim() && adminPendingAssets.length === 0) || sendingReply || adminUploadingAsset}
-                                        className="flex-1 py-1 text-[11px] font-semibold bg-primary-600 text-white rounded hover:bg-primary-700 disabled:opacity-50 transition"
-                                      >{sendingReply ? 'Sending...' : 'Send Reply'}</button>
-                                      <button
-                                        onClick={() => { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
-                                        className="py-1 px-3 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
-                                      >Cancel</button>
-                                    </div>
-                                  </div>
-                                ) : (
-                                  <button
-                                    onClick={() => { setReplyingToItem(item.id); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
-                                    className="w-full py-1.5 text-[11px] font-semibold text-blue-600 hover:bg-blue-50 transition border-t border-yellow-100"
-                                  >↩ Reply</button>
-                                )}
-                              </div>
-                            )}
-                            {/* Show reply button even if no comment yet */}
-                            {!item.customer_comment && (item.ai_analysis?.replies?.length ?? 0) === 0 && (
-                              <div className="mt-2">
-                                {replyingToItem === item.id ? (
-                                  <div className="rounded-lg border border-gray-200 overflow-hidden shadow-sm">
-                                    <div className="p-2 bg-gray-50">
-                                      {/* Pending Assets Preview */}
-                                      {adminPendingAssets.length > 0 && (
-                                        <div className="flex flex-wrap gap-1 mb-2">
-                                          {adminPendingAssets.map((asset, idx) => (
-                                            <div key={idx} className="relative group bg-white rounded border border-gray-200 p-0.5 pr-5">
-                                              {asset.type === 'image' ? (
-                                                <img src={asset.url} alt="Pending" className="h-6 w-6 object-cover rounded" />
-                                              ) : (
-                                                <div className="h-6 flex items-center px-1 gap-1 text-[9px] font-bold text-gray-600">
-                                                  <LinkIcon className="h-2.5 w-2.5" />
-                                                  <span className="max-w-[40px] truncate">{asset.name || 'Link'}</span>
-                                                </div>
-                                              )}
-                                              <button 
-                                                onClick={() => handleRemoveAdminPendingAsset(idx)}
-                                                className="absolute right-0.5 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-red-500 transition"
-                                              >
-                                                <X className="h-2 w-2" />
-                                              </button>
-                                            </div>
-                                          ))}
-                                        </div>
-                                      )}
-
-                                      {/* Link Input Overlay */}
-                                      {showAdminLinkInput && (
-                                        <div className="mb-2 p-2 bg-primary-50 rounded border border-primary-100 space-y-1.5 shadow-sm">
-                                          <input 
-                                            type="url" 
-                                            value={adminLinkUrl}
-                                            onChange={e => setAdminLinkUrl(e.target.value)}
-                                            placeholder="Paste URL here..."
-                                            className="w-full px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
-                                            autoFocus
-                                          />
-                                          <div className="flex gap-1.5">
-                                            <input 
-                                              type="text" 
-                                              value={adminLinkLabel}
-                                              onChange={e => setAdminLinkLabel(e.target.value)}
-                                              placeholder="Label (optional)"
-                                              className="flex-1 px-2 py-1 text-[10px] rounded border-gray-200 focus:ring-1 focus:ring-primary-500"
-                                            />
-                                            <button 
-                                              onClick={handleAdminAddLink}
-                                              className="px-2 py-1 bg-primary-600 text-white text-[10px] font-bold rounded hover:bg-primary-700"
-                                            >Add</button>
-                                            <button 
-                                              onClick={() => setShowAdminLinkInput(false)}
-                                              className="px-2 py-1 bg-white text-gray-500 text-[10px] font-bold rounded border border-gray-200"
-                                            >✕</button>
-                                          </div>
-                                        </div>
-                                      )}
-
-                                      <textarea
-                                        value={replyText}
-                                        onChange={e => setReplyText(e.target.value)}
-                                        placeholder="Type your note for the customer..."
-                                        rows={2}
-                                        className="w-full px-2 py-1.5 text-xs border border-gray-200 rounded resize-none focus:ring-1 focus:ring-primary-500"
-                                        autoFocus
-                                        onKeyDown={e => {
-                                          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleAddReply(item) }
-                                          if (e.key === 'Escape') { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }
-                                        }}
-                                      />
-                                      <div className="flex items-center gap-1.5 mt-1.5">
-                                        <div className="flex gap-0.5">
-                                          <label className="cursor-pointer p-1.5 text-gray-400 hover:text-primary-600 hover:bg-white rounded transition" title="Attach Image">
-                                            {adminUploadingAsset ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <ImageIcon className="h-3.5 w-3.5" />}
-                                            <input type="file" accept="image/*" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
-                                          </label>
-                                          <button 
-                                            onClick={() => setShowAdminLinkInput(!showAdminLinkInput)}
-                                            className={`p-1.5 transition rounded ${showAdminLinkInput ? 'text-primary-600 bg-white' : 'text-gray-400 hover:text-primary-600 hover:bg-white'}`}
-                                            title="Add Link"
-                                          >
-                                            <LinkIcon className="h-3.5 w-3.5" />
-                                          </button>
-                                        </div>
-                                        <button
-                                          onClick={() => handleAddReply(item)}
-                                          disabled={(!replyText.trim() && adminPendingAssets.length === 0) || sendingReply || adminUploadingAsset}
-                                          className="flex-1 py-1 text-[11px] font-semibold bg-primary-600 text-white rounded hover:bg-primary-700 disabled:opacity-50 transition"
-                                        >{sendingReply ? 'Sending...' : 'Send Note'}</button>
-                                        <button
-                                          onClick={() => { setReplyingToItem(null); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
-                                          className="py-1 px-3 text-[11px] bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition"
-                                        >Cancel</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                ) : (
-                                  <button
-                                    onClick={() => { setReplyingToItem(item.id); setReplyText(''); setAdminPendingAssets([]); setShowAdminLinkInput(false) }}
-                                    className="text-[11px] text-gray-400 hover:text-primary-600 transition"
-                                  >+ Add note</button>
-                                )}
-                              </div>
-                            )}
-                            
-                            {/* Original Artwork Link */}
-                            <div className="mt-3 pt-3 border-t border-gray-100">
-                              <label className="text-xs font-semibold text-gray-700 block mb-1.5 flex items-center gap-1">
-                                <Link2 className="h-3 w-3" /> Original Source File
-                              </label>
-                              {editingSourceLink === item.id ? (
-                                <div className="flex items-center gap-2">
-                                  <input
-                                    type="url"
-                                    value={sourceLinkValue}
-                                    onChange={(e) => setSourceLinkValue(e.target.value)}
-                                    placeholder="Google Drive, WeTransfer..."
-                                    className="flex-1 px-2 py-1 text-xs border border-gray-300 rounded focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
-                                    autoFocus
-                                    onKeyDown={(e) => {
-                                      if (e.key === 'Enter') handleSaveSourceLink(item.id)
-                                      if (e.key === 'Escape') {
-                                        setEditingSourceLink(null)
-                                        setSourceLinkValue('')
-                                      }
-                                    }}
-                                  />
-                                  <button
-                                    onClick={() => handleSaveSourceLink(item.id)}
-                                    disabled={savingSourceLink}
-                                    className="p-1 px-2 text-xs font-medium bg-green-100 text-green-700 hover:bg-green-200 rounded transition"
-                                  >
-                                    {savingSourceLink ? 'Saving...' : 'Save'}
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      setEditingSourceLink(null)
-                                      setSourceLinkValue('')
-                                    }}
-                                    className="p-1 px-2 text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 rounded transition"
-                                  >
-                                    Cancel
-                                  </button>
-                                </div>
-                              ) : (
-                                <div className="flex items-center justify-between gap-2 p-2 bg-gray-50 rounded-lg">
-                                  {item.source_link ? (
-                                    <a
-                                      href={item.source_link}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="flex-1 text-xs text-blue-600 hover:text-blue-800 truncate flex items-center gap-1 font-medium"
-                                      title={item.source_link}
-                                    >
-                                      <Download className="h-3 w-3 flex-shrink-0" />
-                                      <span className="truncate font-mono tracking-tight" style={{ fontSize: '10px' }}>
-                                        {item.source_link.length > 15
-                                          ? `...${item.source_link.slice(-10)}`
-                                          : item.source_link}
-                                      </span>
-                                    </a>
-                                  ) : (
-                                    <span className="text-[10px] text-gray-400 italic">No link</span>
-                                  )}
-                                  <button
-                                    onClick={() => {
-                                      setSourceLinkValue(item.source_link || '')
-                                      setEditingSourceLink(item.id)
-                                    }}
-                                    className="p-1 px-2 text-[10px] font-medium bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 rounded transition flex-shrink-0"
-                                  >
-                                    {item.source_link ? 'Edit' : '+ Add Link'}
-                                  </button>
-                                </div>
                               )}
                             </div>
-
-                            <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-400">
-                              <span className="flex items-center gap-1">
-                                <Clock className="h-3 w-3" />
-                                Updated: {new Date(item.updated_at).toLocaleDateString()}
-                              </span>
-                              <span>{item.file_size ? (item.file_size / 1024 / 1024).toFixed(2) + ' MB' : ''}</span>
-                            </div>
-                            
-                            {/* Actions */}
-                            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
-                              <label className="cursor-pointer p-2 text-gray-500 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition" title="Replace File">
-                                <Upload className="h-4 w-4" />
-                                <input type="file" className="hidden" onChange={(e) => handleUpdateItemFile(e, item.id)} />
-                              </label>
-                              <a
-                                href={item.file_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition"
-                                title="Download"
-                              >
-                                <Download className="h-4 w-4" />
-                              </a>
-                              <button
-                                onClick={() => setCroppingItem(item)}
-                                className="p-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition"
-                                title="Customize Thumbnail (Crop & Zoom)"
-                              >
-                                <Crop className="h-4 w-4" />
-                              </button>
-                              {/* View JSON Button */}
-                              {/* Copy to Batch Button */}
-                              <button
-                                onClick={() => setCopyTargetItem(item)}
-                                className="p-2 text-primary-500 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition"
-                                title="Copy to Another Batch"
-                              >
-                                <Files className="h-4 w-4" />
-                              </button>
-                              <button
-                                onClick={() => handleDeleteItem(item.id)}
-                                className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition ml-auto"
-                                title="Delete"
-                              >
-                                <Trash2 className="h-4 w-4" />
-                              </button>
-                            </div>
                           </div>
+                          
+                          {isEmpty ? (
+                            <div className="text-center py-10 border-2 border-dashed border-gray-100 rounded-xl">
+                              <FileImage className="h-10 w-10 text-gray-300 mx-auto mb-2" />
+                              <p className="text-sm text-gray-500">This section is empty</p>
+                              <p className="text-xs text-gray-400 mt-1">Move items here using the section selector on any artwork card</p>
+                            </div>
+                          ) : (
+                            <div 
+                              className="grid gap-4"
+                              style={{ 
+                                gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))` 
+                              }}
+                            >
+                              {sectionItems.map(item => renderItemCard(item))}
+                            </div>
+                          )}
                         </div>
                       )
                     })}
@@ -2648,7 +3257,7 @@ const ArtworkBatchesPage: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
           <div className="bg-white rounded-2xl max-w-md w-full p-6">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Create New Batch</h2>
+              <h2 className="text-xl font-bold text-gray-900">Create New System</h2>
               <button onClick={() => setShowCreateModal(false)} className="text-gray-400 hover:text-gray-600">
                 <X className="h-6 w-6" />
               </button>
@@ -2656,7 +3265,7 @@ const ArtworkBatchesPage: React.FC = () => {
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Batch Name *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">System Name *</label>
                 <input
                   type="text"
                   value={newBatchName}
@@ -2723,7 +3332,7 @@ const ArtworkBatchesPage: React.FC = () => {
                 disabled={!newBatchName.trim() || !newBatchPassword.trim() || !newBatchSupplierPassword.trim() || creating}
                 className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition disabled:opacity-50"
               >
-                {creating ? 'Creating...' : 'Create Batch'}
+                {creating ? 'Creating...' : 'Create System'}
               </button>
             </div>
           </div>
@@ -2735,14 +3344,14 @@ const ArtworkBatchesPage: React.FC = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
           <div className="bg-white rounded-2xl max-w-md w-full p-6">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Copy to Batch</h2>
+              <h2 className="text-xl font-bold text-gray-900">Copy to System</h2>
               <button onClick={() => { setCopyTargetItem(null); setCopyBatchSearch(''); }} className="text-gray-400 hover:text-gray-600">
                 <X className="h-6 w-6" />
               </button>
             </div>
             
             <p className="text-sm text-gray-600 mb-4">
-              Select a batch to copy <strong>{copyTargetItem.name}</strong> into.
+              Select a system to copy <strong>{copyTargetItem.name}</strong> into.
             </p>
 
             <div className="mb-4">
@@ -2750,7 +3359,7 @@ const ArtworkBatchesPage: React.FC = () => {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search batches..."
+                  placeholder="Search systems..."
                   value={copyBatchSearch}
                   onChange={(e) => setCopyBatchSearch(e.target.value)}
                   className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500"
@@ -2761,7 +3370,7 @@ const ArtworkBatchesPage: React.FC = () => {
             <div className="space-y-2 max-h-60 overflow-y-auto border border-gray-200 rounded-lg p-2 mb-6">
               {batches.filter(b => b.id !== copyTargetItem.batch_id && b.batch_name.toLowerCase().includes(copyBatchSearch.toLowerCase())).length === 0 ? (
                 <div className="p-4 text-center text-gray-500 text-sm">
-                  No batches found.
+                  No systems found.
                 </div>
               ) : (
                 batches.filter(b => b.id !== copyTargetItem.batch_id && b.batch_name.toLowerCase().includes(copyBatchSearch.toLowerCase())).map(b => (
@@ -2792,4 +3401,80 @@ const ArtworkBatchesPage: React.FC = () => {
   )
 }
 
+
+interface SectionTitleEditorProps {
+  name: string
+  onSave: (newName: string) => void
+}
+
+const SectionTitleEditor: React.FC<SectionTitleEditorProps> = ({ name, onSave }) => {
+  const [isEditing, setIsEditing] = useState(false)
+  const [value, setValue] = useState(name)
+
+  useEffect(() => {
+    setValue(name)
+  }, [name])
+
+  if (isEditing && name !== 'Uncategorized') {
+    return (
+      <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          className="text-base font-bold text-gray-900 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+          autoFocus
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              onSave(value)
+              setIsEditing(false)
+            }
+            if (e.key === 'Escape') {
+              setValue(name)
+              setIsEditing(false)
+            }
+          }}
+        />
+        <button
+          onClick={() => {
+            onSave(value)
+            setIsEditing(false)
+          }}
+          className="p-1 text-green-600 hover:bg-green-50 rounded"
+        >
+          <Check className="h-4 w-4" />
+        </button>
+        <button
+          onClick={() => {
+            setValue(name)
+            setIsEditing(false)
+          }}
+          className="p-1 text-gray-400 hover:bg-gray-100 rounded"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex items-center gap-2 group">
+      <h3 className="text-lg font-bold text-gray-900">{name}</h3>
+      {name !== 'Uncategorized' && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            setIsEditing(true)
+          }}
+          className="p-1 text-gray-400 hover:text-primary-600 rounded opacity-0 group-hover:opacity-100 transition"
+          title="Rename Section"
+        >
+          <Pencil className="h-3.5 w-3.5" />
+        </button>
+      )}
+    </div>
+  )
+}
+
 export default ArtworkBatchesPage
+

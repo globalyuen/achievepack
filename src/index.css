@@ -242,3 +242,37 @@ section {
     animation-duration: 50s;
   }
 }
+
+/* Holographic Sci-Fi Console Animations */
+@keyframes scanning {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(220px); }
+  100% { transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-scanning {
+  animation: scanning 4s linear infinite;
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+.animate-shimmer {
+  animation: shimmer 1.5s ease infinite;
+}
+.animate-spin-slow {
+  animation: spin 20s linear infinite;
+}
+.animate-spin-reverse {
+  animation: spin 14s linear infinite reverse;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}

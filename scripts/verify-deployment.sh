@@ -13,7 +13,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Domains to check
-DOMAINS=("achievepack.com" "pouch.eco")
+DOMAINS=("achievepack.com" "www.pouch.eco")
 
 # Output file for logs
 LOG_FILE="/tmp/deployment-verification-$(date +%Y%m%d-%H%M%S).log"
@@ -144,7 +144,7 @@ for domain in "${DOMAINS[@]}"; do
     if check_page_content "https://$domain" "Achieve Pack"; then
       PASSED_CHECKS=$((PASSED_CHECKS + 1))
     fi
-  elif [ "$domain" == "pouch.eco" ]; then
+  elif [ "$domain" == "pouch.eco" ] || [ "$domain" == "www.pouch.eco" ]; then
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     if check_page_content "https://$domain" "POUCH.ECO"; then
       PASSED_CHECKS=$((PASSED_CHECKS + 1))
@@ -182,7 +182,7 @@ POUCH_PAGES=(
 
 for page in "${POUCH_PAGES[@]}"; do
   TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-  if check_http_status "https://pouch.eco$page" 200; then
+  if check_http_status "https://www.pouch.eco$page" 200; then
     PASSED_CHECKS=$((PASSED_CHECKS + 1))
   fi
 done

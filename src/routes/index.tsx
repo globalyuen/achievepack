@@ -157,6 +157,7 @@ const BioPeKraftDuplexLowPage = lazy(() => import('../pages/spec/BioPeKraftDuple
 
 // Team Pages
 const RyanWongPage = lazy(() => import('../pages/team/RyanWongPage'));
+const RyanHologramPage = lazy(() => import('../pages/RyanHologramPage'));
 
 // Products Pages - SEO Focused
 const CompostableCoffeeBagsPage = lazy(() => import('../pages/products/CompostableCoffeeBagsPage'));
@@ -277,6 +278,7 @@ const routes = [
   
   // Team Pages
   { path: "/team/ryan-wong", element: <LazyRoute component={() => import('../pages/team/RyanWongPage')} fallback={<LoadingFallback />} /> },
+  { path: "/ryan", element: <LazyRoute component={() => import('../pages/RyanHologramPage')} fallback={<LoadingFallback />} /> },
 
   // Knowledge Pages
   { path: "/knowledge/all-options", element: <LazyRoute component={() => import('../pages/knowledge/AllOptionsPage')} fallback={<LoadingFallback />} /> },

@@ -62,6 +62,7 @@ const ArtworkReviewPage: React.FC = () => {
   // Data state
   const [batch, setBatch] = useState<ArtworkBatch | null>(null)
   const [items, setItems] = useState<ArtworkBatchItem[]>([])
+  const [sectionOrder, setSectionOrder] = useState<string[]>([])
   const [loading, setLoading] = useState(true)
   
   // Review state
@@ -165,6 +166,50 @@ const ArtworkReviewPage: React.FC = () => {
     })
   }, [items, searchQuery, itemFilter, itemSortOption])
 
+  // Sections list for customer view (only sections containing at least one item)
+  const sectionsList = useMemo(() => {
+    const secSet = new Set<string>();
+    items.forEach(item => {
+      const name = item.ai_analysis?.section_name || 'Uncategorized';
+      secSet.add(name);
+    });
+    const arr = Array.from(secSet);
+    if (arr.length === 0) arr.push('Uncategorized');
+    
+    // Sort according to sectionOrder:
+    if (sectionOrder && sectionOrder.length > 0) {
+      arr.sort((a, b) => {
+        const idxA = sectionOrder.indexOf(a);
+        const idxB = sectionOrder.indexOf(b);
+        if (idxA === -1 && idxB === -1) return 0;
+        if (idxA === -1) return 1;
+        if (idxB === -1) return -1;
+        return idxA - idxB;
+      });
+    }
+    
+    return arr;
+  }, [items, sectionOrder]);
+
+  // Sections grouping for customer view
+  const groupedItems = useMemo(() => {
+    const groups: Record<string, ArtworkBatchItem[]> = {};
+    
+    sectionsList.forEach(sec => {
+      groups[sec] = [];
+    });
+    
+    filteredItems.forEach(item => {
+      const sec = item.ai_analysis?.section_name || 'Uncategorized';
+      if (!groups[sec]) {
+        groups[sec] = [];
+      }
+      groups[sec].push(item);
+    });
+    
+    return groups;
+  }, [filteredItems, sectionsList]);
+
 
   // Customer reply to thread
   const handleCustomerReply = async (item: ArtworkBatchItem, text: string, assets: { type: 'image' | 'link', url: string, name?: string }[] = []) => {
@@ -227,7 +272,19 @@ const ArtworkReviewPage: React.FC = () => {
         .order('created_at', { ascending: true })
       
       if (itemsError) throw itemsError
-      setItems(itemsData || [])
+      
+      const systemItem = itemsData?.find(i => i.name === '__section_order__')
+      const normalItems = itemsData?.filter(i => i.name !== '__section_order__') || []
+      
+      setSectionOrder(systemItem?.ai_analysis?.section_order || [])
+      
+      // Filter out items in old zone (hidden from customer)
+      const visibleItems = normalItems.filter(item => {
+        const zone = item.ai_analysis?.zone || 'current';
+        return zone === 'current';
+      });
+      
+      setItems(visibleItems)
     } catch (err) {
       console.error('Error fetching batch:', err)
     } finally {
@@ -462,7 +519,7 @@ const ArtworkReviewPage: React.FC = () => {
         console.error('Failed to send notification email:', emailErr)
       }
       
-      alert(`All ${items.length} artworks have been reviewed!`)
+      alert(`All ${items.length} files/documents have been reviewed!`)
       setShowBulkReview(false)
       setBulkChecklist({})
       setBulkApprovalType(null)
@@ -557,7 +614,7 @@ const ArtworkReviewPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <RefreshCw className="h-8 w-8 animate-spin text-primary-500 mx-auto mb-4" />
-          <p className="text-gray-600">{isSupplier ? '正在加载图稿批次...' : 'Loading artwork batch...'}</p>
+          <p className="text-gray-600">{isSupplier ? '正在加载图稿与文档系统...' : 'Loading artwork & document system...'}</p>
         </div>
       </div>
     )
@@ -569,8 +626,8 @@ const ArtworkReviewPage: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <AlertCircle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <h1 className="text-xl font-semibold text-gray-900">{isSupplier ? '未找到批次' : 'Batch Not Found'}</h1>
-          <p className="text-gray-500 mt-2">{isSupplier ? '此图稿批次不存在或已被移除。' : 'This artwork batch doesn\'t exist or has been removed.'}</p>
+          <h1 className="text-xl font-semibold text-gray-900">{isSupplier ? '未找到系统' : 'System Not Found'}</h1>
+          <p className="text-gray-500 mt-2">{isSupplier ? '此系统不存在或已被移除。' : 'This system doesn\'t exist or has been removed.'}</p>
         </div>
       </div>
     )
@@ -585,8 +642,8 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Lock className="h-8 w-8 text-primary-600" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">{isSupplier ? '图稿文件上传' : 'Artwork Review'}</h1>
-            <p className="text-gray-500 mt-2">{isSupplier ? '批次' : 'Batch'}: {batch?.batch_name || (isSupplier ? '加载中...' : 'Loading...')}</p>
+            <h1 className="text-2xl font-bold text-gray-900">{isSupplier ? '图稿与文档系统' : 'Artwork & Document System'}</h1>
+            <p className="text-gray-500 mt-2">{isSupplier ? '系统' : 'System'}: {batch?.batch_name || (isSupplier ? '加载中...' : 'Loading...')}</p>
           </div>
           
           <div className="space-y-4">
@@ -613,7 +670,7 @@ const ArtworkReviewPage: React.FC = () => {
               disabled={!password.trim()}
               className="w-full py-3 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition disabled:opacity-50"
             >
-              {isSupplier ? '访问图稿' : 'Access Artwork'}
+              {isSupplier ? '访问系统' : 'Access System'}
             </button>
           </div>
           
@@ -636,8 +693,8 @@ const ArtworkReviewPage: React.FC = () => {
             <div className="flex items-start gap-4 flex-1 min-w-0">
               <img src="/ap-logo.svg" alt="AchievePack" className="h-8 w-auto flex-shrink-0 mt-1" />
               <div className="flex-1 min-w-0">
-                <h1 className="font-semibold text-gray-900 break-words">{isSupplier ? '图稿上传 - 批次' : 'Artwork Review - Batch'} {batch?.batch_name || '...'}</h1>
-                <p className="text-xs text-gray-500">{isSupplier ? `共 ${items?.length || 0} 个文件 • ${stats.pending}待审核` : `${(items || []).length} artworks • ${stats.pending} pending review`}</p>
+                <h1 className="font-semibold text-gray-900 break-words">{isSupplier ? '图稿与文档上传系统' : 'Artwork & Document System'} {batch?.batch_name || '...'}</h1>
+                <p className="text-xs text-gray-500">{isSupplier ? `共 ${items?.length || 0} 个文件 • ${stats.pending}待审核` : `${(items || []).length} items / files • ${stats.pending} pending review`}</p>
               </div>
             </div>
             {!isSupplier && stats.allReviewed && (
@@ -713,9 +770,9 @@ const ArtworkReviewPage: React.FC = () => {
           <div className="mb-6 p-4 bg-primary-50 border border-primary-200 rounded-xl">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-semibold text-primary-900">Review All Artworks at Once</h3>
+                <h3 className="font-semibold text-primary-900">Review All Files at Once</h3>
                 <p className="text-sm text-primary-700 mt-1">
-                  Apply the same checklist verification and decision to all {items?.length || 0} artworks
+                  Apply the same checklist verification and decision to all {items?.length || 0} files
                 </p>
               </div>
               <button
@@ -796,157 +853,178 @@ const ArtworkReviewPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Artworks Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {filteredItems.map((item, index) => {
-            const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
-            const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
-            const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
+        {/* Artworks Sections Grid */}
+        <div className="space-y-12">
+          {sectionsList.map(secName => {
+            const sectionItems = groupedItems[secName] || []
+            if (sectionItems.length === 0) return null // Hide empty sections from customer
+            
             return (
-              <div 
-                key={item.id} 
-                className={`bg-white rounded-xl border overflow-hidden hover:shadow-lg transition ${
-                  item?.status === 'approved' ? 'border-green-200' :
-                  item?.status === 'rejected' ? 'border-red-200' : 'border-gray-200'
-                }`}
-              >
-                {/* Preview */}
-                <div 
-                  className="aspect-[4/3] bg-gray-100 relative cursor-pointer overflow-hidden group"
-                  onClick={() => {
-                    setSelectedItem(item)
-                    setShowReviewModal(true)
-                  }}
-                >
-                  {(() => {
-                    const customThumbUrl = item.ai_analysis?.thumbnail_url
-                    const displayUrl = customThumbUrl || (isImage ? item.file_url : null)
-                    const cropSettings = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
-
-                    if (displayUrl) {
-                      return (
-                        <img 
-                          src={displayUrl} 
-                          alt={item.name}
-                          className="w-full h-full object-contain"
-                          style={{
-                            transform: `translate(${cropSettings.x}%, ${cropSettings.y}%) scale(${cropSettings.scale})`
-                          }}
-                        />
-                      )
-                    } else if (isVideo) {
-                      return (
-                        <video 
-                          src={item.file_url} 
-                          controls
-                          className="w-full h-full object-contain bg-black pointer-events-none"
-                        />
-                      )
-                    } else if (isPdf) {
-                      return (
-                        <iframe 
-                          src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
-                          className="w-full h-full border-0 pointer-events-none" 
-                          scrolling="no"
-                        />
-                      )
-                    } else {
-                      return (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <FileImage className="h-12 w-12 text-gray-300" />
-                        </div>
-                      )
-                    }
-                  })()}
-                  {/* Number Badge */}
-                  <div className="absolute top-2 left-2 w-8 h-8 bg-black/60 text-white rounded-full flex items-center justify-center text-sm font-medium">
-                    {index + 1}
-                  </div>
-                  {/* Status Badge */}
-                  <div className="absolute top-2 right-2 flex flex-col items-end gap-1">
-                    {getStatusBadge(item?.status || 'pending')}
-                    {/* Revision badge — customer sees which revision round this is */}
-                    {(item.revision_count ?? 0) > 0 && (
-                      <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-bold rounded-full bg-orange-100 text-orange-700 border border-orange-200">
-                        🔄 {getRevisionLabel(item.revision_count!)} Pending
-                      </span>
-                    )}
-                  </div>
-                  {/* AI Badge */}
-                  {item.ai_analysis?.analyzed_at && (
-                    <div className="absolute bottom-2 right-2">
-                      <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-indigo-100 text-indigo-700">
-                        <Sparkles className="h-3 w-3" />
-                        AI
-                      </span>
-                    </div>
-                  )}
+              <div key={secName} className="bg-white rounded-2xl border border-gray-200 p-6 space-y-6 shadow-sm">
+                {/* Section Header */}
+                <div className="border-b border-gray-100 pb-3 flex items-center justify-between">
+                  <h2 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                    <span className="h-4 w-1 bg-primary-600 rounded-full"></span>
+                    {secName}
+                  </h2>
+                  <span className="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+                    {sectionItems.length} {sectionItems.length === 1 ? 'item' : 'items'}
+                  </span>
                 </div>
                 
-                {/* Info */}
-                <div className="p-3">
-                  <h3 className="font-medium text-gray-900 text-xs leading-snug line-clamp-2 break-words" title={item?.name || 'Untitled'}>{item?.name || 'Untitled'}</h3>
-                  {item?.ai_analysis?.title && (
-                    <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
-                  )}
-                  <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-[10px] text-gray-400 flex items-center gap-1">
-                        <Clock className="h-2.5 w-2.5" />
-                        Updated: {item.updated_at ? new Date(item.updated_at).toLocaleDateString() : 'Recently'}
-                      </span>
-                      {item.file_size && item.file_size > 0 && (
-                        <span className="text-[10px] text-gray-400 font-medium">
-                          Size: {formatFileSize(item.file_size)}
-                        </span>
-                      )}
-                    </div>
-                    {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
-                      <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
-                        <MessageSquare className="h-2.5 w-2.5" />
-                        {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
-                      </span>
-                    )}
-                  </div>
-                  {/* Thread preview on card */}
-                  {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) ? (
-                    <div className="mt-1 space-y-1">
-                      {item.customer_comment && (
-                        <p className="text-[10px] text-yellow-700 truncate">
-                          You: {item.customer_comment}
-                        </p>
-                      )}
-                      {(item.ai_analysis?.replies ?? []).slice(-1).map((r: any, i: number) => (
-                        <p key={i} className={`text-[10px] truncate ${r?.author === 'Admin' ? 'text-blue-600' : 'text-gray-500'}`}>
-                          {r?.author === 'Admin' ? 'AP: ' : 'You: '}{r?.text}
-                        </p>
-                      ))}
-                    </div>
-                  ) : null}
-                  <div className="flex items-center gap-2 mt-2">
-                    <button 
-                      onClick={() => {
-                        setSelectedItem(item)
-                        setShowReviewModal(true)
-                      }}
-                      className="flex-1 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition border border-primary-100"
-                    >
-                      {isSupplier ? '上传新版本' : item.status === 'pending' ? 'Review Now' : 'View Details'}
-                    </button>
-
-                    {item.source_link && (
-                      <a
-                        href={item.source_link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-2 text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition"
-                        title="View Original Source File"
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  {sectionItems.map((item) => {
+                    const isImage = /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.file_url) || /\.(png|jpg|jpeg|gif|webp|tiff|tif)$/i.test(item.name)
+                    const isVideo = /\.(mp4|mov|webm)$/i.test(item.file_url) || /\.(mp4|mov|webm)$/i.test(item.name)
+                    const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
+                    
+                    // Sequential number based on global filteredItems list
+                    const globalIndex = filteredItems.findIndex(fi => fi.id === item.id)
+                    
+                    return (
+                      <div 
+                        key={item.id} 
+                        className={`bg-white rounded-xl border overflow-hidden hover:shadow-lg transition ${
+                          item?.status === 'approved' ? 'border-green-200' :
+                          item?.status === 'rejected' ? 'border-red-200' : 'border-gray-200'
+                        }`}
                       >
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
+                        {/* Preview */}
+                        <div 
+                          className="aspect-[4/3] bg-gray-100 relative cursor-pointer overflow-hidden group"
+                          onClick={() => {
+                            setSelectedItem(item)
+                            setShowReviewModal(true)
+                          }}
+                        >
+                          {(() => {
+                            const customThumbUrl = item.ai_analysis?.thumbnail_url
+                            const displayUrl = customThumbUrl || (isImage ? item.file_url : null)
+                            const cropSettings = item.ai_analysis?.thumbnail_crop || { scale: 1, x: 0, y: 0 }
+        
+                            if (displayUrl) {
+                              return (
+                                <img 
+                                  src={displayUrl} 
+                                  alt={item.name}
+                                  className="w-full h-full object-contain"
+                                  style={{
+                                    transform: `translate(${cropSettings.x}%, ${cropSettings.y}%) scale(${cropSettings.scale})`
+                                  }}
+                                />
+                              )
+                            } else if (isVideo) {
+                              return (
+                                <video 
+                                  src={item.file_url} 
+                                  controls
+                                  className="w-full h-full object-contain bg-black pointer-events-none"
+                                />
+                              )
+                            } else if (isPdf) {
+                              return (
+                                <iframe 
+                                  src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                                  className="w-full h-full border-0 pointer-events-none" 
+                                  scrolling="no"
+                                />
+                              )
+                            } else {
+                              return (
+                                <div className="w-full h-full flex items-center justify-center">
+                                  <FileImage className="h-12 w-12 text-gray-300" />
+                                </div>
+                              )
+                            }
+                          })()}
+                          {/* Status and Number Badges moved to info section */}
+                          {/* AI Badge */}
+                          {item.ai_analysis?.analyzed_at && (
+                            <div className="absolute bottom-2 right-2">
+                              <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-indigo-100 text-indigo-700">
+                                <Sparkles className="h-3 w-3" />
+                                AI
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                        
+                        {/* Info */}
+                        <div className="p-3">
+                          <div className="flex flex-col gap-1 mb-2 items-start">
+                            {getStatusBadge(item?.status || 'pending')}
+                            {(item.revision_count ?? 0) > 0 && (
+                              <span className="inline-flex items-center gap-1 px-2 py-1 text-[10px] font-bold rounded-full bg-orange-100 text-orange-700 border border-orange-200">
+                                🔄 {getRevisionLabel(item.revision_count!)} Pending
+                              </span>
+                            )}
+                          </div>
+                          <h3 className="font-medium text-gray-900 text-xs leading-snug line-clamp-2 break-words" title={item?.name || 'Untitled'}>{item?.name || 'Untitled'}</h3>
+                          {item?.ai_analysis?.title && (
+                            <p className="text-xs text-gray-500 mt-1 truncate">{item.ai_analysis.title}</p>
+                          )}
+                          <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-50">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="text-[10px] text-gray-400 flex items-center gap-1">
+                                <Clock className="h-2.5 w-2.5" />
+                                Updated: {item.updated_at ? new Date(item.updated_at).toLocaleDateString() : 'Recently'}
+                              </span>
+                              {item.file_size && item.file_size > 0 && (
+                                <span className="text-[10px] text-gray-400 font-medium">
+                                  Size: {formatFileSize(item.file_size)}
+                                </span>
+                              )}
+                            </div>
+                            {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) && (
+                              <span className="text-[10px] text-primary-500 font-bold flex items-center gap-1">
+                                <MessageSquare className="h-2.5 w-2.5" />
+                                {(item.ai_analysis?.replies?.length ?? 0) + (item.customer_comment ? 1 : 0)}
+                              </span>
+                            )}
+                          </div>
+                          {/* Thread preview on card */}
+                          {!isSupplier && (item.customer_comment || (item.ai_analysis?.replies?.length ?? 0) > 0) ? (
+                            <div className="mt-1 space-y-1">
+                              {item.customer_comment && (
+                                <p className="text-[10px] text-yellow-700 truncate">
+                                  You: {item.customer_comment}
+                                </p>
+                              )}
+                              {(item.ai_analysis?.replies ?? []).slice(-1).map((r: any, i: number) => (
+                                <p key={i} className={`text-[10px] truncate ${r?.author === 'Admin' ? 'text-blue-600' : 'text-gray-500'}`}>
+                                  {r?.author === 'Admin' ? 'AP: ' : 'You: '}{r?.text}
+                                </p>
+                              ))}
+                            </div>
+                          ) : null}
+                          <div className="flex items-center gap-2 mt-2">
+                            <button 
+                              onClick={() => {
+                                setSelectedItem(item)
+                                setShowReviewModal(true)
+                              }}
+                              className="flex-1 py-2 text-sm font-medium text-primary-600 hover:bg-primary-50 rounded-lg transition border border-primary-100"
+                            >
+                              {isSupplier ? '上传新版本' : item.status === 'pending' ? 'Review Now' : 'View Details'}
+                            </button>
+        
+                            {item.source_link && (
+                              <a
+                                href={item.source_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="p-2 text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition"
+                                title="View Original Source File"
+                              >
+                                <ExternalLink className="h-4 w-4" />
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             )
@@ -964,7 +1042,7 @@ const ArtworkReviewPage: React.FC = () => {
               Submit All Reviews
             </button>
             <p className="text-sm text-gray-500 mt-2">
-              All {stats.total} artworks have been reviewed. Click to finalize your submission.
+              All {stats.total} items / files have been reviewed. Click to finalize your submission.
             </p>
           </div>
         )}
@@ -1038,9 +1116,8 @@ const ArtworkReviewPage: React.FC = () => {
                 />
               </div>
               
-              {/* Signature Notice */}
               <p className="text-xs text-gray-500">
-                By submitting, you confirm that you have reviewed all artworks and your decisions are final.
+                By submitting, you confirm that you have reviewed all items / files and your decisions are final.
               </p>
             </div>
             
@@ -1091,8 +1168,8 @@ const ArtworkReviewPage: React.FC = () => {
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b">
               <div>
-                <h2 className="text-xl font-bold text-gray-900">Review All Artworks</h2>
-                <p className="text-sm text-gray-500 mt-1">Apply to all {items.length} artworks at once</p>
+                <h2 className="text-xl font-bold text-gray-900">Review All Files</h2>
+                <p className="text-sm text-gray-500 mt-1">Apply to all {items.length} files at once</p>
               </div>
               <button onClick={() => setShowBulkReview(false)} className="text-gray-400 hover:text-gray-600">
                 <X className="h-6 w-6" />
@@ -1154,7 +1231,7 @@ const ArtworkReviewPage: React.FC = () => {
                     />
                     <div>
                       <span className="font-medium text-gray-900">Approve as is</span>
-                      <p className="text-sm text-gray-500">The artwork is approved for production</p>
+                      <p className="text-sm text-gray-500">The file/document is approved for production</p>
                     </div>
                   </label>
                   
@@ -1195,7 +1272,7 @@ const ArtworkReviewPage: React.FC = () => {
               {/* Comment */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Comments for All Artworks {bulkApprovalType === 'not_approved' && <span className="text-red-500">*</span>}
+                  Comments for All Files {bulkApprovalType === 'not_approved' && <span className="text-red-500">*</span>}
                 </label>
                 <textarea
                   value={bulkComment}
@@ -1210,7 +1287,7 @@ const ArtworkReviewPage: React.FC = () => {
               <div className="p-4 bg-gray-50 rounded-xl">
                 <p className="text-sm text-gray-600">
                   <Info className="h-4 w-4 inline mr-1" />
-                  This will apply your verification and decision to <strong>all {items.length} artworks</strong> in this batch.
+                  This will apply your verification and decision to <strong>all {items.length} files</strong> in this system.
                 </p>
               </div>
             </div>
@@ -1235,7 +1312,7 @@ const ArtworkReviewPage: React.FC = () => {
                   bulkApprovalType === 'not_approved' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'
                 }`}
               >
-                {bulkSubmitting ? 'Applying...' : `Apply to All ${items.length} Artworks`}
+                {bulkSubmitting ? 'Applying...' : `Apply to All ${items.length} Files`}
               </button>
             </div>
           </div>

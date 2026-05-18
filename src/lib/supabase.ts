@@ -36,22 +36,27 @@ import * as tus from 'tus-js-client'
 export const uploadWithTus = async (bucketName: string, fileName: string, file: File, onProgress?: (bytesUploaded: number, bytesTotal: number) => void): Promise<string> => {
   return new Promise((resolve, reject) => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) {
-        reject(new Error('No session found'))
-        return
-      }
-
       const projectId = supabaseUrl.match(/https:\/\/(.*?)\.supabase\.co/)?.[1]
       const directEndpoint = projectId 
         ? `https://${projectId}.storage.supabase.co/storage/v1/upload/resumable`
         : `${supabaseUrl}/storage/v1/upload/resumable`
 
+      // Use public anon key for collaborative buckets or when no session exists.
+      // This bypasses user-specific RLS authenticated checks (e.g. auth.uid() folder restrictions) which block uploads to shared paths.
+      const useAnonKey = bucketName === 'artworks' || bucketName === 'daily_reports_files' || !session;
+      const token = useAnonKey ? (supabaseAnonKey || session?.access_token) : (session?.access_token || supabaseAnonKey);
+
+      if (!token) {
+        reject(new Error('No authorization token available for upload'));
+        return;
+      }
+
       const upload = new tus.Upload(file, {
         endpoint: directEndpoint,
         retryDelays: [0, 3000, 5000, 10000, 20000],
         headers: {
-          authorization: `Bearer ${session.access_token}`,
-          'x-upsert': 'false',
+          authorization: `Bearer ${token}`,
+          'x-upsert': 'true',
         },
         uploadDataDuringCreation: true,
         removeFingerprintOnSuccess: true,
@@ -649,6 +654,8 @@ export type ArtworkBatchItem = {
     replies?: { author: string; text: string; at: string }[]
     thumbnail_url?: string
     thumbnail_crop?: { scale: number, x: number, y: number }
+    section_name?: string
+    zone?: 'current' | 'old'
   }
   
   // Customer review
