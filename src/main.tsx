@@ -166,6 +166,7 @@ const PouchDTCSustainablePackagingPage = lazyWithRetry(() => import('./pages/pou
 const PouchPFASFreePackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchPFASFreePackagingPage'))
 const PouchHomeCompostableCoffeeBagsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchHomeCompostableCoffeeBagsPage'))
 const PouchCompostableZipperNoRemovalPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostableZipperNoRemovalPage'))
+const PouchCompostableZipperDurabilityPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCompostableZipperDurabilityPage'))
 const PouchMonoPEPouchesPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMonoPEPouchesPage'))
 const PouchChildResistantMylarBagsPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchChildResistantMylarBagsPage'))
 const PouchHighHeatCandlePackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchHighHeatCandlePackagingPage'))
@@ -367,6 +368,7 @@ const CustomCompostablePouchSuppliersPage = lazyWithRetry(() => import('./pages/
 const LowMOQStartupPackagingPage = lazyWithRetry(() => import('./pages/topics/LowMOQStartupPackagingPage'))
 const CompostableBabyFoodBagsPage = lazyWithRetry(() => import('./pages/topics/CompostableBabyFoodBagsPage'))
 const CompostableHumidityControlPage = lazyWithRetry(() => import('./pages/topics/CompostableHumidityControlPage'))
+const CompostableZipperDurabilityPage = lazyWithRetry(() => import('./pages/topics/CompostableZipperDurabilityPage'))
 const PFASFreePackagingPage = lazyWithRetry(() => import('./pages/topics/PFASFreePackagingPage'))
 const HomeCompostableCoffeeBagsPage = lazyWithRetry(() => import('./pages/topics/HomeCompostableCoffeeBagsPage'))
 const MonoPEPouchesPage = lazyWithRetry(() => import('./pages/topics/MonoPEPouchesPage'))
@@ -643,6 +645,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/custom-printed-sustainable-pouches" element={<PouchCustomPrintedSustainablePouchesPage />} />
                   <Route path="/topics/digital-printing-eco-packaging" element={<PouchDigitalPrintingEcoPackagingPage />} />
                   <Route path="/topics/compostable-humidity-control" element={<PouchCompostableHumidityControlPage />} />
+                  <Route path="/topics/compostable-zipper-durability" element={<PouchCompostableZipperDurabilityPage />} />
                   <Route path="/topics/eco-packaging-regulations" element={<PouchEcoPackagingRegulationsPage />} />
                   <Route path="/topics/custom-compostable-pouch-suppliers" element={<PouchCustomCompostablePouchSuppliersPage />} />
                   <Route path="/topics/low-moq-startup-packaging" element={<PouchLowMOQStartupPackagingPage />} />
@@ -941,6 +944,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/topics/recycled-ocean-plastic-packaging" element={<RecycledOceanPlasticPackagingPage />} />
                         <Route path="/topics/minimalist-d2c-packaging" element={<MinimalistD2CPackagingPage />} />
                         <Route path="/topics/compostable-humidity-control" element={<CompostableHumidityControlPage />} />
+                        <Route path="/topics/compostable-zipper-durability" element={<CompostableZipperDurabilityPage />} />
 
                         {/* Compostable Education Pages */}
                         <Route path="/composting/biodegradable-vs-compostable" element={<BiodegradableVsCompostablePage />} />

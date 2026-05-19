@@ -2246,6 +2246,7 @@ function App() {
                 <li><Link to="/topics/low-moq-startup-packaging" className="hover:text-primary-500">Low MOQ Startup</Link></li>
                 <li><Link to="/topics/compostable-baby-food-bags" className="hover:text-primary-500">Baby Food Bags</Link></li>
                 <li><Link to="/topics/custom-printed-sustainable-pouches" className="hover:text-primary-500">Custom Printed Pouches</Link></li>
+                <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">Zipper Durability</Link></li>
               </ul>
             </div>
 
@@ -2287,6 +2288,7 @@ function App() {
                 <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-500">Home vs Industrial</Link></li>
                 <li><Link to="/composting/plastic-free" className="hover:text-primary-500">Plastic-Free vs Compostable</Link></li>
                 <li><Link to="/topics/compostable-humidity-control" className="hover:text-primary-500">Compost Bag Humidity Control</Link></li>
+                <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">Compostable Zipper Durability</Link></li>
               </ul>
             </div>
 
@@ -2345,6 +2347,7 @@ function App() {
                 <li><Link to="/topics/child-resistant-mylar-bags" className="hover:text-primary-500">Child-Resistant</Link></li>
                 <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:text-primary-500">Ocean Plastic</Link></li>
                 <li><Link to="/topics/minimalist-d2c-packaging" className="hover:text-primary-500">Minimalist D2C</Link></li>
+                <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">Zipper Durability</Link></li>
               </ul>
             </div>
 

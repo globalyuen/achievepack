@@ -166,6 +166,7 @@ export default function Footer() {
               <li><Link to="/composting/home-vs-industrial-compostable" className="hover:text-primary-400">Home vs Industrial</Link></li>
               <li><Link to="/composting/natural-cellulose-fiber" className="hover:text-primary-400">Natural Cellulose Fiber</Link></li>
               <li><Link to="/topics/compostable-humidity-control" className="hover:text-primary-400">Compost Bag Humidity Control</Link></li>
+              <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-400">Compostable Zipper Durability</Link></li>
             </ul>
           </div>
 
