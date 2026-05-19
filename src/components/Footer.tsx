@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Leaf, Mail, Phone, Calendar } from 'lucide-react'
+import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -35,11 +35,21 @@ export default function Footer() {
               <Link to="/company/b-corp" className="hover:opacity-80 transition-opacity">
                 <img src="/bcorp.svg" alt="Certified B Corporation" className="h-10 w-auto" loading="lazy" decoding="async" />
               </Link>
-              <Link to="/materials/data-sheet" className="ml-2 bg-neutral-800 text-xs font-semibold px-3 py-1.5 rounded-full hover:bg-primary-600 transition-colors">
-                Data Sheet
+              <Link 
+                to="/materials/data-sheet" 
+                className="ml-2 bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs font-semibold px-3 py-1.5 rounded hover:bg-neutral-700 hover:text-white hover:border-neutral-500 transition-all flex items-center gap-1.5"
+              >
+                <FileText className="h-3.5 w-3.5" />
+                <span>Data Sheet</span>
               </Link>
-              <a href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" target="_blank" rel="noopener noreferrer" className="ml-2 bg-green-700 text-xs font-semibold px-3 py-1.5 rounded-full hover:bg-green-600 transition-colors">
-                BPI Cert
+              <a 
+                href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="ml-2 bg-green-950/40 border border-green-800 text-green-400 text-xs font-semibold px-3 py-1.5 rounded hover:bg-green-900/60 hover:text-green-300 hover:border-green-600 transition-all flex items-center gap-1.5"
+              >
+                <ShieldCheck className="h-3.5 w-3.5" />
+                <span>BPI Cert</span>
               </a>
             </div>
           </div>
