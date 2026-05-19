@@ -417,6 +417,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/topics/reduce-packaging-waste" className="hover:underline">[REDUCING WASTE]</Link></li>
                 <li><Link to="/topics/high-heat-compostable-candle-packaging" className="hover:underline text-orange-600">[CANDLE PACKAGING]</Link></li>
                 <li><Link to="/topics/compostable-zipper-durability" className="hover:underline text-emerald-600">[ZIPPER DURABILITY]</Link></li>
+                <li><Link to="/topics/custom-vs-standard-packaging" className="hover:underline text-emerald-600">[CUSTOM VS STANDARD]</Link></li>
 
               </ul>
             </div>
@@ -445,6 +446,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 { name: 'CANDLE_WAX', path: '/topics/high-heat-compostable-candle-packaging', color: 'bg-white' },
                 { name: 'REAL_WORLD', path: '/topics/real-world-sustainability', color: 'bg-[#D4FF00]' },
                 { name: 'ZIPPER_DURABILITY', path: '/topics/compostable-zipper-durability', color: 'bg-white' },
+                { name: 'CUSTOM_VS_STANDARD', path: '/topics/custom-vs-standard-packaging', color: 'bg-[#D4FF00]' },
 
               ].map((topic, i) => (
                 <Link 

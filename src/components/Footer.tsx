@@ -212,6 +212,7 @@ export default function Footer() {
               <li><Link to="/topics/food-packaging-supplier" className="text-gray-400 hover:text-white transition-colors">Supplier Audit</Link></li>
               <li><Link to="/topics/custom-packaging" className="text-gray-400 hover:text-white transition-colors">Custom Solutions</Link></li>
               <li><Link to="/topics/reduce-packaging-waste" className="text-gray-400 hover:text-white transition-colors">Reducing Waste</Link></li>
+              <li><Link to="/topics/custom-vs-standard-packaging" className="text-gray-400 hover:text-white transition-colors">Custom vs. Standard</Link></li>
             </ul>
           </div>
 
