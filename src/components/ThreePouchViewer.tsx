@@ -91,12 +91,12 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     // 7. Dynamic GLTF / GLB Loader (supports single model OR the whole 'family' group!)
     const isFamily = modelUrl === 'family';
     const urls = isFamily ? [
-      { path: '/3d/3d-pouch/stand-up-pouch.glb', x: 18, z: -5, scale: 0.9, ry: -Math.PI / 12 },
-      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -18, z: -5, scale: 0.9, ry: Math.PI / 12 },
-      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 50, z: -18, scale: 0.8, ry: -Math.PI / 7 },
-      { path: '/3d/3d-pouch/3-side-seal.glb', x: -50, z: -18, scale: 0.8, ry: Math.PI / 7 }
+      { path: '/3d/3d-pouch/3-side-seal.glb', x: -54, z: -10, scale: 0.82, ry: 0, spinSpeed: 0.0005 },
+      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -18, z: -10, scale: 0.82, ry: 0, spinSpeed: 0.00075 },
+      { path: '/3d/3d-pouch/stand-up-pouch.glb', x: 18, z: -10, scale: 0.82, ry: 0, spinSpeed: 0.0004 },
+      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 54, z: -10, scale: 0.82, ry: 0, spinSpeed: 0.00025 }
     ] : [
-      { path: modelUrl, x: 0, z: 0, scale: 1.0, ry: 0 }
+      { path: modelUrl, x: 0, z: 0, scale: 1.0, ry: 0, spinSpeed: 0.0004 }
     ];
 
     const loader = new GLTFLoader();
@@ -140,6 +140,12 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
           
           // Apply custom local rotation to face inward beautifully
           loadedModel.rotation.y = item.ry;
+
+          // Store individual spin parameters inside the 3D model container's userData dictionary
+          loadedModel.userData = {
+            baseRy: item.ry,
+            spinSpeed: item.spinSpeed
+          };
 
           loadedModel.traverse((node) => {
             if ((node as THREE.Mesh).isMesh) {
@@ -222,13 +228,21 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
         // Apply scroll sliding position
         masterPouchGroup.position.x = currentX;
 
-        // C. Dynamic rotation from right to left driven by scroll progress
+        // C. Dynamic individual rotation driven by distinct spins & scroll progress
         const scrollRotationY = sPercent * Math.PI * 2; // up to one full 360-degree spin
-        const autoRotateY = (Date.now() * 0.0003) % (Math.PI * 2);
+        const autoRotateTime = Date.now();
 
-        // Apply interactive mouse cursor tilt + dynamic scroll spin
-        masterPouchGroup.rotation.y = (tiltRef.current.x * 0.0035) + scrollRotationY + autoRotateY;
+        masterPouchGroup.children.forEach((child) => {
+          if (child.userData && child.userData.spinSpeed !== undefined) {
+            const data = child.userData;
+            const individualAutoSpin = (autoRotateTime * data.spinSpeed) % (Math.PI * 2);
+            child.rotation.y = data.baseRy + scrollRotationY + individualAutoSpin;
+          }
+        });
+
+        // Apply interactive mouse cursor tilt + dynamic scroll tilt to the master group itself
         masterPouchGroup.rotation.x = (tiltRef.current.y * 0.0035) + (sPercent * 0.18);
+        masterPouchGroup.rotation.y = (tiltRef.current.x * 0.0035); // mouse sway
         masterPouchGroup.rotation.z = Math.sin(sPercent * Math.PI) * 0.08; // graceful natural sway
       }
 
