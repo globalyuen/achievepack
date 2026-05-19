@@ -71,10 +71,49 @@ const RyanHologramPage = () => {
   }, []);
 
   const pouchModels = {
-    'stand-up': '/3d/3d-pouch/stand-up-pouch.glb',
-    'three-side': '/3d/3d-pouch/3-side-seal.glb',
-    'flat-bottom': '/3d/3d-pouch/flat-bottom-pouch.glb'
+    'stand-up': {
+      url: '/3d/3d-pouch/stand-up-pouch.glb',
+      name: 'Stand-Up Pouch',
+      emoji: '🥡',
+      moq: '1,000 units',
+      materials: 'NK / Kraft / PBS Compostable Barrier',
+      desc: 'Premium Doypack style stand-up pouch featuring a high-barrier laminated kraft layer and a fully compostable zipper. Ideal for premium coffee, tea, and snack brands seeking zero environmental footprint.'
+    },
+    'three-side': {
+      url: '/3d/3d-pouch/3-side-seal.glb',
+      name: '3-Side Seal Pouch',
+      emoji: '✉️',
+      moq: '5,000 units',
+      materials: 'Paper / PLA High-Barrier Compostable',
+      desc: 'Flat pouch configuration sealed on three sides for maximum rigidity. Perfect for single-serve coffee packets, protein powders, supplements, and sample packaging.'
+    },
+    'flat-bottom': {
+      url: '/3d/3d-pouch/flat-bottom-pouch.glb',
+      name: 'Flat Bottom Pouch',
+      emoji: '📦',
+      moq: '2,000 units',
+      materials: 'Mono-Material Recyclable PE / PP',
+      desc: 'Box-style flat bottom pouch that stands perfectly upright on retail shelves. Offers maximum volumetric space and pristine front/back canvas presentation.'
+    },
+    'spouted': {
+      url: '/3d/3d-pouch/spouted-pouch.glb',
+      name: 'Spouted Pouch',
+      emoji: '🥤',
+      moq: '2,000 units',
+      materials: 'Bio-EVOH / Plant-Based Rigid Spouts',
+      desc: 'Fully compostable flexible spouted pouch designed for liquids, baby food purees, energy gels, and cosmetics, featuring a certified plant-based rigid spout.'
+    },
+    'coffee': {
+      url: '/3d/3d-pouch/coffee-pouch.glb',
+      name: 'Coffee Pouch',
+      emoji: '☕',
+      moq: '1,000 units',
+      materials: 'Kraft Paper / Bio-Degassing Valve',
+      desc: 'Specialty coffee packaging integrated with a fully compostable organic degassing valve to allow active CO2 release while preserving flavor profiles.'
+    }
   };
+
+  const [selectedModel, setSelectedModel] = useState<keyof typeof pouchModels>('stand-up');
 
   const hologramRef = useRef<HTMLDivElement>(null);
 
@@ -258,7 +297,7 @@ const RyanHologramPage = () => {
         {/* Global Full-Screen 3D Pouch Viewport for Desktop (Persistent in visual field!) */}
         <div className="hidden lg:block fixed inset-0 w-full h-[100vh] z-10 pointer-events-none">
           <div className="w-full h-full pointer-events-auto">
-            <ThreePouchViewer modelUrl="/3d/3d-pouch/stand-up-pouch.glb" tilt={tilt} scrollPercent={scrollPercent} isMobile={false} />
+            <ThreePouchViewer modelUrl={pouchModels[selectedModel].url} tilt={tilt} scrollPercent={scrollPercent} isMobile={false} />
           </div>
         </div>
 
@@ -299,7 +338,7 @@ const RyanHologramPage = () => {
 
             {/* Mobile-only inline 3D viewport (Locks to center so it frames beautifully on phones) */}
             <div className="lg:hidden w-full max-w-[320px] h-[340px] mx-auto flex items-center justify-center relative z-10 mt-6 bg-[#f5efe6] border border-[#dfd2bf] rounded-2xl p-4 shadow-sm">
-              <ThreePouchViewer modelUrl="/3d/3d-pouch/stand-up-pouch.glb" tilt={tilt} scrollPercent={0} isMobile={true} />
+              <ThreePouchViewer modelUrl={pouchModels[selectedModel].url} tilt={tilt} scrollPercent={0} isMobile={true} />
             </div>
 
             {/* Main Action CTAs */}
@@ -338,22 +377,42 @@ const RyanHologramPage = () => {
               </p>
             </div>
 
-            <div className="bg-[#f5efe6] border border-[#dfd2bf] rounded-2xl p-6 space-y-4">
+            {/* Model Selector Buttons */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {Object.entries(pouchModels).map(([key, model]) => (
+                <button
+                  key={key}
+                  onClick={() => {
+                    playClick();
+                    setSelectedModel(key as any);
+                  }}
+                  className={`px-4 py-2 text-xs font-bold rounded-xl border-2 transition-all duration-200 ${
+                    selectedModel === key
+                      ? 'bg-[#2d2a24] text-white border-[#2d2a24] shadow-md'
+                      : 'bg-white text-[#2d2a24] border-[#dfd2bf] hover:bg-[#2d2a24]/5 hover:border-[#2d2a24]'
+                  }`}
+                >
+                  {model.emoji} {model.name}
+                </button>
+              ))}
+            </div>
+
+            <div className="bg-white border-2 border-[#2d2a24] rounded-2xl p-6 space-y-4 shadow-sm transition-all duration-300">
               <div className="flex justify-between items-start">
-                <span className="text-3xl">🥡</span>
-                <span className="text-[8px] font-['Space_Mono'] px-2 py-0.5 rounded-full border text-[#ff8400] border-[#ff8400]/30 bg-[#ff8400]/5">
-                  Stand-Up Pouch
+                <span className="text-3xl">{pouchModels[selectedModel].emoji}</span>
+                <span className="text-[8px] font-['Space_Mono'] px-2 py-0.5 rounded-full border text-[#ff8400] border-[#ff8400]/30 bg-[#ff8400]/5 font-bold uppercase">
+                  {pouchModels[selectedModel].name}
                 </span>
               </div>
               
-              <h3 className="font-extrabold text-[#2d2a24] text-base">Stand-Up Doypack</h3>
+              <h3 className="font-extrabold text-[#2d2a24] text-base">{pouchModels[selectedModel].name} Mockup</h3>
               <div className="text-[10px] text-[#5f5646] font-['Space_Mono'] leading-tight">
-                <div className="text-[#ff8400] font-bold">MOQ: 1,000 units</div>
-                <div className="text-[#8c826e]">NK / Kraft / PBS Compostable Barrier</div>
+                <div className="text-[#ff8400] font-bold">MOQ: {pouchModels[selectedModel].moq}</div>
+                <div className="text-[#8c826e]">{pouchModels[selectedModel].materials}</div>
               </div>
               
               <p className="text-xs text-[#5f5646] leading-relaxed">
-                Premium Doypack style stand-up pouch featuring a high-barrier laminated kraft layer and a fully compostable zipper. Ideal for premium coffee, tea, and snack brands seeking zero environmental footprint.
+                {pouchModels[selectedModel].desc}
               </p>
             </div>
           </section>
