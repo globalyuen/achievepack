@@ -88,123 +88,149 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     floor.receiveShadow = true;
     scene.add(floor);
 
-    // 7. Load GLTF / GLB Pouch model with Bounding Box Auto-Scaling
+    // 7. Dynamic GLTF / GLB Loader (supports single model OR the whole 'family' group!)
+    const isFamily = modelUrl === 'family';
+    const urls = isFamily ? [
+      { path: '/3d/3d-pouch/stand-up-pouch.glb', x: 0, z: 0, scale: 0.95, ry: 0 },
+      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -32, z: -14, scale: 0.85, ry: Math.PI / 10 },
+      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 32, z: -14, scale: 0.85, ry: -Math.PI / 10 },
+      { path: '/3d/3d-pouch/flat-bottom-pouch.glb', x: 60, z: -30, scale: 0.78, ry: -Math.PI / 6 },
+      { path: '/3d/3d-pouch/3-side-seal.glb', x: -60, z: -30, scale: 0.78, ry: Math.PI / 6 }
+    ] : [
+      { path: modelUrl, x: 0, z: 0, scale: 1.0, ry: 0 }
+    ];
+
     const loader = new GLTFLoader();
-    let pouchModel: THREE.Group | null = null;
-    let autoScale = 1.0;
-    let center = new THREE.Vector3();
-    let size = new THREE.Vector3();
+    const masterPouchGroup = new THREE.Group();
+    scene.add(masterPouchGroup);
 
-    loader.load(
-      modelUrl,
-      (gltf) => {
-        pouchModel = gltf.scene;
+    urls.forEach((item) => {
+      loader.load(
+        item.path,
+        (gltf) => {
+          const loadedModel = gltf.scene;
 
-        const box = new THREE.Box3().setFromObject(pouchModel);
-        box.getSize(size);
-        box.getCenter(center);
+          const box = new THREE.Box3().setFromObject(loadedModel);
+          const size = new THREE.Vector3();
+          const center = new THREE.Vector3();
+          box.getSize(size);
+          box.getCenter(center);
 
-        // Center coordinates in X and Z plane
-        pouchModel.position.x = pouchModel.position.x - center.x;
-        pouchModel.position.z = pouchModel.position.z - center.z;
+          // Center coordinate inside its local pivot in X and Z
+          loadedModel.position.x = -center.x;
+          loadedModel.position.z = -center.z;
 
-        // Auto scale to perfect dimensions (fitting perfectly in the clean viewport)
-        const maxDim = Math.max(size.x, size.y, size.z);
-        autoScale = 110 / maxDim; 
-        pouchModel.scale.set(autoScale, autoScale, autoScale);
+          // Auto scale to standardize native size
+          const maxDim = Math.max(size.x, size.y, size.z);
+          const autoScale = 110 / maxDim;
+          
+          // Apply local model scale multiplier
+          const activeLocalScale = autoScale * item.scale;
+          loadedModel.scale.set(activeLocalScale, activeLocalScale, activeLocalScale);
 
-        // Shift model vertically so that the bottom of the pouch rests EXACTLY on floorY (-35)
-        const scaledSizeY = size.y * autoScale;
-        const floorY = -35;
-        pouchModel.position.y = (pouchModel.position.y - center.y) + floorY + (scaledSizeY / 2);
+          // Position locally resting on the floor plane (-35)
+          const scaledSizeY = size.y * activeLocalScale;
+          const floorY = -35;
+          
+          // Align bottom of bag exactly to floorY, then apply custom local relative offset positions
+          loadedModel.position.y = (loadedModel.position.y - center.y) + floorY + (scaledSizeY / 2);
+          
+          // Apply custom offset positions for family grouping
+          loadedModel.position.x += item.x;
+          loadedModel.position.z += item.z;
+          
+          // Apply custom local rotation to face inward beautifully
+          loadedModel.rotation.y = item.ry;
 
-        pouchModel.traverse((node) => {
-          if ((node as THREE.Mesh).isMesh) {
-            const mesh = node as THREE.Mesh;
-            mesh.castShadow = true;
-            mesh.receiveShadow = true;
-            mesh.visible = true;
+          loadedModel.traverse((node) => {
+            if ((node as THREE.Mesh).isMesh) {
+              const mesh = node as THREE.Mesh;
+              mesh.castShadow = true;
+              mesh.receiveShadow = true;
+              mesh.visible = true;
 
-            let mat = mesh.material as THREE.MeshStandardMaterial;
-            if (!mat || Array.isArray(mat)) {
-              mat = new THREE.MeshStandardMaterial({
-                color: 0xe8e1d5,
-                roughness: 0.44,
-                metalness: 0.08
-              });
-              mesh.material = mat;
-            } else {
-              mat.roughness = 0.44;
-              mat.metalness = 0.08;
-              mat.visible = true;
-              mat.transparent = false;
-              mat.opacity = 1.0;
+              let mat = mesh.material as THREE.MeshStandardMaterial;
+              if (!mat || Array.isArray(mat)) {
+                mat = new THREE.MeshStandardMaterial({
+                  color: 0xe8e1d5,
+                  roughness: 0.44,
+                  metalness: 0.08
+                });
+                mesh.material = mat;
+              } else {
+                mat.roughness = 0.44;
+                mat.metalness = 0.08;
+                mat.visible = true;
+                mat.transparent = false;
+                mat.opacity = 1.0;
 
-              if (mat.color && mat.color.r === 0 && mat.color.g === 0 && mat.color.b === 0) {
-                const meshName = mesh.name.toLowerCase();
-                const isBody = meshName.includes('body') || meshName.includes('pouch') || meshName.includes('bag') || meshName.includes('mesh');
-                mat.color.setHex(isBody ? 0xebe3d5 : 0x2d2a24);
+                if (mat.color && mat.color.r === 0 && mat.color.g === 0 && mat.color.b === 0) {
+                  const meshName = mesh.name.toLowerCase();
+                  const isBody = meshName.includes('body') || meshName.includes('pouch') || meshName.includes('bag') || meshName.includes('mesh');
+                  mat.color.setHex(isBody ? 0xebe3d5 : 0x2d2a24);
+                }
               }
             }
-          }
-        });
+          });
 
-        scene.add(pouchModel);
-      },
-      undefined,
-      (error) => {
-        console.error('Error loading pouch 3D model:', error);
-      }
-    );
+          // Add to the master group!
+          masterPouchGroup.add(loadedModel);
+        },
+        undefined,
+        (error) => {
+          console.error('Error loading pouch 3D model:', item.path, error);
+        }
+      );
+    });
 
     // 8. Animation loop with fluid physics interpolation (lerping)
     let animationId: number;
     let currentX = 0;
-    let currentScaleMultiplier = 0.65; // Custom 50% smaller size as requested!
+    let currentScaleMultiplier = isFamily ? 0.42 : 0.65;
 
     const animate = () => {
       animationId = requestAnimationFrame(animate);
 
-      if (pouchModel) {
+      if (masterPouchGroup) {
         const sPercent = scrollRef.current;
 
         // A. Dynamic X-coordinate translation
         let targetX = 0;
         if (!isMobile) {
-          // Direct linear interpolation from far right (30) to far left (-30) as scroll progress advances!
-          targetX = THREE.MathUtils.lerp(30, -30, sPercent);
+          // Direct linear interpolation from far right to far left as scroll progress advances!
+          targetX = THREE.MathUtils.lerp(isFamily ? 12 : 30, isFamily ? -12 : -30, sPercent);
         } else {
           targetX = 0;
         }
 
         // B. Dynamic size scaling
-        let targetScaleMultiplier = 0.65;
+        const baseScale = isFamily ? 0.42 : 0.65;
+        let targetScaleMultiplier = baseScale;
         if (!isMobile) {
           // Makes the model slightly larger/smaller depending on scroll depth
-          targetScaleMultiplier = THREE.MathUtils.lerp(0.65, 0.58, sPercent);
+          targetScaleMultiplier = THREE.MathUtils.lerp(baseScale, baseScale * 0.9, sPercent);
         } else {
-          targetScaleMultiplier = 0.65;
+          targetScaleMultiplier = baseScale;
         }
 
         // Damping/Interpolating translations for ultra-fluid movement
         currentX += (targetX - currentX) * 0.08;
         currentScaleMultiplier += (targetScaleMultiplier - currentScaleMultiplier) * 0.08;
 
-        // Apply dynamic standard scale combined with scroll multiplier
-        const activeScale = autoScale * currentScaleMultiplier;
-        pouchModel.scale.set(activeScale, activeScale, activeScale);
+        // Apply scale directly to the master group
+        masterPouchGroup.scale.set(currentScaleMultiplier, currentScaleMultiplier, currentScaleMultiplier);
 
         // Apply scroll sliding position
-        pouchModel.position.x = currentX;
+        masterPouchGroup.position.x = currentX;
 
-        // C. Dynamic rotation from right to left driven by scroll progress (50% slower spin!)
+        // C. Dynamic rotation from right to left driven by scroll progress
         const scrollRotationY = sPercent * Math.PI * 2; // up to one full 360-degree spin
         const autoRotateY = (Date.now() * 0.0003) % (Math.PI * 2);
 
         // Apply interactive mouse cursor tilt + dynamic scroll spin
-        pouchModel.rotation.y = (tiltRef.current.x * 0.0035) + scrollRotationY + autoRotateY;
-        pouchModel.rotation.x = (tiltRef.current.y * 0.0035) + (sPercent * 0.18);
-        pouchModel.rotation.z = Math.sin(sPercent * Math.PI) * 0.08; // graceful natural sway
+        masterPouchGroup.rotation.y = (tiltRef.current.x * 0.0035) + scrollRotationY + autoRotateY;
+        masterPouchGroup.rotation.x = (tiltRef.current.y * 0.0035) + (sPercent * 0.18);
+        masterPouchGroup.rotation.z = Math.sin(sPercent * Math.PI) * 0.08; // graceful natural sway
       }
 
       controls.update();

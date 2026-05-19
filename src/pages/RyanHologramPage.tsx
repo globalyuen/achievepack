@@ -71,6 +71,14 @@ const RyanHologramPage = () => {
   }, []);
 
   const pouchModels = {
+    'family': {
+      url: 'family',
+      name: 'Pouch Family',
+      emoji: '👨‍👩‍👧‍👦',
+      moq: 'Varies by shape',
+      materials: 'All 100% Compostable Structures',
+      desc: 'The complete family of Achieve Pack premium sustainable structures shown standing together in one virtual workspace. Toggle individual models below to inspect detailed configurations, features, and precise material laminations.'
+    },
     'stand-up': {
       url: '/3d/3d-pouch/stand-up-pouch.glb',
       name: 'Stand-Up Pouch',
@@ -113,7 +121,7 @@ const RyanHologramPage = () => {
     }
   };
 
-  const [selectedModel, setSelectedModel] = useState<keyof typeof pouchModels>('stand-up');
+  const [selectedModel, setSelectedModel] = useState<keyof typeof pouchModels>('family');
 
   const hologramRef = useRef<HTMLDivElement>(null);
 
