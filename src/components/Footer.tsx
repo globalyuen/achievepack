@@ -28,28 +28,40 @@ export default function Footer() {
               </a>
             </div>
             {/* BPI & B Corp Certification Logos */}
-            <div className="flex items-center gap-3">
-              <Link to="/company/bpi-certified" className="hover:opacity-80 transition-opacity">
-                <img src="/imgs/company/bpi/bpi.svg" alt="BPI Certified Compostable" className="h-10 w-auto" loading="lazy" decoding="async" />
+            <div className="flex flex-wrap items-center gap-3 mt-4">
+              <Link to="/company/bpi-certified" className="hover:opacity-90 transition-opacity flex items-center h-12">
+                <img 
+                  src="/imgs/bpi.svg" 
+                  alt="BPI Certified Compostable" 
+                  className="h-12 w-auto border border-neutral-800 rounded bg-white p-1.5 object-contain" 
+                  loading="lazy" 
+                  decoding="async" 
+                />
               </Link>
-              <Link to="/company/b-corp" className="hover:opacity-80 transition-opacity">
-                <img src="/bcorp.svg" alt="Certified B Corporation" className="h-10 w-auto" loading="lazy" decoding="async" />
+              <Link to="/company/b-corp" className="hover:opacity-90 transition-opacity flex items-center h-12">
+                <img 
+                  src="/bcorp.svg" 
+                  alt="Certified B Corporation" 
+                  className="h-12 w-auto border border-neutral-800 rounded bg-white p-1.5 object-contain" 
+                  loading="lazy" 
+                  decoding="async" 
+                />
               </Link>
               <Link 
                 to="/materials/data-sheet" 
-                className="ml-2 bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs font-semibold px-3 py-1.5 rounded hover:bg-neutral-700 hover:text-white hover:border-neutral-500 transition-all flex items-center gap-1.5"
+                className="bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs font-semibold px-4 rounded hover:bg-neutral-700 hover:text-white hover:border-neutral-500 transition-all flex items-center gap-2 h-12"
               >
-                <FileText className="h-3.5 w-3.5" />
-                <span>Data Sheet</span>
+                <FileText className="h-4 w-4 text-primary-400" />
+                <span className="tracking-wide">Data Sheet</span>
               </Link>
               <a 
                 href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="ml-2 bg-green-950/40 border border-green-800 text-green-400 text-xs font-semibold px-3 py-1.5 rounded hover:bg-green-900/60 hover:text-green-300 hover:border-green-600 transition-all flex items-center gap-1.5"
+                className="bg-green-950/30 border border-green-800 text-green-400 text-xs font-semibold px-4 rounded hover:bg-green-900/40 hover:text-green-300 hover:border-green-600 transition-all flex items-center gap-2 h-12"
               >
-                <ShieldCheck className="h-3.5 w-3.5" />
-                <span>BPI Cert</span>
+                <ShieldCheck className="h-4 w-4 text-green-400" />
+                <span className="tracking-wide">BPI Cert</span>
               </a>
             </div>
           </div>
