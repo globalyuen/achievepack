@@ -95,14 +95,6 @@ const RyanHologramPage = () => {
       materials: 'Paper / PLA High-Barrier Compostable',
       desc: 'Flat pouch configuration sealed on three sides for maximum rigidity. Perfect for single-serve coffee packets, protein powders, supplements, and sample packaging.'
     },
-    'flat-bottom': {
-      url: '/3d/3d-pouch/flat-bottom-pouch.glb',
-      name: 'Flat Bottom Pouch',
-      emoji: '📦',
-      moq: '2,000 units',
-      materials: 'Mono-Material Recyclable PE / PP',
-      desc: 'Box-style flat bottom pouch that stands perfectly upright on retail shelves. Offers maximum volumetric space and pristine front/back canvas presentation.'
-    },
     'spouted': {
       url: '/3d/3d-pouch/spouted-pouch.glb',
       name: 'Spouted Pouch',

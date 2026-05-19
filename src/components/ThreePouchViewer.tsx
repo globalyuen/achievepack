@@ -91,11 +91,10 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     // 7. Dynamic GLTF / GLB Loader (supports single model OR the whole 'family' group!)
     const isFamily = modelUrl === 'family';
     const urls = isFamily ? [
-      { path: '/3d/3d-pouch/stand-up-pouch.glb', x: 0, z: 0, scale: 0.95, ry: 0 },
-      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -32, z: -14, scale: 0.85, ry: Math.PI / 10 },
-      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 32, z: -14, scale: 0.85, ry: -Math.PI / 10 },
-      { path: '/3d/3d-pouch/flat-bottom-pouch.glb', x: 60, z: -30, scale: 0.78, ry: -Math.PI / 6 },
-      { path: '/3d/3d-pouch/3-side-seal.glb', x: -60, z: -30, scale: 0.78, ry: Math.PI / 6 }
+      { path: '/3d/3d-pouch/stand-up-pouch.glb', x: 18, z: -5, scale: 0.9, ry: -Math.PI / 12 },
+      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -18, z: -5, scale: 0.9, ry: Math.PI / 12 },
+      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 50, z: -18, scale: 0.8, ry: -Math.PI / 7 },
+      { path: '/3d/3d-pouch/3-side-seal.glb', x: -50, z: -18, scale: 0.8, ry: Math.PI / 7 }
     ] : [
       { path: modelUrl, x: 0, z: 0, scale: 1.0, ry: 0 }
     ];
