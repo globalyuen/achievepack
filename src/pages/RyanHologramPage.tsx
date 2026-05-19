@@ -389,7 +389,7 @@ const RyanHologramPage = () => {
                   className={`px-4 py-2 text-xs font-bold rounded-xl border-2 transition-all duration-200 ${
                     selectedModel === key
                       ? 'bg-[#2d2a24] text-white border-[#2d2a24] shadow-md'
-                      : 'bg-white text-[#2d2a24] border-[#dfd2bf] hover:bg-[#2d2a24]/5 hover:border-[#2d2a24]'
+                      : 'bg-[#f5efe6]/40 backdrop-blur-sm text-[#2d2a24] border-[#dfd2bf] hover:bg-[#2d2a24]/5 hover:border-[#2d2a24]'
                   }`}
                 >
                   {model.emoji} {model.name}
@@ -397,7 +397,7 @@ const RyanHologramPage = () => {
               ))}
             </div>
 
-            <div className="bg-white border-2 border-[#2d2a24] rounded-2xl p-6 space-y-4 shadow-sm transition-all duration-300">
+            <div className="bg-[#f5efe6]/70 backdrop-blur-md border-2 border-[#2d2a24] rounded-2xl p-6 space-y-4 shadow-sm transition-all duration-300">
               <div className="flex justify-between items-start">
                 <span className="text-3xl">{pouchModels[selectedModel].emoji}</span>
                 <span className="text-[8px] font-['Space_Mono'] px-2 py-0.5 rounded-full border text-[#ff8400] border-[#ff8400]/30 bg-[#ff8400]/5 font-bold uppercase">
@@ -445,7 +445,7 @@ const RyanHologramPage = () => {
                 </div>
 
                 {/* HIGH-FIDELITY ACTIVE CARD DOCK VIEW */}
-                <div className="bg-white border-2 border-[#2d2a24] rounded-3xl p-6 shadow-md relative min-h-[380px] flex flex-col justify-between overflow-hidden">
+                <div className="bg-[#f5efe6]/70 backdrop-blur-md border-2 border-[#2d2a24] rounded-3xl p-6 shadow-md relative min-h-[380px] flex flex-col justify-between overflow-hidden">
                   <div className="absolute top-0 left-0 w-4 h-4 bg-[#f5efe6] rounded-br-2xl border-t border-l border-white pointer-events-none"></div>
                   <div className="absolute top-0 right-0 w-4 h-4 bg-[#f5efe6] rounded-bl-2xl border-t border-r border-white pointer-events-none"></div>
 

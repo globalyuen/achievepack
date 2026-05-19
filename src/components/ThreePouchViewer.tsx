@@ -91,8 +91,8 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     // 7. Dynamic GLTF / GLB Loader (supports single model OR the whole 'family' group!)
     const isFamily = modelUrl === 'family';
     const urls = isFamily ? [
-      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -18, z: -5, scale: 0.9, ry: 0, spinSpeed: 0.00075 },
-      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 18, z: -5, scale: 0.9, ry: 0, spinSpeed: 0.0003 }
+      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -28, z: -5, scale: 0.9, ry: 0, spinSpeed: 0.00075 },
+      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 28, z: -5, scale: 0.9, ry: 0, spinSpeed: 0.0003 }
     ] : [
       { path: modelUrl, x: 0, z: 0, scale: 1.0, ry: 0, spinSpeed: 0.0004 }
     ];
@@ -201,7 +201,7 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
         let targetX = 0;
         if (!isMobile) {
           // Direct linear interpolation from far right to far left as scroll progress advances!
-          targetX = THREE.MathUtils.lerp(isFamily ? 8 : 30, isFamily ? -8 : -30, sPercent);
+          targetX = THREE.MathUtils.lerp(isFamily ? 12 : 30, isFamily ? -28 : -30, sPercent);
         } else {
           targetX = 0;
         }
