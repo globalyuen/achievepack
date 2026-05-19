@@ -495,6 +495,24 @@ export default function PouchEcoHomePage() {
             </motion.div>
           ))}
         </div>
+
+        {/* Custom vs. Standard Packaging Guide Banner */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <NeoCard color="bg-[#D4FF00]" className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-left md:max-w-2xl">
+              <span className="inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black bg-black text-[#D4FF00] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                Decision Guide
+              </span>
+              <h3 className="font-black text-2xl uppercase">Standard Online Runs vs. Custom B2B Quotes</h3>
+              <p className="font-['JetBrains_Mono'] text-sm leading-relaxed text-neutral-800">
+                Not sure whether to buy standard store items or request a custom run for features like premium closures and dynamic dimensions? Read our comprehensive comparison guide to optimize your packaging ROI.
+              </p>
+            </div>
+            <NeoButton to="/topics/custom-vs-standard-packaging" variant="secondary" className="whitespace-nowrap w-full md:w-auto text-center">
+              Compare Options →
+            </NeoButton>
+          </NeoCard>
+        </div>
       </section>
 
       {/* CTA Section */}
@@ -572,6 +590,7 @@ export default function PouchEcoHomePage() {
                 <li><Link to="/about" className="hover:text-[#10b981]">About Us</Link></li>
                 <li><Link to="/blog" className="hover:text-[#10b981]">Blog</Link></li>
                 <li><Link to="/testimonials" className="hover:text-[#10b981]">Testimonials</Link></li>
+                <li><Link to="/topics/custom-vs-standard-packaging" className="hover:text-[#10b981]">Custom vs. Standard</Link></li>
               </ul>
             </div>
 

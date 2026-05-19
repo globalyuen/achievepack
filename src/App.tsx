@@ -2247,6 +2247,7 @@ function App() {
                 <li><Link to="/topics/compostable-baby-food-bags" className="hover:text-primary-500">Baby Food Bags</Link></li>
                 <li><Link to="/topics/custom-printed-sustainable-pouches" className="hover:text-primary-500">Custom Printed Pouches</Link></li>
                 <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-500">Zipper Durability</Link></li>
+                <li><Link to="/topics/custom-vs-standard-packaging" className="hover:text-primary-500">Custom vs. Standard</Link></li>
               </ul>
             </div>
 
