@@ -1422,6 +1422,25 @@ const ProductPage: React.FC = () => {
                   ✓ $40 Air Shipping Included
                 </div>
               </div>
+
+              {/* Color Matching & Custom Options Note */}
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 space-y-2">
+                <div className="flex gap-2">
+                  <span className="text-base">🎨</span>
+                  <div className="text-xs font-semibold text-amber-800 uppercase tracking-wider">Color Matching & Custom Options</div>
+                </div>
+                <p className="text-xs text-amber-700 leading-relaxed">
+                  These standard items are produced as cost-optimized "group runs" using standard digital CMYK. For <span className="font-semibold text-amber-900">exact Pantone® spot color matching</span>, custom dimensions, unprinted gussets, or premium closures, please get a custom B2B run.
+                </p>
+                <div className="pt-1 flex flex-wrap gap-x-3 gap-y-1">
+                  <Link to="/topics/custom-vs-standard-packaging" className="text-xs font-bold text-primary-700 hover:text-primary-800 underline flex items-center gap-1">
+                    📖 Custom vs. Standard Guide
+                  </Link>
+                  <button onClick={openQuoteLightbox} className="text-xs font-bold text-amber-800 hover:text-amber-900 underline flex items-center gap-1">
+                    ✨ Get a Custom B2B Quote
+                  </button>
+                </div>
+              </div>
               
               {/* Options */}
               <div className="space-y-4 pt-4 border-t">
