@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-19",
-  "total_images": 1371,
+  "total_images": 1373,
   "total_categories": 153,
   "extensions": {
     ".webp": 1082,
-    ".png": 242,
+    ".png": 244,
     ".jpg": 44,
     ".svg": 3
   },
@@ -8817,8 +8817,20 @@
       ]
     },
     "topics": {
-      "count": 25,
+      "count": 27,
       "images": [
+        {
+          "filename": "compostable-spouted-pouches-alt.png",
+          "path": "/imgs/topics/compostable-spouted-pouches-alt.png",
+          "extension": ".png",
+          "modified": "2026-05-19T11:48:49.676Z"
+        },
+        {
+          "filename": "compostable-spouted-pouches.png",
+          "path": "/imgs/topics/compostable-spouted-pouches.png",
+          "extension": ".png",
+          "modified": "2026-05-19T11:48:49.673Z"
+        },
         {
           "filename": "eco-friendly-food-hero.png",
           "path": "/imgs/topics/eco-friendly-food-hero.png",

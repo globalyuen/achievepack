@@ -33,7 +33,7 @@ export default function Footer() {
                 <img 
                   src="/imgs/bpi.svg" 
                   alt="BPI Certified Compostable" 
-                  className="h-12 w-auto border border-neutral-800 rounded bg-white p-1.5 object-contain" 
+                  className="h-10 w-auto object-contain" 
                   loading="lazy" 
                   decoding="async" 
                 />
@@ -42,7 +42,7 @@ export default function Footer() {
                 <img 
                   src="/bcorp.svg" 
                   alt="Certified B Corporation" 
-                  className="h-12 w-auto border border-neutral-800 rounded bg-white p-1.5 object-contain" 
+                  className="h-10 w-auto object-contain" 
                   loading="lazy" 
                   decoding="async" 
                 />
@@ -189,6 +189,7 @@ export default function Footer() {
               <li><Link to="/composting/natural-cellulose-fiber" className="hover:text-primary-400">Natural Cellulose Fiber</Link></li>
               <li><Link to="/topics/compostable-humidity-control" className="hover:text-primary-400">Compost Bag Humidity Control</Link></li>
               <li><Link to="/topics/compostable-zipper-durability" className="hover:text-primary-400">Compostable Zipper Durability</Link></li>
+              <li><Link to="/topics/compostable-spouted-pouches" className="hover:text-primary-400">Compostable Spouted Pouches</Link></li>
             </ul>
           </div>
 
