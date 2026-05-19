@@ -91,8 +91,8 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     // 7. Dynamic GLTF / GLB Loader (supports single model OR the whole 'family' group!)
     const isFamily = modelUrl === 'family';
     const urls = isFamily ? [
-      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -26, z: -10, scale: 1.16, ry: 0, spinSpeed: 0.00075 },
-      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 26, z: -10, scale: 1.16, ry: 0, spinSpeed: 0.0003 }
+      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -18, z: -5, scale: 0.9, ry: 0, spinSpeed: 0.00075 },
+      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 18, z: -5, scale: 0.9, ry: 0, spinSpeed: 0.0003 }
     ] : [
       { path: modelUrl, x: 0, z: 0, scale: 1.0, ry: 0, spinSpeed: 0.0004 }
     ];
@@ -189,7 +189,7 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     // 8. Animation loop with fluid physics interpolation (lerping)
     let animationId: number;
     let currentX = 0;
-    let currentScaleMultiplier = isFamily ? 0.58 : 0.65;
+    let currentScaleMultiplier = isFamily ? 0.46 : 0.65;
 
     const animate = () => {
       animationId = requestAnimationFrame(animate);
@@ -207,7 +207,7 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
         }
 
         // B. Dynamic size scaling
-        const baseScale = isFamily ? 0.58 : 0.65;
+        const baseScale = isFamily ? 0.46 : 0.65;
         let targetScaleMultiplier = baseScale;
         if (!isMobile) {
           // Makes the model slightly larger/smaller depending on scroll depth
