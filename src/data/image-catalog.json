@@ -3243,16 +3243,16 @@
       "count": 72,
       "images": [
         {
+          "filename": "compostable-zipper-detail.png",
+          "path": "/imgs/illustrated/compostable-zipper-detail.png",
+          "extension": ".png",
+          "modified": "2026-05-19T11:03:23.786Z"
+        },
+        {
           "filename": "zipper-seal-durability.png",
           "path": "/imgs/illustrated/zipper-seal-durability.png",
           "extension": ".png",
           "modified": "2026-05-19T05:25:45.735Z"
-        },
-        {
-          "filename": "compostable-zipper-detail.png",
-          "path": "/imgs/illustrated/compostable-zipper-detail.png",
-          "extension": ".png",
-          "modified": "2026-05-19T05:25:45.733Z"
         },
         {
           "filename": "4aac2432-ccfb-47a2-bff2-83b4b4304f63.webp",
