@@ -192,7 +192,7 @@ const LEARN_PAGES = {
       { name: 'Eco-Supplier Audit', link: '/topics/eco-friendly-packaging-supplier', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
       { name: 'Custom Brand Solutions', link: '/topics/custom-packaging', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
       { name: 'Reducing Waste', link: '/topics/reduce-packaging-waste', image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp' },
-      { name: 'Compostable Zipper Durability', link: '/topics/compostable-zipper-durability', image: '/imgs/illustrated/compostable-zipper-detail.png' },
+      { name: 'Compostable Zipper Durability', link: '/topics/compostable-zipper-durability', image: '/imgs/illustrated/compostable-zipper-detail-v2.png' },
       { name: 'Custom vs. Standard Packaging', link: '/topics/custom-vs-standard-packaging', image: '/imgs/illustrated/a_all_options_card_v3_3800862.webp' },
     ]
   },

@@ -47,7 +47,7 @@ export default function PouchCompostableZipperDurabilityPage() {
               <NeoCard className="bg-[#D4FF00] relative z-10 rotate-2 !p-0 overflow-hidden group border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
                 <div className="aspect-square relative overflow-hidden">
                     <img 
-                      src="/imgs/illustrated/compostable-zipper-detail.png" 
+                      src="/imgs/illustrated/compostable-zipper-detail-v2.png" 
                       alt="Kraft compostable pouch with double lock zipper" 
                       className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
                     />

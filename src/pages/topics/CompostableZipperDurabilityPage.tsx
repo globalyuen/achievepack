@@ -89,7 +89,7 @@ const CompostableZipperDurabilityPage: React.FC = () => {
 
           <div className="bg-neutral-100 p-2 rounded-xl border-2 border-neutral-200 mt-8">
             <ClickableImage 
-              src="/imgs/illustrated/compostable-zipper-detail.png" 
+              src="/imgs/illustrated/compostable-zipper-detail-v2.png" 
               alt="Premium co-extruded green compostable zipper profile" 
               className="w-full h-auto rounded-lg shadow-sm"
               caption="EEAT Insight: Co-extruded green biodegradable zipper profiles offer a double-lock hermetic seal, protecting food freshness while decomposing naturally."
@@ -215,7 +215,7 @@ const CompostableZipperDurabilityPage: React.FC = () => {
         sections={sections}
         faqs={faqs}
         schemaType="Article"
-        heroImage="/imgs/illustrated/compostable-zipper-detail.png"
+        heroImage="/imgs/illustrated/compostable-zipper-detail-v2.png"
       />
     </>
   )
