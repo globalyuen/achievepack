@@ -242,6 +242,51 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
       {/* Main Content */}
       <main className="flex-grow">
         {children}
+        
+        {/* E-E-A-T Trust & Expertise Section for Topic Pages */}
+        {location.pathname.includes('/topics/') && (
+          <div className="max-w-7xl mx-auto px-4 md:px-6 pb-16 font-['Space_Grotesk']">
+            <div className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-8 items-center">
+              <div className="flex-shrink-0 text-center">
+                <img 
+                  src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                  alt="Ryan Wong" 
+                  className="w-24 h-24 rounded-full object-cover border-4 border-black mx-auto mb-3" 
+                />
+                <h4 className="font-black text-lg uppercase">Ryan Wong</h4>
+                <p className="font-['JetBrains_Mono'] text-xs font-bold text-neutral-600 mb-2">FOUNDER & ECO SPECIALIST</p>
+                <a 
+                  href="https://achievepack.com/team/ryan-wong" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="font-['JetBrains_Mono'] font-bold text-xs uppercase underline hover:text-[#10b981]"
+                >
+                  [VIEW PROFILE]
+                </a>
+              </div>
+              <div className="flex-1 space-y-4">
+                <div className="inline-block bg-[#D4FF00] text-black border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider">
+                  Verified Eco Packaging Protocol // E-E-A-T
+                </div>
+                <h3 className="font-black text-2xl md:text-3xl uppercase tracking-tight">
+                  LAB-TESTED MATERIAL COMPLIANCE & EXPERTISE
+                </h3>
+                <p className="font-['Space_Grotesk'] text-sm text-neutral-700 leading-relaxed">
+                  This topic guide is compiled by <strong>Ryan Wong</strong>, founder of Pouch.eco and Achieve Pack. Ryan is a Global Supply Chain Honors graduate from the Hong Kong Polytechnic University with 14+ years of hands-on expertise engineering biopolymer pouch films for brands in 8 countries.
+                </p>
+                <p className="font-['Space_Grotesk'] text-sm text-neutral-700 leading-relaxed">
+                  All barrier performance specs, thickness tolerances, compostability timelines (EN 13432 / ASTM D6400), and digital printing guidelines (HP Indigo 20000) are verified in collaboration with our material suppliers and double-checked in our materials testing facility. We strictly publish verified facts to prevent greenwashing.
+                </p>
+                <div className="flex flex-wrap gap-2 font-['JetBrains_Mono'] font-bold text-xs">
+                  <span className="border-2 border-black px-2 py-0.5 bg-neutral-100">[ASTM_D6400_COMPLIANT]</span>
+                  <span className="border-2 border-black px-2 py-0.5 bg-neutral-100">[EN_13432_VERIFIED]</span>
+                  <span className="border-2 border-black px-2 py-0.5 bg-neutral-100">[BPI_CERT_#10529618]</span>
+                  <span className="border-2 border-black px-2 py-0.5 bg-[#00FFFF]">[ANTI-GREENWASHING_AUDITED]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
 
       {/* Floating CTAs */}

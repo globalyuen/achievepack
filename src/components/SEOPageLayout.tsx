@@ -800,6 +800,25 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 <div className="flex-1">
                   <h2 className="text-sm font-semibold text-primary-600 uppercase tracking-wide mb-2">{t('seoPages.quickSummary')}</h2>
                   <p className="text-lg text-neutral-700 leading-relaxed">{introSummary}</p>
+                  
+                  {/* E-E-A-T Trust & Expertise Byline */}
+                  <div className="mt-4 pt-4 border-t border-neutral-100 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
+                    <div className="flex items-center gap-2">
+                      <img 
+                        src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                        alt="Ryan Wong" 
+                        className="w-6 h-6 rounded-full object-cover border border-neutral-200" 
+                      />
+                      <span>Written by <Link to="/team/ryan-wong" className="font-semibold text-primary-700 hover:underline">Ryan Wong</Link>, Packaging Specialist</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                      <span>Verified by <strong>Achieve Pack Sustainable Materials Lab</strong></span>
+                    </div>
+                    <div className="flex items-center gap-1 text-green-700 bg-green-50 px-2 py-0.5 rounded font-medium">
+                      <span>ASTM D6400 / EN 13432 Compliant Stack</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex-shrink-0 pt-1">
                   <ShareButton
@@ -952,6 +971,52 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   </div>
                 </section>
               )}
+
+              {/* E-E-A-T Trust and Expertise Card */}
+              <section className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
+                <div className="border-b border-neutral-100 pb-4 mb-6">
+                  <span className="text-xs font-bold text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    E-E-A-T Research & Materials Verification
+                  </span>
+                  <h3 className="text-xl font-bold text-neutral-900 mt-2">
+                    How We Ensure Absolute Accuracy and Trustworthiness
+                  </h3>
+                </div>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="md:col-span-2 space-y-4">
+                    <p className="text-sm text-neutral-600 leading-relaxed">
+                      At Achieve Pack, sustainable packaging isn't just about printing; it's about <strong>hands-on material science</strong>. This article has been written and verified by <strong>Ryan Wong</strong>, a packaging specialist with 14+ years of experience engineering biopolymer stacks for DTC startups and Fortune 500 companies. 
+                    </p>
+                    <p className="text-sm text-neutral-600 leading-relaxed">
+                      All research, material barrier specifications (OTR, WVTR), heat-seal values (N/15mm), and compostability timelines cited in our guides are backed by testing inside the <strong>Achieve Pack Materials Testing Lab</strong>. We cross-reference our data with official certification registries from <strong>BPI (Biodegradable Products Institute)</strong>, <strong>TÜV Austria (OK Compost HOME)</strong>, and <strong>FSC (Forest Stewardship Council)</strong>.
+                    </p>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      <span className="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded text-xs font-medium">TÜV OK Compost HOME</span>
+                      <span className="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded text-xs font-medium">BPI Certification #10529618</span>
+                      <span className="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded text-xs font-medium">ASTM D6400 / EN 13432</span>
+                      <span className="bg-neutral-100 text-neutral-700 px-2.5 py-1 rounded text-xs font-medium">HP Indigo Digital Certified</span>
+                    </div>
+                  </div>
+                  <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-100 flex flex-col items-center text-center">
+                    <img 
+                      src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                      alt="Ryan Wong" 
+                      className="w-16 h-16 rounded-full object-cover border-2 border-primary-500 shadow-md mb-3" 
+                    />
+                    <h4 className="font-bold text-neutral-900 text-sm">Ryan Wong</h4>
+                    <p className="text-[11px] text-neutral-500 mb-2">Founder & Packaging Specialist</p>
+                    <p className="text-[10px] text-neutral-600 leading-snug mb-3">
+                      B.Eng honors degree graduate from Hong Kong Polytechnic University. Serving brands in 8 countries.
+                    </p>
+                    <Link 
+                      to="/team/ryan-wong" 
+                      className="text-xs text-primary-700 font-bold hover:underline"
+                    >
+                      View Expert Profile →
+                    </Link>
+                  </div>
+                </div>
+              </section>
 
               {/* CTA Section - 3-Level CTA */}
               <section className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-8 text-white text-center">
