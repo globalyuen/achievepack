@@ -340,7 +340,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 mb-16 border-t-4 border-black pt-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-7 gap-8 mb-16 border-t-4 border-black pt-12">
             <div>
               <h4 className="font-black uppercase mb-4 text-xl">Packaging</h4>
               <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
@@ -394,33 +394,42 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/sample" className="hover:underline">[CUSTOM PRINTED SAMPLE]</Link></li>
               </ul>
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-3 xl:col-span-2">
               <h4 className="font-black uppercase mb-4 text-xl">Featured</h4>
-              <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
-                <li><Link to="/topics/eco-friendly-food-packaging" className="hover:underline text-magenta-600">[FOOD PACKAGING]</Link></li>
-                <li><Link to="/topics/pfas-free-food-packaging" className="hover:underline text-blue-600">[PFAS-FREE]</Link></li>
-                <li><Link to="/topics/home-compostable-coffee-bags" className="hover:underline">[COFFEE BAGS]</Link></li>
-                <li><Link to="/topics/mono-material-pe-pouches" className="hover:underline">[MONO-PE]</Link></li>
-                <li><Link to="/topics/child-resistant-mylar-bags" className="hover:underline">[CHILD-RESISTANT]</Link></li>
-                <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:underline text-cyan-600">[OCEAN PLASTIC]</Link></li>
-                <li><Link to="/topics/minimalist-d2c-packaging" className="hover:underline">[MINIMALIST D2C]</Link></li>
-                <li><Link to="/topics/real-world-sustainability" className="hover:underline text-green-600 font-black underline">[REAL SUSTAINABILITY]</Link></li>
-                <li><Link to="/topics/sustainable-packaging" className="hover:underline text-magenta-600">[SUSTAINABLE PILLAR]</Link></li>
-                <li><Link to="/topics/recyclable-packaging" className="hover:underline text-blue-600">[RECYCLABLE DESIGN]</Link></li>
-                <li><Link to="/topics/compostable-packaging" className="hover:underline text-emerald-600">[COMPOSTABLE TRUTH]</Link></li>
-                <li><Link to="/topics/compostable-certification" className="hover:underline text-amber-600">[CERTIFICATION FAQ]</Link></li>
-                <li><Link to="/topics/mono-material-packaging" className="hover:underline">[MONO MATERIAL]</Link></li>
-                <li><Link to="/topics/pcr-packaging" className="hover:underline">[PCR CONTENT]</Link></li>
-                <li><Link to="/topics/food-packaging-supplier" className="hover:underline">[SUPPLIER AUDIT]</Link></li>
-                <li><Link to="/topics/eco-friendly-packaging-supplier" className="hover:underline">[ECO AUDIT]</Link></li>
-                <li><Link to="/topics/custom-packaging" className="hover:underline">[CUSTOM SOLUTIONS]</Link></li>
-                <li><Link to="/topics/reduce-packaging-waste" className="hover:underline">[REDUCING WASTE]</Link></li>
-                <li><Link to="/topics/high-heat-compostable-candle-packaging" className="hover:underline text-orange-600">[CANDLE PACKAGING]</Link></li>
-                <li><Link to="/topics/compostable-zipper-durability" className="hover:underline text-emerald-600">[ZIPPER DURABILITY]</Link></li>
-                <li><Link to="/topics/custom-vs-standard-packaging" className="hover:underline text-emerald-600">[CUSTOM VS STANDARD]</Link></li>
-                <li><Link to="/topics/compostable-spouted-pouches" className="hover:underline text-emerald-600">[SPOUTED POUCHES]</Link></li>
-
-              </ul>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <h5 className="font-bold text-xs uppercase tracking-wider text-[#10b981] mb-3">// Core & Materials</h5>
+                  <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
+                    <li><Link to="/topics/sustainable-packaging" className="hover:underline text-magenta-600">[SUSTAINABLE PILLAR]</Link></li>
+                    <li><Link to="/topics/recyclable-packaging" className="hover:underline text-blue-600">[RECYCLABLE DESIGN]</Link></li>
+                    <li><Link to="/topics/compostable-packaging" className="hover:underline text-emerald-600">[COMPOSTABLE TRUTH]</Link></li>
+                    <li><Link to="/topics/compostable-certification" className="hover:underline text-amber-600">[CERTIFICATION FAQ]</Link></li>
+                    <li><Link to="/topics/real-world-sustainability" className="hover:underline text-green-600 font-black underline">[REAL SUSTAINABILITY]</Link></li>
+                    <li><Link to="/topics/pfas-free-food-packaging" className="hover:underline text-blue-600">[PFAS-FREE]</Link></li>
+                    <li><Link to="/topics/mono-material-pe-pouches" className="hover:underline">[MONO-PE]</Link></li>
+                    <li><Link to="/topics/mono-material-packaging" className="hover:underline">[MONO MATERIAL]</Link></li>
+                    <li><Link to="/topics/pcr-packaging" className="hover:underline">[PCR CONTENT]</Link></li>
+                    <li><Link to="/topics/recycled-ocean-plastic-packaging" className="hover:underline text-cyan-600">[OCEAN PLASTIC]</Link></li>
+                    <li><Link to="/topics/compostable-zipper-durability" className="hover:underline text-emerald-600">[ZIPPER DURABILITY]</Link></li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="font-bold text-xs uppercase tracking-wider text-blue-600 mb-3">// Formats & Solutions</h5>
+                  <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold">
+                    <li><Link to="/topics/eco-friendly-food-packaging" className="hover:underline text-magenta-600">[FOOD PACKAGING]</Link></li>
+                    <li><Link to="/topics/home-compostable-coffee-bags" className="hover:underline">[COFFEE BAGS]</Link></li>
+                    <li><Link to="/topics/child-resistant-mylar-bags" className="hover:underline">[CHILD-RESISTANT]</Link></li>
+                    <li><Link to="/topics/minimalist-d2c-packaging" className="hover:underline">[MINIMALIST D2C]</Link></li>
+                    <li><Link to="/topics/custom-packaging" className="hover:underline">[CUSTOM SOLUTIONS]</Link></li>
+                    <li><Link to="/topics/high-heat-compostable-candle-packaging" className="hover:underline text-orange-600">[CANDLE PACKAGING]</Link></li>
+                    <li><Link to="/topics/custom-vs-standard-packaging" className="hover:underline text-emerald-600">[CUSTOM VS STANDARD]</Link></li>
+                    <li><Link to="/topics/compostable-spouted-pouches" className="hover:underline text-emerald-600">[SPOUTED POUCHES]</Link></li>
+                    <li><Link to="/topics/food-packaging-supplier" className="hover:underline">[SUPPLIER AUDIT]</Link></li>
+                    <li><Link to="/topics/eco-friendly-packaging-supplier" className="hover:underline">[ECO AUDIT]</Link></li>
+                    <li><Link to="/topics/reduce-packaging-waste" className="hover:underline">[REDUCING WASTE]</Link></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
