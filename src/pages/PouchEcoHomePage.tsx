@@ -13,6 +13,7 @@ import { HeroGrainBackground } from '../components/HeroGrainBackground'
 import Newsletter from '../components/Newsletter'
 import { useStore } from '../store/StoreContext'
 import ProductCarousel from '../components/ProductCarousel'
+import { ThreePouchViewer } from '../components/ThreePouchViewer'
 
 /**
  * Pouch.eco Homepage - B2C Focused
@@ -69,11 +70,48 @@ export default function PouchEcoHomePage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeFeature, setActiveFeature] = useState(0)
 
+  // 3D Pouch Interactive states
+  const [activePouchModel, setActivePouchModel] = useState<'spouted' | 'flat-bottom'>('spouted')
+  const [threeTilt, setThreeTilt] = useState({ x: 0, y: 0 })
+  const [threeScrollPercent, setThreeScrollPercent] = useState(0)
+  const threeContainerRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    const handleThreeScroll = () => {
+      if (!threeContainerRef.current) return
+      const rect = threeContainerRef.current.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+      
+      const start = rect.top - viewportHeight
+      const totalRange = rect.height + viewportHeight
+      
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        const progress = (viewportHeight - rect.top) / totalRange
+        setThreeScrollPercent(Math.max(0, Math.min(1, progress)))
+      }
+    }
+    window.addEventListener('scroll', handleThreeScroll, { passive: true })
+    handleThreeScroll()
+    return () => window.removeEventListener('scroll', handleThreeScroll)
+  }, [])
+
+  const handleThreeMouseMove = (e: React.MouseEvent) => {
+    if (!threeContainerRef.current) return
+    const rect = threeContainerRef.current.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width - 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5
+    setThreeTilt({ x: x * 25, y: y * -25 })
+  }
+
+  const handleThreeMouseLeave = () => {
+    setThreeTilt({ x: 0, y: 0 })
+  }
 
   // Auto-rotate features
   useEffect(() => {
@@ -339,6 +377,122 @@ export default function PouchEcoHomePage() {
                 <span className="font-black text-2xl rotate-[-15deg]">ECO!</span>
               </motion.div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive 3D Eco Pouch Showcase */}
+      <section 
+        ref={threeContainerRef}
+        onMouseMove={handleThreeMouseMove}
+        onMouseLeave={handleThreeMouseLeave}
+        className="py-24 bg-neutral-100 border-b-4 border-black overflow-hidden relative"
+      >
+        {/* Dot pattern overlay */}
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(rgba(0,0,0,0.15)_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <div className="inline-block bg-[#10b981] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-white font-black text-xs uppercase tracking-wider mb-6">
+              ✨ Interactive 3D Showcase
+            </div>
+            <h2 className="font-black text-5xl md:text-7xl uppercase leading-[0.9] tracking-tighter text-black">
+              Eco Bags in <span className="text-[#10b981]">3D Space</span>
+            </h2>
+            <p className="font-['JetBrains_Mono'] text-lg mt-6 leading-relaxed max-w-2xl mx-auto text-neutral-800">
+              Rotate, tilt, and inspect the certified organic structural barriers of our green pouches. Move your mouse to tilt, scroll to spin, or toggle models below.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Left Controls & Marketing Copy (5 columns) */}
+            <div className="lg:col-span-5 space-y-8">
+              {/* Card 1: Spouted Pouch */}
+              <button
+                onClick={() => setActivePouchModel('spouted')}
+                className={`w-full text-left p-8 border-4 border-black transition-all duration-300 relative ${
+                  activePouchModel === 'spouted'
+                    ? 'bg-[#D4FF00] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] -translate-x-1 -translate-y-1'
+                    : 'bg-white hover:bg-neutral-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5'
+                }`}
+              >
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <span className="inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black bg-black text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-3">
+                      💧 Liquids & Purees
+                    </span>
+                    <h3 className="font-black text-2xl uppercase text-black">
+                      Industrial Compostable Spouted Pouch
+                    </h3>
+                  </div>
+                  <span className="text-3xl bg-white border-2 border-black p-2 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">🥤</span>
+                </div>
+                
+                <p className="font-['JetBrains_Mono'] text-sm mt-4 leading-relaxed text-neutral-800">
+                  Certified industrial compostable flexible pouch featuring a fully plant-based rigid spout. Replaces conventional plastic spout barrier options with zero plastic footprint.
+                </p>
+
+                <div className="mt-6 pt-4 border-t-2 border-dashed border-black grid grid-cols-2 gap-4 font-['JetBrains_Mono'] text-xs text-black">
+                  <div>
+                    <span className="font-bold block uppercase tracking-wider text-black">MOQ:</span>
+                    <span className="font-black bg-white px-2 py-0.5 border border-black inline-block mt-1">2,000 units</span>
+                  </div>
+                  <div>
+                    <span className="font-bold block uppercase tracking-wider text-black">Certifications:</span>
+                    <span className="font-black text-[#10b981] bg-white px-2 py-0.5 border border-black inline-block mt-1">EN 13432, ASTM D6400</span>
+                  </div>
+                </div>
+              </button>
+
+              {/* Card 2: Flat Bottom Pouch */}
+              <button
+                onClick={() => setActivePouchModel('flat-bottom')}
+                className={`w-full text-left p-8 border-4 border-black transition-all duration-300 relative ${
+                  activePouchModel === 'flat-bottom'
+                    ? 'bg-[#D4FF00] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] -translate-x-1 -translate-y-1'
+                    : 'bg-white hover:bg-neutral-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5'
+                }`}
+              >
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <span className="inline-block px-3 py-1 text-xs font-black uppercase border-2 border-black bg-black text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-3">
+                      🌱 Dry Goods & Coffee
+                    </span>
+                    <h3 className="font-black text-2xl uppercase text-black">
+                      Home Compostable Flat Bottom Pouch
+                    </h3>
+                  </div>
+                  <span className="text-3xl bg-white border-2 border-black p-2 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">☕</span>
+                </div>
+                
+                <p className="font-['JetBrains_Mono'] text-sm mt-4 leading-relaxed text-neutral-800">
+                  Premium 100% home compostable box bottom structure that delivers outstanding shelf presence. Decomposes safely and naturally in home backyard compost bins.
+                </p>
+
+                <div className="mt-6 pt-4 border-t-2 border-dashed border-black grid grid-cols-2 gap-4 font-['JetBrains_Mono'] text-xs text-black">
+                  <div>
+                    <span className="font-bold block uppercase tracking-wider text-black">MOQ:</span>
+                    <span className="font-black bg-white px-2 py-0.5 border border-black inline-block mt-1">1,000 units</span>
+                  </div>
+                  <div>
+                    <span className="font-bold block uppercase tracking-wider text-black">Certifications:</span>
+                    <span className="font-black text-[#10b981] bg-white px-2 py-0.5 border border-black inline-block mt-1">OK Compost HOME</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            {/* Right 3D Viewport (7 columns) */}
+            <div className="lg:col-span-7 h-[500px] md:h-[600px] bg-white border-4 border-black p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] relative flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full relative z-10">
+                <ThreePouchViewer 
+                  modelUrl={activePouchModel === 'spouted' ? '/3d/3d-pouch/spouted-pouch.glb' : '/3d/3d-pouch/flat-bottom-pouch.glb'} 
+                  tilt={threeTilt} 
+                  scrollPercent={threeScrollPercent} 
+                  isMobile={false} 
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

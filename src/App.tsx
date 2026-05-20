@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspens
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom'
-import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight, Gift, Palette } from 'lucide-react'
+import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight, Gift, Palette, Sparkles } from 'lucide-react'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
 import { getImage } from './utils/imageMapper'
 import Newsletter from './components/Newsletter'
@@ -19,6 +19,7 @@ import { FEATURED_PRODUCTS, type PouchProduct } from './store/productData'
 import ReadingProgress from './components/ReadingProgress'
 import { getDomain, getBrandConfig, getBaseUrl } from './utils/domain'
 import QuoteLightbox from './components/QuoteLightbox';
+import { ThreePouchViewer } from './components/ThreePouchViewer';
 
 // Error boundary to handle chunk loading failures
 class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -101,6 +102,43 @@ function App() {
   const [calculatorResults, setCalculatorResults] = useState<CalculatorResults | null>(null)
   const [selectedProduct, setSelectedProduct] = useState<PouchProduct | null>(null)
   const [isRyanProfileOpen, setIsRyanProfileOpen] = useState(false)
+
+  // 3D Pouch Interactive states
+  const [activePouchModel, setActivePouchModel] = useState<'spouted' | 'flat-bottom'>('spouted')
+  const [threeTilt, setThreeTilt] = useState({ x: 0, y: 0 })
+  const [threeScrollPercent, setThreeScrollPercent] = useState(0)
+  const threeContainerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!threeContainerRef.current) return
+      const rect = threeContainerRef.current.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+      
+      const start = rect.top - viewportHeight
+      const totalRange = rect.height + viewportHeight
+      
+      if (rect.top < viewportHeight && rect.bottom > 0) {
+        const progress = (viewportHeight - rect.top) / totalRange
+        setThreeScrollPercent(Math.max(0, Math.min(1, progress)))
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleThreeMouseMove = (e: React.MouseEvent) => {
+    if (!threeContainerRef.current) return
+    const rect = threeContainerRef.current.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width - 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5
+    setThreeTilt({ x: x * 25, y: y * -25 })
+  }
+
+  const handleThreeMouseLeave = () => {
+    setThreeTilt({ x: 0, y: 0 })
+  }
   const [pouchShapeEnlarged, setPouchShapeEnlarged] = useState<{ src: string; index: number } | null>(null)
   
   const pouchShapeImages = [
@@ -842,7 +880,125 @@ function App() {
 
 
 
-      {/* 3D Eco Pouch Material Experience - Disabled */}
+      {/* Interactive 3D Eco Pouch Showcase */}
+      <section 
+        ref={threeContainerRef}
+        onMouseMove={handleThreeMouseMove}
+        onMouseLeave={handleThreeMouseLeave}
+        className="py-20 bg-gradient-to-br from-neutral-50 to-neutral-100 border-y border-neutral-200 overflow-hidden relative"
+      >
+        {/* Subtle decorative mesh grid background */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 text-xs font-semibold uppercase tracking-wider mb-4 border border-emerald-500/20">
+              <Sparkles className="h-3.5 w-3.5" />
+              <span>Interactive 3D Experience</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-neutral-900 tracking-tight leading-tight">
+              Eco Packaging Reimagined in 3D
+            </h2>
+            <p className="text-lg text-neutral-600 mt-4 leading-relaxed">
+              Explore the tactile geometry and sustainable structure of our premium certified pouches. Move your mouse to tilt, scroll to rotate, or toggle the models below to inspect detailed laminations.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Left Controls & Marketing Copy (5 columns) */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Card 1: Spouted Pouch */}
+              <button
+                onClick={() => setActivePouchModel('spouted')}
+                className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 ${
+                  activePouchModel === 'spouted'
+                    ? 'bg-white border-emerald-500 shadow-xl shadow-emerald-500/5 ring-1 ring-emerald-500'
+                    : 'bg-white/60 hover:bg-white border-neutral-200 shadow-sm hover:shadow-md hover:border-neutral-300'
+                }`}
+              >
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <span className="inline-block px-2.5 py-1 rounded-md text-[10px] font-bold tracking-widest bg-emerald-100 text-emerald-700 uppercase mb-2">
+                      💧 Liquids & Purees
+                    </span>
+                    <h3 className="text-xl font-bold text-neutral-900">
+                      Industrial Compostable Spouted Pouch
+                    </h3>
+                  </div>
+                  <span className="text-2xl">🥤</span>
+                </div>
+                
+                <p className="text-sm text-neutral-600 mt-3 leading-relaxed">
+                  Certified industrial compostable flexible pouch featuring a fully plant-based rigid spout. Replaces conventional plastic spout barrier options with zero plastic footprint.
+                </p>
+
+                <div className="mt-4 pt-4 border-t border-neutral-100 grid grid-cols-2 gap-4 text-xs font-semibold text-neutral-500">
+                  <div>
+                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">MOQ</span>
+                    <span className="text-neutral-800 font-bold">2,000 units</span>
+                  </div>
+                  <div>
+                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">Certifications</span>
+                    <span className="text-emerald-600 font-bold">EN 13432, ASTM D6400</span>
+                  </div>
+                </div>
+              </button>
+
+              {/* Card 2: Flat Bottom Pouch */}
+              <button
+                onClick={() => setActivePouchModel('flat-bottom')}
+                className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 ${
+                  activePouchModel === 'flat-bottom'
+                    ? 'bg-white border-emerald-500 shadow-xl shadow-emerald-500/5 ring-1 ring-emerald-500'
+                    : 'bg-white/60 hover:bg-white border-neutral-200 shadow-sm hover:shadow-md hover:border-neutral-300'
+                }`}
+              >
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <span className="inline-block px-2.5 py-1 rounded-md text-[10px] font-bold tracking-widest bg-emerald-100 text-emerald-700 uppercase mb-2">
+                      🌱 Dry Goods & Coffee
+                    </span>
+                    <h3 className="text-xl font-bold text-neutral-900">
+                      Home Compostable Flat Bottom Pouch
+                    </h3>
+                  </div>
+                  <span className="text-2xl">☕</span>
+                </div>
+                
+                <p className="text-sm text-neutral-600 mt-3 leading-relaxed">
+                  Premium 100% home compostable box bottom structure that delivers outstanding shelf presence. Decomposes safely and naturally in home backyard compost bins.
+                </p>
+
+                <div className="mt-4 pt-4 border-t border-neutral-100 grid grid-cols-2 gap-4 text-xs font-semibold text-neutral-500">
+                  <div>
+                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">MOQ</span>
+                    <span className="text-neutral-800 font-bold">1,000 units</span>
+                  </div>
+                  <div>
+                    <span className="text-neutral-400 block text-[10px] uppercase tracking-wider">Certifications</span>
+                    <span className="text-emerald-600 font-bold">OK Compost HOME</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            {/* Right 3D Viewport (7 columns) */}
+            <div className="lg:col-span-7 h-[500px] md:h-[600px] bg-white/40 backdrop-blur-md border border-neutral-200 rounded-3xl p-6 shadow-lg relative flex items-center justify-center">
+              {/* Glassmorphic border glow reflection */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-white/30 rounded-3xl pointer-events-none border border-white/50"></div>
+              
+              <div className="w-full h-full relative z-10">
+                <ThreePouchViewer 
+                  modelUrl={activePouchModel === 'spouted' ? '/3d/3d-pouch/spouted-pouch.glb' : '/3d/3d-pouch/flat-bottom-pouch.glb'} 
+                  tilt={threeTilt} 
+                  scrollPercent={threeScrollPercent} 
+                  isMobile={false} 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Random Banner - Below Hero */}
       <Suspense fallback={<div className="h-32" />}>
