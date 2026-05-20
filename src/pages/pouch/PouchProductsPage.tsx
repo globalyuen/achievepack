@@ -18,7 +18,8 @@ export default function PouchProductsPage() {
       stats: { moq: '500', material: 'BIO/PCR', barrier: 'HIGH' },
       features: ['Self-Standing Design', 'Resealable Zipper', 'Maximum Shelf Appeal'],
       color: 'bg-[#D4FF00]', // Yellow
-      image: '/3d/2d-pouch/pouch2.webp'
+      image: '/3d/2d-pouch/pouch2.webp',
+      link: '/packaging/stand-up-pouches'
     },
     {
       id: 'flat-bottom',
@@ -30,7 +31,8 @@ export default function PouchProductsPage() {
       stats: { moq: '500', material: 'RECYCLABLE', barrier: 'MAX' },
       features: ['5 Printable Faces', 'Box-Like Stability', 'Premium Look & Feel'],
       color: 'bg-[#00FFFF]', // Cyan
-      image: '/3d/2d-pouch/pouch1.webp'
+      image: '/3d/2d-pouch/pouch1.webp',
+      link: '/packaging/flat-bottom-bags'
     },
     {
       id: 'spouted',
@@ -42,7 +44,8 @@ export default function PouchProductsPage() {
       stats: { moq: '1K', material: 'MONO-PE', barrier: 'LIQUID' },
       features: ['Leak-Proof Spout', '80% Less Plastic', 'Cheaper Shipping'],
       color: 'bg-[#FF00FF]', // Magenta
-      image: '/3d/2d-pouch/pouch4.webp'
+      image: '/3d/2d-pouch/pouch4.webp',
+      link: '/packaging/spout-pouches'
     },
     {
       id: 'sachet',
@@ -54,7 +57,21 @@ export default function PouchProductsPage() {
       stats: { moq: '500', material: 'ANY', barrier: 'HIGH' },
       features: ['Cost-Effective', 'Mail-Friendly', 'High Conversion'],
       color: 'bg-white', // White
-      image: '/3d/2d-pouch/pouch3.webp'
+      image: '/3d/2d-pouch/pouch3.webp',
+      link: '/packaging/flat-pouches'
+    },
+    {
+      id: 'side-gusset',
+      name: 'SIDE_GUSSET_BAG',
+      description: 'The classic coffee format. Quad seal structure with expandable side panels.',
+      problem: 'Roasters need a classic blocky shape that holds maximum volume without taking up too much width on the shelf.',
+      solution: 'Our Side Gusset Bags offer a quad seal for rigid structure and large capacity, with no plate fees.',
+      price: '$0.55',
+      stats: { moq: '500', material: 'RECYCLABLE', barrier: 'HIGH' },
+      features: ['Classic Coffee Shape', 'High Volume Capacity', 'Quad Seal Rigidity'],
+      color: 'bg-[#FF00FF]', // Magenta
+      image: '/imgs/pouch-shape/side-gusset-pouch-eco.png',
+      link: '/packaging/side-gusset-bags'
     }
   ]
 
@@ -151,9 +168,16 @@ export default function PouchProductsPage() {
 
                   <div className="pt-6 border-t-2 border-black flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="font-black text-2xl md:text-3xl">FROM {product.price}+</div>
-                    <NeoButton className="w-full sm:w-auto" href="https://calendly.com/30-min-free-packaging-consultancy">
-                      Book Call
-                    </NeoButton>
+                    <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                      {product.link && (
+                        <NeoButton className="w-full sm:w-auto" color="bg-white" href={product.link}>
+                          View Details
+                        </NeoButton>
+                      )}
+                      <NeoButton className="w-full sm:w-auto" href="https://calendly.com/30-min-free-packaging-consultancy">
+                        Book Call
+                      </NeoButton>
+                    </div>
                   </div>
                 </div>
 
