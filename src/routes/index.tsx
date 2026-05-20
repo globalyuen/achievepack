@@ -15,6 +15,7 @@ const LoadingFallback = () => (
 // Lazy load all components
 const App = lazy(() => import('../App'));
 const StorePage = lazy(() => import('../pages/StorePage'));
+const ProductsPage = lazy(() => import('../pages/ProductsPage'));
 const ProductPage = lazy(() => import('../pages/ProductPage'));
 const CheckoutPage = lazy(() => import('../pages/CheckoutPage'));
 const OrderConfirmation = lazy(() => import('../pages/OrderConfirmation'));
@@ -201,7 +202,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 const routes = [
   { path: "/", element: <LazyRoute component={() => import('../pages/DomainHomePage')} fallback={<LoadingFallback />} /> },
   { path: "/store", element: <LazyRoute component={() => import('../pages/StorePage')} fallback={<LoadingFallback />} /> },
-  { path: "/products", element: <LazyRoute component={() => import('../pages/StorePage')} fallback={<LoadingFallback />} /> },
+  { path: "/products", element: <LazyRoute component={() => import('../pages/ProductsPage')} fallback={<LoadingFallback />} /> },
   { path: "/store/product/:productId", element: <LazyRoute component={() => import('../pages/ProductPage')} fallback={<LoadingFallback />} /> },
   { path: "/store/checkout", element: <LazyRoute component={() => import('../pages/CheckoutPage')} fallback={<LoadingFallback />} /> },
   { path: "/store/order-confirmation", element: <LazyRoute component={() => import('../pages/OrderConfirmation')} fallback={<LoadingFallback />} /> },
