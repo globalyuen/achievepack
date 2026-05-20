@@ -16,7 +16,7 @@ const fadeInUp: Variants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const }
   }
 };
 
@@ -26,7 +26,7 @@ const slideInLeft: Variants = {
   visible: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.7, ease: "easeOut" as const as const }
+    transition: { duration: 0.7, ease: "easeOut" as const }
   }
 };
 
@@ -36,7 +36,7 @@ const slideInRight: Variants = {
   visible: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.7, ease: "easeOut" as const as const }
+    transition: { duration: 0.7, ease: "easeOut" as const }
   }
 };
 
@@ -58,7 +58,7 @@ const scaleUp: Variants = {
   visible: { 
     opacity: 1, 
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" as const as const }
+    transition: { duration: 0.5, ease: "easeOut" as const }
   }
 };
 
@@ -66,7 +66,7 @@ const scaleUp: Variants = {
 const cardHover = {
   scale: 1.03,
   y: -8,
-  transition: { duration: 0.3, ease: "easeOut" as const as const }
+  transition: { duration: 0.3, ease: "easeOut" as const }
 };
 
 // Stat counter animation
@@ -395,7 +395,7 @@ export default function MaxiFoodsDemoPage() {
                 </div>
                 <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 w-full">
                     <div className="max-w-4xl">
-                        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
+                        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}>
                             <div className="flex items-center gap-3 mb-8">
                                 <span className="h-[2px] w-12 bg-[#26c6da]"></span>
                                 <span className="text-[#26c6da] font-black tracking-[0.3em] uppercase text-xs">Certified Organic</span>
@@ -981,7 +981,7 @@ export default function MaxiFoodsDemoPage() {
                     initial={{ scale: 1.1 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1.2, ease: "easeOut" as const as const }}
+                    transition={{ duration: 1.2, ease: "easeOut" as const }}
                 >
                     <img src={MAXI_IMAGES.glutenFree.src} alt={MAXI_IMAGES.glutenFree.alt} className="w-full h-full object-cover" />
                 </motion.div>
