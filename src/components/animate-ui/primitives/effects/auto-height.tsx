@@ -45,7 +45,7 @@ function AutoHeight({
       style={{ overflow: 'hidden', ...style }}
       animate={{ height, ...animate }}
       transition={transition}
-      {...props}
+      {...(props as any)}
     >
       <div ref={ref as any}>{children}</div>
     </Comp>
