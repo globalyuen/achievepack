@@ -145,7 +145,7 @@ export default function PopoverSelect({
               initial={{ opacity: 0, y: -10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              transition={{ duration: 0.15, ease: 'easeOut' }}
+              transition={{ duration: 0.15, ease: "easeOut" as const }}
               className="absolute z-50 mt-2 w-full max-w-md bg-white rounded-2xl shadow-xl border border-neutral-200 overflow-hidden"
               style={{ maxHeight: '400px' }}
             >

@@ -53,7 +53,7 @@ function Tabs(props: TabsProps) {
 type TabsHighlightProps = Omit<HighlightProps, 'controlledItems' | 'value'>;
 
 function TabsHighlight({
-  transition = { type: 'spring', stiffness: 200, damping: 25 },
+  transition = { type: "spring" as const, stiffness: 200, damping: 25 },
   ...props
 }: TabsHighlightProps) {
   const { value } = useTabs();
@@ -133,7 +133,7 @@ type TabsContentsLayoutProps = Omit<HTMLMotionProps<'div'>, 'transition'> & {
 type TabsContentsProps = TabsContentsAutoProps | TabsContentsLayoutProps;
 
 const defaultTransition: Transition = {
-  type: 'spring',
+  type: "spring" as const,
   stiffness: 200,
   damping: 30,
 };

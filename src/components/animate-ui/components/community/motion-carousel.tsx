@@ -45,7 +45,7 @@ type DotButtonProps = {
 };
 
 const transition: Transition = {
-  type: 'spring',
+  type: "spring" as const,
   stiffness: 240,
   damping: 24,
   mass: 1,

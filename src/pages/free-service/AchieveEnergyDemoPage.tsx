@@ -35,7 +35,7 @@ const scaleIn: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5, ease: 'easeOut' }
+    transition: { duration: 0.5, ease: "easeOut" as const }
   }
 }
 
@@ -371,7 +371,7 @@ export default function AchieveEnergyDemoPage() {
                  key={activeProduct.id}
                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                 transition={{ type: "spring", stiffness: 100 }}
+                 transition={{ type: "spring" as const, stiffness: 100 }}
                  className="w-full md:w-1/2 relative z-10 flex justify-center"
                >
                  <img src={activeProduct.image} alt={activeProduct.name} className="max-h-[400px] object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]" />

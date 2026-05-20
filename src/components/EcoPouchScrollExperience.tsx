@@ -66,7 +66,7 @@ export function EcoPouchScrollExperience() {
             key={`logo-${material.id}`}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" as const }}
           >
             <img 
               src={material.logo} 
@@ -82,7 +82,7 @@ export function EcoPouchScrollExperience() {
             key={material.id}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" as const }}
             className="text-left bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-xl"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-3 leading-tight">

@@ -259,7 +259,7 @@ export default function AchieveChocolateDemoPage() {
           <motion.div 
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut" as const, delay: 0.5 }}
             className="hidden md:flex justify-end items-end h-full pb-20"
           >
             <div className="bg-black/30 backdrop-blur-md p-8 border-l border-[#D4AF37]/30 w-80 text-white">

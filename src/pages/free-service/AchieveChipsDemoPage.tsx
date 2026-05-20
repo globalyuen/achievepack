@@ -26,7 +26,7 @@ const fadeInScale: Variants = {
   visible: { 
     opacity: 1, 
     scale: 1,
-    transition: { duration: 0.7, ease: 'easeOut' }
+    transition: { duration: 0.7, ease: "easeOut" as const }
   }
 }
 
@@ -68,7 +68,7 @@ const slideInLeft: Variants = {
   visible: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
+    transition: { duration: 0.6, ease: "easeOut" as const }
   }
 }
 
@@ -78,7 +78,7 @@ const slideInRight: Variants = {
   visible: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
+    transition: { duration: 0.6, ease: "easeOut" as const }
   }
 }
 
@@ -99,7 +99,7 @@ const statReveal: Variants = {
     opacity: 1, 
     scale: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' }
+    transition: { duration: 0.5, ease: "easeOut" as const }
   }
 }
 
@@ -946,7 +946,7 @@ export default function AchieveChipsDemoPage() {
               initial={{ opacity: 0, x: 60, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
+              transition={{ duration: 0.8, ease: "easeOut" as const }}
             >
               <motion.img 
                 src={CHIPS_IMAGES.story.rawPotato.src} 
@@ -970,7 +970,7 @@ export default function AchieveChipsDemoPage() {
             initial={{ scale: 1.1 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: 'easeOut' }}
+            transition={{ duration: 1.2, ease: "easeOut" as const }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
           {/* Decorative flavor accent */}
@@ -1127,7 +1127,7 @@ export default function AchieveChipsDemoPage() {
               initial={{ opacity: 0, x: 80, scale: 0.9 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
+              transition={{ duration: 0.8, ease: "easeOut" as const }}
             >
               <motion.img 
                 src={CHIPS_IMAGES.sustainability.compostable.src} 
@@ -1142,7 +1142,7 @@ export default function AchieveChipsDemoPage() {
                 initial={{ opacity: 0, scale: 0, rotate: -10 }}
                 whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.5, type: 'spring' }}
+                transition={{ delay: 0.4, duration: 0.5, type: "spring" as const }}
                 whileHover={{ scale: 1.05, rotate: 3 }}
               >
                 <div className="text-3xl font-bold font-display">180</div>
@@ -1202,7 +1202,7 @@ export default function AchieveChipsDemoPage() {
                 <motion.div
                   initial={{ scale: 1 }}
                   whileHover={{ scale: 1.2, rotate: 5 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
+                  transition={{ type: "spring" as const, stiffness: 300 }}
                 >
                   <cert.icon className="w-10 h-10 mx-auto mb-4" style={{ color: ['#C75B39', '#5B8C5A', '#22c55e', '#4A7C9B'][i] }} />
                 </motion.div>

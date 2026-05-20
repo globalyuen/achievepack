@@ -18,11 +18,11 @@ const BUTTON_MOTION_CONFIG = {
     rest: { maxWidth: '40px' },
     hover: {
       maxWidth: '160px',
-      transition: { type: 'spring', stiffness: 200, damping: 35, delay: 0.15 },
+      transition: { type: "spring" as const, stiffness: 200, damping: 35, delay: 0.15 },
     },
     tap: { scale: 0.95 },
   },
-  transition: { type: 'spring', stiffness: 250, damping: 25 },
+  transition: { type: "spring" as const, stiffness: 250, damping: 25 },
 } as const;
 
 const LABEL_VARIANTS: Variants = {
@@ -32,7 +32,7 @@ const LABEL_VARIANTS: Variants = {
 };
 
 const LABEL_TRANSITION: Transition = {
-  type: 'spring',
+  type: "spring" as const,
   stiffness: 200,
   damping: 25,
 };

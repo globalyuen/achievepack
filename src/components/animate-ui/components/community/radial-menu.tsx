@@ -27,7 +27,7 @@ type MenuItem = {
 type Point = { x: number; y: number };
 
 const menuTransition: Transition = {
-  type: 'spring',
+  type: "spring" as const,
   stiffness: 420,
   damping: 32,
   mass: 1,
@@ -35,7 +35,7 @@ const menuTransition: Transition = {
 
 const wedgeTransition: Transition = {
   duration: 0.05,
-  ease: 'easeOut',
+  ease: "easeOut" as const,
 };
 
 const FULL_CIRCLE = 360;

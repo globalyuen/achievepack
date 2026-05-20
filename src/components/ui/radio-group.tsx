@@ -48,7 +48,7 @@ const RadioGroupItem = React.forwardRef<
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{
-              type: 'spring',
+              type: "spring" as const,
               stiffness: 500,
               damping: 30,
             }}
@@ -59,7 +59,7 @@ const RadioGroupItem = React.forwardRef<
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
               transition={{
-                type: 'spring',
+                type: "spring" as const,
                 stiffness: 600,
                 damping: 25,
                 delay: 0.05,
@@ -166,7 +166,7 @@ const RadioOptionCard = React.forwardRef<
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{
-                type: 'spring',
+                type: "spring" as const,
                 stiffness: 500,
                 damping: 30,
               }}
@@ -177,7 +177,7 @@ const RadioOptionCard = React.forwardRef<
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
                 transition={{
-                  type: 'spring',
+                  type: "spring" as const,
                   stiffness: 600,
                   damping: 25,
                   delay: 0.05,

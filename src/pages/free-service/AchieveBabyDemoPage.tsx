@@ -67,7 +67,7 @@ export default function AchieveBabyDemoPage() {
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1, ease: "easeOut" as const }}
                 className="relative z-10"
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E9EDC9] text-[#5F6F52] rounded-full text-sm font-bold tracking-wide mb-8">

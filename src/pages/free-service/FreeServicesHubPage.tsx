@@ -60,7 +60,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+  show: { opacity: 1, y: 0, transition: { type: "spring" as const as const, stiffness: 300, damping: 24 } }
 }
 
 export default function FreeServicesHubPage() {
@@ -82,7 +82,7 @@ export default function FreeServicesHubPage() {
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" as const }}
             className="text-center max-w-2xl mx-auto"
           >
             <div className="inline-flex items-center justify-center p-3 bg-white/80 backdrop-blur-md rounded-2xl mb-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-100 ring-1 ring-neutral-900/5">

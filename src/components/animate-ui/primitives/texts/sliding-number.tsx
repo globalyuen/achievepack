@@ -114,7 +114,7 @@ function SlidingNumberDisplay({
         alignItems: 'center',
         justifyContent: 'center',
       }}
-      transition={{ ...transition, type: 'spring' }}
+      transition={{ ...transition, type: "spring" as const }}
     >
       {number}
     </motion.span>

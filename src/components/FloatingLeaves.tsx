@@ -78,7 +78,7 @@ function FloatingLeaf({
       transition={{ 
         duration: 0.8, 
         delay,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }}
     >
       <img

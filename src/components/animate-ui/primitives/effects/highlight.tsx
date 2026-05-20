@@ -129,7 +129,7 @@ function Highlight<T extends React.ElementType = 'div'>({
     onValueChange,
     className,
     style,
-    transition = { type: 'spring', stiffness: 350, damping: 35 },
+    transition = { type: "spring" as const, stiffness: 350, damping: 35 },
     hover = false,
     click = true,
     enabled = true,

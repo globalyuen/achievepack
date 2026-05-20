@@ -174,7 +174,7 @@ const Hero = () => {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          transition={{ duration: 1.2, ease: "easeOut" as const }}
           className="relative h-[600px] w-full rounded-[3rem] overflow-hidden shadow-2xl border-[8px] border-white"
         >
           <img 

@@ -32,7 +32,7 @@ const cardVariants: Variants = {
     y: 50,
     rotate: -10,
     transition: {
-      type: 'spring',
+      type: "spring" as const,
       bounce: 0.4,
       duration: 0.8,
     },
@@ -51,7 +51,7 @@ const leftInfoVariants: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      type: 'spring',
+      type: "spring" as const,
       stiffness: 100,
       damping: 20,
       delay: 0.3, // Starts after main card animation
@@ -71,7 +71,7 @@ const rightInfoVariants: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      type: 'spring',
+      type: "spring" as const,
       stiffness: 100,
       damping: 20,
       delay: 0.5, // Staggered 0.2s after left box

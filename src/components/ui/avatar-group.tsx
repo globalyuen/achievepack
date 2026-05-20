@@ -77,7 +77,7 @@ export default function NavAvatarGroup() {
               zIndex: hoveredIndex === index ? 10 : 5 - index,
               x: isHovered ? index * 4 : 0,
             }}
-            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+            transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
           >
             <div className="w-7 h-7 rounded-full border-2 border-white bg-neutral-100 overflow-hidden shadow-sm">
               <img
@@ -119,7 +119,7 @@ export default function NavAvatarGroup() {
         <motion.div
           className="w-7 h-7 rounded-full border-2 border-white bg-primary-100 flex items-center justify-center text-[10px] font-bold text-primary-600 shadow-sm relative z-0"
           animate={{ x: isHovered ? 20 : 0 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+          transition={{ type: "spring" as const, stiffness: 400, damping: 25 }}
         >
           +{Math.max(0, 50 - 5)}
         </motion.div>

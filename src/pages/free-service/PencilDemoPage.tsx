@@ -21,7 +21,7 @@ const fadeInScale: Variants = {
   visible: { 
     opacity: 1, 
     scale: 1,
-    transition: { duration: 0.7, ease: 'easeOut' }
+    transition: { duration: 0.7, ease: "easeOut" as const }
   }
 }
 
@@ -59,7 +59,7 @@ const slideInLeft: Variants = {
   visible: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
+    transition: { duration: 0.6, ease: "easeOut" as const }
   }
 }
 
@@ -68,7 +68,7 @@ const slideInRight: Variants = {
   visible: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
+    transition: { duration: 0.6, ease: "easeOut" as const }
   }
 }
 
@@ -78,7 +78,7 @@ const statReveal: Variants = {
     opacity: 1, 
     scale: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' }
+    transition: { duration: 0.5, ease: "easeOut" as const }
   }
 }
 
@@ -314,7 +314,7 @@ export default function PencilDemoPage() {
           <motion.div 
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1, ease: "easeOut" as const }}
             className="hidden md:flex justify-end"
           >
             <div className="bg-white/10 backdrop-blur-xl p-8 rounded-2xl border border-white/20 w-80 text-white">

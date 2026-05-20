@@ -252,7 +252,7 @@ export default function AchieveSupplementDemoPage() {
           <motion.div 
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
+            transition={{ duration: 1, ease: "easeOut" as const, delay: 0.2 }}
             className="relative h-[600px] bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100"
           >
             <img 

@@ -163,7 +163,7 @@ const Hero = () => {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          transition={{ duration: 1.2, ease: "easeOut" as const }}
           className="relative h-[600px] w-full bg-white p-8 md:p-12 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)]"
         >
           <img 

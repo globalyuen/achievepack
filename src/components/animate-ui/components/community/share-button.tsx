@@ -176,10 +176,10 @@ function ShareIconGroup({
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0, duration: 0.5, type: 'spring', bounce: 0.4 }}
+        transition={{ delay: 0, duration: 0.5, type: "spring" as const, bounce: 0.4 }}
         whileHover={{
           y: -8,
-          transition: { duration: 0.2, ease: 'easeOut' },
+          transition: { duration: 0.2, ease: "easeOut" as const },
         }}
         className="cursor-pointer py-3 rounded-lg box-border hover:text-blue-400"
         onClick={() => onIconClick?.('twitter')}
@@ -192,10 +192,10 @@ function ShareIconGroup({
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1, duration: 0.5, type: 'spring', bounce: 0.4 }}
+        transition={{ delay: 0.1, duration: 0.5, type: "spring" as const, bounce: 0.4 }}
         whileHover={{
           y: -8,
-          transition: { duration: 0.2, ease: 'easeOut' },
+          transition: { duration: 0.2, ease: "easeOut" as const },
         }}
         className="cursor-pointer py-3 rounded-lg box-border hover:text-blue-600"
         onClick={() => onIconClick?.('facebook')}
@@ -208,10 +208,10 @@ function ShareIconGroup({
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.5, type: 'spring', bounce: 0.4 }}
+        transition={{ delay: 0.2, duration: 0.5, type: "spring" as const, bounce: 0.4 }}
         whileHover={{
           y: -8,
-          transition: { duration: 0.2, ease: 'easeOut' },
+          transition: { duration: 0.2, ease: "easeOut" as const },
         }}
         className="cursor-pointer py-3 rounded-lg box-border hover:text-blue-700"
         onClick={() => onIconClick?.('linkedin')}
@@ -224,10 +224,10 @@ function ShareIconGroup({
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5, type: 'spring', bounce: 0.4 }}
+        transition={{ delay: 0.3, duration: 0.5, type: "spring" as const, bounce: 0.4 }}
         whileHover={{
           y: -8,
-          transition: { duration: 0.2, ease: 'easeOut' },
+          transition: { duration: 0.2, ease: "easeOut" as const },
         }}
         className="cursor-pointer py-3 rounded-lg box-border hover:text-green-500"
         onClick={() => onIconClick?.('copy')}

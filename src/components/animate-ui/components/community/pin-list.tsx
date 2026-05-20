@@ -63,7 +63,7 @@ function PinList({
   items,
   onPinChange,
   labels = { pinned: 'Pinned Items', unpinned: 'All Items' },
-  transition = { stiffness: 320, damping: 20, mass: 0.8, type: 'spring' },
+  transition = { stiffness: 320, damping: 20, mass: 0.8, type: "spring" as const },
   labelMotionProps = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },

@@ -49,12 +49,12 @@ const PRODUCTS = [
 // ============================================
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
 }
 
 const popIn = {
   hidden: { scale: 0.8, opacity: 0 },
-  visible: { scale: 1, opacity: 1, transition: { type: "spring", stiffness: 200 } }
+  visible: { scale: 1, opacity: 1, transition: { type: "spring" as const, stiffness: 200 } }
 }
 
 const staggerContainer = {
@@ -161,7 +161,7 @@ const Hero = () => {
         <motion.div 
           initial={{ opacity: 0, x: 100, rotate: 10 }}
           animate={{ opacity: 1, x: 0, rotate: 0 }}
-          transition={{ type: "spring", stiffness: 50, delay: 0.2 }}
+          transition={{ type: "spring" as const, stiffness: 50, delay: 0.2 }}
           className="relative"
         >
           <div className="relative z-10 w-full max-w-[600px] mx-auto">
