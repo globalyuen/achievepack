@@ -378,7 +378,7 @@ export default function AchieveHoneyDemoPage() {
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, delay: 0.2 }}
+              viewport={{ once: true }} transition={{ delay: 0.2 }}
               className="bg-white p-10 rounded-3xl shadow-sm text-center card-hover"
             >
               <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-amber-600">
@@ -394,7 +394,7 @@ export default function AchieveHoneyDemoPage() {
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, delay: 0.4 }}
+              viewport={{ once: true }} transition={{ delay: 0.4 }}
               className="bg-white p-10 rounded-3xl shadow-sm text-center card-hover"
             >
               <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-amber-600">

@@ -24,7 +24,7 @@ function Button({
     <Component
       whileTap={{ scale: tapScale }}
       whileHover={{ scale: hoverScale }}
-      {...props}
+      {...(props as any)}
     />
   );
 }

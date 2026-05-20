@@ -213,7 +213,7 @@ function TooltipArrow({
 
   return (
     <MotionTooltipArrow
-      ref={arrowRef}
+      ref={arrowRef as any}
       context={context}
       data-state={open ? 'open' : 'closed'}
       data-side={side}
@@ -285,7 +285,7 @@ function TooltipOverlay() {
       {rendered.data && ready && (
         <TooltipPortal>
           <div
-            ref={refs.setFloating}
+            ref={refs.setFloating as any}
             data-slot="tooltip-overlay"
             data-side={resolvedSide}
             data-align={rendered.data.align}
@@ -538,7 +538,7 @@ function TooltipTrigger({
 
   return (
     <Component
-      ref={triggerRef}
+      ref={triggerRef as any}
       onPointerDown={handlePointerDown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

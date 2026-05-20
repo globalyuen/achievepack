@@ -144,7 +144,7 @@ function ArtworkStatusAvatar({
                           </Avatar>
                         </motion.div>
                       </TooltipTrigger>
-                      <TooltipContent side="bottom" className="z-50">
+                      <TooltipContent  className="z-50">
                         <div className="text-center">
                           <p className="font-medium">{item.name}</p>
                           <p className="text-xs text-gray-400">{item.tooltip}</p>
@@ -295,7 +295,7 @@ function AdminWorkQueue({
                           )}
                         </motion.div>
                       </TooltipTrigger>
-                      <TooltipContent side="bottom" className="z-50">
+                      <TooltipContent  className="z-50">
                         <div className="text-center">
                           <p className="font-medium">{item.name}</p>
                           {item.customerName && (

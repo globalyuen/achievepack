@@ -62,7 +62,7 @@ export default function NavAvatarGroup() {
         setIsHovered(false)
         setHoveredIndex(null)
       }}
-      ref={containerRef}
+      ref={containerRef as any}
     >
       {/* Avatar Stack */}
       <div className="flex -space-x-2">

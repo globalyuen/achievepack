@@ -47,7 +47,7 @@ function AutoHeight({
       transition={transition}
       {...props}
     >
-      <div ref={ref}>{children}</div>
+      <div ref={ref as any}>{children}</div>
     </Comp>
   );
 }

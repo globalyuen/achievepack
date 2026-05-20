@@ -22,7 +22,7 @@ const PopoverPortal = PopoverPrimitive.Portal
 
 interface PopoverContentProps extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {
   transition?: {
-    type?: string
+    type?: any
     stiffness?: number
     damping?: number
   }
