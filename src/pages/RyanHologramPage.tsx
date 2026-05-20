@@ -307,11 +307,6 @@ const RyanHologramPage = () => {
           {/* Hero Section: Left-aligned content, leaving the right side wide open for the 3D pouch */}
           <section className="w-full lg:w-7/12 space-y-8 min-h-[75vh] flex flex-col justify-center">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#2d2a24]/5 border border-[#dfd2bf] rounded-full text-[10px] text-[#5f5646] font-['Space_Mono'] uppercase tracking-wider">
-                <Activity className="h-3.5 w-3.5 text-[#ff8400] animate-pulse" />
-                <span>SYSTEM AGENT DIRECTORY // HKG_LAX</span>
-              </div>
-              
               {/* Big Bold Headline */}
               <div className="relative inline-block">
                 <h1 className="text-6xl md:text-8xl font-black tracking-tight text-[#2d2a24] leading-[0.9] font-['Outfit']">

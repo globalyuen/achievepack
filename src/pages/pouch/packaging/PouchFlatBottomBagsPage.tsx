@@ -1,10 +1,32 @@
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
 import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 
 export default function PouchFlatBottomBagsPage() {
+  const [scrollPercent, setScrollPercent] = useState(0)
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const heroCardRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const s = window.scrollY
+      const d = document.documentElement.scrollHeight - window.innerHeight
+      if (d > 0) setScrollPercent(s / d)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!heroCardRef.current) return
+    const rect = heroCardRef.current.getBoundingClientRect()
+    setTilt({ x: ((e.clientX - rect.left) / rect.width - 0.5) * 30, y: ((e.clientY - rect.top) / rect.height - 0.5) * -30 })
+  }
+
   const floatAnim = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
@@ -48,20 +70,14 @@ export default function PouchFlatBottomBagsPage() {
               </div>
             </div>
 
-            <div className="relative">
-              <NeoCard className="bg-[#D4FF00] relative z-10 rotate-2 !p-0 overflow-hidden group border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-                <div className="aspect-square relative overflow-hidden">
-                  <img 
-                    src="/imgs/pouch/packaging/pouch_fb_hero.png" 
-                    alt="Flat Bottom Pouch" 
-                    className="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
-                  />
-                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
-                    BOX_BOTTOM_TECH
-                  </motion.div>
-                </div>
-              </NeoCard>
-              <div className="absolute top-10 -right-10 w-full h-full border-4 border-black bg-[#00FFFF] -z-0 rotate-6" />
+            {/* 3D Viewer Card */}
+            <div className="relative w-full h-[500px]">
+              <ThreePouchViewer
+                modelUrl="/3d/3d-pouch/coffee-pouch.glb"
+                tilt={tilt}
+                scrollPercent={scrollPercent}
+                isMobile={true}
+              />
             </div>
           </div>
         </div>
@@ -112,9 +128,9 @@ export default function PouchFlatBottomBagsPage() {
             </p>
             
             <img 
-              src="/imgs/store/pouch shape/flat-bottom.webp" 
-              alt="Premium coffee packaged in a custom printed flat bottom bag" 
-              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+              src="/imgs/pouch-shape/flat-bottom-premium.png" 
+              alt="Premium custom printed flat bottom bag with high shelf stability" 
+              className="w-full h-[600px] object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
 
             <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">The Power of 5-Panel Branding</h3>
@@ -130,11 +146,7 @@ export default function PouchFlatBottomBagsPage() {
               Beyond aesthetics, flat bottom bags are highly efficient. Because of their box-like structure, they can hold up to 15% more product volume than a standard stand-up pouch of the same height and width. This structural efficiency translates directly to logistics savings. More bags can fit into a single shipping carton, reducing your carbon footprint during transportation and maximizing your warehousing space. For high-volume items like specialty coffee beans, loose leaf tea, protein powders, and pet kibble, this volume optimization is a game-changer.
             </p>
             
-            <img 
-              src="/imgs/topics/dtc_packaging_1778212333445.png" 
-              alt="Flat bottom bags stacked efficiently for DTC shipping" 
-              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
-            />
+
 
             <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Sustainable Flat Bottom Solutions</h3>
             <p>

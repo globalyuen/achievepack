@@ -85,6 +85,7 @@ const SizeGuidePage = lazy(() => import('../pages/knowledge/SizeGuidePage'));
 const PouchSizingPage = lazy(() => import('../pages/knowledge/PouchSizingPage'));
 const PrintingTypesPage = lazy(() => import('../pages/knowledge/PrintingTypesPage'));
 const WorkflowPage = lazy(() => import('../pages/knowledge/WorkflowPage'));
+const FlatBottomVsGussetPage = lazy(() => import('../pages/knowledge/FlatBottomVsGussetPage'));
 
 // Support Pages
 const FAQsPage = lazy(() => import('../pages/support/FAQsPage'));
@@ -200,6 +201,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 const routes = [
   { path: "/", element: <LazyRoute component={() => import('../pages/DomainHomePage')} fallback={<LoadingFallback />} /> },
   { path: "/store", element: <LazyRoute component={() => import('../pages/StorePage')} fallback={<LoadingFallback />} /> },
+  { path: "/products", element: <LazyRoute component={() => import('../pages/StorePage')} fallback={<LoadingFallback />} /> },
   { path: "/store/product/:productId", element: <LazyRoute component={() => import('../pages/ProductPage')} fallback={<LoadingFallback />} /> },
   { path: "/store/checkout", element: <LazyRoute component={() => import('../pages/CheckoutPage')} fallback={<LoadingFallback />} /> },
   { path: "/store/order-confirmation", element: <LazyRoute component={() => import('../pages/OrderConfirmation')} fallback={<LoadingFallback />} /> },
@@ -287,6 +289,7 @@ const routes = [
   { path: "/knowledge/pouch-sizing", element: <LazyRoute component={() => import('../pages/knowledge/PouchSizingPage')} fallback={<LoadingFallback />} /> },
   { path: "/knowledge/printing-types", element: <LazyRoute component={() => import('../pages/knowledge/PrintingTypesPage')} fallback={<LoadingFallback />} /> },
   { path: "/knowledge/workflow", element: <LazyRoute component={() => import('../pages/knowledge/WorkflowPage')} fallback={<LoadingFallback />} /> },
+  { path: "/knowledge/flat-bottom-vs-gusset", element: <LazyRoute component={() => import('../pages/knowledge/FlatBottomVsGussetPage')} fallback={<LoadingFallback />} /> },
 
   // Support Pages
   { path: "/support/faqs", element: <LazyRoute component={() => import('../pages/support/FAQsPage')} fallback={<LoadingFallback />} /> },

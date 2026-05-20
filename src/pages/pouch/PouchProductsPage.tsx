@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { ShoppingBag, Package, Zap } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
+import { ThreeFloatingBackground } from '../../components/ThreeFloatingBackground'
 
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
 
@@ -98,8 +99,10 @@ export default function PouchProductsPage() {
       </section>
 
       {/* Product List */}
-      <section className="py-24 bg-[#F0F0F0]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <section className="py-24 bg-[#F0F0F0] relative overflow-hidden">
+        {/* Floating 3D Pouch Background Animation */}
+        <ThreeFloatingBackground opacity={0.07} tint={0x8898bb} countPerModel={2} />
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="grid gap-12">
             {PRODUCTS.map((product, index) => (
               <NeoCard key={product.id} className={`flex flex-col md:flex-row ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} gap-8 items-center bg-white !p-6`}>

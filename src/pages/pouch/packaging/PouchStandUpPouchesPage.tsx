@@ -1,10 +1,32 @@
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
 import { Package, Leaf, Zap, ShoppingCart, CheckCircle, ArrowRight, Shield, Award } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 
 export default function PouchStandUpPouchesPage() {
+  const [scrollPercent, setScrollPercent] = useState(0)
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const heroCardRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const s = window.scrollY
+      const d = document.documentElement.scrollHeight - window.innerHeight
+      if (d > 0) setScrollPercent(s / d)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!heroCardRef.current) return
+    const rect = heroCardRef.current.getBoundingClientRect()
+    setTilt({ x: ((e.clientX - rect.left) / rect.width - 0.5) * 30, y: ((e.clientY - rect.top) / rect.height - 0.5) * -30 })
+  }
+
   const floatAnim = {
     y: [0, -10, 0],
     transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
@@ -48,15 +70,25 @@ export default function PouchStandUpPouchesPage() {
               </div>
             </div>
 
+            {/* 3D Viewer Card */}
             <div className="relative">
-              <NeoCard className="bg-[#00FFFF] relative z-10 rotate-2 !p-0 overflow-hidden group">
-                <div className="aspect-square bg-gradient-to-br from-[#00FFFF] to-[#FF00FF] flex items-center justify-center relative">
-                  <Package className="w-64 h-64 text-black opacity-80 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300" strokeWidth={1.5} />
-                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
-                    SELF_STANDING_TECH
-                  </motion.div>
-                </div>
-              </NeoCard>
+              <div
+                ref={heroCardRef}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={() => setTilt({ x: 0, y: 0 })}
+                className="relative z-10 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-[#00FFFF] rotate-2 overflow-hidden"
+                style={{ height: '420px' }}
+              >
+                <ThreePouchViewer
+                  modelUrl="/3d/3d-pouch/stand-up-pouch2.glb"
+                  tilt={tilt}
+                  scrollPercent={scrollPercent}
+                  isMobile={false}
+                />
+                <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                  SELF_STANDING_TECH
+                </motion.div>
+              </div>
               <div className="absolute top-10 -right-10 w-full h-full border-4 border-black bg-[#D4FF00] -z-0 rotate-6" />
             </div>
           </div>
@@ -202,6 +234,12 @@ export default function PouchStandUpPouchesPage() {
             <p>
               At POUCH.ECO, we understand the critical shift towards sustainable packaging. Traditional stand-up pouches often rely on mixed-material plastics that are impossible to recycle. We've engineered our pouches to meet the highest sustainability standards without compromising on barrier properties or aesthetic appeal.
             </p>
+
+            <img 
+              src="/imgs/pouch-shape/eco-stand-up-pouch.png" 
+              alt="Premium Eco-Friendly Sustainable Stand-Up Pouch" 
+              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+            />
             
             <img 
               src="/imgs/materials/comp_film_2.png" 

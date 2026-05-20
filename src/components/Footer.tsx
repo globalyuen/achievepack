@@ -156,6 +156,7 @@ export default function Footer() {
               <li><Link to="/features/surface-finish" className="hover:text-primary-400">Surface Option</Link></li>
               <li><Link to="/features/reclosure-options" className="hover:text-primary-400">Reclosure Option</Link></li>
               <li><Link to="/knowledge/printing-types" className="hover:text-primary-400">Printing Types</Link></li>
+              <li><Link to="/knowledge/flat-bottom-vs-gusset" className="hover:text-primary-400">Flat Bottom vs. Side Gusset</Link></li>
               <li><Link to="/support/sample-quote" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Custom Printed Sample <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>

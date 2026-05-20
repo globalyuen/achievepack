@@ -526,6 +526,7 @@ const FlatBottomBagsPage: React.FC = () => {
       heroSubtitle={t('seoPages.pages.flatBottomBags.heroSubtitle')}
       heroImage="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp"
       heroImageAlt="Flat bottom bag box pouch packaging"
+      hero3DModelUrl="/3d/3d-pouch/coffee-pouch.glb"
       introSummary={t('seoPages.pages.flatBottomBags.introSummary')}
       sections={sections}
       faqs={faqs}

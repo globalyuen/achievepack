@@ -51,11 +51,12 @@ export const NeoButton = ({ children, onClick, variant = 'primary', className = 
   )
 }
 
-export const NeoCard = ({ children, className = '', color = 'bg-white', title }: { children: ReactNode, className?: string, color?: string, title?: string }) => (
+export const NeoCard = ({ children, className = '', color = 'bg-white', title, onClick }: { children: ReactNode, className?: string, color?: string, title?: string, onClick?: () => void }) => (
   <motion.div 
     className={`relative border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] ${color} ${className}`}
     whileHover={{ y: -4, x: -4, boxShadow: "14px 14px 0px 0px rgba(0,0,0,1)" }}
     title={title}
+    onClick={onClick}
   >
     {children}
   </motion.div>

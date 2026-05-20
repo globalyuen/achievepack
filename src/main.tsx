@@ -187,6 +187,7 @@ const PouchWorkflowPage = lazyWithRetry(() => import('./pages/pouch/knowledge/Po
 const PouchKSealStandUpPouchesPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchKSealStandUpPouchesPage'))
 const PouchWhiteInkUnderprintPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchWhiteInkUnderprintPage'))
 const PouchFinSealLapSealPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchFinSealLapSealPage'))
+const PouchFlatBottomVsGussetPage = lazyWithRetry(() => import('./pages/pouch/knowledge/PouchFlatBottomVsGussetPage'))
 const PouchRecycledOceanPlasticPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecycledOceanPlasticPackagingPage'))
 const PouchMinimalistD2CPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMinimalistD2CPackagingPage'))
 const DynamicPouchTopicPage = lazyWithRetry(() => import('./pages/pouch/topics/DynamicPouchTopicPage'))
@@ -243,6 +244,7 @@ const WorkflowPage = lazyWithRetry(() => import('./pages/knowledge/WorkflowPage'
 const KSealStandUpPouchesPage = lazyWithRetry(() => import('./pages/knowledge/KSealStandUpPouchesPage'))
 const WhiteInkUnderprintPage = lazyWithRetry(() => import('./pages/knowledge/WhiteInkUnderprintPage'))
 const FinSealLapSealPage = lazyWithRetry(() => import('./pages/knowledge/FinSealLapSealPage'))
+const FlatBottomVsGussetPage = lazyWithRetry(() => import('./pages/knowledge/FlatBottomVsGussetPage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -466,6 +468,7 @@ const PouchTechSpecsPage = lazyWithRetry(() => import('./pages/pouch/PouchTechSp
 // New Pouch SEO Pages
 const PouchStandUpPouchesPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchStandUpPouchesPage'))
 const PouchFlatBottomBagsPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchFlatBottomBagsPage'))
+const PouchSideGussetBagsPage = lazyWithRetry(() => import('./pages/pouch/packaging/PouchSideGussetBagsPage'))
 const PouchCompostablePage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCompostablePage'))
 const PouchBioPEPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchBioPEPage'))
 const PouchPCRPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchPCRPage'))
@@ -591,6 +594,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/k-seal-stand-up-pouches" element={<PouchKSealStandUpPouchesPage />} />
                   <Route path="/knowledge/white-ink-underprint" element={<PouchWhiteInkUnderprintPage />} />
                   <Route path="/knowledge/fin-seal-lap-seal" element={<PouchFinSealLapSealPage />} />
+                  <Route path="/knowledge/flat-bottom-vs-gusset" element={<PouchFlatBottomVsGussetPage />} />
                   <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} />
                   <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} />
                   <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
@@ -617,6 +621,7 @@ if (getDomain() === 'pouch') {
                   {/* New SEO Pages */}
                   <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
                   <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
+                  <Route path="/packaging/side-gusset-bags" element={<PouchSideGussetBagsPage />} />
                   <Route path="/materials/compostable" element={<PouchCompostablePage />} />
                   <Route path="/materials/bio-pe" element={<PouchBioPEPage />} />
                   <Route path="/materials/pcr" element={<PouchPCRPage />} />
@@ -858,7 +863,8 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/workflow" element={<WorkflowPage />} />
                         <Route path="/knowledge/k-seal-stand-up-pouches" element={<KSealStandUpPouchesPage />} />
                         <Route path="/knowledge/white-ink-underprint" element={<WhiteInkUnderprintPage />} />
-                                              <Route path="/knowledge/fin-seal-lap-seal" element={<FinSealLapSealPage />} />
+                        <Route path="/knowledge/fin-seal-lap-seal" element={<FinSealLapSealPage />} />
+                        <Route path="/knowledge/flat-bottom-vs-gusset" element={<FlatBottomVsGussetPage />} />
 
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />

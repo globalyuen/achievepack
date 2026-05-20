@@ -9,6 +9,7 @@ import { ShareButton } from './animate-ui/components/community/share-button'
 import Footer from './Footer'
 import ReadingProgress from './ReadingProgress'
 import StickyFreeSampleCTA from './StickyFreeSampleCTA'
+import { ThreePouchViewer } from './ThreePouchViewer'
 
 // Category icons for Learn Menu
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -458,6 +459,7 @@ interface SEOPageLayoutProps {
   heroSubtitle: string
   heroImage?: string
   heroImageAlt?: string
+  hero3DModelUrl?: string
   heroLogo?: string
   heroLogoAlt?: string
   
@@ -513,6 +515,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   heroSubtitle,
   heroImage,
   heroImageAlt,
+  hero3DModelUrl,
   heroLogo,
   heroLogoAlt,
   introSummary,
@@ -529,6 +532,34 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   heroStyle = 'split',
   heroBgColor
 }) => {
+  const [scrollPercent, setScrollPercent] = useState(0)
+  const [hero3DTilt, setHero3DTilt] = useState({ x: 0, y: 0 })
+  const hero3DCardRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      if (docHeight > 0) {
+        setScrollPercent(scrollTop / docHeight)
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleHero3DMouseMove = (e: React.MouseEvent) => {
+    if (!hero3DCardRef.current) return
+    const rect = hero3DCardRef.current.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width - 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5
+    setHero3DTilt({ x: x * 30, y: y * -30 })
+  }
+
+  const handleHero3DMouseLeave = () => {
+    setHero3DTilt({ x: 0, y: 0 })
+  }
   const { t } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
@@ -776,8 +807,22 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     </a>
                   </div>
                 </div>
-                {/* Hero Image - Right, Responsive */}
-                {heroImage && (
+                {/* Hero Image / 3D Model - Right, Responsive */}
+                {hero3DModelUrl ? (
+                  <div 
+                    ref={hero3DCardRef}
+                    onMouseMove={handleHero3DMouseMove}
+                    onMouseLeave={handleHero3DMouseLeave}
+                    className="w-full h-[400px] md:h-[550px] pb-12 md:pb-0 md:py-16 flex justify-center items-center relative overflow-hidden"
+                  >
+                    <ThreePouchViewer 
+                      modelUrl={hero3DModelUrl} 
+                      tilt={hero3DTilt} 
+                      scrollPercent={scrollPercent} 
+                      isMobile={false} 
+                    />
+                  </div>
+                ) : heroImage ? (
                   <div className="w-full pb-12 md:pb-0 md:py-16 flex justify-center items-center">
                     <img 
                       src={heroImage} 
@@ -786,7 +831,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                       loading="eager"
                     />
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
           </section>

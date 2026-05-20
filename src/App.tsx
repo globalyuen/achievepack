@@ -2415,8 +2415,7 @@ function App() {
                 <li><Link to="/knowledge/k-seal-stand-up-pouches" className="hover:text-primary-500">K-Seal Pouches</Link></li>
                 <li><Link to="/knowledge/white-ink-underprint" className="hover:text-primary-500">White Ink Underprint</Link></li>
                 <li><Link to="/knowledge/fin-seal-lap-seal" className="hover:text-primary-500">Fin vs Lap Seal</Link></li>
-
-
+                <li><Link to="/knowledge/flat-bottom-vs-gusset" className="hover:text-primary-500">Flat Bottom vs. Side Gusset</Link></li>
               </ul>
             </div>
           </div>

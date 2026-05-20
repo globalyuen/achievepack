@@ -834,6 +834,7 @@ const StandUpPouchesPage: React.FC = () => {
       heroSubtitle={t('seoPages.pages.standUpPouches.heroSubtitle')}
       heroImage="/imgs/pouch-shape/achieve-pack-sup-hero.png"
       heroImageAlt="Achieve Pack branded premium stand-up pouch with eco-friendly design"
+      hero3DModelUrl="/3d/3d-pouch/stand-up-pouch2.glb"
       introSummary={t('seoPages.pages.standUpPouches.introSummary')}
       sections={sections}
       faqs={faqs}

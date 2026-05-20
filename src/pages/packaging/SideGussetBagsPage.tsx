@@ -307,6 +307,7 @@ const SideGussetBagsPage: React.FC = () => {
       heroSubtitle={t('seoPages.pages.sideGussetBags.heroSubtitle')}
       heroImage="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp"
       heroImageAlt="Side gusset coffee bag packaging"
+      hero3DModelUrl="/3d/3d-pouch/gusset-pouch.glb"
       introSummary={t('seoPages.pages.sideGussetBags.introSummary')}
       sections={sections}
       faqs={faqs}

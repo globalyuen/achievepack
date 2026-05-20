@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.git/
+.vercel/
+scratch/
+.cursor/
+CRM/
+*.log
+*.pptx
+*.zip
+*.tar.gz
+.DS_Store
