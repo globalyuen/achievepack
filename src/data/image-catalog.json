@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-20",
-  "total_images": 1375,
+  "total_images": 1378,
   "total_categories": 154,
   "extensions": {
     ".webp": 1082,
-    ".png": 246,
+    ".png": 249,
     ".jpg": 44,
     ".svg": 3
   },
@@ -4803,8 +4803,26 @@
       ]
     },
     "pouch-shape": {
-      "count": 13,
+      "count": 16,
       "images": [
+        {
+          "filename": "flat-bottom-premium.png",
+          "path": "/imgs/pouch-shape/flat-bottom-premium.png",
+          "extension": ".png",
+          "modified": "2026-05-20T12:20:21.476Z"
+        },
+        {
+          "filename": "eco-stand-up-pouch.png",
+          "path": "/imgs/pouch-shape/eco-stand-up-pouch.png",
+          "extension": ".png",
+          "modified": "2026-05-20T12:20:21.474Z"
+        },
+        {
+          "filename": "side-gusset-pouch-eco.png",
+          "path": "/imgs/pouch-shape/side-gusset-pouch-eco.png",
+          "extension": ".png",
+          "modified": "2026-05-20T12:20:21.471Z"
+        },
         {
           "filename": "rollstock-film.jpg",
           "path": "/imgs/pouch-shape/rollstock-film.jpg",

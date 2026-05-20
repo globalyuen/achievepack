@@ -26,7 +26,7 @@ const slideInLeft: Variants = {
   visible: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' }
+    transition: { duration: 0.7, ease: 'easeOut' as const }
   }
 };
 
@@ -36,7 +36,7 @@ const slideInRight: Variants = {
   visible: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.7, ease: 'easeOut' }
+    transition: { duration: 0.7, ease: 'easeOut' as const }
   }
 };
 
@@ -58,7 +58,7 @@ const scaleUp: Variants = {
   visible: { 
     opacity: 1, 
     scale: 1,
-    transition: { duration: 0.5, ease: 'easeOut' }
+    transition: { duration: 0.5, ease: 'easeOut' as const }
   }
 };
 
@@ -66,7 +66,7 @@ const scaleUp: Variants = {
 const cardHover = {
   scale: 1.03,
   y: -8,
-  transition: { duration: 0.3, ease: 'easeOut' }
+  transition: { duration: 0.3, ease: 'easeOut' as const }
 };
 
 // Stat counter animation
@@ -981,7 +981,7 @@ export default function MaxiFoodsDemoPage() {
                     initial={{ scale: 1.1 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1.2, ease: 'easeOut' }}
+                    transition={{ duration: 1.2, ease: 'easeOut' as const }}
                 >
                     <img src={MAXI_IMAGES.glutenFree.src} alt={MAXI_IMAGES.glutenFree.alt} className="w-full h-full object-cover" />
                 </motion.div>

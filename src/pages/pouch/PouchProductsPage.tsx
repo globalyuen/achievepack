@@ -170,7 +170,7 @@ export default function PouchProductsPage() {
                     <div className="font-black text-2xl md:text-3xl">FROM {product.price}+</div>
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                       {product.link && (
-                        <NeoButton className="w-full sm:w-auto" color="bg-white" href={product.link}>
+                        <NeoButton className="w-full sm:w-auto !bg-white !text-black" href={product.link}>
                           View Details
                         </NeoButton>
                       )}
