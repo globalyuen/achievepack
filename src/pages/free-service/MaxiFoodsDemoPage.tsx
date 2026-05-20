@@ -422,7 +422,7 @@ export default function MaxiFoodsDemoPage() {
                                 <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#26c6da] text-black px-10 py-5 rounded-full font-extrabold text-sm tracking-widest uppercase hover:bg-white transition-all shadow-2xl shadow-[#26c6da]/20 flex items-center justify-center gap-3">
                                     SHOP PRODUCTS <ArrowRight className="w-5 h-5" />
                                 </motion.button>
-                                <motion.button whileHover={{ borderOpacity: 1, background: "rgba(255,255,255,0.05)" }} className="border border-white/20 text-white px-10 py-5 rounded-full font-extrabold text-sm tracking-widest uppercase transition-all flex items-center justify-center gap-3">
+                                <motion.button whileHover={{ borderColor: "rgba(255,255,255,1)", background: "rgba(255,255,255,0.05)" }} className="border border-white/20 text-white px-10 py-5 rounded-full font-extrabold text-sm tracking-widest uppercase transition-all flex items-center justify-center gap-3">
                                     OUR STORY
                                 </motion.button>
                             </div>
