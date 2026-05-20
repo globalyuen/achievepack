@@ -107,25 +107,13 @@ export default function PouchSideGussetBagsPage() {
             </div>
 
             {/* 3D Viewer Card */}
-            <div className="relative">
-              <div
-                ref={heroCardRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={() => setTilt({ x: 0, y: 0 })}
-                className="relative z-10 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-[#FF00FF] rotate-2 overflow-hidden"
-                style={{ height: '420px' }}
-              >
-                <ThreePouchViewer
-                  modelUrl="/3d/3d-pouch/gusset-pouch.glb"
-                  tilt={tilt}
-                  scrollPercent={scrollPercent}
-                  isMobile={false}
-                />
-                <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
-                  QUAD_SEAL_TECH
-                </motion.div>
-              </div>
-              <div className="absolute top-10 -right-10 w-full h-full border-4 border-black bg-[#00FFFF] -z-0 rotate-6" />
+            <div className="relative w-full h-[500px]">
+              <ThreePouchViewer
+                modelUrl="/3d/3d-pouch/gusset-pouch.glb"
+                tilt={tilt}
+                scrollPercent={scrollPercent}
+                isMobile={true}
+              />
             </div>
           </div>
         </div>

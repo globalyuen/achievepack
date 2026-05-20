@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Package, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { ThreePouchViewer } from '../../../components/ThreePouchViewer'
 
 export default function PouchFlatPouchesPage() {
   const floatAnim = {
@@ -48,16 +49,14 @@ export default function PouchFlatPouchesPage() {
               </div>
             </div>
 
-            <div className="relative">
-              <NeoCard className="bg-[#D4FF00] relative z-10 rotate-2 !p-0 overflow-hidden group">
-                <div className="aspect-square bg-gradient-to-br from-[#D4FF00] to-[#FF00FF] flex items-center justify-center relative">
-                  <Package className="w-64 h-64 text-black opacity-80 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300" strokeWidth={1.5} />
-                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
-                    SPACE_SAVER_TECH
-                  </motion.div>
-                </div>
-              </NeoCard>
-              <div className="absolute top-10 -right-10 w-full h-full border-4 border-black bg-[#00FFFF] -z-0 rotate-6" />
+            {/* 3D Viewer Card */}
+            <div className="relative w-full h-[500px]">
+              <ThreePouchViewer
+                modelUrl="/3d/3d-pouch/3-side-seal.glb"
+                tilt={{x: 0, y: 0}}
+                scrollPercent={0}
+                isMobile={true}
+              />
             </div>
           </div>
         </div>

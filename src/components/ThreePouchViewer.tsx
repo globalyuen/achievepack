@@ -260,7 +260,7 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
           // At the start (sPercent = 0), we want it lower down (e.g. -14), and as we scroll it rises to be vertically centered
           targetY = THREE.MathUtils.lerp(isFamily ? -14 : -10, isFamily ? 2 : 4, sPercent);
         } else {
-          targetY = 0;
+          targetY = -6; // Moved down to sit directly above the buttons
         }
 
         // C. Dynamic size scaling
