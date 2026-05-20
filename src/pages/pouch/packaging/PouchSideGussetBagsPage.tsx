@@ -29,7 +29,7 @@ export default function PouchSideGussetBagsPage() {
 
   const floatAnim = {
     y: [0, -10, 0],
-    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
   }
 
   const title = "Side Gusset Bags - Classic Coffee Packaging | POUCH.ECO"

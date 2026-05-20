@@ -8,7 +8,7 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 export default function PouchCompostableZipperNoRemovalPage() {
   const floatAnim = {
     y: [0, -10, 0],
-    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
   }
 
   const title = "Do I Need to Remove the Zipper from Compostable Bags? | POUCH.ECO"

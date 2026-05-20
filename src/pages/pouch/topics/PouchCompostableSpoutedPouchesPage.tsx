@@ -8,7 +8,7 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 export default function PouchCompostableSpoutedPouchesPage() {
   const floatAnim = {
     y: [0, -10, 0],
-    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
   }
 
   const title = "Compostable Spouted Pouches & Circular Economy Design | POUCH.ECO"

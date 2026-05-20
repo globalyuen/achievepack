@@ -89,7 +89,7 @@ export default function AchievePetDemoPage() {
   // Floating elements animation
   const floatAnim = {
     y: [0, -10, 0],
-    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
   }
 
   return (
