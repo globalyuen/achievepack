@@ -989,7 +989,7 @@ function App() {
               
               <div className="w-full h-full relative z-10">
                 <ThreePouchViewer 
-                  modelUrl={activePouchModel === 'spouted' ? '/3d/3d-pouch/spouted-pouch.glb' : '/3d/3d-pouch/flat-bottom-pouch.glb'} 
+                  modelUrl={activePouchModel === 'spouted' ? '/3d/3d-pouch/spouted-pouch.glb' : '/3d/3d-pouch/coffee-pouch.glb'} 
                   tilt={threeTilt} 
                   scrollPercent={threeScrollPercent} 
                   isMobile={false} 

@@ -486,7 +486,7 @@ export default function PouchEcoHomePage() {
             <div className="lg:col-span-7 h-[500px] md:h-[600px] bg-white border-4 border-black p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] relative flex items-center justify-center overflow-hidden">
               <div className="w-full h-full relative z-10">
                 <ThreePouchViewer 
-                  modelUrl={activePouchModel === 'spouted' ? '/3d/3d-pouch/spouted-pouch.glb' : '/3d/3d-pouch/flat-bottom-pouch.glb'} 
+                  modelUrl={activePouchModel === 'spouted' ? '/3d/3d-pouch/spouted-pouch.glb' : '/3d/3d-pouch/coffee-pouch.glb'} 
                   tilt={threeTilt} 
                   scrollPercent={threeScrollPercent} 
                   isMobile={false} 

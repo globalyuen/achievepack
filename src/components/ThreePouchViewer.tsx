@@ -257,8 +257,8 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
         // B. Dynamic Y-coordinate translation (moved down into the lower right empty space at the start)
         let targetY = 0;
         if (!isMobile) {
-          // At the start (sPercent = 0), we want it lower down (e.g. -14), and as we scroll it rises to be vertically centered
-          targetY = THREE.MathUtils.lerp(isFamily ? -14 : -10, isFamily ? 2 : 4, sPercent);
+          // At the start (sPercent = 0), we want it lower down (e.g. -14 for family, -18 for single), and as we scroll it rises slightly (to 2 for family, -14 for single) to sit right above the buttons
+          targetY = THREE.MathUtils.lerp(isFamily ? -14 : -18, isFamily ? 2 : -14, sPercent);
         } else {
           // Adjust specific Y offsets depending on the model so they all sit right above the buttons
           if (modelUrl.includes('stand-up-pouch2') || modelUrl.includes('coffee-pouch')) {
