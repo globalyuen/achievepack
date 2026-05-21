@@ -2049,7 +2049,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 4.20,
         unitPrice: 0.042,
-        heroImageIndex: 0
+        heroImageIndex: 8
       },
       {
         id: "clear-matte-sup-10x15",
@@ -2059,7 +2059,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 5.03,
         unitPrice: 0.050,
-        heroImageIndex: 1
+        heroImageIndex: 11
       },
       {
         id: "clear-matte-sup-11x17",
@@ -2079,7 +2079,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 7.55,
         unitPrice: 0.076,
-        heroImageIndex: 3
+        heroImageIndex: 6
       },
       {
         id: "clear-matte-sup-13x20",
@@ -2089,7 +2089,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 8.39,
         unitPrice: 0.084,
-        heroImageIndex: 4
+        heroImageIndex: 13
       },
       {
         id: "clear-matte-sup-14x20",
@@ -2099,7 +2099,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 9.23,
         unitPrice: 0.092,
-        heroImageIndex: 5
+        heroImageIndex: 19
       },
       {
         id: "clear-matte-sup-16x24",
@@ -2109,7 +2109,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 13.43,
         unitPrice: 0.134,
-        heroImageIndex: 6
+        heroImageIndex: 18
       },
       {
         id: "clear-matte-sup-16x26",
@@ -2119,7 +2119,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 15.10,
         unitPrice: 0.151,
-        heroImageIndex: 7
+        heroImageIndex: 12
       },
       {
         id: "clear-matte-sup-18x26",
@@ -2129,7 +2129,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 16.78,
         unitPrice: 0.168,
-        heroImageIndex: 8
+        heroImageIndex: 4
       },
       {
         id: "clear-matte-sup-20x30",
@@ -2139,7 +2139,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 23.08,
         unitPrice: 0.231,
-        heroImageIndex: 9
+        heroImageIndex: 0
       },
       {
         id: "clear-matte-sup-21x35",
@@ -2149,7 +2149,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 28.53,
         unitPrice: 0.285,
-        heroImageIndex: 10
+        heroImageIndex: 9
       },
       {
         id: "clear-matte-sup-24x35",
@@ -2159,7 +2159,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 33.57,
         unitPrice: 0.336,
-        heroImageIndex: 11
+        heroImageIndex: 7
       }
     ],
     customPrintNote: 'Custom prints available from 10,000+ pieces. Please consult our team.',
