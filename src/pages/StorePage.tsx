@@ -49,6 +49,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
     children: [
       { id: 'conventional-digital', label: 'Conventional Digital', count: 8 },
       { id: 'eco-stock-plain', label: 'Eco Stock (Plain)', count: 4 },
+      { id: 'conventional-stock-plain', label: 'Conventional Stock', count: 1 },
     ]
   },
   {
@@ -74,6 +75,8 @@ const CATEGORIES = [
   { id: 'eco-digital', label: 'Eco Digital' },
   { id: 'eco-stock', label: 'Eco Stock' },
   { id: 'eco-stock-plain', label: 'Eco Stock (Plain)' },
+  { id: 'conventional-stock', label: 'Conventional Stock' },
+  { id: 'conventional-stock-plain', label: 'Conventional Stock' },
   { id: 'eco-stock-custom-print', label: 'Eco Stock Custom Print' },
   { id: 'boxes', label: 'Boxes' },
   { id: 'mailer', label: 'Mailer Bags' },

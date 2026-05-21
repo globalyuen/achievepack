@@ -1,5 +1,5 @@
 // Store category types
-export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock' | 'boxes'
+export type StoreCategory = 'sample' | 'conventional-digital' | 'eco-digital' | 'eco-stock' | 'boxes' | 'conventional-stock'
 
 // NEW: Product type for Stock vs Custom distinction
 export type ProductType = 'sample' | 'stock' | 'custom'
@@ -9,6 +9,7 @@ export type ProductSubCategory =
   | 'samples'                    // Sample category
   | 'conventional-digital'       // Stock: Conventional Digital (fixed sizes)
   | 'eco-stock-plain'           // Stock: Eco Stock (no print, plain bags)
+  | 'conventional-stock-plain'   // Stock: Conventional Stock (no print)
   | 'eco-digital'               // Custom: Eco Digital (custom sizes)
   | 'eco-stock-custom-print'    // Custom: Eco Stock Custom Print
   | 'boxes'                     // Custom: Boxes
@@ -127,7 +128,7 @@ export interface EcoStockSizeWithQuantities {
 
 // Eco Stock product (ready-made compostable)
 export interface EcoStockProduct extends BaseStoreProduct {
-  category: 'eco-stock'
+  category: 'eco-stock' | 'conventional-stock'
   shape: string
   material: string
   basePrice: number
@@ -1554,12 +1555,57 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
   },
 ]
 
+// Conventional Stock Products (Ready-made Premium)
+const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
+  {
+    id: 'rice-paper-flatbottom-valve',
+    name: 'Rice Paper Flat Bottom Zipper Pouch with Valve',
+    category: 'conventional-stock',
+    description: 'Premium white rice paper flat bottom zipper pouch with a one-way degassing valve. Built with high-barrier structure to protect coffee beans, tea, and other light/moisture-sensitive items. Features an easy tear-notch and pocket-zipper for ultimate freshness retention.',
+    shortDesc: 'Premium white rice paper pouch with degassing valve',
+    features: [
+      'Textured Natural Rice Paper Finish',
+      'Integrated One-Way Degassing Valve',
+      'High-Barrier Freshness Protection',
+      'Convenient Pocket Zipper & Tear Notch',
+      'Flat Bottom for Perfect Shelf Presentation'
+    ],
+    images: ['/imgs/store/conventional-stock/rice-paper-flatbottom-valve.png'],
+    badge: '⭐ Premium Stock',
+    rating: 4.9,
+    reviews: 42,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    shape: 'Flat Squared Bottom Pouch',
+    material: 'Natural Rice Paper - High Barrier (Matte)',
+    basePrice: 51.25,
+    pricePerPiece: 0.513,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Multiple sizes and colors available (125g - 1kg coffee beans)',
+    sizeVariants: [
+      { id: 'white-125g', label: 'White Paper - 125g (90×185+50mm)', dimensions: '90 × 185 + 50 mm', hasHole: false, quantity: 100, totalPrice: 51.25, unitPrice: 0.513 },
+      { id: 'white-250g', label: 'White Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
+      { id: 'white-500g', label: 'White Paper - 500g (145×265+80mm)', dimensions: '145 × 265 + 80 mm', hasHole: false, quantity: 100, totalPrice: 74.17, unitPrice: 0.742 },
+      { id: 'white-1000g', label: 'White Paper - 1kg (150×340+90mm)', dimensions: '150 × 340 + 90 mm', hasHole: false, quantity: 100, totalPrice: 85.00, unitPrice: 0.850 },
+      { id: 'green-250g', label: 'Green Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
+      { id: 'yellow-gray-250g', label: 'Yellow Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
+      { id: 'light-gray-250g', label: 'Light Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
+      { id: 'blue-250g', label: 'Blue Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
+      { id: 'pink-250g', label: 'Pink Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
+    ],
+    customPrintNote: 'Custom prints available from 5,000+ pieces. Please consult our team.',
+  }
+]
+
 // Combined products array
 export const FEATURED_PRODUCTS: StoreProduct[] = [
   ...SAMPLE_PRODUCTS,
   ...CONVENTIONAL_PRODUCTS,
   ...ECO_DIGITAL_PRODUCTS,
   ...ECO_STOCK_PRODUCTS,
+  ...CONVENTIONAL_STOCK_PRODUCTS,
   ...BOXES_PRODUCTS,
 ]
 
@@ -1596,6 +1642,7 @@ export const getProductType = (product: StoreProduct): ProductType => {
     if (product.id.includes('-custom')) return 'custom'
     return 'stock'
   }
+  if (product.category === 'conventional-stock') return 'stock'
   if (product.category === 'eco-digital') return 'custom'
   if (product.category === 'boxes') return 'custom'
   
@@ -1616,6 +1663,7 @@ export const getProductSubCategory = (product: StoreProduct): ProductSubCategory
     if (product.id.includes('-custom')) return 'eco-stock-custom-print'
     return 'eco-stock-plain'
   }
+  if (product.category === 'conventional-stock') return 'conventional-stock-plain'
   if (product.category === 'eco-digital') return 'eco-digital'
   if (product.category === 'boxes') return 'boxes'
   
@@ -1627,3 +1675,4 @@ export const isProductPurchasable = (product: StoreProduct): boolean => {
   const type = getProductType(product)
   return type === 'sample' || type === 'stock'
 }
+

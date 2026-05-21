@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-21",
-  "total_images": 1378,
-  "total_categories": 154,
+  "total_images": 1379,
+  "total_categories": 155,
   "extensions": {
     ".webp": 1082,
-    ".png": 249,
+    ".png": 250,
     ".jpg": 44,
     ".svg": 3
   },
@@ -7370,6 +7370,17 @@
           "path": "/imgs/store/con-digital/sup-met-zip/4.webp",
           "extension": ".webp",
           "modified": "2025-12-16T16:21:16.000Z"
+        }
+      ]
+    },
+    "store/conventional-stock": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "rice-paper-flatbottom-valve.png",
+          "path": "/imgs/store/conventional-stock/rice-paper-flatbottom-valve.png",
+          "extension": ".png",
+          "modified": "2026-05-21T02:43:02.795Z"
         }
       ]
     },

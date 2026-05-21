@@ -254,7 +254,7 @@ const ProductPage: React.FC = () => {
   const product = FEATURED_PRODUCTS.find(p => p.id === productId)
   const isEcoDigital = product?.category === 'eco-digital'
   const isConventionalDigital = product?.category === 'conventional-digital'
-  const isEcoStock = product?.category === 'eco-stock'
+  const isEcoStock = product?.category === 'eco-stock' || product?.category === 'conventional-stock'
   const isBoxes = product?.category === 'boxes'
   const ecoProduct = isEcoDigital ? (product as EcoDigitalProduct) : null
   const conventionalProduct = isConventionalDigital ? (product as ConventionalProduct) : null
@@ -545,8 +545,16 @@ const ProductPage: React.FC = () => {
       const quantity = searchParams.get('quantity')
       if (quantity) setSelectedEcoStockQuantity(parseInt(quantity) || ecoStockProduct.minQuantity || 500)
       else if (!searchParams.has('quantity')) setSelectedEcoStockQuantity(ecoStockProduct.minQuantity || 500)
+      
+      // Auto-select first variant
+      const variant = searchParams.get('variant')
+      if (variant) {
+        setSelectedSizeVariant(variant)
+      } else if (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !selectedSizeVariant) {
+        setSelectedSizeVariant(ecoStockProduct.sizeVariants[0].id)
+      }
     }
-  }, [product, isEcoDigital, isConventionalDigital, isBoxes, isEcoStock, ecoStockProduct, searchParams])
+  }, [product, isEcoDigital, isConventionalDigital, isBoxes, isEcoStock, ecoStockProduct, searchParams, selectedSizeVariant])
   
   // Initialize from product defaults (only if no URL params)
   useEffect(() => {
@@ -966,6 +974,7 @@ const ProductPage: React.FC = () => {
         "worstRating": 1
       },
       "category": product.category === 'eco-stock' ? 'Eco-Friendly Compostable Packaging' :
+                  product.category === 'conventional-stock' ? 'Conventional Stock Packaging' :
                   product.category === 'eco-digital' ? 'Sustainable Digital Print Packaging' :
                   product.category === 'conventional-digital' ? 'Custom Printed Packaging' :
                   product.category === 'sample' ? 'Sample Packs' :
@@ -1798,7 +1807,7 @@ const ProductPage: React.FC = () => {
                         >
                           <div>
                             <div className="font-medium text-neutral-900">{variant.label}</div>
-                            <div className="text-xs text-neutral-500">{variant.dimensions} {variant.hasHole ? '• With Hole' : '• No Hole'}</div>
+                            <div className="text-xs text-neutral-500">{variant.dimensions}{ecoStockProduct.shape === 'Header Bag' ? ' • ' + (variant.hasHole ? 'With Hole' : 'No Hole') : ''}</div>
                           </div>
                           <div className="text-right">
                             <div className="font-bold text-green-700">${variant.totalPrice.toFixed(2)}/100pcs</div>
@@ -2146,8 +2155,8 @@ const ProductPage: React.FC = () => {
                 ))}
               </div>
               
-              {/* Eco Info Box - Only show for eco-stock, not for boxes */}
-              {!isBoxes && (
+              {/* Eco Info Box - Only show for eco-stock, not for boxes or conventional stock */}
+              {!isBoxes && product?.category === 'eco-stock' && (
                 <div className="bg-green-50 border border-green-200 rounded-xl p-4">
                   <h4 className="font-semibold text-green-800 mb-2">♻️ About Compostable Packaging</h4>
                   <p className="text-sm text-green-700">

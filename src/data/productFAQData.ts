@@ -281,6 +281,10 @@ export const PRODUCT_FAQ_DATA: Record<string, ProductFAQCategory> = {
 
 // Helper function to get FAQ data for a product
 export function getProductFAQs(productId: string, categoryType: string): ProductFAQCategory | null {
+  // Check for specific product mappings
+  if (productId.includes('rice-paper-flatbottom-valve')) {
+    return PRODUCT_FAQ_DATA['conventional-standup'];
+  }
   // Check for boxes category first
   if (categoryType === 'boxes' || productId.includes('box-')) {
     return PRODUCT_FAQ_DATA['boxes'];
