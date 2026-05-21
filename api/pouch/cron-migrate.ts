@@ -1,6 +1,11 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
-import en from '../../src/locales/en.json'
+import fs from 'fs'
+import path from 'path'
+
+// Read and parse JSON dynamically to bypass static TS json resolution issues in Vercel CLI
+const enPath = path.resolve(process.cwd(), 'src/locales/en.json')
+const en = JSON.parse(fs.readFileSync(enPath, 'utf-8'))
 
 const supabase = createClient(
   process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || '',

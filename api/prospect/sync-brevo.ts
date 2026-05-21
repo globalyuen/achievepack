@@ -84,7 +84,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             .select('email, email_sent, company')
             .in('email', batchEmails)
         
-        const existingMap = new Map(existingProspects?.map(p => [p.email, p]) || [])
+        const existingMap = new Map<string, any>(existingProspects?.map((p: any) => [p.email, p]) || [])
 
         // Find or create the sync query record
         const { data: searchQuery } = await supabase
@@ -112,7 +112,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             if (!email) continue
 
             const companyName = extractCompanyFromEmail(email)
-            const existing = existingMap.get(email)
+            const existing = existingMap.get(email) as any
             
             if (existing) {
                 // If it exists but has no company name or wasn't marked as sent, update it
