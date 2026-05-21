@@ -2000,14 +2000,14 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       'FDA & LFGB Food Safety Compliant'
     ],
     images: [
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/factory_strengths.svg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/hero_showcase.svg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/food_grade_material.svg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/size_guide.svg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/thickness_instruments.svg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/visual_measurement.svg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/food_safety_certifications.svg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/thickness_selection_guide.svg'
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/factory_strengths.svg',
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/hero_showcase.svg',
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/food_grade_material.svg',
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/size_guide.svg',
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/thickness_instruments.svg',
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/visual_measurement.svg',
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/food_safety_certifications.svg',
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/thickness_selection_guide.svg'
     ],
     badge: '♻️ 100% Recyclable',
     rating: 4.8,
