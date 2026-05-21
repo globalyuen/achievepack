@@ -1619,11 +1619,15 @@ const ProductPage: React.FC = () => {
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       <dt className="text-neutral-500">Certification</dt>
-                      <dd className="text-neutral-900 col-span-2">{isBoxes ? 'FSC Certified' : 'Industrial Composting Approved'}</dd>
+                      <dd className="text-neutral-900 col-span-2">{(ecoStockProduct as any).certification || (isBoxes ? 'FSC Certified' : 'Industrial Composting Approved')}</dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       <dt className="text-neutral-500">Shelf Life</dt>
-                      <dd className="text-neutral-900 col-span-2">{(ecoStockProduct as any).shelfLife || '6-12 months'} freshness</dd>
+                      <dd className="text-neutral-900 col-span-2">
+                        {(ecoStockProduct as any).shelfLife ? (
+                          (ecoStockProduct as any).shelfLife.includes('freshness') ? (ecoStockProduct as any).shelfLife : `${(ecoStockProduct as any).shelfLife} freshness`
+                        ) : '6-12 months freshness'}
+                      </dd>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
                       <dt className="text-neutral-500">Lead Time</dt>

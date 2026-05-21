@@ -138,6 +138,7 @@ export interface EcoStockProduct extends BaseStoreProduct {
   quantityStep: number
   sizeInfo: string
   shelfLife?: string
+  certification?: string
   // For multi-size products like Header Bag
   sizeVariants?: EcoStockSizeVariant[]
   // For multi-size with multi-quantity products like Mailer Bag
@@ -1621,6 +1622,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     minQuantity: 100,
     quantityStep: 100,
     sizeInfo: 'Multiple volume capacities available (100ml - 10L)',
+    shelfLife: '+18 months',
+    certification: 'FDA Approved',
     sizeVariants: [
       {
         id: "foil-50ml-slanted",
