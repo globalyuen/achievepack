@@ -2163,6 +2163,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       }
     ],
     customPrintNote: 'Custom prints available from 10,000+ pieces. Please consult our team.',
+    customPrintProductId: 'conven-sup-clear-zip',
   }
 ]
 

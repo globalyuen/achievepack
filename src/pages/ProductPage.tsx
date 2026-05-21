@@ -1792,7 +1792,16 @@ const ProductPage: React.FC = () => {
                 <div className="bg-emerald-100/50 px-5 py-3 border-t border-emerald-200">
                   <p className="text-xs text-emerald-700"><span className="font-medium">Ideal for:</span> Farmers markets, artisan foods, organic brands, small bakeries, ecommerce startups</p>
                   {ecoStockProduct.customPrintNote && (
-                    <p className="text-xs text-emerald-600 mt-1"><span className="font-medium">💡</span> {ecoStockProduct.customPrintNote}</p>
+                    <p className="text-xs text-emerald-600 mt-1">
+                      <span className="font-medium">💡</span>{' '}
+                      {ecoStockProduct.customPrintProductId ? (
+                        <Link to={`/store/product/${ecoStockProduct.customPrintProductId}`} className="hover:underline">
+                          {ecoStockProduct.customPrintNote}
+                        </Link>
+                      ) : (
+                        ecoStockProduct.customPrintNote
+                      )}
+                    </p>
                   )}
                 </div>
               </div>
@@ -1992,8 +2001,16 @@ const ProductPage: React.FC = () => {
                   <div className="flex items-start gap-2">
                     <span className="text-amber-600 text-lg">🎨</span>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-amber-800 text-sm">Custom Printing Available</h4>
-                      <p className="text-sm text-amber-700 mt-1">{ecoStockProduct.customPrintNote}</p>
+                      <h4 className="font-semibold text-amber-800 text-sm">
+                        <Link to={`/store/product/${ecoStockProduct.customPrintProductId}`} className="hover:underline flex items-center gap-1">
+                          Custom Printing Available <span className="text-xs font-normal">→</span>
+                        </Link>
+                      </h4>
+                      <p className="text-sm text-amber-700 mt-1">
+                        <Link to={`/store/product/${ecoStockProduct.customPrintProductId}`} className="hover:underline">
+                          {ecoStockProduct.customPrintNote}
+                        </Link>
+                      </p>
                       <Link
                         to={`/store/product/${ecoStockProduct.customPrintProductId}`}
                         className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg text-sm transition"
@@ -2139,7 +2156,12 @@ const ProductPage: React.FC = () => {
                   {isCustomProduct ? (
                     <><span className="text-lg">📋</span> {isBoxes ? 'Add to Quote Request' : '🎨 Add Custom Print to RFQ'}</>
                   ) : (
-                    <><ShoppingCart className="h-5 w-5" /> 🌱 Add Compostable Bag to Cart</>
+                    <>
+                      <ShoppingCart className="h-5 w-5" />{' '}
+                      {product.category === 'conventional-stock'
+                        ? 'Add conventional unprinted bag to cart'
+                        : '🌱 Add Compostable Bag to Cart'}
+                    </>
                   )}
                 </button>
                 {isBoxes && (
