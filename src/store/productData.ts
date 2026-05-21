@@ -870,6 +870,124 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // 40ml Foil Capsule and Packing Machine
+  {
+    id: '40ml-foil-capsule-and-packing-machine',
+    name: '40ml Foil Capsule and Packing Machine',
+    category: 'eco-stock',
+    description: 'A versatile DIY preservation set featuring high-barrier food-grade dual-color aluminum foil cups (40ml) and matching sealing lids, alongside a compact manual heat sealer. Crafted from premium 100% recyclable aluminum foil with a hot-pressed glue-free sealing process, this set guarantees outstanding sealing performance, high temperature resistance, and superior moisture/oxidation barriers. Perfect for DIY packaging and lock-in freshness of loose tea leaves, coffee powder/liquid, honey, sauces, probiotics, herbal medicine, and dry condiments.',
+    shortDesc: 'DIY food-grade 100% recyclable 40ml foil capsule and compact heat sealer set',
+    features: [
+      '100% Recyclable Food-Grade High-Barrier Aluminum Foil',
+      'Dual-Color Metallic Finish (Premium Aesthetic)',
+      'Glue-Free Hot-Press Sealing Process for Secure Seal',
+      'Compact Portable Sealing Machine (Manual Operation)',
+      'Excellent Heat & Cold Resistance (Refrigeration Safe)',
+      'Highly Versatile DIY Packaging (Tea, Coffee, Honey, Sauces)'
+    ],
+    images: [
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN01F9RKpl24iFRr3TGRu_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN01Ic70IY24iFRr3Vbzn_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN01bb4JEJ24iFRzT9NzD_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN01cvZZSM24iFRt15cdx_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN0139wIo524iFRskVfPy_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN01Ljy5rU24iFRsp3rrr_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN01iCT08U24iFRskY12j_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN014dUHK224iFRrwyzGO_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN01Mjj8FW24iFRrwymo2_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN015e6J4v24iFRt16MO6_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN01LbEryP24iFRtJd2YD_--2218032007424.jpg',
+      '/taobao/40ml-foil-capsule-and-packing-machine/O1CN01BKsGJo24iFRsC77Qf_--2218032007424.jpg'
+    ],
+    badge: '♻️ 100% Recyclable Foil',
+    rating: 4.9,
+    reviews: 124,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 10,
+    shape: 'Round Foil Capsule & Heat Sealer',
+    material: '100% Recyclable Food-Grade Aluminum Foil',
+    basePrice: 10.00,
+    pricePerPiece: 0.20,
+    minQuantity: 10,
+    quantityStep: 10,
+    sizeInfo: '40ml (Top 57mm, Bottom 37mm, Height 30mm)',
+    shelfLife: 'Indefinite',
+    certification: 'FDA Food-Grade High-Barrier Compliance',
+    sizeVariants: [
+      {
+        id: 'capsule-empty-50sets',
+        label: '50 Sets Empty Cups & Sealing Lids (No Machine)',
+        dimensions: '40ml (Top 57mm, Bottom 37mm, Height 30mm)',
+        hasHole: false,
+        quantity: 50,
+        totalPrice: 10.00,
+        unitPrice: 0.20,
+        heroImageIndex: 9
+      },
+      {
+        id: 'capsule-empty-100sets',
+        label: '100 Sets Empty Cups & Sealing Lids (No Machine)',
+        dimensions: '40ml (Top 57mm, Bottom 37mm, Height 30mm)',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 17.90,
+        unitPrice: 0.179,
+        heroImageIndex: 10
+      },
+      {
+        id: 'capsule-empty-200sets',
+        label: '200 Sets Empty Cups & Sealing Lids (No Machine)',
+        dimensions: '40ml (Top 57mm, Bottom 37mm, Height 30mm)',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 32.40,
+        unitPrice: 0.162,
+        heroImageIndex: 11
+      },
+      {
+        id: 'capsule-starter-white',
+        label: 'Starter Kit: White Sealer + 10 Sets Cups & Lids',
+        dimensions: 'Sealer × 1 + 10 Sets Cups & Lids + Tools',
+        hasHole: false,
+        quantity: 10,
+        totalPrice: 21.20,
+        unitPrice: 2.12,
+        heroImageIndex: 5
+      },
+      {
+        id: 'capsule-starter-black',
+        label: 'Starter Kit: Black Sealer + 10 Sets Cups & Lids',
+        dimensions: 'Sealer × 1 + 10 Sets Cups & Lids + Tools',
+        hasHole: false,
+        quantity: 10,
+        totalPrice: 21.20,
+        unitPrice: 2.12,
+        heroImageIndex: 6
+      },
+      {
+        id: 'capsule-pro-white',
+        label: 'Pro Kit: White Sealer + 50 Sets Cups & Lids',
+        dimensions: 'Sealer × 1 + 50 Sets Cups & Lids + Tools',
+        hasHole: false,
+        quantity: 50,
+        totalPrice: 32.40,
+        unitPrice: 0.648,
+        heroImageIndex: 7
+      },
+      {
+        id: 'capsule-pro-black',
+        label: 'Pro Kit: Black Sealer + 50 Sets Cups & Lids',
+        dimensions: 'Sealer × 1 + 50 Sets Cups & Lids + Tools',
+        hasHole: false,
+        quantity: 50,
+        totalPrice: 32.40,
+        unitPrice: 0.648,
+        heroImageIndex: 8
+      }
+    ],
+    customPrintNote: 'Custom prints available from 10,000+ pieces. Please consult our team.'
+  },
   // 100% Recyclable PE Wire Cut Zipper Bag
   {
     id: '100-recyclable-pe-wire-cut-zipper-bag',
