@@ -910,8 +910,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     minOrder: 100,
     shape: 'Stand Up Zipper Pouch',
     material: 'Certified White Kraft / PLA / PBAT - 100% Compostable High Barrier',
-    basePrice: 6.90,
-    pricePerPiece: 0.069,
+    basePrice: 9.23,
+    pricePerPiece: 0.092,
     minQuantity: 100,
     quantityStep: 100,
     sizeInfo: 'Multiple dimensions available (10x10cm to 20x27cm)',
@@ -924,8 +924,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '100 × 100 + 25 mm',
         hasHole: false,
         quantity: 100,
-        totalPrice: 6.90,
-        unitPrice: 0.069,
+        totalPrice: 9.23,
+        unitPrice: 0.092,
         heroImageIndex: 6
       },
       {
@@ -934,8 +934,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '150 × 200 + 25 mm',
         hasHole: false,
         quantity: 100,
-        totalPrice: 16.78,
-        unitPrice: 0.168,
+        totalPrice: 22.38,
+        unitPrice: 0.224,
         heroImageIndex: 7
       },
       {
@@ -944,8 +944,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '180 × 230 + 30 mm',
         hasHole: false,
         quantity: 100,
-        totalPrice: 22.03,
-        unitPrice: 0.220,
+        totalPrice: 29.37,
+        unitPrice: 0.294,
         heroImageIndex: 8
       },
       {
@@ -954,8 +954,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '200 × 270 + 30 mm',
         hasHole: false,
         quantity: 100,
-        totalPrice: 27.27,
-        unitPrice: 0.273,
+        totalPrice: 36.36,
+        unitPrice: 0.364,
         heroImageIndex: 9
       }
     ],
