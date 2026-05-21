@@ -1936,7 +1936,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         heroImageIndex: 0
       }
     ],
-    customPrintNote: 'Custom prints and customized spout positions (corner/center) available from 10,000+ pieces. Please consult our team.',
+    customPrintNote: 'Custom prints and customized spout positions (corner/center) available from 100+ pieces. Please consult our team.',
   },
   {
     id: 'rice-paper-flatbottom-valve',
@@ -1988,7 +1988,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       { id: 'blue-250g', label: 'Blue Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 2 },
       { id: 'pink-250g', label: 'Pink Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 3 },
     ],
-    customPrintNote: 'Custom prints available from 5,000+ pieces. Please consult our team.',
+    customPrintNote: 'Custom prints available from 100+ pieces. Please consult our team.',
   },
   {
     id: 'clear-matte-zipper-stand-up-pouch',
@@ -2162,7 +2162,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         heroImageIndex: 7
       }
     ],
-    customPrintNote: 'Custom prints available from 10,000+ pieces. Please consult our team.',
+    customPrintNote: 'Custom prints available from 100+ pieces. Please consult our team.',
     customPrintProductId: 'conven-sup-clear-zip',
   },
   {
@@ -2364,7 +2364,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         heroImageIndex: 16
       }
     ],
-    customPrintNote: 'Custom prints available from 10,000+ pieces. Please consult our team.',
+    customPrintNote: 'Custom prints available from 100+ pieces. Please consult our team.',
     customPrintProductId: 'conven-sup-clear-zip',
   }
 ]

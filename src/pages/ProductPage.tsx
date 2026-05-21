@@ -1843,7 +1843,7 @@ const ProductPage: React.FC = () => {
                   </div>
                   
                   {/* Surface Finish Option - For unprinted clear zipper pouch */}
-                  {selectedSizeVariant && (product.id === 'clear-matte-zipper-stand-up-pouch' || product.id === 'flat-bottom-zipper-pouch') && (
+                  {selectedSizeVariant && product.id === 'clear-matte-zipper-stand-up-pouch' && (
                     <div className="space-y-2 pt-2">
                       <label className="block text-sm font-medium text-neutral-700">Select Surface Finish</label>
                       <div className="grid grid-cols-2 gap-3">
@@ -2155,7 +2155,7 @@ const ProductPage: React.FC = () => {
                       variant: { 
                         shape: ecoStockProduct.shape, 
                         size: cartSize, 
-                        material: (product.id === 'clear-matte-zipper-stand-up-pouch' || product.id === 'flat-bottom-zipper-pouch')
+                        material: product.id === 'clear-matte-zipper-stand-up-pouch'
                           ? `Clear PE/PET (${selectedFinish === 'matte' ? 'Matte' : 'Glossy'} Finish)`
                           : ecoStockProduct.material 
                       },
