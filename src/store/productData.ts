@@ -102,6 +102,7 @@ export interface EcoStockSizeVariant {
   quantity: number
   totalPrice: number
   unitPrice: number
+  heroImageIndex?: number  // Optional: switch main image when this variant is selected
 }
 
 // Eco Stock size with multiple quantity options (for mailer bags)
@@ -1572,6 +1573,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     ],
     images: [
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-hero.png',
+      '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-brown-hero.jpg',
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-applications.jpg',
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-valve-info.jpg',
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-sealing.jpg',
@@ -1592,15 +1594,19 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     quantityStep: 100,
     sizeInfo: 'Multiple sizes and colors available (125g - 1kg coffee beans)',
     sizeVariants: [
-      { id: 'white-125g', label: 'White Paper - 125g (90×185+50mm)', dimensions: '90 × 185 + 50 mm', hasHole: false, quantity: 100, totalPrice: 51.25, unitPrice: 0.513 },
-      { id: 'white-250g', label: 'White Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
-      { id: 'white-500g', label: 'White Paper - 500g (145×265+80mm)', dimensions: '145 × 265 + 80 mm', hasHole: false, quantity: 100, totalPrice: 74.17, unitPrice: 0.742 },
-      { id: 'white-1000g', label: 'White Paper - 1kg (150×340+90mm)', dimensions: '150 × 340 + 90 mm', hasHole: false, quantity: 100, totalPrice: 85.00, unitPrice: 0.850 },
-      { id: 'green-250g', label: 'Green Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
-      { id: 'yellow-gray-250g', label: 'Yellow Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
-      { id: 'light-gray-250g', label: 'Light Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
-      { id: 'blue-250g', label: 'Blue Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
-      { id: 'pink-250g', label: 'Pink Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600 },
+      { id: 'white-125g', label: 'White Paper - 125g (90×185+50mm)', dimensions: '90 × 185 + 50 mm', hasHole: false, quantity: 100, totalPrice: 51.25, unitPrice: 0.513, heroImageIndex: 0 },
+      { id: 'white-250g', label: 'White Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
+      { id: 'white-500g', label: 'White Paper - 500g (145×265+80mm)', dimensions: '145 × 265 + 80 mm', hasHole: false, quantity: 100, totalPrice: 74.17, unitPrice: 0.742, heroImageIndex: 0 },
+      { id: 'white-1000g', label: 'White Paper - 1kg (150×340+90mm)', dimensions: '150 × 340 + 90 mm', hasHole: false, quantity: 100, totalPrice: 85.00, unitPrice: 0.850, heroImageIndex: 0 },
+      { id: 'brown-125g', label: 'Brown Paper - 125g (90×185+50mm)', dimensions: '90 × 185 + 50 mm', hasHole: false, quantity: 100, totalPrice: 51.25, unitPrice: 0.513, heroImageIndex: 1 },
+      { id: 'brown-250g', label: 'Brown Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 1 },
+      { id: 'brown-500g', label: 'Brown Paper - 500g (145×265+80mm)', dimensions: '145 × 265 + 80 mm', hasHole: false, quantity: 100, totalPrice: 74.17, unitPrice: 0.742, heroImageIndex: 1 },
+      { id: 'brown-1000g', label: 'Brown Paper - 1kg (150×340+90mm)', dimensions: '150 × 340 + 90 mm', hasHole: false, quantity: 100, totalPrice: 85.00, unitPrice: 0.850, heroImageIndex: 1 },
+      { id: 'green-250g', label: 'Green Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
+      { id: 'yellow-gray-250g', label: 'Yellow Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
+      { id: 'light-gray-250g', label: 'Light Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
+      { id: 'blue-250g', label: 'Blue Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
+      { id: 'pink-250g', label: 'Pink Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
     ],
     customPrintNote: 'Custom prints available from 5,000+ pieces. Please consult our team.',
   }

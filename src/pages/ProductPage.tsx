@@ -1798,7 +1798,12 @@ const ProductPage: React.FC = () => {
                       {ecoStockProduct.sizeVariants.map((variant) => (
                         <button
                           key={variant.id}
-                          onClick={() => setSelectedSizeVariant(variant.id)}
+                          onClick={() => {
+                            setSelectedSizeVariant(variant.id)
+                            if (variant.heroImageIndex !== undefined) {
+                              startTransition(() => setSelectedMainImage(variant.heroImageIndex!))
+                            }
+                          }}
                           className={`w-full p-3 border rounded-lg text-left transition flex justify-between items-center ${
                             selectedSizeVariant === variant.id 
                               ? 'border-green-600 bg-green-50 ring-2 ring-green-200' 
