@@ -35,6 +35,27 @@ const PackagingAssistantWidget: React.FC = () => {
   const location = useLocation()
   const { openCalendly } = useCalendly()
 
+  // Track if WhatsApp and Meeting contact buttons are collapsed to dynamically adjust visual stack height
+  const [isContactCollapsed, setIsContactCollapsed] = useState(() => {
+    try {
+      return localStorage.getItem('achievepack-floating-collapsed') === 'true'
+    } catch {
+      return false
+    }
+  })
+
+  useEffect(() => {
+    const handleEvent = () => {
+      try {
+        setIsContactCollapsed(localStorage.getItem('achievepack-floating-collapsed') === 'true')
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    window.addEventListener('floating-buttons-collapsed-change', handleEvent)
+    return () => window.removeEventListener('floating-buttons-collapsed-change', handleEvent)
+  }, [])
+
   // Parse message content to make links clickable, especially Calendly booking links
   const renderMessageContent = useCallback((content: string) => {
     // Split by Markdown links [text](url) and plain URLs
@@ -368,21 +389,34 @@ Ask me anything!`
     <>
       {/* Floating Button */}
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-36 right-6 z-40 w-14 h-14 bg-gradient-to-br from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 group"
-          aria-label="Open packaging assistant"
+        <div 
+          className={`fixed ${
+            isContactCollapsed ? 'bottom-[92px]' : 'bottom-[204px]'
+          } right-6 z-40 flex items-center justify-end group cursor-pointer transition-all duration-300 ease-in-out`}
         >
-          <MessageCircle className="w-6 h-6" />
-          <span className="absolute -top-2 -right-2 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-[10px] font-bold animate-pulse">
-            AI
+          {/* Slide out text label */}
+          <span className="mr-3 pointer-events-none select-none max-w-0 overflow-hidden opacity-0 group-hover:max-w-xs group-hover:opacity-100 transition-all duration-300 ease-out whitespace-nowrap bg-black text-[#3b82f6] border-2 border-[#3b82f6] font-['Space_Grotesk'] font-black uppercase text-[10px] tracking-wider py-1.5 px-0 group-hover:px-3 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            AI Packaging Assistant
           </span>
-        </button>
+
+          <button
+            onClick={() => setIsOpen(true)}
+            className="w-14 h-14 bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-full border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:scale-95 cursor-pointer relative group-hover:scale-105"
+            aria-label="Open packaging assistant"
+          >
+            <MessageCircle className="w-6 h-6 transition-transform group-hover:scale-110" />
+            
+            {/* AI badge */}
+            <span className="absolute -top-1.5 -right-1.5 bg-blue-500 text-white rounded-full px-1.5 py-0.5 text-[8px] font-bold border border-black uppercase tracking-wider animate-pulse">
+              AI
+            </span>
+          </button>
+        </div>
       )}
 
       {/* Chat Panel */}
       {isOpen && (
-        <div className="fixed bottom-36 right-6 z-40 w-[380px] max-w-[calc(100vw-48px)] h-[520px] max-h-[calc(100vh-140px)] bg-white rounded-2xl shadow-2xl flex flex-col border border-neutral-200 overflow-hidden">
+        <div className="fixed bottom-[24px] right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[520px] max-h-[calc(100vh-140px)] bg-white rounded-2xl shadow-2xl flex flex-col border border-neutral-200 overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-4 py-3 flex items-center justify-between flex-shrink-0">
             <div className="flex items-center gap-2">
