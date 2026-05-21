@@ -1600,8 +1600,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     sizeVariants: [
       { id: 'white-125g', label: 'White Paper - 125g (90×185+50mm)', dimensions: '90 × 185 + 50 mm', hasHole: false, quantity: 100, totalPrice: 51.25, unitPrice: 0.513, heroImageIndex: 0 },
       { id: 'white-250g', label: 'White Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
-      { id: 'white-500g', label: 'White Paper - 500g (145×265+80mm)', dimensions: '145 × 265 + 80 mm', hasHole: false, quantity: 100, totalPrice: 74.17, unitPrice: 0.742, heroImageIndex: 0 },
-      { id: 'white-1000g', label: 'White Paper - 1kg (150×340+90mm)', dimensions: '150 × 340 + 90 mm', hasHole: false, quantity: 100, totalPrice: 85.00, unitPrice: 0.850, heroImageIndex: 0 },
+      { id: 'white-500g', label: 'White Paper - 500g (135×265+75mm)', dimensions: '135 × 265 + 75 mm', hasHole: false, quantity: 100, totalPrice: 74.17, unitPrice: 0.742, heroImageIndex: 0 },
+      { id: 'white-1000g', label: 'White Paper - 1kg (145×330+100mm)', dimensions: '145 × 330 + 100 mm', hasHole: false, quantity: 100, totalPrice: 85.00, unitPrice: 0.850, heroImageIndex: 0 },
       { id: 'green-250g', label: 'Green Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 4 },
       { id: 'yellow-gray-250g', label: 'Yellow Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 1 },
       { id: 'light-gray-250g', label: 'Light Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 5 },
