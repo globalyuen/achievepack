@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useTransition, useCallback } from 'react'
+import React, { useState, useMemo, useEffect, useTransition, useCallback, useRef } from 'react'
 import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles, CheckCircle, Info } from 'lucide-react'
@@ -242,6 +242,30 @@ const ProductPage: React.FC = () => {
   const { openQuoteLightbox } = useCustomQuote()
   const navigate = useNavigate()
   const [isPending, startTransition] = useTransition()
+  
+  const faqSectionRef = useRef<HTMLDivElement>(null)
+  const [isFaqVisible, setIsFaqVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFaqVisible(entry.isIntersecting)
+      },
+      {
+        root: null,
+        rootMargin: '-50px 0px 0px 0px',
+        threshold: 0.1,
+      }
+    )
+
+    if (faqSectionRef.current) {
+      observer.observe(faqSectionRef.current)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
   
   // Optimized navigation handler for better INP
   const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
@@ -1096,7 +1120,9 @@ const ProductPage: React.FC = () => {
         {isConventionalDigital && conventionalProduct && (
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8">
             {/* Left Column - Image Gallery */}
-            <div className="space-y-4">
+            <div className={`space-y-4 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto transition-all duration-500 ease-in-out ${
+              isFaqVisible ? 'lg:opacity-0 lg:scale-95 lg:pointer-events-none' : 'lg:opacity-100 lg:scale-100'
+            }`}>
               {/* Main Image */}
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
                 <button 
@@ -1533,7 +1559,9 @@ const ProductPage: React.FC = () => {
         {(isEcoStock || isBoxes) && ecoStockProduct && (
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8">
             {/* Left Column - Image Gallery */}
-            <div className="space-y-4">
+            <div className={`space-y-4 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto transition-all duration-500 ease-in-out ${
+              isFaqVisible ? 'lg:opacity-0 lg:scale-95 lg:pointer-events-none' : 'lg:opacity-100 lg:scale-100'
+            }`}>
               {/* Main Image */}
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
                 <button 
@@ -2205,7 +2233,9 @@ const ProductPage: React.FC = () => {
         {!isConventionalDigital && !isEcoStock && !isBoxes && (
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Customer Examples + Package Preview */}
-          <div className="hidden lg:block space-y-4">
+          <div className={`hidden lg:block space-y-4 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto transition-all duration-500 ease-in-out ${
+            isFaqVisible ? 'lg:opacity-0 lg:scale-95 lg:pointer-events-none' : 'lg:opacity-100 lg:scale-100'
+          }`}>
             {/* Product Images Section - All eco-digital photos */}
             {isEcoDigital && (
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
@@ -3755,7 +3785,7 @@ const ProductPage: React.FC = () => {
 
       {/* FAQ Section for GEO Optimization */}
       {product && combinedFAQs.length > 0 && (
-        <section className="bg-white border-t border-neutral-200 py-12">
+        <section ref={faqSectionRef} className="bg-white border-t border-neutral-200 py-12">
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl font-bold text-neutral-900 mb-8 text-center">Frequently Asked Questions</h2>
             

@@ -27,50 +27,43 @@ export default function FloatingButtons() {
 
   return (
     <>
-      {/* Floating Buttons */}
-      <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-3">
-        {/* Expanded Options */}
-        {isExpanded && (
-          <div className="flex flex-col gap-3 animate-in slide-in-from-bottom-2 duration-200">
-            {/* Book a Meeting Button - Opens in new tab */}
-            <button
-              onClick={openCalendly}
-              className="flex items-center gap-3 bg-primary-600 text-white px-4 py-3 rounded-full shadow-lg hover:bg-primary-700 transition-all hover:scale-105"
-            >
-              <Calendar className="h-5 w-5" />
-              <span className="font-medium whitespace-nowrap">Book a Free Meeting</span>
-            </button>
+      {/* Floating Buttons Group - Always Visible on Right, Stacked under AI Chat */}
+      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-none">
+        {/* WhatsApp Button */}
+        <div className="flex items-center gap-3 pointer-events-auto group">
+          {/* Label of Real Person - visible on desktop, transitions cleanly */}
+          <span className="opacity-0 translate-x-2 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 md:opacity-100 md:translate-x-0 transition-all duration-300 bg-white text-neutral-800 text-[11px] font-bold px-2.5 py-1.5 rounded-full shadow-md border border-neutral-200 whitespace-nowrap flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping" />
+            WhatsApp (Real Person)
+          </span>
+          <button
+            onClick={() => setIsWhatsAppOpen(true)}
+            aria-label="Chat with a Real Person on WhatsApp"
+            className="w-12 h-12 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 relative"
+          >
+            <MessageCircle className="h-5 w-5" />
+            {/* Pulsing indicator for mobile */}
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse md:hidden" />
+          </button>
+        </div>
 
-            {/* WhatsApp Button */}
-            <button
-              onClick={() => {
-                setIsWhatsAppOpen(true)
-                setIsExpanded(false)
-              }}
-              className="flex items-center gap-3 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition-all hover:scale-105"
-            >
-              <MessageCircle className="h-5 w-5" />
-              <span className="font-medium whitespace-nowrap">WhatsApp Me Now</span>
-            </button>
-          </div>
-        )}
-
-        {/* Toggle Button */}
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          aria-label={isExpanded ? 'Close contact options' : 'Open contact options'}
-          className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 ${
-            isExpanded 
-              ? 'bg-neutral-700 hover:bg-neutral-800' 
-              : 'bg-primary-600 hover:bg-primary-700'
-          }`}
-        >
-          {isExpanded ? (
-            <X className="h-6 w-6 text-white" />
-          ) : (
-            <MessageCircle className="h-6 w-6 text-white" />
-          )}
-        </button>
+        {/* Book Meeting Button */}
+        <div className="flex items-center gap-3 pointer-events-auto group">
+          {/* Label of Real Person - visible on desktop, transitions cleanly */}
+          <span className="opacity-0 translate-x-2 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 md:opacity-100 md:translate-x-0 transition-all duration-300 bg-white text-neutral-800 text-[11px] font-bold px-2.5 py-1.5 rounded-full shadow-md border border-neutral-200 whitespace-nowrap flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 bg-primary-500 rounded-full animate-ping" />
+            Book Meeting (Real Person)
+          </span>
+          <button
+            onClick={openCalendly}
+            aria-label="Book a Free Meeting with a Real Person"
+            className="w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 relative"
+          >
+            <Calendar className="h-5 w-5" />
+            {/* Pulsing indicator for mobile */}
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-primary-400 rounded-full border-2 border-white animate-pulse md:hidden" />
+          </button>
+        </div>
       </div>
 
       {/* WhatsApp Lightbox Modal */}
