@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import { Calendar, MessageCircle, X } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 import { useLocation } from 'react-router-dom'
+import { getDomain, getWhatsAppLink, getCalendlyLink } from '../utils/domain'
 
 export default function FloatingButtons() {
-  const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false)
-  const [isExpanded, setIsExpanded] = useState(false)
   const location = useLocation()
+  const domain = getDomain()
 
   // Hide on RFQ/Admin pages as requested
   const isRfqPage = location.pathname.includes('/rfq') || 
@@ -15,113 +14,56 @@ export default function FloatingButtons() {
 
   if (isRfqPage) return null
 
-  const whatsappNumber = '85269704411'
-  const whatsappUrl = `https://wa.me/${whatsappNumber}`
-  const calendlyUrl = 'https://calendly.com/30-min-free-packaging-consultancy'
+  const whatsappUrl = getWhatsAppLink()
+  const calendlyUrl = getCalendlyLink()
 
-  // Open Calendly in new tab (more reliable than iframe)
-  const openCalendly = () => {
-    window.open(calendlyUrl, '_blank', 'noopener,noreferrer')
-    setIsExpanded(false)
-  }
+  // Adaptive Styling
+  const isPouchDomain = domain === 'pouch'
+  const accentColor = isPouchDomain ? '#D4FF00' : '#00FFFF'
+  
+  // Custom theme classes based on domain
+  const meetingClass = isPouchDomain
+    ? 'bg-black text-[#D4FF00] border-4 border-[#D4FF00] shadow-[4px_4px_0px_0px_rgba(212,255,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(212,255,0,1)]'
+    : 'bg-black text-[#00FFFF] border-4 border-[#00FFFF] shadow-[4px_4px_0px_0px_rgba(0,255,255,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,255,255,1)]'
+
+  const whatsappClass = 'bg-[#25D366] text-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]'
 
   return (
-    <>
-      {/* Floating Buttons Group - Always Visible on Right, Stacked under AI Chat */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-none">
-        {/* WhatsApp Button */}
-        <div className="flex items-center gap-3 pointer-events-auto group">
-          {/* Label of Real Person - visible on desktop, transitions cleanly */}
-          <span className="opacity-0 translate-x-2 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 md:opacity-100 md:translate-x-0 transition-all duration-300 bg-white text-neutral-800 text-[11px] font-bold px-2.5 py-1.5 rounded-full shadow-md border border-neutral-200 whitespace-nowrap flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping" />
-            WhatsApp (Real Person)
-          </span>
-          <button
-            onClick={() => setIsWhatsAppOpen(true)}
-            aria-label="Chat with a Real Person on WhatsApp"
-            className="w-12 h-12 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 relative"
-          >
-            <MessageCircle className="h-5 w-5" />
-            {/* Pulsing indicator for mobile */}
-            <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse md:hidden" />
-          </button>
-        </div>
+    <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-end font-['Space_Grotesk'] font-black uppercase text-xs">
+      {/* Book Meeting Button */}
+      <a 
+        href={calendlyUrl}
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="Book a Free Consultation"
+        className={`${meetingClass} px-4 py-3 rounded-full hover:-translate-y-1 transition-all duration-200 flex items-center gap-2 group cursor-pointer pointer-events-auto min-h-[48px]`}
+      >
+        <Calendar className="w-5 h-5 transition-transform group-hover:scale-110" />
+        <span className="hidden sm:inline whitespace-nowrap">
+          {isPouchDomain ? 'Book Meeting' : 'Book Meeting (Real Person)'}
+        </span>
+      </a>
 
-        {/* Book Meeting Button */}
-        <div className="flex items-center gap-3 pointer-events-auto group">
-          {/* Label of Real Person - visible on desktop, transitions cleanly */}
-          <span className="opacity-0 translate-x-2 pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 md:opacity-100 md:translate-x-0 transition-all duration-300 bg-white text-neutral-800 text-[11px] font-bold px-2.5 py-1.5 rounded-full shadow-md border border-neutral-200 whitespace-nowrap flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 bg-primary-500 rounded-full animate-ping" />
-            Book Meeting (Real Person)
-          </span>
-          <button
-            onClick={openCalendly}
-            aria-label="Book a Free Meeting with a Real Person"
-            className="w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 relative"
-          >
-            <Calendar className="h-5 w-5" />
-            {/* Pulsing indicator for mobile */}
-            <span className="absolute -top-1 -right-1 w-3 h-3 bg-primary-400 rounded-full border-2 border-white animate-pulse md:hidden" />
-          </button>
-        </div>
-      </div>
-
-      {/* WhatsApp Lightbox Modal */}
-      {isWhatsAppOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={() => setIsWhatsAppOpen(false)}
-          />
-          
-          {/* Modal Content */}
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
-            {/* Close Button */}
-            <button
-              onClick={() => setIsWhatsAppOpen(false)}
-              aria-label="Close WhatsApp dialog"
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-neutral-100 hover:bg-neutral-200 rounded-full flex items-center justify-center transition-colors"
-            >
-              <X className="h-5 w-5 text-neutral-600" aria-hidden="true" />
-            </button>
-
-            {/* Header */}
-            <div className="bg-green-500 text-white px-6 py-4">
-              <h3 className="text-xl font-semibold flex items-center gap-2">
-                <MessageCircle className="h-5 w-5" />
-                WhatsApp Us
-              </h3>
-              <p className="text-green-100 text-sm mt-1">
-                Chat with our team directly
-              </p>
-            </div>
-
-            {/* Content */}
-            <div className="p-6 text-center">
-              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MessageCircle className="h-10 w-10 text-green-600" />
-              </div>
-              <h4 className="text-lg font-semibold text-neutral-900 mb-2">
-                Start a Conversation
-              </h4>
-              <p className="text-neutral-600 mb-6">
-                Click the button below to open WhatsApp and chat with us at <strong>+852 6970 4411</strong>
-              </p>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open WhatsApp to chat with Achieve Pack"
-                className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors min-h-[48px]"
-              >
-                <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                Open WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+      {/* WhatsApp Button */}
+      <a 
+        href={whatsappUrl}
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        className={`${whatsappClass} px-4 py-3 rounded-full hover:-translate-y-1 transition-all duration-200 flex items-center gap-2 group cursor-pointer pointer-events-auto min-h-[48px]`}
+      >
+        {/* Actual WhatsApp Brand SVG Icon */}
+        <svg 
+          className="w-5 h-5 fill-currentColor transition-transform group-hover:scale-110" 
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        <span className="hidden sm:inline whitespace-nowrap">
+          {isPouchDomain ? 'WhatsApp Us' : 'WhatsApp (Real Person)'}
+        </span>
+      </a>
+    </div>
   )
 }

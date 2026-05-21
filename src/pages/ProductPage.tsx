@@ -1351,7 +1351,7 @@ const ProductPage: React.FC = () => {
             </div>
             
             {/* Right Column - Product Options */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto pr-1">
               {product.badge && <span className="inline-block bg-primary-100 text-primary-700 text-xs sm:text-sm px-3 sm:px-4 py-1 rounded-full font-medium">{product.badge}</span>}
               <h1 className="text-2xl sm:text-3xl font-bold text-neutral-900">{product.name}</h1>
               
@@ -1713,7 +1713,7 @@ const ProductPage: React.FC = () => {
             </div>
             
             {/* Right Column - Product Options */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto pr-1">
               {product.badge && <span className="inline-block bg-green-100 text-green-700 text-sm px-4 py-1 rounded-full font-medium">{product.badge}</span>}
               <h1 className="text-3xl font-bold text-neutral-900">{product.name}</h1>
               
@@ -2837,7 +2837,7 @@ const ProductPage: React.FC = () => {
           </div>
 
           {/* Right Column - Product Options */}
-          <div className="space-y-6 overflow-hidden">
+          <div className="space-y-6 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto pr-1">
             {/* Price Section - Hide on desktop since we have fixed top bar */}
             {isEcoDigital && (
               <div className="lg:hidden bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 shadow-lg overflow-hidden">
