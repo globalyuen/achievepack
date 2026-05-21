@@ -1577,84 +1577,9 @@ const ArtworkBatchesPage: React.FC = () => {
     const isPdf = /\.pdf$/i.test(item.file_url) || /\.pdf$/i.test(item.name)
     return (
       <div key={item.id} className={`bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition ${cardSize === 'small' ? 'p-2' : ''}`}>
-        {/* Preview — supports drag-and-drop to replace proof */}
+        {/* Preview */}
         <div
-          className={`${cardSize === 'small' ? 'aspect-square' : 'aspect-[4/3]'} bg-gray-100 relative group/preview overflow-hidden transition-all ${
-            dragOverItemId === item.id
-              ? 'ring-4 ring-blue-400 ring-inset bg-blue-50'
-              : ''
-          }`}
-          onDragOver={(e) => {
-            e.preventDefault()
-            e.stopPropagation()
-            setDragOverItemId(item.id)
-          }}
-          onDragEnter={(e) => {
-            e.preventDefault()
-            setDragOverItemId(item.id)
-          }}
-          onDragLeave={(e) => {
-            // Only clear if truly leaving the div (not entering a child)
-            if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-              setDragOverItemId(null)
-            }
-          }}
-          onDrop={async (e) => {
-            e.preventDefault()
-            e.stopPropagation()
-            setDragOverItemId(null)
-            
-            const files = e.dataTransfer.files
-            if (files && files.length > 0) {
-              const file = files[0]
-              try {
-                setUploading(true)
-                setUploadProgress(10)
-                
-                                const fileExt = file.name.split('.').pop()
-                const fileName = `artwork_proof_${Date.now()}.${fileExt}`
-                const filePath = `batches/${selectedBatch?.id}/${fileName}`
-                
-                setUploadProgress(30)
-                await uploadWithTus('artworks', filePath, file)
-                
-                const { data: urlData } = supabase.storage.from('artworks').getPublicUrl(filePath)
-                const publicUrl = urlData.publicUrl
-                
-                setUploadProgress(70)
-                const { error: updateError } = await supabase
-                  .from('artwork_batch_items')
-                  .update({
-                    file_url: publicUrl,
-                    file_size: file.size,
-                    updated_at: new Date().toISOString()
-                  })
-                  .eq('id', item.id)
-                  
-                if (updateError) throw updateError
-                
-                // Fetch latest batch items
-                const { data: updatedItems, error: fetchError } = await supabase
-                  .from('artwork_batch_items')
-                  .select('*')
-                  .eq('batch_id', selectedBatch?.id)
-                  
-                if (fetchError) throw fetchError
-                if (updatedItems) {
-                  setBatchItems(updatedItems)
-                }
-                
-                setUploadProgress(100)
-                alert('Artwork proof replaced successfully!')
-              } catch (err: any) {
-                console.error(err)
-                alert(`Upload failed: ${err.message || err}`)
-              } finally {
-                setUploading(false)
-                setUploadProgress(0)
-              }
-            }
-          }}
+          className={`${cardSize === 'small' ? 'aspect-square' : 'aspect-[4/3]'} bg-gray-100 relative group/preview overflow-hidden transition-all`}
         >
           {item.file_url ? (
             <>
@@ -1718,36 +1643,6 @@ const ArtworkBatchesPage: React.FC = () => {
               <label className="mt-2 cursor-pointer">
                 <span className="px-3 py-1.5 bg-primary-600 hover:bg-primary-700 text-white rounded text-[10px] font-bold shadow-sm transition block">
                   Upload Now
-                </span>
-                <input 
-                  type="file" 
-                  className="hidden" 
-                  onChange={(e) => handleUpdateItemFile(e, item.id)}
-                />
-              </label>
-            </div>
-          )}
-
-          {/* Quick status overlays removed from here and moved to info section */}
-
-
-          {/* Drag-over overlay */}
-          {dragOverItemId === item.id && (
-            <div className="absolute inset-0 bg-blue-500/20 backdrop-blur-[1px] flex flex-col items-center justify-center z-20 border-4 border-dashed border-blue-400 rounded pointer-events-none">
-              <Upload className="h-8 w-8 text-blue-600 mb-2 animate-bounce" />
-              <span className="text-sm font-bold text-blue-700 bg-white/90 px-3 py-1.5 rounded-full shadow">
-                Drop to Replace Proof
-              </span>
-            </div>
-          )}
-
-          {/* Hover Replace Overlay (only if file exists and not dragging) */}
-          {item.file_url && dragOverItemId !== item.id && (
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/preview:opacity-100 transition flex items-center justify-center pointer-events-none group-hover/preview:pointer-events-auto">
-              <label className="cursor-pointer">
-                <span className="px-4 py-2 bg-white rounded-lg text-xs font-semibold text-gray-900 shadow-xl border border-gray-200 hover:bg-gray-50 flex items-center gap-2 transition transform scale-90 group-hover/preview:scale-100">
-                  <RefreshCw className="h-4 w-4" />
-                  Replace Proof
                 </span>
                 <input 
                   type="file" 
@@ -2246,10 +2141,6 @@ const ArtworkBatchesPage: React.FC = () => {
           
           {/* Actions */}
           <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
-            <label className="cursor-pointer p-2 text-gray-500 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition" title="Replace File">
-              <Upload className="h-4 w-4" />
-              <input type="file" className="hidden" onChange={(e) => handleUpdateItemFile(e, item.id)} />
-            </label>
             <a
               href={item.file_url}
               target="_blank"
