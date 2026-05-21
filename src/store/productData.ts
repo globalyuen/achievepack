@@ -870,6 +870,97 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // Unprinted White Kraft Compostable & Biodegradable Stand Up Pouch
+  {
+    id: 'unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch',
+    name: 'Unprinted White Kraft Compostable and Biodegradable Zipper Stand Up Pouch',
+    category: 'eco-stock',
+    description: '100% certified compostable and biodegradable stand-up pouch made of premium natural white kraft paper and high-barrier compostable plant-based bio-films. Features a strong resealable airtight zipper, tear notches for easy opening, and a stable bottom gusset. Zero PE, zero standard plastics — fully compliant with BPI, OK Compost, and Din Certco composting standards for eco-friendly product packaging.',
+    shortDesc: 'Premium eco-friendly white kraft stand-up zipper pouch',
+    features: [
+      '100% Certified Compostable & Biodegradable',
+      'Premium Natural White Kraft Paper Finish',
+      'High-Barrier Plant-Based Eco Protection',
+      'Strong Airtight Resealable Zipper',
+      'Sturdy Bottom Gusset for Perfect Shelf Presentation'
+    ],
+    images: [
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01RyFIDP1fZfY0LyJa9_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01eHA4yL1fZfXwloFvL_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01XFvHP41fZfXz3dsKS_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01EEW3Dt1fZfXwguPMa_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01GNksHq1fZfXvxmVXy_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01ZQ2gxP1fZfY0LxVg1_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01zPXxOU1fZfXvxmuVq_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01icajyH1fZfXwgtP29_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01NdoNqa1fZfXu8usQy_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01DSbOkX1fZfXy023tK_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01GjOs7y1fZfXolWfNN_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01TdNfnJ1fZfgvfNtBP_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01TqHetj1fZfXz3cw5j_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01W0pHh61fZfXyryEEY_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01tja5Es1fZfcv1xCzI_--454021.jpg',
+      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01yzfwfN1fZfY0LyqrH_--454021.jpg'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.9,
+    reviews: 24,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    shape: 'Stand Up Zipper Pouch',
+    material: 'Certified White Kraft / PLA / PBAT - 100% Compostable High Barrier',
+    basePrice: 6.90,
+    pricePerPiece: 0.069,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Multiple dimensions available (10x10cm to 20x27cm)',
+    shelfLife: '12 months freshness',
+    certification: 'BPI & OK Compost Certified',
+    sizeVariants: [
+      {
+        id: 'white-kraft-compostable-sup-10x10',
+        label: '10x10+2.5cm (100pcs)',
+        dimensions: '100 × 100 + 25 mm',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 6.90,
+        unitPrice: 0.069,
+        heroImageIndex: 6
+      },
+      {
+        id: 'white-kraft-compostable-sup-15x20',
+        label: '15x20+2.5cm (100pcs)',
+        dimensions: '150 × 200 + 25 mm',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 16.78,
+        unitPrice: 0.168,
+        heroImageIndex: 7
+      },
+      {
+        id: 'white-kraft-compostable-sup-18x23',
+        label: '18x23+3cm (100pcs)',
+        dimensions: '180 × 230 + 30 mm',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 22.03,
+        unitPrice: 0.220,
+        heroImageIndex: 8
+      },
+      {
+        id: 'white-kraft-compostable-sup-20x27',
+        label: '20x27+3cm (100pcs)',
+        dimensions: '200 × 270 + 30 mm',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 27.27,
+        unitPrice: 0.273,
+        heroImageIndex: 9
+      }
+    ],
+    customPrintNote: 'Custom prints available from 100+ pieces. Please consult our team.',
+  },
   // Compostable Flat Bottom Pouch - Kraft
   {
     id: 'eco-stock-flatbottom-kraft',
