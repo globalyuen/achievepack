@@ -122,11 +122,13 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
 
     // 7. Dynamic GLTF / GLB Loader (supports single model OR the whole 'family' group!)
     const isFamily = modelUrl === 'family';
+    // coffee-pouch.glb is a tall model — use a smaller target fill size so it fits in the viewport
+    const isCoffeePouch = modelUrl.includes('coffee-pouch');
     const urls = isFamily ? [
       { path: '/3d/3d-pouch/spouted-pouch.glb', x: -36, z: -5, scale: 0.9, ry: 0, spinSpeed: 0.00075 },
-      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 36, z: -5, scale: 0.9, ry: 0, spinSpeed: 0.0003 }
+      { path: '/3d/3d-pouch/coffee-pouch.glb', x: 36, z: -5, scale: 0.75, ry: 0, spinSpeed: 0.0003 }
     ] : [
-      { path: modelUrl, x: 0, z: 0, scale: 1.0, ry: 0, spinSpeed: 0.0004 }
+      { path: modelUrl, x: 0, z: 0, scale: isCoffeePouch ? 0.78 : 1.0, ry: 0, spinSpeed: 0.0004 }
     ];
 
     const loader = new GLTFLoader();
@@ -150,16 +152,20 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
           loadedModel.position.z = -center.z;
 
           // Auto scale to standardize native size
+          // coffee-pouch.glb is taller than other models — use a smaller fill target so it stays in frame
+          const isThisCoffeePouch = item.path.includes('coffee-pouch');
+          const targetFillSize = isThisCoffeePouch ? 85 : 110;
           const maxDim = Math.max(size.x, size.y, size.z);
-          const autoScale = 110 / maxDim;
+          const autoScale = targetFillSize / maxDim;
           
           // Apply local model scale multiplier
           const activeLocalScale = autoScale * item.scale;
           loadedModel.scale.set(activeLocalScale, activeLocalScale, activeLocalScale);
 
-          // Position locally resting on the floor plane (-35)
+          // Position locally resting on the floor plane
+          // Coffee pouch sits a bit lower so it clears the top of the 3D viewport
           const scaledSizeY = size.y * activeLocalScale;
-          const floorY = -35;
+          const floorY = isThisCoffeePouch ? -42 : -35;
           
           // Align bottom of bag exactly to floorY, then apply custom local relative offset positions
           loadedModel.position.y = (loadedModel.position.y - center.y) + floorY + (scaledSizeY / 2);
@@ -257,12 +263,14 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
         // B. Dynamic Y-coordinate translation (moved down into the lower right empty space at the start)
         let targetY = 0;
         if (!isMobile) {
-          // At the start (sPercent = 0), we want it lower down (e.g. -14 for family, -18 for single), and as we scroll it rises slightly (to 2 for family, -14 for single) to sit right above the buttons
-          targetY = THREE.MathUtils.lerp(isFamily ? -14 : -18, isFamily ? 2 : -14, sPercent);
+          // Coffee pouch is taller, start it lower and end lower to keep it centered in viewport
+          const startY = isFamily ? -14 : (isCoffeePouch ? -22 : -18);
+          const endY   = isFamily ? 2   : (isCoffeePouch ? -18 : -14);
+          targetY = THREE.MathUtils.lerp(startY, endY, sPercent);
         } else {
           // Adjust specific Y offsets depending on the model so they all sit right above the buttons
           if (modelUrl.includes('stand-up-pouch2') || modelUrl.includes('coffee-pouch')) {
-            targetY = -14; 
+            targetY = -18; 
           } else if (modelUrl.includes('gusset-pouch')) {
             targetY = -12;
           } else {

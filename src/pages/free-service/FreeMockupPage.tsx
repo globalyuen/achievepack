@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { 
   Gift, Calendar, Star, Target, CheckCircle, HelpCircle, ChevronDown,
   Clock, MessageCircle, Upload, Rocket, ArrowRight, Shield, Leaf, Users,
-  Lightbulb, Package, Image, FileImage, Sparkles, Award, Building, ShoppingCart
+  Lightbulb, Package, Image, FileImage, Sparkles, Award, Building, ShoppingCart,
+  Box, RotateCw, Eye
 } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import { SEOPageHeader } from '../../components/SEOPageLayout'
 import Footer from '../../components/Footer'
 import ClickableImage from '../../components/ClickableImage'
+import { ThreePouchViewer } from '../../components/ThreePouchViewer'
 
 // Image paths
 const IMAGES = {
@@ -84,11 +86,56 @@ const faqs = [
   {
     question: "What industries do you serve?",
     answer: "We serve food, beverage, coffee, tea, snacks, pet food, supplements, wellness products, cosmetics, and more. Any brand looking for eco-friendly flexible packaging can use this service."
+  },
+  {
+    question: "What is the 3D Packaging Creation service?",
+    answer: "Our 3D Packaging Creation service produces interactive, rotatable 3D models of your custom pouch or bag design. These WebGL-powered models can be embedded on your website, allowing customers to spin, tilt, and inspect your packaging from every angle — just like holding the real product. It's a premium upgrade to static mockup images."
+  },
+  {
+    question: "How much does the 3D packaging model cost?",
+    answer: "3D model creation starts from $299 per pouch style. This includes a high-fidelity GLB file with your branding, textures, and materials applied. The interactive viewer is free to embed on any website. Volume discounts are available for multiple SKUs."
   }
+]
+
+// 3D model options for the interactive showcase
+const POUCH_3D_MODELS = [
+  { id: 'spouted', label: 'Spouted Pouch', url: '/3d/3d-pouch/spouted-pouch.glb', emoji: '🥤', desc: 'Industrial compostable with plant-based spout' },
+  { id: 'coffee', label: 'Flat Bottom Pouch', url: '/3d/3d-pouch/coffee-pouch.glb', emoji: '☕', desc: 'Home compostable box-bottom structure' },
+  { id: 'standup', label: 'Stand-Up Pouch', url: '/3d/3d-pouch/stand-up-pouch2.glb', emoji: '📦', desc: 'Classic resealable stand-up format' },
+  { id: 'gusset', label: 'Side Gusset Bag', url: '/3d/3d-pouch/gusset-pouch.glb', emoji: '🛍️', desc: 'Traditional side-fold gusseted bag' },
 ]
 
 const FreeMockupPage: React.FC = () => {
   const { openCalendly } = useCalendly()
+
+  // 3D Pouch Interactive states
+  const [active3DModel, setActive3DModel] = useState(0)
+  const [threeTilt, setThreeTilt] = useState({ x: 0, y: 0 })
+  const [threeScrollPercent, setThreeScrollPercent] = useState(0)
+  const threeContainerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!threeContainerRef.current) return
+      const rect = threeContainerRef.current.getBoundingClientRect()
+      const vh = window.innerHeight
+      if (rect.top < vh && rect.bottom > 0) {
+        const progress = (vh - rect.top) / (rect.height + vh)
+        setThreeScrollPercent(Math.max(0, Math.min(1, progress)))
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleThreeMouseMove = (e: React.MouseEvent) => {
+    if (!threeContainerRef.current) return
+    const rect = threeContainerRef.current.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width - 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5
+    setThreeTilt({ x: x * 25, y: y * -25 })
+  }
 
   return (
     <>
@@ -302,6 +349,7 @@ const FreeMockupPage: React.FC = () => {
                   <a href="#whats-included" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">What's Included</a>
                   <a href="#how-it-works" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">How It Works</a>
                   <a href="#why-free" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Why We Offer This Free</a>
+                  <a href="#3d-creation" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">3D Creation Service</a>
                   <a href="#who-its-for" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Who It's For</a>
                   <a href="#faq" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">FAQs</a>
                   <a href="#cta" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Get Started</a>
@@ -399,6 +447,144 @@ const FreeMockupPage: React.FC = () => {
                   </div>
                 </div>
               </ImageTextRow>
+            </div>
+          </section>
+
+          {/* 3D Packaging Creation Service Section */}
+          <section
+            id="3d-creation"
+            ref={threeContainerRef}
+            onMouseMove={handleThreeMouseMove}
+            onMouseLeave={() => setThreeTilt({ x: 0, y: 0 })}
+            className="bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-xl p-6 md:p-8 shadow-lg border border-neutral-700 text-white overflow-hidden relative"
+          >
+            {/* Subtle grid background */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.04] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:28px_28px]" />
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wide flex items-center gap-2">
+                  <Box className="h-4 w-4" />
+                  Premium Service
+                </span>
+                <span className="bg-amber-500/20 text-amber-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide border border-amber-500/30">
+                  New
+                </span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 flex items-center gap-3">
+                <Box className="h-7 w-7 text-cyan-400" />
+                3D Packaging Creation Service
+              </h2>
+              <p className="text-neutral-300 mb-8 max-w-2xl">
+                Go beyond static mockups. Get interactive, rotatable 3D models of your packaging that customers can spin, tilt, and inspect on your website — just like holding the real product.
+              </p>
+
+              <div className="grid lg:grid-cols-12 gap-8 items-start">
+                {/* Left: Model selector cards */}
+                <div className="lg:col-span-5 space-y-3">
+                  <p className="text-xs uppercase tracking-widest text-neutral-400 font-bold mb-2">Click to preview a 3D model ↓</p>
+                  {POUCH_3D_MODELS.map((model, idx) => (
+                    <button
+                      key={model.id}
+                      onClick={() => setActive3DModel(idx)}
+                      className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-300 ${
+                        active3DModel === idx
+                          ? 'bg-white/10 border-cyan-400 shadow-lg shadow-cyan-500/10 ring-1 ring-cyan-400'
+                          : 'bg-white/5 border-neutral-600 hover:bg-white/10 hover:border-neutral-500'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">{model.emoji}</span>
+                        <div>
+                          <p className="font-bold text-white text-sm">{model.label}</p>
+                          <p className="text-xs text-neutral-400">{model.desc}</p>
+                        </div>
+                        {active3DModel === idx && (
+                          <Eye className="h-4 w-4 text-cyan-400 ml-auto flex-shrink-0" />
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Right: 3D Viewer */}
+                <div className="lg:col-span-7">
+                  <div className="h-[400px] md:h-[480px] bg-white/5 backdrop-blur-sm border border-neutral-600 rounded-2xl relative flex items-center justify-center overflow-hidden">
+                    {/* Glassmorphic glow */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/5 to-blue-500/5 rounded-2xl pointer-events-none" />
+                    <div className="w-full h-full relative z-10">
+                      <ThreePouchViewer
+                        modelUrl={POUCH_3D_MODELS[active3DModel].url}
+                        tilt={threeTilt}
+                        scrollPercent={threeScrollPercent}
+                        isMobile={false}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center gap-4 mt-3 text-xs text-neutral-400">
+                    <span className="flex items-center gap-1"><RotateCw className="h-3 w-3" /> Drag to rotate</span>
+                    <span>•</span>
+                    <span>Scroll to spin</span>
+                    <span>•</span>
+                    <span>Move mouse to tilt</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Service details grid */}
+              <div className="grid sm:grid-cols-3 gap-4 mt-10">
+                <div className="bg-white/5 border border-neutral-600 rounded-xl p-5">
+                  <div className="text-cyan-400 font-black text-2xl mb-1">From $299</div>
+                  <p className="text-sm text-neutral-300">Per pouch style. Includes high-fidelity GLB file with your branding, textures, and materials.</p>
+                </div>
+                <div className="bg-white/5 border border-neutral-600 rounded-xl p-5">
+                  <div className="text-cyan-400 font-black text-2xl mb-1">5–7 Days</div>
+                  <p className="text-sm text-neutral-300">Turnaround from artwork submission to delivered 3D model file, ready to embed on your site.</p>
+                </div>
+                <div className="bg-white/5 border border-neutral-600 rounded-xl p-5">
+                  <div className="text-cyan-400 font-black text-2xl mb-1">Free Embed</div>
+                  <p className="text-sm text-neutral-300">Interactive WebGL viewer is free to embed on any website. Works on desktop and mobile.</p>
+                </div>
+              </div>
+
+              {/* What's included list */}
+              <div className="mt-8 bg-white/5 border border-neutral-600 rounded-xl p-6">
+                <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-cyan-400" />
+                  What's Included in 3D Creation
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {[
+                    'High-fidelity .GLB 3D model file',
+                    'Your artwork & branding applied',
+                    'Realistic material textures (matte, glossy, metallic)',
+                    'Interactive spin & tilt controls',
+                    'Embeddable Three.js viewer code',
+                    'Mobile-optimized rendering',
+                    'Multiple camera angles preset',
+                    'Unlimited website embeds',
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-neutral-300">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-8 flex flex-wrap gap-4 items-center">
+                <button
+                  onClick={openCalendly}
+                  className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3.5 rounded-lg font-bold hover:from-cyan-600 hover:to-blue-600 transition shadow-lg shadow-cyan-500/25 text-base"
+                >
+                  <Box className="h-5 w-5" />
+                  Get a 3D Model Quote
+                </button>
+                <span className="text-sm text-neutral-400">
+                  Free consultation · No obligation · Volume discounts available
+                </span>
+              </div>
             </div>
           </section>
 

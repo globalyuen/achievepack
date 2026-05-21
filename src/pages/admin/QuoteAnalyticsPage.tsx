@@ -20,6 +20,7 @@ const QuoteAnalyticsPage: React.FC = () => {
   const [fetching, setFetching] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
   const [logs, setLogs] = useState<WebhookLog[]>([]);
+  const [generatorLogs, setGeneratorLogs] = useState<WebhookLog[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [viewMode, setViewMode] = useState<'timeline' | 'summary'>('summary');
   const [sortMode, setSortMode] = useState<'views' | 'recent' | 'name'>('recent');
@@ -41,14 +42,26 @@ const QuoteAnalyticsPage: React.FC = () => {
   const fetchLogs = async () => {
     setFetching(true);
     try {
-      const { data, error } = await supabase
+      // Fetch tracking logs
+      const { data: trackingData, error: trackingError } = await supabase
         .from('webhook_logs')
         .select('*')
         .eq('source', 'Quote Tracking')
         .order('created_at', { ascending: false });
 
-      if (error) throw error;
-      setLogs(data || []);
+      if (trackingError) throw trackingError;
+
+      // Fetch generator logs to extract specifications
+      const { data: generatorData, error: generatorError } = await supabase
+        .from('webhook_logs')
+        .select('*')
+        .eq('source', 'Quote Generator')
+        .order('created_at', { ascending: false });
+
+      if (generatorError) throw generatorError;
+
+      setLogs(trackingData || []);
+      setGeneratorLogs(generatorData || []);
     } catch (err: any) {
       console.error("Fetch error:", err);
       setErrorMsg("Failed to fetch analytics: " + err.message);
@@ -90,16 +103,72 @@ const QuoteAnalyticsPage: React.FC = () => {
     };
   }, [logs]);
 
+  const specsMap = useMemo(() => {
+    const map: Record<string, {
+      text: string;
+      customer: string;
+      materials: string[];
+      sizes: string[];
+      productNames: string[];
+      rawContent: string;
+    }> = {};
+
+    generatorLogs.forEach(g => {
+      if (!g.id) return;
+      const raw = g.raw_data || {};
+      const customer = raw.customer || '';
+      const text = raw.text || '';
+      
+      const materials: string[] = [];
+      const sizes: string[] = [];
+      const productNames: string[] = [];
+
+      if (Array.isArray(raw.pricingData)) {
+        raw.pricingData.forEach((item: any) => {
+          if (item?.material) materials.push(item.material.toLowerCase());
+          if (item?.size) sizes.push(item.size.toLowerCase());
+          if (item?.product_name) productNames.push(item.product_name.toLowerCase());
+        });
+      }
+
+      const rawContent = JSON.stringify(raw).toLowerCase();
+
+      map[g.id] = {
+        text: text.toLowerCase(),
+        customer: customer.toLowerCase(),
+        materials,
+        sizes,
+        productNames,
+        rawContent
+      };
+    });
+
+    return map;
+  }, [generatorLogs]);
+
   const filteredLogs = useMemo(() => {
     if (!searchTerm) return logs;
     const s = searchTerm.toLowerCase();
-    return logs.filter(l => 
-      l.raw_data?.customerName?.toLowerCase().includes(s) || 
-      l.raw_data?.quoteId?.toLowerCase().includes(s) ||
-      l.raw_data?.country?.toLowerCase().includes(s) ||
-      l.raw_data?.city?.toLowerCase().includes(s)
-    );
-  }, [logs, searchTerm]);
+    return logs.filter(l => {
+      const qid = l.raw_data?.quoteId;
+      const spec = qid ? specsMap[qid] : null;
+      
+      return (
+        l.raw_data?.customerName?.toLowerCase().includes(s) || 
+        l.raw_data?.quoteId?.toLowerCase().includes(s) ||
+        l.raw_data?.country?.toLowerCase().includes(s) ||
+        l.raw_data?.city?.toLowerCase().includes(s) ||
+        (spec && (
+          spec.text.includes(s) ||
+          spec.customer.includes(s) ||
+          spec.materials.some(m => m.includes(s)) ||
+          spec.sizes.some(sz => sz.includes(s)) ||
+          spec.productNames.some(pn => pn.includes(s)) ||
+          spec.rawContent.includes(s)
+        ))
+      );
+    });
+  }, [logs, searchTerm, specsMap]);
 
   const countryStats = useMemo(() => {
     const counts = logs.reduce((acc: any, curr) => {
@@ -111,43 +180,78 @@ const QuoteAnalyticsPage: React.FC = () => {
   }, [logs]);
 
   const quoteSummary = useMemo(() => {
-    const summary: Record<string, { id: string, name: string, count: number, lastView: Date, uniqueIps: Set<string> }> = {};
+    const summary: Record<string, { id: string, name: string, count: number, lastView: Date | null, uniqueIps: Set<string> }> = {};
+    
+    // Initialize with all generated quotes first
+    generatorLogs.forEach(g => {
+      if (!g.id) return;
+      summary[g.id] = {
+        id: g.id,
+        name: g.raw_data?.customer || 'Prospect',
+        count: 0,
+        lastView: null,
+        uniqueIps: new Set()
+      };
+    });
+
+    // Populate tracking details
     logs.forEach(l => {
       const qid = l.raw_data?.quoteId;
       if (!qid) return;
+      
       if (!summary[qid]) {
         summary[qid] = {
           id: qid,
-          name: l.raw_data?.customerName || 'Unknown',
+          name: l.raw_data?.customerName || 'Prospect',
           count: 0,
-          lastView: new Date(0),
+          lastView: null,
           uniqueIps: new Set()
         };
       }
+      
       summary[qid].count++;
       const date = new Date(l.created_at);
-      if (date > summary[qid].lastView) {
+      if (!summary[qid].lastView || date > summary[qid].lastView) {
         summary[qid].lastView = date;
       }
       if (l.raw_data?.ip) {
         summary[qid].uniqueIps.add(l.raw_data.ip);
       }
     });
+    
     return Object.values(summary);
-  }, [logs]);
+  }, [logs, generatorLogs]);
 
   const sortedSummary = useMemo(() => {
     let filtered = quoteSummary;
     if (searchTerm) {
       const s = searchTerm.toLowerCase();
-      filtered = filtered.filter(q => q.name.toLowerCase().includes(s) || q.id.toLowerCase().includes(s));
+      filtered = filtered.filter(q => {
+        const spec = specsMap[q.id];
+        return (
+          q.name.toLowerCase().includes(s) || 
+          q.id.toLowerCase().includes(s) ||
+          (spec && (
+            spec.text.includes(s) ||
+            spec.customer.includes(s) ||
+            spec.materials.some(m => m.includes(s)) ||
+            spec.sizes.some(sz => sz.includes(s)) ||
+            spec.productNames.some(pn => pn.includes(s)) ||
+            spec.rawContent.includes(s)
+          ))
+        );
+      });
     }
     return filtered.sort((a, b) => {
       if (sortMode === 'views') return b.count - a.count;
-      if (sortMode === 'recent') return b.lastView.getTime() - a.lastView.getTime();
+      if (sortMode === 'recent') {
+        const timeA = a.lastView ? a.lastView.getTime() : 0;
+        const timeB = b.lastView ? b.lastView.getTime() : 0;
+        return timeB - timeA;
+      }
       return a.name.localeCompare(b.name);
     });
-  }, [quoteSummary, searchTerm, sortMode]);
+  }, [quoteSummary, searchTerm, sortMode, specsMap]);
 
   if (!isAuthenticated) {
     return (
@@ -457,12 +561,20 @@ const QuoteAnalyticsPage: React.FC = () => {
                               </span>
                             </td>
                             <td className="px-6 py-5">
-                              <div className="text-sm font-bold text-gray-300">
-                                {q.lastView.toLocaleDateString()}
-                              </div>
-                              <div className="text-[10px] font-bold text-gray-600 mt-0.5 uppercase tracking-tighter">
-                                {q.lastView.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                              </div>
+                              {q.lastView ? (
+                                <>
+                                  <div className="text-sm font-bold text-gray-300">
+                                    {q.lastView.toLocaleDateString()}
+                                  </div>
+                                  <div className="text-[10px] font-bold text-gray-600 mt-0.5 uppercase tracking-tighter">
+                                    {q.lastView.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                  </div>
+                                </>
+                              ) : (
+                                <div className="text-xs font-bold text-gray-600 italic">
+                                  Not Viewed Yet
+                                </div>
+                              )}
                             </td>
                             <td className="px-8 py-5 text-right">
                               <a 
