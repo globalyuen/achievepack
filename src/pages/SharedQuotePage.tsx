@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, Image as ImageIcon, Video as VideoIcon, SlidersHorizontal, MessageCircle, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 
 const ADMIN_PWD = '8888****';
 
@@ -527,9 +527,12 @@ const SharedQuotePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans pb-24">
-      <Helmet>
-        <title>Official Quotation | Achieve Pack</title>
-      </Helmet>
+      <SEO
+        title="Official Quotation | Achieve Pack"
+        description="View your official customized packaging quotation from Achieve Pack."
+        url={`https://achievepack.com/quotes/${id || ''}`}
+        noindex={true}
+      />
 
       {/* Password Modal */}
       {showPwdModal && (

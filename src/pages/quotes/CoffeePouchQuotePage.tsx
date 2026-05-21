@@ -34,12 +34,12 @@ const CoffeePouchQuotePage: React.FC = () => {
     { product: '200g', size: '110 x 205 x 65', zipper: true, valve: true, qty: 10000, unitPrice: 0.43, total: 4303.20 },
     { product: '200g', size: '110 x 205 x 65', zipper: true, valve: true, qty: 15000, unitPrice: 0.41, total: 6168.00 },
     { product: '200g', size: '110 x 205 x 65', zipper: true, valve: true, qty: 20000, unitPrice: 0.40, total: 7968.00 },
-    { product: '500g', size: '130 x 250 x 70', zipper: true, valve: true, qty: 10000, unitPrice: 0.54, total: 5431.20 },
-    { product: '500g', size: '130 x 250 x 70', zipper: true, valve: true, qty: 15000, unitPrice: 0.52, total: 7776.00 },
-    { product: '500g', size: '130 x 250 x 70', zipper: true, valve: true, qty: 20000, unitPrice: 0.51, total: 10206.00 },
-    { product: '1kg', size: '132 x 320 x 92', zipper: false, valve: true, qty: 10000, unitPrice: 0.69, total: 6943.20 },
-    { product: '1kg', size: '132 x 320 x 92', zipper: false, valve: true, qty: 15000, unitPrice: 0.67, total: 10098.00 },
-    { product: '1kg', size: '132 x 320 x 92', zipper: false, valve: true, qty: 20000, unitPrice: 0.66, total: 13329.60 },
+    { product: '500g', size: '135 x 265 x 75', zipper: true, valve: true, qty: 10000, unitPrice: 0.54, total: 5431.20 },
+    { product: '500g', size: '135 x 265 x 75', zipper: true, valve: true, qty: 15000, unitPrice: 0.52, total: 7776.00 },
+    { product: '500g', size: '135 x 265 x 75', zipper: true, valve: true, qty: 20000, unitPrice: 0.51, total: 10206.00 },
+    { product: '1kg', size: '145 x 330 x 100', zipper: false, valve: true, qty: 10000, unitPrice: 0.69, total: 6943.20 },
+    { product: '1kg', size: '145 x 330 x 100', zipper: false, valve: true, qty: 15000, unitPrice: 0.67, total: 10098.00 },
+    { product: '1kg', size: '145 x 330 x 100', zipper: false, valve: true, qty: 20000, unitPrice: 0.66, total: 13329.60 },
   ]
 
   const digitalPricing = [
@@ -49,12 +49,12 @@ const CoffeePouchQuotePage: React.FC = () => {
     { product: '200g', size: '110 x 205 x 65', zipper: true, valve: true, qty: 100, unitPrice: 9.77, total: 977.10 },
     { product: '200g', size: '110 x 205 x 65', zipper: true, valve: true, qty: 1000, unitPrice: 1.52, total: 1523.70 },
     { product: '200g', size: '110 x 205 x 65', zipper: true, valve: true, qty: 10000, unitPrice: 0.61, total: 6091.20 },
-    { product: '500g', size: '130 x 250 x 70', zipper: true, valve: true, qty: 100, unitPrice: 10.44, total: 1043.76 },
-    { product: '500g', size: '130 x 250 x 70', zipper: true, valve: true, qty: 1000, unitPrice: 1.61, total: 1609.20 },
-    { product: '500g', size: '130 x 250 x 70', zipper: true, valve: true, qty: 10000, unitPrice: 0.70, total: 6943.20 },
-    { product: '1kg', size: '132 x 320 x 92', zipper: false, valve: true, qty: 100, unitPrice: 11.94, total: 1194.00 },
-    { product: '1kg', size: '132 x 320 x 92', zipper: false, valve: true, qty: 1000, unitPrice: 2.05, total: 2044.60 },
-    { product: '1kg', size: '132 x 320 x 92', zipper: false, valve: true, qty: 10000, unitPrice: 0.91, total: 9133.20 },
+    { product: '500g', size: '135 x 265 x 75', zipper: true, valve: true, qty: 100, unitPrice: 10.44, total: 1043.76 },
+    { product: '500g', size: '135 x 265 x 75', zipper: true, valve: true, qty: 1000, unitPrice: 1.61, total: 1609.20 },
+    { product: '500g', size: '135 x 265 x 75', zipper: true, valve: true, qty: 10000, unitPrice: 0.70, total: 6943.20 },
+    { product: '1kg', size: '145 x 330 x 100', zipper: false, valve: true, qty: 100, unitPrice: 11.94, total: 1194.00 },
+    { product: '1kg', size: '145 x 330 x 100', zipper: false, valve: true, qty: 1000, unitPrice: 2.05, total: 2044.60 },
+    { product: '1kg', size: '145 x 330 x 100', zipper: false, valve: true, qty: 10000, unitPrice: 0.91, total: 9133.20 },
   ]
 
 

@@ -1,7 +1,7 @@
 import React, { useState, useTransition, useEffect, useRef, useMemo } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart, Gift, Menu } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
+import SEO from './SEO'
 import { useTranslation } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
 import { LEARN_PAGES } from './LearnNavigation'
@@ -682,38 +682,15 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
   return (
     <>
-      <Helmet>
-        <title>{title} | Achieve Pack - Eco-Friendly Packaging Solutions</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords.join(', ')} />
-        {/* Always set canonical URL */}
-        <link rel="canonical" href={effectiveCanonicalUrl} />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `https://achievepack.com${ogImage}`} />
-        <meta property="og:url" content={effectiveCanonicalUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Achieve Pack" />
-        <meta property="og:locale" content="en_US" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `https://achievepack.com${ogImage}`} />
-        
-        {/* Enhanced Schema.org JSON-LD with E-E-A-T Optimization */}
-        <script type="application/ld+json">
-          {JSON.stringify(enhancedSchema)}
-        </script>
-        {faqSchema && (
-          <script type="application/ld+json">
-            {JSON.stringify(faqSchema)}
-          </script>
-        )}
-      </Helmet>
+      <SEO 
+        title={`${title} | Achieve Pack - Eco-Friendly Packaging Solutions`}
+        description={description}
+        url={effectiveCanonicalUrl}
+        keywords={keywords}
+        image={ogImage.startsWith('http') ? ogImage : `https://achievepack.com${ogImage}`}
+        schema={enhancedSchema}
+        faq={faqs || undefined}
+      />
 
       <div className="min-h-screen bg-neutral-50 pt-14 overflow-x-hidden">
         {/* Header with LEARN and BLOG Mega Menus */}

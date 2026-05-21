@@ -1,6 +1,6 @@
 import { useState, useCallback, useTransition, useMemo, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { Star, Quote, ExternalLink, Play, X, ArrowLeft, ArrowRight, MessageCircle, Award, CheckCircle, Mail, Phone } from 'lucide-react'
@@ -155,11 +155,11 @@ export default function ReviewsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
-      <Helmet>
-        <title>Customer Reviews | Eco Pouch Packaging</title>
-        <meta name="description" content="Read verified customer reviews and testimonials. See why businesses trust Eco Pouch for sustainable, high-quality custom packaging solutions." />
-        <link rel="canonical" href="https://pouch.eco/reviews" />
-      </Helmet>
+      <SEO 
+        title="Customer Reviews | Eco Pouch Packaging" 
+        description="Read verified customer reviews and testimonials. See why businesses trust Eco Pouch for sustainable, high-quality custom packaging solutions." 
+        url="https://pouch.eco/reviews" 
+      />
 
       {/* Header */}
       <header className="bg-white border-b sticky top-0 z-50">

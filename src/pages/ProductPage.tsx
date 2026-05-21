@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useTransition, useCallback, useRef } from 'react'
 import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles, CheckCircle, Info } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import PopoverSelect, { SimplePopoverSelect } from '../components/ui/popover-select'
@@ -743,10 +743,12 @@ const ProductPage: React.FC = () => {
     
     return (
       <>
-        <Helmet>
-          <title>Product Not Found | Achieve Pack</title>
-          <meta name="robots" content="noindex, nofollow" />
-        </Helmet>
+        <SEO 
+          title="Product Not Found | Achieve Pack"
+          description="The requested product was not found on Achieve Pack. Browse our selection of sustainable and high-barrier custom packaging."
+          url="https://achievepack.com/store"
+          noindex={true}
+        />
         <div className="min-h-screen relative">
           {/* Full Page Background Image */}
           <div className="absolute inset-0">
@@ -1037,40 +1039,15 @@ const ProductPage: React.FC = () => {
 
   return (
     <>
-      {product && (
-        <Helmet>
-          <title>{product.name} | Achieve Pack - Eco-Friendly Packaging</title>
-          <meta name="description" content={product.description} />
-          <link rel="canonical" href={`https://achievepack.com/store/product/${product.id}`} />
-          
-          {/* Open Graph */}
-          <meta property="og:title" content={`${product.name} | Achieve Pack`} />
-          <meta property="og:description" content={product.description} />
-          <meta property="og:image" content={`https://achievepack.com${product.images[0]}`} />
-          <meta property="og:url" content={`https://achievepack.com/store/product/${product.id}`} />
-          <meta property="og:type" content="product" />
-          
-          {/* Twitter */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={product.name} />
-          <meta name="twitter:description" content={product.description} />
-          <meta name="twitter:image" content={`https://achievepack.com${product.images[0]}`} />
-          
-          {/* Product Schema */}
-          {productSchema && (
-            <script type="application/ld+json">
-              {JSON.stringify(productSchema)}
-            </script>
-          )}
-          
-          {/* FAQ Schema for GEO Optimization */}
-          {faqSchema && (
-            <script type="application/ld+json">
-              {JSON.stringify(faqSchema)}
-            </script>
-          )}
-        </Helmet>
-      )}
+      <SEO 
+        title={`${product.name} | Achieve Pack - Eco-Friendly Packaging`}
+        description={product.description}
+        url={`https://achievepack.com/store/product/${product.id}`}
+        image={`https://achievepack.com${product.images[0]}`}
+        type="product"
+        schema={productSchema || undefined}
+        faq={combinedFAQs}
+      />
     <div className="min-h-screen bg-neutral-50">
       {/* Header - Fixed at top */}
       <header className="bg-white border-b fixed top-0 left-0 right-0 z-50">

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Package, ShoppingCart, Clock, CheckCircle, Leaf, Award, Shield, Target, MessageCircle, Calendar, ArrowRight, Truck, Users, Zap, ChevronDown } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import SEO from '../../components/SEO'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
@@ -550,79 +551,12 @@ const LowMOQPackagingPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Low MOQ Packaging | 100 Piece Minimum | Custom Printed Pouches | Achieve Pack</title>
-        <meta name="description" content="Custom printed sustainable packaging with low MOQ from 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands. Digital printing, fast lead times, FDA approved." />
-        <link rel="canonical" href="https://achievepack.com/products/low-moq-packaging" />
-        <meta name="keywords" content="low MOQ packaging, small batch packaging, custom printed pouches 100 minimum, low minimum order packaging, startup packaging, small business packaging, digital print pouches, custom bags small quantity" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Low MOQ Packaging | 100 Piece Minimum | Achieve Pack" />
-        <meta property="og:description" content="Custom printed sustainable packaging with industry-lowest MOQ from 100 pieces. Perfect for startups and small-batch producers." />
-        <meta property="og:url" content="https://achievepack.com/products/low-moq-packaging" />
-        <meta property="og:type" content="product" />
-        
-        {/* Product Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Low MOQ Custom Packaging",
-            "description": "Custom printed sustainable packaging with minimum order quantity from 100 pieces. Available in compostable, recyclable, and bio-based materials.",
-            "brand": {
-              "@type": "Brand",
-              "name": "Achieve Pack"
-            },
-            "offers": {
-              "@type": "AggregateOffer",
-              "lowPrice": "0.55",
-              "highPrice": "1.50",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock",
-              "priceValidUntil": "2025-12-31"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "127"
-            }
-          })}
-        </script>
-        
-        {/* FAQ Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is the minimum order quantity for custom printed packaging?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Our minimum order quantity is 100 pieces for digital printed pouches, 1,000 pieces for plate printed packaging, and 50 pieces for stock bags."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How long does production take for low MOQ orders?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Digital print orders typically take 2-3 weeks for production plus 5-7 days shipping to USA, for a total lead time of 3-4 weeks."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is sustainable packaging available at low MOQ?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes! All our low MOQ packaging is available in sustainable options including compostable, recyclable mono-material, PCR content, and bio-based materials."
-                }
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
+      <SEO
+        title="Low MOQ Packaging | 100 Piece Minimum | Achieve Pack"
+        description="Custom printed sustainable packaging with low MOQ from 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands."
+        url="https://pouch.eco/products/low-moq-packaging"
+        keywords={['low MOQ packaging','small batch packaging','custom printed pouches 100 minimum','startup packaging','small business packaging']}
+      />
 
       <SEOPageLayout heroBgColor="#1f2937"
         title="Low MOQ Packaging | 100 Piece Minimum | Achieve Pack"

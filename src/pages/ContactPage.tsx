@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useTransition, useEffect, useRef } from 'react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, Send, ArrowLeft, CheckCircle, Building2, Globe, AlertCircle, Upload, X, FileText, Image } from 'lucide-react'
 import { useCalendly } from '../contexts/CalendlyContext'
@@ -191,11 +191,7 @@ const ContactPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us | Achieve Pack - Sustainable Packaging Solutions</title>
-        <meta name="description" content="Contact Achieve Pack for custom sustainable packaging quotes, samples, and inquiries. Email, WhatsApp, or book a free 30-min consultation call." />
-        <link rel="canonical" href="https://achievepack.com/contact" />
-      </Helmet>
+      <SEO title="Contact Us | Achieve Pack - Sustainable Packaging Solutions" description="Contact Achieve Pack for custom sustainable packaging quotes, samples, and inquiries. Email, WhatsApp, or book a free 30-min consultation call." url="https://achievepack.com/contact" />
 
       <div className="min-h-screen bg-neutral-50">
         {/* Header */}

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Home, Search, ArrowLeft, Package } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 
 // Random banner images - WebP format for smaller file size
 const BANNER_IMAGES = [
@@ -21,10 +21,12 @@ const NotFoundPage = () => {
   
   return (
     <>
-      <Helmet>
-        <title>404 - Page Not Found | Achieve Pack</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
+      <SEO 
+        title="404 - Page Not Found | Achieve Pack" 
+        description="The page you're looking for doesn't exist or has been moved." 
+        url="https://achievepack.com/404" 
+        noindex={true} 
+      />
 
       <div className="min-h-screen relative">
         {/* Full Page Background Image */}

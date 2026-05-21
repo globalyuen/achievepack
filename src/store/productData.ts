@@ -1559,6 +1559,47 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
 // Conventional Stock Products (Ready-made Premium)
 const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
   {
+    id: 'spouted-foil-pouch',
+    name: 'Spouted Foil Stand Up Pouch',
+    category: 'conventional-stock',
+    description: 'Premium high-barrier glossy/matte aluminum foil stand-up pouches with an integrated center-spout and a tamper-evident resealable screw cap. Highly protective foil laminate structure shields liquids, purees, baby food, sauces, juices, and chemical refills from oxygen, moisture, and UV light. Spill-proof, puncture-resistant, and lightweight.',
+    shortDesc: 'Premium foil stand-up pouch with center spout & resealable cap',
+    features: [
+      'Integrated Leak-Proof Center Spout & Cap',
+      'Advanced 3-Layer Aluminum Foil Lamination',
+      'Spill-Proof Resealable Screw Cap',
+      'Lightweight and Low Carbon Packaging Alternative',
+      'Sturdy Bottom Gusset for Upright Display'
+    ],
+    images: [
+      '/imgs/pouch-shape/a_spout_pouch_isolated_6857112.webp',
+      '/imgs/pouch-shape/ads/a_achieve_pack_spout_pouch_closeup_5874382.webp',
+      '/imgs/illustrated/a_achievepack_spout_pouches_1062736.webp',
+      '/imgs/function/spout/a_detail_spout_cap_2155787.webp',
+      '/imgs/store/closure/spout.webp'
+    ],
+    badge: '🔥 Bestseller',
+    rating: 4.8,
+    reviews: 34,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    shape: 'Spouted Stand Up Pouch',
+    material: 'Glossy Aluminum Foil - High Barrier Lamination',
+    basePrice: 35.00,
+    pricePerPiece: 0.35,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Multiple volume capacities available (100ml - 1L)',
+    sizeVariants: [
+      { id: 'foil-100ml', label: 'Foil - 100ml (80×130+25mm)', dimensions: '80 × 130 + 25 mm', hasHole: false, quantity: 100, totalPrice: 35.00, unitPrice: 0.35, heroImageIndex: 0 },
+      { id: 'foil-250ml', label: 'Foil - 250ml (100×160+30mm)', dimensions: '100 × 160 + 30 mm', hasHole: false, quantity: 100, totalPrice: 42.00, unitPrice: 0.42, heroImageIndex: 0 },
+      { id: 'foil-500ml', label: 'Foil - 500ml (130×200+40mm)', dimensions: '130 × 200 + 40 mm', hasHole: false, quantity: 100, totalPrice: 55.00, unitPrice: 0.55, heroImageIndex: 0 },
+      { id: 'foil-1000ml', label: 'Foil - 1L (160×250+45mm)', dimensions: '160 × 250 + 45 mm', hasHole: false, quantity: 100, totalPrice: 72.00, unitPrice: 0.72, heroImageIndex: 0 },
+    ],
+    customPrintNote: 'Custom prints and customized spout positions (corner/center) available from 10,000+ pieces. Please consult our team.',
+  },
+  {
     id: 'rice-paper-flatbottom-valve',
     name: 'Rice Paper Flat Bottom Zipper Pouch with Valve',
     category: 'conventional-stock',

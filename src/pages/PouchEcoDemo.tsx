@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Package, Leaf, Zap, ShoppingCart, Star, Flame, Box as BoxIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 
 /**
  * Pouch.eco Design Demo Page - Neo-Brutalist Style
@@ -83,12 +83,14 @@ export default function PouchEcoDemo() {
 
   return (
     <div className="min-h-screen bg-[#F0F0F0] text-black font-['Space_Grotesk'] selection:bg-black selection:text-[#D4FF00] overflow-x-hidden">
-      <Helmet>
-        <title>POUCH.ECO - Eco Packaging Protocol</title>
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
-        `}</style>
-      </Helmet>
+      <SEO 
+        title="POUCH.ECO - Eco Packaging Protocol" 
+        description="Low MOQ compostable, recyclable, and bio-based pouches starting from 500 units." 
+        url="https://pouch.eco" 
+      />
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+      `}</style>
 
       {/* Navigation */}
       <nav className="border-b-4 border-black bg-white sticky top-0 z-50">

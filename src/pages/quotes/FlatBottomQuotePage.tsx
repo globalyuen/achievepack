@@ -447,14 +447,14 @@ const FlatBottomQuotePage: React.FC = () => {
                 <div className="bg-white p-4 rounded-lg border border-gray-200 text-center hover:border-green-300 transition-colors shadow-sm relative overflow-hidden group">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gray-100 group-hover:bg-green-400 transition-colors"></div>
                     <p className="text-xs text-gray-500 font-bold tracking-widest uppercase mb-1">500g</p>
-                    <p className="text-lg font-black text-gray-800 mb-1">130 &times; 250<span className="text-xs font-normal text-gray-500 ml-1">mm</span></p>
-                    <p className="text-xs font-medium text-gray-500 bg-gray-50 mx-auto w-max px-2 py-1 rounded">70mm Gusset</p>
+                    <p className="text-lg font-black text-gray-800 mb-1">135 &times; 265<span className="text-xs font-normal text-gray-500 ml-1">mm</span></p>
+                    <p className="text-xs font-medium text-gray-500 bg-gray-50 mx-auto w-max px-2 py-1 rounded">75mm Gusset</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg border border-gray-200 text-center hover:border-green-300 transition-colors shadow-sm relative overflow-hidden group">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gray-100 group-hover:bg-green-400 transition-colors"></div>
                     <p className="text-xs text-gray-500 font-bold tracking-widest uppercase mb-1">1kg</p>
-                    <p className="text-lg font-black text-gray-800 mb-1">132 &times; 320<span className="text-xs font-normal text-gray-500 ml-1">mm</span></p>
-                    <p className="text-xs font-medium text-gray-500 bg-gray-50 mx-auto w-max px-2 py-1 rounded">92mm Gusset</p>
+                    <p className="text-lg font-black text-gray-800 mb-1">145 &times; 330<span className="text-xs font-normal text-gray-500 ml-1">mm</span></p>
+                    <p className="text-xs font-medium text-gray-500 bg-gray-50 mx-auto w-max px-2 py-1 rounded">100mm Gusset</p>
                 </div>
             </div>
         </section>
@@ -546,7 +546,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         {/*  500g  */}
                         <tr>
                             <td className="font-semibold text-gray-900">500g</td>
-                            <td>130 x 250 x 70</td>
+                            <td>135 x 265 x 75</td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">10,000</td>
@@ -555,7 +555,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         </tr>
                         <tr>
                             <td className="font-semibold text-gray-900">500g</td>
-                            <td>130 x 250 x 70</td>
+                            <td>135 x 265 x 75</td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">15,000</td>
@@ -564,7 +564,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         </tr>
                         <tr>
                             <td className="font-semibold text-gray-900 border-b-2 border-gray-300">500g</td>
-                            <td className="border-b-2 border-gray-300">130 x 250 x 70</td>
+                            <td className="border-b-2 border-gray-300">135 x 265 x 75</td>
                             <td className="text-center text-green-600 border-b-2 border-gray-300"><i className="fas fa-check"></i></td>
                             <td className="text-center text-green-600 border-b-2 border-gray-300"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium border-b-2 border-gray-300">20,000</td>
@@ -575,7 +575,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         {/*  1kg  */}
                         <tr>
                             <td className="font-semibold text-gray-900">1kg</td>
-                            <td>132 x 320 x 92</td>
+                            <td>145 x 330 x 100</td>
                             <td className="text-center text-gray-400"><i className="fas fa-times"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">10,000</td>
@@ -584,7 +584,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         </tr>
                         <tr>
                             <td className="font-semibold text-gray-900">1kg</td>
-                            <td>132 x 320 x 92</td>
+                            <td>145 x 330 x 100</td>
                             <td className="text-center text-gray-400"><i className="fas fa-times"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">15,000</td>
@@ -593,7 +593,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         </tr>
                         <tr>
                             <td className="font-semibold text-gray-900">1kg</td>
-                            <td>132 x 320 x 92</td>
+                            <td>145 x 330 x 100</td>
                             <td className="text-center text-gray-400"><i className="fas fa-times"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">20,000</td>
@@ -694,7 +694,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         {/*  500g  */}
                         <tr>
                             <td className="font-semibold text-gray-900">500g</td>
-                            <td>130 x 250 x 70</td>
+                            <td>135 x 265 x 75</td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">100</td>
@@ -703,7 +703,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         </tr>
                         <tr>
                             <td className="font-semibold text-gray-900">500g</td>
-                            <td>130 x 250 x 70</td>
+                            <td>135 x 265 x 75</td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">1,000</td>
@@ -712,10 +712,10 @@ const FlatBottomQuotePage: React.FC = () => {
                         </tr>
                         <tr>
                             <td className="font-semibold text-gray-900 border-b-2 border-gray-300">500g</td>
-                            <td className="border-b-2 border-gray-300">130 x 250 x 70</td>
+                            <td className="border-b-2 border-gray-300">135 x 265 x 75</td>
                             <td className="text-center text-green-600 border-b-2 border-gray-300"><i className="fas fa-check"></i></td>
                             <td className="text-center text-green-600 border-b-2 border-gray-300"><i className="fas fa-check"></i></td>
-                            <td className="text-right font-medium border-b-2 border-gray-300">10,000</td>
+                            <td className="text-right font-medium border-b-2 border-gray-300">20,000</td>
                             <td className="text-right border-b-2 border-gray-300">$0.70</td>
                             <td className="text-right font-bold text-gray-900 border-b-2 border-gray-300">$6,943.20</td>
                         </tr>
@@ -723,7 +723,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         {/*  1kg  */}
                         <tr>
                             <td className="font-semibold text-gray-900">1kg</td>
-                            <td>132 x 320 x 92</td>
+                            <td>145 x 330 x 100</td>
                             <td className="text-center text-gray-400"><i className="fas fa-times"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">100</td>
@@ -732,7 +732,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         </tr>
                         <tr>
                             <td className="font-semibold text-gray-900">1kg</td>
-                            <td>132 x 320 x 92</td>
+                            <td>145 x 330 x 100</td>
                             <td className="text-center text-gray-400"><i className="fas fa-times"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">1,000</td>
@@ -741,7 +741,7 @@ const FlatBottomQuotePage: React.FC = () => {
                         </tr>
                         <tr>
                             <td className="font-semibold text-gray-900">1kg</td>
-                            <td>132 x 320 x 92</td>
+                            <td>145 x 330 x 100</td>
                             <td className="text-center text-gray-400"><i className="fas fa-times"></i></td>
                             <td className="text-center text-green-600"><i className="fas fa-check"></i></td>
                             <td className="text-right font-medium">10,000</td>

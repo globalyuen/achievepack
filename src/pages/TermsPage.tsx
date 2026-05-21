@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowLeft, FileText, Truck, CreditCard, Package, Shield, AlertCircle, Scale, Palette, CheckCircle, Globe } from 'lucide-react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 
 const TermsPage: React.FC = () => {
   const { t } = useTranslation()
@@ -49,11 +49,11 @@ const TermsPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Terms of Service | Achieve Pack - Eco-Friendly Packaging</title>
-        <meta name="description" content="Achieve Pack terms of service covering production, shipping, payment, and quality guarantees for custom eco-friendly packaging orders." />
-        <link rel="canonical" href="https://achievepack.com/terms" />
-      </Helmet>
+      <SEO
+        title="Terms of Service | Achieve Pack - Eco-Friendly Packaging"
+        description="Achieve Pack terms of service covering production, shipping, payment, and quality guarantees for custom eco-friendly packaging orders."
+        url="https://achievepack.com/terms"
+      />
       <div className="min-h-screen bg-neutral-50">
       {/* Header */}
       <header className="bg-white border-b sticky top-0 z-50">

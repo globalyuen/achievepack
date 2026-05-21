@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ShoppingCart, Info, Package, Leaf, Zap, Shield, ChevronRight } from 'lucide-react'
 import MegaMenu from '../components/MegaMenu'
@@ -76,10 +76,7 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-neutral-50 font-sans">
-      <Helmet>
-        <title>Products & Packaging Solutions | Achieve Pack</title>
-        <meta name="description" content="Explore Achieve Pack's full range of custom flexible packaging products, from Stand Up Pouches to Flat Bottom Bags. Shop our store for low MOQ printing." />
-      </Helmet>
+      <SEO title="Products & Packaging Solutions | Achieve Pack" description="Explore Achieve Pack's full range of custom flexible packaging products, from Stand Up Pouches to Flat Bottom Bags. Shop our store for low MOQ printing." url="https://achievepack.com/products" />
 
       <MegaMenu />
 

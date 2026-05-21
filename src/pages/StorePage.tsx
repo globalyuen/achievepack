@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback, useTransition, useEffect } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { useTranslation } from 'react-i18next'
 import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Menu, X, Sparkles, AlertTriangle, Mail, DollarSign, Package, Printer, Plane, ChevronLeft, ChevronRight, Leaf, Globe } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
@@ -91,6 +91,7 @@ const SHAPES = [
   { id: 'Flat Squared Bottom Pouch', label: 'Flat Bottom' },
   { id: 'Quad Seal Pouch', label: 'Quad Seal' },
   { id: 'Side Gusset Pouch', label: 'Side Gusset' },
+  { id: 'Spouted Stand Up Pouch', label: 'Spouted Stand Up' },
   { id: 'Header Bag', label: 'Header Bag' },
   { id: 'Mailer Bag', label: 'Mailer Bag' },
   { id: 'Corrugated Box', label: 'Corrugated Box' },
@@ -155,6 +156,26 @@ const StorePage: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
   const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0)
+
+  // Dynamically compute category counts based on FEATURED_PRODUCTS
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {
+      samples: 0,
+      'conventional-digital': 0,
+      'eco-stock-plain': 0,
+      'conventional-stock-plain': 0,
+      'eco-digital': 0,
+      'eco-stock-custom-print': 0,
+      boxes: 0,
+    }
+    FEATURED_PRODUCTS.forEach(product => {
+      const subCategory = getProductSubCategory(product)
+      if (subCategory in counts) {
+        counts[subCategory]++
+      }
+    })
+    return counts
+  }, [])
 
   const nextFeature = () => {
     setCurrentFeatureIndex((prev) => (prev + 1) % STORE_FEATURES.length)
@@ -256,7 +277,8 @@ const StorePage: React.FC = () => {
     'stand-up': 'Stand Up Pouch / Doypack',
     'flat-bottom': 'Flat Squared Bottom Pouch',
     'side-gusset': 'Side Gusset Pouch',
-    'spout': 'Spout Pouch',
+    'spout': 'Spouted Stand Up Pouch',
+    'spouted-stand-up': 'Spouted Stand Up Pouch',
   }
 
   const filteredProducts = useMemo(() => {
@@ -322,15 +344,11 @@ const StorePage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('seo.store.title', 'Buy Custom Eco Packaging Online | Low MOQ from 100pcs | Achieve Pack')}</title>
-        <meta name="description" content={t('seo.store.description', 'Order custom printed compostable & recyclable pouches online. Stand-up pouches, flat bottom bags, side gusset bags from 100 pieces. Free design support. Ships to USA, UK, EU & Asia.')} />
-        <link rel="canonical" href="https://achievepack.com/store" />
-        <meta property="og:title" content={t('seo.store.title', 'Buy Custom Eco Packaging Online | Low MOQ | Achieve Pack')} />
-        <meta property="og:description" content={t('seo.store.description', 'Custom printed compostable & recyclable pouches. Low MOQ from 100 pieces. Free design support.')} />
-        <meta property="og:url" content="https://achievepack.com/store" />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">{JSON.stringify({
+      <SEO
+        title={t('seo.store.title', 'Buy Custom Eco Packaging Online | Low MOQ from 100pcs | Achieve Pack')}
+        description={t('seo.store.description', 'Order custom printed compostable & recyclable pouches online. Stand-up pouches, flat bottom bags, side gusset bags from 100 pieces. Free design support. Ships to USA, UK, EU & Asia.')}
+        url="https://achievepack.com/store"
+        schema={{
           "@context": "https://schema.org",
           "@type": "Store",
           "name": "Achieve Pack Store",
@@ -349,8 +367,8 @@ const StorePage: React.FC = () => {
               { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Custom Flat Bottom Bags", "category": "Flexible Packaging" }}
             ]
           }
-        })}</script>
-      </Helmet>
+        }}
+      />
     <div className="min-h-screen bg-neutral-50">
       {/* Store Header - Same as Landing Page */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100">
@@ -815,7 +833,7 @@ const StorePage: React.FC = () => {
                                   }`}
                                 >
                                   <span>{child.label}</span>
-                                  <span className="text-xs text-neutral-400">({child.count})</span>
+                                  <span className="text-xs text-neutral-400">({categoryCounts[child.id] ?? child.count})</span>
                                 </button>
                               </li>
                             ))}

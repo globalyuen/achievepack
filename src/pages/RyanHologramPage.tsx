@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { Link } from 'react-router-dom'
 import { 
   Terminal, Cpu, Globe, Award, GraduationCap, Briefcase, 
@@ -182,13 +182,15 @@ const RyanHologramPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Ryan Wong - Packaging Development Specialist | Achieve Pack</title>
-        <meta name="description" content="Explore Ryan Wong's interactive 2025 creative developer portfolio. Co-founder of Achieve Pack helping brands transition to 100% compostable digital printing." />
-        <meta name="theme-color" content="#f5efe6" />
-        <link rel="canonical" href="https://achievepack.com/ryan" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=Outfit:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-      </Helmet>
+      <SEO 
+        title="Ryan Wong - Packaging Development Specialist | Achieve Pack" 
+        description="Explore Ryan Wong's interactive 2025 creative developer portfolio. Co-founder of Achieve Pack helping brands transition to 100% compostable digital printing." 
+        url="https://achievepack.com/ryan" 
+      />
+      <meta name="theme-color" content="#f5efe6" />
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=Outfit:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap');
+      `}</style>
 
       {/* Styled in the official David Heckhoff cream-and-charcoal layout system */}
       <div className="min-h-screen bg-[#f5efe6] text-[#2d2a24] font-['Space_Grotesk'] relative overflow-hidden select-none selection:bg-[#ff8400]/20 selection:text-[#2d2a24]">

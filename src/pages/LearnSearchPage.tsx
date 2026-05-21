@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useCallback, useTransition } from 'react'
 import { Link, useSearchParams, useNavigate } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { Search, ArrowRight, ShoppingCart, Leaf, Package, Factory, FileText, Users, Award, ShoppingBag, Boxes, Beaker, BookOpen } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import { LEARN_PAGES } from '../components/LearnNavigation'
@@ -130,11 +130,11 @@ export default function LearnSearchPage() {
 
   return (
     <>
-      <Helmet>
-        <title>{searchQuery ? `Search: ${searchQuery}` : 'Learn Center'} | Achieve Pack</title>
-        <meta name="description" content="Explore our comprehensive knowledge base on sustainable packaging materials, shapes, features, and industry solutions." />
-        <link rel="canonical" href="https://achievepack.com/learn" />
-      </Helmet>
+      <SEO 
+        title={searchQuery ? `Search: ${searchQuery} | Achieve Pack` : 'Learn Center | Achieve Pack'} 
+        description="Explore our comprehensive knowledge base on sustainable packaging materials, shapes, features, and industry solutions." 
+        url="https://achievepack.com/learn" 
+      />
 
       <div className="min-h-screen bg-neutral-50">
         {/* Header */}
