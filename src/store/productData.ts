@@ -2032,7 +2032,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     turnaround: '5-7 days',
     minOrder: 100,
     shape: 'Stand Up Zipper Pouch',
-    material: 'Frosted Clear PE/PET - Food Grade High Barrier',
+    material: 'Clear PE/PET (Matte or Glossy) - Food Grade High Barrier',
     basePrice: 4.20,
     pricePerPiece: 0.042,
     minQuantity: 100,
@@ -2043,7 +2043,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     sizeVariants: [
       {
         id: "clear-matte-sup-9x14",
-        label: "Frosted - 9x14+3cm (100pcs)",
+        label: "9x14+3cm (100pcs)",
         dimensions: "90 × 140 + 30 mm",
         hasHole: false,
         quantity: 100,
@@ -2053,7 +2053,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-10x15",
-        label: "Frosted - 10x15+3cm (100pcs)",
+        label: "10x15+3cm (100pcs)",
         dimensions: "100 × 150 + 30 mm",
         hasHole: false,
         quantity: 100,
@@ -2063,7 +2063,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-11x17",
-        label: "Frosted - 11x17+3cm (100pcs)",
+        label: "11x17+3cm (100pcs)",
         dimensions: "110 × 170 + 30 mm",
         hasHole: false,
         quantity: 100,
@@ -2073,7 +2073,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-12x20",
-        label: "Frosted - 12x20+3cm (100pcs)",
+        label: "12x20+3cm (100pcs)",
         dimensions: "120 × 200 + 30 mm",
         hasHole: false,
         quantity: 100,
@@ -2083,7 +2083,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-13x20",
-        label: "Frosted - 13x20+3cm (100pcs)",
+        label: "13x20+3cm (100pcs)",
         dimensions: "130 × 200 + 30 mm",
         hasHole: false,
         quantity: 100,
@@ -2093,7 +2093,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-14x20",
-        label: "Frosted - 14x20+3cm (100pcs)",
+        label: "14x20+3cm (100pcs)",
         dimensions: "140 × 200 + 30 mm",
         hasHole: false,
         quantity: 100,
@@ -2103,7 +2103,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-16x24",
-        label: "Frosted - 16x24+3cm (100pcs)",
+        label: "16x24+3cm (100pcs)",
         dimensions: "160 × 240 + 30 mm",
         hasHole: false,
         quantity: 100,
@@ -2113,7 +2113,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-16x26",
-        label: "Frosted - 16x26+4cm (100pcs)",
+        label: "16x26+4cm (100pcs)",
         dimensions: "160 × 260 + 40 mm",
         hasHole: false,
         quantity: 100,
@@ -2123,7 +2123,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-18x26",
-        label: "Frosted - 18x26+4cm (100pcs)",
+        label: "18x26+4cm (100pcs)",
         dimensions: "180 × 260 + 40 mm",
         hasHole: false,
         quantity: 100,
@@ -2133,7 +2133,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-20x30",
-        label: "Frosted - 20x30+4cm (100pcs)",
+        label: "20x30+4cm (100pcs)",
         dimensions: "200 × 300 + 40 mm",
         hasHole: false,
         quantity: 100,
@@ -2143,7 +2143,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-21x35",
-        label: "Frosted - 21x35+5cm (100pcs)",
+        label: "21x35+5cm (100pcs)",
         dimensions: "210 × 350 + 50 mm",
         hasHole: false,
         quantity: 100,
@@ -2153,7 +2153,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       },
       {
         id: "clear-matte-sup-24x35",
-        label: "Frosted - 24x35+5cm (100pcs)",
+        label: "24x35+5cm (100pcs)",
         dimensions: "240 × 350 + 50 mm",
         hasHole: false,
         quantity: 100,

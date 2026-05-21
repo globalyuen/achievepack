@@ -299,6 +299,7 @@ const ProductPage: React.FC = () => {
   const [selectedSizeVariant, setSelectedSizeVariant] = useState<string | null>(null)
   // Batch count for sizeVariants products (Header Bag) - each batch = 100pcs
   const [sizeVariantBatchCount, setSizeVariantBatchCount] = useState(1)
+  const [selectedFinish, setSelectedFinish] = useState<'matte' | 'glossy'>('matte')
   // For multi-quantity size products (Mailer Bag)
   const [selectedSizeWithQty, setSelectedSizeWithQty] = useState<string | null>(null)
   const [selectedQtyOption, setSelectedQtyOption] = useState<number | null>(null)
@@ -1841,6 +1842,39 @@ const ProductPage: React.FC = () => {
                     </div>
                   </div>
                   
+                  {/* Surface Finish Option - For unprinted clear zipper pouch */}
+                  {selectedSizeVariant && product.id === 'clear-matte-zipper-stand-up-pouch' && (
+                    <div className="space-y-2 pt-2">
+                      <label className="block text-sm font-medium text-neutral-700">Select Surface Finish</label>
+                      <div className="grid grid-cols-2 gap-3">
+                        <button
+                          type="button"
+                          onClick={() => setSelectedFinish('matte')}
+                          className={`p-3 rounded-lg border text-center transition font-medium flex flex-col items-center justify-center ${
+                            selectedFinish === 'matte'
+                              ? 'border-green-600 bg-green-50 ring-2 ring-green-200 text-green-950 font-semibold'
+                              : 'border-neutral-200 text-neutral-600 hover:border-neutral-350 hover:bg-neutral-50'
+                          }`}
+                        >
+                          <span className="text-sm flex items-center gap-1">✨ Matte Finish</span>
+                          <span className="text-[10px] text-neutral-400 mt-0.5 font-normal">Frosted / Translucent</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedFinish('glossy')}
+                          className={`p-3 rounded-lg border text-center transition font-medium flex flex-col items-center justify-center ${
+                            selectedFinish === 'glossy'
+                              ? 'border-green-600 bg-green-50 ring-2 ring-green-200 text-green-950 font-semibold'
+                              : 'border-neutral-200 text-neutral-600 hover:border-neutral-350 hover:bg-neutral-50'
+                          }`}
+                        >
+                          <span className="text-sm flex items-center gap-1">💎 Glossy Finish</span>
+                          <span className="text-[10px] text-neutral-400 mt-0.5 font-normal">Ultra Clear / Shiny</span>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                  
                   {/* Batch Quantity Selector - 100pcs per batch */}
                   {selectedSizeVariant && (
                     <div>
@@ -2118,7 +2152,13 @@ const ProductPage: React.FC = () => {
                       productId: product.id,
                       name: product.name,
                       image: product.images[0],
-                      variant: { shape: ecoStockProduct.shape, size: cartSize, material: ecoStockProduct.material },
+                      variant: { 
+                        shape: ecoStockProduct.shape, 
+                        size: cartSize, 
+                        material: product.id === 'clear-matte-zipper-stand-up-pouch'
+                          ? `Clear PE/PET (${selectedFinish === 'matte' ? 'Matte' : 'Glossy'} Finish)`
+                          : ecoStockProduct.material 
+                      },
                       quantity: 1,
                       unitPrice: cartPrice,
                       totalPrice: cartPrice,
