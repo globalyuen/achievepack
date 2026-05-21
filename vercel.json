@@ -52,6 +52,16 @@
   },
   "redirects": [
     {
+      "source": "/taobao/100-Recyclable-PE-wire-cut%20zipper-bag/:path*",
+      "destination": "/taobao/100-Recyclable-PE-wire-cut-zipper-bag/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/taobao/100-Recyclable-PE-wire-cut zipper-bag/:path*",
+      "destination": "/taobao/100-Recyclable-PE-wire-cut-zipper-bag/:path*",
+      "permanent": true
+    },
+    {
       "source": "/gptk",
       "has": [{ "type": "host", "value": "pouch.eco" }],
       "destination": "/materials/cello-kraft-triplex",
