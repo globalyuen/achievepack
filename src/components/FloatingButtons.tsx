@@ -1,10 +1,30 @@
-import { Calendar } from 'lucide-react'
+import { useState } from 'react'
+import { Calendar, X, MessageSquare } from 'lucide-react'
 import { useLocation } from 'react-router-dom'
 import { getDomain, getWhatsAppLink, getCalendlyLink } from '../utils/domain'
 
 export default function FloatingButtons() {
   const location = useLocation()
   const domain = getDomain()
+
+  // Load initial collapsed state from localStorage (persists across page navigations)
+  const [isCollapsed, setIsCollapsed] = useState(() => {
+    try {
+      return localStorage.getItem('achievepack-floating-collapsed') === 'true'
+    } catch {
+      return false
+    }
+  })
+
+  // Sync collapsed state to localStorage
+  const handleCollapse = (collapsed: boolean) => {
+    setIsCollapsed(collapsed)
+    try {
+      localStorage.setItem('achievepack-floating-collapsed', String(collapsed))
+    } catch (e) {
+      console.error(e)
+    }
+  }
 
   // Hide on RFQ/Admin pages as requested
   const isRfqPage = location.pathname.includes('/rfq') || 
@@ -19,7 +39,6 @@ export default function FloatingButtons() {
 
   // Adaptive Styling
   const isPouchDomain = domain === 'pouch'
-  const accentColor = isPouchDomain ? '#D4FF00' : '#00FFFF'
   
   // Custom theme classes based on domain
   const meetingClass = isPouchDomain
@@ -28,8 +47,32 @@ export default function FloatingButtons() {
 
   const whatsappClass = 'bg-[#25D366] text-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]'
 
+  // Small Trigger Button when collapsed
+  if (isCollapsed) {
+    return (
+      <button
+        onClick={() => handleCollapse(false)}
+        aria-label="Open contact buttons"
+        className={`fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full flex items-center justify-center border-4 border-black transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transform scale-100 hover:scale-105 active:scale-95 cursor-pointer ${
+          isPouchDomain ? 'bg-[#D4FF00] text-black hover:bg-[#c2eb00]' : 'bg-[#00FFFF] text-black hover:bg-[#00e6e6]'
+        }`}
+      >
+        <MessageSquare className="w-5 h-5 animate-pulse" />
+      </button>
+    )
+  }
+
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-end font-['Space_Grotesk'] font-black uppercase text-xs">
+    <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-end font-['Space_Grotesk'] font-black uppercase text-xs animate-in slide-in-from-bottom duration-300">
+      {/* Tiny Header Close Button */}
+      <button
+        onClick={() => handleCollapse(true)}
+        aria-label="Hide contact buttons"
+        className="w-6 h-6 rounded-full bg-neutral-900 text-white flex items-center justify-center border-2 border-black hover:bg-neutral-800 transition-colors hover:scale-110 active:scale-95 shadow-sm cursor-pointer"
+      >
+        <X className="w-3.5 h-3.5" />
+      </button>
+
       {/* Book Meeting Button */}
       <a 
         href={calendlyUrl}
