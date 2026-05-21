@@ -1994,10 +1994,10 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     id: 'clear-matte-zipper-stand-up-pouch',
     name: 'Matte and Clear Unprinted Stock Zipper Stand Up Pouch',
     category: 'conventional-stock',
-    description: 'Premium frosted clear self-sealing stand-up pouches with reusable ziplock, tear notch, and bottom gusset. High-barrier laminate structures shield tea, dry fruits, snacks, cookies, coffee, and other items from dust, moisture, and pests. Features an ultra-strong resealable zipper and a sturdy bottom base for professional shelf display.',
-    shortDesc: 'Premium frosted clear stand-up zipper pouch for food packaging',
+    description: 'Premium unprinted clear self-sealing stand-up pouches with reusable ziplock, tear notch, and bottom gusset. Available in both Matte (frosted/translucent) and Glossy (ultra clear/shiny) finishes. High-barrier laminate structures shield tea, dry fruits, snacks, cookies, coffee, and other items from dust, moisture, and pests. Features an ultra-strong resealable zipper and a sturdy bottom base for professional shelf display.',
+    shortDesc: 'Premium clear stand-up zipper pouch in Matte or Glossy finish',
     features: [
-      'Frosted Translucent High-Clarity Surface',
+      'Available in Matte (Frosted) or Glossy (Ultra Clear) Finish',
       'Premium Reusable Resealable Zipper',
       'Easy-Tear Notch for Instant Opening',
       'Sturdy Bottom Gusset for Upright Display',
