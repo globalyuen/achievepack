@@ -870,6 +870,119 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // 100% Recyclable PE Wire Cut Zipper Bag
+  {
+    id: '100-recyclable-pe-wire-cut-zipper-bag',
+    name: '100% Recyclable PE Wire Cut Zipper Bag',
+    category: 'eco-stock',
+    description: '100% recyclable, high-clarity, food-grade PE wire-cut zipper bags. Designed for secure, eco-friendly storage and organization. Features a high-transparency finish, an ultra-strong concave-convex bite-lock zipper, and clean, durable wire-cut heat-sealed edges. Made from premium virgin polyethylene materials without any standard plastic additives, fully compliant with global food-contact safety standards and completely recyclable. Perfect for dry foods, accessories, components, and retail goods.',
+    shortDesc: 'High-clarity food-grade recyclable PE wire-cut zipper bag',
+    features: [
+      '100% Recyclable Food-Grade PE Material',
+      'High Transparency & Glass-Like Clarity',
+      'Strong Concave-Convex Bite-Lock Zipper',
+      'Neat & Clean Wire-Cut Heat-Sealed Edges',
+      'FDA & LFGB Food Safety Compliant'
+    ],
+    images: [
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01gXs03T1fZfiKVzLLN_--454021.jpg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN012Ot9bl1fZfinsDGW5_--454021.jpg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01QTncKp1fZfifFLGGk_--454021.png',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01RL0EaC1fZfifejKg6_--454021.png',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01a6pRpL1fZfifO0Lg4_--454021.png',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01u42zqF1fZfifej8DS_--454021.png',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01C1I0km1fZfiJeWMeh_--454021.jpg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01wm4q5Y1fZfifO0x62_--454021.jpg'
+    ],
+    badge: '♻️ 100% Recyclable',
+    rating: 4.8,
+    reviews: 96,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    shape: 'Flat Wire-Cut Zipper Bag',
+    material: '100% Recyclable Food-Grade PE - High Transparency',
+    basePrice: 1.40,
+    pricePerPiece: 0.014,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Multiple dimensions available (7x10cm to 24x35cm)',
+    shelfLife: 'Indefinite (store in cool, dry place)',
+    certification: 'FDA & LFGB Food Safety Compliant',
+    sizeVariants: [
+      {
+        id: 'pe-wire-cut-zipper-7x10',
+        label: '7x10cm (100pcs)',
+        dimensions: '70 × 100 mm, Double 100 micron',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 1.40,
+        unitPrice: 0.014,
+        heroImageIndex: 0
+      },
+      {
+        id: 'pe-wire-cut-zipper-10x15',
+        label: '10x15cm (100pcs)',
+        dimensions: '100 × 150 mm, Double 100 micron',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 2.52,
+        unitPrice: 0.025,
+        heroImageIndex: 0
+      },
+      {
+        id: 'pe-wire-cut-zipper-11x16',
+        label: '11x16cm (100pcs)',
+        dimensions: '110 × 160 mm, Double 100 micron',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 3.08,
+        unitPrice: 0.031,
+        heroImageIndex: 6
+      },
+      {
+        id: 'pe-wire-cut-zipper-15x22',
+        label: '15x22cm (100pcs)',
+        dimensions: '150 × 220 mm, Double 100 micron',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 5.87,
+        unitPrice: 0.059,
+        heroImageIndex: 0
+      },
+      {
+        id: 'pe-wire-cut-zipper-18x26',
+        label: '18x26cm (100pcs)',
+        dimensions: '180 × 260 mm, Double 100 micron',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 8.67,
+        unitPrice: 0.087,
+        heroImageIndex: 0
+      },
+      {
+        id: 'pe-wire-cut-zipper-20x30',
+        label: '20x30cm (100pcs)',
+        dimensions: '200 × 300 mm, Double 100 micron',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 12.31,
+        unitPrice: 0.123,
+        heroImageIndex: 7
+      },
+      {
+        id: 'pe-wire-cut-zipper-24x35',
+        label: '24x35cm (100pcs)',
+        dimensions: '240 × 350 mm, Double 100 micron',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 17.90,
+        unitPrice: 0.179,
+        heroImageIndex: 0
+      }
+    ],
+    customPrintNote: 'Custom prints available from 100+ pieces. Please consult our team.'
+  },
   // Unprinted White Kraft Compostable & Biodegradable Stand Up Pouch
   {
     id: 'unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch',
