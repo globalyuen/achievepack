@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-21",
-  "total_images": 1379,
+  "total_images": 1381,
   "total_categories": 155,
   "extensions": {
     ".webp": 1082,
-    ".png": 250,
-    ".jpg": 44,
+    ".png": 251,
+    ".jpg": 45,
     ".svg": 3
   },
   "categories": {
@@ -7374,8 +7374,20 @@
       ]
     },
     "store/conventional-stock": {
-      "count": 1,
+      "count": 3,
       "images": [
+        {
+          "filename": "rice-paper-flatbottom-valve-applications.jpg",
+          "path": "/imgs/store/conventional-stock/rice-paper-flatbottom-valve-applications.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-21T03:10:38.408Z"
+        },
+        {
+          "filename": "rice-paper-flatbottom-valve-hero.png",
+          "path": "/imgs/store/conventional-stock/rice-paper-flatbottom-valve-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-21T03:10:01.672Z"
+        },
         {
           "filename": "rice-paper-flatbottom-valve.png",
           "path": "/imgs/store/conventional-stock/rice-paper-flatbottom-valve.png",
