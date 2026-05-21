@@ -864,7 +864,7 @@ const StorePage: React.FC = () => {
           {/* Product Grid/List */}
           <div className="flex-1">
             {viewMode === 'grid' ? (
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6">
                 {sortedProducts.map(product => (
                   <div
                     key={product.id}
