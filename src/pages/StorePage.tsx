@@ -520,111 +520,90 @@ const StorePage: React.FC = () => {
       </div>
 
       {/* Feature Carousel Section */}
-      <section className="bg-white py-3 border-b border-neutral-200 mb-3 relative overflow-hidden">
-        <div className="absolute inset-y-0 left-0 sm:left-4 flex items-center z-20 pointer-events-none">
+      <section className="hidden md:block bg-white py-2.5 border-b border-neutral-200 mb-2 relative overflow-hidden">
+        <div className="absolute inset-y-0 left-4 flex items-center z-20 pointer-events-none">
           <button 
             onClick={prevFeature}
-            className="hidden sm:flex p-1.5 rounded-full bg-white/90 backdrop-blur shadow border border-neutral-200 text-neutral-600 hover:text-primary-600 hover:bg-white transition-all transform hover:-translate-x-0.5 pointer-events-auto mx-2"
+            className="flex p-1 rounded-full bg-white/90 backdrop-blur shadow border border-neutral-200 text-neutral-600 hover:text-primary-600 hover:bg-white transition-all transform hover:-translate-x-0.5 pointer-events-auto mx-1"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-3.5 h-3.5" />
           </button>
         </div>
-        <div className="absolute inset-y-0 right-0 sm:right-4 flex items-center z-20 pointer-events-none">
+        <div className="absolute inset-y-0 right-4 flex items-center z-20 pointer-events-none">
           <button 
             onClick={nextFeature}
-            className="hidden sm:flex p-1.5 rounded-full bg-white/90 backdrop-blur shadow border border-neutral-200 text-neutral-600 hover:text-primary-600 hover:bg-white transition-all transform hover:translate-x-0.5 pointer-events-auto mx-2"
+            className="flex p-1 rounded-full bg-white/90 backdrop-blur shadow border border-neutral-200 text-neutral-600 hover:text-primary-600 hover:bg-white transition-all transform hover:translate-x-0.5 pointer-events-auto mx-1"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-12 lg:px-16 relative">
+        <div className="max-w-5xl mx-auto px-10 relative">
           <div className="relative">
             {STORE_FEATURES.map((feature, idx) => (
               <div 
                 key={feature.id}
                 className={`transition-opacity duration-500 ease-in-out ${idx === currentFeatureIndex ? 'opacity-100 relative z-10' : 'opacity-0 absolute inset-0 z-0 pointer-events-none'}`}
               >
-                <div className="grid lg:grid-cols-12 gap-4 lg:gap-8 items-center">
-                  {/* Left Group: Info & Media */}
-                  <div className="lg:col-span-8 grid grid-cols-12 gap-4 items-center">
-                    {/* Column 1: Info & Buy Button */}
-                    <div className="col-span-7 flex flex-col justify-center text-left">
-                      <div className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-bold text-primary-600 uppercase tracking-wider mb-0.5 sm:mb-1">
-                        <Sparkles className="w-2.5 h-2.5" />
-                        Featured Product
-                      </div>
-                      <h2 className="text-sm sm:text-base lg:text-lg font-bold text-neutral-900 mb-0.5 sm:mb-1 tracking-tight leading-snug">
-                        {feature.title}
-                      </h2>
-                      <p className="text-[10px] sm:text-xs text-neutral-500 mb-1.5 sm:mb-2 lg:max-w-md leading-relaxed line-clamp-2">
-                        {feature.description}
-                      </p>
-                      <div className="pointer-events-auto">
-                        <Link 
-                          to={feature.link}
-                          className="inline-flex items-center justify-center bg-primary-600 text-white px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold hover:bg-primary-700 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 transform duration-200"
-                        >
-                          <ShoppingCart className="w-3 h-3 mr-1" />
-                          Buy Now
-                        </Link>
-                      </div>
+                <div className="flex items-center justify-between gap-6 max-w-4xl mx-auto">
+                  {/* Left Group: Info & Buy Button */}
+                  <div className="flex-1 flex flex-col justify-center text-left min-w-0">
+                    <div className="inline-flex items-center gap-1 text-[9px] font-bold text-primary-600 uppercase tracking-wider mb-0.5">
+                      <Sparkles className="w-2.5 h-2.5" />
+                      Featured Product
                     </div>
-                    
-                    {/* Column 2: Media */}
-                    <div className="col-span-5 w-full">
-                      {feature.media.map((mediaItem, mediaIdx) => (
-                        <div key={mediaIdx} className="relative aspect-[16/10] max-h-[85px] sm:max-h-[110px] lg:max-h-[120px] rounded-lg overflow-hidden shadow-sm bg-neutral-100 border border-neutral-100 w-full mx-auto">
-                          {mediaItem.type === 'video' ? (
-                            <video 
-                              src={mediaItem.src} 
-                              className={`absolute inset-0 w-full h-full object-cover ${(mediaItem as any).rotate ? 'rotate-180' : ''}`}
-                              ref={(el) => { if(el && (mediaItem as any).slow) el.playbackRate = 0.3; }}
-                              autoPlay 
-                              loop 
-                              muted 
-                              playsInline
-                            />
-                          ) : (
-                            <img 
-                              src={mediaItem.src} 
-                              alt={`${feature.title} demo`} 
-                              className="absolute inset-0 w-full h-full object-cover"
-                            />
-                          )}
-                        </div>
-                      ))}
+                    <h2 className="text-sm font-bold text-neutral-900 mb-0.5 tracking-tight leading-snug truncate">
+                      {feature.title}
+                    </h2>
+                    <p className="text-[10px] text-neutral-500 mb-1.5 leading-relaxed line-clamp-1">
+                      {feature.description}
+                    </p>
+                    <div className="pointer-events-auto">
+                      <Link 
+                        to={feature.link}
+                        className="inline-flex items-center justify-center bg-primary-600 text-white px-2.5 py-0.5 rounded-full text-[9px] font-semibold hover:bg-primary-700 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 transform duration-200"
+                      >
+                        <ShoppingCart className="w-2.5 h-2.5 mr-1" />
+                        Buy Now
+                      </Link>
                     </div>
                   </div>
                   
-                  {/* Column 3: Compact Benefits (Desktop Only) */}
-                  <div className="lg:col-span-4 hidden lg:grid grid-cols-2 gap-2">
-                    {feature.benefits.map((benefit, bIdx) => {
-                      const Icon = benefit.icon
-                      return (
-                        <div key={bIdx} className={`group bg-white rounded-lg p-2 shadow-[0_1px_2px_rgba(0,0,0,0.04)] border ${benefit.bgBorder} transition-all hover:shadow-sm hover:-translate-y-0.5 pointer-events-auto flex items-center gap-2`}>
-                          <div className={`w-7.5 h-7.5 bg-gradient-to-br ${benefit.colors} rounded-md flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform`}>
-                            <Icon className="w-3.5 h-3.5 text-white" />
-                          </div>
-                          <div className="min-w-0 text-left">
-                            <h3 className={`font-bold text-neutral-900 text-xs transition-colors truncate ${benefit.textGroup}`}>{benefit.title}</h3>
-                            <p className="text-[10px] text-neutral-500 leading-tight truncate">{benefit.desc}</p>
-                          </div>
-                        </div>
-                      )
-                    })}
+                  {/* Right Group: Media */}
+                  <div className="w-[140px] flex-shrink-0">
+                    {feature.media.map((mediaItem, mediaIdx) => (
+                      <div key={mediaIdx} className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-sm bg-neutral-100 border border-neutral-100 w-full">
+                        {mediaItem.type === 'video' ? (
+                          <video 
+                            src={mediaItem.src} 
+                            className={`absolute inset-0 w-full h-full object-cover ${(mediaItem as any).rotate ? 'rotate-180' : ''}`}
+                            ref={(el) => { if(el && (mediaItem as any).slow) el.playbackRate = 0.3; }}
+                            autoPlay 
+                            loop 
+                            muted 
+                            playsInline
+                          />
+                        ) : (
+                          <img 
+                            src={mediaItem.src} 
+                            alt={`${feature.title} demo`} 
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                        )}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             ))}
           </div>
           
-          <div className="flex justify-center mt-2.5 gap-1.5 relative z-20 pointer-events-auto">
+          <div className="flex justify-center mt-1.5 gap-1 relative z-20 pointer-events-auto">
             {STORE_FEATURES.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentFeatureIndex(idx)}
-                className={`w-1.5 h-1.5 rounded-full transition-all ${idx === currentFeatureIndex ? 'bg-primary-600 w-4' : 'bg-neutral-300 hover:bg-primary-400'}`}
+                className={`w-1 h-1 rounded-full transition-all ${idx === currentFeatureIndex ? 'bg-primary-600 w-3' : 'bg-neutral-300 hover:bg-primary-400'}`}
                 aria-label={`Go to feature ${idx + 1}`}
               />
             ))}
