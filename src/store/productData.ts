@@ -2164,6 +2164,208 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     ],
     customPrintNote: 'Custom prints available from 10,000+ pieces. Please consult our team.',
     customPrintProductId: 'conven-sup-clear-zip',
+  },
+  {
+    id: 'flat-bottom-zipper-pouch',
+    name: 'Matte and Clear Unprinted Stock Flat Bottom Zipper Pouch',
+    category: 'conventional-stock',
+    description: 'Premium unprinted flat bottom (eight-side seal) pouches with high-capacity 5-panel structure, reusable ziplock, and tear notch. Available in both Matte (frosted/translucent) and Glossy (ultra clear/shiny) finishes. Designed with flat bottoms for maximum stability and dynamic box-like shelf display. Perfect for high-density storage of food items, snacks, coffee beans, pet foods, and grain grains.',
+    shortDesc: 'Premium flat-bottom eight-side seal zipper pouch in Matte or Glossy finish',
+    features: [
+      'Elegant Flat Bottom 5-Panel Box Shape for Maximum Storage',
+      'Available in Matte (Translucent) or Glossy (Ultra Clear) Finish',
+      'Heavy-Duty Reusable Airtight Ziplock',
+      'Wide Opening and Tear Notch for Instant Access',
+      'High-Barrier Premium Materials Protect Freshness'
+    ],
+    images: [
+      "/taobao/flat-button-zipper-pouch/O1CN013aRCiE1fZfPShUMlv_--454021-jpg_q50-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN014EuAsX1fZffwT9UQG_--454021.jpg",
+      "/taobao/flat-button-zipper-pouch/O1CN01WFelxx1fZfPW2A8Ky_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01AwHEbW1fZfPYl8fJx_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01EbBdHZ1fZfPUicpyw_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01Aj9ekx1fZfPX5YRgz_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN014ZQGkp1fZfPX5Vxrv_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01HlXWoj1fZfPS8CbCV_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01WrSnxk1fZfPS8BnGn_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN015QIhyg1fZfPW2Dglk_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN010O0NK61fZfPOve9iK_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01sbdMUn1fZfPPgQUu6_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN014ZO3W31fZfPS8DsDo_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01N5DRZT1fZfPOvhdvg_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01GMOmrv1fZfPS8AvHm_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01YdsYx51fZfPS8AinB_--454021-jpg_.webp",
+      "/taobao/flat-button-zipper-pouch/O1CN01exwmf91fZfPOvfEGL_--454021-jpg_.webp"
+    ],
+    badge: '⚡ New Stock',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 100,
+    shape: 'Flat Bottom Eight-Side Seal Zipper Pouch',
+    material: 'Clear PE/PET (Matte or Glossy) - Food Grade High Barrier',
+    basePrice: 10.07,
+    pricePerPiece: 0.101,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Wide selection of Vertical, Wide, and Handle styles (10x20cm to 30x23cm)',
+    shelfLife: '12-24 months freshness',
+    certification: 'FDA Approved',
+    sizeVariants: [
+      {
+        id: "flat-bottom-sup-10x20",
+        label: "Vertical - 10x20+6cm (100pcs)",
+        dimensions: "100 × 200 + 60 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 10.07,
+        unitPrice: 0.101,
+        heroImageIndex: 2
+      },
+      {
+        id: "flat-bottom-sup-12x22",
+        label: "Vertical - 12x22+6cm (100pcs)",
+        dimensions: "120 × 220 + 60 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 12.59,
+        unitPrice: 0.126,
+        heroImageIndex: 3
+      },
+      {
+        id: "flat-bottom-sup-14x24",
+        label: "Vertical - 14x24+6cm (100pcs)",
+        dimensions: "140 × 240 + 60 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 15.73,
+        unitPrice: 0.157,
+        heroImageIndex: 4
+      },
+      {
+        id: "flat-bottom-sup-16x26",
+        label: "Vertical - 16x26+8cm (100pcs)",
+        dimensions: "160 × 260 + 80 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 22.66,
+        unitPrice: 0.227,
+        heroImageIndex: 5
+      },
+      {
+        id: "flat-bottom-sup-18x28",
+        label: "Vertical - 18x28+8cm (100pcs)",
+        dimensions: "180 × 280 + 80 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 27.69,
+        unitPrice: 0.277,
+        heroImageIndex: 6
+      },
+      {
+        id: "flat-bottom-sup-20x30",
+        label: "Vertical - 20x30+8cm (100pcs)",
+        dimensions: "200 × 300 + 80 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 34.62,
+        unitPrice: 0.346,
+        heroImageIndex: 7
+      },
+      {
+        id: "flat-bottom-wide-24x17",
+        label: "Wide - 24x17+8cm (100pcs)",
+        dimensions: "240 × 170 + 80 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 22.03,
+        unitPrice: 0.220,
+        heroImageIndex: 8
+      },
+      {
+        id: "flat-bottom-wide-26x19",
+        label: "Wide - 26x19+8cm (100pcs)",
+        dimensions: "260 × 190 + 80 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 26.43,
+        unitPrice: 0.264,
+        heroImageIndex: 9
+      },
+      {
+        id: "flat-bottom-wide-28x21",
+        label: "Wide - 28x21+8cm (100pcs)",
+        dimensions: "280 × 210 + 80 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 32.73,
+        unitPrice: 0.327,
+        heroImageIndex: 10
+      },
+      {
+        id: "flat-bottom-wide-30x23",
+        label: "Wide - 30x23+8cm (100pcs)",
+        dimensions: "300 × 230 + 80 mm",
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 40.91,
+        unitPrice: 0.409,
+        heroImageIndex: 11
+      },
+      {
+        id: "flat-bottom-handle-12x23",
+        label: "Handle - 12x23+6cm (100pcs)",
+        dimensions: "120 × 230 + 60 mm",
+        hasHole: true,
+        quantity: 100,
+        totalPrice: 14.48,
+        unitPrice: 0.145,
+        heroImageIndex: 12
+      },
+      {
+        id: "flat-bottom-handle-14x25",
+        label: "Handle - 14x25+6cm (100pcs)",
+        dimensions: "140 × 250 + 60 mm",
+        hasHole: true,
+        quantity: 100,
+        totalPrice: 17.62,
+        unitPrice: 0.176,
+        heroImageIndex: 13
+      },
+      {
+        id: "flat-bottom-handle-16x27",
+        label: "Handle - 16x27+8cm (100pcs)",
+        dimensions: "160 × 270 + 80 mm",
+        hasHole: true,
+        quantity: 100,
+        totalPrice: 25.17,
+        unitPrice: 0.252,
+        heroImageIndex: 14
+      },
+      {
+        id: "flat-bottom-handle-18x29",
+        label: "Handle - 18x29+8cm (100pcs)",
+        dimensions: "180 × 290 + 80 mm",
+        hasHole: true,
+        quantity: 100,
+        totalPrice: 30.21,
+        unitPrice: 0.302,
+        heroImageIndex: 15
+      },
+      {
+        id: "flat-bottom-handle-20x31",
+        label: "Handle - 20x31+8cm (100pcs)",
+        dimensions: "200 × 310 + 80 mm",
+        hasHole: true,
+        quantity: 100,
+        totalPrice: 37.76,
+        unitPrice: 0.378,
+        heroImageIndex: 16
+      }
+    ],
+    customPrintNote: 'Custom prints available from 10,000+ pieces. Please consult our team.',
+    customPrintProductId: 'conven-sup-clear-zip',
   }
 ]
 
