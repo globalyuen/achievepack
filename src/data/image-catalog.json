@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-21",
-  "total_images": 1385,
+  "total_images": 1387,
   "total_categories": 155,
   "extensions": {
     ".webp": 1082,
-    ".png": 252,
+    ".png": 254,
     ".jpg": 48,
     ".svg": 3
   },
@@ -7374,8 +7374,20 @@
       ]
     },
     "store/conventional-stock": {
-      "count": 7,
+      "count": 9,
       "images": [
+        {
+          "filename": "rice-paper-flatbottom-valve-brown-hero.png",
+          "path": "/imgs/store/conventional-stock/rice-paper-flatbottom-valve-brown-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-21T03:42:43.009Z"
+        },
+        {
+          "filename": "rice-paper-flatbottom-valve-blue-hero.png",
+          "path": "/imgs/store/conventional-stock/rice-paper-flatbottom-valve-blue-hero.png",
+          "extension": ".png",
+          "modified": "2026-05-21T03:33:28.882Z"
+        },
         {
           "filename": "rice-paper-flatbottom-valve-brown-hero.jpg",
           "path": "/imgs/store/conventional-stock/rice-paper-flatbottom-valve-brown-hero.jpg",

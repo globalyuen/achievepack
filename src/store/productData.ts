@@ -1573,7 +1573,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     ],
     images: [
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-hero.png',
-      '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-brown-hero.jpg',
+      '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-brown-hero.png',
+      '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-blue-hero.png',
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-applications.jpg',
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-valve-info.jpg',
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-sealing.jpg',
@@ -1605,7 +1606,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       { id: 'green-250g', label: 'Green Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
       { id: 'yellow-gray-250g', label: 'Yellow Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
       { id: 'light-gray-250g', label: 'Light Gray Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
-      { id: 'blue-250g', label: 'Blue Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
+      { id: 'blue-250g', label: 'Blue Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 2 },
       { id: 'pink-250g', label: 'Pink Paper - 250g (130×200+70mm)', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 60.00, unitPrice: 0.600, heroImageIndex: 0 },
     ],
     customPrintNote: 'Custom prints available from 5,000+ pieces. Please consult our team.',
