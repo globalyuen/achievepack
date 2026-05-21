@@ -605,9 +605,10 @@ const ProductPage: React.FC = () => {
     }
   }, [ecoProduct, searchParams])
 
-  // Scroll to top when product changes
+  // Scroll to top and reset image index when product changes
   useEffect(() => {
     window.scrollTo(0, 0)
+    setSelectedMainImage(0)
   }, [productId])
 
   // Get size options based on product shape
