@@ -2000,14 +2000,9 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       'FDA & LFGB Food Safety Compliant'
     ],
     images: [
-      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/factory_strengths.svg?v=3',
-      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/hero_showcase.svg?v=3',
-      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/food_grade_material.svg?v=3',
-      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/size_guide.svg?v=3',
-      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/thickness_instruments.svg?v=3',
-      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/visual_measurement.svg?v=3',
-      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/food_safety_certifications.svg?v=3',
-      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/thickness_selection_guide.svg?v=3'
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/dimensions_guide.png',
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/measurement_guide.png',
+      '/taobao/100-Recyclable-PE-wire-cut-zipper-bag/size_analysis.png'
     ],
     badge: '♻️ 100% Recyclable',
     rating: 4.8,
@@ -2053,7 +2048,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 1000,
         totalPrice: 30.80,
         unitPrice: 0.031,
-        heroImageIndex: 6
+        heroImageIndex: 1
       },
       {
         id: 'pe-wire-cut-zipper-15x22',
@@ -2083,7 +2078,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 1000,
         totalPrice: 123.10,
         unitPrice: 0.123,
-        heroImageIndex: 7
+        heroImageIndex: 2
       },
       {
         id: 'pe-wire-cut-zipper-24x35',
