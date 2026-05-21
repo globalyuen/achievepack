@@ -284,6 +284,12 @@ const ProductPage: React.FC = () => {
   const conventionalProduct = isConventionalDigital ? (product as ConventionalProduct) : null
   const ecoStockProduct = (isEcoStock || isBoxes) ? (product as EcoStockProduct | BoxProduct) : null
   
+  const isSheetProduct = !!(product?.name.toLowerCase().includes('paper') || product?.name.toLowerCase().includes('wrap') || (ecoStockProduct && 'shape' in ecoStockProduct && ecoStockProduct.shape.toLowerCase().includes('sheet')))
+  const pluralUnit = isSheetProduct ? 'sheets' : 'pcs'
+  const singleUnit = isSheetProduct ? 'sheet' : 'pc'
+  const singleLabel = isSheetProduct ? 'sheet' : 'piece'
+  const pluralLabel = isSheetProduct ? 'sheets' : 'pieces'
+  
   // Check if this product is purchasable (stock) or requires RFQ (custom)
   const productType = product ? getProductType(product) : 'stock'
   const isPurchasable = product ? isProductPurchasable(product) : true
@@ -1834,8 +1840,8 @@ const ProductPage: React.FC = () => {
                             <div className="text-xs text-neutral-500">{variant.dimensions}{ecoStockProduct.shape === 'Header Bag' ? ' • ' + (variant.hasHole ? 'With Hole' : 'No Hole') : ''}</div>
                           </div>
                           <div className="text-right">
-                            <div className="font-bold text-green-700">${variant.totalPrice.toFixed(2)}/100pcs</div>
-                            <div className="text-xs text-neutral-500">${variant.unitPrice.toFixed(3)}/pc</div>
+                            <div className="font-bold text-green-700">${variant.totalPrice.toFixed(2)}/{variant.quantity || 100}{pluralUnit}</div>
+                            <div className="text-xs text-neutral-500">${variant.unitPrice.toFixed(3)}/{singleUnit}</div>
                           </div>
                         </button>
                       ))}
@@ -1875,24 +1881,32 @@ const ProductPage: React.FC = () => {
                     </div>
                   )}
                   
-                  {/* Batch Quantity Selector - 100pcs per batch */}
+                  {/* Batch Quantity Selector - Dynamic per batch */}
                   {selectedSizeVariant && (
                     <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (batches of 100 pcs)</label>
-                      <div className="flex items-center gap-3">
-                        <button 
-                          onClick={() => setSizeVariantBatchCount(Math.max(1, sizeVariantBatchCount - 1))}
-                          className="w-10 h-10 rounded-lg border border-neutral-300 flex items-center justify-center text-lg font-bold hover:bg-neutral-100"
-                        >−</button>
-                        <div className="flex-1 text-center">
-                          <div className="text-2xl font-bold text-green-700">{sizeVariantBatchCount}</div>
-                          <div className="text-xs text-neutral-500">{(sizeVariantBatchCount * 100).toLocaleString()} pcs total</div>
-                        </div>
-                        <button 
-                          onClick={() => setSizeVariantBatchCount(sizeVariantBatchCount + 1)}
-                          className="w-10 h-10 rounded-lg border border-neutral-300 flex items-center justify-center text-lg font-bold hover:bg-neutral-100"
-                        >+</button>
-                      </div>
+                      {(() => {
+                        const selVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant);
+                        const batchSize = selVariant?.quantity || 100;
+                        return (
+                          <>
+                            <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (batches of {batchSize} {pluralUnit})</label>
+                            <div className="flex items-center gap-3">
+                              <button 
+                                onClick={() => setSizeVariantBatchCount(Math.max(1, sizeVariantBatchCount - 1))}
+                                className="w-10 h-10 rounded-lg border border-neutral-300 flex items-center justify-center text-lg font-bold hover:bg-neutral-100"
+                              >−</button>
+                              <div className="flex-1 text-center">
+                                <div className="text-2xl font-bold text-green-700">{sizeVariantBatchCount}</div>
+                                <div className="text-xs text-neutral-500">{(sizeVariantBatchCount * batchSize).toLocaleString()} {pluralUnit} total</div>
+                              </div>
+                              <button 
+                                onClick={() => setSizeVariantBatchCount(sizeVariantBatchCount + 1)}
+                                className="w-10 h-10 rounded-lg border border-neutral-300 flex items-center justify-center text-lg font-bold hover:bg-neutral-100"
+                              >+</button>
+                            </div>
+                          </>
+                        );
+                      })()}
                     </div>
                   )}
                 </div>
@@ -1998,7 +2012,7 @@ const ProductPage: React.FC = () => {
                   <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl border-2 border-green-200 p-6">
                     <div className="text-3xl font-bold text-green-700">US${displayPrice.toLocaleString()}</div>
                     <div className="text-sm text-green-600 mt-1">
-                      ${displayUnitPrice.toFixed(4)}/piece • {displayQuantity.toLocaleString()} pieces
+                      ${displayUnitPrice.toFixed(4)}/{singleLabel} • {displayQuantity.toLocaleString()} {pluralLabel}
                     </div>
                     {discountText && discountText !== '0%' && (
                       <div className="text-sm text-red-500 font-medium mt-1">Volume Discount: {discountText}</div>
@@ -2134,15 +2148,15 @@ const ProductPage: React.FC = () => {
                     
                     if (customPrintQtyData) {
                       cartPrice = customPrintQtyData.totalPrice
-                      cartSize = `Custom Print (${customPrintQtyData.quantity.toLocaleString()} pcs)`
+                      cartSize = `Custom Print (${customPrintQtyData.quantity.toLocaleString()} ${pluralUnit})`
                     } else if (selectedQtyData && selectedSizeData) {
                       cartPrice = selectedQtyData.totalPrice
-                      cartSize = `${selectedSizeData.label} - ${selectedSizeData.dimensions} (${selectedQtyData.quantity} pcs)`
+                      cartSize = `${selectedSizeData.label} - ${selectedSizeData.dimensions} (${selectedQtyData.quantity} ${pluralUnit})`
                     } else if (selectedVariant) {
                       // Multiply by batch count for sizeVariants
                       cartPrice = selectedVariant.totalPrice * sizeVariantBatchCount
                       const totalPcs = selectedVariant.quantity * sizeVariantBatchCount
-                      cartSize = `${selectedVariant.label} - ${selectedVariant.dimensions} (${totalPcs} pcs)`
+                      cartSize = `${selectedVariant.label} - ${selectedVariant.dimensions} (${totalPcs} ${pluralUnit})`
                     } else {
                       cartPrice = selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
                       cartSize = ecoStockProduct.sizeInfo

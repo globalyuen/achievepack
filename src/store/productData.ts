@@ -870,6 +870,1003 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // Honeycomb Paper Wrap
+  {
+    id: 'eco-friendly-kraft-honeycomb-packing-paper-wrap',
+    name: 'Eco-Friendly Kraft Honeycomb Packing Paper Wrap',
+    category: 'eco-stock',
+    description: 'An premium, ultra-protective buffer and cushioning solution made from 100% natural virgin wood pulp Kraft paper. Employing a unique honeycomb expanding structure, this wrap provides outstanding shock absorption, scratch prevention, and load distribution without the need for plastic bubble wraps. Biodegradable, compostable, and recyclable, it is ideal for premium cosmetics, glass and ceramic wares, electronics, and elegant floral wrapping.',
+    shortDesc: 'Premium 80g virgin wood pulp compostable honeycomb cushioning wrap for glass, cosmetics, and flowers',
+    features: [
+      '100% Virgin Wood Pulp, FSC-Certified Kraft Paper',
+      'Expanding Honeycomb Structure for Superior Shock Absorption',
+      'Eco-Friendly Alternative to Plastic Bubble Wrap & Packing Peanuts',
+      'No Tape or Scissors Required: Interlocking Design for Easy Packing',
+      'Available in 4 Elegant Colors for Premium Aesthetic Presentation',
+      'Naturally Biodegradable, Compostable, and Fully Recyclable'
+    ],
+    images: [
+      '/taobao/paper-wrapping/O1CN01vgk7nh2AqO6TTWWZG_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01EkxHv32AqNtHQro3Q_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01XpIvtR2AqNtHQsTdy_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01F3olDm2AqNtDgwkCO_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01gVeabD2AqO6Seuewi_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01CTz5IM2AqO6Y4B7aB_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01hz1gfZ2AqNtKRxplo_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN015Yvnu52AqO5EK7ofw_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01jeHap72AqNv4lztPA_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01tA9ENg2AqO6YgjF4d_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01gALJQc2AqNyQgfIIT_--2602218254.jpg',
+      '/taobao/paper-wrapping/O1CN01s9XUH72AqO6Seu3WX_--2602218254.jpg'
+    ],
+    badge: '🌿 100% Compostable Buffer',
+    rating: 4.8,
+    reviews: 95,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 100,
+    shape: 'Honeycomb Buffer Sheet',
+    material: '100% Compostable FSC-Certified Kraft Paper (80 GSM)',
+    basePrice: 10.00,
+    pricePerPiece: 0.10,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'S (30×30cm) / M (38×38cm) / L (50×50cm) • 80 GSM',
+    shelfLife: 'Indefinite when dry',
+    certification: 'FSC Certified, Fully Biodegradable & Compostable',
+    customPrintNote: 'Custom prints available from 100+ pieces. Please consult our team.',
+    sizeVariants: [
+      {
+        id: 'paper-wrap-s-kraft-100pcs',
+        label: 'Size S (30 × 30 cm) - Natural Kraft (100 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Natural Kraft',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 10.00,
+        unitPrice: 0.1000,
+        heroImageIndex: 6
+      },
+      {
+        id: 'paper-wrap-s-kraft-200pcs',
+        label: 'Size S (30 × 30 cm) - Natural Kraft (200 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Natural Kraft',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 17.90,
+        unitPrice: 0.0895,
+        heroImageIndex: 6
+      },
+      {
+        id: 'paper-wrap-s-kraft-500pcs',
+        label: 'Size S (30 × 30 cm) - Natural Kraft (500 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Natural Kraft',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 38.00,
+        unitPrice: 0.0760,
+        heroImageIndex: 6
+      },
+      {
+        id: 'paper-wrap-s-white-100pcs',
+        label: 'Size S (30 × 30 cm) - Pristine White (100 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Pristine White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 10.00,
+        unitPrice: 0.1000,
+        heroImageIndex: 3
+      },
+      {
+        id: 'paper-wrap-s-white-200pcs',
+        label: 'Size S (30 × 30 cm) - Pristine White (200 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Pristine White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 17.90,
+        unitPrice: 0.0895,
+        heroImageIndex: 3
+      },
+      {
+        id: 'paper-wrap-s-white-500pcs',
+        label: 'Size S (30 × 30 cm) - Pristine White (500 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Pristine White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 38.00,
+        unitPrice: 0.0760,
+        heroImageIndex: 3
+      },
+      {
+        id: 'paper-wrap-s-black-100pcs',
+        label: 'Size S (30 × 30 cm) - Sleek Black (100 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Sleek Black',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 10.00,
+        unitPrice: 0.1000,
+        heroImageIndex: 7
+      },
+      {
+        id: 'paper-wrap-s-black-200pcs',
+        label: 'Size S (30 × 30 cm) - Sleek Black (200 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Sleek Black',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 17.90,
+        unitPrice: 0.0895,
+        heroImageIndex: 7
+      },
+      {
+        id: 'paper-wrap-s-black-500pcs',
+        label: 'Size S (30 × 30 cm) - Sleek Black (500 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Sleek Black',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 38.00,
+        unitPrice: 0.0760,
+        heroImageIndex: 7
+      },
+      {
+        id: 'paper-wrap-s-red-100pcs',
+        label: 'Size S (30 × 30 cm) - Vibrant Red (100 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Vibrant Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 10.00,
+        unitPrice: 0.1000,
+        heroImageIndex: 1
+      },
+      {
+        id: 'paper-wrap-s-red-200pcs',
+        label: 'Size S (30 × 30 cm) - Vibrant Red (200 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Vibrant Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 17.90,
+        unitPrice: 0.0895,
+        heroImageIndex: 1
+      },
+      {
+        id: 'paper-wrap-s-red-500pcs',
+        label: 'Size S (30 × 30 cm) - Vibrant Red (500 Sheets)',
+        dimensions: '30 × 30 cm • 80 GSM • Vibrant Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 38.00,
+        unitPrice: 0.0760,
+        heroImageIndex: 1
+      },
+      {
+        id: 'paper-wrap-m-kraft-100pcs',
+        label: 'Size M (38 × 38 cm) - Natural Kraft (100 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Natural Kraft',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 14.00,
+        unitPrice: 0.1400,
+        heroImageIndex: 6
+      },
+      {
+        id: 'paper-wrap-m-kraft-200pcs',
+        label: 'Size M (38 × 38 cm) - Natural Kraft (200 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Natural Kraft',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 25.20,
+        unitPrice: 0.1260,
+        heroImageIndex: 6
+      },
+      {
+        id: 'paper-wrap-m-kraft-500pcs',
+        label: 'Size M (38 × 38 cm) - Natural Kraft (500 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Natural Kraft',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 54.80,
+        unitPrice: 0.1096,
+        heroImageIndex: 6
+      },
+      {
+        id: 'paper-wrap-m-white-100pcs',
+        label: 'Size M (38 × 38 cm) - Pristine White (100 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Pristine White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 14.00,
+        unitPrice: 0.1400,
+        heroImageIndex: 3
+      },
+      {
+        id: 'paper-wrap-m-white-200pcs',
+        label: 'Size M (38 × 38 cm) - Pristine White (200 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Pristine White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 25.20,
+        unitPrice: 0.1260,
+        heroImageIndex: 3
+      },
+      {
+        id: 'paper-wrap-m-white-500pcs',
+        label: 'Size M (38 × 38 cm) - Pristine White (500 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Pristine White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 54.80,
+        unitPrice: 0.1096,
+        heroImageIndex: 3
+      },
+      {
+        id: 'paper-wrap-m-black-100pcs',
+        label: 'Size M (38 × 38 cm) - Sleek Black (100 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Sleek Black',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 14.00,
+        unitPrice: 0.1400,
+        heroImageIndex: 7
+      },
+      {
+        id: 'paper-wrap-m-black-200pcs',
+        label: 'Size M (38 × 38 cm) - Sleek Black (200 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Sleek Black',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 25.20,
+        unitPrice: 0.1260,
+        heroImageIndex: 7
+      },
+      {
+        id: 'paper-wrap-m-black-500pcs',
+        label: 'Size M (38 × 38 cm) - Sleek Black (500 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Sleek Black',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 54.80,
+        unitPrice: 0.1096,
+        heroImageIndex: 7
+      },
+      {
+        id: 'paper-wrap-m-red-100pcs',
+        label: 'Size M (38 × 38 cm) - Vibrant Red (100 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Vibrant Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 14.00,
+        unitPrice: 0.1400,
+        heroImageIndex: 1
+      },
+      {
+        id: 'paper-wrap-m-red-200pcs',
+        label: 'Size M (38 × 38 cm) - Vibrant Red (200 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Vibrant Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 25.20,
+        unitPrice: 0.1260,
+        heroImageIndex: 1
+      },
+      {
+        id: 'paper-wrap-m-red-500pcs',
+        label: 'Size M (38 × 38 cm) - Vibrant Red (500 Sheets)',
+        dimensions: '38 × 38 cm • 80 GSM • Vibrant Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 54.80,
+        unitPrice: 0.1096,
+        heroImageIndex: 1
+      },
+      {
+        id: 'paper-wrap-l-kraft-100pcs',
+        label: 'Size L (50 × 50 cm) - Natural Kraft (100 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Natural Kraft',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 21.20,
+        unitPrice: 0.2120,
+        heroImageIndex: 6
+      },
+      {
+        id: 'paper-wrap-l-kraft-200pcs',
+        label: 'Size L (50 × 50 cm) - Natural Kraft (200 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Natural Kraft',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 38.00,
+        unitPrice: 0.1900,
+        heroImageIndex: 6
+      },
+      {
+        id: 'paper-wrap-l-kraft-500pcs',
+        label: 'Size L (50 × 50 cm) - Natural Kraft (500 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Natural Kraft',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 82.80,
+        unitPrice: 0.1656,
+        heroImageIndex: 6
+      },
+      {
+        id: 'paper-wrap-l-white-100pcs',
+        label: 'Size L (50 × 50 cm) - Pristine White (100 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Pristine White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 21.20,
+        unitPrice: 0.2120,
+        heroImageIndex: 3
+      },
+      {
+        id: 'paper-wrap-l-white-200pcs',
+        label: 'Size L (50 × 50 cm) - Pristine White (200 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Pristine White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 38.00,
+        unitPrice: 0.1900,
+        heroImageIndex: 3
+      },
+      {
+        id: 'paper-wrap-l-white-500pcs',
+        label: 'Size L (50 × 50 cm) - Pristine White (500 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Pristine White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 82.80,
+        unitPrice: 0.1656,
+        heroImageIndex: 3
+      },
+      {
+        id: 'paper-wrap-l-black-100pcs',
+        label: 'Size L (50 × 50 cm) - Sleek Black (100 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Sleek Black',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 21.20,
+        unitPrice: 0.2120,
+        heroImageIndex: 7
+      },
+      {
+        id: 'paper-wrap-l-black-200pcs',
+        label: 'Size L (50 × 50 cm) - Sleek Black (200 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Sleek Black',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 38.00,
+        unitPrice: 0.1900,
+        heroImageIndex: 7
+      },
+      {
+        id: 'paper-wrap-l-black-500pcs',
+        label: 'Size L (50 × 50 cm) - Sleek Black (500 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Sleek Black',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 82.80,
+        unitPrice: 0.1656,
+        heroImageIndex: 7
+      },
+      {
+        id: 'paper-wrap-l-red-100pcs',
+        label: 'Size L (50 × 50 cm) - Vibrant Red (100 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Vibrant Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 21.20,
+        unitPrice: 0.2120,
+        heroImageIndex: 1
+      },
+      {
+        id: 'paper-wrap-l-red-200pcs',
+        label: 'Size L (50 × 50 cm) - Vibrant Red (200 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Vibrant Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 38.00,
+        unitPrice: 0.1900,
+        heroImageIndex: 1
+      },
+      {
+        id: 'paper-wrap-l-red-500pcs',
+        label: 'Size L (50 × 50 cm) - Vibrant Red (500 Sheets)',
+        dimensions: '50 × 50 cm • 80 GSM • Vibrant Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 82.80,
+        unitPrice: 0.1656,
+        heroImageIndex: 1
+      }
+    ]
+  },
+  // Retro Horizontal Kraft Food Bag with Handle
+  {
+    id: 'retro-horizontal-kraft-food-handle-bag',
+    name: 'Retro Horizontal Kraft Food & Gift Bag with Handle',
+    category: 'eco-stock',
+    description: 'An exceptionally elegant, retro-themed horizontal Kraft paper packaging pouch featuring a secure die-cut handle and a high-barrier moisture-proof food-grade internal lamination. Made from thickened FSC-certified natural Kraft paper, it combines classic organic aesthetics with outstanding durability, tear-resistance, and food preservation properties. Perfect for bulk dry foods, specialty rice, grains, premium dried fruits, tea leaves, organic snacks, and rustic gift presentation.',
+    shortDesc: 'Thickened FSC-certified retro horizontal Kraft packaging bag with die-cut handle and internal lamination',
+    features: [
+      'Thickened FSC-Certified Organic Kraft Paper with Retro Design',
+      'Inner Food-Grade Moisture-Proof, Leak-Proof Lamination',
+      'Sturdy Die-Cut Hand-Carry Handle for Premium Convenience',
+      'Horizontal Standing Layout with Wide Flat Gusset Bottom',
+      'Ideal for Specialty Grains, Rice, Dried Fruits, Tea, and Gifts',
+      '100% Recyclable and Biodegradable Exterior Body'
+    ],
+    images: [
+      '/taobao/kraft-bag-with-handle/O1CN018gBt601my7yKOLraF_--166645022-jpg_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01BF4ebQ1my7yNNqoTd_--166645022-jpg_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01FfmG0r1my8BFzGkHe_--166645022-jpg_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01Fpd3WB1my7z9V0Qmq_--166645022-png_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01zYvKpI1my7yRibSOd_--166645022-png_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01kh39AI1my8AqSjCuc_--166645022-jpg_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01g44xWR1my85fAqZcZ_--166645022-jpg_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01CwjIzc1my85YKsbKC_--166645022-jpg_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01iIZ4GJ1my85cdtP2F_--166645022-jpg_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN017Cy6nT1my85eQpLnP_--166645022-jpg_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01WKPVyO1my85fjhA8k_--166645022-jpg_.webp',
+      '/taobao/kraft-bag-with-handle/O1CN01uvXKIR1my85fApQuC_--166645022-jpg_.webp'
+    ],
+    badge: '🛍️ Retro Hand-Carry Pouch',
+    rating: 4.9,
+    reviews: 142,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 100,
+    shape: 'Horizontal Stand-up Hand-Carry Pouch',
+    material: 'Thickened FSC Kraft Paper + Food-Grade PE Inner Liner',
+    basePrice: 22.40,
+    pricePerPiece: 0.224,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: '1斤 (0.5kg) / 2斤 (1kg) / 3斤 (1.5kg) / 5斤 (2.5kg) / 6斤 (3kg) / 10斤 (5kg)',
+    shelfLife: 'Indefinite when dry',
+    certification: 'FSC Certified Kraft, FDA Food-Grade Compliant Interior',
+    customPrintNote: 'Custom logo printing available from 100+ pieces. Contact our design team.',
+    sizeVariants: [
+      {
+        id: 'kraft-bag-105kg-brown-100pcs',
+        label: '1斤装 (0.5kg) - Classic Brown (100 Pcs)',
+        dimensions: 'L10.5 × W5 × H9 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 22.40,
+        unitPrice: 0.2240,
+        heroImageIndex: 3
+      },
+      {
+        id: 'kraft-bag-105kg-brown-200pcs',
+        label: '1斤装 (0.5kg) - Classic Brown (200 Pcs)',
+        dimensions: 'L10.5 × W5 × H9 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 40.30,
+        unitPrice: 0.2015,
+        heroImageIndex: 3
+      },
+      {
+        id: 'kraft-bag-105kg-brown-500pcs',
+        label: '1斤装 (0.5kg) - Classic Brown (500 Pcs)',
+        dimensions: 'L10.5 × W5 × H9 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 89.50,
+        unitPrice: 0.1790,
+        heroImageIndex: 3
+      },
+      {
+        id: 'kraft-bag-105kg-green-100pcs',
+        label: '1斤装 (0.5kg) - Eco Green (100 Pcs)',
+        dimensions: 'L10.5 × W5 × H9 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 22.40,
+        unitPrice: 0.2240,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-105kg-green-200pcs',
+        label: '1斤装 (0.5kg) - Eco Green (200 Pcs)',
+        dimensions: 'L10.5 × W5 × H9 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 40.30,
+        unitPrice: 0.2015,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-105kg-green-500pcs',
+        label: '1斤装 (0.5kg) - Eco Green (500 Pcs)',
+        dimensions: 'L10.5 × W5 × H9 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 89.50,
+        unitPrice: 0.1790,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-105kg-red-100pcs',
+        label: '1斤装 (0.5kg) - Festive Red (100 Pcs)',
+        dimensions: 'L10.5 × W5 × H9 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 22.40,
+        unitPrice: 0.2240,
+        heroImageIndex: 10
+      },
+      {
+        id: 'kraft-bag-105kg-red-200pcs',
+        label: '1斤装 (0.5kg) - Festive Red (200 Pcs)',
+        dimensions: 'L10.5 × W5 × H9 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 40.30,
+        unitPrice: 0.2015,
+        heroImageIndex: 10
+      },
+      {
+        id: 'kraft-bag-105kg-red-500pcs',
+        label: '1斤装 (0.5kg) - Festive Red (500 Pcs)',
+        dimensions: 'L10.5 × W5 × H9 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 89.50,
+        unitPrice: 0.1790,
+        heroImageIndex: 10
+      },
+      {
+        id: 'kraft-bag-210kg-brown-100pcs',
+        label: '2斤装 (1.0kg) - Classic Brown (100 Pcs)',
+        dimensions: 'L12 × W7 × H10.5 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 2
+      },
+      {
+        id: 'kraft-bag-210kg-brown-200pcs',
+        label: '2斤装 (1.0kg) - Classic Brown (200 Pcs)',
+        dimensions: 'L12 × W7 × H10.5 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.30,
+        unitPrice: 0.2515,
+        heroImageIndex: 2
+      },
+      {
+        id: 'kraft-bag-210kg-brown-500pcs',
+        label: '2斤装 (1.0kg) - Classic Brown (500 Pcs)',
+        dimensions: 'L12 × W7 × H10.5 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 111.90,
+        unitPrice: 0.2238,
+        heroImageIndex: 2
+      },
+      {
+        id: 'kraft-bag-210kg-green-100pcs',
+        label: '2斤装 (1.0kg) - Eco Green (100 Pcs)',
+        dimensions: 'L12 × W7 × H10.5 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-210kg-green-200pcs',
+        label: '2斤装 (1.0kg) - Eco Green (200 Pcs)',
+        dimensions: 'L12 × W7 × H10.5 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.30,
+        unitPrice: 0.2515,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-210kg-green-500pcs',
+        label: '2斤装 (1.0kg) - Eco Green (500 Pcs)',
+        dimensions: 'L12 × W7 × H10.5 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 111.90,
+        unitPrice: 0.2238,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-210kg-red-100pcs',
+        label: '2斤装 (1.0kg) - Festive Red (100 Pcs)',
+        dimensions: 'L12 × W7 × H10.5 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 11
+      },
+      {
+        id: 'kraft-bag-210kg-red-200pcs',
+        label: '2斤装 (1.0kg) - Festive Red (200 Pcs)',
+        dimensions: 'L12 × W7 × H10.5 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.30,
+        unitPrice: 0.2515,
+        heroImageIndex: 11
+      },
+      {
+        id: 'kraft-bag-210kg-red-500pcs',
+        label: '2斤装 (1.0kg) - Festive Red (500 Pcs)',
+        dimensions: 'L12 × W7 × H10.5 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 111.90,
+        unitPrice: 0.2238,
+        heroImageIndex: 11
+      },
+      {
+        id: 'kraft-bag-315kg-brown-100pcs',
+        label: '3斤装 (1.5kg) - Classic Brown (100 Pcs)',
+        dimensions: 'L13.5 × W8 × H12 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 36.40,
+        unitPrice: 0.3640,
+        heroImageIndex: 1
+      },
+      {
+        id: 'kraft-bag-315kg-brown-200pcs',
+        label: '3斤装 (1.5kg) - Classic Brown (200 Pcs)',
+        dimensions: 'L13.5 × W8 × H12 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 65.40,
+        unitPrice: 0.3270,
+        heroImageIndex: 1
+      },
+      {
+        id: 'kraft-bag-315kg-brown-500pcs',
+        label: '3斤装 (1.5kg) - Classic Brown (500 Pcs)',
+        dimensions: 'L13.5 × W8 × H12 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 145.40,
+        unitPrice: 0.2908,
+        heroImageIndex: 1
+      },
+      {
+        id: 'kraft-bag-315kg-green-100pcs',
+        label: '3斤装 (1.5kg) - Eco Green (100 Pcs)',
+        dimensions: 'L13.5 × W8 × H12 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 36.40,
+        unitPrice: 0.3640,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-315kg-green-200pcs',
+        label: '3斤装 (1.5kg) - Eco Green (200 Pcs)',
+        dimensions: 'L13.5 × W8 × H12 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 65.40,
+        unitPrice: 0.3270,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-315kg-green-500pcs',
+        label: '3斤装 (1.5kg) - Eco Green (500 Pcs)',
+        dimensions: 'L13.5 × W8 × H12 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 145.40,
+        unitPrice: 0.2908,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-315kg-red-100pcs',
+        label: '3斤装 (1.5kg) - Festive Red (100 Pcs)',
+        dimensions: 'L13.5 × W8 × H12 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 36.40,
+        unitPrice: 0.3640,
+        heroImageIndex: 8
+      },
+      {
+        id: 'kraft-bag-315kg-red-200pcs',
+        label: '3斤装 (1.5kg) - Festive Red (200 Pcs)',
+        dimensions: 'L13.5 × W8 × H12 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 65.40,
+        unitPrice: 0.3270,
+        heroImageIndex: 8
+      },
+      {
+        id: 'kraft-bag-315kg-red-500pcs',
+        label: '3斤装 (1.5kg) - Festive Red (500 Pcs)',
+        dimensions: 'L13.5 × W8 × H12 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 145.40,
+        unitPrice: 0.2908,
+        heroImageIndex: 8
+      },
+      {
+        id: 'kraft-bag-525kg-brown-100pcs',
+        label: '5斤装 (2.5kg) - Classic Brown (100 Pcs)',
+        dimensions: 'L18 × W8 × H14.5 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 47.60,
+        unitPrice: 0.4760,
+        heroImageIndex: 0
+      },
+      {
+        id: 'kraft-bag-525kg-brown-200pcs',
+        label: '5斤装 (2.5kg) - Classic Brown (200 Pcs)',
+        dimensions: 'L18 × W8 × H14.5 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 85.60,
+        unitPrice: 0.4280,
+        heroImageIndex: 0
+      },
+      {
+        id: 'kraft-bag-525kg-brown-500pcs',
+        label: '5斤装 (2.5kg) - Classic Brown (500 Pcs)',
+        dimensions: 'L18 × W8 × H14.5 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 190.20,
+        unitPrice: 0.3804,
+        heroImageIndex: 0
+      },
+      {
+        id: 'kraft-bag-525kg-green-100pcs',
+        label: '5斤装 (2.5kg) - Eco Green (100 Pcs)',
+        dimensions: 'L18 × W8 × H14.5 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 47.60,
+        unitPrice: 0.4760,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-525kg-green-200pcs',
+        label: '5斤装 (2.5kg) - Eco Green (200 Pcs)',
+        dimensions: 'L18 × W8 × H14.5 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 85.60,
+        unitPrice: 0.4280,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-525kg-green-500pcs',
+        label: '5斤装 (2.5kg) - Eco Green (500 Pcs)',
+        dimensions: 'L18 × W8 × H14.5 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 190.20,
+        unitPrice: 0.3804,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-525kg-red-100pcs',
+        label: '5斤装 (2.5kg) - Festive Red (100 Pcs)',
+        dimensions: 'L18 × W8 × H14.5 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 47.60,
+        unitPrice: 0.4760,
+        heroImageIndex: 8
+      },
+      {
+        id: 'kraft-bag-525kg-red-200pcs',
+        label: '5斤装 (2.5kg) - Festive Red (200 Pcs)',
+        dimensions: 'L18 × W8 × H14.5 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 85.60,
+        unitPrice: 0.4280,
+        heroImageIndex: 8
+      },
+      {
+        id: 'kraft-bag-525kg-red-500pcs',
+        label: '5斤装 (2.5kg) - Festive Red (500 Pcs)',
+        dimensions: 'L18 × W8 × H14.5 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 190.20,
+        unitPrice: 0.3804,
+        heroImageIndex: 8
+      },
+      {
+        id: 'kraft-bag-630kg-brown-100pcs',
+        label: '6斤装 (3.0kg) - Classic Brown (100 Pcs)',
+        dimensions: 'L21 × W8 × H16 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 53.20,
+        unitPrice: 0.5320,
+        heroImageIndex: 5
+      },
+      {
+        id: 'kraft-bag-630kg-brown-200pcs',
+        label: '6斤装 (3.0kg) - Classic Brown (200 Pcs)',
+        dimensions: 'L21 × W8 × H16 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 95.70,
+        unitPrice: 0.4785,
+        heroImageIndex: 5
+      },
+      {
+        id: 'kraft-bag-630kg-brown-500pcs',
+        label: '6斤装 (3.0kg) - Classic Brown (500 Pcs)',
+        dimensions: 'L21 × W8 × H16 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 212.60,
+        unitPrice: 0.4252,
+        heroImageIndex: 5
+      },
+      {
+        id: 'kraft-bag-630kg-green-100pcs',
+        label: '6斤装 (3.0kg) - Eco Green (100 Pcs)',
+        dimensions: 'L21 × W8 × H16 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 53.20,
+        unitPrice: 0.5320,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-630kg-green-200pcs',
+        label: '6斤装 (3.0kg) - Eco Green (200 Pcs)',
+        dimensions: 'L21 × W8 × H16 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 95.70,
+        unitPrice: 0.4785,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-630kg-green-500pcs',
+        label: '6斤装 (3.0kg) - Eco Green (500 Pcs)',
+        dimensions: 'L21 × W8 × H16 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 212.60,
+        unitPrice: 0.4252,
+        heroImageIndex: 6
+      },
+      {
+        id: 'kraft-bag-630kg-red-100pcs',
+        label: '6斤装 (3.0kg) - Festive Red (100 Pcs)',
+        dimensions: 'L21 × W8 × H16 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 53.20,
+        unitPrice: 0.5320,
+        heroImageIndex: 8
+      },
+      {
+        id: 'kraft-bag-630kg-red-200pcs',
+        label: '6斤装 (3.0kg) - Festive Red (200 Pcs)',
+        dimensions: 'L21 × W8 × H16 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 95.70,
+        unitPrice: 0.4785,
+        heroImageIndex: 8
+      },
+      {
+        id: 'kraft-bag-630kg-red-500pcs',
+        label: '6斤装 (3.0kg) - Festive Red (500 Pcs)',
+        dimensions: 'L21 × W8 × H16 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 212.60,
+        unitPrice: 0.4252,
+        heroImageIndex: 8
+      },
+      {
+        id: 'kraft-bag-1050kg-brown-100pcs',
+        label: '10斤装 (5.0kg) - Classic Brown (100 Pcs)',
+        dimensions: 'L24 × W10 × H20 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 72.70,
+        unitPrice: 0.7270,
+        heroImageIndex: 4
+      },
+      {
+        id: 'kraft-bag-1050kg-brown-200pcs',
+        label: '10斤装 (5.0kg) - Classic Brown (200 Pcs)',
+        dimensions: 'L24 × W10 × H20 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 130.90,
+        unitPrice: 0.6545,
+        heroImageIndex: 4
+      },
+      {
+        id: 'kraft-bag-1050kg-brown-500pcs',
+        label: '10斤装 (5.0kg) - Classic Brown (500 Pcs)',
+        dimensions: 'L24 × W10 × H20 cm • Thickened Kraft • Classic Brown',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 290.90,
+        unitPrice: 0.5818,
+        heroImageIndex: 4
+      },
+      {
+        id: 'kraft-bag-1050kg-green-100pcs',
+        label: '10斤装 (5.0kg) - Eco Green (100 Pcs)',
+        dimensions: 'L24 × W10 × H20 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 72.70,
+        unitPrice: 0.7270,
+        heroImageIndex: 7
+      },
+      {
+        id: 'kraft-bag-1050kg-green-200pcs',
+        label: '10斤装 (5.0kg) - Eco Green (200 Pcs)',
+        dimensions: 'L24 × W10 × H20 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 130.90,
+        unitPrice: 0.6545,
+        heroImageIndex: 7
+      },
+      {
+        id: 'kraft-bag-1050kg-green-500pcs',
+        label: '10斤装 (5.0kg) - Eco Green (500 Pcs)',
+        dimensions: 'L24 × W10 × H20 cm • Thickened Kraft • Eco Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 290.90,
+        unitPrice: 0.5818,
+        heroImageIndex: 7
+      },
+      {
+        id: 'kraft-bag-1050kg-red-100pcs',
+        label: '10斤装 (5.0kg) - Festive Red (100 Pcs)',
+        dimensions: 'L24 × W10 × H20 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 72.70,
+        unitPrice: 0.7270,
+        heroImageIndex: 9
+      },
+      {
+        id: 'kraft-bag-1050kg-red-200pcs',
+        label: '10斤装 (5.0kg) - Festive Red (200 Pcs)',
+        dimensions: 'L24 × W10 × H20 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 130.90,
+        unitPrice: 0.6545,
+        heroImageIndex: 9
+      },
+      {
+        id: 'kraft-bag-1050kg-red-500pcs',
+        label: '10斤装 (5.0kg) - Festive Red (500 Pcs)',
+        dimensions: 'L24 × W10 × H20 cm • Thickened Kraft • Festive Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 290.90,
+        unitPrice: 0.5818,
+        heroImageIndex: 9
+      }
+    ]
+  },
+
   // 40ml Foil Capsule and Packing Machine
   {
     id: '40ml-foil-capsule-and-packing-machine',
@@ -1881,6 +2878,414 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
 
 // Conventional Stock Products (Ready-made Premium)
 const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // Bottle-Shaped Specialty Foil Sachet Pouch
+  {
+    id: 'bottle-shape-sachet-bag',
+    name: 'Bottle-Shaped Specialty Foil Sachet Pouch',
+    category: 'conventional-stock',
+    description: 'An eye-catching, bottle-shaped specialty aluminum foil sachet pouch designed for single-use samples and premium retail packaging. Features high-barrier food-grade internal lamination that provides absolute protection against oxygen, moisture, and light. Excellent choice for honey, liquid syrups, herbal extracts, face lotions, creams, serums, and high-end cosmetic samples.',
+    shortDesc: 'Eye-catching bottle-shaped high-barrier foil sachet pouch for honey, lotions, and cosmetics samples',
+    features: [
+      'Unique Bottle-Shaped Design for Maximum Brand Recognition',
+      'High-Barrier Aluminum Foil Core Protects Active Ingredients',
+      'Perfect for Single-Use Liquid, Gel, or Powder Samples',
+      'Precise Tear Notch for Smooth and Effortless Opening',
+      'Wide Flat Sealing Edges to Prevent Any Leakage',
+      'Available in 4 Gorgeous Seasonal Matte Finishes'
+    ],
+    images: [
+      '/taobao/bottle-shape-sachet-bag/O1CN01HLBEAS1wI7QTrjp8l_--1816946284.jpg',
+      '/taobao/bottle-shape-sachet-bag/O1CN010uoYV21wI7XdAgp32_--1816946284.jpg',
+      '/taobao/bottle-shape-sachet-bag/O1CN0172bE0p1wI7XalXVjb_--1816946284.jpg',
+      '/taobao/bottle-shape-sachet-bag/O1CN01F0bUzr1wI7Xfz93bG_--1816946284.jpg',
+      '/taobao/bottle-shape-sachet-bag/O1CN01HFAcnm1wI7XYEdGLa_--1816946284.jpg',
+      '/taobao/bottle-shape-sachet-bag/O1CN01HSqPJa1wI7XdwA824_--1816946284.jpg',
+      '/taobao/bottle-shape-sachet-bag/O1CN01KYZtWN1wI7XfLWk4F_--1816946284.jpg',
+      '/taobao/bottle-shape-sachet-bag/O1CN01q5cziX1wI7uDjUFyO_--1816946284-jpg_.webp',
+      '/taobao/bottle-shape-sachet-bag/O1CN01vYlOKD1wI7uE46oqf_--1816946284-jpg_.webp',
+      '/taobao/bottle-shape-sachet-bag/O1CN01WdpQpo1wI7uDVKw4F_--1816946284-jpg_.webp',
+      '/taobao/bottle-shape-sachet-bag/O1CN01XMYfTm1wI7XfLEHJi_--1816946284-jpg_.webp',
+      '/taobao/bottle-shape-sachet-bag/O1CN01pDMoD61wI7Xfz7utO_--1816946284.jpg'
+    ],
+    badge: '⭐ Premium Sample Pouch',
+    rating: 4.9,
+    reviews: 86,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 100,
+    shape: 'Bottle-Shaped Sachet Pouch',
+    material: 'Matte Aluminum Foil + PE High-Barrier Food-Grade Laminate (110 Microns)',
+    basePrice: 8.40,
+    pricePerPiece: 0.084,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: '5×11 cm (Holds 5-12g) / 6×12 cm (Holds 10-18g) / 7.5×13 cm (Holds 25-35g)',
+    shelfLife: '+36 months',
+    certification: 'FSC & FDA Food-Grade Certified',
+    customPrintNote: 'Custom logo printing available from 1,000+ pieces. Please consult our team.',
+    sizeVariants: [
+      {
+        id: 'sachet-bag-s-spring-pink-100pcs',
+        label: 'Size S (5 × 11 cm) - Spring Sakura Pink (100 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Spring Sakura Pink',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 8.40,
+        unitPrice: 0.0840,
+        heroImageIndex: 7
+      },
+      {
+        id: 'sachet-bag-s-spring-pink-200pcs',
+        label: 'Size S (5 × 11 cm) - Spring Sakura Pink (200 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Spring Sakura Pink',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 15.10,
+        unitPrice: 0.0755,
+        heroImageIndex: 7
+      },
+      {
+        id: 'sachet-bag-s-spring-pink-500pcs',
+        label: 'Size S (5 × 11 cm) - Spring Sakura Pink (500 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Spring Sakura Pink',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 33.60,
+        unitPrice: 0.0672,
+        heroImageIndex: 7
+      },
+      {
+        id: 'sachet-bag-s-summer-blue-100pcs',
+        label: 'Size S (5 × 11 cm) - Summer Ocean Blue (100 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Summer Ocean Blue',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 8.40,
+        unitPrice: 0.0840,
+        heroImageIndex: 8
+      },
+      {
+        id: 'sachet-bag-s-summer-blue-200pcs',
+        label: 'Size S (5 × 11 cm) - Summer Ocean Blue (200 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Summer Ocean Blue',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 15.10,
+        unitPrice: 0.0755,
+        heroImageIndex: 8
+      },
+      {
+        id: 'sachet-bag-s-summer-blue-500pcs',
+        label: 'Size S (5 × 11 cm) - Summer Ocean Blue (500 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Summer Ocean Blue',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 33.60,
+        unitPrice: 0.0672,
+        heroImageIndex: 8
+      },
+      {
+        id: 'sachet-bag-s-autumn-gold-100pcs',
+        label: 'Size S (5 × 11 cm) - Autumn Harvest Gold (100 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Autumn Harvest Gold',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 8.40,
+        unitPrice: 0.0840,
+        heroImageIndex: 9
+      },
+      {
+        id: 'sachet-bag-s-autumn-gold-200pcs',
+        label: 'Size S (5 × 11 cm) - Autumn Harvest Gold (200 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Autumn Harvest Gold',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 15.10,
+        unitPrice: 0.0755,
+        heroImageIndex: 9
+      },
+      {
+        id: 'sachet-bag-s-autumn-gold-500pcs',
+        label: 'Size S (5 × 11 cm) - Autumn Harvest Gold (500 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Autumn Harvest Gold',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 33.60,
+        unitPrice: 0.0672,
+        heroImageIndex: 9
+      },
+      {
+        id: 'sachet-bag-s-winter-white-100pcs',
+        label: 'Size S (5 × 11 cm) - Winter Frost White (100 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Winter Frost White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 8.40,
+        unitPrice: 0.0840,
+        heroImageIndex: 5
+      },
+      {
+        id: 'sachet-bag-s-winter-white-200pcs',
+        label: 'Size S (5 × 11 cm) - Winter Frost White (200 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Winter Frost White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 15.10,
+        unitPrice: 0.0755,
+        heroImageIndex: 5
+      },
+      {
+        id: 'sachet-bag-s-winter-white-500pcs',
+        label: 'Size S (5 × 11 cm) - Winter Frost White (500 Pcs)',
+        dimensions: 'L5 × H11 cm (4 × 10 cm Inner) • Holds ~5g liquid/gel/powder or ~12g honey • Winter Frost White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 33.60,
+        unitPrice: 0.0672,
+        heroImageIndex: 5
+      },
+      {
+        id: 'sachet-bag-m-spring-pink-100pcs',
+        label: 'Size M (6 × 12 cm) - Spring Sakura Pink (100 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Spring Sakura Pink',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 10.00,
+        unitPrice: 0.1000,
+        heroImageIndex: 7
+      },
+      {
+        id: 'sachet-bag-m-spring-pink-200pcs',
+        label: 'Size M (6 × 12 cm) - Spring Sakura Pink (200 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Spring Sakura Pink',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 18.10,
+        unitPrice: 0.0905,
+        heroImageIndex: 7
+      },
+      {
+        id: 'sachet-bag-m-spring-pink-500pcs',
+        label: 'Size M (6 × 12 cm) - Spring Sakura Pink (500 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Spring Sakura Pink',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 40.30,
+        unitPrice: 0.0806,
+        heroImageIndex: 7
+      },
+      {
+        id: 'sachet-bag-m-summer-blue-100pcs',
+        label: 'Size M (6 × 12 cm) - Summer Ocean Blue (100 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Summer Ocean Blue',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 10.00,
+        unitPrice: 0.1000,
+        heroImageIndex: 8
+      },
+      {
+        id: 'sachet-bag-m-summer-blue-200pcs',
+        label: 'Size M (6 × 12 cm) - Summer Ocean Blue (200 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Summer Ocean Blue',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 18.10,
+        unitPrice: 0.0905,
+        heroImageIndex: 8
+      },
+      {
+        id: 'sachet-bag-m-summer-blue-500pcs',
+        label: 'Size M (6 × 12 cm) - Summer Ocean Blue (500 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Summer Ocean Blue',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 40.30,
+        unitPrice: 0.0806,
+        heroImageIndex: 8
+      },
+      {
+        id: 'sachet-bag-m-autumn-gold-100pcs',
+        label: 'Size M (6 × 12 cm) - Autumn Harvest Gold (100 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Autumn Harvest Gold',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 10.00,
+        unitPrice: 0.1000,
+        heroImageIndex: 9
+      },
+      {
+        id: 'sachet-bag-m-autumn-gold-200pcs',
+        label: 'Size M (6 × 12 cm) - Autumn Harvest Gold (200 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Autumn Harvest Gold',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 18.10,
+        unitPrice: 0.0905,
+        heroImageIndex: 9
+      },
+      {
+        id: 'sachet-bag-m-autumn-gold-500pcs',
+        label: 'Size M (6 × 12 cm) - Autumn Harvest Gold (500 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Autumn Harvest Gold',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 40.30,
+        unitPrice: 0.0806,
+        heroImageIndex: 9
+      },
+      {
+        id: 'sachet-bag-m-winter-white-100pcs',
+        label: 'Size M (6 × 12 cm) - Winter Frost White (100 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Winter Frost White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 10.00,
+        unitPrice: 0.1000,
+        heroImageIndex: 5
+      },
+      {
+        id: 'sachet-bag-m-winter-white-200pcs',
+        label: 'Size M (6 × 12 cm) - Winter Frost White (200 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Winter Frost White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 18.10,
+        unitPrice: 0.0905,
+        heroImageIndex: 5
+      },
+      {
+        id: 'sachet-bag-m-winter-white-500pcs',
+        label: 'Size M (6 × 12 cm) - Winter Frost White (500 Pcs)',
+        dimensions: 'L6 × H12 cm (5 × 11 cm Inner) • Holds ~10g liquid/gel/powder or ~18g honey • Winter Frost White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 40.30,
+        unitPrice: 0.0806,
+        heroImageIndex: 5
+      },
+      {
+        id: 'sachet-bag-l-spring-pink-100pcs',
+        label: 'Size L (7.5 × 13 cm) - Spring Sakura Pink (100 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Spring Sakura Pink',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 12.30,
+        unitPrice: 0.1230,
+        heroImageIndex: 7
+      },
+      {
+        id: 'sachet-bag-l-spring-pink-200pcs',
+        label: 'Size L (7.5 × 13 cm) - Spring Sakura Pink (200 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Spring Sakura Pink',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 22.10,
+        unitPrice: 0.1105,
+        heroImageIndex: 7
+      },
+      {
+        id: 'sachet-bag-l-spring-pink-500pcs',
+        label: 'Size L (7.5 × 13 cm) - Spring Sakura Pink (500 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Spring Sakura Pink',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 49.20,
+        unitPrice: 0.0984,
+        heroImageIndex: 7
+      },
+      {
+        id: 'sachet-bag-l-summer-blue-100pcs',
+        label: 'Size L (7.5 × 13 cm) - Summer Ocean Blue (100 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Summer Ocean Blue',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 12.30,
+        unitPrice: 0.1230,
+        heroImageIndex: 8
+      },
+      {
+        id: 'sachet-bag-l-summer-blue-200pcs',
+        label: 'Size L (7.5 × 13 cm) - Summer Ocean Blue (200 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Summer Ocean Blue',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 22.10,
+        unitPrice: 0.1105,
+        heroImageIndex: 8
+      },
+      {
+        id: 'sachet-bag-l-summer-blue-500pcs',
+        label: 'Size L (7.5 × 13 cm) - Summer Ocean Blue (500 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Summer Ocean Blue',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 49.20,
+        unitPrice: 0.0984,
+        heroImageIndex: 8
+      },
+      {
+        id: 'sachet-bag-l-autumn-gold-100pcs',
+        label: 'Size L (7.5 × 13 cm) - Autumn Harvest Gold (100 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Autumn Harvest Gold',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 12.30,
+        unitPrice: 0.1230,
+        heroImageIndex: 9
+      },
+      {
+        id: 'sachet-bag-l-autumn-gold-200pcs',
+        label: 'Size L (7.5 × 13 cm) - Autumn Harvest Gold (200 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Autumn Harvest Gold',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 22.10,
+        unitPrice: 0.1105,
+        heroImageIndex: 9
+      },
+      {
+        id: 'sachet-bag-l-autumn-gold-500pcs',
+        label: 'Size L (7.5 × 13 cm) - Autumn Harvest Gold (500 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Autumn Harvest Gold',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 49.20,
+        unitPrice: 0.0984,
+        heroImageIndex: 9
+      },
+      {
+        id: 'sachet-bag-l-winter-white-100pcs',
+        label: 'Size L (7.5 × 13 cm) - Winter Frost White (100 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Winter Frost White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 12.30,
+        unitPrice: 0.1230,
+        heroImageIndex: 5
+      },
+      {
+        id: 'sachet-bag-l-winter-white-200pcs',
+        label: 'Size L (7.5 × 13 cm) - Winter Frost White (200 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Winter Frost White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 22.10,
+        unitPrice: 0.1105,
+        heroImageIndex: 5
+      },
+      {
+        id: 'sachet-bag-l-winter-white-500pcs',
+        label: 'Size L (7.5 × 13 cm) - Winter Frost White (500 Pcs)',
+        dimensions: 'L7.5 × H13 cm (6.5 × 12 cm Inner) • Holds ~25g liquid/gel/powder or ~35g honey • Winter Frost White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 49.20,
+        unitPrice: 0.0984,
+        heroImageIndex: 5
+      }
+    ]
+  },
   {
     id: 'spouted-foil-pouch',
     name: 'Spouted Foil Stand Up Pouch',
