@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-21",
-  "total_images": 1382,
+  "total_images": 1383,
   "total_categories": 155,
   "extensions": {
     ".webp": 1082,
     ".png": 251,
-    ".jpg": 46,
+    ".jpg": 47,
     ".svg": 3
   },
   "categories": {
@@ -7374,8 +7374,14 @@
       ]
     },
     "store/conventional-stock": {
-      "count": 4,
+      "count": 5,
       "images": [
+        {
+          "filename": "rice-paper-flatbottom-valve-sealing.jpg",
+          "path": "/imgs/store/conventional-stock/rice-paper-flatbottom-valve-sealing.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-21T03:22:45.724Z"
+        },
         {
           "filename": "rice-paper-flatbottom-valve-valve-info.jpg",
           "path": "/imgs/store/conventional-stock/rice-paper-flatbottom-valve-valve-info.jpg",
