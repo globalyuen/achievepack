@@ -1616,8 +1616,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     minOrder: 100,
     shape: 'Spouted Stand Up Pouch',
     material: 'Glossy Aluminum Foil - High Barrier Lamination',
-    basePrice: 35.00,
-    pricePerPiece: 0.35,
+    basePrice: 14.58,
+    pricePerPiece: 0.15,
     minQuantity: 100,
     quantityStep: 100,
     sizeInfo: 'Multiple volume capacities available (100ml - 10L)',
@@ -1628,8 +1628,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "80 × 110 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 32,
-        unitPrice: 0.32,
+        totalPrice: 13.33,
+        unitPrice: 0.13,
         heroImageIndex: 6
       },
       {
@@ -1638,8 +1638,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "80 × 130 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 35,
-        unitPrice: 0.35,
+        totalPrice: 14.58,
+        unitPrice: 0.15,
         heroImageIndex: 7
       },
       {
@@ -1648,8 +1648,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "100 × 140 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 38,
-        unitPrice: 0.38,
+        totalPrice: 15.83,
+        unitPrice: 0.16,
         heroImageIndex: 8
       },
       {
@@ -1658,8 +1658,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "100 × 160 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 40,
-        unitPrice: 0.4,
+        totalPrice: 16.67,
+        unitPrice: 0.17,
         heroImageIndex: 9
       },
       {
@@ -1668,8 +1668,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "100 × 160 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 42,
-        unitPrice: 0.42,
+        totalPrice: 17.5,
+        unitPrice: 0.17,
         heroImageIndex: 10
       },
       {
@@ -1678,8 +1678,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "100 × 170 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 42,
-        unitPrice: 0.42,
+        totalPrice: 17.5,
+        unitPrice: 0.17,
         heroImageIndex: 11
       },
       {
@@ -1688,8 +1688,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "100 × 170 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 45,
-        unitPrice: 0.45,
+        totalPrice: 18.75,
+        unitPrice: 0.19,
         heroImageIndex: 12
       },
       {
@@ -1698,8 +1698,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "110 × 170 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 45,
-        unitPrice: 0.45,
+        totalPrice: 18.75,
+        unitPrice: 0.19,
         heroImageIndex: 13
       },
       {
@@ -1708,8 +1708,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "110 × 170 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 48,
-        unitPrice: 0.48,
+        totalPrice: 20,
+        unitPrice: 0.2,
         heroImageIndex: 14
       },
       {
@@ -1718,8 +1718,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "130 × 170 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 48,
-        unitPrice: 0.48,
+        totalPrice: 20,
+        unitPrice: 0.2,
         heroImageIndex: 15
       },
       {
@@ -1728,8 +1728,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "130 × 170 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 52,
-        unitPrice: 0.52,
+        totalPrice: 21.67,
+        unitPrice: 0.22,
         heroImageIndex: 16
       },
       {
@@ -1738,8 +1738,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "130 × 200 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 52,
-        unitPrice: 0.52,
+        totalPrice: 21.67,
+        unitPrice: 0.22,
         heroImageIndex: 17
       },
       {
@@ -1748,8 +1748,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "140 × 200 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 55,
-        unitPrice: 0.55,
+        totalPrice: 22.92,
+        unitPrice: 0.23,
         heroImageIndex: 18
       },
       {
@@ -1758,8 +1758,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "140 × 220 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 58,
-        unitPrice: 0.58,
+        totalPrice: 24.17,
+        unitPrice: 0.24,
         heroImageIndex: 19
       },
       {
@@ -1768,8 +1768,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "190 × 250 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 72,
-        unitPrice: 0.72,
+        totalPrice: 30,
+        unitPrice: 0.3,
         heroImageIndex: 20
       },
       {
@@ -1778,8 +1778,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "200 × 280 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 85,
-        unitPrice: 0.85,
+        totalPrice: 35.42,
+        unitPrice: 0.35,
         heroImageIndex: 21
       },
       {
@@ -1788,8 +1788,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "230 × 300 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 98,
-        unitPrice: 0.98,
+        totalPrice: 40.83,
+        unitPrice: 0.41,
         heroImageIndex: 22
       },
       {
@@ -1798,8 +1798,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "220 × 220 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 119,
-        unitPrice: 1.19,
+        totalPrice: 49.58,
+        unitPrice: 0.5,
         heroImageIndex: 23
       },
       {
@@ -1808,8 +1808,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "220 × 220 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 132,
-        unitPrice: 1.32,
+        totalPrice: 55,
+        unitPrice: 0.55,
         heroImageIndex: 24
       },
       {
@@ -1818,8 +1818,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "250 × 230 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 140,
-        unitPrice: 1.4,
+        totalPrice: 58.33,
+        unitPrice: 0.58,
         heroImageIndex: 25
       },
       {
@@ -1828,8 +1828,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "300 × 270 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 174,
-        unitPrice: 1.74,
+        totalPrice: 72.5,
+        unitPrice: 0.72,
         heroImageIndex: 26
       },
       {
@@ -1838,8 +1838,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "300 × 270 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 195,
-        unitPrice: 1.95,
+        totalPrice: 81.25,
+        unitPrice: 0.81,
         heroImageIndex: 27
       },
       {
@@ -1848,8 +1848,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "350 × 320 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 283,
-        unitPrice: 2.83,
+        totalPrice: 117.92,
+        unitPrice: 1.18,
         heroImageIndex: 28
       },
       {
@@ -1858,8 +1858,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "350 × 320 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 300,
-        unitPrice: 3,
+        totalPrice: 125,
+        unitPrice: 1.25,
         heroImageIndex: 29
       },
       {
@@ -1868,8 +1868,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "440 × 360 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 413,
-        unitPrice: 4.13,
+        totalPrice: 172.08,
+        unitPrice: 1.72,
         heroImageIndex: 30
       },
       {
@@ -1878,8 +1878,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "350 × 320 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 317,
-        unitPrice: 3.17,
+        totalPrice: 132.08,
+        unitPrice: 1.32,
         heroImageIndex: 3
       },
       {
@@ -1888,8 +1888,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "350 × 320 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 523,
-        unitPrice: 5.23,
+        totalPrice: 217.92,
+        unitPrice: 2.18,
         heroImageIndex: 4
       },
       {
@@ -1898,8 +1898,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "350 × 320 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 557,
-        unitPrice: 5.57,
+        totalPrice: 232.08,
+        unitPrice: 2.32,
         heroImageIndex: 5
       },
       {
@@ -1908,8 +1908,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "140 × 200 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 55,
-        unitPrice: 0.55,
+        totalPrice: 22.92,
+        unitPrice: 0.23,
         heroImageIndex: 1
       },
       {
@@ -1918,8 +1918,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "140 × 200 mm",
         hasHole: false,
         quantity: 100,
-        totalPrice: 45,
-        unitPrice: 0.45,
+        totalPrice: 18.75,
+        unitPrice: 0.19,
         heroImageIndex: 2
       },
       {
@@ -1928,8 +1928,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: "Custom Size",
         hasHole: false,
         quantity: 100,
-        totalPrice: 100,
-        unitPrice: 1,
+        totalPrice: 41.67,
+        unitPrice: 0.42,
         heroImageIndex: 0
       }
     ],
