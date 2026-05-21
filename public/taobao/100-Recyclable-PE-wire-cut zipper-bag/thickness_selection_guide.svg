@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Shadow for Table Grid -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#1C1917" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#FAFAF9" rx="16"/>
+
+  <!-- Top Ribbon -->
+  <path d="M 0,0 L 800,0 L 800,16 Q 800,0 784,0 Z" fill="#1B5E20" />
+
+  <!-- Header -->
+  <g transform="translate(40, 60)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1B5E20" letter-spacing="0.1em">ACHIEVE PACK &bull; THICKNESS CLASSIFICATION</text>
+    <text x="0" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1C1917" letter-spacing="-0.02em">Thickness &amp; Application Guide</text>
+    <text x="0" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#78716C">Choose the correct double-sided micron (&mu;m) rating for your packaging needs</text>
+  </g>
+
+  <!-- Table Container Card -->
+  <g transform="translate(40, 160)" filter="url(#shadow)">
+    <!-- Main Card Body -->
+    <rect width="720" height="490" rx="16" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1.5"/>
+    <rect width="720" height="8" rx="4" fill="#1B5E20"/>
+
+    <!-- Table Headers -->
+    <g transform="translate(24, 30)">
+      <rect width="672" height="36" rx="6" fill="#E8F5E9"/>
+      <text x="16" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0D4212">Thickness (Double-Sided)</text>
+      <text x="210" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0D4212">Recommended Applications &amp; Products</text>
+      <text x="656" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0D4212" text-anchor="end">Popularity</text>
+    </g>
+
+    <!-- Table Rows -->
+    
+    <!-- Row 1: 50-60μm (Light-Duty) -->
+    <g transform="translate(24, 82)">
+      <rect width="160" height="32" rx="4" fill="#FAFAF9"/>
+      <text x="16" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">50 &ndash; 60 &mu;m (2.0 mil)</text>
+      <text x="210" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#44403C">Lightweight storage: Office manuals, documents, receipts, flat envelopes</text>
+      <text x="656" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#78716C" text-anchor="end">&bull;&bull;&bull;&curren;&curren; (3/5)</text>
+      <line x1="0" y1="45" x2="672" y2="45" stroke="#F5F5F4" stroke-width="1.5"/>
+    </g>
+
+    <!-- Row 2: 80μm (Medium-Duty) -->
+    <g transform="translate(24, 142)">
+      <rect width="160" height="32" rx="4" fill="#FAFAF9"/>
+      <text x="16" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">80 &mu;m (3.2 mil)</text>
+      <text x="210" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#44403C">Medium protection: Retail cards, photographs, invoices, small accessories</text>
+      <text x="656" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#78716C" text-anchor="end">&bull;&bull;&bull;&bull;&curren; (4/5)</text>
+      <line x1="0" y1="45" x2="672" y2="45" stroke="#F5F5F4" stroke-width="1.5"/>
+    </g>
+
+    <!-- Row 3: 100μm (Standard) -->
+    <g transform="translate(24, 202)">
+      <!-- Highlight background for our stocked Best Seller! -->
+      <rect x="-8" y="-4" width="688" height="52" rx="6" fill="#E8F5E9" opacity="0.4"/>
+      <rect width="160" height="32" rx="4" fill="#1B5E20"/>
+      <text x="16" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">100 &mu;m (4.0 mil) &bull; STD</text>
+      <text x="210" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0D4212">Standard B2B Stock: Daily snacks, apparel parts, hardware, merchandise</text>
+      <text x="656" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="900" fill="#1B5E20" text-anchor="end">&bull;&bull;&bull;&bull;&bull; (BEST SELLER ⭐)</text>
+      <line x1="0" y1="45" x2="672" y2="45" stroke="#F5F5F4" stroke-width="1.5"/>
+    </g>
+
+    <!-- Row 4: 120μm (Reinforced) -->
+    <g transform="translate(24, 262)">
+      <rect width="160" height="32" rx="4" fill="#FAFAF9"/>
+      <text x="16" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">120 &mu;m (4.8 mil)</text>
+      <text x="210" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#44403C">Reinforced barrier: Fine powders, powdered spices, medical samples, cosmetics</text>
+      <text x="656" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#78716C" text-anchor="end">&bull;&bull;&bull;&bull;&curren; (4/5)</text>
+      <line x1="0" y1="45" x2="672" y2="45" stroke="#F5F5F4" stroke-width="1.5"/>
+    </g>
+
+    <!-- Row 5: 160-200μm (Heavy-Duty) -->
+    <g transform="translate(24, 322)">
+      <rect width="160" height="32" rx="4" fill="#FAFAF9"/>
+      <text x="16" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">160 &ndash; 200 &mu;m (8.0 mil)</text>
+      <text x="210" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#44403C">Heavy hardware: Metal screws, sharp industrial parts, coarse medicinal herbs</text>
+      <text x="656" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#78716C" text-anchor="end">&bull;&bull;&bull;&bull;&bull; (5/5)</text>
+      <line x1="0" y1="45" x2="672" y2="45" stroke="#F5F5F4" stroke-width="1.5"/>
+    </g>
+
+    <!-- Guide Summary Note -->
+    <g transform="translate(24, 385)">
+      <rect width="672" height="80" rx="10" fill="#EBF3FC" stroke="#B3D4FC" stroke-width="1"/>
+      <g transform="translate(20, 16)">
+        <!-- Bulb/Tip icon -->
+        <circle cx="16" cy="24" r="16" fill="#4A90E2"/>
+        <path d="M 12,28 C 12,20 20,20 20,28 Z" fill="#FFFFFF"/>
+        <!-- Tip Text -->
+        <text x="44" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">PROCUREMENT ADVICE FOR B2B CLIENTS:</text>
+        <text x="44" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#44403C">For general warehouse packaging and daily distribution needs, our standard 100&mu;m (4.0 mil) bags</text>
+        <text x="44" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#44403C">offer the optimal balance between durability and economical wholesale pricing.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer Banner -->
+  <g transform="translate(40, 690)">
+    <rect width="720" height="70" rx="12" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+    <text x="360" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#0D4212" text-anchor="middle">100% QUALITY ASSURED MICRON CLASSIFICATION</text>
+    <text x="360" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">Every production batch undergoes strict micrometer audit checklists before warehouse dispatch.</text>
+  </g>
+</svg>

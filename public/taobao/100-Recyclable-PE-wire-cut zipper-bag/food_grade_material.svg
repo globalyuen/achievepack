@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Card Shadow -->
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#1C1917" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#FAFAF9" rx="16"/>
+
+  <!-- Top Ribbon Banner -->
+  <path d="M 0,0 L 800,0 L 800,16 Q 800,0 784,0 Z" fill="#1B5E20" />
+
+  <!-- Title block -->
+  <g transform="translate(40, 60)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1B5E20" letter-spacing="0.1em">ACHIEVE PACK &bull; MATERIAL SAFETY</text>
+    <text x="0" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1C1917" letter-spacing="-0.02em">Is Polyethylene (PE) Food-Safe?</text>
+    <text x="0" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#78716C">Yes. Polyethylene is a certified food-grade, highly secure packaging medium</text>
+  </g>
+
+  <!-- Central Shield & Lab Beaker Graphic -->
+  <g transform="translate(400, 390)">
+    <!-- Soft circular backdrop -->
+    <circle cx="0" cy="0" r="140" fill="#E8F5E9" opacity="0.6"/>
+    <circle cx="0" cy="0" r="110" fill="#E8F5E9"/>
+    
+    <!-- Shield / Food Safety Check Shield -->
+    <path d="M -40,-50 L 40,-50 L 40,-10 C 40,25 0,45 0,50 C 0,45 -40,25 -40,-10 Z" fill="#1B5E20" />
+    <!-- Checkmark on Shield -->
+    <path d="M -15,-2 L -4,9 L 16,-10" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <!-- Small Laboratory Beaker Overlay -->
+    <g transform="translate(60, 40)" scale="0.9">
+      <circle cx="0" cy="0" r="28" fill="#4A90E2"/>
+      <!-- Flask -->
+      <path d="M -10,-15 L -10,-10 L -16,6 L 16,6 L 10,-10 L 10,-15 Z" fill="#FFFFFF"/>
+      <line x1="-12" y1="-15" x2="12" y2="-15" stroke="#FFFFFF" stroke-width="3"/>
+      <!-- Flask liquid line -->
+      <path d="M -14,2 L 14,2 L 16,6 L -16,6 Z" fill="#E8F5E9"/>
+    </g>
+
+    <!-- Small leaf overlay -->
+    <g transform="translate(-70, -60)" scale="0.9">
+      <circle cx="0" cy="0" r="28" fill="#2E7D32"/>
+      <!-- Leaf -->
+      <path d="M -10,10 C -10,0 0,-10 10,-10 C 10,0 0,10 -10,10 Z" fill="#FFFFFF"/>
+      <path d="M -10,10 Q 0,0 10,-10" fill="none" stroke="#2E7D32" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- Key Information Columns (Left Column Cards) -->
+  <g transform="translate(40, 160)" filter="url(#card-shadow)">
+    <!-- Card 1: 100% Virgin Resins -->
+    <g transform="translate(0, 0)">
+      <rect width="300" height="120" rx="12" fill="#FFFFFF"/>
+      <rect width="6" height="120" rx="3" fill="#1B5E20"/>
+      <text x="24" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1C1917">100% Virgin Resin</text>
+      <text x="24" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Made purely from direct virgin PE pellets.</text>
+      <text x="24" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Absolutely no recycled scrap plastic,</text>
+      <text x="24" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">ensuring zero foul chemical odour.</text>
+    </g>
+
+    <!-- Card 2: BPA Free & Plasticizer Free -->
+    <g transform="translate(0, 140)">
+      <rect width="300" height="120" rx="12" fill="#FFFFFF"/>
+      <rect width="6" height="120" rx="3" fill="#1B5E20"/>
+      <text x="24" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1C1917">BPA &amp; Phthalate Free</text>
+      <text x="24" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Zero dangerous endocrine disruptors</text>
+      <text x="24" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">or heavy metal additives. Fully safe</text>
+      <text x="24" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">for direct contact with food/spices.</text>
+    </g>
+
+    <!-- Card 3: Global Food Safety Standards -->
+    <g transform="translate(0, 280)">
+      <rect width="300" height="120" rx="12" fill="#FFFFFF"/>
+      <rect width="6" height="120" rx="3" fill="#4A90E2"/>
+      <text x="24" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1C1917">FDA &amp; LFGB Compliant</text>
+      <text x="24" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Meets both United States FDA standards</text>
+      <text x="24" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">and strict German LFGB regulations for</text>
+      <text x="24" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">safe food contact materials.</text>
+    </g>
+  </g>
+
+  <!-- Compliance Certificates badges displayed nicely at the bottom right -->
+  <g transform="translate(380, 560)">
+    <rect width="380" height="100" rx="12" fill="#EBF3FC" stroke="#C8E6C9" stroke-width="1"/>
+    <!-- Checklist items inside the box -->
+    <g transform="translate(20, 24)">
+      <circle cx="12" cy="12" r="10" fill="#1B5E20" />
+      <path d="M 8,12 L 11,15 L 17,9" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+      <text x="32" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1C1917">Chemical Migration Limits Passed</text>
+    </g>
+    <g transform="translate(20, 54)">
+      <circle cx="12" cy="12" r="10" fill="#1B5E20" />
+      <path d="M 8,12 L 11,15 L 17,9" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+      <text x="32" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1C1917">Odourless &amp; Vapor Tight Closure</text>
+    </g>
+  </g>
+
+  <!-- Bottom Quality Seal -->
+  <g transform="translate(40, 690)">
+    <rect width="720" height="70" rx="12" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+    <text x="360" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#0D4212" text-anchor="middle">PREMIUM B2B QUALITY &bull; ZERO PLASTIC ADDITIVES</text>
+    <text x="360" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">100% Clean Polyethylene &mdash; Easy to recycle and completely safe for your brand’s storage needs.</text>
+  </g>
+</svg>

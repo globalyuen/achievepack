@@ -1509,7 +1509,7 @@ const ProductPage: React.FC = () => {
                   }} 
                   className="flex-1 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2"
                 >
-                  <ShoppingCart className="h-5 w-5" /> Add to Cart
+                  <ShoppingCart className="h-5 w-5" /> Add {product.name} to Cart
                 </button>
                 <button 
                   onClick={handleShareClick}
@@ -2212,9 +2212,7 @@ const ProductPage: React.FC = () => {
                   ) : (
                     <>
                       <ShoppingCart className="h-5 w-5" />{' '}
-                      {product.category === 'conventional-stock'
-                        ? 'Add conventional unprinted bag to cart'
-                        : '🌱 Add Compostable Bag to Cart'}
+                      {product.category === 'eco-stock' ? '🌱 ' : ''}Add {product.name} to Cart
                     </>
                   )}
                 </button>
@@ -3512,7 +3510,7 @@ const ProductPage: React.FC = () => {
                 {isCustomProduct ? (
                   <><span className="text-lg">📋</span> Add to Quote Request</>
                 ) : (
-                  <><ShoppingCart className="h-5 w-5" /> Add to Cart</>
+                  <><ShoppingCart className="h-5 w-5" /> Add {product.name} to Cart</>
                 )}
               </button>
               <button 

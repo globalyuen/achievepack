@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Soft shadow filter -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#1C1917" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#FAFAF9" rx="16"/>
+
+  <!-- Top Ribbon -->
+  <path d="M 0,0 L 800,0 L 800,16 Q 800,0 784,0 Z" fill="#1B5E20" />
+
+  <!-- Header -->
+  <g transform="translate(40, 60)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1B5E20" letter-spacing="0.1em">ACHIEVE PACK &bull; CALIBRATION &amp; TOLERANCE</text>
+    <text x="0" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1C1917" letter-spacing="-0.02em">Visual Size Proof &amp; Demonstration</text>
+    <text x="0" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#78716C">Physical scale calibration using a standard 8 &times; 12 cm flat zipper bag</text>
+  </g>
+
+  <!-- Center Card Container -->
+  <g transform="translate(40, 160)" filter="url(#shadow)">
+    <rect width="720" height="490" rx="16" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1.5"/>
+    <rect width="720" height="8" rx="4" fill="#1B5E20"/>
+
+    <!-- Inside the Card Container: Diagram -->
+    
+    <!-- Bag Alignment Showcase -->
+    <g transform="translate(240, 60)">
+      
+      <!-- Clear Bag Rendering (8cm x 12cm equivalent in SVG: 1cm = 25px, 8cm = 200px, 12cm = 300px) -->
+      <rect x="0" y="0" width="200" height="300" rx="8" fill="#E8F5E9" fill-opacity="0.15" stroke="#78716C" stroke-width="2"/>
+      
+      <!-- Zipper Track -->
+      <rect x="6" y="30" width="188" height="5" rx="1.5" fill="#4A90E2" opacity="0.8"/>
+      
+      <!-- Top Lip Wave -->
+      <path d="M 0,10 Q 50,5 100,10 Q 150,15 200,10" fill="none" stroke="#78716C" stroke-width="1" opacity="0.6"/>
+
+      <!-- Vertical Ruler Metric Alignment (Length = 12cm) -->
+      <!-- We draw a vertical ruler on the left side of the bag -->
+      <g transform="translate(-60, 0)">
+        <rect x="0" y="0" width="25" height="320" fill="#E7E5E4" stroke="#44403C" stroke-width="1"/>
+        <!-- Ruler Ticks -->
+        <!-- cm ticks from 0 to 12. 1cm = 25px. -->
+        <g stroke="#44403C" stroke-width="1">
+          <line x1="0" y1="0" x2="15" y2="0" stroke-width="2"/>
+          <text x="20" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917" text-anchor="start">0</text>
+          
+          <line x1="0" y1="25" x2="8" y2="25"/><line x1="0" y1="50" x2="15" y2="50"/><text x="20" y="54" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917">2</text>
+          <line x1="0" y1="75" x2="8" y2="75"/><line x1="0" y1="100" x2="15" y2="100"/><text x="20" y="104" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917">4</text>
+          <line x1="0" y1="125" x2="8" y2="125"/><line x1="0" y1="150" x2="15" y2="150"/><text x="20" y="154" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917">6</text>
+          <line x1="0" y1="175" x2="8" y2="175"/><line x1="0" y1="200" x2="15" y2="200"/><text x="20" y="204" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917">8</text>
+          <line x1="0" y1="225" x2="8" y2="225"/><line x1="0" y1="250" x2="15" y2="250"/><text x="20" y="254" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917">10</text>
+          <line x1="0" y1="275" x2="8" y2="275"/><line x1="0" y1="300" x2="15" y2="300" stroke-width="2"/><text x="20" y="304" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917">12</text>
+          <line x1="0" y1="320" x2="8" y2="320"/>
+        </g>
+        <!-- Ruler label -->
+        <text x="-12" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1C1917" transform="rotate(-90, -12, 160)" text-anchor="middle">LENGTH (cm)</text>
+      </g>
+
+      <!-- Horizontal Ruler Metric Alignment (Width = 8cm) -->
+      <!-- We draw a horizontal ruler below the bag -->
+      <g transform="translate(0, 340)">
+        <rect x="-20" y="0" width="240" height="25" fill="#E7E5E4" stroke="#44403C" stroke-width="1"/>
+        <!-- Ruler Ticks -->
+        <g stroke="#44403C" stroke-width="1">
+          <line x1="0" y1="0" x2="0" y2="15" stroke-width="2"/>
+          <text x="0" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917" text-anchor="middle">0</text>
+          
+          <line x1="25" y1="0" x2="25" y2="8"/><line x1="50" y1="0" x2="50" y2="15"/><text x="50" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917" text-anchor="middle">2</text>
+          <line x1="75" y1="0" x2="75" y2="8"/><line x1="100" y1="0" x2="100" y2="15"/><text x="100" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917" text-anchor="middle">4</text>
+          <line x1="125" y1="0" x2="125" y2="8"/><line x1="150" y1="0" x2="150" y2="15"/><text x="150" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917" text-anchor="middle">6</text>
+          <line x1="175" y1="0" x2="175" y2="8"/><line x1="200" y1="0" x2="200" y2="15" stroke-width="2"/><text x="200" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#1C1917" text-anchor="middle">8</text>
+        </g>
+        <text x="90" y="-12" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1C1917" text-anchor="middle">WIDTH (cm)</text>
+      </g>
+
+      <!-- Guidelines indicating edges -->
+      <line x1="0" y1="0" x2="0" y2="340" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <line x1="200" y1="0" x2="200" y2="340" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <line x1="0" y1="0" x2="-35" y2="0" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <line x1="0" y1="300" x2="-35" y2="300" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+      <!-- Arrows showing total distance -->
+      <!-- Width Indicator -->
+      <g transform="translate(100, 325)">
+        <polygon points="-100,0 -92,-4 -92,4" fill="#EF4444"/>
+        <polygon points="100,0 92,-4 92,4" fill="#EF4444"/>
+        <line x1="-100" y1="0" x2="100" y2="0" stroke="#EF4444" stroke-width="1.5"/>
+        <rect x="-45" y="-10" width="90" height="20" fill="#FFFFFF" rx="4" stroke="#EF4444" stroke-width="1"/>
+        <text x="0" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#EF4444" text-anchor="middle">Width: 8cm</text>
+      </g>
+
+      <!-- Length Indicator -->
+      <g transform="translate(215, 150)">
+        <polygon points="0,-150 -4,-142 4,-142" fill="#EF4444"/>
+        <polygon points="0,150 -4,142 4,142" fill="#EF4444"/>
+        <line x1="0" y1="-150" x2="0" y2="150" stroke="#EF4444" stroke-width="1.5"/>
+        <rect x="5" y="-10" width="95" height="20" fill="#FFFFFF" rx="4" stroke="#EF4444" stroke-width="1"/>
+        <text x="52" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#EF4444" text-anchor="middle">Length: 12cm</text>
+      </g>
+    </g>
+
+    <!-- Side Text Details -->
+    <g transform="translate(24, 36)">
+      <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1C1917">Physical Calibration Details</text>
+      <text x="0" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Every standard B2B bag conforms to</text>
+      <text x="0" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">strict scale verification processes.</text>
+
+      <g transform="translate(0, 80)">
+        <circle cx="4" cy="6" r="3" fill="#1B5E20"/>
+        <text x="16" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">Width (Opening):</text>
+        <text x="16" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Measured edge-to-edge across</text>
+        <text x="16" y="46" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">the zip opening flap.</text>
+      </g>
+
+      <g transform="translate(0, 160)">
+        <circle cx="4" cy="6" r="3" fill="#1B5E20"/>
+        <text x="16" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">Total Length:</text>
+        <text x="16" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Measured from the bottom line</text>
+        <text x="16" y="46" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">to the top opening lip.</text>
+      </g>
+
+      <g transform="translate(0, 240)">
+        <circle cx="4" cy="6" r="3" fill="#1B5E20"/>
+        <text x="16" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1B5E20">Reliable Tolerances:</text>
+        <text x="16" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Automatic machine cutting</text>
+        <text x="16" y="46" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">guarantees consistent size</text>
+        <text x="16" y="64" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">accuracy within &amp;plusmn;0.1 - 0.3 cm.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer Banner -->
+  <g transform="translate(40, 690)">
+    <rect width="720" height="70" rx="12" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+    <text x="360" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#0D4212" text-anchor="middle">ACCURATELY CALIBRATED FOR BUSINESS INVENTORY</text>
+    <text x="360" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">Achieve Pack supplies precise B2B measurements to prevent warehouse storage packing errors.</text>
+  </g>
+</svg>

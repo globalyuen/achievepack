@@ -2000,14 +2000,14 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       'FDA & LFGB Food Safety Compliant'
     ],
     images: [
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01gXs03T1fZfiKVzLLN_--454021.jpg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN012Ot9bl1fZfinsDGW5_--454021.jpg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01QTncKp1fZfifFLGGk_--454021.png',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01RL0EaC1fZfifejKg6_--454021.png',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01a6pRpL1fZfifO0Lg4_--454021.png',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01u42zqF1fZfifej8DS_--454021.png',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01C1I0km1fZfiJeWMeh_--454021.jpg',
-      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/O1CN01wm4q5Y1fZfifO0x62_--454021.jpg'
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/factory_strengths.svg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/hero_showcase.svg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/food_grade_material.svg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/size_guide.svg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/thickness_instruments.svg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/visual_measurement.svg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/food_safety_certifications.svg',
+      '/taobao/100-Recyclable-PE-wire-cut zipper-bag/thickness_selection_guide.svg'
     ],
     badge: '♻️ 100% Recyclable',
     rating: 4.8,
@@ -2124,7 +2124,6 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01NdoNqa1fZfXu8usQy_--454021.jpg',
       '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01DSbOkX1fZfXy023tK_--454021.jpg',
       '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01GjOs7y1fZfXolWfNN_--454021.jpg',
-      '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01TdNfnJ1fZfgvfNtBP_--454021.jpg',
       '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01TqHetj1fZfXz3cw5j_--454021.jpg',
       '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01W0pHh61fZfXyryEEY_--454021.jpg',
       '/taobao/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch/O1CN01tja5Es1fZfcv1xCzI_--454021.jpg',

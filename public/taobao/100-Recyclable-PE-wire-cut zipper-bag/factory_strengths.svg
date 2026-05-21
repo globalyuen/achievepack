@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Soft shadow filter for modern cards -->
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1C1917" flood-opacity="0.06"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#1C1917" flood-opacity="0.04"/>
+    </filter>
+    <linearGradient id="header-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B5E20" />
+      <stop offset="100%" stop-color="#0D4212" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#FAFAF9" rx="16"/>
+
+  <!-- Top Decorative Bar -->
+  <path d="M 0,0 L 800,0 L 800,16 Q 800,0 784,0 Z" fill="#1B5E20" />
+
+  <!-- Premium Header -->
+  <g transform="translate(40, 60)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1B5E20" letter-spacing="0.1em">ACHIEVE PACK &bull; PREMIUM B2B MANUFACTURING</text>
+    <text x="0" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1C1917" letter-spacing="-0.02em">Direct Factory Capacity &amp; Experience</text>
+    <text x="0" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#78716C">Supplying high-performance packaging solutions globally for over 18 years</text>
+  </g>
+
+  <!-- Card Grid (4 Cards) -->
+  
+  <!-- CARD 1: 18 Years Experience -->
+  <g transform="translate(40, 160)" filter="url(#card-shadow)">
+    <rect width="340" height="230" rx="16" fill="#FFFFFF"/>
+    <rect width="340" height="8" rx="4" fill="#1B5E20"/>
+    <!-- Icon Placeholder Background -->
+    <circle cx="60" cy="70" r="28" fill="#E8F5E9"/>
+    <!-- Shield / Experience Icon -->
+    <path d="M 60,54 L 72,59 L 72,71 C 72,79 67,84 60,86 C 53,84 48,79 48,71 L 48,59 Z" fill="#1B5E20" stroke="#1B5E20" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M 55,70 L 59,74 L 66,66" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Card Text -->
+    <text x="32" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800" fill="#1B5E20">18 Years</text>
+    <text x="32" y="172" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1C1917">Industry Expertise</text>
+    <text x="32" y="196" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#78716C">Providing premium quality packaging standards</text>
+  </g>
+
+  <!-- CARD 2: 120 Tons Daily Output -->
+  <g transform="translate(420, 160)" filter="url(#card-shadow)">
+    <rect width="340" height="230" rx="16" fill="#FFFFFF"/>
+    <rect width="340" height="8" rx="4" fill="#1B5E20"/>
+    <!-- Icon Placeholder Background -->
+    <circle cx="60" cy="70" r="28" fill="#E8F5E9"/>
+    <!-- Stack/Output Icon -->
+    <path d="M 44,60 L 60,52 L 76,60 L 60,68 Z" fill="#1B5E20"/>
+    <path d="M 44,67 L 60,75 L 76,67" fill="none" stroke="#1B5E20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 44,74 L 60,82 L 76,74" fill="none" stroke="#1B5E20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Card Text -->
+    <text x="32" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800" fill="#1B5E20">120 Tons</text>
+    <text x="32" y="172" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1C1917">Daily Production</text>
+    <text x="32" y="196" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#78716C">High capacity to fulfill massive B2B orders</text>
+  </g>
+
+  <!-- CARD 3: 280+ Units Machinery -->
+  <g transform="translate(40, 420)" filter="url(#card-shadow)">
+    <rect width="340" height="230" rx="16" fill="#FFFFFF"/>
+    <rect width="340" height="8" rx="4" fill="#1B5E20"/>
+    <!-- Icon Placeholder Background -->
+    <circle cx="60" cy="70" r="28" fill="#E8F5E9"/>
+    <!-- Gear Icon -->
+    <path d="M 60,62 A 8,8 0 1,0 60,78 A 8,8 0 1,0 60,62" fill="none" stroke="#1B5E20" stroke-width="4"/>
+    <path d="M 60,50 L 60,54 M 60,86 L 60,90 M 42,70 L 46,70 M 74,70 L 78,70 M 47,57 L 50,60 M 70,80 L 73,83 M 47,83 L 50,80 M 70,60 L 73,57" stroke="#1B5E20" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Card Text -->
+    <text x="32" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800" fill="#1B5E20">280+ Units</text>
+    <text x="32" y="172" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1C1917">Production Equipment</text>
+    <text x="32" y="196" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#78716C">Advanced high-speed automated bag makers</text>
+  </g>
+
+  <!-- CARD 4: 68,000 m2 Factory Area -->
+  <g transform="translate(420, 420)" filter="url(#card-shadow)">
+    <rect width="340" height="230" rx="16" fill="#FFFFFF"/>
+    <rect width="340" height="8" rx="4" fill="#1B5E20"/>
+    <!-- Icon Placeholder Background -->
+    <circle cx="60" cy="70" r="28" fill="#E8F5E9"/>
+    <!-- Factory Icon -->
+    <path d="M 44,82 L 44,60 L 52,66 L 60,60 L 68,66 L 76,60 L 76,82 Z" fill="#1B5E20"/>
+    <rect x="54" y="72" width="12" height="10" fill="#E8F5E9"/>
+    <!-- Card Text -->
+    <text x="32" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800" fill="#1B5E20">68,000 m²</text>
+    <text x="32" y="172" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1C1917">Modern Factory Area</text>
+    <text x="32" y="196" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#78716C">State-of-the-art clean-room plant</text>
+  </g>
+
+  <!-- Footer Quality Banner -->
+  <g transform="translate(40, 680)">
+    <rect width="720" height="80" rx="12" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+    <!-- Eco leaf/badge -->
+    <circle cx="48" cy="40" r="20" fill="#1B5E20"/>
+    <path d="M 44,40 C 44,34 49,32 52,32 C 52,38 47,44 44,40 Z" fill="#FFFFFF"/>
+    <path d="M 52,40 C 52,46 47,48 44,48 C 44,42 49,36 52,40 Z" fill="#FFFFFF"/>
+    <text x="84" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#0D4212">100% Premium Food-Grade PE Virgin Raw Material</text>
+    <text x="84" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#2E7D32">Strict quality control, no recycled scrap, compliant with international health standards</text>
+  </g>
+</svg>

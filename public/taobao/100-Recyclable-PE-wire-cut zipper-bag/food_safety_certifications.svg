@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Soft shadow filter for the certificate document -->
+    <filter id="doc-shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#1C1917" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1C1917" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#FAFAF9" rx="16"/>
+
+  <!-- Top Ribbon -->
+  <path d="M 0,0 L 800,0 L 800,16 Q 800,0 784,0 Z" fill="#1B5E20" />
+
+  <!-- Header -->
+  <g transform="translate(40, 60)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1B5E20" letter-spacing="0.1em">ACHIEVE PACK &bull; QUALITY ASSURANCE</text>
+    <text x="0" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1C1917" letter-spacing="-0.02em">Laboratory Test &amp; Certifications</text>
+    <text x="0" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#78716C">Official compliance reports for food contact safety and material purity</text>
+  </g>
+
+  <!-- Certificate Document (Mockup on Left) -->
+  <g transform="translate(40, 160)" filter="url(#doc-shadow)">
+    <!-- Document Base -->
+    <rect width="360" height="490" rx="8" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+    
+    <!-- Report Title -->
+    <g transform="translate(30, 40)">
+      <rect width="300" height="4" fill="#1B5E20"/>
+      <text x="0" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#1C1917">TEST REPORT</text>
+      <text x="0" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#78716C" letter-spacing="0.05em">REPORT NO: AP-2026-052103</text>
+      <line x1="0" y1="52" x2="300" y2="52" stroke="#E7E5E4" stroke-width="1"/>
+    </g>
+
+    <!-- Report Parameters (Mock lines of text) -->
+    <g transform="translate(30, 120)">
+      <!-- Line 1 -->
+      <text x="0" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1C1917">APPLICANT:</text>
+      <text x="0" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716C">Achieve Pack Quality Division</text>
+      
+      <!-- Line 2 -->
+      <text x="0" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1C1917">SAMPLE DESCRIPTION:</text>
+      <text x="0" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716C">100% Recyclable PE Clear Zipper Bag</text>
+
+      <!-- Testing items list in document -->
+      <g transform="translate(0, 115)">
+        <text x="0" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1C1917">TEST METHOD / COMPLIANCE</text>
+        <line x1="0" y1="22" x2="300" y2="22" stroke="#E7E5E4" stroke-width="1"/>
+        
+        <!-- Test 1 -->
+        <g transform="translate(0, 32)">
+          <text x="0" y="12" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#1C1917">US FDA 21 CFR 177.1520 (Polyethylene)</text>
+          <text x="300" y="12" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1B5E20" text-anchor="end">PASS</text>
+        </g>
+        <!-- Test 2 -->
+        <g transform="translate(0, 56)">
+          <text x="0" y="12" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#1C1917">German LFGB Section 30 &amp; 31</text>
+          <text x="300" y="12" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1B5E20" text-anchor="end">PASS</text>
+        </g>
+        <!-- Test 3 -->
+        <g transform="translate(0, 80)">
+          <text x="0" y="12" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#1C1917">GB 4806.7-2016 (Food Contact Plastic)</text>
+          <text x="300" y="12" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1B5E20" text-anchor="end">PASS</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Lab Stamp Graphic overlay -->
+    <g transform="translate(230, 400)">
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#EF4444" stroke-width="3" stroke-dasharray="88" transform="rotate(-15)"/>
+      <rect x="-35" y="-12" width="70" height="24" fill="none" stroke="#EF4444" stroke-width="2" rx="4" transform="rotate(-15)"/>
+      <text x="0" y="5" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="900" fill="#EF4444" text-anchor="middle" transform="rotate(-15)" letter-spacing="0.05em">APPROVED</text>
+    </g>
+  </g>
+
+  <!-- Right Section: Certified Purity Metrics -->
+  <g transform="translate(420, 160)">
+    
+    <!-- Purity Card 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="340" height="100" rx="12" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1" filter="url(#doc-shadow)"/>
+      <circle cx="40" cy="50" r="18" fill="#E8F5E9"/>
+      <!-- Shield icon -->
+      <path d="M 35,43 L 45,43 L 45,50 C 45,55 40,58 40,59 C 40,58 35,55 35,50 Z" fill="#1B5E20" stroke="#1B5E20" stroke-width="1"/>
+      <text x="76" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1C1917">No Plasticizers (Phthalate-Free)</text>
+      <text x="76" y="60" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Absolutely zero DEHP, DBP, or BBP additives</text>
+    </g>
+
+    <!-- Purity Card 2 -->
+    <g transform="translate(0, 125)">
+      <rect width="340" height="100" rx="12" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1" filter="url(#doc-shadow)"/>
+      <circle cx="40" cy="50" r="18" fill="#E8F5E9"/>
+      <!-- Drop icon -->
+      <path d="M 40,38 C 34,44 34,58 40,62 C 46,58 46,44 40,38 Z" fill="#1B5E20"/>
+      <text x="76" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1C1917">Zero Chemical Migration</text>
+      <text x="76" y="60" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Tested with acidic, aqueous, &amp; fatty stimulants</text>
+    </g>
+
+    <!-- Purity Card 3 -->
+    <g transform="translate(0, 250)">
+      <rect width="340" height="100" rx="12" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1" filter="url(#doc-shadow)"/>
+      <circle cx="40" cy="50" r="18" fill="#E8F5E9"/>
+      <!-- Heavy metals icon (weights) -->
+      <rect x="30" y="44" width="20" height="12" fill="#1B5E20" rx="2"/>
+      <rect x="35" y="40" width="10" height="4" fill="#1B5E20" rx="1"/>
+      <text x="76" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1C1917">No Heavy Metals</text>
+      <text x="76" y="60" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Free of Lead, Cadmium, Mercury, &amp; Chromium</text>
+    </g>
+
+    <!-- Purity Card 4 (Recyclability Proof) -->
+    <g transform="translate(0, 375)">
+      <rect width="340" height="100" rx="12" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1" filter="url(#doc-shadow)"/>
+      <circle cx="40" cy="50" r="18" fill="#1B5E20"/>
+      <!-- Recycle loop code -->
+      <text x="40" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle">4</text>
+      <text x="76" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#0D4212">100% Recyclable PE-LD</text>
+      <text x="76" y="60" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#2E7D32">Complies with global plastic recovery standards</text>
+    </g>
+  </g>
+
+  <!-- Footer Banner -->
+  <g transform="translate(40, 690)">
+    <rect width="720" height="70" rx="12" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+    <text x="360" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#0D4212" text-anchor="middle">TRUSTED BY PHARMACEUTICAL &amp; FOOD BRAND PARTNERS</text>
+    <text x="360" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#2E7D32" text-anchor="middle">All our test certification datasheets are fully traceable and audited on a regular annual schedule.</text>
+  </g>
+</svg>

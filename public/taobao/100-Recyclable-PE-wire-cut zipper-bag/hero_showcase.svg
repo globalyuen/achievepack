@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Shadow filter for 3D depth of the zipper bag -->
+    <filter id="bag-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1C1917" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1C1917" flood-opacity="0.04"/>
+    </filter>
+    <linearGradient id="bag-body-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="header-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1B5E20" />
+      <stop offset="100%" stop-color="#2E7D32" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background with grid patterns to showcase transparency -->
+  <rect width="800" height="800" fill="#FAFAF9" rx="16"/>
+  <!-- Subtly drawn background checkboard grids to prove clarity of the bag -->
+  <g stroke="#E7E5E4" stroke-width="1.5" opacity="0.35">
+    <path d="M 0,200 L 800,200 M 0,300 L 800,300 M 0,400 L 800,400 M 0,500 L 800,500 M 0,600 L 800,600 M 0,700 L 800,700" />
+    <path d="M 200,0 L 200,800 M 300,0 L 300,800 M 400,0 L 400,800 M 500,0 L 500,800 M 600,0 L 600,800 M 700,0 L 700,800" />
+  </g>
+
+  <!-- Top Decorative Header -->
+  <g>
+    <rect width="800" height="70" fill="url(#header-bar)" />
+    <text x="40" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="0.05em">ACHIEVE PACK</text>
+    <text x="760" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#E8F5E9" text-anchor="end" letter-spacing="0.1em">100% RECYCLABLE STOCK SERIES</text>
+  </g>
+
+  <!-- Title Section -->
+  <g transform="translate(40, 110)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1C1917" letter-spacing="-0.02em">PE Wire-Cut Zipper Bag</text>
+    <text x="0" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#78716C">Glass-like transparency &bull; Heavy-duty closure &bull; Food safety certified</text>
+  </g>
+
+  <!-- Central High-Fidelity Zipper Bag Illustration -->
+  <g transform="translate(240, 170)" filter="url(#bag-shadow)">
+    <!-- Main Bag Body Overlay -->
+    <rect x="0" y="0" width="320" height="420" rx="12" fill="url(#bag-body-grad)" stroke="#D6D3D1" stroke-width="2"/>
+    
+    <!-- Wire-Cut sealed lines on sides (embossed look) -->
+    <line x1="8" y1="0" x2="8" y2="420" stroke="#FFFFFF" stroke-width="2" opacity="0.8"/>
+    <line x1="312" y1="0" x2="312" y2="420" stroke="#FFFFFF" stroke-width="2" opacity="0.8"/>
+
+    <line x1="4" y1="0" x2="4" y2="420" stroke="#A5D6A7" stroke-width="1.5" stroke-dasharray="2 3" opacity="0.7"/>
+    <line x1="316" y1="0" x2="316" y2="420" stroke="#A5D6A7" stroke-width="1.5" stroke-dasharray="2 3" opacity="0.7"/>
+
+    <!-- Zipper Red Flap Line (to resemble standard red/blue bite-lock tracks, modern clean teal/blue) -->
+    <rect x="12" y="55" width="296" height="6" rx="2" fill="#4A90E2" opacity="0.8"/>
+    <line x1="12" y1="52" x2="308" y2="52" stroke="#E7E5E4" stroke-width="1"/>
+    <line x1="12" y1="64" x2="308" y2="64" stroke="#E7E5E4" stroke-width="1"/>
+
+    <!-- Top Opening lip wave -->
+    <path d="M 0,20 Q 80,12 160,20 Q 240,28 320,20" fill="none" stroke="#D6D3D1" stroke-width="1.5" opacity="0.8"/>
+    <path d="M 0,15 Q 80,7 160,15 Q 240,23 320,15" fill="none" stroke="#E7E5E4" stroke-width="1" opacity="0.6"/>
+
+    <!-- Plastic fold reflection curves -->
+    <path d="M 40,90 Q 90,160 50,220 Q 20,280 80,380" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.55" stroke-linecap="round"/>
+    <path d="M 280,110 Q 220,200 270,300" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.45" stroke-linecap="round"/>
+    
+    <!-- Transparent 100pcs Stack effect -->
+    <rect x="-8" y="10" width="320" height="420" rx="12" fill="none" stroke="#E7E5E4" stroke-width="1" opacity="0.3" transform="rotate(-1.5, 160, 210)"/>
+    <rect x="8" y="-10" width="320" height="420" rx="12" fill="none" stroke="#E7E5E4" stroke-width="1" opacity="0.3" transform="rotate(1, 160, 210)"/>
+  </g>
+
+  <!-- Technical Annotation Markers and Labels -->
+  <!-- 1. Top Opening Lip -->
+  <g transform="translate(60, 195)">
+    <line x1="180" y1="0" x2="0" y2="0" stroke="#44403C" stroke-width="1" stroke-dasharray="3 3"/>
+    <circle cx="180" cy="0" r="4" fill="#4A90E2"/>
+    <text x="0" y="-8" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">Reinforced Top Lip</text>
+    <text x="0" y="8" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716C">Easy-open non-slip flap</text>
+  </g>
+
+  <!-- 2. Zipper Track -->
+  <g transform="translate(60, 240)">
+    <line x1="190" y1="0" x2="0" y2="0" stroke="#44403C" stroke-width="1" stroke-dasharray="3 3"/>
+    <circle cx="190" cy="0" r="4" fill="#4A90E2"/>
+    <text x="0" y="-8" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#4A90E2">Heavy-Duty Bite Lock</text>
+    <text x="0" y="8" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716C">Concave-convex airtight seal</text>
+  </g>
+
+  <!-- 3. Side Seals -->
+  <g transform="translate(580, 320)">
+    <line x1="-130" y1="0" x2="0" y2="0" stroke="#44403C" stroke-width="1" stroke-dasharray="3 3"/>
+    <circle cx="-130" cy="0" r="4" fill="#1B5E20"/>
+    <text x="0" y="-8" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">Wire-Cut Sealed Edges</text>
+    <text x="0" y="8" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716C">Neat thermal cut, zero tearing</text>
+  </g>
+
+  <!-- 4. Transparency and Film -->
+  <g transform="translate(580, 480)">
+    <line x1="-180" y1="0" x2="0" y2="0" stroke="#44403C" stroke-width="1" stroke-dasharray="3 3"/>
+    <circle cx="-180" cy="0" r="4" fill="#1B5E20"/>
+    <text x="0" y="-8" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1B5E20">Ultra-Clear Raw PE</text>
+    <text x="0" y="8" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716C">100% virgin resin, glass-like clarity</text>
+  </g>
+
+  <!-- Trust Badges Section at the bottom -->
+  <g transform="translate(40, 680)">
+    <rect width="720" height="85" rx="14" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1" />
+    
+    <!-- Badge 1: 100% Recyclable -->
+    <g transform="translate(24, 20)">
+      <circle cx="24" cy="22" r="18" fill="#E8F5E9"/>
+      <!-- Recycle Loop Arrows Vector -->
+      <path d="M 24,11 A 11,11 0 0,1 32,29 L 34,26 M 24,11 L 28,15 M 24,11 L 20,15" stroke="#1B5E20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M 16,19 A 11,11 0 0,0 20,32 L 23,28 M 16,19 L 12,23 M 16,19 L 20,19" stroke="#1B5E20" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+      <text x="54" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">100% Recyclable</text>
+      <text x="54" y="37" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716C">♻️ PE-LD 04 Eco Code</text>
+    </g>
+
+    <!-- Divider Line -->
+    <line x1="260" y1="20" x2="260" y2="65" stroke="#E7E5E4" stroke-width="1"/>
+
+    <!-- Badge 2: FDA Compliant -->
+    <g transform="translate(284, 20)">
+      <circle cx="24" cy="22" r="18" fill="#E8F5E9"/>
+      <path d="M 18,22 L 22,26 L 30,16" fill="none" stroke="#1B5E20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="54" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">FDA &amp; LFGB Food Safe</text>
+      <text x="54" y="37" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716C">Chemical migration certified</text>
+    </g>
+
+    <!-- Divider Line -->
+    <line x1="500" y1="20" x2="500" y2="65" stroke="#E7E5E4" stroke-width="1"/>
+
+    <!-- Badge 3: Direct Factory Supply -->
+    <g transform="translate(524, 20)">
+      <circle cx="24" cy="22" r="18" fill="#EBF3FC"/>
+      <!-- Factory Building -->
+      <path d="M 16,30 L 16,18 L 22,22 L 28,18 L 32,22 L 32,30 Z" fill="#4A90E2"/>
+      <text x="54" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1C1917">Direct B2B Wholesale</text>
+      <text x="54" y="37" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#78716C">Bulk discounts &amp; fast dispatch</text>
+    </g>
+  </g>
+</svg>
