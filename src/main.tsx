@@ -565,7 +565,8 @@ if (getDomain() === 'pouch') {
         <ErrorBoundary>
           <GeoBlocker>
             <BrowserRouter>
-              <Suspense fallback={<PageLoader />}>
+              <CalendlyProvider>
+                <Suspense fallback={<PageLoader />}>
                 <Routes>
                   <Route path="/" element={<PouchHomePage />} />
                   <Route path="/solutions" element={<PouchSolutionsPage />} />
@@ -712,8 +713,9 @@ if (getDomain() === 'pouch') {
                   <Route path="*" element={<PouchHomePage />} />
                 </Routes>
               </Suspense>
-            </BrowserRouter>
-          </GeoBlocker>
+            </CalendlyProvider>
+          </BrowserRouter>
+        </GeoBlocker>
         </ErrorBoundary>
       </HelmetProvider>
     </StrictMode>

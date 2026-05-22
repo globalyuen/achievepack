@@ -222,11 +222,31 @@ const generateDynamicDescription = (options: {
   if (material === 'PCR or Bio Plastic') materialType = 'pcr';
   else if (material === 'Mono Recyclable Plastic') materialType = 'mono';
   else if (material === 'Biodegradable and Compostable') materialType = 'compost';
+  else if ((material || '').toLowerCase().includes('compost') || (material || '').toLowerCase().includes('biodegradable') || (material || '').toLowerCase().includes('pla') || (material || '').toLowerCase().includes('paper')) {
+    materialType = 'compost';
+  } else if ((material || '').toLowerCase().includes('pcr') || (material || '').toLowerCase().includes('bio')) {
+    materialType = 'pcr';
+  }
   
   const skuDesc = SKU_DESCRIPTIONS[skuType]?.[materialType] || SKU_DESCRIPTIONS['snack']['mono'];
-  const matDesc = MATERIAL_DESCRIPTIONS[material || 'Mono Recyclable Plastic'];
-  const sizeDesc = SIZE_CAPACITIES[size || 'M'];
-  const closureDesc = CLOSURE_DESCRIPTIONS[closure || 'No'];
+  
+  let matDesc = MATERIAL_DESCRIPTIONS[material || 'Mono Recyclable Plastic'];
+  if (!matDesc) {
+    if ((material || '').toLowerCase().includes('compost') || (material || '').toLowerCase().includes('biodegradable') || (material || '').toLowerCase().includes('pla') || (material || '').toLowerCase().includes('paper')) {
+      matDesc = MATERIAL_DESCRIPTIONS['Biodegradable and Compostable'];
+    } else if ((material || '').toLowerCase().includes('pcr') || (material || '').toLowerCase().includes('bio')) {
+      matDesc = MATERIAL_DESCRIPTIONS['PCR or Bio Plastic'];
+    } else {
+      matDesc = MATERIAL_DESCRIPTIONS['Mono Recyclable Plastic'];
+    }
+  }
+  
+  let sizeDesc = SIZE_CAPACITIES[size || 'M'];
+  if (!sizeDesc) {
+    sizeDesc = { capacity: size || 'Custom Size', useCase: 'Custom specification' };
+  }
+  
+  const closureDesc = CLOSURE_DESCRIPTIONS[closure || 'No'] || closure || 'Custom closure';
   
   return {
     skuType, materialType, problem: skuDesc.problem, solution: skuDesc.solution,
