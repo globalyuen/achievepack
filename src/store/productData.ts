@@ -2872,6 +2872,822 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
 
 // Conventional Stock Products (Ready-made Premium)
 const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // Coffee & Tea Flat Bottom Pouch with Hanging Strip and One-Sided Zipper
+  {
+    id: 'coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip',
+    name: 'Coffee & Tea One-Sided Zipper Flat Bottom Pouch with Hanging Strip',
+    category: 'conventional-stock',
+    description: 'An innovative, highly functional packaging solution featuring a robust iron-ring loop hanging strip for convenient carrying, coupled with an advanced easy-tear one-sided zipper and a built-in resealable zipper. Constructed from a premium three-layer high-barrier laminate (Matte BOPP + Natural White Kraft Paper + Metalized Foil + PE) with a substantial 150-micron thickness. Provides absolute protection from oxygen and moisture. Requires a heat sealer to seal the top above the zipper.',
+    shortDesc: 'Innovative flat bottom pouch with carrying hanging strip, easy-tear T-zipper, and premium white kraft paper finish',
+    features: [
+      'Sturdy Iron-Ring Loop Hanging Strip Design for Effortless Carrying & Hanging',
+      'Advanced One-Sided T-Zipper & Easy-Tear Tab for Easy Opening & Resealing',
+      'Premium Three-Layer White Kraft Paper & Metalized Foil High-Barrier Laminate',
+      'Robust 150-Micron Thickness for Ultimate Shelf Protection and Durability',
+      'Sturdy Eight-Side Sealed Box-Bottom Design for Perfect Shelf Presentation',
+      'Available in 4 Rich Modern Matte Finishes: Cream White, Vibrant Orange, Forest Green, Matte Black'
+    ],
+    images: [
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01ACAOHt28L7lplHT7k_--2212393587915.jpg',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01bk9Azf28L7loR20Cy_--2212393587915-jpg_.webp',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01iiKC5x28L7lle7d5d_--2212393587915-jpg_.webp',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN016otCNc28L7ljGUulx_--2212393587915-jpg_.webp',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01TbTsTy28L7lrJNeeB_--2212393587915-jpg_.webp',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01QROZcL28L7v9IQ2MN_--2212393587915.png',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01xi7XkG28L7li8vWk8_--2212393587915.jpg',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01bgvyUY28L7lqa6tVI_--2212393587915.jpg',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01IgoaoG28L7ldYZERu_--2212393587915.jpg',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01lPYfhj28L7lpQsWLZ_--2212393587915.jpg',
+      '/taobao/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip/O1CN01WZUyAk28L7lma4XDa_--2212393587915.jpg'
+    ],
+    badge: '⭐ Portable Carrying Loop',
+    rating: 4.8,
+    reviews: 95,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 100,
+    shape: 'Flat Bottom Box Pouch',
+    material: 'Matte BOPP + Natural White Kraft Paper + Metalized Foil + PE Laminate (150 Microns)',
+    basePrice: 32.00,
+    pricePerPiece: 0.320,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Small (14.5×14+9cm) / Medium (17×15.5+9.5cm) / Large (21.5×20+10cm)',
+    shelfLife: '+36 months',
+    certification: 'FDA Food-Grade & FSC Certified',
+    customPrintNote: 'Custom logo stamps and high-end label prints available from 1,000+ pieces. Please consult our team.',
+    sizeVariants: [
+      {
+        id: 'hanging-strip-pouch-s-cream-white-100pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Cream White (100 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Cream White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 32.00,
+        unitPrice: 0.3200,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hanging-strip-pouch-s-cream-white-200pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Cream White (200 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Cream White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 57.60,
+        unitPrice: 0.2880,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hanging-strip-pouch-s-cream-white-500pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Cream White (500 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Cream White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 128.00,
+        unitPrice: 0.2560,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hanging-strip-pouch-s-vibrant-orange-100pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Vibrant Orange (100 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Vibrant Orange',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 32.00,
+        unitPrice: 0.3200,
+        heroImageIndex: 2
+      },
+      {
+        id: 'hanging-strip-pouch-s-vibrant-orange-200pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Vibrant Orange (200 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Vibrant Orange',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 57.60,
+        unitPrice: 0.2880,
+        heroImageIndex: 2
+      },
+      {
+        id: 'hanging-strip-pouch-s-vibrant-orange-500pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Vibrant Orange (500 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Vibrant Orange',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 128.00,
+        unitPrice: 0.2560,
+        heroImageIndex: 2
+      },
+      {
+        id: 'hanging-strip-pouch-s-forest-green-100pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Forest Green (100 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 32.00,
+        unitPrice: 0.3200,
+        heroImageIndex: 3
+      },
+      {
+        id: 'hanging-strip-pouch-s-forest-green-200pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Forest Green (200 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 57.60,
+        unitPrice: 0.2880,
+        heroImageIndex: 3
+      },
+      {
+        id: 'hanging-strip-pouch-s-forest-green-500pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Forest Green (500 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 128.00,
+        unitPrice: 0.2560,
+        heroImageIndex: 3
+      },
+      {
+        id: 'hanging-strip-pouch-s-matte-black-100pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Matte Black (100 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Matte Black',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 32.00,
+        unitPrice: 0.3200,
+        heroImageIndex: 4
+      },
+      {
+        id: 'hanging-strip-pouch-s-matte-black-200pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Matte Black (200 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Matte Black',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 57.60,
+        unitPrice: 0.2880,
+        heroImageIndex: 4
+      },
+      {
+        id: 'hanging-strip-pouch-s-matte-black-500pcs',
+        label: 'Size S (W14.5 × H14 + G9 cm) - Matte Black (500 Pcs)',
+        dimensions: 'W14.5 × H14 + G9 cm (Hanging Strip: 30cm) • Holds ~160g coffee beans / ~70g green tea • Matte Black',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 128.00,
+        unitPrice: 0.2560,
+        heroImageIndex: 4
+      },
+      {
+        id: 'hanging-strip-pouch-m-cream-white-100pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Cream White (100 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Cream White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 39.00,
+        unitPrice: 0.3900,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hanging-strip-pouch-m-cream-white-200pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Cream White (200 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Cream White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 70.20,
+        unitPrice: 0.3510,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hanging-strip-pouch-m-cream-white-500pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Cream White (500 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Cream White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 156.00,
+        unitPrice: 0.3120,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hanging-strip-pouch-m-vibrant-orange-100pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Vibrant Orange (100 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Vibrant Orange',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 39.00,
+        unitPrice: 0.3900,
+        heroImageIndex: 2
+      },
+      {
+        id: 'hanging-strip-pouch-m-vibrant-orange-200pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Vibrant Orange (200 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Vibrant Orange',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 70.20,
+        unitPrice: 0.3510,
+        heroImageIndex: 2
+      },
+      {
+        id: 'hanging-strip-pouch-m-vibrant-orange-500pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Vibrant Orange (500 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Vibrant Orange',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 156.00,
+        unitPrice: 0.3120,
+        heroImageIndex: 2
+      },
+      {
+        id: 'hanging-strip-pouch-m-forest-green-100pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Forest Green (100 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 39.00,
+        unitPrice: 0.3900,
+        heroImageIndex: 3
+      },
+      {
+        id: 'hanging-strip-pouch-m-forest-green-200pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Forest Green (200 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 70.20,
+        unitPrice: 0.3510,
+        heroImageIndex: 3
+      },
+      {
+        id: 'hanging-strip-pouch-m-forest-green-500pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Forest Green (500 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 156.00,
+        unitPrice: 0.3120,
+        heroImageIndex: 3
+      },
+      {
+        id: 'hanging-strip-pouch-m-matte-black-100pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Matte Black (100 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Matte Black',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 39.00,
+        unitPrice: 0.3900,
+        heroImageIndex: 4
+      },
+      {
+        id: 'hanging-strip-pouch-m-matte-black-200pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Matte Black (200 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Matte Black',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 70.20,
+        unitPrice: 0.3510,
+        heroImageIndex: 4
+      },
+      {
+        id: 'hanging-strip-pouch-m-matte-black-500pcs',
+        label: 'Size M (W17 × H15.5 + G9.5 cm) - Matte Black (500 Pcs)',
+        dimensions: 'W17 × H15.5 + G9.5 cm (Hanging Strip: 30cm) • Holds ~185g coffee beans / ~120g green tea • Matte Black',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 156.00,
+        unitPrice: 0.3120,
+        heroImageIndex: 4
+      },
+      {
+        id: 'hanging-strip-pouch-l-cream-white-100pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Cream White (100 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Cream White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 48.00,
+        unitPrice: 0.4800,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hanging-strip-pouch-l-cream-white-200pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Cream White (200 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Cream White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 86.40,
+        unitPrice: 0.4320,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hanging-strip-pouch-l-cream-white-500pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Cream White (500 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Cream White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 192.00,
+        unitPrice: 0.3840,
+        heroImageIndex: 1
+      },
+      {
+        id: 'hanging-strip-pouch-l-vibrant-orange-100pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Vibrant Orange (100 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Vibrant Orange',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 48.00,
+        unitPrice: 0.4800,
+        heroImageIndex: 2
+      },
+      {
+        id: 'hanging-strip-pouch-l-vibrant-orange-200pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Vibrant Orange (200 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Vibrant Orange',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 86.40,
+        unitPrice: 0.4320,
+        heroImageIndex: 2
+      },
+      {
+        id: 'hanging-strip-pouch-l-vibrant-orange-500pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Vibrant Orange (500 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Vibrant Orange',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 192.00,
+        unitPrice: 0.3840,
+        heroImageIndex: 2
+      },
+      {
+        id: 'hanging-strip-pouch-l-forest-green-100pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Forest Green (100 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 48.00,
+        unitPrice: 0.4800,
+        heroImageIndex: 3
+      },
+      {
+        id: 'hanging-strip-pouch-l-forest-green-200pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Forest Green (200 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 86.40,
+        unitPrice: 0.4320,
+        heroImageIndex: 3
+      },
+      {
+        id: 'hanging-strip-pouch-l-forest-green-500pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Forest Green (500 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 192.00,
+        unitPrice: 0.3840,
+        heroImageIndex: 3
+      },
+      {
+        id: 'hanging-strip-pouch-l-matte-black-100pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Matte Black (100 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Matte Black',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 48.00,
+        unitPrice: 0.4800,
+        heroImageIndex: 4
+      },
+      {
+        id: 'hanging-strip-pouch-l-matte-black-200pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Matte Black (200 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Matte Black',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 86.40,
+        unitPrice: 0.4320,
+        heroImageIndex: 4
+      },
+      {
+        id: 'hanging-strip-pouch-l-matte-black-500pcs',
+        label: 'Size L (W21.5 × H20 + G10 cm) - Matte Black (500 Pcs)',
+        dimensions: 'W21.5 × H20 + G10 cm (Hanging Strip: 40cm) • Holds ~530g coffee beans / ~300g green tea • Matte Black',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 192.00,
+        unitPrice: 0.3840,
+        heroImageIndex: 4
+      }
+    ]
+  },
+  // Flat Bottom Pouch with Tin Tie
+  {
+    id: 'flat-bottom-pouch-tin-tie',
+    name: 'Flat Bottom Pouch with Tin Tie',
+    category: 'conventional-stock',
+    description: 'A premium eight-side sealed box bottom pouch featuring an integrated thickened dual-wire tin tie closure. Specially constructed with high-barrier food-grade laminated layers (BOPP, Aluminum Foil, and PE) to offer superior protection against oxygen, moisture, and light. Perfect for specialty coffees, loose-leaf teas, baking mixes, premium snacks, and cookies that require repeated resealing while maintaining peak freshness.',
+    shortDesc: 'Premium eight-side sealed flat bottom pouch with thickened dual-wire tin tie closure for coffee, tea, and dry food',
+    features: [
+      'Thickened Dual-Wire Tin Tie Closure for N-Times Reusable Freshness Seal',
+      'Sturdy Eight-Side Sealed Box-Bottom Design for Perfect Shelf Presentation',
+      'Matte BOPP + Pure Aluminum Foil Core + Food-Grade PE High-Barrier Laminate',
+      'Total 120-Micron Thickness for Maximum Tear and Puncture Resistance',
+      'Perfect for Specialty Loose-Leaf Tea, Fresh Coffee Beans, and Premium Snacks',
+      'Available in 3 Stunning Matte Finishes: Silver, Green, and Red'
+    ],
+    images: [
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01aO3ItC1gN8UhkLMx2_--2212321894129.jpg',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN017pqUbO1gN8S61NEjn_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN012CiLlS1gN8S7Buk89_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01PaVDCI1gN8S6QoVlJ_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01tmQOOs1gN8S6kD19i_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01jb0Vf31gN8S7J39lJ_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01ep0Hfy1gN8S6QnAc9_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01L5Us811gN8S1GYt31_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN018fSrGZ1gN8S6tnF6M_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01o1HtsJ1gN8S5ynWBV_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01woyzD81gN8S7BsrkD_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01q88kyR1gN8S7BvwzM_--2212321894129-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-tin-tie/O1CN01namHli1gN8S6rFS6K_--2212321894129-jpg_.webp'
+    ],
+    badge: '⭐ Premium Freshness Seal',
+    rating: 4.9,
+    reviews: 112,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 100,
+    shape: 'Flat Bottom Box Pouch',
+    material: 'Matte BOPP + Pure Aluminum Foil + Food-Grade PE High-Barrier Laminate (120 Microns)',
+    basePrice: 22.00,
+    pricePerPiece: 0.220,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: '125g (20×11+9.5cm) / 250g (20×14+9.5cm) / 500g (25×19+11cm) / 750g (30×25+13cm)',
+    shelfLife: '+36 months',
+    certification: 'FDA Food-Grade & FSC Certified',
+    customPrintNote: 'Custom prints and metallic color enhancements available from 1,000+ pieces. Please consult our team.',
+    sizeVariants: [
+      {
+        id: 'tin-tie-pouch-125g-matte-silver-100pcs',
+        label: 'Size S (125g) - Matte Silver (100 Pcs)',
+        dimensions: 'W11 × H20 + G9.5 cm • Holds ~125g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 22.00,
+        unitPrice: 0.2200,
+        heroImageIndex: 1
+      },
+      {
+        id: 'tin-tie-pouch-125g-matte-silver-200pcs',
+        label: 'Size S (125g) - Matte Silver (200 Pcs)',
+        dimensions: 'W11 × H20 + G9.5 cm • Holds ~125g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 39.60,
+        unitPrice: 0.1980,
+        heroImageIndex: 1
+      },
+      {
+        id: 'tin-tie-pouch-125g-matte-silver-500pcs',
+        label: 'Size S (125g) - Matte Silver (500 Pcs)',
+        dimensions: 'W11 × H20 + G9.5 cm • Holds ~125g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 88.00,
+        unitPrice: 0.1760,
+        heroImageIndex: 1
+      },
+      {
+        id: 'tin-tie-pouch-125g-forest-green-100pcs',
+        label: 'Size S (125g) - Forest Green (100 Pcs)',
+        dimensions: 'W11 × H20 + G9.5 cm • Holds ~125g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 22.00,
+        unitPrice: 0.2200,
+        heroImageIndex: 5
+      },
+      {
+        id: 'tin-tie-pouch-125g-forest-green-200pcs',
+        label: 'Size S (125g) - Forest Green (200 Pcs)',
+        dimensions: 'W11 × H20 + G9.5 cm • Holds ~125g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 39.60,
+        unitPrice: 0.1980,
+        heroImageIndex: 5
+      },
+      {
+        id: 'tin-tie-pouch-125g-forest-green-500pcs',
+        label: 'Size S (125g) - Forest Green (500 Pcs)',
+        dimensions: 'W11 × H20 + G9.5 cm • Holds ~125g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 88.00,
+        unitPrice: 0.1760,
+        heroImageIndex: 5
+      },
+      {
+        id: 'tin-tie-pouch-125g-ruby-red-100pcs',
+        label: 'Size S (125g) - Ruby Red (100 Pcs)',
+        dimensions: 'W11 × H20 + G9.5 cm • Holds ~125g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 22.00,
+        unitPrice: 0.2200,
+        heroImageIndex: 9
+      },
+      {
+        id: 'tin-tie-pouch-125g-ruby-red-200pcs',
+        label: 'Size S (125g) - Ruby Red (200 Pcs)',
+        dimensions: 'W11 × H20 + G9.5 cm • Holds ~125g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 39.60,
+        unitPrice: 0.1980,
+        heroImageIndex: 9
+      },
+      {
+        id: 'tin-tie-pouch-125g-ruby-red-500pcs',
+        label: 'Size S (125g) - Ruby Red (500 Pcs)',
+        dimensions: 'W11 × H20 + G9.5 cm • Holds ~125g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 88.00,
+        unitPrice: 0.1760,
+        heroImageIndex: 9
+      },
+      {
+        id: 'tin-tie-pouch-250g-matte-silver-100pcs',
+        label: 'Size M (250g) - Matte Silver (100 Pcs)',
+        dimensions: 'W14 × H20 + G9.5 cm • Holds ~250g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 2
+      },
+      {
+        id: 'tin-tie-pouch-250g-matte-silver-200pcs',
+        label: 'Size M (250g) - Matte Silver (200 Pcs)',
+        dimensions: 'W14 × H20 + G9.5 cm • Holds ~250g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.40,
+        unitPrice: 0.2520,
+        heroImageIndex: 2
+      },
+      {
+        id: 'tin-tie-pouch-250g-matte-silver-500pcs',
+        label: 'Size M (250g) - Matte Silver (500 Pcs)',
+        dimensions: 'W14 × H20 + G9.5 cm • Holds ~250g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 110.00,
+        unitPrice: 0.2200,
+        heroImageIndex: 2
+      },
+      {
+        id: 'tin-tie-pouch-250g-forest-green-100pcs',
+        label: 'Size M (250g) - Forest Green (100 Pcs)',
+        dimensions: 'W14 × H20 + G9.5 cm • Holds ~250g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 6
+      },
+      {
+        id: 'tin-tie-pouch-250g-forest-green-200pcs',
+        label: 'Size M (250g) - Forest Green (200 Pcs)',
+        dimensions: 'W14 × H20 + G9.5 cm • Holds ~250g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.40,
+        unitPrice: 0.2520,
+        heroImageIndex: 6
+      },
+      {
+        id: 'tin-tie-pouch-250g-forest-green-500pcs',
+        label: 'Size M (250g) - Forest Green (500 Pcs)',
+        dimensions: 'W14 × H20 + G9.5 cm • Holds ~250g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 110.00,
+        unitPrice: 0.2200,
+        heroImageIndex: 6
+      },
+      {
+        id: 'tin-tie-pouch-250g-ruby-red-100pcs',
+        label: 'Size M (250g) - Ruby Red (100 Pcs)',
+        dimensions: 'W14 × H20 + G9.5 cm • Holds ~250g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 10
+      },
+      {
+        id: 'tin-tie-pouch-250g-ruby-red-200pcs',
+        label: 'Size M (250g) - Ruby Red (200 Pcs)',
+        dimensions: 'W14 × H20 + G9.5 cm • Holds ~250g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.40,
+        unitPrice: 0.2520,
+        heroImageIndex: 10
+      },
+      {
+        id: 'tin-tie-pouch-250g-ruby-red-500pcs',
+        label: 'Size M (250g) - Ruby Red (500 Pcs)',
+        dimensions: 'W14 × H20 + G9.5 cm • Holds ~250g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 110.00,
+        unitPrice: 0.2200,
+        heroImageIndex: 10
+      },
+      {
+        id: 'tin-tie-pouch-500g-matte-silver-100pcs',
+        label: 'Size L (500g) - Matte Silver (100 Pcs)',
+        dimensions: 'W19 × H25 + G11 cm • Holds ~500g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 35.00,
+        unitPrice: 0.3500,
+        heroImageIndex: 3
+      },
+      {
+        id: 'tin-tie-pouch-500g-matte-silver-200pcs',
+        label: 'Size L (500g) - Matte Silver (200 Pcs)',
+        dimensions: 'W19 × H25 + G11 cm • Holds ~500g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 63.00,
+        unitPrice: 0.3150,
+        heroImageIndex: 3
+      },
+      {
+        id: 'tin-tie-pouch-500g-matte-silver-500pcs',
+        label: 'Size L (500g) - Matte Silver (500 Pcs)',
+        dimensions: 'W19 × H25 + G11 cm • Holds ~500g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 140.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 3
+      },
+      {
+        id: 'tin-tie-pouch-500g-forest-green-100pcs',
+        label: 'Size L (500g) - Forest Green (100 Pcs)',
+        dimensions: 'W19 × H25 + G11 cm • Holds ~500g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 35.00,
+        unitPrice: 0.3500,
+        heroImageIndex: 7
+      },
+      {
+        id: 'tin-tie-pouch-500g-forest-green-200pcs',
+        label: 'Size L (500g) - Forest Green (200 Pcs)',
+        dimensions: 'W19 × H25 + G11 cm • Holds ~500g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 63.00,
+        unitPrice: 0.3150,
+        heroImageIndex: 7
+      },
+      {
+        id: 'tin-tie-pouch-500g-forest-green-500pcs',
+        label: 'Size L (500g) - Forest Green (500 Pcs)',
+        dimensions: 'W19 × H25 + G11 cm • Holds ~500g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 140.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 7
+      },
+      {
+        id: 'tin-tie-pouch-500g-ruby-red-100pcs',
+        label: 'Size L (500g) - Ruby Red (100 Pcs)',
+        dimensions: 'W19 × H25 + G11 cm • Holds ~500g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 35.00,
+        unitPrice: 0.3500,
+        heroImageIndex: 11
+      },
+      {
+        id: 'tin-tie-pouch-500g-ruby-red-200pcs',
+        label: 'Size L (500g) - Ruby Red (200 Pcs)',
+        dimensions: 'W19 × H25 + G11 cm • Holds ~500g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 63.00,
+        unitPrice: 0.3150,
+        heroImageIndex: 11
+      },
+      {
+        id: 'tin-tie-pouch-500g-ruby-red-500pcs',
+        label: 'Size L (500g) - Ruby Red (500 Pcs)',
+        dimensions: 'W19 × H25 + G11 cm • Holds ~500g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 140.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 11
+      },
+      {
+        id: 'tin-tie-pouch-750g-matte-silver-100pcs',
+        label: 'Size XL (750g) - Matte Silver (100 Pcs)',
+        dimensions: 'W25 × H30 + G13 cm • Holds ~750g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 4
+      },
+      {
+        id: 'tin-tie-pouch-750g-matte-silver-200pcs',
+        label: 'Size XL (750g) - Matte Silver (200 Pcs)',
+        dimensions: 'W25 × H30 + G13 cm • Holds ~750g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 75.60,
+        unitPrice: 0.3780,
+        heroImageIndex: 4
+      },
+      {
+        id: 'tin-tie-pouch-750g-matte-silver-500pcs',
+        label: 'Size XL (750g) - Matte Silver (500 Pcs)',
+        dimensions: 'W25 × H30 + G13 cm • Holds ~750g loose tea / coffee beans • Matte Silver',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 168.00,
+        unitPrice: 0.3360,
+        heroImageIndex: 4
+      },
+      {
+        id: 'tin-tie-pouch-750g-forest-green-100pcs',
+        label: 'Size XL (750g) - Forest Green (100 Pcs)',
+        dimensions: 'W25 × H30 + G13 cm • Holds ~750g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 8
+      },
+      {
+        id: 'tin-tie-pouch-750g-forest-green-200pcs',
+        label: 'Size XL (750g) - Forest Green (200 Pcs)',
+        dimensions: 'W25 × H30 + G13 cm • Holds ~750g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 75.60,
+        unitPrice: 0.3780,
+        heroImageIndex: 8
+      },
+      {
+        id: 'tin-tie-pouch-750g-forest-green-500pcs',
+        label: 'Size XL (750g) - Forest Green (500 Pcs)',
+        dimensions: 'W25 × H30 + G13 cm • Holds ~750g loose tea / coffee beans • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 168.00,
+        unitPrice: 0.3360,
+        heroImageIndex: 8
+      },
+      {
+        id: 'tin-tie-pouch-750g-ruby-red-100pcs',
+        label: 'Size XL (750g) - Ruby Red (100 Pcs)',
+        dimensions: 'W25 × H30 + G13 cm • Holds ~750g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 12
+      },
+      {
+        id: 'tin-tie-pouch-750g-ruby-red-200pcs',
+        label: 'Size XL (750g) - Ruby Red (200 Pcs)',
+        dimensions: 'W25 × H30 + G13 cm • Holds ~750g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 75.60,
+        unitPrice: 0.3780,
+        heroImageIndex: 12
+      },
+      {
+        id: 'tin-tie-pouch-750g-ruby-red-500pcs',
+        label: 'Size XL (750g) - Ruby Red (500 Pcs)',
+        dimensions: 'W25 × H30 + G13 cm • Holds ~750g loose tea / coffee beans • Ruby Red',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 168.00,
+        unitPrice: 0.3360,
+        heroImageIndex: 12
+      }
+    ]
+  },
   // Bottle-Shaped Specialty Foil Sachet Pouch
   {
     id: 'bottle-shape-sachet-bag',
