@@ -72,6 +72,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/pouch/barrier-overview': () => import('./pages/pouch/PouchBarrierOverviewPage'),
   '/pouch/material-barrier-properties': () => import('./pages/pouch/PouchMaterialBarrierPropertiesPage'),
   '/pouch/material-data-sheet': () => import('./pages/pouch/MaterialDataSheetPage'),
+  '/materials/data-sheet': () => import('./pages/materials/MaterialDataSheetPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
 }
 
@@ -454,7 +455,8 @@ const PouchReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch/Pouc
 const PouchSurfaceFinishPage = lazyWithRetry(() => import('./pages/pouch/PouchSurfaceFinishPage'))
 const SurfaceAndReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch/options/SurfaceAndReclosureOptionsPage'))
 const PouchKraftDuplexPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchKraftDuplexPage'))
-const MaterialDataSheetPage = lazyWithRetry(() => import('./pages/pouch/MaterialDataSheetPage'))
+const PouchMaterialDataSheetPage = lazyWithRetry(() => import('./pages/pouch/MaterialDataSheetPage'))
+const AchieveMaterialDataSheetPage = lazyWithRetry(() => import('./pages/materials/MaterialDataSheetPage'))
 const PouchBarrierOverviewPage = lazyWithRetry(() => import('./pages/pouch/PouchBarrierOverviewPage'))
 const PouchMaterialBarrierPropertiesPage = lazyWithRetry(() => import('./pages/pouch/PouchMaterialBarrierPropertiesPage'))
 const PouchDigitalPrintingPage = lazyWithRetry(() => import('./pages/pouch/PouchDigitalPrintingPage'))
@@ -611,7 +613,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
                   <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
                   <Route path="/materials/kraft-duplex" element={<PouchKraftDuplexPage />} />
-                  <Route path="/materials/data-sheet" element={<MaterialDataSheetPage />} />
+                  <Route path="/materials/data-sheet" element={<PouchMaterialDataSheetPage />} />
                   <Route path="/materials/catalog" element={<PouchMaterialCatalogPage />} />
                   <Route path="/options/reclosure" element={<PouchReclosureOptionsPage />} />
                   <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
@@ -816,7 +818,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/materials/plastic-free-kraft" element={<PlasticFreeKraftPage />} />
                         <Route path="/materials/kraft-high-barrier" element={<KraftHighBarrierPage />} />
                         <Route path="/materials/combustion-safety-test" element={<CombustionSafetyTestPage />} />
-                        <Route path="/materials/data-sheet" element={<MaterialDataSheetPage />} />
+                        <Route path="/materials/data-sheet" element={<AchieveMaterialDataSheetPage />} />
 
                         {/* Printing Pages */}
                         <Route path="/printing/digital-printing" element={<DigitalPrintingPage />} />
