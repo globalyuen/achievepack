@@ -458,6 +458,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 { name: 'ZIPPER_DURABILITY', path: '/topics/compostable-zipper-durability', color: 'bg-white' },
                 { name: 'CUSTOM_VS_STANDARD', path: '/topics/custom-vs-standard-packaging', color: 'bg-[#D4FF00]' },
                 { name: 'SPOUTED_POUCHES', path: '/topics/compostable-spouted-pouches', color: 'bg-[#D4FF00]' },
+                { name: 'CITRUS_OIL', path: '/solutions/citrus-oil-packaging', color: 'bg-[#D4FF00]' },
 
               ].map((topic, i) => (
                 <Link 

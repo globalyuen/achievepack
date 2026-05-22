@@ -74,6 +74,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/pouch/material-data-sheet': () => import('./pages/pouch/MaterialDataSheetPage'),
   '/materials/data-sheet': () => import('./pages/materials/MaterialDataSheetPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
+  '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
 }
 
 // Export preload function for use in navigation components
@@ -352,6 +353,7 @@ const ProductDeveloperPage = lazyWithRetry(() => import('./pages/solutions/Produ
 const CoffeeRoasterPage = lazyWithRetry(() => import('./pages/solutions/CoffeeRoasterPage'))
 const ArtisanProducerPage = lazyWithRetry(() => import('./pages/solutions/ArtisanProducerPage'))
 const SnackBrandManagerPage = lazyWithRetry(() => import('./pages/solutions/SnackBrandManagerPage'))
+const CitrusOilPackagingPage = lazyWithRetry(() => import('./pages/solutions/CitrusOilPackagingPage'))
 
 // Topics Pages - AI Search Volume SEO - Lazy loaded
 const EcoFriendlyFoodPackagingPage = lazyWithRetry(() => import('./pages/topics/EcoFriendlyFoodPackagingPage'))
@@ -426,6 +428,7 @@ const PouchHomePage = lazyWithRetry(() => import('./pages/pouch/PouchHomePage'))
 const PouchProductsPage = lazyWithRetry(() => import('./pages/pouch/PouchProductsPage'))
 const PouchMaterialsPage = lazyWithRetry(() => import('./pages/pouch/PouchMaterialsPage'))
 const PouchSolutionsPage = lazyWithRetry(() => import('./pages/pouch/PouchSolutionsPage'))
+const PouchCitrusOilPackagingPage = lazyWithRetry(() => import('./pages/pouch/solutions/PouchCitrusOilPackagingPage'))
 const PouchSizeGuidePage = lazyWithRetry(() => import('./pages/pouch/PouchSizeGuidePage'))
 const PouchTestimonialsPage = lazyWithRetry(() => import('./pages/pouch/PouchTestimonialsPage'))
 const PouchBlogPage = lazyWithRetry(() => import('./pages/pouch/PouchBlogPage'))
@@ -623,6 +626,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
                   <Route path="/products" element={<PouchProductsPage />} />
                   <Route path="/materials" element={<PouchMaterialsPage />} />
+                  <Route path="/solutions/citrus-oil-packaging" element={<PouchCitrusOilPackagingPage />} />
                   <Route path="/seo-guide" element={<PouchSEOPage />} />
                   
                   {/* New SEO Pages */}
@@ -938,6 +942,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/solutions/coffee-roaster" element={<CoffeeRoasterPage />} />
                         <Route path="/solutions/artisan-producer" element={<ArtisanProducerPage />} />
                         <Route path="/solutions/snack-brand-manager" element={<SnackBrandManagerPage />} />
+                        <Route path="/solutions/citrus-oil-packaging" element={<CitrusOilPackagingPage />} />
 
                         {/* Topics Pages - AI Search Volume SEO */}
                         <Route path="/topics/eco-friendly-food-packaging" element={<EcoFriendlyFoodPackagingPage />} />

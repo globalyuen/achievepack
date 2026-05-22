@@ -168,6 +168,7 @@ const LEARN_PAGES = {
       { name: 'Coffee Roaster', link: '/solutions/coffee-roaster', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp' },
       { name: 'Artisan Producer', link: '/solutions/artisan-producer', image: '/imgs/illustrated/a_artisan_producer_variation_1_5454378.webp' },
       { name: 'Snack Brand Manager', link: '/solutions/snack-brand-manager', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
+      { name: 'Citrus Oil Solutions', link: '/solutions/citrus-oil-packaging', image: '/imgs/materials/citrus_clear_spout_pouch.png' },
     ]
   },
   topics: {
