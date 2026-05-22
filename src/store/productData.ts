@@ -879,6 +879,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       '/taobao/compostable-label/compostable-labels-1.jpg',
       '/taobao/compostable-label/compostable-labels-2.png',
       '/taobao/compostable-label/compostable-labels-3.png',
+      '/taobao/compostable-label/compostable-labels-4.png',
       '/taobao/compostable-label/compostable-label-process.png',
       '/taobao/compostable-label/eco_friendly_stickers.svg',
       '/taobao/compostable-label/composting_degradation.svg',

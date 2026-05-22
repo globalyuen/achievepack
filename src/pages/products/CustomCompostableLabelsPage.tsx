@@ -16,6 +16,7 @@ const photoGallery = [
   { src: '/taobao/compostable-label/compostable-labels-1.jpg', title: 'Achieve Pack Eco-Conscious Labels', titleCn: 'Achieve Pack 品牌環保貼紙捲料', desc: 'Custom printed food, supplement, and cosmetic labels in high-density rolls with vibrant vegetable ink.' },
   { src: '/taobao/compostable-label/compostable-labels-2.png', title: 'Beū Sustainable Body Scrub Label', titleCn: 'Beū 有機化妝品生物降解貼紙', desc: 'Premium moisture-resistant plant PLA face stock with compostable adhesive and soy-based printing.' },
   { src: '/taobao/compostable-label/compostable-labels-3.png', title: 'Sustainable Direct Thermal Labels', titleCn: 'BPI認證熱敏物流快遞標籤', desc: 'BPI certified and compostable direct thermal label rolls with recyclable liner and eco-conscious thermal coating.' },
+  { src: '/taobao/compostable-label/compostable-labels-4.png', title: 'Achieve Pack Sustainable Resin Film Label', titleCn: 'Achieve Pack 綠色可堆肥薄膜標籤', desc: 'Certified sustainable plant-based resin film label exhibiting precise, full-width digital printing and strong adhesion.' },
   { src: '/taobao/compostable-label/compostable-label-process.png', title: 'Compostable Label Printing Process Diagram', titleCn: '可堆肥標籤專業生產印刷與質檢工藝流程', desc: 'Detailed B2B commercial manufacturing process breakdown including raw material slitting, advanced digital printing, die-cutting, inline calibration, and automated packaging.' }
 ]
 
