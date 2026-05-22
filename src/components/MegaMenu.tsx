@@ -114,6 +114,7 @@ const CUSTOM_PRODUCTS = [
   { name: 'Eco Digital Pouches', link: '/store?category=eco-digital', image: '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', badge: '🌱 Eco' },
   { name: 'Custom Boxes', link: '/store?category=boxes', image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', badge: '' },
   { name: 'Custom Mailer Bags', link: '/store?category=mailer', image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', badge: '' },
+  { name: 'Compostable Labels', link: '/products/custom-compostable-labels', image: '/taobao/compostable-label/eco_friendly_stickers.svg', badge: '🌱 Eco' },
   { name: 'Custom Labels', link: '/products/custom-labels', image: '/imgs/label/custom-label/hero.webp', badge: '' },
 ]
 

@@ -72,6 +72,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/pouch/barrier-overview': () => import('./pages/pouch/PouchBarrierOverviewPage'),
   '/pouch/material-barrier-properties': () => import('./pages/pouch/PouchMaterialBarrierPropertiesPage'),
   '/pouch/material-data-sheet': () => import('./pages/pouch/MaterialDataSheetPage'),
+  '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
 }
 
 // Export preload function for use in navigation components
@@ -338,6 +339,7 @@ const CustomLabelsPage = lazyWithRetry(() => import('./pages/products/CustomLabe
 const CustomStickersPage = lazyWithRetry(() => import('./pages/products/CustomStickersPage'))
 const LabelsAndStickersPage = lazyWithRetry(() => import('./pages/products/LabelsAndStickersPage'))
 const LabBagsPage = lazyWithRetry(() => import('./pages/products/LabBagsPage'))
+const CustomCompostableLabelsPage = lazyWithRetry(() => import('./pages/products/CustomCompostableLabelsPage'))
 
 // Solutions Pages - Persona Based SEO - Lazy loaded
 const StartupFounderPage = lazyWithRetry(() => import('./pages/solutions/StartupFounderPage'))
@@ -688,6 +690,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/products/coffee-bags-degassing-valve" element={<CoffeeDegassingValveGuide />} />
                   <Route path="/products/low-moq-packaging" element={<LowMOQPackagingGuide />} />
                   <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesGuide />} />
+                  <Route path="/products/custom-compostable-labels" element={<CustomCompostableLabelsPage />} />
                   <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
                   <Route path="/quotes/flat-bottom" element={<FlatBottomQuotePage />} />
                   <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />
@@ -916,6 +919,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/products/custom-stickers" element={<CustomStickersPage />} />
                         <Route path="/products/labels-and-stickers" element={<LabelsAndStickersPage />} />
                         <Route path="/products/lab-bags" element={<LabBagsPage />} />
+                        <Route path="/products/custom-compostable-labels" element={<CustomCompostableLabelsPage />} />
 
                         {/* Solutions Pages - Persona Based SEO */}
                         <Route path="/solutions/startup-founder" element={<StartupFounderPage />} />

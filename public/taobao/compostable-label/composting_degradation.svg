@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Card Shadow -->
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#1C1917" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#FAFAF9" rx="16"/>
+
+  <!-- Top Ribbon Banner -->
+  <path d="M 0,0 L 800,0 L 800,16 Q 800,0 784,0 Z" fill="#1B5E20" />
+
+  <!-- Title block -->
+  <g transform="translate(40, 60)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1B5E20" letter-spacing="0.1em">ACHIEVE PACK &bull; ENVIRONMENTAL PERFORMANCE</text>
+    <text x="0" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1C1917" letter-spacing="-0.02em">Compostable Sticker Lifecycle &amp; Degradation</text>
+    <text x="0" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#78716C">Watch how Achieve Pack's biodegradable PLA adhesive labels return safely to the earth</text>
+  </g>
+
+  <!-- Flowchart Stages -->
+  <g transform="translate(40, 160)" filter="url(#card-shadow)">
+    <!-- Stage 1: Disposal -->
+    <g transform="translate(0, 0)">
+      <rect width="340" height="150" rx="12" fill="#FFFFFF"/>
+      <rect width="6" height="150" rx="3" fill="#1B5E20"/>
+      <circle cx="40" cy="40" r="18" fill="#E8F5E9"/>
+      <text x="40" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#1B5E20" text-anchor="middle">1</text>
+      
+      <text x="76" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1C1917">Stage 1: Safe Disposal (Day 1)</text>
+      <text x="76" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">The sticker is disposed along with the</text>
+      <text x="76" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">compostable packaging or container in a</text>
+      <text x="76" y="98" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">home compost bin or industrial facility.</text>
+      <text x="76" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#1B5E20">Status: Stable and non-reactive</text>
+    </g>
+
+    <!-- Stage 2: Microbe Attraction -->
+    <g transform="translate(380, 0)">
+      <rect width="340" height="150" rx="12" fill="#FFFFFF"/>
+      <rect width="6" height="150" rx="3" fill="#1B5E20"/>
+      <circle cx="40" cy="40" r="18" fill="#E8F5E9"/>
+      <text x="40" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#1B5E20" text-anchor="middle">2</text>
+      
+      <text x="76" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1C1917">Stage 2: Microbe Colonisation (Day 30)</text>
+      <text x="76" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Moisture, heat, and oxygen trigger bacteria</text>
+      <text x="76" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">and fungal growth. Natural spores attach</text>
+      <text x="76" y="98" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">to the PLA and soy-ink surfaces.</text>
+      <text x="76" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#E65100">PLA begins to soften and absorb moisture</text>
+    </g>
+
+    <!-- Stage 3: Fragmentation -->
+    <g transform="translate(0, 190)">
+      <rect width="340" height="150" rx="12" fill="#FFFFFF"/>
+      <rect width="6" height="150" rx="3" fill="#4A90E2"/>
+      <circle cx="40" cy="40" r="18" fill="#EBF3FC"/>
+      <text x="40" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#4A90E2" text-anchor="middle">3</text>
+      
+      <text x="76" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1C1917">Stage 3: Biodegrading (Day 90)</text>
+      <text x="76" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">Microbes feed on plant starch-derived PLA</text>
+      <text x="76" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">and paper fibres. The structure fragments,</text>
+      <text x="76" y="98" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">breaking molecular chains into tiny bits.</text>
+      <text x="76" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#D84315">90% reduction in mechanical strength</text>
+    </g>
+
+    <!-- Stage 4: Nutrient Integration -->
+    <g transform="translate(380, 190)">
+      <rect width="340" height="150" rx="12" fill="#FFFFFF"/>
+      <rect width="6" height="150" rx="3" fill="#81C784"/>
+      <circle cx="40" cy="40" r="18" fill="#E8F5E9"/>
+      <text x="40" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#81C784" text-anchor="middle">4</text>
+      
+      <text x="76" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1C1917">Stage 4: Return to Earth (Day 180)</text>
+      <text x="76" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">The sticker decomposes completely into</text>
+      <text x="76" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">CO2, H2O, and organic humus, leaving</text>
+      <text x="76" y="98" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#78716C">zero toxic residue, microplastics or metals.</text>
+      <text x="76" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#2E7D32">100% Integrated. Earth-safe biomass!</text>
+    </g>
+  </g>
+
+  <!-- Large Central Loop Graphic / Circular Economy -->
+  <g transform="translate(400, 580)">
+    <!-- Loop background -->
+    <circle cx="0" cy="0" r="60" fill="none" stroke="#E8F5E9" stroke-width="8"/>
+    <!-- Animated-like arrow -->
+    <path d="M 0,-60 A 60,60 0 1,1 -51.9,-30 L -62,-40 M 0,-60 L -10,-45" fill="none" stroke="#1B5E20" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Central text -->
+    <text x="0" y="-8" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#1B5E20" text-anchor="middle">CIRCULAR</text>
+    <text x="0" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#1B5E20" text-anchor="middle">BIOMASS</text>
+    <text x="0" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#78716C" text-anchor="middle">NO MICROPLASTICS</text>
+
+    <!-- Side items -->
+    <g transform="translate(-180, 0)">
+      <text x="0" y="-12" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1C1917" text-anchor="middle">100% Home Compostable</text>
+      <text x="0" y="6" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C" text-anchor="middle">Works in standard garden piles.</text>
+      <text x="0" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C" text-anchor="middle">No industrial machinery needed.</text>
+    </g>
+    <g transform="translate(180, 0)">
+      <text x="0" y="-12" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1C1917" text-anchor="middle">Eco-Tox Checked</text>
+      <text x="0" y="6" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C" text-anchor="middle">Meets strict eco-toxicity tests.</text>
+      <text x="0" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C" text-anchor="middle">Safe for plant germination &amp; worms.</text>
+    </g>
+  </g>
+
+  <!-- Bottom Quality Seal -->
+  <g transform="translate(40, 710)">
+    <rect width="720" height="50" rx="10" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+    <text x="360" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0D4212" text-anchor="middle">180-DAY BIODEGRADABILITY CERTIFIED &bull; TESTED BY TÜV AUSTRIA &amp; SGS</text>
+  </g>
+</svg>

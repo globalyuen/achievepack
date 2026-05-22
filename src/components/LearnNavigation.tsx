@@ -64,6 +64,7 @@ const LEARN_PAGES = {
       { name: 'Recyclable Mono Pouches', link: '/products/recyclable-mono-material-pouches', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
       { name: 'Coffee Bags with Valve', link: '/products/coffee-bags-degassing-valve', image: '/imgs/illustrated/a_topic_03_coffee_materials_var_c_6491567.webp' },
       { name: 'Low MOQ Packaging', link: '/products/low-moq-packaging', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
+      { name: 'Custom Compostable Labels', link: '/products/custom-compostable-labels', image: '/taobao/compostable-label/eco_friendly_stickers.svg' },
     ]
   },
   knowledge: {

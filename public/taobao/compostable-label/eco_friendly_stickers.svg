@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Card Shadow -->
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#1C1917" flood-opacity="0.05"/>
+    </filter>
+    <!-- Linear Gradients for Layers -->
+    <linearGradient id="ink-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="facestock-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8F5E9"/>
+      <stop offset="100%" stop-color="#C8E6C9"/>
+    </linearGradient>
+    <linearGradient id="adhesive-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#81C784" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#4CAF50" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="backing-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3E0"/>
+      <stop offset="100%" stop-color="#FFE0B2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="#FAFAF9" rx="16"/>
+
+  <!-- Top Ribbon Banner -->
+  <path d="M 0,0 L 800,0 L 800,16 Q 800,0 784,0 Z" fill="#1B5E20" />
+
+  <!-- Title block -->
+  <g transform="translate(40, 60)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1B5E20" letter-spacing="0.1em">ACHIEVE PACK &bull; PRODUCT ANATOMY</text>
+    <text x="0" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#1C1917" letter-spacing="-0.02em">Eco Custom Compostable Label Structure</text>
+    <text x="0" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#78716C">Exploded view of the 100% biodegradable &amp; compostable adhesive label anatomy</text>
+  </g>
+
+  <!-- Exploded Diagram Visualization -->
+  <g transform="translate(400, 390)">
+    <!-- Central decorative ring -->
+    <circle cx="0" cy="0" r="160" fill="none" stroke="#E8F5E9" stroke-width="4" stroke-dasharray="10 10"/>
+    <circle cx="0" cy="0" r="130" fill="none" stroke="#C8E6C9" stroke-width="1"/>
+
+    <!-- Layer 4: Glassine Backing Release Liner (Bottom) -->
+    <g transform="translate(-120, 80) skewX(-20) rotate(-10)">
+      <path d="M -80,-40 L 80,-40 L 80,40 L -80,40 Z" fill="url(#backing-grad)" stroke="#FFE0B2" stroke-width="2" rx="6"/>
+      <text x="0" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#E65100" text-anchor="middle" transform="rotate(10)">4. Glassine Liner</text>
+    </g>
+
+    <!-- Connecting line 3 to 4 -->
+    <line x1="-120" y1="80" x2="-120" y2="20" stroke="#78716C" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+    <!-- Layer 3: Compostable Adhesive (Middle-Bottom) -->
+    <g transform="translate(-120, 20) skewX(-20) rotate(-10)">
+      <path d="M -80,-40 L 80,-40 L 80,40 L -80,40 Z" fill="url(#adhesive-grad)" stroke="#4CAF50" stroke-width="1" rx="6"/>
+      <text x="0" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1B5E20" text-anchor="middle" transform="rotate(10)">3. Bio-Adhesive</text>
+    </g>
+
+    <!-- Connecting line 2 to 3 -->
+    <line x1="-120" y1="20" x2="-120" y2="-40" stroke="#78716C" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+    <!-- Layer 2: PLA Facestock Film or FSC Paper (Middle-Top) -->
+    <g transform="translate(-120, -40) skewX(-20) rotate(-10)">
+      <path d="M -80,-40 L 80,-40 L 80,40 L -80,40 Z" fill="url(#facestock-grad)" stroke="#81C784" stroke-width="2" rx="6"/>
+      <text x="0" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#2E7D32" text-anchor="middle" transform="rotate(10)">2. Facestock Paper/PLA</text>
+    </g>
+
+    <!-- Connecting line 1 to 2 -->
+    <line x1="-120" y1="-40" x2="-120" y2="-100" stroke="#78716C" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+    <!-- Layer 1: Soy-Ink Eco Print (Top) -->
+    <g transform="translate(-120, -100) skewX(-20) rotate(-10)">
+      <path d="M -80,-40 L 80,-40 L 80,40 L -80,40 Z" fill="url(#ink-grad)" stroke="#1B5E20" stroke-width="2" rx="6"/>
+      <!-- Small FSC Logo Icon placeholder -->
+      <path d="M -30,-15 L -25,-5 L -20,-15 L -15,10 L -25,10 Z" fill="#FFFFFF"/>
+      <text x="5" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle" transform="rotate(10)">1. Eco Soy-Ink</text>
+    </g>
+
+    <!-- Annotations pointing to the diagram -->
+    <!-- Annotation 1 -->
+    <g transform="translate(60, -120)">
+      <path d="M -100,20 Q -40,0 0,0" fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="-100" cy="20" r="4" fill="#2E7D32"/>
+      <text x="10" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1C1917">Eco-Friendly Soy Printing Inks</text>
+      <text x="10" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C">Vegetable/soy oils with organic pigments.</text>
+      <text x="10" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C">Zero VOCs and completely non-toxic.</text>
+    </g>
+
+    <!-- Annotation 2 -->
+    <g transform="translate(60, -40)">
+      <path d="M -100,0 Q -40,0 0,0" fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="-100" cy="0" r="4" fill="#2E7D32"/>
+      <text x="10" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1C1917">FSC® Paper or Bio-based PLA</text>
+      <text x="10" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C">Made from responsibly-managed forests or</text>
+      <text x="10" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C">cornstarch-derived PLA compostable film.</text>
+    </g>
+
+    <!-- Annotation 3 -->
+    <g transform="translate(60, 40)">
+      <path d="M -100,-20 Q -40,0 0,0" fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="-100" cy="-20" r="4" fill="#2E7D32"/>
+      <text x="10" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1C1917">Compostable Emulsion Adhesive</text>
+      <text x="10" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C">High-performance permanent tack adhesive.</text>
+      <text x="10" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C">100% bio-based, leaves zero residues.</text>
+    </g>
+
+    <!-- Annotation 4 -->
+    <g transform="translate(60, 120)">
+      <path d="M -100,-40 Q -40,0 0,0" fill="none" stroke="#D84315" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="-100" cy="-40" r="4" fill="#D84315"/>
+      <text x="10" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1C1917">Glassine Backing Release Liner</text>
+      <text x="10" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C">Heavy-weight, smooth wood-free paper liner.</text>
+      <text x="10" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78716C">Peels easily, excellent for machine application.</text>
+    </g>
+  </g>
+
+  <!-- Key Benefits Summary Box -->
+  <g transform="translate(40, 680)">
+    <rect width="720" height="80" rx="12" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1"/>
+    <g transform="translate(30, 20)">
+      <circle cx="16" cy="20" r="14" fill="#1B5E20" />
+      <path d="M 10,20 L 14,24 L 22,16" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="44" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#0D4212">Fully EN 13432 &amp; ASTM D6400 Certified</text>
+      <text x="44" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#2E7D32">The entire sticker construction - ink, facestock, and adhesive - degrades fully within 180 days.</text>
+    </g>
+  </g>
+</svg>

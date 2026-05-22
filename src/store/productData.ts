@@ -866,6 +866,38 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     },
     videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
+  // Custom Compostable Adhesive Label & Sticker
+  {
+    id: 'eco-custom-label',
+    name: 'FSC Certified Custom Compostable PLA Adhesive Sticker & Label',
+    category: 'eco-digital',
+    description: 'Custom-printed, 100% biodegradable and compostable PLA adhesive stickers and labels. Made from certified FSC-certified paper or plant-based PLA film combined with high-performance compostable adhesive. Safe for indirect food contact, certified under EN 13432 / ASTM D6400, and printed using state-of-the-art digital press technology with plant-based inks. Perfect for eco-friendly product packaging, bottle labels, retail packaging, and mailing labels.',
+    shortDesc: 'From US$60 for 1,000 pcs (FSC Certified & Compostable PLA)',
+    features: ['100% Compostable PLA or Paper', 'FSC® Forest Certified', 'Food-Grade Adhesive', 'Vibrant Soy-Based Inks'],
+    images: [
+      '/taobao/compostable-label/eco_friendly_stickers.svg',
+      '/taobao/compostable-label/composting_degradation.svg',
+      '/taobao/compostable-label/certifications_applications.svg'
+    ],
+    badge: '🌿 100% Compostable',
+    rating: 4.8,
+    reviews: 145,
+    inStock: true,
+    turnaround: '10-15 days',
+    minOrder: 1000,
+    shape: 'Adhesive Sticker & Label',
+    basePrice: 60,
+    ecoConfig: {
+      defaultMaterial: 'Biodegradable PLA Film or FSC Certified Paper',
+      defaultSize: 'Custom (Square, Round, Die-Cut)',
+      defaultQuantity: '1,000 pcs',
+      defaultDesignCount: 1,
+      defaultBarrier: 'Mid-barrier, excellent moisture and oil resistance',
+      defaultStiffness: 'Flexible self-adhesive label stock',
+      defaultZipper: 'No',
+      defaultShippingMethod: 'Air Freight',
+    },
+  },
 ]
 
 // Eco Stock Products (Ready-made Compostable)
