@@ -11,6 +11,7 @@ export type ShapeType =
   | 'Flat Squared Bottom Pouch'
   | 'Quad Seal Pouch'
   | 'Side Gusset Pouch'
+  | 'Label & Sticker'
 
 export type ClosureType = 'No' | 'Regular Zipper' | 'One-Sided Zipper' | 'Child Resistant Zipper' | 'Slider' | 'Tin Tie' | 'Spout'
 export type SurfaceType = 'Glossy' | 'Matt' | 'Metallic' | 'Soft Touch' | 'Emboss' | 'Stamp Foil'
@@ -46,6 +47,7 @@ const shapeNameMap: Record<ShapeType, string> = {
   'Flat Squared Bottom Pouch': 'flat-bottom',
   'Quad Seal Pouch': 'quad-seal',
   'Side Gusset Pouch': 'side -seal',
+  'Label & Sticker': 'label-sticker',
 }
 
 const closureMap: Record<ClosureType, string> = {
@@ -94,6 +96,10 @@ export function getProductImage(options: ImageMapperOptions): string {
     material,
     size,
   } = options
+
+  if (shape === 'Label & Sticker') {
+    return '/taobao/pla-compostable-clear-label/clear-label-hygiene-cover.jpg'
+  }
 
   const shapeName = shapeNameMap[shape]
 

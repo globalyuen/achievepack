@@ -151,6 +151,38 @@ const SKU_DESCRIPTIONS: Record<string, Record<string, {
       features: ['Clear/translucent compostable film', 'Excellent barrier properties', 'Lightweight for mailing', 'Compostable with food waste'],
       certifications: 'EN 13432 / ASTM D6400 Standard'
     }
+  },
+  'label': {
+    'pcr': {
+      problem: 'Traditional labels use virgin fossil-fuel plastics and synthetic adhesives that contaminate the recycling stream.',
+      solution: 'This PCR/bio-based paper or PLA self-adhesive label uses recycled content and eco-friendly adhesive to reduce environmental footprint.',
+      features: ['FSC-certified paper or bio-based PLA', 'High-performance eco-adhesive', 'Moisture & oil resistant options', 'Smooth application & clean print'],
+      certifications: 'FSC Certified • Bio-Based'
+    },
+    'mono': {
+      problem: 'Traditional multi-layer labels with permanent adhesives prevent the host packaging from being recycled.',
+      solution: 'This mono-material PP label uses wash-off adhesive so it separates cleanly in the recycling stream.',
+      features: ['Mono-PP film substrate', 'Wash-off adhesive technology', 'Zero label contamination in recycling', 'High-clarity or solid color options'],
+      certifications: '95% Recyclable • Wash-off Adhesive'
+    },
+    'compost': {
+      problem: 'Traditional labels rely on non-biodegradable plastics (PP/PET) and synthetic adhesives that break down into persistent microplastics, remaining in our ecosystem for centuries.',
+      solution: `Zero Microplastics. Complete Biodegradability.
+180天完全生物降解 • 零微塑料殘留
+
+Unlike traditional plastic (PP/PET) labels that break down into persistent microplastics, our PLA and FSC-paper compostable labels completely degrade under standard composting conditions. Over 180 days, microorganisms break down the face stock, bio-adhesive, and plant-based printing ink into clean biomass, water, and CO2, fully blending back into the natural eco-system.
+
+與傳統塑料標籤（PP/PET）破碎成微塑料長期污染環境不同，我們的可堆肥標籤在標準堆肥環境下會迅速被微生物分解。在180天的黃金降解周期內，面材、生物黏合劑及植物油墨將徹底轉化為有機養分、水及二氧化碳，無重金屬或化學毒素殘留。`,
+      features: [
+        'FSC-certified paper or plant-based clear PLA film substrate',
+        'Certified EN 13432 & ASTM D6400 compostable',
+        'Zero microplastics residue after 180-day degradation',
+        'Plant-based printing inks & compostable bio-adhesives',
+        '100% biodegradation returning organic nutrients to soil',
+        'High-performance water and oil resistance'
+      ],
+      certifications: 'EN 13432 / ASTM D6400 / FSC Certified'
+    }
   }
 };
 
@@ -210,7 +242,8 @@ const generateDynamicDescription = (options: {
   const shapeLC = (shape || '').toLowerCase();
   
   // Detect SKU type
-  if (nameLC.includes('coffee') || shapeLC.includes('coffee')) skuType = 'coffee';
+  if (nameLC.includes('label') || nameLC.includes('sticker') || shapeLC.includes('label') || shapeLC.includes('sticker')) skuType = 'label';
+  else if (nameLC.includes('coffee') || shapeLC.includes('coffee')) skuType = 'coffee';
   else if (nameLC.includes('tea') || shapeLC.includes('tea')) skuType = 'tea';
   else if (nameLC.includes('powder') || nameLC.includes('supplement') || nameLC.includes('protein')) skuType = 'powder';
   else if (nameLC.includes('liquid') || nameLC.includes('spout') || closure === 'Spout') skuType = 'liquid';
@@ -304,6 +337,31 @@ const ProductPage: React.FC = () => {
   const conventionalProduct = isConventionalDigital ? (product as ConventionalProduct) : null
   const ecoStockProduct = (isEcoStock || isBoxes) ? (product as EcoStockProduct | BoxProduct) : null
   
+  const allEcoDigitalImages = useMemo(() => {
+    if (product && product.images && product.images.length > 0) {
+      return product.images
+    }
+    return [
+      '/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp',
+      '/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp',
+      '/imgs/store/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp',
+      '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp',
+      '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp',
+      '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp',
+      '/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp',
+      '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp',
+      '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp',
+      '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp',
+      '/imgs/store/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp',
+      '/imgs/store/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp',
+      '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp',
+      '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp',
+      '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp',
+      '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp',
+      '/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp'
+    ]
+  }, [product])
+
   const isSheetProduct = !!(product?.name.toLowerCase().includes('paper') || product?.name.toLowerCase().includes('wrap') || (ecoStockProduct && 'shape' in ecoStockProduct && ecoStockProduct.shape.toLowerCase().includes('sheet')))
   const pluralUnit = isSheetProduct ? 'sheets' : 'pcs'
   const singleUnit = isSheetProduct ? 'sheet' : 'pc'
@@ -2318,26 +2376,6 @@ const ProductPage: React.FC = () => {
                 {/* Main Product Image */}
                 <div className="bg-neutral-50 p-6">
                   {(() => {
-                    // All eco-digital images for main showcase
-                    const allEcoDigitalImages = [
-                      '/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp',
-                      '/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp',
-                      '/imgs/store/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp',
-                      '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp',
-                      '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp',
-                      '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp',
-                      '/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp',
-                      '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp',
-                      '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp',
-                      '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp',
-                      '/imgs/store/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp',
-                      '/imgs/store/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp',
-                      '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp',
-                      '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp',
-                      '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp',
-                      '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp',
-                      '/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp'
-                    ]
                     const currentImg = allEcoDigitalImages[selectedMainImage] || allEcoDigitalImages[0]
                     return (
                       <button 
@@ -2362,25 +2400,7 @@ const ProductPage: React.FC = () => {
                 {/* Thumbnail Gallery - 2 rows */}
                 <div className="p-3 border-t border-neutral-200">
                   <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-1.5">
-                    {[
-                      '/imgs/store/eco-digital/0eQiBArdHVo_uyy12vmVid9Vc-hB8Msln4h0Oddu4dQ=.webp',
-                      '/imgs/store/eco-digital/1k3ig0ezuHcds_30mxxPOgFL-qeSwHc8uuzElo2-GP4=.webp',
-                      '/imgs/store/eco-digital/7CWxuO-mB4GevbYtCFnSFfzuCLECtUQ8AjuleiT4vAk=.webp',
-                      '/imgs/store/eco-digital/AvEbY4SX8gwP2SzENbSen8dnT_kTrrk8VN6siqp1B2I=.webp',
-                      '/imgs/store/eco-digital/D_Ec0HTDnnSvukUxwY-fJNRDhAjAWxtRnjMmkr63vlk=.webp',
-                      '/imgs/store/eco-digital/LQ5WGOrIkQPzbXSfWupAIFvVrlyL9lvZoMKc35bbHPw=.webp',
-                      '/imgs/store/eco-digital/MPRxOw-bWF57OrAxie9J1CXjpM4HKHUUkoMKHeflN6E=.webp',
-                      '/imgs/store/eco-digital/TKAqlW4KL2xV9glNA91iuD_sYEvp2G29eWT4819Ne1g=.webp',
-                      '/imgs/store/eco-digital/X5RkmCe76z3hyMvMr6Yvb5RjclkrdDjh2rNvGIRqgWU=.webp',
-                      '/imgs/store/eco-digital/YoIBVbbSdfCfRc5654ldAbT_L3N5rKcJk__lYon7YmU=.webp',
-                      '/imgs/store/eco-digital/bUr_Wdvkcyq2aH95-oFtusPsS5YMJ2jZ6tjm74mHEr4=.webp',
-                      '/imgs/store/eco-digital/ghEYoZQN4q_bq5SzDz94a_q95YbMZS933hJEnuImpmc=.webp',
-                      '/imgs/store/eco-digital/hAGC60SxXYmSdiBTJD3XPhMZBocRVBXZyuV-dvt3r7c=.webp',
-                      '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp',
-                      '/imgs/store/eco-digital/vxuLNp13OWRZXhe-qkwn3UgHCWirk5TzBLhB7q8JJ30=.webp',
-                      '/imgs/store/eco-digital/wXqLssPqdR9J0iDhIyQ-NGTDDFm-3DgFKlyQD4ipsEw=.webp',
-                      '/imgs/store/eco-digital/zwwZAmSiOHouQPEkkT_Wwz5rhX13CtgkT8LqvNnoJ5w=.webp'
-                    ].map((img, index) => (
+                    {allEcoDigitalImages.map((img, index) => (
                       <button
                         key={index}
                         onClick={() => startTransition(() => setSelectedMainImage(index))}
@@ -3021,7 +3041,7 @@ const ProductPage: React.FC = () => {
                           <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                             <span className="text-amber-600 text-sm">❓</span>
                           </div>
-                          <p className="text-sm text-neutral-700 leading-relaxed">{dynamicInfo.problem}</p>
+                          <p className="text-sm text-neutral-700 leading-relaxed whitespace-pre-line">{dynamicInfo.problem}</p>
                         </div>
                       </div>
                       {/* Solution */}
@@ -3030,7 +3050,27 @@ const ProductPage: React.FC = () => {
                           <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                             <span className="text-green-600 text-sm">✓</span>
                           </div>
-                          <p className="text-sm text-green-800 leading-relaxed font-medium">{dynamicInfo.solution}</p>
+                          <div className="flex-1">
+                            {dynamicInfo.skuType === 'label' && dynamicInfo.materialType === 'compost' ? (
+                              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-0.5">
+                                <div className="md:col-span-7">
+                                  <p className="text-sm text-green-800 leading-relaxed font-medium whitespace-pre-line">{dynamicInfo.solution}</p>
+                                </div>
+                                <div className="md:col-span-5">
+                                  <div className="relative group overflow-hidden rounded-xl border border-green-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
+                                    <img
+                                      src="/taobao/compostable-label/compostable-labels-7.jpg"
+                                      alt="180-Day Degradation Process"
+                                      className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
+                                    />
+                                    <div className="absolute inset-0 bg-green-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg" />
+                                  </div>
+                                </div>
+                              </div>
+                            ) : (
+                              <p className="text-sm text-green-800 leading-relaxed font-medium whitespace-pre-line">{dynamicInfo.solution}</p>
+                            )}
+                          </div>
                         </div>
                       </div>
                       {/* Material & Size */}

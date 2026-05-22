@@ -96,6 +96,7 @@ const SHAPES = [
   { id: 'Mailer Bag', label: 'Mailer Bag' },
   { id: 'Corrugated Box', label: 'Corrugated Box' },
   { id: 'Tuck Box', label: 'Tuck Box' },
+  { id: 'Label & Sticker', label: 'Label & Sticker' },
 ]
 
 const STORE_FEATURES = [
