@@ -4193,6 +4193,108 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         heroImageIndex: 7
       }
     ]
+  },
+  // Premium PLA Biodegradable Clear Sealing Sticker
+  {
+    id: 'eco-pla-sealing-sticker',
+    name: 'Premium PLA Biodegradable Clear Sealing Sticker',
+    category: 'eco-stock',
+    description: 'High-performance, 100% plant-based compostable transparent circular stickers with high-performance bio-adhesive. Perfect for retail box sealing, hygienic protection, and eco-friendly food packaging. Completely degrades into natural organic compounds in less than 14 weeks (98 days) under composting conditions, leaving zero microplastics or toxic residue.',
+    shortDesc: 'Certified compostable premium clear circular PLA sealing stickers and packaging labels',
+    features: [
+      '100% Plant-Based Clear PLA Film',
+      'High-Performance Compostable Acrylic Bio-Adhesive',
+      'Complete Biodegradation in ≤14 Weeks (98 Days)',
+      'Waterproof, Oil-resistant, and High-Tack Adhesion',
+      'Zero Microplastics and Zero Toxic Chemicals'
+    ],
+    images: [
+      '/taobao/pla-sticker/pla-sticker-cover.png',
+      '/taobao/pla-sticker/pla-sticker-roll.jpg',
+      '/taobao/pla-sticker/pla-sticker-features.png',
+      '/taobao/pla-sticker/pla-sticker-details.jpg',
+      '/taobao/pla-sticker/pla-sticker-comparison.jpg',
+      '/taobao/pla-sticker/pla-sticker-custom-sizes.jpg',
+      '/taobao/pla-sticker/pla-sticker-banner.jpg'
+    ],
+    badge: '🌱 14-Week Biodegradable',
+    rating: 4.9,
+    reviews: 124,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 1,
+    shape: 'Label & Sticker',
+    material: 'Certified Compostable Clear PLA Film & Acrylic Bio-Adhesive',
+    basePrice: 9.90,
+    pricePerPiece: 0.0099,
+    minQuantity: 1,
+    quantityStep: 1,
+    sizeInfo: 'Diameter: 20mm / 25mm / 30mm / 35mm / 40mm / 50mm (1,000 Pcs/Pack)',
+    shelfLife: '12 months under dry & cool conditions',
+    certification: 'DIN CERTCO, TUV OK Compost Industrial, EN 13432, ASTM D6400',
+    customPrintNote: 'Custom sizes and logo print available from 10,000+ pieces. Please consult our team.',
+    sizeVariants: [
+      {
+        id: 'pla-sticker-dia-20-1000pcs',
+        label: 'Diameter 20 mm (1,000 Pcs / Pack)',
+        dimensions: 'Dia 20 mm • Transparent Circle • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 9.90,
+        unitPrice: 0.0099,
+        heroImageIndex: 0
+      },
+      {
+        id: 'pla-sticker-dia-25-1000pcs',
+        label: 'Diameter 25 mm (1,000 Pcs / Pack)',
+        dimensions: 'Dia 25 mm • Transparent Circle • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 11.90,
+        unitPrice: 0.0119,
+        heroImageIndex: 0
+      },
+      {
+        id: 'pla-sticker-dia-30-1000pcs',
+        label: 'Diameter 30 mm (1,000 Pcs / Pack)',
+        dimensions: 'Dia 30 mm • Transparent Circle • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 13.90,
+        unitPrice: 0.0139,
+        heroImageIndex: 0
+      },
+      {
+        id: 'pla-sticker-dia-35-1000pcs',
+        label: 'Diameter 35 mm (1,000 Pcs / Pack)',
+        dimensions: 'Dia 35 mm • Transparent Circle • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 16.90,
+        unitPrice: 0.0169,
+        heroImageIndex: 0
+      },
+      {
+        id: 'pla-sticker-dia-40-1000pcs',
+        label: 'Diameter 40 mm (1,000 Pcs / Pack)',
+        dimensions: 'Dia 40 mm • Transparent Circle • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 19.90,
+        unitPrice: 0.0199,
+        heroImageIndex: 0
+      },
+      {
+        id: 'pla-sticker-dia-50-1000pcs',
+        label: 'Diameter 50 mm (1,000 Pcs / Pack)',
+        dimensions: 'Dia 50 mm • Transparent Circle • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 24.90,
+        unitPrice: 0.0249,
+        heroImageIndex: 1
+      }
+    ]
   }
 ]
 
@@ -4236,7 +4338,7 @@ export const getProductType = (product: StoreProduct): ProductType => {
   if (product.category === 'conventional-digital') return 'stock'
   if (product.category === 'eco-stock') {
     // Override for eco-custom-label which contains '-custom' but is ready-made stock
-    if (product.id === 'eco-custom-label') return 'stock'
+    if (product.id === 'eco-custom-label' || product.id === 'eco-pla-sealing-sticker') return 'stock'
     // Check if it's a custom print version
     if (product.id.includes('-custom')) return 'custom'
     return 'stock'
@@ -4260,7 +4362,7 @@ export const getProductSubCategory = (product: StoreProduct): ProductSubCategory
   if (product.category === 'conventional-digital') return 'conventional-digital'
   if (product.category === 'eco-stock') {
     // Override for eco-custom-label which contains '-custom' but is ready-made stock
-    if (product.id === 'eco-custom-label') return 'eco-stock-plain'
+    if (product.id === 'eco-custom-label' || product.id === 'eco-pla-sealing-sticker') return 'eco-stock-plain'
     if (product.id.includes('-custom')) return 'eco-stock-custom-print'
     return 'eco-stock-plain'
   }
@@ -4276,4 +4378,5 @@ export const isProductPurchasable = (product: StoreProduct): boolean => {
   const type = getProductType(product)
   return type === 'sample' || type === 'stock'
 }
+
 

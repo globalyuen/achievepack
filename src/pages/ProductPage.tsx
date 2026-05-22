@@ -1896,6 +1896,114 @@ const ProductPage: React.FC = () => {
                       </div>
                     </div>
                   </div>
+                ) : product.id === 'eco-pla-sealing-sticker' ? (
+                  <div className="bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-200 rounded-xl overflow-hidden w-full">
+                    {/* Problem */}
+                    <div className="px-5 pt-5 pb-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-amber-600 text-sm">❓</span>
+                        </div>
+                        <p className="text-sm text-neutral-700 leading-relaxed">
+                          Traditional adhesive sealing tapes and stickers use persistent plastic backing (PET/PVC/BOPP) and toxic solvent adhesives that leave non-biodegradable waste on packages, polluting recycling streams.
+                        </p>
+                      </div>
+                    </div>
+                    {/* Solution */}
+                    <div className="px-5 pb-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-emerald-600 text-sm">✓</span>
+                        </div>
+                        <div className="flex-1">
+                          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-0.5">
+                            <div className="md:col-span-7">
+                              <h4 className="text-sm font-bold text-emerald-800 mb-1">≤14-Week Rapid Composting. 100% Non-Toxic.</h4>
+                              <p className="text-xs font-semibold text-emerald-700 mb-2">≤14周完全生物降解 • 燃燒無刺鼻毒氣</p>
+                              <p className="text-xs text-neutral-700 leading-relaxed mb-2">
+                                Made from 100% plant-based compostable PLA film and high-performance bio-adhesive. Under industrial composting conditions, these stickers completely break down in less than 14 weeks (98 days) into organic biomass, water, and CO2 with absolutely zero microplastics.
+                              </p>
+                              <p className="text-[11px] text-emerald-650 leading-relaxed italic">
+                                採用100%天然植物源PLA膜材與環保生物粘合劑。在工業堆肥環境下可在14周（98天）內完全分解為有機物質、水和二氧化碳，不殘留任何微塑料，安全環保。
+                              </p>
+                            </div>
+                            <div className="md:col-span-5">
+                              <div className="relative group overflow-hidden rounded-xl border border-emerald-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
+                                <img
+                                  src="/taobao/pla-sticker/pla-sticker-compostable-timeline.jpg"
+                                  alt="≤14-Week Composting Timeline"
+                                  className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Combustion Test Section */}
+                    <div className="px-5 pb-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-amber-600 text-sm">🔥</span>
+                        </div>
+                        <div className="flex-1">
+                          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-0.5">
+                            <div className="md:col-span-7">
+                              <h4 className="text-sm font-bold text-neutral-800 mb-1">Combustion Safety Test: PLA vs. PET</h4>
+                              <p className="text-xs font-semibold text-neutral-700 mb-2">燃燒對比測試：草木灰味 vs. 刺鼻塑料</p>
+                              <ul className="text-xs text-neutral-600 list-disc pl-4 space-y-1">
+                                <li>
+                                  <strong className="text-emerald-700">Compostable PLA:</strong> Burns cleanly with a mild scent of grass/wood ash. The sticker body remains structurally solid and intact as ash until extinguished.
+                                </li>
+                                <li>
+                                  <strong className="text-amber-700">Regular PET Plastic:</strong> Melts rapidly with severe toxic dripping, producing a highly pungent and hazardous chemical plastic smell.
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="md:col-span-5">
+                              <div className="relative group overflow-hidden rounded-xl border border-neutral-200 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
+                                <img
+                                  src="/taobao/pla-sticker/pla-sticker-combustion.png"
+                                  alt="Combustion Test Comparison"
+                                  className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Material & Specs */}
+                    <div className="px-5 pb-3 space-y-2">
+                      <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                        <span className="font-semibold text-emerald-700">Material:</span> Certified Compostable Clear PLA Film & Bio-Adhesive, breaks down in ≤14 weeks, zero microplastics.
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                          <span className="font-medium">📐 Size: {selectedSizeVariant ? ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label : 'Diameter 20 mm (1,000 Pcs / Pack)'}</span>
+                        </div>
+                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                          <span className="font-medium">🔒 Bio-Adhesive Backing</span>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Features */}
+                    <div className="px-5 pb-4">
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>100% Plant-based PLA Film</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Compostable Bio-Adhesive</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>≤14-Week Composting Timeline</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Zero Microplastics Residue</span></div>
+                      </div>
+                    </div>
+                    {/* Footer */}
+                    <div className="bg-emerald-100/50 px-5 py-3 border-t border-emerald-200">
+                      <div className="flex flex-wrap items-center gap-2 text-xs">
+                        <span className="bg-emerald-600 text-white px-2 py-0.5 rounded-full font-medium">DIN CERTCO / TUV OK Compost</span>
+                        <span className="text-emerald-700"><span className="font-medium">Ideal for:</span> Premium cosmetics, gift wrapping, glass jar packaging, carton box seals</span>
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl overflow-hidden">
                     <div className="px-5 pt-5 pb-3">
