@@ -525,6 +525,9 @@ const ProductPage: React.FC = () => {
         if (parsed.size) setSelectedSizeCode(parsed.size);
         if (parsed.color) setSelectedColorCode(parsed.color);
         if (parsed.qty) setSelectedQtyVal(parsed.qty);
+        if (activeVariant.heroImageIndex !== undefined) {
+          setSelectedMainImage(activeVariant.heroImageIndex);
+        }
       }
     }
   }, [selectedSizeVariant, ecoStockProduct, isEcoStock]);
@@ -2281,10 +2284,26 @@ const ProductPage: React.FC = () => {
                         <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500">
                           🎨 Select Pattern & Style
                         </label>
-                        <div className="flex flex-wrap gap-4">
+                        <div className={product.id === 'textured-burlap-cork-pattern-coffee-pouch-with-valve' ? "grid grid-cols-2 sm:grid-cols-4 gap-2.5" : "flex flex-wrap gap-4"}>
                           {uniqueColors.map((colorCode) => {
                             const colorInfo = colorInfoMap[colorCode] || { name: colorCode, swatchClass: 'bg-neutral-200' };
                             const isSelected = selectedColorCode === colorCode;
+                            if (product.id === 'textured-burlap-cork-pattern-coffee-pouch-with-valve') {
+                              return (
+                                <button
+                                  key={colorCode}
+                                  type="button"
+                                  onClick={() => handleSelectDimension('color', colorCode)}
+                                  className={`p-3 rounded-xl border text-center transition-all duration-200 flex flex-col justify-center items-center relative overflow-hidden ${
+                                    isSelected
+                                      ? 'border-emerald-600 bg-emerald-50/50 ring-2 ring-emerald-600/20 text-emerald-950 font-semibold shadow-sm'
+                                      : 'border-neutral-200 bg-white text-neutral-600 hover:border-neutral-350 hover:bg-neutral-50/50'
+                                  }`}
+                                >
+                                  <span className="text-xs font-semibold">{colorInfo.name}</span>
+                                </button>
+                              );
+                            }
                             return (
                               <button
                                 key={colorCode}
