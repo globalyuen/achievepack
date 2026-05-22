@@ -11,6 +11,15 @@ const diagramGallery = [
   { src: '/taobao/compostable-label/certifications_applications.svg', title: 'Compliance & B2B Use-Cases', desc: 'Our extensive certification matrix (FSC, TÜV, FDA, SGS) and professional packaging applications.' }
 ]
 
+const photoGallery = [
+  { src: '/taobao/compostable-label/compostable-labels-1.jpg', title: 'Achieve Pack Eco-Conscious Labels', titleCn: 'Achieve Pack 品牌環保貼紙捲料', desc: 'Custom printed food, supplement, and cosmetic labels in high-density rolls with vibrant vegetable ink.' },
+  { src: '/taobao/compostable-label/compostable-labels-2.png', title: 'Beū Sustainable Body Scrub Label', titleCn: 'Beū 有機化妝品生物降解貼紙', desc: 'Premium moisture-resistant plant PLA face stock with compostable adhesive and soy-based printing.' },
+  { src: '/taobao/compostable-label/compostable-labels-3.png', title: 'Sustainable Direct Thermal Labels', titleCn: 'BPI認證熱敏物流快遞標籤', desc: 'BPI certified and compostable direct thermal label rolls with recyclable liner and eco-conscious thermal coating.' },
+  { src: '/taobao/compostable-label/compostable-label-process.png', title: 'Compostable Label Printing Process Diagram', titleCn: '可堆肥標籤專業生產印刷與質檢工藝流程', desc: 'Detailed B2B commercial manufacturing process breakdown including raw material slitting, advanced digital printing, die-cutting, inline calibration, and automated packaging.' }
+]
+
+const fullGallery = [...diagramGallery, ...photoGallery]
+
 const CustomCompostableLabelsPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
@@ -18,9 +27,9 @@ const CustomCompostableLabelsPage: React.FC = () => {
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
-    if (newIndex < 0) newIndex = diagramGallery.length - 1
-    if (newIndex >= diagramGallery.length) newIndex = 0
-    setGalleryEnlarged({ src: diagramGallery[newIndex].src, index: newIndex })
+    if (newIndex < 0) newIndex = fullGallery.length - 1
+    if (newIndex >= fullGallery.length) newIndex = 0
+    setGalleryEnlarged({ src: fullGallery[newIndex].src, index: newIndex })
   }
 
   // Alternating layout component
@@ -234,6 +243,143 @@ const CustomCompostableLabelsPage: React.FC = () => {
       )
     },
     {
+      id: 'process',
+      title: 'Manufacturing & Printing Process • 專業印刷與工藝流程',
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-8">
+          <div className="bg-white p-6 rounded-xl border border-neutral-200">
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">Precision Manufacturing Workflow • 嚴謹的生產印刷工藝</h3>
+            <p className="text-neutral-700 leading-relaxed mb-4 text-sm">
+              Our compostable labels are manufactured in our state-of-the-art 3,200 m² clean facility. We implement a standard multi-stage quality check to ensure that the physical performance of the labels meets rigorous international compostability standards (EN 13432 & BPI) while retaining excellent printing clarity and premium shelf appeal.
+            </p>
+            <p className="text-neutral-600 leading-relaxed text-sm">
+              我們的可堆肥環保標籤在 3,200 ㎡ 的無塵淨化車間中進行精準生產。我們實施嚴格的多階段品質檢測體系，在保證卓越印刷色彩和防潮防油性能的同時，完全符合歐盟 EN 13432 與北美 BPI 的嚴苛降解認證。
+            </p>
+          </div>
+
+          <div className="block rounded-xl overflow-hidden shadow-lg border border-neutral-100 p-3 bg-white hover:shadow-xl transition-all">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/taobao/compostable-label/compostable-label-process.png', index: fullGallery.findIndex(g => g.src.includes('process')) })}
+              className="block w-full rounded-lg overflow-hidden bg-neutral-50 flex items-center justify-center cursor-pointer group border-0 p-0"
+            >
+              <img 
+                src="/taobao/compostable-label/compostable-label-process.png" 
+                alt="Compostable Label Manufacturing & Quality Check Process" 
+                className="w-full h-auto max-h-[600px] object-contain group-hover:scale-[1.01] transition-transform duration-300 rounded-lg" 
+                loading="lazy" 
+              />
+            </button>
+            <div className="px-4 py-3 bg-neutral-50 text-center rounded-lg mt-3">
+              <span className="text-xs font-semibold text-neutral-800 block">Click to view full workflow • 點擊放大查看完整生產質檢流程</span>
+              <span className="text-[10px] text-neutral-500 block mt-1">High-Speed Digital Printing & Multi-layered Inline Quality Control System</span>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-xl border border-neutral-200">
+              <h4 className="font-bold text-neutral-900 mb-3 flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-green-600" />
+                Step-by-Step Production Process
+              </h4>
+              <ul className="space-y-3 text-sm text-neutral-600">
+                <li className="flex items-start gap-2">
+                  <span className="bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded text-xs mt-0.5">1</span>
+                  <div>
+                    <strong>Raw Material Slitting (分切原料)</strong>: Precision high-speed mechanical slitting of FSC wood pulp paper and plant starch PLA films to specified rolls.
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded text-xs mt-0.5">2</span>
+                  <div>
+                    <strong>High-Speed Digital Printing (數碼印刷)</strong>: Multi-color printing on state-of-the-art HP Indigo presses using certified vegetable/soy-based compostable inks.
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded text-xs mt-0.5">3</span>
+                  <div>
+                    <strong>Advanced Die-Cutting (模切工藝)</strong>: Precision custom shape kiss-cutting utilizing automated high-definition rotary tooling.
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded text-xs mt-0.5">4</span>
+                  <div>
+                    <strong>Inline Quality Control (在線檢測)</strong>: Multi-layered computer vision and sensor array for real-time print defect and alignment calibration.
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded text-xs mt-0.5">5</span>
+                  <div>
+                    <strong>Automated Packaging & Palletizing (自動包裝)</strong>: Wrapping and packaging finished rolls into protective recyclable cartons to ensure moisture safety during global transit.
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded text-xs mt-0.5">6</span>
+                  <div>
+                    <strong>Quality Assured Warehousing (入庫發貨)</strong>: Temperature and humidity-controlled storage before custom DHL/FedEx air delivery.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border border-neutral-200 flex flex-col justify-between">
+              <div>
+                <h4 className="font-bold text-neutral-900 mb-3 flex items-center gap-2">
+                  <Award className="h-5 w-5 text-green-600" />
+                  Premium Printing Technical Advantages
+                </h4>
+                <div className="space-y-4 text-sm text-neutral-600">
+                  <p>
+                    • <strong>Vibrant Soy Inks (環保大豆油墨)</strong>: Deep, rich color profiles matching standard Pantone values without releasing harmful volatile organic compounds (VOCs).
+                  </p>
+                  <p>
+                    • <strong>Micro-Calibrated Die (高精度模切)</strong>: Automated alignment within <strong>±0.15mm</strong>, perfect for high-speed machine labeling application without peeling failures.
+                  </p>
+                  <p>
+                    • <strong>100% Core Traceability (核心筒芯追溯)</strong>: Cardboard cores printed with brand credentials (such as <strong>pouch.eco</strong> and <strong>achievepack.com</strong>), providing reliable certification verification.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-primary-50 p-4 rounded-lg border border-primary-100 text-xs text-primary-800 mt-4">
+                <p className="font-semibold mb-1">Custom Mockups & Proofing Available:</p>
+                <p>We provide complimentary pre-production layout proofing within 24 hours. Contact our specialist today for your packaging line.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'gallery',
+      title: 'Real-World Production & Samples • 真實樣品展示',
+      icon: <Users className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700 leading-relaxed">
+            Take a look at our actual production runs and premium eco-friendly label rolls manufactured in our dust-free facility. Custom printed for <strong>Achieve Pack</strong> and <strong>pouch.eco</strong> with certified soy-based compostable inks.
+          </p>
+          <p className="text-neutral-600 text-sm leading-relaxed">
+            歡迎查看我們在無塵車間製造的真實堆肥標籤與貼紙捲料。採用植物大豆環保油墨印刷，具備出色的色彩與細節表現，專為 <strong>Achieve Pack</strong> 與 <strong>pouch.eco</strong> 高端品牌量身定制。
+          </p>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {photoGallery.map((photo, i) => (
+              <button 
+                key={i}
+                onClick={() => setGalleryEnlarged({ src: photo.src, index: diagramGallery.length + i })}
+                className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all cursor-pointer group bg-white border border-neutral-100 p-2 text-left w-full"
+              >
+                <div className="rounded-lg overflow-hidden h-48 bg-neutral-50 flex items-center justify-center">
+                  <img src={photo.src} alt={photo.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300 rounded-lg" loading="lazy" />
+                </div>
+                <div className="bg-neutral-50 px-3 py-2 text-xs font-semibold text-neutral-800 text-center mt-2 rounded-md truncate">{photo.titleCn}</div>
+                <div className="px-3 pb-2 text-[10px] text-neutral-500 text-center truncate">{photo.title}</div>
+              </button>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'specs',
       title: 'Product Specifications & Pricing Matrix',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
@@ -426,14 +572,14 @@ const CustomCompostableLabelsPage: React.FC = () => {
           </button>
           <img
             src={galleryEnlarged.src}
-            alt={diagramGallery[galleryEnlarged.index]?.title}
+            alt={fullGallery[galleryEnlarged.index]?.title}
             className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl bg-white p-4"
             onClick={(e) => e.stopPropagation()}
           />
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-center max-w-xl px-4">
-            <p className="font-bold text-lg">{diagramGallery[galleryEnlarged.index]?.title}</p>
-            <p className="text-sm text-white/80 mt-1 leading-relaxed">{diagramGallery[galleryEnlarged.index]?.desc}</p>
-            <p className="text-xs text-white/50 mt-2 font-mono">{galleryEnlarged.index + 1} / {diagramGallery.length}</p>
+            <p className="font-bold text-lg">{fullGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-sm text-white/80 mt-1 leading-relaxed">{fullGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-xs text-white/50 mt-2 font-mono">{galleryEnlarged.index + 1} / {fullGallery.length}</p>
           </div>
         </div>
       )}

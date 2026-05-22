@@ -875,6 +875,10 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     shortDesc: 'From US$60 for 1,000 pcs (FSC Certified & Compostable PLA)',
     features: ['100% Compostable PLA or Paper', 'FSC® Forest Certified', 'Food-Grade Adhesive', 'Vibrant Soy-Based Inks'],
     images: [
+      '/taobao/compostable-label/compostable-labels-1.jpg',
+      '/taobao/compostable-label/compostable-labels-2.png',
+      '/taobao/compostable-label/compostable-labels-3.png',
+      '/taobao/compostable-label/compostable-label-process.png',
       '/taobao/compostable-label/eco_friendly_stickers.svg',
       '/taobao/compostable-label/composting_degradation.svg',
       '/taobao/compostable-label/certifications_applications.svg'
