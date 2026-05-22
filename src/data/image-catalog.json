@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-22",
-  "total_images": 1390,
-  "total_categories": 155,
+  "total_images": 1391,
+  "total_categories": 156,
   "extensions": {
     ".webp": 1082,
     ".png": 257,
-    ".jpg": 48,
+    ".jpg": 49,
     ".svg": 3
   },
   "categories": {
@@ -4115,6 +4115,17 @@
           "path": "/imgs/legal/quality-control.png",
           "extension": ".png",
           "modified": "2026-05-15T03:15:45.318Z"
+        }
+      ]
+    },
+    "materials": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "combustion-safety-test.jpg",
+          "path": "/imgs/materials/combustion-safety-test.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-22T07:00:41.910Z"
         }
       ]
     },

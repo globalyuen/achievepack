@@ -104,6 +104,7 @@ export default function Footer() {
               <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE (Plant-Based)</Link></li>
               <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR (Recycled Content)</Link></li>
               <li><Link to="/materials/plastic-free-kraft" className="hover:text-primary-400 font-medium text-primary-400">Plastic-Free Kraft <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/materials/combustion-safety-test" className="hover:text-primary-400 font-medium text-primary-400">Combustion Safety Test <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
           

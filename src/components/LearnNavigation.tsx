@@ -40,6 +40,7 @@ const LEARN_PAGES = {
       { name: 'Recyclable Mono PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
       { name: 'Bio-PE', link: '/materials/bio-pe', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
       { name: 'PCR Recycled', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
+      { name: 'Combustion Safety Test', link: '/materials/combustion-safety-test', image: '/imgs/materials/combustion-safety-test.jpg' },
     ]
   },
   industries: {

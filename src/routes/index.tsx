@@ -57,6 +57,7 @@ const BioPEPage = lazy(() => import('../pages/materials/BioPEPage'));
 const PCRPage = lazy(() => import('../pages/materials/PCRPage'));
 const HomeCompostablePage = lazy(() => import('../pages/materials/HomeCompostablePage'));
 const IndustrialCompostablePage = lazy(() => import('../pages/materials/IndustrialCompostablePage'));
+const CombustionSafetyTestPage = lazy(() => import('../pages/materials/CombustionSafetyTestPage'));
 
 // Printing Pages
 const DigitalPrintingPage = lazy(() => import('../pages/printing/DigitalPrintingPage'));
@@ -256,6 +257,7 @@ const routes = [
   { path: "/materials/pcr", element: <LazyRoute component={() => import('../pages/materials/PCRPage')} fallback={<LoadingFallback />} /> },
   { path: "/materials/home-compostable", element: <LazyRoute component={() => import('../pages/materials/HomeCompostablePage')} fallback={<LoadingFallback />} /> },
   { path: "/materials/industrial-compostable", element: <LazyRoute component={() => import('../pages/materials/IndustrialCompostablePage')} fallback={<LoadingFallback />} /> },
+  { path: "/materials/combustion-safety-test", element: <LazyRoute component={() => import('../pages/materials/CombustionSafetyTestPage')} fallback={<LoadingFallback />} /> },
 
   // Printing Pages
   { path: "/printing/digital-printing", element: <LazyRoute component={() => import('../pages/printing/DigitalPrintingPage')} fallback={<LoadingFallback />} /> },

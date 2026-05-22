@@ -61,6 +61,7 @@ export default function StoreFooter() {
               <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
               <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR</Link></li>
               <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
+              <li><Link to="/materials/combustion-safety-test" className="hover:text-primary-400">Combustion Test</Link></li>
             </ul>
           </div>
 
