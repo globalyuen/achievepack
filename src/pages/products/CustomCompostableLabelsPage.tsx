@@ -11,7 +11,7 @@ import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 // Branded vector graphics from public/taobao/compostable-label/
 const diagramGallery = [
   { src: '/taobao/compostable-label/eco_friendly_stickers.svg', title: 'Compostable Layer Structure', desc: 'Exploded engineering view of our FSC face stock, soy-ink, bio-adhesive, and glassine liner.' },
-  { src: '/taobao/compostable-label/composting_degradation.svg', title: '180-Day Degradation Timeline', desc: 'Complete breakdown process showing how the label returns safely to the soil leaving zero microplastics.' },
+  { src: '/taobao/compostable-label/compostable-labels-7.jpg', title: '180-Day Degradation Timeline', desc: 'Complete breakdown process showing how the label returns safely to the soil leaving zero microplastics.' },
   { src: '/taobao/compostable-label/certifications_applications.svg', title: 'Compliance & B2B Use-Cases', desc: 'Our extensive certification matrix (FSC, TÜV, FDA, SGS) and professional packaging applications.' }
 ]
 
@@ -533,14 +533,14 @@ const CustomCompostableLabelsPage: React.FC = () => {
       content: (
         <div className="space-y-8">
           <AlternatingSection
-            image="/taobao/compostable-label/composting_degradation.svg"
+            image="/taobao/compostable-label/compostable-labels-7.jpg"
             imageAlt="180-day composting degradation timeline"
             title="Zero Microplastics. Complete Biodegradability."
             titleCn="180天完全生物降解 • 零微塑料殘留"
             content="Unlike traditional plastic (PP/PET) labels that break down into persistent microplastics, our PLA and FSC-paper compostable labels completely degrade under standard composting conditions. Over 180 days, microorganisms break down the face stock, bio-adhesive, and plant-based printing ink into clean biomass, water, and CO2, fully blending back into the natural eco-system."
             contentCn="與傳統塑料標籤（PP/PET）破碎成微塑料長期污染環境不同，我們的可堆肥標籤在標準堆肥環境下會迅速被微生物分解。在180天的黃金降解周期內，面材、生物黏合劑及植物油墨將徹底轉化為有機養分、水及二氧化碳，無重金屬或化學毒素殘留。"
             imageLeft={false}
-            index={1}
+            index={fullGallery.findIndex(g => g.src.includes('labels-7'))}
           />
 
           <div className="grid md:grid-cols-2 gap-6 bg-white p-6 rounded-xl border border-neutral-200">
