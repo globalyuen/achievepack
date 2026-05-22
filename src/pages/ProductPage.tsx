@@ -289,6 +289,82 @@ const generateDynamicDescription = (options: {
   };
 };
 
+const colorInfoMap: Record<string, { name: string; swatchClass: string }> = {
+  'matte-silver': { name: 'Matte Silver', swatchClass: 'bg-neutral-300 border-neutral-400' },
+  'forest-green': { name: 'Forest Green', swatchClass: 'bg-emerald-800 border-emerald-950 text-white' },
+  'ruby-red': { name: 'Ruby Red', swatchClass: 'bg-red-700 border-red-900 text-white' },
+  'cream-white': { name: 'Cream White', swatchClass: 'bg-[#FAF9F6] border-neutral-300' },
+  'vibrant-orange': { name: 'Vibrant Orange', swatchClass: 'bg-orange-500 border-orange-700 text-white' },
+  'matte-black': { name: 'Matte Black', swatchClass: 'bg-neutral-900 border-black text-white' },
+  'natural-linen': { name: 'Natural Linen', swatchClass: 'bg-[#C2A67D] border-[#8c7452] text-neutral-900' },
+  'natural-cork': { name: 'Natural Cork', swatchClass: 'bg-[#D2B48C] border-[#a07c50] text-neutral-900' },
+  'charcoal-linen': { name: 'Charcoal Linen', swatchClass: 'bg-[#2F3E46] border-[#1f282d] text-white' },
+  'white-linen': { name: 'White Linen', swatchClass: 'bg-[#F4F4F9] border-neutral-300 text-neutral-900' },
+};
+
+const parseVariant = (variant: any, productId: string) => {
+  let size = '';
+  let color = '';
+  let qty = variant.quantity;
+
+  if (productId === 'flat-bottom-pouch-tin-tie') {
+    const match = variant.id.match(/tin-tie-pouch-([^-]+)-([^-]+-[^-]+)-(\d+)pcs/);
+    if (match) {
+      size = match[1];
+      color = match[2];
+    }
+  } else if (productId === 'coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip') {
+    const match = variant.id.match(/hanging-strip-pouch-([^-]+)-([^-]+-[^-]+)-(\d+)pcs/);
+    if (match) {
+      size = match[1];
+      color = match[2];
+    }
+  } else if (productId === 'textured-burlap-cork-pattern-coffee-pouch-with-valve') {
+    const match = variant.id.match(/coffee-valve-pouch-([^-]+)-([^-]+-[^-]+)-(\d+)pcs/);
+    if (match) {
+      size = match[1];
+      color = match[2];
+    }
+  }
+
+  if (!size || !color) {
+    const parts = variant.id.split('-');
+    if (parts.length >= 5) {
+      size = parts[3];
+      color = parts.slice(4, parts.length - 1).join('-');
+    }
+  }
+
+  return { size: size.toUpperCase(), color, qty };
+};
+
+const getSizeDetails = (sizeCode: string, productId: string) => {
+  if (productId === 'flat-bottom-pouch-tin-tie') {
+    const details: Record<string, { label: string; sub: string }> = {
+      '125G': { label: 'Size S (125g)', sub: 'W11 × H20 + G9.5 cm • holds ~125g' },
+      '250G': { label: 'Size M (250g)', sub: 'W14 × H20 + G9.5 cm • holds ~250g' },
+      '500G': { label: 'Size L (500g)', sub: 'W19 × H25 + G11 cm • holds ~500g' },
+      '750G': { label: 'Size XL (750g)', sub: 'W25 × H30 + G13 cm • holds ~750g' },
+    };
+    return details[sizeCode] || { label: `Size ${sizeCode}`, sub: '' };
+  } else if (productId === 'coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip') {
+    const details: Record<string, { label: string; sub: string }> = {
+      'S': { label: 'Size S', sub: 'W14.5 × H14 + G9 cm • holds ~160g' },
+      'M': { label: 'Size M', sub: 'W17 × H15.5 + G9.5 cm • holds ~185g' },
+      'L': { label: 'Size L', sub: 'W21.5 × H20 + G10 cm • holds ~530g' },
+    };
+    return details[sizeCode] || { label: `Size ${sizeCode}`, sub: '' };
+  } else if (productId === 'textured-burlap-cork-pattern-coffee-pouch-with-valve') {
+    const details: Record<string, { label: string; sub: string }> = {
+      'S': { label: 'Size S (1/4 lb)', sub: '160 × 170 + 60 mm • holds ~120g' },
+      'M': { label: 'Size M (1/2 lb)', sub: '190 × 200 + 70 mm • holds ~250g' },
+      'L': { label: 'Size L (1 lb)', sub: '230 × 260 + 80 mm • holds ~500g' },
+    };
+    return details[sizeCode] || { label: `Size ${sizeCode}`, sub: '' };
+  }
+  return { label: sizeCode, sub: '' };
+};
+
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
   const { addToCart, addToRfq, cartCount, setIsCartOpen, setActiveCartMode } = useStore()
@@ -381,6 +457,9 @@ const ProductPage: React.FC = () => {
   // Eco Stock product options
   const [selectedEcoStockQuantity, setSelectedEcoStockQuantity] = useState(500)
   const [selectedSizeVariant, setSelectedSizeVariant] = useState<string | null>(null)
+  const [selectedSizeCode, setSelectedSizeCode] = useState<string | null>(null)
+  const [selectedColorCode, setSelectedColorCode] = useState<string | null>(null)
+  const [selectedQtyVal, setSelectedQtyVal] = useState<number | null>(null)
   // Batch count for sizeVariants products (Header Bag) - each batch = 100pcs
   const [sizeVariantBatchCount, setSizeVariantBatchCount] = useState(1)
   const [selectedFinish, setSelectedFinish] = useState<'matte' | 'glossy'>('matte')
@@ -406,6 +485,91 @@ const ProductPage: React.FC = () => {
   
   // Tab state for Package Visualization / Specifications
   const [activeTab, setActiveTab] = useState<'visualization' | 'specifications'>('visualization')
+
+  // Derive lists of dimensions for Multi-Dimensional Selector
+  const isMultiDimensional = isEcoStock && ecoStockProduct && (
+    product.id === 'flat-bottom-pouch-tin-tie' ||
+    product.id === 'coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip' ||
+    product.id === 'textured-burlap-cork-pattern-coffee-pouch-with-valve'
+  );
+
+  const { uniqueSizes, uniqueColors, uniqueQuantities } = useMemo(() => {
+    if (!isMultiDimensional || !ecoStockProduct?.sizeVariants) {
+      return { uniqueSizes: [], uniqueColors: [], uniqueQuantities: [] };
+    }
+    
+    const sizesSet = new Set<string>();
+    const colorsSet = new Set<string>();
+    const quantitiesSet = new Set<number>();
+    
+    ecoStockProduct.sizeVariants.forEach(variant => {
+      const parsed = parseVariant(variant, product.id);
+      if (parsed.size) sizesSet.add(parsed.size);
+      if (parsed.color) colorsSet.add(parsed.color);
+      if (parsed.qty) quantitiesSet.add(parsed.qty);
+    });
+    
+    return {
+      uniqueSizes: Array.from(sizesSet),
+      uniqueColors: Array.from(colorsSet),
+      uniqueQuantities: Array.from(quantitiesSet).sort((a, b) => a - b)
+    };
+  }, [isMultiDimensional, ecoStockProduct, product.id]);
+
+  // Synchronize multi-dimensional state from selectedSizeVariant
+  useEffect(() => {
+    if (isEcoStock && ecoStockProduct && ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && selectedSizeVariant) {
+      const activeVariant = ecoStockProduct.sizeVariants.find(v => v.id === selectedSizeVariant);
+      if (activeVariant) {
+        const parsed = parseVariant(activeVariant, ecoStockProduct.id);
+        if (parsed.size) setSelectedSizeCode(parsed.size);
+        if (parsed.color) setSelectedColorCode(parsed.color);
+        if (parsed.qty) setSelectedQtyVal(parsed.qty);
+      }
+    }
+  }, [selectedSizeVariant, ecoStockProduct, isEcoStock]);
+
+  const handleSelectDimension = (type: 'size' | 'color' | 'qty', value: any) => {
+    if (!ecoStockProduct?.sizeVariants) return;
+    
+    let newSize = selectedSizeCode;
+    let newColor = selectedColorCode;
+    let newQty = selectedQtyVal;
+    
+    if (type === 'size') {
+      newSize = value;
+      setSelectedSizeCode(value);
+    } else if (type === 'color') {
+      newColor = value;
+      setSelectedColorCode(value);
+    } else if (type === 'qty') {
+      newQty = value;
+      setSelectedQtyVal(value);
+    }
+    
+    // Find the perfect matching variant
+    let matched = ecoStockProduct.sizeVariants.find(v => {
+      const parsed = parseVariant(v, product.id);
+      return parsed.size === newSize && parsed.color === newColor && parsed.qty === newQty;
+    });
+    
+    // Fallback search: if no exact match, find first variant matching the new dimension
+    if (!matched) {
+      matched = ecoStockProduct.sizeVariants.find(v => {
+        const parsed = parseVariant(v, product.id);
+        if (type === 'size') return parsed.size === newSize;
+        if (type === 'color') return parsed.color === newColor;
+        return parsed.qty === newQty;
+      });
+    }
+    
+    if (matched) {
+      setSelectedSizeVariant(matched.id);
+      if (matched.heroImageIndex !== undefined) {
+        setSelectedMainImage(matched.heroImageIndex!);
+      }
+    }
+  };
   
   // Tab state for Specifications / Insights
   const [specTab, setSpecTab] = useState<'specs' | 'insights'>('specs')
@@ -2082,36 +2246,150 @@ const ProductPage: React.FC = () => {
               {/* Size Variant Selector - for products with multiple sizes */}
               {ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && (
                 <div className="space-y-4 pt-4 border-t">
-                  <div>
-                    <label className="block text-sm font-medium text-neutral-700 mb-2">Select Size</label>
-                    <div className="space-y-2">
-                      {ecoStockProduct.sizeVariants.map((variant) => (
-                        <button
-                          key={variant.id}
-                          onClick={() => {
-                            setSelectedSizeVariant(variant.id)
-                            if (variant.heroImageIndex !== undefined) {
-                              startTransition(() => setSelectedMainImage(variant.heroImageIndex!))
-                            }
-                          }}
-                          className={`w-full p-3 border rounded-lg text-left transition flex justify-between items-center ${
-                            selectedSizeVariant === variant.id 
-                              ? 'border-green-600 bg-green-50 ring-2 ring-green-200' 
-                              : 'border-neutral-200 hover:border-green-300'
-                          }`}
-                        >
-                          <div>
-                            <div className="font-medium text-neutral-900">{variant.label}</div>
-                            <div className="text-xs text-neutral-500">{variant.dimensions}{ecoStockProduct.shape === 'Header Bag' ? ' • ' + (variant.hasHole ? 'With Hole' : 'No Hole') : ''}</div>
-                          </div>
-                          <div className="text-right">
-                            <div className="font-bold text-green-700">${variant.totalPrice.toFixed(2)}/{variant.quantity || 100}{pluralUnit}</div>
-                            <div className="text-xs text-neutral-500">${variant.unitPrice.toFixed(3)}/{singleUnit}</div>
-                          </div>
-                        </button>
-                      ))}
+                  {isMultiDimensional ? (
+                    <div className="space-y-5">
+                      {/* Size Selection */}
+                      <div className="space-y-2.5">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500">
+                          📐 Select Size & Capacity
+                        </label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                          {uniqueSizes.map((sizeCode) => {
+                            const details = getSizeDetails(sizeCode, product.id);
+                            const isSelected = selectedSizeCode === sizeCode;
+                            return (
+                              <button
+                                key={sizeCode}
+                                type="button"
+                                onClick={() => handleSelectDimension('size', sizeCode)}
+                                className={`p-3 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between ${
+                                  isSelected
+                                    ? 'border-emerald-600 bg-emerald-50/50 ring-2 ring-emerald-600/20 text-emerald-950 font-semibold shadow-sm'
+                                    : 'border-neutral-200 bg-white text-neutral-600 hover:border-neutral-350 hover:bg-neutral-50/50'
+                                }`}
+                              >
+                                <span className="text-xs font-semibold">{details.label}</span>
+                                <span className="text-[10px] text-neutral-400 mt-1 font-normal">{details.sub}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Style/Pattern Selection */}
+                      <div className="space-y-2.5 pt-1">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500">
+                          🎨 Select Pattern & Style
+                        </label>
+                        <div className="flex flex-wrap gap-4">
+                          {uniqueColors.map((colorCode) => {
+                            const colorInfo = colorInfoMap[colorCode] || { name: colorCode, swatchClass: 'bg-neutral-200' };
+                            const isSelected = selectedColorCode === colorCode;
+                            return (
+                              <button
+                                key={colorCode}
+                                type="button"
+                                onClick={() => handleSelectDimension('color', colorCode)}
+                                className="flex flex-col items-center gap-1.5 group focus:outline-none"
+                              >
+                                <div
+                                  className={`w-9 h-9 rounded-full ${colorInfo.swatchClass} flex items-center justify-center transition-all duration-200 shadow-sm border-2 ${
+                                    isSelected
+                                      ? 'ring-4 ring-emerald-600/20 scale-110 border-emerald-600'
+                                      : 'group-hover:scale-105 border-neutral-350'
+                                  }`}
+                                >
+                                  {isSelected && (
+                                    <svg className="w-4 h-4 text-white drop-shadow-sm font-bold" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                  )}
+                                </div>
+                                <span className={`text-[10px] transition duration-200 ${isSelected ? 'font-semibold text-neutral-900' : 'text-neutral-500 group-hover:text-neutral-700'}`}>
+                                  {colorInfo.name}
+                                </span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Quantity Selection */}
+                      <div className="space-y-2.5 pt-1">
+                        <label className="block text-xs font-bold uppercase tracking-wider text-neutral-500">
+                          📦 Select Quantity
+                        </label>
+                        <div className="grid grid-cols-3 gap-2.5">
+                          {uniqueQuantities.map((qty) => {
+                            const isSelected = selectedQtyVal === qty;
+                            const matchingVariant = ecoStockProduct.sizeVariants?.find(v => {
+                              const parsed = parseVariant(v, product.id);
+                              return parsed.size === selectedSizeCode && parsed.color === selectedColorCode && parsed.qty === qty;
+                            });
+
+                            if (!matchingVariant) return null;
+
+                            let savingsBadge = null;
+                            if (qty === 200) savingsBadge = 'Save 10%';
+                            if (qty === 500) savingsBadge = 'Save 20%';
+
+                            return (
+                              <button
+                                key={qty}
+                                type="button"
+                                onClick={() => handleSelectDimension('qty', qty)}
+                                className={`p-3 rounded-xl border text-center transition-all duration-200 flex flex-col justify-center items-center relative overflow-hidden ${
+                                  isSelected
+                                    ? 'border-emerald-600 bg-emerald-50/50 ring-2 ring-emerald-600/20 text-emerald-950 font-semibold shadow-sm'
+                                    : 'border-neutral-200 bg-white text-neutral-600 hover:border-neutral-350 hover:bg-neutral-50/50'
+                                }`}
+                              >
+                                {savingsBadge && (
+                                  <span className="absolute top-0 right-0 bg-emerald-600 text-white text-[7px] font-semibold px-1 py-0.5 rounded-bl">
+                                    {savingsBadge}
+                                  </span>
+                                )}
+                                <span className="text-xs font-semibold">{qty} Pcs</span>
+                                <span className="text-[10px] text-emerald-700 font-bold mt-1">${matchingVariant.totalPrice.toFixed(2)}</span>
+                                <span className="text-[8px] text-neutral-400 mt-0.5 font-normal">${matchingVariant.unitPrice.toFixed(3)}/Pc</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Select Size</label>
+                      <div className="space-y-2">
+                        {ecoStockProduct.sizeVariants.map((variant) => (
+                          <button
+                            key={variant.id}
+                            onClick={() => {
+                              setSelectedSizeVariant(variant.id)
+                              if (variant.heroImageIndex !== undefined) {
+                                startTransition(() => setSelectedMainImage(variant.heroImageIndex!))
+                              }
+                            }}
+                            className={`w-full p-3 border rounded-lg text-left transition flex justify-between items-center ${
+                              selectedSizeVariant === variant.id 
+                                ? 'border-green-600 bg-green-50 ring-2 ring-green-200' 
+                                : 'border-neutral-200 hover:border-green-300'
+                            }`}
+                          >
+                            <div>
+                              <div className="font-medium text-neutral-900">{variant.label}</div>
+                              <div className="text-xs text-neutral-500">{variant.dimensions}{ecoStockProduct.shape === 'Header Bag' ? ' • ' + (variant.hasHole ? 'With Hole' : 'No Hole') : ''}</div>
+                            </div>
+                            <div className="text-right">
+                              <div className="font-bold text-green-700">${variant.totalPrice.toFixed(2)}/{variant.quantity || 100}{pluralUnit}</div>
+                              <div className="text-xs text-neutral-500">${variant.unitPrice.toFixed(3)}/{singleUnit}</div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   
                   {/* Surface Finish Option - For unprinted clear zipper pouch */}
                   {selectedSizeVariant && product.id === 'clear-matte-zipper-stand-up-pouch' && (

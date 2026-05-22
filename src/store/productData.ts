@@ -2872,6 +2872,410 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
 
 // Conventional Stock Products (Ready-made Premium)
 const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // Textured Burlap & Cork Pattern Stand Up Pouch with Valve
+  {
+    id: 'textured-burlap-cork-pattern-coffee-pouch-with-valve',
+    name: 'Textured Burlap & Cork Pattern Stand Up Pouch with Valve',
+    category: 'conventional-stock',
+    description: 'An ultra-premium, eco-responsible stand up packaging solution featuring distinct burlap linen and natural cork patterns. Engineered from high-barrier mono-material PE, this metal-free and aluminum-free pouch is fully recyclable in standard plastic streams. Equipped with a premium one-way degassing valve that features an integrated micro-filter mesh to prevent fine coffee grounds or powder from clogging the valve. Perfect for specialty whole bean coffees, artisanal ground coffees, loose leaf teas, and high-end organic powders.',
+    shortDesc: 'Premium metal-free recyclable stand up pouch with anti-clogging degassing valve and organic burlap/cork textures',
+    features: [
+      'Natural Textured Aesthetics: Burlap Linen and Real Cork prints for an organic brand look',
+      'Single-Stream Recyclable: 100% Mono-PE composite film, completely aluminum-free and metal-free',
+      'Anti-Clogging Valve: Single-way degassing valve with integrated filter mesh keeps oxygen out and prevents powder blockage',
+      'Built-In Freshness Zipper: Strong resealable zipper with easy-tear notches for convenient daily reuse',
+      'High puncture and tear resistance with food-grade FDA & LFGB compliance'
+    ],
+    images: [
+      '/taobao/digital-printed-pattern-coffee-pouch-with-valve/O1CN018LiXF92IpwK0XyOZr_--4218319336-jpg_.webp',
+      '/taobao/digital-printed-pattern-coffee-pouch-with-valve/O1CN01ekJ6892IpwJtNUR5W_--4218319336-jpg_.webp',
+      '/taobao/digital-printed-pattern-coffee-pouch-with-valve/O1CN01iFQEb82IpwJiRTg4L_--4218319336-jpg_.webp',
+      '/taobao/digital-printed-pattern-coffee-pouch-with-valve/O1CN01ww7aYt2IpwJdlzLH2_--4218319336-jpg_.webp',
+      '/taobao/digital-printed-pattern-coffee-pouch-with-valve/O1CN01DxTsUD2IpwRWXt67s_--4218319336.jpg',
+      '/taobao/digital-printed-pattern-coffee-pouch-with-valve/O1CN01Hp0i0D2IpwRckiH8L_--4218319336.jpg',
+      '/taobao/digital-printed-pattern-coffee-pouch-with-valve/O1CN01Ivgety2IpwRckkUQ6_--4218319336.jpg',
+      '/taobao/digital-printed-pattern-coffee-pouch-with-valve/O1CN01LV7AcH2IpwRR9OWpo_--4218319336.jpg',
+      '/taobao/digital-printed-pattern-coffee-pouch-with-valve/O1CN01epxZw62IpwRW2g0vL_--4218319336.jpg'
+    ],
+    badge: '♻️ Aluminum-Free Recyclable',
+    rating: 4.9,
+    reviews: 58,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 100,
+    shape: 'Stand Up Pouch',
+    material: 'Mono-PE High-Barrier Recyclable Lamination (Aluminum-Free / Metal-Free)',
+    basePrice: 28.00,
+    pricePerPiece: 0.280,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: '1/4 lb (160×170+60mm) / 1/2 lb (190×200+70mm) / 1 lb (230×260+80mm)',
+    shelfLife: '+24 months',
+    certification: 'FDA Food-Grade & Recyclable Mono-PE Certified',
+    customPrintNote: 'Custom multi-color digital prints and sizing options available from 500+ pieces. Please consult our team.',
+    sizeVariants: [
+      {
+        id: 'coffee-valve-pouch-s-natural-linen-100pcs',
+        label: 'Size S (1/4 lb) (W160) - Natural Linen (100 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • Natural Linen',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 0
+      },
+      {
+        id: 'coffee-valve-pouch-s-natural-linen-200pcs',
+        label: 'Size S (1/4 lb) (W160) - Natural Linen (200 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • Natural Linen',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.40,
+        unitPrice: 0.2520,
+        heroImageIndex: 0
+      },
+      {
+        id: 'coffee-valve-pouch-s-natural-linen-500pcs',
+        label: 'Size S (1/4 lb) (W160) - Natural Linen (500 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • Natural Linen',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 112.00,
+        unitPrice: 0.2240,
+        heroImageIndex: 0
+      },
+      {
+        id: 'coffee-valve-pouch-s-natural-cork-100pcs',
+        label: 'Size S (1/4 lb) (W160) - Natural Cork (100 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • Natural Cork',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 1
+      },
+      {
+        id: 'coffee-valve-pouch-s-natural-cork-200pcs',
+        label: 'Size S (1/4 lb) (W160) - Natural Cork (200 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • Natural Cork',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.40,
+        unitPrice: 0.2520,
+        heroImageIndex: 1
+      },
+      {
+        id: 'coffee-valve-pouch-s-natural-cork-500pcs',
+        label: 'Size S (1/4 lb) (W160) - Natural Cork (500 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • Natural Cork',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 112.00,
+        unitPrice: 0.2240,
+        heroImageIndex: 1
+      },
+      {
+        id: 'coffee-valve-pouch-s-charcoal-linen-100pcs',
+        label: 'Size S (1/4 lb) (W160) - Charcoal Linen (100 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • Charcoal Linen',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 2
+      },
+      {
+        id: 'coffee-valve-pouch-s-charcoal-linen-200pcs',
+        label: 'Size S (1/4 lb) (W160) - Charcoal Linen (200 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • Charcoal Linen',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.40,
+        unitPrice: 0.2520,
+        heroImageIndex: 2
+      },
+      {
+        id: 'coffee-valve-pouch-s-charcoal-linen-500pcs',
+        label: 'Size S (1/4 lb) (W160) - Charcoal Linen (500 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • Charcoal Linen',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 112.00,
+        unitPrice: 0.2240,
+        heroImageIndex: 2
+      },
+      {
+        id: 'coffee-valve-pouch-s-white-linen-100pcs',
+        label: 'Size S (1/4 lb) (W160) - White Linen (100 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • White Linen',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 28.00,
+        unitPrice: 0.2800,
+        heroImageIndex: 3
+      },
+      {
+        id: 'coffee-valve-pouch-s-white-linen-200pcs',
+        label: 'Size S (1/4 lb) (W160) - White Linen (200 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • White Linen',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 50.40,
+        unitPrice: 0.2520,
+        heroImageIndex: 3
+      },
+      {
+        id: 'coffee-valve-pouch-s-white-linen-500pcs',
+        label: 'Size S (1/4 lb) (W160) - White Linen (500 Pcs)',
+        dimensions: 'W160 × H170 + G60 mm • Holds ~120g coffee beans / ~50g loose tea • White Linen',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 112.00,
+        unitPrice: 0.2240,
+        heroImageIndex: 3
+      },
+      {
+        id: 'coffee-valve-pouch-m-natural-linen-100pcs',
+        label: 'Size M (1/2 lb) (W190) - Natural Linen (100 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • Natural Linen',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 34.00,
+        unitPrice: 0.3400,
+        heroImageIndex: 0
+      },
+      {
+        id: 'coffee-valve-pouch-m-natural-linen-200pcs',
+        label: 'Size M (1/2 lb) (W190) - Natural Linen (200 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • Natural Linen',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 61.20,
+        unitPrice: 0.3060,
+        heroImageIndex: 0
+      },
+      {
+        id: 'coffee-valve-pouch-m-natural-linen-500pcs',
+        label: 'Size M (1/2 lb) (W190) - Natural Linen (500 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • Natural Linen',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 136.00,
+        unitPrice: 0.2720,
+        heroImageIndex: 0
+      },
+      {
+        id: 'coffee-valve-pouch-m-natural-cork-100pcs',
+        label: 'Size M (1/2 lb) (W190) - Natural Cork (100 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • Natural Cork',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 34.00,
+        unitPrice: 0.3400,
+        heroImageIndex: 1
+      },
+      {
+        id: 'coffee-valve-pouch-m-natural-cork-200pcs',
+        label: 'Size M (1/2 lb) (W190) - Natural Cork (200 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • Natural Cork',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 61.20,
+        unitPrice: 0.3060,
+        heroImageIndex: 1
+      },
+      {
+        id: 'coffee-valve-pouch-m-natural-cork-500pcs',
+        label: 'Size M (1/2 lb) (W190) - Natural Cork (500 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • Natural Cork',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 136.00,
+        unitPrice: 0.2720,
+        heroImageIndex: 1
+      },
+      {
+        id: 'coffee-valve-pouch-m-charcoal-linen-100pcs',
+        label: 'Size M (1/2 lb) (W190) - Charcoal Linen (100 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • Charcoal Linen',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 34.00,
+        unitPrice: 0.3400,
+        heroImageIndex: 2
+      },
+      {
+        id: 'coffee-valve-pouch-m-charcoal-linen-200pcs',
+        label: 'Size M (1/2 lb) (W190) - Charcoal Linen (200 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • Charcoal Linen',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 61.20,
+        unitPrice: 0.3060,
+        heroImageIndex: 2
+      },
+      {
+        id: 'coffee-valve-pouch-m-charcoal-linen-500pcs',
+        label: 'Size M (1/2 lb) (W190) - Charcoal Linen (500 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • Charcoal Linen',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 136.00,
+        unitPrice: 0.2720,
+        heroImageIndex: 2
+      },
+      {
+        id: 'coffee-valve-pouch-m-white-linen-100pcs',
+        label: 'Size M (1/2 lb) (W190) - White Linen (100 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • White Linen',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 34.00,
+        unitPrice: 0.3400,
+        heroImageIndex: 3
+      },
+      {
+        id: 'coffee-valve-pouch-m-white-linen-200pcs',
+        label: 'Size M (1/2 lb) (W190) - White Linen (200 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • White Linen',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 61.20,
+        unitPrice: 0.3060,
+        heroImageIndex: 3
+      },
+      {
+        id: 'coffee-valve-pouch-m-white-linen-500pcs',
+        label: 'Size M (1/2 lb) (W190) - White Linen (500 Pcs)',
+        dimensions: 'W190 × H200 + G70 mm • Holds ~250g coffee beans / ~100g loose tea • White Linen',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 136.00,
+        unitPrice: 0.2720,
+        heroImageIndex: 3
+      },
+      {
+        id: 'coffee-valve-pouch-l-natural-linen-100pcs',
+        label: 'Size L (1 lb) (W230) - Natural Linen (100 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Natural Linen',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 0
+      },
+      {
+        id: 'coffee-valve-pouch-l-natural-linen-200pcs',
+        label: 'Size L (1 lb) (W230) - Natural Linen (200 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Natural Linen',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 75.60,
+        unitPrice: 0.3780,
+        heroImageIndex: 0
+      },
+      {
+        id: 'coffee-valve-pouch-l-natural-linen-500pcs',
+        label: 'Size L (1 lb) (W230) - Natural Linen (500 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Natural Linen',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 168.00,
+        unitPrice: 0.3360,
+        heroImageIndex: 0
+      },
+      {
+        id: 'coffee-valve-pouch-l-natural-cork-100pcs',
+        label: 'Size L (1 lb) (W230) - Natural Cork (100 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Natural Cork',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 1
+      },
+      {
+        id: 'coffee-valve-pouch-l-natural-cork-200pcs',
+        label: 'Size L (1 lb) (W230) - Natural Cork (200 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Natural Cork',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 75.60,
+        unitPrice: 0.3780,
+        heroImageIndex: 1
+      },
+      {
+        id: 'coffee-valve-pouch-l-natural-cork-500pcs',
+        label: 'Size L (1 lb) (W230) - Natural Cork (500 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Natural Cork',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 168.00,
+        unitPrice: 0.3360,
+        heroImageIndex: 1
+      },
+      {
+        id: 'coffee-valve-pouch-l-charcoal-linen-100pcs',
+        label: 'Size L (1 lb) (W230) - Charcoal Linen (100 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Charcoal Linen',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 2
+      },
+      {
+        id: 'coffee-valve-pouch-l-charcoal-linen-200pcs',
+        label: 'Size L (1 lb) (W230) - Charcoal Linen (200 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Charcoal Linen',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 75.60,
+        unitPrice: 0.3780,
+        heroImageIndex: 2
+      },
+      {
+        id: 'coffee-valve-pouch-l-charcoal-linen-500pcs',
+        label: 'Size L (1 lb) (W230) - Charcoal Linen (500 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Charcoal Linen',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 168.00,
+        unitPrice: 0.3360,
+        heroImageIndex: 2
+      },
+      {
+        id: 'coffee-valve-pouch-l-white-linen-100pcs',
+        label: 'Size L (1 lb) (W230) - White Linen (100 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • White Linen',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 3
+      },
+      {
+        id: 'coffee-valve-pouch-l-white-linen-200pcs',
+        label: 'Size L (1 lb) (W230) - White Linen (200 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • White Linen',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 75.60,
+        unitPrice: 0.3780,
+        heroImageIndex: 3
+      },
+      {
+        id: 'coffee-valve-pouch-l-white-linen-500pcs',
+        label: 'Size L (1 lb) (W230) - White Linen (500 Pcs)',
+        dimensions: 'W230 × H260 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • White Linen',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 168.00,
+        unitPrice: 0.3360,
+        heroImageIndex: 3
+      }
+    ]
+  },
   // Coffee & Tea Flat Bottom Pouch with Hanging Strip and One-Sided Zipper
   {
     id: 'coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip',
