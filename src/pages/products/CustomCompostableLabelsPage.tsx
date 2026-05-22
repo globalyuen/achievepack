@@ -12,6 +12,7 @@ const diagramGallery = [
 ]
 
 const photoGallery = [
+  { src: '/taobao/compostable-label/compostable-label-cover.jpg', title: 'FSC Certified Compostable Label Cover', titleCn: 'FSC 認證可堆肥貼紙與標籤主圖', desc: 'Official FSC-certified compostable adhesive label supporting small batch customization, strong adhesion, and 24-hour quotes.' },
   { src: '/taobao/compostable-label/compostable-labels-1.jpg', title: 'Achieve Pack Eco-Conscious Labels', titleCn: 'Achieve Pack 品牌環保貼紙捲料', desc: 'Custom printed food, supplement, and cosmetic labels in high-density rolls with vibrant vegetable ink.' },
   { src: '/taobao/compostable-label/compostable-labels-2.png', title: 'Beū Sustainable Body Scrub Label', titleCn: 'Beū 有機化妝品生物降解貼紙', desc: 'Premium moisture-resistant plant PLA face stock with compostable adhesive and soy-based printing.' },
   { src: '/taobao/compostable-label/compostable-labels-3.png', title: 'Sustainable Direct Thermal Labels', titleCn: 'BPI認證熱敏物流快遞標籤', desc: 'BPI certified and compostable direct thermal label rolls with recyclable liner and eco-conscious thermal coating.' },
