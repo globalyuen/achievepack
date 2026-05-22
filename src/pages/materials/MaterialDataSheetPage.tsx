@@ -7,26 +7,26 @@ const MaterialDataSheetPage: React.FC = () => {
     {
       id: 'overview',
       title: 'Product Overview & Specifications',
-      icon: <Info className="h-5 w-5 text-emerald-600" />,
+      icon: <Info className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg leading-relaxed">
             This technical data sheet details the performance metrics and structural composition of our premium <strong>60gsm Kraft Paper + 50μ Compostable Inner Film</strong> laminate. Engineered for high performance and minimal environmental footprint, this compostable structure is ideal for brands seeking high-quality organic branding with reliable protection.
           </p>
           
-          <div className="grid md:grid-cols-3 gap-4 bg-gradient-to-r from-emerald-50 to-green-50 p-6 rounded-2xl border border-emerald-100 shadow-sm">
+          <div className="grid md:grid-cols-3 gap-4 bg-gradient-to-r from-primary-50 to-primary-100/30 p-6 rounded-2xl border border-primary-100 shadow-sm">
             <div className="bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
-              <span className="text-[10px] uppercase font-bold text-emerald-600 tracking-wider">Product Name</span>
+              <span className="text-[10px] uppercase font-bold text-primary-700 tracking-wider">Product Name</span>
               <p className="font-bold text-neutral-800 mt-1">Kraft & Compostable Laminate</p>
               <p className="text-xs text-neutral-500 mt-1">60gsm Kraft Paper + 50μ Compostable Inner Film.</p>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
-              <span className="text-[10px] uppercase font-bold text-emerald-600 tracking-wider">Material Structure</span>
+              <span className="text-[10px] uppercase font-bold text-primary-700 tracking-wider">Material Structure</span>
               <p className="font-bold text-neutral-800 mt-1">Kraft / Compostable Film</p>
               <p className="text-xs text-neutral-500 mt-1">Natural uncoated Kraft paper laminated to organic biopolymer film.</p>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
-              <span className="text-[10px] uppercase font-bold text-emerald-600 tracking-wider">Calculation Basis</span>
+              <span className="text-[10px] uppercase font-bold text-primary-700 tracking-wider">Calculation Basis</span>
               <p className="font-bold text-neutral-800 mt-1">Nominal 130μ / 130gsm</p>
               <p className="text-xs text-neutral-500 mt-1">Nominal total thickness of 0.13mm per 1 m² area.</p>
             </div>
@@ -37,14 +37,14 @@ const MaterialDataSheetPage: React.FC = () => {
     {
       id: 'features',
       title: 'Key Features & Common Applications',
-      icon: <ShieldCheck className="h-5 w-5 text-emerald-600" />,
+      icon: <ShieldCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Key Features */}
             <div>
               <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
-                <Sparkles className="h-4 w-4 text-emerald-600" />
+                <Sparkles className="h-4 w-4 text-primary-600" />
                 Performance Highlights
               </h4>
               <ul className="space-y-3">
@@ -56,7 +56,7 @@ const MaterialDataSheetPage: React.FC = () => {
                   'Optimized surface energy for high-definition eco-friendly inks'
                 ].map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-primary-600 shrink-0 mt-0.5" />
                     <span className="text-sm text-neutral-600">{feature}</span>
                   </li>
                 ))}
@@ -68,7 +68,7 @@ const MaterialDataSheetPage: React.FC = () => {
               <h4 className="font-bold text-neutral-900 mb-4">Recommended Applications</h4>
               <div className="flex flex-wrap gap-2 mb-6">
                 {['Dry Foods', 'Coffee Beans', 'Confectionery', 'Nuts & Seeds', 'Dried Fruits', 'Baked Goods', 'Powders'].map(tag => (
-                  <span key={tag} className="text-xs font-medium text-emerald-800 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-full">
+                  <span key={tag} className="text-xs font-medium text-primary-800 bg-primary-50 border border-primary-100 px-3 py-1.5 rounded-full">
                     {tag}
                   </span>
                 ))}
@@ -87,7 +87,7 @@ const MaterialDataSheetPage: React.FC = () => {
     {
       id: 'structure',
       title: 'Material Structure Visualization',
-      icon: <Layers className="h-5 w-5 text-emerald-600" />,
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="leading-relaxed">
@@ -106,7 +106,7 @@ const MaterialDataSheetPage: React.FC = () => {
     {
       id: 'specifications',
       title: 'Technical Data & Engineering Specifications',
-      icon: <FileText className="h-5 w-5 text-emerald-600" />,
+      icon: <FileText className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="leading-relaxed">
@@ -117,14 +117,14 @@ const MaterialDataSheetPage: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="bg-emerald-800 text-white font-semibold">
-                    <th className="p-4 border-b border-emerald-900">Layer (层级)</th>
-                    <th className="p-4 border-b border-emerald-900">Material (材料)</th>
-                    <th className="p-4 border-b border-emerald-900 text-center">GSM</th>
-                    <th className="p-4 border-b border-emerald-900 text-center">Thickness (mm)</th>
-                    <th className="p-4 border-b border-emerald-900 text-center">Thickness (μm)</th>
-                    <th className="p-4 border-b border-emerald-900 text-center">Weight %</th>
-                    <th className="p-4 border-b border-emerald-900 text-center">Thickness %</th>
+                  <tr className="bg-primary-800 text-white font-semibold">
+                    <th className="p-4 border-b border-primary-900">Layer (层级)</th>
+                    <th className="p-4 border-b border-primary-900">Material (材料)</th>
+                    <th className="p-4 border-b border-primary-900 text-center">GSM</th>
+                    <th className="p-4 border-b border-primary-900 text-center">Thickness (mm)</th>
+                    <th className="p-4 border-b border-primary-900 text-center">Thickness (μm)</th>
+                    <th className="p-4 border-b border-primary-900 text-center">Weight %</th>
+                    <th className="p-4 border-b border-primary-900 text-center">Thickness %</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
@@ -146,9 +146,9 @@ const MaterialDataSheetPage: React.FC = () => {
                     <td className="p-4 text-center text-neutral-500">53.8%</td>
                     <td className="p-4 text-center text-neutral-500">38.5%</td>
                   </tr>
-                  <tr className="bg-emerald-50/50 font-bold text-emerald-900">
+                  <tr className="bg-primary-50/50 font-bold text-primary-900">
                     <td className="p-4">TOTAL</td>
-                    <td className="p-4 uppercase text-emerald-800">Laminated Structure</td>
+                    <td className="p-4 uppercase text-primary-800">Laminated Structure</td>
                     <td className="p-4 text-center">130</td>
                     <td className="p-4 text-center">0.13</td>
                     <td className="p-4 text-center">130</td>
@@ -177,7 +177,7 @@ const MaterialDataSheetPage: React.FC = () => {
             </div>
             <a 
               href="/pdfs/material_data_sheet.pdf?v=2" 
-              className="inline-flex items-center gap-2 bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-semibold hover:bg-emerald-800 transition shadow-sm hover:shadow"
+              className="inline-flex items-center gap-2 bg-primary-700 text-white px-5 py-2.5 rounded-xl font-semibold hover:bg-primary-800 transition shadow-sm hover:shadow"
             >
               <Download className="w-4 h-4" />
               Download Official Technical PDF
