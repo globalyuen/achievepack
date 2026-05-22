@@ -876,6 +876,8 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     features: ['100% Compostable PLA or Paper', 'FSC® Forest Certified', 'Food-Grade Adhesive', 'Vibrant Soy-Based Inks'],
     images: [
       '/taobao/compostable-label/compostable-label-cover.jpg',
+      '/taobao/compostable-label/compostable-labels-5.png',
+      '/taobao/compostable-label/compostable-labels-6.png',
       '/taobao/compostable-label/compostable-labels-1.jpg',
       '/taobao/compostable-label/compostable-labels-2.png',
       '/taobao/compostable-label/compostable-labels-3.png',

@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
-import { Tag, Leaf, Shield, Award, Clock, Users, Calendar, Mail, FileCheck, CheckCircle, Star, Sparkles, Truck, Layers, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { Tag, Leaf, Shield, Award, Clock, Users, Calendar, Mail, FileCheck, CheckCircle, Star, Sparkles, Truck, Layers, ChevronDown, ChevronLeft, ChevronRight, X, Sparkle, ShoppingBag, ArrowRight } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { isPouch, getBrandConfig } from '../../utils/domain'
+import PouchLayout from '../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 
 // Branded vector graphics from public/taobao/compostable-label/
 const diagramGallery = [
@@ -13,11 +17,13 @@ const diagramGallery = [
 
 const photoGallery = [
   { src: '/taobao/compostable-label/compostable-label-cover.jpg', title: 'FSC Certified Compostable Label Cover', titleCn: 'FSC 認證可堆肥貼紙與標籤主圖', desc: 'Official FSC-certified compostable adhesive label supporting small batch customization, strong adhesion, and 24-hour quotes.' },
+  { src: '/taobao/compostable-label/compostable-labels-5.png', title: 'Premium 4-Layer Ecological Structure Infographic', titleCn: '四層黃金環保生態標籤結構體系圖', desc: 'Advanced 4-layer ecological design featuring biodegradable plant PLA face stock, eco-friendly soy/vegetable printing inks, pressure-sensitive bio-adhesive, and glassine release liner.' },
+  { src: '/taobao/compostable-label/compostable-labels-6.png', title: 'FSC Certified B2B Manufacturing & QA Checklist', titleCn: 'FSC 認證 B2B 生產製造工藝與品控檢驗清單', desc: 'Visual checklist demonstrating our FSC certified rollstock slicing, digital multi-color soy printing, automated rotary die-cutting, inline computer vision calibration, and B2B 24-hour quotation support.' },
   { src: '/taobao/compostable-label/compostable-labels-1.jpg', title: 'Achieve Pack Eco-Conscious Labels', titleCn: 'Achieve Pack 品牌環保貼紙捲料', desc: 'Custom printed food, supplement, and cosmetic labels in high-density rolls with vibrant vegetable ink.' },
   { src: '/taobao/compostable-label/compostable-labels-2.png', title: 'Beū Sustainable Body Scrub Label', titleCn: 'Beū 有機化妝品生物降解貼紙', desc: 'Premium moisture-resistant plant PLA face stock with compostable adhesive and soy-based printing.' },
   { src: '/taobao/compostable-label/compostable-labels-3.png', title: 'Sustainable Direct Thermal Labels', titleCn: 'BPI認證熱敏物流快遞標籤', desc: 'BPI certified and compostable direct thermal label rolls with recyclable liner and eco-conscious thermal coating.' },
   { src: '/taobao/compostable-label/compostable-labels-4.png', title: 'Achieve Pack Sustainable Resin Film Label', titleCn: 'Achieve Pack 綠色可堆肥薄膜標籤', desc: 'Certified sustainable plant-based resin film label exhibiting precise, full-width digital printing and strong adhesion.' },
-  { src: '/taobao/compostable-label/compostable-label-process.png', title: 'Compostable Label Printing Process Diagram', titleCn: '可堆肥標籤專業生產印刷與質檢工藝流程', desc: 'Detailed B2B commercial manufacturing process breakdown including raw material slitting, advanced digital printing, die-cutting, inline calibration, and automated packaging.' }
+  { src: '/taobao/compostable-label/compostable-label-process.png', title: 'Compostable Label Printing Process Diagram', titleCn: '可堆肥標籤專業生產印刷與質檢工藝流程', desc: 'Detailed B2B commercial manufacturing process breakdown including raw material slitting, advanced digital printing, die-cutting, inline computer vision calibration, and automated packaging.' }
 ]
 
 const fullGallery = [...diagramGallery, ...photoGallery]
@@ -33,6 +39,399 @@ const CustomCompostableLabelsPage: React.FC = () => {
     if (newIndex >= fullGallery.length) newIndex = 0
     setGalleryEnlarged({ src: fullGallery[newIndex].src, index: newIndex })
   }
+
+  // ----------------------------------------------------
+  // DUAL DOMAIN RENDERING BRANCH (1): pouch.eco
+  // ----------------------------------------------------
+  if (isPouch()) {
+    return (
+      <PouchLayout>
+        <DualDomainSEOHead 
+          title="Custom Compostable Labels | FSC Certified PLA Stickers"
+          description="Certified compostable custom adhesive labels from 1,000 units. FDA food-grade, water-resistant, zero microplastics. Perfect for organic cosmetics, bottles, and boxes. Fast global shipping."
+          keywords={['custom compostable labels', 'PLA biodegradable stickers', 'FSC certified product labels', 'FDA food-grade compostable adhesive', 'zero microplastic packaging label', 'pouch.eco']}
+          schemaType="Product"
+        />
+
+        {/* Hero Section */}
+        <section className="bg-[#10b981] text-black py-24 px-6 border-b-4 border-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-25"></div>
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-center relative z-10">
+            <div className="flex-1 space-y-6 text-left">
+              <div className="inline-block bg-[#D4FF00] text-black border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                100% Certified Eco-Friendly
+              </div>
+              <h1 className="font-['Space_Grotesk'] font-black text-6xl md:text-8xl leading-none uppercase tracking-tight">
+                COMPOSTABLE<br/>
+                <span className="text-[#D4FF00] bg-black px-4 py-1 border-4 border-black inline-block mt-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1">LABELS</span>
+              </h1>
+              <p className="font-['JetBrains_Mono'] text-lg md:text-xl text-black font-semibold max-w-xl leading-relaxed">
+                FSC® wood-pulp paper & plant starch PLA films. High-performance bio-adhesive. Complete biodegradation leaving zero microplastics.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="primary">
+                  Book Free Call
+                </NeoButton>
+                <NeoButton href="https://wa.me/85269704411?text=Hi%2C%20I%27m%20interested%20in%20custom%20compostable%20labels%20from%20pouch.eco" variant="secondary">
+                  WhatsApp B2B
+                </NeoButton>
+              </div>
+            </div>
+            
+            <div className="w-full lg:w-5/12">
+              <div className="relative border-4 border-black p-4 bg-white shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] group rotate-2 hover:rotate-0 transition-transform duration-300">
+                <img 
+                  src="/taobao/compostable-label/compostable-label-cover.jpg" 
+                  alt="FSC Certified Compostable Label" 
+                  className="w-full h-auto object-cover border-2 border-black"
+                />
+                <div className="absolute -top-6 -right-6 bg-[#FF00FF] text-white font-black px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-6 text-sm">
+                  LOW MOQ: 1,000!
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Bento Grid Benefits */}
+        <section className="py-20 px-6 bg-[#F0F0F0] border-b-4 border-black">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-16 tracking-tight">
+              ADVANCED <span className="bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1">ECOLOGICAL</span> PERFORMANCE
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <NeoCard color="bg-[#D4FF00]">
+                <Leaf className="w-8 h-8 text-black mb-4" />
+                <h3 className="font-black text-xl uppercase mb-2">180-Day Degradation</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed">
+                  100% home & industrial compostable. Under composting environments, labels disintegrate into organic biomass, water, and CO2 in 6 months.
+                </p>
+              </NeoCard>
+              
+              <NeoCard color="bg-white">
+                <Shield className="w-8 h-8 text-[#10b981] mb-4" />
+                <h3 className="font-black text-xl uppercase mb-2">Food-Grade Adhesive</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed">
+                  FDA 21 CFR 175.105 certified biological pressure-sensitive adhesive. Safe for direct & indirect contact with organic foodstuffs and skincare.
+                </p>
+              </NeoCard>
+
+              <NeoCard color="bg-[#00FFFF]">
+                <Layers className="w-8 h-8 text-black mb-4" />
+                <h3 className="font-black text-xl uppercase mb-2">Water & Oil Proof</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed">
+                  High-barrier plant PLA film choices provide stellar moisture, fat, and oil resistance. Ideal for cosmetics, bottles, and bath oils.
+                </p>
+              </NeoCard>
+
+              <NeoCard color="bg-black text-[#D4FF00]">
+                <Sparkles className="w-8 h-8 text-[#D4FF00] mb-4" />
+                <h3 className="font-black text-xl uppercase mb-2">HP Indigo Printing</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed text-white">
+                  Ultra-high-definition digital HP Indigo multi-color presses using certified eco-friendly vegetable/soy inks. Exquisite design details.
+                </p>
+              </NeoCard>
+            </div>
+          </div>
+        </section>
+
+        {/* 4-Layer Ecological Structure */}
+        <section className="py-24 px-6 bg-white border-b-4 border-black">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <div className="mb-4">
+                <NeoBadge color="lime">The Green Standard</NeoBadge>
+              </div>
+              <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl uppercase mt-2 tracking-tight">
+                4-LAYER STRUCTURE
+              </h2>
+              <p className="font-['JetBrains_Mono'] text-neutral-600 mt-2">
+                Our compostable labels feature an advanced 4-layer ecological design:
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex gap-4 items-start border-4 border-black p-6 bg-emerald-50/50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="bg-[#D4FF00] text-black font-black w-8 h-8 rounded-full border-2 border-black flex items-center justify-center shrink-0">1</div>
+                  <div>
+                    <h3 className="font-black text-lg uppercase mb-1">Sustainable Face Paper or PLA Film</h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-neutral-700">
+                      Made of FSC-certified wood pulp stock or bio-based plant PLA starch film. Printed with certified soy and vegetable eco-inks for vivid graphics.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start border-4 border-black p-6 bg-cyan-50/50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="bg-[#D4FF00] text-black font-black w-8 h-8 rounded-full border-2 border-black flex items-center justify-center shrink-0">2</div>
+                  <div>
+                    <h3 className="font-black text-lg uppercase mb-1">Emulsified Bio-Adhesive Layer</h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-neutral-700">
+                      High-performance pressure-sensitive compostable adhesive that creates an outstanding permanent bond to glass, paper, bioplastics, and metals.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start border-4 border-black p-6 bg-amber-50/50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="bg-[#D4FF00] text-black font-black w-8 h-8 rounded-full border-2 border-black flex items-center justify-center shrink-0">3</div>
+                  <div>
+                    <h3 className="font-black text-lg uppercase mb-1">Premium Glassine Release Liner</h3>
+                    <p className="font-['JetBrains_Mono'] text-sm text-neutral-700">
+                      Top-grade release paper providing smooth mechanical peeling and full compatibility with high-speed automated B2B labeling machines.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <button
+                  onClick={() => setGalleryEnlarged({ src: '/taobao/compostable-label/compostable-labels-5.png', index: fullGallery.findIndex(g => g.src.includes('labels-5')) })}
+                  className="border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white p-2 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all w-full text-left"
+                >
+                  <img 
+                    src="/taobao/compostable-label/compostable-labels-5.png" 
+                    alt="Premium 4-Layer Ecological Structure Infographic" 
+                    className="w-full h-auto object-cover border-2 border-black"
+                  />
+                  <div className="p-3 bg-neutral-100 text-center font-['JetBrains_Mono'] text-xs font-bold border-t-2 border-black mt-2">
+                    [CLICK TO EXPAND STRUCTURE DIAGRAM]
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Manufacturing QA Checklist */}
+        <section className="py-24 px-6 bg-neutral-50 border-b-4 border-black">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-5 order-2 lg:order-1">
+                <button
+                  onClick={() => setGalleryEnlarged({ src: '/taobao/compostable-label/compostable-labels-6.png', index: fullGallery.findIndex(g => g.src.includes('labels-6')) })}
+                  className="border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white p-2 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all w-full text-left"
+                >
+                  <img 
+                    src="/taobao/compostable-label/compostable-labels-6.png" 
+                    alt="B2B Manufacturing QA Checklist" 
+                    className="w-full h-auto object-cover border-2 border-black"
+                  />
+                  <div className="p-3 bg-neutral-100 text-center font-['JetBrains_Mono'] text-xs font-bold border-t-2 border-black mt-2">
+                    [CLICK TO EXPAND QA CHECKLIST]
+                  </div>
+                </button>
+              </div>
+
+              <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                <div className="mb-2">
+                  <NeoBadge color="cyan">Industrial Integrity</NeoBadge>
+                </div>
+                <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl uppercase tracking-tight">
+                  B2B MANUFACTURING & QUALITY CONTROL
+                </h2>
+                <p className="font-['Space_Grotesk'] text-neutral-700 leading-relaxed text-sm">
+                  Our labels are manufactured in clean, humidity-controlled BRCGS & ISO-9001 certified B2B production lines. We guarantee structural cohesion and color accuracy under extreme logistics environments.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="border-4 border-black p-4 bg-amber-100 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    <h4 className="font-black uppercase mb-1">Rotary Die-Cutting</h4>
+                    <p className="font-['JetBrains_Mono'] text-xs text-neutral-700">
+                      Perfect shape cutting calibrated within ±0.15mm tolerance. Ready for automated roll application.
+                    </p>
+                  </div>
+                  <div className="border-4 border-black p-4 bg-cyan-100 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    <h4 className="font-black uppercase mb-1">Computer Vision</h4>
+                    <p className="font-['JetBrains_Mono'] text-xs text-neutral-700">
+                      Inline visual verification systems continuously detect alignment errors, scratches, and color deviancy.
+                    </p>
+                  </div>
+                  <div className="border-4 border-black p-4 bg-[#D4FF00]/10 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    <h4 className="font-black uppercase mb-1">Bio-Based Soy Inks</h4>
+                    <p className="font-['JetBrains_Mono'] text-xs text-neutral-700">
+                      100% biodegradable printing vegetable ink offering vivid Pantone-level fidelity without heavy metal content.
+                    </p>
+                  </div>
+                  <div className="border-4 border-black p-4 bg-emerald-100 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    <h4 className="font-black uppercase mb-1">Moisture Protection</h4>
+                    <p className="font-['JetBrains_Mono'] text-xs text-neutral-700">
+                      Carton packaging with desiccant protection ensures that biological adhesive remains pristine before application.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Symmetrical Real-World Gallery Grid */}
+        <section className="py-24 px-6 bg-white border-b-4 border-black">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-6 tracking-tight">
+              REAL-WORLD <span className="bg-[#10b981] text-black border-2 border-black px-2.5 py-1 inline-block rotate-1">SAMPLES</span>
+            </h2>
+            <p className="text-center font-['JetBrains_Mono'] mb-12 text-neutral-600">
+              Click any production sample or diagram to inspect the high resolution details
+            </p>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {photoGallery.map((photo, i) => (
+                <button
+                  key={i}
+                  onClick={() => setGalleryEnlarged({ src: photo.src, index: diagramGallery.length + i })}
+                  className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all overflow-hidden bg-white text-left w-full flex flex-col h-full"
+                >
+                  <div className="aspect-[4/3] w-full overflow-hidden border-b-4 border-black bg-neutral-50 flex items-center justify-center shrink-0">
+                    <img 
+                      src={photo.src} 
+                      alt={photo.title} 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" 
+                      loading="lazy" 
+                    />
+                  </div>
+                  <div className="p-4 flex-grow flex flex-col justify-between">
+                    <div>
+                      <h4 className="font-black text-sm uppercase mb-1 line-clamp-1">{photo.title}</h4>
+                      <p className="font-['JetBrains_Mono'] text-xs text-neutral-600 line-clamp-2 leading-relaxed">{photo.desc}</p>
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Specs Table */}
+        <section className="py-24 px-6 bg-[#F0F0F0] border-b-4 border-black">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-12 tracking-tight">
+              SPECIFICATIONS & <span className="bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1">PRICING</span>
+            </h2>
+            <NeoCard color="bg-white" className="!p-0 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full font-['JetBrains_Mono'] text-left border-collapse">
+                  <thead>
+                    <tr className="bg-black text-[#D4FF00] border-b-4 border-black">
+                      <th className="border-2 border-black p-4 font-black uppercase text-sm">Material Spec</th>
+                      <th className="border-2 border-black p-4 font-black uppercase text-sm">Adhesive Type</th>
+                      <th className="border-2 border-black p-4 font-black uppercase text-sm">Moisture Shield</th>
+                      <th className="border-2 border-black p-4 font-black uppercase text-sm">Lead Time</th>
+                      <th className="border-2 border-black p-4 font-black uppercase text-sm">Use-Case</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">FSC Certified Eco-Paper</td>
+                      <td className="border-2 border-black p-4 text-black">Permanent Emulsion</td>
+                      <td className="border-2 border-black p-4 text-neutral-700">Medium (Varnish optional)</td>
+                      <td className="border-2 border-black p-4 font-black text-emerald-600">3-5 Business Days</td>
+                      <td className="border-2 border-black p-4 text-xs text-neutral-700">Kraft pouch labeling, paper mailer box graphics, dry bakeries</td>
+                    </tr>
+                    <tr className="bg-neutral-50/50">
+                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">PLA Biopolymer Film (White)</td>
+                      <td className="border-2 border-black p-4 text-black">Permanent Emulsion</td>
+                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">High Waterproof / Greaseproof</td>
+                      <td className="border-2 border-black p-4 font-black text-emerald-600">5-7 Business Days</td>
+                      <td className="border-2 border-black p-4 text-xs text-neutral-700">Moist supplement jars, frozen packaging pouches, skincare products</td>
+                    </tr>
+                    <tr>
+                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">PLA Biopolymer Film (Clear)</td>
+                      <td className="border-2 border-black p-4 text-black">Permanent Emulsion</td>
+                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">High Waterproof / Transparency</td>
+                      <td className="border-2 border-black p-4 font-black text-emerald-600">5-7 Business Days</td>
+                      <td className="border-2 border-black p-4 text-xs text-neutral-700">Clear premium glass bottles, organic juice bottles, transparent pouching</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </NeoCard>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <NeoCard color="bg-[#D4FF00]" className="text-center">
+                <div className="text-5xl font-black mb-1">US$60</div>
+                <p className="font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-neutral-800">
+                  Starting Price / 1,000 Pcs
+                </p>
+                <p className="text-[10px] text-neutral-500 mt-1">Includes complimentary artwork layout reviews</p>
+              </NeoCard>
+              <NeoCard color="bg-[#00FFFF]" className="text-center">
+                <div className="text-5xl font-black mb-1">Free</div>
+                <p className="font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-neutral-800">
+                  24-Hour B2B Soft Proof
+                </p>
+                <p className="text-[10px] text-neutral-500 mt-1">Get precise digital markup of your shapes and colors</p>
+              </NeoCard>
+              <NeoCard color="bg-[#FF00FF] text-white" className="text-center">
+                <div className="text-5xl font-black mb-1 text-[#D4FF00]">Up to 15%</div>
+                <p className="font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-[#D4FF00]">
+                  Multi-SKU Custom Discount
+                </p>
+                <p className="text-[10px] text-neutral-200 mt-1">Order multiple label variations together and save major costs</p>
+              </NeoCard>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-24 px-6 bg-white border-b-4 border-black">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-16 tracking-tight">
+              FREQUENTLY ASKED <span className="text-[#10b981]">QUESTIONS</span>
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  q: 'Are the adhesives certified compostable and food contact compliant?',
+                  a: 'Yes! The emulsified pressure-sensitive bio-adhesive we use fully complies with FDA 21 CFR 175.105 regulation for indirect food contact. It holds international certifications for home and industrial composting (EN 13432 & ASTM D6400), ensuring zero toxin residues or persistent microplastics remain in the soil.'
+                },
+                {
+                  q: 'Do they have cold-temperature and freezer endurance?',
+                  a: 'Absolutely. While the initial label placement should take place at room temperature (or cold environment limits above -5°C), the biological adhesive molecules successfully secure to curved, textured, and plastic surfaces. Once set, they retain a reliable temperature envelope of -20°C to +70°C, providing cold chain safety.'
+                },
+                {
+                  q: 'What is the minimum order quantity (MOQ) and delivery timeline?',
+                  a: 'To empower emerging startups, pouch.eco maintains a minimum order quantity of just 1,000 labels per design. Digital printing with vegetable ink typically finishes within 3-5 business days for paper structures, and 5-7 business days for PLA biopolymer films, supported by fast global air shipping.'
+                },
+                {
+                  q: 'Can custom shape kiss-cut rolls be processed on automatic labeling equipment?',
+                  a: 'Yes, our compostable labels are wound on rigid cores using premium glassine liners that offer perfect peelability. Our precise rotary die-cut tools operate within ±0.15mm, guaranteeing seamless high-speed B2B machine calibration.'
+                }
+              ].map((item, idx) => (
+                <NeoCard key={idx} color="bg-[#F0F0F0]/50" className="border-4">
+                  <h3 className="font-black text-lg mb-2 uppercase">{item.q}</h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-700 leading-relaxed">{item.a}</p>
+                </NeoCard>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Banner */}
+        <section className="bg-[#10b981] text-black py-24 px-6 border-t-4 border-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-25"></div>
+          <div className="max-w-4xl mx-auto text-center relative z-10 space-y-6">
+            <h2 className="font-['Space_Grotesk'] font-black text-5xl md:text-7xl uppercase mb-6 tracking-tight">
+              LAUNCH YOUR CUSTOM <span className="text-white bg-black px-3 py-1 border-2 border-black inline-block -rotate-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">ECO LABELS</span> TODAY
+            </h2>
+            <p className="font-['JetBrains_Mono'] text-lg md:text-xl text-black font-semibold max-w-2xl mx-auto leading-relaxed">
+              Elevate your packaging credentials with 100% certified biopolymers. Get free mockups, instant support, and fast turnaround.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center pt-6">
+              <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="primary">
+                Schedule B2B Call
+              </NeoButton>
+              <NeoButton href="https://wa.me/85269704411?text=Hi%2C%20I%27m%20interested%20in%20custom%20compostable%20labels%20from%20pouch.eco" variant="secondary">
+                WhatsApp Live Support
+              </NeoButton>
+            </div>
+          </div>
+        </section>
+      </PouchLayout>
+    )
+  }
+
+  // ----------------------------------------------------
+  // DUAL DOMAIN RENDERING BRANCH (2): achievepack.com
+  // ----------------------------------------------------
 
   // Alternating layout component
   const AlternatingSection = ({ 
@@ -115,14 +514,14 @@ const CustomCompostableLabelsPage: React.FC = () => {
           </div>
 
           <AlternatingSection
-            image="/taobao/compostable-label/eco_friendly_stickers.svg"
-            imageAlt="Compostable label structure diagram"
+            image="/taobao/compostable-label/compostable-labels-5.png"
+            imageAlt="Premium 4-Layer Ecological Structure Infographic"
             title="Premium 4-Layer Ecological Structure"
             titleCn="四層黃金環保結構體系"
             content="Our compostable labels feature an advanced 4-layer ecological design: 1) Sustainable FSC-certified face paper or biodegradable PLA film printed with eco-friendly soy/vegetable inks. 2) Emulsified pressure-sensitive bio-adhesive that bonds securely to paper, glass, bio-plastics, and metal. 3) Premium glassine paper liner for seamless mechanical peeling."
             contentCn="我們的可堆肥標籤採用創新的四層生態結構：1) 最外層為 FSC 森林認證木漿紙或天然植物澱粉 PLA 薄膜，以大豆植物環保油墨進行超高清印刷；2) 中間為水乳型壓敏性生物膠水，具備極強的初粘性與持粘性；3) 底層採用格拉辛離型底紙，完美支持機器自動貼標。"
             imageLeft={true}
-            index={0}
+            index={fullGallery.findIndex(g => g.src.includes('labels-5'))}
           />
         </div>
       )
@@ -363,7 +762,7 @@ const CustomCompostableLabelsPage: React.FC = () => {
           <p className="text-neutral-600 text-sm leading-relaxed">
             歡迎查看我們在無塵車間製造的真實堆肥標籤與貼紙捲料。採用植物大豆環保油墨印刷，具備出色的色彩與細節表現，專為 <strong>Achieve Pack</strong> 與 <strong>pouch.eco</strong> 高端品牌量身定制。
           </p>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {photoGallery.map((photo, i) => (
               <button 
                 key={i}
@@ -545,7 +944,7 @@ const CustomCompostableLabelsPage: React.FC = () => {
         heroTitle="Custom Compostable Labels"
         heroSubtitle="FSC® Certified • 100% Biodegradable PLA • FDA Food-Grade Adhesive"
         introSummary="Certified compostable custom adhesive stickers and labels engineered from FSC wood pulp paper and plant starch PLA film. Backed by high-performance emulsion bio-adhesive that degrades safely into compost in 180 days with zero microplastics."
-        heroImage="/taobao/compostable-label/eco_friendly_stickers.svg"
+        heroImage="/taobao/compostable-label/compostable-label-cover.jpg"
         sections={sections}
         keywords={['custom compostable labels', 'PLA biodegradable stickers', 'FSC certified product labels', 'FDA food-grade compostable adhesive', 'zero microplastic packaging label', 'pouch.eco', 'achieve pack labels']}
         schemaType="Product"
