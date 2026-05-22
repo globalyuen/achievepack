@@ -866,52 +866,6 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     },
     videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
-  // Custom Compostable Adhesive Label & Sticker
-  {
-    id: 'eco-custom-label',
-    name: 'Custom Biodegradable Clear PLA Adhesive Sticker & Label',
-    category: 'eco-digital',
-    description: 'Premium custom-printed, 100% biodegradable and compostable clear PLA adhesive stickers and labels. Made from high-clarity plant-based PLA film combined with high-performance compostable acrylic adhesive. 100% moisture-resistant, oil-resistant, and completely transparent, making them ideal for high-end organic cosmetics, glass bottle packaging, and food-grade packaging. Fully certified under EN 13432 and ASTM D6400 to degrade cleanly within 180 days under composting conditions with zero microplastic residue.',
-    shortDesc: 'From US$60 for 1,000 pcs (Compostable Clear PLA & FSC Paper)',
-    features: [
-      'High-Clarity Clear PLA Film',
-      '100% Compostable & Biodegradable',
-      'Water-Resistant & Oil-Resistant',
-      'Food-Grade Acrylic Bio-Adhesive',
-      '180-Day Zero Microplastic Degradation'
-    ],
-    images: [
-      '/taobao/pla-compostable-clear-label/clear-label-hygiene-cover.jpg',
-      '/taobao/pla-compostable-clear-label/clear-label-eco-friendly.webp',
-      '/taobao/pla-compostable-clear-label/clear-label-factory-material.webp',
-      '/taobao/pla-compostable-clear-label/clear-label-hygienic-liner.webp',
-      '/taobao/pla-compostable-clear-label/clear-label-hygiene-close-up.jpg',
-      '/taobao/pla-compostable-clear-label/clear-label-datasheet.jpg',
-      '/taobao/pla-compostable-clear-label/clear-label-parameters.png',
-      '/taobao/pla-compostable-clear-label/clear-label-categories.png',
-      '/taobao/pla-compostable-clear-label/clear-label-dimensions.png',
-      '/taobao/pla-compostable-clear-label/clear-label-customization.jpg',
-      '/taobao/pla-compostable-clear-label/clear-label-certifications.jpg'
-    ],
-    badge: '🌿 100% Biodegradable Clear PLA',
-    rating: 4.9,
-    reviews: 182,
-    inStock: true,
-    turnaround: '10-15 days',
-    minOrder: 1000,
-    shape: 'Label & Sticker',
-    basePrice: 60,
-    ecoConfig: {
-      defaultMaterial: 'Water-Resistant Biodegradable Clear PLA Film',
-      defaultSize: 'Custom (Square, Round, Die-Cut)',
-      defaultQuantity: '1,000 pcs',
-      defaultDesignCount: 1,
-      defaultBarrier: 'Mid-barrier, excellent moisture and oil resistance',
-      defaultStiffness: 'Flexible self-adhesive label stock',
-      defaultZipper: 'No',
-      defaultShippingMethod: 'Air Freight',
-    },
-  },
 ]
 
 // Eco Stock Products (Ready-made Compostable)
@@ -4133,6 +4087,112 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     ],
     customPrintNote: 'Custom prints available from 100+ pieces. Please consult our team.',
     customPrintProductId: 'conven-sup-clear-zip',
+  },
+  // Custom Biodegradable Clear PLA Adhesive Sticker & Label (Stock ready-made sizes)
+  {
+    id: 'eco-custom-label',
+    name: 'Custom Biodegradable Clear PLA Adhesive Sticker & Label',
+    category: 'eco-stock',
+    description: 'Premium ready-made, 100% biodegradable and compostable clear PLA adhesive stickers and labels. Made from high-clarity plant-based PLA film combined with high-performance compostable acrylic adhesive. 100% moisture-resistant, oil-resistant, and completely transparent, making them ideal for high-end organic cosmetics, glass bottle packaging, and food-grade packaging. Fully certified under EN 13432 and ASTM D6400 to degrade cleanly within 180 days under composting conditions with zero microplastic residue.',
+    shortDesc: 'Premium 100% biodegradable clear PLA compostable sealing labels and hygiene stickers in stock',
+    features: [
+      'High-Clarity Clear PLA Film',
+      '100% Compostable & Biodegradable',
+      'Water-Resistant & Oil-Resistant',
+      'Food-Grade Acrylic Bio-Adhesive',
+      '180-Day Zero Microplastic Degradation'
+    ],
+    images: [
+      '/taobao/pla-compostable-clear-label/clear-label-hygiene-cover.jpg',
+      '/taobao/pla-compostable-clear-label/clear-label-eco-friendly.webp',
+      '/taobao/pla-compostable-clear-label/clear-label-factory-material.webp',
+      '/taobao/pla-compostable-clear-label/clear-label-hygienic-liner.webp',
+      '/taobao/pla-compostable-clear-label/clear-label-hygiene-close-up.jpg',
+      '/taobao/pla-compostable-clear-label/clear-label-datasheet.jpg',
+      '/taobao/pla-compostable-clear-label/clear-label-parameters.png',
+      '/taobao/pla-compostable-clear-label/clear-label-categories.png',
+      '/taobao/pla-compostable-clear-label/clear-label-dimensions.png',
+      '/taobao/pla-compostable-clear-label/clear-label-customization.jpg',
+      '/taobao/pla-compostable-clear-label/clear-label-certifications.jpg'
+    ],
+    badge: '🌿 100% Compostable Label',
+    rating: 4.9,
+    reviews: 182,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 1,
+    shape: 'Label & Sticker',
+    material: 'Certified Compostable Clear PLA Film & Bio-Adhesive',
+    basePrice: 18.90,
+    pricePerPiece: 0.0189,
+    minQuantity: 1,
+    quantityStep: 1,
+    sizeInfo: '110×50mm / 140×37.5mm / 140×50mm / 142×65mm / 37.5×140mm / 35×135mm',
+    shelfLife: '12 months under dry & cool conditions',
+    certification: 'TUV OK Compost Industrial, EN 13432, ASTM D6400, FSC Certified',
+    customPrintNote: 'Custom logo printing available. Please check our Custom Digital print page.',
+    sizeVariants: [
+      {
+        id: 'clear-label-110x50-1000pcs',
+        label: '110 × 50 mm (1,000 Pcs / Pack)',
+        dimensions: '110 × 50 mm • Clear PLA • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 18.90,
+        unitPrice: 0.0189,
+        heroImageIndex: 3
+      },
+      {
+        id: 'clear-label-140x37.5-1000pcs',
+        label: '140 × 37.5 mm (1,000 Pcs / Pack)',
+        dimensions: '140 × 37.5 mm • Clear PLA • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 22.90,
+        unitPrice: 0.0229,
+        heroImageIndex: 0
+      },
+      {
+        id: 'clear-label-140x50-1000pcs',
+        label: '140 × 50 mm (1,000 Pcs / Pack)',
+        dimensions: '140 × 50 mm • Clear PLA • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 24.90,
+        unitPrice: 0.0249,
+        heroImageIndex: 4
+      },
+      {
+        id: 'clear-label-37.5x140-1000pcs',
+        label: '37.5 × 140 mm (1,000 Pcs / Pack)',
+        dimensions: '37.5 × 140 mm • Clear PLA • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 22.90,
+        unitPrice: 0.0229,
+        heroImageIndex: 0
+      },
+      {
+        id: 'clear-label-142x65-1000pcs',
+        label: '142 × 65 mm (1,000 Pcs / Pack)',
+        dimensions: '142 × 65 mm • Clear PLA • 1,000 Pcs/Pack',
+        hasHole: false,
+        quantity: 1000,
+        totalPrice: 28.90,
+        unitPrice: 0.0289,
+        heroImageIndex: 0
+      },
+      {
+        id: 'clear-label-35x135-1440pcs',
+        label: '35 × 135 mm (1,440 Pcs / Pack)',
+        dimensions: '35 × 135 mm • Clear PLA • Sheets (12 pcs/sheet, 120 sheets/pack)',
+        hasHole: false,
+        quantity: 1440,
+        totalPrice: 29.90,
+        unitPrice: 0.0208,
+        heroImageIndex: 7
+      }
+    ]
   }
 ]
 
@@ -4175,6 +4235,8 @@ export const getProductType = (product: StoreProduct): ProductType => {
   if (product.category === 'sample') return 'sample'
   if (product.category === 'conventional-digital') return 'stock'
   if (product.category === 'eco-stock') {
+    // Override for eco-custom-label which contains '-custom' but is ready-made stock
+    if (product.id === 'eco-custom-label') return 'stock'
     // Check if it's a custom print version
     if (product.id.includes('-custom')) return 'custom'
     return 'stock'
@@ -4197,6 +4259,8 @@ export const getProductSubCategory = (product: StoreProduct): ProductSubCategory
   if (product.category === 'sample') return 'samples'
   if (product.category === 'conventional-digital') return 'conventional-digital'
   if (product.category === 'eco-stock') {
+    // Override for eco-custom-label which contains '-custom' but is ready-made stock
+    if (product.id === 'eco-custom-label') return 'eco-stock-plain'
     if (product.id.includes('-custom')) return 'eco-stock-custom-print'
     return 'eco-stock-plain'
   }

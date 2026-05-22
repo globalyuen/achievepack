@@ -303,10 +303,10 @@ const StorePage: React.FC = () => {
         matchesCategory = product.category === 'sample'
       } else if (selectedCategory === 'eco-stock-plain') {
         // Eco Stock Plain (no custom print)
-        matchesCategory = product.category === 'eco-stock' && !product.id.includes('-custom')
+        matchesCategory = productSubCategory === 'eco-stock-plain'
       } else if (selectedCategory === 'eco-stock-custom-print') {
         // Eco Stock Custom Print
-        matchesCategory = product.category === 'eco-stock' && product.id.includes('-custom')
+        matchesCategory = productSubCategory === 'eco-stock-custom-print'
       } else {
         // Standard category match
         matchesCategory = product.category === selectedCategory || productSubCategory === selectedCategory
