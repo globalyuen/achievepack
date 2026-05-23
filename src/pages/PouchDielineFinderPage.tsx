@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { 
   Search, 
@@ -17,7 +17,12 @@ import {
   FileCode,
   ArrowRight,
   Bookmark,
-  Share2
+  Share2,
+  Upload,
+  X,
+  Send,
+  Loader2,
+  CornerDownRight
 } from 'lucide-react'
 import { getDomain } from '../utils/domain'
 import { DIELINE_CATALOG, type DielineItem } from '../data/dielineCatalog'
@@ -45,6 +50,22 @@ export default function PouchDielineFinderPage() {
   const [downloadSuccess, setDownloadSuccess] = useState(false)
   const [recentDownloads, setRecentDownloads] = useState<DielineItem[]>([])
 
+  // Prepress Submission Modal State
+  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false)
+  const [submitName, setSubmitName] = useState('')
+  const [submitEmail, setSubmitEmail] = useState('')
+  const [submitCompany, setSubmitCompany] = useState('')
+  const [submitMaterial, setSubmitMaterial] = useState('Kraft High-Barrier')
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [dragActive, setDragActive] = useState(false)
+  
+  // Upload & Process Simulation
+  const [isUploading, setIsUploading] = useState(false)
+  const [uploadProgress, setUploadProgress] = useState(0)
+  const [uploadStep, setUploadStep] = useState('')
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [activeEmailTab, setActiveEmailTab] = useState<'ryan' | 'customer'>('ryan')
+  
   // Blueprint Preview Layers State
   const [showGrid, setShowGrid] = useState(true)
   const [showSafeZone, setShowSafeZone] = useState(true)
@@ -132,7 +153,6 @@ export default function PouchDielineFinderPage() {
 
   // Visual Dimension Ratios for Blueprint Renderer
   const blueprintProportions = useMemo(() => {
-    // Find min and max width/height to scale proportionately inside 400x400 view
     const w = selectedDieline.width || 100
     const h = selectedDieline.height || 150
     const g = selectedDieline.gusset || 0
@@ -155,6 +175,68 @@ export default function PouchDielineFinderPage() {
       unit: selectedDieline.unit
     }
   }, [selectedDieline])
+
+  // DRAG & DROP FILE UPLOAD HANDLERS
+  const handleDrag = (e: React.DragEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true)
+    } else if (e.type === "dragleave") {
+      setDragActive(false)
+    }
+  }
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setDragActive(false)
+
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      const file = e.dataTransfer.files[0]
+      const ext = file.name.split('.').pop()?.toLowerCase()
+      if (ext === 'pdf' || ext === 'ai' || ext === 'zip') {
+        setSelectedFile(file)
+      } else {
+        alert('Please submit only .AI, .PDF or .ZIP files for prepress auditing.')
+      }
+    }
+  }
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0]
+      setSelectedFile(file)
+    }
+  }
+
+  // Simulates high-fidelity upload pipeline and triggers email previews
+  const handlePrepressSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!selectedFile || !submitName || !submitEmail) return
+
+    setIsUploading(true)
+    setUploadProgress(0)
+    setUploadStep('Staging file attachment...')
+
+    const interval = setInterval(() => {
+      setUploadProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval)
+          setIsUploading(false)
+          setSubmitSuccess(true)
+          return 100
+        }
+        
+        const next = prev + 5
+        if (next === 25) setUploadStep('Uploading artwork binaries to server...')
+        if (next === 50) setUploadStep('Validating vector coords & safe margins...')
+        if (next === 75) setUploadStep('Converting color mappings (CMYK profiles)...')
+        if (next === 90) setUploadStep('Dispatching notifications to engineering...')
+        return next
+      })
+    }, 150)
+  }
 
   // Renders the JSX Content for the Dieline Finder
   const renderMainContent = () => {
@@ -317,7 +399,7 @@ export default function PouchDielineFinderPage() {
                           className={`w-full text-left p-3 border-2 transition-all flex items-center justify-between ${
                             isSelected
                               ? isPouch
-                                ? 'bg-[#00FFFF] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold'
+                                ? 'bg-[#00FFFF] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
                                 : 'bg-indigo-50 border-indigo-200 rounded-xl font-semibold text-indigo-900'
                               : isPouch
                                 ? 'bg-white border-transparent hover:bg-neutral-50 hover:border-black'
@@ -483,7 +565,6 @@ export default function PouchDielineFinderPage() {
 
                       {/* Side Seals Indicators (Weld Zones) */}
                       <g opacity="0.3">
-                        {/* 8mm seals left & right */}
                         <rect x="0" y="0" width="8" height={blueprintProportions.h} fill="#ffffff" />
                         <rect x={blueprintProportions.w - 8} y="0" width="8" height={blueprintProportions.h} fill="#ffffff" />
                       </g>
@@ -508,7 +589,7 @@ export default function PouchDielineFinderPage() {
                         </text>
                       </g>
 
-                      {/* Gusset tag (top center, only shown if greater than 0) */}
+                      {/* Gusset tag (top center) */}
                       {blueprintProportions.actualG > 0 && (
                         <g transform={`translate(${blueprintProportions.w / 2}, -25)`}>
                           <rect x="-45" y="-12" width="90" height="20" fill="#000000" rx="3" stroke="#a855f7" strokeWidth="1" />
@@ -519,7 +600,7 @@ export default function PouchDielineFinderPage() {
                       )}
                     </g>
 
-                    {/* Prepress technical annotation labels */}
+                    {/* Prepress technical annotations */}
                     <text x="15" y="30" fill="#ef4444" fontSize="9" fontWeight="bold" fontFamily="monospace">RED = CUT LINE</text>
                     <text x="15" y="45" fill="#3b82f6" fontSize="9" fontWeight="bold" fontFamily="monospace">BLUE = FOLD CREASE</text>
                     <text x="15" y="60" fill="#10b981" fontSize="9" fontWeight="bold" fontFamily="monospace">GREEN = BLEED MARGIN (3mm)</text>
@@ -760,24 +841,26 @@ export default function PouchDielineFinderPage() {
                 </div>
 
                 {/* Prepress file audit card */}
-                <div className={`p-5 border-4 border-black ${
-                  isPouch 
-                    ? 'bg-black text-[#D4FF00] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' 
-                    : 'bg-indigo-900 text-white border-0 shadow-xl shadow-indigo-100/20 rounded-2xl'
-                }`}>
+                <button
+                  onClick={() => setIsSubmitModalOpen(true)}
+                  className={`p-5 text-left border-4 border-black transition-transform hover:scale-[1.01] ${
+                    isPouch 
+                      ? 'bg-black text-[#D4FF00] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' 
+                      : 'bg-indigo-900 text-white border-0 shadow-xl shadow-indigo-100/20 rounded-2xl'
+                  }`}
+                >
                   <h4 className="font-black text-sm uppercase leading-none mb-1.5 flex items-center gap-1.5">
-                    <Info className="w-4 h-4 text-cyan-300" /> Free 24-Hr Artwork Audit
+                    <Info className="w-4 h-4 text-cyan-300 animate-pulse" /> Free 24-Hr Artwork Audit
                   </h4>
                   <p className={`text-xs leading-relaxed mb-3 ${isPouch ? 'text-white/80' : 'text-indigo-200'}`}>
                     Already finished placing your graphics? Submit your design file (.AI/.PDF) to our engineering department for a complimentary 24-hour prepress review.
                   </p>
-                  <a
-                    href="/contact"
+                  <div
                     className={`inline-flex items-center gap-1 text-xs font-bold uppercase underline ${isPouch ? 'text-[#D4FF00]' : 'text-cyan-300 hover:text-cyan-200'}`}
                   >
                     Submit Artwork File <ChevronRight className="w-3 h-3" />
-                  </a>
-                </div>
+                  </div>
+                </button>
 
               </div>
 
@@ -785,7 +868,349 @@ export default function PouchDielineFinderPage() {
 
           </div>
         </section>
-        
+
+        {/* ========================================================================= */}
+        {/* ARTWORK SUBMISSION & EMAIL NOTIFICATION MODAL */}
+        {/* ========================================================================= */}
+        {isSubmitModalOpen && (
+          <div className="fixed inset-0 bg-black/85 flex items-center justify-center p-4 z-50 overflow-y-auto animate-fade-in font-sans">
+            
+            {/* Modal Body Container */}
+            <div className={`w-full max-w-2xl border-4 border-black overflow-hidden flex flex-col relative transition-all my-8 ${
+              isPouch
+                ? 'bg-white text-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] font-["Space_Grotesk"]'
+                : 'bg-white text-neutral-800 rounded-3xl border border-neutral-200 shadow-2xl'
+            }`}>
+              
+              {/* Close Button */}
+              <button 
+                onClick={() => {
+                  setIsSubmitModalOpen(false)
+                  setSubmitSuccess(false)
+                  setSelectedFile(null)
+                }}
+                className={`absolute right-4 top-4 p-1 hover:bg-neutral-100 border-2 border-black transition-colors z-20 ${isPouch ? 'bg-white' : 'rounded-full'}`}
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              {/* Modal Header */}
+              <div className={`border-b-4 border-black px-6 py-4 ${isPouch ? 'bg-[#00FFFF] text-black' : 'bg-neutral-900 text-white border-b-0'}`}>
+                <h3 className="font-black text-xl uppercase italic leading-none flex items-center gap-2">
+                  <Upload className="w-5 h-5 text-purple-600" /> Prepress Artwork Submission
+                </h3>
+                <p className={`text-xs mt-1 uppercase ${isPouch ? 'font-mono text-black/80' : 'text-neutral-400 font-normal'}`}>
+                  Free engineering compliance & layout check
+                </p>
+              </div>
+
+              {/* Modal Core Content */}
+              <div className="p-6 overflow-y-auto max-h-[75vh]">
+                {!submitSuccess ? (
+                  <form onSubmit={handlePrepressSubmit} className="flex flex-col gap-4">
+                    
+                    {/* User Details */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase mb-1">Full Name *</label>
+                        <input
+                          type="text"
+                          required
+                          value={submitName}
+                          onChange={(e) => setSubmitName(e.target.value)}
+                          placeholder="e.g. John Doe"
+                          className={`w-full px-3 py-2 text-sm border-2 border-black outline-none font-medium ${
+                            isPouch ? 'focus:bg-[#D4FF00]' : 'rounded-lg border-neutral-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500'
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase mb-1">Email Address *</label>
+                        <input
+                          type="email"
+                          required
+                          value={submitEmail}
+                          onChange={(e) => setSubmitEmail(e.target.value)}
+                          placeholder="brand-manager@company.com"
+                          className={`w-full px-3 py-2 text-sm border-2 border-black outline-none font-medium ${
+                            isPouch ? 'focus:bg-[#D4FF00]' : 'rounded-lg border-neutral-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500'
+                          }`}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase mb-1">Company Name</label>
+                        <input
+                          type="text"
+                          value={submitCompany}
+                          onChange={(e) => setSubmitCompany(e.target.value)}
+                          placeholder="e.g. RedFoot Coffee Co."
+                          className={`w-full px-3 py-2 text-sm border-2 border-black outline-none font-medium ${
+                            isPouch ? 'focus:bg-[#D4FF00]' : 'rounded-lg border-neutral-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500'
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase mb-1">Target Material Structure</label>
+                        <select
+                          value={submitMaterial}
+                          onChange={(e) => setSubmitMaterial(e.target.value)}
+                          className={`w-full px-3 py-2 text-sm border-2 border-black outline-none font-semibold ${
+                            isPouch ? 'focus:bg-[#D4FF00]' : 'rounded-lg border-neutral-300'
+                          }`}
+                        >
+                          <option value="Kraft High-Barrier">Kraft High-Barrier (Compostable)</option>
+                          <option value="Mono-PE Recycle">Mono-PE Recyclable</option>
+                          <option value="PCR High-Barrier">PCR Recycled Plastic</option>
+                          <option value="Stock Unprinted">Stock Unprinted with Label</option>
+                          <option value="Digital Gloss/Matte">Sleek Digital Print</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Pre-Selected Dieline Confirmation Card */}
+                    <div className="p-3 bg-neutral-50 border-2 border-black rounded-lg flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <FileCode className="w-5 h-5 text-indigo-600" />
+                        <div>
+                          <div className="text-[10px] text-neutral-500 font-bold uppercase">Pre-selected Template</div>
+                          <div className="text-xs font-black uppercase">{selectedDieline.displayName}</div>
+                        </div>
+                      </div>
+                      <span className="text-[9px] font-mono bg-neutral-200 px-2 py-0.5 rounded font-bold uppercase">
+                        {selectedDieline.width}x{selectedDieline.height} {selectedDieline.unit}
+                      </span>
+                    </div>
+
+                    {/* DRAG & DROP UPLOAD ZONE */}
+                    <div>
+                      <label className="block text-xs font-bold uppercase mb-1">Upload Graphics Design File (.AI / .PDF / .ZIP) *</label>
+                      <div
+                        onDragEnter={handleDrag}
+                        onDragOver={handleDrag}
+                        onDragLeave={handleDrag}
+                        onDrop={handleDrop}
+                        className={`border-4 border-dashed p-6 text-center transition-all cursor-pointer relative ${
+                          dragActive 
+                            ? 'border-[#00FFFF] bg-indigo-50/20' 
+                            : 'border-black bg-neutral-50 hover:bg-neutral-100'
+                        } ${isPouch ? '' : 'rounded-2xl'}`}
+                      >
+                        <input
+                          type="file"
+                          required
+                          id="file-select"
+                          accept=".pdf,.ai,.zip"
+                          onChange={handleFileSelect}
+                          className="hidden"
+                        />
+                        
+                        <label htmlFor="file-select" className="cursor-pointer flex flex-col items-center justify-center gap-2">
+                          <Upload className="w-8 h-8 text-neutral-450 animate-bounce" />
+                          {selectedFile ? (
+                            <div>
+                              <div className="text-sm font-black text-green-700 uppercase flex items-center gap-1.5 justify-center">
+                                <CheckCircle className="w-4 h-4" /> File Selected Successfully
+                              </div>
+                              <div className="text-xs font-bold text-neutral-800 mt-1">
+                                {selectedFile.name} ({(selectedFile.size / (1024 * 1024)).toFixed(2)} MB)
+                              </div>
+                              <div className="text-[10px] text-neutral-500 mt-0.5">Click to replace file</div>
+                            </div>
+                          ) : (
+                            <>
+                              <div className="text-xs font-bold uppercase">
+                                Drag and drop your artwork file here
+                              </div>
+                              <div className="text-[10px] text-neutral-500 font-semibold font-['JetBrains_Mono']">
+                                Supports .AI, .PDF or .ZIP files (Max 50MB)
+                              </div>
+                              <div className="mt-2 text-xs font-black text-indigo-600 underline">
+                                Browse Local Files
+                              </div>
+                            </>
+                          )}
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* Submit Request Button */}
+                    <button
+                      type="submit"
+                      disabled={isUploading || !selectedFile}
+                      className={`w-full py-3.5 text-xs font-black uppercase border-2 border-black transition-all flex items-center justify-center gap-2 ${
+                        isUploading
+                          ? 'bg-neutral-100 text-neutral-500 cursor-not-allowed'
+                          : isPouch
+                            ? 'bg-[#D4FF00] text-black hover:bg-black hover:text-[#D4FF00] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                            : 'bg-indigo-600 text-white border-indigo-600 rounded-xl hover:bg-indigo-700'
+                      }`}
+                    >
+                      {isUploading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin text-purple-600" /> {uploadStep} ({uploadProgress}%)
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4" /> Submit Prepress Review Request
+                        </>
+                      )}
+                    </button>
+
+                  </form>
+                ) : (
+                  
+                  // ==========================================================
+                  // SUCCESS STATE: SHOW EMAIL NOTIFICATION SIMULATOR CARD
+                  // ==========================================================
+                  <div className="flex flex-col gap-6">
+                    
+                    {/* Simulated Success Message */}
+                    <div className="p-4 bg-green-50 border-2 border-green-600 rounded-xl text-green-900 flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-700 shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-black text-sm uppercase leading-none mb-1">Submission Successful!</h4>
+                        <p className="text-xs font-semibold leading-relaxed">
+                          Your artwork graphics file `{selectedFile?.name}` has been uploaded and routed successfully. We've compiled the automated layout audits and dispatched notification alerts to both parties.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Email Notification Logs Section */}
+                    <div>
+                      <div className="flex items-center justify-between border-b-2 border-black pb-2 mb-3">
+                        <h4 className="font-black text-xs uppercase tracking-wider text-neutral-600 flex items-center gap-1.5">
+                          <Eye className="w-4 h-4 text-purple-600 animate-pulse" /> 📬 Simulated Email Notifications Logs
+                        </h4>
+                        <span className="text-[9px] font-mono bg-green-100 text-green-800 px-2 py-0.5 rounded font-black uppercase">
+                          Delivered
+                        </span>
+                      </div>
+
+                      {/* Email Tabs Selector */}
+                      <div className="flex gap-1 mb-3">
+                        <button
+                          onClick={() => setActiveEmailTab('ryan')}
+                          className={`px-3 py-1.5 text-xs font-bold border-2 border-black transition-all ${
+                            activeEmailTab === 'ryan'
+                              ? 'bg-black text-[#D4FF00]'
+                              : 'bg-white text-neutral-600 hover:bg-neutral-50'
+                          } ${isPouch ? '' : 'rounded-lg'}`}
+                        >
+                          ✉️ Notification to ryan@achievepack.com
+                        </button>
+                        <button
+                          onClick={() => setActiveEmailTab('customer')}
+                          className={`px-3 py-1.5 text-xs font-bold border-2 border-black transition-all ${
+                            activeEmailTab === 'customer'
+                              ? 'bg-black text-[#00FFFF]'
+                              : 'bg-white text-neutral-600 hover:bg-neutral-50'
+                          } ${isPouch ? '' : 'rounded-lg'}`}
+                        >
+                          📩 Confirmation to Customer ({submitEmail})
+                        </button>
+                      </div>
+
+                      {/* Tab 1: Email notification to ryan@achievepack.com */}
+                      {activeEmailTab === 'ryan' && (
+                        <div className="border-2 border-neutral-300 rounded-xl overflow-hidden bg-neutral-50 p-4 font-mono text-xs text-neutral-800 flex flex-col gap-2">
+                          <div className="border-b border-neutral-200 pb-2 flex flex-col gap-1">
+                            <div><strong className="text-neutral-500">To:</strong> ryan@achievepack.com</div>
+                            <div><strong className="text-neutral-500">From:</strong> prepress-alerts@achievepack.com</div>
+                            <div><strong className="text-neutral-500">Subject:</strong> [Prepress Review Required] New artwork upload for {selectedDieline.displayName}</div>
+                          </div>
+                          
+                          <div className="py-2 flex flex-col gap-3 font-sans">
+                            <p>Hi Ryan,</p>
+                            <p>
+                              A new prepress artwork submission has been generated through the Dieline Finder tool:
+                            </p>
+                            <div className="bg-neutral-100 border border-neutral-200 p-3 rounded-lg flex flex-col gap-1.5">
+                              <div><strong>Client Name:</strong> {submitName}</div>
+                              <div><strong>Client Email:</strong> {submitEmail}</div>
+                              <div><strong>Company Name:</strong> {submitCompany || 'Not Provided'}</div>
+                              <div><strong>Pre-Selected Dieline:</strong> {selectedDieline.displayName}</div>
+                              <div><strong>Target Material Structure:</strong> {submitMaterial}</div>
+                            </div>
+                            
+                            <div className="flex flex-col gap-2 bg-purple-50 border border-purple-200 p-3 rounded-lg">
+                              <div className="font-bold text-xs uppercase text-purple-800">Submitted Files:</div>
+                              <div className="flex items-center gap-1.5 text-xs font-mono">
+                                <CornerDownRight className="w-3.5 h-3.5" /> 📄 Artwork: <span className="underline font-bold text-purple-700 cursor-pointer">{selectedFile?.name}</span> ({(selectedFile?.size ? selectedFile.size / (1024 * 1024) : 0).toFixed(2)} MB)
+                              </div>
+                              <div className="flex items-center gap-1.5 text-xs font-mono">
+                                <CornerDownRight className="w-3.5 h-3.5" /> 📐 Layout: <a href={selectedDieline.url} download className="underline font-bold text-indigo-700">{selectedDieline.filename}</a>
+                              </div>
+                            </div>
+                            <p className="text-[10px] text-neutral-500 italic mt-2">
+                              Please review the vector limits in Adobe Illustrator and dispatch the visual proofing drafts within 24 hours.
+                            </p>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Tab 2: Email confirmation to customer */}
+                      {activeEmailTab === 'customer' && (
+                        <div className="border-2 border-neutral-300 rounded-xl overflow-hidden bg-neutral-50 p-4 font-mono text-xs text-neutral-800 flex flex-col gap-2">
+                          <div className="border-b border-neutral-200 pb-2 flex flex-col gap-1">
+                            <div><strong className="text-neutral-500">To:</strong> {submitEmail}</div>
+                            <div><strong className="text-neutral-500">From:</strong> prepress@achievepack.com</div>
+                            <div><strong className="text-neutral-500">Subject:</strong> Prepress Artwork Review Confirmed - {selectedDieline.displayName}</div>
+                          </div>
+                          
+                          <div className="py-2 flex flex-col gap-3 font-sans">
+                            <p>Hello {submitName},</p>
+                            <p>
+                              We have received your packaging graphics design file `{selectedFile?.name}` for the <strong>{selectedDieline.displayName}</strong> dieline template.
+                            </p>
+                            <p>
+                              Our packaging engineering specialists are running an active prepress audit (checking vector scales, CMYK color profiles, safe margin gaps, and bleed boundaries) to guarantee pixel-perfect printing.
+                            </p>
+                            
+                            <div className="p-3 bg-indigo-50 border border-indigo-200 rounded-lg flex flex-col gap-2">
+                              <div className="font-bold text-xs uppercase text-indigo-800">Your Downloads:</div>
+                              <div className="flex items-center gap-1.5 text-xs font-mono">
+                                <Check className="w-3.5 h-3.5 text-green-700" /> Vector Dieline: <a href={selectedDieline.url} download className="underline font-bold text-indigo-700">{selectedDieline.filename}</a>
+                              </div>
+                            </div>
+
+                            <p>
+                              We will respond with custom **3D visual mockups** and press-ready blueprint validation proofs within <strong>24 business hours</strong>.
+                            </p>
+                            
+                            <p className="mt-2">
+                              Best regards,<br />
+                              <strong>Prepress Engineering Department</strong><br />
+                              AchievePack / Pouch.eco
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        setIsSubmitModalOpen(false)
+                        setSubmitSuccess(false)
+                        setSelectedFile(null)
+                      }}
+                      className={`w-full py-3 text-xs font-black uppercase border-2 border-black transition-all ${
+                        isPouch
+                          ? 'bg-black text-[#D4FF00] hover:bg-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
+                          : 'bg-neutral-900 text-white hover:bg-neutral-800 rounded-xl'
+                      }`}
+                    >
+                      Close Confirmation Hub
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
     )
   }
