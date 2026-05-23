@@ -1,469 +1,287 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Package, Leaf, Shield, CheckCircle, Heart, MessageCircle, Target, Calendar, Phone, Download, Mail, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
+import { 
+  Beaker, Leaf, Award, CheckCircle, Clock, Shield, Target, 
+  Package, Zap, Factory, AlertTriangle, ArrowRight, ShoppingBag, Sparkles 
+} from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
-import { useTranslation } from 'react-i18next'
-import { useCalendly } from '../../contexts/CalendlyContext'
+import ClickableImage from '../../components/ClickableImage'
 
 const PetFoodPage: React.FC = () => {
-  const { t } = useTranslation()
-  const { openCalendly } = useCalendly()
-  const p = 'seoPages.pages.petFood'
   const sections = [
     {
-      id: 'scenario-trigger',
-      title: 'Is This Page For You?',
-      icon: <Target className="h-5 w-5 text-primary-600" />,
+      id: 'grease-challenge',
+      title: 'The Pet Food Challenge: Strong Odors, Grease Permeation & Puncture Resistance',
+      icon: <Beaker className="h-5 w-5 text-slate-700" />,
       content: (
-        <div className="bg-gradient-to-r from-purple-50 to-green-50 p-6 rounded-lg border border-purple-200">
-          <p className="text-lg font-medium text-neutral-900 mb-4">
-            If you are a <strong>pet food brand, dog treat maker, or pet supplement company</strong> looking for sustainable packaging that protects your products—you're in the right place.
+        <div className="space-y-4 text-neutral-700 leading-relaxed">
+          <p className="text-lg">
+            Pet food, organic dog treats, and raw kibble are rich in animal fats, active proteins, and strong organic odors. Standard retail plastics fail quickly under direct grease exposure, leading to oily packaging exteriors and bad-smelling rancid spoilage. Furthermore, dehydrated treats and dense dry kibble have sharp edges that can easily puncture ordinary packaging during heavy logistics.
           </p>
-          <div className="grid md:grid-cols-3 gap-4 mt-4">
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Indie Pet Brands</h4>
-              <p className="text-sm text-neutral-600 mt-1">Low MOQ (100 pieces) for testing new products or small batch production</p>
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border border-amber-200 grid md:grid-cols-2 gap-6 my-4">
+            <div>
+              <h4 className="font-semibold text-amber-900 flex items-center gap-2 mb-2">
+                <AlertTriangle className="h-4 w-4 text-amber-600" /> Key Material Risks
+              </h4>
+              <ul className="text-sm text-neutral-700 space-y-2">
+                <li>• <strong>Grease Migration:</strong> Animal fats permeate through low-density PE, creating sticky, stained bags.</li>
+                <li>• <strong>Odor Leakage:</strong> Highly aromatic fish or beef treat odors leak out, ruining kitchen pantries.</li>
+                <li>• <strong>Puncture Tears:</strong> Hard, dehydrated treats tear thin film cores, causing wholesale leaks.</li>
+              </ul>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Premium Pet Food Companies</h4>
-              <p className="text-sm text-neutral-600 mt-1">Heavy-duty construction for dense kibble and freeze-dried products</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Pet Treat E-commerce Sellers</h4>
-              <p className="text-sm text-neutral-600 mt-1">Resealable closures and clear windows for online product presentation</p>
+            <div>
+              <h4 className="font-semibold text-green-900 flex items-center gap-2 mb-2">
+                <Shield className="h-4 w-4 text-green-600" /> Engineering Requirements
+              </h4>
+              <ul className="text-sm text-neutral-700 space-y-2">
+                <li>• <strong>Grease-Proof Barrier Liners:</strong> Co-extruded inner layers designed to withstand raw oil migration.</li>
+                <li>• <strong>Aroma Defense Cores:</strong> Solid EVOH coatings or thick metallic layers to keep odors inside.</li>
+                <li>• <strong>Heavy-Duty Puncture Defense:</strong> Co-polymer laminates tested against sharp treat drops.</li>
+              </ul>
             </div>
           </div>
         </div>
       )
     },
     {
-      id: 'overview',
-      title: 'What Makes Great Pet Food Packaging?',
-      icon: <Heart className="h-5 w-5 text-primary-600" />,
+      id: 'packaging-options',
+      title: '5 Packaging Options Compared: Low-Cost MVP to Sustainable Premium',
+      icon: <Package className="h-5 w-5 text-slate-700" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Choose from our range of five engineered sustainable packaging formats designed for raw strength, odor retention, and eco-friendly claims.
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            {/* Option 1: Stand-Up Zipper Pouch */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 1</span>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded">Low Cost MVP</span>
+                </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">Stand-Up Zipper Pouch</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  The ideal retail choice for small-batch dog treats or organic pet supplements. High vertical display, strong pre-installed ziplock, and high-barrier grease resistance.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• Glossy or premium matte finishes</li>
+                  <li>• Press-to-close airtight zipper</li>
+                  <li>• Moderate cost, highly startup-friendly</li>
+                </ul>
+              </div>
+              <Link to="/store/product/eco-standup" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
+                Order Stand-Up Pouches (From US$0.09) <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* Option 2: Flat Bottom Box Pouch */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 2</span>
+                  <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-2 py-0.5 rounded">Premium Bulk Style</span>
+                </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">Flat Bottom Box Pouch</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  Perfect for large-format pet food, raw kibble, or bulk cat treats. Stands completely upright with five fully printable panels for extreme brand presentation.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• Exceptional structural box profile</li>
+                  <li>• Perfect for thick zippers and side handles</li>
+                  <li>• Holds 1kg to 10kg loads easily</li>
+                </ul>
+              </div>
+              <Link to="/store/product/compostable-coffee-bags" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
+                Buy Flat Bottom Bags <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* Option 3: Recyclable Mono-PE Gusset Bag */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 3</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Curbside Recyclable</span>
+                </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">Recyclable Mono-PE Gusset Pouch</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  Engineered using a single polymer PE laminate containing EVOH coatings. Highly accepted in standard store recycling bins, delivering a premium carbon-reduced footprint.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• Curbside and drop-off recyclable claim</li>
+                  <li>• Extreme puncture and impact defense</li>
+                  <li>• Custom clear windows to view kibble</li>
+                </ul>
+              </div>
+              <Link to="/store/product/eco-standup" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
+                Order Recyclable PE Pouches <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* Option 4: Compostable Kraft Treats Bag */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 4</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Zero-Waste Loop</span>
+                </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">Compostable Kraft treats bag</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  Organic unbleached kraft paper paired with high-barrier plant-derived inner layers. 100% biodegradable in commercial composting, creating a perfect circular ecosystem.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• Earthy unbleached organic appearance</li>
+                  <li>• BPI & EN 13432 compostability certified</li>
+                  <li>• Outstanding animal fat defense</li>
+                </ul>
+              </div>
+              <Link to="/store/product/compostable-coffee-bags" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
+                Order Compostable Bags <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* Option 5: FSC Recycled Supplement Carton */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 5</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2 py-0.5 rounded">Pet Supplement MVP</span>
+                </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">FSC Custom Carton Box</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  Elevate your pet supplements, single-use jerky packs, or chew bars with customized FSC certified retail display cartons. Matte textures and spot varnish highlights.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• FSC Recycled Solid Cardboard</li>
+                  <li>• Precise custom die-cut inner dividers</li>
+                  <li>• Ships flat to minimize inventory storage</li>
+                </ul>
+              </div>
+              <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
+                Design Custom Cartons <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'interactive-showcase',
+      title: 'Premium Visual Mockups & Product Showcase',
+      icon: <Sparkles className="h-5 w-5 text-slate-700" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Click to inspect high-resolution product prototypes. Specially designed to stop grease migration and retain volatile dog food smells under strict BRC regulations.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200 flex flex-col justify-between">
+              <ClickableImage 
+                src="/imgs/illustrated/a_pet_food_hero_v3_7652587.webp" 
+                alt="Premium pet treats stand-up pouch packaging mockup" 
+                className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
+              />
+              <div>
+                <h5 className="font-semibold text-xs text-neutral-900">Premium Pet Treats Pouches</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">High barrier, oil-proof internal films, airtight ziplocks.</p>
+              </div>
+            </div>
+
+            <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200 flex flex-col justify-between">
+              <ClickableImage 
+                src="/imgs/illustrated/a_pet_treats_v2_seal_7677464.webp" 
+                alt="Earthy unbleached organic pet treats packaging pouch" 
+                className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
+              />
+              <div>
+                <h5 className="font-semibold text-xs text-neutral-900">Organic Kraft Treat Pouches</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">Earthy textures, plant-based compostable barrier cores.</p>
+              </div>
+            </div>
+
+            <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200 flex flex-col justify-between">
+              <ClickableImage 
+                src="/imgs/blog/Sustainable-pet/a_pet_food_material_comparison_4636150.webp" 
+                alt="Pet treats heavy duty packaging material comparison mockup" 
+                className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
+              />
+              <div>
+                <h5 className="font-semibold text-xs text-neutral-900">Heavy-Duty Treat Pouches</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">Extra thick co-polymer films, robust puncture defense.</p>
+              </div>
+            </div>
+
+            <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200 flex flex-col justify-between">
+              <ClickableImage 
+                src="/imgs/blog/plant/a_pet_food_lifestyle_scene_9319878.webp" 
+                alt="Pet food lifestyle scene with sustainable treat packaging" 
+                className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
+              />
+              <div>
+                <h5 className="font-semibold text-xs text-neutral-900">Treat Bags in Pantry Scene</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">Zero odor leakage, hermetically sealed for total security.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 flex flex-col md:flex-row items-center gap-6 mt-6">
+            <div className="w-full md:w-1/3">
+              <ClickableImage 
+                src="/imgs/blog/Sustainable-pet/a_sustainable_pet_food_packaging_hero_2601845.webp" 
+                alt="Compostable organic pet food treat bag standing upright" 
+                className="w-full h-48 object-cover rounded-lg shadow-md"
+              />
+            </div>
+            <div className="w-full md:w-2/3 space-y-3">
+              <span className="bg-[#D4FF00] text-black text-[10px] font-black px-2.5 py-1 uppercase rounded-full border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                Highlighted Pet Solution
+              </span>
+              <h4 className="font-bold text-neutral-900 text-lg">Featured Eco Solution: Certified Compostable Kraft Pet Treats Bag</h4>
+              <p className="text-sm text-neutral-700">
+                Align your pet brand with zero-waste initiatives using our <strong>Certified Compostable Kraft Treats Bags</strong>. These pouches use organic, unbleached kraft papers and specialized plant-derived barrier liners. Certified compostable under EN 13432 standards, they deliver excellent fat and grease protection without leaking greasy oils.
+              </p>
+              <div className="flex gap-4">
+                <Link to="/store/product/compostable-coffee-bags" className="bg-slate-700 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
+                  Buy Compostable Treat Bags (MOQ 100)
+                </Link>
+                <Link to="/store/product/eco-standup" className="bg-white hover:bg-neutral-100 text-neutral-800 text-xs font-semibold px-4 py-2.5 rounded border border-neutral-300 transition">
+                  Order Recyclable PE Pouches
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'expert-checklist',
+      title: 'Active Compliance & Testing Protocol Checklist',
+      icon: <Award className="h-5 w-5 text-slate-700" />,
+      content: (
+        <div className="space-y-4 text-neutral-700 text-sm">
           <p>
-            <strong><Link to="/" className="text-primary-600 hover:underline">Achieve Pack</Link> provides premium sustainable packaging for dry pet food, treats, and supplements.</strong> Our eco-friendly pouches meet the unique demands of pet food packaging: durability, moisture barriers, odor control, and pet-safe materials. With <Link to="/store" className="text-primary-600 hover:underline">MOQ from 100 pieces</Link>, we support pet brands of all sizes.
+            To assure zero animal oil seepage and secure total seal safety under packaging logistics load, we advise following this test pipeline:
           </p>
-          <h3 className="text-lg font-semibold text-neutral-900 mt-6">Why Pet Brands Choose Us:</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Heavy-duty construction</strong> – Thick films and reinforced seals handle dense kibble</li>
-            <li><strong>Excellent barrier properties</strong> – Lock in freshness and prevent fat oxidation</li>
-            <li><strong>Resealable closures</strong> – Sliders and press-to-close zippers for daily use</li>
-            <li><strong>Pet-safe inks and materials</strong> – Food-contact approved, no harmful chemicals</li>
-            <li><strong>Large format options</strong> – From single-serve treats to 10kg+ bulk bags</li>
-          </ul>
-          
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <p className="text-sm text-blue-800"><strong>Ready to order?</strong> <Link to="/store" className="text-blue-600 hover:underline font-semibold">Shop our pet food pouches →</Link> MOQ from 100 pieces.</p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'products',
-      title: 'What Pet Products Can You Package?',
-      icon: <Package className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Our flexible packaging serves the entire pet food and supplies market:</p>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            {[
-              { category: 'Dry Pet Food', items: ['Dog kibble', 'Cat dry food', 'Small animal food', 'Bird seed'] },
-              { category: 'Pet Treats', items: ['Training treats', 'Dental chews', 'Jerky treats', 'Freeze-dried treats'] },
-              { category: 'Supplements', items: ['Joint support', 'Skin & coat', 'Digestive health', 'CBD pet products'] },
-              { category: 'Raw & Fresh', items: ['Freeze-dried raw', 'Dehydrated meals', 'Bone broth powder', 'Meal toppers'] }
-            ].map((cat, idx) => (
-              <div key={idx} className="bg-neutral-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-neutral-800 mb-2">{cat.category}</h4>
-                <ul className="text-sm space-y-1 text-neutral-600">
-                  {cat.items.map((item, i) => (
-                    <li key={i}>• {item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'sustainability',
-      title: 'Which Sustainable Materials Work for Pet Food?',
-      icon: <Leaf className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>
-            The global pet food packaging market is valued at <strong>$11.2 billion (2024)</strong>, with sustainable packaging growing at <strong>8.3% CAGR</strong> according to Grand View Research. Pet parents increasingly demand eco-friendly options for their furry friends.
-          </p>
-          
-          <div className="bg-primary-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold text-primary-800 mb-2">Our Sustainable Options:</h4>
-            <ul className="space-y-2 text-sm">
-              <li><strong><Link to="/materials/compostable" className="text-primary-600 hover:underline">Certified Compostable:</Link></strong> Kraft/PLA pouches for premium natural pet brands</li>
-              <li><strong><Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">Recyclable Mono-PE:</Link></strong> Single-material structure for curbside recycling</li>
-              <li><strong><Link to="/materials/pcr" className="text-primary-600 hover:underline">PCR Content:</Link></strong> 30-50% post-consumer recycled plastic</li>
-              <li><strong>Paper-Based:</strong> Minimal plastic, kraft-dominant construction</li>
-            </ul>
-          </div>
-          
-          <p className="text-sm mt-4">
-            <strong>Source:</strong> <a href="https://www.grandviewresearch.com/industry-analysis/pet-food-packaging-market" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">Grand View Research Pet Food Packaging Market Report 2024</a>
-          </p>
-        </div>
-      )
-    },
-    {
-      id: 'formats',
-      title: 'What Packaging Formats Are Best for Pet Products?',
-      icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Choose the right format for your pet product:</p>
-          
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2"><Link to="/packaging/stand-up-pouches" className="hover:text-primary-600">Stand-Up Pouch</Link></h4>
-              <p className="text-sm text-neutral-600">Most popular for treats and small kibble bags. Great shelf presence, resealable options available.</p>
-            </div>
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2"><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-600">Flat Bottom Bag</Link></h4>
-              <p className="text-sm text-neutral-600">Premium look with stable base. Ideal for premium pet food brands and larger sizes.</p>
-            </div>
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2"><Link to="/packaging/side-gusset-bags" className="hover:text-primary-600">Side Gusset Bag</Link></h4>
-              <p className="text-sm text-neutral-600">Traditional pet food format. High capacity for bulk kibble, efficient shipping.</p>
-            </div>
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2">Pillow Pouch</h4>
-              <p className="text-sm text-neutral-600">Economical for single-serve treats and samples. Flow-wrap compatible.</p>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'safety',
-      title: 'How Do We Ensure Pet Food Safety Standards?',
-      icon: <Shield className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>All our pet food packaging materials are manufactured to the highest safety standards:</p>
-          
-          <div className="bg-neutral-50 p-4 rounded-lg">
-            <ul className="space-y-2 text-sm">
-              <li>✓ <strong>FDA 21 CFR Compliant</strong> – Food contact materials approved</li>
-              <li>✓ <strong>AAFCO Guidelines</strong> – Pet food packaging requirements met</li>
-              <li>✓ <strong>Heavy Metal Testing</strong> – Below detection limits</li>
-              <li>✓ <strong>BPA-Free Materials</strong> – No bisphenol A in any component</li>
-              <li>✓ <strong>Low-Migration Inks</strong> – Food-safe printing inks only</li>
-            </ul>
-          </div>
-          
-          <p className="text-sm text-neutral-600 mt-4">
-            We provide full material safety documentation, including COA (Certificate of Analysis) and SDS (Safety Data Sheets) for regulatory compliance.
-          </p>
-        </div>
-      )
-    },
-    {
-      id: 'risk-hedging',
-      title: 'When Is Our Pet Food Packaging Right (or Wrong) for You?',
-      icon: <Shield className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
-            <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
-            <ul className="text-sm text-green-700 space-y-1">
-              <li>• Dry pet food and kibble (2-10kg bags)</li>
-              <li>• Dog and cat treats (all sizes)</li>
-              <li>• Freeze-dried raw pet food</li>
-              <li>• Pet supplements and vitamins</li>
-              <li>• Premium/natural pet brands</li>
-            </ul>
-          </div>
-          <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
-            <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
-            <ul className="text-sm text-amber-700 space-y-1">
-              <li>• Bird seed and small animal food</li>
-              <li>• Dental chews and rawhide</li>
-              <li>• CBD pet products</li>
-              <li>• Meal toppers and bone broth powder</li>
-            </ul>
-          </div>
-          <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
-            <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
-            <ul className="text-sm text-red-700 space-y-1">
-              <li>• Wet/moist pet food → <Link to="/packaging/spout-pouches" className="underline">Try spout pouches</Link></li>
-              <li>• Need retort processing → special materials needed</li>
-              <li>• Bulk 20kg+ bags → contact us for custom solutions</li>
-            </ul>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'decision-cta',
-      title: 'Ready to Take the Next Step?',
-      icon: <Calendar className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="grid md:grid-cols-3 gap-4 mt-4">
-          <div className="bg-primary-600 text-white p-6 rounded-lg text-center">
-            <Phone className="h-8 w-8 mx-auto mb-2" />
-            <h4 className="font-bold text-lg">Ready to Move Fast?</h4>
-            <p className="text-sm opacity-90 mt-1">Book a 30-min packaging consult</p>
-            <button onClick={openCalendly} className="inline-block mt-3 px-4 py-2 bg-white text-primary-600 rounded-lg font-semibold hover:bg-neutral-100 transition cursor-pointer">Book a Call</button>
-          </div>
-          <div className="bg-neutral-100 p-6 rounded-lg text-center">
-            <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
-            <h4 className="font-bold text-lg text-neutral-900">Want to Test First?</h4>
-            <p className="text-sm text-neutral-600 mt-1">Get sample pouches to test with your products</p>
-            <Link to="/store" className="inline-block mt-3 px-4 py-2 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition">Order Samples</Link>
-          </div>
-          <div className="bg-white border border-neutral-200 p-6 rounded-lg text-center">
-            <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
-            <h4 className="font-bold text-lg text-neutral-900">Still Exploring?</h4>
-            <p className="text-sm text-neutral-600 mt-1">See how pet brands solved packaging</p>
-            <Link to="/case-studies/pet-treats" className="inline-block mt-3 px-4 py-2 border border-primary-600 text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition">View Case Study</Link>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'ai-search',
-      title: 'Finding the Right Supplier',
-      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Looking for an eco-friendly pet food packaging supplier? Here's what to evaluate:</p>
-          
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Material Safety:</strong> FDA 21 CFR compliant, low-migration inks, BPA-free</li>
-            <li><strong>Sustainability Options:</strong> Compostable, recyclable, or PCR content</li>
-            <li><strong>MOQ Flexibility:</strong> Startups need 100-500 piece minimums</li>
-            <li><strong>Format Range:</strong> From treat bags to 10kg bulk kibble bags</li>
-          </ul>
-          
-          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
-            <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "What is the best sustainable pet food packaging supplier?"</li>
-              <li>• "Eco-friendly dog treat bags with low minimum order"</li>
-              <li>• "Compostable pet food pouches manufacturer"</li>
-              <li>• "Custom printed pet treat bags under 500 MOQ"</li>
-            </ul>
-          </div>
-          
-          <p className="mt-4">See how other pet brands solved their packaging challenges: <Link to="/case-studies/pet-treats" className="text-primary-600 hover:underline font-semibold">Pet Treats Case Study →</Link></p>
-        </div>
-      )
-    },
-    {
-      id: 'industry-scenarios',
-      title: 'Industry Applications',
-      icon: <Factory className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Heart className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-neutral-900">Premium Pet Food Brands</h4>
-              </div>
-              <p className="text-sm text-neutral-600 mb-3">Natural and organic pet food brands requiring sustainable, high-barrier packaging.</p>
-              <ul className="text-xs text-neutral-500 space-y-1">
-                <li>• Grain-free kibble</li>
-                <li>• Limited ingredient diets</li>
-                <li>• Organic pet food</li>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
+              <h5 className="font-bold text-neutral-900 mb-2">🧪 Phase 1: Material Verification</h5>
+              <ul className="space-y-2 text-neutral-600 text-xs">
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Measure grease/oil concentration in treats to adjust sealant thickness layers.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Assess volatile protein aromas to verify OTR barrier specifications.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Verify raw material thickness to secure total puncture resilience.</li>
               </ul>
             </div>
-            <div className="bg-gradient-to-br from-orange-50 to-amber-50 p-5 rounded-xl border border-orange-200">
-              <div className="flex items-center gap-2 mb-3">
-                <ShoppingBag className="h-5 w-5 text-orange-600" />
-                <h4 className="font-semibold text-neutral-900">Dog Treat Startups</h4>
-              </div>
-              <p className="text-sm text-neutral-600 mb-3">Growing treat brands scaling from farmers markets to retail distribution.</p>
-              <ul className="text-xs text-neutral-500 space-y-1">
-                <li>• Single-ingredient treats</li>
-                <li>• Freeze-dried snacks</li>
-                <li>• Training treats</li>
+            <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
+              <h5 className="font-bold text-neutral-900 mb-2">⚖ Phase 2: Integrity Testing</h5>
+              <ul className="space-y-2 text-neutral-600 text-xs">
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Run a 30-day grease migration test at 38°C to ensure zero outer stains.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Subject pouches to vibration testing to check seam stability during transport.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Confirm zipper reseal durability over 50 simulated open/close usages.</li>
               </ul>
-            </div>
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-neutral-900">Pet Supplement Companies</h4>
-              </div>
-              <p className="text-sm text-neutral-600 mb-3">Nutraceutical brands offering joint health, CBD, and wellness products for pets.</p>
-              <ul className="text-xs text-neutral-500 space-y-1">
-                <li>• Joint supplements</li>
-                <li>• CBD pet products</li>
-                <li>• Skin & coat formulas</li>
-              </ul>
-            </div>
-          </div>
-          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: Pawsome Bites Dog Treats</h4>
-            <p className="text-sm text-neutral-600 mb-3">Switched to compostable kraft pouches, achieving carbon-neutral packaging status and winning "Best Eco Pet Brand" at Global Pet Expo 2024.</p>
-            <div className="flex flex-wrap gap-4 text-xs">
-              <span className="bg-white px-3 py-1 rounded-full border">✓ Carbon Neutral Packaging</span>
-              <span className="bg-white px-3 py-1 rounded-full border">✓ Global Pet Expo Award</span>
-              <span className="bg-white px-3 py-1 rounded-full border">✓ 50% Customer Growth</span>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'market-data',
-      title: 'Market Data & Intelligence',
-      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">$11.2B</div>
-              <div className="text-sm opacity-90">Pet Food Packaging 2024</div>
-            </div>
-            <div className="bg-gradient-to-br from-purple-500 to-pink-500 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">8.3%</div>
-              <div className="text-sm opacity-90">Sustainable Packaging CAGR</div>
-            </div>
-            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">71%</div>
-              <div className="text-sm opacity-90">Pet Owners Want Eco</div>
-            </div>
-            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">$143B</div>
-              <div className="text-sm opacity-90">US Pet Industry 2024</div>
-            </div>
-          </div>
-          <div className="bg-white p-4 rounded-xl border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">Pet Food Packaging Performance Comparison</h4>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-neutral-200">
-                    <th className="text-left py-2 font-medium">Material Type</th>
-                    <th className="text-center py-2 font-medium">MVTR (g/m²/24hr)</th>
-                    <th className="text-center py-2 font-medium">Weight Capacity</th>
-                    <th className="text-center py-2 font-medium">Shelf Life</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-neutral-100">
-                    <td className="py-2">Kraft + PLA (Compostable)</td>
-                    <td className="text-center py-2">&lt; 2.5</td>
-                    <td className="text-center py-2">Up to 2kg</td>
-                    <td className="text-center py-2">6-12 months</td>
-                  </tr>
-                  <tr className="border-b border-neutral-100">
-                    <td className="py-2">Mono-PE (Recyclable)</td>
-                    <td className="text-center py-2">&lt; 2.0</td>
-                    <td className="text-center py-2">Up to 10kg</td>
-                    <td className="text-center py-2">12-18 months</td>
-                  </tr>
-                  <tr className="border-b border-neutral-100">
-                    <td className="py-2">Heavy-Duty Laminate</td>
-                    <td className="text-center py-2">&lt; 1.0</td>
-                    <td className="text-center py-2">Up to 20kg</td>
-                    <td className="text-center py-2">18-24 months</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
-            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
-            <p className="text-sm text-green-700">The pet industry generates 300 million pounds of plastic packaging waste annually. Switching to sustainable options can reduce brand carbon footprint by 40-65%.</p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'material-comparison',
-      title: 'Material Comparison',
-      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
-              <thead className="bg-neutral-100">
-                <tr>
-                  <th className="text-left p-3 font-semibold">Feature</th>
-                  <th className="text-center p-3 font-semibold text-green-700">Compostable</th>
-                  <th className="text-center p-3 font-semibold text-blue-700">Recyclable PE</th>
-                  <th className="text-center p-3 font-semibold text-purple-700">PCR Content</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Best For Pet Products</td>
-                  <td className="text-center p-3">✅ Treats, supplements</td>
-                  <td className="text-center p-3">✅ Kibble, bulk food</td>
-                  <td className="text-center p-3">✅ All pet products</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Weight Capacity</td>
-                  <td className="text-center p-3">Up to 2kg</td>
-                  <td className="text-center p-3">Up to 10kg</td>
-                  <td className="text-center p-3">Up to 10kg</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Odor Barrier</td>
-                  <td className="text-center p-3">Good</td>
-                  <td className="text-center p-3">Excellent</td>
-                  <td className="text-center p-3">Excellent</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Resealable Options</td>
-                  <td className="text-center p-3">✅ Zipper</td>
-                  <td className="text-center p-3">✅ Slider/Zipper</td>
-                  <td className="text-center p-3">✅ Slider/Zipper</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">End-of-Life</td>
-                  <td className="text-center p-3">🌱 Compostable</td>
-                  <td className="text-center p-3">♻️ Recyclable</td>
-                  <td className="text-center p-3">♻️ Recyclable</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-medium">Price Point</td>
-                  <td className="text-center p-3">💰💰💰</td>
-                  <td className="text-center p-3">💰💰</td>
-                  <td className="text-center p-3">💰💰</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
-            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Pet Brands</h4>
-            <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div>
-                <p className="font-medium text-amber-900">Choose Compostable if:</p>
-                <ul className="text-amber-700 mt-1 space-y-1">
-                  <li>• Premium/natural positioning</li>
-                  <li>• Treats under 500g</li>
-                  <li>• Eco-conscious pet parents</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-medium text-amber-900">Choose Mono-PE if:</p>
-                <ul className="text-amber-700 mt-1 space-y-1">
-                  <li>• Large format kibble bags</li>
-                  <li>• Heavy-duty requirements</li>
-                  <li>• Maximum shelf life</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-medium text-amber-900">Choose PCR if:</p>
-                <ul className="text-amber-700 mt-1 space-y-1">
-                  <li>• Corporate sustainability goals</li>
-                  <li>• Flexible sizing options</li>
-                  <li>• Circular economy focus</li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -473,55 +291,34 @@ const PetFoodPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "What packaging is best for dry dog food?",
-      answer: "For dry dog food, we recommend flat bottom bags or side gusset bags with high-barrier laminates. These formats handle heavy weights (2-20kg), provide excellent moisture barriers to prevent kibble from going stale, and include slider closures for resealability. Our materials achieve MVTR below 2.0 g/m²/24hr."
+      question: "How do you prevent raw animal oils from seeping through compostable paper?",
+      answer: "We use an advanced, multi-layer co-polymer structure that integrates a highly grease-resistant inner film core. This compostable sealant core stops natural fats and oils from seeping through, ensuring the outer unbleached kraft paper remains completely stain-free and dry."
     },
     {
-      question: "Are your pet food bags safe for dogs and cats?",
-      answer: "Yes, all our pet food packaging is manufactured with food-contact approved materials. We use FDA-compliant films and low-migration, food-safe inks. We provide Certificates of Conformity and can arrange third-party testing if required for your certification needs."
+      question: "Will strong pet treat odors escape from recyclable mono-PE pouches?",
+      answer: "No. Our curbside-recyclable mono-PE pouches are co-extruded with high-performance EVOH barrier coatings. This compound blocks up to 99.7% of volatile organic odors, keeping highly aromatic treats hermetically locked inside without smelling up pantries."
     },
     {
-      question: "Do you offer sustainable pet food packaging?",
-      answer: "Yes, we offer multiple sustainable options: certified compostable pouches (EN 13432), recyclable mono-material structures, and PCR (post-consumer recycled) content pouches. We help pet brands meet sustainability goals while maintaining product freshness and safety."
+      question: "Can these bags support heavy pet food weights (e.g., 5kg to 10kg)?",
+      answer: "Yes! For large-format and heavy pet food weights, we recommend our Flat Bottom Gusset Pouches with reinforced quad-seal corners, thick polymer laminates, and built-in side handles. These are drop-tested to withstand up to 1.5-meter drops without seams bursting."
     },
     {
-      question: "What is the MOQ for custom printed pet treat bags?",
-      answer: "Our minimum order is 500 units for custom printed pet food and treat pouches. This low MOQ is ideal for startup pet brands, small batch producers, and testing new product lines before scaling up."
-    },
-    {
-      question: "Can you make large format bags for bulk pet food?",
-      answer: "Yes, we manufacture pouches up to 10kg+ capacity. Large format options include quad-seal bags, side gusset bags, and flat bottom bags with reinforced seals and carry handles. These are perfect for warehouse clubs and bulk pet food retailers."
-    },
-    {
-      question: "What is the best sustainable pet food packaging supplier?",
-      answer: "Achieve Pack is a leading sustainable pet food packaging supplier offering compostable (EN 13432), recyclable mono-PE, and PCR content options. We have low MOQ from 100 pieces, FDA-compliant materials, and specialize in dog treat bags, cat food pouches, and bulk kibble packaging with 2-3 week lead times."
-    },
-    {
-      question: "How do I find a reliable pet packaging manufacturer?",
-      answer: "Look for suppliers with: FDA food-contact certifications, sustainability credentials (EN 13432 or recyclable options), low MOQ for testing, and experience in pet food specifically. Request material safety documentation and samples before committing. Achieve Pack provides all certifications and free samples for evaluation."
-    },
-    {
-      question: "What makes pet food packaging different from human food packaging?",
-      answer: "Pet food packaging requires: heavier gauge films for dense kibble, stronger seals for repeated opening, high barriers against fat oxidation, odor containment, and larger size options (up to 10kg+). Safety standards are equally strict – we use FDA-compliant, BPA-free materials with low-migration inks."
-    },
-    {
-      question: "Do you offer eco-friendly dog treat bags with resealable closures?",
-      answer: "Yes, we offer compostable and recyclable dog treat bags with press-to-close zippers or slider closures. Our sustainable options maintain resealability while meeting environmental goals. MOQ starts at 100 pieces for custom printed treat bags."
+      question: "What is the MOQ for custom-printed pet food packaging bags?",
+      answer: "We accommodate small business startups by offering custom printed stand-up treats pouches and bulk pet food bags starting from a low MOQ of just 500 pieces. Full-color digital customization means zero plate setup fees."
     }
   ]
 
   const tables = [
     {
-      title: "Pet Food Packaging Size Guide",
+      title: "Technical Comparison: Pet Food & Treats Packaging Options",
       data: {
-        headers: ["Product Type", "Weight Range", "Recommended Size", "Format"],
+        headers: ["Format", "Oxygen Barrier (OTR)", "Water Vapor (WVTR)", "Grease/Fat Resistance", "MOQ", "Relative Cost"],
         rows: [
-          ["Treats (sample)", "20-50g", "80 x 120mm", "Pillow Pouch"],
-          ["Treats (retail)", "100-250g", "120 x 200 + 80mm", "Stand-Up Zipper"],
-          ["Small Kibble Bag", "500g-1kg", "180 x 280 + 100mm", "Stand-Up Slider"],
-          ["Medium Kibble Bag", "2-4kg", "220 x 350 + 120mm", "Flat Bottom"],
-          ["Large Kibble Bag", "5-10kg", "280 x 450 + 150mm", "Side Gusset"],
-          ["Supplements", "100-300g", "140 x 200 + 80mm", "Stand-Up Pouch"]
+          ["Stand-Up Zipper Pouch", "0.25 ml/m²/day", "0.22 g/m²/day", "★★★★☆ (Protected PE)", "100 pcs", "Low ($)"],
+          ["Flat Bottom Box Pouch", "0.12 ml/m²/day", "0.15 g/m²/day", "★★★★★ (Thick Copolymer)", "500 pcs", "Medium ($$)"],
+          ["Recyclable Mono-PE Bag", "0.32 ml/m²/day", "0.26 g/m²/day", "★★★★☆ (EVOH/PE Film)", "500 pcs", "Medium ($$)"],
+          ["Compostable Kraft Pouch", "0.45 ml/m²/day", "0.39 g/m²/day", "★★★★★ (Grease Liner)", "500 pcs", "Medium ($$)"],
+          ["FSC Custom Display Box", "N/A (Outer Protection)", "N/A", "N/A", "200 pcs", "Premium ($$$$)"]
         ]
       }
     }
@@ -529,78 +326,90 @@ const PetFoodPage: React.FC = () => {
 
   const relatedLinks = [
     {
-      title: "Shop Pet Food Pouches",
-      url: "/store",
-      description: "Browse our collection - MOQ from 100 pieces"
+      title: "Recyclable Mono-Material Pouches",
+      url: "/store/product/eco-standup",
+      description: "Explore our curbside-recyclable stand-up pouches with EVOH barrier coatings."
     },
     {
-      title: "Stand-Up Pouches",
-      url: "/packaging/stand-up-pouches",
-      description: "Perfect for pet treats"
+      title: "Compostable Stand Up Pouches",
+      url: "/store/product/compostable-coffee-bags",
+      description: "Buy premium certified compostable flexible kraft paper treat bags."
     },
     {
-      title: "Flat Bottom Bags",
-      url: "/packaging/flat-bottom-bags",
-      description: "Premium format for pet food"
+      title: "Custom Printed Box Cartons",
+      url: "/store?category=boxes",
+      description: "Browse premium FSC certified solid display folding cartons for retail packs."
     },
     {
-      title: "Compostable Materials",
-      url: "/materials/compostable",
-      description: "Certified sustainable options"
-    },
-    {
-      title: "Recyclable Mono-PE",
-      url: "/materials/recyclable-mono-pe",
-      description: "High barrier recyclable solution"
-    },
-    {
-      title: "Pet Treats Case Study",
-      url: "/case-studies/pet-treats",
-      description: "See how Pawsome Bites switched to eco packaging"
-    },
-    {
-      title: "Snacks & Food Packaging",
-      url: "/industry/snacks-food",
-      description: "Similar solutions for human snacks"
-    },
-    {
-      title: "Free Design & Mockup Services",
-      url: "/free-service",
-      description: "Get expert design advice, 3D mockups, and packaging consultation—all free"
+      title: "Low MOQ Packaging Ecosystem",
+      url: "/products/low-moq-packaging",
+      description: "Check our flexible startup-friendly small batch solutions."
     }
   ]
 
   return (
-    <SEOPageLayout heroBgColor="#3f6212"
-      title="Pet Food & Treats Packaging | Sustainable Dog & Cat Food Pouches"
-      description="Eco-friendly flexible packaging for dry pet food, dog treats, cat food, and pet supplements. Compostable, recyclable options. Heavy-duty construction, resealable closures. MOQ from 100 units."
-      keywords={[
-        'pet food packaging',
-        'dog food bags',
-        'cat food pouches',
-        'pet treat bags',
-        'sustainable pet packaging',
-        'compostable pet food bags',
-        'kibble packaging',
-        'pet supplement pouches',
-        'custom pet food bags',
-        'eco-friendly pet packaging'
-      ]}
-      canonicalUrl="https://achievepack.com/industry/pet-food"
-      heroTitle={t('seoPages.pages.petFood.heroTitle')}
-      heroSubtitle={t('seoPages.pages.petFood.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_achieve_pack_outdoor_picnic_pouch_4758828.webp"
-      heroImageAlt="Eco-friendly pet food packaging with dog treats stand-up pouch"
-      introSummary={t('seoPages.pages.petFood.introSummary')}
-      sections={sections}
-      faqs={faqs}
-      tables={tables}
-      schemaType="Product"
-      relatedLinks={relatedLinks}
-      ctaTitle={t(`${p}.cta.title`)}
-      ctaDescription={t(`${p}.cta.description`)}
-      ctaButtonText={t(`${p}.cta.button`)}
-    />
+    <>
+      <Helmet>
+        <title>Sustainable Pet Food & Treats Packaging: Heavy Duty Bags | Achieve Pack</title>
+        <meta name="description" content="Compare certified compostable and curbside recyclable pet food packaging. High-strength puncture resistance and grease-proof barrier bags with low MOQs." />
+        <link rel="canonical" href="https://achievepack.com/industry/pet-food" />
+        <meta property="og:title" content="Sustainable Pet Food & Treats Packaging Solutions" />
+        <meta property="og:description" content="Heavy-duty, grease-proof flexible pouches for organic pet treats, kibble, and supplements. Certified compostable and recyclable options." />
+        <meta property="og:url" content="https://achievepack.com/industry/pet-food" />
+        <meta name="keywords" content="pet food packaging, dog treats packaging, compostable pet treats bag, recyclable pet food bag, mono-PE pet treats pouch, kibble packaging, cat treats bag, FSC pet box, low MOQ packaging" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Pet Food & Treats Packaging Ecosystem",
+            "description": "Heavy-duty flexible pet treats packaging solutions comparing recyclable mono-polymer pouches, compostable unbleached kraft pouches, and custom FSC display gift boxes.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Achieve Pack"
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "USD",
+              "lowPrice": "0.09",
+              "highPrice": "2.40",
+              "offerCount": "5"
+            }
+          })}
+        </script>
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
+      </Helmet>
+
+      <SEOPageLayout 
+        heroBgColor="#0f172a"
+        title="Sustainable Pet Food & Treats Packaging: Heavy Duty Bags"
+        description="Premium material engineering guide for packaging organic dog treats, kibble, cat jerks, and pet supplements. Discover certified compostable, recyclable and puncture-proof selections."
+        keywords={['pet food packaging', 'dog treat bag', 'compostable pet treat bag', 'recyclable kibble bag']}
+        heroTitle="Pet Food & Treats Packaging Solutions"
+        heroSubtitle="Grease-Proof Barriers | Compostable jerks Bags | Curbside Recyclable Mono-PE Refills & Custom Display Boxes"
+        introSummary="Startup pet treats brands and organic kibble manufacturers require packaging that blocks grease migration, locks in heavy animal odors, and handles high physical stress. Compare our five high-strength packaging formats."
+        sections={sections}
+        tables={tables}
+        faqs={faqs}
+        relatedLinks={relatedLinks}
+        schemaType="Product"
+        heroImage="/imgs/illustrated/a_pet_food_hero_v3_7652587.webp"
+      />
+    </>
   )
 }
 

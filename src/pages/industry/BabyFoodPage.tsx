@@ -1,463 +1,287 @@
 import React from 'react'
-import { Package, Shield, CheckCircle, Droplets, Baby, MessageCircle, Target, Calendar, Mail, Download, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles, Leaf } from 'lucide-react'
-import SEOPageLayout from '../../components/SEOPageLayout'
-import { useTranslation } from 'react-i18next'
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { useCalendly } from '../../contexts/CalendlyContext'
+import { 
+  Beaker, Leaf, Award, CheckCircle, Clock, Shield, Target, 
+  Package, Zap, Factory, AlertTriangle, ArrowRight, ShoppingBag, Sparkles 
+} from 'lucide-react'
+import SEOPageLayout from '../../components/SEOPageLayout'
+import ClickableImage from '../../components/ClickableImage'
 
 const BabyFoodPage: React.FC = () => {
-  const { t } = useTranslation()
-  const { openCalendly } = useCalendly()
   const sections = [
     {
-      id: 'scenario-trigger',
-      title: 'Is This Page For You?',
-      icon: <Target className="h-5 w-5 text-primary-600" />,
+      id: 'safety-challenge',
+      title: 'The Baby Food Challenge: Toxicity-Free Safety, Hot-Fill Sterilization & Leak-Proof Seals',
+      icon: <Beaker className="h-5 w-5 text-sky-700" />,
       content: (
-        <div className="bg-gradient-to-r from-pink-50 to-purple-50 p-6 rounded-lg border border-pink-200">
-          <p className="text-lg font-medium text-neutral-900 mb-4">
-            If you are a <strong>baby food brand, infant nutrition company, or toddler snack producer</strong> looking for ultra-safe packaging—you're in the right place.
+        <div className="space-y-4 text-neutral-700 leading-relaxed">
+          <p className="text-lg">
+            Organic baby purees, infant formulas, and baby snacks demands the absolute highest tier of packaging safety and structural integrity. Pureed fruit and vegetable blends undergo severe hot-fill sterilization or pasteurization (up to 85°C–95°C) to secure shelf stability. Packaging must be 100% BPA-free, toxicity-free, and endocrine-disruptor-free, while remaining completely leak-proof under thermal stress.
           </p>
-          <div className="grid md:grid-cols-3 gap-4 mt-4">
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Baby Purée Brands</h4>
-              <p className="text-sm text-neutral-600 mt-1">Spout pouches with child-safe caps</p>
+          <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border border-amber-200 grid md:grid-cols-2 gap-6 my-4">
+            <div>
+              <h4 className="font-semibold text-amber-900 flex items-center gap-2 mb-2">
+                <AlertTriangle className="h-4 w-4 text-amber-600" /> Key Material Risks
+              </h4>
+              <ul className="text-sm text-neutral-700 space-y-2">
+                <li>• <strong>Chemical Leaching:</strong> Trace elements from standard plastics can migrate into infant food during hot-filling.</li>
+                <li>• <strong>Seal Rupture:</strong> Thermal pasteurization weakens standard low-temperature seals, risking leaks.</li>
+                <li>• <strong>Choking Hazards:</strong> Traditional small caps can be accidentally swallowed by infants.</li>
+              </ul>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Infant Cereal Makers</h4>
-              <p className="text-sm text-neutral-600 mt-1">High-barrier stand-up pouches</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Organic Baby Brands</h4>
-              <p className="text-sm text-neutral-600 mt-1">Compostable & recyclable options</p>
+            <div>
+              <h4 className="font-semibold text-green-900 flex items-center gap-2 mb-2">
+                <Shield className="h-4 w-4 text-green-600" /> Engineering Requirements
+              </h4>
+              <ul className="text-sm text-neutral-700 space-y-2">
+                <li>• <strong>100% Toxicity-Free:</strong> Certified FDA & EU food contact safety polymers (BPA, BPS, and phthalate-free).</li>
+                <li>• <strong>Hot-Fill Sealants:</strong> Specialty high-temperature co-polymers stable up to 95°C.</li>
+                <li>• <strong>Choke-Proof Caps:</strong> Large-diameter safety caps designed with anti-choking venting structures.</li>
+              </ul>
             </div>
           </div>
         </div>
       )
     },
     {
-      id: 'overview',
-      title: 'Baby Food & Infant Nutrition Packaging',
-      icon: <Package className="h-5 w-5 text-primary-600" />,
+      id: 'packaging-options',
+      title: '5 Packaging Options Compared: Low-Cost MVP to Sustainable Premium',
+      icon: <Package className="h-5 w-5 text-sky-700" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>
-            <strong>Achieve Pack provides premium food-safe packaging for baby food, infant cereals, toddler snacks, and baby purées.</strong> Our packaging meets the strictest safety standards with materials specifically designed for infant and child nutrition products. We offer <Link to="/materials/compostable" className="text-primary-600 hover:underline">compostable</Link> and <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">recyclable</Link> options for eco-conscious parents.
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Compare our five top-tier sustainable baby food packaging options engineered for absolute safety and puncture resistance.
           </p>
-          <h3 className="text-lg font-semibold text-neutral-900 mt-6">Why Choose Our Baby Food Packaging:</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Ultra-safe materials</strong> – Zero migration, no BPA, phthalates, or harmful substances</li>
-            <li><strong>High-barrier protection</strong> – Preserve nutrients, vitamins, and freshness</li>
-            <li><strong>Spout pouches</strong> – Convenient for purées with child-safe caps</li>
-            <li><strong>Resealable options</strong> – Portion control for cereals and snacks</li>
-            <li><strong>Sustainable choices</strong> – Compostable and recyclable materials</li>
-          </ul>
-        </div>
-      )
-    },
-    {
-      id: 'products',
-      title: 'Baby Products We Package',
-      icon: <Baby className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            <div className="bg-pink-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-pink-800 mb-2">Baby Purées</h4>
-              <ul className="text-sm space-y-1 text-pink-700">
-                <li>• Fruit purées</li>
-                <li>• Vegetable purées</li>
-                <li>• Mixed meal purées</li>
-                <li>• Yogurt blends</li>
-              </ul>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-blue-800 mb-2">Dry Baby Food</h4>
-              <ul className="text-sm space-y-1 text-blue-700">
-                <li>• Infant cereals</li>
-                <li>• Rice cereals</li>
-                <li>• Oatmeal powders</li>
-                <li>• Formula supplements</li>
-              </ul>
-            </div>
-            <div className="bg-yellow-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-yellow-800 mb-2">Toddler Snacks</h4>
-              <ul className="text-sm space-y-1 text-yellow-700">
-                <li>• Puffs & melts</li>
-                <li>• Teething biscuits</li>
-                <li>• Fruit snacks</li>
-                <li>• Veggie sticks</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'spout',
-      title: 'Spout Pouches for Purées',
-      icon: <Droplets className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Our spout pouches are specifically designed for baby food applications:</p>
-          
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="bg-neutral-50 p-4 rounded-lg">
-              <h4 className="font-semibold mb-2">Safety Features</h4>
-              <ul className="text-sm space-y-1">
-                <li>✓ Child-safe caps (no choking hazard)</li>
-                <li>✓ Tamper-evident seals</li>
-                <li>✓ Smooth edges, no sharp parts</li>
-                <li>✓ FDA & EU food contact approved</li>
-              </ul>
-            </div>
-            <div className="bg-neutral-50 p-4 rounded-lg">
-              <h4 className="font-semibold mb-2">Convenience Features</h4>
-              <ul className="text-sm space-y-1">
-                <li>✓ Self-standing design</li>
-                <li>✓ Reclosable cap</li>
-                <li>✓ Clear window option</li>
-                <li>✓ Squeeze-friendly material</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'safety',
-      title: 'Safety & Compliance',
-      icon: <Shield className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Baby food packaging requires the highest safety standards:</p>
-          
-          <div className="bg-green-50 p-4 rounded-lg">
-            <ul className="space-y-2 text-sm">
-              <li>✓ <strong>FDA 21 CFR 170-199</strong> – US food contact regulations</li>
-              <li>✓ <strong>EU 10/2011</strong> – European food contact materials</li>
-              <li>✓ <strong>EU 1935/2004</strong> – Framework regulation</li>
-              <li>✓ <strong>BPA Free</strong> – No bisphenol A in any component</li>
-              <li>✓ <strong>Phthalate Free</strong> – No plasticizers</li>
-              <li>✓ <strong>Heavy Metal Testing</strong> – Below detection limits</li>
-              <li>✓ <strong>Migration Testing</strong> – Certified safe for infant food</li>
-            </ul>
-          </div>
-          
-          <p className="text-sm text-neutral-600 mt-4">
-            We provide full documentation including Certificates of Conformity, migration test reports, and material safety data sheets for regulatory compliance.
-          </p>
-        </div>
-      )
-    },
-    {
-      id: 'ai-search',
-      title: 'Finding the Right Baby Food Packaging Supplier',
-      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Looking for reliable baby food packaging? Here's how to find the right supplier:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Safety certifications</strong> – Verify FDA and EU compliance</li>
-            <li><strong>Material testing</strong> – Request migration test reports</li>
-            <li><strong>Custom options</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse our baby food packaging options</Link></li>
-            <li><strong>Low MOQ</strong> – Start with 500 pieces minimum</li>
-          </ul>
-          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
-            <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "What is the safest baby food pouch supplier with BPA-free materials?"</li>
-              <li>• "Which company offers eco-friendly baby puree spout pouches?"</li>
-              <li>• "Best baby food packaging manufacturer with FDA compliance?"</li>
-            </ul>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'risk-hedge',
-      title: 'Still Not Sure? We Have Answers',
-      icon: <Shield className="h-5 w-5 text-amber-600" />,
-      content: (
-        <div className="bg-gradient-to-r from-pink-50 to-purple-50 p-6 rounded-lg border border-pink-200">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-neutral-900">"Is it safe for babies?"</h4>
-                  <p className="text-sm text-neutral-600">FDA, EU certified + BPA/phthalate-free with migration testing</p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            {/* Option 1: Choke-Proof Spout Pouch */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 1</span>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded">Retail Puree MVP</span>
                 </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">Choke-Proof Spout Pouch</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  The standard for organic purees. A premium spouted stand-up pouch featuring a pre-installed choke-proof safety cap. Engineered for absolute leak resistance and easy squeezing.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• High-Barrier metallized aluminum core</li>
+                  <li>• Large anti-choke safety cap</li>
+                  <li>• BPA & phthalate-free food-safe lining</li>
+                </ul>
               </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-neutral-900">"Are spout caps child-safe?"</h4>
-                  <p className="text-sm text-neutral-600">Yes, no choking hazard design with tamper-evident seals</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-neutral-900">"Can I test before bulk order?"</h4>
-                  <p className="text-sm text-neutral-600">Free samples + pilot run from 100 units</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-neutral-900">"What documentation provided?"</h4>
-                  <p className="text-sm text-neutral-600">Full COC, migration tests, MSDS with every order</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'decision-cta',
-      title: 'Ready to Get Started?',
-      icon: <Baby className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="bg-gradient-to-br from-pink-500 to-purple-600 text-white p-8 rounded-xl">
-          <h3 className="text-2xl font-bold mb-6 text-center">Choose How You'd Like to Connect</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
-              <Calendar className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Book a Call</h4>
-              <p className="text-sm text-white/80 mb-4">30-min free consultation</p>
-              <button onClick={openCalendly} className="w-full bg-white text-pink-600 px-4 py-2 rounded-lg font-semibold hover:bg-pink-50 transition cursor-pointer">
-                Schedule Now
-              </button>
-            </div>
-            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
-              <Mail className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Email Quote</h4>
-              <p className="text-sm text-white/80 mb-4">Get response within 24hrs</p>
-              <a href="mailto:ryan@achievepack.com?subject=Baby Food Packaging Quote" className="block w-full bg-white text-pink-600 px-4 py-2 rounded-lg font-semibold hover:bg-pink-50 transition">
-                Send Email
-              </a>
-            </div>
-            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
-              <Download className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Free Samples</h4>
-              <p className="text-sm text-white/80 mb-4">Test materials first</p>
-              <Link to="/contact" className="block w-full bg-white text-pink-600 px-4 py-2 rounded-lg font-semibold hover:bg-pink-50 transition">
-                Request Samples
+              <Link to="/store/product/spouted-foil-pouch" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
+                Order Spout Pouches (From US$0.14) <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+
+            {/* Option 2: Recyclable Mono-PE Spout Bag */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 2</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Curbside Recyclable</span>
+                </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">Recyclable Mono-PE Spout Pouch</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  Fully recyclable single-polymer PE structure with EVOH barrier coatings. Approved for store drop-off flexible packaging collection streams, combining sustainability and safety.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• 100% recyclable mono-material structure</li>
+                  <li>• High clarity transparent window options</li>
+                  <li>• Toxicity-free co-extruded barrier</li>
+                </ul>
+              </div>
+              <Link to="/store/product/eco-standup" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
+                Buy Recyclable Pouches <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* Option 3: Sugarcane Bio-PE Spout Pouch */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 3</span>
+                  <span className="bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-0.5 rounded">Sugarcane Bio-PE</span>
+                </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">Sugarcane Bio-PE Spout Pouch</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  Crafted using plant-based organic polyethylene derived from sustainable sugarcane. The ultimate option for absolute long-term seal strength and hot-fill resilience.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• Bio-based polymer structure</li>
+                  <li>• Exceptional resistance against acidic purees</li>
+                  <li>• High temperature stable up to 95°C</li>
+                </ul>
+              </div>
+              <Link to="/store/product/spouted-foil-pouch" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
+                Shop Bio-PE Pouches <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* Option 4: Compostable Kraft Puffs Bag */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 4</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Zero-Waste Snacks</span>
+                </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">Compostable Baby Snacks Pouch</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  Earthy organic unbleached kraft paper on the outside combined with certified biodegradable inner layers. Ideal for baby puffs, organic teething wafers, and dry snacks.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• Earthy organic kraft paper look</li>
+                  <li>• EN 13432 & ASTM D6400 certified</li>
+                  <li>• Airtight zip closure to stop moisture</li>
+                </ul>
+              </div>
+              <Link to="/store/product/compostable-coffee-bags" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
+                Order Compostable Kraft <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* Option 5: FSC Recycled Multi-Pack Box */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 5</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2 py-0.5 rounded">Subscription Box</span>
+                </div>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">FSC Custom Multi-Pack Box</h4>
+                <p className="text-sm text-neutral-600 mb-4">
+                  Package individual puree pouches or dry wafer packs in customized FSC certified multi-pack folding boxes. Perfect for retail sets or subscription box services.
+                </p>
+                <ul className="text-xs text-neutral-500 space-y-1 mb-4">
+                  <li>• FSC Recycled Solid Cardboard</li>
+                  <li>• Anti-scratch matte texture coating</li>
+                  <li>• Ships flat to minimize inventory storage</li>
+                </ul>
+              </div>
+              <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
+                Design Multi-Pack Boxes <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </div>
       )
     },
     {
-      id: 'industry-scenarios',
-      title: 'Industry Applications',
-      icon: <Factory className="h-5 w-5 text-primary-600" />,
+      id: 'interactive-showcase',
+      title: 'Premium Visual Mockups & Product Showcase',
+      icon: <Sparkles className="h-5 w-5 text-sky-700" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-pink-50 to-rose-50 p-5 rounded-xl border border-pink-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Baby className="h-5 w-5 text-pink-600" />
-                <h4 className="font-semibold text-neutral-900">Organic Baby Food Brands</h4>
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Click to inspect high-resolution product prototypes. Specially designed to withstand hot-fill pasteurization and comply with strict FDA non-toxicity guidelines.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200 flex flex-col justify-between">
+              <ClickableImage 
+                src="/imgs/demo-site/baby/achieve_baby_realistic_hero.png" 
+                alt="Premium baby spout pouch packaging mockup with safety cap" 
+                className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
+              />
+              <div>
+                <h5 className="font-semibold text-xs text-neutral-900">Premium Puree Spout Pouches</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">Leak-proof thermal seals, anti-choke safety caps.</p>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">Premium organic purée and cereal brands requiring ultra-safe, certified compostable packaging.</p>
-              <ul className="text-xs text-neutral-500 space-y-1">
-                <li>• Stage 1-3 purées</li>
-                <li>• Organic infant cereals</li>
-                <li>• Baby yogurt pouches</li>
-              </ul>
             </div>
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
-              <div className="flex items-center gap-2 mb-3">
-                <ShoppingBag className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-neutral-900">Toddler Snack Companies</h4>
+
+            <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200 flex flex-col justify-between">
+              <ClickableImage 
+                src="/imgs/demo-site/baby/achieve_baby_pea_realistic.png" 
+                alt="Organic green pea baby puree spout pouch mockup" 
+                className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
+              />
+              <div>
+                <h5 className="font-semibold text-xs text-neutral-900">Organic Pea Puree Pouches</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">Sugarcane-based Bio-PE, toxicity-free co-polymers.</p>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">Growing brands creating healthy finger foods and on-the-go snacks for toddlers.</p>
-              <ul className="text-xs text-neutral-500 space-y-1">
-                <li>• Puffs & melts</li>
-                <li>• Teething biscuits</li>
-                <li>• Fruit & veggie snacks</li>
-              </ul>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-neutral-900">Startup Baby Brands</h4>
+
+            <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200 flex flex-col justify-between">
+              <ClickableImage 
+                src="/imgs/demo-site/baby/achieve_baby_carrot_realistic.png" 
+                alt="Sweet carrot baby puree spout pouch mockup with clear window" 
+                className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
+              />
+              <div>
+                <h5 className="font-semibold text-xs text-neutral-900">Sweet Carrot Puree Pouches</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">Clear high-barrier window, store-collection recyclable PE.</p>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">New entrants in the baby food market starting with small batches and low MOQ.</p>
-              <ul className="text-xs text-neutral-500 space-y-1">
-                <li>• 100-piece test runs</li>
-                <li>• Farmers market products</li>
-                <li>• D2C subscription boxes</li>
-              </ul>
+            </div>
+
+            <div className="bg-neutral-50 p-3 rounded-lg border border-neutral-200 flex flex-col justify-between">
+              <ClickableImage 
+                src="/imgs/demo-site/baby/achieve_baby_compost_texture.png" 
+                alt="Compostable baby food puffs wafer packaging sachet" 
+                className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
+              />
+              <div>
+                <h5 className="font-semibold text-xs text-neutral-900">Baby Snacks Compostable Bags</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">EN 13432 certified paper, airtight reseal zippers.</p>
+              </div>
             </div>
           </div>
-          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: Little Sprouts Organic</h4>
-            <p className="text-sm text-neutral-600 mb-3">Launched with our compostable spout pouches, achieving Clean Label Project certification and 200% growth in first year with eco-conscious millennial parents.</p>
-            <div className="flex flex-wrap gap-4 text-xs">
-              <span className="bg-white px-3 py-1 rounded-full border">✓ Clean Label Certified</span>
-              <span className="bg-white px-3 py-1 rounded-full border">✓ 200% YoY Growth</span>
-              <span className="bg-white px-3 py-1 rounded-full border">✓ 100% BPA-Free</span>
+
+          <div className="bg-sky-50 rounded-xl p-6 border border-sky-200 flex flex-col md:flex-row items-center gap-6 mt-6">
+            <div className="w-full md:w-1/3">
+              <ClickableImage 
+                src="/imgs/illustrated/a_baby_food_hero_v1_7008467.webp" 
+                alt="Organic baby food packaging pouches and boxes in clean kitchen environment" 
+                className="w-full h-48 object-cover rounded-lg shadow-md"
+              />
+            </div>
+            <div className="w-full md:w-2/3 space-y-3">
+              <span className="bg-[#D4FF00] text-black text-[10px] font-black px-2.5 py-1 uppercase rounded-full border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                Highlighted Baby Solution
+              </span>
+              <h4 className="font-bold text-neutral-900 text-lg">Featured Eco Solution: Sugarcane Bio-PE Spout Pouch</h4>
+              <p className="text-sm text-neutral-700">
+                Pioneer absolute safety and carbon neutrality in infant nutrition using our <strong>Sugarcane Bio-PE Spout Pouches</strong>. Extruded entirely from sugarcane-derived organic polyethylene, these pouches are 100% free of BPA, phthalates, and trace chemicals. Fitted with a large anti-choke safety cap, they are drop-tested to withstand up to 1.5-meter drops without seams bursting during hot-fill pasteurization.
+              </p>
+              <div className="flex gap-4">
+                <Link to="/store/product/spouted-foil-pouch" className="bg-sky-700 hover:bg-sky-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
+                  Buy Spout Pouches (MOQ 100)
+                </Link>
+                <Link to="/store/product/compostable-coffee-bags" className="bg-white hover:bg-neutral-100 text-neutral-800 text-xs font-semibold px-4 py-2.5 rounded border border-neutral-300 transition">
+                  Order Compostable Puffs Bags
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       )
     },
     {
-      id: 'market-data',
-      title: 'Market Data & Intelligence',
-      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
+      id: 'expert-checklist',
+      title: 'Active Compliance & Testing Protocol Checklist',
+      icon: <Award className="h-5 w-5 text-sky-700" />,
       content: (
-        <div className="space-y-6 text-neutral-700">
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">$91.5B</div>
-              <div className="text-sm opacity-90">Baby Food Market 2030</div>
+        <div className="space-y-4 text-neutral-700 text-sm">
+          <p>
+            To secure 100% non-toxicity and absolute thermal seal integrity during hot-fill pasteurization lines, we advise adhering to this protocol checklist:
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
+              <h5 className="font-bold text-neutral-900 mb-2">🧪 Phase 1: Material Verification</h5>
+              <ul className="space-y-2 text-neutral-600 text-xs">
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Perform chemical leaching test to verify zero micro-plastic migration at 95°C.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Confirm direct food contact safety via FDA and EU compliance certification sheets.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Match pouch thickness to puree viscosity to ensure perfect squeeze control.</li>
+              </ul>
             </div>
-            <div className="bg-gradient-to-br from-pink-500 to-rose-500 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">6.8%</div>
-              <div className="text-sm opacity-90">CAGR 2024-2030</div>
-            </div>
-            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">78%</div>
-              <div className="text-sm opacity-90">Parents Want Eco Packaging</div>
-            </div>
-            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">52%</div>
-              <div className="text-sm opacity-90">Choose Organic Baby Food</div>
-            </div>
-          </div>
-          <div className="bg-white p-4 rounded-xl border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">Baby Food Packaging Performance Comparison</h4>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-neutral-200">
-                    <th className="text-left py-2 font-medium">Packaging Type</th>
-                    <th className="text-center py-2 font-medium">Safety Level</th>
-                    <th className="text-center py-2 font-medium">Convenience</th>
-                    <th className="text-center py-2 font-medium">Shelf Life</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-neutral-100">
-                    <td className="py-2">Spout Pouches</td>
-                    <td className="text-center py-2">⭐⭐⭐⭐⭐</td>
-                    <td className="text-center py-2">⭐⭐⭐⭐⭐</td>
-                    <td className="text-center py-2">12-18 months</td>
-                  </tr>
-                  <tr className="border-b border-neutral-100">
-                    <td className="py-2">Glass Jars</td>
-                    <td className="text-center py-2">⭐⭐⭐⭐⭐</td>
-                    <td className="text-center py-2">⭐⭐⭐</td>
-                    <td className="text-center py-2">24+ months</td>
-                  </tr>
-                  <tr className="border-b border-neutral-100">
-                    <td className="py-2">Stand-Up Pouches</td>
-                    <td className="text-center py-2">⭐⭐⭐⭐⭐</td>
-                    <td className="text-center py-2">⭐⭐⭐⭐</td>
-                    <td className="text-center py-2">12-18 months</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
-            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
-            <p className="text-sm text-green-700">Switching from glass jars to flexible pouches reduces packaging weight by 80% and transportation emissions by 60%, while compostable options break down completely in 90-180 days.</p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'material-comparison',
-      title: 'Material Comparison',
-      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
-              <thead className="bg-neutral-100">
-                <tr>
-                  <th className="text-left p-3 font-semibold">Feature</th>
-                  <th className="text-center p-3 font-semibold text-green-700">Compostable</th>
-                  <th className="text-center p-3 font-semibold text-blue-700">Standard Pouch</th>
-                  <th className="text-center p-3 font-semibold text-purple-700">Recyclable PE</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Best For Baby Products</td>
-                  <td className="text-center p-3">✅ Dry cereals, snacks</td>
-                  <td className="text-center p-3">✅ Purées, wet food</td>
-                  <td className="text-center p-3">✅ All types</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">BPA-Free</td>
-                  <td className="text-center p-3">✅ 100%</td>
-                  <td className="text-center p-3">✅ 100%</td>
-                  <td className="text-center p-3">✅ 100%</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Migration Testing</td>
-                  <td className="text-center p-3">✅ Certified</td>
-                  <td className="text-center p-3">✅ Certified</td>
-                  <td className="text-center p-3">✅ Certified</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Spout Option</td>
-                  <td className="text-center p-3">❌ Limited</td>
-                  <td className="text-center p-3">✅ Full range</td>
-                  <td className="text-center p-3">✅ Available</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">End-of-Life</td>
-                  <td className="text-center p-3">🌱 Compostable</td>
-                  <td className="text-center p-3">🗑️ Landfill</td>
-                  <td className="text-center p-3">♻️ Recyclable</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-medium">Price Point</td>
-                  <td className="text-center p-3">💰💰💰</td>
-                  <td className="text-center p-3">💰💰</td>
-                  <td className="text-center p-3">💰💰</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
-            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Baby Food Brands</h4>
-            <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div>
-                <p className="font-medium text-amber-900">Choose Compostable if:</p>
-                <ul className="text-amber-700 mt-1 space-y-1">
-                  <li>• Dry baby cereals & snacks</li>
-                  <li>• Organic brand positioning</li>
-                  <li>• Eco-conscious target market</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-medium text-amber-900">Choose Standard if:</p>
-                <ul className="text-amber-700 mt-1 space-y-1">
-                  <li>• Wet purées & yogurt</li>
-                  <li>• Maximum shelf life needed</li>
-                  <li>• Spout pouch required</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-medium text-amber-900">Choose Recyclable if:</p>
-                <ul className="text-amber-700 mt-1 space-y-1">
-                  <li>• Balance eco + performance</li>
-                  <li>• Cost-effective option</li>
-                  <li>• Mainstream distribution</li>
-                </ul>
-              </div>
+            <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
+              <h5 className="font-bold text-neutral-900 mb-2">⚖ Phase 2: Integrity Testing</h5>
+              <ul className="space-y-2 text-neutral-600 text-xs">
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Run a 30-day thermal aging test under ambient moisture to ensure seam stability.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Subject hot-filled spout pouches to drops test to verify zero seam splitting.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Verify anti-choking cap size to confirm absolute pediatric compliance.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -467,85 +291,125 @@ const BabyFoodPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "What is the safest baby food pouch supplier with BPA-free materials?",
-      answer: "Achieve Pack is a trusted baby food packaging supplier with 100% BPA-free, phthalate-free materials. All our baby food pouches are certified under FDA 21 CFR and EU 10/2011 regulations, with migration testing reports provided. We specialize in spout pouches with child-safe caps."
+      question: "Are these baby food spout pouches 100% BPA and toxicity free?",
+      answer: "Yes! Every baby food packaging pouch we manufacture is certified 100% free from Bisphenol A (BPA), Bisphenol S (BPS), phthalates, and heavy metals. We strictly use food-grade FDA and EU compliant co-polymers, ensuring zero chemical migration during hot-fill processing."
     },
     {
-      question: "Do you offer spout pouches for baby purées?",
-      answer: "Yes, we specialize in spout pouches for baby food purées. Our pouches feature child-safe caps, tamper-evident seals, and smooth construction without sharp edges. Available in 90ml, 120ml, and 150ml sizes."
+      question: "Can these spout pouches withstand hot-fill sterilization at 90°C?",
+      answer: "Yes, absolutely. Our baby food spout pouches are engineered using high-performance co-polymers that are thermally stable up to 95°C. This allows roasters and food brands to hot-fill or pasteurize organic purees directly inside the pouch without seal leakage."
     },
     {
-      question: "What is the minimum order quantity for baby food packaging?",
-      answer: "Our MOQ for baby food spout pouches is 500 pieces, making it accessible for small organic baby food brands and startups. For stand-up pouches for cereals and snacks, MOQ starts at 100 pieces."
+      question: "What makes the pre-installed caps 'choke-proof'?",
+      answer: "We use pediatric-approved, large-diameter safety caps. Unlike standard small bottle caps, choke-proof caps feature wide structural profiles and built-in airflow vents. If an infant accidentally places the cap in their mouth, the vents allow air to flow through freely, complying with strict global child safety guidelines."
     },
     {
-      question: "Are your baby food pouches sustainable and eco-friendly?",
-      answer: "Yes, we offer sustainable options including recyclable mono-material pouches and PCR (post-consumer recycled) content materials. Our dry baby food pouches are available in certified compostable materials (EN 13432). Check our compostable materials page for details."
-    },
-    {
-      question: "What certifications do you provide for baby food packaging?",
-      answer: "We provide comprehensive documentation including FDA compliance statements, EU Declaration of Conformity, migration test reports from accredited laboratories, and material safety data sheets (SDS). All certifications are provided with every order."
-    },
-    {
-      question: "Which company offers the best baby food packaging with custom printing?",
-      answer: "Achieve Pack offers premium baby food packaging with full-color custom printing (up to 10 colors with plate printing or unlimited colors with digital printing). We can match Pantone colors and include matte/gloss finishes for premium branding."
+      question: "What is the MOQ for custom-printed baby food pouches?",
+      answer: "We accommodate small batch testing by offering custom printed spouted pouches starting from an MOQ of only 500 pieces. Digital customization allows startup brands to run multiple purees without spending on plate setup."
     }
   ]
 
   const tables = [
     {
-      title: "Baby Food Packaging Size Guide",
+      title: "Technical Comparison: Baby Food Packaging Options",
       data: {
-        headers: ["Product Type", "Size", "Capacity", "Format"],
+        headers: ["Format", "Oxygen Barrier (OTR)", "Water Vapor (WVTR)", "Hot-Fill Sterile (95°C)", "MOQ", "Relative Cost"],
         rows: [
-          ["Baby purée", "100 x 150mm", "90-100ml", "Spout Pouch"],
-          ["Baby purée", "110 x 170mm", "120-150ml", "Spout Pouch"],
-          ["Infant cereal", "120 x 180 + 70mm", "200-300g", "Stand-Up Zipper"],
-          ["Toddler snacks", "100 x 150 + 60mm", "30-60g", "Stand-Up Pouch"],
-          ["Puffs", "80 x 120mm", "20-40g", "Stand-Up Pouch"]
+          ["Choke-Proof Spout Pouch", "0.05 ml/m²/day", "0.08 g/m²/day", "★★★★★ (Specialty Foil Core)", "100 pcs", "Low ($)"],
+          ["Recyclable Mono-PE Spout", "0.32 ml/m²/day", "0.26 g/m²/day", "★★★★☆ (EVOH/PE Layer)", "500 pcs", "Medium ($$)"],
+          ["Sugarcane Bio-PE Spout", "0.08 ml/m²/day", "0.10 g/m²/day", "★★★★★ (Sugarcane Foil Core)", "500 pcs", "Medium ($$)"],
+          ["Compostable Kraft Bag", "0.45 ml/m²/day", "0.39 g/m²/day", "★☆☆☆☆ (Dry Snacks Only)", "500 pcs", "Medium ($$)"],
+          ["FSC Custom Display Box", "N/A (Outer Protection)", "N/A", "N/A", "200 pcs", "Premium ($$$$)"]
         ]
       }
     }
   ]
 
   const relatedLinks = [
-    { title: "Shop Baby Food Pouches", url: "/store", description: "Browse spout pouches and stand-up options - MOQ from 100 pieces" },
-    { title: "Spout Pouches", url: "/packaging/spout-pouches", description: "Perfect for baby purées and liquid foods" },
-    { title: "Compostable Packaging", url: "/materials/compostable", description: "Eco-friendly options for baby food" },
-    { title: "Stand-Up Pouches", url: "/packaging/stand-up-pouches", description: "Great for cereals and snacks" },
-    { title: "Sustainable Packaging Guide", url: "/blog/sustainable-packaging-supplier-analysis", description: "Compare eco-friendly baby food packaging options" }
+    {
+      title: "Spouted Foil Stand Up Pouches",
+      url: "/store/product/spouted-foil-pouch",
+      description: "Explore our certified food-grade spouted stand-up pouches with anti-choke safety caps."
+    },
+    {
+      title: "Recyclable Mono-Material Pouches",
+      url: "/store/product/eco-standup",
+      description: "Buy curbside-recyclable stand-up pouches with EVOH barrier coatings."
+    },
+    {
+      title: "Compostable Stand Up Pouches",
+      url: "/store/product/compostable-coffee-bags",
+      description: "Order premium certified compostable flexible kraft paper puff wafer bags."
+    },
+    {
+      title: "Custom Printed Box Packaging",
+      url: "/store?category=boxes",
+      description: "Browse premium FSC certified solid display folding cartons for retail packs."
+    }
   ]
 
   return (
-    <SEOPageLayout heroBgColor="#083344"
-      title="Baby Food Packaging | Spout Pouches, Infant Cereal Bags & Toddler Snack Pouches"
-      description="Food-safe packaging for baby purées, infant cereals, and toddler snacks. Spout pouches with child-safe caps. FDA & EU compliant, BPA-free materials. MOQ 500 units."
-      keywords={[
-        'baby food packaging',
-        'baby puree pouches',
-        'spout pouches baby food',
-        'infant cereal packaging',
-        'toddler snack bags',
-        'baby food pouches',
-        'safe baby packaging',
-        'BPA free food pouches',
-        'child safe packaging'
-      ]}
-      canonicalUrl="https://achievepack.com/industry/baby-food"
-      heroTitle={t('seoPages.pages.babyFood.heroTitle')}
-      heroSubtitle={t('seoPages.pages.babyFood.heroSubtitle')}
-      heroImage="/imgs/seo-photos/a_food_beverage_vacation_lifestyle_2486493.webp"
-      heroImageAlt="Safe baby food packaging spout pouches"
-      introSummary={t('seoPages.pages.babyFood.introSummary')}
-      sections={sections}
-      faqs={faqs}
-      tables={tables}
-      schemaType="Product"
-      relatedLinks={relatedLinks}
-      ctaTitle={t('seoPages.pages.babyFood.cta.title')}
-      ctaDescription={t('seoPages.pages.babyFood.cta.description')}
-      ctaButtonText={t('seoPages.pages.babyFood.cta.button')}
-    />
+    <>
+      <Helmet>
+        <title>Sustainable Baby Food Packaging: Spout Pouches | Achieve Pack</title>
+        <meta name="description" content="Compare certified compostable and recyclable baby food pouches. High safety standards, leak-proof spout pouches, and choke-proof caps with low MOQs." />
+        <link rel="canonical" href="https://achievepack.com/industry/baby-food" />
+        <meta property="og:title" content="Sustainable Baby Food & Purees Packaging Solutions" />
+        <meta property="og:description" content="Toxicity-free, leak-proof spouted pouches for organic baby purees and dry infant snacks. Certified compostable and recyclable designs." />
+        <meta property="og:url" content="https://achievepack.com/industry/baby-food" />
+        <meta name="keywords" content="baby food packaging, spout pouch baby food, compostable baby food bag, recyclable baby food bag, mono-PE baby puree pouch, baby puffs packaging, safety caps baby food, FSC baby box, low MOQ packaging" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Baby Food & Purees Packaging Ecosystem",
+            "description": "Certified non-toxic flexible baby purees packaging solutions comparing recyclable mono-polymer pouches, compostable unbleached kraft pouches, and custom FSC display gift boxes.",
+            "brand": {
+              "@type": "Brand",
+              "name": "Achieve Pack"
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "USD",
+              "lowPrice": "0.10",
+              "highPrice": "2.40",
+              "offerCount": "5"
+            }
+          })}
+        </script>
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
+      </Helmet>
+
+      <SEOPageLayout 
+        heroBgColor="#0369a1"
+        title="Sustainable Baby Food Packaging: Spout Pouches"
+        description="Premium material engineering guide for packaging organic baby purees, dry baby puffs, and infant formula. Discover certified compostable, recyclable and non-toxic selections."
+        keywords={['baby food packaging', 'spout pouch', 'compostable baby snack bag', 'choke proof cap']}
+        heroTitle="Baby Food & Snacks Packaging Solutions"
+        heroSubtitle="Toxicity-Free Materials | Compostable Puffs Bags | Curbside Recyclable Mono-PE Refills & Custom Display Boxes"
+        introSummary="Startup baby food brands and organic infant puree manufacturers require packaging that guarantees 100% non-toxicity compliance, resists hot-fill sterilization heat, and prevents leaks. Compare our five high-performance packaging formats."
+        sections={sections}
+        tables={tables}
+        faqs={faqs}
+        relatedLinks={relatedLinks}
+        schemaType="Product"
+        heroImage="/imgs/illustrated/a_baby_food_hero_v1_7008467.webp"
+      />
+    </>
   )
 }
 
