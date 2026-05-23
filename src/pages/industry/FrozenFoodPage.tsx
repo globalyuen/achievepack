@@ -138,7 +138,7 @@ const FrozenFoodPage: React.FC = () => {
                   <li>• Highly resistant to frozen condensation</li>
                 </ul>
               </div>
-              <Link to="/store/product/compostable-coffee-bags" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
+              <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
                 Order Compostable Bags <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -248,7 +248,7 @@ const FrozenFoodPage: React.FC = () => {
                 <Link to="/store/product/eco-standup" className="bg-sky-700 hover:bg-sky-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
                   Buy Recyclable PE Pouches (MOQ 100)
                 </Link>
-                <Link to="/store/product/compostable-coffee-bags" className="bg-white hover:bg-neutral-100 text-neutral-800 text-xs font-semibold px-4 py-2.5 rounded border border-neutral-300 transition">
+                <Link to="/products/compostable-coffee-bags" className="bg-white hover:bg-neutral-100 text-neutral-800 text-xs font-semibold px-4 py-2.5 rounded border border-neutral-300 transition">
                   Order Compostable Freezer Bags
                 </Link>
               </div>
@@ -332,7 +332,7 @@ const FrozenFoodPage: React.FC = () => {
     },
     {
       title: "Compostable Stand Up Pouches",
-      url: "/store/product/compostable-coffee-bags",
+      url: "/products/compostable-coffee-bags",
       description: "Order premium certified compostable flexible unbleached kraft freezer bags."
     },
     {

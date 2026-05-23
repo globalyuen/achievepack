@@ -94,7 +94,7 @@ const PetFoodPage: React.FC = () => {
                   <li>• Holds 1kg to 10kg loads easily</li>
                 </ul>
               </div>
-              <Link to="/store/product/compostable-coffee-bags" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
+              <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
                 Buy Flat Bottom Bags <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -138,7 +138,7 @@ const PetFoodPage: React.FC = () => {
                   <li>• Outstanding animal fat defense</li>
                 </ul>
               </div>
-              <Link to="/store/product/compostable-coffee-bags" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
+              <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
                 Order Compostable Bags <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -245,7 +245,7 @@ const PetFoodPage: React.FC = () => {
                 Align your pet brand with zero-waste initiatives using our <strong>Certified Compostable Kraft Treats Bags</strong>. These pouches use organic, unbleached kraft papers and specialized plant-derived barrier liners. Certified compostable under EN 13432 standards, they deliver excellent fat and grease protection without leaking greasy oils.
               </p>
               <div className="flex gap-4">
-                <Link to="/store/product/compostable-coffee-bags" className="bg-slate-700 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
+                <Link to="/products/compostable-coffee-bags" className="bg-slate-700 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
                   Buy Compostable Treat Bags (MOQ 100)
                 </Link>
                 <Link to="/store/product/eco-standup" className="bg-white hover:bg-neutral-100 text-neutral-800 text-xs font-semibold px-4 py-2.5 rounded border border-neutral-300 transition">
@@ -332,7 +332,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       title: "Compostable Stand Up Pouches",
-      url: "/store/product/compostable-coffee-bags",
+      url: "/products/compostable-coffee-bags",
       description: "Buy premium certified compostable flexible kraft paper treat bags."
     },
     {

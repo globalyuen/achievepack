@@ -371,6 +371,15 @@ const ProductPage: React.FC = () => {
   const { openQuoteLightbox } = useCustomQuote()
   const navigate = useNavigate()
   const [isPending, startTransition] = useTransition()
+
+  // Redirect legacy or mismatched URLs to correct products paths
+  useEffect(() => {
+    if (productId === 'compostable-coffee-bags') {
+      navigate('/products/compostable-coffee-bags', { replace: true })
+    } else if (productId === 'coffee-bags-degassing-valve') {
+      navigate('/products/coffee-bags-degassing-valve', { replace: true })
+    }
+  }, [productId, navigate])
   
   const faqSectionRef = useRef<HTMLDivElement>(null)
   const [isFaqVisible, setIsFaqVisible] = useState(false)

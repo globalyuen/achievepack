@@ -72,7 +72,7 @@ const CoffeeTeaPage: React.FC = () => {
                   <li>• Reusable press-to-close zipper</li>
                 </ul>
               </div>
-              <Link to="/store/product/coffee-bags-degassing-valve" className="text-sm font-semibold text-amber-700 hover:text-amber-800 flex items-center gap-1 mt-2">
+              <Link to="/products/coffee-bags-degassing-valve" className="text-sm font-semibold text-amber-700 hover:text-amber-800 flex items-center gap-1 mt-2">
                 Order Valve Pouches (From US$0.12) <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -94,7 +94,7 @@ const CoffeeTeaPage: React.FC = () => {
                   <li>• Plant-based, plastic-free barrier</li>
                 </ul>
               </div>
-              <Link to="/store/product/compostable-coffee-bags" className="text-sm font-semibold text-amber-700 hover:text-amber-800 flex items-center gap-1 mt-2">
+              <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-amber-700 hover:text-amber-800 flex items-center gap-1 mt-2">
                 Buy Compostable Bags (From US$0.18) <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -245,10 +245,10 @@ const CoffeeTeaPage: React.FC = () => {
                 Are you looking to capture the conscious consumer? Our <strong>Compostable Kraft Coffee Bags</strong> use BPI-certified EN 13432 materials that breakdown naturally in standard industrial composting. Combined with an organic degassing valve, this is the ultimate solution for third-wave roasters looking to zero out plastic waste.
               </p>
               <div className="flex gap-4">
-                <Link to="/store/product/compostable-coffee-bags" className="bg-amber-700 hover:bg-amber-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
+                <Link to="/products/compostable-coffee-bags" className="bg-amber-700 hover:bg-amber-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
                   Shop Compostable Coffee Bags (MOQ 100)
                 </Link>
-                <Link to="/store/product/coffee-bags-degassing-valve" className="bg-white hover:bg-neutral-100 text-neutral-800 text-xs font-semibold px-4 py-2.5 rounded border border-neutral-300 transition">
+                <Link to="/products/coffee-bags-degassing-valve" className="bg-white hover:bg-neutral-100 text-neutral-800 text-xs font-semibold px-4 py-2.5 rounded border border-neutral-300 transition">
                   Buy Stand-Up Valve Pouches
                 </Link>
               </div>
@@ -327,12 +327,12 @@ const CoffeeTeaPage: React.FC = () => {
   const relatedLinks = [
     {
       title: "Compostable Coffee Bags",
-      url: "/store/product/compostable-coffee-bags",
+      url: "/products/compostable-coffee-bags",
       description: "Explore our certified compostable kraft paper coffee pouches with bio-valves."
     },
     {
       title: "Coffee Bags with Degassing Valve",
-      url: "/store/product/coffee-bags-degassing-valve",
+      url: "/products/coffee-bags-degassing-valve",
       description: "Buy high-barrier stand-up pouches with pre-installed one-way degassing valves."
     },
     {

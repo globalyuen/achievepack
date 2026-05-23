@@ -94,7 +94,7 @@ const SnacksFoodPage: React.FC = () => {
                   <li>• Easily supports thick zippers or tear notches</li>
                 </ul>
               </div>
-              <Link to="/store/product/compostable-coffee-bags" className="text-sm font-semibold text-orange-700 hover:text-orange-800 flex items-center gap-1 mt-2">
+              <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-orange-700 hover:text-orange-800 flex items-center gap-1 mt-2">
                 Order Flat Bottom Bags <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -138,7 +138,7 @@ const SnacksFoodPage: React.FC = () => {
                   <li>• High oil and grease resistance</li>
                 </ul>
               </div>
-              <Link to="/store/product/compostable-coffee-bags" className="text-sm font-semibold text-orange-700 hover:text-orange-800 flex items-center gap-1 mt-2">
+              <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-orange-700 hover:text-orange-800 flex items-center gap-1 mt-2">
                 Order Compostable Kraft <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -248,7 +248,7 @@ const SnacksFoodPage: React.FC = () => {
                 <Link to="/store/product/eco-standup" className="bg-orange-700 hover:bg-orange-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
                   Buy Recyclable Snack Pouches (MOQ 100)
                 </Link>
-                <Link to="/store/product/compostable-coffee-bags" className="bg-white hover:bg-neutral-100 text-neutral-800 text-xs font-semibold px-4 py-2.5 rounded border border-neutral-300 transition">
+                <Link to="/products/compostable-coffee-bags" className="bg-white hover:bg-neutral-100 text-neutral-800 text-xs font-semibold px-4 py-2.5 rounded border border-neutral-300 transition">
                   Order Compostable Kraft Bags
                 </Link>
               </div>
@@ -332,7 +332,7 @@ const SnacksFoodPage: React.FC = () => {
     },
     {
       title: "Compostable Stand Up Pouches",
-      url: "/store/product/compostable-coffee-bags",
+      url: "/products/compostable-coffee-bags",
       description: "Order certified compostable flexible kraft paper pouches."
     },
     {
