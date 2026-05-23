@@ -53,7 +53,8 @@ const LEARN_PAGES = {
       { name: 'Supplements', link: '/industry/supplements-powders', image: '/imgs/illustrated/a_supplements_hero_v1_0434970.webp' },
       { name: 'Baby Food', link: '/industry/baby-food', image: '/imgs/illustrated/a_baby_food_hero_v1_7008467.webp' },
       { name: 'Frozen Food', link: '/industry/frozen-food', image: '/imgs/illustrated/a_frozen_food_hero_v2_0166133.webp' },
-      { name: 'Sauces & Condiments', link: '/industry/sauces-condiments', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' }
+      { name: 'Sauces & Condiments', link: '/industry/sauces-condiments', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' },
+      { name: 'Citrus Oil Packaging', link: '/solutions/citrus-oil-packaging', image: '/imgs/materials/citrus_clear_spout_pouch.png' }
     ]
   },
   products: {

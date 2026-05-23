@@ -742,6 +742,9 @@ function App() {
                     <Link to="/industry/snacks-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Snacks & Food</Link>
                     <Link to="/industry/pet-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Pet Food</Link>
                     <Link to="/industry/supplements-powders" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Supplements</Link>
+                    <Link to="/industry/baby-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Baby Food</Link>
+                    <Link to="/industry/frozen-food" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">Frozen Food</Link>
+                    <Link to="/solutions/citrus-oil-packaging" onClick={() => setIsMenuOpen(false)} className="block py-2.5 px-3 text-sm text-primary-600 rounded-lg hover:bg-primary-50 active:bg-primary-100 font-medium">Citrus Oil Packaging</Link>
                   </div>
                 </div>
                 <Link to="/learn" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-primary-600 font-medium rounded-lg hover:bg-primary-50 active:bg-primary-100">View All Learn Pages →</Link>
@@ -2331,6 +2334,7 @@ function App() {
                 <li><Link to="/industry/supplements-powders" className="hover:text-primary-500">{t('footer.links.supplements')}</Link></li>
                 <li><Link to="/industry/baby-food" className="hover:text-primary-500">{t('footer.links.babyFood')}</Link></li>
                 <li><Link to="/industry/frozen-food" className="hover:text-primary-500">{t('footer.links.frozenFood')}</Link></li>
+                <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-500 font-medium text-primary-500">{t('footer.links.citrusOil')} <span className="bg-primary-500/10 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               </ul>
             </div>
           </div>
