@@ -453,6 +453,7 @@ const BPICertifiedGuide = lazyWithRetry(() => import('./pages/pouch/blog/BPICert
 const CoffeeDegassingValveGuide = lazyWithRetry(() => import('./pages/pouch/blog/CoffeeDegassingValveGuide'))
 const HomeCompostableGuide = lazyWithRetry(() => import('./pages/pouch/blog/HomeCompostableGuide'))
 const OrganicComplianceSupportGuide = lazyWithRetry(() => import('./pages/pouch/blog/OrganicComplianceSupportGuide'))
+const PouchStampFoilRecyclabilityPage = lazyWithRetry(() => import('./pages/pouch/blog/PouchStampFoilRecyclabilityPage'))
 // Material Pages
 const PouchCelloKraftPage = lazyWithRetry(() => import('./pages/pouch/materials/PouchCelloKraftPage'))
 const PouchReclosureOptionsPage = lazyWithRetry(() => import('./pages/pouch/PouchReclosureOptionsPage'))
@@ -613,7 +614,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/blog/organic-compliance-support" element={<OrganicComplianceSupportGuide />} />
                   <Route path="/blog/compostable-humidity-control" element={<CompostableHumidityControlPage />} />
                   <Route path="/blog/compostable-zipper-no-removal" element={<PouchCompostableZipperNoRemovalPage />} />
-                  <Route path="/blog/stamp-foil-recyclability" element={<StampFoilRecyclabilityPage />} />
+                  <Route path="/blog/stamp-foil-recyclability" element={<PouchStampFoilRecyclabilityPage />} />
                   <Route path="/certifications" element={<PouchCertificationsPage />} />
                   <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
                   <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
