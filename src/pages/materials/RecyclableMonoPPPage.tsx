@@ -371,24 +371,24 @@ const RecyclableMonoPPPage: React.FC = () => {
               <div>
                 <p className="font-semibold text-purple-700">Choose Mono-PP if:</p>
                 <ul className="mt-2 space-y-1 text-purple-600">
-                  <li>• Hot-fill or microwave needed</li>
-                  <li>• High clarity is essential</li>
-                  <li>• PP recycling accessible locally</li>
+                  <li>• Super clear window needed</li>
+                  <li>• Higher moisture barrier required</li>
+                  <li>• Hot-fill or microwave capability</li>
                 </ul>
               </div>
               <div>
                 <p className="font-semibold text-blue-700">Choose Mono-PE if:</p>
                 <ul className="mt-2 space-y-1 text-blue-600">
-                  <li>• No heat requirements</li>
-                  <li>• Wider recycling access preferred</li>
+                  <li>• Recycling is most accessible</li>
+                  <li>• Need flexible/soft feel</li>
                   <li>• <Link to="/materials/recyclable-mono-pe" className="underline">Learn more →</Link></li>
                 </ul>
               </div>
               <div>
                 <p className="font-semibold text-green-700">Choose Compostable if:</p>
                 <ul className="mt-2 space-y-1 text-green-600">
-                  <li>• End-of-life story is key</li>
-                  <li>• Customers compost actively</li>
+                  <li>• Composting access for customers</li>
+                  <li>• Eco-story is key differentiator</li>
                   <li>• <Link to="/materials/compostable" className="underline">Learn more →</Link></li>
                 </ul>
               </div>

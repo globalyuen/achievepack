@@ -372,8 +372,8 @@ const RecyclableMonoPEPage: React.FC = () => {
               <div>
                 <p className="font-semibold text-purple-700">Choose Mono-PP if:</p>
                 <ul className="mt-2 space-y-1 text-purple-600">
-                  <li>• Hot-fill or microwave needed</li>
-                  <li>• Higher heat resistance required</li>
+                  <li>• Super clear window needed</li>
+                  <li>• Higher moisture barrier required</li>
                   <li>• <Link to="/materials/recyclable-mono-pp" className="underline">Learn more →</Link></li>
                 </ul>
               </div>
