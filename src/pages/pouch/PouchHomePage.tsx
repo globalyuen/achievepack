@@ -7,6 +7,7 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 import ProductCarousel from '../../components/ProductCarousel'
 import VideoShowcase from '../../components/pouch/VideoShowcase'
 import { ThreePouchViewer } from '../../components/ThreePouchViewer'
+import { SizingFinderIcon, MaterialSpecFinderIcon } from '../../components/AppIcons'
 
 // ============================================
 // NEO-BRUTALIST COMPONENTS (Local)
@@ -751,6 +752,97 @@ export default function PouchHomePage() {
             </div>
             <img src="https://achievepack.com/imgs/feature-barrier-options.webp" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-20 grayscale group-hover:grayscale-0 transition-all duration-500 mask-image-gradient" alt="Barrier Options" />
           </NeoCard>
+        </div>
+      </section>
+
+      {/* Neobrutalist Packaging Apps Section */}
+      <section className="py-24 px-4 md:px-6 bg-[#00FFFF] border-t-4 border-black border-b-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-block bg-black text-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold text-xs uppercase mb-6">
+              ⚡ INTERACTIVE_UTILITIES
+            </div>
+            <h2 className="font-black text-5xl md:text-7xl uppercase leading-[0.9] tracking-tighter text-black">
+              PACKAGING APP SUITE
+            </h2>
+            <p className="font-['Space_Grotesk'] text-lg mt-6 leading-relaxed max-w-2xl mx-auto text-black font-semibold">
+              Engineer your pouch sizing and material specifications instantly. No guessing, no errors. Pure technical precision.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Sizing Finder App */}
+            <div className="bg-white border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between group">
+              <div>
+                <div className="flex justify-between items-start mb-6 pb-4 border-b-2 border-black">
+                  <div className="w-16 h-16 border-4 border-black bg-[#D4FF00] flex items-center justify-center group-hover:rotate-3 transition-transform">
+                    <SizingFinderIcon className="w-9 h-9 text-black" strokeWidth={2.5} />
+                  </div>
+                  <NeoBadge color="bg-[#FF00FF] text-white">SIZING APP</NeoBadge>
+                </div>
+                
+                <h3 className="font-black text-3xl mb-4 uppercase">[SIZING FINDER APP]</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6 text-neutral-800">
+                  Calculate exact dimensions and capacity based on product weight & density presets. Match dimensions instantly with standard manufacturing templates.
+                </p>
+
+                <ul className="space-y-3 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase">
+                  <li className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 border border-black bg-[#D4FF00]"></span>
+                    <span>Density presets (Coffee, Powders, Snacks)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 border border-black bg-[#D4FF00]"></span>
+                    <span>Volume calculations (Ounces, Grams, ML)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 border border-black bg-[#D4FF00]"></span>
+                    <span>Standard MoQ and size reference matching</span>
+                  </li>
+                </ul>
+              </div>
+
+              <NeoButton to="/size-guide" variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
+                LAUNCH SIZING APP →
+              </NeoButton>
+            </div>
+
+            {/* Material Spec Finder App */}
+            <div className="bg-white border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between group">
+              <div>
+                <div className="flex justify-between items-start mb-6 pb-4 border-b-2 border-black">
+                  <div className="w-16 h-16 border-4 border-black bg-[#FF00FF] flex items-center justify-center group-hover:-rotate-3 transition-transform">
+                    <MaterialSpecFinderIcon className="w-9 h-9 text-white" strokeWidth={2.5} />
+                  </div>
+                  <NeoBadge color="bg-[#D4FF00] text-black">MATERIAL SPEC</NeoBadge>
+                </div>
+                
+                <h3 className="font-black text-3xl mb-4 uppercase">[SPEC FINDER APP]</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6 text-neutral-800">
+                  Search, filter, and compare water vapor & oxygen transmission rates (OTR/WVTR) across 15+ certified compostable, recyclable, PCR, and plant-based biopolymer structures.
+                </p>
+
+                <ul className="space-y-3 mb-8 font-['JetBrains_Mono'] text-xs font-bold text-black uppercase">
+                  <li className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 border border-black bg-[#FF00FF]"></span>
+                    <span>15+ eco duplex & triplex structures</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 border border-black bg-[#FF00FF]"></span>
+                    <span>OTR & WVTR performance level filtering</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 border border-black bg-[#FF00FF]"></span>
+                    <span>Full thickness & weight sheets download</span>
+                  </li>
+                </ul>
+              </div>
+
+              <NeoButton to="/tech-specs" variant="dark" className="w-full text-center py-4 text-base font-black uppercase">
+                LAUNCH SPEC FINDER →
+              </NeoButton>
+            </div>
+          </div>
         </div>
       </section>
 

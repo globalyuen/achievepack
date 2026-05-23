@@ -263,6 +263,17 @@ export default function BlogPostPage() {
 
               {/* Main Content */}
               <div className="flex-1 max-w-3xl">
+                {/* Featured Image */}
+                {post.featuredImage && (
+                  <div className="mb-8 rounded-xl overflow-hidden shadow-lg border border-neutral-200 bg-neutral-50">
+                    <img 
+                      src={post.featuredImage} 
+                      alt={post.title}
+                      className="w-full h-auto object-contain max-h-[600px] mx-auto block"
+                    />
+                  </div>
+                )}
+
                 <div 
                   className="prose prose-lg max-w-none prose-headings:font-sans prose-headings:font-bold prose-headings:text-neutral-900 prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-neutral-200 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-neutral-800 prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-neutral-700 prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:my-4 prose-a:text-green-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-900 prose-strong:font-semibold prose-ul:my-6 prose-ol:my-6 prose-li:text-neutral-700 prose-li:leading-relaxed prose-li:marker:text-green-500 prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:bg-neutral-50 prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:my-8 prose-blockquote:not-italic prose-blockquote:text-neutral-700 prose-table:my-8 prose-table:w-full prose-thead:bg-green-600 prose-thead:text-white prose-th:text-left prose-th:font-semibold prose-th:text-sm prose-th:uppercase prose-th:tracking-wider prose-th:py-3 prose-th:px-4 prose-td:py-3 prose-td:px-4 prose-td:border-b prose-td:border-neutral-200 prose-td:text-neutral-700 prose-tr:even:bg-neutral-50 prose-img:rounded-xl prose-img:w-full prose-figure:my-8 prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-neutral-500 prose-figcaption:mt-3"
                   dangerouslySetInnerHTML={{ __html: post.content }}

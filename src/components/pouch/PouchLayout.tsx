@@ -1,8 +1,9 @@
 import { ReactNode, useState } from 'react'
-import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight } from 'lucide-react'
+import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight, Zap, Coffee, Layout } from 'lucide-react'
 import { NeoButton, NeoBadge } from './PouchUI'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { SizingFinderIcon, MaterialSpecFinderIcon } from '../AppIcons'
 
 interface PouchLayoutProps {
   children: ReactNode
@@ -11,6 +12,7 @@ interface PouchLayoutProps {
 export default function PouchLayout({ children }: PouchLayoutProps) {
   const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isAppsDropdownOpen, setIsAppsDropdownOpen] = useState(false)
 
   const isActive = (path: string) => location.pathname === path
 
@@ -54,6 +56,96 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 [{item.label}]
               </Link>
             ))}
+
+            {/* Neobrutalist Apps Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsAppsDropdownOpen(true)}
+              onMouseLeave={() => setIsAppsDropdownOpen(false)}
+            >
+              <button 
+                className={`px-2 py-1 transition-colors flex items-center gap-1 hover:bg-black hover:text-white ${
+                  isActive('/size-guide') || isActive('/tech-specs') || isActive('/coffee') ? 'bg-black text-[#D4FF00]' : ''
+                }`}
+              >
+                [APPS ▾]
+              </button>
+              
+              <AnimatePresence>
+                {isAppsDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute left-0 mt-2 w-72 bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] z-50 p-2 font-['Space_Grotesk'] text-black"
+                  >
+                    <div className="bg-[#D4FF00] border-b-4 border-black p-2 mb-2 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center">
+                      ⚡ INTERACTIVE PACKAGING APPS
+                    </div>
+                    
+                    {/* Sizing Finder */}
+                    <Link
+                      to="/size-guide"
+                      onClick={() => setIsAppsDropdownOpen(false)}
+                      className="flex items-center gap-3 p-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all mb-1 group"
+                    >
+                      <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center flex-shrink-0 group-hover:rotate-3 transition-transform">
+                        <SizingFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
+                      </div>
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight">[SIZING FINDER]</div>
+                        <div className="text-[10px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Find exact size & capacity</div>
+                      </div>
+                    </Link>
+
+                    {/* Spec Finder */}
+                    <Link
+                      to="/tech-specs"
+                      onClick={() => setIsAppsDropdownOpen(false)}
+                      className="flex items-center gap-3 p-2 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all mb-1 group"
+                    >
+                      <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center flex-shrink-0 group-hover:-rotate-3 transition-transform">
+                        <MaterialSpecFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
+                      </div>
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[SPEC FINDER]</div>
+                        <div className="text-[10px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Compare barrier OTR/WVTR</div>
+                      </div>
+                    </Link>
+
+                    {/* Dieline Finder */}
+                    <Link
+                      to="/dieline-finder"
+                      onClick={() => setIsAppsDropdownOpen(false)}
+                      className="flex items-center gap-3 p-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all mb-1 group"
+                    >
+                      <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center flex-shrink-0 group-hover:-rotate-3 transition-transform">
+                        <Layout className="w-4 h-4 text-black" strokeWidth={2.5} />
+                      </div>
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight">[DIELINE FINDER]</div>
+                        <div className="text-[10px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Directory of 160+ vector templates</div>
+                      </div>
+                    </Link>
+
+                    {/* PaaS Coffee app */}
+                    <Link
+                      to="/coffee"
+                      onClick={() => setIsAppsDropdownOpen(false)}
+                      className="flex items-center gap-3 p-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
+                    >
+                      <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center flex-shrink-0 group-hover:rotate-3 transition-transform">
+                        <Coffee className="w-4 h-4 text-black" strokeWidth={2.5} />
+                      </div>
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight">[PaaS COFFEE APP]</div>
+                        <div className="text-[10px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Specialty coffee accelerator kit</div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Mobile & Desktop Right Actions */}
@@ -186,7 +278,55 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                         : 'bg-white hover:bg-[#D4FF00]'
                     }`}
                   >
-                    [SIZE GUIDE]
+                    <span className="flex items-center gap-2">
+                      <SizingFinderIcon className="w-5 h-5 text-black" strokeWidth={2.5} />
+                      [SIZING FINDER APP]
+                    </span>
+                  </Link>
+
+                  <Link
+                    to="/tech-specs"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 border-4 border-black transition-all ${
+                      isActive('/tech-specs') 
+                        ? 'bg-black text-[#D4FF00]' 
+                        : 'bg-white hover:bg-[#D4FF00]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <MaterialSpecFinderIcon className="w-5 h-5 text-black" strokeWidth={2.5} />
+                      [SPEC FINDER APP]
+                    </span>
+                  </Link>
+
+                  <Link
+                    to="/dieline-finder"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 border-4 border-black transition-all ${
+                      isActive('/dieline-finder') 
+                        ? 'bg-black text-[#D4FF00]' 
+                        : 'bg-white hover:bg-[#D4FF00]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <Layout className="w-5 h-5 text-black" strokeWidth={2.5} />
+                      [DIELINE FINDER APP]
+                    </span>
+                  </Link>
+
+                  <Link
+                    to="/coffee"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 border-4 border-black transition-all ${
+                      isActive('/coffee') 
+                        ? 'bg-black text-[#00FFFF]' 
+                        : 'bg-white hover:bg-[#00FFFF]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <Coffee className="w-5 h-5 text-black" strokeWidth={2.5} />
+                      [PaaS COFFEE APP]
+                    </span>
                   </Link>
                   
                   <Link
@@ -394,6 +534,25 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/tech-specs" className="hover:underline text-[#10B981]">[TECH SPECS]</Link></li>
                 <li><Link to="/sample" className="hover:underline">[CUSTOM PRINTED SAMPLE]</Link></li>
                 <li><Link to="/blog/stamp-foil-recyclability" className="hover:underline text-[#10B981] font-black">[STAMP FOIL RECYCLABILITY]</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-black uppercase mb-4 text-xl flex items-center gap-1.5 border-b-4 border-black pb-2">
+                <Zap className="w-5 h-5 text-black fill-current animate-pulse" /> Packaging App
+              </h4>
+              <ul className="space-y-3 font-['JetBrains_Mono'] text-sm font-bold pt-2">
+                <li>
+                  <Link to="/size-guide" className="hover:bg-black hover:text-white transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-purple-600">
+                    <SizingFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
+                    [SIZING FINDER]
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/tech-specs" className="hover:bg-black hover:text-white transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-blue-600">
+                    <MaterialSpecFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
+                    [SPEC FINDER]
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="col-span-2 md:col-span-3 xl:col-span-2">

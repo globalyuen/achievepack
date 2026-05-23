@@ -75,6 +75,8 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/materials/data-sheet': () => import('./pages/materials/MaterialDataSheetPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
+  '/coffee': () => import('./pages/pouch/PouchEcoGPTKPage'),
+  '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
 }
 
 // Export preload function for use in navigation components
@@ -510,6 +512,8 @@ const LowMOQStartupPackagingGuide = lazyWithRetry(() => import('./pages/pouch/bl
 const FreeServicesPage = lazyWithRetry(() => import('./pages/free-service/FreeServicesPage'))
 const PouchBlogArticlePage = lazyWithRetry(() => import('./pages/pouch/blog/PouchBlogArticlePage'))
 const Product3DShowcasePage = lazyWithRetry(() => import('./pages/Product3DShowcasePage'))
+const PouchEcoGPTKPage = lazyWithRetry(() => import('./pages/pouch/PouchEcoGPTKPage'))
+const PouchDielineFinderPage = lazyWithRetry(() => import('./pages/PouchDielineFinderPage'))
 
 // Bio-PE Pages - Lazy loaded
 const WhatIsBioPEPage = lazyWithRetry(() => import('./pages/biope/WhatIsBioPEPage'))
@@ -578,6 +582,8 @@ if (getDomain() === 'pouch') {
                 <Suspense fallback={<PageLoader />}>
                 <Routes>
                   <Route path="/" element={<PouchHomePage />} />
+                  <Route path="/coffee" element={<PouchEcoGPTKPage />} />
+                  <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
                   <Route path="/solutions" element={<PouchSolutionsPage />} />
                   <Route path="/size-guide" element={<PouchSizeGuidePage />} />
                   <Route path="/testimonials" element={<PouchTestimonialsPage />} />
@@ -746,6 +752,8 @@ if (getDomain() === 'pouch') {
                     <Suspense fallback={<PageLoader />}>
                       <Routes>
                         <Route path="/" element={<App />} />
+                        <Route path="/coffee" element={<PouchEcoGPTKPage />} />
+                        <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
                         <Route path="/store" element={<StorePage />} />
                         <Route path="/store/product/:productId" element={<ProductPage />} />
                         <Route path="/store/checkout" element={<CheckoutPage />} />

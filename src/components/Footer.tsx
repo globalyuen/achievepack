@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck } from 'lucide-react'
+import { Leaf, Mail, Phone, Calendar, FileText, ShieldCheck, Zap } from 'lucide-react'
+import { SizingFinderIcon, MaterialSpecFinderIcon } from './AppIcons'
 
 export default function Footer() {
   return (
@@ -118,6 +119,27 @@ export default function Footer() {
               <li><Link to="/spec/biope-pet-duplex-clear" className="hover:text-primary-400">Bio-PE Series Specs</Link></li>
               <li><Link to="/spec/mono-pe-duplex-clear" className="hover:text-primary-400">Mono-Material Specs</Link></li>
               <li><Link to="/spec/bio-cello-duplex-clear" className="hover:text-primary-400">Compostable Specs</Link></li>
+            </ul>
+          </div>
+
+          {/* Packaging Apps */}
+          <div>
+            <h4 className="font-semibold text-sm mb-2 text-primary-400 flex items-center gap-1.5">
+              <Zap className="h-4 w-4 text-primary-400 fill-current animate-pulse" /> Packaging Apps
+            </h4>
+            <ul className="space-y-2 text-xs text-neutral-400">
+              <li>
+                <Link to="/knowledge/pouch-sizing" className="hover:text-primary-400 font-semibold text-white flex items-center gap-2 group">
+                  <SizingFinderIcon className="h-4 w-4 text-primary-400 group-hover:scale-110 transition-transform" />
+                  <span>Sizing Finder App</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/tech-specs" className="hover:text-primary-400 font-semibold text-white flex items-center gap-2 group">
+                  <MaterialSpecFinderIcon className="h-4 w-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+                  <span>Material Spec Finder</span>
+                </Link>
+              </li>
             </ul>
           </div>
           
@@ -274,6 +296,7 @@ export default function Footer() {
               <li><Link to="/free-service/website-upgrade" className="hover:text-primary-400">Website Upgrade</Link></li>
               <li><Link to="/free-service/packaging-mockup" className="hover:text-primary-400">Packaging Mockup</Link></li>
               <li><Link to="/free-service/customer-center" className="hover:text-primary-400">Customer Center</Link></li>
+              <li><Link to="/coffee" className="hover:text-primary-400 font-bold text-primary-400">PaaS (Starter Kit) ★</Link></li>
             </ul>
           </div>
 

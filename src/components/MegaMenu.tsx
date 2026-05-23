@@ -1,9 +1,10 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout, Recycle, Gift } from 'lucide-react'
+import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout, Recycle, Gift, Coffee, Layout } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 import { LEARN_PAGES } from './LearnNavigation'
 import { blogPosts } from '../data/blogData'
+import { SizingFinderIcon, MaterialSpecFinderIcon } from './AppIcons'
 
 // Store-related 9:16 ads images pool (for SHAPE/CUSTOM/STOCK menus - left side)
 const STORE_ADS_POOL = [
@@ -164,7 +165,7 @@ const FREE_SERVICE_PAGES = [
     name: 'Free Packaging Design Consultation',
     link: '/free-service/packaging-design-consultation',
     image: '/imgs/free/design/hero.webp',
-    description: 'Expert feedback on your packaging design—completely FREE'
+    description: 'Expert feedback on your packaging design'
   },
   {
     name: 'Free Website Upgrade',
@@ -183,6 +184,18 @@ const FREE_SERVICE_PAGES = [
     link: '/free-service/customer-center',
     image: '/imgs/free/design/a_process_flow_infographic_5376739.webp',
     description: 'Track orders, manage artwork, approve proofs—all free'
+  },
+  {
+    name: 'PaaS Coffee Starter Kit',
+    link: '/coffee',
+    image: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp',
+    description: 'Packaging-as-a-Service specialty coffee starter package + free Shopify setup'
+  },
+  {
+    name: 'Interactive Packaging Apps',
+    link: '/size-guide',
+    image: '/imgs/store/additional/valve.webp',
+    description: 'Interactive sizing finder, spec comparing, and degassing valve guide'
   }
 ]
 
@@ -820,6 +833,90 @@ export function RightNavMenu() {
           )}
         </div>
 
+        {/* APPS - Interactive Tools Dropdown */}
+        <div className="relative" onMouseEnter={() => handleMouseEnter('apps')} onMouseLeave={handleMouseLeave}>
+          <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'apps' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
+            <Zap className="h-4 w-4 text-purple-500" />
+            APPS
+            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'apps' ? 'rotate-180' : ''}`} />
+          </button>
+          {activeMenu === 'apps' && (
+            <div className="absolute right-0 top-[38px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('apps')} onMouseLeave={handleMouseLeave}>
+              <div className="w-80 bg-white shadow-2xl rounded-2xl border border-neutral-200 p-3 font-sans text-neutral-800">
+                <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl p-3 mb-2 flex items-center gap-2">
+                  <Zap className="h-4.5 w-4.5 text-cyan-300 animate-pulse" />
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider">Interactive Tools</h4>
+                    <p className="text-[10px] text-white/80">Premium packaging utilities</p>
+                  </div>
+                </div>
+
+                {/* Sizing Finder */}
+                <Link
+                  to="/size-guide"
+                  className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl transition-all mb-1 group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <SizingFinderIcon className="w-4.5 h-4.5 text-purple-600" strokeWidth={2.2} />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-bold text-xs uppercase tracking-tight text-neutral-800 group-hover:text-purple-600 transition-colors">Sizing Finder</div>
+                    <div className="text-[10px] text-neutral-500 font-medium leading-normal">Find perfect size & capacity dimensions</div>
+                  </div>
+                </Link>
+
+                {/* Spec Finder */}
+                <Link
+                  to="/tech-specs"
+                  className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl transition-all mb-1 group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <MaterialSpecFinderIcon className="w-4.5 h-4.5 text-cyan-600" strokeWidth={2.2} />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-bold text-xs uppercase tracking-tight text-neutral-800 group-hover:text-cyan-600 transition-colors">Spec Comparison</div>
+                    <div className="text-[10px] text-neutral-500 font-medium leading-normal">Compare oxygen OTR & moisture WVTR levels</div>
+                  </div>
+                </Link>
+                {/* Dieline Finder */}
+                <Link
+                  to="/dieline-finder"
+                  className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl transition-all mb-1 group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <Layout className="w-4.5 h-4.5 text-purple-600" />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-bold text-xs uppercase tracking-tight text-neutral-800 group-hover:text-purple-600 transition-colors flex items-center gap-1">
+                      Dieline Finder
+                      <span className="text-[8px] bg-purple-100 text-purple-800 px-1 py-0.5 rounded font-black uppercase">NEW</span>
+                    </div>
+                    <div className="text-[10px] text-neutral-500 font-medium leading-normal">Interactive directory of 160+ vector templates</div>
+                  </div>
+                </Link>
+
+
+                {/* PaaS Coffee SaaS Kit */}
+                <Link
+                  to="/coffee"
+                  className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl transition-all group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <Coffee className="w-4.5 h-4.5 text-amber-600" />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-bold text-xs uppercase tracking-tight text-neutral-800 group-hover:text-amber-600 transition-colors flex items-center gap-1">
+                      PaaS Coffee SaaS
+                      <span className="text-[8px] bg-amber-100 text-amber-800 px-1 py-0.5 rounded font-black uppercase">NEW</span>
+                    </div>
+                    <div className="text-[10px] text-neutral-500 font-medium leading-normal">Packaging + Shopify custom-store setup</div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* FREE - Glowing Button with Mega Menu */}
         <div className="relative ml-2" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
           <Link 
@@ -845,17 +942,16 @@ export function RightNavMenu() {
                   </div>
                   <p className="text-sm text-white/90">Expert help at absolutely no cost—just value for your brand</p>
                 </div>
-                
-                {/* Two Hero Images Side by Side */}
-                <div className="p-6">
-                  <div className="grid grid-cols-2 gap-6">
+                {/* Smaller 3-column Grid to fit PaaS & Apps */}
+                <div className="p-4 bg-white">
+                  <div className="grid grid-cols-3 gap-3">
                     {FREE_SERVICE_PAGES.map((service) => (
                       <Link
                         key={service.link}
                         to={service.link}
-                        className="group block"
+                        className="group block border border-neutral-100 rounded-xl p-2 hover:bg-neutral-50 hover:border-neutral-200 transition-all duration-200"
                       >
-                        <div className="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-neutral-100 shadow-md group-hover:shadow-xl transition-shadow">
+                        <div className="aspect-[16/10] rounded-lg overflow-hidden mb-2 bg-neutral-100 shadow-sm group-hover:shadow-md transition-shadow">
                           <img
                             src={service.image}
                             alt={service.name}
@@ -863,10 +959,10 @@ export function RightNavMenu() {
                             loading="lazy"
                           />
                         </div>
-                        <h4 className="text-sm font-bold text-neutral-800 group-hover:text-green-600 transition-colors mb-1">
+                        <h4 className="text-xs font-bold text-neutral-850 group-hover:text-green-600 transition-colors mb-0.5 line-clamp-1">
                           {service.name}
                         </h4>
-                        <p className="text-xs text-neutral-500 line-clamp-2">{service.description}</p>
+                        <p className="text-[10px] text-neutral-500 leading-tight line-clamp-2">{service.description}</p>
                       </Link>
                     ))}
                   </div>

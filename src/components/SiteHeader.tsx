@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ShoppingCart, User, Globe, Menu, X, Gift, Search, ChevronDown, ChevronRight } from 'lucide-react'
+import { ShoppingCart, User, Globe, Menu, X, Gift, Search, ChevronDown, ChevronRight, Zap, Coffee } from 'lucide-react'
 import { LEARN_PAGES } from './LearnNavigation'
 import { useStore } from '../store/StoreContext'
 import MegaMenu, { RightNavMenu } from './MegaMenu'
@@ -320,6 +320,23 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               </div>
             </div>
             
+            {/* Interactive Apps - B2B Mobile Menu Section */}
+            <div className="border-t border-neutral-100 pt-3">
+              <p className="text-xs font-bold text-purple-600 uppercase mb-2 px-2 flex items-center gap-1">
+                <Zap className="h-3 w-3" /> Interactive Apps
+              </p>
+              <div className="grid grid-cols-2 gap-1">
+                <Link to="/size-guide" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">📱 Sizing Finder</Link>
+                <Link to="/tech-specs" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">📊 Spec Comparison</Link>
+                <Link to="/dieline-finder" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 font-bold text-purple-650 flex items-center gap-1.5">
+                  📐 Dieline Finder
+                </Link>
+                <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 font-bold text-amber-650 flex items-center gap-1.5">
+                  ☕ PaaS Coffee SaaS
+                </Link>
+              </div>
+            </div>
+
             {/* Learn Section - Mobile Optimized with Search & Accordion */}
             {!hideLearnBlog && (
               <MobileLearnSection setIsMenuOpen={setIsMenuOpen} />
@@ -358,6 +375,12 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                   </Link>
                   <Link to="/free-service/packaging-mockup" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
                     📦 Free Mockup
+                  </Link>
+                  <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                    ☕ PaaS Coffee
+                  </Link>
+                  <Link to="/size-guide" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                    📱 Packaging Apps
                   </Link>
                 </div>
                 <Link to="/free" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 mt-1 text-sm text-green-600 font-medium rounded-lg hover:bg-green-50 active:bg-green-100">

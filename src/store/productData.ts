@@ -2872,6 +2872,412 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
 
 // Conventional Stock Products (Ready-made Premium)
 const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // Flat Bottom Pouch with Card Insert
+  {
+    id: 'flat-bottom-pouch-with-card-insert',
+    name: 'Flat Bottom Pouch with Card Insert',
+    category: 'conventional-stock',
+    description: 'An exceptionally premium B2B stock packaging solution featuring an integrated high-clarity front pocket for effortless card or label insertion. Designed with a sturdy flat bottom (eight-side seal box shape) for unrivaled shelf stability and beautiful presentation. Equipped with a heavy-duty reusable zip lock, easy-tear notches, and a multi-layer high-barrier structure (Matte BOPP + Metalized VMPET + Food-Grade PE) that guarantees maximum preservation against light, oxygen, and moisture. Perfect for roasting houses, artisanal tea brands, pet treats, organic superfoods, and retail-ready confectionery that require highly flexible, modular branding.',
+    shortDesc: 'Premium eight-side seal flat bottom box pouch with integrated high-clarity front card insert pocket',
+    features: [
+      'Front Card Insert Pocket: High-clarity sleeve for quick, professional custom branding cards',
+      'Stable Eight-Side Sealed Box Bottom: Self-standing design for dynamic retail shelf displays',
+      'Heavy-Duty Reusable Airtight Zipper: Keeps contents completely fresh after opening',
+      'High-Barrier Laminate Structure: Matte BOPP + VMPET + PE locks in aroma and blocks moisture',
+      'Pre-Cut Easy-Tear Notches & Heat Sealable Header for tamper-evident security',
+      'Available in 4 Premium Matte Finishes: Matte Black, Cream White, Forest Green, Kraft Brown'
+    ],
+    images: [
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01G17ewC1kRUeUNQRjE_--2214004244680-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01l9ZQvX1kRUeUwNPuY_--2214004244680-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01wlCXvN1kRUeWlXOLJ_--2214004244680-jpg_q50-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01NYuKkP1kRUeWM05gC_--2214004244680-jpg_q50-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01IAbsQQ1kRUeQ1VSI8_--2214004244680-jpg_q50-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01zhZWdI1kRUeW1pQaK_--2214004244680-jpg_q50-jpg_.webp',
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01oFyrrO1kRUVLLQUBm_--2214004244680-2-shopmanager-png_76.webp',
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01wRq7361kRUeUNNlQ8_--2214004244680.jpg',
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01xckJ2S1kRUeVpvdWz_--2214004244680.jpg',
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01z163bz1lHF5yQ50CC_--6000000004793-2-tps-172-108-png_.webp'
+    ],
+    badge: '📥 Modular Card Insert',
+    rating: 4.9,
+    reviews: 74,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 100,
+    shape: 'Flat Bottom Box Pouch',
+    material: 'Matte BOPP + Metalized VMPET + Food-Grade PE High-Barrier Laminate (130 Microns)',
+    basePrice: 24.00,
+    pricePerPiece: 0.240,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: 'Small (250g / 120×200+60mm) / Medium (500g / 140×240+80mm) / Large (1kg / 160×300+80mm)',
+    shelfLife: '+36 months',
+    certification: 'FDA Approved & Food Grade LFGB Certified',
+    customPrintNote: 'Customize your branding by printing professional cards to slip in, or request custom overall printed pouches from 5,000+ pieces.',
+    sizeVariants: [
+      {
+        id: 'flat-bottom-card-insert-s-matte-black-100pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Matte Black (100 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Matte Black',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 24.00,
+        unitPrice: 0.2400,
+        heroImageIndex: 0
+      },
+      {
+        id: 'flat-bottom-card-insert-s-matte-black-200pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Matte Black (200 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Matte Black',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 43.20,
+        unitPrice: 0.2160,
+        heroImageIndex: 0
+      },
+      {
+        id: 'flat-bottom-card-insert-s-matte-black-500pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Matte Black (500 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Matte Black',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 96.00,
+        unitPrice: 0.1920,
+        heroImageIndex: 0
+      },
+      {
+        id: 'flat-bottom-card-insert-s-cream-white-100pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Cream White (100 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Cream White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 24.00,
+        unitPrice: 0.2400,
+        heroImageIndex: 1
+      },
+      {
+        id: 'flat-bottom-card-insert-s-cream-white-200pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Cream White (200 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Cream White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 43.20,
+        unitPrice: 0.2160,
+        heroImageIndex: 1
+      },
+      {
+        id: 'flat-bottom-card-insert-s-cream-white-500pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Cream White (500 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Cream White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 96.00,
+        unitPrice: 0.1920,
+        heroImageIndex: 1
+      },
+      {
+        id: 'flat-bottom-card-insert-s-forest-green-100pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Forest Green (100 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 24.00,
+        unitPrice: 0.2400,
+        heroImageIndex: 2
+      },
+      {
+        id: 'flat-bottom-card-insert-s-forest-green-200pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Forest Green (200 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 43.20,
+        unitPrice: 0.2160,
+        heroImageIndex: 2
+      },
+      {
+        id: 'flat-bottom-card-insert-s-forest-green-500pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Forest Green (500 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 96.00,
+        unitPrice: 0.1920,
+        heroImageIndex: 2
+      },
+      {
+        id: 'flat-bottom-card-insert-s-kraft-brown-100pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Kraft Brown (100 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Kraft Brown',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 24.00,
+        unitPrice: 0.2400,
+        heroImageIndex: 3
+      },
+      {
+        id: 'flat-bottom-card-insert-s-kraft-brown-200pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Kraft Brown (200 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Kraft Brown',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 43.20,
+        unitPrice: 0.2160,
+        heroImageIndex: 3
+      },
+      {
+        id: 'flat-bottom-card-insert-s-kraft-brown-500pcs',
+        label: 'Size S (250g) (W120 × H200 + G60 mm) - Kraft Brown (500 Pcs)',
+        dimensions: 'W120 × H200 + G60 mm • Holds ~250g coffee beans / ~100g loose tea • Kraft Brown',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 96.00,
+        unitPrice: 0.1920,
+        heroImageIndex: 3
+      },
+      {
+        id: 'flat-bottom-card-insert-m-matte-black-100pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Matte Black (100 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Matte Black',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 30.00,
+        unitPrice: 0.3000,
+        heroImageIndex: 0
+      },
+      {
+        id: 'flat-bottom-card-insert-m-matte-black-200pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Matte Black (200 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Matte Black',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 54.00,
+        unitPrice: 0.2700,
+        heroImageIndex: 0
+      },
+      {
+        id: 'flat-bottom-card-insert-m-matte-black-500pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Matte Black (500 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Matte Black',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 120.00,
+        unitPrice: 0.2400,
+        heroImageIndex: 0
+      },
+      {
+        id: 'flat-bottom-card-insert-m-cream-white-100pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Cream White (100 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Cream White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 30.00,
+        unitPrice: 0.3000,
+        heroImageIndex: 1
+      },
+      {
+        id: 'flat-bottom-card-insert-m-cream-white-200pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Cream White (200 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Cream White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 54.00,
+        unitPrice: 0.2700,
+        heroImageIndex: 1
+      },
+      {
+        id: 'flat-bottom-card-insert-m-cream-white-500pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Cream White (500 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Cream White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 120.00,
+        unitPrice: 0.2400,
+        heroImageIndex: 1
+      },
+      {
+        id: 'flat-bottom-card-insert-m-forest-green-100pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Forest Green (100 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 30.00,
+        unitPrice: 0.3000,
+        heroImageIndex: 2
+      },
+      {
+        id: 'flat-bottom-card-insert-m-forest-green-200pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Forest Green (200 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 54.00,
+        unitPrice: 0.2700,
+        heroImageIndex: 2
+      },
+      {
+        id: 'flat-bottom-card-insert-m-forest-green-500pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Forest Green (500 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 120.00,
+        unitPrice: 0.2400,
+        heroImageIndex: 2
+      },
+      {
+        id: 'flat-bottom-card-insert-m-kraft-brown-100pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Kraft Brown (100 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Kraft Brown',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 30.00,
+        unitPrice: 0.3000,
+        heroImageIndex: 3
+      },
+      {
+        id: 'flat-bottom-card-insert-m-kraft-brown-200pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Kraft Brown (200 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Kraft Brown',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 54.00,
+        unitPrice: 0.2700,
+        heroImageIndex: 3
+      },
+      {
+        id: 'flat-bottom-card-insert-m-kraft-brown-500pcs',
+        label: 'Size M (500g) (W140 × H240 + G80 mm) - Kraft Brown (500 Pcs)',
+        dimensions: 'W140 × H240 + G80 mm • Holds ~500g coffee beans / ~200g loose tea • Kraft Brown',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 120.00,
+        unitPrice: 0.2400,
+        heroImageIndex: 3
+      },
+      {
+        id: 'flat-bottom-card-insert-l-matte-black-100pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Matte Black (100 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Matte Black',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 38.00,
+        unitPrice: 0.3800,
+        heroImageIndex: 0
+      },
+      {
+        id: 'flat-bottom-card-insert-l-matte-black-200pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Matte Black (200 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Matte Black',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 68.40,
+        unitPrice: 0.3420,
+        heroImageIndex: 0
+      },
+      {
+        id: 'flat-bottom-card-insert-l-matte-black-500pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Matte Black (500 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Matte Black',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 152.00,
+        unitPrice: 0.3040,
+        heroImageIndex: 0
+      },
+      {
+        id: 'flat-bottom-card-insert-l-cream-white-100pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Cream White (100 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Cream White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 38.00,
+        unitPrice: 0.3800,
+        heroImageIndex: 1
+      },
+      {
+        id: 'flat-bottom-card-insert-l-cream-white-200pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Cream White (200 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Cream White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 68.40,
+        unitPrice: 0.3420,
+        heroImageIndex: 1
+      },
+      {
+        id: 'flat-bottom-card-insert-l-cream-white-500pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Cream White (500 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Cream White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 152.00,
+        unitPrice: 0.3040,
+        heroImageIndex: 1
+      },
+      {
+        id: 'flat-bottom-card-insert-l-forest-green-100pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Forest Green (100 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Forest Green',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 38.00,
+        unitPrice: 0.3800,
+        heroImageIndex: 2
+      },
+      {
+        id: 'flat-bottom-card-insert-l-forest-green-200pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Forest Green (200 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Forest Green',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 68.40,
+        unitPrice: 0.3420,
+        heroImageIndex: 2
+      },
+      {
+        id: 'flat-bottom-card-insert-l-forest-green-500pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Forest Green (500 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Forest Green',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 152.00,
+        unitPrice: 0.3040,
+        heroImageIndex: 2
+      },
+      {
+        id: 'flat-bottom-card-insert-l-kraft-brown-100pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Kraft Brown (100 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Kraft Brown',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 38.00,
+        unitPrice: 0.3800,
+        heroImageIndex: 3
+      },
+      {
+        id: 'flat-bottom-card-insert-l-kraft-brown-200pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Kraft Brown (200 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Kraft Brown',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 68.40,
+        unitPrice: 0.3420,
+        heroImageIndex: 3
+      },
+      {
+        id: 'flat-bottom-card-insert-l-kraft-brown-500pcs',
+        label: 'Size L (1kg) (W160 × H300 + G80 mm) - Kraft Brown (500 Pcs)',
+        dimensions: 'W160 × H300 + G80 mm • Holds ~1000g coffee beans / ~400g loose tea • Kraft Brown',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 152.00,
+        unitPrice: 0.3040,
+        heroImageIndex: 3
+      }
+    ]
+  },
   // Textured Burlap & Cork Pattern Stand Up Pouch with Valve
   {
     id: 'textured-burlap-cork-pattern-coffee-pouch-with-valve',

@@ -124,11 +124,12 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     const isFamily = modelUrl === 'family';
     // coffee-pouch.glb is a tall model — use a smaller target fill size so it fits in the viewport
     const isCoffeePouch = modelUrl.includes('coffee-pouch');
+    const isSpoutedPouch = modelUrl.includes('spouted-pouch');
     const urls = isFamily ? [
-      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -36, z: -5, scale: 0.9, ry: 0, spinSpeed: 0.00075 },
+      { path: '/3d/3d-pouch/spouted-pouch.glb', x: -36, z: -5, scale: 0.54, ry: 0, spinSpeed: 0.00075 }, // 40% smaller (0.9 * 0.6)
       { path: '/3d/3d-pouch/coffee-pouch.glb', x: 36, z: -5, scale: 0.75, ry: 0, spinSpeed: 0.0003 }
     ] : [
-      { path: modelUrl, x: 0, z: 0, scale: isCoffeePouch ? 0.78 : 1.0, ry: 0, spinSpeed: 0.0004 }
+      { path: modelUrl, x: 0, z: 0, scale: isSpoutedPouch ? 0.6 : (isCoffeePouch ? 0.78 : 1.0), ry: 0, spinSpeed: 0.0004 }
     ];
 
     const loader = new GLTFLoader();
@@ -228,7 +229,7 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
     let animationId: number;
     let currentX = 0;
     let currentY = 0;
-    let currentScaleMultiplier = isFamily ? 0.46 : 0.65;
+    let currentScaleMultiplier = isFamily ? 0.46 : 1.30;
 
     let isInteracting = false;
     let interactionTimeout: NodeJS.Timeout | null = null;
@@ -264,22 +265,22 @@ export const ThreePouchViewer: React.FC<ThreePouchProps> = ({ modelUrl, tilt, sc
         let targetY = 0;
         if (!isMobile) {
           // Coffee pouch is taller, start it lower and end lower to keep it centered in viewport
-          const startY = isFamily ? -14 : (isCoffeePouch ? -22 : -18);
-          const endY   = isFamily ? 2   : (isCoffeePouch ? -18 : -14);
+          const startY = isFamily ? -14 : (isCoffeePouch ? -38 : -32);
+          const endY   = isFamily ? 2   : (isCoffeePouch ? -32 : -26);
           targetY = THREE.MathUtils.lerp(startY, endY, sPercent);
         } else {
           // Adjust specific Y offsets depending on the model so they all sit right above the buttons
           if (modelUrl.includes('stand-up-pouch2') || modelUrl.includes('coffee-pouch')) {
-            targetY = -18; 
+            targetY = -35; 
           } else if (modelUrl.includes('gusset-pouch')) {
-            targetY = -12;
+            targetY = -24;
           } else {
-            targetY = -6;
+            targetY = -12;
           }
         }
 
         // C. Dynamic size scaling
-        const baseScale = isFamily ? 0.46 : 0.65;
+        const baseScale = isFamily ? 0.46 : 1.30;
         let targetScaleMultiplier = baseScale;
         if (!isMobile) {
           // Makes the model slightly larger/smaller depending on scroll depth

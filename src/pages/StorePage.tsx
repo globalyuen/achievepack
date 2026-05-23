@@ -864,6 +864,38 @@ const StorePage: React.FC = () => {
 
           {/* Product Grid/List */}
           <div className="flex-1">
+            {/* NEW: PaaS B2B Accelerator Banner */}
+            <div className="bg-gradient-to-r from-neutral-900 via-neutral-850 to-neutral-900 border-4 border-black p-6 mb-8 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-white relative overflow-hidden group">
+              <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#D4FF00]/10 to-transparent pointer-events-none" />
+              
+              <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div className="space-y-2 max-w-xl">
+                  <div className="inline-flex items-center gap-2 bg-[#D4FF00] text-black border-2 border-black px-2.5 py-0.5 font-['JetBrains_Mono'] text-[10px] font-black uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <Sparkles className="w-3.5 h-3.5 text-purple-600 animate-pulse" />
+                    B2B Coffee Starter Acceleration Suite
+                  </div>
+                  <h3 className="font-['Space_Grotesk'] text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-none">
+                    PaaS Coffee Starter Accelerator Kit
+                  </h3>
+                  <p className="font-['Space_Grotesk'] text-xs text-neutral-300 font-semibold leading-relaxed">
+                    Starting a coffee or dry goods brand? Get 100% custom printed flat bottom coffee pouches with degassing valves from just 100 units per size/blend. Includes free Shopify web creation, free 3D branding renders, and prepress setups!
+                  </p>
+                </div>
+                
+                <div className="flex-shrink-0 flex flex-col gap-2 w-full md:w-auto font-['Space_Grotesk']">
+                  <Link
+                    to="/coffee"
+                    className="bg-[#D4FF00] text-black border-2 border-black font-black uppercase text-xs py-3 px-6 text-center hover:bg-[#bce000] transition-colors shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] hover:-translate-y-0.5 hover:-translate-x-0.5 transform active:translate-y-0 active:translate-x-0"
+                  >
+                    Launch PaaS Kit →
+                  </Link>
+                  <span className="text-[9px] text-neutral-400 font-bold text-center font-['JetBrains_Mono'] uppercase">
+                    Setup costs: $0 Cylinder Free
+                  </span>
+                </div>
+              </div>
+            </div>
+
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6">
                 {sortedProducts.map(product => (

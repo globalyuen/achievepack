@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-23",
-  "total_images": 1395,
-  "total_categories": 156,
+  "total_images": 1407,
+  "total_categories": 157,
   "extensions": {
     ".webp": 1082,
-    ".png": 261,
-    ".jpg": 49,
+    ".png": 272,
+    ".jpg": 50,
     ".svg": 3
   },
   "categories": {
@@ -570,6 +570,71 @@
           "path": "/imgs/bkg/leaf1.png",
           "extension": ".png",
           "modified": "2026-01-12T01:32:33.731Z"
+        }
+      ]
+    },
+    "blog": {
+      "count": 10,
+      "images": [
+        {
+          "filename": "powder_proof_zipper.jpg",
+          "path": "/imgs/blog/powder_proof_zipper.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-23T05:26:46.197Z"
+        },
+        {
+          "filename": "freezer_safe_vacuum_pouches.png",
+          "path": "/imgs/blog/freezer_safe_vacuum_pouches.png",
+          "extension": ".png",
+          "modified": "2026-05-23T04:02:29.422Z"
+        },
+        {
+          "filename": "custom_pouch_vector_dielines.png",
+          "path": "/imgs/blog/custom_pouch_vector_dielines.png",
+          "extension": ".png",
+          "modified": "2026-05-23T04:02:29.421Z"
+        },
+        {
+          "filename": "mylar_vs_compostable_comparison.png",
+          "path": "/imgs/blog/mylar_vs_compostable_comparison.png",
+          "extension": ".png",
+          "modified": "2026-05-23T04:02:29.419Z"
+        },
+        {
+          "filename": "hot_fill_spout_pouches.png",
+          "path": "/imgs/blog/hot_fill_spout_pouches.png",
+          "extension": ".png",
+          "modified": "2026-05-23T04:02:29.417Z"
+        },
+        {
+          "filename": "pouch_sizing_density_guide.png",
+          "path": "/imgs/blog/pouch_sizing_density_guide.png",
+          "extension": ".png",
+          "modified": "2026-05-23T04:02:29.414Z"
+        },
+        {
+          "filename": "compostable_compliance_usa.png",
+          "path": "/imgs/blog/compostable_compliance_usa.png",
+          "extension": ".png",
+          "modified": "2026-05-23T03:23:53.019Z"
+        },
+        {
+          "filename": "grease_proof_pet_treat.png",
+          "path": "/imgs/blog/grease_proof_pet_treat.png",
+          "extension": ".png",
+          "modified": "2026-05-23T03:23:53.015Z"
+        },
+        {
+          "filename": "coffee_degassing_valve.png",
+          "path": "/imgs/blog/coffee_degassing_valve.png",
+          "extension": ".png",
+          "modified": "2026-05-23T03:23:53.011Z"
+        },
+        {
+          "filename": "mono_pe_vs_mono_pp.png",
+          "path": "/imgs/blog/mono_pe_vs_mono_pp.png",
+          "extension": ".png",
+          "modified": "2026-05-23T03:23:53.008Z"
         }
       ]
     },
@@ -5424,8 +5489,14 @@
       ]
     },
     "root": {
-      "count": 37,
+      "count": 38,
       "images": [
+        {
+          "filename": "pouch_size_ref_guide.png",
+          "path": "/imgs/pouch_size_ref_guide.png",
+          "extension": ".png",
+          "modified": "2026-05-23T02:42:52.396Z"
+        },
         {
           "filename": "ryan-email-signature.jpg",
           "path": "/imgs/ryan-email-signature.jpg",
@@ -6579,8 +6650,14 @@
       ]
     },
     "spec": {
-      "count": 41,
+      "count": 42,
       "images": [
+        {
+          "filename": "tech-spec-hero-b2b.png",
+          "path": "/imgs/spec/tech-spec-hero-b2b.png",
+          "extension": ".png",
+          "modified": "2026-05-23T08:08:54.871Z"
+        },
         {
           "filename": "pet-quadlex-aluminum-heavy.webp",
           "path": "/imgs/spec/pet-quadlex-aluminum-heavy.webp",

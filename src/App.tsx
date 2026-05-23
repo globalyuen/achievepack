@@ -11,6 +11,7 @@ import { CLIENT_LOGOS } from './data/clientLogos'
 import CartSidebar from './components/store/CartSidebar'
 import MegaMenu, { RightNavMenu } from './components/MegaMenu'
 import CoverflowCarousel from './components/CoverflowCarousel'
+import { SizingFinderIcon, MaterialSpecFinderIcon } from './components/AppIcons'
 import NavAvatarGroup from './components/ui/avatar-group'
 import { TextRotate } from './components/ui/TextRotate'
 import type { CalculatorResults } from './utils/calculatorUtils'
@@ -1067,7 +1068,118 @@ function App() {
         </div>
       </section>
 
+      {/* Interactive Packaging Engineering Apps Showcase */}
+      <section className="py-20 bg-neutral-900 text-white relative overflow-hidden">
+        {/* Subtle glowing ambient spots */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full filter blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full filter blur-[120px] pointer-events-none"></div>
+        <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-500/20 text-primary-400 text-xs font-semibold uppercase tracking-wider mb-4 border border-primary-500/30">
+              <Zap className="h-3.5 w-3.5 text-primary-400 fill-current animate-pulse" />
+              <span>Interactive Engineering Suite</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+              Professional Packaging Apps
+            </h2>
+            <p className="text-lg text-neutral-400 mt-4 leading-relaxed">
+              Skip the guesswork. Design, size, and engineer your brand's sustainable packaging in seconds with our bespoke interactive web applications.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {/* App 1: Sizing Finder */}
+            <div className="bg-neutral-800/50 backdrop-blur-md rounded-3xl border border-neutral-700/60 p-8 flex flex-col justify-between hover:border-primary-500/50 transition-all duration-300 group shadow-lg">
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-primary-500/10 flex items-center justify-center border border-primary-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <SizingFinderIcon className="w-8 h-8 text-primary-400" strokeWidth={2} />
+                  </div>
+                  <span className="bg-primary-500/20 text-primary-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-primary-500/30">
+                    Sizing Tool
+                  </span>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  Pouch Sizing Finder App
+                </h3>
+                <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
+                  Calculate exact stand-up pouch dimensions and gusset volume based on your target weight, product type, and substance density. Matches dimensions instantly across 100+ standard sizing grids.
+                </p>
+
+                <ul className="space-y-3 mb-8 text-sm text-neutral-300">
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
+                    <span>Product-specific density presets (Coffee, Tea, Powders, Snacks)</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
+                    <span>Accurate volume calculations (Fluid Ounces, Grams, Milliliters)</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-500"></span>
+                    <span>Interactive size charts and standard MoQ requirements</span>
+                  </li>
+                </ul>
+              </div>
+
+              <Link 
+                to="/knowledge/pouch-sizing" 
+                className="w-full text-center py-4 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-primary-500/10 hover:shadow-primary-500/25 flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Launch Sizing Finder</span>
+                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            {/* App 2: Material Spec Finder */}
+            <div className="bg-neutral-800/50 backdrop-blur-md rounded-3xl border border-neutral-700/60 p-8 flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300 group shadow-lg">
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <MaterialSpecFinderIcon className="w-8 h-8 text-emerald-400" strokeWidth={2} />
+                  </div>
+                  <span className="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-emerald-500/30">
+                    Material Tool
+                  </span>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white mb-3">
+                  Material Spec Finder App
+                </h3>
+                <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
+                  Search, filter, and compare precise mechanical and barrier properties (Oxygen Transmission OTR & Water Vapor WVTR) across our full catalog of certified eco-friendly laminates.
+                </p>
+
+                <ul className="space-y-3 mb-8 text-sm text-neutral-300">
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span>15+ sustainable duplex and triplex lamination options</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span>Live barrier level filtering (High, Medium, Light barrier specs)</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span>Full specification sheets with thickness and MOQs list</span>
+                  </li>
+                </ul>
+              </div>
+
+              <Link 
+                to="/tech-specs" 
+                className="w-full text-center py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/25 flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Launch Spec Finder</span>
+                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Success Stories - Coverflow Testimonials */}
       <Suspense fallback={<div className="h-96 bg-neutral-50" />}>

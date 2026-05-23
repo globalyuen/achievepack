@@ -83,9 +83,10 @@ export default function PouchBlogArticlePage() {
     title: s.title,
     icon: getIcon(s.icon),
     content: (
-      <div className="space-y-4">
-        <p>{s.content}</p>
-      </div>
+      <div 
+        className="space-y-4"
+        dangerouslySetInnerHTML={{ __html: s.content }}
+      />
     )
   }))
 
