@@ -104,6 +104,54 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<PouchProduct | null>(null)
   const [isRyanProfileOpen, setIsRyanProfileOpen] = useState(false)
 
+  const [slogan, setSlogan] = useState({
+    prefix: "Your Customers Care What Their Products Are Made Of & Where They End Up.",
+    suffix: "Your Packaging Should Too."
+  });
+
+  useEffect(() => {
+    const B2B_SLOGANS = [
+      {
+        prefix: "You poured your heart into what’s inside.",
+        suffix: "Let’s make sure the outside honors that promise."
+      },
+      {
+        prefix: "Your product tells a story of care.",
+        suffix: "Your packaging should be its perfect ending."
+      },
+      {
+        prefix: "Packaging as thoughtful and purposeful",
+        suffix: "as the product inside."
+      },
+      {
+        prefix: "Earn their trust before they even open the bag.",
+        suffix: "Packaging that shares your customers' deepest values."
+      },
+      {
+        prefix: "They love what you make.",
+        suffix: "Show them you care about the world they live in."
+      },
+      {
+        prefix: "Speak to your customers' hearts",
+        suffix: "with packaging that leaves no trace."
+      },
+      {
+        prefix: "Beautiful on the shelf. Harmless in the soil.",
+        suffix: "Packaging your brand can be proud of."
+      },
+      {
+        prefix: "Leave a legacy of quality,",
+        suffix: "not a footprint of waste."
+      },
+      {
+        prefix: "Made with purpose.",
+        suffix: "Returned to the earth."
+      }
+    ];
+    const randomIdx = Math.floor(Math.random() * B2B_SLOGANS.length);
+    setSlogan(B2B_SLOGANS[randomIdx]);
+  }, []);
+
   // 3D Pouch Interactive states
   const [activePouchModel, setActivePouchModel] = useState<'spouted' | 'flat-bottom'>('spouted')
   const [threeTilt, setThreeTilt] = useState({ x: 0, y: 0 })
@@ -814,8 +862,8 @@ function App() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <h1 className="text-3xl md:text-5xl font-bold text-neutral-900 leading-tight tracking-tight mb-6">
-                {t('hero.titlePrefix')}
-                <span className="text-primary-500"> {t('hero.titleSuffix')}</span>
+                {slogan.prefix}
+                <span className="text-primary-500"> {slogan.suffix}</span>
               </h1>
               <p className="text-xl text-neutral-600 leading-relaxed mb-8 max-w-xl">
                 Transform your business with certified{' '}

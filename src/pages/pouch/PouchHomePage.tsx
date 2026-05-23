@@ -110,6 +110,24 @@ export default function PouchHomePage() {
   const navigate = useNavigate()
   const productsRef = useRef<HTMLElement>(null)
 
+  const [slogan, setSlogan] = useState("Your Customers Care What Their Products Are Made Of & Where They End Up. Your Packaging Should Too.");
+
+  useEffect(() => {
+    const B2C_SLOGANS = [
+      "You poured your heart into what’s inside. Let’s make sure the outside honors that promise.",
+      "Your product tells a story of care. Your packaging should be its perfect ending.",
+      "Packaging as thoughtful and purposeful as the product inside.",
+      "Earn their trust before they even open the bag. Packaging that shares your customers' deepest values.",
+      "They love what you make. Show them you care about the world they live in.",
+      "Speak to your customers' hearts with packaging that leaves no trace.",
+      "Beautiful on the shelf. Harmless in the soil. Packaging your brand can be proud of.",
+      "Leave a legacy of quality, not a footprint of waste.",
+      "Made with purpose. Returned to the earth."
+    ];
+    const randomIdx = Math.floor(Math.random() * B2C_SLOGANS.length);
+    setSlogan(B2C_SLOGANS[randomIdx]);
+  }, []);
+
   const scrollToProducts = () => {
     productsRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -252,6 +270,11 @@ export default function PouchHomePage() {
                 Scale.<br/>
                 <Typewriter words={["Sustain.", "Eco.", "Digital."]} />
               </h1>
+
+              {/* Neo-brutalist Emotional Slogan Block */}
+              <div className="bg-[#D4FF00] border-4 border-black p-4 rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['Space_Grotesk'] text-lg font-bold uppercase text-black leading-snug max-w-md">
+                "{slogan}"
+              </div>
 
               <div className="bg-white border-2 border-black p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-md">
                 <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl">
