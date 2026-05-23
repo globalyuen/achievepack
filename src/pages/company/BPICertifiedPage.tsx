@@ -217,7 +217,7 @@ const BPICertifiedPage: React.FC = () => {
               <div className="md:py-16">
                 <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(21, 128, 61, 0.85)', backdropFilter: 'blur(8px)' }}>
                   <div className="flex items-center gap-3 mb-4">
-                    <img src={IMAGES.bpiLogo} alt="BPI Certified Compostable" className="h-12 w-auto" />
+                    <img src="/imgs/bpi.svg" alt="BPI Certified Compostable" className="h-12 w-auto" />
                     <span className="text-sm bg-green-500/30 text-green-100 px-3 py-1 rounded-full font-medium">BPI License Holder</span>
                   </div>
                   <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">

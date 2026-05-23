@@ -1201,16 +1201,16 @@
       "count": 7,
       "images": [
         {
+          "filename": "bpi.svg",
+          "path": "/imgs/company/bpi/bpi.svg",
+          "extension": ".svg",
+          "modified": "2026-05-23T14:09:11.321Z"
+        },
+        {
           "filename": "hero.png",
           "path": "/imgs/company/bpi/hero.png",
           "extension": ".png",
           "modified": "2026-01-16T14:30:01.070Z"
-        },
-        {
-          "filename": "bpi.svg",
-          "path": "/imgs/company/bpi/bpi.svg",
-          "extension": ".svg",
-          "modified": "2026-01-16T14:14:03.624Z"
         },
         {
           "filename": "a_astm_compliance_standards_verification_3487759.webp",
