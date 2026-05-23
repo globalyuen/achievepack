@@ -270,6 +270,7 @@ const LEARN_PAGES = {
       { name: 'Mono-Material Foundation', link: '/recyclable/mono-material-foundation', image: '/imgs/recyclable/foundation/hero.webp?v=2' },
       { name: 'Recyclable Mono-PE', link: '/materials/recyclable-mono-pe', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
       { name: 'Recyclable Mono-PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
+      { name: 'Stamp Foil Recyclability', link: '/blog/stamp-foil-recyclability', image: '/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.jpg' },
     ]
   },
 }

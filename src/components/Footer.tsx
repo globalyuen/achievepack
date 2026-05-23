@@ -131,6 +131,7 @@ export default function Footer() {
               <li><Link to="/industry/supplements-powders" className="hover:text-primary-400">Supplements</Link></li>
               <li><Link to="/industry/baby-food" className="hover:text-primary-400">Baby Food</Link></li>
               <li><Link to="/industry/frozen-food" className="hover:text-primary-400">Frozen Food</Link></li>
+              <li><Link to="/solutions/citrus-oil-packaging" className="hover:text-primary-400 font-medium text-primary-400">Citrus Oil Packaging <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 
@@ -238,6 +239,7 @@ export default function Footer() {
               <li><Link to="/topics/custom-packaging" className="text-gray-400 hover:text-white transition-colors">Custom Solutions</Link></li>
               <li><Link to="/topics/reduce-packaging-waste" className="text-gray-400 hover:text-white transition-colors">Reducing Waste</Link></li>
               <li><Link to="/topics/custom-vs-standard-packaging" className="text-gray-400 hover:text-white transition-colors">Custom vs. Standard</Link></li>
+              <li><Link to="/blog/stamp-foil-recyclability" className="hover:text-primary-400 font-medium text-primary-400">Stamp Foil Recyclability <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 

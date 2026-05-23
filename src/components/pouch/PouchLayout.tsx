@@ -371,6 +371,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/industry/pet-food" className="hover:underline">[PET FOOD]</Link></li>
                 <li><Link to="/industry/supplements" className="hover:underline">[SUPPLEMENTS]</Link></li>
                 <li><Link to="/industry/sauces-condiments" className="hover:underline">[SAUCES & CONDIMENTS]</Link></li>
+                <li><Link to="/solutions/citrus-oil-packaging" className="hover:underline text-[#10B981] font-black">[CITRUS OIL SOLUTIONS]</Link></li>
               </ul>
             </div>
             <div>
@@ -392,6 +393,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 <li><Link to="/unprinted-samples" className="hover:underline">[UNPRINTED SAMPLES]</Link></li>
                 <li><Link to="/tech-specs" className="hover:underline text-[#10B981]">[TECH SPECS]</Link></li>
                 <li><Link to="/sample" className="hover:underline">[CUSTOM PRINTED SAMPLE]</Link></li>
+                <li><Link to="/blog/stamp-foil-recyclability" className="hover:underline text-[#10B981] font-black">[STAMP FOIL RECYCLABILITY]</Link></li>
               </ul>
             </div>
             <div className="col-span-2 md:col-span-3 xl:col-span-2">
@@ -459,6 +461,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 { name: 'CUSTOM_VS_STANDARD', path: '/topics/custom-vs-standard-packaging', color: 'bg-[#D4FF00]' },
                 { name: 'SPOUTED_POUCHES', path: '/topics/compostable-spouted-pouches', color: 'bg-[#D4FF00]' },
                 { name: 'CITRUS_OIL', path: '/solutions/citrus-oil-packaging', color: 'bg-[#D4FF00]' },
+                { name: 'STAMP_FOIL', path: '/blog/stamp-foil-recyclability', color: 'bg-[#D4FF00]' },
 
               ].map((topic, i) => (
                 <Link 
