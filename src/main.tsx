@@ -278,6 +278,7 @@ const PackagingCostGuidePage = lazyWithRetry(() => import('./pages/blog/Packagin
 const CompostableVsRecyclablePage = lazyWithRetry(() => import('./pages/blog/CompostableVsRecyclablePage'))
 const EcoPackagingMistakesPage = lazyWithRetry(() => import('./pages/blog/EcoPackagingMistakesPage'))
 const CompostableZipperNoRemovalPage = lazyWithRetry(() => import('./pages/blog/CompostableZipperNoRemovalPage'))
+const StampFoilRecyclabilityPage = lazyWithRetry(() => import('./pages/blog/StampFoilRecyclabilityPage'))
 
 // Learn Center - Lazy loaded
 const LearnSearchPage = lazyWithRetry(() => import('./pages/LearnSearchPage'))
@@ -612,6 +613,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/blog/organic-compliance-support" element={<OrganicComplianceSupportGuide />} />
                   <Route path="/blog/compostable-humidity-control" element={<CompostableHumidityControlPage />} />
                   <Route path="/blog/compostable-zipper-no-removal" element={<PouchCompostableZipperNoRemovalPage />} />
+                  <Route path="/blog/stamp-foil-recyclability" element={<StampFoilRecyclabilityPage />} />
                   <Route path="/certifications" element={<PouchCertificationsPage />} />
                   <Route path="/factory-tour" element={<PouchFactoryTourPage />} />
                   <Route path="/materials/cello-kraft-triplex" element={<PouchCelloKraftPage />} />
@@ -910,6 +912,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/blog/compostable-vs-recyclable" element={<CompostableVsRecyclablePage />} />
                         <Route path="/blog/eco-packaging-mistakes" element={<EcoPackagingMistakesPage />} />
                         <Route path="/blog/compostable-zipper-no-removal" element={<CompostableZipperNoRemovalPage />} />
+                        <Route path="/blog/stamp-foil-recyclability" element={<StampFoilRecyclabilityPage />} />
                         <Route path="/blog/:slug" element={<BlogPostPage />} />
 
                         {/* Learn Center */}
