@@ -1,45 +1,299 @@
-import React, { useState } from 'react'
-import { Ruler, Box, Maximize2, Package, Calculator, Settings, ArrowRightLeft, CheckCircle, Eye, X, Layers, ShoppingCart } from 'lucide-react'
+import React, { useState, useMemo } from 'react'
+import { Ruler, Box, Maximize2, Package, Calculator, Settings, ArrowRightLeft, CheckCircle, Eye, X, Layers, ShoppingCart, ArrowRight, Download, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
-import SortableSizesTable, { STAND_UP_SIZES, FLAT_BOTTOM_SIZES, THREE_SIDE_SEAL_SIZES, ALL_SIZES } from '../../components/SortableSizesTable'
+import SortableSizesTable, { STAND_UP_SIZES, FLAT_BOTTOM_SIZES } from '../../components/SortableSizesTable'
+
+// Volumetric density database for standard B2B packaging products
+const PRODUCT_DENSITIES = [
+  { id: 'coffee-beans', name: 'Coffee Beans ☕', density: 0.38, unit: 'g/ml', desc: 'Whole roasted specialty coffee beans' },
+  { id: 'coffee-ground', name: 'Ground Coffee ☕', density: 0.45, unit: 'g/ml', desc: 'Finely ground coffee powder' },
+  { id: 'fine-powder', name: 'Powders / Supplements 💊', density: 0.55, unit: 'g/ml', desc: 'Protein powders, collagen, flour, matcha' },
+  { id: 'tea-leaves', name: 'Tea Leaves 🌿', density: 0.15, unit: 'g/ml', desc: 'Loose whole leaf teas' },
+  { id: 'pet-food', name: 'Pet Food / Treats 🐕', density: 0.35, unit: 'g/ml', desc: 'Dry kibbles, organic jerky treats' },
+  { id: 'granola-oats', name: 'Granola & Oats 🥜', density: 0.42, unit: 'g/ml', desc: 'Granola blends, rolled oats, cereals' },
+  { id: 'liquids-gels', name: 'Liquids & Gels 💧', density: 1.0, unit: 'g/ml', desc: 'Purees, sauces, cosmetics, syrups' },
+  { id: 'nuts-seeds', name: 'Nuts & Seeds 🌰', density: 0.50, unit: 'g/ml', desc: 'Almonds, cashews, chia, flax seeds' }
+];
+
+// Volumetric size brackets matching the Achieve Pack inventory catalog
+const POUCH_SIZE_BRACKETS = [
+  { code: 'XS', maxVol: 180, dims: '100 × 150 + 60 mm', inDims: '3.9" × 5.9" + 2.4"', label: 'Extra Small (XS)', storeId: 'eco-3side', recommendedDieline: '/dielines/ap-dieline-100x150.pdf' },
+  { code: 'S', maxVol: 400, dims: '130 × 200 + 70 mm', inDims: '5.1" × 7.9" + 2.8"', label: 'Small (S)', storeId: 'eco-standup', recommendedDieline: '/dielines/ap-dieline-130x200.pdf' },
+  { code: 'M', maxVol: 850, dims: '160 × 230 + 80 mm', inDims: '6.3" × 9.1" + 3.1"', label: 'Medium (M)', storeId: 'eco-standup', recommendedDieline: '/dielines/ap-dieline-160x230.pdf' },
+  { code: 'L', maxVol: 1400, dims: '190 × 260 + 90 mm', inDims: '7.5" × 10.2" + 3.5"', label: 'Large (L)', storeId: 'eco-standup', recommendedDieline: '/dielines/ap-dieline-190x260.pdf' },
+  { code: 'XL', maxVol: 2800, dims: '230 × 340 + 100 mm', inDims: '9.1" × 13.4" + 3.9"', label: 'Extra Large (XL)', storeId: 'eco-standup', recommendedDieline: '/dielines/ap-dieline-230x340.pdf' },
+  { code: 'XXL', maxVol: 99999, dims: '300 × 400 + 120 mm', inDims: '11.8" × 15.7" + 4.7"', label: 'Double Extra Large (XXL)', storeId: 'eco-standup', recommendedDieline: '/dielines/ap-dieline-300x400.pdf' }
+];
 
 const PouchSizingPage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
-  const heroImage = '/imgs/seo-photos/a_size_reference_dimensions_7506199.webp'
+  // Sizing Calculator States
+  const [productType, setProductType] = useState('coffee-beans')
+  const [weightInput, setWeightInput] = useState<number>(250)
+  const [weightUnit, setWeightUnit] = useState<'g' | 'oz'>('g')
+  const [bagShape, setBagShape] = useState<'stand-up' | 'flat-bottom'>('stand-up')
+  const [headspacePercent, setHeadspacePercent] = useState<number>(25)
+
+  // Use the newly generated stunning B2B studio reference image as our primary hero
+  const heroImage = '/imgs/pouch_size_ref_guide.png'
+
+  // Dynamic Calculator Engine
+  const calcResult = useMemo(() => {
+    const selectedProd = PRODUCT_DENSITIES.find(p => p.id === productType) || PRODUCT_DENSITIES[0];
+    
+    // 1. Convert input to grams
+    const weightInGrams = weightUnit === 'oz' ? weightInput * 28.3495 : weightInput;
+    
+    // 2. Compute base volume (ml = g / density)
+    const baseVolumeMl = weightInGrams / selectedProd.density;
+    
+    // 3. Add safety headspace factor (default 25%)
+    const totalVolumeMl = baseVolumeMl * (1 + headspacePercent / 100);
+    
+    // 4. Match the closest catalog size bracket
+    const matchedBracket = POUCH_SIZE_BRACKETS.find(b => totalVolumeMl <= b.maxVol) || POUCH_SIZE_BRACKETS[POUCH_SIZE_BRACKETS.length - 1];
+    
+    // 5. Calculate display ratios for the visual preview outline
+    let aspectHeight = 100;
+    let aspectWidth = 70;
+    let aspectGusset = 25;
+    
+    if (matchedBracket.code === 'XS') { aspectHeight = 120; aspectWidth = 80; aspectGusset = 20; }
+    else if (matchedBracket.code === 'S') { aspectHeight = 140; aspectWidth = 90; aspectGusset = 24; }
+    else if (matchedBracket.code === 'M') { aspectHeight = 160; aspectWidth = 110; aspectGusset = 28; }
+    else if (matchedBracket.code === 'L') { aspectHeight = 180; aspectWidth = 130; aspectGusset = 32; }
+    else if (matchedBracket.code === 'XL') { aspectHeight = 200; aspectWidth = 140; aspectGusset = 36; }
+    else if (matchedBracket.code === 'XXL') { aspectHeight = 220; aspectWidth = 160; aspectGusset = 40; }
+
+    return {
+      grams: weightInGrams,
+      baseVol: baseVolumeMl,
+      totalVol: totalVolumeMl,
+      size: matchedBracket.code,
+      dimensions: matchedBracket.dims,
+      inchDims: matchedBracket.inDims,
+      sizeLabel: matchedBracket.label,
+      storeId: matchedBracket.storeId,
+      dieline: matchedBracket.recommendedDieline,
+      visuals: {
+        h: aspectHeight,
+        w: aspectWidth,
+        g: aspectGusset
+      }
+    };
+  }, [productType, weightInput, weightUnit, headspacePercent]);
 
   const sections = [
     {
+      id: 'interactive-calculator',
+      title: 'Stand Up Pouch Volume & Sizing Calculator',
+      icon: <Calculator className="h-5 w-5 text-primary-600 animate-pulse" />,
+      content: (
+        <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 p-6 md:p-8 rounded-2xl border border-neutral-700 text-white shadow-2xl">
+          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+            
+            {/* Input Controls Panel */}
+            <div className="flex-1 space-y-6">
+              <div>
+                <h4 className="text-lg font-bold text-amber-400 flex items-center gap-2 mb-2">
+                  <Sparkles className="h-5 w-5" /> 1. Enter Your Product Details
+                </h4>
+                <p className="text-xs text-neutral-300">Our algorithm maps volumetric density instantly to compute the perfect envelope size.</p>
+              </div>
+
+              {/* Product Category Select */}
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">What are you packaging?</label>
+                <div className="grid grid-cols-2 gap-2">
+                  {PRODUCT_DENSITIES.map(prod => (
+                    <button
+                      key={prod.id}
+                      onClick={() => setProductType(prod.id)}
+                      className={`text-left px-3 py-2.5 rounded-xl border text-xs font-medium transition ${
+                        productType === prod.id
+                          ? 'bg-amber-500 border-amber-400 text-neutral-950 font-semibold shadow-lg shadow-amber-500/20'
+                          : 'bg-neutral-800 border-neutral-700 hover:bg-neutral-700 text-neutral-200'
+                      }`}
+                    >
+                      {prod.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Weight Input Row */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Target Fill Weight</label>
+                  <div className="relative">
+                    <input
+                      type="number"
+                      value={weightInput}
+                      onChange={(e) => setWeightInput(Math.max(1, parseFloat(e.target.value) || 0))}
+                      className="w-full bg-neutral-800 border border-neutral-700 rounded-xl px-4 py-2.5 text-sm font-bold text-white focus:outline-none focus:border-amber-400 transition"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Unit</label>
+                  <div className="flex bg-neutral-800 rounded-xl p-1 border border-neutral-700">
+                    <button
+                      onClick={() => setWeightUnit('g')}
+                      className={`flex-1 text-center py-1.5 rounded-lg text-xs font-semibold transition ${
+                        weightUnit === 'g' ? 'bg-neutral-700 text-white' : 'text-neutral-400 hover:text-white'
+                      }`}
+                    >
+                      Grams (g)
+                    </button>
+                    <button
+                      onClick={() => setWeightUnit('oz')}
+                      className={`flex-1 text-center py-1.5 rounded-lg text-xs font-semibold transition ${
+                        weightUnit === 'oz' ? 'bg-neutral-700 text-white' : 'text-neutral-400 hover:text-white'
+                      }`}
+                    >
+                      Ounces (oz)
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Headspace Control Slider */}
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400">Headspace Allowance</label>
+                  <span className="text-xs font-bold text-amber-400">{headspacePercent}% (Highly Recommended)</span>
+                </div>
+                <input
+                  type="range"
+                  min="15"
+                  max="40"
+                  value={headspacePercent}
+                  onChange={(e) => setHeadspacePercent(parseInt(e.target.value))}
+                  className="w-full h-1.5 bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                />
+                <div className="flex justify-between text-[10px] text-neutral-400 mt-1">
+                  <span>15% (Tight fit)</span>
+                  <span>25% (Standard)</span>
+                  <span>40% (Loose/Fluffy)</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Live Visual Result Display */}
+            <div className="w-full lg:w-[320px] bg-neutral-950 p-6 rounded-xl border border-neutral-700 flex flex-col justify-between items-stretch">
+              <div className="text-center">
+                <span className="text-[10px] uppercase tracking-widest text-neutral-500 font-bold">Your Recommended Size</span>
+                <div className="text-4xl font-extrabold text-amber-400 my-1">{calcResult.size}</div>
+                <div className="text-xs text-neutral-400 font-medium">{calcResult.sizeLabel}</div>
+              </div>
+
+              {/* Interactive Visual Pouch Model Renders */}
+              <div className="my-6 flex items-center justify-center relative min-h-[180px]">
+                <div 
+                  className="border-2 border-amber-500/80 rounded-2xl relative shadow-2xl transition-all duration-300 flex items-end justify-center overflow-hidden"
+                  style={{
+                    height: `${calcResult.visuals.h}px`,
+                    width: `${calcResult.visuals.w}px`,
+                    backgroundColor: 'rgba(245, 158, 11, 0.05)',
+                    boxShadow: '0 0 20px rgba(245,158,11,0.1)'
+                  }}
+                >
+                  {/* Internal product level visualization based on density & headspace */}
+                  <div 
+                    className="w-full bg-gradient-to-t from-amber-600/60 to-amber-500/40 border-t border-amber-400/80 transition-all duration-500"
+                    style={{
+                      height: `${100 - (headspacePercent * 1.5)}%`
+                    }}
+                  />
+                  {/* Size code badge inside preview */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <span className="text-xl font-bold tracking-widest text-white/10">{calcResult.size}</span>
+                  </div>
+                  {/* Gusset indicator marker */}
+                  <div className="absolute bottom-1 right-2 left-2 border-t border-dashed border-white/20 text-[9px] text-white/40 text-center py-0.5">
+                    Gusset: {calcResult.visuals.g}mm
+                  </div>
+                </div>
+              </div>
+
+              {/* Exact Metrics List */}
+              <div className="space-y-2 text-xs border-t border-neutral-800 pt-4">
+                <div className="flex justify-between">
+                  <span className="text-neutral-500">Dimensions:</span>
+                  <span className="font-bold text-neutral-200">{calcResult.dimensions}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-neutral-500">Imperial:</span>
+                  <span className="font-semibold text-neutral-400">{calcResult.inchDims}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-neutral-500">Required Vol:</span>
+                  <span className="font-semibold text-neutral-400">~{Math.round(calcResult.totalVol)} ml</span>
+                </div>
+              </div>
+
+              {/* Conversion and Sourcing Actions */}
+              <div className="mt-5 space-y-2">
+                <Link
+                  to={`/store/product/${calcResult.storeId}?size=${calcResult.size}`}
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 bg-amber-500 hover:bg-amber-600 text-neutral-950 font-bold rounded-xl text-xs transition"
+                >
+                  <ShoppingCart className="h-4.5 w-4.5" /> Order Eco Pouches Now
+                </Link>
+                <a
+                  href={`${calcResult.dieline}`}
+                  download
+                  className="w-full inline-flex items-center justify-center gap-2 py-2 bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 text-neutral-200 font-semibold rounded-xl text-xs transition"
+                >
+                  <Download className="h-3.5 w-3.5 text-amber-500" /> Download Vector Dieline (.PDF)
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'all-sizes-overview',
-      title: 'All Stand Up Pouch Sizes at a Glance',
+      title: 'Standard Stand Up Pouch Sizes & Capacity Catalog',
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
-        <SortableSizesTable
-          sizes={STAND_UP_SIZES}
-          title="Stand Up Pouch Sizes - Sortable & Filterable"
-          categoryColor="blue"
-          productLink="/store/product/eco-standup"
-        />
+        <div className="space-y-4">
+          <p className="text-sm text-neutral-600">Our stock stand up pouches are cataloged in 6 primary sizing standard brackets. Use the filterable matrix below to inspect dimensions, bulk capacities, and dieline templates.</p>
+          <SortableSizesTable
+            sizes={STAND_UP_SIZES}
+            title="Stand Up Pouch Sizes - Sortable & Filterable"
+            categoryColor="blue"
+            productLink="/store/product/eco-standup"
+          />
+        </div>
       )
     },
     {
       id: 'flat-bottom-sizes',
-      title: 'All Flat Bottom Bag Sizes',
+      title: 'Flat Bottom Bag / Box Pouch Sizes',
       icon: <Box className="h-5 w-5 text-primary-600" />,
       content: (
-        <SortableSizesTable
-          sizes={FLAT_BOTTOM_SIZES}
-          title="Flat Bottom Bag Sizes - Sortable & Filterable"
-          categoryColor="amber"
-          productLink="/packaging/flat-bottom-bags"
-        />
+        <div className="space-y-4">
+          <p className="text-sm text-neutral-600">Flat Bottom Bags utilize an eight-sided box bottom sealing technique that increases filling capacity by up to 30% compared to equivalent flat panels.</p>
+          <SortableSizesTable
+            sizes={FLAT_BOTTOM_SIZES}
+            title="Flat Bottom Bag Sizes - Sortable & Filterable"
+            categoryColor="amber"
+            productLink="/packaging/flat-bottom-bags"
+          />
+        </div>
       )
     },
     {
       id: 'understanding-dimensions',
-      title: 'Understanding Pouch Dimensions',
+      title: 'Understanding Pouch Dimensions & Structural Folds',
       icon: <Ruler className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -133,7 +387,7 @@ const PouchSizingPage: React.FC = () => {
                 </div>
                 <div className="flex justify-between bg-white/70 px-3 py-1.5 rounded">
                   <span>250g / 8.8oz</span>
-                  <span className="font-medium text-amber-700">S or L</span>
+                  <span className="font-medium text-amber-700">S or M</span>
                 </div>
                 <div className="flex justify-between bg-white/70 px-3 py-1.5 rounded">
                   <span>500g / 1lb</span>
@@ -154,19 +408,19 @@ const PouchSizingPage: React.FC = () => {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between bg-white/70 px-3 py-1.5 rounded">
                   <span>50g Sample</span>
-                  <span className="font-medium text-green-700">XXS</span>
+                  <span className="font-medium text-green-700">XS</span>
                 </div>
                 <div className="flex justify-between bg-white/70 px-3 py-1.5 rounded">
                   <span>100g Retail</span>
-                  <span className="font-medium text-green-700">XS or S</span>
+                  <span className="font-medium text-green-700">S</span>
                 </div>
                 <div className="flex justify-between bg-white/70 px-3 py-1.5 rounded">
                   <span>250g Standard</span>
-                  <span className="font-medium text-green-700">S or L</span>
+                  <span className="font-medium text-green-700">M</span>
                 </div>
                 <div className="flex justify-between bg-white/70 px-3 py-1.5 rounded">
                   <span>500g Family</span>
-                  <span className="font-medium text-green-700">L or XL</span>
+                  <span className="font-medium text-green-700">L</span>
                 </div>
               </div>
             </div>
@@ -179,7 +433,7 @@ const PouchSizingPage: React.FC = () => {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between bg-white/70 px-3 py-1.5 rounded">
                   <span>100g Treats</span>
-                  <span className="font-medium text-blue-700">XS or S</span>
+                  <span className="font-medium text-blue-700">S</span>
                 </div>
                 <div className="flex justify-between bg-white/70 px-3 py-1.5 rounded">
                   <span>500g Pack</span>
@@ -200,67 +454,8 @@ const PouchSizingPage: React.FC = () => {
       )
     },
     {
-      id: 'calculate-size',
-      title: 'How to Calculate Your Size',
-      icon: <Calculator className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Follow this <strong>simple 2-step method</strong> to determine your ideal pouch size:</p>
-          
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border border-blue-200">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
-                <h4 className="font-semibold text-blue-800">Measure Your Product</h4>
-              </div>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <span>Determine volume or weight</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <span>Note product density (powder vs chunky)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <span>Consider rigid inserts (like valves)</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-5 rounded-xl border border-emerald-200">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
-                <h4 className="font-semibold text-emerald-800">Add Headspace</h4>
-              </div>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span>Allow 20-30% extra space above product</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span>Needed for zipper closure and sealing</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <span>Ensures pouch stands properly when filled</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="bg-amber-50 border border-amber-200 p-4 rounded-xl mt-4">
-            <h4 className="font-semibold text-amber-800 mb-1">💡 Pro Tip</h4>
-            <p className="text-sm text-amber-700">Send us your product (or detailed measurements) and we will recommend the optimal size. We can also send sample sizes for you to test fill.</p>
-          </div>
-        </div>
-      )
-    },
-    {
       id: 'unit-conversion',
-      title: 'Unit Conversion Reference',
+      title: 'Metric to Imperial Conversion Guide',
       icon: <ArrowRightLeft className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -372,7 +567,7 @@ const PouchSizingPage: React.FC = () => {
   const faqs = [
     { 
       question: 'What size pouch do I need for 250g of coffee?', 
-      answer: 'For 250g (8.8oz) of roasted coffee beans, we recommend Size S (150 × 200 + 80mm) or Size L (180 × 250 + 80mm). Size L gives more headspace for a valve and premium look. For ground coffee, which packs more densely, Size S is usually sufficient.' 
+      answer: 'For 250g (8.8oz) of roasted coffee beans, we recommend Size M (160 × 230 + 80mm). If your beans are exceptionally light roasted and bulky, Size L (190 × 260 + 90mm) provides superior headspace. Ground coffee can comfortably utilize Size S or M.' 
     },
     { 
       question: 'How do I measure my product to find the right size?', 
@@ -401,9 +596,9 @@ const PouchSizingPage: React.FC = () => {
 
   return (
     <>
-      <SEOPageLayout heroBgColor="#1f2937"
-        title="Pouch Sizing Guide | All Sizes with Images & Dimensions"
-        description="Complete pouch sizing guide with visual size comparison, dimensions in mm and inches, and capacity in grams. Find the perfect size for coffee, snacks, pet food, and more. XXXS to XXL sizes available."
+      <SEOPageLayout heroBgColor="#0f172a"
+        title="Pouch Sizing Guide & Volume Density Calculator | Achieve Pack"
+        description="Complete pouch sizing guide with visual size comparison, dimensions in mm and inches, and capacity in grams. Use our volume density calculator for coffee, snacks, powders, and pet food. XXXS to XXL sizes."
         keywords={[
           'pouch sizes',
           'packaging dimensions',
@@ -412,15 +607,16 @@ const PouchSizingPage: React.FC = () => {
           'custom pouch sizes',
           'stand up pouch sizes',
           'coffee bag sizes',
-          'flexible packaging dimensions'
+          'flexible packaging dimensions',
+          'pouch volume calculator'
         ]}
-        heroTitle="Pouch Sizing Guide"
-        heroSubtitle="All Sizes with Real Photos & Dimensions"
+        heroTitle="Pouch Sizing & Volume Guide"
+        heroSubtitle="Interactive Volume Density Calculator & Visual Sizing Templates"
         heroImage={heroImage}
         heroLogo="/eco-logo/white-bkg/eco-logo-pcr.png"
         heroLogoAlt="Eco Packaging"
         sections={sections}
-        introSummary="Find the perfect pouch size for your product with our comprehensive visual guide. Compare all sizes side-by-side with real photos, exact dimensions in mm and inches, and capacity in grams. From sample sachets (XXXS) to bulk bags (XXL), we have sizes for every product."
+        introSummary="Find the perfect pouch size for your product with our comprehensive visual guide and density calculator. Input your product details and target weight to calculate required volumes and match your sizing code. Compare all sizes side-by-side with our high-fidelity reference mockups, exact dimensions, and download free Illustrator/PDF dielines."
         faqs={faqs}
         relatedLinks={relatedLinks}
         ctaTitle="Ready to Order?"
