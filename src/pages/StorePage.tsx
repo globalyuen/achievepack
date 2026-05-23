@@ -865,7 +865,7 @@ const StorePage: React.FC = () => {
           {/* Product Grid/List */}
           <div className="flex-1">
             {/* NEW: PaaS B2B Accelerator Banner */}
-            <div className="bg-gradient-to-r from-neutral-900 via-neutral-850 to-neutral-900 border-4 border-black p-6 mb-8 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-white relative overflow-hidden group">
+            <div className="bg-gradient-to-r from-[#0b3c21] via-[#115e33] to-[#082f1a] border-4 border-black p-6 mb-8 rounded-2xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-white relative overflow-hidden group">
               <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#D4FF00]/10 to-transparent pointer-events-none" />
               
               <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">

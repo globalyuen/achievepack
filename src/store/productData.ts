@@ -2893,11 +2893,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       '/taobao/flat-bottom-pouch-with-card-insert/O1CN01wlCXvN1kRUeWlXOLJ_--2214004244680-jpg_q50-jpg_.webp',
       '/taobao/flat-bottom-pouch-with-card-insert/O1CN01NYuKkP1kRUeWM05gC_--2214004244680-jpg_q50-jpg_.webp',
       '/taobao/flat-bottom-pouch-with-card-insert/O1CN01IAbsQQ1kRUeQ1VSI8_--2214004244680-jpg_q50-jpg_.webp',
-      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01zhZWdI1kRUeW1pQaK_--2214004244680-jpg_q50-jpg_.webp',
-      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01oFyrrO1kRUVLLQUBm_--2214004244680-2-shopmanager-png_76.webp',
-      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01wRq7361kRUeUNNlQ8_--2214004244680.jpg',
-      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01xckJ2S1kRUeVpvdWz_--2214004244680.jpg',
-      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01z163bz1lHF5yQ50CC_--6000000004793-2-tps-172-108-png_.webp'
+      '/taobao/flat-bottom-pouch-with-card-insert/O1CN01zhZWdI1kRUeW1pQaK_--2214004244680-jpg_q50-jpg_.webp'
     ],
     badge: '📥 Modular Card Insert',
     rating: 4.9,
