@@ -4268,7 +4268,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       'Available in 4 Gorgeous Seasonal Matte Finishes'
     ],
     images: [
-      '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-1.jpg',
+      '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-11.webp',
       '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-2.jpg',
       '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-3.jpg',
       '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-4.jpg',
@@ -4278,7 +4278,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-8.webp',
       '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-9.webp',
       '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-10.webp',
-      '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-11.webp',
+      '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-1.jpg',
       '/imgs/store/products/bottle-shape-sachet-bag-thumbnail-12.jpg'
     ],
     badge: '⭐ Premium Sample Pouch',
