@@ -300,6 +300,8 @@ const colorInfoMap: Record<string, { name: string; swatchClass: string }> = {
   'natural-cork': { name: 'Natural Cork', swatchClass: 'bg-[#D2B48C] border-[#a07c50] text-neutral-900' },
   'charcoal-linen': { name: 'Charcoal Linen', swatchClass: 'bg-[#2F3E46] border-[#1f282d] text-white' },
   'white-linen': { name: 'White Linen', swatchClass: 'bg-[#F4F4F9] border-neutral-300 text-neutral-900' },
+  'white-kraft': { name: 'White Kraft (白牛皮)', swatchClass: 'bg-[#F8F9FA] border-neutral-300 text-neutral-900' },
+  'brown-kraft': { name: 'Brown Kraft (黄牛皮)', swatchClass: 'bg-[#E5C290] border-[#b08c50] text-neutral-900' },
 };
 
 const parseVariant = (variant: any, productId: string) => {
@@ -324,6 +326,14 @@ const parseVariant = (variant: any, productId: string) => {
     if (match) {
       size = match[1];
       color = match[2];
+    }
+  } else if (productId === 'flat-bottom-pouch-with-card-insert') {
+    const match = variant.id.match(/flat-bottom-card-insert-([^-]+)-([^-]+)-([^-]+-[^-]+)-(\d+)pcs/);
+    if (match) {
+      const shape = match[1] === 'cubical' ? 'Cubical' : 'Long';
+      const sizeCode = match[2].toUpperCase();
+      size = `${shape} ${sizeCode}`;
+      color = match[3];
     }
   }
 
@@ -361,6 +371,16 @@ const getSizeDetails = (sizeCode: string, productId: string) => {
       'L': { label: 'Size L (1 lb)', sub: '230 × 260 + 80 mm • holds ~500g' },
     };
     return details[sizeCode] || { label: `Size ${sizeCode}`, sub: '' };
+  } else if (productId === 'flat-bottom-pouch-with-card-insert') {
+    const details: Record<string, { label: string; sub: string }> = {
+      'CUBICAL S': { label: 'Cubical Size S (半磅)', sub: '15.5 × 16.5 + 8 cm • holds ~250g' },
+      'CUBICAL M': { label: 'Cubical Size M (一磅)', sub: '19.5 × 20.5 + 8 cm • holds ~500g' },
+      'CUBICAL L': { label: 'Cubical Size L (两磅)', sub: '23 × 24 + 10 cm • holds ~1000g' },
+      'LONG S': { label: 'Long Size S (半磅)', sub: '13 × 20 + 7 cm • holds ~250g' },
+      'LONG M': { label: 'Long Size M (一磅)', sub: '13.5 × 26 + 7.5 cm • holds ~500g' },
+      'LONG L': { label: 'Long Size L (两磅)', sub: '15 × 32.5 + 10 cm • holds ~1000g' },
+    };
+    return details[sizeCode] || { label: sizeCode, sub: '' };
   }
   return { label: sizeCode, sub: '' };
 };
@@ -499,7 +519,8 @@ const ProductPage: React.FC = () => {
   const isMultiDimensional = isEcoStock && ecoStockProduct && (
     product.id === 'flat-bottom-pouch-tin-tie' ||
     product.id === 'coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip' ||
-    product.id === 'textured-burlap-cork-pattern-coffee-pouch-with-valve'
+    product.id === 'textured-burlap-cork-pattern-coffee-pouch-with-valve' ||
+    product.id === 'flat-bottom-pouch-with-card-insert'
   );
 
   const { uniqueSizes, uniqueColors, uniqueQuantities } = useMemo(() => {
@@ -2328,7 +2349,7 @@ const ProductPage: React.FC = () => {
                                   }`}
                                 >
                                   {isSelected && (
-                                    <svg className="w-4 h-4 text-white drop-shadow-sm font-bold" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                                    <svg className={`w-4 h-4 ${colorCode === 'white-kraft' || colorCode === 'cream-white' || colorCode === 'white-linen' ? 'text-neutral-900' : 'text-white'} drop-shadow-sm font-bold`} fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                     </svg>
                                   )}

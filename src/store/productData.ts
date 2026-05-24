@@ -2901,8 +2901,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     minOrder: 100,
     shape: 'Flat Bottom Box Pouch',
     material: 'Matte BOPP + Metalized VMPET + Food-Grade PE High-Barrier Laminate (130 Microns)',
-    basePrice: 24.00,
-    pricePerPiece: 0.240,
+    basePrice: 23.33,
+    pricePerPiece: 0.233,
     minQuantity: 100,
     quantityStep: 100,
     sizeInfo: 'Cubical (S: 15.5×16.5+8cm / M: 19.5×20.5+8cm / L: 23×24+10cm) | Long (S: 13×20+7cm / M: 13.5×26+7.5cm / L: 15×32.5+10cm)',
@@ -2916,28 +2916,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '15.5 × 16.5 + 8 cm • Holds ~250g coffee beans / ~100g loose tea • Cubical (魔方款) • White Kraft (白牛皮)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 24.00,
-        unitPrice: 0.2400,
-        heroImageIndex: 0
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-s-white-kraft-200pcs',
-        label: 'Cubical Size S (半磅) (15.5 × 16.5 + 8 cm) - White Kraft (200 Pcs)',
-        dimensions: '15.5 × 16.5 + 8 cm • Holds ~250g coffee beans / ~100g loose tea • Cubical (魔方款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 43.20,
-        unitPrice: 0.2160,
-        heroImageIndex: 0
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-s-white-kraft-500pcs',
-        label: 'Cubical Size S (半磅) (15.5 × 16.5 + 8 cm) - White Kraft (500 Pcs)',
-        dimensions: '15.5 × 16.5 + 8 cm • Holds ~250g coffee beans / ~100g loose tea • Cubical (魔方款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 96.00,
-        unitPrice: 0.1920,
+        totalPrice: 23.33,
+        unitPrice: 0.2333,
         heroImageIndex: 0
       },
       {
@@ -2946,28 +2926,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '15.5 × 16.5 + 8 cm • Holds ~250g coffee beans / ~100g loose tea • Cubical (魔方款) • Brown Kraft (黄牛皮)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 24.00,
-        unitPrice: 0.2400,
-        heroImageIndex: 1
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-s-brown-kraft-200pcs',
-        label: 'Cubical Size S (半磅) (15.5 × 16.5 + 8 cm) - Brown Kraft (200 Pcs)',
-        dimensions: '15.5 × 16.5 + 8 cm • Holds ~250g coffee beans / ~100g loose tea • Cubical (魔方款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 43.20,
-        unitPrice: 0.2160,
-        heroImageIndex: 1
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-s-brown-kraft-500pcs',
-        label: 'Cubical Size S (半磅) (15.5 × 16.5 + 8 cm) - Brown Kraft (500 Pcs)',
-        dimensions: '15.5 × 16.5 + 8 cm • Holds ~250g coffee beans / ~100g loose tea • Cubical (魔方款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 96.00,
-        unitPrice: 0.1920,
+        totalPrice: 23.33,
+        unitPrice: 0.2333,
         heroImageIndex: 1
       },
       {
@@ -2981,26 +2941,6 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         heroImageIndex: 0
       },
       {
-        id: 'flat-bottom-card-insert-cubical-m-white-kraft-200pcs',
-        label: 'Cubical Size M (一磅) (19.5 × 20.5 + 8 cm) - White Kraft (200 Pcs)',
-        dimensions: '19.5 × 20.5 + 8 cm • Holds ~500g coffee beans / ~200g loose tea • Cubical (魔方款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 54.00,
-        unitPrice: 0.2700,
-        heroImageIndex: 0
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-m-white-kraft-500pcs',
-        label: 'Cubical Size M (一磅) (19.5 × 20.5 + 8 cm) - White Kraft (500 Pcs)',
-        dimensions: '19.5 × 20.5 + 8 cm • Holds ~500g coffee beans / ~200g loose tea • Cubical (魔方款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 120.00,
-        unitPrice: 0.2400,
-        heroImageIndex: 0
-      },
-      {
         id: 'flat-bottom-card-insert-cubical-m-brown-kraft-100pcs',
         label: 'Cubical Size M (一磅) (19.5 × 20.5 + 8 cm) - Brown Kraft (100 Pcs)',
         dimensions: '19.5 × 20.5 + 8 cm • Holds ~500g coffee beans / ~200g loose tea • Cubical (魔方款) • Brown Kraft (黄牛皮)',
@@ -3011,53 +2951,13 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         heroImageIndex: 1
       },
       {
-        id: 'flat-bottom-card-insert-cubical-m-brown-kraft-200pcs',
-        label: 'Cubical Size M (一磅) (19.5 × 20.5 + 8 cm) - Brown Kraft (200 Pcs)',
-        dimensions: '19.5 × 20.5 + 8 cm • Holds ~500g coffee beans / ~200g loose tea • Cubical (魔方款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 54.00,
-        unitPrice: 0.2700,
-        heroImageIndex: 1
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-m-brown-kraft-500pcs',
-        label: 'Cubical Size M (一磅) (19.5 × 20.5 + 8 cm) - Brown Kraft (500 Pcs)',
-        dimensions: '19.5 × 20.5 + 8 cm • Holds ~500g coffee beans / ~200g loose tea • Cubical (魔方款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 120.00,
-        unitPrice: 0.2400,
-        heroImageIndex: 1
-      },
-      {
         id: 'flat-bottom-card-insert-cubical-l-white-kraft-100pcs',
         label: 'Cubical Size L (两磅) (23 × 24 + 10 cm) - White Kraft (100 Pcs)',
         dimensions: '23 × 24 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Cubical (魔方款) • White Kraft (白牛皮)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 38.00,
-        unitPrice: 0.3800,
-        heroImageIndex: 0
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-l-white-kraft-200pcs',
-        label: 'Cubical Size L (两磅) (23 × 24 + 10 cm) - White Kraft (200 Pcs)',
-        dimensions: '23 × 24 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Cubical (魔方款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 68.40,
-        unitPrice: 0.3420,
-        heroImageIndex: 0
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-l-white-kraft-500pcs',
-        label: 'Cubical Size L (两磅) (23 × 24 + 10 cm) - White Kraft (500 Pcs)',
-        dimensions: '23 × 24 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Cubical (魔方款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 152.00,
-        unitPrice: 0.3040,
+        totalPrice: 40.00,
+        unitPrice: 0.4000,
         heroImageIndex: 0
       },
       {
@@ -3066,28 +2966,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '23 × 24 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Cubical (魔方款) • Brown Kraft (黄牛皮)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 38.00,
-        unitPrice: 0.3800,
-        heroImageIndex: 1
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-l-brown-kraft-200pcs',
-        label: 'Cubical Size L (两磅) (23 × 24 + 10 cm) - Brown Kraft (200 Pcs)',
-        dimensions: '23 × 24 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Cubical (魔方款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 68.40,
-        unitPrice: 0.3420,
-        heroImageIndex: 1
-      },
-      {
-        id: 'flat-bottom-card-insert-cubical-l-brown-kraft-500pcs',
-        label: 'Cubical Size L (两磅) (23 × 24 + 10 cm) - Brown Kraft (500 Pcs)',
-        dimensions: '23 × 24 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Cubical (魔方款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 152.00,
-        unitPrice: 0.3040,
+        totalPrice: 40.00,
+        unitPrice: 0.4000,
         heroImageIndex: 1
       },
       {
@@ -3096,28 +2976,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '13 × 20 + 7 cm • Holds ~250g coffee beans / ~100g loose tea • Long (长款) • White Kraft (白牛皮)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 24.00,
-        unitPrice: 0.2400,
-        heroImageIndex: 2
-      },
-      {
-        id: 'flat-bottom-card-insert-long-s-white-kraft-200pcs',
-        label: 'Long Size S (半磅) (13 × 20 + 7 cm) - White Kraft (200 Pcs)',
-        dimensions: '13 × 20 + 7 cm • Holds ~250g coffee beans / ~100g loose tea • Long (长款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 43.20,
-        unitPrice: 0.2160,
-        heroImageIndex: 2
-      },
-      {
-        id: 'flat-bottom-card-insert-long-s-white-kraft-500pcs',
-        label: 'Long Size S (半磅) (13 × 20 + 7 cm) - White Kraft (500 Pcs)',
-        dimensions: '13 × 20 + 7 cm • Holds ~250g coffee beans / ~100g loose tea • Long (长款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 96.00,
-        unitPrice: 0.1920,
+        totalPrice: 23.33,
+        unitPrice: 0.2333,
         heroImageIndex: 2
       },
       {
@@ -3126,28 +2986,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '13 × 20 + 7 cm • Holds ~250g coffee beans / ~100g loose tea • Long (长款) • Brown Kraft (黄牛皮)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 24.00,
-        unitPrice: 0.2400,
-        heroImageIndex: 3
-      },
-      {
-        id: 'flat-bottom-card-insert-long-s-brown-kraft-200pcs',
-        label: 'Long Size S (半磅) (13 × 20 + 7 cm) - Brown Kraft (200 Pcs)',
-        dimensions: '13 × 20 + 7 cm • Holds ~250g coffee beans / ~100g loose tea • Long (长款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 43.20,
-        unitPrice: 0.2160,
-        heroImageIndex: 3
-      },
-      {
-        id: 'flat-bottom-card-insert-long-s-brown-kraft-500pcs',
-        label: 'Long Size S (半磅) (13 × 20 + 7 cm) - Brown Kraft (500 Pcs)',
-        dimensions: '13 × 20 + 7 cm • Holds ~250g coffee beans / ~100g loose tea • Long (长款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 96.00,
-        unitPrice: 0.1920,
+        totalPrice: 23.33,
+        unitPrice: 0.2333,
         heroImageIndex: 3
       },
       {
@@ -3161,26 +3001,6 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         heroImageIndex: 2
       },
       {
-        id: 'flat-bottom-card-insert-long-m-white-kraft-200pcs',
-        label: 'Long Size M (一磅) (13.5 × 26 + 7.5 cm) - White Kraft (200 Pcs)',
-        dimensions: '13.5 × 26 + 7.5 cm • Holds ~500g coffee beans / ~200g loose tea • Long (长款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 54.00,
-        unitPrice: 0.2700,
-        heroImageIndex: 2
-      },
-      {
-        id: 'flat-bottom-card-insert-long-m-white-kraft-500pcs',
-        label: 'Long Size M (一磅) (13.5 × 26 + 7.5 cm) - White Kraft (500 Pcs)',
-        dimensions: '13.5 × 26 + 7.5 cm • Holds ~500g coffee beans / ~200g loose tea • Long (长款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 120.00,
-        unitPrice: 0.2400,
-        heroImageIndex: 2
-      },
-      {
         id: 'flat-bottom-card-insert-long-m-brown-kraft-100pcs',
         label: 'Long Size M (一磅) (13.5 × 26 + 7.5 cm) - Brown Kraft (100 Pcs)',
         dimensions: '13.5 × 26 + 7.5 cm • Holds ~500g coffee beans / ~200g loose tea • Long (长款) • Brown Kraft (黄牛皮)',
@@ -3191,53 +3011,13 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         heroImageIndex: 3
       },
       {
-        id: 'flat-bottom-card-insert-long-m-brown-kraft-200pcs',
-        label: 'Long Size M (一磅) (13.5 × 26 + 7.5 cm) - Brown Kraft (200 Pcs)',
-        dimensions: '13.5 × 26 + 7.5 cm • Holds ~500g coffee beans / ~200g loose tea • Long (长款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 54.00,
-        unitPrice: 0.2700,
-        heroImageIndex: 3
-      },
-      {
-        id: 'flat-bottom-card-insert-long-m-brown-kraft-500pcs',
-        label: 'Long Size M (一磅) (13.5 × 26 + 7.5 cm) - Brown Kraft (500 Pcs)',
-        dimensions: '13.5 × 26 + 7.5 cm • Holds ~500g coffee beans / ~200g loose tea • Long (长款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 120.00,
-        unitPrice: 0.2400,
-        heroImageIndex: 3
-      },
-      {
         id: 'flat-bottom-card-insert-long-l-white-kraft-100pcs',
         label: 'Long Size L (两磅) (15 × 32.5 + 10 cm) - White Kraft (100 Pcs)',
         dimensions: '15 × 32.5 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Long (长款) • White Kraft (白牛皮)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 38.00,
-        unitPrice: 0.3800,
-        heroImageIndex: 2
-      },
-      {
-        id: 'flat-bottom-card-insert-long-l-white-kraft-200pcs',
-        label: 'Long Size L (两磅) (15 × 32.5 + 10 cm) - White Kraft (200 Pcs)',
-        dimensions: '15 × 32.5 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Long (长款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 68.40,
-        unitPrice: 0.3420,
-        heroImageIndex: 2
-      },
-      {
-        id: 'flat-bottom-card-insert-long-l-white-kraft-500pcs',
-        label: 'Long Size L (两磅) (15 × 32.5 + 10 cm) - White Kraft (500 Pcs)',
-        dimensions: '15 × 32.5 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Long (长款) • White Kraft (白牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 152.00,
-        unitPrice: 0.3040,
+        totalPrice: 40.00,
+        unitPrice: 0.4000,
         heroImageIndex: 2
       },
       {
@@ -3246,28 +3026,8 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '15 × 32.5 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Long (长款) • Brown Kraft (黄牛皮)',
         hasHole: false,
         quantity: 100,
-        totalPrice: 38.00,
-        unitPrice: 0.3800,
-        heroImageIndex: 3
-      },
-      {
-        id: 'flat-bottom-card-insert-long-l-brown-kraft-200pcs',
-        label: 'Long Size L (两磅) (15 × 32.5 + 10 cm) - Brown Kraft (200 Pcs)',
-        dimensions: '15 × 32.5 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Long (长款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 200,
-        totalPrice: 68.40,
-        unitPrice: 0.3420,
-        heroImageIndex: 3
-      },
-      {
-        id: 'flat-bottom-card-insert-long-l-brown-kraft-500pcs',
-        label: 'Long Size L (两磅) (15 × 32.5 + 10 cm) - Brown Kraft (500 Pcs)',
-        dimensions: '15 × 32.5 + 10 cm • Holds ~1000g coffee beans / ~400g loose tea • Long (长款) • Brown Kraft (黄牛皮)',
-        hasHole: false,
-        quantity: 500,
-        totalPrice: 152.00,
-        unitPrice: 0.3040,
+        totalPrice: 40.00,
+        unitPrice: 0.4000,
         heroImageIndex: 3
       }
     ]
