@@ -39,6 +39,37 @@ export default function PouchEcoGPTKPage() {
   const calculateOptionPrice = (optionId: string) => {
     const sizeId = selectedSize.dimensions;
 
+    // Option C: Conventional Stock Pouch (One-Sided Zipper)
+    if (optionId === 'conventional-stock') {
+      const isBelowMoq = qtyPerDesign < 100
+      let unitPrice = 0.9534
+      if (sizeId === '160 × 260 + 80 mm') unitPrice = 0.9534
+      else if (sizeId === '180 × 280 + 80 mm') unitPrice = 1.0962
+      else if (sizeId === '200 × 300 + 80 mm') unitPrice = 1.3104
+      else if (sizeId === '260 × 340 + 80 mm') unitPrice = 1.6380
+
+      const totalCost = numDesigns * qtyPerDesign * unitPrice
+      return {
+        unitPrice,
+        totalCost,
+        isBelowMoq,
+        moq: 100,
+        badge: 'Option C: Conventional Stock (現貨平底拉鏈袋)',
+        desc: 'Matte standard flat bottom pouches with convenient easy-tear one-sided zipper closure. Absolute freshness and barrier protection at an economical price.',
+        accentColor: '#059669',
+        certLogo: 'Standard Stock',
+        leadTime: '3 - 5 Days',
+        image: '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
+        points: [
+          'Food-Safe High Barrier Triple Laminate',
+          'Airtight One-Sided Zipper & Easy Tear Notch',
+          'Sturdy Flat Bottom for Upright Shelf Presentation',
+          'Standard Economical B2B Pricing Matrix',
+          '100pcs Ultra-Low MOQ'
+        ]
+      }
+    }
+
     // Option 1 & 2: Stock Pouch options (Card insert or Tag attachment)
     if (optionId === 'stock-cards' || optionId === 'stock-tag') {
       const unitPrice = 0.50
@@ -170,6 +201,7 @@ export default function PouchEcoGPTKPage() {
   const getBilingualRfqText = () => {
     const cardPrice = calculateOptionPrice('stock-cards')
     const tagPrice = calculateOptionPrice('stock-tag')
+    const conventionalPrice = calculateOptionPrice('conventional-stock')
     const recPrice = calculateOptionPrice('recyclable')
     const compPrice = calculateOptionPrice('compostable')
 
@@ -186,9 +218,11 @@ export default function PouchEcoGPTKPage() {
    - 單價 (Unit): $${cardPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${cardPrice.totalCost.toFixed(2)} USD ${cardPrice.isBelowMoq ? '(Below MOQ)' : ''}
 2️⃣ 貼紙卡牌綁帶方案 (Stock Pouch + Tag Attachment):
    - 單價 (Unit): $${tagPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${tagPrice.totalCost.toFixed(2)} USD ${tagPrice.isBelowMoq ? '(Below MOQ)' : ''}
-3️⃣ ♻️ 4號標誌單一可回收方案 (PE+EVOH Recyclable):
+3️⃣ 現貨平底拉鏈袋方案 (Option C: Conventional Stock Pouch):
+   - 單價 (Unit): $${conventionalPrice.unitPrice.toFixed(4)} USD | 總額 (Total): $${conventionalPrice.totalCost.toFixed(2)} USD ${conventionalPrice.isBelowMoq ? '(Below MOQ)' : ''}
+4️⃣ ♻️ 4號標誌單一可回收方案 (PE+EVOH Recyclable):
    - 單價 (Unit): $${recPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${recPrice.totalCost.toFixed(2)} USD ${recPrice.isBelowMoq ? '(Below MOQ)' : ''}
-4️⃣ 🌱 BPI認證家用可堆肥方案 (Compostable):
+5️⃣ 🌱 BPI認證家用可堆肥方案 (Compostable):
    - 單價 (Unit): $${compPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${compPrice.totalCost.toFixed(2)} USD ${compPrice.isBelowMoq ? '(Below MOQ)' : ''}
 
 --------------------------------------------------
@@ -336,9 +370,9 @@ export default function PouchEcoGPTKPage() {
               </div>
             </div>
 
-            {/* Bottom 4-Column Options Grid with actual Storefront Images */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {['stock-cards', 'stock-tag', 'recyclable', 'compostable'].map(optionId => {
+            {/* Bottom 5-Column Options Grid with actual Storefront Images */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+              {['stock-cards', 'stock-tag', 'conventional-stock', 'recyclable', 'compostable'].map(optionId => {
                 const data = calculateOptionPrice(optionId)
                 const isSafe = data.totalCost <= totalBudget
 
@@ -369,6 +403,12 @@ export default function PouchEcoGPTKPage() {
                             </li>
                           ))}
                         </ul>
+
+                        {(optionId === 'recyclable' || optionId === 'compostable') && (
+                          <div className="mt-2 text-[9px] text-emerald-600 bg-emerald-50/50 p-1 border border-dashed border-emerald-350 rounded font-semibold leading-normal">
+                            💡 Custom dimensions can be adjusted to optimize volume.
+                          </div>
+                        )}
                       </div>
 
                       <div className="border-t-2 border-dashed border-neutral-200 pt-2 font-['JetBrains_Mono'] text-xs font-bold text-neutral-700 space-y-1">
@@ -535,9 +575,9 @@ export default function PouchEcoGPTKPage() {
                 </div>
               </div>
 
-              {/* Bottom 4-Column Options Grid with actual Storefront Images */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {['stock-cards', 'stock-tag', 'recyclable', 'compostable'].map(optionId => {
+              {/* Bottom 5-Column Options Grid with actual Storefront Images */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                {['stock-cards', 'stock-tag', 'conventional-stock', 'recyclable', 'compostable'].map(optionId => {
                   const data = calculateOptionPrice(optionId)
                   const isSafe = data.totalCost <= totalBudget
                   const budgetDiff = Math.abs(data.totalCost - totalBudget)
@@ -569,6 +609,12 @@ export default function PouchEcoGPTKPage() {
                               </li>
                             ))}
                           </ul>
+
+                          {(optionId === 'recyclable' || optionId === 'compostable') && (
+                            <div className="mt-2 text-[9px] text-emerald-400 bg-emerald-950/20 p-1.5 border border-dashed border-emerald-500/20 rounded font-mono leading-normal">
+                              💡 Custom dimensions can be adjusted to optimize volume.
+                            </div>
+                          )}
                         </div>
 
                         <div className="border-t border-neutral-850 pt-3 font-mono text-xs text-neutral-400 space-y-1.5">

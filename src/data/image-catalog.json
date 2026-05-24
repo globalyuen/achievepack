@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-24",
-  "total_images": 1798,
+  "total_images": 1802,
   "total_categories": 161,
   "extensions": {
     ".webp": 1298,
     ".png": 294,
-    ".jpg": 203,
+    ".jpg": 207,
     ".svg": 3
   },
   "categories": {
@@ -8280,8 +8280,32 @@
       ]
     },
     "store/products": {
-      "count": 198,
+      "count": 202,
       "images": [
+        {
+          "filename": "flat-bottom-one-sided-zipper-conventional-thumbnail-4.jpg",
+          "path": "/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T15:20:08.888Z"
+        },
+        {
+          "filename": "flat-bottom-one-sided-zipper-conventional-thumbnail-3.jpg",
+          "path": "/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T15:20:08.869Z"
+        },
+        {
+          "filename": "flat-bottom-one-sided-zipper-conventional-thumbnail-2.jpg",
+          "path": "/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T15:20:08.849Z"
+        },
+        {
+          "filename": "flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg",
+          "path": "/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T15:20:08.828Z"
+        },
         {
           "filename": "invest-cal-recyclable.jpg",
           "path": "/imgs/store/products/invest-cal-recyclable.jpg",

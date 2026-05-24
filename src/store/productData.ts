@@ -2905,6 +2905,46 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
 
 // Conventional Stock Products (Ready-made Premium)
 const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
+  // Flat Bottom Pouch with One-Sided Zipper (Conventional Stock)
+  {
+    id: 'flat-bottom-one-sided-zipper-conventional',
+    name: 'Flat Bottom Pouch with One-Sided Zipper (Conventional Stock)',
+    category: 'conventional-stock',
+    shape: 'Flat Bottom Eight-Side Seal Zipper Pouch',
+    material: 'Matte PET + Metalized VMPET + Food-Grade PE High-Barrier (140 Microns)',
+    description: 'An exceptionally premium B2B stock flat bottom pouch featuring a convenient easy-tear one-sided zipper closure. Built with high-barrier structure to protect whole coffee beans, specialty teas, and dry foods from moisture, oxygen, and UV light. Sturdy box-like flat bottom ensures perfect upright shelf stability and high-end presentation.',
+    shortDesc: 'Premium unprinted matte flat bottom box pouch with easy-tear one-sided zipper closure',
+    features: [
+      'Sturdy Eight-Side Sealed Flat Bottom: Dynamic upright shelf presence and maximum stability',
+      'Airtight One-Sided Zipper: Resealable zip closure blocks oxygen and retains premium aroma',
+      'High-Barrier Laminate Structure: Matte PET + VMPET + Food-Safe PE preserves freshness',
+      'Food-Grade FDA Certified: 100% safe, odorless, and perfect for retail commercial packaging',
+      'Pre-Cut Easy-Tear Notches: Clean tearing header above zipper for quick customer access'
+    ],
+    basePrice: 95.34,
+    minQuantity: 100,
+    minOrder: 100,
+    turnaround: '5-7 days',
+    badge: '⚡ Premium Stock',
+    rating: 4.9,
+    reviews: 18,
+    inStock: true,
+    pricePerPiece: 0.9534,
+    quantityStep: 100,
+    sizeInfo: 'S: 160×260+80mm / M: 180×280+80mm / L: 200×300+80mm / XL: 260×340+80mm',
+    sizeVariants: [
+      { id: 'fb-one-zip-s-100pcs', label: 'Size S (150g) (160×260+80mm) - 100 Pcs', dimensions: '160 × 260 + 80 mm • Holds ~150g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 95.34, unitPrice: 0.9534, heroImageIndex: 0 },
+      { id: 'fb-one-zip-m-100pcs', label: 'Size M (250g) (180×280+80mm) - 100 Pcs', dimensions: '180 × 280 + 80 mm • Holds ~250g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 109.62, unitPrice: 1.0962, heroImageIndex: 0 },
+      { id: 'fb-one-zip-l-100pcs', label: 'Size L (500g) (200×300+80mm) - 100 Pcs', dimensions: '200 × 300 + 80 mm • Holds ~500g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 131.04, unitPrice: 1.3104, heroImageIndex: 0 },
+      { id: 'fb-one-zip-xl-100pcs', label: 'Size XL (1000g) (260×340+80mm) - 100 Pcs', dimensions: '260 × 340 + 80 mm • Holds ~1000g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 163.80, unitPrice: 1.6380, heroImageIndex: 0 }
+    ],
+    images: [
+      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
+      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-2.jpg',
+      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-3.jpg',
+      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-4.jpg'
+    ]
+  },
   // Flat Bottom Pouch with Card Insert
   {
     id: 'flat-bottom-pouch-with-card-insert',
