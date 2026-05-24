@@ -10,13 +10,13 @@ This report provides a live audit of all listed Taobao product images on the sto
 | `retro-horizontal-kraft-food-handle-bag` | Retro Horizontal Kraft Food & Gift Bag with Handle | 12 | 12 | 0 | **100.0%** | ✅ 100% COMPLETE |
 | `40ml-foil-capsule-and-packing-machine` | 40ml Foil Capsule and Packing Machine | 8 | 8 | 0 | **100.0%** | ✅ 100% COMPLETE |
 | `100-recyclable-pe-wire-cut-zipper-bag` | 100% Recyclable PE Wire Cut Zipper Bag | 3 | 3 | 0 | **100.0%** | ✅ 100% COMPLETE |
-| `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch` | Unprinted White Kraft Compostable and Biodegradable Zipper Stand Up Pouch | 15 | 12 | 3 | **80.0%** | ⚠️ MOSTLY COMPLETE |
+| `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch` | Unprinted White Kraft Compostable and Biodegradable Zipper Stand Up Pouch | 15 | 15 | 0 | **100.0%** | ✅ 100% COMPLETE |
 | `flat-bottom-pouch-with-card-insert` | Flat Bottom Pouch with Card Insert | 4 | 4 | 0 | **100.0%** | ✅ 100% COMPLETE |
-| `textured-burlap-cork-pattern-coffee-pouch-with-valve` | Textured Burlap & Cork Pattern Stand Up Pouch with Valve | 9 | 1 | 8 | **11.1%** | ❌ NEEDS ATTENTION |
+| `textured-burlap-cork-pattern-coffee-pouch-with-valve` | Textured Burlap & Cork Pattern Stand Up Pouch with Valve | 9 | 9 | 0 | **100.0%** | ✅ 100% COMPLETE |
 | `coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip` | Coffee & Tea One-Sided Zipper Flat Bottom Pouch with Hanging Strip | 11 | 11 | 0 | **100.0%** | ✅ 100% COMPLETE |
 | `flat-bottom-pouch-tin-tie` | Flat Bottom Pouch with Tin Tie | 13 | 13 | 0 | **100.0%** | ✅ 100% COMPLETE |
 | `bottle-shape-sachet-bag` | Bottle-Shaped Specialty Foil Sachet Pouch | 12 | 12 | 0 | **100.0%** | ✅ 100% COMPLETE |
-| `spouted-foil-pouch` | Spouted Foil Stand Up Pouch | 35 | 28 | 7 | **80.0%** | ⚠️ MOSTLY COMPLETE |
+| `spouted-foil-pouch` | Spouted Foil Stand Up Pouch | 35 | 31 | 4 | **88.6%** | ⚠️ MOSTLY COMPLETE |
 | `clear-matte-zipper-stand-up-pouch` | Matte and Clear Unprinted Stock Zipper Stand Up Pouch | 20 | 20 | 0 | **100.0%** | ✅ 100% COMPLETE |
 | `flat-bottom-zipper-pouch` | Matte and Clear Unprinted Stock Flat Bottom Zipper Pouch | 17 | 17 | 0 | **100.0%** | ✅ 100% COMPLETE |
 | `eco-custom-label` | Custom Biodegradable Clear PLA Adhesive Sticker & Label | 11 | 11 | 0 | **100.0%** | ✅ 100% COMPLETE |
@@ -91,7 +91,7 @@ This report provides a live audit of all listed Taobao product images on the sto
 
 ### 📦 Unprinted White Kraft Compostable and Biodegradable Zipper Stand Up Pouch (`unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch`)
 
-**Progress**: 80.0% (12/15 regenerated) — **⚠️ MOSTLY COMPLETE**
+**Progress**: 100.0% (15/15 regenerated) — **✅ 100% COMPLETE**
 
 | Image Filename | Size | Audit Status | Details / Issues |
 | :--- | :--- | :--- | :--- |
@@ -102,13 +102,13 @@ This report provides a live audit of all listed Taobao product images on the sto
 | `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-5.jpg` | 677.4 KB | 🟢 NEW | Regenerated and verified |
 | `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-6.jpg` | 669.6 KB | 🟢 NEW | Regenerated and verified |
 | `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-7.jpg` | 659.6 KB | 🟢 NEW | Regenerated and verified |
-| `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-8.jpg` | 91.5 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
-| `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg` | 94.8 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
+| `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-8.jpg` | 148.1 KB | 🟢 NEW | Regenerated and verified |
+| `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg` | 160.9 KB | 🟢 NEW | Regenerated and verified |
 | `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-10.jpg` | 596.7 KB | 🟢 NEW | Regenerated and verified |
 | `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-11.jpg` | 619.0 KB | 🟢 NEW | Regenerated and verified |
 | `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-12.jpg` | 609.8 KB | 🟢 NEW | Regenerated and verified |
 | `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-13.jpg` | 705.0 KB | 🟢 NEW | Regenerated and verified |
-| `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg` | 60.6 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
+| `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg` | 104.6 KB | 🟢 NEW | Regenerated and verified |
 | `unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-15.jpg` | 576.5 KB | 🟢 NEW | Regenerated and verified |
 
 ### 📦 Flat Bottom Pouch with Card Insert (`flat-bottom-pouch-with-card-insert`)
@@ -124,19 +124,19 @@ This report provides a live audit of all listed Taobao product images on the sto
 
 ### 📦 Textured Burlap & Cork Pattern Stand Up Pouch with Valve (`textured-burlap-cork-pattern-coffee-pouch-with-valve`)
 
-**Progress**: 11.1% (1/9 regenerated) — **❌ NEEDS ATTENTION**
+**Progress**: 100.0% (9/9 regenerated) — **✅ 100% COMPLETE**
 
 | Image Filename | Size | Audit Status | Details / Issues |
 | :--- | :--- | :--- | :--- |
 | `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-1.webp` | 612.5 KB | 🟢 NEW | Regenerated and verified |
-| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-2.webp` | 125.6 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
-| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-3.webp` | 154.6 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
-| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-4.webp` | 125.7 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
-| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-5.jpg` | 35.7 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
-| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-6.jpg` | 25.9 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
-| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-7.jpg` | 39.2 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
-| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-8.jpg` | 134.5 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
-| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-9.jpg` | 120.0 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
+| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-2.webp` | 141.8 KB | 🟢 NEW | Regenerated and verified |
+| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-3.webp` | 147.5 KB | 🟢 NEW | Regenerated and verified |
+| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-4.webp` | 158.4 KB | 🟢 NEW | Regenerated and verified |
+| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-5.jpg` | 172.8 KB | 🟢 NEW | Regenerated and verified |
+| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-6.jpg` | 184.8 KB | 🟢 NEW | Regenerated and verified |
+| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-7.jpg` | 142.9 KB | 🟢 NEW | Regenerated and verified |
+| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-8.jpg` | 204.8 KB | 🟢 NEW | Regenerated and verified |
+| `textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-9.jpg` | 213.1 KB | 🟢 NEW | Regenerated and verified |
 
 ### 📦 Coffee & Tea One-Sided Zipper Flat Bottom Pouch with Hanging Strip (`coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip`)
 
@@ -197,7 +197,7 @@ This report provides a live audit of all listed Taobao product images on the sto
 
 ### 📦 Spouted Foil Stand Up Pouch (`spouted-foil-pouch`)
 
-**Progress**: 80.0% (28/35 regenerated) — **⚠️ MOSTLY COMPLETE**
+**Progress**: 88.6% (31/35 regenerated) — **⚠️ MOSTLY COMPLETE**
 
 | Image Filename | Size | Audit Status | Details / Issues |
 | :--- | :--- | :--- | :--- |
@@ -205,11 +205,11 @@ This report provides a live audit of all listed Taobao product images on the sto
 | `spouted-foil-pouch-thumbnail-2.webp` | 83.7 KB | 🟢 NEW | Regenerated and verified |
 | `spouted-foil-pouch-thumbnail-3.jpg` | 164.8 KB | 🟢 NEW | Regenerated and verified |
 | `spouted-foil-pouch-thumbnail-4.webp` | 111.8 KB | 🟢 NEW | Regenerated and verified |
-| `spouted-foil-pouch-thumbnail-5.webp` | 70.4 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
+| `spouted-foil-pouch-thumbnail-5.webp` | 114.7 KB | 🟢 NEW | Regenerated and verified |
 | `spouted-foil-pouch-thumbnail-6.webp` | 664.8 KB | 🟢 NEW | Regenerated and verified |
 | `spouted-foil-pouch-thumbnail-7.webp` | 653.9 KB | 🟢 NEW | Regenerated and verified |
-| `spouted-foil-pouch-thumbnail-8.webp` | 32.7 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
-| `spouted-foil-pouch-thumbnail-9.webp` | 33.0 KB | 🔴 OLD | Missing from products-ai/ folder, Content hash matches original Taobao import (3f46f44) |
+| `spouted-foil-pouch-thumbnail-8.webp` | 93.9 KB | 🟢 NEW | Regenerated and verified |
+| `spouted-foil-pouch-thumbnail-9.webp` | 64.0 KB | 🟢 NEW | Regenerated and verified |
 | `spouted-foil-pouch-thumbnail-10.webp` | 621.9 KB | 🟢 NEW | Regenerated and verified |
 | `spouted-foil-pouch-thumbnail-11.webp` | 88.7 KB | 🟢 NEW | Regenerated and verified |
 | `spouted-foil-pouch-thumbnail-12.webp` | 76.0 KB | 🟢 NEW | Regenerated and verified |

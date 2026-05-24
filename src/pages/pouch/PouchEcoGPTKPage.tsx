@@ -42,11 +42,11 @@ export default function PouchEcoGPTKPage() {
     // Option C: Conventional Stock Pouch (One-Sided Zipper)
     if (optionId === 'conventional-stock') {
       const isBelowMoq = qtyPerDesign < 100
-      let unitPrice = 0.9534
-      if (sizeId === '160 × 260 + 80 mm') unitPrice = 0.9534
-      else if (sizeId === '180 × 280 + 80 mm') unitPrice = 1.0962
-      else if (sizeId === '200 × 300 + 80 mm') unitPrice = 1.3104
-      else if (sizeId === '260 × 340 + 80 mm') unitPrice = 1.6380
+      let unitPrice = 0.1890
+      if (sizeId === '160 × 260 + 80 mm') unitPrice = 0.1890
+      else if (sizeId === '180 × 280 + 80 mm') unitPrice = 0.2333
+      else if (sizeId === '200 × 300 + 80 mm') unitPrice = 0.3000
+      else if (sizeId === '260 × 340 + 80 mm') unitPrice = 0.4000
 
       const totalCost = numDesigns * qtyPerDesign * unitPrice
       return {

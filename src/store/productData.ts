@@ -2921,7 +2921,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       'Food-Grade FDA Certified: 100% safe, odorless, and perfect for retail commercial packaging',
       'Pre-Cut Easy-Tear Notches: Clean tearing header above zipper for quick customer access'
     ],
-    basePrice: 95.34,
+    basePrice: 18.90,
     minQuantity: 100,
     minOrder: 100,
     turnaround: '5-7 days',
@@ -2929,14 +2929,14 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     rating: 4.9,
     reviews: 18,
     inStock: true,
-    pricePerPiece: 0.9534,
+    pricePerPiece: 0.1890,
     quantityStep: 100,
     sizeInfo: 'S: 160×260+80mm / M: 180×280+80mm / L: 200×300+80mm / XL: 260×340+80mm',
     sizeVariants: [
-      { id: 'fb-one-zip-s-100pcs', label: 'Size S (150g) (160×260+80mm) - 100 Pcs', dimensions: '160 × 260 + 80 mm • Holds ~150g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 95.34, unitPrice: 0.9534, heroImageIndex: 0 },
-      { id: 'fb-one-zip-m-100pcs', label: 'Size M (250g) (180×280+80mm) - 100 Pcs', dimensions: '180 × 280 + 80 mm • Holds ~250g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 109.62, unitPrice: 1.0962, heroImageIndex: 0 },
-      { id: 'fb-one-zip-l-100pcs', label: 'Size L (500g) (200×300+80mm) - 100 Pcs', dimensions: '200 × 300 + 80 mm • Holds ~500g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 131.04, unitPrice: 1.3104, heroImageIndex: 0 },
-      { id: 'fb-one-zip-xl-100pcs', label: 'Size XL (1000g) (260×340+80mm) - 100 Pcs', dimensions: '260 × 340 + 80 mm • Holds ~1000g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 163.80, unitPrice: 1.6380, heroImageIndex: 0 }
+      { id: 'fb-one-zip-s-100pcs', label: 'Size S (150g) (160×260+80mm) - 100 Pcs', dimensions: '160 × 260 + 80 mm • Holds ~150g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 18.90, unitPrice: 0.1890, heroImageIndex: 0 },
+      { id: 'fb-one-zip-m-100pcs', label: 'Size M (250g) (180×280+80mm) - 100 Pcs', dimensions: '180 × 280 + 80 mm • Holds ~250g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 0 },
+      { id: 'fb-one-zip-l-100pcs', label: 'Size L (500g) (200×300+80mm) - 100 Pcs', dimensions: '200 × 300 + 80 mm • Holds ~500g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 0 },
+      { id: 'fb-one-zip-xl-100pcs', label: 'Size XL (1000g) (260×340+80mm) - 100 Pcs', dimensions: '260 × 340 + 80 mm • Holds ~1000g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 0 }
     ],
     images: [
       '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
