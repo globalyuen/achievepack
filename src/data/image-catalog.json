@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-24",
-  "total_images": 1600,
-  "total_categories": 159,
+  "total_images": 1691,
+  "total_categories": 160,
   "extensions": {
-    ".webp": 1190,
-    ".png": 285,
-    ".jpg": 122,
+    ".webp": 1240,
+    ".png": 292,
+    ".jpg": 156,
     ".svg": 3
   },
   "categories": {
@@ -8251,8 +8251,572 @@
       ]
     },
     "store/products": {
-      "count": 189,
+      "count": 186,
       "images": [
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-4.jpg",
+          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:16:58.340Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-6.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:16:29.406Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-11.webp",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:16:18.916Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-10.webp",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:16:18.914Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-5.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.999Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-4.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.997Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-3.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.995Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-20.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-20.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.994Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-2.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.992Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-6.jpg",
+          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.461Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-5.jpg",
+          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.459Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-4.jpg",
+          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.456Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-3.jpg",
+          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.453Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-2.jpg",
+          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.450Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-15.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-15.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:06.833Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-11.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-11.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:06.831Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-10.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:06.828Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-10.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:06.826Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-26.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-26.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:06.823Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-5.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:13:16.951Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-4.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:13:16.949Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-3.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:13:16.948Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-2.jpg",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:13:16.946Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-17.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-17.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:13:16.944Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-3.jpg",
+          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:12:25.898Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-2.jpg",
+          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:12:25.896Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-12.jpg",
+          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-12.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:12:25.894Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-11.jpg",
+          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-11.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:12:25.892Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-10.jpg",
+          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:12:25.890Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-12.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-12.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:09:38.501Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-30.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-30.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:09:38.499Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-13.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-13.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:09:38.497Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-2.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:09:38.495Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-6.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:09:38.492Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-16.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-16.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.599Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-15.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-15.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.598Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-14.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-14.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.596Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-13.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-13.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.594Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-12.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.592Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-19.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-19.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.105Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-18.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-18.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.104Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-17.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-17.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.102Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-16.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-16.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.101Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-15.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-15.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.098Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-9.png",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-9.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:38.054Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-8.png",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-8.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:38.052Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-7.png",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-7.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:38.049Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-6.jpg",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:38.047Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-5.jpg",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:38.044Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-12.jpg",
+          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-12.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:14.077Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-11.jpg",
+          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-11.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:14.075Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-10.jpg",
+          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:14.073Z"
+        },
+        {
+          "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-3.png",
+          "path": "/imgs/store/products/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-3.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:14.070Z"
+        },
+        {
+          "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-2.png",
+          "path": "/imgs/store/products/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-2.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:14.068Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-17.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-17.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:06:19.598Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-3.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:06:19.597Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-21.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-21.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:06:19.594Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-4.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:06:19.592Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-20.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-20.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:06:19.589Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-14.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-14.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:54.383Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-13.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-13.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:54.380Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-12.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:54.375Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-11.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:54.372Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-11.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.367Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-10.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.366Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-4.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.364Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-3.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.362Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-2.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.360Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-4.webp",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:12.212Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-3.webp",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:12.209Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-2.webp",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:12.206Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-11.jpg",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-11.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:04:12.203Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-5.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:03:57.292Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-7.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:03:57.290Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-16.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-16.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:03:57.284Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-7.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:03:57.281Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-6.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:03:57.278Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-10.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:02:29.238Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-10.jpg",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:02:11.681Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T05:26:42.068Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-1.webp",
+          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:21:06.091Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-1.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:16:04.637Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-1.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:10:58.280Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-1.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:06:13.856Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-1.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:01:45.398Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-1.jpg",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:57:15.254Z"
+        },
+        {
+          "filename": "eco-pla-sealing-sticker-thumbnail-1.png",
+          "path": "/imgs/store/products/eco-pla-sealing-sticker-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-05-24T04:53:58.186Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-1.jpg",
+          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:50:37.872Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-1.jpg",
+          "path": "/imgs/store/products/eco-custom-label-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:47:05.497Z"
+        },
+        {
+          "filename": "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-1.jpg",
+          "path": "/imgs/store/products/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:44:51.909Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-1.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T04:43:00.737Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-1.jpg",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:41:18.435Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
+          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:39:52.449Z"
+        },
+        {
+          "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
+          "path": "/imgs/store/products/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-05-24T04:37:23.715Z"
+        },
         {
           "filename": "eco-pla-sealing-sticker-thumbnail-6.jpg",
           "path": "/imgs/store/products/eco-pla-sealing-sticker-thumbnail-6.jpg",
@@ -8290,126 +8854,6 @@
           "modified": "2026-05-24T03:37:02.558Z"
         },
         {
-          "filename": "eco-pla-sealing-sticker-thumbnail-1.png",
-          "path": "/imgs/store/products/eco-pla-sealing-sticker-thumbnail-1.png",
-          "extension": ".png",
-          "modified": "2026-05-24T03:37:02.557Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-11.jpg",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-11.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.556Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-10.jpg",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-10.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.555Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-9.png",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-9.png",
-          "extension": ".png",
-          "modified": "2026-05-24T03:37:02.554Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-8.png",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-8.png",
-          "extension": ".png",
-          "modified": "2026-05-24T03:37:02.553Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-7.png",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-7.png",
-          "extension": ".png",
-          "modified": "2026-05-24T03:37:02.552Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-6.jpg",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-6.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.551Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-4.webp",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-4.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.550Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-5.jpg",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-5.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.550Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-3.webp",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-3.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.549Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-1.jpg",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-1.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.548Z"
-        },
-        {
-          "filename": "eco-custom-label-thumbnail-2.webp",
-          "path": "/imgs/store/products/eco-custom-label-thumbnail-2.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.548Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-17.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-17.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.547Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-15.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-15.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.546Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-16.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-16.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.546Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-13.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-13.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.545Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-14.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-14.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.545Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-11.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-11.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.544Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-12.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-12.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.544Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-10.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-10.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.543Z"
-        },
-        {
           "filename": "flat-bottom-zipper-pouch-thumbnail-9.webp",
           "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-9.webp",
           "extension": ".webp",
@@ -8426,108 +8870,6 @@
           "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-8.webp",
           "extension": ".webp",
           "modified": "2026-05-24T03:37:02.542Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-6.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-6.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.541Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-5.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-5.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.540Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-4.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-4.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.539Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-3.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-3.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.538Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-2.jpg",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-2.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.537Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-1.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-1.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.536Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-19.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-19.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.535Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-20.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-20.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.535Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-18.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-18.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.534Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-17.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-17.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.533Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-16.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-16.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.532Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-13.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-13.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.531Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-14.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-14.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.531Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-15.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-15.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.531Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-12.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-12.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.530Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-10.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-10.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.529Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-11.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-11.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.529Z"
         },
         {
           "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-9.webp",
@@ -8554,42 +8896,6 @@
           "modified": "2026-05-24T03:37:02.526Z"
         },
         {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-4.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-4.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.525Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-5.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-5.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.525Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-3.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-3.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.524Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-2.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-2.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.523Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-1.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-1.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.521Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-30.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-30.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.520Z"
-        },
-        {
           "filename": "spouted-foil-pouch-thumbnail-31.webp",
           "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-31.webp",
           "extension": ".webp",
@@ -8614,12 +8920,6 @@
           "modified": "2026-05-24T03:37:02.518Z"
         },
         {
-          "filename": "spouted-foil-pouch-thumbnail-26.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-26.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.518Z"
-        },
-        {
           "filename": "spouted-foil-pouch-thumbnail-27.webp",
           "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-27.webp",
           "extension": ".webp",
@@ -8636,18 +8936,6 @@
           "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-24.webp",
           "extension": ".webp",
           "modified": "2026-05-24T03:37:02.517Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-20.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-20.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.516Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-21.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-21.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.516Z"
         },
         {
           "filename": "spouted-foil-pouch-thumbnail-22.webp",
@@ -8674,18 +8962,6 @@
           "modified": "2026-05-24T03:37:02.514Z"
         },
         {
-          "filename": "spouted-foil-pouch-thumbnail-16.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-16.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.514Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-17.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-17.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.514Z"
-        },
-        {
           "filename": "spouted-foil-pouch-thumbnail-13.webp",
           "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-13.webp",
           "extension": ".webp",
@@ -8696,12 +8972,6 @@
           "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-14.webp",
           "extension": ".webp",
           "modified": "2026-05-24T03:37:02.513Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-10.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-10.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.512Z"
         },
         {
           "filename": "spouted-foil-pouch-thumbnail-11.webp",
@@ -8722,22 +8992,10 @@
           "modified": "2026-05-24T03:37:02.512Z"
         },
         {
-          "filename": "spouted-foil-pouch-thumbnail-7.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-7.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.511Z"
-        },
-        {
           "filename": "spouted-foil-pouch-thumbnail-8.webp",
           "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-8.webp",
           "extension": ".webp",
           "modified": "2026-05-24T03:37:02.511Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-6.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-6.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.510Z"
         },
         {
           "filename": "spouted-foil-pouch-thumbnail-4.webp",
@@ -8764,28 +9022,10 @@
           "modified": "2026-05-24T03:37:02.507Z"
         },
         {
-          "filename": "spouted-foil-pouch-thumbnail-1.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-1.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.505Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-11.webp",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-11.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.504Z"
-        },
-        {
           "filename": "bottle-shape-sachet-bag-thumbnail-12.jpg",
           "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-12.jpg",
           "extension": ".jpg",
           "modified": "2026-05-24T03:37:02.504Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-10.webp",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-10.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.503Z"
         },
         {
           "filename": "bottle-shape-sachet-bag-thumbnail-9.webp",
@@ -8834,12 +9074,6 @@
           "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-2.jpg",
           "extension": ".jpg",
           "modified": "2026-05-24T03:37:02.497Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-1.jpg",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-1.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.496Z"
         },
         {
           "filename": "flat-bottom-pouch-tin-tie-thumbnail-12.webp",
@@ -8908,12 +9142,6 @@
           "modified": "2026-05-24T03:37:02.487Z"
         },
         {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-1.jpg",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-1.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.486Z"
-        },
-        {
           "filename": "flat-bottom-pouch-tin-tie-thumbnail-2.webp",
           "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-2.webp",
           "extension": ".webp",
@@ -8974,12 +9202,6 @@
           "modified": "2026-05-24T03:37:02.477Z"
         },
         {
-          "filename": "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-1.jpg",
-          "path": "/imgs/store/products/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-1.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.476Z"
-        },
-        {
           "filename": "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-2.webp",
           "path": "/imgs/store/products/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-2.webp",
           "extension": ".webp",
@@ -9034,70 +9256,10 @@
           "modified": "2026-05-24T03:37:02.466Z"
         },
         {
-          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-1.webp",
-          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-1.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.464Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-4.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-4.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.463Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-2.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-2.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.462Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-3.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-3.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.462Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-1.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-1.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.461Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-15.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-15.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.460Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-13.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-13.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.459Z"
-        },
-        {
           "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg",
           "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg",
           "extension": ".jpg",
           "modified": "2026-05-24T03:37:02.459Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-12.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-12.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.458Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-11.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-11.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.457Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-10.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-10.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.456Z"
         },
         {
           "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg",
@@ -9110,138 +9272,6 @@
           "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-8.jpg",
           "extension": ".jpg",
           "modified": "2026-05-24T03:37:02.453Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-7.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-7.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.451Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-6.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-6.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.450Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-5.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-5.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.449Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-4.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-4.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.448Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-3.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-3.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.447Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-2.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-2.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.446Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.445Z"
-        },
-        {
-          "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-3.png",
-          "path": "/imgs/store/products/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-3.png",
-          "extension": ".png",
-          "modified": "2026-05-24T03:37:02.444Z"
-        },
-        {
-          "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-2.png",
-          "path": "/imgs/store/products/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-2.png",
-          "extension": ".png",
-          "modified": "2026-05-24T03:37:02.438Z"
-        },
-        {
-          "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
-          "path": "/imgs/store/products/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
-          "extension": ".png",
-          "modified": "2026-05-24T03:37:02.434Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-12.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-12.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.430Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-11.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-11.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.429Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-10.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-10.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.428Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-9.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-9.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.428Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-8.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-8.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.427Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-7.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-7.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.426Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-6.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-6.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.425Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-4.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-4.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.423Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-5.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-5.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.423Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-3.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-3.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.422Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-2.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-2.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.421Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.420Z"
         },
         {
           "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-12.webp",
@@ -9310,30 +9340,6 @@
           "modified": "2026-05-24T03:37:02.411Z"
         },
         {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-1.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-1.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.410Z"
-        },
-        {
-          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-12.jpg",
-          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-12.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.408Z"
-        },
-        {
-          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-10.jpg",
-          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-10.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.407Z"
-        },
-        {
-          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-11.jpg",
-          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-11.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.407Z"
-        },
-        {
           "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-9.jpg",
           "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-9.jpg",
           "extension": ".jpg",
@@ -9362,30 +9368,575 @@
           "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-5.jpg",
           "extension": ".jpg",
           "modified": "2026-05-24T03:37:02.402Z"
-        },
+        }
+      ]
+    },
+    "store/products-ai": {
+      "count": 94,
+      "images": [
         {
           "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-4.jpg",
-          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-4.jpg",
+          "path": "/imgs/store/products-ai/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-4.jpg",
           "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.401Z"
+          "modified": "2026-05-24T06:16:58.340Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-6.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:16:29.406Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-11.webp",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:16:18.916Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-10.webp",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:16:18.914Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-5.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.999Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-4.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.997Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-3.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.995Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-20.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-20.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.994Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-2.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:18.992Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-6.jpg",
+          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.461Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-5.jpg",
+          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.459Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-4.jpg",
+          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.456Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-3.jpg",
+          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.453Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-2.jpg",
+          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:16.450Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-15.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-15.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:06.833Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-11.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-11.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:06.831Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-10.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:06.828Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-10.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:14:06.826Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-26.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-26.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:14:06.823Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-5.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:13:16.951Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-4.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:13:16.949Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-3.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:13:16.948Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-2.jpg",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:13:16.946Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-17.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-17.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:13:16.944Z"
         },
         {
           "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-3.jpg",
-          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-3.jpg",
+          "path": "/imgs/store/products-ai/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-3.jpg",
           "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.399Z"
+          "modified": "2026-05-24T06:12:25.898Z"
         },
         {
           "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-2.jpg",
-          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-2.jpg",
+          "path": "/imgs/store/products-ai/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-2.jpg",
           "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.397Z"
+          "modified": "2026-05-24T06:12:25.896Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-12.jpg",
+          "path": "/imgs/store/products-ai/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-12.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:12:25.894Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-11.jpg",
+          "path": "/imgs/store/products-ai/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-11.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:12:25.892Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-10.jpg",
+          "path": "/imgs/store/products-ai/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:12:25.890Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-12.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-12.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:09:38.501Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-30.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-30.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:09:38.499Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-13.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-13.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:09:38.497Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-2.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:09:38.495Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-6.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:09:38.492Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-16.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-16.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.599Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-15.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-15.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.598Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-14.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-14.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.596Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-13.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-13.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.594Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-12.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:31.592Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-19.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-19.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.105Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-18.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-18.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.104Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-17.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-17.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.102Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-16.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-16.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.101Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-15.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-15.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:08:25.098Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-9.png",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-9.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:38.054Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-8.png",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-8.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:38.052Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-7.png",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-7.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:38.049Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-6.jpg",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:38.047Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-5.jpg",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:38.044Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-12.jpg",
+          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-12.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:14.077Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-11.jpg",
+          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-11.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:14.075Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-10.jpg",
+          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:07:14.073Z"
+        },
+        {
+          "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-3.png",
+          "path": "/imgs/store/products-ai/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-3.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:14.070Z"
+        },
+        {
+          "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-2.png",
+          "path": "/imgs/store/products-ai/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-2.png",
+          "extension": ".png",
+          "modified": "2026-05-24T06:07:14.068Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-17.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-17.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:06:19.598Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-3.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:06:19.597Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-21.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-21.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:06:19.594Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-4.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:06:19.592Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-20.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-20.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:06:19.589Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-14.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-14.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:54.383Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-13.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-13.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:54.380Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-12.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:54.375Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-11.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:54.372Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-11.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.367Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-10.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.366Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-4.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-with-card-insert-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.364Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-3.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-with-card-insert-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.362Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-2.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-with-card-insert-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:36.360Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-4.webp",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:12.212Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-3.webp",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:12.209Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-2.webp",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:04:12.206Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-11.jpg",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-11.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:04:12.203Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-5.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:03:57.292Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-7.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:03:57.290Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-16.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-16.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:03:57.284Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-7.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:03:57.281Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-6.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:03:57.278Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-10.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T06:02:29.238Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-10.jpg",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-10.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T06:02:11.681Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T05:26:42.068Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-1.webp",
+          "path": "/imgs/store/products-ai/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:21:06.091Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-1.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:16:04.637Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-1.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:10:58.280Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-1.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:06:13.856Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-with-card-insert-thumbnail-1.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-with-card-insert-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T05:01:45.398Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-1.jpg",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:57:15.254Z"
+        },
+        {
+          "filename": "eco-pla-sealing-sticker-thumbnail-1.png",
+          "path": "/imgs/store/products-ai/eco-pla-sealing-sticker-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-05-24T04:53:58.186Z"
         },
         {
           "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-1.jpg",
-          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-1.jpg",
+          "path": "/imgs/store/products-ai/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-1.jpg",
           "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.395Z"
+          "modified": "2026-05-24T04:50:37.872Z"
+        },
+        {
+          "filename": "eco-custom-label-thumbnail-1.jpg",
+          "path": "/imgs/store/products-ai/eco-custom-label-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:47:05.497Z"
+        },
+        {
+          "filename": "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-1.jpg",
+          "path": "/imgs/store/products-ai/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:44:51.909Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-1.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-1.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T04:43:00.737Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-1.jpg",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:41:18.435Z"
+        },
+        {
+          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
+          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T04:39:52.449Z"
+        },
+        {
+          "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
+          "path": "/imgs/store/products-ai/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-05-24T04:37:23.715Z"
         }
       ]
     },
