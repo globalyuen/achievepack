@@ -1883,15 +1883,11 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       'Highly Versatile DIY Packaging (Tea, Coffee, Honey, Sauces)'
     ],
     images: [
-      '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg',
       '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-2.jpg',
       '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-3.jpg',
       '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-4.jpg',
       '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-5.jpg',
       '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-6.jpg',
-      '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-7.jpg',
-      '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-8.jpg',
-      '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-9.jpg',
       '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-10.jpg',
       '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-11.jpg',
       '/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-12.jpg'
@@ -1920,7 +1916,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 50,
         totalPrice: 10.00,
         unitPrice: 0.20,
-        heroImageIndex: 9
+        heroImageIndex: 5
       },
       {
         id: 'capsule-empty-100sets',
@@ -1930,7 +1926,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 100,
         totalPrice: 17.90,
         unitPrice: 0.179,
-        heroImageIndex: 10
+        heroImageIndex: 6
       },
       {
         id: 'capsule-empty-200sets',
@@ -1940,7 +1936,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         quantity: 200,
         totalPrice: 32.40,
         unitPrice: 0.162,
-        heroImageIndex: 11
+        heroImageIndex: 7
       },
       {
         id: 'capsule-starter-white',
@@ -1948,39 +1944,9 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: 'Sealer × 1 + 10 Sets Cups & Lids + Tools',
         hasHole: false,
         quantity: 10,
-        totalPrice: 21.20,
-        unitPrice: 2.12,
-        heroImageIndex: 5
-      },
-      {
-        id: 'capsule-starter-black',
-        label: 'Starter Kit: Black Sealer + 10 Sets Cups & Lids',
-        dimensions: 'Sealer × 1 + 10 Sets Cups & Lids + Tools',
-        hasHole: false,
-        quantity: 10,
-        totalPrice: 21.20,
-        unitPrice: 2.12,
-        heroImageIndex: 6
-      },
-      {
-        id: 'capsule-pro-white',
-        label: 'Pro Kit: White Sealer + 50 Sets Cups & Lids',
-        dimensions: 'Sealer × 1 + 50 Sets Cups & Lids + Tools',
-        hasHole: false,
-        quantity: 50,
-        totalPrice: 32.40,
-        unitPrice: 0.648,
-        heroImageIndex: 7
-      },
-      {
-        id: 'capsule-pro-black',
-        label: 'Pro Kit: Black Sealer + 50 Sets Cups & Lids',
-        dimensions: 'Sealer × 1 + 50 Sets Cups & Lids + Tools',
-        hasHole: false,
-        quantity: 50,
-        totalPrice: 32.40,
-        unitPrice: 0.648,
-        heroImageIndex: 8
+        totalPrice: 42.40,
+        unitPrice: 4.24,
+        heroImageIndex: 4
       }
     ],
     customPrintNote: 'Custom prints available from 10,000+ pieces. Please consult our team.'
