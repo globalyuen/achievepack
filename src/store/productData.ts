@@ -2921,7 +2921,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       'Food-Grade FDA Certified: 100% safe, odorless, and perfect for retail commercial packaging',
       'Pre-Cut Easy-Tear Notches: Clean tearing header above zipper for quick customer access'
     ],
-    basePrice: 18.90,
+    basePrice: 23.33,
     minQuantity: 100,
     minOrder: 100,
     turnaround: '5-7 days',
@@ -2929,14 +2929,54 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     rating: 4.9,
     reviews: 18,
     inStock: true,
-    pricePerPiece: 0.1890,
+    pricePerPiece: 0.2333,
     quantityStep: 100,
-    sizeInfo: 'S: 160×260+80mm / M: 180×280+80mm / L: 200×300+80mm / XL: 260×340+80mm',
+    sizeInfo: 'Landscape (魔方A/B/E): S (13.5x14.5cm) / M (15.5x16.5cm) / L (19.5x20.5cm) / XL (23x24cm) • Vertical (竖款A): S (9x18cm) / M (13x20cm) / L (13.5x26cm) / XL (15x32.5cm)',
     sizeVariants: [
-      { id: 'fb-one-zip-s-100pcs', label: 'Size S (150g) (160×260+80mm) - 100 Pcs', dimensions: '160 × 260 + 80 mm • Holds ~150g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 18.90, unitPrice: 0.1890, heroImageIndex: 0 },
-      { id: 'fb-one-zip-m-100pcs', label: 'Size M (250g) (180×280+80mm) - 100 Pcs', dimensions: '180 × 280 + 80 mm • Holds ~250g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 0 },
-      { id: 'fb-one-zip-l-100pcs', label: 'Size L (500g) (200×300+80mm) - 100 Pcs', dimensions: '200 × 300 + 80 mm • Holds ~500g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 0 },
-      { id: 'fb-one-zip-xl-100pcs', label: 'Size XL (1000g) (260×340+80mm) - 100 Pcs', dimensions: '260 × 340 + 80 mm • Holds ~1000g coffee beans • Matte Finish', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 0 }
+      // Landscape A (魔方A)
+      { id: 'fb-one-zip-landscape-a-yellow-s', label: '魔方A 黄牛皮 13.5×14.5+8cm (Size S - 150g) - 100 Pcs', dimensions: '13.5 × 14.5 + 8 cm • Yellow Kraft Paper • Holds ~150g', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 0 },
+      { id: 'fb-one-zip-landscape-a-white-s', label: '魔方A 白牛皮 13.5×14.5+8cm (Size S - 150g) - 100 Pcs', dimensions: '13.5 × 14.5 + 8 cm • White Kraft Paper • Holds ~150g', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 1 },
+      { id: 'fb-one-zip-landscape-a-cotton-s', label: '魔方A 白棉纸 13.5×14.5+8cm (Size S - 150g) - 100 Pcs', dimensions: '13.5 × 14.5 + 8 cm • White Cotton Paper • Holds ~150g', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 2 },
+      { id: 'fb-one-zip-landscape-a-clear-s', label: '魔方A 透明 13.5×14.5+8cm (Size S - 150g) - 100 Pcs', dimensions: '13.5 × 14.5 + 8 cm • Transparent Clear • Holds ~150g', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 3 },
+
+      { id: 'fb-one-zip-landscape-a-yellow-m', label: '魔方A 黄牛皮 15.5×16.5+8cm (Size M - 250g) - 100 Pcs', dimensions: '15.5 × 16.5 + 8 cm • Yellow Kraft Paper • Holds ~250g', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 0 },
+      { id: 'fb-one-zip-landscape-a-white-m', label: '魔方A 白牛皮 15.5×16.5+8cm (Size M - 250g) - 100 Pcs', dimensions: '15.5 × 16.5 + 8 cm • White Kraft Paper • Holds ~250g', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 1 },
+      { id: 'fb-one-zip-landscape-a-cotton-m', label: '魔方A 白棉纸 15.5×16.5+8cm (Size M - 250g) - 100 Pcs', dimensions: '15.5 × 16.5 + 8 cm • White Cotton Paper • Holds ~250g', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 2 },
+      { id: 'fb-one-zip-landscape-a-clear-m', label: '魔方A 透明 15.5×16.5+8cm (Size M - 250g) - 100 Pcs', dimensions: '15.5 × 16.5 + 8 cm • Transparent Clear • Holds ~250g', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 3 },
+
+      { id: 'fb-one-zip-landscape-a-yellow-l', label: '魔方A 黄牛皮 19.5×20.5+8cm (Size L - 500g) - 100 Pcs', dimensions: '19.5 × 20.5 + 8 cm • Yellow Kraft Paper • Holds ~500g', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 0 },
+      { id: 'fb-one-zip-landscape-a-white-l', label: '魔方A 白牛皮 19.5×20.5+8cm (Size L - 500g) - 100 Pcs', dimensions: '19.5 × 20.5 + 8 cm • White Kraft Paper • Holds ~500g', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 1 },
+      { id: 'fb-one-zip-landscape-a-cotton-l', label: '魔方A 白棉纸 19.5×20.5+8cm (Size L - 500g) - 100 Pcs', dimensions: '19.5 × 20.5 + 8 cm • White Cotton Paper • Holds ~500g', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 2 },
+      { id: 'fb-one-zip-landscape-a-clear-l', label: '魔方A 透明 19.5×20.5+8cm (Size L - 500g) - 100 Pcs', dimensions: '19.5 × 20.5 + 8 cm • Transparent Clear • Holds ~500g', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 3 },
+
+      { id: 'fb-one-zip-landscape-a-yellow-xl', label: '魔方A 黄牛皮 23×24+10cm (Size XL - 1000g) - 100 Pcs', dimensions: '23 × 24 + 10 cm • Yellow Kraft Paper • Holds ~1000g', hasHole: false, quantity: 100, totalPrice: 53.33, unitPrice: 0.5333, heroImageIndex: 0 },
+      { id: 'fb-one-zip-landscape-a-white-xl', label: '魔方A 白牛皮 23×24+10cm (Size XL - 1000g) - 100 Pcs', dimensions: '23 × 24 + 10 cm • White Kraft Paper • Holds ~1000g', hasHole: false, quantity: 100, totalPrice: 53.33, unitPrice: 0.5333, heroImageIndex: 1 },
+      { id: 'fb-one-zip-landscape-a-cotton-xl', label: '魔方A 白棉纸 23×24+10cm (Size XL - 1000g) - 100 Pcs', dimensions: '23 × 24 + 10 cm • White Cotton Paper • Holds ~1000g', hasHole: false, quantity: 100, totalPrice: 53.33, unitPrice: 0.5333, heroImageIndex: 2 },
+      { id: 'fb-one-zip-landscape-a-clear-xl', label: '魔方A 透明 23×24+10cm (Size XL - 1000g) - 100 Pcs', dimensions: '23 × 24 + 10 cm • Transparent Clear • Holds ~1000g', hasHole: false, quantity: 100, totalPrice: 53.33, unitPrice: 0.5333, heroImageIndex: 3 },
+
+      // Landscape B (魔方B)
+      { id: 'fb-one-zip-landscape-b-yellow-s', label: '魔方B 黄牛皮 13.5×14.5+8cm (Size S - 150g) - 100 Pcs', dimensions: '13.5 × 14.5 + 8 cm • Yellow Kraft Paper (B Style) • Holds ~150g', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 0 },
+      { id: 'fb-one-zip-landscape-b-yellow-m', label: '魔方B 黄牛皮 15.5×16.5+8cm (Size M - 250g) - 100 Pcs', dimensions: '15.5 × 16.5 + 8 cm • Yellow Kraft Paper (B Style) • Holds ~250g', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 0 },
+      { id: 'fb-one-zip-landscape-b-yellow-l', label: '魔方B 黄牛皮 19.5×20.5+8cm (Size L - 500g) - 100 Pcs', dimensions: '19.5 × 20.5 + 8 cm • Yellow Kraft Paper (B Style) • Holds ~500g', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 0 },
+      { id: 'fb-one-zip-landscape-b-yellow-xl', label: '魔方B 黄牛皮 23×24+10cm (Size XL - 1000g) - 100 Pcs', dimensions: '23 × 24 + 10 cm • Yellow Kraft Paper (B Style) • Holds ~1000g', hasHole: false, quantity: 100, totalPrice: 53.33, unitPrice: 0.5333, heroImageIndex: 0 },
+
+      // Landscape E (魔方E)
+      { id: 'fb-one-zip-landscape-e-yellow-s', label: '魔方E 黄牛皮 13.8×13.8+8cm (Size S - 150g) - 100 Pcs', dimensions: '13.8 × 13.8 + 8 cm • Yellow Kraft Paper (E Style) • Holds ~150g', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 0 },
+      { id: 'fb-one-zip-landscape-e-yellow-m', label: '魔方E 黄牛皮 16×16+8cm (Size M - 250g) - 100 Pcs', dimensions: '16 × 16 + 8 cm • Yellow Kraft Paper (E Style) • Holds ~250g', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 0 },
+      { id: 'fb-one-zip-landscape-e-yellow-l', label: '魔方E 黄牛皮 20×20+8cm (Size L - 500g) - 100 Pcs', dimensions: '20 × 20 + 8 cm • Yellow Kraft Paper (E Style) • Holds ~500g', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 0 },
+
+      // Vertical A (竖款A)
+      { id: 'fb-one-zip-vertical-a-yellow-s', label: '竖款A 黄牛皮 9×18+7.5cm (Size S - 150g) - 100 Pcs', dimensions: '9 × 18 + 7.5 cm • Yellow Kraft Paper • Holds ~150g', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 0 },
+      { id: 'fb-one-zip-vertical-a-white-s', label: '竖款A 白牛皮 9×18+7.5cm (Size S - 150g) - 100 Pcs', dimensions: '9 × 18 + 7.5 cm • White Kraft Paper • Holds ~150g', hasHole: false, quantity: 100, totalPrice: 23.33, unitPrice: 0.2333, heroImageIndex: 1 },
+
+      { id: 'fb-one-zip-vertical-a-yellow-m', label: '竖款A 黄牛皮 13×20+7.5cm (Size M - 250g) - 100 Pcs', dimensions: '13 × 20 + 7.5 cm • Yellow Kraft Paper • Holds ~250g', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 0 },
+      { id: 'fb-one-zip-vertical-a-white-m', label: '竖款A 白牛皮 13×20+7.5cm (Size M - 250g) - 100 Pcs', dimensions: '13 × 20 + 7.5 cm • White Kraft Paper • Holds ~250g', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.3000, heroImageIndex: 1 },
+
+      { id: 'fb-one-zip-vertical-a-yellow-l', label: '竖款A 黄牛皮 13.5×26+7.5cm (Size L - 500g) - 100 Pcs', dimensions: '13.5 × 26 + 7.5 cm • Yellow Kraft Paper • Holds ~500g', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 0 },
+      { id: 'fb-one-zip-vertical-a-white-l', label: '竖款A 白牛皮 13.5×26+7.5cm (Size L - 500g) - 100 Pcs', dimensions: '13.5 × 26 + 7.5 cm • White Kraft Paper • Holds ~500g', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.4000, heroImageIndex: 1 },
+
+      { id: 'fb-one-zip-vertical-a-yellow-xl', label: '竖款A 黄牛皮 15×32.5+10cm (Size XL - 1000g) - 100 Pcs', dimensions: '15 × 32.5 + 10 cm • Yellow Kraft Paper • Holds ~1000g', hasHole: false, quantity: 100, totalPrice: 53.33, unitPrice: 0.5333, heroImageIndex: 0 },
+      { id: 'fb-one-zip-vertical-a-white-xl', label: '竖款A 白牛皮 15×32.5+10cm (Size XL - 1000g) - 100 Pcs', dimensions: '15 × 32.5 + 10 cm • White Kraft Paper • Holds ~1000g', hasHole: false, quantity: 100, totalPrice: 53.33, unitPrice: 0.5333, heroImageIndex: 1 }
     ],
     images: [
       '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
