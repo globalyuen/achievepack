@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-24",
-  "total_images": 1691,
+  "total_images": 1706,
   "total_categories": 160,
   "extensions": {
-    ".webp": 1240,
+    ".webp": 1249,
     ".png": 292,
-    ".jpg": 156,
+    ".jpg": 162,
     ".svg": 3
   },
   "categories": {
@@ -8251,8 +8251,116 @@
       ]
     },
     "store/products": {
-      "count": 186,
+      "count": 185,
       "images": [
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-7.jpg",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T09:03:38.137Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-5.jpg",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T09:03:09.563Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-4.jpg",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:55:35.468Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-3.jpg",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:54:05.254Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-8.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:53:18.663Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-7.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:52:34.946Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-6.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:51:49.928Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-9.webp",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:40:58.256Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-6.jpg",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:40:26.000Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-10.webp",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:39:53.634Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-2.jpg",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:29:37.940Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-12.jpg",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-12.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:29:02.387Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-4.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:28:05.250Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-2.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:27:34.803Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-7.jpg",
+          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:27:07.484Z"
+        },
+        {
+          "filename": "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-2.webp",
+          "path": "/imgs/store/products/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:26:41.742Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-9.webp",
+          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:26:14.558Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-8.webp",
+          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:25:43.563Z"
+        },
         {
           "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-4.jpg",
           "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-4.jpg",
@@ -8270,12 +8378,6 @@
           "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-11.webp",
           "extension": ".webp",
           "modified": "2026-05-24T06:16:18.916Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-10.webp",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-10.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T06:16:18.914Z"
         },
         {
           "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-5.webp",
@@ -8806,12 +8908,6 @@
           "modified": "2026-05-24T04:41:18.435Z"
         },
         {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
-          "path": "/imgs/store/products/40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T04:39:52.449Z"
-        },
-        {
           "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
           "path": "/imgs/store/products/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
           "extension": ".png",
@@ -8870,30 +8966,6 @@
           "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-8.webp",
           "extension": ".webp",
           "modified": "2026-05-24T03:37:02.542Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-9.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-9.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.528Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-8.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-8.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.527Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-6.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-6.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.526Z"
-        },
-        {
-          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-7.webp",
-          "path": "/imgs/store/products/clear-matte-zipper-stand-up-pouch-thumbnail-7.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.526Z"
         },
         {
           "filename": "spouted-foil-pouch-thumbnail-31.webp",
@@ -9022,60 +9094,6 @@
           "modified": "2026-05-24T03:37:02.507Z"
         },
         {
-          "filename": "bottle-shape-sachet-bag-thumbnail-12.jpg",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-12.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.504Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-9.webp",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-9.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.503Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-8.webp",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-8.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.502Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-6.jpg",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-6.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.501Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-7.jpg",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-7.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.501Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-4.jpg",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-4.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.500Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-5.jpg",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-5.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.500Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-3.jpg",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-3.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.498Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-2.jpg",
-          "path": "/imgs/store/products/bottle-shape-sachet-bag-thumbnail-2.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.497Z"
-        },
-        {
           "filename": "flat-bottom-pouch-tin-tie-thumbnail-12.webp",
           "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-12.webp",
           "extension": ".webp",
@@ -9142,12 +9160,6 @@
           "modified": "2026-05-24T03:37:02.487Z"
         },
         {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-2.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-2.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.486Z"
-        },
-        {
           "filename": "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-11.jpg",
           "path": "/imgs/store/products/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-11.jpg",
           "extension": ".jpg",
@@ -9200,12 +9212,6 @@
           "path": "/imgs/store/products/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-3.webp",
           "extension": ".webp",
           "modified": "2026-05-24T03:37:02.477Z"
-        },
-        {
-          "filename": "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-2.webp",
-          "path": "/imgs/store/products/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-2.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.476Z"
         },
         {
           "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-9.jpg",
@@ -9322,12 +9328,6 @@
           "modified": "2026-05-24T03:37:02.413Z"
         },
         {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-4.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-4.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.412Z"
-        },
-        {
           "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-2.webp",
           "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-2.webp",
           "extension": ".webp",
@@ -9352,12 +9352,6 @@
           "modified": "2026-05-24T03:37:02.405Z"
         },
         {
-          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-7.jpg",
-          "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-7.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.404Z"
-        },
-        {
           "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-6.jpg",
           "path": "/imgs/store/products/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-6.jpg",
           "extension": ".jpg",
@@ -9372,8 +9366,116 @@
       ]
     },
     "store/products-ai": {
-      "count": 94,
+      "count": 110,
       "images": [
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-7.jpg",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T09:03:38.138Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-5.jpg",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T09:03:09.565Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-4.jpg",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:55:35.466Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-3.jpg",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:54:05.256Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-8.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:53:18.710Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-7.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:52:35.000Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-6.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:51:49.973Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-9.webp",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:40:58.213Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-6.jpg",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:40:25.998Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-10.webp",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:39:53.583Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-2.jpg",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:29:37.938Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-12.jpg",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-12.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:29:02.385Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-4.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:28:05.201Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-2.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:27:34.756Z"
+        },
+        {
+          "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-7.jpg",
+          "path": "/imgs/store/products-ai/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T08:27:07.482Z"
+        },
+        {
+          "filename": "coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-2.webp",
+          "path": "/imgs/store/products-ai/coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:26:41.703Z"
+        },
+        {
+          "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-9.webp",
+          "path": "/imgs/store/products-ai/clear-matte-zipper-stand-up-pouch-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:26:14.516Z"
+        },
+        {
+          "filename": "bottle-shape-sachet-bag-thumbnail-8.webp",
+          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T08:25:43.513Z"
+        },
         {
           "filename": "eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-4.jpg",
           "path": "/imgs/store/products-ai/eco-friendly-kraft-honeycomb-packing-paper-wrap-thumbnail-4.jpg",
@@ -9391,12 +9493,6 @@
           "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-11.webp",
           "extension": ".webp",
           "modified": "2026-05-24T06:16:18.916Z"
-        },
-        {
-          "filename": "bottle-shape-sachet-bag-thumbnail-10.webp",
-          "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-10.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T06:16:18.914Z"
         },
         {
           "filename": "clear-matte-zipper-stand-up-pouch-thumbnail-5.webp",
@@ -9925,12 +10021,6 @@
           "path": "/imgs/store/products-ai/bottle-shape-sachet-bag-thumbnail-1.jpg",
           "extension": ".jpg",
           "modified": "2026-05-24T04:41:18.435Z"
-        },
-        {
-          "filename": "40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
-          "path": "/imgs/store/products-ai/40ml-foil-capsule-and-packing-machine-thumbnail-1.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T04:39:52.449Z"
         },
         {
           "filename": "100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
