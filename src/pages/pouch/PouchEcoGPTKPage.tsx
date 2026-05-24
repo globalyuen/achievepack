@@ -5,480 +5,252 @@ import { useState, useEffect, useRef } from 'react'
 import { 
   Coffee, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box, 
   Sparkles, DollarSign, Clock, HelpCircle, Mail, Download, Compass, 
-  MapPin, Check, Layers, AlertCircle, ShoppingBag, Grid, Info, Sparkle, Globe
+  MapPin, Check, Layers, AlertCircle, ShoppingBag, Grid, Info, Sparkle, Globe,
+  Copy, Phone, RefreshCw, AlertTriangle
 } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import SiteHeader from '../../components/SiteHeader'
 import Footer from '../../components/Footer'
 import { isPouch } from '../../utils/domain'
 
-interface BlendOption {
-  id: string
-  name: string
-  roast: string
-  colorName: string
-  hex: string
-  gussetHex: string
-  textColor: string
-  description: string
-  flavorNotes: string[]
-}
-
-const BLENDS: BlendOption[] = [
-  {
-    id: 'pippingarra',
-    name: 'Pippingarra',
-    roast: 'Medium Roast',
-    colorName: 'Cyan Blue',
-    hex: '#00D8FF',
-    gussetHex: '#E0F7FC',
-    textColor: 'text-sky-600',
-    description: 'A smooth, balanced medium roast with chocolatey undertones, engineered for everyday retail and wholesale cafes.',
-    flavorNotes: ['Milk Chocolate', 'Stonefruit', 'Brown Sugar']
-  },
-  {
-    id: 'barrga-binya',
-    name: 'Barrga Binya',
-    roast: 'Strong Roast',
-    colorName: 'Vibrant Green',
-    hex: '#10B981',
-    gussetHex: '#ECFDF5',
-    textColor: 'text-emerald-600',
-    description: 'A rich, full-bodied dark roast designed to cut through milk beautifully, delivering a heavy, sweet cup profile.',
-    flavorNotes: ['Dark Cocoa', 'Roasted Hazelnut', 'Toffee']
-  },
-  {
-    id: 'karijini',
-    name: 'Karijini',
-    roast: 'Light Roast',
-    colorName: 'Purple / Berry',
-    hex: '#A855F7',
-    gussetHex: '#F3E8FF',
-    textColor: 'text-purple-600',
-    description: 'A bright, fruit-forward light roast highlighting delicate acidity and floral notes inspired by regional Western Australia wildflowers.',
-    flavorNotes: ['Wild Blueberry', 'Lavender Honey', 'Bergamot']
-  },
-  {
-    id: 'cooya-pooya',
-    name: 'Cooya Pooya',
-    roast: 'Decaf Roast',
-    colorName: 'Burnt Orange / Brown',
-    hex: '#F97316',
-    gussetHex: '#FFF7ED',
-    textColor: 'text-orange-600',
-    description: 'A premium chemical-free decaf blend retaining full aroma and complex notes, with zero caffeine compromises.',
-    flavorNotes: ['Caramel Fudge', 'Roasted Peanut', 'Vanilla']
-  }
-]
-
-interface PouchSize {
+// Custom sizing definitions requested by user
+interface BagSize {
   id: string
   label: string
-  capacity: string
-  productType: string
   dimensions: string
-  gusset: string
-  moq: string
-  dielineLink: string
-  valveOffset: string
-  zipperOffset: string
+  capacity: string
 }
 
-const SIZES: PouchSize[] = [
-  {
-    id: '150g',
-    label: '150g Bag',
-    capacity: '150g Ground / Whole Bean',
-    productType: 'Ground Coffee',
-    dimensions: '95 × 170 mm',
-    gusset: '55 mm (Flat Bottom)',
-    moq: '100 bags',
-    dielineLink: '#dieline-150g',
-    valveOffset: '90mm from top',
-    zipperOffset: '35mm from top'
-  },
-  {
-    id: '250g',
-    label: '250g Bag',
-    capacity: '250g Ground / Whole Bean',
-    productType: 'Ground Coffee',
-    dimensions: '120 × 200 mm',
-    gusset: '60 mm (Flat Bottom)',
-    moq: '100 bags',
-    dielineLink: '#dieline-250g',
-    valveOffset: '90mm from top',
-    zipperOffset: '35mm from top'
-  },
-  {
-    id: '500g',
-    label: '500g Bag',
-    capacity: '500g Whole Bean / Ground',
-    productType: 'Whole Beans',
-    dimensions: '140 × 265 mm',
-    gusset: '80 mm (Flat Bottom)',
-    moq: '100 bags',
-    dielineLink: '#dieline-500g',
-    valveOffset: '95mm from top',
-    zipperOffset: '40mm from top'
-  },
-  {
-    id: '1kg',
-    label: '1kg Bag',
-    capacity: '1kg Whole Bean / Ground',
-    productType: 'Whole Beans',
-    dimensions: '160 × 325 mm',
-    gusset: '100 mm (Flat Bottom)',
-    moq: '100 bags',
-    dielineLink: '#dieline-1kg',
-    valveOffset: '100mm from top',
-    zipperOffset: '40mm from top'
-  }
+const BAG_SIZES: BagSize[] = [
+  { id: 'size-1', label: '160 × 260 + 80 mm', dimensions: '160 × 260 + 80 mm', capacity: '250g Bean / Ground' },
+  { id: 'size-2', label: '180 × 280 + 80 mm', dimensions: '180 × 280 + 80 mm', capacity: '340g - 400g Pouch' },
+  { id: 'size-3', label: '200 × 300 + 80 mm', dimensions: '200 × 300 + 80 mm', capacity: '500g Bean / Ground' },
+  { id: 'size-4', label: '260 × 340 + 80 mm', dimensions: '260 × 340 + 80 mm', capacity: '1kg Heavy Weight Pouch' },
 ]
 
-// Option B & C pricing matrices
-const PRICING_MATRIX = {
-  'recyclable': { // Option B (120μ Mono-PE + EVOH + PE)
-    '150g': { 100: 11.78, 500: 2.65, 1000: 1.71, 2000: 1.15, 5000: 0.74 },
-    '250g': { 100: 12.96, 500: 2.92, 1000: 1.88, 2000: 1.27, 5000: 0.81 },
-    '500g': { 100: 14.14, 500: 3.18, 1000: 2.05, 2000: 1.38, 5000: 0.89 },
-    '1kg': { 100: 16.49, 500: 3.71, 1000: 2.39, 2000: 1.61, 5000: 1.04 }
-  },
-  'compostable': { // Option C (125μ FSC Kraft + VM-Cello + PBAT)
-    '150g': { 100: 15.31, 500: 3.45, 1000: 2.22, 2000: 1.50, 5000: 0.96 },
-    '250g': { 100: 16.85, 500: 3.80, 1000: 2.44, 2000: 1.65, 5000: 1.05 },
-    '500g': { 100: 18.38, 500: 4.14, 1000: 2.67, 2000: 1.79, 5000: 1.16 },
-    '1kg': { 100: 21.44, 500: 4.82, 1000: 3.11, 2000: 2.09, 5000: 1.35 }
-  }
-}
-
-// B2C Neo-Brutalist Components (Only loaded in Pouch.eco)
-const NeoButton = ({ children, to, variant = 'primary', className = '' }: any) => {
-  const baseStyle = "relative px-8 py-4 font-black uppercase tracking-widest border-4 border-black transition-all active:translate-x-1 active:translate-y-1 inline-block text-center cursor-pointer"
-  const variants = {
-    primary: "bg-[#10b981] text-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    secondary: "bg-white text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    yellow: "bg-[#D4FF00] text-black hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1",
-    dark: "bg-black text-white hover:shadow-[8px_8px_0px_0px_rgba(212,255,0,1)] hover:-translate-y-1 hover:-translate-x-1 border-[#D4FF00]"
-  }
-  
-  return (
-    <Link to={to} className={`${baseStyle} ${variants[variant as keyof typeof variants]} ${className}`}>
-      {children}
-    </Link>
-  )
-}
-
-const NeoCard = ({ children, className = '', color = 'bg-white' }: any) => (
-  <div className={`border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] ${color} ${className}`}>
-    {children}
-  </div>
-)
-
-const NeoBadge = ({ children, color = 'white' }: any) => {
-  const colors = {
-    white: 'bg-white text-black border-2 border-black',
-    lime: 'bg-[#D4FF00] text-black border-2 border-black',
-    cyan: 'bg-[#00FFFF] text-black border-2 border-black',
-    magenta: 'bg-[#FF00FF] text-white border-2 border-black',
-    amber: 'bg-amber-400 text-black border-2 border-black'
-  }
-  return (
-    <span className={`inline-block px-2.5 py-1 text-[10px] font-black uppercase tracking-wider font-['JetBrains_Mono'] ${colors[color as keyof typeof colors]}`}>
-      {children}
-    </span>
-  )
-}
-
-// B2B Corporate Components (Only loaded in AchievePack)
-const B2bCard = ({ children, className = '', bg = 'bg-white' }: any) => (
-  <div className={`${bg} border border-neutral-200 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 ${className}`}>
-    {children}
-  </div>
-)
-
-const B2bBadge = ({ children, variant = 'neutral' }: any) => {
-  const styles: Record<string, string> = {
-    neutral: 'bg-neutral-100 text-neutral-800',
-    primary: 'bg-purple-100 text-purple-800',
-    eco: 'bg-emerald-100 text-emerald-800',
-    accent: 'bg-cyan-100 text-cyan-800',
-    warn: 'bg-amber-100 text-amber-800'
-  }
-  return (
-    <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide uppercase ${styles[variant] || styles.neutral}`}>
-      {children}
-    </span>
-  )
-}
-
 export default function PouchEcoGPTKPage() {
-  const [tilt, setTilt] = useState({ x: 0, y: 0 })
-  const heroCardRef = useRef<HTMLDivElement>(null)
+  const [totalBudget, setTotalBudget] = useState<number>(3000)
+  const [numDesigns, setNumDesigns] = useState<number>(3)
+  const [qtyPerDesign, setQtyPerDesign] = useState<number>(500)
+  const [selectedSize, setSelectedSize] = useState<BagSize>(BAG_SIZES[0])
+  const [whatsappCopied, setWhatsappCopied] = useState<boolean>(false)
 
-  // Configuration State
-  const [selectedBlend, setSelectedBlend] = useState<BlendOption>(BLENDS[0])
-  const [selectedSize, setSelectedSize] = useState<PouchSize>(SIZES[1]) // 250g default
-  const [activeMaterial, setActiveMaterial] = useState<'high-barrier' | 'recyclable' | 'compostable'>('recyclable')
-  const [selectedQty, setSelectedQty] = useState<100 | 500 | 1000 | 2000 | 5000>(500)
-  
-  // Custom Card Variation selection
-  const [variationMethod, setVariationMethod] = useState<'digital-print' | 'card-strip' | 'card-slot'>('digital-print')
+  // Pricing interpolation engine matching user's spreadsheet criteria perfectly
+  const calculateOptionPrice = (optionId: string) => {
+    const sizeId = selectedSize.dimensions;
 
-  // Lead capture state
-  const [email, setEmail] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [downloadSuccess, setDownloadSuccess] = useState(false)
+    // Option 1: Stock Pouch + Roast Cards (Conventional direction)
+    if (optionId === 'stock-cards') {
+      const unitPrice = 0.50
+      const isBelowMoq = qtyPerDesign < 100
+      const totalCost = numDesigns * qtyPerDesign * unitPrice
+      return {
+        unitPrice,
+        totalCost,
+        isBelowMoq,
+        moq: 100,
+        badge: 'Startup Starter (低門檻入門)',
+        desc: 'Matte blank white/kraft flat bottom bags fitted with custom-printed roast card attachments. Swap flavor cards in a second.',
+        accentColor: '#10B981',
+        certLogo: 'FSC Card Stock',
+        leadTime: '3 - 5 Days'
+      }
+    }
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!heroCardRef.current) return
-    const rect = heroCardRef.current.getBoundingClientRect()
-    setTilt({ 
-      x: ((e.clientX - rect.left) / rect.width - 0.5) * 15, 
-      y: ((e.clientY - rect.top) / rect.height - 0.5) * -15 
-    })
-  }
+    // Custom print options MOQ = 500
+    const isBelowMoq = qtyPerDesign < 500
 
-  // Get active price calculations
-  const getUnitPrice = () => {
-    if (activeMaterial === 'high-barrier') return 'Quote Only'
-    const sizeId = selectedSize.id as '150g' | '250g' | '500g' | '1kg'
-    const matMatrix = PRICING_MATRIX[activeMaterial]
-    const price = matMatrix[sizeId]?.[selectedQty]
-    return price ? `$${price.toFixed(2)}` : 'Quote Only'
-  }
+    // Matrices
+    const matrices: Record<string, Record<string, { 500: number; 1000: number }>> = {
+      'custom-print': {
+        '160 × 260 + 80 mm': { 500: 2.00, 1000: 1.50 },
+        '180 × 280 + 80 mm': { 500: 2.10, 1000: 1.60 },
+        '200 × 300 + 80 mm': { 500: 2.20, 1000: 1.70 },
+        '260 × 340 + 80 mm': { 500: 2.40, 1000: 1.90 },
+      },
+      'recyclable': {
+        '160 × 260 + 80 mm': { 500: 2.50, 1000: 1.70 },
+        '180 × 280 + 80 mm': { 500: 2.60, 1000: 1.80 },
+        '200 × 300 + 80 mm': { 500: 2.70, 1000: 1.90 },
+        '260 × 340 + 80 mm': { 500: 2.90, 1000: 2.10 },
+      },
+      'compostable': {
+        '160 × 260 + 80 mm': { 500: 2.70, 1000: 1.90 },
+        '180 × 280 + 80 mm': { 500: 2.80, 1000: 2.00 },
+        '200 × 300 + 80 mm': { 500: 2.90, 1000: 2.10 },
+        '260 × 340 + 80 mm': { 500: 3.10, 1000: 2.30 },
+      }
+    }
 
-  const getTotalPrice = () => {
-    if (activeMaterial === 'high-barrier') return 'Custom Estimate'
-    const sizeId = selectedSize.id as '150g' | '250g' | '500g' | '1kg'
-    const matMatrix = PRICING_MATRIX[activeMaterial]
-    const price = matMatrix[sizeId]?.[selectedQty]
-    return price ? `$${(price * selectedQty).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Custom Estimate'
-  }
+    const sizeMap = matrices[optionId]?.[sizeId]
+    if (!sizeMap) return { unitPrice: 0, totalCost: 0, isBelowMoq: true, moq: 500 }
 
-  const triggerPDFDownload = () => {
-    const guideContent = `========================================================================
-POUCH.ECO PaaS // ONE-STOP BRAND ACCELERATOR STARTER GUIDE
-========================================================================
-Prepared especially for Coffee Startup Founders entering the Retail Arena.
-Verified by Pouch.eco Technical Advisory Team - Ryan Wong (Packaging Specialist)
+    let unitPrice = 0
+    if (qtyPerDesign <= 500) {
+      unitPrice = sizeMap[500]
+    } else if (qtyPerDesign >= 1000) {
+      unitPrice = sizeMap[1000]
+    } else {
+      // Linear pricing interpolation
+      const p500 = sizeMap[500]
+      const p1000 = sizeMap[1000]
+      unitPrice = p500 - ((qtyPerDesign - 500) / 500) * (p500 - p1000)
+    }
 
-------------------------------------------------------------------------
-SECTION 1: Packaging-as-a-Service (PaaS) Model Overview
-------------------------------------------------------------------------
-Specialty coffee brands often struggle with huge plate cylinder costs and MOQs.
-PaaS completely eliminates these hurdles. We deliver:
-- 100% custom printed flat-bottom 3D pouches (MoQ 100 bags per blend!)
-- A custom, high-converting Shopify or e-commerce landing page
-- Premium 3D marketing renders and launch-ready social assets
-All you need to do is provide the roasted product. We handle the rest!
+    const totalCost = numDesigns * qtyPerDesign * unitPrice
 
-------------------------------------------------------------------------
-SECTION 2: Climate-Specific Packaging Optimization
-------------------------------------------------------------------------
-Coffee roasted and distributed encounters extreme high-heat environments,
-accelerating lipid oxidation, CO2 release, and aroma decay.
-
-LAMINATION PROTOCOLS RECOMMENDED:
-1. STRUCTURE A (極致阻隔防護 - 推薦): Matte BOPP (19μ) + Pure Aluminum Foil (7μ) + Food-Grade PE (104μ)
-   - OTR: < 0.05 cc/m²/24h | WVTR: < 0.05 g/m²/24h
-   - Maximum protection against high temperature & direct sun. Perfect for premium retail beans.
-2. STRUCTURE B (100% 單一材料可回收): MDO-PE (25μ) + EVOH High-Barrier (3μ) + Food-Grade PE (92μ)
-   - 100% Recyclable under Code 4 SPI regulations. High barrier EVOH mimics metallic foil.
-3. STRUCTURE C (100% 認證家用可堆肥): FSC Kraft Paper (50g) + Vacuum-Metallized Cellulose (12μ) + PBAT (65μ)
-   - Completely biodegrades in backyard compost in 180 days. Zero microplastics.
-
-------------------------------------------------------------------------
-SECTION 3: Low-MOQ Brand Variations - attached Coffee Name Cards
-------------------------------------------------------------------------
-To launch multiple blends with $0 plate setup and absolute minimum startup cost,
-we offer premium Stock Flat Bottom pouches fitted with custom coffee name cards:
-1. Colored Elastic Band Strips: A thick silicone/fabric band tightly wraps around the bag,
-   securing the roast blend card to the front face. Band colors change per roast blend.
-2. Built-in Card Insertion Slots: Pre-slit corner slots on the pouch face allow quick,
-   secure sliding insertion of beautiful custom-printed blend cards.
-
-------------------------------------------------------------------------
-SECTION 4: Pouch.eco Optimized Flat Bottom Bag Dimensions
-------------------------------------------------------------------------
-- 150g Ground Bag:  95 × 170 + 55 mm   | One-Sided Zipper + Degassing Valve
-- 250g Ground Bag:  120 × 200 + 60 mm  | One-Sided Zipper + Degassing Valve
-- 500g Bean Bag:    140 × 265 + 80 mm  | One-Sided Zipper + Degassing Valve
-- 1kg Bean Bag:     160 × 325 + 100 mm | One-Sided Zipper + Degassing Valve
-
-------------------------------------------------------------------------
-HOW TO BOOK YOUR KICKOFF MEETING:
-Visit our Interactive Calendly Portal: https://calendly.com/30-min-free-packaging-consultancy
-WhatsApp Global Support Desk: +852 6970 4411
-Email Direct: paas-desk@pouch.eco
-
-POUCH.ECO - Engineered to Stand. Built to Sustain.
-========================================================================`
-
-    const blob = new Blob([guideContent], { type: 'text/plain;charset=utf-8' })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.setAttribute('download', 'Pouch_Eco_PaaS_Accelerator_Guide.txt')
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(url)
-  }
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email || !email.includes('@')) return
-
-    setIsSubmitting(true)
-
-    // Simulate CRM registration
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setDownloadSuccess(true)
-      triggerPDFDownload()
-      localStorage.setItem('paas_subscriber_email', email)
-    }, 1200)
-  }
-
-  const materialSpecs = {
-    'high-barrier': {
-      name: 'Structure A: Ultra High-Barrier Pure Aluminum Foil',
-      structure: 'Matte BOPP // Pure AL // PE (130μ)',
-      chineseName: '結構 A（極致阻隔防護 - 推薦）',
-      features: '純鋁箔核心層，提供接近 0 的透氧率（OTR）與透濕率（WVTR）。能完全阻隔陽光直射及高溫對熟豆油分的影響，最大程度延長保質期。',
-      otr: '< 0.05 cc/m²/24h (Industry Peak Freshness)',
-      wvtr: '< 0.05 g/m²/24h (Sweat & Humidity Armor)',
-      shelflife: '12 - 18 Months under hot/high humidity conditions',
-      ecoRating: 'Standard High Protection (Alu-reclaimable loop)'
-    },
-    'recyclable': {
-      name: 'Structure B: 100% Recycle-Ready Mono-PE Pouch',
-      structure: 'MDO-PE // EVOH // PE (120μ)',
-      chineseName: '結構 B（100% 單一材料可回收）',
-      features: '高阻隔單一聚乙烯（Mono-PE）結構，能直接放入超市軟塑料回收箱。對環境友好，同時具備出色的防水汽與防穿刺性能。',
-      otr: '< 0.50 cc/m²/24h (Excellent Aroma Retention)',
-      wvtr: '< 0.45 g/m²/24h (Moisture-proof shield)',
-      shelflife: '9 - 12 Months',
-      ecoRating: '♻️ 100% Curb-side Recyclable (Code 4 SPI)'
-    },
-    'compostable': {
-      name: 'Structure C: 100% Certified Home Compostable Kraft Laminate',
-      structure: 'FSC Kraft // VM-Cello // PBAT (125μ)',
-      chineseName: '結構 C（100% 認證家用可堆肥）',
-      features: '牛皮紙質外觀，核心為真空鍍鋁纖維素阻隔層。可在家庭後院堆肥箱內於 180 天內完全降解為有機質，零微塑料殘留。',
-      otr: '< 1.10 cc/m²/24h (Eco Standard Shield)',
-      wvtr: '< 1.50 g/m²/24h (Backyard Degradable)',
-      shelflife: '6 - 9 Months',
-      ecoRating: '🌱 TUV OK Compost HOME (Backyard Bio-decay)'
+    if (optionId === 'custom-print') {
+      return {
+        unitPrice,
+        totalCost,
+        isBelowMoq,
+        moq: 500,
+        badge: 'Custom Print Standard (經典全定制)',
+        desc: 'Edge-to-edge full surface custom digital printing on standard high-barrier BOPP/PE structures. $0 cylinder setup fee.',
+        accentColor: '#00D8FF',
+        certLogo: 'Barrier Protection',
+        leadTime: '15 - 20 Days'
+      }
+    } else if (optionId === 'recyclable') {
+      return {
+        unitPrice,
+        totalCost,
+        isBelowMoq,
+        moq: 500,
+        badge: 'Option A: PE+EVOH Recyclable (可回收軟塑)',
+        desc: 'Eco-responsible Mono-PE composite laminated with EVOH high-barrier. Complete with Recycle Triangle Logo No. 4.',
+        accentColor: '#34D399',
+        certLogo: '♻️ Recycle Code 4',
+        leadTime: '20 - 25 Days'
+      }
+    } else {
+      return {
+        unitPrice,
+        totalCost,
+        isBelowMoq,
+        moq: 500,
+        badge: 'Option B: Compostable (生物基可堆肥)',
+        desc: '100% Home & Backyard Biodegradable FSC Kraft laminate with VM-Cello barrier. Disintegrates in 180 days with zero microplastics.',
+        accentColor: '#A7F3D0',
+        certLogo: '🌱 BPI Compostable',
+        leadTime: '20 - 25 Days'
+      }
     }
   }
 
-  // DYNAMIC POUCH VISUALIZER ELEMENT (Shared between B2C and B2B layout trees)
-  const PouchVisualizerElement = () => (
-    <div className="relative w-full h-[260px] bg-neutral-50 border border-neutral-200 rounded-2xl mb-6 flex items-center justify-center overflow-hidden shadow-inner">
-      <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-        {/* Simulated 3D flat-bottom box pouch */}
-        <div className="relative w-28 h-40 border-2 border-neutral-900 bg-white shadow-lg flex flex-col justify-between p-2 overflow-hidden transition-all duration-300">
-          
-          {/* Side gussets for Digital print */}
-          {variationMethod === 'digital-print' && (
-            <>
-              <div className="absolute top-0 bottom-0 left-0 w-3 transition-colors duration-500" style={{ backgroundColor: selectedBlend.hex }} />
-              <div className="absolute top-0 bottom-0 right-0 w-3 transition-colors duration-500" style={{ backgroundColor: selectedBlend.hex }} />
-            </>
-          )}
+  // Compile bilingual RFQ clipboard content
+  const getBilingualRfqText = () => {
+    const stockPrice = calculateOptionPrice('stock-cards')
+    const customPrice = calculateOptionPrice('custom-print')
+    const recPrice = calculateOptionPrice('recyclable')
+    const compPrice = calculateOptionPrice('compostable')
 
-          {/* Zipper top border */}
-          <div className="w-full h-1.5 border-b border-neutral-300 bg-neutral-100 rounded" />
+    return `Achieve Pack 咖啡品牌包裝詢價配置 (PaaS Packaging RFQ Summary):
+--------------------------------------------------
+📐 規格尺寸 (Selected Dimension): ${selectedSize.dimensions} (${selectedSize.capacity})
+🎨 印刷款式 (Number of Designs): ${numDesigns} 款 (Designs)
+📦 單款印量 (Quantity per Design): ${qtyPerDesign} 個 (pcs)
+🎁 袋子總數 (Total Bags Quantity): ${numDesigns * qtyPerDesign} 個
+💰 用戶目標預算 (Target Budget): $${totalBudget.toLocaleString()} USD
 
-          {/* Valve Welded Circle */}
-          <div className="absolute top-9 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border border-neutral-300 bg-neutral-50 flex items-center justify-center text-[5px] font-bold text-neutral-400 select-none">
-            VALVE
-          </div>
+方案實時估算 (Real-time Options Quotation):
+1️⃣ 貼紙卡牌現貨方案 (Stock Pouch + Cards):
+   - 單價 (Unit): $${stockPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${stockPrice.totalCost.toFixed(2)} USD ${stockPrice.isBelowMoq ? '(Below MOQ)' : ''}
+2️⃣ 標準全定制數碼印刷 (Custom Print Standard):
+   - 單價 (Unit): $${customPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${customPrice.totalCost.toFixed(2)} USD ${customPrice.isBelowMoq ? '(Below MOQ)' : ''}
+3️⃣ ♻️ 4號標誌單一可回收方案 (PE+EVOH Recyclable):
+   - 單價 (Unit): $${recPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${recPrice.totalCost.toFixed(2)} USD ${recPrice.isBelowMoq ? '(Below MOQ)' : ''}
+4️⃣ 🌱 BPI認證家用可堆肥方案 (Compostable):
+   - 單價 (Unit): $${compPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${compPrice.totalCost.toFixed(2)} USD ${compPrice.isBelowMoq ? '(Below MOQ)' : ''}
 
-          {/* Content representation */}
-          <div className="relative z-10 flex-1 flex flex-col justify-end items-center pb-2 text-center">
-            
-            {/* Digital Print decoration */}
-            {variationMethod === 'digital-print' && (
-              <div className="space-y-1">
-                <div className="text-[10px] font-black tracking-tight leading-none text-neutral-800">POUCH COFFEE</div>
-                <div className="text-[6px] font-black uppercase tracking-wider px-1 inline-block rounded text-white" style={{ backgroundColor: selectedBlend.hex }}>
-                  {selectedBlend.name}
-                </div>
-                <div className="text-[5px] font-bold text-neutral-400 font-['JetBrains_Mono'] leading-none">
-                  {selectedSize.capacity}
-                </div>
-              </div>
-            )}
+--------------------------------------------------
+💬 我已使用網頁版按揭式預算計算器配置完成。請客服團隊為我安排專屬樣品及設計對接！
+(I have verified my configuration. Please arrange sample packages and packaging layout assistance.)`
+  }
 
-            {/* Elastic Strip variation */}
-            {variationMethod === 'card-strip' && (
-              <div className="w-full relative py-1 flex items-center justify-center">
-                {/* The vertical Colored strip wrapping around the pouch */}
-                <div 
-                  className="absolute top-[-30px] bottom-[-20px] w-5 border-x border-neutral-900 shadow-[2px_0px_2px_rgba(0,0,0,0.15)]" 
-                  style={{ backgroundColor: selectedBlend.hex }} 
-                />
-                {/* The tucked Card */}
-                <div className="relative z-20 bg-white border border-neutral-800 p-1 shadow-md w-[70px] transform -rotate-1">
-                  <div className="text-[6px] font-black tracking-tight leading-none text-left">POUCH COFFEE</div>
-                  <div className="text-[5px] font-black text-white px-0.5 mt-0.5 inline-block text-[4px] uppercase" style={{ backgroundColor: selectedBlend.hex }}>
-                    {selectedBlend.name}
-                  </div>
-                  <div className="text-[4px] text-neutral-500 font-['JetBrains_Mono'] mt-0.5 leading-none">Name Card Strip</div>
-                </div>
-              </div>
-            )}
-
-            {/* Corner card insertion slots variation */}
-            {variationMethod === 'card-slot' && (
-              <div className="w-full relative flex items-center justify-center">
-                {/* Corner slots represented by dark tiny marks */}
-                <div className="absolute top-[-25px] left-1 w-1 h-1 border-b border-r border-neutral-400" />
-                <div className="absolute top-[-25px] right-1 w-1 h-1 border-b border-l border-neutral-400" />
-                <div className="absolute bottom-[-10px] left-1 w-1 h-1 border-t border-r border-neutral-400" />
-                <div className="absolute bottom-[-10px] right-1 w-1 h-1 border-t border-l border-neutral-400" />
-                
-                {/* The inserted Card */}
-                <div className="bg-neutral-50 border border-neutral-400 p-1.5 w-[80px] shadow-sm">
-                  <div className="text-[6px] font-black tracking-tight text-center">POUCH COFFEE</div>
-                  <div className="text-[5px] font-black uppercase text-center mt-0.5" style={{ color: selectedBlend.hex }}>
-                    {selectedBlend.name}
-                  </div>
-                  <div className="text-[4px] text-neutral-500 font-['JetBrains_Mono'] text-center leading-none mt-0.5">Card Slot Insertion</div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Sealed Bottom */}
-          <div className="w-full h-2 border-t border-neutral-200 bg-neutral-100" />
-        </div>
-
-        <p className="text-[10px] font-['JetBrains_Mono'] font-bold text-neutral-400 mt-3 uppercase tracking-wider">
-          {variationMethod === 'digital-print' && 'Edge-to-Edge Custom Print'}
-          {variationMethod === 'card-strip' && 'Custom Card + Elastic Band Strip'}
-          {variationMethod === 'card-slot' && 'Custom Card + Corner Insertion Slots'}
-        </p>
-      </div>
-
-      <div className="absolute top-2 left-2 flex gap-1 font-['JetBrains_Mono'] text-[8px] font-black">
-        <span className="bg-neutral-900 text-white px-1">{selectedSize.id}</span>
-        <span className="bg-white border border-neutral-200 px-1" style={{ color: selectedBlend.hex }}>{selectedBlend.roast}</span>
-      </div>
-    </div>
-  )
+  const handleWhatsappCopy = () => {
+    const text = getBilingualRfqText()
+    navigator.clipboard.writeText(text).then(() => {
+      setWhatsappCopied(true)
+      setTimeout(() => setWhatsappCopied(false), 3000)
+      // Redirect to WhatsApp Global support
+      window.open('https://api.whatsapp.com/send?phone=85269704411&text=' + encodeURIComponent('Hello Achieve Pack! I have generated my PaaS Coffee Packaging configuration: \n\n' + text), '_blank')
+    })
+  }
 
   const isEco = isPouch()
 
-  // B2C POUCH.ECO NEOBRUTALIST RENDER
+  // Dynamic SVG preview rendering live dimensions & material styles
+  const PouchVisualRender = ({ optionId, accentColor }: { optionId: string; accentColor: string }) => {
+    let bagBg = 'fill-neutral-100 stroke-neutral-800'
+    let textLabel = 'STOCK BAG'
+    let iconOverlay = null
+
+    if (optionId === 'stock-cards') {
+      bagBg = 'fill-white stroke-neutral-800'
+      textLabel = 'CARD INSERT'
+      iconOverlay = (
+        <g transform="translate(15, 60)">
+          <rect x="0" y="0" width="50" height="35" rx="3" fill="#0f172a" opacity="0.9" />
+          <line x1="5" y1="10" x2="45" y2="10" stroke="white" strokeWidth="2" />
+          <line x1="5" y1="18" x2="35" y2="18" stroke="white" strokeWidth="1.5" />
+          <line x1="5" y1="26" x2="40" y2="26" stroke={accentColor} strokeWidth="2" />
+        </g>
+      )
+    } else if (optionId === 'custom-print') {
+      bagBg = 'fill-emerald-900 stroke-neutral-900'
+      textLabel = 'CUSTOM PRINT'
+      iconOverlay = (
+        <g transform="translate(20, 65)">
+          <circle cx="20" cy="20" r="16" fill="none" stroke={accentColor} strokeWidth="3" strokeDasharray="4 2" className="animate-spin-slow" />
+          <path d="M12 20 L28 20 M20 12 L20 28" stroke="white" strokeWidth="2" />
+        </g>
+      )
+    } else if (optionId === 'recyclable') {
+      bagBg = 'fill-[#042f1a] stroke-emerald-600'
+      textLabel = 'PE+EVOH'
+      iconOverlay = (
+        <g transform="translate(25, 65)" fill={accentColor}>
+          {/* Recycle triangle representation */}
+          <path d="M15 5 L5 25 L25 25 Z" fill="none" stroke={accentColor} strokeWidth="2" />
+          <text x="12" y="21" fontSize="9" fontWeight="900" fill={accentColor}>4</text>
+        </g>
+      )
+    } else if (optionId === 'compostable') {
+      bagBg = 'fill-[#1c2e24] stroke-emerald-500'
+      textLabel = 'COMPOSTABLE'
+      iconOverlay = (
+        <g transform="translate(25, 65)">
+          <Leaf className="w-8 h-8 text-emerald-400 fill-emerald-400/20" />
+        </g>
+      )
+    }
+
+    return (
+      <svg viewBox="0 0 100 150" className="w-24 h-36 drop-shadow-2xl transition-transform duration-300 hover:scale-105">
+        {/* Pouch body */}
+        <path d="M10,20 L90,20 L80,140 L20,140 Z" className={`${bagBg}`} strokeWidth="2" />
+        {/* Tear notch */}
+        <path d="M10,32 L15,35 L10,38" fill="none" stroke="#22c55e" strokeWidth="1.5" />
+        {/* Valve welded circle */}
+        <circle cx="50" cy="45" r="5" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="1" />
+        <circle cx="50" cy="45" r="2" fill="#cbd5e1" />
+        {/* Dynamic Graphic elements */}
+        {iconOverlay}
+        {/* Bottom seal */}
+        <line x1="20" y1="134" x2="80" y2="134" stroke="#475569" strokeWidth="3" />
+        <text x="50" y="15" textAnchor="middle" fontSize="6" fontWeight="bold" className="fill-neutral-400 font-mono tracking-wider">{textLabel}</text>
+      </svg>
+    )
+  }
+
+  // --- NEO-BRUTALIST STYLING FOR POUCH.ECO DOMAIN ---
   if (isEco) {
     return (
       <PouchLayout>
         <Helmet>
-          <title>PaaS Coffee Startup Starter Accelerator Kit | B2B Subscription | POUCH.ECO</title>
-          <meta name="description" content="PaaS (Packaging-as-a-Service) Coffee Accelerator Suite. Custom 3D flat bottom pouches, free custom Shopify e-commerce setups, 3D marketing mockups, and low MOQ starting at 100 bags." />
+          <title>B2B Coffee Packaging Budget & Investment Calculator | POUCH.ECO</title>
+          <meta name="description" content="Calculate your startup coffee bags packaging costs instantly with our interactive B2B mortgage-style budget calculator. Real-time rates for Stock Pouches, Recyclable PE+EVOH, and Backyard Compostable bags." />
           <link rel="canonical" href="https://pouch.eco/coffee" />
         </Helmet>
 
@@ -486,1811 +258,621 @@ POUCH.ECO - Engineered to Stand. Built to Sustain.
           @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
         `}</style>
 
-        {/* Hero Section */}
-        <section className="relative pt-16 pb-24 border-b-4 border-black bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] bg-[#fafafa] font-['Space_Grotesk']">
+        <section className="relative pt-20 pb-28 border-b-4 border-black bg-[#fafafa] font-['Space_Grotesk'] overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             
-            <div className="inline-flex items-center gap-2 bg-[#D4FF00] text-black border-4 border-black px-4 py-2 transform -rotate-1 font-['JetBrains_Mono'] font-black text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
-              <Sparkles className="w-5 h-5 text-purple-600 animate-spin-slow" />
-              PACKAGING-AS-A-SERVICE // PaaS STARTER SUITE
+            {/* Header Title Card */}
+            <div className="border-4 border-black bg-[#D4FF00] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-12 transform -rotate-1 relative">
+              <div className="absolute top-4 right-4 bg-black text-white px-2 py-1 font-['JetBrains_Mono'] text-xs font-black">
+                RELEASE_2026.B2B
+              </div>
+              <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-black leading-none">
+                B2B Coffee PaaS Budget Calculator
+              </h1>
+              <p className="text-md md:text-lg text-neutral-800 font-bold uppercase tracking-wider mt-2 font-['JetBrains_Mono']">
+                包裝預算與品牌投資計算器 // 10秒掌控啟動預算
+              </p>
+              <p className="text-neutral-700 text-sm font-semibold max-w-3xl mt-4">
+                Specialty coffee brands often get stuck on plate charges and massive MOQs. Use our smart budget telemetry configurator to instantly model unit costs across 4 packaging directions, matching your unique budget limits.
+              </p>
             </div>
 
-            <div className="grid lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-7 space-y-6">
-                <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase text-black">
-                  LAUNCH YOUR<br/>
-                  COFFEE BRAND.<br/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-[#10B981] to-[#D4FF00] drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-                    PaaS MODEL.
-                  </span>
-                </h1>
-
-                <p className="text-lg md:text-xl text-neutral-800 font-semibold max-w-2xl">
-                  The ultimate B2B launch kit styled like a premium SaaS. We provide the custom-printed flat-bottom 3D pouches, build your high-converting Shopify store, and supply complete 3D marketing mockups. All you need to do is provide your product!
-                </p>
-
-                <div className="flex flex-wrap gap-3 pt-2 font-['JetBrains_Mono'] font-bold text-xs">
-                  <span className="border-2 border-black bg-white px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    ☕ Low MOQ: 100 Bags / Blend
-                  </span>
-                  <span className="border-2 border-black bg-[#00FFFF] px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    ⚡ Prepress cylinder fee: $0
-                  </span>
-                  <span className="border-2 border-black bg-[#FF00FF] text-white px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    📦 100% Home Backyard Compostable Option
-                  </span>
+            {/* Main Interactive Grid */}
+            <div className="grid lg:grid-cols-12 gap-10 items-start">
+              
+              {/* Left Column: Interactive Controls */}
+              <div className="lg:col-span-5 border-4 border-black bg-white p-6 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] space-y-8">
+                <div className="flex items-center gap-2 border-b-4 border-black pb-4">
+                  <RefreshCw className="w-6 h-6 text-emerald-600 animate-spin-slow" />
+                  <h2 className="text-2xl font-black uppercase tracking-tight">Calculator Config</h2>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-4 max-w-lg pt-4">
-                  <div className="border-4 border-black bg-white p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3">
-                    <div className="w-10 h-10 border-2 border-black bg-emerald-100 flex items-center justify-center font-bold text-lg text-emerald-700">✓</div>
-                    <div>
-                      <h3 className="font-bold text-sm uppercase">Choose Variation Style</h3>
-                      <p className="text-xs text-neutral-600 font-semibold">Digital print or quick Card-Attach</p>
-                    </div>
+                {/* 1. Target Budget */}
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center font-['JetBrains_Mono'] font-bold text-xs uppercase text-neutral-700">
+                    <span>1. Target Investment Budget (目標投資預算)</span>
+                    <span className="bg-black text-[#D4FF00] px-2 py-0.5">${totalBudget.toLocaleString()} USD</span>
                   </div>
-
-                  <div className="border-4 border-black bg-white p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-3">
-                    <div className="w-10 h-10 border-2 border-black bg-purple-100 flex items-center justify-center font-bold text-lg text-purple-700">✓</div>
-                    <div>
-                      <h3 className="font-bold text-sm uppercase">Complete E-Commerce</h3>
-                      <p className="text-xs text-neutral-600 font-semibold">100% Free custom-setup store included</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-5">
-                <div 
-                  ref={heroCardRef}
-                  onMouseMove={handleMouseMove}
-                  onMouseLeave={() => setTilt({ x: 0, y: 0 })}
-                  style={{ 
-                    transform: `perspective(1000px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`,
-                    transition: 'transform 0.15s ease'
-                  }}
-                  className="border-4 border-black bg-white p-6 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden"
-                >
-                  <div 
-                    className="absolute right-0 top-0 bottom-0 w-6 border-l-4 border-black transition-colors duration-500"
-                    style={{ backgroundColor: selectedBlend.hex }}
-                    title={`${selectedBlend.name} side gusset`}
+                  <input 
+                    type="range" 
+                    min="500" 
+                    max="15000" 
+                    step="250"
+                    value={totalBudget} 
+                    onChange={(e) => setTotalBudget(parseInt(e.target.value))}
+                    className="w-full h-3 bg-neutral-200 border-2 border-black rounded-lg appearance-none cursor-pointer accent-black" 
                   />
-
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <NeoBadge color="lime">PaaS_CONFIGURATOR</NeoBadge>
-                      <h2 className="font-black text-2xl uppercase mt-2">Pouch Visualizer</h2>
-                    </div>
-                    <Coffee className="w-8 h-8 text-neutral-800 animate-bounce" />
-                  </div>
-
-                  <PouchVisualizerElement />
-
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-xs font-black uppercase tracking-wider text-neutral-700 mb-2">
-                        1. Select Roast Blend & Gusset Color
-                      </label>
-                      <div className="grid grid-cols-2 gap-2">
-                        {BLENDS.map((blend) => (
-                          <button
-                            key={blend.id}
-                            type="button"
-                            onClick={() => setSelectedBlend(blend)}
-                            className={`border-2 border-black p-2 font-['JetBrains_Mono'] font-bold text-[10px] text-left transition-all flex items-center justify-between ${
-                              selectedBlend.id === blend.id 
-                                ? 'bg-neutral-900 text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' 
-                                : 'bg-white hover:bg-neutral-50 text-neutral-800'
-                            }`}
-                          >
-                            <div>
-                              <div className="font-black text-xs leading-none mb-1">{blend.name}</div>
-                              <div className="text-[8px] opacity-80 leading-none">{blend.roast}</div>
-                            </div>
-                            <span 
-                              className="w-3.5 h-3.5 border border-black rounded-full" 
-                              style={{ backgroundColor: blend.hex }}
-                            />
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-black uppercase tracking-wider text-neutral-700 mb-2">
-                        2. Select Customization Method
-                      </label>
-                      <div className="grid grid-cols-3 gap-2">
-                        {[
-                          { id: 'digital-print', label: 'Full Digital', icon: '🎨' },
-                          { id: 'card-strip', label: 'Card Band', icon: '🎗️' },
-                          { id: 'card-slot', label: 'Card Slot', icon: '📇' }
-                        ].map((method) => (
-                          <button
-                            key={method.id}
-                            type="button"
-                            onClick={() => setVariationMethod(method.id as any)}
-                            className={`border-2 border-black p-1.5 font-bold text-[10px] text-center transition-all ${
-                              variationMethod === method.id 
-                                ? 'bg-neutral-900 text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' 
-                                : 'bg-white hover:bg-neutral-50 text-neutral-800'
-                            }`}
-                          >
-                            <div className="text-sm mb-0.5">{method.icon}</div>
-                            <div className="font-black uppercase tracking-tighter leading-none">{method.label}</div>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-black uppercase tracking-wider text-neutral-700 mb-2">
-                        3. Select Run Quantity (MOQ 100 pcs)
-                      </label>
-                      <div className="grid grid-cols-5 gap-1 font-['JetBrains_Mono'] font-bold text-xs">
-                        {[100, 500, 1000, 2000, 5000].map((qty) => (
-                          <button
-                            key={qty}
-                            type="button"
-                            onClick={() => setSelectedQty(qty as any)}
-                            className={`border-2 border-black py-2 rounded transition-all text-center ${
-                              selectedQty === qty 
-                                ? 'bg-[#00FFFF] text-black font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-y-0.5' 
-                                : 'bg-white hover:bg-neutral-50 text-neutral-700'
-                            }`}
-                          >
-                            {qty}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-black uppercase tracking-wider text-neutral-700 mb-2">
-                        4. Select Bag Size / Type
-                      </label>
-                      <div className="grid grid-cols-4 gap-1.5 font-['JetBrains_Mono'] font-bold text-xs">
-                        {SIZES.map((size) => (
-                          <button
-                            key={size.id}
-                            type="button"
-                            onClick={() => setSelectedSize(size)}
-                            className={`border-2 border-black py-2 rounded transition-all text-center ${
-                              selectedSize.id === size.id 
-                                ? 'bg-[#D4FF00] text-black font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-y-0.5' 
-                                : 'bg-white hover:bg-neutral-50 text-neutral-700'
-                            }`}
-                          >
-                            {size.id}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="bg-neutral-900 border-2 border-black p-4 text-white text-xs font-semibold space-y-2 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                      <div className="flex justify-between border-b border-neutral-800 pb-1.5">
-                        <span className="uppercase text-neutral-400">// Material Choice:</span>
-                        <span className="font-bold text-[#D4FF00]">{materialSpecs[activeMaterial].chineseName}</span>
-                      </div>
-                      <div className="flex justify-between border-b border-neutral-800 pb-1.5">
-                        <span className="uppercase text-neutral-400">// Pouch Style & Size:</span>
-                        <span className="font-bold font-['JetBrains_Mono']">{selectedSize.dimensions} ({selectedSize.id})</span>
-                      </div>
-                      <div className="flex justify-between border-b border-neutral-800 pb-1.5">
-                        <span className="uppercase text-neutral-400">// Reclosure:</span>
-                        <span className="font-bold text-neutral-200">One-sided Zipper + Degassing Valve</span>
-                      </div>
-                      <div className="flex justify-between items-center text-white border-b border-neutral-800 pb-1.5">
-                        <span className="uppercase text-neutral-400">// Unit Price:</span>
-                        <span className="font-bold text-xl text-[#00D8FF] font-['JetBrains_Mono']">{getUnitPrice()}</span>
-                      </div>
-                      <div className="flex justify-between items-center text-[#D4FF00] pt-1">
-                        <span className="uppercase text-neutral-300 font-bold">Total Batch Cost:</span>
-                        <span className="font-black text-2xl font-['JetBrains_Mono']">{getTotalPrice()}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Advisory Section */}
-        <section className="py-20 border-b-4 border-black bg-white font-['Space_Grotesk']">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="flex items-center gap-3 mb-12">
-              <NeoBadge color="magenta">CLIMATIC_ADVISORY_REPORT</NeoBadge>
-              <h2 className="font-black text-3xl md:text-5xl uppercase tracking-tight">
-                Roast Quality Climate Protocol
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-12 gap-8 items-stretch">
-              <div className="md:col-span-7 space-y-6">
-                <div className="border-4 border-black bg-amber-50 p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] relative">
-                  <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-amber-200 border-2 border-black px-2 py-0.5 font-['JetBrains_Mono'] text-[10px] font-black uppercase text-amber-800 animate-pulse">
-                    <AlertCircle className="w-3.5 h-3.5" /> Climate Freshness Advice
-                  </div>
-                  
-                  <h3 className="font-black text-xl uppercase mb-3 text-amber-900 flex items-center gap-2">
-                    ☀️ Specialty Coffee Preservation Advisory
-                  </h3>
-                  
-                  <p className="text-sm font-semibold text-neutral-800 leading-relaxed mb-4">
-                    Roasted specialty coffee beans are extremely sensitive to temperature variations and moisture. Under elevated temperatures, lipid oils migrate to the surface of the beans and oxidize rapidly, volatilizing crucial floral and fruit aromatics, resulting in flat, starchy taste profiles. A high-efficiency one-way degassing valve and air-tight resealable zipper are essential to relieve CO2 bloating without letting oxygen spoil the roast integrity.
-                  </p>
-
-                  <div className="border-t-2 border-amber-200/50 pt-4 text-xs font-semibold text-neutral-700 space-y-2">
-                    <p><strong>結構 A（極致阻隔防護 - 推薦）：</strong>Matte BOPP + Pure AL + Food-Grade PE（厚度 130μ）</p>
-                    <p>特點：純鋁箔核心層，提供接近 0 的透氧率（OTR）與透濕率（WVTR）。能完全阻隔陽光直射及高溫對熟豆油分的影響，最大程度延長保質期。</p>
+                  <div className="flex justify-between text-[10px] font-bold text-neutral-400">
+                    <span>$500 Min</span>
+                    <span>$7,500 Medium Startup</span>
+                    <span>$15,000 Scale</span>
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-3 gap-4">
-                  <div className="border-2 border-black p-4 bg-white flex flex-col justify-between">
-                    <h4 className="font-bold text-xs uppercase text-neutral-500 mb-2">1. One-Sided Zipper</h4>
-                    <p className="text-xs text-neutral-600 font-semibold leading-relaxed">
-                      Easy, airtight seal fitted on one-side to block air entry after retail opening.
-                    </p>
+                {/* 2. Number of Designs */}
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center font-['JetBrains_Mono'] font-bold text-xs uppercase text-neutral-700">
+                    <span>2. Distinct Flavor Designs (口味款式數量)</span>
+                    <span className="bg-[#00FFFF] text-black px-2 py-0.5 border border-black font-black">{numDesigns} SKUs</span>
                   </div>
-                  <div className="border-2 border-black p-4 bg-white flex flex-col justify-between">
-                    <h4 className="font-bold text-xs uppercase text-neutral-500 mb-2">2. Degassing Valve</h4>
-                    <p className="text-xs text-neutral-600 font-semibold leading-relaxed">
-                      Welded one-way degassing valve vents built-up roasting CO2 gases safely.
-                    </p>
-                  </div>
-                  <div className="border-2 border-black p-4 bg-white flex flex-col justify-between">
-                    <h4 className="font-bold text-xs uppercase text-neutral-500 mb-2">3. Flat Bottom 3D</h4>
-                    <p className="text-xs text-neutral-600 font-semibold leading-relaxed">
-                      Premium structural box bottom ensures perfect vertical shelf stance.
-                    </p>
+                  <input 
+                    type="range" 
+                    min="1" 
+                    max="10" 
+                    step="1"
+                    value={numDesigns} 
+                    onChange={(e) => setNumDesigns(parseInt(e.target.value))}
+                    className="w-full h-3 bg-neutral-200 border-2 border-black rounded-lg appearance-none cursor-pointer accent-black" 
+                  />
+                  <div className="grid grid-cols-10 text-[9px] font-bold text-neutral-400 text-center">
+                    {[1,2,3,4,5,6,7,8,9,10].map(n => (
+                      <span key={n} className={numDesigns === n ? 'text-black font-black font-mono' : ''}>{n}</span>
+                    ))}
                   </div>
                 </div>
-              </div>
 
-              <div className="md:col-span-5 bg-neutral-900 text-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
-                <div>
-                  <div className="flex gap-2 mb-6 font-['JetBrains_Mono'] text-[10px] font-black">
-                    {[
-                      { id: 'high-barrier', label: 'STRUCTURE A', color: 'bg-amber-400 border-amber-400 text-black' },
-                      { id: 'recyclable', label: 'STRUCTURE B', color: 'bg-[#00FFFF] border-[#00FFFF] text-black' },
-                      { id: 'compostable', label: 'STRUCTURE C', color: 'bg-emerald-500 border-emerald-500 text-white' }
-                    ].map((mat) => (
+                {/* 3. Quantity per Design */}
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center font-['JetBrains_Mono'] font-bold text-xs uppercase text-neutral-700">
+                    <span>3. Quantity per Design (每款印量)</span>
+                    <span className="bg-[#FF00FF] text-white px-2 py-0.5 border border-black font-black">{qtyPerDesign.toLocaleString()} Bags / SKU</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    min="100" 
+                    max="5000" 
+                    step="50"
+                    value={qtyPerDesign} 
+                    onChange={(e) => setQtyPerDesign(parseInt(e.target.value))}
+                    className="w-full h-3 bg-neutral-200 border-2 border-black rounded-lg appearance-none cursor-pointer accent-black" 
+                  />
+                  {/* Quick select buttons */}
+                  <div className="grid grid-cols-5 gap-1.5 font-['JetBrains_Mono'] font-bold text-[10px]">
+                    {[100, 500, 1000, 2000, 5000].map(q => (
                       <button
-                        key={mat.id}
+                        key={q}
                         type="button"
-                        onClick={() => setActiveMaterial(mat.id as any)}
-                        className={`px-2 py-1.5 border transition-all ${
-                          activeMaterial === mat.id 
-                            ? mat.color 
-                            : 'border-neutral-700 text-neutral-400 hover:text-white hover:border-neutral-500'
-                        }`}
+                        onClick={() => setQtyPerDesign(q)}
+                        className={`border-2 border-black py-1 hover:bg-neutral-50 transition-all ${qtyPerDesign === q ? 'bg-black text-white font-black' : 'bg-white text-neutral-700'}`}
                       >
-                        {mat.label}
+                        {q}
                       </button>
                     ))}
                   </div>
-
-                  <div className="space-y-4">
-                    <div>
-                      <span className="text-[10px] text-neutral-400 font-['JetBrains_Mono'] uppercase tracking-wider">
-                        {materialSpecs[activeMaterial].chineseName}
-                      </span>
-                      <h3 className="text-lg font-black uppercase text-white mt-1 leading-tight">
-                        {materialSpecs[activeMaterial].name}
-                      </h3>
-                      <p className="text-xs font-['JetBrains_Mono'] text-neutral-300 font-bold mt-1 bg-neutral-800 p-2 inline-block rounded border border-neutral-700">
-                        {materialSpecs[activeMaterial].structure}
-                      </p>
-                    </div>
-
-                    <p className="text-xs text-neutral-300 leading-relaxed font-semibold bg-neutral-850 p-3 rounded border border-neutral-800">
-                      {materialSpecs[activeMaterial].features}
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-4 border-t border-neutral-800 pt-4 text-xs font-semibold">
-                      <div>
-                        <span className="text-neutral-500 uppercase block text-[9px] tracking-wider">OTR Oxygen Barrier:</span>
-                        <span className="text-white font-bold">{materialSpecs[activeMaterial].otr}</span>
-                      </div>
-                      <div>
-                        <span className="text-neutral-500 uppercase block text-[9px] tracking-wider">WVTR Vapor Barrier:</span>
-                        <span className="text-white font-bold">{materialSpecs[activeMaterial].wvtr}</span>
-                      </div>
-                      <div>
-                        <span className="text-neutral-500 uppercase block text-[9px] tracking-wider">Avg Shelf Life:</span>
-                        <span className="text-white font-bold">{materialSpecs[activeMaterial].shelflife}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="border-t border-neutral-800 pt-4 mt-6 text-[9px] text-[#D4FF00] font-['JetBrains_Mono'] uppercase tracking-wider font-bold">
-                  ⚙️ Eco Certification: {materialSpecs[activeMaterial].ecoRating}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Matrix Tables */}
-        <section className="py-20 border-b-4 border-black bg-neutral-100 font-['Space_Grotesk']">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <NeoBadge color="cyan">PaaS_DIGITAL_PRICING</NeoBadge>
-              <h2 className="font-black text-3xl md:text-5xl uppercase tracking-tight mt-4">
-                B2B Custom Digital Printing Matrices
-              </h2>
-              <p className="text-sm text-neutral-600 font-semibold mt-2">
-                Compare exact B2B digital printing price rates per design. No cylinder setup plate cost. Fully featured with one-sided zipper and degassing valve.
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-12">
-              <div className="border-4 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-[#00FFFF] border-b-4 border-l-4 border-black px-3 py-1 font-['JetBrains_Mono'] text-[9px] font-black uppercase">
-                  Option B: Recyclable
-                </div>
-
-                <h3 className="font-black text-2xl uppercase mb-1">Structure B Matrix</h3>
-                <p className="text-xs text-neutral-500 mb-6 uppercase font-bold">120μ Mono-PE + EVOH + PE (Curb-side recycle-ready)</p>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="border-b-4 border-black bg-neutral-50 font-['JetBrains_Mono'] text-[10px] uppercase font-bold text-neutral-700">
-                        <th className="py-3 px-2">Quantity</th>
-                        <th className="py-3 px-2">150g USD</th>
-                        <th className="py-3 px-2">250g USD</th>
-                        <th className="py-3 px-2">500g USD</th>
-                        <th className="py-3 px-2">1kg USD</th>
-                      </tr>
-                    </thead>
-                    <tbody className="font-['JetBrains_Mono'] text-xs font-semibold text-neutral-800">
-                      {[
-                        { qty: '100 pcs', rates: [11.78, 12.96, 14.14, 16.49] },
-                        { qty: '500 pcs', rates: [2.65, 2.92, 3.18, 3.71] },
-                        { qty: '1000 pcs', rates: [1.71, 1.88, 2.05, 2.39] },
-                        { qty: '2000 pcs', rates: [1.15, 1.27, 1.38, 1.61] },
-                        { qty: '5000 pcs', rates: [0.74, 0.81, 0.89, 1.04] }
-                      ].map((row, idx) => (
-                        <tr 
-                          key={idx} 
-                          className={`border-b-2 border-black hover:bg-neutral-50 transition-colors ${
-                            selectedQty === parseInt(row.qty) ? 'bg-[#00FFFF]/10 font-bold' : ''
-                          }`}
-                        >
-                          <td className="py-3 px-2 font-black uppercase text-[10px]">{row.qty}</td>
-                          <td className="py-3 px-2">${row.rates[0].toFixed(2)}</td>
-                          <td className="py-3 px-2">${row.rates[1].toFixed(2)}</td>
-                          <td className="py-3 px-2">${row.rates[2].toFixed(2)}</td>
-                          <td className="py-3 px-2">${row.rates[3].toFixed(2)}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <div className="border-4 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-[#D4FF00] border-b-4 border-l-4 border-black px-3 py-1 font-['JetBrains_Mono'] text-[9px] font-black uppercase">
-                  Option C: Compostable
-                </div>
-
-                <h3 className="font-black text-2xl uppercase mb-1">Structure C Matrix</h3>
-                <p className="text-xs text-neutral-500 mb-6 uppercase font-bold">125μ FSC Kraft + VM-Cello + PBAT (Home backyard compostable)</p>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="border-b-4 border-black bg-neutral-50 font-['JetBrains_Mono'] text-[10px] uppercase font-bold text-neutral-700">
-                        <th className="py-3 px-2">Quantity</th>
-                        <th className="py-3 px-2">150g USD</th>
-                        <th className="py-3 px-2">250g USD</th>
-                        <th className="py-3 px-2">500g USD</th>
-                        <th className="py-3 px-2">1kg USD</th>
-                      </tr>
-                    </thead>
-                    <tbody className="font-['JetBrains_Mono'] text-xs font-semibold text-neutral-800">
-                      {[
-                        { qty: '100 pcs', rates: [15.31, 16.85, 18.38, 21.44] },
-                        { qty: '500 pcs', rates: [3.45, 3.80, 4.14, 4.82] },
-                        { qty: '1000 pcs', rates: [2.22, 2.44, 2.67, 3.11] },
-                        { qty: '2000 pcs', rates: [1.50, 1.65, 1.79, 2.09] },
-                        { qty: '5000 pcs', rates: [0.96, 1.05, 1.16, 1.35] }
-                      ].map((row, idx) => (
-                        <tr 
-                          key={idx} 
-                          className={`border-b-2 border-black hover:bg-neutral-50 transition-colors ${
-                            selectedQty === parseInt(row.qty) ? 'bg-[#D4FF00]/10 font-bold' : ''
-                          }`}
-                        >
-                          <td className="py-3 px-2 font-black uppercase text-[10px]">{row.qty}</td>
-                          <td className="py-3 px-2">${row.rates[0].toFixed(2)}</td>
-                          <td className="py-3 px-2">${row.rates[1].toFixed(2)}</td>
-                          <td className="py-3 px-2">${row.rates[2].toFixed(2)}</td>
-                          <td className="py-3 px-2">${row.rates[3].toFixed(2)}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Hacking zero plate fees */}
-        <section className="py-24 bg-white border-b-4 border-black font-['Space_Grotesk']">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="grid lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-6 grid sm:grid-cols-2 gap-6">
-                <div className="border-4 border-black p-6 bg-neutral-50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-center relative overflow-hidden group">
-                  <div className="absolute top-2 right-2 bg-black text-[#D4FF00] text-[8px] font-black px-1.5 py-0.5 uppercase">
-                    Option 1
-                  </div>
-                  <div className="w-16 h-28 mx-auto border-2 border-black bg-white rounded flex flex-col justify-between p-1.5 relative overflow-hidden mb-4">
-                    <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-4 border-x border-black bg-[#A855F7]" />
-                    <div className="relative z-10 bg-white border border-black p-1 shadow-[1px_1px_0px_rgba(0,0,0,1)] w-[50px] mx-auto mt-8 transform rotate-1">
-                      <div className="text-[5px] font-black leading-none text-left">POUCH.ECO</div>
-                      <div className="text-[4px] font-black text-white px-0.5 inline-block mt-0.5" style={{ backgroundColor: '#A855F7' }}>
-                        Karijini
-                      </div>
-                    </div>
-                  </div>
-                  <h4 className="font-black text-lg uppercase mb-2">Vibrant Elastic Band Strip</h4>
-                  <p className="text-xs text-neutral-600 font-semibold leading-relaxed">
-                    A high-elastic colored rubber/fabric strip wraps around a white/kraft stock flat bottom bag. Secures a customizable, premium roast name card tightly to the front. Swap card colors to identify light, medium, or decaf blends in a second!
+                  <p className="text-[10px] text-neutral-500 font-semibold italic">
+                    💡 註: 印量以款為單位。如印 3 款、每款 500 個，袋子總數將為 1,500 個。
                   </p>
                 </div>
 
-                <div className="border-4 border-black p-6 bg-neutral-50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-center relative overflow-hidden group">
-                  <div className="absolute top-2 right-2 bg-black text-[#00FFFF] text-[8px] font-black px-1.5 py-0.5 uppercase">
-                    Option 2
+                {/* 4. Bag Size Choice */}
+                <div className="space-y-2">
+                  <label className="block font-['JetBrains_Mono'] font-bold text-xs uppercase text-neutral-700">
+                    4. Select Packaging Dimension (選擇尺寸)
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {BAG_SIZES.map(s => (
+                      <button
+                        key={s.id}
+                        type="button"
+                        onClick={() => setSelectedSize(s)}
+                        className={`border-2 border-black p-2.5 text-left transition-all ${selectedSize.id === s.id ? 'bg-[#D4FF00] shadow-[2px_2px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-neutral-50'}`}
+                      >
+                        <div className="font-black text-xs">{s.dimensions}</div>
+                        <div className="text-[9px] font-['JetBrains_Mono'] opacity-70 mt-0.5">{s.capacity}</div>
+                      </button>
+                    ))}
                   </div>
-                  <div className="w-16 h-28 mx-auto border-2 border-black bg-white rounded flex flex-col justify-between p-1.5 relative overflow-hidden mb-4">
-                    <div className="absolute top-8 left-1.5 w-1 h-1 border-b border-r border-black" />
-                    <div className="absolute top-8 right-1.5 w-1 h-1 border-b border-l border-black" />
-                    <div className="absolute bottom-6 left-1.5 w-1 h-1 border-t border-r border-black" />
-                    <div className="absolute bottom-6 right-1.5 w-1 h-1 border-t border-l border-black" />
-                    <div className="bg-neutral-50 border border-black p-1 w-[54px] mx-auto mt-8 shadow-[1px_1px_0px_rgba(0,0,0,0.15)]">
-                      <div className="text-[4px] font-black leading-none text-center">POUCH.ECO</div>
-                      <div className="text-[4px] text-emerald-600 font-black text-center mt-0.5">
-                        Barrga Binya
-                      </div>
-                    </div>
-                  </div>
-                  <h4 className="font-black text-lg uppercase mb-2">Built-in Corner Card Slots</h4>
-                  <p className="text-xs text-neutral-600 font-semibold leading-relaxed">
-                    The front face of the stock pouch is pre-diecut with four precision corner slots. Simply slide custom-printed blend cards in. The card stays completely flat, and gives an extremely rustic, boutique artisan appearance.
-                  </p>
                 </div>
+
+                {/* Live Stats Summary */}
+                <div className="border-4 border-black bg-neutral-900 text-white p-4 font-['JetBrains_Mono'] text-xs font-bold space-y-2 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                  <div className="flex justify-between border-b border-neutral-800 pb-1.5">
+                    <span className="text-neutral-400">Total Bags Volume:</span>
+                    <span className="text-[#00FFFF] font-black text-sm">{(numDesigns * qtyPerDesign).toLocaleString()} pcs</span>
+                  </div>
+                  <div className="flex justify-between border-b border-neutral-800 pb-1.5">
+                    <span className="text-neutral-400">Target Budget Allocation:</span>
+                    <span className="text-[#D4FF00] font-black">${totalBudget.toLocaleString()} USD</span>
+                  </div>
+                  <div className="flex justify-between items-center text-[10px] pt-1 text-emerald-400">
+                    <span>⚡ Plate Cylinder Cost:</span>
+                    <span className="bg-emerald-950 border border-emerald-500 px-1 py-0.5 rounded font-black">$0 FREE</span>
+                  </div>
+                </div>
+
               </div>
 
-              <div className="lg:col-span-6 space-y-6">
-                <NeoBadge color="magenta">ZERO_SETUP_STARTUP_HACK</NeoBadge>
+              {/* Right Column: Comparative Results Panel */}
+              <div className="lg:col-span-7 space-y-6">
                 
-                <h2 className="font-black text-4xl md:text-5xl uppercase tracking-tighter leading-none text-black">
-                  Dodge Setup Cylinder Costs Entirely
-                </h2>
+                {['stock-cards', 'custom-print', 'recyclable', 'compostable'].map(optionId => {
+                  const data = calculateOptionPrice(optionId)
+                  const isSafe = data.totalCost <= totalBudget
+                  const budgetDiff = Math.abs(data.totalCost - totalBudget)
 
-                <p className="font-semibold text-neutral-700 leading-relaxed text-sm">
-                  For young brands launch-testing their brand, running 4 different full custom-printed digital pouches (Pippingarra, Barrga Binya, Karijini, Cooya Pooya) can be expensive. Pouch.eco introduces a genius packaging hack: buy standard Matte White or Kraft stock flat-bottom pouches in bulk, and attachment print coffee roast blend name cards.
-                </p>
-
-                <div className="border-l-4 border-[#FF00FF] pl-4 space-y-3 font-['JetBrains_Mono'] text-xs font-bold text-neutral-700">
-                  <div className="flex gap-2">
-                    <span className="text-[#FF00FF]">✓</span> 
-                    <span><strong>Zero plate costs:</strong> Attach name cards tightly to differentiate blends.</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="text-[#FF00FF]">✓</span> 
-                    <span><strong>Ultra Low MoQ:</strong> Share 1,000 blank pouches across all blends. Just print separate cards!</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="text-[#FF00FF]">✓</span> 
-                    <span><strong>Artisan shelf appeal:</strong> Tucked paper cards convey handcrafted attention to detail.</span>
-                  </div>
-                </div>
-
-                <div className="pt-2 flex flex-col sm:flex-row gap-4">
-                  <button
-                    type="button"
-                    onClick={() => setVariationMethod('card-strip')}
-                    className="px-6 py-3 border-2 border-black bg-neutral-900 text-white font-black text-xs uppercase hover:bg-neutral-800 shadow-[4px_4px_0px_rgba(0,0,0,1)] active:translate-y-0.5"
-                  >
-                    Test Elastic Strip Preview
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setVariationMethod('card-slot')}
-                    className="px-6 py-3 border-2 border-black bg-white text-black font-black text-xs uppercase hover:bg-neutral-50 shadow-[4px_4px_0px_rgba(0,0,0,1)] active:translate-y-0.5"
-                  >
-                    Test Card-Slot Preview
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Subscription tiers */}
-        <section className="py-24 border-b-4 border-black bg-neutral-50 font-['Space_Grotesk']">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <NeoBadge color="lime">PaaS_SUBSCRIPTION_PLANS</NeoBadge>
-              <h2 className="font-black text-4xl md:text-6xl uppercase tracking-tight mt-4">
-                PaaS Subscription Tiers
-              </h2>
-              <p className="text-lg text-neutral-700 font-semibold mt-2">
-                Packaging-as-a-Service is styled like a premium SaaS. We provide the fully-coded website, premium custom pouches, and marketing assets—all you need to do is provide your product!
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-3 gap-8">
-              <div className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between hover:-translate-y-1.5 transition-transform">
-                <div className="space-y-6">
-                  <div className="flex justify-between items-center">
-                    <NeoBadge color="lime">Starter Track</NeoBadge>
-                    <span className="font-['JetBrains_Mono'] text-neutral-400 text-xs font-black">// TIER_01</span>
-                  </div>
-
-                  <div>
-                    <h3 className="font-black text-3xl uppercase text-black leading-none">PaaS Bootstrap</h3>
-                    <p className="text-xs text-neutral-500 mt-1 uppercase font-bold">Blank Pouches + Blend Name Cards</p>
-                  </div>
-
-                  <div className="border-y-4 border-dashed border-black py-4">
-                    <div className="text-3xl font-black font-['JetBrains_Mono'] text-black">
-                      $1.50 <span className="text-xs font-bold text-neutral-500">/ bag unit</span>
-                    </div>
-                    <p className="text-[10px] text-neutral-500 font-bold uppercase mt-1">Min run quantity: 100 bags (mix blends)</p>
-                  </div>
-
-                  <ul className="space-y-2.5 text-xs font-semibold text-neutral-700">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> Blank premium flat bottom pouches
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> Custom roast cards (4 blend color templates)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> Choice of elastic bands or pre-cut slots
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> <strong>Free Shopify landing page setup</strong>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> <strong>Free 3D visual mock-ups</strong>
-                    </li>
-                    <li className="flex items-center gap-2 font-bold text-black bg-[#D4FF00]/20 px-2 py-0.5 border border-dashed border-[#D4FF00] inline-block rounded">
-                      👉 Just provide roasted coffee product!
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="pt-8">
-                  <a
-                    href="https://calendly.com/30-min-free-packaging-consultancy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-black text-[#D4FF00] border-2 border-black font-black uppercase text-xs py-3 px-6 text-center hover:bg-neutral-800 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 inline-block"
-                  >
-                    Subscribe Bootstrap Track
-                  </a>
-                </div>
-              </div>
-
-              <div className="border-4 border-black bg-white p-8 shadow-[12px_12px_0px_0px_rgba(214,255,0,1)] border-t-[#D4FF00] flex flex-col justify-between hover:-translate-y-1.5 transition-transform relative">
-                <div className="absolute -top-3.5 left-6 bg-black text-[#D4FF00] border-2 border-black text-[9px] font-black uppercase px-2 py-0.5 tracking-widest shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  🔥 POPULAR ACCELERATOR CHOICE
-                </div>
-                
-                <div className="space-y-6">
-                  <div className="flex justify-between items-center">
-                    <NeoBadge color="cyan">Growth Track</NeoBadge>
-                    <span className="font-['JetBrains_Mono'] text-neutral-400 text-xs font-black">// TIER_02</span>
-                  </div>
-
-                  <div>
-                    <h3 className="font-black text-3xl uppercase text-black leading-none">PaaS Bespoke</h3>
-                    <p className="text-xs text-neutral-500 mt-1 uppercase font-bold">100% Custom Edge-to-Edge Print</p>
-                  </div>
-
-                  <div className="border-y-4 border-dashed border-black py-4">
-                    <div className="text-3xl font-black font-['JetBrains_Mono'] text-emerald-600">
-                      From $1.15 <span className="text-xs font-bold text-neutral-500">/ unit (Option B)</span>
-                    </div>
-                    <p className="text-[10px] text-neutral-500 font-bold uppercase mt-1">Plate Cylinder Setup Cost: $0 Free</p>
-                  </div>
-
-                  <ul className="space-y-2.5 text-xs font-semibold text-neutral-700">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> Full digital printing (Structures B & C)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> High-barrier EVOH or certified Compostable
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> Custom color side-gusset outline work
-                    </li>
-                    <li className="flex items-center gap-2 text-emerald-700 font-black">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> <strong>Free Custom Shopify & subscriptions</strong>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> <strong>Free hyper-premium 3D mockup assets</strong>
-                    </li>
-                    <li className="flex items-center gap-2 font-bold text-black bg-[#D4FF00]/20 px-2 py-0.5 border border-dashed border-[#D4FF00] inline-block rounded">
-                      👉 Just provide roasted coffee product!
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="pt-8">
-                  <a
-                    href="https://calendly.com/30-min-free-packaging-consultancy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-[#D4FF00] text-black border-2 border-black font-black uppercase text-xs py-3 px-6 text-center hover:bg-[#bce000] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 inline-block"
-                  >
-                    Configure Custom Order
-                  </a>
-                </div>
-              </div>
-
-              <div className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between hover:-translate-y-1.5 transition-transform">
-                <div className="space-y-6">
-                  <div className="flex justify-between items-center">
-                    <NeoBadge color="magenta">Enterprise Track</NeoBadge>
-                    <span className="font-['JetBrains_Mono'] text-neutral-400 text-xs font-black">// TIER_03</span>
-                  </div>
-
-                  <div>
-                    <h3 className="font-black text-3xl uppercase text-black leading-none">PaaS Scale</h3>
-                    <p className="text-xs text-neutral-500 mt-1 uppercase font-bold">Wholesale Gravure Volume runs</p>
-                  </div>
-
-                  <div className="border-y-4 border-dashed border-black py-4">
-                    <div className="text-3xl font-black font-['JetBrains_Mono'] text-black">
-                      Lowest unit price <span className="text-xs font-bold text-[#FF00FF]">From $0.74</span>
-                    </div>
-                    <p className="text-[10px] text-neutral-500 font-bold uppercase mt-1">Run quantity: 5,000+ bags</p>
-                  </div>
-
-                  <ul className="space-y-2.5 text-xs font-semibold text-neutral-700">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> Embossed metallics or spot gloss varnishes
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> Lowest wholesale unit overhead
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> Premium rotogravure wholesale quality
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> <strong>Free Custom Enterprise Store setup</strong>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-500 stroke-[3] flex-shrink-0" /> Full video press kits & social templates
-                    </li>
-                    <li className="flex items-center gap-2 font-bold text-black bg-[#D4FF00]/20 px-2 py-0.5 border border-dashed border-[#D4FF00] inline-block rounded">
-                      👉 Just provide roasted coffee product!
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="pt-8">
-                  <a
-                    href="https://calendly.com/30-min-free-packaging-consultancy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-black text-white border-2 border-black font-black uppercase text-xs py-3 px-6 text-center hover:bg-neutral-800 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 inline-block"
-                  >
-                    Contact Enterprise Desk
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 1-on-1 brand accelerator */}
-        <section className="py-24 bg-white border-b-4 border-black font-['Space_Grotesk']">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-              <div className="max-w-2xl">
-                <NeoBadge color="lime">ONE-STOP_ACCELERATION_PROGRAM</NeoBadge>
-                <h2 className="font-black text-4xl md:text-6xl uppercase tracking-tight mt-4">
-                  1-ON-1 BRAND ACCELERATOR SERVICES
-                </h2>
-                <p className="text-lg text-neutral-600 font-semibold mt-2">
-                  We do not just supply bags. Pouch.eco provides a full suite of brand launching services for our B2B customers—100% FREE.
-                </p>
-              </div>
-              <ShoppingBag className="hidden md:block w-16 h-16 text-neutral-400 rotate-12" />
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="border-4 border-black p-6 bg-neutral-50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:rotate-1 transition-transform">
-                <div className="w-12 h-12 border-2 border-black bg-white rounded flex items-center justify-center font-bold text-2xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-6">
-                  💻
-                </div>
-                <h3 className="font-black text-2xl uppercase mb-3">Free Website Setup</h3>
-                <p className="text-xs font-semibold text-neutral-600 leading-relaxed mb-6">
-                  We will create a free high-converting Shopify or custom landing page mapped specifically for your coffee brand's retail and subscription channels. Let our dev team build your digital shop.
-                </p>
-                <span className="font-['JetBrains_Mono'] text-[10px] font-black text-primary-600 uppercase bg-[#D4FF00] px-2 py-0.5 border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                  VALUE: $1,200 (FREE)
-                </span>
-              </div>
-
-              <div className="border-4 border-black p-6 bg-neutral-50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-rotate-1 transition-transform">
-                <div className="w-12 h-12 border-2 border-black bg-white rounded flex items-center justify-center font-bold text-2xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-6">
-                  🎨
-                </div>
-                <h3 className="font-black text-2xl uppercase mb-3">Free 3D Mock-up Setup</h3>
-                <p className="text-xs font-semibold text-neutral-600 leading-relaxed mb-6">
-                  Stop using generic flat images. We provide realistic, hyper-premium 3D visual mockups of your customized coffee pouches resting in studio lighting environments, optimized for social media.
-                </p>
-                <span className="font-['JetBrains_Mono'] text-[10px] font-black text-primary-600 uppercase bg-[#00FFFF] px-2 py-0.5 border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                  VALUE: $450 (FREE)
-                </span>
-              </div>
-
-              <div className="border-4 border-black p-6 bg-neutral-50 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:rotate-1 transition-transform">
-                <div className="w-12 h-12 border-2 border-black bg-white rounded flex items-center justify-center font-bold text-2xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-6">
-                  📐
-                </div>
-                <h3 className="font-black text-2xl uppercase mb-3">Free Prepress Layouts</h3>
-                <p className="text-xs font-semibold text-neutral-600 leading-relaxed mb-6">
-                  Our in-house design specialists will layout your custom graphics, checking all fold marks, side gusset borders, bleed clearances, pocket zippers, and valve positions to guarantee flawless prints.
-                </p>
-                <span className="font-['JetBrains_Mono'] text-[10px] font-black text-primary-600 uppercase bg-[#FF00FF] text-white px-2 py-0.5 border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-                  VALUE: $350 (FREE)
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Lead Capture Form */}
-        <section className="py-24 bg-gradient-to-r from-neutral-900 to-neutral-800 text-white border-b-4 border-black font-['Space_Grotesk']">
-          <div className="max-w-5xl mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-12 gap-12 items-center">
-              <div className="md:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-1 text-[10px] font-black tracking-widest text-[#D4FF00] uppercase font-['JetBrains_Mono']">
-                  <Download className="w-3.5 h-3.5 animate-bounce" /> INSTANT KICKSTART DOWNLOAD
-                </div>
-                
-                <h2 className="font-black text-4xl md:text-5xl uppercase tracking-tighter leading-none">
-                  GET THE PaaS COFFEE<br/>
-                  STARTUP ACCELERATOR GUIDE
-                </h2>
-
-                <p className="text-base text-neutral-300 font-semibold leading-relaxed">
-                  Download the verified, comprehensive Pouch.eco Coffee Brand Accelerator Guide containing the exact lamination layers formula, pouch side gussets artwork dieline vectors, and zero setup card variation guides.
-                </p>
-
-                <div className="border-l-4 border-[#D4FF00] pl-4 space-y-2 text-xs font-['JetBrains_Mono'] font-bold text-neutral-300">
-                  <div>// Guide Format: UTF-8 Document (Highly Detailed Technical Specifications)</div>
-                  <div>// Compiled by: Ryan Wong, Biopolymer Pouch Engineer</div>
-                  <div>// Content: Western Australia climate advisory & attached card template blueprints</div>
-                </div>
-              </div>
-
-              <div className="md:col-span-5">
-                <AnimatePresence mode="wait">
-                  {!downloadSuccess ? (
-                    <motion.form
-                      key="lead-form"
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -15 }}
-                      onSubmit={handleEmailSubmit}
-                      className="border-4 border-[#D4FF00] bg-black p-6 shadow-[8px_8px_0px_0px_#D4FF00] space-y-4"
+                  return (
+                    <div 
+                      key={optionId} 
+                      className={`border-4 border-black p-5 relative overflow-hidden transition-all bg-white shadow-[6px_6px_0px_rgba(0,0,0,1)] ${data.isBelowMoq ? 'opacity-65' : ''}`}
                     >
-                      <h3 className="font-black text-xl uppercase tracking-tight text-[#D4FF00] mb-2">
-                        Unlock Accelerator Guide
-                      </h3>
+                      {/* Budget Match Corner Badge */}
+                      <div className="absolute top-0 right-0 border-b-2 border-l-2 border-black font-['JetBrains_Mono'] text-[9px] font-black uppercase px-2.5 py-1" style={{ backgroundColor: data.isBelowMoq ? '#ef4444' : (isSafe ? '#10B981' : '#f59e0b'), color: data.isBelowMoq || isSafe ? 'white' : 'black' }}>
+                        {data.isBelowMoq ? 'BELOW MOQ (低於起訂)' : (isSafe ? '🟢 WITHIN BUDGET (安全)' : '🟡 ADJUST CONFIG (超預算)')}
+                      </div>
 
-                      <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1">
-                          Corporate Email Address
-                        </label>
-                        <div className="relative">
-                          <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-neutral-500" />
-                          <input
-                            type="email"
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="e.g. founder@yourcoffeeco.com"
-                            className="w-full bg-neutral-900 border-2 border-neutral-700 pl-10 pr-4 py-3 font-['JetBrains_Mono'] text-sm text-white focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00]"
-                          />
+                      <div className="flex flex-col md:flex-row gap-5 items-start">
+                        {/* Visual 3D Representation */}
+                        <div className="flex-shrink-0 bg-neutral-50 border-2 border-neutral-200 p-2.5 rounded flex items-center justify-center shadow-inner">
+                          <PouchVisualRender optionId={optionId} accentColor={data.accentColor || '#10B981'} />
+                        </div>
+
+                        {/* Text and stats */}
+                        <div className="flex-grow space-y-2.5 w-full">
+                          <div>
+                            <span className="bg-black text-white px-2 py-0.5 text-[9px] font-black uppercase font-['JetBrains_Mono'] tracking-wider">
+                              {data.badge}
+                            </span>
+                            <h3 className="text-lg font-black uppercase text-neutral-850 mt-1.5 flex items-center gap-1.5">
+                              {optionId === 'stock-cards' && 'Attached Card Starter'}
+                              {optionId === 'custom-print' && 'Full Digital Pouch'}
+                              {optionId === 'recyclable' && 'Mono-PE EVOH Recyclable'}
+                              {optionId === 'compostable' && '100% Home Compostable Kraft'}
+                            </h3>
+                            <p className="text-xs text-neutral-500 font-semibold leading-relaxed mt-1">
+                              {data.desc}
+                            </p>
+                          </div>
+
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 pt-2 border-t border-neutral-100 font-['JetBrains_Mono'] text-[11px] font-bold text-neutral-700">
+                            <div>
+                              <span className="text-neutral-400 block text-[9px]">Unit Price:</span>
+                              <span className="text-black font-black text-sm">${data.unitPrice.toFixed(2)}</span>
+                            </div>
+                            <div>
+                              <span className="text-neutral-400 block text-[9px]">Total Cost:</span>
+                              <span className="text-emerald-600 font-black text-sm">${data.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
+                            </div>
+                            <div>
+                              <span className="text-neutral-400 block text-[9px]">Certification:</span>
+                              <span className="text-neutral-800 font-black">{data.certLogo}</span>
+                            </div>
+                            <div>
+                              <span className="text-neutral-400 block text-[9px]">Avg Lead Time:</span>
+                              <span className="text-neutral-800 font-black">{data.leadTime}</span>
+                            </div>
+                          </div>
+
+                          {/* Dynamic Cost-Share bar chart */}
+                          {!data.isBelowMoq && (
+                            <div className="space-y-1 pt-1">
+                              <div className="flex justify-between text-[9px] font-bold text-neutral-400 font-['JetBrains_Mono']">
+                                <span>Budget Allocation Share</span>
+                                <span className={isSafe ? 'text-emerald-600' : 'text-amber-600'}>
+                                  {Math.round((data.totalCost / totalBudget) * 100)}%
+                                </span>
+                              </div>
+                              <div className="w-full h-2 border border-black bg-neutral-100 rounded-sm overflow-hidden">
+                                <div 
+                                  className="h-full border-r border-black" 
+                                  style={{ 
+                                    width: `${Math.min((data.totalCost / totalBudget) * 100, 100)}%`,
+                                    backgroundColor: isSafe ? '#10B981' : '#f59e0b'
+                                  }} 
+                                />
+                              </div>
+                              {!isSafe && (
+                                <p className="text-[9px] text-amber-600 font-black uppercase font-['JetBrains_Mono']">
+                                  ⚠️ Exceeds budget by +${budgetDiff.toLocaleString(undefined, {maximumFractionDigits: 2})} USD. Adjust configuration or increase investment.
+                                </p>
+                              )}
+                            </div>
+                          )}
+
+                          {data.isBelowMoq && (
+                            <div className="bg-red-50 border-2 border-red-500/20 p-2 text-[10px] text-red-700 font-bold flex items-center gap-1.5">
+                              <AlertTriangle className="w-3.5 h-3.5 flex-shrink-0" />
+                              <span>Below Minimum Order Quantity. MOQ is {data.moq} pieces per design.</span>
+                            </div>
+                          )}
+
                         </div>
                       </div>
+                    </div>
+                  )
+                })}
 
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-[#D4FF00] text-black font-black uppercase text-sm py-4 border-2 border-black hover:bg-[#bce000] active:translate-y-0.5 transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                      >
-                        {isSubmitting ? (
-                          <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                        ) : (
-                          <>
-                            <Download className="w-4 h-4" /> Download PaaS Guide
-                          </>
-                        )}
-                      </button>
-
-                      <p className="text-[9px] text-neutral-500 font-semibold text-center">
-                        We value privacy. Your email will be logged to verify dieline download permissions.
-                      </p>
-                    </motion.form>
-                  ) : (
-                    <motion.div
-                      key="success-card"
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="border-4 border-[#10B981] bg-black p-6 shadow-[8px_8px_0px_0px_#10B981] space-y-6 text-center"
-                    >
-                      <div className="w-12 h-12 rounded-full bg-emerald-500/10 border-2 border-emerald-500 flex items-center justify-center mx-auto text-emerald-500">
-                        <CheckCircle className="w-6 h-6" />
-                      </div>
-
-                      <div className="space-y-2">
-                        <h3 className="font-black text-2xl uppercase tracking-tight text-white">
-                          DOWNLOAD STARTED!
-                        </h3>
-                        <p className="text-xs text-neutral-300 font-semibold leading-relaxed">
-                          We have automatically generated and triggered the download for <span className="text-[#10B981] font-bold">Pouch_Eco_PaaS_Accelerator_Guide.txt</span> in your browser.
-                        </p>
-                      </div>
-
-                      <div className="bg-neutral-900 border border-neutral-800 p-3 text-[10px] text-neutral-400 font-['JetBrains_Mono'] leading-relaxed">
-                        Logged email: <span className="text-white font-bold">{email}</span>. Click the button below if your browser did not start the download automatically.
-                      </div>
-
-                      <div className="space-y-2 pt-2">
-                        <button
-                          type="button"
-                          onClick={triggerPDFDownload}
-                          className="w-full bg-neutral-900 border-2 border-neutral-700 text-white font-bold text-xs py-2 hover:bg-neutral-800 transition"
-                        >
-                          [Manually Re-Download]
-                        </button>
-                        
-                        <NeoButton variant="primary" to="/store" className="w-full text-xs !py-3">
-                          Visit Pouch Store
-                        </NeoButton>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
+
             </div>
+
+            {/* Section: One-Click WhatsApp RFQ Summary Generator */}
+            <div className="border-4 border-black bg-neutral-900 text-white p-6 shadow-[10px_10px_0px_rgba(0,0,0,1)] mt-12 space-y-6">
+              <div className="flex items-center gap-2 border-b border-neutral-800 pb-4">
+                <Phone className="w-6 h-6 text-[#D4FF00] animate-bounce" />
+                <div>
+                  <h3 className="text-2xl font-black uppercase tracking-tight">1-Click Parameter WhatsApp RFQ</h3>
+                  <p className="text-xs text-neutral-400 font-['JetBrains_Mono'] font-bold">一鍵複製參數配置 & 發送客服</p>
+                </div>
+              </div>
+
+              <p className="text-xs text-neutral-300 font-semibold leading-relaxed max-w-3xl">
+                Ready to review samples or final artwork blueprints? Click below to instantly copy your calculated packaging parameters into a standard RFQ string and dispatch it straight to our packaging support advisors over WhatsApp!
+              </p>
+
+              <div className="bg-neutral-950 border border-neutral-800 p-4 rounded text-xs font-['JetBrains_Mono'] text-neutral-300 leading-relaxed font-bold relative group">
+                <button
+                  type="button"
+                  onClick={() => {
+                    navigator.clipboard.writeText(getBilingualRfqText())
+                    setWhatsappCopied(true)
+                    setTimeout(() => setWhatsappCopied(false), 2000)
+                  }}
+                  className="absolute top-3 right-3 bg-neutral-900 hover:bg-black text-[#D4FF00] border border-neutral-700 px-2 py-1 text-[10px] flex items-center gap-1 cursor-pointer transition-all"
+                >
+                  <Copy className="w-3 h-3" />
+                  {whatsappCopied ? 'Copied!' : 'Copy'}
+                </button>
+                <pre className="whitespace-pre-wrap select-all pr-12 font-['JetBrains_Mono']">
+                  {getBilingualRfqText()}
+                </pre>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleWhatsappCopy}
+                className="w-full bg-[#D4FF00] text-black font-black uppercase text-sm py-4 border-2 border-black hover:bg-[#bce000] active:translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-[4px_4px_0px_rgba(255,255,255,0.2)]"
+              >
+                <Phone className="w-4 h-4 fill-black" />
+                Copy Config & Open WhatsApp Support (一鍵複製配置並開啟 WhatsApp)
+              </button>
+            </div>
+
           </div>
         </section>
-
       </PouchLayout>
     )
   }
 
-  // B2B ACHIEVEPACK CORPORATE SANS-SERIF RENDER
+  // --- HYPER-PREMIUM DARK GREEN GLASSMORPHISM STYLING FOR ACHIEVEPACK DOMAIN ---
   return (
-    <div className="min-h-screen bg-neutral-50 text-neutral-800 font-sans selection:bg-purple-500 selection:text-white">
+    <div className="min-h-screen bg-neutral-950 text-neutral-200 font-sans selection:bg-emerald-500 selection:text-white">
       <Helmet>
-        <title>PaaS B2B Coffee Brand Accelerator Suite | Subscription | Achieve Pack</title>
-        <meta name="description" content="Launch your specialty coffee brand with Achieve Pack Packaging-as-a-Service (PaaS). Get custom flat-bottom degassing valve pouches, 100% free Shopify website builds, and premium 3D brand assets." />
+        <title>B2B Coffee Packaging Budget & Investment Calculator | Achieve Pack</title>
+        <meta name="description" content="Calculate your startup coffee bags packaging costs instantly with our interactive B2B mortgage-style budget calculator. Real-time rates for Stock Pouches, Recyclable PE+EVOH, and Backyard Compostable bags." />
         <link rel="canonical" href="https://achievepack.com/coffee" />
       </Helmet>
 
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-[#0f172a] via-[#1e1b4b] to-[#0f172a] text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.15)_0%,transparent_70%)] pointer-events-none" />
+      <section className="pt-32 pb-24 bg-gradient-to-b from-[#022c22] via-[#091a13] to-[#040d0a] text-white relative overflow-hidden">
         
+        {/* Glowing environmental light backgrounds */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.08)_0%,transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(52,211,153,0.08)_0%,transparent_50%)] pointer-events-none" />
+
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Header Introductions */}
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+              <Sparkles className="w-3.5 h-3.5 mr-1.5 text-emerald-300 animate-spin-slow" />
+              INTELLIGENT TELEMETRY CONFIGURATOR
+            </span>
+            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight text-white leading-tight font-['Outfit']">
+              Brand Packaging Investment Calculator
+            </h1>
+            <p className="text-emerald-400 font-semibold uppercase tracking-wider text-sm font-mono">
+              ☕ 咖啡茶葉品牌包裝預算與配置計算器
+            </p>
+            <p className="text-neutral-400 text-base leading-relaxed max-w-2xl mx-auto">
+              Calculate specialty B2B bag pricing in real-time, modeled precisely like a mortgage calculator. Instantly compare conventional, recyclable, and backyard compostable structures to match your startup budget goals.
+            </p>
+          </div>
+
+          {/* Interactive Calculator Dashboard */}
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
             
-            {/* Left: Info */}
-            <div className="lg:col-span-7 space-y-6">
-              <B2bBadge variant="accent">
-                <Sparkles className="w-3.5 h-3.5 inline mr-1 animate-spin-slow text-cyan-600" />
-                PACKAGING-AS-A-SERVICE // PaaS STARTER SUITE
-              </B2bBadge>
+            {/* Left Column: Glassmorphic Control panel */}
+            <div className="lg:col-span-5 bg-emerald-950/20 backdrop-blur-xl border border-emerald-500/10 p-6 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 to-transparent pointer-events-none" />
               
-              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight uppercase font-['Outfit']">
-                Launch Your Coffee Brand<br/>
-                with <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400">PaaS Accelerator</span>
-              </h1>
-              
-              <p className="text-neutral-300 text-lg leading-relaxed max-w-2xl">
-                A complete specialty coffee launch solution styled like a premium SaaS pricing model. We provide custom printed degassing-valve flat bottom pouches, free high-converting Shopify store builds, and photorealistic 3D brand renders. All you need to do is provide your roasted product!
-              </p>
-
-              <div className="flex flex-wrap gap-3 font-mono text-xs">
-                <span className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">☕ Low MOQ: 100 Bags / Blend</span>
-                <span className="bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">⚡ Prepress setup fee: $0</span>
-                <span className="bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded-lg border border-emerald-500/20">🌱 100% Home Compostable Option</span>
+              <div className="flex items-center gap-2.5 border-b border-emerald-500/10 pb-4">
+                <RefreshCw className="w-5 h-5 text-emerald-400 animate-spin-slow" />
+                <h2 className="text-lg font-bold uppercase tracking-wider text-white">Adjust Parameters</h2>
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-3.5 font-bold rounded-xl text-center shadow-lg bg-purple-600 hover:bg-purple-700 text-white transition-all transform hover:-translate-y-0.5"
-                >
-                  Book Packaging Call
-                </a>
-                <button
-                  type="button"
-                  onClick={() => {
-                    const el = document.getElementById('b2b-calc')
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-                  }}
-                  className="px-6 py-3.5 font-semibold rounded-xl text-center border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-all"
-                >
-                  Configure Bag Price
-                </button>
-              </div>
-            </div>
-
-            {/* Right: Immersive Interactive Selector Card */}
-            <div className="lg:col-span-5" id="b2b-calc">
-              <div 
-                ref={heroCardRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={() => setTilt({ x: 0, y: 0 })}
-                style={{ 
-                  transform: `perspective(1000px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`,
-                  transition: 'transform 0.15s ease'
-                }}
-                className="bg-white text-neutral-850 p-6 rounded-3xl border border-neutral-200 shadow-2xl relative overflow-hidden"
-              >
-                <div 
-                  className="absolute right-0 top-0 bottom-0 w-4 transition-colors duration-500"
-                  style={{ backgroundColor: selectedBlend.hex }}
+              {/* 1. Target Budget */}
+              <div className="space-y-2">
+                <div className="flex justify-between items-center font-mono text-xs text-neutral-400">
+                  <span>1. Target Investment (目標預算)</span>
+                  <span className="text-emerald-300 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                    ${totalBudget.toLocaleString()} USD
+                  </span>
+                </div>
+                <input 
+                  type="range" 
+                  min="500" 
+                  max="15000" 
+                  step="250"
+                  value={totalBudget} 
+                  onChange={(e) => setTotalBudget(parseInt(e.target.value))}
+                  className="w-full h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-emerald-400" 
                 />
-
-                <div className="flex justify-between items-start mb-6">
-                  <div>
-                    <B2bBadge variant="primary">PaaS_CONFIGURATOR</B2bBadge>
-                    <h2 className="text-xl font-bold uppercase text-neutral-850 mt-1">Telemetry Visualizer</h2>
-                  </div>
-                  <Coffee className="w-6 h-6 text-neutral-800 animate-bounce" />
-                </div>
-
-                <PouchVisualizerElement />
-
-                <div className="space-y-4 text-xs font-semibold">
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-2">
-                      1. Select Roast Blend & Gusset Accent
-                    </label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {BLENDS.map((blend) => (
-                        <button
-                          key={blend.id}
-                          type="button"
-                          onClick={() => setSelectedBlend(blend)}
-                          className={`border p-2 rounded-xl text-left transition-all flex items-center justify-between ${
-                            selectedBlend.id === blend.id 
-                              ? 'bg-neutral-900 border-neutral-900 text-white shadow-md' 
-                              : 'bg-white border-neutral-200 hover:bg-neutral-50 text-neutral-800'
-                          }`}
-                        >
-                          <div>
-                            <div className="font-bold text-xs leading-none mb-1">{blend.name}</div>
-                            <div className="text-[9px] opacity-80 leading-none">{blend.roast}</div>
-                          </div>
-                          <span 
-                            className="w-3 h-3 rounded-full border border-neutral-300" 
-                            style={{ backgroundColor: blend.hex }}
-                          />
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-2">
-                      2. Select Customization Method
-                    </label>
-                    <div className="grid grid-cols-3 gap-2">
-                      {[
-                        { id: 'digital-print', label: 'Full Digital', icon: '🎨' },
-                        { id: 'card-strip', label: 'Card Band', icon: '🎗️' },
-                        { id: 'card-slot', label: 'Card Slot', icon: '📇' }
-                      ].map((method) => (
-                        <button
-                          key={method.id}
-                          type="button"
-                          onClick={() => setVariationMethod(method.id as any)}
-                          className={`border p-2 rounded-xl text-center transition-all ${
-                            variationMethod === method.id 
-                              ? 'bg-neutral-900 border-neutral-900 text-white shadow-md' 
-                              : 'bg-white border-neutral-200 hover:bg-neutral-50 text-neutral-800'
-                          }`}
-                        >
-                          <div className="text-sm mb-0.5">{method.icon}</div>
-                          <div className="font-bold uppercase tracking-tighter leading-none">{method.label}</div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-2">
-                      3. Select Run Quantity (MOQ 100 pcs)
-                    </label>
-                    <div className="grid grid-cols-5 gap-1 font-mono text-xs">
-                      {[100, 500, 1000, 2000, 5000].map((qty) => (
-                        <button
-                          key={qty}
-                          type="button"
-                          onClick={() => setSelectedQty(qty as any)}
-                          className={`border py-2 rounded-lg transition-all text-center ${
-                            selectedQty === qty 
-                              ? 'bg-purple-600 border-purple-600 text-white font-bold shadow-md' 
-                              : 'bg-white border-neutral-200 hover:bg-neutral-50 text-neutral-700'
-                          }`}
-                        >
-                          {qty}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-neutral-500 mb-2">
-                      4. Select Bag Capacity Size
-                    </label>
-                    <div className="grid grid-cols-4 gap-1.5 font-mono text-xs">
-                      {SIZES.map((size) => (
-                        <button
-                          key={size.id}
-                          type="button"
-                          onClick={() => setSelectedSize(size)}
-                          className={`border py-2 rounded-lg transition-all text-center ${
-                            selectedSize.id === size.id 
-                              ? 'bg-cyan-500 border-cyan-500 text-white font-bold shadow-md' 
-                              : 'bg-white border-neutral-200 hover:bg-neutral-50 text-neutral-700'
-                          }`}
-                        >
-                          {size.id}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="bg-neutral-900 border border-neutral-800 p-4 text-white rounded-2xl shadow-inner space-y-2">
-                    <div className="flex justify-between border-b border-neutral-800 pb-1.5">
-                      <span className="uppercase text-neutral-400">// Material Choice:</span>
-                      <span className="font-bold text-purple-400">{materialSpecs[activeMaterial].chineseName}</span>
-                    </div>
-                    <div className="flex justify-between border-b border-neutral-800 pb-1.5">
-                      <span className="uppercase text-neutral-400">// Pouch Style & Size:</span>
-                      <span className="font-bold font-mono">{selectedSize.dimensions} ({selectedSize.id})</span>
-                    </div>
-                    <div className="flex justify-between border-b border-neutral-800 pb-1.5">
-                      <span className="uppercase text-neutral-400">// Reclosure:</span>
-                      <span className="font-bold text-neutral-200">One-sided Zipper + Degassing Valve</span>
-                    </div>
-                    <div className="flex justify-between items-center text-white border-b border-neutral-800 pb-1.5">
-                      <span className="uppercase text-neutral-400">// Unit Price:</span>
-                      <span className="font-bold text-xl text-cyan-400 font-mono">{getUnitPrice()}</span>
-                    </div>
-                    <div className="flex justify-between items-center text-[#D4FF00] pt-1">
-                      <span className="uppercase text-neutral-300 font-bold">Total Batch Cost:</span>
-                      <span className="font-black text-2xl text-purple-300 font-mono">{getTotalPrice()}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Advisory Specs */}
-      <section className="py-20 bg-white border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="flex items-center gap-3 mb-12">
-            <B2bBadge variant="warn">CLIMATIC_ADVISORY_REPORT</B2bBadge>
-            <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
-              Roast Quality Climate Protocol
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-12 gap-8 items-stretch">
-            <div className="md:col-span-7 space-y-6">
-              <div className="bg-amber-50/50 border border-amber-200 rounded-3xl p-6 relative">
-                <div className="absolute top-4 right-4 flex items-center gap-1 bg-amber-100 border border-amber-300 px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-amber-800">
-                  <AlertCircle className="w-3.5 h-3.5" /> Climate Advisory
-                </div>
-                
-                <h3 className="font-bold text-lg uppercase mb-3 text-amber-900 flex items-center gap-2">
-                  ☀️ Specialty Coffee Freshness Guidelines
-                </h3>
-                
-                <p className="text-sm font-semibold text-neutral-700 leading-relaxed mb-4">
-                  Roasted specialty coffee beans are highly susceptible to ambient temperature fluctuations and oxygen. Under elevated heat, crucial aromatic oils migrate to the surface of the beans and oxidize rapidly, volatilizing delicate floral/fruit cupping notes. High-efficiency degassing valves and air-tight resealable zip structures are absolutely mandatory to vent CO2 bloating pressure without allowing external oxygen degradation.
-                </p>
-
-                <div className="border-t border-amber-200 pt-4 text-xs font-semibold text-neutral-600 space-y-2">
-                  <p><strong>結構 A（極致阻隔防護 - 推薦）：</strong>Matte BOPP + Pure AL + Food-Grade PE（厚度 130μ）</p>
-                  <p>特點：純鋁箔核心層，提供接近 0 的透氧率（OTR）與透濕率（WVTR）。能完全阻隔陽光直射及高溫對熟豆油分的影響，最大程度延長保質期。</p>
+                <div className="flex justify-between text-[10px] text-neutral-500 font-mono">
+                  <span>$500 Min</span>
+                  <span>$7,500 Mid</span>
+                  <span>$15,000 Max</span>
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-3 gap-4">
-                <div className="border border-neutral-200 rounded-2xl p-4 bg-neutral-50 flex flex-col justify-between">
-                  <h4 className="font-bold text-xs uppercase text-neutral-500 mb-2">1. One-Sided Zipper</h4>
-                  <p className="text-xs text-neutral-600 leading-relaxed">
-                    Easy, airtight seal fitted on one-side to block air entry after retail opening.
-                  </p>
+              {/* 2. Number of Designs */}
+              <div className="space-y-2">
+                <div className="flex justify-between items-center font-mono text-xs text-neutral-400">
+                  <span>2. Number of Designs (口味款式)</span>
+                  <span className="text-cyan-300 font-bold bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
+                    {numDesigns} SKU{numDesigns > 1 ? 's' : ''}
+                  </span>
                 </div>
-                <div className="border border-neutral-200 rounded-2xl p-4 bg-neutral-50 flex flex-col justify-between">
-                  <h4 className="font-bold text-xs uppercase text-neutral-500 mb-2">2. Degassing Valve</h4>
-                  <p className="text-xs text-neutral-600 leading-relaxed">
-                    Welded one-way degassing valve vents built-up roasting CO2 gases safely.
-                  </p>
-                </div>
-                <div className="border border-neutral-200 rounded-2xl p-4 bg-neutral-50 flex flex-col justify-between">
-                  <h4 className="font-bold text-xs uppercase text-neutral-500 mb-2">3. Flat Bottom 3D</h4>
-                  <p className="text-xs text-neutral-600 leading-relaxed">
-                    Premium structural box bottom ensures perfect vertical shelf stance.
-                  </p>
+                <input 
+                  type="range" 
+                  min="1" 
+                  max="10" 
+                  step="1"
+                  value={numDesigns} 
+                  onChange={(e) => setNumDesigns(parseInt(e.target.value))}
+                  className="w-full h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-emerald-400" 
+                />
+                <div className="grid grid-cols-10 text-[9px] text-neutral-500 text-center font-mono">
+                  {[1,2,3,4,5,6,7,8,9,10].map(n => (
+                    <span key={n} className={numDesigns === n ? 'text-white font-bold' : ''}>{n}</span>
+                  ))}
                 </div>
               </div>
-            </div>
 
-            <div className="md:col-span-5 bg-[#0f172a] text-white border border-neutral-850 rounded-3xl p-6 flex flex-col justify-between shadow-lg">
-              <div>
-                <div className="flex gap-2 mb-6 font-mono text-[9px] font-bold">
-                  {[
-                    { id: 'high-barrier', label: 'STRUCTURE A', color: 'bg-amber-400 text-black' },
-                    { id: 'recyclable', label: 'STRUCTURE B', color: 'bg-cyan-400 text-black' },
-                    { id: 'compostable', label: 'STRUCTURE C', color: 'bg-emerald-500 text-white' }
-                  ].map((mat) => (
+              {/* 3. Quantity per Design */}
+              <div className="space-y-3">
+                <div className="flex justify-between items-center font-mono text-xs text-neutral-400">
+                  <span>3. Quantity per Design (每款印量)</span>
+                  <span className="text-purple-300 font-bold bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">
+                    {qtyPerDesign.toLocaleString()} Bags / design
+                  </span>
+                </div>
+                <input 
+                  type="range" 
+                  min="100" 
+                  max="5000" 
+                  step="50"
+                  value={qtyPerDesign} 
+                  onChange={(e) => setQtyPerDesign(parseInt(e.target.value))}
+                  className="w-full h-1.5 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-emerald-400" 
+                />
+                <div className="grid grid-cols-5 gap-1.5 font-mono text-[9px]">
+                  {[100, 500, 1000, 2000, 5000].map(q => (
                     <button
-                      key={mat.id}
+                      key={q}
                       type="button"
-                      onClick={() => setActiveMaterial(mat.id as any)}
-                      className={`px-2 py-1.5 border rounded-lg transition-all ${
-                        activeMaterial === mat.id 
-                          ? `${mat.color} border-transparent` 
-                          : 'border-neutral-700 text-neutral-400 hover:text-white hover:border-neutral-500'
-                      }`}
+                      onClick={() => setQtyPerDesign(q)}
+                      className={`py-1 rounded border transition-all ${qtyPerDesign === q ? 'bg-emerald-500 border-emerald-500 text-neutral-950 font-bold shadow-md shadow-emerald-500/25' : 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:text-white'}`}
                     >
-                      {mat.label}
+                      {q}
                     </button>
                   ))}
                 </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-[10px] text-neutral-400 font-mono uppercase tracking-wider">
-                      {materialSpecs[activeMaterial].chineseName}
-                    </span>
-                    <h3 className="text-lg font-bold uppercase text-white mt-1 leading-tight">
-                      {materialSpecs[activeMaterial].name}
-                    </h3>
-                    <p className="text-xs font-mono text-neutral-300 font-bold mt-2 bg-neutral-800 p-2 inline-block rounded border border-neutral-700">
-                      {materialSpecs[activeMaterial].structure}
-                    </p>
-                  </div>
-
-                  <p className="text-xs text-neutral-300 leading-relaxed font-semibold bg-neutral-850 p-3 rounded border border-neutral-800">
-                    {materialSpecs[activeMaterial].features}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-4 border-t border-neutral-800 pt-4 text-xs font-semibold">
-                    <div>
-                      <span className="text-neutral-500 uppercase block text-[9px] tracking-wider">OTR Oxygen Barrier:</span>
-                      <span className="text-white font-bold">{materialSpecs[activeMaterial].otr}</span>
-                    </div>
-                    <div>
-                      <span className="text-neutral-500 uppercase block text-[9px] tracking-wider">WVTR Vapor Barrier:</span>
-                      <span className="text-white font-bold">{materialSpecs[activeMaterial].wvtr}</span>
-                    </div>
-                    <div>
-                      <span className="text-neutral-500 uppercase block text-[9px] tracking-wider">Avg Shelf Life:</span>
-                      <span className="text-white font-bold">{materialSpecs[activeMaterial].shelflife}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border-t border-neutral-800 pt-4 mt-6 text-[9px] text-[#00FFFF] font-mono uppercase tracking-wider font-bold">
-                ⚙️ Eco Certification: {materialSpecs[activeMaterial].ecoRating}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Dynamic Tables B2B */}
-      <section className="py-20 bg-neutral-100">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <B2bBadge variant="primary">PaaS_DIGITAL_PRICING</B2bBadge>
-            <h2 className="text-3xl font-extrabold tracking-tight text-neutral-850 mt-2">
-              B2B Custom Digital Printing Matrices
-            </h2>
-            <p className="text-sm text-neutral-500 font-semibold mt-2">
-              Compare exact B2B custom digital printing price rates per design. No cylinder setup plate cost. Fully featured with one-sided zipper and high-efficiency degassing valve.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div className="bg-white rounded-3xl border border-neutral-200 p-6 shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[#00FFFF]/20 text-neutral-800 px-3 py-1 font-mono text-[9px] font-bold uppercase rounded-bl-xl border-l border-b border-neutral-200">
-                Option B: Recyclable
-              </div>
-
-              <h3 className="font-bold text-xl uppercase mb-1">Structure B Matrix</h3>
-              <p className="text-xs text-neutral-500 mb-6 uppercase font-bold">120μ Mono-PE + EVOH + PE (Curb-side recycle-ready)</p>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="border-b border-neutral-350 bg-neutral-50 font-mono text-[10px] uppercase font-bold text-neutral-700">
-                      <th className="py-3 px-2">Quantity</th>
-                      <th className="py-3 px-2">150g USD</th>
-                      <th className="py-3 px-2">250g USD</th>
-                      <th className="py-3 px-2">500g USD</th>
-                      <th className="py-3 px-2">1kg USD</th>
-                    </tr>
-                  </thead>
-                  <tbody className="font-mono text-xs font-semibold text-neutral-800">
-                    {[
-                      { qty: '100 pcs', rates: [11.78, 12.96, 14.14, 16.49] },
-                      { qty: '500 pcs', rates: [2.65, 2.92, 3.18, 3.71] },
-                      { qty: '1000 pcs', rates: [1.71, 1.88, 2.05, 2.39] },
-                      { qty: '2000 pcs', rates: [1.15, 1.27, 1.38, 1.61] },
-                      { qty: '5000 pcs', rates: [0.74, 0.81, 0.89, 1.04] }
-                    ].map((row, idx) => (
-                      <tr 
-                        key={idx} 
-                        className={`border-b border-neutral-100 hover:bg-neutral-50 transition-colors ${
-                          selectedQty === parseInt(row.qty) ? 'bg-[#00FFFF]/10 font-bold' : ''
-                        }`}
-                      >
-                        <td className="py-3 px-2 font-bold uppercase text-[10px]">{row.qty}</td>
-                        <td className="py-3 px-2">${row.rates[0].toFixed(2)}</td>
-                        <td className="py-3 px-2">${row.rates[1].toFixed(2)}</td>
-                        <td className="py-3 px-2">${row.rates[2].toFixed(2)}</td>
-                        <td className="py-3 px-2">${row.rates[3].toFixed(2)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl border border-neutral-200 p-6 shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[#D4FF00]/20 text-neutral-800 px-3 py-1 font-mono text-[9px] font-bold uppercase rounded-bl-xl border-l border-b border-neutral-200">
-                Option C: Compostable
-              </div>
-
-              <h3 className="font-bold text-xl uppercase mb-1">Structure C Matrix</h3>
-              <p className="text-xs text-neutral-500 mb-6 uppercase font-bold">125μ FSC Kraft + VM-Cello + PBAT (Home backyard compostable)</p>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="border-b border-neutral-350 bg-neutral-50 font-mono text-[10px] uppercase font-bold text-neutral-700">
-                      <th className="py-3 px-2">Quantity</th>
-                      <th className="py-3 px-2">150g USD</th>
-                      <th className="py-3 px-2">250g USD</th>
-                      <th className="py-3 px-2">500g USD</th>
-                      <th className="py-3 px-2">1kg USD</th>
-                    </tr>
-                  </thead>
-                  <tbody className="font-mono text-xs font-semibold text-neutral-800">
-                    {[
-                      { qty: '100 pcs', rates: [15.31, 16.85, 18.38, 21.44] },
-                      { qty: '500 pcs', rates: [3.45, 3.80, 4.14, 4.82] },
-                      { qty: '1000 pcs', rates: [2.22, 2.44, 2.67, 3.11] },
-                      { qty: '2000 pcs', rates: [1.50, 1.65, 1.79, 2.09] },
-                      { qty: '5000 pcs', rates: [0.96, 1.05, 1.16, 1.35] }
-                    ].map((row, idx) => (
-                      <tr 
-                        key={idx} 
-                        className={`border-b border-neutral-100 hover:bg-neutral-50 transition-colors ${
-                          selectedQty === parseInt(row.qty) ? 'bg-[#D4FF00]/10 font-bold' : ''
-                        }`}
-                      >
-                        <td className="py-3 px-2 font-bold uppercase text-[10px]">{row.qty}</td>
-                        <td className="py-3 px-2">${row.rates[0].toFixed(2)}</td>
-                        <td className="py-3 px-2">${row.rates[1].toFixed(2)}</td>
-                        <td className="py-3 px-2">${row.rates[2].toFixed(2)}</td>
-                        <td className="py-3 px-2">${row.rates[3].toFixed(2)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pouch card hacks B2B */}
-      <section className="py-24 bg-white border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Visual simulation of the cards attached to stock pouches */}
-            <div className="lg:col-span-6 grid sm:grid-cols-2 gap-6">
-              
-              {/* Option 1: Elastic Strip */}
-              <B2bCard className="text-center relative overflow-hidden bg-neutral-50 border-neutral-150">
-                <div className="absolute top-2 right-2 bg-neutral-800 text-white text-[8px] font-bold px-1.5 py-0.5 rounded uppercase">
-                  Option 1
-                </div>
-                <div className="w-16 h-28 mx-auto border border-neutral-300 bg-white rounded-lg flex flex-col justify-between p-1.5 relative overflow-hidden mb-4 shadow-sm">
-                  <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-4 border-x border-neutral-900 bg-[#A855F7]" />
-                  <div className="relative z-10 bg-white border border-neutral-200 rounded p-1 shadow w-[50px] mx-auto mt-8 transform rotate-1">
-                    <div className="text-[5px] font-bold leading-none text-left">POUCH.ECO</div>
-                    <div className="text-[4px] font-bold text-white px-0.5 inline-block mt-0.5 rounded-[2px]" style={{ backgroundColor: '#A855F7' }}>
-                      Karijini
-                    </div>
-                  </div>
-                </div>
-                <h4 className="font-bold text-lg mb-2">Vibrant Elastic Band Strip</h4>
-                <p className="text-xs text-neutral-500 leading-relaxed">
-                  A high-elastic colored rubber/fabric strip wraps around a white/kraft stock flat bottom bag. Secures a customizable, premium roast name card tightly to the front. Swap card colors to identify light, medium, or decaf blends in a second!
-                </p>
-              </B2bCard>
-
-              {/* Option 2: Pre-cut Slots */}
-              <B2bCard className="text-center relative overflow-hidden bg-neutral-50 border-neutral-150">
-                <div className="absolute top-2 right-2 bg-neutral-800 text-white text-[8px] font-bold px-1.5 py-0.5 rounded uppercase">
-                  Option 2
-                </div>
-                <div className="w-16 h-28 mx-auto border border-neutral-300 bg-white rounded-lg flex flex-col justify-between p-1.5 relative overflow-hidden mb-4 shadow-sm">
-                  <div className="absolute top-8 left-1.5 w-1 h-1 border-b border-r border-neutral-400" />
-                  <div className="absolute top-8 right-1.5 w-1 h-1 border-b border-l border-neutral-400" />
-                  <div className="absolute bottom-6 left-1.5 w-1 h-1 border-t border-r border-neutral-400" />
-                  <div className="absolute bottom-6 right-1.5 w-1 h-1 border-t border-l border-neutral-400" />
-                  <div className="bg-neutral-50 border border-neutral-200 p-1 w-[54px] mx-auto mt-8 shadow-sm rounded-[2px]">
-                    <div className="text-[4px] font-bold leading-none text-center">POUCH.ECO</div>
-                    <div className="text-[4px] text-emerald-600 font-bold text-center mt-0.5">
-                      Barrga Binya
-                    </div>
-                  </div>
-                </div>
-                <h4 className="font-bold text-lg mb-2">Built-in Corner Card Slots</h4>
-                <p className="text-xs text-neutral-500 leading-relaxed">
-                  The front face of the stock pouch is pre-diecut with four precision corner slots. Simply slide custom-printed blend cards in. The card stays completely flat, and gives an extremely rustic, boutique artisan appearance.
-                </p>
-              </B2bCard>
-            </div>
-
-            {/* Content info */}
-            <div className="lg:col-span-6 space-y-6">
-              <B2bBadge variant="primary">ZERO_SETUP_STARTUP_HACK</B2bBadge>
-              
-              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight text-neutral-850">
-                Dodge Setup Cylinder Costs Entirely
-              </h2>
-
-              <p className="text-neutral-600 leading-relaxed text-sm">
-                For young brands launch-testing their brand, running 4 different full custom-printed digital pouches (Pippingarra, Barrga Binya, Karijini, Cooya Pooya) can be expensive. Achieve Pack introduces a genius packaging hack: buy standard Matte White or Kraft stock flat-bottom pouches in bulk, and attachment print coffee roast blend name cards.
-              </p>
-
-              <div className="space-y-3 font-semibold text-xs text-neutral-700">
-                <div className="flex gap-2">
-                  <span className="text-purple-600 font-bold">✓</span> 
-                  <span><strong>Zero plate costs:</strong> Attach name cards tightly to differentiate blends.</span>
-                </div>
-                <div className="flex gap-2">
-                  <span className="text-purple-600 font-bold">✓</span> 
-                  <span><strong>Ultra Low MoQ:</strong> Share 1,000 blank pouches across all blends. Just print separate cards!</span>
-                </div>
-                <div className="flex gap-2">
-                  <span className="text-purple-600 font-bold">✓</span> 
-                  <span><strong>Artisan shelf appeal:</strong> Tucked paper cards convey handcrafted attention to detail.</span>
-                </div>
-              </div>
-
-              <div className="pt-2 flex flex-col sm:flex-row gap-4">
-                <button
-                  type="button"
-                  onClick={() => setVariationMethod('card-strip')}
-                  className="px-6 py-3 rounded-xl bg-neutral-900 text-white font-bold text-xs uppercase hover:bg-neutral-800 shadow transition-all active:scale-98"
-                >
-                  Test Elastic Strip Preview
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setVariationMethod('card-slot')}
-                  className="px-6 py-3 rounded-xl bg-white border border-neutral-300 text-neutral-800 font-bold text-xs uppercase hover:bg-neutral-50 shadow transition-all active:scale-98"
-                >
-                  Test Card-Slot Preview
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Subscription tiers B2B */}
-      <section className="py-24 bg-neutral-50 border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <B2bBadge variant="primary">PaaS_SUBSCRIPTION_PLANS</B2bBadge>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-850 mt-2">
-              PaaS Subscription Tiers
-            </h2>
-            <p className="text-neutral-500 font-semibold mt-2">
-              Packaging-as-a-Service is styled like a premium SaaS. We provide the fully-coded website, premium custom pouches, and marketing assets—all you need to do is provide your product!
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Bootstrap */}
-            <B2bCard className="flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              <div className="space-y-6">
-                <div className="flex justify-between items-center">
-                  <B2bBadge variant="neutral">Starter Track</B2bBadge>
-                  <span className="font-mono text-neutral-400 text-xs font-bold">// TIER_01</span>
-                </div>
-
-                <div>
-                  <h3 className="font-extrabold text-2xl uppercase text-neutral-850 leading-none">PaaS Bootstrap</h3>
-                  <p className="text-xs text-neutral-500 mt-1 uppercase font-bold">Blank Pouches + Blend Name Cards</p>
-                </div>
-
-                <div className="border-y border-neutral-200 py-4 font-mono">
-                  <div className="text-3xl font-bold text-neutral-850">
-                    $1.50 <span className="text-xs font-normal text-neutral-500">/ bag unit</span>
-                  </div>
-                  <p className="text-[10px] text-neutral-400 font-bold uppercase mt-1">Min run quantity: 100 bags (mix blends)</p>
-                </div>
-
-                <ul className="space-y-3 text-xs text-neutral-700">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> Blank premium flat bottom pouches
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> Custom roast cards (4 blend color templates)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> Choice of elastic bands or pre-cut slots
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> <strong>Free Shopify landing page setup</strong>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> <strong>Free 3D visual mock-ups</strong>
-                  </li>
-                  <li className="flex items-center gap-2 font-bold text-neutral-800 bg-purple-50 px-2 py-0.5 rounded">
-                    👉 Just provide roasted coffee product!
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-8">
-                <a
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-neutral-900 text-white rounded-xl font-bold text-xs uppercase py-3.5 text-center hover:bg-neutral-800 transition-all inline-block shadow active:scale-98"
-                >
-                  Subscribe Bootstrap Track
-                </a>
-              </div>
-            </B2bCard>
-
-            {/* Bespoke */}
-            <B2bCard className="flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative border-2 border-purple-500">
-              <div className="absolute -top-3 left-6 bg-purple-600 text-white text-[9px] font-bold uppercase px-2.5 py-0.5 tracking-wider rounded-full shadow-md">
-                🔥 POPULAR ACCELERATOR CHOICE
-              </div>
-              
-              <div className="space-y-6">
-                <div className="flex justify-between items-center">
-                  <B2bBadge variant="primary">Growth Track</B2bBadge>
-                  <span className="font-mono text-neutral-400 text-xs font-bold">// TIER_02</span>
-                </div>
-
-                <div>
-                  <h3 className="font-extrabold text-2xl uppercase text-neutral-850 leading-none">PaaS Bespoke</h3>
-                  <p className="text-xs text-neutral-500 mt-1 uppercase font-bold">100% Custom Edge-to-Edge Print</p>
-                </div>
-
-                <div className="border-y border-neutral-200 py-4 font-mono">
-                  <div className="text-3xl font-bold text-purple-600">
-                    From $1.15 <span className="text-xs font-normal text-neutral-500">/ unit (Option B)</span>
-                  </div>
-                  <p className="text-[10px] text-neutral-400 font-bold uppercase mt-1">Plate Cylinder Setup Cost: $0 Free</p>
-                </div>
-
-                <ul className="space-y-3 text-xs text-neutral-700">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> Full digital printing (Structures B & C)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> High-barrier EVOH or certified Compostable
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> Custom color side-gusset outline work
-                  </li>
-                  <li className="flex items-center gap-2 text-purple-700 font-bold">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> <strong>Free Custom Shopify & subscriptions</strong>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> <strong>Free hyper-premium 3D mockup assets</strong>
-                  </li>
-                  <li className="flex items-center gap-2 font-bold text-neutral-800 bg-purple-50 px-2 py-0.5 rounded">
-                    👉 Just provide roasted coffee product!
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-8">
-                <a
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold text-xs uppercase py-3.5 text-center transition-all inline-block shadow-lg active:scale-98"
-                >
-                  Configure Custom Order
-                </a>
-              </div>
-            </B2bCard>
-
-            {/* Scale */}
-            <B2bCard className="flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              <div className="space-y-6">
-                <div className="flex justify-between items-center">
-                  <B2bBadge variant="accent">Enterprise Track</B2bBadge>
-                  <span className="font-mono text-neutral-400 text-xs font-bold">// TIER_03</span>
-                </div>
-
-                <div>
-                  <h3 className="font-extrabold text-2xl uppercase text-neutral-850 leading-none">PaaS Scale</h3>
-                  <p className="text-xs text-neutral-500 mt-1 uppercase font-bold">Wholesale Gravure Volume runs</p>
-                </div>
-
-                <div className="border-y border-neutral-200 py-4 font-mono">
-                  <div className="text-3xl font-bold text-neutral-850">
-                    Lowest unit price <span className="text-xs font-bold text-cyan-600">From $0.74</span>
-                  </div>
-                  <p className="text-[10px] text-neutral-400 font-bold uppercase mt-1">Run quantity: 5,000+ bags</p>
-                </div>
-
-                <ul className="space-y-3 text-xs text-neutral-700">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> Embossed metallics or spot gloss varnishes
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> Lowest wholesale unit overhead
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> Premium rotogravure wholesale quality
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> <strong>Free Custom Enterprise Store setup</strong>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-purple-600 stroke-[3] flex-shrink-0" /> Full video press kits & social templates
-                  </li>
-                  <li className="flex items-center gap-2 font-bold text-neutral-800 bg-purple-50 px-2 py-0.5 rounded">
-                    👉 Just provide roasted coffee product!
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-8">
-                <a
-                  href="https://calendly.com/30-min-free-packaging-consultancy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-neutral-900 text-white rounded-xl font-bold text-xs uppercase py-3.5 text-center hover:bg-neutral-800 transition-all inline-block shadow active:scale-98"
-                >
-                  Contact Enterprise Desk
-                </a>
-              </div>
-            </B2bCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Free Accelerator Services */}
-      <section className="py-24 bg-white border-b border-neutral-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-            <div className="max-w-2xl">
-              <B2bBadge variant="eco">ONE-STOP_ACCELERATION_PROGRAM</B2bBadge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-850 mt-2">
-                1-ON-1 BRAND ACCELERATOR SERVICES
-              </h2>
-              <p className="text-neutral-500 font-semibold mt-2">
-                We do not just supply bags. Achieve Pack provides a full suite of brand launching services for our B2B customers—100% FREE.
-              </p>
-            </div>
-            <ShoppingBag className="hidden md:block w-16 h-16 text-neutral-400 rotate-12" />
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <B2bCard className="bg-neutral-50 border-neutral-100 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center font-bold text-2xl shadow-sm mb-6 border border-neutral-100">
-                  💻
-                </div>
-                <h3 className="font-bold text-xl text-neutral-850 mb-3">Free Website Setup</h3>
-                <p className="text-xs text-neutral-500 leading-relaxed mb-6">
-                  We will create a free high-converting Shopify or custom landing page mapped specifically for your coffee brand's retail and subscription channels. Let our dev team build your digital shop.
+                <p className="text-[10px] text-neutral-500 font-medium">
+                  💡 Note: Print setup costs are evaluated per design SKU. Total bags quantity will be <span className="text-white font-bold">{numDesigns * qtyPerDesign} pcs</span>.
                 </p>
               </div>
-              <span className="font-mono text-[9px] font-bold text-purple-700 bg-purple-50 px-2.5 py-1 rounded border border-purple-100 self-start">
-                VALUE: $1,200 (FREE)
-              </span>
-            </B2bCard>
 
-            <B2bCard className="bg-neutral-50 border-neutral-100 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center font-bold text-2xl shadow-sm mb-6 border border-neutral-100">
-                  🎨
-                </div>
-                <h3 className="font-bold text-xl text-neutral-850 mb-3">Free 3D Mock-up Setup</h3>
-                <p className="text-xs text-neutral-500 leading-relaxed mb-6">
-                  Stop using generic flat images. We provide realistic, hyper-premium 3D visual mockups of your customized coffee pouches resting in studio lighting environments, optimized for social media.
-                </p>
-              </div>
-              <span className="font-mono text-[9px] font-bold text-cyan-700 bg-cyan-50 px-2.5 py-1 rounded border border-cyan-100 self-start">
-                VALUE: $450 (FREE)
-              </span>
-            </B2bCard>
-
-            <B2bCard className="bg-neutral-50 border-neutral-100 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center font-bold text-2xl shadow-sm mb-6 border border-neutral-100">
-                  📐
-                </div>
-                <h3 className="font-bold text-xl text-neutral-850 mb-3">Free Prepress Layouts</h3>
-                <p className="text-xs text-neutral-500 leading-relaxed mb-6">
-                  Our in-house design specialists will layout your custom graphics, checking all fold marks, side gusset borders, bleed clearances, pocket zippers, and valve positions to guarantee flawless prints.
-                </p>
-              </div>
-              <span className="font-mono text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-100 self-start">
-                VALUE: $350 (FREE)
-              </span>
-            </B2bCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Guide Lead Capture */}
-      <section className="py-24 bg-gradient-to-b from-neutral-900 to-neutral-950 text-white border-t border-neutral-800">
-        <div className="max-w-5xl mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
-            <div className="md:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-1 text-[10px] font-bold tracking-widest text-cyan-400 uppercase font-mono">
-                <Download className="w-3.5 h-3.5 animate-bounce" /> INSTANT KICKSTART DOWNLOAD
-              </div>
-              
-              <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight leading-none">
-                GET THE PaaS COFFEE<br/>
-                STARTUP ACCELERATOR GUIDE
-              </h2>
-
-              <p className="text-base text-neutral-300 leading-relaxed">
-                Download the verified, comprehensive Pouch.eco Coffee Brand Accelerator Guide containing the exact lamination layers formula, pouch side gussets artwork dieline vectors, and zero setup card variation guides.
-              </p>
-
-              <div className="border-l-4 border-purple-500 pl-4 space-y-2 text-xs font-mono text-neutral-400">
-                <div>// Guide Format: UTF-8 Document (Highly Detailed Technical Specifications)</div>
-                <div>// Compiled by: Ryan Wong, Biopolymer Pouch Engineer</div>
-                <div>// Content: Western Australia climate advisory & attached card template blueprints</div>
-              </div>
-            </div>
-
-            <div className="md:col-span-5">
-              <AnimatePresence mode="wait">
-                {!downloadSuccess ? (
-                  <motion.form
-                    key="lead-form"
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -15 }}
-                    onSubmit={handleEmailSubmit}
-                    className="border border-neutral-850 bg-neutral-900/60 backdrop-blur p-6 rounded-3xl space-y-4 shadow-2xl"
-                  >
-                    <h3 className="font-bold text-xl uppercase tracking-tight text-white mb-2">
-                      Unlock Accelerator Guide
-                    </h3>
-
-                    <div className="space-y-1">
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-neutral-400">
-                        Corporate Email Address
-                      </label>
-                      <div className="relative">
-                        <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-                        <input
-                          type="email"
-                          required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="e.g. founder@yourcoffeeco.com"
-                          className="w-full bg-neutral-950 border border-neutral-800 pl-10 pr-4 py-3 rounded-xl font-mono text-sm text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-                        />
-                      </div>
-                    </div>
-
+              {/* 4. Bag Size Picker */}
+              <div className="space-y-2">
+                <label className="block font-mono text-xs text-neutral-400 uppercase">
+                  4. Select Bag Dimension (包裝尺寸)
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  {BAG_SIZES.map(s => (
                     <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-purple-600 text-white font-bold uppercase text-sm py-4 rounded-xl hover:bg-purple-700 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-purple-600/30"
+                      key={s.id}
+                      type="button"
+                      onClick={() => setSelectedSize(s)}
+                      className={`p-2.5 rounded-xl border text-left transition-all ${selectedSize.id === s.id ? 'bg-emerald-950 border-emerald-400 text-white shadow-lg' : 'bg-neutral-900/60 border-neutral-800/80 text-neutral-400 hover:text-neutral-200'}`}
                     >
-                      {isSubmitting ? (
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      ) : (
-                        <>
-                          <Download className="w-4 h-4" /> Download PaaS Guide
-                        </>
-                      )}
+                      <div className="font-bold text-xs">{s.dimensions}</div>
+                      <div className="text-[9px] font-mono opacity-70 mt-0.5">{s.capacity}</div>
                     </button>
+                  ))}
+                </div>
+              </div>
 
-                    <p className="text-[9px] text-neutral-500 font-semibold text-center">
-                      We value privacy. Your email will be logged to verify dieline download permissions.
-                    </p>
-                  </motion.form>
-                ) : (
-                  <motion.div
-                    key="success-card"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="border border-emerald-500/30 bg-neutral-900/60 p-6 rounded-3xl space-y-6 text-center shadow-2xl"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500 flex items-center justify-center mx-auto text-emerald-500">
-                      <CheckCircle className="w-6 h-6" />
-                    </div>
+              {/* Glowing B2B Telemetry Panel */}
+              <div className="border border-emerald-500/20 bg-emerald-950/30 rounded-2xl p-4 font-mono text-xs space-y-2">
+                <div className="flex justify-between border-b border-emerald-500/10 pb-1.5 text-neutral-400">
+                  <span>Total Bags Run:</span>
+                  <span className="text-emerald-400 font-bold">{(numDesigns * qtyPerDesign).toLocaleString()} units</span>
+                </div>
+                <div className="flex justify-between border-b border-emerald-500/10 pb-1.5 text-neutral-400">
+                  <span>Investment Target:</span>
+                  <span className="text-white font-bold">${totalBudget.toLocaleString()} USD</span>
+                </div>
+                <div className="flex justify-between items-center text-[10px] pt-1 text-emerald-400">
+                  <span>⚡ Cylinder plates fee:</span>
+                  <span className="bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-black border border-emerald-500/30">WAIVED ($0)</span>
+                </div>
+              </div>
 
-                    <div className="space-y-2">
-                      <h3 className="font-bold text-2xl uppercase tracking-tight text-white">
-                        DOWNLOAD STARTED!
-                      </h3>
-                      <p className="text-xs text-neutral-300 leading-relaxed">
-                        We have automatically generated and triggered the download for <span className="text-emerald-400 font-bold">Pouch_Eco_PaaS_Accelerator_Guide.txt</span> in your browser.
-                      </p>
-                    </div>
-
-                    <div className="bg-neutral-950 border border-neutral-850 p-3 text-[10px] text-neutral-500 font-mono leading-relaxed rounded-xl">
-                      Logged email: <span className="text-white font-bold">{email}</span>. Click the button below if your browser did not start the download automatically.
-                    </div>
-
-                    <div className="space-y-2 pt-2">
-                      <button
-                        type="button"
-                        onClick={triggerPDFDownload}
-                        className="w-full bg-neutral-950 border border-neutral-800 text-white font-bold text-xs py-2 hover:bg-neutral-800 transition rounded-lg"
-                      >
-                        [Manually Re-Download]
-                      </button>
-                      
-                      <Link 
-                        to="/store" 
-                        className="w-full bg-purple-600 text-white font-bold text-xs py-2.5 rounded-lg text-center hover:bg-purple-700 transition inline-block shadow active:scale-98"
-                      >
-                        Visit Store Page
-                      </Link>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
+
+            {/* Right Column: Glassmorphic Option Cards List */}
+            <div className="lg:col-span-7 space-y-4">
+              
+              {['stock-cards', 'custom-print', 'recyclable', 'compostable'].map(optionId => {
+                const data = calculateOptionPrice(optionId)
+                const isSafe = data.totalCost <= totalBudget
+                const budgetDiff = Math.abs(data.totalCost - totalBudget)
+
+                return (
+                  <div 
+                    key={optionId} 
+                    className={`bg-emerald-950/5 backdrop-blur-md border border-neutral-850 p-5 rounded-3xl relative overflow-hidden transition-all duration-300 hover:border-emerald-500/10 ${data.isBelowMoq ? 'opacity-50' : 'hover:-translate-y-0.5 shadow-xl shadow-emerald-950/5'}`}
+                  >
+                    
+                    {/* Budget Badge */}
+                    <div className="absolute top-0 right-0 border-b border-l border-neutral-800 rounded-bl-xl font-mono text-[9px] font-bold uppercase px-3 py-1.5" style={{ backgroundColor: data.isBelowMoq ? '#ef4444' : (isSafe ? 'rgba(16,185,129,0.1)' : 'rgba(245,158,11,0.1)'), color: data.isBelowMoq ? 'white' : (isSafe ? '#34D399' : '#FBBF24'), borderLeftColor: isSafe ? 'rgba(16,185,129,0.2)' : 'rgba(245,158,11,0.2)' }}>
+                      {data.isBelowMoq ? 'BELOW MOQ' : (isSafe ? '🟢 WITHIN BUDGET' : '🟡 ADJUST BUDGET')}
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-5 items-center">
+                      
+                      {/* Stylized Pouch Graphics */}
+                      <div className="flex-shrink-0 bg-neutral-900/40 border border-neutral-850 p-3 rounded-2xl flex items-center justify-center shadow-inner">
+                        <PouchVisualRender optionId={optionId} accentColor={data.accentColor || '#10B981'} />
+                      </div>
+
+                      {/* Content panel */}
+                      <div className="flex-grow space-y-3 w-full">
+                        <div>
+                          <span className="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[9px] font-semibold tracking-wide uppercase rounded-full">
+                            {data.badge}
+                          </span>
+                          <h3 className="text-base font-bold text-white mt-2">
+                            {optionId === 'stock-cards' && 'Blank Stock Bag + Tag/Slot Cards'}
+                            {optionId === 'custom-print' && 'Full Surface Standard Print'}
+                            {optionId === 'recyclable' && '♻️ High-Barrier Recyclable PE+EVOH'}
+                            {optionId === 'compostable' && '🌱 TUV Certified Home Compostable'}
+                          </h3>
+                          <p className="text-xs text-neutral-400 leading-relaxed mt-1">
+                            {data.desc}
+                          </p>
+                        </div>
+
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-3 border-t border-neutral-850 font-mono text-[11px] text-neutral-400">
+                          <div>
+                            <span className="text-neutral-500 block text-[9px] uppercase tracking-wider">Unit Price:</span>
+                            <span className="text-white font-bold text-sm">${data.unitPrice.toFixed(2)}</span>
+                          </div>
+                          <div>
+                            <span className="text-neutral-500 block text-[9px] uppercase tracking-wider">Total Cost:</span>
+                            <span className="text-emerald-400 font-bold text-sm">${data.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
+                          </div>
+                          <div>
+                            <span className="text-neutral-500 block text-[9px] uppercase tracking-wider">Eco Label:</span>
+                            <span className="text-neutral-300 font-bold">{data.certLogo}</span>
+                          </div>
+                          <div>
+                            <span className="text-neutral-500 block text-[9px] uppercase tracking-wider">Delivery:</span>
+                            <span className="text-neutral-300 font-bold">{data.leadTime}</span>
+                          </div>
+                        </div>
+
+                        {/* Cost share allocation */}
+                        {!data.isBelowMoq && (
+                          <div className="space-y-1 pt-1 font-mono text-[10px]">
+                            <div className="flex justify-between text-neutral-500">
+                              <span>Budget Allocation share</span>
+                              <span className={isSafe ? 'text-emerald-400' : 'text-amber-400'}>
+                                {Math.round((data.totalCost / totalBudget) * 100)}%
+                              </span>
+                            </div>
+                            <div className="w-full h-1 bg-neutral-900 rounded-full overflow-hidden">
+                              <div 
+                                className="h-full rounded-full" 
+                                style={{ 
+                                  width: `${Math.min((data.totalCost / totalBudget) * 100, 100)}%`,
+                                  backgroundColor: isSafe ? '#10B981' : '#f59e0b'
+                                }} 
+                              />
+                            </div>
+                            {!isSafe && (
+                              <p className="text-[9px] text-amber-500 font-semibold italic">
+                                ⚠️ Requires an additional +${budgetDiff.toLocaleString(undefined, {maximumFractionDigits: 2})} USD to match this custom eco structure.
+                              </p>
+                            )}
+                          </div>
+                        )}
+
+                        {data.isBelowMoq && (
+                          <div className="bg-red-500/10 border border-red-500/25 p-2 rounded-lg text-[10px] text-red-400 font-mono flex items-center gap-1.5">
+                            <AlertTriangle className="w-3.5 h-3.5 flex-shrink-0" />
+                            <span>Run quantity falls below MOQ. Requires at least {data.moq} pieces per flavor design.</span>
+                          </div>
+                        )}
+
+                      </div>
+
+                    </div>
+
+                  </div>
+                )
+              })}
+
+            </div>
+
           </div>
+
+          {/* WhatsApp Lead RFQ Generator */}
+          <div className="bg-emerald-950/20 backdrop-blur-xl border border-emerald-500/10 p-6 rounded-3xl shadow-2xl mt-12 space-y-6 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-transparent pointer-events-none" />
+            
+            <div className="flex items-center gap-2.5 border-b border-emerald-500/10 pb-4">
+              <Phone className="w-6 h-6 text-emerald-400 animate-bounce" />
+              <div>
+                <h3 className="text-xl font-bold text-white uppercase font-['Outfit']">Instant WhatsApp RFQ Dispatch</h3>
+                <p className="text-xs text-neutral-400 font-mono">一鍵複製參數配置 & WhatsApp 聯絡客服</p>
+              </div>
+            </div>
+
+            <p className="text-xs text-neutral-300 leading-relaxed max-w-3xl">
+              Ready to verify samples or request final artwork vectors? Click the button below to instantly save your chosen configuration string to your clipboard and dispatch it directly to our specialty B2B support desk on WhatsApp!
+            </p>
+
+            <div className="bg-neutral-950 border border-neutral-850 p-4 rounded-2xl text-xs font-mono text-neutral-400 leading-relaxed relative group">
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText(getBilingualRfqText())
+                  setWhatsappCopied(true)
+                  setTimeout(() => setWhatsappCopied(false), 2000)
+                }}
+                className="absolute top-3.5 right-3.5 bg-neutral-900 hover:bg-black text-emerald-400 border border-neutral-800 rounded-lg px-2.5 py-1 text-[10px] flex items-center gap-1.5 cursor-pointer transition-all"
+              >
+                <Copy className="w-3 h-3" />
+                {whatsappCopied ? 'Copied!' : 'Copy'}
+              </button>
+              <pre className="whitespace-pre-wrap select-all pr-12 font-mono">
+                {getBilingualRfqText()}
+              </pre>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleWhatsappCopy}
+              className="w-full bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-black uppercase text-sm py-4 rounded-xl active:scale-98 transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-lg shadow-emerald-500/20"
+            >
+              <Phone className="w-4 h-4 fill-neutral-950" />
+              Copy Config & Open WhatsApp Support (一鍵複製配置並開啟 WhatsApp)
+            </button>
+          </div>
+
         </div>
       </section>
 

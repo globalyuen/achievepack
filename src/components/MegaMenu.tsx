@@ -185,7 +185,12 @@ const FREE_SERVICE_PAGES = [
     image: '/imgs/free/design/a_process_flow_infographic_5376739.webp',
     description: 'Track orders, manage artwork, approve proofs—all free'
   },
-
+  {
+    name: 'Free B2B PaaS Calculator',
+    link: '/coffee',
+    image: '/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-1.jpg',
+    description: '10-sec mortgage-style budget calculator for coffee pouches'
+  },
   {
     name: 'Interactive Packaging Apps',
     link: '/size-guide',

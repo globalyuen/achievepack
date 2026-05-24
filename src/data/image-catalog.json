@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-24",
-  "total_images": 1730,
+  "total_images": 1785,
   "total_categories": 160,
   "extensions": {
-    ".webp": 1253,
+    ".webp": 1298,
     ".png": 294,
-    ".jpg": 180,
+    ".jpg": 190,
     ".svg": 3
   },
   "categories": {
@@ -8254,6 +8254,336 @@
       "count": 189,
       "images": [
         {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:08:54.552Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-8.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:08:07.964Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg",
+          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:06:38.218Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-9.jpg",
+          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:05:09.783Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-8.jpg",
+          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:04:27.978Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-7.jpg",
+          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:03:47.911Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-6.jpg",
+          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:03:08.623Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-5.jpg",
+          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:02:30.719Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-4.webp",
+          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T10:01:20.182Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-3.webp",
+          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T10:00:44.292Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-2.webp",
+          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T10:00:12.610Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-9.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:59:41.359Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-8.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:59:10.153Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-5.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:58:18.976Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-4.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:57:31.808Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-31.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-31.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:56:43.921Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-3.jpg",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T09:55:54.978Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-29.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-29.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:55:04.444Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-28.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-28.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:53:27.509Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-27.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-27.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:52:39.408Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-25.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-25.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:52:01.149Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-24.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-24.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:51:23.393Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-23.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-23.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:50:44.074Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-22.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-22.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:49:28.399Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-2.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:48:53.008Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-19.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-19.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:48:16.230Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-18.jpg",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-18.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T09:47:44.080Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-15.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-15.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:46:56.849Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-14.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-14.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:45:54.048Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-13.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-13.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:45:19.097Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-12.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:44:44.953Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-11.webp",
+          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:44:16.367Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-9.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:43:48.263Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-8.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:42:56.049Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-7.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:41:44.923Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-6.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:40:16.383Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-5.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:39:26.055Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-3.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:38:45.712Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-2.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:38:05.131Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-12.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:37:25.966Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-11.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:35:57.308Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-10.webp",
+          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:35:13.023Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-9.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:34:34.041Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-8.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:33:59.641Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-7.webp",
+          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:33:21.799Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-9.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:32:21.101Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-8.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:31:48.997Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-7.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:31:14.824Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-6.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:30:43.246Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-5.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:30:12.499Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-4.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:29:19.622Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-3.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:28:49.715Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-13.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-13.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:28:22.180Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-12.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:27:53.442Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-11.webp",
+          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:27:24.129Z"
+        },
+        {
           "filename": "flat-bottom-pouch-tin-tie-thumbnail-10.webp",
           "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-10.webp",
           "extension": ".webp",
@@ -9056,342 +9386,342 @@
           "path": "/imgs/store/products/100-recyclable-pe-wire-cut-zipper-bag-thumbnail-1.png",
           "extension": ".png",
           "modified": "2026-05-24T04:37:23.715Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-9.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-9.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.543Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-7.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-7.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.542Z"
-        },
-        {
-          "filename": "flat-bottom-zipper-pouch-thumbnail-8.webp",
-          "path": "/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-8.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.542Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-31.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-31.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.520Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-28.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-28.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.519Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-29.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-29.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.519Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-25.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-25.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.518Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-27.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-27.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.518Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-23.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-23.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.517Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-24.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-24.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.517Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-22.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-22.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.516Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-18.jpg",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-18.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.515Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-19.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-19.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.515Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-15.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-15.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.514Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-13.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-13.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.513Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-14.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-14.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.513Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-11.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-11.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.512Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-12.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-12.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.512Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-9.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-9.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.512Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-8.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-8.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.511Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-4.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-4.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.509Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-5.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-5.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.509Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-3.jpg",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-3.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.508Z"
-        },
-        {
-          "filename": "spouted-foil-pouch-thumbnail-2.webp",
-          "path": "/imgs/store/products/spouted-foil-pouch-thumbnail-2.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.507Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-12.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-12.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.494Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-13.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-13.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.494Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-11.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-11.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.493Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-9.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-9.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.492Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-7.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-7.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.490Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-8.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-8.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.490Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-5.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-5.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.489Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-6.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-6.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.489Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-4.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-4.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.488Z"
-        },
-        {
-          "filename": "flat-bottom-pouch-tin-tie-thumbnail-3.webp",
-          "path": "/imgs/store/products/flat-bottom-pouch-tin-tie-thumbnail-3.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.487Z"
-        },
-        {
-          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-9.jpg",
-          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-9.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.475Z"
-        },
-        {
-          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-7.jpg",
-          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-7.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.474Z"
-        },
-        {
-          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-8.jpg",
-          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-8.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.474Z"
-        },
-        {
-          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-6.jpg",
-          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-6.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.473Z"
-        },
-        {
-          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-5.jpg",
-          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-5.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.472Z"
-        },
-        {
-          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-4.webp",
-          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-4.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.469Z"
-        },
-        {
-          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-3.webp",
-          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-3.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.467Z"
-        },
-        {
-          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-2.webp",
-          "path": "/imgs/store/products/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-2.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.466Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.459Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.455Z"
-        },
-        {
-          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-8.jpg",
-          "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-8.jpg",
-          "extension": ".jpg",
-          "modified": "2026-05-24T03:37:02.453Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-12.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-12.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.418Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-11.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-11.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.417Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-10.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-10.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.416Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-9.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-9.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.415Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-7.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-7.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.414Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-8.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-8.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.414Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-5.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-5.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.413Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-6.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-6.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.413Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-2.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-2.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.411Z"
-        },
-        {
-          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-3.webp",
-          "path": "/imgs/store/products/retro-horizontal-kraft-food-handle-bag-thumbnail-3.webp",
-          "extension": ".webp",
-          "modified": "2026-05-24T03:37:02.411Z"
         }
       ]
     },
     "store/products-ai": {
-      "count": 130,
+      "count": 185,
       "images": [
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:08:54.553Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-8.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:08:07.966Z"
+        },
+        {
+          "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg",
+          "path": "/imgs/store/products-ai/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-14.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:06:38.220Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-9.jpg",
+          "path": "/imgs/store/products-ai/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:05:09.785Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-8.jpg",
+          "path": "/imgs/store/products-ai/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:04:27.980Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-7.jpg",
+          "path": "/imgs/store/products-ai/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:03:47.912Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-6.jpg",
+          "path": "/imgs/store/products-ai/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:03:08.625Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-5.jpg",
+          "path": "/imgs/store/products-ai/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T10:02:30.721Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-4.webp",
+          "path": "/imgs/store/products-ai/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T10:01:20.236Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-3.webp",
+          "path": "/imgs/store/products-ai/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T10:00:44.341Z"
+        },
+        {
+          "filename": "textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-2.webp",
+          "path": "/imgs/store/products-ai/textured-burlap-cork-pattern-coffee-pouch-with-valve-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T10:00:12.660Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-9.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:59:41.398Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-8.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:59:10.198Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-5.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:58:19.024Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-4.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:57:31.856Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-31.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-31.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:56:43.962Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-3.jpg",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T09:55:54.980Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-29.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-29.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:55:04.491Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-28.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-28.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:53:27.552Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-27.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-27.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:52:39.457Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-25.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-25.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:52:01.196Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-24.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-24.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:51:23.440Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-23.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-23.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:50:44.120Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-22.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-22.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:49:28.447Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-2.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:48:53.053Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-19.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-19.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:48:16.276Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-18.jpg",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-18.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T09:47:44.082Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-15.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-15.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:46:56.896Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-14.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-14.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:45:54.093Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-13.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-13.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:45:19.142Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-12.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:44:44.996Z"
+        },
+        {
+          "filename": "spouted-foil-pouch-thumbnail-11.webp",
+          "path": "/imgs/store/products-ai/spouted-foil-pouch-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:44:16.414Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-9.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:43:48.332Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-8.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:42:56.091Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-7.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:41:44.970Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-6.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:40:16.430Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-5.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:39:26.103Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-3.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:38:45.761Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-2.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-2.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:38:05.173Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-12.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:37:26.013Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-11.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:35:57.355Z"
+        },
+        {
+          "filename": "retro-horizontal-kraft-food-handle-bag-thumbnail-10.webp",
+          "path": "/imgs/store/products-ai/retro-horizontal-kraft-food-handle-bag-thumbnail-10.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:35:13.067Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-9.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:34:34.100Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-8.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:33:59.688Z"
+        },
+        {
+          "filename": "flat-bottom-zipper-pouch-thumbnail-7.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-zipper-pouch-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:33:21.848Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-9.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-9.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:32:21.146Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-8.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-8.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:31:49.045Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-7.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-7.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:31:14.871Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-6.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-6.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:30:43.294Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-5.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-5.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:30:12.545Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-4.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-4.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:29:19.668Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-3.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-3.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:28:49.763Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-13.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-13.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:28:22.235Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-12.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-12.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:27:53.493Z"
+        },
+        {
+          "filename": "flat-bottom-pouch-tin-tie-thumbnail-11.webp",
+          "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-11.webp",
+          "extension": ".webp",
+          "modified": "2026-05-24T09:27:24.178Z"
+        },
         {
           "filename": "flat-bottom-pouch-tin-tie-thumbnail-10.webp",
           "path": "/imgs/store/products-ai/flat-bottom-pouch-tin-tie-thumbnail-10.webp",
