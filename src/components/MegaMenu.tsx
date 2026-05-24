@@ -833,7 +833,7 @@ export function RightNavMenu() {
           )}
         </div>
 
-        {/* FREE SERVICES - Glowing Button with Mega Menu */}
+        {/* FREE - Glowing Button with Mega Menu */}
         <div className="relative ml-2" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
           <Link 
             to="/free-service"
@@ -844,7 +844,7 @@ export function RightNavMenu() {
             }`}
           >
             <Gift className="h-4 w-4" />
-            FREE SERVICES
+            FREE
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'free' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'free' && (

@@ -68,7 +68,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   isActive('/size-guide') || isActive('/tech-specs') || isActive('/coffee') || isActive('/free-service/packaging-mockup') || isActive('/free-service/website-upgrade') ? 'bg-black text-[#D4FF00]' : ''
                 }`}
               >
-                [FREE SERVICES ▾]
+                [FREE ▾]
               </button>
               
               <AnimatePresence>
