@@ -864,5 +864,22 @@
       <g:product_type>boxes</g:product_type>
       <g:identifier_exists>no</g:identifier_exists>
     </item>
+    <item>
+      <g:id>triangle-coffee-box-card</g:id>
+      <g:title>Triangle Coffee Box with Card Insertion</g:title>
+      <g:description>An exceptionally unique and premium triangular B2B packaging solution featuring an integrated front pocket sleeve for label or card insertion. Designed in a distinct triangular tuck box shape, this packaging makes a stunning aesthetic statement on retail shelves. Ideal for premium drip bag coffee, specialty tea bags, artisan treats, and high-end gifts. Crafted from sustainable 350g eco-responsible paper card stock, this box combines modern design with high-end sustainability.</g:description>
+      <g:link>https://achievepack.com/store/product/triangle-coffee-box-card</g:link>
+      <g:image_link>https://achievepack.com/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-1.jpg</g:image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-2.jpg</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-3.jpg</g:additional_image_link>
+      <g:additional_image_link>https://achievepack.com/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-4.jpg</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:price>1185.00 USD</g:price>
+      <g:brand>Achieve Pack</g:brand>
+      <g:google_product_category>6848</g:google_product_category>
+      <g:product_type>boxes</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
+    </item>
   </channel>
 </rss>

@@ -185,12 +185,7 @@ const FREE_SERVICE_PAGES = [
     image: '/imgs/free/design/a_process_flow_infographic_5376739.webp',
     description: 'Track orders, manage artwork, approve proofs—all free'
   },
-  {
-    name: 'PaaS Coffee Starter Kit',
-    link: '/coffee',
-    image: '/imgs/reclose/ads/a_tintie_coffee_pouch_correct_4114906.webp',
-    description: 'Packaging-as-a-Service specialty coffee starter package + free Shopify setup'
-  },
+
   {
     name: 'Interactive Packaging Apps',
     link: '/size-guide',
@@ -896,22 +891,7 @@ export function RightNavMenu() {
                 </Link>
 
 
-                {/* PaaS Coffee SaaS Kit */}
-                <Link
-                  to="/coffee"
-                  className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl transition-all group"
-                >
-                  <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <Coffee className="w-4.5 h-4.5 text-amber-600" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-bold text-xs uppercase tracking-tight text-neutral-800 group-hover:text-amber-600 transition-colors flex items-center gap-1">
-                      PaaS Coffee SaaS
-                      <span className="text-[8px] bg-amber-100 text-amber-800 px-1 py-0.5 rounded font-black uppercase">NEW</span>
-                    </div>
-                    <div className="text-[10px] text-neutral-500 font-medium leading-normal">Packaging + Shopify custom-store setup</div>
-                  </div>
-                </Link>
+
               </div>
             </div>
           )}

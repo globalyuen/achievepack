@@ -296,7 +296,7 @@ export default function Footer() {
               <li><Link to="/free-service/website-upgrade" className="hover:text-primary-400">Website Upgrade</Link></li>
               <li><Link to="/free-service/packaging-mockup" className="hover:text-primary-400">Packaging Mockup</Link></li>
               <li><Link to="/free-service/customer-center" className="hover:text-primary-400">Customer Center</Link></li>
-              <li><Link to="/coffee" className="hover:text-primary-400 font-bold text-primary-400">PaaS (Starter Kit) ★</Link></li>
+
             </ul>
           </div>
 

@@ -2834,6 +2834,53 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
     customQuoteNote: 'For larger quantities, please contact us for a custom free quote.',
     videoUrl: 'https://youtube.com/shorts/nRWIQg9rCiQ',
   },
+  {
+    id: 'triangle-coffee-box-card',
+    name: 'Triangle Coffee Box with Card Insertion',
+    category: 'boxes',
+    shape: 'Tuck Box',
+    material: '350g Premium Recycled Kraft Paper Card • Integrated Label Card Slot • Eco Stock',
+    description: 'An exceptionally unique and premium triangular B2B packaging solution featuring an integrated front pocket sleeve for label or card insertion. Designed in a distinct triangular tuck box shape, this packaging makes a stunning aesthetic statement on retail shelves. Ideal for premium drip bag coffee, specialty tea bags, artisan treats, and high-end gifts. Crafted from sustainable 350g eco-responsible paper card stock, this box combines modern design with high-end sustainability.',
+    shortDesc: 'Premium triangular paper box with integrated front card insertion sleeve',
+    features: [
+      'Triangular Tuck Box Design: Unique structural layout for high-end shelf presence',
+      'Front Card Insertion Slot: Perfect for modular branding, flavor cards, or custom labels',
+      'Premium Eco Stock: Crafted from 350g sustainable, recycled high-density paper card',
+      'FSC Certified & 100% Recyclable: Perfectly aligns with eco-responsible brand values',
+      'Tuck End Easy Assembly: Convenient flat-ship layout with sturdy, secure closure flaps'
+    ],
+    basePrice: 1185.00,
+    additionalFeatures: [
+      'Triangular Tuck Box Design',
+      'Front Card Insertion Slot',
+      '350g Premium Eco Stock',
+      'FSC Certified & 100% Recyclable',
+      'Tuck End Easy Assembly',
+      'Sea Freight Included (40-60 days)'
+    ],
+    minQuantity: 200,
+    minOrder: 200,
+    turnaround: '30 days + 40-60 days sea freight',
+    badge: 'Eco Card Stock',
+    rating: 4.9,
+    reviews: 24,
+    inStock: true,
+    sizeWithQuantities: [
+      { id: 'size-250g', label: '250g Triangle Tuck Box', dimensions: '95(W) × 95(L) × 145(H) mm', quantityOptions: [
+        { quantity: 200, totalPrice: 1185.00, unitPrice: 5.925 },
+        { quantity: 1000, totalPrice: 1485.00, unitPrice: 1.485 },
+        { quantity: 5000, totalPrice: 2985.00, unitPrice: 0.597 },
+        { quantity: 10000, totalPrice: 4885.00, unitPrice: 0.4885 }
+      ]}
+    ],
+    customQuoteNote: 'For custom dimensions, specialized finishes (foil/embossing), or quantities over 10,000 pcs, please contact us for a free quote.',
+    images: [
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-1.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-2.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-3.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-4.jpg'
+    ]
+  },
 ]
 
 // Conventional Stock Products (Ready-made Premium)

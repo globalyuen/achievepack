@@ -331,9 +331,10 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                 <Link to="/dieline-finder" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 font-bold text-purple-650 flex items-center gap-1.5">
                   📐 Dieline Finder
                 </Link>
-                <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 font-bold text-amber-650 flex items-center gap-1.5">
+                {/* Commented out PaaS Coffee since it is not ready to show yet */}
+                {/* <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 font-bold text-amber-650 flex items-center gap-1.5">
                   ☕ PaaS Coffee SaaS
-                </Link>
+                </Link> */}
               </div>
             </div>
 
@@ -376,9 +377,10 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                   <Link to="/free-service/packaging-mockup" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
                     📦 Free Mockup
                   </Link>
-                  <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                  {/* Commented out PaaS Coffee since it is not ready to show yet */}
+                  {/* <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
                     ☕ PaaS Coffee
-                  </Link>
+                  </Link> */}
                   <Link to="/size-guide" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
                     📱 Packaging Apps
                   </Link>
