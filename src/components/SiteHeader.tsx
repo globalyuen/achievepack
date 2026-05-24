@@ -320,23 +320,6 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               </div>
             </div>
             
-            {/* Interactive Apps - B2B Mobile Menu Section */}
-            <div className="border-t border-neutral-100 pt-3">
-              <p className="text-xs font-bold text-purple-600 uppercase mb-2 px-2 flex items-center gap-1">
-                <Zap className="h-3 w-3" /> Interactive Apps
-              </p>
-              <div className="grid grid-cols-2 gap-1">
-                <Link to="/size-guide" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">📱 Sizing Finder</Link>
-                <Link to="/tech-specs" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">📊 Spec Comparison</Link>
-                <Link to="/dieline-finder" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 font-bold text-purple-650 flex items-center gap-1.5">
-                  📐 Dieline Finder
-                </Link>
-                <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 font-bold text-emerald-650 flex items-center gap-1.5">
-                  ☕ Invest Cal
-                </Link>
-              </div>
-            </div>
-
             {/* Learn Section - Mobile Optimized with Search & Accordion */}
             {!hideLearnBlog && (
               <MobileLearnSection setIsMenuOpen={setIsMenuOpen} />
@@ -361,11 +344,23 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
             {!hideLearnBlog && (
               <div className="border-t border-neutral-100 pt-3">
                 <p className="text-xs font-bold text-green-600 uppercase mb-2 px-2 flex items-center gap-1">
-                  <Gift className="h-3 w-3" /> FREE Services
+                  <Gift className="h-3 w-3" /> FREE Services & Apps
                 </p>
                 <div className="grid grid-cols-2 gap-1">
-                  <Link to="/free-service/packaging-design-consultation" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
-                    🎨 Free Design
+                  <Link to="/size-guide" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                    📱 Sizing Finder
+                  </Link>
+                  <Link to="/tech-specs" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                    📊 Spec Comparison
+                  </Link>
+                  <Link to="/dieline-finder" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                    📐 Dieline Finder
+                  </Link>
+                  <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                    ☕ Invest Cal
+                  </Link>
+                  <Link to="/free-service/packaging-mockup" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                    📦 Free Mockup
                   </Link>
                   <Link to="/free-service/website-upgrade" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
                     🌐 Free Website
@@ -373,18 +368,12 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                   <Link to="/free-service/customer-center" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
                     📊 Free MGT Tool
                   </Link>
-                  <Link to="/free-service/packaging-mockup" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
-                    📦 Free Mockup
-                  </Link>
-                  <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
-                    ☕ Invest Cal
-                  </Link>
-                  <Link to="/size-guide" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
-                    📱 Packaging Apps
+                  <Link to="/free-service/packaging-design-consultation" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
+                    🎨 Free Design
                   </Link>
                 </div>
-                <Link to="/free" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 mt-1 text-sm text-green-600 font-medium rounded-lg hover:bg-green-50 active:bg-green-100">
-                  Other Free Services →
+                <Link to="/free-service" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 mt-1 text-sm text-green-600 font-medium rounded-lg hover:bg-green-50 active:bg-green-100">
+                  Other Free Services & Apps →
                 </Link>
               </div>
             )}

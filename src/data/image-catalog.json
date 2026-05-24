@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-24",
-  "total_images": 1794,
-  "total_categories": 160,
+  "total_images": 1798,
+  "total_categories": 161,
   "extensions": {
     ".webp": 1298,
     ".png": 294,
-    ".jpg": 199,
+    ".jpg": 203,
     ".svg": 3
   },
   "categories": {
@@ -2346,6 +2346,35 @@
           "path": "/imgs/emails/outreach_header_2026.png",
           "extension": ".png",
           "modified": "2026-05-06T09:14:44.490Z"
+        }
+      ]
+    },
+    "free": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "invest-cal-hero.jpg",
+          "path": "/imgs/free/invest-cal-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T13:33:00.328Z"
+        },
+        {
+          "filename": "dieline-finder-hero.jpg",
+          "path": "/imgs/free/dieline-finder-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T13:33:00.307Z"
+        },
+        {
+          "filename": "spec-finder-hero.jpg",
+          "path": "/imgs/free/spec-finder-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T13:33:00.288Z"
+        },
+        {
+          "filename": "sizing-finder-hero.jpg",
+          "path": "/imgs/free/sizing-finder-hero.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T13:33:00.264Z"
         }
       ]
     },

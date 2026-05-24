@@ -833,76 +833,7 @@ export function RightNavMenu() {
           )}
         </div>
 
-        {/* APPS - Interactive Tools Dropdown */}
-        <div className="relative" onMouseEnter={() => handleMouseEnter('apps')} onMouseLeave={handleMouseLeave}>
-          <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'apps' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
-            <Zap className="h-4 w-4 text-purple-500" />
-            APPS
-            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'apps' ? 'rotate-180' : ''}`} />
-          </button>
-          {activeMenu === 'apps' && (
-            <div className="absolute right-0 top-[38px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('apps')} onMouseLeave={handleMouseLeave}>
-              <div className="w-80 bg-white shadow-2xl rounded-2xl border border-neutral-200 p-3 font-sans text-neutral-800">
-                <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl p-3 mb-2 flex items-center gap-2">
-                  <Zap className="h-4.5 w-4.5 text-cyan-300 animate-pulse" />
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider">Interactive Tools</h4>
-                    <p className="text-[10px] text-white/80">Premium packaging utilities</p>
-                  </div>
-                </div>
-
-                {/* Sizing Finder */}
-                <Link
-                  to="/size-guide"
-                  className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl transition-all mb-1 group"
-                >
-                  <div className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <SizingFinderIcon className="w-4.5 h-4.5 text-purple-600" strokeWidth={2.2} />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-bold text-xs uppercase tracking-tight text-neutral-800 group-hover:text-purple-600 transition-colors">Sizing Finder</div>
-                    <div className="text-[10px] text-neutral-500 font-medium leading-normal">Find perfect size & capacity dimensions</div>
-                  </div>
-                </Link>
-
-                {/* Spec Finder */}
-                <Link
-                  to="/tech-specs"
-                  className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl transition-all mb-1 group"
-                >
-                  <div className="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <MaterialSpecFinderIcon className="w-4.5 h-4.5 text-cyan-600" strokeWidth={2.2} />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-bold text-xs uppercase tracking-tight text-neutral-800 group-hover:text-cyan-600 transition-colors">Spec Comparison</div>
-                    <div className="text-[10px] text-neutral-500 font-medium leading-normal">Compare oxygen OTR & moisture WVTR levels</div>
-                  </div>
-                </Link>
-                {/* Dieline Finder */}
-                <Link
-                  to="/dieline-finder"
-                  className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl transition-all mb-1 group"
-                >
-                  <div className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <Layout className="w-4.5 h-4.5 text-purple-600" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-bold text-xs uppercase tracking-tight text-neutral-800 group-hover:text-purple-600 transition-colors flex items-center gap-1">
-                      Dieline Finder
-                      <span className="text-[8px] bg-purple-100 text-purple-800 px-1 py-0.5 rounded font-black uppercase">NEW</span>
-                    </div>
-                    <div className="text-[10px] text-neutral-500 font-medium leading-normal">Interactive directory of 160+ vector templates</div>
-                  </div>
-                </Link>
-
-
-
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* FREE - Glowing Button with Mega Menu */}
+        {/* FREE SERVICES - Glowing Button with Mega Menu */}
         <div className="relative ml-2" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
           <Link 
             to="/free-service"
@@ -913,43 +844,136 @@ export function RightNavMenu() {
             }`}
           >
             <Gift className="h-4 w-4" />
-            FREE
+            FREE SERVICES
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'free' ? 'rotate-180' : ''}`} />
           </Link>
           {activeMenu === 'free' && (
-            <div className="fixed right-4 top-[88px] pt-2 z-50" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[95vw] max-w-[700px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+            <div className="fixed right-4 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('free')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[95vw] max-w-[800px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden font-sans">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4 text-white">
                   <div className="flex items-center gap-2 mb-1">
                     <Gift className="h-5 w-5" />
-                    <h3 className="text-lg font-bold">Free Services</h3>
+                    <h3 className="text-lg font-bold">Free B2B Services & Apps</h3>
                   </div>
-                  <p className="text-sm text-white/90">Expert help at absolutely no cost—just value for your brand</p>
+                  <p className="text-sm text-white/90">Premium interactive utilities & accelerator tools at absolutely no cost</p>
                 </div>
-                {/* Smaller 3-column Grid to fit PaaS & Apps */}
-                <div className="p-4 bg-white">
-                  <div className="grid grid-cols-3 gap-3">
-                    {FREE_SERVICE_PAGES.map((service) => (
-                      <Link
-                        key={service.link}
-                        to={service.link}
-                        className="group block border border-neutral-100 rounded-xl p-2 hover:bg-neutral-50 hover:border-neutral-200 transition-all duration-200"
-                      >
-                        <div className="aspect-[16/10] rounded-lg overflow-hidden mb-2 bg-neutral-100 shadow-sm group-hover:shadow-md transition-shadow">
-                          <img
-                            src={service.image}
-                            alt={service.name}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            loading="lazy"
-                          />
+                
+                {/* Two-column layout */}
+                <div className="p-5 bg-white grid grid-cols-2 gap-6">
+                  {/* Left Column: Interactive Apps */}
+                  <div className="space-y-2">
+                    <div className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-2 pb-1 border-b border-neutral-100 flex items-center gap-1.5">
+                      <Zap className="w-3.5 h-3.5 text-green-500 animate-pulse" />
+                      B2B Interactive Apps
+                    </div>
+                    
+                    {/* Sizing Finder */}
+                    <Link
+                      to="/size-guide"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <img src="/imgs/free/sizing-finder-hero.jpg" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Sizing Finder" />
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors">Sizing Finder</div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Find exact size & capacity dimensions</div>
+                      </div>
+                    </Link>
+
+                    {/* Spec Comparison */}
+                    <Link
+                      to="/tech-specs"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <img src="/imgs/free/spec-finder-hero.jpg" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Spec Comparison" />
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors">Spec Comparison</div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Compare oxygen OTR & moisture WVTR levels</div>
+                      </div>
+                    </Link>
+
+                    {/* Dieline Finder */}
+                    <Link
+                      to="/dieline-finder"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <img src="/imgs/free/dieline-finder-hero.jpg" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Dieline Finder" />
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors flex items-center gap-1">
+                          Dieline Finder
+                          <span className="text-[8px] bg-green-100 text-green-800 px-1 py-0.5 rounded font-black uppercase">NEW</span>
                         </div>
-                        <h4 className="text-xs font-bold text-neutral-850 group-hover:text-green-600 transition-colors mb-0.5 line-clamp-1">
-                          {service.name}
-                        </h4>
-                        <p className="text-[10px] text-neutral-500 leading-tight line-clamp-2">{service.description}</p>
-                      </Link>
-                    ))}
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Directory of 160+ vector templates</div>
+                      </div>
+                    </Link>
+
+                    {/* Invest Cal */}
+                    <Link
+                      to="/coffee"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <img src="/imgs/free/invest-cal-hero.jpg" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Invest Cal" />
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors">Invest Cal</div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Brand packaging investment calculator</div>
+                      </div>
+                    </Link>
+                  </div>
+
+                  {/* Right Column: Free B2B Services */}
+                  <div className="space-y-2">
+                    <div className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-2 pb-1 border-b border-neutral-100 flex items-center gap-1.5">
+                      <Gift className="w-3.5 h-3.5 text-green-500" />
+                      Free B2B Services
+                    </div>
+                    
+                    {/* Free Mockup */}
+                    <Link
+                      to="/free-service/packaging-mockup"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <img src="/imgs/free/mock/hero.webp" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Free Mockup" />
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors">[FREE MOCKUP]</div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Visualize professional packaging designs</div>
+                      </div>
+                    </Link>
+
+                    {/* Free Website */}
+                    <Link
+                      to="/free-service/website-upgrade"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <img src="/imgs/free/website/hero.webp" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Free Website" />
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors">[FREE WEBSITE]</div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Strategy call & homepage concept upgrade</div>
+                      </div>
+                    </Link>
+
+                    {/* Free MGT Tool */}
+                    <Link
+                      to="/free-service/customer-center"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <img src="/imgs/free/design/a_process_flow_infographic_5376739.webp" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Free MGT Tool" />
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors">[FREE MGT TOOL]</div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Order tracker & artwork asset manager</div>
+                      </div>
+                    </Link>
+
+                    {/* Free Design */}
+                    <Link
+                      to="/free-service/packaging-design-consultation"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <img src="/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Free Design" />
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors">[FREE DESIGN]</div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">20-min structural & layout strategy call</div>
+                      </div>
+                    </Link>
                   </div>
                 </div>
                 

@@ -65,10 +65,10 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             >
               <button 
                 className={`px-2 py-1 transition-colors flex items-center gap-1 hover:bg-black hover:text-white ${
-                  isActive('/size-guide') || isActive('/tech-specs') || isActive('/coffee') ? 'bg-black text-[#D4FF00]' : ''
+                  isActive('/size-guide') || isActive('/tech-specs') || isActive('/coffee') || isActive('/free-service/packaging-mockup') || isActive('/free-service/website-upgrade') ? 'bg-black text-[#D4FF00]' : ''
                 }`}
               >
-                [APPS ▾]
+                [FREE SERVICES ▾]
               </button>
               
               <AnimatePresence>
@@ -77,71 +77,125 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute left-0 mt-2 w-72 bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] z-50 p-2 font-['Space_Grotesk'] text-black"
+                    className="absolute left-0 mt-2 w-[580px] bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-4 font-['Space_Grotesk'] text-black grid grid-cols-2 gap-4"
                   >
-                    <div className="bg-[#D4FF00] border-b-4 border-black p-2 mb-2 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center">
-                      ⚡ INTERACTIVE PACKAGING APPS
+                    {/* Left Column: Interactive Apps */}
+                    <div className="space-y-2">
+                      <div className="bg-[#D4FF00] border-2 border-black p-1.5 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center mb-1">
+                        ⚡ Interactive Apps
+                      </div>
+                      
+                      {/* Sizing Finder */}
+                      <Link
+                        to="/size-guide"
+                        onClick={() => setIsAppsDropdownOpen(false)}
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all group"
+                      >
+                        <img src="/imgs/free/sizing-finder-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Sizing Finder" />
+                        <div className="text-left">
+                          <div className="font-bold text-xs uppercase tracking-tight">[SIZING FINDER]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Find exact size & capacity</div>
+                        </div>
+                      </Link>
+
+                      {/* Spec Finder */}
+                      <Link
+                        to="/tech-specs"
+                        onClick={() => setIsAppsDropdownOpen(false)}
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all group"
+                      >
+                        <img src="/imgs/free/spec-finder-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Spec Finder" />
+                        <div className="text-left">
+                          <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[SPEC FINDER]</div>
+                          <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Compare barrier OTR/WVTR</div>
+                        </div>
+                      </Link>
+
+                      {/* Dieline Finder */}
+                      <Link
+                        to="/dieline-finder"
+                        onClick={() => setIsAppsDropdownOpen(false)}
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all group"
+                      >
+                        <img src="/imgs/free/dieline-finder-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Dieline Finder" />
+                        <div className="text-left">
+                          <div className="font-bold text-xs uppercase tracking-tight">[DIELINE FINDER]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Directory of 160+ templates</div>
+                        </div>
+                      </Link>
+
+                      {/* Invest Cal */}
+                      <Link
+                        to="/coffee"
+                        onClick={() => setIsAppsDropdownOpen(false)}
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
+                      >
+                        <img src="/imgs/free/invest-cal-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Invest Cal" />
+                        <div className="text-left">
+                          <div className="font-bold text-xs uppercase tracking-tight">[INVEST CAL]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Packaging budget calculator</div>
+                        </div>
+                      </Link>
                     </div>
-                    
-                    {/* Sizing Finder */}
-                    <Link
-                      to="/size-guide"
-                      onClick={() => setIsAppsDropdownOpen(false)}
-                      className="flex items-center gap-3 p-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all mb-1 group"
-                    >
-                      <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center flex-shrink-0 group-hover:rotate-3 transition-transform">
-                        <SizingFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
-                      </div>
-                      <div className="text-left">
-                        <div className="font-bold text-xs uppercase tracking-tight">[SIZING FINDER]</div>
-                        <div className="text-[10px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Find exact size & capacity</div>
-                      </div>
-                    </Link>
 
-                    {/* Spec Finder */}
-                    <Link
-                      to="/tech-specs"
-                      onClick={() => setIsAppsDropdownOpen(false)}
-                      className="flex items-center gap-3 p-2 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all mb-1 group"
-                    >
-                      <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center flex-shrink-0 group-hover:-rotate-3 transition-transform">
-                        <MaterialSpecFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
+                    {/* Right Column: Free B2B Services */}
+                    <div className="space-y-2">
+                      <div className="bg-[#00FFFF] border-2 border-black p-1.5 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center mb-1">
+                        🎁 Free B2B Services
                       </div>
-                      <div className="text-left">
-                        <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[SPEC FINDER]</div>
-                        <div className="text-[10px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Compare barrier OTR/WVTR</div>
-                      </div>
-                    </Link>
+                      
+                      {/* Free Mockup */}
+                      <Link
+                        to="/free-service/packaging-mockup"
+                        onClick={() => setIsAppsDropdownOpen(false)}
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all group"
+                      >
+                        <img src="/imgs/free/mock/hero.webp" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Free Mockup" />
+                        <div className="text-left">
+                          <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[FREE MOCKUP]</div>
+                          <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Visualize packaging designs</div>
+                        </div>
+                      </Link>
 
-                    {/* Dieline Finder */}
-                    <Link
-                      to="/dieline-finder"
-                      onClick={() => setIsAppsDropdownOpen(false)}
-                      className="flex items-center gap-3 p-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all mb-1 group"
-                    >
-                      <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center flex-shrink-0 group-hover:-rotate-3 transition-transform">
-                        <Layout className="w-4 h-4 text-black" strokeWidth={2.5} />
-                      </div>
-                      <div className="text-left">
-                        <div className="font-bold text-xs uppercase tracking-tight">[DIELINE FINDER]</div>
-                        <div className="text-[10px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Directory of 160+ vector templates</div>
-                      </div>
-                    </Link>
+                      {/* Free Website */}
+                      <Link
+                        to="/free-service/website-upgrade"
+                        onClick={() => setIsAppsDropdownOpen(false)}
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
+                      >
+                        <img src="/imgs/free/website/hero.webp" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Free Website" />
+                        <div className="text-left">
+                          <div className="font-bold text-xs uppercase tracking-tight">[FREE WEBSITE]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Strategy call & homepage concept</div>
+                        </div>
+                      </Link>
 
-                    {/* PaaS Coffee app */}
-                    <Link
-                      to="/coffee"
-                      onClick={() => setIsAppsDropdownOpen(false)}
-                      className="flex items-center gap-3 p-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
-                    >
-                      <div className="w-8 h-8 border-2 border-black bg-white flex items-center justify-center flex-shrink-0 group-hover:rotate-3 transition-transform">
-                        <Coffee className="w-4 h-4 text-black" strokeWidth={2.5} />
-                      </div>
-                      <div className="text-left">
-                        <div className="font-bold text-xs uppercase tracking-tight">[Invest Cal]</div>
-                        <div className="text-[10px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Brand Packaging Investment Calculator</div>
-                      </div>
-                    </Link>
+                      {/* Free MGT Tool / Customer Center */}
+                      <Link
+                        to="/free-service/customer-center"
+                        onClick={() => setIsAppsDropdownOpen(false)}
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all group"
+                      >
+                        <img src="/imgs/free/design/a_process_flow_infographic_5376739.webp" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Customer Center" />
+                        <div className="text-left">
+                          <div className="font-bold text-xs uppercase tracking-tight">[FREE MGT TOOL]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Order tracker & artwork manager</div>
+                        </div>
+                      </Link>
+
+                      {/* Free Design Consultation */}
+                      <Link
+                        to="/free-service/packaging-design-consultation"
+                        onClick={() => setIsAppsDropdownOpen(false)}
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
+                      >
+                        <img src="/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Design Consultation" />
+                        <div className="text-left">
+                          <div className="font-bold text-xs uppercase tracking-tight">[FREE DESIGN]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">20-min B2B layout strategy call</div>
+                        </div>
+                      </Link>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -48,20 +48,34 @@ export default function PouchSizeGuidePage() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-24 border-b-4 border-black bg-[radial-gradient(#d4ff00_1px,transparent_1px)] [background-size:24px_24px] bg-yellow-50">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <NeoBadge color="lime">SIZE_PROTOCOL_V3.0</NeoBadge>
-          <h1 className="mt-8 font-black text-6xl md:text-9xl leading-none uppercase">
-            Fit.<br/>
-            Feel.<br/>
-            <span className="text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Finish.</span>
-          </h1>
-          <p className="mt-8 text-xl md:text-2xl font-bold font-['JetBrains_Mono'] text-gray-800 max-w-3xl mx-auto bg-white border-4 border-black p-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            Ditch the guesswork. Use our visual reference system to find the exact pouch size for your brand. Metric, Imperial, and Volume comparisons included.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <NeoButton variant="primary" to="/sample">Order Size Test Pack</NeoButton>
-            <NeoButton variant="secondary" href="https://calendly.com/30-min-free-packaging-consultancy">Free Consultation</NeoButton>
+      <section className="relative pt-16 pb-24 border-b-4 border-black bg-[radial-gradient(#d4ff00_1px,transparent_1px)] [background-size:24px_24px] bg-yellow-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            {/* Left Info Column */}
+            <div className="md:col-span-7 text-center md:text-left space-y-6">
+              <NeoBadge color="lime">SIZE_PROTOCOL_V3.0</NeoBadge>
+              <h1 className="font-black text-6xl md:text-8xl leading-none uppercase">
+                Fit.<br/>
+                Feel.<br/>
+                <span className="text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Finish.</span>
+              </h1>
+              <p className="text-lg md:text-xl font-bold font-['JetBrains_Mono'] text-gray-800 bg-white border-4 border-black p-5 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] leading-normal">
+                Ditch the guesswork. Use our visual reference system to find the exact pouch size for your brand. Metric, Imperial, and Volume comparisons included.
+              </p>
+              <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
+                <NeoButton variant="primary" to="/sample">Order Size Test Pack</NeoButton>
+                <NeoButton variant="secondary" href="https://calendly.com/30-min-free-packaging-consultancy">Free Consultation</NeoButton>
+              </div>
+            </div>
+            {/* Right Hero Image Column */}
+            <div className="md:col-span-5 relative">
+              <div className="absolute inset-0 bg-black translate-x-3 translate-y-3 border-4 border-black" />
+              <img 
+                src="/imgs/free/sizing-finder-hero.jpg" 
+                alt="Sizing Finder App Dashboard" 
+                className="relative z-10 border-4 border-black w-full shadow-xl bg-white"
+              />
+            </div>
           </div>
         </div>
       </section>

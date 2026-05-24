@@ -254,32 +254,62 @@ export default function PouchDielineFinderPage() {
           {isPouch && (
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
           )}
-          <div className="max-w-7xl mx-auto text-center relative z-10">
-            {isPouch ? (
-              <>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-black text-[#D4FF00] border-2 border-black text-xs font-bold font-['JetBrains_Mono'] uppercase tracking-wider mb-4 rounded-sm">
-                  <Sparkles className="w-3.5 h-3.5" /> 166 Vector Blueprints Available
-                </div>
-                <h1 className="text-4xl md:text-6xl font-black uppercase italic leading-none mb-6">
-                  Certified Dieline Finder
-                </h1>
-                <p className="max-w-2xl mx-auto text-sm md:text-base font-semibold leading-relaxed font-['JetBrains_Mono'] text-black/80">
-                  Search, inspect dimensions in real-time, toggle blueprint prepress layers, and download verified high-fidelity vector templates (.PDF / .AI). Instant and 100% free.
-                </p>
-              </>
-            ) : (
-              <>
-                <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 text-xs font-bold uppercase tracking-wider mb-5 rounded-full">
-                  <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Premium Design Resource Library
-                </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-100 to-indigo-200">
-                  Prepress Dieline Catalog & Directory
-                </h1>
-                <p className="max-w-2xl mx-auto text-base md:text-lg font-normal text-neutral-300 leading-relaxed">
-                  Equip your creative and prepress engineering teams with certified vector layout blueprints. Select from our catalog of 160+ industrial templates to ensure print-ready alignment.
-                </p>
-              </>
-            )}
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid md:grid-cols-12 gap-12 items-center">
+              {/* Left Column: Info */}
+              <div className="md:col-span-7 text-center md:text-left space-y-6">
+                {isPouch ? (
+                  <>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-black text-[#D4FF00] border-2 border-black text-xs font-bold font-['JetBrains_Mono'] uppercase tracking-wider rounded-sm">
+                      <Sparkles className="w-3.5 h-3.5" /> 166 Vector Blueprints Available
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-black uppercase italic leading-none">
+                      Certified Dieline Finder
+                    </h1>
+                    <p className="text-sm md:text-base font-semibold leading-relaxed font-['JetBrains_Mono'] text-black/80 bg-white border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                      Search, inspect dimensions in real-time, toggle blueprint prepress layers, and download verified high-fidelity vector templates (.PDF / .AI). Instant and 100% free.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <div className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 text-xs font-bold uppercase tracking-wider rounded-full">
+                      <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Premium Design Resource Library
+                    </div>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-100 to-indigo-200">
+                      Prepress Dieline Catalog & Directory
+                    </h1>
+                    <p className="text-base md:text-lg font-normal text-neutral-300 leading-relaxed bg-neutral-950/40 backdrop-blur-md border border-neutral-800 p-5 rounded-2xl">
+                      Equip your creative and prepress engineering teams with certified vector layout blueprints. Select from our catalog of 160+ industrial templates to ensure print-ready alignment.
+                    </p>
+                  </>
+                )}
+              </div>
+              
+              {/* Right Column: Hero Mockup Image */}
+              <div className="md:col-span-5 relative">
+                {isPouch ? (
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-black translate-x-3 translate-y-3 border-4 border-black" />
+                    <img 
+                      src="/imgs/free/dieline-finder-hero.jpg" 
+                      alt="Dieline Finder App Dashboard" 
+                      className="relative z-10 border-4 border-black w-full shadow-xl bg-white"
+                    />
+                  </div>
+                ) : (
+                  <div className="relative group">
+                    <div className="absolute -inset-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                    <div className="relative bg-neutral-950 border border-neutral-800 p-2 rounded-2xl shadow-2xl overflow-hidden">
+                      <img 
+                        src="/imgs/free/dieline-finder-hero.jpg" 
+                        alt="Dieline Finder App Dashboard" 
+                        className="w-full h-auto rounded-xl object-cover"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </section>
 

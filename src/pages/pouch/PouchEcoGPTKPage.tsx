@@ -220,16 +220,29 @@ export default function PouchEcoGPTKPage() {
           
           <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 pb-20">
             {/* Header */}
-            <div className="border-4 border-black bg-[#D4FF00] p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-8 transform -rotate-1 relative">
-              <h2 className="text-sm font-['JetBrains_Mono'] font-bold text-neutral-800 uppercase tracking-widest">
-                1-PAGE UNIFIED BUDGET TELEMETRY
-              </h2>
-              <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-black leading-none mt-1">
-                Invest Cal
-              </h1>
-              <p className="text-xs font-['JetBrains_Mono'] font-bold text-neutral-700 uppercase mt-2">
-                ☕ 咖啡茶葉品牌包裝預算與品牌配置對比計算器 (一版睇清)
-              </p>
+            <div className="border-4 border-black bg-[#D4FF00] p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-8 transform -rotate-1 relative grid md:grid-cols-12 gap-6 items-center">
+              <div className="md:col-span-8">
+                <h2 className="text-sm font-['JetBrains_Mono'] font-bold text-neutral-800 uppercase tracking-widest">
+                  1-PAGE UNIFIED BUDGET TELEMETRY
+                </h2>
+                <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-black leading-none mt-1">
+                  Invest Cal
+                </h1>
+                <p className="text-xs font-['JetBrains_Mono'] font-bold text-neutral-700 uppercase mt-2">
+                  ☕ 咖啡茶葉品牌包裝預算與品牌配置對比計算器 (一版睇清)
+                </p>
+                <p className="text-sm font-bold mt-4 font-['Space_Grotesk'] text-black/80">
+                  Compare modular card insert/tag options against high-barrier customizable Recyclable & Compostable stand-up flat bottom pouches to maximize your packaging investments.
+                </p>
+              </div>
+              <div className="md:col-span-4 relative">
+                <div className="absolute inset-0 bg-black translate-x-2 translate-y-2 border-2 border-black" />
+                <img 
+                  src="/imgs/free/invest-cal-hero.jpg" 
+                  alt="Invest Cal App Dashboard" 
+                  className="relative z-10 border-2 border-black w-full object-cover bg-white"
+                />
+              </div>
             </div>
             
             {/* 2-Column High-Density Layout Panel */}
@@ -397,17 +410,32 @@ export default function PouchEcoGPTKPage() {
             <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
               
               {/* Title Section */}
-              <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono">
-                  <Sparkles className="w-3.5 h-3.5 mr-1.5 text-emerald-300 animate-spin-slow" />
-                  1-PAGE UNIFIED BUDGET TELEMETRY
-                </span>
-                <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight font-['Outfit']">
-                  Invest Cal
-                </h1>
-                <p className="text-xs font-mono text-emerald-400 uppercase tracking-wider">
-                  ☕ 咖啡茶葉品牌包裝預算與品牌配置對比計算器 (一版睇清)
-                </p>
+              <div className="grid md:grid-cols-12 gap-8 items-center mb-12 bg-neutral-900/50 backdrop-blur-md border border-neutral-800 p-6 md:p-8 rounded-3xl">
+                <div className="md:col-span-8 text-center md:text-left space-y-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono">
+                    <Sparkles className="w-3.5 h-3.5 mr-1.5 text-emerald-300 animate-spin-slow" />
+                    1-PAGE UNIFIED BUDGET TELEMETRY
+                  </span>
+                  <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight font-['Outfit']">
+                    Invest Cal
+                  </h1>
+                  <p className="text-xs font-mono text-emerald-400 uppercase tracking-wider">
+                    ☕ 咖啡茶葉品牌包裝預算與品牌配置對比計算器 (一版睇清)
+                  </p>
+                  <p className="text-sm text-neutral-400 leading-relaxed font-sans max-w-xl">
+                    Compare modular card insert/tag options against high-barrier customizable Recyclable & Compostable stand-up flat bottom pouches to maximize your packaging investments.
+                  </p>
+                </div>
+                <div className="md:col-span-4 relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition"></div>
+                  <div className="relative border border-neutral-800 bg-neutral-950 p-1.5 rounded-2xl shadow-xl overflow-hidden">
+                    <img 
+                      src="/imgs/free/invest-cal-hero.jpg" 
+                      alt="Invest Cal App Dashboard" 
+                      className="w-full h-auto rounded-xl object-cover"
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* 2-Column High-Density Dashboard Card */}

@@ -329,7 +329,7 @@ export default function PouchTechSpecsPage() {
             </div>
             <div className="flex-1 relative">
                 <div className="border-4 border-black p-2 bg-white shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] rotate-3 transition-transform hover:rotate-0">
-                  <img src="/imgs/spec/tech-spec-hero.png" alt="Tech Spec Preview" className="w-full h-auto border-2 border-black" />
+                  <img src="/imgs/free/spec-finder-hero.jpg" alt="Spec Comparison App Dashboard" className="w-full h-auto border-2 border-black" />
                 </div>
             </div>
           </div>
@@ -687,8 +687,8 @@ export default function PouchTechSpecsPage() {
                 {/* Image card wrapper */}
                 <div className="relative bg-neutral-950/60 backdrop-blur-xl border border-neutral-800 p-2.5 rounded-3xl shadow-2xl overflow-hidden aspect-square flex items-center justify-center">
                   <img 
-                    src="/imgs/spec/tech-spec-hero-b2b.png" 
-                    alt="High-Barrier Sustainable Flexible Packaging Layers Diagram" 
+                    src="/imgs/free/spec-finder-hero.jpg" 
+                    alt="Spec Comparison App Dashboard" 
                     className="w-full h-full object-cover rounded-2xl border border-neutral-850/80 transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
