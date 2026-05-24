@@ -138,8 +138,8 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                         <Coffee className="w-4 h-4 text-black" strokeWidth={2.5} />
                       </div>
                       <div className="text-left">
-                        <div className="font-bold text-xs uppercase tracking-tight">[PaaS COFFEE APP]</div>
-                        <div className="text-[10px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Specialty coffee accelerator kit</div>
+                        <div className="font-bold text-xs uppercase tracking-tight">[Invest Cal]</div>
+                        <div className="text-[10px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-none mt-0.5">Brand Packaging Investment Calculator</div>
                       </div>
                     </Link>
                   </motion.div>
@@ -325,7 +325,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   >
                     <span className="flex items-center gap-2">
                       <Coffee className="w-5 h-5 text-black" strokeWidth={2.5} />
-                      [PaaS COFFEE APP]
+                      [Invest Cal]
                     </span>
                   </Link>
                   

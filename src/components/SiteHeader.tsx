@@ -332,7 +332,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                   📐 Dieline Finder
                 </Link>
                 <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 font-bold text-emerald-650 flex items-center gap-1.5">
-                  ☕ PaaS Calculator
+                  ☕ Invest Cal
                 </Link>
               </div>
             </div>
@@ -377,7 +377,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
                     📦 Free Mockup
                   </Link>
                   <Link to="/coffee" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
-                    ☕ PaaS Calculator
+                    ☕ Invest Cal
                   </Link>
                   <Link to="/size-guide" onClick={() => setIsMenuOpen(false)} className="block py-3 px-3 text-sm text-neutral-700 rounded-lg hover:bg-neutral-50 active:bg-neutral-100">
                     📱 Packaging Apps

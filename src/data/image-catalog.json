@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-24",
-  "total_images": 1785,
+  "total_images": 1794,
   "total_categories": 160,
   "extensions": {
     ".webp": 1298,
     ".png": 294,
-    ".jpg": 190,
+    ".jpg": 199,
     ".svg": 3
   },
   "categories": {
@@ -8251,8 +8251,62 @@
       ]
     },
     "store/products": {
-      "count": 189,
+      "count": 198,
       "images": [
+        {
+          "filename": "invest-cal-recyclable.jpg",
+          "path": "/imgs/store/products/invest-cal-recyclable.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T12:48:23.927Z"
+        },
+        {
+          "filename": "invest-cal-compostable.jpg",
+          "path": "/imgs/store/products/invest-cal-compostable.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T12:48:23.925Z"
+        },
+        {
+          "filename": "invest-cal-tag.jpg",
+          "path": "/imgs/store/products/invest-cal-tag.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T12:48:23.924Z"
+        },
+        {
+          "filename": "invest-cal-card-insert.jpg",
+          "path": "/imgs/store/products/invest-cal-card-insert.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T12:48:23.922Z"
+        },
+        {
+          "filename": "triangle-coffee-box-card-tuck-thumbnail-9.jpg",
+          "path": "/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-9.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T11:23:32.418Z"
+        },
+        {
+          "filename": "triangle-coffee-box-card-tuck-thumbnail-8.jpg",
+          "path": "/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-8.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T11:23:32.393Z"
+        },
+        {
+          "filename": "triangle-coffee-box-card-tuck-thumbnail-7.jpg",
+          "path": "/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-7.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T11:23:32.362Z"
+        },
+        {
+          "filename": "triangle-coffee-box-card-tuck-thumbnail-6.jpg",
+          "path": "/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-6.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T11:23:32.335Z"
+        },
+        {
+          "filename": "triangle-coffee-box-card-tuck-thumbnail-5.jpg",
+          "path": "/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-24T11:23:26.010Z"
+        },
         {
           "filename": "unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg",
           "path": "/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-9.jpg",

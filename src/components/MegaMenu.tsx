@@ -186,10 +186,10 @@ const FREE_SERVICE_PAGES = [
     description: 'Track orders, manage artwork, approve proofs—all free'
   },
   {
-    name: 'Free B2B PaaS Calculator',
+    name: 'Invest Cal',
     link: '/coffee',
     image: '/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-1.jpg',
-    description: '10-sec mortgage-style budget calculator for coffee pouches'
+    description: 'Brand Packaging Investment Calculator'
   },
   {
     name: 'Interactive Packaging Apps',

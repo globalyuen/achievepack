@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import { 
   Coffee, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box, 
   Sparkles, DollarSign, Clock, HelpCircle, Mail, Download, Compass, 
@@ -12,7 +12,6 @@ import PouchLayout from '../../components/pouch/PouchLayout'
 import SiteHeader from '../../components/SiteHeader'
 import Footer from '../../components/Footer'
 import { isPouch } from '../../utils/domain'
-import { ThreePouchViewer } from '../../components/ThreePouchViewer'
 
 // Custom sizing definitions requested by user
 interface BagSize {
@@ -23,10 +22,10 @@ interface BagSize {
 }
 
 const BAG_SIZES: BagSize[] = [
-  { id: 'size-1', label: '160 × 260 + 80 mm', dimensions: '160 × 260 + 80 mm', capacity: '250g Bean / Ground' },
-  { id: 'size-2', label: '180 × 280 + 80 mm', dimensions: '180 × 280 + 80 mm', capacity: '340g - 400g Pouch' },
-  { id: 'size-3', label: '200 × 300 + 80 mm', dimensions: '200 × 300 + 80 mm', capacity: '500g Bean / Ground' },
-  { id: 'size-4', label: '260 × 340 + 80 mm', dimensions: '260 × 340 + 80 mm', capacity: '1kg Heavy Weight Pouch' },
+  { id: 'size-1', label: '160 × 260 + 80 mm', dimensions: '160 × 260 + 80 mm', capacity: 'approx 150g' },
+  { id: 'size-2', label: '180 × 280 + 80 mm', dimensions: '180 × 280 + 80 mm', capacity: 'approx 250g' },
+  { id: 'size-3', label: '200 × 300 + 80 mm', dimensions: '200 × 300 + 80 mm', capacity: 'approx 500g' },
+  { id: 'size-4', label: '260 × 340 + 80 mm', dimensions: '260 × 340 + 80 mm', capacity: 'approx 1000g' },
 ]
 
 export default function PouchEcoGPTKPage() {
@@ -40,22 +39,51 @@ export default function PouchEcoGPTKPage() {
   const calculateOptionPrice = (optionId: string) => {
     const sizeId = selectedSize.dimensions;
 
-    // Option 1: Stock Pouch + Roast Cards (Conventional direction)
-    if (optionId === 'stock-cards') {
+    // Option 1 & 2: Stock Pouch options (Card insert or Tag attachment)
+    if (optionId === 'stock-cards' || optionId === 'stock-tag') {
       const unitPrice = 0.50
       const isBelowMoq = qtyPerDesign < 100
       const totalCost = numDesigns * qtyPerDesign * unitPrice
-      return {
-        unitPrice,
-        totalCost,
-        isBelowMoq,
-        moq: 100,
-        badge: 'Stock + Cards (現貨插卡)',
-        desc: 'Matte stock flat bottom pouches in white/kraft fitted with attached cards (tag or slot insertion). $0 plates. Ultra-low barriers.',
-        accentColor: '#10B981',
-        certLogo: 'FSC Eco Card',
-        leadTime: '3 - 5 Days',
-        image: '/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-1.webp'
+      if (optionId === 'stock-cards') {
+        return {
+          unitPrice,
+          totalCost,
+          isBelowMoq,
+          moq: 100,
+          badge: 'Stock + Card Insert (現貨插卡)',
+          desc: 'Matte stock flat bottom pouches in white/kraft fitted with attached card insertion pocket. $0 plates. Ultra-low B2B barrier.',
+          accentColor: '#10B981',
+          certLogo: 'FSC Eco Card',
+          leadTime: '3 - 5 Days',
+          image: '/imgs/store/products/invest-cal-card-insert.jpg',
+          points: [
+            'Food-Safe High Barrier Stock Materials',
+            'Easily Slip in Customized Flavor Cards',
+            '$0 Plate Cylinder Fees (Digital/Stamp)',
+            'Perfect for Modular Roaster Branding',
+            '100pcs Ultra-Low MOQ'
+          ]
+        }
+      } else {
+        return {
+          unitPrice,
+          totalCost,
+          isBelowMoq,
+          moq: 100,
+          badge: 'Stock + Tag Attachment (現貨綁帶)',
+          desc: 'Ultimate airtight and light-shielding seal flat bottom pouch. Reusable with premium side zipper and custom string tag attachment.',
+          accentColor: '#FBBF24',
+          certLogo: 'Premium Roast Tag',
+          leadTime: '3 - 5 Days',
+          image: '/imgs/store/products/invest-cal-tag.jpg',
+          points: [
+            'Ultimate Airtight & Light-Shielding Seal',
+            'Reusable with Convenient One-Sided Zipper',
+            'Handcrafted String & Tag Premium Feel',
+            'Fast Modular Local Delivery',
+            '100pcs Ultra-Low MOQ'
+          ]
+        }
       }
     }
 
@@ -64,12 +92,6 @@ export default function PouchEcoGPTKPage() {
 
     // Matrices
     const matrices: Record<string, Record<string, { 500: number; 1000: number }>> = {
-      'custom-print': {
-        '160 × 260 + 80 mm': { 500: 2.00, 1000: 1.50 },
-        '180 × 280 + 80 mm': { 500: 2.10, 1000: 1.60 },
-        '200 × 300 + 80 mm': { 500: 2.20, 1000: 1.70 },
-        '260 × 340 + 80 mm': { 500: 2.40, 1000: 1.90 },
-      },
       'recyclable': {
         '160 × 260 + 80 mm': { 500: 2.50, 1000: 1.70 },
         '180 × 280 + 80 mm': { 500: 2.60, 1000: 1.80 },
@@ -101,31 +123,25 @@ export default function PouchEcoGPTKPage() {
 
     const totalCost = numDesigns * qtyPerDesign * unitPrice
 
-    if (optionId === 'custom-print') {
-      return {
-        unitPrice,
-        totalCost,
-        isBelowMoq,
-        moq: 500,
-        badge: 'Custom Standard (標準全定製)',
-        desc: 'Edge-to-edge full digital printing on standard high-barrier BOPP/PE structures. Perfect for vibrant retail setups.',
-        accentColor: '#00D8FF',
-        certLogo: 'High-Barrier standard',
-        leadTime: '15 - 20 Days',
-        image: '/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-1.webp'
-      }
-    } else if (optionId === 'recyclable') {
+    if (optionId === 'recyclable') {
       return {
         unitPrice,
         totalCost,
         isBelowMoq,
         moq: 500,
         badge: 'Option A: PE+EVOH (單一材料可回收)',
-        desc: 'Matte recyclable mono-material structure with EVOH high-barrier. Complete with Recycle Triangle Logo No. 4.',
+        desc: 'Premium Recyclable Mono-PE flat bottom pouch with advanced one-way degassing valve and integrated clear window for product visibility.',
         accentColor: '#34D399',
-        certLogo: '♻️ Code 4 SPI Recyclable',
+        certLogo: '♻️ Code 4 Recyclable',
         leadTime: '20 - 25 Days',
-        image: '/imgs/store/products/flat-bottom-zipper-pouch-thumbnail-6.webp'
+        image: '/imgs/store/products/invest-cal-recyclable.jpg',
+        points: [
+          'Premium Recyclable Mono-PE Material',
+          'Superior High-Barrier with Resealable Zipper',
+          'Advanced One-Way Degassing Valve',
+          'Integrated Clear Window for product visibility',
+          'Code 4 SPI Recyclable & Highly Durable'
+        ]
       }
     } else {
       return {
@@ -134,23 +150,30 @@ export default function PouchEcoGPTKPage() {
         isBelowMoq,
         moq: 500,
         badge: 'Option B: Compostable (生物基可堆肥)',
-        desc: '100% Home certified compostable Kraft paper laminate with high-barrier VM-Cello. BPI compostable logo.',
+        desc: '100% Home certified compostable Kraft paper laminate with high-barrier VM-Cello and compostable resealable zipper & valve.',
         accentColor: '#A7F3D0',
         certLogo: '🌱 BPI Compostable',
         leadTime: '20 - 25 Days',
-        image: '/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg'
+        image: '/imgs/store/products/invest-cal-compostable.jpg',
+        points: [
+          '100% Home & Industrial Compostable',
+          'Kraft Paper & Certified Bio-Lining',
+          'Resealable Zipper & Degassing Valve for freshness',
+          'High-Barrier against moisture, oxygen, and odor',
+          'Decomposes in backyard compost in 12 months'
+        ]
       }
     }
   }
 
   // Compile bilingual RFQ clipboard content
   const getBilingualRfqText = () => {
-    const stockPrice = calculateOptionPrice('stock-cards')
-    const customPrice = calculateOptionPrice('custom-print')
+    const cardPrice = calculateOptionPrice('stock-cards')
+    const tagPrice = calculateOptionPrice('stock-tag')
     const recPrice = calculateOptionPrice('recyclable')
     const compPrice = calculateOptionPrice('compostable')
 
-    return `Achieve Pack 咖啡品牌包裝詢價配置 (PaaS Packaging RFQ Summary):
+    return `Achieve Pack 咖啡品牌包裝詢價配置 (Invest Cal PaaS RFQ Summary):
 --------------------------------------------------
 📐 規格尺寸 (Selected Dimension): ${selectedSize.dimensions} (${selectedSize.capacity})
 🎨 印刷款式 (Number of Designs): ${numDesigns} 款 (Designs)
@@ -159,10 +182,10 @@ export default function PouchEcoGPTKPage() {
 💰 用戶目標預算 (Target Budget): $${totalBudget.toLocaleString()} USD
 
 方案實時估算 (Real-time Options Quotation):
-1️⃣ 貼紙卡牌現貨方案 (Stock Pouch + Cards):
-   - 單價 (Unit): $${stockPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${stockPrice.totalCost.toFixed(2)} USD ${stockPrice.isBelowMoq ? '(Below MOQ)' : ''}
-2️⃣ 標準全定制數碼印刷 (Custom Print Standard):
-   - 單價 (Unit): $${customPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${customPrice.totalCost.toFixed(2)} USD ${customPrice.isBelowMoq ? '(Below MOQ)' : ''}
+1️⃣ 貼紙卡牌插卡方案 (Stock Pouch + Card Insert):
+   - 單價 (Unit): $${cardPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${cardPrice.totalCost.toFixed(2)} USD ${cardPrice.isBelowMoq ? '(Below MOQ)' : ''}
+2️⃣ 貼紙卡牌綁帶方案 (Stock Pouch + Tag Attachment):
+   - 單價 (Unit): $${tagPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${tagPrice.totalCost.toFixed(2)} USD ${tagPrice.isBelowMoq ? '(Below MOQ)' : ''}
 3️⃣ ♻️ 4號標誌單一可回收方案 (PE+EVOH Recyclable):
    - 單價 (Unit): $${recPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${recPrice.totalCost.toFixed(2)} USD ${recPrice.isBelowMoq ? '(Below MOQ)' : ''}
 4️⃣ 🌱 BPI認證家用可堆肥方案 (Compostable):
@@ -178,104 +201,94 @@ export default function PouchEcoGPTKPage() {
     navigator.clipboard.writeText(text).then(() => {
       setWhatsappCopied(true)
       setTimeout(() => setWhatsappCopied(false), 3000)
-      // Redirect to WhatsApp Global support
       window.open('https://api.whatsapp.com/send?phone=85269704411&text=' + encodeURIComponent('Hello Achieve Pack! I have generated my PaaS Coffee Packaging configuration: \n\n' + text), '_blank')
     })
   }
 
   const isEco = isPouch()
 
-  // --- COMPACT B2B / B2C UNIFIED CALCULATOR RENDERING ---
   return (
-    <div className={`min-h-screen ${isEco ? "bg-[#fafafa] text-neutral-900 font-['Space_Grotesk']" : "bg-neutral-950 text-neutral-200 font-sans"} selection:bg-emerald-500 selection:text-white`}>
+    <div className={`min-h-screen ${isEco ? "bg-[#fafafa] text-neutral-900 font-['Space_Grotesk']" : "bg-[#040d0a] text-neutral-200 font-sans"} selection:bg-emerald-500 selection:text-white`}>
       
       {isEco ? (
         <PouchLayout>
           <Helmet>
-            <title>B2B Coffee Packaging Budget & Investment Calculator | POUCH.ECO</title>
-            <meta name="description" content="Calculate your startup coffee bags packaging costs instantly with our interactive B2B mortgage-style budget calculator. Real-time rates for Stock Pouches, Recyclable PE+EVOH, and Backyard Compostable bags." />
+            <title>Invest Cal | Brand Packaging Investment Calculator | POUCH.ECO</title>
+            <meta name="description" content="Calculate your coffee bags packaging costs instantly with our interactive B2B budget calculator. Compare Card Insert, Tag Attachment, Recyclable PE+EVOH, and Home Compostable options." />
             <link rel="canonical" href="https://pouch.eco/coffee" />
           </Helmet>
           
           <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 pb-20">
             {/* Header */}
             <div className="border-4 border-black bg-[#D4FF00] p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-8 transform -rotate-1 relative">
-              <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-black leading-none">
-                B2B Pouch.eco Budget Telemetry
+              <h2 className="text-sm font-['JetBrains_Mono'] font-bold text-neutral-800 uppercase tracking-widest">
+                1-PAGE UNIFIED BUDGET TELEMETRY
+              </h2>
+              <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-black leading-none mt-1">
+                Invest Cal
               </h1>
-              <p className="text-xs font-['JetBrains_Mono'] font-bold text-neutral-800 uppercase mt-1">
-                包裝預算與品牌投資計算器 // 10秒掌控啟動預算
+              <p className="text-xs font-['JetBrains_Mono'] font-bold text-neutral-700 uppercase mt-2">
+                ☕ 咖啡茶葉品牌包裝預算與品牌配置對比計算器 (一版睇清)
               </p>
             </div>
             
-            {/* Unified 3-Column Top Panel */}
-            <div className="grid lg:grid-cols-12 gap-6 items-stretch mb-8">
+            {/* 2-Column High-Density Layout Panel */}
+            <div className="grid lg:grid-cols-12 gap-6 items-stretch mb-6">
               {/* Col 1: Configurator */}
-              <div className="lg:col-span-4 border-4 border-black bg-white p-5 shadow-[6px_6px_0px_px_rgba(0,0,0,1)] flex flex-col justify-between space-y-4">
-                <h3 className="font-black text-lg uppercase border-b-2 border-black pb-2">1. Config Parameters</h3>
+              <div className="lg:col-span-7 border-4 border-black bg-white p-5 shadow-[6px_6px_0px_rgba(0,0,0,1)] flex flex-col justify-between space-y-4">
+                <h3 className="font-black text-lg uppercase border-b-2 border-black pb-2 flex items-center gap-2">
+                  <Grid className="w-5 h-5" /> 1. Config Parameters
+                </h3>
                 
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-bold font-['JetBrains_Mono']">
-                    <span>Target Budget:</span>
-                    <span className="bg-black text-[#D4FF00] px-1.5">${totalBudget.toLocaleString()}</span>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-xs font-bold font-['JetBrains_Mono']">
+                      <span>Target Budget:</span>
+                      <span className="bg-black text-[#D4FF00] px-1.5">${totalBudget.toLocaleString()}</span>
+                    </div>
+                    <input type="range" min="500" max="15000" step="250" value={totalBudget} onChange={(e) => setTotalBudget(parseInt(e.target.value))} className="w-full h-2 border border-black rounded cursor-pointer accent-black" />
                   </div>
-                  <input type="range" min="500" max="15000" step="250" value={totalBudget} onChange={(e) => setTotalBudget(parseInt(e.target.value))} className="w-full h-2 border border-black rounded cursor-pointer accent-black" />
-                </div>
 
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-bold font-['JetBrains_Mono']">
-                    <span>Designs SKUs:</span>
-                    <span className="bg-[#00FFFF] border border-black px-1.5 font-black">{numDesigns} SKUs</span>
-                  </div>
-                  <input type="range" min="1" max="10" step="1" value={numDesigns} onChange={(e) => setNumDesigns(parseInt(e.target.value))} className="w-full h-2 border border-black rounded cursor-pointer accent-black" />
-                </div>
-
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-bold font-['JetBrains_Mono']">
-                    <span>Qty / Design:</span>
-                    <span className="bg-[#FF00FF] text-white border border-black px-1.5 font-black">{qtyPerDesign} pcs</span>
-                  </div>
-                  <input type="range" min="100" max="5000" step="50" value={qtyPerDesign} onChange={(e) => setQtyPerDesign(parseInt(e.target.value))} className="w-full h-2 border border-black rounded cursor-pointer accent-black" />
-                  <div className="grid grid-cols-5 gap-1 font-['JetBrains_Mono'] text-[9px] font-black pt-1">
-                    {[100, 500, 1000, 2000, 5000].map(q => (
-                      <button key={q} type="button" onClick={() => setQtyPerDesign(q)} className={`border border-black py-0.5 ${qtyPerDesign === q ? 'bg-black text-white' : 'bg-white'}`}>{q}</button>
-                    ))}
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-xs font-bold font-['JetBrains_Mono']">
+                      <span>Designs SKUs:</span>
+                      <span className="bg-[#00FFFF] border border-black px-1.5 font-black">{numDesigns} SKUs</span>
+                    </div>
+                    <input type="range" min="1" max="10" step="1" value={numDesigns} onChange={(e) => setNumDesigns(parseInt(e.target.value))} className="w-full h-2 border border-black rounded cursor-pointer accent-black" />
                   </div>
                 </div>
 
-                <div className="space-y-1">
-                  <span className="block text-[11px] font-bold uppercase tracking-wider font-['JetBrains_Mono']">Bag Dimensions:</span>
-                  <div className="grid grid-cols-2 gap-1 text-[10px] font-bold">
-                    {BAG_SIZES.map(s => (
-                      <button key={s.id} type="button" onClick={() => setSelectedSize(s)} className={`border border-black p-1 text-left ${selectedSize.id === s.id ? 'bg-[#D4FF00]' : 'bg-white'}`}>
-                        <div className="font-black truncate">{s.dimensions}</div>
-                      </button>
-                    ))}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-xs font-bold font-['JetBrains_Mono']">
+                      <span>Qty / Design:</span>
+                      <span className="bg-[#FF00FF] text-white border border-black px-1.5 font-black">{qtyPerDesign} pcs</span>
+                    </div>
+                    <input type="range" min="100" max="5000" step="50" value={qtyPerDesign} onChange={(e) => setQtyPerDesign(parseInt(e.target.value))} className="w-full h-2 border border-black rounded cursor-pointer accent-black" />
+                    <div className="grid grid-cols-5 gap-1 font-['JetBrains_Mono'] text-[9px] font-black pt-1">
+                      {[100, 500, 1000, 2000, 5000].map(q => (
+                        <button key={q} type="button" onClick={() => setQtyPerDesign(q)} className={`border border-black py-0.5 ${qtyPerDesign === q ? 'bg-black text-white' : 'bg-white'}`}>{q}</button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <span className="block text-[11px] font-bold uppercase tracking-wider font-['JetBrains_Mono']">Bag Dimensions:</span>
+                    <div className="grid grid-cols-2 gap-1 text-[10px] font-bold">
+                      {BAG_SIZES.map(s => (
+                        <button key={s.id} type="button" onClick={() => setSelectedSize(s)} className={`border border-black p-1 text-left ${selectedSize.id === s.id ? 'bg-[#D4FF00]' : 'bg-white'}`}>
+                          <div className="font-black truncate">{s.dimensions}</div>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Col 2: Interactive 3D Turntable Model */}
-              <div className="lg:col-span-4 border-4 border-black bg-white p-5 shadow-[6px_6px_0px_px_rgba(0,0,0,1)] h-[380px] flex flex-col justify-between relative overflow-hidden">
-                <div className="flex justify-between items-start border-b-2 border-black pb-2">
-                  <div>
-                    <span className="text-[9px] font-['JetBrains_Mono'] uppercase font-bold text-neutral-400">Turntable Telemetry</span>
-                    <h3 className="text-base font-black uppercase">3D Flat-Bottom Model</h3>
-                  </div>
-                  <RefreshCw className="w-5 h-5 text-emerald-600 animate-spin-slow" />
-                </div>
-                <div className="flex-1 w-full h-[220px]">
-                  <ThreePouchViewer modelUrl="/3d/3d-pouch/coffee-pouch.glb" tilt={{ x: 0, y: 0 }} scrollPercent={0} isMobile={true} />
-                </div>
-                <p className="text-[9px] font-['JetBrains_Mono'] font-bold text-center text-neutral-400 uppercase tracking-widest mt-1">
-                  ← Drag Pouch to rotate • View bottom base →
-                </p>
-              </div>
-
-              {/* Col 3: Summary & Lead dispatch */}
-              <div className="lg:col-span-4 border-4 border-black bg-neutral-900 text-white p-5 shadow-[6px_6px_0px_px_rgba(0,0,0,1)] flex flex-col justify-between">
+              {/* Col 2: Summary & Lead dispatch */}
+              <div className="lg:col-span-5 border-4 border-black bg-neutral-900 text-white p-5 shadow-[6px_6px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
                 <div>
-                  <h3 className="font-black text-lg uppercase text-[#D4FF00] border-b border-neutral-800 pb-2">3. RFQ Summarizer</h3>
+                  <h3 className="font-black text-lg uppercase text-[#D4FF00] border-b border-neutral-800 pb-2">2. RFQ Summarizer</h3>
                   <div className="mt-3 font-['JetBrains_Mono'] text-xs space-y-2 font-bold">
                     <div className="flex justify-between border-b border-neutral-800 pb-1">
                       <span className="text-neutral-400">Dimension Chosen:</span>
@@ -293,7 +306,7 @@ export default function PouchEcoGPTKPage() {
                 </div>
 
                 <div className="pt-4 space-y-2">
-                  <button onClick={handleWhatsappCopy} className="w-full bg-[#D4FF00] text-black border-2 border-black font-black uppercase text-xs py-3 text-center hover:bg-[#bce000] transition active:translate-y-0.5 shadow-[2px_2px_0px_rgba(255,255,255,0.2)] flex items-center justify-center gap-1.5 cursor-pointer">
+                  <button onClick={handleWhatsappCopy} className="w-full bg-[#D4FF00] text-black border-2 border-black font-black uppercase text-xs py-3.5 text-center hover:bg-[#bce000] transition active:translate-y-0.5 shadow-[2px_2px_0px_rgba(255,255,255,0.2)] flex items-center justify-center gap-1.5 cursor-pointer">
                     <Phone className="w-4 h-4" /> Whatsapp RFQ Configuration
                   </button>
                   {whatsappCopied && <p className="text-[10px] text-emerald-400 font-bold text-center">✓ Configuration parameters copied to clipboard!</p>}
@@ -301,9 +314,18 @@ export default function PouchEcoGPTKPage() {
               </div>
             </div>
 
+            {/* Custom Sizing & Material Adjustments Info Box */}
+            <div className="border-4 border-black bg-emerald-50 p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] mb-6 flex gap-3 items-start">
+              <Info className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
+              <div className="text-xs font-semibold text-emerald-900 leading-relaxed">
+                <span className="font-bold uppercase tracking-wider block text-emerald-800 mb-1">💡 Custom Sizing & Material Optimization Available</span>
+                The dimensions listed above represent standard sizes. However, for both the **PE+EVOH Recyclable** and **Compostable** options, Achieve Pack offers **fully custom pouch sizes**! Any tailored width or height smaller than the standard templates can be manufactured at no additional premium setup cost. Contact us to tweak dimensions to perfectly fit your budget and bean volume.
+              </div>
+            </div>
+
             {/* Bottom 4-Column Options Grid with actual Storefront Images */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {['stock-cards', 'custom-print', 'recyclable', 'compostable'].map(optionId => {
+              {['stock-cards', 'stock-tag', 'recyclable', 'compostable'].map(optionId => {
                 const data = calculateOptionPrice(optionId)
                 const isSafe = data.totalCost <= totalBudget
 
@@ -314,16 +336,26 @@ export default function PouchEcoGPTKPage() {
                       {data.isBelowMoq ? 'MOQ Alert' : (isSafe ? 'Within Budget' : 'Over Budget')}
                     </div>
 
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {/* Product Photo */}
-                      <div className="w-full aspect-square border-2 border-black rounded overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center">
+                      <div className="w-full aspect-square border-2 border-black rounded-lg overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center">
                         <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                        <span className="absolute bottom-1 right-1 bg-black/80 text-white text-[8px] font-['JetBrains_Mono'] px-1">{data.certLogo}</span>
+                        <span className="absolute bottom-1 right-1 bg-black/80 text-white text-[8px] font-['JetBrains_Mono'] px-1.5 py-0.5 border border-black rounded">{data.certLogo}</span>
                       </div>
 
                       <div>
                         <h4 className="font-black text-sm uppercase leading-tight mt-1">{data.badge}</h4>
                         <p className="text-[11px] text-neutral-500 font-semibold leading-tight mt-1 line-clamp-3">{data.desc}</p>
+                        
+                        {/* Selling Points */}
+                        <ul className="space-y-1.5 pt-2 text-[10px] font-semibold text-neutral-700">
+                          {data.points?.map((pt, i) => (
+                            <li key={i} className="flex items-start gap-1">
+                              <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" strokeWidth={3.5} />
+                              <span>{pt}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
 
                       <div className="border-t-2 border-dashed border-neutral-200 pt-2 font-['JetBrains_Mono'] text-xs font-bold text-neutral-700 space-y-1">
@@ -343,7 +375,7 @@ export default function PouchEcoGPTKPage() {
                     </div>
 
                     {data.isBelowMoq && (
-                      <div className="bg-red-50 border border-red-200 text-[9px] text-red-700 font-bold p-1 mt-3">
+                      <div className="bg-red-50 border border-red-200 text-[9px] text-red-700 font-bold p-1.5 mt-3 rounded">
                         ⚠️ 起訂量 (MOQ): {data.moq} pcs / SKU.
                       </div>
                     )}
@@ -359,100 +391,87 @@ export default function PouchEcoGPTKPage() {
           <SiteHeader />
 
           {/* B2B ACHIEVEPACK CALCULATOR VIEWPORT */}
-          <section className="pt-32 pb-20 bg-[#091a13] text-white relative overflow-hidden">
+          <section className="pt-32 pb-20 bg-[#06110e] text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(16,185,129,0.06)_0%,transparent_60%)] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
               
               {/* Title Section */}
-              <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+              <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono">
                   <Sparkles className="w-3.5 h-3.5 mr-1.5 text-emerald-300 animate-spin-slow" />
                   1-PAGE UNIFIED BUDGET TELEMETRY
                 </span>
                 <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight font-['Outfit']">
-                  Packaging Budget Calculator
+                  Invest Cal
                 </h1>
                 <p className="text-xs font-mono text-emerald-400 uppercase tracking-wider">
                   ☕ 咖啡茶葉品牌包裝預算與品牌配置對比計算器 (一版睇清)
                 </p>
               </div>
 
-              {/* 3-Column Top High-Density Dashboard Card */}
-              <div className="grid lg:grid-cols-12 gap-6 items-stretch mb-8">
+              {/* 2-Column High-Density Dashboard Card */}
+              <div className="grid lg:grid-cols-12 gap-6 items-stretch mb-6">
                 
                 {/* Column 1: Configurator Controls */}
-                <div className="lg:col-span-4 bg-emerald-950/20 backdrop-blur-xl border border-emerald-500/10 p-5 rounded-3xl flex flex-col justify-between shadow-2xl space-y-4">
+                <div className="lg:col-span-7 bg-emerald-950/10 backdrop-blur-xl border border-emerald-500/10 p-5 rounded-3xl flex flex-col justify-between shadow-2xl space-y-4">
                   <h3 className="text-base font-bold text-white uppercase border-b border-emerald-500/10 pb-2">1. Config Inputs</h3>
                   
-                  <div className="space-y-1.5">
-                    <div className="flex justify-between font-mono text-xs text-neutral-400">
-                      <span>Target Budget (預算):</span>
-                      <span className="text-emerald-300 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/25">
-                        ${totalBudget.toLocaleString()} USD
-                      </span>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <div className="flex justify-between font-mono text-xs text-neutral-400">
+                        <span>Target Budget (預算):</span>
+                        <span className="text-emerald-300 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/25">
+                          ${totalBudget.toLocaleString()} USD
+                        </span>
+                      </div>
+                      <input type="range" min="500" max="15000" step="250" value={totalBudget} onChange={(e) => setTotalBudget(parseInt(e.target.value))} className="w-full h-1.5 bg-neutral-800 rounded appearance-none cursor-pointer accent-emerald-400" />
                     </div>
-                    <input type="range" min="500" max="15000" step="250" value={totalBudget} onChange={(e) => setTotalBudget(parseInt(e.target.value))} className="w-full h-1.5 bg-neutral-800 rounded appearance-none cursor-pointer accent-emerald-400" />
-                  </div>
 
-                  <div className="space-y-1.5">
-                    <div className="flex justify-between font-mono text-xs text-neutral-400">
-                      <span>Flavor SKUs (款式):</span>
-                      <span className="text-cyan-300 font-bold bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/25">
-                        {numDesigns} 款 (SKUs)
-                      </span>
-                    </div>
-                    <input type="range" min="1" max="10" step="1" value={numDesigns} onChange={(e) => setNumDesigns(parseInt(e.target.value))} className="w-full h-1.5 bg-neutral-800 rounded appearance-none cursor-pointer accent-emerald-400" />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <div className="flex justify-between font-mono text-xs text-neutral-400">
-                      <span>Qty / SKU (每款印量):</span>
-                      <span className="text-purple-300 font-bold bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/25">
-                        {qtyPerDesign.toLocaleString()} pcs
-                      </span>
-                    </div>
-                    <input type="range" min="100" max="5000" step="50" value={qtyPerDesign} onChange={(e) => setQtyPerDesign(parseInt(e.target.value))} className="w-full h-1.5 bg-neutral-800 rounded appearance-none cursor-pointer accent-emerald-400" />
-                    <div className="grid grid-cols-5 gap-1 font-mono text-[9px]">
-                      {[100, 500, 1000, 2000, 5000].map(q => (
-                        <button key={q} type="button" onClick={() => setQtyPerDesign(q)} className={`py-0.5 rounded border transition-all ${qtyPerDesign === q ? 'bg-emerald-500 border-emerald-500 text-neutral-950 font-bold' : 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:text-white'}`}>{q}</button>
-                      ))}
+                    <div className="space-y-1.5">
+                      <div className="flex justify-between font-mono text-xs text-neutral-400">
+                        <span>Flavor SKUs (款式):</span>
+                        <span className="text-cyan-300 font-bold bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/25">
+                          {numDesigns} 款 (SKUs)
+                        </span>
+                      </div>
+                      <input type="range" min="1" max="10" step="1" value={numDesigns} onChange={(e) => setNumDesigns(parseInt(e.target.value))} className="w-full h-1.5 bg-neutral-800 rounded appearance-none cursor-pointer accent-emerald-400" />
                     </div>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <span className="block font-mono text-xs text-neutral-400 uppercase">Bag Size:</span>
-                    <div className="grid grid-cols-2 gap-1 text-[10px]">
-                      {BAG_SIZES.map(s => (
-                        <button key={s.id} type="button" onClick={() => setSelectedSize(s)} className={`p-1.5 rounded border text-left truncate transition-all ${selectedSize.id === s.id ? 'bg-emerald-950 border-emerald-400 text-white' : 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:text-white'}`}>
-                          {s.dimensions}
-                        </button>
-                      ))}
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <div className="flex justify-between font-mono text-xs text-neutral-400">
+                        <span>Qty / SKU (每款印量):</span>
+                        <span className="text-purple-300 font-bold bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/25">
+                          {qtyPerDesign.toLocaleString()} pcs
+                        </span>
+                      </div>
+                      <input type="range" min="100" max="5000" step="50" value={qtyPerDesign} onChange={(e) => setQtyPerDesign(parseInt(e.target.value))} className="w-full h-1.5 bg-neutral-800 rounded appearance-none cursor-pointer accent-emerald-400" />
+                      <div className="grid grid-cols-5 gap-1 font-mono text-[9px]">
+                        {[100, 500, 1000, 2000, 5000].map(q => (
+                          <button key={q} type="button" onClick={() => setQtyPerDesign(q)} className={`py-0.5 rounded border transition-all ${qtyPerDesign === q ? 'bg-emerald-500 border-emerald-500 text-neutral-950 font-bold' : 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:text-white'}`}>{q}</button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <span className="block font-mono text-xs text-neutral-400 uppercase">Bag Size (尺寸):</span>
+                      <div className="grid grid-cols-2 gap-1 text-[10px]">
+                        {BAG_SIZES.map(s => (
+                          <button key={s.id} type="button" onClick={() => setSelectedSize(s)} className={`p-1.5 rounded border text-left truncate transition-all ${selectedSize.id === s.id ? 'bg-emerald-950 border-emerald-400 text-white font-bold' : 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:text-white'}`}>
+                            {s.dimensions}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Column 2: 3D Rotating Flat-Bottom Pouch Model */}
-                <div className="lg:col-span-4 bg-emerald-950/20 backdrop-blur-xl border border-emerald-500/10 p-5 rounded-3xl h-[380px] flex flex-col justify-between shadow-2xl relative overflow-hidden">
-                  <div className="flex justify-between items-start border-b border-emerald-500/10 pb-2">
-                    <div>
-                      <span className="text-[9px] font-mono text-neutral-500 uppercase font-semibold">Real-time GLTF Engine</span>
-                      <h3 className="text-base font-bold text-white uppercase mt-0.5">Rotating 3D Visualizer</h3>
-                    </div>
-                    <RefreshCw className="w-5 h-5 text-emerald-400 animate-spin-slow" />
-                  </div>
-                  <div className="flex-grow w-full h-[220px]">
-                    <ThreePouchViewer modelUrl="/3d/3d-pouch/coffee-pouch.glb" tilt={{ x: 0, y: 0 }} scrollPercent={0} isMobile={true} />
-                  </div>
-                  <p className="text-[9px] font-mono text-neutral-500 text-center uppercase tracking-widest mt-1">
-                    ← Left-click to rotate • View bottom base folds →
-                  </p>
-                </div>
-
-                {/* Column 3: Summary and Whatsapp Lead Generator */}
-                <div className="lg:col-span-4 bg-emerald-950/20 backdrop-blur-xl border border-emerald-500/10 p-5 rounded-3xl flex flex-col justify-between shadow-2xl relative">
+                {/* Column 2: Summary and Whatsapp Lead Generator */}
+                <div className="lg:col-span-5 bg-emerald-950/10 backdrop-blur-xl border border-emerald-500/10 p-5 rounded-3xl flex flex-col justify-between shadow-2xl relative">
                   <div>
-                    <h3 className="text-base font-bold text-white uppercase border-b border-emerald-500/10 pb-2">3. Config Telemetry</h3>
+                    <h3 className="text-base font-bold text-white uppercase border-b border-emerald-500/10 pb-2">2. Config Telemetry</h3>
                     <div className="mt-3 font-mono text-xs space-y-2">
                       <div className="flex justify-between border-b border-emerald-500/5 pb-1 text-neutral-400">
                         <span>Dimensions selected:</span>
@@ -470,7 +489,7 @@ export default function PouchEcoGPTKPage() {
                   </div>
 
                   <div className="pt-4 space-y-2">
-                    <button onClick={handleWhatsappCopy} className="w-full bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-black uppercase text-xs py-3 rounded-xl active:scale-98 transition shadow-lg shadow-emerald-500/15 flex items-center justify-center gap-1.5 cursor-pointer">
+                    <button onClick={handleWhatsappCopy} className="w-full bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-black uppercase text-xs py-3.5 rounded-xl active:scale-98 transition shadow-lg shadow-emerald-500/15 flex items-center justify-center gap-1.5 cursor-pointer">
                       <Phone className="w-4 h-4 fill-neutral-950" /> Copy Config to WhatsApp
                     </button>
                     {whatsappCopied && <p className="text-[10px] text-emerald-400 font-bold text-center">✓ Configuration copied to clipboard! Redirecting...</p>}
@@ -479,9 +498,18 @@ export default function PouchEcoGPTKPage() {
 
               </div>
 
+              {/* Custom Sizing & Material Adjustments Info Box */}
+              <div className="bg-emerald-950/10 border border-emerald-500/10 p-4 rounded-3xl mb-6 flex gap-3 items-start shadow-xl">
+                <Info className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                <div className="text-xs font-mono text-neutral-300 leading-relaxed">
+                  <span className="font-bold uppercase tracking-wider block text-emerald-400 mb-1">💡 Custom Dimensions & Material Optimization Available</span>
+                  The dimensions listed above represent standard B2B templates. However, for both the **PE+EVOH Recyclable** and **Compostable** options, Achieve Pack offers **fully custom sizes**! Any tailored width or height smaller than the standard sizes listed can be custom-made at no additional premium setup cost. Contact us to tweak dimensions to perfectly fit your budget and bean volume.
+                </div>
+              </div>
+
               {/* Bottom 4-Column Options Grid with actual Storefront Images */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {['stock-cards', 'custom-print', 'recyclable', 'compostable'].map(optionId => {
+                {['stock-cards', 'stock-tag', 'recyclable', 'compostable'].map(optionId => {
                   const data = calculateOptionPrice(optionId)
                   const isSafe = data.totalCost <= totalBudget
                   const budgetDiff = Math.abs(data.totalCost - totalBudget)
@@ -495,14 +523,24 @@ export default function PouchEcoGPTKPage() {
 
                       <div className="space-y-4">
                         {/* High-Quality Storefront Image */}
-                        <div className="w-full aspect-square border border-neutral-800 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-900 flex items-center justify-center">
+                        <div className="w-full aspect-square border border-neutral-850 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-900 flex items-center justify-center">
                           <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                          <span className="absolute bottom-1.5 right-1.5 bg-neutral-950/80 text-neutral-300 text-[8px] font-mono px-2 py-0.5 rounded-full border border-neutral-800">{data.certLogo}</span>
+                          <span className="absolute bottom-1.5 right-1.5 bg-neutral-950/80 text-neutral-300 text-[8px] font-mono px-2 py-0.5 rounded-full border border-neutral-855">{data.certLogo}</span>
                         </div>
 
                         <div>
                           <span className="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-full">{data.badge}</span>
                           <p className="text-xs text-neutral-400 leading-relaxed mt-2 line-clamp-3">{data.desc}</p>
+                          
+                          {/* Selling Points */}
+                          <ul className="space-y-1.5 pt-2 text-[10px] font-mono text-neutral-300">
+                            {data.points?.map((pt, i) => (
+                              <li key={i} className="flex items-start gap-1.5">
+                                <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0 mt-0.5" strokeWidth={3} />
+                                <span>{pt}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
 
                         <div className="border-t border-neutral-850 pt-3 font-mono text-xs text-neutral-400 space-y-1.5">
@@ -522,7 +560,7 @@ export default function PouchEcoGPTKPage() {
                       </div>
 
                       {data.isBelowMoq ? (
-                        <div className="bg-red-500/10 border border-red-500/20 rounded-xl text-[10px] text-red-400 font-mono p-2 mt-4 flex items-center gap-1">
+                        <div className="bg-red-500/10 border border-red-200 text-[10px] text-red-400 font-mono p-2 mt-4 flex items-center gap-1">
                           <AlertTriangle className="w-3 h-3 flex-shrink-0" strokeWidth="2.5" />
                           <span>起訂量 (MOQ) 需為 {data.moq} pcs / SKU.</span>
                         </div>

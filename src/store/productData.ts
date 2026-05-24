@@ -2849,7 +2849,7 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       'FSC Certified & 100% Recyclable: Perfectly aligns with eco-responsible brand values',
       'Tuck End Easy Assembly: Convenient flat-ship layout with sturdy, secure closure flaps'
     ],
-    basePrice: 1185.00,
+    basePrice: 100.15,
     additionalFeatures: [
       'Triangular Tuck Box Design',
       'Front Card Insertion Slot',
@@ -2858,19 +2858,34 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       'Tuck End Easy Assembly',
       'Sea Freight Included (40-60 days)'
     ],
-    minQuantity: 200,
-    minOrder: 200,
+    minQuantity: 100,
+    minOrder: 100,
     turnaround: '30 days + 40-60 days sea freight',
     badge: 'Eco Card Stock',
     rating: 4.9,
     reviews: 24,
     inStock: true,
     sizeWithQuantities: [
-      { id: 'size-250g', label: '250g Triangle Tuck Box', dimensions: '95(W) × 95(L) × 145(H) mm', quantityOptions: [
-        { quantity: 200, totalPrice: 1185.00, unitPrice: 5.925 },
-        { quantity: 1000, totalPrice: 1485.00, unitPrice: 1.485 },
-        { quantity: 5000, totalPrice: 2985.00, unitPrice: 0.597 },
-        { quantity: 10000, totalPrice: 4885.00, unitPrice: 0.4885 }
+      { id: 'size-small', label: '100g Triangle Tuck Box', dimensions: '120(W) × 80(L) × 80(H) mm', quantityOptions: [
+        { quantity: 100, totalPrice: 100.15, unitPrice: 1.0015 },
+        { quantity: 500, totalPrice: 450.68, unitPrice: 0.9014 },
+        { quantity: 1000, totalPrice: 801.20, unitPrice: 0.8012 },
+        { quantity: 5000, totalPrice: 3505.25, unitPrice: 0.7011 },
+        { quantity: 10000, totalPrice: 6009.00, unitPrice: 0.6009 }
+      ]},
+      { id: 'size-medium', label: '180g Triangle Tuck Box', dimensions: '160(W) × 110(L) × 110(H) mm', quantityOptions: [
+        { quantity: 100, totalPrice: 115.15, unitPrice: 1.1515 },
+        { quantity: 500, totalPrice: 518.18, unitPrice: 1.0364 },
+        { quantity: 1000, totalPrice: 921.20, unitPrice: 0.9212 },
+        { quantity: 5000, totalPrice: 4030.25, unitPrice: 0.8061 },
+        { quantity: 10000, totalPrice: 6909.00, unitPrice: 0.6909 }
+      ]},
+      { id: 'size-large', label: '350g Triangle Tuck Box', dimensions: '220(W) × 140(L) × 140(H) mm', quantityOptions: [
+        { quantity: 100, totalPrice: 137.65, unitPrice: 1.3765 },
+        { quantity: 500, totalPrice: 619.43, unitPrice: 1.2389 },
+        { quantity: 1000, totalPrice: 1101.20, unitPrice: 1.1012 },
+        { quantity: 5000, totalPrice: 4817.75, unitPrice: 0.9636 },
+        { quantity: 10000, totalPrice: 8259.00, unitPrice: 0.8259 }
       ]}
     ],
     customQuoteNote: 'For custom dimensions, specialized finishes (foil/embossing), or quantities over 10,000 pcs, please contact us for a free quote.',
@@ -2878,7 +2893,12 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-1.jpg',
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-2.jpg',
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-3.jpg',
-      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-4.jpg'
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-4.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-5.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-6.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-7.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-8.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-9.jpg'
     ]
   },
 ]
