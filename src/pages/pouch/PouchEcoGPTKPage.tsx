@@ -44,12 +44,12 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Base Material',
         values: {
-          'stock-cards': 'Conventional Base Pouch',
-          'stock-tag': 'Conventional Base Pouch',
-          'conventional-stock': 'Conventional Base Pouch',
-          'recyclable-doypack': 'Eco (Recyclable/Compostable)',
-          'recyclable': 'Eco-Friendly Mono-PE',
-          'compostable': 'Eco-Friendly Home Compostable'
+          'stock-cards': 'Conventional',
+          'stock-tag': 'Conventional',
+          'conventional-stock': 'Conventional',
+          'recyclable-doypack': 'Recyclable/Compostable',
+          'recyclable': 'Mono-PE Recyclable',
+          'compostable': 'Home Compostable'
         },
         isEco: {
           'stock-cards': false,
@@ -63,12 +63,12 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Base Pouch Shape',
         values: {
-          'stock-cards': 'Flat Bottom (Box Pouch)',
-          'stock-tag': 'Flat Bottom (Box Pouch)',
-          'conventional-stock': 'Flat Bottom (Box Pouch)',
-          'recyclable-doypack': 'Stand-Up Pouch (Oval Bottom Doypack)',
-          'recyclable': 'Flat Bottom (Box Pouch)',
-          'compostable': 'Flat Bottom (Box Pouch)'
+          'stock-cards': 'Flat Bottom',
+          'stock-tag': 'Flat Bottom',
+          'conventional-stock': 'Flat Bottom',
+          'recyclable-doypack': 'Stand-Up Pouch',
+          'recyclable': 'Flat Bottom',
+          'compostable': 'Flat Bottom'
         },
         isEco: {
           'stock-cards': true,
@@ -82,12 +82,12 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Side Gusset Support',
         values: {
-          'stock-cards': 'Side Gusset Included',
-          'stock-tag': 'Side Gusset Included',
-          'conventional-stock': 'Side Gusset Included',
-          'recyclable-doypack': 'No Side Gussets (Oval Bottom Seal)',
-          'recyclable': 'Side Gusset Included',
-          'compostable': 'Side Gusset Included'
+          'stock-cards': 'Yes',
+          'stock-tag': 'Yes',
+          'conventional-stock': 'Yes',
+          'recyclable-doypack': 'No',
+          'recyclable': 'Yes',
+          'compostable': 'Yes'
         },
         isEco: {
           'stock-cards': true,
@@ -106,12 +106,12 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Printing Method',
         values: {
-          'stock-cards': 'Unprinted (Plates Waived)',
-          'stock-tag': 'Unprinted (Plates Waived)',
-          'conventional-stock': 'Unprinted (Includes Custom Sticker)',
-          'recyclable-doypack': 'Edge-to-Edge Digital Custom Print',
-          'recyclable': 'Edge-to-Edge Digital Custom Print',
-          'compostable': 'Edge-to-Edge Digital Custom Print'
+          'stock-cards': 'Unprinted',
+          'stock-tag': 'Unprinted',
+          'conventional-stock': 'Custom Sticker',
+          'recyclable-doypack': 'Digital Custom',
+          'recyclable': 'Digital Custom',
+          'compostable': 'Digital Custom'
         },
         isEco: {
           'stock-cards': false,
@@ -125,12 +125,12 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Clear Display Window',
         values: {
-          'stock-cards': 'No Window (Full Aroma Shield)',
-          'stock-tag': 'No Window (Full Aroma Shield)',
-          'conventional-stock': 'Optional Window (Stock Pouch)',
-          'recyclable-doypack': 'Optional Window (Custom Doypack)',
-          'recyclable': 'Optional Window (Integrated)',
-          'compostable': 'Optional Window (PLA certified)'
+          'stock-cards': 'No',
+          'stock-tag': 'No',
+          'conventional-stock': 'Optional',
+          'recyclable-doypack': 'Optional',
+          'recyclable': 'Optional',
+          'compostable': 'Optional'
         },
         isEco: {
           'stock-cards': false,
@@ -149,12 +149,12 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Zipper Closure',
         values: {
-          'stock-cards': 'Regular Double-Track Zipper',
-          'stock-tag': 'Airtight One-Sided Zipper',
-          'conventional-stock': 'Airtight One-Sided Zipper',
-          'recyclable-doypack': 'Airtight One-Sided Zipper',
-          'recyclable': 'Airtight One-Sided Zipper',
-          'compostable': 'Airtight One-Sided Zipper'
+          'stock-cards': 'Regular Zip',
+          'stock-tag': 'One-Sided Zip',
+          'conventional-stock': 'One-Sided Zip',
+          'recyclable-doypack': 'One-Sided Zip',
+          'recyclable': 'One-Sided Zip',
+          'compostable': 'One-Sided Zip'
         },
         isEco: {
           'stock-cards': true,
@@ -168,12 +168,12 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Barrier Protection',
         values: {
-          'stock-cards': 'High-Barrier Multi-Layer',
-          'stock-tag': 'High-Barrier Multi-Layer',
-          'conventional-stock': 'High-Barrier Option',
-          'recyclable-doypack': 'High-Barrier (Recyclable/Compostable)',
-          'recyclable': 'Medium-Barrier Protection',
-          'compostable': 'High-Barrier certified bio-laminate'
+          'stock-cards': 'High-Barrier',
+          'stock-tag': 'High-Barrier',
+          'conventional-stock': 'High-Barrier',
+          'recyclable-doypack': 'High-Barrier',
+          'recyclable': 'Medium-Barrier',
+          'compostable': 'High-Barrier'
         },
         isEco: {
           'stock-cards': true,
@@ -187,6 +187,85 @@ const TABLE_CATEGORIES: TableCategory[] = [
     ]
   }
 ];
+
+const renderCellValue = (val: string, isEcoFlag: boolean, isDarkMode: boolean) => {
+  const cleanVal = val.trim();
+  if (cleanVal === 'Yes') {
+    return (
+      <div className="flex items-center justify-start">
+        <Check className={`w-4 h-4 shrink-0 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`} />
+      </div>
+    );
+  }
+  if (cleanVal === 'No' || cleanVal === 'No Window') {
+    return (
+      <span className="text-neutral-300 dark:text-neutral-700 select-none font-light">—</span>
+    );
+  }
+  
+  if (cleanVal === 'Conventional') {
+    return (
+      <span className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-tight border ${
+        isDarkMode ? 'bg-neutral-800/40 text-neutral-400 border-neutral-800' : 'bg-neutral-100/60 text-neutral-500 border-neutral-200/60'
+      }`}>
+        Conventional
+      </span>
+    );
+  }
+  
+  if (cleanVal.includes('PE') || cleanVal.includes('Compostable') || cleanVal.includes('Recyclable')) {
+    return (
+      <span className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-tight border ${
+        isDarkMode 
+          ? 'bg-emerald-950/40 text-emerald-300 border-emerald-800/30' 
+          : 'bg-emerald-50 text-emerald-700 border-emerald-200/50'
+      }`}>
+        {cleanVal}
+      </span>
+    );
+  }
+  
+  if (cleanVal === 'Digital Custom' || cleanVal === 'Custom Sticker') {
+    return (
+      <span className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-tight border ${
+        isDarkMode 
+          ? 'bg-blue-950/40 text-blue-300 border-blue-800/30' 
+          : 'bg-blue-50 text-blue-700 border-blue-200/50'
+      }`}>
+        {cleanVal}
+      </span>
+    );
+  }
+  
+  if (cleanVal === 'High-Barrier') {
+    return (
+      <span className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-tight border ${
+        isDarkMode ? 'bg-neutral-800/60 text-neutral-300 border-neutral-700/50' : 'bg-neutral-100 text-neutral-600 border-neutral-200'
+      }`}>
+        High
+      </span>
+    );
+  }
+  
+  if (cleanVal === 'Medium-Barrier') {
+    return (
+      <span className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-tight border ${
+        isDarkMode ? 'bg-neutral-900/60 text-neutral-400 border-neutral-800' : 'bg-neutral-50 text-neutral-500 border-neutral-200'
+      }`}>
+        Medium
+      </span>
+    );
+  }
+
+  return (
+    <div className="flex items-center gap-1">
+      {isEcoFlag && <Check className={`w-3.5 h-3.5 shrink-0 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`} />}
+      <span className={`text-[11px] ${isEcoFlag ? 'font-bold text-neutral-800 dark:text-white' : 'text-neutral-600 dark:text-neutral-300'}`}>
+        {cleanVal}
+      </span>
+    </div>
+  );
+};
 
 export default function PouchEcoGPTKPage() {
   const [totalBudget, setTotalBudget] = useState<number>
@@ -801,70 +880,28 @@ export default function PouchEcoGPTKPage() {
                           <tr key={rowIdx} className="border-b border-neutral-100 hover:bg-neutral-50/50 transition">
                             <td className="p-3 text-xs font-bold text-neutral-700">{row.name}</td>
                             
-                            <td className="p-3 border-l border-neutral-100 text-neutral-600 text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['stock-cards'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 shrink-0" />
-                                )}
-                                <span>{row.values['stock-cards']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-100 text-[11px]">
+                              {renderCellValue(row.values['stock-cards'], row.isEco['stock-cards'], false)}
                             </td>
                             
-                            <td className="p-3 border-l border-neutral-100 text-neutral-600 text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['stock-tag'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 shrink-0" />
-                                )}
-                                <span>{row.values['stock-tag']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-100 text-[11px]">
+                              {renderCellValue(row.values['stock-tag'], row.isEco['stock-tag'], false)}
                             </td>
                             
-                            <td className="p-3 border-l border-neutral-100 text-neutral-600 text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['conventional-stock'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 shrink-0" />
-                                )}
-                                <span>{row.values['conventional-stock']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-100 text-[11px]">
+                              {renderCellValue(row.values['conventional-stock'], row.isEco['conventional-stock'], false)}
                             </td>
                             
-                            <td className="p-3 border-l-2 border-black bg-blue-50/5 text-neutral-800 font-bold text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['recyclable-doypack'] ? (
-                                  <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 shrink-0" />
-                                )}
-                                <span>{row.values['recyclable-doypack']}</span>
-                              </div>
+                            <td className="p-3 border-l-2 border-black bg-blue-50/5 text-[11px]">
+                              {renderCellValue(row.values['recyclable-doypack'], row.isEco['recyclable-doypack'], false)}
                             </td>
                             
-                            <td className="p-3 border-l border-neutral-100 bg-emerald-50/5 text-neutral-800 font-bold text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['recyclable'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 shrink-0" />
-                                )}
-                                <span>{row.values['recyclable']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-100 bg-emerald-50/5 text-[11px]">
+                              {renderCellValue(row.values['recyclable'], row.isEco['recyclable'], false)}
                             </td>
                             
-                            <td className="p-3 border-l border-neutral-100 bg-emerald-50/5 text-neutral-800 font-bold text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['compostable'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 shrink-0" />
-                                )}
-                                <span>{row.values['compostable']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-100 bg-emerald-50/5 text-[11px]">
+                              {renderCellValue(row.values['compostable'], row.isEco['compostable'], false)}
                             </td>
                           </tr>
                         ))}
@@ -1195,70 +1232,28 @@ export default function PouchEcoGPTKPage() {
                           <tr key={rowIdx} className="border-b border-neutral-855 hover:bg-neutral-900/20 transition-colors">
                             <td className="p-3 text-xs font-bold text-neutral-400">{row.name}</td>
                             
-                            <td className="p-3 border-l border-neutral-855 text-neutral-300 text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['stock-cards'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-700 shrink-0" />
-                                )}
-                                <span>{row.values['stock-cards']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-855 text-[11px]">
+                              {renderCellValue(row.values['stock-cards'], row.isEco['stock-cards'], true)}
                             </td>
                             
-                            <td className="p-3 border-l border-neutral-855 text-neutral-300 text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['stock-tag'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-700 shrink-0" />
-                                )}
-                                <span>{row.values['stock-tag']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-855 text-[11px]">
+                              {renderCellValue(row.values['stock-tag'], row.isEco['stock-tag'], true)}
                             </td>
                             
-                            <td className="p-3 border-l border-neutral-855 text-neutral-300 text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['conventional-stock'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-700 shrink-0" />
-                                )}
-                                <span>{row.values['conventional-stock']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-855 text-[11px]">
+                              {renderCellValue(row.values['conventional-stock'], row.isEco['conventional-stock'], true)}
                             </td>
                             
-                            <td className="p-3 border-l border-neutral-800 bg-blue-950/5 text-white font-bold text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['recyclable-doypack'] ? (
-                                  <Check className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-700 shrink-0" />
-                                )}
-                                <span>{row.values['recyclable-doypack']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-800 bg-blue-950/5 text-[11px]">
+                              {renderCellValue(row.values['recyclable-doypack'], row.isEco['recyclable-doypack'], true)}
                             </td>
                             
-                            <td className="p-3 border-l border-neutral-855 bg-emerald-950/5 text-white font-bold text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['recyclable'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-700 shrink-0" />
-                                )}
-                                <span>{row.values['recyclable']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-855 bg-emerald-950/5 text-[11px]">
+                              {renderCellValue(row.values['recyclable'], row.isEco['recyclable'], true)}
                             </td>
                             
-                            <td className="p-3 border-l border-neutral-855 bg-emerald-950/5 text-white font-bold text-[11px]">
-                              <div className="flex items-center gap-1.5">
-                                {row.isEco['compostable'] ? (
-                                  <Check className="w-3.5 h-3.5 text-emerald-300 shrink-0" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-neutral-700 shrink-0" />
-                                )}
-                                <span>{row.values['compostable']}</span>
-                              </div>
+                            <td className="p-3 border-l border-neutral-855 bg-emerald-950/5 text-[11px]">
+                              {renderCellValue(row.values['compostable'], row.isEco['compostable'], true)}
                             </td>
                           </tr>
                         ))}

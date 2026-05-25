@@ -1579,7 +1579,24 @@ const ArtworkBatchesPage: React.FC = () => {
       <div key={item.id} className={`bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition ${cardSize === 'small' ? 'p-2' : ''}`}>
         {/* Preview */}
         <div
-          className={`${cardSize === 'small' ? 'aspect-square' : 'aspect-[4/3]'} bg-gray-100 relative group/preview overflow-hidden transition-all`}
+          onDragOver={(e) => {
+            e.preventDefault()
+            if (dragOverItemId !== item.id) setDragOverItemId(item.id)
+          }}
+          onDragLeave={() => setDragOverItemId(null)}
+          onDrop={async (e) => {
+            e.preventDefault()
+            setDragOverItemId(null)
+            const file = e.dataTransfer.files?.[0]
+            if (file) {
+              await uploadProofFile(file, item.id)
+            }
+          }}
+          className={`${cardSize === 'small' ? 'aspect-square' : 'aspect-[4/3]'} bg-gray-100 relative group/preview overflow-hidden transition-all border-2 ${
+            dragOverItemId === item.id 
+              ? 'border-primary-500 bg-primary-50 animate-pulse' 
+              : 'border-transparent'
+          }`}
         >
           {item.file_url ? (
             <>
@@ -2141,15 +2158,25 @@ const ArtworkBatchesPage: React.FC = () => {
           
           {/* Actions */}
           <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
-            <a
-              href={item.file_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition"
-              title="Download"
-            >
-              <Download className="h-4 w-4" />
-            </a>
+            {item.file_url ? (
+              <a
+                href={item.file_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition"
+                title="Download artwork file"
+              >
+                <Download className="h-4 w-4" />
+              </a>
+            ) : (
+              <button
+                disabled
+                className="p-2 text-gray-300 cursor-not-allowed rounded-lg"
+                title="No file uploaded yet"
+              >
+                <Download className="h-4 w-4" />
+              </button>
+            )}
             <button
               onClick={() => setCroppingItem(item)}
               className="p-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition"
