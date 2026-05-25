@@ -70,7 +70,7 @@ const SharedQuotePage: React.FC = () => {
           const controller = new AbortController();
           const timeout = setTimeout(() => controller.abort(), 15000); // 15s timeout
           
-          const response = await fetch(`/api/get-shared-quote?id=${id}`, { signal: controller.signal });
+          const response = await fetch(`/api/get-shared-quote?id=${id}&t=${Date.now()}`, { signal: controller.signal });
           clearTimeout(timeout);
           
           // Check if Cloudflare returned an HTML error page instead of JSON
@@ -220,9 +220,16 @@ const SharedQuotePage: React.FC = () => {
     setVideos(videos.filter((_, i) => i !== index));
   };
 
+  const isFirstRender = useRef(true);
+
   // RE-RENDER LOGIC (Copied from DailyReportsPage)
   useEffect(() => {
     if (!pricingData || pricingData.length === 0) return;
+    
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     
     try {
       const RMB_TO_USD = 6.9;
