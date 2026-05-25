@@ -310,7 +310,7 @@ export default function PouchEcoGPTKPage() {
         accentColor: '#3b82f6',
         certLogo: isCompostable ? '🌱 Bio-Saver 50%' : '♻️ Eco-Saver 50%',
         leadTime: '20 - 25 Days',
-        image: '/imgs/store/products/invest-cal-tag.jpg',
+        image: '/imgs/pouch-shape/eco-stand-up-pouch.png',
         points: isCompostable
           ? [
               'Stand-Up Pouch Shape (Doypack with Oval Bottom)',
