@@ -923,7 +923,11 @@ const StorePage: React.FC = () => {
                       </div>
                       <p className="text-xs sm:text-sm text-neutral-500 mb-2 sm:mb-3 line-clamp-2">{product.shortDesc}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm sm:text-lg font-bold text-primary-600">From ${product.basePrice}</span>
+                        {product.inquiryOnly ? (
+                          <span className="text-sm sm:text-lg font-bold text-neutral-500">Inquiry Only</span>
+                        ) : (
+                          <span className="text-sm sm:text-lg font-bold text-primary-600">From ${product.basePrice}</span>
+                        )}
                         <span className="text-[10px] sm:text-xs text-primary-500 font-medium">{product.turnaround}</span>
                       </div>
                     </div>
@@ -972,7 +976,11 @@ const StorePage: React.FC = () => {
                       </div>
                       <p className="text-sm sm:text-base text-neutral-600 mb-3 sm:mb-4 line-clamp-2">{product.description}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-lg sm:text-xl font-bold text-primary-600">From ${product.basePrice}</span>
+                        {product.inquiryOnly ? (
+                          <span className="text-lg sm:text-xl font-bold text-neutral-500">Inquiry Only</span>
+                        ) : (
+                          <span className="text-lg sm:text-xl font-bold text-primary-600">From ${product.basePrice}</span>
+                        )}
                         <span className="text-xs sm:text-sm text-primary-500 font-medium">{product.turnaround}</span>
                       </div>
                     </div>

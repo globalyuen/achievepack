@@ -32,6 +32,7 @@ export interface PouchProduct {
   minOrder: number
   videoUrl?: string
   videoUrls?: string[]
+  inquiryOnly?: boolean
 }
 
 // New store product types
@@ -56,6 +57,8 @@ export interface BaseStoreProduct {
   videoUrls?: string[];
   // Allow custom size input (for custom products)
   allowCustomSize?: boolean
+  // Inquiry only product that does not show cost but displays buttons for Meeting or WhatsApp
+  inquiryOnly?: boolean
 }
 
 // Sample product
@@ -5788,6 +5791,51 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
         heroImageIndex: 1
       }
     ]
+  },
+  // Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)
+  {
+    id: 'custom-multi-layer-sticker-labels',
+    name: 'Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)',
+    category: 'eco-stock',
+    productType: 'custom',
+    subCategory: 'eco-digital',
+    inquiryOnly: true,
+    description: 'High-performance, multi-layered peelable fold-out adhesive stickers and labels. Engineered with premium double-sided printing and custom fold-out pages to deliver extensive product manuals, multi-lingual ingredient lists, regulatory instructions, or hidden promotional codes directly on your container. Perfect for B2C cosmetics jars, specialty pharmaceutical bottles, organic food packaging, and compact luxury goods. Features a secure, residue-free peel-and-reseal action with excellent adhesion and organic aesthetics.',
+    shortDesc: 'Premium custom multi-layer peel-and-reseal fold-out labels with high-resolution double-sided printing',
+    features: [
+      'Multi-Layer Fold-Out Booklet Design (Up to 5 Pages)',
+      'High-Resolution Double-Sided Color Printing',
+      'Secure Peel-and-Reseal Adhesive Action (No Residue)',
+      'Water-Resistant, Oil-Resistant, and Smudge-Proof Finish',
+      'Perfect for Multi-lingual Ingredients, Directions, and Regulatory Specs',
+      'Zero Microplastic & Eco-Responsible Bio-Adhesives'
+    ],
+    images: [
+      '/imgs/store/products/custom-multilayer-sticker-label-thumbnail-1.png',
+      '/imgs/store/products/custom-multilayer-sticker-label-thumbnail-2.png',
+      '/taobao/Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)/O1CN01OBA4Vn1fb2u5sGjJq_--3694304024-jpg_.webp',
+      '/taobao/Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)/O1CN01Sbd5qz1fb2o6qiFWe_--3694304024-jpg_q50-jpg_.webp',
+      '/taobao/Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)/O1CN01AxBnIA1fb2i8DPCMi_--3694304024-jpg_.webp',
+      '/taobao/Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)/O1CN01yvyEXN1fb2uVkAgTk_--3694304024-jpg_q50-jpg_.webp',
+      '/taobao/Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)/O1CN01BjDlfD1fb2ebvvJZE_--3694304024-jpg_q50-jpg_.webp',
+      '/taobao/Custom Multi-Layer Peelable Sticker Labels (Fold-Out : Double Layer)/O1CN01Qy5tMw1fb2uW7I83l_--3694304024-jpg_q50-jpg_.webp'
+    ],
+    badge: '📋 Peel & Reseal Booklet',
+    rating: 4.9,
+    reviews: 138,
+    inStock: true,
+    turnaround: '10-15 days',
+    minOrder: 1000,
+    shape: 'Label & Sticker',
+    material: 'Double-Layer Peelable Semi-Gloss Paper / Matte Synthetic Film & Residue-Free Adhesive',
+    basePrice: 0,
+    pricePerPiece: 0,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: 'Customized Sizes & Pagination (Double Layer, Triple Layer, Fold-Out booklets)',
+    shelfLife: '24 months under dry and cool conditions',
+    certification: 'FSC Certified Face Stock, SGS Toxicity Passed, RoHS Compliant Adhesives',
+    customPrintNote: 'Fully customized shapes, dimensions, and pages. Contact our team to book a meeting or message on WhatsApp.'
   }
 ]
 

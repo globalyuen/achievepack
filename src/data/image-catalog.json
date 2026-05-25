@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-25",
-  "total_images": 1802,
+  "total_images": 1804,
   "total_categories": 161,
   "extensions": {
     ".webp": 1298,
-    ".png": 294,
+    ".png": 296,
     ".jpg": 207,
     ".svg": 3
   },
@@ -8280,8 +8280,20 @@
       ]
     },
     "store/products": {
-      "count": 202,
+      "count": 204,
       "images": [
+        {
+          "filename": "custom-multilayer-sticker-label-thumbnail-2.png",
+          "path": "/imgs/store/products/custom-multilayer-sticker-label-thumbnail-2.png",
+          "extension": ".png",
+          "modified": "2026-05-25T10:11:41.613Z"
+        },
+        {
+          "filename": "custom-multilayer-sticker-label-thumbnail-1.png",
+          "path": "/imgs/store/products/custom-multilayer-sticker-label-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-05-25T10:11:41.611Z"
+        },
         {
           "filename": "flat-bottom-one-sided-zipper-conventional-thumbnail-4.jpg",
           "path": "/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-4.jpg",

@@ -1,12 +1,13 @@
 import React, { useState, useMemo, useEffect, useTransition, useCallback, useRef } from 'react'
 import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import SEO from '../components/SEO'
-import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles, CheckCircle, Info } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Star, Check, ChevronDown, ChevronUp, ZoomIn, MessageCircle, Package, Home, Share2, Copy, X, Sparkles, CheckCircle, Info, Calendar, MessageSquare } from 'lucide-react'
 import { useStore } from '../store/StoreContext'
 import PopoverSelect, { SimplePopoverSelect } from '../components/ui/popover-select'
 import { FEATURED_PRODUCTS, type EcoDigitalProduct, type StoreProduct, type ConventionalProduct, type EcoStockProduct, type BoxProduct, type EcoStockSizeVariant, type EcoStockSizeWithQuantities, type EcoStockQuantityOption, PRICING_DATA, POUCH_SIZES, formatPouchSizeLabel, QUANTITY_OPTIONS, getProductType, isProductPurchasable } from '../store/productData'
 import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureInfo } from '../utils/ecoDigitalCalculator'
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
+import { getWhatsAppLink } from '../utils/domain'
 import { TESTIMONIALS } from '../data/testimonialsData'
 import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, type ProductFAQ } from '../data/productFAQData'
 import { getAISellingPoints, hasAISellingPoints, type AISellingPoint } from '../data/aiSellingPoints'
@@ -2562,6 +2563,17 @@ const ProductPage: React.FC = () => {
               
               {/* Price Display - Green theme */}
               {(() => {
+                if (product?.inquiryOnly) {
+                  return (
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border-2 border-green-200 p-6 shadow-sm">
+                      <div className="text-lg font-bold text-green-800 mb-2">Bespoke Custom Production</div>
+                      <p className="text-xs text-green-700 leading-relaxed">
+                        This is a highly customized double-layer peelable sticker label. Pricing depends entirely on size, shapes, Pagination, and order quantity. Contact our packaging engineers to get an instant customized quote.
+                      </p>
+                    </div>
+                  )
+                }
+
                 const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
                 const selectedSizeData = ecoStockProduct.sizeWithQuantities?.find(s => s.id === selectedSizeWithQty)
                 const selectedQtyData = selectedSizeData?.quantityOptions.find(o => o.quantity === selectedQtyOption)
@@ -2617,7 +2629,7 @@ const ProductPage: React.FC = () => {
               })()}
               
               {/* Quantity Selector - only for products without sizeVariants and without sizeWithQuantities */}
-              {(!ecoStockProduct.sizeVariants || ecoStockProduct.sizeVariants.length === 0) && 
+              {!product?.inquiryOnly && (!ecoStockProduct.sizeVariants || ecoStockProduct.sizeVariants.length === 0) && 
                (!ecoStockProduct.sizeWithQuantities || ecoStockProduct.sizeWithQuantities.length === 0) && (
                 <div className="space-y-4 pt-4 border-t">
                   <div>
@@ -2727,104 +2739,127 @@ const ProductPage: React.FC = () => {
               )}
               
               {/* Add to Cart / RFQ & Share */}
-              <div className="flex gap-2">
-                <button 
-                  onClick={() => {
-                    const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
-                    const selectedSizeData = ecoStockProduct.sizeWithQuantities?.find(s => s.id === selectedSizeWithQty)
-                    const selectedQtyData = selectedSizeData?.quantityOptions.find(o => o.quantity === selectedQtyOption)
-                    const customPrintQtyData = ecoStockProduct.customPrintQuantities?.find(o => o.quantity === selectedQtyOption)
-                    
-                    let cartPrice: number
-                    let cartSize: string
-                    
-                    if (customPrintQtyData) {
-                      cartPrice = customPrintQtyData.totalPrice
-                      cartSize = `Custom Print (${customPrintQtyData.quantity.toLocaleString()} ${pluralUnit})`
-                    } else if (selectedQtyData && selectedSizeData) {
-                      cartPrice = selectedQtyData.totalPrice
-                      cartSize = `${selectedSizeData.label} - ${selectedSizeData.dimensions} (${selectedQtyData.quantity} ${pluralUnit})`
-                    } else if (selectedVariant) {
-                      // Multiply by batch count for sizeVariants
-                      cartPrice = selectedVariant.totalPrice * sizeVariantBatchCount
-                      const totalPcs = selectedVariant.quantity * sizeVariantBatchCount
-                      cartSize = `${selectedVariant.label} - ${selectedVariant.dimensions} (${totalPcs} ${pluralUnit})`
-                    } else {
-                      cartPrice = selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
-                      cartSize = ecoStockProduct.sizeInfo
-                    }
-                    
-                    const cartItem = {
-                      productId: product.id,
-                      name: product.name,
-                      image: product.images[0],
-                      variant: { 
-                        shape: ecoStockProduct.shape, 
-                        size: cartSize, 
-                        material: product.id === 'clear-matte-zipper-stand-up-pouch'
-                          ? `Clear PE/PET (${selectedFinish === 'matte' ? 'Matte' : 'Glossy'} Finish)`
-                          : ecoStockProduct.material 
-                      },
-                      quantity: 1,
-                      unitPrice: cartPrice,
-                      totalPrice: cartPrice,
-                      configurationLink: window.location.href
-                    }
-                    
-                    // For custom products (boxes, eco-stock custom print), add to RFQ
-                    if (isCustomProduct) {
-                      addToRfq({
-                        ...cartItem,
-                        isRfqItem: true
-                      })
-                      setActiveCartMode('rfq')
-                      setIsCartOpen(true)
-                    } else {
-                      addToCart(cartItem)
-                      setIsCartOpen(true)
-                    }
-                  }} 
-                  disabled={
-                    (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
-                    (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
-                    (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
-                  }
-                  className={`flex-1 py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
-                    (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
-                    (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
-                    (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
-                      ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
-                      : isCustomProduct 
-                        ? 'bg-amber-500 hover:bg-amber-600 text-white'
-                        : 'bg-green-600 hover:bg-green-700 text-white'
-                  }`}
-                >
-                  {isCustomProduct ? (
-                    <><span className="text-lg">📋</span> {isBoxes ? 'Add to Quote Request' : '🎨 Add Custom Print to RFQ'}</>
-                  ) : (
-                    <>
-                      <ShoppingCart className="h-5 w-5" />{' '}
-                      {product.category === 'eco-stock' ? '🌱 ' : ''}Add {product.name} to Cart
-                    </>
-                  )}
-                </button>
-                {isBoxes && (
-                  <button 
-                    onClick={handleShareClick}
-                    className="px-4 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
-                    title="Share Configuration"
+              {product?.inquiryOnly ? (
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <a 
+                    href="https://calendly.com/30-min-free-packaging-consultancy" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/10 cursor-pointer text-center"
                   >
-                    <Share2 className="h-5 w-5" />
+                    <Calendar className="h-5 w-5" />
+                    Book 1:1 Inquiry Meeting
+                  </a>
+                  <a 
+                    href={getWhatsAppLink()} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/10 cursor-pointer text-center"
+                  >
+                    <MessageSquare className="h-5 w-5" />
+                    Chat on WhatsApp
+                  </a>
+                </div>
+              ) : (
+                <div className="flex gap-2">
+                  <button 
+                    onClick={() => {
+                      const selectedVariant = ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)
+                      const selectedSizeData = ecoStockProduct.sizeWithQuantities?.find(s => s.id === selectedSizeWithQty)
+                      const selectedQtyData = selectedSizeData?.quantityOptions.find(o => o.quantity === selectedQtyOption)
+                      const customPrintQtyData = ecoStockProduct.customPrintQuantities?.find(o => o.quantity === selectedQtyOption)
+                      
+                      let cartPrice: number
+                      let cartSize: string
+                      
+                      if (customPrintQtyData) {
+                        cartPrice = customPrintQtyData.totalPrice
+                        cartSize = `Custom Print (${customPrintQtyData.quantity.toLocaleString()} ${pluralUnit})`
+                      } else if (selectedQtyData && selectedSizeData) {
+                        cartPrice = selectedQtyData.totalPrice
+                        cartSize = `${selectedSizeData.label} - ${selectedSizeData.dimensions} (${selectedQtyData.quantity} ${pluralUnit})`
+                      } else if (selectedVariant) {
+                        // Multiply by batch count for sizeVariants
+                        cartPrice = selectedVariant.totalPrice * sizeVariantBatchCount
+                        const totalPcs = selectedVariant.quantity * sizeVariantBatchCount
+                        cartSize = `${selectedVariant.label} - ${selectedVariant.dimensions} (${totalPcs} ${pluralUnit})`
+                      } else {
+                        cartPrice = selectedEcoStockQuantity * ecoStockProduct.pricePerPiece
+                        cartSize = ecoStockProduct.sizeInfo
+                      }
+                      
+                      const cartItem = {
+                        productId: product.id,
+                        name: product.name,
+                        image: product.images[0],
+                        variant: { 
+                          shape: ecoStockProduct.shape, 
+                          size: cartSize, 
+                          material: product.id === 'clear-matte-zipper-stand-up-pouch'
+                            ? `Clear PE/PET (${selectedFinish === 'matte' ? 'Matte' : 'Glossy'} Finish)`
+                            : ecoStockProduct.material 
+                        },
+                        quantity: 1,
+                        unitPrice: cartPrice,
+                        totalPrice: cartPrice,
+                        configurationLink: window.location.href
+                      }
+                      
+                      // For custom products (boxes, eco-stock custom print), add to RFQ
+                      if (isCustomProduct) {
+                        addToRfq({
+                          ...cartItem,
+                          isRfqItem: true
+                        })
+                        setActiveCartMode('rfq')
+                        setIsCartOpen(true)
+                      } else {
+                        addToCart(cartItem)
+                        setIsCartOpen(true)
+                      }
+                    }} 
+                    disabled={
+                      (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
+                      (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
+                      (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
+                    }
+                    className={`flex-1 py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
+                      (ecoStockProduct.sizeVariants && ecoStockProduct.sizeVariants.length > 0 && !ecoStockProduct.customPrintQuantities && !selectedSizeVariant) ||
+                      (ecoStockProduct.sizeWithQuantities && ecoStockProduct.sizeWithQuantities.length > 0 && (!selectedSizeWithQty || !selectedQtyOption)) ||
+                      (ecoStockProduct.customPrintQuantities && ecoStockProduct.customPrintQuantities.length > 0 && !selectedQtyOption)
+                        ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
+                        : isCustomProduct 
+                          ? 'bg-amber-500 hover:bg-amber-600 text-white'
+                          : 'bg-green-600 hover:bg-green-700 text-white'
+                    }`}
+                  >
+                    {isCustomProduct ? (
+                      <><span className="text-lg">📋</span> {isBoxes ? 'Add to Quote Request' : '🎨 Add Custom Print to RFQ'}</>
+                    ) : (
+                      <>
+                        <ShoppingCart className="h-5 w-5" />{' '}
+                        {product.category === 'eco-stock' ? '🌱 ' : ''}Add {product.name} to Cart
+                      </>
+                    )}
                   </button>
-                )}
-                <button 
-                  onClick={openQuoteLightbox}
-                  className="px-4 py-4 bg-primary-100 hover:bg-primary-200 text-primary-700 rounded-xl transition flex items-center justify-center gap-2 border border-primary-200"
-                  title="Get Custom Quote"
-                >
-                  <Sparkles className="h-5 w-5" />
-                </button>
-              </div>
+                  {isBoxes && (
+                    <button 
+                      onClick={handleShareClick}
+                      className="px-4 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
+                      title="Share Configuration"
+                    >
+                      <Share2 className="h-5 w-5" />
+                    </button>
+                  )}
+                  <button 
+                    onClick={openQuoteLightbox}
+                    className="px-4 py-4 bg-primary-100 hover:bg-primary-200 text-primary-700 rounded-xl transition flex items-center justify-center gap-2 border border-primary-200"
+                    title="Get Custom Quote"
+                  >
+                    <Sparkles className="h-5 w-5" />
+                  </button>
+                </div>
+              )}
               
               {/* Features */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-4">
@@ -4141,16 +4176,39 @@ const ProductPage: React.FC = () => {
                 </button>
                 
                 {/* Right: Price Toggle */}
-                <button 
-                  onClick={() => setMobileActivePanel(mobileActivePanel === 'price' ? 'none' : 'price')}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg transition ${mobileActivePanel === 'price' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'}`}
-                >
-                  <span className="text-lg">💰</span>
-                  <span className="text-sm font-bold text-primary-700">${unitPrice.toFixed(2)}/pc</span>
-                  <span className="text-xs text-neutral-500">|</span>
-                  <span className="text-sm font-semibold text-primary-600">US${Math.round(totalPrice).toLocaleString()}</span>
-                  {mobileActivePanel === 'price' ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </button>
+                {product?.inquiryOnly ? (
+                  <div className="flex gap-2 items-center">
+                    <a 
+                      href="https://calendly.com/30-min-free-packaging-consultancy" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 cursor-pointer shadow-sm text-center"
+                    >
+                      <Calendar className="h-4 w-4" />
+                      Inquiry Meeting
+                    </a>
+                    <a 
+                      href={getWhatsAppLink()} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="px-4 py-1.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 cursor-pointer shadow-sm text-center"
+                    >
+                      <MessageSquare className="h-4 w-4" />
+                      WhatsApp Chat
+                    </a>
+                  </div>
+                ) : (
+                  <button 
+                    onClick={() => setMobileActivePanel(mobileActivePanel === 'price' ? 'none' : 'price')}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg transition ${mobileActivePanel === 'price' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'}`}
+                  >
+                    <span className="text-lg">💰</span>
+                    <span className="text-sm font-bold text-primary-700">${unitPrice.toFixed(2)}/pc</span>
+                    <span className="text-xs text-neutral-500">|</span>
+                    <span className="text-sm font-semibold text-primary-600">US${Math.round(totalPrice).toLocaleString()}</span>
+                    {mobileActivePanel === 'price' ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -4379,29 +4437,52 @@ const ProductPage: React.FC = () => {
           
           {/* Bottom Tab Bar */}
           <div className="bg-white border-t border-neutral-200 shadow-lg">
-            <div className="flex">
-              <button 
-                onClick={() => setMobileActivePanel(mobileActivePanel === 'preview' ? 'none' : 'preview')}
-                className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'preview' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
-              >
-                <span className="text-lg">📦</span>
-                <span className="truncate">Preview</span>
-              </button>
-              <button 
-                onClick={() => setMobileActivePanel(mobileActivePanel === 'testimonials' ? 'none' : 'testimonials')}
-                className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'testimonials' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
-              >
-                <span className="text-lg">💬</span>
-                <span className="truncate">Reviews</span>
-              </button>
-              <button 
-                onClick={() => setMobileActivePanel(mobileActivePanel === 'price' ? 'none' : 'price')}
-                className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'price' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
-              >
-                <span className="text-lg">💰</span>
-                <span className="font-semibold text-primary-700">${unitPrice.toFixed(2)}/pc</span>
-              </button>
-            </div>
+            {product?.inquiryOnly ? (
+              <div className="flex gap-2 p-2.5">
+                <a 
+                  href="https://calendly.com/30-min-free-packaging-consultancy" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-600/10 cursor-pointer text-center"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Inquiry Meeting
+                </a>
+                <a 
+                  href={getWhatsAppLink()} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow-lg shadow-[#25D366]/10 cursor-pointer text-center"
+                >
+                  <MessageSquare className="h-4 w-4" />
+                  WhatsApp Chat
+                </a>
+              </div>
+            ) : (
+              <div className="flex">
+                <button 
+                  onClick={() => setMobileActivePanel(mobileActivePanel === 'preview' ? 'none' : 'preview')}
+                  className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'preview' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
+                >
+                  <span className="text-lg">📦</span>
+                  <span className="truncate">Preview</span>
+                </button>
+                <button 
+                  onClick={() => setMobileActivePanel(mobileActivePanel === 'testimonials' ? 'none' : 'testimonials')}
+                  className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'testimonials' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
+                >
+                  <span className="text-lg">💬</span>
+                  <span className="truncate">Reviews</span>
+                </button>
+                <button 
+                  onClick={() => setMobileActivePanel(mobileActivePanel === 'price' ? 'none' : 'price')}
+                  className={`flex-1 py-3 px-2 flex flex-col items-center gap-1 text-xs transition ${mobileActivePanel === 'price' ? 'bg-primary-50 text-primary-700' : 'text-neutral-600'}`}
+                >
+                  <span className="text-lg">💰</span>
+                  <span className="font-semibold text-primary-700">${unitPrice.toFixed(2)}/pc</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}
