@@ -272,7 +272,7 @@ export default function PouchEcoGPTKPage() {
         accentColor: '#10b981',
         certLogo: isCompostable ? '🌱 Certified Bio' : '♻️ SPI Code 4',
         leadTime: '20 - 25 Days',
-        image: '/imgs/store/hero/eco-digital.png',
+        image: isCompostable ? '/imgs/store/products/invest-cal-compostable.jpg' : '/imgs/store/products/invest-cal-recyclable.jpg',
         points: isCompostable
           ? [
               'Sturdy Box-Style Flat Bottom Shape with Side Gussets',
@@ -1012,22 +1012,26 @@ export default function PouchEcoGPTKPage() {
                 <tbody>
                   {TABLE_CATEGORIES.map((category, catIdx) => (
                     <React.Fragment key={catIdx}>
-                      {/* Category Divider */}
-                      <tr className="bg-neutral-50/50 border-t border-b border-neutral-200/60">
-                        <td colSpan={5} className="p-3 text-[10px] font-black uppercase tracking-wider text-neutral-500 select-none">
+                      {/* Category Divider with prominent gray background */}
+                      <tr className="bg-neutral-100 border-t border-b border-neutral-200">
+                        <td colSpan={5} className="p-3 text-[10px] font-extrabold uppercase tracking-wider text-neutral-600 select-none">
                           {category.title}
                         </td>
                       </tr>
-                      {/* Sub-Rows */}
-                      {category.rows.map((row, rowIdx) => (
-                        <tr key={rowIdx} className="border-b border-neutral-100 hover:bg-neutral-50/40 transition">
-                          <td className="p-3 text-xs font-bold text-neutral-800">{row.name}</td>
-                          <td className="p-3 border-l border-neutral-100 text-[11px] font-medium text-neutral-505">{row.stockCards}</td>
-                          <td className="p-3 border-l border-neutral-100 text-[11px] font-medium text-neutral-505">{row.customStandard}</td>
-                          <td className="p-3 border-l border-neutral-100 text-[11px] font-medium text-neutral-505">{row.customRecyclable}</td>
-                          <td className="p-3 border-l border-neutral-100 text-[11px] font-medium text-neutral-505">{row.customCompostable}</td>
-                        </tr>
-                      ))}
+                      {/* Sub-Rows with alternating gray degree shading */}
+                      {category.rows.map((row, rowIdx) => {
+                        const isOdd = rowIdx % 2 === 1;
+                        const rowBgClass = isOdd ? 'bg-neutral-50/60 hover:bg-neutral-100/50' : 'bg-white hover:bg-neutral-50/40';
+                        return (
+                          <tr key={rowIdx} className={`border-b border-neutral-150 transition-colors ${rowBgClass}`}>
+                            <td className="p-3 text-xs font-bold text-neutral-900 bg-neutral-50/30 w-[200px]">{row.name}</td>
+                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.stockCards}</td>
+                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.customStandard}</td>
+                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.customRecyclable}</td>
+                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.customCompostable}</td>
+                          </tr>
+                        );
+                      })}
                     </React.Fragment>
                   ))}
                 </tbody>
