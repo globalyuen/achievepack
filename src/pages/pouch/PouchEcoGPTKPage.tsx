@@ -28,8 +28,151 @@ const BAG_SIZES: BagSize[] = [
   { id: 'size-4', label: '260 × 340 + 80 mm', dimensions: '260 × 340 + 80 mm', capacity: 'approx 1000g' },
 ]
 
+interface TableRow {
+  name: string
+  values: Record<string, string>
+  isEco: Record<string, boolean>
+}
+
+const TABLE_ROWS: TableRow[] = [
+  {
+    name: '1. Base Material',
+    values: {
+      'stock-cards': 'Conventional Base Pouch',
+      'stock-tag': 'Conventional Base Pouch',
+      'conventional-stock': 'Conventional Base Pouch',
+      'recyclable-doypack': 'Eco (Recyclable/Compostable)',
+      'recyclable': 'Eco-Friendly Mono-PE',
+      'compostable': 'Eco-Friendly Home Compostable'
+    },
+    isEco: {
+      'stock-cards': false,
+      'stock-tag': false,
+      'conventional-stock': false,
+      'recyclable-doypack': true,
+      'recyclable': true,
+      'compostable': true
+    }
+  },
+  {
+    name: '2. Zipper Closure',
+    values: {
+      'stock-cards': 'Regular Double-Track Zipper',
+      'stock-tag': 'Airtight One-Sided Zipper',
+      'conventional-stock': 'Airtight One-Sided Zipper',
+      'recyclable-doypack': 'Airtight One-Sided Zipper',
+      'recyclable': 'Airtight One-Sided Zipper',
+      'compostable': 'Airtight One-Sided Zipper'
+    },
+    isEco: {
+      'stock-cards': true,
+      'stock-tag': true,
+      'conventional-stock': true,
+      'recyclable-doypack': true,
+      'recyclable': true,
+      'compostable': true
+    }
+  },
+  {
+    name: '3. Printing Method',
+    values: {
+      'stock-cards': 'Unprinted (Plates Waived)',
+      'stock-tag': 'Unprinted (Plates Waived)',
+      'conventional-stock': 'Unprinted (Includes Custom Sticker)',
+      'recyclable-doypack': 'Edge-to-Edge Digital Custom Print',
+      'recyclable': 'Edge-to-Edge Digital Custom Print',
+      'compostable': 'Edge-to-Edge Digital Custom Print'
+    },
+    isEco: {
+      'stock-cards': false,
+      'stock-tag': false,
+      'conventional-stock': true,
+      'recyclable-doypack': true,
+      'recyclable': true,
+      'compostable': true
+    }
+  },
+  {
+    name: '4. Base Pouch Shape',
+    values: {
+      'stock-cards': 'Flat Bottom (Box Pouch)',
+      'stock-tag': 'Flat Bottom (Box Pouch)',
+      'conventional-stock': 'Flat Bottom (Box Pouch)',
+      'recyclable-doypack': 'Stand-Up Pouch (Oval Bottom Doypack)',
+      'recyclable': 'Flat Bottom (Box Pouch)',
+      'compostable': 'Flat Bottom (Box Pouch)'
+    },
+    isEco: {
+      'stock-cards': true,
+      'stock-tag': true,
+      'conventional-stock': true,
+      'recyclable-doypack': true,
+      'recyclable': true,
+      'compostable': true
+    }
+  },
+  {
+    name: '5. Side Gussets',
+    values: {
+      'stock-cards': 'Side Gusset Included',
+      'stock-tag': 'Side Gusset Included',
+      'conventional-stock': 'Side Gusset Included',
+      'recyclable-doypack': 'No Side Gussets (Oval Bottom Seal)',
+      'recyclable': 'Side Gusset Included',
+      'compostable': 'Side Gusset Included'
+    },
+    isEco: {
+      'stock-cards': true,
+      'stock-tag': true,
+      'conventional-stock': true,
+      'recyclable-doypack': false,
+      'recyclable': true,
+      'compostable': true
+    }
+  },
+  {
+    name: '6. Barrier Protection',
+    values: {
+      'stock-cards': 'High-Barrier Multi-Layer',
+      'stock-tag': 'High-Barrier Multi-Layer',
+      'conventional-stock': 'High-Barrier Option',
+      'recyclable-doypack': 'High-Barrier (Recyclable/Compostable)',
+      'recyclable': 'Medium-Barrier Protection',
+      'compostable': 'High-Barrier certified bio-laminate'
+    },
+    isEco: {
+      'stock-cards': true,
+      'stock-tag': true,
+      'conventional-stock': true,
+      'recyclable-doypack': true,
+      'recyclable': false,
+      'compostable': true
+    }
+  },
+  {
+    name: '7. Clear Display Window',
+    values: {
+      'stock-cards': 'No Window (Full Aroma Shield)',
+      'stock-tag': 'No Window (Full Aroma Shield)',
+      'conventional-stock': 'Optional Window (Stock Pouch)',
+      'recyclable-doypack': 'Optional Window (Custom Doypack)',
+      'recyclable': 'Optional Window (Integrated)',
+      'compostable': 'Optional Window (PLA certified)'
+    },
+    isEco: {
+      'stock-cards': false,
+      'stock-tag': false,
+      'conventional-stock': true,
+      'recyclable-doypack': true,
+      'recyclable': true,
+      'compostable': true
+    }
+  }
+];
+
 export default function PouchEcoGPTKPage() {
-  const [totalBudget, setTotalBudget] = useState<number>(3000)
+  const [totalBudget, setTotalBudget] = useState<number>
+(3000)
   const [numDesigns, setNumDesigns] = useState<number>(3)
   const [qtyPerDesign, setQtyPerDesign] = useState<number>(500)
   const [selectedSize, setSelectedSize] = useState<BagSize>(BAG_SIZES[0])
@@ -461,105 +604,186 @@ export default function PouchEcoGPTKPage() {
               </div>
             </div>
 
-            {/* Bottom 6-Column Options Grid with actual Storefront Images */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
-              {['stock-cards', 'stock-tag', 'conventional-stock', 'recyclable-doypack', 'recyclable', 'compostable'].map(optionId => {
-                const data = calculateOptionPrice(optionId)
-                const isSafe = data.totalCost <= totalBudget
+            {/* Visual Grouping Grid (Stock Modular vs Premium Custom Digital) */}
+            <div className="grid xl:grid-cols-2 gap-8 items-stretch mb-8">
+              {/* Group A: Stock Modular Pouch Group (Card, Tag, Sticker) */}
+              <div className="border-4 border-black bg-white p-5 shadow-[6px_6px_0px_rgba(0,0,0,1)] rounded-2xl flex flex-col justify-between space-y-4">
+                <div className="border-b-2 border-black pb-2">
+                  <span className="inline-block bg-black text-[#D4FF00] px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded">
+                    STOCK MODULAR BASE (FLAT $0.50)
+                  </span>
+                  <h3 className="text-lg font-black uppercase text-black mt-1">
+                    1. Stock Modular Pouch Group
+                  </h3>
+                  <p className="text-xs text-neutral-500 font-bold mt-0.5">
+                    Flat $0.50 USD / pouch. Identical premium stock base — only branding method differs.
+                  </p>
+                </div>
 
-                return (
-                  <div key={optionId} className={`border-4 border-black bg-white p-4 shadow-[6px_6px_0px_rgba(0,0,0,1)] flex flex-col justify-between relative ${data.isBelowMoq ? 'opacity-65' : ''}`}>
-                    {/* Budget Badge */}
-                    <div className="absolute top-0 right-0 border-b-2 border-l-2 border-black font-['JetBrains_Mono'] text-[9px] font-black uppercase px-2 py-0.5" style={{ backgroundColor: data.isBelowMoq ? '#ef4444' : (isSafe ? '#10B981' : '#f59e0b'), color: 'white' }}>
-                      {data.isBelowMoq ? 'MOQ Alert' : (isSafe ? 'Within Budget' : 'Over Budget')}
-                    </div>
+                <div className="grid md:grid-cols-3 gap-4 flex-1">
+                  {['stock-cards', 'stock-tag', 'conventional-stock'].map(optionId => {
+                    const data = calculateOptionPrice(optionId)
+                    const isSafe = data.totalCost <= totalBudget
 
-                    <div className="space-y-4">
-                      {/* Product Photo */}
-                      <div 
-                        onClick={() => setEnlargedImage(data.image)}
-                        className="w-full aspect-square border-2 border-black rounded-lg overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
-                      >
-                        <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                        <span className="absolute bottom-1 right-1 bg-black/80 text-white text-[8px] font-['JetBrains_Mono'] px-1.5 py-0.5 border border-black rounded">{data.certLogo}</span>
-                      </div>
+                    return (
+                      <div key={optionId} className={`border-2 border-black bg-neutral-50/50 p-3 rounded-xl flex flex-col justify-between relative ${data.isBelowMoq ? 'opacity-65' : ''} hover:bg-neutral-50 transition`}>
+                        {/* Budget Badge */}
+                        <div className="absolute top-0 right-0 border-b border-l border-black font-['JetBrains_Mono'] text-[8px] font-black uppercase px-1.5 py-0.2 rounded-bl" style={{ backgroundColor: data.isBelowMoq ? '#ef4444' : (isSafe ? '#10B981' : '#f59e0b'), color: 'white' }}>
+                          {data.isBelowMoq ? 'MOQ' : (isSafe ? 'Budget ✓' : 'Over')}
+                        </div>
 
-                      <div>
-                        <div className="flex items-center justify-between gap-1 mt-1">
-                          <h4 className="font-black text-xs uppercase leading-tight truncate flex-1">{data.badge}</h4>
-                          <button
-                            type="button"
-                            onClick={() => setExpandedOption(expandedOption === optionId ? null : optionId)}
-                            className="text-neutral-400 hover:text-black transition-colors focus:outline-none flex-shrink-0 cursor-pointer"
-                            title="Click for full specs"
+                        <div className="space-y-3">
+                          {/* Storefront Image */}
+                          <div 
+                            onClick={() => setEnlargedImage(data.image)}
+                            className="w-full aspect-square border border-black rounded-lg overflow-hidden shadow-inner relative group bg-white flex items-center justify-center cursor-zoom-in"
                           >
-                            <Info className="w-4 h-4" />
-                          </button>
-                        </div>
-                        
-                        {/* Subscription Plan Parameters Comparison */}
-                        <div className="border-t border-dashed border-neutral-300 pt-2 mt-2 space-y-1 text-[9.5px] font-semibold text-neutral-700">
-                          {getOptionParams(optionId).map((param, index) => (
-                            <div key={index} className="py-0.5 border-b border-neutral-100 last:border-none text-left leading-tight whitespace-nowrap">
-                              {param.value}
+                            <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                          </div>
+
+                          <div>
+                            <div className="flex items-center justify-between gap-1">
+                              <h4 className="font-black text-[11px] uppercase leading-tight truncate flex-1">{data.badge.replace('Stock Unprinted Pouch + ', '')}</h4>
+                              <button
+                                type="button"
+                                onClick={() => setExpandedOption(optionId)}
+                                className="text-neutral-400 hover:text-black transition-colors focus:outline-none flex-shrink-0 cursor-pointer"
+                                title="Click for specs lightbox"
+                              >
+                                <Info className="w-3.5 h-3.5" />
+                              </button>
                             </div>
-                          ))}
+                          </div>
                         </div>
 
-                        {/* Slide-out Expanded Details Panel */}
-                        <AnimatePresence>
-                          {expandedOption === optionId && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              className="overflow-hidden mt-3 bg-neutral-50 border-2 border-black p-3 rounded-lg text-[10px] space-y-2 text-neutral-800"
-                            >
-                              <p className="font-bold leading-normal">{data.desc}</p>
-                              <div className="h-px bg-neutral-200 my-1" />
-                              <ul className="space-y-1 font-semibold">
-                                {data.points?.map((pt, i) => (
-                                  <li key={i} className="flex items-start gap-1">
-                                    <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" strokeWidth={3.5} />
-                                    <span>{pt}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
+                        <div className="border-t border-dashed border-neutral-300 pt-2 mt-3 font-['JetBrains_Mono'] text-[10px] font-bold text-neutral-700 space-y-1">
+                          <div className="flex justify-between">
+                            <span>Unit Price:</span>
+                            <span className="text-black font-black">${data.unitPrice.toFixed(2)}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Total Cost:</span>
+                            <span className="text-emerald-600 font-black">${data.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
+                          </div>
+                        </div>
 
-                        {(optionId === 'recyclable' || optionId === 'compostable') && (
-                          <div className="mt-2 text-[9px] text-emerald-600 bg-emerald-50/50 p-1 border border-dashed border-emerald-350 rounded font-semibold leading-normal">
-                            💡 Custom dimensions can be adjusted to optimize volume.
+                        {data.isBelowMoq && (
+                          <div className="bg-red-50 border border-red-200 text-[8px] text-red-700 font-bold p-1 mt-2 rounded text-center leading-tight">
+                            ⚠️ MOQ {data.moq} pcs
                           </div>
                         )}
                       </div>
+                    )
+                  })}
+                </div>
+              </div>
 
-                      <div className="border-t-2 border-dashed border-neutral-200 pt-2 font-['JetBrains_Mono'] text-xs font-bold text-neutral-700 space-y-1">
-                        <div className="flex justify-between">
-                          <span>Unit Price:</span>
-                          <span className="text-black font-black">${data.unitPrice.toFixed(2)}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Total Cost:</span>
-                          <span className="text-emerald-600 font-black">${data.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
-                        </div>
-                        <div className="flex justify-between text-[10px]">
-                          <span>Lead Time:</span>
-                          <span className="text-neutral-600">{data.leadTime}</span>
-                        </div>
-                      </div>
-                    </div>
+              {/* Group B: Premium Custom Digital Group (Doypack, Recyclable, Compostable) */}
+              <div className="border-4 border-black bg-white p-5 shadow-[6px_6px_0px_rgba(0,0,0,1)] rounded-2xl flex flex-col justify-between space-y-4">
+                <div className="border-b-2 border-black pb-2">
+                  <span className="inline-block bg-[#D4FF00] text-black border border-black px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded">
+                    FULL CUSTOM PRINT (VOLUME SCALE)
+                  </span>
+                  <h3 className="text-lg font-black uppercase text-black mt-1">
+                    2. Premium Custom Digital Group
+                  </h3>
+                  <p className="text-xs text-neutral-500 font-bold mt-0.5">
+                    Volume-scaled pricing. Waived cylinder plate fees. Full-bleed edge-to-edge printing.
+                  </p>
+                </div>
 
-                    {data.isBelowMoq && (
-                      <div className="bg-red-50 border border-red-200 text-[9px] text-red-700 font-bold p-1.5 mt-3 rounded">
-                        ⚠️ 起訂量 (MOQ): {data.moq} pcs / SKU.
+                <div className="grid md:grid-cols-3 gap-4 flex-1">
+                  {['recyclable-doypack', 'recyclable', 'compostable'].map(optionId => {
+                    const data = calculateOptionPrice(optionId)
+                    const isSafe = data.totalCost <= totalBudget
+
+                    return (
+                      <div key={optionId} className={`border-2 border-black bg-neutral-50/50 p-3 rounded-xl flex flex-col justify-between relative ${data.isBelowMoq ? 'opacity-65' : ''} hover:bg-neutral-50 transition`}>
+                        {/* Budget Badge */}
+                        <div className="absolute top-0 right-0 border-b border-l border-black font-['JetBrains_Mono'] text-[8px] font-black uppercase px-1.5 py-0.2 rounded-bl" style={{ backgroundColor: data.isBelowMoq ? '#ef4444' : (isSafe ? '#10B981' : '#f59e0b'), color: 'white' }}>
+                          {data.isBelowMoq ? 'MOQ' : (isSafe ? 'Budget ✓' : 'Over')}
+                        </div>
+
+                        <div className="space-y-3">
+                          {/* Storefront Image */}
+                          <div 
+                            onClick={() => setEnlargedImage(data.image)}
+                            className="w-full aspect-square border border-black rounded-lg overflow-hidden shadow-inner relative group bg-white flex items-center justify-center cursor-zoom-in"
+                          >
+                            <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                          </div>
+
+                          <div>
+                            <div className="flex items-center justify-between gap-1">
+                              <h4 className="font-black text-[11px] uppercase leading-tight truncate flex-1">{data.badge.replace('Professional ', '').replace(' Custom Print', '').replace('Custom Stand-Up Pouch ', '')}</h4>
+                              <button
+                                type="button"
+                                onClick={() => setExpandedOption(optionId)}
+                                className="text-neutral-400 hover:text-black transition-colors focus:outline-none flex-shrink-0 cursor-pointer"
+                                title="Click for specs lightbox"
+                              >
+                                <Info className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="border-t border-dashed border-neutral-300 pt-2 mt-3 font-['JetBrains_Mono'] text-[10px] font-bold text-neutral-700 space-y-1">
+                          <div className="flex justify-between">
+                            <span>Unit Price:</span>
+                            <span className="text-black font-black">${data.unitPrice.toFixed(2)}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Total Cost:</span>
+                            <span className="text-emerald-600 font-black">${data.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
+                          </div>
+                        </div>
+
+                        {data.isBelowMoq && (
+                          <div className="bg-red-50 border border-red-200 text-[8px] text-red-700 font-bold p-1 mt-2 rounded text-center leading-tight">
+                            ⚠️ MOQ {data.moq} pcs
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                )
-              })}
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* B2B Comparison Table (Stripe-Style Light Mode) */}
+            <div className="border-4 border-black bg-white p-5 shadow-[6px_6px_0px_rgba(0,0,0,1)] rounded-2xl mt-8">
+              <h3 className="text-lg font-black uppercase tracking-tight text-black border-b-2 border-black pb-3 flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-emerald-600" /> Option Feature Comparison Matrix
+              </h3>
+              <div className="overflow-x-auto mt-4">
+                <table className="w-full text-left border-collapse min-w-[850px] text-xs font-semibold text-neutral-800">
+                  <thead>
+                    <tr className="border-b border-neutral-200 bg-neutral-50/50">
+                      <th className="p-3 font-black uppercase text-neutral-500 w-[180px]">Parameters</th>
+                      <th className="p-3 font-black uppercase text-emerald-700 border-l border-neutral-100">Stock + Card</th>
+                      <th className="p-3 font-black uppercase text-amber-700 border-l border-neutral-100">Stock + Tag</th>
+                      <th className="p-3 font-black uppercase text-teal-700 border-l border-neutral-100">Stock + Sticker</th>
+                      <th className="p-3 font-black uppercase text-blue-700 border-l-2 border-black bg-blue-50/10">Custom Doypack</th>
+                      <th className="p-3 font-black uppercase text-emerald-600 border-l border-neutral-100 bg-emerald-50/10">Custom Recyclable</th>
+                      <th className="p-3 font-black uppercase text-emerald-800 border-l border-neutral-100 bg-emerald-50/10">Custom Compostable</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {TABLE_ROWS.map((row, i) => (
+                      <tr key={i} className="border-b border-neutral-100 hover:bg-neutral-50/50 transition">
+                        <td className="p-3 font-bold text-neutral-600">{row.name}</td>
+                        <td className="p-3 border-l border-neutral-100 text-neutral-700">{row.values['stock-cards']}</td>
+                        <td className="p-3 border-l border-neutral-100 text-neutral-700">{row.values['stock-tag']}</td>
+                        <td className="p-3 border-l border-neutral-100 text-neutral-700">{row.values['conventional-stock']}</td>
+                        <td className="p-3 border-l-2 border-black bg-blue-50/5 text-neutral-800 font-bold">{row.values['recyclable-doypack']}</td>
+                        <td className="p-3 border-l border-neutral-100 bg-emerald-50/5 text-neutral-800 font-bold">{row.values['recyclable']}</td>
+                        <td className="p-3 border-l border-neutral-100 bg-emerald-50/5 text-neutral-800 font-bold">{row.values['compostable']}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
 
           </div>
@@ -703,83 +927,59 @@ export default function PouchEcoGPTKPage() {
                 </div>
               </div>
 
-              {/* Bottom 6-Column Options Grid with actual Storefront Images */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
-                {['stock-cards', 'stock-tag', 'conventional-stock', 'recyclable-doypack', 'recyclable', 'compostable'].map(optionId => {
-                  const data = calculateOptionPrice(optionId)
-                  const isSafe = data.totalCost <= totalBudget
-                  const budgetDiff = Math.abs(data.totalCost - totalBudget)
+              {/* Visual Grouping Grid (Stock Modular vs Premium Custom Digital) - Dark Mode */}
+              <div className="grid xl:grid-cols-2 gap-8 items-stretch mb-8">
+              {/* Group A: Stock Modular Pouch Group (Card, Tag, Sticker) */}
+              <div className="bg-emerald-950/5 backdrop-blur-md border border-neutral-850 p-5 rounded-3xl flex flex-col justify-between space-y-4 shadow-2xl">
+                <div className="border-b border-neutral-800 pb-3">
+                  <span className="inline-block bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-full">
+                    STOCK MODULAR BASE (FLAT $0.50)
+                  </span>
+                  <h3 className="text-base font-bold text-white uppercase mt-1.5 font-['Outfit']">
+                    1. Stock Modular Pouch Group
+                  </h3>
+                  <p className="text-xs text-neutral-450 mt-1 font-sans">
+                    Flat $0.50 USD / pouch. Identical premium stock base — only branding method differs.
+                  </p>
+                </div>
 
-                  return (
-                    <div key={optionId} className={`bg-emerald-950/5 backdrop-blur-sm border border-neutral-850 p-4 rounded-3xl flex flex-col justify-between relative transition-all duration-300 hover:border-emerald-500/10 ${data.isBelowMoq ? 'opacity-50' : 'hover:-translate-y-0.5'}`}>
-                      {/* Budget Badge */}
-                      <div className="absolute top-0 right-0 border-b border-l border-neutral-800 rounded-bl-xl font-mono text-[9px] font-bold uppercase px-2.5 py-1" style={{ backgroundColor: data.isBelowMoq ? '#ef4444' : (isSafe ? 'rgba(16,185,129,0.1)' : 'rgba(245,158,11,0.1)'), color: data.isBelowMoq ? 'white' : (isSafe ? '#34D399' : '#FBBF24'), borderLeftColor: isSafe ? 'rgba(16,185,129,0.2)' : 'rgba(245,158,11,0.2)' }}>
-                        {data.isBelowMoq ? 'MOQ Alert' : (isSafe ? 'Within Budget' : 'Over Budget')}
-                      </div>
+                <div className="grid md:grid-cols-3 gap-4 flex-1">
+                  {['stock-cards', 'stock-tag', 'conventional-stock'].map(optionId => {
+                    const data = calculateOptionPrice(optionId)
+                    const isSafe = data.totalCost <= totalBudget
 
-                      <div className="space-y-4">
-                        {/* High-Quality Storefront Image */}
-                        <div 
-                          onClick={() => setEnlargedImage(data.image)}
-                          className="w-full aspect-square border border-neutral-850 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-900 flex items-center justify-center cursor-zoom-in"
-                        >
-                          <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                          <span className="absolute bottom-1.5 right-1.5 bg-neutral-950/80 text-neutral-300 text-[8px] font-mono px-2 py-0.5 rounded-full border border-neutral-855">{data.certLogo}</span>
+                    return (
+                      <div key={optionId} className={`bg-neutral-900/30 border border-neutral-850 p-3 rounded-2xl flex flex-col justify-between relative transition-all duration-300 hover:border-emerald-500/10 ${data.isBelowMoq ? 'opacity-50' : 'hover:-translate-y-0.5'}`}>
+                        {/* Budget Badge */}
+                        <div className="absolute top-0 right-0 border-b border-l border-neutral-800 rounded-bl-xl font-mono text-[8px] font-bold uppercase px-2 py-0.5" style={{ backgroundColor: data.isBelowMoq ? '#ef4444' : (isSafe ? 'rgba(16,185,129,0.1)' : 'rgba(245,158,11,0.1)'), color: data.isBelowMoq ? 'white' : (isSafe ? '#34D399' : '#FBBF24'), borderLeftColor: isSafe ? 'rgba(16,185,129,0.2)' : 'rgba(245,158,11,0.2)' }}>
+                          {data.isBelowMoq ? 'MOQ' : (isSafe ? 'Budget' : 'Over')}
                         </div>
 
-                        <div>
-                          <div className="flex items-center justify-between gap-1.5">
-                            <span className="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-full truncate flex-1">{data.badge}</span>
-                            <button
-                              type="button"
-                              onClick={() => setExpandedOption(expandedOption === optionId ? null : optionId)}
-                              className="text-neutral-400 hover:text-emerald-400 transition-colors focus:outline-none flex-shrink-0 cursor-pointer"
-                              title="Click for full specs"
-                            >
-                              <Info className="w-4 h-4" />
-                            </button>
-                          </div>
-                          
-                          {/* Subscription Plan Parameters Comparison (Dark Mode) */}
-                          <div className="border-t border-neutral-800 pt-2 mt-2 space-y-1 text-[9.5px] font-mono text-neutral-300">
-                            {getOptionParams(optionId).map((param, index) => (
-                              <div key={index} className="py-0.5 border-b border-neutral-900 last:border-none text-left leading-tight whitespace-nowrap">
-                                {param.value}
-                              </div>
-                            ))}
+                        <div className="space-y-3">
+                          {/* Storefront Image */}
+                          <div 
+                            onClick={() => setEnlargedImage(data.image)}
+                            className="w-full aspect-square border border-neutral-850 rounded-xl overflow-hidden shadow-inner relative group bg-neutral-950 flex items-center justify-center cursor-zoom-in"
+                          >
+                            <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                           </div>
 
-                          {/* Slide-out Expanded Details Panel (Dark Mode) */}
-                          <AnimatePresence>
-                            {expandedOption === optionId && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: 'auto', opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                className="overflow-hidden mt-3 bg-neutral-900 border border-neutral-850 p-3 rounded-2xl text-[10px] space-y-2 text-neutral-300"
+                          <div>
+                            <div className="flex items-center justify-between gap-1.5">
+                              <span className="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-full truncate flex-1">{data.badge.replace('Stock Unprinted Pouch + ', '')}</span>
+                              <button
+                                type="button"
+                                onClick={() => setExpandedOption(optionId)}
+                                className="text-neutral-400 hover:text-emerald-400 transition-colors focus:outline-none flex-shrink-0 cursor-pointer"
+                                title="Click for specs lightbox"
                               >
-                                <p className="font-semibold leading-relaxed">{data.desc}</p>
-                                <div className="h-px bg-neutral-800 my-1" />
-                                <ul className="space-y-1 font-mono">
-                                  {data.points?.map((pt, i) => (
-                                    <li key={i} className="flex items-start gap-1.5">
-                                      <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" strokeWidth={3} />
-                                      <span>{pt}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-
-                          {(optionId === 'recyclable' || optionId === 'compostable') && (
-                            <div className="mt-2 text-[9px] text-emerald-400 bg-emerald-950/20 p-1.5 border border-dashed border-emerald-500/20 rounded font-mono leading-normal">
-                              💡 Custom dimensions can be adjusted to optimize volume.
+                                <Info className="w-3.5 h-3.5" />
+                              </button>
                             </div>
-                          )}
+                          </div>
                         </div>
 
-                        <div className="border-t border-neutral-850 pt-3 font-mono text-xs text-neutral-400 space-y-1.5">
+                        <div className="border-t border-neutral-850 pt-3 mt-3 font-mono text-[10px] text-neutral-400 space-y-1.5">
                           <div className="flex justify-between">
                             <span className="text-neutral-500">Unit Price:</span>
                             <span className="text-white font-bold">${data.unitPrice.toFixed(2)}</span>
@@ -788,36 +988,133 @@ export default function PouchEcoGPTKPage() {
                             <span className="text-neutral-500">Total Cost:</span>
                             <span className="text-emerald-400 font-bold">${data.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
                           </div>
-                          <div className="flex justify-between text-[10px]">
-                            <span className="text-neutral-500">Lead Time:</span>
-                            <span className="text-neutral-300">{data.leadTime}</span>
-                          </div>
                         </div>
-                      </div>
 
-                      {data.isBelowMoq ? (
-                        <div className="bg-red-500/10 border border-red-200 text-[10px] text-red-400 font-mono p-2 mt-4 flex items-center gap-1">
-                          <AlertTriangle className="w-3 h-3 flex-shrink-0" strokeWidth="2.5" />
-                          <span>起訂量 (MOQ) 需為 {data.moq} pcs / SKU.</span>
-                        </div>
-                      ) : (
-                        !isSafe && (
-                          <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl text-[9px] text-amber-400 font-mono p-1.5 mt-4 text-center">
-                            需另補 +${budgetDiff.toLocaleString(undefined, {maximumFractionDigits: 2})} USD。
+                        {data.isBelowMoq && (
+                          <div className="bg-red-500/10 border border-red-200 text-[8px] text-red-400 font-mono p-1 mt-2 rounded text-center">
+                            ⚠️ MOQ {data.moq} pcs
                           </div>
-                        )
-                      )}
-                    </div>
-                  )
-                })}
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
 
-            </div>
-          </section>
+              {/* Group B: Premium Custom Digital Group (Doypack, Recyclable, Compostable) */}
+              <div className="bg-emerald-950/5 backdrop-blur-md border border-neutral-850 p-5 rounded-3xl flex flex-col justify-between space-y-4 shadow-2xl">
+                <div className="border-b border-neutral-800 pb-3">
+                  <span className="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-full">
+                    FULL CUSTOM PRINT (VOLUME SCALE)
+                  </span>
+                  <h3 className="text-base font-bold text-white uppercase mt-1.5 font-['Outfit']">
+                    2. Premium Custom Digital Group
+                  </h3>
+                  <p className="text-xs text-neutral-450 mt-1 font-sans">
+                    Volume-scaled pricing. Waived cylinder plate fees. Full-bleed edge-to-edge printing.
+                  </p>
+                </div>
 
-          <Footer />
-        </div>
-      )}
+                <div className="grid md:grid-cols-3 gap-4 flex-1">
+                  {['recyclable-doypack', 'recyclable', 'compostable'].map(optionId => {
+                    const data = calculateOptionPrice(optionId)
+                    const isSafe = data.totalCost <= totalBudget
+
+                    return (
+                      <div key={optionId} className={`bg-neutral-900/30 border border-neutral-850 p-3 rounded-2xl flex flex-col justify-between relative transition-all duration-300 hover:border-emerald-500/10 ${data.isBelowMoq ? 'opacity-50' : 'hover:-translate-y-0.5'}`}>
+                        {/* Budget Badge */}
+                        <div className="absolute top-0 right-0 border-b border-l border-neutral-800 rounded-bl-xl font-mono text-[8px] font-bold uppercase px-2 py-0.5" style={{ backgroundColor: data.isBelowMoq ? '#ef4444' : (isSafe ? 'rgba(16,185,129,0.1)' : 'rgba(245,158,11,0.1)'), color: data.isBelowMoq ? 'white' : (isSafe ? '#34D399' : '#FBBF24'), borderLeftColor: isSafe ? 'rgba(16,185,129,0.2)' : 'rgba(245,158,11,0.2)' }}>
+                          {data.isBelowMoq ? 'MOQ' : (isSafe ? 'Budget' : 'Over')}
+                        </div>
+
+                        <div className="space-y-3">
+                          {/* Storefront Image */}
+                          <div 
+                            onClick={() => setEnlargedImage(data.image)}
+                            className="w-full aspect-square border border-neutral-850 rounded-xl overflow-hidden shadow-inner relative group bg-neutral-950 flex items-center justify-center cursor-zoom-in"
+                          >
+                            <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                          </div>
+
+                          <div>
+                            <div className="flex items-center justify-between gap-1.5">
+                              <span className="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-full truncate flex-1">{data.badge.replace('Professional ', '').replace(' Custom Print', '').replace('Custom Stand-Up Pouch ', '')}</span>
+                              <button
+                                type="button"
+                                onClick={() => setExpandedOption(optionId)}
+                                className="text-neutral-400 hover:text-emerald-400 transition-colors focus:outline-none flex-shrink-0 cursor-pointer"
+                                title="Click for specs lightbox"
+                              >
+                                <Info className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="border-t border-neutral-855 pt-3 mt-3 font-mono text-[10px] text-neutral-400 space-y-1.5">
+                          <div className="flex justify-between">
+                            <span className="text-neutral-500">Unit Price:</span>
+                            <span className="text-white font-bold">${data.unitPrice.toFixed(2)}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-neutral-500">Total Cost:</span>
+                            <span className="text-emerald-400 font-bold">${data.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
+                          </div>
+                        </div>
+
+                        {data.isBelowMoq && (
+                          <div className="bg-red-500/10 border border-red-200 text-[8px] text-red-400 font-mono p-1 mt-2 rounded text-center">
+                            ⚠️ MOQ {data.moq} pcs
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* B2B Comparison Table (Stripe-Style Dark Mode) */}
+            <div className="bg-neutral-900/40 backdrop-blur-md border border-neutral-800 p-5 rounded-3xl mt-8 shadow-2xl">
+              <h3 className="text-base font-bold text-white uppercase border-b border-emerald-500/10 pb-3 flex items-center gap-2 font-['Outfit']">
+                <CheckCircle className="w-5 h-5 text-emerald-400" /> Option Feature Comparison Matrix
+              </h3>
+              <div className="overflow-x-auto mt-4">
+                <table className="w-full text-left border-collapse min-w-[850px] text-xs font-mono text-neutral-300">
+                  <thead>
+                    <tr className="border-b border-neutral-850 bg-neutral-950/60">
+                      <th className="p-3 font-bold uppercase text-neutral-500 w-[180px]">Parameters</th>
+                      <th className="p-3 font-bold uppercase text-emerald-400 border-l border-neutral-855">Stock + Card</th>
+                      <th className="p-3 font-bold uppercase text-amber-400 border-l border-neutral-855">Stock + Tag</th>
+                      <th className="p-3 font-bold uppercase text-cyan-400 border-l border-neutral-855">Stock + Sticker</th>
+                      <th className="p-3 font-bold uppercase text-blue-450 border-l border-neutral-800 bg-blue-950/10">Custom Doypack</th>
+                      <th className="p-3 font-bold uppercase text-emerald-400 border-l border-neutral-855 bg-emerald-950/10">Custom Recyclable</th>
+                      <th className="p-3 font-bold uppercase text-emerald-300 border-l border-neutral-855 bg-emerald-950/10">Custom Compostable</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {TABLE_ROWS.map((row, i) => (
+                      <tr key={i} className="border-b border-neutral-855 hover:bg-neutral-900/20 transition">
+                        <td className="p-3 font-bold text-neutral-500">{row.name}</td>
+                        <td className="p-3 border-l border-neutral-855 text-neutral-300">{row.values['stock-cards']}</td>
+                        <td className="p-3 border-l border-neutral-855 text-neutral-300">{row.values['stock-tag']}</td>
+                        <td className="p-3 border-l border-neutral-855 text-neutral-300">{row.values['conventional-stock']}</td>
+                        <td className="p-3 border-l border-neutral-800 bg-blue-950/5 text-white font-bold">{row.values['recyclable-doypack']}</td>
+                        <td className="p-3 border-l border-neutral-855 bg-emerald-950/5 text-white font-bold">{row.values['recyclable']}</td>
+                        <td className="p-3 border-l border-neutral-855 bg-emerald-950/5 text-white font-bold">{row.values['compostable']}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    )}
       {/* Click to Enlarge Lightbox Modal */}
       <AnimatePresence>
         {enlargedImage && (
@@ -850,6 +1147,94 @@ export default function PouchEcoGPTKPage() {
             </motion.div>
           </motion.div>
         )}
+      </AnimatePresence>
+
+      {/* Product Specifications & Details Lightbox Modal */}
+      <AnimatePresence>
+        {expandedOption && (() => {
+          const data = calculateOptionPrice(expandedOption);
+          return (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setExpandedOption(null)}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 cursor-zoom-out"
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                className={`relative max-w-2xl w-full ${isEco ? 'border-4 border-black bg-white shadow-[8px_8px_0px_rgba(0,0,0,1)] rounded-2xl p-6 text-black' : 'border border-neutral-800 bg-neutral-950 rounded-3xl p-6 text-neutral-200 shadow-2xl'} max-h-[90vh] overflow-y-auto cursor-default`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Modal Header */}
+                <div className="flex justify-between items-start border-b border-neutral-200 dark:border-neutral-850 pb-4 mb-4">
+                  <div>
+                    <span className="inline-block text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                      {data.certLogo}
+                    </span>
+                    <h2 className="text-xl md:text-2xl font-black uppercase mt-1 leading-tight">
+                      {data.badge}
+                    </h2>
+                  </div>
+                  <button
+                    onClick={() => setExpandedOption(null)}
+                    className={`font-black uppercase text-xs px-3 py-1.5 rounded-full active:scale-95 transition cursor-pointer font-mono ${isEco ? 'bg-black text-[#D4FF00] hover:text-white border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]' : 'bg-emerald-500 hover:bg-emerald-400 text-neutral-950'}`}
+                  >
+                    ✕ Close
+                  </button>
+                </div>
+
+                {/* Modal Body */}
+                <div className="grid md:grid-cols-12 gap-6 items-start">
+                  <div className="md:col-span-5 relative group overflow-hidden border border-neutral-200 dark:border-neutral-850 rounded-xl bg-neutral-50 dark:bg-neutral-900 aspect-square flex items-center justify-center">
+                    <img src={data.image} alt={data.badge} className="w-full h-full object-cover rounded-lg" />
+                  </div>
+                  <div className="md:col-span-7 space-y-4">
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400">Product Overview</h4>
+                      <p className="text-sm font-medium leading-relaxed text-neutral-600 dark:text-neutral-350 mt-1">
+                        {data.desc}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2">Key Highlights</h4>
+                      <ul className="space-y-2 text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                        {data.points?.map((pt, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {(expandedOption === 'recyclable' || expandedOption === 'compostable') && (
+                      <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-2.5 text-[10px] text-emerald-600 dark:text-emerald-400 leading-normal font-sans">
+                        💡 **Custom sizing & layout** is available for this option! Achieve Pack can adjust exact pouch width/height dimensions to perfectly optimize your volume.
+                      </div>
+                    )}
+
+                    <div className="border-t border-neutral-100 dark:border-neutral-850 pt-4 flex justify-between items-center text-xs font-bold font-mono">
+                      <div>
+                        <span className="text-neutral-400 block uppercase text-[10px]">Lead Time</span>
+                        <span className="text-neutral-950 dark:text-white">{data.leadTime}</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-neutral-400 block uppercase text-[10px]">Minimum Order (MOQ)</span>
+                        <span className="text-emerald-500">{data.moq.toLocaleString()} pcs</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </motion.div>
+            </motion.div>
+          );
+        })()}
       </AnimatePresence>
 
     </div>
