@@ -182,7 +182,7 @@ export default function PouchEcoGPTKPage() {
         accentColor: '#3B82F6',
         certLogo: '♻️/🌱 Eco-Saver 50%',
         leadTime: '20 - 25 Days',
-        image: '/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg',
+        image: '/imgs/store/hero/eco-digital.png',
         points: [
           'Saves 50% Cost Compared to Flat Bottom',
           'Mono-PE Recyclable or BPI Compostable',
