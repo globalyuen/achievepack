@@ -34,6 +34,7 @@ export default function PouchEcoGPTKPage() {
   const [qtyPerDesign, setQtyPerDesign] = useState<number>(500)
   const [selectedSize, setSelectedSize] = useState<BagSize>(BAG_SIZES[0])
   const [whatsappCopied, setWhatsappCopied] = useState<boolean>(false)
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
 
   // Pricing interpolation engine matching user's spreadsheet criteria perfectly
   const calculateOptionPrice = (optionId: string) => {
@@ -176,16 +177,16 @@ export default function PouchEcoGPTKPage() {
         totalCost,
         isBelowMoq,
         moq: 500,
-        badge: 'Custom Stand-Up Pouch (Recyclable)',
-        desc: 'Transition to Doypack style with oval bottom gusset. Saves 50% cost while retaining premium barrier, resealable zipper, degassing valve, and edge-to-edge custom print.',
+        badge: 'Custom Stand-Up Pouch (Recyclable or Industrial Compostable)',
+        desc: 'Transition to Doypack shape with an oval bottom gusset. Saves 50% cost while retaining premium high-barrier (PE+EVOH or Matte AL), resealable zipper, one-way degassing valve, and full edge-to-edge custom print.',
         accentColor: '#3B82F6',
-        certLogo: '♻️ Doypack 50% Saver',
+        certLogo: '♻️/🌱 Eco-Saver 50%',
         leadTime: '20 - 25 Days',
-        image: '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
+        image: '/imgs/store/products/unprinted-white-kraft-compostable-and-biodegrable-zipper-stand-up-pouch-thumbnail-1.jpg',
         points: [
           'Saves 50% Cost Compared to Flat Bottom',
-          'Same Sizing Volume & High-Barrier EVOH',
-          'Oval Bottom Gusset Stand-Up Doypack',
+          'Mono-PE Recyclable or BPI Compostable',
+          'Same Sizing Capacity (Oval Bottom Gusset)',
           'Airtight Resealable Zipper & Degassing Valve',
           '500pcs MOQ / SKU (HP Indigo Digital)'
         ]
@@ -237,7 +238,7 @@ export default function PouchEcoGPTKPage() {
    - 單價 (Unit): $${tagPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${tagPrice.totalCost.toFixed(2)} USD ${tagPrice.isBelowMoq ? '(Below MOQ)' : ''}
 3️⃣ 貼紙標籤方案 (Stock Unprinted Pouch + Sticker):
    - 單價 (Unit): $${conventionalPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${conventionalPrice.totalCost.toFixed(2)} USD ${conventionalPrice.isBelowMoq ? '(Below MOQ)' : ''}
-4️⃣ ⚡ 50%省錢自立袋方案 (Custom Stand-Up Pouch Recyclable):
+4️⃣ ⚡ 50%省錢自立袋方案 (Custom Stand-Up Pouch Recyclable/Industrial Compostable):
    - 單價 (Unit): $${doypackPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${doypackPrice.totalCost.toFixed(2)} USD ${doypackPrice.isBelowMoq ? '(Below MOQ)' : ''}
 5️⃣ ♻️ 4號標誌單一可回收方底袋方案 (Professional Recyclable Custom Print):
    - 單價 (Unit): $${recPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${recPrice.totalCost.toFixed(2)} USD ${recPrice.isBelowMoq ? '(Below MOQ)' : ''}
@@ -288,12 +289,15 @@ export default function PouchEcoGPTKPage() {
                   Compare modular card insert/tag options against high-barrier customizable Recyclable & Compostable stand-up flat bottom pouches to maximize your packaging investments.
                 </p>
               </div>
-              <div className="md:col-span-4 relative">
+              <div 
+                onClick={() => setEnlargedImage('/imgs/free/invest-cal-hero.jpg')}
+                className="md:col-span-4 relative cursor-zoom-in"
+              >
                 <div className="absolute inset-0 bg-black translate-x-2 translate-y-2 border-2 border-black" />
                 <img 
                   src="/imgs/free/invest-cal-hero.jpg" 
                   alt="Invest Cal App Dashboard" 
-                  className="relative z-10 border-2 border-black w-full object-cover bg-white"
+                  className="relative z-10 border-2 border-black w-full object-cover bg-white hover:opacity-95 transition-opacity"
                 />
               </div>
             </div>
@@ -404,7 +408,10 @@ export default function PouchEcoGPTKPage() {
 
                     <div className="space-y-4">
                       {/* Product Photo */}
-                      <div className="w-full aspect-square border-2 border-black rounded-lg overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center">
+                      <div 
+                        onClick={() => setEnlargedImage(data.image)}
+                        className="w-full aspect-square border-2 border-black rounded-lg overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
+                      >
                         <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                         <span className="absolute bottom-1 right-1 bg-black/80 text-white text-[8px] font-['JetBrains_Mono'] px-1.5 py-0.5 border border-black rounded">{data.certLogo}</span>
                       </div>
@@ -485,13 +492,16 @@ export default function PouchEcoGPTKPage() {
                     Compare modular card insert/tag options against high-barrier customizable Recyclable & Compostable stand-up flat bottom pouches to maximize your packaging investments.
                   </p>
                 </div>
-                <div className="md:col-span-4 relative group">
+                <div 
+                  onClick={() => setEnlargedImage('/imgs/free/invest-cal-hero.jpg')}
+                  className="md:col-span-4 relative group cursor-zoom-in"
+                >
                   <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition"></div>
                   <div className="relative border border-neutral-800 bg-neutral-950 p-1.5 rounded-2xl shadow-xl overflow-hidden">
                     <img 
                       src="/imgs/free/invest-cal-hero.jpg" 
                       alt="Invest Cal App Dashboard" 
-                      className="w-full h-auto rounded-xl object-cover"
+                      className="w-full h-auto rounded-xl object-cover hover:opacity-90 transition-opacity"
                     />
                   </div>
                 </div>
@@ -610,7 +620,10 @@ export default function PouchEcoGPTKPage() {
 
                       <div className="space-y-4">
                         {/* High-Quality Storefront Image */}
-                        <div className="w-full aspect-square border border-neutral-850 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-900 flex items-center justify-center">
+                        <div 
+                          onClick={() => setEnlargedImage(data.image)}
+                          className="w-full aspect-square border border-neutral-850 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-900 flex items-center justify-center cursor-zoom-in"
+                        >
                           <img src={data.image} alt={data.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                           <span className="absolute bottom-1.5 right-1.5 bg-neutral-950/80 text-neutral-300 text-[8px] font-mono px-2 py-0.5 rounded-full border border-neutral-855">{data.certLogo}</span>
                         </div>
@@ -675,6 +688,39 @@ export default function PouchEcoGPTKPage() {
           <Footer />
         </div>
       )}
+      {/* Click to Enlarge Lightbox Modal */}
+      <AnimatePresence>
+        {enlargedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setEnlargedImage(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 md:p-10 cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className={`relative max-w-4xl max-h-[85vh] ${isEco ? 'border-4 border-black bg-white shadow-[8px_8px_0px_rgba(0,0,0,1)] rounded-xl p-2' : 'border border-neutral-800 bg-neutral-950 rounded-3xl p-3 shadow-2xl'} overflow-hidden flex items-center justify-center`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img 
+                src={enlargedImage} 
+                alt="Enlarged Packaging Preview" 
+                className={`max-w-full max-h-[80vh] object-contain rounded-lg ${isEco ? 'border border-neutral-200' : 'border border-neutral-850'}`}
+              />
+              <button 
+                onClick={() => setEnlargedImage(null)}
+                className={`absolute top-4 right-4 font-black uppercase text-xs px-3 py-1.5 rounded-full transition active:scale-95 cursor-pointer font-mono ${isEco ? 'bg-black text-[#D4FF00] hover:text-white border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]' : 'bg-emerald-500 hover:bg-emerald-400 text-neutral-950'}`}
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   )
