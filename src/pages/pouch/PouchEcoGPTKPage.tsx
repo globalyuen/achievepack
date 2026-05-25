@@ -1189,9 +1189,26 @@ export default function PouchEcoGPTKPage() {
 
                 {/* Modal Body */}
                 <div className="grid md:grid-cols-12 gap-6 items-start">
-                  <div className="md:col-span-5 relative group overflow-hidden border border-neutral-200 dark:border-neutral-850 rounded-xl bg-neutral-50 dark:bg-neutral-900 aspect-square flex items-center justify-center">
-                    <img src={data.image} alt={data.badge} className="w-full h-full object-cover rounded-lg" />
-                  </div>
+                  {expandedOption === 'conventional-stock' ? (
+                    <div className="md:col-span-5 grid grid-cols-2 gap-2">
+                      <div className="relative group overflow-hidden border border-neutral-200 dark:border-neutral-850 rounded-xl bg-neutral-50 dark:bg-neutral-900 aspect-square flex items-center justify-center shadow-md">
+                        <img src="/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg" alt="Matte White Kraft Pouch" className="w-full h-full object-cover rounded-lg" />
+                        <span className="absolute bottom-1 right-1 bg-black/85 text-[8px] font-mono font-bold text-white px-1.5 py-0.5 rounded border border-neutral-800">
+                          Matte White / Kraft
+                        </span>
+                      </div>
+                      <div className="relative group overflow-hidden border border-neutral-200 dark:border-neutral-850 rounded-xl bg-neutral-50 dark:bg-neutral-900 aspect-square flex items-center justify-center shadow-md">
+                        <img src="/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-3.jpg" alt="High Clarity Transparent Pouch" className="w-full h-full object-cover rounded-lg" />
+                        <span className="absolute bottom-1 right-1 bg-emerald-950/90 text-[8px] font-mono font-bold text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-850">
+                          Transparent Option
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="md:col-span-5 relative group overflow-hidden border border-neutral-200 dark:border-neutral-850 rounded-xl bg-neutral-50 dark:bg-neutral-900 aspect-square flex items-center justify-center">
+                      <img src={data.image} alt={data.badge} className="w-full h-full object-cover rounded-lg" />
+                    </div>
+                  )}
                   <div className="md:col-span-7 space-y-4">
                     <div>
                       <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400">Product Overview</h4>
