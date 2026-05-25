@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback, useTransition, useEffect } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import SEO from '../components/SEO'
 import { useTranslation } from 'react-i18next'
 import { ShoppingCart, Search, Star, Truck, Shield, Clock, Grid3X3, List, ChevronDown, User, Menu, X, Sparkles, AlertTriangle, Mail, DollarSign, Package, Printer, Plane, ChevronLeft, ChevronRight, Leaf, Globe } from 'lucide-react'
@@ -101,38 +102,47 @@ const SHAPES = [
 
 const STORE_FEATURES = [
   {
+    id: 'flat-bottom-zipper',
+    title: 'Flat Bottom Pouch with One-Sided Zipper',
+    description: 'Conventional Stock Flat Bottom eight-side seal pouch with convenient easy-tear zipper closure. Pure matte finish, high-barrier fresh aroma preservation.',
+    link: '/store/product/flat-bottom-one-sided-zipper-conventional',
+    images: [
+      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
+      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-2.jpg',
+      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-3.jpg',
+      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-4.jpg'
+    ],
+  },
+  {
+    id: 'triangle-box',
+    title: 'Triangle Coffee Box with Card Insertion Slot',
+    description: 'Premium structural triangular B2B paper box featuring an integrated label card slot. FSC eco-responsible stock, perfect for premium modular roaster branding.',
+    link: '/store/product/triangle-coffee-box-card',
+    images: [
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-1.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-2.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-3.jpg',
+      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-4.jpg'
+    ],
+  },
+  {
     id: 'conventional',
     title: 'Conventional Stand Up Pouch',
     description: 'Metallised with Zipper. Get high barrier protection with an optional premium foiling effect.',
     link: '/store/product/conven-sup-met-zip',
-    media: [
-      { type: 'image', src: '/imgs/store/hero/conventional.png' }
+    images: [
+      '/imgs/store/hero/conventional.png'
     ],
-    benefits: [
-      { title: 'Low Cost', desc: 'From USD 140', icon: DollarSign, colors: 'from-green-500 to-emerald-500', bgBorder: 'border-green-100 hover:border-green-300', textGroup: 'group-hover:text-green-600' },
-      { title: 'Low MOQ', desc: 'From 100 pcs', icon: Package, colors: 'from-blue-500 to-indigo-500', bgBorder: 'border-blue-100 hover:border-blue-300', textGroup: 'group-hover:text-blue-600' },
-      { title: 'High Barrier', desc: 'Metallised material', icon: Shield, colors: 'from-purple-500 to-violet-500', bgBorder: 'border-purple-100 hover:border-purple-300', textGroup: 'group-hover:text-purple-600' },
-      { title: 'Highly Attractive', desc: 'Foiling optional', icon: Sparkles, colors: 'from-orange-500 to-amber-500', bgBorder: 'border-orange-100 hover:border-orange-300', textGroup: 'group-hover:text-orange-600' },
-      { title: 'High Resolution', desc: 'HP digital print', icon: Printer, colors: 'from-rose-500 to-red-500', bgBorder: 'border-rose-100 hover:border-rose-300', textGroup: 'group-hover:text-rose-600' },
-      { title: 'Air Freight', desc: 'Included', icon: Plane, colors: 'from-cyan-500 to-sky-500', bgBorder: 'border-cyan-100 hover:border-cyan-300', textGroup: 'group-hover:text-cyan-600' },
-    ]
   },
   {
     id: 'eco',
     title: 'Eco Digital Stand Up Pouch',
     description: 'Premium eco stand-up pouch. Excellent shelf presence with sustainable materials.',
     link: '/store/product/eco-standup',
-    media: [
-      { type: 'image', src: '/imgs/store/hero/eco-digital.png' }
+    images: [
+      '/imgs/store/hero/eco-digital.png',
+      '/imgs/store/pouch shape/stand-up.webp'
     ],
-    benefits: [
-      { title: 'Eco Materials', desc: 'Mono PE or PCR', icon: Leaf, colors: 'from-green-500 to-emerald-500', bgBorder: 'border-green-100 hover:border-green-300', textGroup: 'group-hover:text-green-600' },
-      { title: 'Minimum Order', desc: 'From 1000 pcs', icon: Package, colors: 'from-blue-500 to-indigo-500', bgBorder: 'border-blue-100 hover:border-blue-300', textGroup: 'group-hover:text-blue-600' },
-      { title: 'Lower Carbon', desc: '30% lower footprint', icon: Globe, colors: 'from-teal-500 to-emerald-500', bgBorder: 'border-teal-100 hover:border-teal-300', textGroup: 'group-hover:text-teal-600' },
-      { title: 'Premium Look', desc: 'Excellent shelf presence', icon: Star, colors: 'from-amber-500 to-orange-500', bgBorder: 'border-amber-100 hover:border-amber-300', textGroup: 'group-hover:text-amber-600' },
-      { title: 'High Resolution', desc: 'HP digital print', icon: Printer, colors: 'from-rose-500 to-red-500', bgBorder: 'border-rose-100 hover:border-rose-300', textGroup: 'group-hover:text-rose-600' },
-      { title: 'Air Freight', desc: 'Included', icon: Plane, colors: 'from-cyan-500 to-sky-500', bgBorder: 'border-cyan-100 hover:border-cyan-300', textGroup: 'group-hover:text-cyan-600' },
-    ]
   }
 ]
 
@@ -157,6 +167,23 @@ const StorePage: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
   const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0)
+  const [imageTick, setImageTick] = useState(0)
+
+  // Auto-advance featured banner image thumbnails
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setImageTick(prev => prev + 1)
+    }, 2200)
+    return () => clearInterval(timer)
+  }, [])
+
+  // Auto-advance main featured slides
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentFeatureIndex(prev => (prev + 1) % STORE_FEATURES.length)
+    }, 9000)
+    return () => clearInterval(timer)
+  }, [])
 
   // Dynamically compute category counts based on FEATURED_PRODUCTS
   const categoryCounts = useMemo(() => {
@@ -570,29 +597,20 @@ const StorePage: React.FC = () => {
                     </div>
                   </div>
                   
-                  {/* Right Group: Media */}
-                  <div className="w-[140px] flex-shrink-0">
-                    {feature.media.map((mediaItem, mediaIdx) => (
-                      <div key={mediaIdx} className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-sm bg-neutral-100 border border-neutral-100 w-full">
-                        {mediaItem.type === 'video' ? (
-                          <video 
-                            src={mediaItem.src} 
-                            className={`absolute inset-0 w-full h-full object-cover ${(mediaItem as any).rotate ? 'rotate-180' : ''}`}
-                            ref={(el) => { if(el && (mediaItem as any).slow) el.playbackRate = 0.3; }}
-                            autoPlay 
-                            loop 
-                            muted 
-                            playsInline
-                          />
-                        ) : (
-                          <img 
-                            src={mediaItem.src} 
-                            alt={`${feature.title} demo`} 
-                            className="absolute inset-0 w-full h-full object-cover"
-                          />
-                        )}
-                      </div>
-                    ))}
+                  {/* Right Group: Media with dynamic auto-rolling image carousel */}
+                  <div className="w-[110px] h-[110px] flex-shrink-0 relative overflow-hidden rounded-xl shadow-md border border-neutral-150 bg-white flex items-center justify-center">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={`${feature.id}-${imageTick % feature.images.length}`}
+                        src={feature.images[imageTick % feature.images.length]}
+                        alt={`${feature.title} thumbnail`}
+                        initial={{ opacity: 0, scale: 0.96 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 1.04 }}
+                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                        className="absolute inset-0 w-full h-full object-contain p-1"
+                      />
+                    </AnimatePresence>
                   </div>
                 </div>
               </div>
