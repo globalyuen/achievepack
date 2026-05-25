@@ -186,10 +186,10 @@ const FREE_SERVICE_PAGES = [
     description: 'Track orders, manage artwork, approve proofs—all free'
   },
   {
-    name: 'Invest Cal',
-    link: '/coffee',
+    name: 'Pricing',
+    link: '/pricing',
     image: '/imgs/store/products/flat-bottom-pouch-with-card-insert-thumbnail-1.jpg',
-    description: 'Brand Packaging Investment Calculator'
+    description: 'Brand Packaging Pricing & Budget Calculator'
   },
   {
     name: 'Interactive Packaging Apps',
@@ -907,15 +907,15 @@ export function RightNavMenu() {
                       </div>
                     </Link>
 
-                    {/* Invest Cal */}
+                    {/* Pricing */}
                     <Link
-                      to="/coffee"
+                      to="/pricing"
                       className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
                     >
-                      <img src="/imgs/free/invest-cal-hero.jpg" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Invest Cal" />
+                      <img src="/imgs/free/invest-cal-hero.jpg" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Pricing Calculator" />
                       <div className="text-left">
-                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors">Invest Cal</div>
-                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Brand packaging investment calculator</div>
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors">Pricing</div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Brand packaging pricing & budget calculator</div>
                       </div>
                     </Link>
                   </div>

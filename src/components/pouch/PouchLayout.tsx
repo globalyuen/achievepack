@@ -65,7 +65,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             >
               <button 
                 className={`px-2 py-1 transition-colors flex items-center gap-1 hover:bg-black hover:text-white ${
-                  isActive('/size-guide') || isActive('/tech-specs') || isActive('/coffee') || isActive('/free-service/packaging-mockup') || isActive('/free-service/website-upgrade') ? 'bg-black text-[#D4FF00]' : ''
+                  isActive('/size-guide') || isActive('/tech-specs') || isActive('/pricing') || isActive('/free-service/packaging-mockup') || isActive('/free-service/website-upgrade') ? 'bg-black text-[#D4FF00]' : ''
                 }`}
               >
                 [FREE ▾]
@@ -124,15 +124,15 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                         </div>
                       </Link>
 
-                      {/* Invest Cal */}
+                      {/* Pricing Calculator */}
                       <Link
-                        to="/coffee"
+                        to="/pricing"
                         onClick={() => setIsAppsDropdownOpen(false)}
                         className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
                       >
-                        <img src="/imgs/free/invest-cal-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Invest Cal" />
+                        <img src="/imgs/free/invest-cal-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Pricing" />
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[INVEST CAL]</div>
+                          <div className="font-bold text-xs uppercase tracking-tight">[PRICING]</div>
                           <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Packaging budget calculator</div>
                         </div>
                       </Link>
@@ -369,17 +369,17 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   </Link>
 
                   <Link
-                    to="/coffee"
+                    to="/pricing"
                     onClick={() => setIsMenuOpen(false)}
                     className={`block px-4 py-3 border-4 border-black transition-all ${
-                      isActive('/coffee') 
+                      isActive('/pricing') 
                         ? 'bg-black text-[#00FFFF]' 
                         : 'bg-white hover:bg-[#00FFFF]'
                     }`}
                   >
                     <span className="flex items-center gap-2">
                       <Coffee className="w-5 h-5 text-black" strokeWidth={2.5} />
-                      [Invest Cal]
+                      [Pricing]
                     </span>
                   </Link>
                   

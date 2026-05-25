@@ -75,7 +75,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/materials/data-sheet': () => import('./pages/materials/MaterialDataSheetPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
-  '/coffee': () => import('./pages/pouch/PouchEcoGPTKPage'),
+  '/pricing': () => import('./pages/pouch/PouchEcoGPTKPage'),
   '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
 }
 
@@ -582,7 +582,7 @@ if (getDomain() === 'pouch') {
                 <Suspense fallback={<PageLoader />}>
                 <Routes>
                   <Route path="/" element={<PouchHomePage />} />
-                  <Route path="/coffee" element={<PouchEcoGPTKPage />} />
+                  <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                   <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
                   <Route path="/solutions" element={<PouchSolutionsPage />} />
                   <Route path="/size-guide" element={<PouchSizeGuidePage />} />
@@ -752,7 +752,7 @@ if (getDomain() === 'pouch') {
                     <Suspense fallback={<PageLoader />}>
                       <Routes>
                         <Route path="/" element={<App />} />
-                        <Route path="/coffee" element={<PouchEcoGPTKPage />} />
+                        <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                         <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
                         <Route path="/store" element={<StorePage />} />
                         <Route path="/store/product/:productId" element={<ProductPage />} />

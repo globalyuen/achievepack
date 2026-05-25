@@ -6,7 +6,7 @@ import {
   Coffee, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box, 
   Sparkles, DollarSign, Clock, HelpCircle, Mail, Download, Compass, 
   MapPin, Check, Layers, AlertCircle, ShoppingBag, Grid, Info, Sparkle, Globe,
-  Copy, Phone, RefreshCw, AlertTriangle
+  Copy, Phone, RefreshCw, AlertTriangle, Calendar
 } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import SiteHeader from '../../components/SiteHeader'
@@ -531,7 +531,7 @@ export default function PouchEcoGPTKPage() {
     const recPrice = calculateOptionPrice('recyclable')
     const compPrice = calculateOptionPrice('compostable')
 
-    return `Achieve Pack 咖啡品牌包裝詢價配置 (Invest Cal PaaS RFQ Summary):
+    return `Achieve Pack 咖啡品牌包裝詢價配置 (Pricing Telemetry PaaS RFQ Summary):
 --------------------------------------------------
 📐 規格尺寸 (Selected Dimension): ${selectedSize.dimensions} (${selectedSize.capacity})
 🎨 印刷款式 (Number of Designs): ${numDesigns} 款 (Designs)
@@ -575,9 +575,9 @@ export default function PouchEcoGPTKPage() {
       {isEco ? (
         <PouchLayout>
           <Helmet>
-            <title>Invest Cal | Brand Packaging Investment Calculator | POUCH.ECO</title>
+            <title>Pricing | Brand Packaging Pricing & Budget Calculator | POUCH.ECO</title>
             <meta name="description" content="Calculate your coffee bags packaging costs instantly with our interactive B2B budget calculator. Compare Card Insert, Tag Attachment, Recyclable PE+EVOH, and Home Compostable options." />
-            <link rel="canonical" href="https://pouch.eco/coffee" />
+            <link rel="canonical" href="https://pouch.eco/pricing" />
           </Helmet>
           
           <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 pb-20">
@@ -588,13 +588,13 @@ export default function PouchEcoGPTKPage() {
                   1-PAGE UNIFIED BUDGET TELEMETRY
                 </h2>
                 <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-black leading-none mt-1">
-                  Invest Cal
+                  Pricing
                 </h1>
                 <p className="text-xs font-['JetBrains_Mono'] font-bold text-neutral-700 uppercase mt-2">
-                  ☕ 咖啡茶葉品牌包裝預算與品牌配置對比計算器 (一版睇清)
+                  ☕ 咖啡茶葉品牌包裝實時報價與方案對比計算器 (一版睇清)
                 </p>
                 <p className="text-sm font-bold mt-4 font-['Space_Grotesk'] text-black/80">
-                  Compare modular card insert/tag options against high-barrier customizable Recyclable & Compostable stand-up flat bottom pouches to maximize your packaging investments.
+                  Compare modular card insert/tag options against high-barrier customizable Recyclable & Compostable stand-up flat bottom pouches to optimize your brand's packaging budget.
                 </p>
               </div>
               <div 
@@ -604,7 +604,7 @@ export default function PouchEcoGPTKPage() {
                 <div className="absolute inset-0 bg-black translate-x-2 translate-y-2 border-2 border-black" />
                 <img 
                   src="/imgs/free/invest-cal-hero.jpg" 
-                  alt="Invest Cal App Dashboard" 
+                  alt="Pricing App Dashboard" 
                   className="relative z-10 border-2 border-black w-full object-cover bg-white hover:opacity-95 transition-opacity"
                 />
               </div>
@@ -848,6 +848,83 @@ export default function PouchEcoGPTKPage() {
               </div>
             </div>
 
+            {/* Enterprise Custom Pricing Section - Stripe-Style (Neobrutalist) */}
+            <div className="border-4 border-black bg-[#D4FF00] p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-2xl mb-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-black text-[#D4FF00] font-['JetBrains_Mono'] text-[10px] font-black uppercase px-3 py-1 rounded-bl-xl border-l-2 border-b-2 border-black">
+                ENTERPRISE SCALE
+              </div>
+              <div className="grid md:grid-cols-12 gap-6 items-center">
+                <div className="md:col-span-8 space-y-4 text-left">
+                  <span className="inline-block bg-black text-white px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider rounded">
+                    CUSTOM CONTRACT RUNS (10,000+ PCS)
+                  </span>
+                  <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-black leading-none">
+                    Bespoke Enterprise Custom Pricing
+                  </h2>
+                  <p className="text-sm font-bold text-black/80 max-w-xl">
+                    For high-growth coffee/tea roasters or brands with large production runs, we offer customized volume discounts, tailormade sizing, and dedicated B2B logistics.
+                  </p>
+                  
+                  <div className="grid sm:grid-cols-2 gap-3 pt-2 text-xs font-bold text-black">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-black shrink-0" />
+                      <span>Volume Discounts down to $0.10 - $0.35/unit</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-black shrink-0" />
+                      <span>Millimeter-level Custom Dimensions & Shapes</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-black shrink-0" />
+                      <span>Specialty Barriers (Alu-Foil, EVOH-PE, Kraft-Bio)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-black shrink-0" />
+                      <span>Multi-SKU Co-Printing Cylinder Share</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-black shrink-0" />
+                      <span>Global DDP Door-to-Door & Warehousing</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-black shrink-0" />
+                      <span>Flexible B2B Credit/Payment Terms</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="md:col-span-4 bg-white border-4 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,1)] rounded-xl flex flex-col gap-3 justify-between">
+                  <div className="text-center md:text-left">
+                    <h3 className="font-black text-[10px] uppercase text-neutral-500 font-mono tracking-wider">Starting from</h3>
+                    <div className="flex items-baseline justify-center md:justify-start gap-1 mt-1">
+                      <span className="text-3xl font-black text-black">$0.10</span>
+                      <span className="text-xs font-bold text-neutral-500">/ unit</span>
+                    </div>
+                    <p className="text-[10px] text-neutral-500 mt-1 font-bold font-['JetBrains_Mono']">
+                      Ideal for established brands & contract roasters
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-2 pt-2">
+                    <a 
+                      href="https://calendly.com/achievepack/custom" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="w-full block bg-black text-[#D4FF00] hover:bg-neutral-850 hover:text-white border-2 border-black font-black uppercase text-xs py-3 text-center transition active:translate-y-0.5 rounded-lg shadow-[2px_2px_0px_rgba(0,0,0,0.15)]"
+                    >
+                      Book Consultation Meeting
+                    </a>
+                    <button 
+                      onClick={handleWhatsappCopy} 
+                      className="w-full bg-[#10B981] hover:bg-emerald-600 text-white border-2 border-black font-black uppercase text-xs py-2.5 text-center transition active:translate-y-0.5 rounded-lg shadow-[2px_2px_0px_rgba(0,0,0,0.15)] flex items-center justify-center gap-1.5"
+                    >
+                      <Phone className="w-3.5 h-3.5 fill-white stroke-none" /> WhatsApp Specialist
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* B2B Comparison Table (Stripe-Style Light Mode) */}
             <div className="border-4 border-black bg-white p-5 shadow-[6px_6px_0px_rgba(0,0,0,1)] rounded-2xl mt-8">
               <h3 className="text-lg font-black uppercase tracking-tight text-black border-b-2 border-black pb-3 flex items-center gap-2">
@@ -923,6 +1000,11 @@ export default function PouchEcoGPTKPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(16,185,129,0.06)_0%,transparent_60%)] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+              <Helmet>
+                <title>B2B Brand Packaging Pricing & Budget Calculator | Achieve Pack</title>
+                <meta name="description" content="Configure and budget your coffee and tea pouches with our real-time interactive B2B budget telemetry. Optimize pouch sizes and choose custom eco-friendly options." />
+                <link rel="canonical" href="https://achievepack.com/pricing" />
+              </Helmet>
               
               {/* Title Section */}
               <div className="grid md:grid-cols-12 gap-8 items-center mb-12 bg-neutral-900/50 backdrop-blur-md border border-neutral-800 p-6 md:p-8 rounded-3xl">
@@ -932,13 +1014,13 @@ export default function PouchEcoGPTKPage() {
                     1-PAGE UNIFIED BUDGET TELEMETRY
                   </span>
                   <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight font-['Outfit']">
-                    Invest Cal
+                    Pricing
                   </h1>
                   <p className="text-xs font-mono text-emerald-400 uppercase tracking-wider">
-                    ☕ 咖啡茶葉品牌包裝預算與品牌配置對比計算器 (一版睇清)
+                    ☕ 咖啡茶葉品牌包裝實時報價與方案對比計算器 (一版睇清)
                   </p>
                   <p className="text-sm text-neutral-400 leading-relaxed font-sans max-w-xl">
-                    Compare modular card insert/tag options against high-barrier customizable Recyclable & Compostable stand-up flat bottom pouches to maximize your packaging investments.
+                    Compare modular card insert/tag options against high-barrier customizable Recyclable & Compostable stand-up flat bottom pouches to optimize your brand's packaging budget.
                   </p>
                 </div>
                 <div 
@@ -949,7 +1031,7 @@ export default function PouchEcoGPTKPage() {
                   <div className="relative border border-neutral-800 bg-neutral-950 p-1.5 rounded-2xl shadow-xl overflow-hidden">
                     <img 
                       src="/imgs/free/invest-cal-hero.jpg" 
-                      alt="Invest Cal App Dashboard" 
+                      alt="Pricing App Dashboard" 
                       className="w-full h-auto rounded-xl object-cover hover:opacity-90 transition-opacity"
                     />
                   </div>
@@ -1196,6 +1278,95 @@ export default function PouchEcoGPTKPage() {
                       </div>
                     )
                   })}
+                </div>
+              </div>
+            </div>
+
+            {/* Enterprise Custom Pricing Section - Stripe-Style (Premium Dark-Green Gradient) */}
+            <div className="relative rounded-3xl overflow-hidden border border-emerald-500/20 bg-gradient-to-br from-emerald-950/20 via-[#0a1f18]/90 to-neutral-900/90 p-6 md:p-8 shadow-2xl mb-8 text-left">
+              {/* Glowing Background Orbs to mimic Stripe's visual signature */}
+              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.08)_0%,transparent_70%)] pointer-events-none -mr-16 -mt-16" />
+              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.03)_0%,transparent_70%)] pointer-events-none -ml-16 -mb-16" />
+              
+              <div className="absolute top-0 right-0 bg-emerald-500/10 border-l border-b border-emerald-500/20 text-emerald-400 font-mono text-[9px] font-bold uppercase px-3 py-1 rounded-bl-2xl tracking-widest">
+                ENTERPRISE SCALE
+              </div>
+              
+              <div className="grid md:grid-cols-12 gap-8 items-center relative z-10">
+                <div className="md:col-span-8 space-y-4">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono">
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-300 animate-pulse" />
+                    Custom Contract Runs (10,000+ units)
+                  </span>
+                  <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white leading-none font-['Outfit']">
+                    Bespoke Custom Pricing
+                  </h2>
+                  <p className="text-sm text-neutral-400 leading-relaxed max-w-xl">
+                    For high-growth roasters or multi-SKU brands with unique sizing and high production volumes, we engineer tailor-made pricing configurations, millimeter-level structure adjustments, and dedicated freight warehousing support.
+                  </p>
+                  
+                  <div className="grid sm:grid-cols-2 gap-3.5 pt-2 text-xs font-medium text-neutral-300">
+                    <div className="flex items-start gap-2.5">
+                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-white font-bold block">Volume Discounts</span>
+                        Aggressive scaling reducing unit rates down to $0.10 - $0.35 USD.
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-white font-bold block">Bespoke Dimensions & Materials</span>
+                        Millimeter-accurate width, height, and specialty films (EVOH-PE, Bio Bio-foil).
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-white font-bold block">Multi-SKU Co-Printing Options</span>
+                        Consolidated gravure runs that maximize plate efficiency & lower setups.
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="text-white font-bold block">B2B Dedicated Freight Logistics</span>
+                        Global door-to-door DDP, regional warehousing, and split shipment plans.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="md:col-span-4 bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 p-6 rounded-2xl flex flex-col gap-4 justify-between shadow-2xl relative overflow-hidden">
+                  <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-emerald-500 to-teal-500" />
+                  
+                  <div className="text-center md:text-left space-y-1">
+                    <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest block font-mono">Bespoke contracts</span>
+                    <div className="flex items-baseline justify-center md:justify-start gap-1">
+                      <span className="text-3xl font-extrabold text-white font-['Outfit']">$0.10</span>
+                      <span className="text-xs text-neutral-500 font-mono">/ unit starting</span>
+                    </div>
+                    <p className="text-[10px] text-emerald-400 font-mono pt-1">
+                      Ideal for established B2B roaster brands
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-2 pt-2">
+                    <a 
+                      href="https://calendly.com/achievepack/custom" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="w-full block bg-emerald-500 hover:bg-emerald-400 text-neutral-950 font-black uppercase text-xs py-3 rounded-xl text-center active:scale-98 transition shadow-lg shadow-emerald-500/10"
+                    >
+                      Book Consultation Meeting
+                    </a>
+                    <button 
+                      onClick={handleWhatsappCopy} 
+                      className="w-full bg-neutral-950 hover:bg-neutral-850 text-emerald-400 border border-emerald-500/20 hover:border-emerald-500/40 font-bold uppercase text-xs py-2.5 rounded-xl active:scale-98 transition flex items-center justify-center gap-1.5"
+                    >
+                      <Phone className="w-3.5 h-3.5 fill-emerald-400 stroke-none" /> WhatsApp Specialist
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
