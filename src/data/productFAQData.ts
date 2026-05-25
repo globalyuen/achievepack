@@ -45,6 +45,30 @@ export const DEFAULT_FAQS: ProductFAQ[] = [
   }
 ];
 
+// Default FAQs for label and sticker products
+export const DEFAULT_LABEL_FAQS: ProductFAQ[] = [
+  {
+    question: "What is the minimum order quantity (MOQ) for custom labels?",
+    answer: "Our B2B custom roll labels and peelable booklet stickers have an ultra-low MOQ starting at only 1,000 pieces per design, allowing brands to test product-market response easily."
+  },
+  {
+    question: "What is the turnaround time for custom stickers and labels?",
+    answer: "Production and processing typically take 7-12 business days from final artwork approval. Free air freight shipping is included, delivering directly to your door."
+  },
+  {
+    question: "Is worldwide shipping included in custom label orders?",
+    answer: "Yes! All prices include free express air shipping globally with door-to-door delivery. No hidden customs clearance fees or surprise surcharges."
+  },
+  {
+    question: "What file formats should I submit for label artwork?",
+    answer: "We accept print-ready vector formats including Adobe Illustrator (.AI), Editable PDF, PSD, or high-resolution PNG/JPG (minimum 300 DPI) with transparent backgrounds. We provide free dieline alignment checks before printing."
+  },
+  {
+    question: "Can I get a pre-production sample of my custom sticker?",
+    answer: "Yes, we offer custom sample runs for dieline and adhesion testing. Alternatively, you can order our standard packaging and label material sample pack to test paper and adhesive properties."
+  }
+];
+
 // Default FAQs for box products
 export const DEFAULT_BOXES_FAQS: ProductFAQ[] = [
   {

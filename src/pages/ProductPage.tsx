@@ -9,7 +9,7 @@ import { calculateEcoPrice, type EcoCalculatorSelections, getMaterialStructureIn
 import { getProductImage, getSizeImage, getSurfaceImage, getAdditionalImage, type ShapeType, ClosureType, SurfaceType, EcoSizeType, AdditionalType } from '../utils/productImageMapper'
 import { getWhatsAppLink } from '../utils/domain'
 import { TESTIMONIALS } from '../data/testimonialsData'
-import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, type ProductFAQ } from '../data/productFAQData'
+import { getProductFAQs, generateFAQSchema, DEFAULT_FAQS, DEFAULT_BOXES_FAQS, DEFAULT_LABEL_FAQS, type ProductFAQ } from '../data/productFAQData'
 import { getAISellingPoints, hasAISellingPoints, type AISellingPoint } from '../data/aiSellingPoints'
 import { CLOSURE_OPTIONS, SURFACE_OPTIONS, type ClosureOption, type SurfaceOption } from '../components/SortableOptionsTable'
 import Footer from '../components/Footer'
@@ -497,6 +497,14 @@ const ProductPage: React.FC = () => {
   // For multi-quantity size products (Mailer Bag)
   const [selectedSizeWithQty, setSelectedSizeWithQty] = useState<string | null>(null)
   const [selectedQtyOption, setSelectedQtyOption] = useState<number | null>(null)
+
+  // Problem card collapse states (collapsed by default)
+  const [isConvCardExpanded, setIsConvCardExpanded] = useState(false)
+  const [isEcoCustomLabelExpanded, setIsEcoCustomLabelExpanded] = useState(false)
+  const [isPlaSealingExpanded, setIsPlaSealingExpanded] = useState(false)
+  const [isB2BDynamicLabelExpanded, setIsB2BDynamicLabelExpanded] = useState(false)
+  const [isEcoStockExpanded, setIsEcoStockExpanded] = useState(false)
+  const [isDynamicDescExpanded, setIsDynamicDescExpanded] = useState(false)
   
   // Eco Digital product options
   const [selectedMaterial, setSelectedMaterial] = useState('Mono Recyclable Plastic')
@@ -1304,11 +1312,17 @@ const ProductPage: React.FC = () => {
     return getProductFAQs(product.id, product.category)
   }, [product])
 
-  // Combine default and product-specific FAQs
+  // Combine default and product-specific FAQs dynamically based on substrate category
   const combinedFAQs = useMemo(() => {
     const specificFAQs = productFAQData?.faqs || []
+    if (isBoxes || product?.id.includes('box-') || product?.category === 'boxes') {
+      return [...specificFAQs, ...DEFAULT_BOXES_FAQS]
+    }
+    if (isLabelProduct || product?.id.includes('label') || product?.id.includes('sticker')) {
+      return [...specificFAQs, ...DEFAULT_LABEL_FAQS]
+    }
     return [...specificFAQs, ...DEFAULT_FAQS]
-  }, [productFAQData])
+  }, [productFAQData, isBoxes, isLabelProduct, product])
 
   // Generate FAQ Schema
   const faqSchema = useMemo(() => {
@@ -1652,61 +1666,96 @@ const ProductPage: React.FC = () => {
               <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
               
               {/* Dynamic Description for Conventional Digital */}
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl overflow-hidden">
-                <div className="px-5 pt-5 pb-3">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-300">
+                <div 
+                  className="px-5 py-4 flex items-center justify-between cursor-pointer select-none hover:bg-blue-100/30 transition-colors"
+                  onClick={() => setIsConvCardExpanded(!isConvCardExpanded)}
+                >
+                  <div className="flex items-center gap-3 pr-4 flex-1">
+                    <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-amber-600 text-sm">❓</span>
                     </div>
-                    <p className="text-sm text-neutral-700 leading-relaxed">
-                      Custom packaging often means high MOQs and long lead times, making it hard for new brands and trial products to get to market quickly.
-                    </p>
-                  </div>
-                </div>
-                <div className="px-5 pb-3">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-blue-600 text-sm">✓</span>
-                    </div>
-                    <p className="text-sm text-blue-800 leading-relaxed font-medium">
-                      {conventionalProduct?.shape.includes('stand-up') 
-                        ? 'This stand-up pouch uses digital printing—MOQ from 100pcs, 15-20 day delivery, get your product on shelf fast.'
-                        : 'This 3-side seal flat pouch uses digital printing—no plate fees, MOQ from 100pcs, perfect for lightweight products and trial runs.'}
-                    </p>
-                  </div>
-                </div>
-                <div className="px-5 pb-3 space-y-2">
-                  <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                    <span className="font-semibold text-blue-700">Structure:</span> 
-                    {product.name.includes('Metalised') 
-                      ? ' Mattopp/VMPET/LLDPE — Metalised high-barrier, extended shelf life, blocks light & oxygen'
-                      : ' Glossy PET/LLDPE — Clear glossy finish, perfect product visibility'}
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                      <span className="font-medium">📐 Size: {(() => {
-                        const sizeInfo = POUCH_SIZES.find(s => s.id === selectedConvSize);
-                        return sizeInfo && conventionalProduct 
-                          ? formatPouchSizeLabel(sizeInfo, conventionalProduct.shape) 
-                          : selectedConvSize;
-                      })()}</span>
-                    </div>
-                    <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                      <span className="font-medium">📦 Qty: {selectedConvQuantity} pcs</span>
+                    <div>
+                      <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                      <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
+                        Custom packaging often means high MOQs and long lead times, making it hard for new brands and trial products to get to market quickly.
+                      </p>
                     </div>
                   </div>
-                </div>
-                <div className="px-5 pb-4">
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>Food-grade certified</span></div>
-                    <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>Full-color digital print</span></div>
-                    <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>MOQ from 100pcs, no plate fees</span></div>
-                    <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>15-20 days incl. shipping</span></div>
+                  <div className="flex items-center gap-1.5 text-xs text-blue-600 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
+                    <span>{isConvCardExpanded ? 'Hide Details' : 'Know More'}</span>
+                    {isConvCardExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                   </div>
                 </div>
-                <div className="bg-blue-100/50 px-5 py-3 border-t border-blue-200">
-                  <p className="text-xs text-blue-700"><span className="font-medium">Ideal for:</span> New brand trials, limited editions, seasonal packaging, small-batch ecommerce sellers</p>
-                </div>
+
+                {isConvCardExpanded && (
+                  <div className="border-t border-blue-100 bg-white/20 divide-y divide-blue-100 animate-fadeIn">
+                    <div className="px-5 py-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-amber-600 text-sm">❓</span>
+                        </div>
+                        <div>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                          <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
+                            Custom packaging often means high MOQs and long lead times, making it hard for new brands and trial products to get to market quickly.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="px-5 py-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-blue-600 text-sm">✓</span>
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xs text-blue-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                          <p className="text-sm text-blue-800 leading-relaxed font-medium mt-0.5">
+                            {conventionalProduct?.shape.includes('stand-up') 
+                              ? 'This stand-up pouch uses digital printing—MOQ from 100pcs, 15-20 day delivery, get your product on shelf fast.'
+                              : 'This 3-side seal flat pouch uses digital printing—no plate fees, MOQ from 100pcs, perfect for lightweight products and trial runs.'}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="px-5 py-4 space-y-2">
+                      <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                        <span className="font-semibold text-blue-700">Structure:</span> 
+                        {product.name.includes('Metalised') 
+                          ? ' Mattopp/VMPET/LLDPE — Metalised high-barrier, extended shelf life, blocks light & oxygen'
+                          : ' Glossy PET/LLDPE — Clear glossy finish, perfect product visibility'}
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                          <span className="font-medium">📐 Size: {(() => {
+                            const sizeInfo = POUCH_SIZES.find(s => s.id === selectedConvSize);
+                            return sizeInfo && conventionalProduct 
+                              ? formatPouchSizeLabel(sizeInfo, conventionalProduct.shape) 
+                              : selectedConvSize;
+                          })()}</span>
+                        </div>
+                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                          <span className="font-medium">📦 Qty: {selectedConvQuantity} pcs</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="px-5 py-4">
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>Food-grade certified</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>Full-color digital print</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>MOQ from 100pcs, no plate fees</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-blue-700"><Check className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" /><span>15-20 days incl. shipping</span></div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-100/50 px-5 py-3.5 border-t border-blue-200">
+                      <p className="text-xs text-blue-700"><span className="font-medium">Ideal for:</span> New brand trials, limited editions, seasonal packaging, small-batch ecommerce sellers</p>
+                    </div>
+                  </div>
+                )}
               </div>
               
               {/* Price Display */}
@@ -2020,318 +2069,445 @@ const ProductPage: React.FC = () => {
               {/* Dynamic Description for Eco Stock - Not for box products */}
               {!isBoxes && (
                 product.id === 'eco-custom-label' ? (
-                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl overflow-hidden w-full">
-                    {/* Problem */}
-                    <div className="px-5 pt-5 pb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl overflow-hidden w-full shadow-sm hover:shadow transition-all duration-300">
+                    <div 
+                      className="px-5 py-4 flex items-center justify-between cursor-pointer select-none hover:bg-green-100/30 transition-colors"
+                      onClick={() => setIsEcoCustomLabelExpanded(!isEcoCustomLabelExpanded)}
+                    >
+                      <div className="flex items-center gap-3 pr-4 flex-1">
+                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
                           <span className="text-amber-600 text-sm">❓</span>
                         </div>
-                        <p className="text-sm text-neutral-700 leading-relaxed">
-                          Traditional labels rely on non-biodegradable plastics (PP/PET) and synthetic adhesives that break down into persistent microplastics, remaining in our ecosystem for centuries.
-                        </p>
+                        <div>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                          <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
+                            Traditional labels rely on non-biodegradable plastics (PP/PET) and synthetic adhesives that break down into persistent microplastics, remaining in our ecosystem for centuries.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-xs text-green-700 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
+                        <span>{isEcoCustomLabelExpanded ? 'Hide Details' : 'Know More'}</span>
+                        {isEcoCustomLabelExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                       </div>
                     </div>
-                    {/* Solution */}
-                    <div className="px-5 pb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-green-600 text-sm">✓</span>
-                        </div>
-                        <div className="flex-1">
-                          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-0.5">
-                            <div className="md:col-span-7">
-                              <h4 className="text-sm font-bold text-green-800 mb-1">Zero Microplastics. Complete Biodegradability.</h4>
-                              <p className="text-xs font-semibold text-green-700 mb-2">180天完全生物降解 • 零微塑料殘留</p>
-                              <p className="text-xs text-green-800 leading-relaxed mb-2">
-                                Unlike traditional plastic (PP/PET) labels that break down into persistent microplastics, our PLA compostable labels completely degrade under standard composting conditions. Over 180 days, microorganisms break down the face stock, bio-adhesive, and plant-based printing ink into clean biomass, water, and CO2, fully blending back into the natural eco-system.
-                              </p>
-                              <p className="text-[11px] text-green-700 leading-relaxed italic">
-                                與傳統塑料標籤（PP/PET）破碎成微塑料長期污染環境不同，我們的可堆肥標籤在標準堆肥環境下會迅速被微生物分解。在180天的黃金降解周期內，面材、生物黏合劑及植物油墨將徹底轉化為有機養分、水及二氧化碳，無重金屬或化學毒素殘留。
+
+                    {isEcoCustomLabelExpanded && (
+                      <div className="border-t border-green-200 bg-white/20 divide-y divide-green-100 animate-fadeIn">
+                        <div className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-amber-600 text-sm">❓</span>
+                            </div>
+                            <div>
+                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                              <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
+                                Traditional labels rely on non-biodegradable plastics (PP/PET) and synthetic adhesives that break down into persistent microplastics, remaining in our ecosystem for centuries.
                               </p>
                             </div>
-                            <div className="md:col-span-5">
-                              <div className="relative group overflow-hidden rounded-xl border border-green-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
-                                <img
-                                  src="/taobao/compostable-label/compostable-labels-7.jpg"
-                                  alt="180-Day Degradation Process"
-                                  className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
-                                />
-                                <div className="absolute inset-0 bg-green-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg" />
+                          </div>
+                        </div>
+                        
+                        <div className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-green-600 text-sm">✓</span>
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-xs text-green-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-1.5">
+                                <div className="md:col-span-7">
+                                  <h4 className="text-sm font-bold text-green-800 mb-1">Zero Microplastics. Complete Biodegradability.</h4>
+                                  <p className="text-xs font-semibold text-green-700 mb-2">180天完全生物降解 • 零微塑料殘留</p>
+                                  <p className="text-xs text-green-800 leading-relaxed mb-2">
+                                    Unlike traditional plastic (PP/PET) labels that break down into persistent microplastics, our PLA compostable labels completely degrade under standard composting conditions. Over 180 days, microorganisms break down the face stock, bio-adhesive, and plant-based printing ink into clean biomass, water, and CO2, fully blending back into the natural eco-system.
+                                  </p>
+                                  <p className="text-[11px] text-green-700 leading-relaxed italic">
+                                    與傳統塑料標籤（PP/PET）破碎成微塑料長期污染環境不同，我們的可堆肥標籤在標準堆肥環境下會迅速被微生物分解。在180天的黃金降解周期內，面材、生物黏合劑及植物油墨將徹底轉化為有機養分、水及二氧化碳，無重金屬或化學毒素殘留。
+                                  </p>
+                                </div>
+                                <div className="md:col-span-5">
+                                  <div className="relative group overflow-hidden rounded-xl border border-green-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
+                                    <img
+                                      src="/taobao/compostable-label/compostable-labels-7.jpg"
+                                      alt="180-Day Degradation Process"
+                                      className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
+                                    />
+                                    <div className="absolute inset-0 bg-green-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg" />
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    {/* Material & Specs */}
-                    <div className="px-5 pb-3 space-y-2">
-                      <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                        <span className="font-semibold text-green-700">Material:</span> Certified Compostable Clear PLA Film & Bio-Adhesive, breaks down within 180 days, zero microplastics.
-                      </div>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                          <span className="font-medium">📐 Size: {selectedSizeVariant ? ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label : '110 × 50 mm (1,000 Pcs / Pack)'}</span>
+
+                        <div className="px-5 py-4 space-y-2">
+                          <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                            <span className="font-semibold text-green-700">Material:</span> Certified Compostable Clear PLA Film & Bio-Adhesive, breaks down within 180 days, zero microplastics.
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                              <span className="font-medium">📐 Size: {selectedSizeVariant ? ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label : '110 × 50 mm (1,000 Pcs / Pack)'}</span>
+                            </div>
+                            <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                              <span className="font-medium">🔒 Bio-Adhesive Backing</span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                          <span className="font-medium">🔒 Bio-Adhesive Backing</span>
+
+                        <div className="px-5 py-4">
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>High-Clarity Clear PLA Film</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>Certified EN 13432 / ASTM D6400</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>Zero Microplastics Residue</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>100% Biodegradable Adhesive</span></div>
+                          </div>
+                        </div>
+
+                        <div className="bg-green-100/50 px-5 py-3.5 border-t border-green-200">
+                          <div className="flex flex-wrap items-center gap-2 text-xs">
+                            <span className="bg-green-600 text-white px-2 py-0.5 rounded-full font-medium">EN 13432 / ASTM D6400 / FSC Certified</span>
+                            <span className="text-green-700"><span className="font-medium">Ideal for:</span> Premium cosmetics, glass bottle packaging, food-grade labeling</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    {/* Features */}
-                    <div className="px-5 pb-4">
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>High-Clarity Clear PLA Film</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>Certified EN 13432 / ASTM D6400</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>Zero Microplastics Residue</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-green-700"><Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /><span>100% Biodegradable Adhesive</span></div>
-                      </div>
-                    </div>
-                    {/* Footer */}
-                    <div className="bg-green-100/50 px-5 py-3 border-t border-green-200">
-                      <div className="flex flex-wrap items-center gap-2 text-xs">
-                        <span className="bg-green-600 text-white px-2 py-0.5 rounded-full font-medium">EN 13432 / ASTM D6400 / FSC Certified</span>
-                        <span className="text-green-700"><span className="font-medium">Ideal for:</span> Premium cosmetics, glass bottle packaging, food-grade labeling</span>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 ) : product.id === 'eco-pla-sealing-sticker' ? (
-                  <div className="bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-200 rounded-xl overflow-hidden w-full">
-                    {/* Problem */}
-                    <div className="px-5 pt-5 pb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-200 rounded-xl overflow-hidden w-full shadow-sm hover:shadow transition-all duration-300">
+                    <div 
+                      className="px-5 py-4 flex items-center justify-between cursor-pointer select-none hover:bg-emerald-100/30 transition-colors"
+                      onClick={() => setIsPlaSealingExpanded(!isPlaSealingExpanded)}
+                    >
+                      <div className="flex items-center gap-3 pr-4 flex-1">
+                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
                           <span className="text-amber-600 text-sm">❓</span>
                         </div>
-                        <p className="text-sm text-neutral-700 leading-relaxed">
-                          Traditional adhesive sealing tapes and stickers use persistent plastic backing (PET/PVC/BOPP) and toxic solvent adhesives that leave non-biodegradable waste on packages, polluting recycling streams.
-                        </p>
+                        <div>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                          <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
+                            Traditional adhesive sealing tapes and stickers use persistent plastic backing (PET/PVC/BOPP) and toxic solvent adhesives that leave non-biodegradable waste on packages.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
+                        <span>{isPlaSealingExpanded ? 'Hide Details' : 'Know More'}</span>
+                        {isPlaSealingExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                       </div>
                     </div>
-                    {/* Solution */}
-                    <div className="px-5 pb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-emerald-600 text-sm">✓</span>
-                        </div>
-                        <div className="flex-1">
-                          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-0.5">
-                            <div className="md:col-span-7">
-                              <h4 className="text-sm font-bold text-emerald-800 mb-1">≤14-Week Rapid Composting. 100% Non-Toxic.</h4>
-                              <p className="text-xs font-semibold text-emerald-700 mb-2">≤14周完全生物降解 • 燃燒無刺鼻毒氣</p>
-                              <p className="text-xs text-neutral-700 leading-relaxed mb-2">
-                                Made from 100% plant-based compostable PLA film and high-performance bio-adhesive. Under industrial composting conditions, these stickers completely break down in less than 14 weeks (98 days) into organic biomass, water, and CO2 with absolutely zero microplastics.
-                              </p>
-                              <p className="text-[11px] text-emerald-650 leading-relaxed italic">
-                                採用100%天然植物源PLA膜材與環保生物粘合劑。在工業堆肥環境下可在14周（98天）內完全分解為有機物質、水和二氧化碳，不殘留任何微塑料，安全環保。
+
+                    {isPlaSealingExpanded && (
+                      <div className="border-t border-emerald-200 bg-white/20 divide-y divide-emerald-100 animate-fadeIn">
+                        <div className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-amber-600 text-sm">❓</span>
+                            </div>
+                            <div>
+                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                              <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
+                                Traditional adhesive sealing tapes and stickers use persistent plastic backing (PET/PVC/BOPP) and toxic solvent adhesives that leave non-biodegradable waste on packages, polluting recycling streams.
                               </p>
                             </div>
-                            <div className="md:col-span-5">
-                              <div className="relative group overflow-hidden rounded-xl border border-emerald-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
-                                <img
-                                  src="/taobao/pla-sticker/pla-sticker-compostable-timeline.jpg"
-                                  alt="≤14-Week Composting Timeline"
-                                  className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
-                                />
+                          </div>
+                        </div>
+
+                        <div className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-emerald-600 text-sm">✓</span>
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-1.5">
+                                <div className="md:col-span-7">
+                                  <h4 className="text-sm font-bold text-emerald-800 mb-1">≤14-Week Rapid Composting. 100% Non-Toxic.</h4>
+                                  <p className="text-xs font-semibold text-emerald-700 mb-2">≤14周完全生物降解 • 燃燒無刺鼻毒氣</p>
+                                  <p className="text-xs text-neutral-700 leading-relaxed mb-2">
+                                    Made from 100% plant-based compostable PLA film and high-performance bio-adhesive. Under industrial composting conditions, these stickers completely break down in less than 14 weeks (98 days) into organic biomass, water, and CO2 with absolutely zero microplastics.
+                                  </p>
+                                  <p className="text-[11px] text-emerald-650 leading-relaxed italic">
+                                    採用100%天然植物源PLA膜材與環保生物粘合劑。在工業堆肥環境下可在14周（98天）內完全分解為有機物質、水和二氧化碳，不殘留任何微塑料，安全環保。
+                                  </p>
+                                </div>
+                                <div className="md:col-span-5">
+                                  <div className="relative group overflow-hidden rounded-xl border border-emerald-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
+                                    <img
+                                      src="/taobao/pla-sticker/pla-sticker-compostable-timeline.jpg"
+                                      alt="≤14-Week Composting Timeline"
+                                      className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
+                                    />
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    {/* Combustion Test Section */}
-                    <div className="px-5 pb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-amber-600 text-sm">🔥</span>
-                        </div>
-                        <div className="flex-1">
-                          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-0.5">
-                            <div className="md:col-span-7">
-                              <h4 className="text-sm font-bold text-neutral-800 mb-1">Combustion Safety Test: PLA vs. PET</h4>
-                              <p className="text-xs font-semibold text-neutral-700 mb-2">燃燒對比測試：草木灰味 vs. 刺鼻塑料</p>
-                              <ul className="text-xs text-neutral-600 list-disc pl-4 space-y-1">
-                                <li>
-                                  <strong className="text-emerald-700">Compostable PLA:</strong> Burns cleanly with a mild scent of grass/wood ash. The sticker body remains structurally solid and intact as ash until extinguished.
-                                </li>
-                                <li>
-                                  <strong className="text-amber-700">Regular PET Plastic:</strong> Melts rapidly with severe toxic dripping, producing a highly pungent and hazardous chemical plastic smell.
-                                </li>
-                              </ul>
+
+                        <div className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-amber-600 text-sm">🔥</span>
                             </div>
-                            <div className="md:col-span-5">
-                              <div className="relative group overflow-hidden rounded-xl border border-neutral-200 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
-                                <img
-                                  src="/taobao/pla-sticker/pla-sticker-combustion.png"
-                                  alt="Combustion Test Comparison"
-                                  className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
-                                />
+                            <div className="flex-1">
+                              <p className="text-xs text-amber-600 font-semibold uppercase tracking-wider">Combustion Test</p>
+                              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-1.5">
+                                <div className="md:col-span-7">
+                                  <h4 className="text-sm font-bold text-neutral-800 mb-1">Combustion Safety Test: PLA vs. PET</h4>
+                                  <p className="text-xs font-semibold text-neutral-700 mb-2">燃燒對比測試：草木灰味 vs. 刺鼻塑料</p>
+                                  <ul className="text-xs text-neutral-600 list-disc pl-4 space-y-1">
+                                    <li>
+                                      <strong className="text-emerald-700">Compostable PLA:</strong> Burns cleanly with a mild scent of grass/wood ash. The sticker body remains structurally solid and intact as ash until extinguished.
+                                    </li>
+                                    <li>
+                                      <strong className="text-amber-700">Regular PET Plastic:</strong> Melts rapidly with severe toxic dripping, producing a highly pungent and hazardous chemical plastic smell.
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div className="md:col-span-5">
+                                  <div className="relative group overflow-hidden rounded-xl border border-neutral-200 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
+                                    <img
+                                      src="/taobao/pla-sticker/pla-sticker-combustion.png"
+                                      alt="Combustion Test Comparison"
+                                      className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
+                                    />
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    {/* Material & Specs */}
-                    <div className="px-5 pb-3 space-y-2">
-                      <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                        <span className="font-semibold text-emerald-700">Material:</span> Certified Compostable Clear PLA Film & Bio-Adhesive, breaks down in ≤14 weeks, zero microplastics.
-                      </div>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                          <span className="font-medium">📐 Size: {selectedSizeVariant ? ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label : 'Diameter 20 mm (1,000 Pcs / Pack)'}</span>
+
+                        <div className="px-5 py-4 space-y-2">
+                          <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                            <span className="font-semibold text-emerald-700">Material:</span> Certified Compostable Clear PLA Film & Bio-Adhesive, breaks down in ≤14 weeks, zero microplastics.
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                              <span className="font-medium">📐 Size: {selectedSizeVariant ? ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label : 'Diameter 20 mm (1,000 Pcs / Pack)'}</span>
+                            </div>
+                            <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                              <span className="font-medium">🔒 Bio-Adhesive Backing</span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                          <span className="font-medium">🔒 Bio-Adhesive Backing</span>
+
+                        <div className="px-5 py-4">
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>100% Plant-based PLA Film</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Compostable Bio-Adhesive</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>≤14-Week Composting Timeline</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Zero Microplastics Residue</span></div>
+                          </div>
+                        </div>
+
+                        <div className="bg-emerald-100/50 px-5 py-3.5 border-t border-emerald-200">
+                          <div className="flex flex-wrap items-center gap-2 text-xs">
+                            <span className="bg-emerald-600 text-white px-2 py-0.5 rounded-full font-medium">DIN CERTCO / TUV OK Compost</span>
+                            <span className="text-emerald-700"><span className="font-medium">Ideal for:</span> Premium cosmetics, gift wrapping, glass jar packaging, carton box seals</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    {/* Features */}
-                    <div className="px-5 pb-4">
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>100% Plant-based PLA Film</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Compostable Bio-Adhesive</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>≤14-Week Composting Timeline</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Zero Microplastics Residue</span></div>
-                      </div>
-                    </div>
-                    {/* Footer */}
-                    <div className="bg-emerald-100/50 px-5 py-3 border-t border-emerald-200">
-                      <div className="flex flex-wrap items-center gap-2 text-xs">
-                        <span className="bg-emerald-600 text-white px-2 py-0.5 rounded-full font-medium">DIN CERTCO / TUV OK Compost</span>
-                        <span className="text-emerald-700"><span className="font-medium">Ideal for:</span> Premium cosmetics, gift wrapping, glass jar packaging, carton box seals</span>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 ) : isLabelProduct ? (
-                  <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl overflow-hidden w-full">
-                    <div className="px-5 pt-5 pb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl overflow-hidden w-full shadow-sm hover:shadow transition-all duration-300">
+                    <div 
+                      className="px-5 py-4 flex items-center justify-between cursor-pointer select-none hover:bg-emerald-100/30 transition-colors"
+                      onClick={() => setIsB2BDynamicLabelExpanded(!isB2BDynamicLabelExpanded)}
+                    >
+                      <div className="flex items-center gap-3 pr-4 flex-1">
+                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
                           <span className="text-amber-600 text-sm">❓</span>
                         </div>
-                        <p className="text-sm text-neutral-700 leading-relaxed">
-                          Need premium custom branded labels but worried about high minimum orders or expensive printing plate setup fees?
-                        </p>
-                      </div>
-                    </div>
-                    <div className="px-5 pb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-emerald-600 text-sm">✓</span>
-                        </div>
-                        <p className="text-sm text-emerald-800 leading-relaxed font-medium">
-                          Our sustainable adhesive stickers ship with low MOQ and fast turnaround—zero plate fees and high-resolution double-sided color printing.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="px-5 pb-3 space-y-2">
-                      <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                        <span className="font-semibold text-emerald-700">Material:</span> Eco-responsible face stock and water-based bio-adhesives that decompose cleanly without microplastics.
-                      </div>
-                      {selectedSizeVariant && (
-                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                          <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="px-5 pb-4">
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Zero Microplastics</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Low MOQ</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Eco-responsible bio-adhesives</span></div>
-                        <div className="flex flex-col gap-1">
-                          <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print & pages</span></div>
+                        <div>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                          <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
+                            Need premium custom branded labels but worried about high minimum orders or expensive printing plate setup fees?
+                          </p>
                         </div>
                       </div>
+                      <div className="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
+                        <span>{isB2BDynamicLabelExpanded ? 'Hide Details' : 'Know More'}</span>
+                        {isB2BDynamicLabelExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                      </div>
                     </div>
-                    <div className="bg-emerald-100/50 px-5 py-3 border-t border-emerald-200">
-                      <p className="text-xs text-emerald-700"><span className="font-medium">Ideal for:</span> Cosmetics jars, pharmaceutical bottles, premium coffee bags, glass container sealing, gourmet foods, luxury gift boxes</p>
-                      {ecoStockProduct.customPrintNote && (
-                        <p className="text-xs text-emerald-600 mt-1">
-                          <span className="font-medium">💡</span>{' '}
-                          {ecoStockProduct.customPrintProductId ? (
-                            <Link to={`/store/product/${ecoStockProduct.customPrintProductId}`} className="hover:underline">
-                              {ecoStockProduct.customPrintNote}
-                            </Link>
-                          ) : (
-                            ecoStockProduct.customPrintNote
+
+                    {isB2BDynamicLabelExpanded && (
+                      <div className="border-t border-emerald-200 bg-white/20 divide-y divide-emerald-100 animate-fadeIn">
+                        <div className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-amber-600 text-sm">❓</span>
+                            </div>
+                            <div>
+                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                              <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
+                                Need premium custom branded labels but worried about high minimum orders or expensive printing plate setup fees?
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-emerald-600 text-sm">✓</span>
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                              <p className="text-sm text-emerald-800 leading-relaxed font-medium mt-0.5">
+                                Our sustainable adhesive stickers ship with low MOQ and fast turnaround—zero plate fees and high-resolution double-sided color printing.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="px-5 py-4 space-y-2">
+                          <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                            <span className="font-semibold text-emerald-700">Material:</span> Eco-responsible face stock and water-based bio-adhesives that decompose cleanly without microplastics.
+                          </div>
+                          {selectedSizeVariant && (
+                            <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                              <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
+                            </div>
                           )}
-                        </p>
-                      )}
-                    </div>
+                        </div>
+
+                        <div className="px-5 py-4">
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Zero Microplastics</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Low MOQ</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Eco-responsible bio-adhesives</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print & pages</span></div>
+                          </div>
+                        </div>
+
+                        <div className="bg-emerald-100/50 px-5 py-3.5 border-t border-emerald-200">
+                          <p className="text-xs text-emerald-700"><span className="font-medium">Ideal for:</span> Cosmetics jars, pharmaceutical bottles, premium coffee bags, glass container sealing, gourmet foods, luxury gift boxes</p>
+                          {ecoStockProduct.customPrintNote && (
+                            <p className="text-xs text-emerald-600 mt-1">
+                              <span className="font-medium">💡</span>{' '}
+                              {ecoStockProduct.customPrintProductId ? (
+                                <Link to={`/store/product/${ecoStockProduct.customPrintProductId}`} className="hover:underline">
+                                  {ecoStockProduct.customPrintNote}
+                                </Link>
+                              ) : (
+                                ecoStockProduct.customPrintNote
+                              )}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ) : (
-                  <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl overflow-hidden">
-                    <div className="px-5 pt-5 pb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-300">
+                    <div 
+                      className="px-5 py-4 flex items-center justify-between cursor-pointer select-none hover:bg-emerald-100/30 transition-colors"
+                      onClick={() => setIsEcoStockExpanded(!isEcoStockExpanded)}
+                    >
+                      <div className="flex items-center gap-3 pr-4 flex-1">
+                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
                           <span className="text-amber-600 text-sm">❓</span>
                         </div>
-                        <p className="text-sm text-neutral-700 leading-relaxed">
-                          {ecoStockProduct.name.includes('Compostable') || ecoStockProduct.name.includes('compostable')
-                            ? 'Want compostable packaging but worried about long lead times and high MOQs to test market response?'
-                            : 'Need eco packaging but budget-limited, don\'t want to pay high custom costs for small quantities?'}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="px-5 pb-3">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-emerald-600 text-sm">✓</span>
+                        <div>
+                          <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                          <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium">
+                            {ecoStockProduct.name.includes('Compostable') || ecoStockProduct.name.includes('compostable')
+                              ? 'Want compostable packaging but worried about long lead times and high MOQs to test market response?'
+                              : 'Need eco packaging but budget-limited, don\'t want to pay high custom costs for small quantities?'}
+                          </p>
                         </div>
-                        <p className="text-sm text-emerald-800 leading-relaxed font-medium">
-                          {ecoStockProduct.name.includes('Compostable')
-                            ? 'This stock compostable pouch ships in 3-5 days—no custom wait, give your product truly sustainable packaging immediately.'
-                            : 'This pre-made eco pouch uses sustainable materials, ships from stock, no MOQ—perfect for quick start and small batches.'}
-                        </p>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
+                        <span>{isEcoStockExpanded ? 'Hide Details' : 'Know More'}</span>
+                        {isEcoStockExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                       </div>
                     </div>
-                    <div className="px-5 pb-3 space-y-2">
-                      <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                        <span className="font-semibold text-emerald-700">Material:</span> 
-                        {ecoStockProduct.name.includes('Compostable')
-                          ? ' Certified compostable, breaks down within 180 days in industrial composting, zero microplastics'
-                          : ecoStockProduct.name.includes('Kraft')
-                          ? ' Natural kraft paper composite, organic feel, perfect for artisanal products'
-                          : ' Eco-sustainable materials, reduced plastic use and carbon footprint'}
-                      </div>
-                      {selectedSizeVariant && (
-                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                          <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
+
+                    {isEcoStockExpanded && (
+                      <div className="border-t border-emerald-200 bg-white/20 divide-y divide-emerald-100 animate-fadeIn">
+                        <div className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-amber-600 text-sm">❓</span>
+                            </div>
+                            <div>
+                              <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                              <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5">
+                                {ecoStockProduct.name.includes('Compostable') || ecoStockProduct.name.includes('compostable')
+                                  ? 'Want compostable packaging but worried about long lead times and high MOQs to test market response?'
+                                  : 'Need eco packaging but budget-limited, don\'t want to pay high custom costs for small quantities?'}
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      )}
-                    </div>
-                    <div className="px-5 pb-4">
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Ships in 3-5 days</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>No minimum order</span></div>
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Eco-certified materials</span></div>
-                        <div className="flex flex-col gap-1">
-                          <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print available</span></div>
-                          {ecoStockProduct.customPrintQuantities && (
-                            <Link to="/support/color-accuracy-digital-printing" className="text-[10px] text-emerald-600 hover:text-emerald-800 flex items-center gap-1 ml-5">
-                              <Info className="w-3.5 h-3.5" /> Color Accuracy Guide
-                            </Link>
+
+                        <div className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <span className="text-emerald-600 text-sm">✓</span>
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                              <p className="text-sm text-emerald-800 leading-relaxed font-medium mt-0.5">
+                                {ecoStockProduct.name.includes('Compostable')
+                                  ? 'This stock compostable pouch ships in 3-5 days—no custom wait, give your product truly sustainable packaging immediately.'
+                                  : 'This pre-made eco pouch uses sustainable materials, ships from stock, no MOQ—perfect for quick start and small batches.'}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="px-5 py-4 space-y-2">
+                          <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                            <span className="font-semibold text-emerald-700">Material:</span> 
+                            {ecoStockProduct.name.includes('Compostable')
+                              ? ' Certified compostable, breaks down within 180 days in industrial composting, zero microplastics'
+                              : ecoStockProduct.name.includes('Kraft')
+                              ? ' Natural kraft paper composite, organic feel, perfect for artisanal products'
+                              : ' Eco-sustainable materials, reduced plastic use and carbon footprint'}
+                          </div>
+                          {selectedSizeVariant && (
+                            <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                              <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="px-5 py-4">
+                          <div className="grid grid-cols-2 gap-2">
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Ships in 3-5 days</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>No minimum order</span></div>
+                            <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Eco-certified materials</span></div>
+                            <div className="flex flex-col gap-1">
+                              <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print available</span></div>
+                              {ecoStockProduct.customPrintQuantities && (
+                                <Link to="/support/color-accuracy-digital-printing" className="text-[10px] text-emerald-600 hover:text-emerald-800 flex items-center gap-1 ml-5">
+                                  <Info className="w-3.5 h-3.5" /> Color Accuracy Guide
+                                </Link>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-emerald-100/50 px-5 py-3.5 border-t border-emerald-200">
+                          <p className="text-xs text-emerald-700"><span className="font-medium">Ideal for:</span> Farmers markets, artisan foods, organic brands, small bakeries, ecommerce startups</p>
+                          {ecoStockProduct.customPrintNote && (
+                            <p className="text-xs text-emerald-600 mt-1">
+                              <span className="font-medium">💡</span>{' '}
+                              {ecoStockProduct.customPrintProductId ? (
+                                <Link to={`/store/product/${ecoStockProduct.customPrintProductId}`} className="hover:underline">
+                                  {ecoStockProduct.customPrintNote}
+                                </Link>
+                              ) : (
+                                ecoStockProduct.customPrintNote
+                              )}
+                            </p>
                           )}
                         </div>
                       </div>
-                    </div>
-                    <div className="bg-emerald-100/50 px-5 py-3 border-t border-emerald-200">
-                      <p className="text-xs text-emerald-700"><span className="font-medium">Ideal for:</span> Farmers markets, artisan foods, organic brands, small bakeries, ecommerce startups</p>
-                      {ecoStockProduct.customPrintNote && (
-                        <p className="text-xs text-emerald-600 mt-1">
-                          <span className="font-medium">💡</span>{' '}
-                          {ecoStockProduct.customPrintProductId ? (
-                            <Link to={`/store/product/${ecoStockProduct.customPrintProductId}`} className="hover:underline">
-                              {ecoStockProduct.customPrintNote}
-                            </Link>
-                          ) : (
-                            ecoStockProduct.customPrintNote
-                          )}
-                        </p>
-                      )}
-                    </div>
+                    )}
                   </div>
                 )
               )}
@@ -3644,7 +3820,7 @@ const ProductPage: React.FC = () => {
 
             {/* Dynamic Product Description - Problem → Solution → Features */}
             {isEcoDigital && ecoProduct && (
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl overflow-hidden w-full">
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl overflow-hidden w-full shadow-sm hover:shadow transition-all duration-300">
                 {(() => {
                   const dynamicInfo = generateDynamicDescription({
                     shape: ecoProduct.shape, material: selectedMaterial, size: selectedSize,
@@ -3653,76 +3829,108 @@ const ProductPage: React.FC = () => {
                   });
                   return (
                     <>
-                      {/* Problem */}
-                      <div className="px-5 pt-5 pb-3">
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div 
+                        className="px-5 py-4 flex items-center justify-between cursor-pointer select-none hover:bg-green-100/30 transition-colors"
+                        onClick={() => setIsDynamicDescExpanded(!isDynamicDescExpanded)}
+                      >
+                        <div className="flex items-center gap-3 pr-4 flex-1">
+                          <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
                             <span className="text-amber-600 text-sm">❓</span>
                           </div>
-                          <p className="text-sm text-neutral-700 leading-relaxed whitespace-pre-line">{dynamicInfo.problem}</p>
+                          <div>
+                            <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">Product Challenge</p>
+                            <p className="text-sm text-neutral-700 leading-normal line-clamp-1 font-medium whitespace-pre-line">
+                              {dynamicInfo.problem}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-xs text-green-700 font-semibold bg-white px-3 py-1.5 rounded-full shadow-sm hover:shadow transition-all whitespace-nowrap">
+                          <span>{isDynamicDescExpanded ? 'Hide Details' : 'Know More'}</span>
+                          {isDynamicDescExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                         </div>
                       </div>
-                      {/* Solution */}
-                      <div className="px-5 pb-3">
-                        <div className="flex items-start gap-3">
-                          <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <span className="text-green-600 text-sm">✓</span>
+
+                      {isDynamicDescExpanded && (
+                        <div className="border-t border-green-200 bg-white/20 divide-y divide-green-100 animate-fadeIn">
+                          <div className="px-5 py-4">
+                            <div className="flex items-start gap-3">
+                              <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span className="text-amber-600 text-sm">❓</span>
+                              </div>
+                              <div>
+                                <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">The Problem</p>
+                                <p className="text-sm text-neutral-700 leading-relaxed font-normal mt-0.5 whitespace-pre-line">
+                                  {dynamicInfo.problem}
+                                </p>
+                              </div>
+                            </div>
                           </div>
-                          <div className="flex-1">
-                            {dynamicInfo.skuType === 'label' && dynamicInfo.materialType === 'compost' ? (
-                              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start mt-0.5">
-                                <div className="md:col-span-7">
-                                  <p className="text-sm text-green-800 leading-relaxed font-medium whitespace-pre-line">{dynamicInfo.solution}</p>
-                                </div>
-                                <div className="md:col-span-5">
-                                  <div className="relative group overflow-hidden rounded-xl border border-green-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
-                                    <img
-                                      src="/taobao/compostable-label/compostable-labels-7.jpg"
-                                      alt="180-Day Degradation Process"
-                                      className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
-                                    />
-                                    <div className="absolute inset-0 bg-green-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg" />
-                                  </div>
+
+                          <div className="px-5 py-4">
+                            <div className="flex items-start gap-3">
+                              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span className="text-green-600 text-sm">✓</span>
+                              </div>
+                              <div className="flex-1">
+                                <p className="text-xs text-green-500 font-semibold uppercase tracking-wider">Sustainable Solution</p>
+                                <div className="mt-0.5">
+                                  {dynamicInfo.skuType === 'label' && dynamicInfo.materialType === 'compost' ? (
+                                    <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+                                      <div className="md:col-span-7">
+                                        <p className="text-sm text-green-800 leading-relaxed font-medium whitespace-pre-line">{dynamicInfo.solution}</p>
+                                      </div>
+                                      <div className="md:col-span-5">
+                                        <div className="relative group overflow-hidden rounded-xl border border-green-200/80 bg-white p-2 shadow-sm hover:shadow-md transition-all duration-300">
+                                          <img
+                                            src="/taobao/compostable-label/compostable-labels-7.jpg"
+                                            alt="180-Day Degradation Process"
+                                            className="w-full h-auto rounded-lg object-cover transform transition-transform duration-500 group-hover:scale-[1.03]"
+                                          />
+                                          <div className="absolute inset-0 bg-green-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg" />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <p className="text-sm text-green-800 leading-relaxed font-medium whitespace-pre-line">{dynamicInfo.solution}</p>
+                                  )}
                                 </div>
                               </div>
-                            ) : (
-                              <p className="text-sm text-green-800 leading-relaxed font-medium whitespace-pre-line">{dynamicInfo.solution}</p>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      {/* Material & Size */}
-                      <div className="px-5 pb-3 space-y-2">
-                        <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
-                          <span className="font-semibold text-green-700">Material:</span> {dynamicInfo.materialInfo}
-                        </div>
-                        <div className="grid grid-cols-2 gap-2">
-                          <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                            <span className="font-medium">📐 {dynamicInfo.sizeInfo}</span>
-                          </div>
-                          <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
-                            <span className="font-medium">🔒 {dynamicInfo.closureInfo}</span>
-                          </div>
-                        </div>
-                      </div>
-                      {/* Features */}
-                      <div className="px-5 pb-4">
-                        <div className="grid grid-cols-2 gap-2">
-                          {dynamicInfo.features.slice(0, 6).map((feature, i) => (
-                            <div key={i} className="flex items-center gap-1.5 text-xs text-green-700">
-                              <Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
-                              <span>{feature}</span>
                             </div>
-                          ))}
+                          </div>
+
+                          <div className="px-5 py-4 space-y-2">
+                            <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                              <span className="font-semibold text-green-700">Material:</span> {dynamicInfo.materialInfo}
+                            </div>
+                            <div className="grid grid-cols-2 gap-2">
+                              <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                                <span className="font-medium">📐 {dynamicInfo.sizeInfo}</span>
+                              </div>
+                              <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                                <span className="font-medium">🔒 {dynamicInfo.closureInfo}</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="px-5 py-4">
+                            <div className="grid grid-cols-2 gap-2">
+                              {dynamicInfo.features.slice(0, 6).map((feature, i) => (
+                                <div key={i} className="flex items-center gap-1.5 text-xs text-green-700">
+                                  <Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+                                  <span>{feature}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="bg-green-100/50 px-5 py-3.5 border-t border-green-200">
+                            <div className="flex flex-wrap items-center gap-2 text-xs">
+                              <span className="bg-green-600 text-white px-2 py-0.5 rounded-full font-medium">{dynamicInfo.certifications}</span>
+                              <span className="text-green-700"><span className="font-medium">Ideal for:</span> {dynamicInfo.idealFor}</span>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      {/* Footer */}
-                      <div className="bg-green-100/50 px-5 py-3 border-t border-green-200">
-                        <div className="flex flex-wrap items-center gap-2 text-xs">
-                          <span className="bg-green-600 text-white px-2 py-0.5 rounded-full font-medium">{dynamicInfo.certifications}</span>
-                          <span className="text-green-700"><span className="font-medium">Ideal for:</span> {dynamicInfo.idealFor}</span>
-                        </div>
-                      </div>
+                      )}
                     </>
                   );
                 })()}
