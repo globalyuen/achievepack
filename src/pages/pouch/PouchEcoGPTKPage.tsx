@@ -39,49 +39,19 @@ export default function PouchEcoGPTKPage() {
   const calculateOptionPrice = (optionId: string) => {
     const sizeId = selectedSize.dimensions;
 
-    // Option C: Conventional Stock Pouch (One-Sided Zipper)
-    if (optionId === 'conventional-stock') {
-      const isBelowMoq = qtyPerDesign < 100
-      let unitPrice = 0.2333
-      if (sizeId === '160 × 260 + 80 mm') unitPrice = 0.2333
-      else if (sizeId === '180 × 280 + 80 mm') unitPrice = 0.3000
-      else if (sizeId === '200 × 300 + 80 mm') unitPrice = 0.4000
-      else if (sizeId === '260 × 340 + 80 mm') unitPrice = 0.5333
-
-      const totalCost = numDesigns * qtyPerDesign * unitPrice
-      return {
-        unitPrice,
-        totalCost,
-        isBelowMoq,
-        moq: 100,
-        badge: 'Option C: Conventional Stock (現貨平底拉鏈袋)',
-        desc: 'Matte standard flat bottom pouches with convenient easy-tear one-sided zipper closure. Absolute freshness and barrier protection at an economical price.',
-        accentColor: '#059669',
-        certLogo: 'Standard Stock',
-        leadTime: '3 - 5 Days',
-        image: '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
-        points: [
-          'Food-Safe High Barrier Triple Laminate',
-          'Airtight One-Sided Zipper & Easy Tear Notch',
-          'Sturdy Flat Bottom for Upright Shelf Presentation',
-          'Standard Economical B2B Pricing Matrix',
-          '100pcs Ultra-Low MOQ'
-        ]
-      }
-    }
-
-    // Option 1 & 2: Stock Pouch options (Card insert or Tag attachment)
-    if (optionId === 'stock-cards' || optionId === 'stock-tag') {
+    // Option 1, 2 & C: Cost-saving Conventional Group options (flat $0.50 USD no matter quantity)
+    if (optionId === 'stock-cards' || optionId === 'stock-tag' || optionId === 'conventional-stock') {
       const unitPrice = 0.50
       const isBelowMoq = qtyPerDesign < 100
       const totalCost = numDesigns * qtyPerDesign * unitPrice
+
       if (optionId === 'stock-cards') {
         return {
           unitPrice,
           totalCost,
           isBelowMoq,
           moq: 100,
-          badge: 'Stock + Card Insert (現貨插卡)',
+          badge: 'Stock Unprinted Pouch + Card',
           desc: 'Matte stock flat bottom pouches in white/kraft fitted with attached card insertion pocket. $0 plates. Ultra-low B2B barrier.',
           accentColor: '#10B981',
           certLogo: 'FSC Eco Card',
@@ -95,13 +65,13 @@ export default function PouchEcoGPTKPage() {
             '100pcs Ultra-Low MOQ'
           ]
         }
-      } else {
+      } else if (optionId === 'stock-tag') {
         return {
           unitPrice,
           totalCost,
           isBelowMoq,
           moq: 100,
-          badge: 'Stock + Tag Attachment (現貨綁帶)',
+          badge: 'Stock Unprinted Pouch + Tag',
           desc: 'Ultimate airtight and light-shielding seal flat bottom pouch. Reusable with premium side zipper and custom string tag attachment.',
           accentColor: '#FBBF24',
           certLogo: 'Premium Roast Tag',
@@ -112,6 +82,26 @@ export default function PouchEcoGPTKPage() {
             'Reusable with Convenient One-Sided Zipper',
             'Handcrafted String & Tag Premium Feel',
             'Fast Modular Local Delivery',
+            '100pcs Ultra-Low MOQ'
+          ]
+        }
+      } else {
+        return {
+          unitPrice,
+          totalCost,
+          isBelowMoq,
+          moq: 100,
+          badge: 'Stock Unprinted Pouch + Sticker',
+          desc: 'Premium unprinted stock flat bottom pouch paired with custom branded high-gloss/matte stickers. A highly economical yet professional branding solution.',
+          accentColor: '#059669',
+          certLogo: 'Custom Sticker',
+          leadTime: '3 - 5 Days',
+          image: '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
+          points: [
+            'Food-Safe High Barrier Triple Laminate',
+            'Includes Custom Branded Color Stickers',
+            'Sturdy Flat Bottom for Upright Shelf Presentation',
+            'No Plate Cylinder Fees (Digital Branded)',
             '100pcs Ultra-Low MOQ'
           ]
         }
@@ -160,7 +150,7 @@ export default function PouchEcoGPTKPage() {
         totalCost,
         isBelowMoq,
         moq: 500,
-        badge: 'Option A: PE+EVOH (單一材料可回收)',
+        badge: 'Professional Recyclable Custom Print',
         desc: 'Premium Recyclable Mono-PE flat bottom pouch with advanced one-way degassing valve and integrated clear window for product visibility.',
         accentColor: '#34D399',
         certLogo: '♻️ Code 4 Recyclable',
@@ -180,7 +170,7 @@ export default function PouchEcoGPTKPage() {
         totalCost,
         isBelowMoq,
         moq: 500,
-        badge: 'Option B: Compostable (生物基可堆肥)',
+        badge: 'Professional Compostable Custom Print',
         desc: '100% Home certified compostable Kraft paper laminate with high-barrier VM-Cello and compostable resealable zipper & valve.',
         accentColor: '#A7F3D0',
         certLogo: '🌱 BPI Compostable',
@@ -214,15 +204,15 @@ export default function PouchEcoGPTKPage() {
 💰 用戶目標預算 (Target Budget): $${totalBudget.toLocaleString()} USD
 
 方案實時估算 (Real-time Options Quotation):
-1️⃣ 貼紙卡牌插卡方案 (Stock Pouch + Card Insert):
+1️⃣ 卡牌插卡方案 (Stock Unprinted Pouch + Card):
    - 單價 (Unit): $${cardPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${cardPrice.totalCost.toFixed(2)} USD ${cardPrice.isBelowMoq ? '(Below MOQ)' : ''}
-2️⃣ 貼紙卡牌綁帶方案 (Stock Pouch + Tag Attachment):
+2️⃣ 吊牌綁帶方案 (Stock Unprinted Pouch + Tag):
    - 單價 (Unit): $${tagPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${tagPrice.totalCost.toFixed(2)} USD ${tagPrice.isBelowMoq ? '(Below MOQ)' : ''}
-3️⃣ 現貨平底拉鏈袋方案 (Option C: Conventional Stock Pouch):
-   - 單價 (Unit): $${conventionalPrice.unitPrice.toFixed(4)} USD | 總額 (Total): $${conventionalPrice.totalCost.toFixed(2)} USD ${conventionalPrice.isBelowMoq ? '(Below MOQ)' : ''}
-4️⃣ ♻️ 4號標誌單一可回收方案 (PE+EVOH Recyclable):
+3️⃣ 貼紙標籤方案 (Stock Unprinted Pouch + Sticker):
+   - 單價 (Unit): $${conventionalPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${conventionalPrice.totalCost.toFixed(2)} USD ${conventionalPrice.isBelowMoq ? '(Below MOQ)' : ''}
+4️⃣ ♻️ 4號標誌單一可回收方案 (Professional Recyclable Custom Print):
    - 單價 (Unit): $${recPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${recPrice.totalCost.toFixed(2)} USD ${recPrice.isBelowMoq ? '(Below MOQ)' : ''}
-5️⃣ 🌱 BPI認證家用可堆肥方案 (Compostable):
+5️⃣ 🌱 BPI認證家用可堆肥方案 (Professional Compostable Custom Print):
    - 單價 (Unit): $${compPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${compPrice.totalCost.toFixed(2)} USD ${compPrice.isBelowMoq ? '(Below MOQ)' : ''}
 
 --------------------------------------------------
