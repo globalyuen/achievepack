@@ -41,63 +41,63 @@ export default function PouchEcoGPTKPage() {
     switch (optionId) {
       case 'stock-cards':
         return [
-          { label: 'Material', value: 'Conventional ❌', isPositive: false },
-          { label: 'Zipper', value: 'Regular Zipper ✅', isPositive: true },
-          { label: 'Print', value: 'No Print ❌', isPositive: false },
-          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
-          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
-          { label: 'Barrier', value: 'High Barrier ✅', isPositive: true },
-          { label: 'Window', value: 'No Window ❌', isPositive: false }
+          { label: '1. Material', value: '1. conventional ✅ / eco friendly ❌', isPositive: false },
+          { label: '2. Zipper', value: '2. regular zipper ✅ / one sided zipper ❌', isPositive: true },
+          { label: '3. Print', value: '3. No print ✅ / Digital Print ❌', isPositive: false },
+          { label: '4. Shape', value: '4. Flat Bottom ✅ / Oval Bottom ❌', isPositive: true },
+          { label: '5. Side Gusset', value: '5. Side Gusset ✅ / No Side Gusset ❌', isPositive: true },
+          { label: '6. Barrier', value: '6. Medium Barrier ❌ / High Barrier ✅', isPositive: true },
+          { label: '7. Window', value: '7. Window ❌ / No Window ✅', isPositive: true }
         ];
       case 'stock-tag':
         return [
-          { label: 'Material', value: 'Conventional ❌', isPositive: false },
-          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
-          { label: 'Print', value: 'No Print ❌', isPositive: false },
-          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
-          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
-          { label: 'Barrier', value: 'High Barrier ✅', isPositive: true },
-          { label: 'Window', value: 'No Window ❌', isPositive: false }
+          { label: '1. Material', value: '1. conventional ✅ / eco friendly ❌', isPositive: false },
+          { label: '2. Zipper', value: '2. regular zipper ❌ / one sided zipper ✅', isPositive: true },
+          { label: '3. Print', value: '3. No print ✅ / Digital Print ❌', isPositive: false },
+          { label: '4. Shape', value: '4. Flat Bottom ✅ / Oval Bottom ❌', isPositive: true },
+          { label: '5. Side Gusset', value: '5. Side Gusset ✅ / No Side Gusset ❌', isPositive: true },
+          { label: '6. Barrier', value: '6. Medium Barrier ❌ / High Barrier ✅', isPositive: true },
+          { label: '7. Window', value: '7. Window ❌ / No Window ✅', isPositive: true }
         ];
       case 'conventional-stock':
         return [
-          { label: 'Material', value: 'Conventional ❌', isPositive: false },
-          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
-          { label: 'Print', value: 'No Print ❌', isPositive: false },
-          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
-          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
-          { label: 'Barrier', value: 'High/Med Barrier ✅', isPositive: true },
-          { label: 'Window', value: 'Optional Window ✅', isPositive: true }
+          { label: '1. Material', value: '1. conventional ✅ / eco friendly ❌', isPositive: false },
+          { label: '2. Zipper', value: '2. regular zipper ❌ / one sided zipper ✅', isPositive: true },
+          { label: '3. Print', value: '3. No print ✅ / Digital Print ❌', isPositive: false },
+          { label: '4. Shape', value: '4. Flat Bottom ✅ / Oval Bottom ❌', isPositive: true },
+          { label: '5. Side Gusset', value: '5. Side Gusset ✅ / No Side Gusset ❌', isPositive: true },
+          { label: '6. Barrier', value: '6. Medium Barrier ✅ / High Barrier ✅', isPositive: true },
+          { label: '7. Window', value: '7. Window ✅ / No Window ✅', isPositive: true }
         ];
       case 'recyclable-doypack':
         return [
-          { label: 'Material', value: 'Eco-Friendly ✅', isPositive: true },
-          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
-          { label: 'Print', value: 'Digital Print ✅', isPositive: true },
-          { label: 'Shape', value: 'Oval Bottom 🎯', isPositive: true },
-          { label: 'Side Gusset', value: 'No Side Gusset ❌', isPositive: false },
-          { label: 'Barrier', value: 'High Barrier ✅', isPositive: true },
-          { label: 'Window', value: 'Optional Window ✅', isPositive: true }
+          { label: '1. Material', value: '1. conventional ❌ / eco friendly ✅', isPositive: true },
+          { label: '2. Zipper', value: '2. regular zipper ❌ / one sided zipper ✅', isPositive: true },
+          { label: '3. Print', value: '3. No print ❌ / Digital Print ✅', isPositive: true },
+          { label: '4. Shape', value: '4. Flat Bottom ❌ / Oval Bottom ✅', isPositive: true },
+          { label: '5. Side Gusset', value: '5. Side Gusset ❌ / No Side Gusset ✅', isPositive: true },
+          { label: '6. Barrier', value: '6. Medium Barrier ✅ / High Barrier ✅', isPositive: true },
+          { label: '7. Window', value: '7. Window ✅ / No Window ✅', isPositive: true }
         ];
       case 'recyclable':
         return [
-          { label: 'Material', value: 'Eco-Friendly ✅', isPositive: true },
-          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
-          { label: 'Print', value: 'Digital Print ✅', isPositive: true },
-          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
-          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
-          { label: 'Barrier', value: 'Medium Barrier ❌', isPositive: false },
-          { label: 'Window', value: 'Optional Window ✅', isPositive: true }
+          { label: '1. Material', value: '1. conventional ❌ / eco friendly ✅', isPositive: true },
+          { label: '2. Zipper', value: '2. regular zipper ❌ / one sided zipper ✅', isPositive: true },
+          { label: '3. Print', value: '3. No print ❌ / Digital Print ✅', isPositive: true },
+          { label: '4. Shape', value: '4. Flat Bottom ✅ / Oval Bottom ❌', isPositive: true },
+          { label: '5. Side Gusset', value: '5. Side Gusset ✅ / No Side Gusset ❌', isPositive: true },
+          { label: '6. Barrier', value: '6. Medium Barrier ✅ / High Barrier ❌', isPositive: false },
+          { label: '7. Window', value: '7. Window ✅ / No Window ❌', isPositive: true }
         ];
       case 'compostable':
         return [
-          { label: 'Material', value: 'Eco-Friendly ✅', isPositive: true },
-          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
-          { label: 'Print', value: 'Digital Print ✅', isPositive: true },
-          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
-          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
-          { label: 'Barrier', value: 'High Barrier ✅', isPositive: true },
-          { label: 'Window', value: 'Optional Window ✅', isPositive: true }
+          { label: '1. Material', value: '1. conventional ❌ / eco friendly ✅', isPositive: true },
+          { label: '2. Zipper', value: '2. regular zipper ❌ / one sided zipper ✅', isPositive: true },
+          { label: '3. Print', value: '3. No print ❌ / Digital Print ✅', isPositive: true },
+          { label: '4. Shape', value: '4. Flat Bottom ✅ / Oval Bottom ❌', isPositive: true },
+          { label: '5. Side Gusset', value: '5. Side Gusset ✅ / No Side Gusset ❌', isPositive: true },
+          { label: '6. Barrier', value: '6. Medium Barrier ✅ / High Barrier ✅', isPositive: true },
+          { label: '7. Window', value: '7. Window ✅ / No Window ✅', isPositive: true }
         ];
       default:
         return [];
@@ -496,16 +496,12 @@ export default function PouchEcoGPTKPage() {
                             <Info className="w-4 h-4" />
                           </button>
                         </div>
-                        <p className="text-[11px] text-neutral-500 font-semibold leading-tight mt-1 line-clamp-3">{data.desc}</p>
                         
                         {/* Subscription Plan Parameters Comparison */}
-                        <div className="border-t border-dashed border-neutral-300 pt-2.5 mt-2 space-y-1 text-[10px] font-semibold text-neutral-700">
+                        <div className="border-t border-dashed border-neutral-300 pt-2 mt-2 space-y-1 text-[9.5px] font-semibold text-neutral-700">
                           {getOptionParams(optionId).map((param, index) => (
-                            <div key={index} className="flex justify-between items-center py-0.5 border-b border-neutral-100 last:border-none">
-                              <span className="text-neutral-400 font-bold">{param.label}:</span>
-                              <span className={`text-[9px] px-1.5 py-0.2 rounded font-black ${param.isPositive ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-700'}`}>
-                                {param.value}
-                              </span>
+                            <div key={index} className="py-0.5 border-b border-neutral-100 last:border-none text-left leading-tight whitespace-nowrap">
+                              {param.value}
                             </div>
                           ))}
                         </div>
@@ -743,16 +739,12 @@ export default function PouchEcoGPTKPage() {
                               <Info className="w-4 h-4" />
                             </button>
                           </div>
-                          <p className="text-xs text-neutral-400 leading-relaxed mt-2 line-clamp-3">{data.desc}</p>
                           
                           {/* Subscription Plan Parameters Comparison (Dark Mode) */}
-                          <div className="border-t border-neutral-800 pt-2.5 mt-2 space-y-1 text-[10px] font-mono text-neutral-300">
+                          <div className="border-t border-neutral-800 pt-2 mt-2 space-y-1 text-[9.5px] font-mono text-neutral-300">
                             {getOptionParams(optionId).map((param, index) => (
-                              <div key={index} className="flex justify-between items-center py-0.5 border-b border-neutral-900 last:border-none">
-                                <span className="text-neutral-500 font-bold">{param.label}:</span>
-                                <span className={`text-[9px] px-1.5 py-0.2 rounded font-black ${param.isPositive ? 'bg-emerald-950 text-emerald-400 border border-emerald-800/35' : 'bg-red-950 text-red-400 border border-red-800/35'}`}>
-                                  {param.value}
-                                </span>
+                              <div key={index} className="py-0.5 border-b border-neutral-900 last:border-none text-left leading-tight whitespace-nowrap">
+                                {param.value}
                               </div>
                             ))}
                           </div>
