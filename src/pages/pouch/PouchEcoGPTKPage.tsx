@@ -697,7 +697,12 @@ export default function PouchEcoGPTKPage() {
               <Info className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
               <div className="text-xs font-semibold text-emerald-900 leading-relaxed">
                 <span className="font-bold uppercase tracking-wider block text-emerald-800 mb-1">💡 Custom Sizing & Material Optimization Available</span>
-                The dimensions listed above represent standard sizes. However, for both the **PE+EVOH Recyclable** and **Compostable** options, Achieve Pack offers **fully custom pouch sizes**! Any tailored width or height smaller than the standard templates can be manufactured at no additional premium setup cost. Contact us to tweak dimensions to perfectly fit your budget and bean volume.
+  - `[x]` Audit and correct labels/stickers terminology in `ProductPage.tsx`
+  - `[x]` Create customized label/sticker FAQs in `productFAQData.ts`
+  - `[x]` Optimize `custom-multi-layer-sticker-labels` product details using Amazon-style selling points
+  - `[/]` Compile and verify React build stability
+  - `[ ]` Update walkthrough with audits and new skill
+emium setup cost. Contact us to tweak dimensions to perfectly fit your budget and bean volume.
               </div>
             </div>
 

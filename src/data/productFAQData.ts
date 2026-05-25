@@ -172,6 +172,44 @@ export const PRODUCT_FAQ_DATA: Record<string, ProductFAQCategory> = {
     materialInfo: "Structure: PLA/PBAT + Kraft or Clear. Fully compostable including zipper. Breaks down in 90-180 days.",
     certifications: ["EN 13432", "ASTM D6400", "OK Compost Industrial", "TÜV Austria"]
   },
+  
+  // Eco Label & Sticker Products
+  'eco-label-sticker': {
+    categoryId: 'eco-label-sticker',
+    faqs: [
+      {
+        question: "Are these stickers fully compostable or biodegradable?",
+        answer: "Yes, our eco stickers use FSC-certified face paper or biodegradable wood-pulp PLA films. They are bonded with organic water-based bio-adhesives that decompose cleanly without leaving hazardous plastic microplastics."
+      },
+      {
+        question: "Can these labels be applied to moist or cold glass jars?",
+        answer: "Our bio-adhesives provide excellent initial tack and permanent adhesion. For best results on damp glass jars or pharmaceutical bottles, we recommend applying them to clean, dry surfaces at room temperature."
+      },
+      {
+        question: "What is the maximum number of pages for fold-out booklet labels?",
+        answer: "We offer multi-layer peel-and-reseal labels from 2 layers up to 5 layers (yielding 9 custom printed pages). This enables you to pack multilingual instruction manuals, ingredients, and regulatory warnings directly on a small bottle."
+      },
+      {
+        question: "Do you charge extra setup fees for custom dielines, shapes and sizes?",
+        answer: "No! Achieve Pack waives all custom dieline tooling and plate fees. You only pay for the materials and printing run. We can produce custom circles, rectangles, or contour shapes at any millimeter-level dimension."
+      },
+      {
+        question: "How does the peel-and-reseal action work? Will it leave residue?",
+        answer: "Our double-layer fold-out labels use a proprietary dry-edge technology and a premium residue-free resealable adhesive. Consumers can open and close the booklet multiple times without losing adhesion or leaving sticky black glue on the jar."
+      }
+    ],
+    aiQueryExamples: [
+      "Biodegradable custom stickers bulk supplier",
+      "Peel and reseal multi-layer labels B2B",
+      "Zero microplastic custom glass jar labels",
+      "Waterproof PLA roll labels low MOQ"
+    ],
+    seoKeywords: ["custom sticker labels", "multi-layer labels", "fold-out labels", "peel and reseal labels", "bio-adhesive stickers", "compostable labels", "zero microplastics"],
+    detailedDescription: "Premium custom printed double-sided and multi-layer peel-and-reseal booklet labels. Engineered with FSC certified face paper or wood-pulp PLA films and residue-free bio-adhesives. Up to 5 layers for extensive multilingual specifications, directions, or warning lists.",
+    useCases: ["Cosmetics & Jars", "Pharmaceutical & Oils", "Premium Coffee Bags", "Glass Containers", "Gourmet Foods", "Luxury Gift Boxes", "Sealing Tapes"],
+    materialInfo: "FSC Paper or Bio-PLA + Compostable Adhesive Backing. Breaks down cleanly without microplastics.",
+    certifications: ["FSC Certified", "RoHS Compliant Adhesive", "SGS Toxicity Passed"]
+  },
 
   // 3 Side Seal Pouches
   '3-side-seal': {
@@ -284,6 +322,10 @@ export function getProductFAQs(productId: string, categoryType: string): Product
   // Check for specific product mappings
   if (productId.includes('rice-paper-flatbottom-valve')) {
     return PRODUCT_FAQ_DATA['conventional-standup'];
+  }
+  // Check for labels or stickers first to avoid pouch FAQ mismatch
+  if (productId.includes('label') || productId.includes('sticker')) {
+    return PRODUCT_FAQ_DATA['eco-label-sticker'];
   }
   // Check for boxes category first
   if (categoryType === 'boxes' || productId.includes('box-')) {

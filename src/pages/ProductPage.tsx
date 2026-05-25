@@ -469,6 +469,7 @@ const ProductPage: React.FC = () => {
   }, [product])
 
   const isSheetProduct = !!(product?.name.toLowerCase().includes('paper') || product?.name.toLowerCase().includes('wrap') || (ecoStockProduct && 'shape' in ecoStockProduct && ecoStockProduct.shape.toLowerCase().includes('sheet')))
+  const isLabelProduct = !!(product?.id.toLowerCase().includes('label') || product?.id.toLowerCase().includes('sticker') || (product && 'shape' in product && (product as any).shape?.toLowerCase().includes('label')) || (product && 'shape' in product && (product as any).shape?.toLowerCase().includes('sticker')))
   const pluralUnit = isSheetProduct ? 'sheets' : 'pcs'
   const singleUnit = isSheetProduct ? 'sheet' : 'pc'
   const singleLabel = isSheetProduct ? 'sheet' : 'piece'
@@ -2202,6 +2203,64 @@ const ProductPage: React.FC = () => {
                       </div>
                     </div>
                   </div>
+                ) : isLabelProduct ? (
+                  <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl overflow-hidden w-full">
+                    <div className="px-5 pt-5 pb-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-amber-600 text-sm">❓</span>
+                        </div>
+                        <p className="text-sm text-neutral-700 leading-relaxed">
+                          Need premium custom branded labels but worried about high minimum orders or expensive printing plate setup fees?
+                        </p>
+                      </div>
+                    </div>
+                    <div className="px-5 pb-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-emerald-600 text-sm">✓</span>
+                        </div>
+                        <p className="text-sm text-emerald-800 leading-relaxed font-medium">
+                          Our sustainable adhesive stickers ship with low MOQ and fast turnaround—zero plate fees and high-resolution double-sided color printing.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="px-5 pb-3 space-y-2">
+                      <div className="bg-white/60 rounded-lg p-3 text-xs text-neutral-700">
+                        <span className="font-semibold text-emerald-700">Material:</span> Eco-responsible face stock and water-based bio-adhesives that decompose cleanly without microplastics.
+                      </div>
+                      {selectedSizeVariant && (
+                        <div className="bg-white/60 rounded-lg p-2 text-xs text-neutral-600">
+                          <span className="font-medium">📐 Size: {ecoStockProduct.sizeVariants?.find(v => v.id === selectedSizeVariant)?.label || 'Standard'}</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="px-5 pb-4">
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Zero Microplastics</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Low MOQ</span></div>
+                        <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Eco-responsible bio-adhesives</span></div>
+                        <div className="flex flex-col gap-1">
+                          <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print & pages</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-emerald-100/50 px-5 py-3 border-t border-emerald-200">
+                      <p className="text-xs text-emerald-700"><span className="font-medium">Ideal for:</span> Cosmetics jars, pharmaceutical bottles, premium coffee bags, glass container sealing, gourmet foods, luxury gift boxes</p>
+                      {ecoStockProduct.customPrintNote && (
+                        <p className="text-xs text-emerald-600 mt-1">
+                          <span className="font-medium">💡</span>{' '}
+                          {ecoStockProduct.customPrintProductId ? (
+                            <Link to={`/store/product/${ecoStockProduct.customPrintProductId}`} className="hover:underline">
+                              {ecoStockProduct.customPrintNote}
+                            </Link>
+                          ) : (
+                            ecoStockProduct.customPrintNote
+                          )}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 ) : (
                   <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl overflow-hidden">
                     <div className="px-5 pt-5 pb-3">
@@ -2252,7 +2311,7 @@ const ProductPage: React.FC = () => {
                           <div className="flex items-center gap-1.5 text-xs text-emerald-700"><Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /><span>Custom print available</span></div>
                           {ecoStockProduct.customPrintQuantities && (
                             <Link to="/support/color-accuracy-digital-printing" className="text-[10px] text-emerald-600 hover:text-emerald-800 flex items-center gap-1 ml-5">
-                              <Info className="w-3 h-3" /> Color Accuracy Guide
+                              <Info className="w-3.5 h-3.5" /> Color Accuracy Guide
                             </Link>
                           )}
                         </div>
@@ -2873,11 +2932,22 @@ const ProductPage: React.FC = () => {
               {/* Eco Info Box - Only show for eco-stock, not for boxes or conventional stock */}
               {!isBoxes && product?.category === 'eco-stock' && (
                 <div className="bg-green-50 border border-green-200 rounded-xl p-4">
-                  <h4 className="font-semibold text-green-800 mb-2">♻️ About Compostable Packaging</h4>
-                  <p className="text-sm text-green-700">
-                    Our compostable pouches are made from plant-based materials that break down in industrial composting facilities. 
-                    Certified for industrial composting, these pouches provide a sustainable alternative without compromising on product protection.
-                  </p>
+                  {isLabelProduct ? (
+                    <>
+                      <h4 className="font-semibold text-green-800 mb-2">♻️ Zero Microplastics & Eco-Responsible Bio-Adhesives</h4>
+                      <p className="text-sm text-green-700">
+                        Our eco-friendly labels and stickers are engineered with FSC-certified face stock and water-based bio-adhesives that decompose cleanly without leaving harmful plastic microplastics. Designed to meet strict B2B sustainability standards while offering excellent, permanent adhesion on glass jars, pouches, and luxury carton boxes.
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <h4 className="font-semibold text-green-800 mb-2">♻️ About Compostable Packaging</h4>
+                      <p className="text-sm text-green-700">
+                        Our compostable pouches are made from plant-based materials that break down in industrial composting facilities. 
+                        Certified for industrial composting, these pouches provide a sustainable alternative without compromising on product protection.
+                      </p>
+                    </>
+                  )}
                 </div>
               )}
             </div>

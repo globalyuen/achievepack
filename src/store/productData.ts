@@ -5800,15 +5800,14 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     productType: 'custom',
     subCategory: 'eco-digital',
     inquiryOnly: true,
-    description: 'High-performance, multi-layered peelable fold-out adhesive stickers and labels. Engineered with premium double-sided printing and custom fold-out pages to deliver extensive product manuals, multi-lingual ingredient lists, regulatory instructions, or hidden promotional codes directly on your container. Perfect for B2C cosmetics jars, specialty pharmaceutical bottles, organic food packaging, and compact luxury goods. Features a secure, residue-free peel-and-reseal action with excellent adhesion and organic aesthetics.',
+    description: 'Elevate your compact product packaging with Achieve Pack\'s Custom Multi-Layer Peelable Booklet Labels. Specially designed for B2C cosmetics jars, pharmaceutical dropper bottles, gourmet jar seals, and luxury boxes. This innovative multi-page label lets you host extensive regulatory specifications, directions, and branding in a single space-saving fold-out design. Experience permanent, microplastic-free adhesion with dynamic, residue-free peel-and-reseal convenience.',
     shortDesc: 'Premium custom multi-layer peel-and-reseal fold-out labels with high-resolution double-sided printing',
     features: [
-      'Multi-Layer Fold-Out Booklet Design (Up to 5 Pages)',
-      'High-Resolution Double-Sided Color Printing',
-      'Secure Peel-and-Reseal Adhesive Action (No Residue)',
-      'Water-Resistant, Oil-Resistant, and Smudge-Proof Finish',
-      'Perfect for Multi-lingual Ingredients, Directions, and Regulatory Specs',
-      'Zero Microplastic & Eco-Responsible Bio-Adhesives'
+      '[SPACE-SAVING MULTI-PAGE BOOKLET] Up to 5 custom fold-out pages (9 printable sides) to pack extensive regulatory warnings, multilingual ingredients, directions, or promotional story-telling directly onto compact containers without cluttering your product.',
+      '[PREMIUM DOUBLE-SIDED HD PRINT] Vivid, high-definition CMYK color printing on both face and base adhesive layers, ensuring clean, smudge-resistant legibility and flawless brand aesthetic alignment across all inner sheets.',
+      '[CLEAN RESIDUE-FREE RE-SEALING] High-performance dry-edge peel-and-reseal action allows consumers to open, flip through, and snap-reseal the booklet hundreds of times with zero lifting corners, wrinkles, or sticky adhesive residue.',
+      '[ZERO MICROPLASTIC BIO-ADHESIVE] Engineered with FSC-certified biodegradable face stock and organic water-based bio-adhesives that decompose cleanly under standard environmental conditions, satisfying the green demands of modern B2C buyers.',
+      '[COMPLETELY BESPOKE SPECIFICATIONS] Unlimited dieline customizations (circles, custom contours, rectangles) with millimeter-level precision. Waived tooling and setup fees with ultra-low MOQ starting at only 1,000 pcs.'
     ],
     images: [
       '/imgs/store/products/custom-multilayer-sticker-label-thumbnail-1.png',
