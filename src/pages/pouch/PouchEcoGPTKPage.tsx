@@ -35,6 +35,74 @@ export default function PouchEcoGPTKPage() {
   const [selectedSize, setSelectedSize] = useState<BagSize>(BAG_SIZES[0])
   const [whatsappCopied, setWhatsappCopied] = useState<boolean>(false)
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
+  const [expandedOption, setExpandedOption] = useState<string | null>(null)
+
+  const getOptionParams = (optionId: string) => {
+    switch (optionId) {
+      case 'stock-cards':
+        return [
+          { label: 'Material', value: 'Conventional ❌', isPositive: false },
+          { label: 'Zipper', value: 'Regular Zipper ✅', isPositive: true },
+          { label: 'Print', value: 'No Print ❌', isPositive: false },
+          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
+          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
+          { label: 'Barrier', value: 'High Barrier ✅', isPositive: true },
+          { label: 'Window', value: 'No Window ❌', isPositive: false }
+        ];
+      case 'stock-tag':
+        return [
+          { label: 'Material', value: 'Conventional ❌', isPositive: false },
+          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
+          { label: 'Print', value: 'No Print ❌', isPositive: false },
+          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
+          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
+          { label: 'Barrier', value: 'High Barrier ✅', isPositive: true },
+          { label: 'Window', value: 'No Window ❌', isPositive: false }
+        ];
+      case 'conventional-stock':
+        return [
+          { label: 'Material', value: 'Conventional ❌', isPositive: false },
+          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
+          { label: 'Print', value: 'No Print ❌', isPositive: false },
+          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
+          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
+          { label: 'Barrier', value: 'High/Med Barrier ✅', isPositive: true },
+          { label: 'Window', value: 'Optional Window ✅', isPositive: true }
+        ];
+      case 'recyclable-doypack':
+        return [
+          { label: 'Material', value: 'Eco-Friendly ✅', isPositive: true },
+          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
+          { label: 'Print', value: 'Digital Print ✅', isPositive: true },
+          { label: 'Shape', value: 'Oval Bottom 🎯', isPositive: true },
+          { label: 'Side Gusset', value: 'No Side Gusset ❌', isPositive: false },
+          { label: 'Barrier', value: 'High Barrier ✅', isPositive: true },
+          { label: 'Window', value: 'Optional Window ✅', isPositive: true }
+        ];
+      case 'recyclable':
+        return [
+          { label: 'Material', value: 'Eco-Friendly ✅', isPositive: true },
+          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
+          { label: 'Print', value: 'Digital Print ✅', isPositive: true },
+          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
+          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
+          { label: 'Barrier', value: 'Medium Barrier ❌', isPositive: false },
+          { label: 'Window', value: 'Optional Window ✅', isPositive: true }
+        ];
+      case 'compostable':
+        return [
+          { label: 'Material', value: 'Eco-Friendly ✅', isPositive: true },
+          { label: 'Zipper', value: 'One-Sided Zipper ✅', isPositive: true },
+          { label: 'Print', value: 'Digital Print ✅', isPositive: true },
+          { label: 'Shape', value: 'Flat Bottom ✅', isPositive: true },
+          { label: 'Side Gusset', value: 'Side Gusset ✅', isPositive: true },
+          { label: 'Barrier', value: 'High Barrier ✅', isPositive: true },
+          { label: 'Window', value: 'Optional Window ✅', isPositive: true }
+        ];
+      default:
+        return [];
+    }
+  };
 
   // Pricing interpolation engine matching user's spreadsheet criteria perfectly
   const calculateOptionPrice = (optionId: string) => {
@@ -417,18 +485,53 @@ export default function PouchEcoGPTKPage() {
                       </div>
 
                       <div>
-                        <h4 className="font-black text-sm uppercase leading-tight mt-1">{data.badge}</h4>
+                        <div className="flex items-center justify-between gap-1 mt-1">
+                          <h4 className="font-black text-xs uppercase leading-tight truncate flex-1">{data.badge}</h4>
+                          <button
+                            type="button"
+                            onClick={() => setExpandedOption(expandedOption === optionId ? null : optionId)}
+                            className="text-neutral-400 hover:text-black transition-colors focus:outline-none flex-shrink-0 cursor-pointer"
+                            title="Click for full specs"
+                          >
+                            <Info className="w-4 h-4" />
+                          </button>
+                        </div>
                         <p className="text-[11px] text-neutral-500 font-semibold leading-tight mt-1 line-clamp-3">{data.desc}</p>
                         
-                        {/* Selling Points */}
-                        <ul className="space-y-1.5 pt-2 text-[10px] font-semibold text-neutral-700">
-                          {data.points?.map((pt, i) => (
-                            <li key={i} className="flex items-start gap-1">
-                              <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" strokeWidth={3.5} />
-                              <span>{pt}</span>
-                            </li>
+                        {/* Subscription Plan Parameters Comparison */}
+                        <div className="border-t border-dashed border-neutral-300 pt-2.5 mt-2 space-y-1 text-[10px] font-semibold text-neutral-700">
+                          {getOptionParams(optionId).map((param, index) => (
+                            <div key={index} className="flex justify-between items-center py-0.5 border-b border-neutral-100 last:border-none">
+                              <span className="text-neutral-400 font-bold">{param.label}:</span>
+                              <span className={`text-[9px] px-1.5 py-0.2 rounded font-black ${param.isPositive ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-700'}`}>
+                                {param.value}
+                              </span>
+                            </div>
                           ))}
-                        </ul>
+                        </div>
+
+                        {/* Slide-out Expanded Details Panel */}
+                        <AnimatePresence>
+                          {expandedOption === optionId && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden mt-3 bg-neutral-50 border-2 border-black p-3 rounded-lg text-[10px] space-y-2 text-neutral-800"
+                            >
+                              <p className="font-bold leading-normal">{data.desc}</p>
+                              <div className="h-px bg-neutral-200 my-1" />
+                              <ul className="space-y-1 font-semibold">
+                                {data.points?.map((pt, i) => (
+                                  <li key={i} className="flex items-start gap-1">
+                                    <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" strokeWidth={3.5} />
+                                    <span>{pt}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
 
                         {(optionId === 'recyclable' || optionId === 'compostable') && (
                           <div className="mt-2 text-[9px] text-emerald-600 bg-emerald-50/50 p-1 border border-dashed border-emerald-350 rounded font-semibold leading-normal">
@@ -629,18 +732,53 @@ export default function PouchEcoGPTKPage() {
                         </div>
 
                         <div>
-                          <span className="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-full">{data.badge}</span>
+                          <div className="flex items-center justify-between gap-1.5">
+                            <span className="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-full truncate flex-1">{data.badge}</span>
+                            <button
+                              type="button"
+                              onClick={() => setExpandedOption(expandedOption === optionId ? null : optionId)}
+                              className="text-neutral-400 hover:text-emerald-400 transition-colors focus:outline-none flex-shrink-0 cursor-pointer"
+                              title="Click for full specs"
+                            >
+                              <Info className="w-4 h-4" />
+                            </button>
+                          </div>
                           <p className="text-xs text-neutral-400 leading-relaxed mt-2 line-clamp-3">{data.desc}</p>
                           
-                          {/* Selling Points */}
-                          <ul className="space-y-1.5 pt-2 text-[10px] font-mono text-neutral-300">
-                            {data.points?.map((pt, i) => (
-                              <li key={i} className="flex items-start gap-1.5">
-                                <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0 mt-0.5" strokeWidth={3} />
-                                <span>{pt}</span>
-                              </li>
+                          {/* Subscription Plan Parameters Comparison (Dark Mode) */}
+                          <div className="border-t border-neutral-800 pt-2.5 mt-2 space-y-1 text-[10px] font-mono text-neutral-300">
+                            {getOptionParams(optionId).map((param, index) => (
+                              <div key={index} className="flex justify-between items-center py-0.5 border-b border-neutral-900 last:border-none">
+                                <span className="text-neutral-500 font-bold">{param.label}:</span>
+                                <span className={`text-[9px] px-1.5 py-0.2 rounded font-black ${param.isPositive ? 'bg-emerald-950 text-emerald-400 border border-emerald-800/35' : 'bg-red-950 text-red-400 border border-red-800/35'}`}>
+                                  {param.value}
+                                </span>
+                              </div>
                             ))}
-                          </ul>
+                          </div>
+
+                          {/* Slide-out Expanded Details Panel (Dark Mode) */}
+                          <AnimatePresence>
+                            {expandedOption === optionId && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden mt-3 bg-neutral-900 border border-neutral-850 p-3 rounded-2xl text-[10px] space-y-2 text-neutral-300"
+                              >
+                                <p className="font-semibold leading-relaxed">{data.desc}</p>
+                                <div className="h-px bg-neutral-800 my-1" />
+                                <ul className="space-y-1 font-mono">
+                                  {data.points?.map((pt, i) => (
+                                    <li key={i} className="flex items-start gap-1.5">
+                                      <Check className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" strokeWidth={3} />
+                                      <span>{pt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
 
                           {(optionId === 'recyclable' || optionId === 'compostable') && (
                             <div className="mt-2 text-[9px] text-emerald-400 bg-emerald-950/20 p-1.5 border border-dashed border-emerald-500/20 rounded font-mono leading-normal">
