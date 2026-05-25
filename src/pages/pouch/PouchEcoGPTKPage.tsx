@@ -119,6 +119,12 @@ export default function PouchEcoGPTKPage() {
         '200 × 300 + 80 mm': { 500: 2.70, 1000: 1.90 },
         '260 × 340 + 80 mm': { 500: 2.90, 1000: 2.10 },
       },
+      'recyclable-doypack': {
+        '160 × 260 + 80 mm': { 500: 1.25, 1000: 0.85 },
+        '180 × 280 + 80 mm': { 500: 1.30, 1000: 0.90 },
+        '200 × 300 + 80 mm': { 500: 1.35, 1000: 0.95 },
+        '260 × 340 + 80 mm': { 500: 1.45, 1000: 1.05 },
+      },
       'compostable': {
         '160 × 260 + 80 mm': { 500: 2.70, 1000: 1.90 },
         '180 × 280 + 80 mm': { 500: 2.80, 1000: 2.00 },
@@ -164,6 +170,26 @@ export default function PouchEcoGPTKPage() {
           'Code 4 SPI Recyclable & Highly Durable'
         ]
       }
+    } else if (optionId === 'recyclable-doypack') {
+      return {
+        unitPrice,
+        totalCost,
+        isBelowMoq,
+        moq: 500,
+        badge: 'Custom Stand-Up Pouch (Recyclable)',
+        desc: 'Transition to Doypack style with oval bottom gusset. Saves 50% cost while retaining premium barrier, resealable zipper, degassing valve, and edge-to-edge custom print.',
+        accentColor: '#3B82F6',
+        certLogo: '♻️ Doypack 50% Saver',
+        leadTime: '20 - 25 Days',
+        image: '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
+        points: [
+          'Saves 50% Cost Compared to Flat Bottom',
+          'Same Sizing Volume & High-Barrier EVOH',
+          'Oval Bottom Gusset Stand-Up Doypack',
+          'Airtight Resealable Zipper & Degassing Valve',
+          '500pcs MOQ / SKU (HP Indigo Digital)'
+        ]
+      }
     } else {
       return {
         unitPrice,
@@ -192,6 +218,7 @@ export default function PouchEcoGPTKPage() {
     const cardPrice = calculateOptionPrice('stock-cards')
     const tagPrice = calculateOptionPrice('stock-tag')
     const conventionalPrice = calculateOptionPrice('conventional-stock')
+    const doypackPrice = calculateOptionPrice('recyclable-doypack')
     const recPrice = calculateOptionPrice('recyclable')
     const compPrice = calculateOptionPrice('compostable')
 
@@ -210,9 +237,11 @@ export default function PouchEcoGPTKPage() {
    - 單價 (Unit): $${tagPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${tagPrice.totalCost.toFixed(2)} USD ${tagPrice.isBelowMoq ? '(Below MOQ)' : ''}
 3️⃣ 貼紙標籤方案 (Stock Unprinted Pouch + Sticker):
    - 單價 (Unit): $${conventionalPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${conventionalPrice.totalCost.toFixed(2)} USD ${conventionalPrice.isBelowMoq ? '(Below MOQ)' : ''}
-4️⃣ ♻️ 4號標誌單一可回收方案 (Professional Recyclable Custom Print):
+4️⃣ ⚡ 50%省錢自立袋方案 (Custom Stand-Up Pouch Recyclable):
+   - 單價 (Unit): $${doypackPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${doypackPrice.totalCost.toFixed(2)} USD ${doypackPrice.isBelowMoq ? '(Below MOQ)' : ''}
+5️⃣ ♻️ 4號標誌單一可回收方底袋方案 (Professional Recyclable Custom Print):
    - 單價 (Unit): $${recPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${recPrice.totalCost.toFixed(2)} USD ${recPrice.isBelowMoq ? '(Below MOQ)' : ''}
-5️⃣ 🌱 BPI認證家用可堆肥方案 (Professional Compostable Custom Print):
+6️⃣ 🌱 BPI認證家用可堆肥方底袋方案 (Professional Compostable Custom Print):
    - 單價 (Unit): $${compPrice.unitPrice.toFixed(2)} USD | 總額 (Total): $${compPrice.totalCost.toFixed(2)} USD ${compPrice.isBelowMoq ? '(Below MOQ)' : ''}
 
 --------------------------------------------------
@@ -360,9 +389,9 @@ export default function PouchEcoGPTKPage() {
               </div>
             </div>
 
-            {/* Bottom 5-Column Options Grid with actual Storefront Images */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {['stock-cards', 'stock-tag', 'conventional-stock', 'recyclable', 'compostable'].map(optionId => {
+            {/* Bottom 6-Column Options Grid with actual Storefront Images */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+              {['stock-cards', 'stock-tag', 'conventional-stock', 'recyclable-doypack', 'recyclable', 'compostable'].map(optionId => {
                 const data = calculateOptionPrice(optionId)
                 const isSafe = data.totalCost <= totalBudget
 
@@ -565,9 +594,9 @@ export default function PouchEcoGPTKPage() {
                 </div>
               </div>
 
-              {/* Bottom 5-Column Options Grid with actual Storefront Images */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-                {['stock-cards', 'stock-tag', 'conventional-stock', 'recyclable', 'compostable'].map(optionId => {
+              {/* Bottom 6-Column Options Grid with actual Storefront Images */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+                {['stock-cards', 'stock-tag', 'conventional-stock', 'recyclable-doypack', 'recyclable', 'compostable'].map(optionId => {
                   const data = calculateOptionPrice(optionId)
                   const isSafe = data.totalCost <= totalBudget
                   const budgetDiff = Math.abs(data.totalCost - totalBudget)
