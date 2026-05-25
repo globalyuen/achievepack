@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Flame, Shield, Package, Layers, Thermometer, Droplets, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Zap, Award, Users, Globe, FileCheck, Building2, Sparkles, Printer, Tag, Recycle } from 'lucide-react'
+import { Flame, Shield, Package, Layers, Thermometer, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Zap, Award, Users, Globe, FileCheck, Building2, Sparkles, Printer, Tag, Recycle, Copy, Check, Info, FileText } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { isPouch, getBrandConfig } from '../../utils/domain'
 
 // Gallery images from /imgs/function/retort/
 const retortGallery = [
@@ -25,12 +26,134 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   
+  // Interactive Email Generator states
+  const [customerName, setCustomerName] = useState('Sarah')
+  const [productName, setProductName] = useState('Artisanal Kimchi')
+  const [targetWeight, setTargetWeight] = useState('350g')
+  const [senderName, setSenderName] = useState('Ryan')
+  const [senderTitle, setSenderTitle] = useState('Senior Packaging Advisor')
+  const [copied, setCopied] = useState(false)
+  const [copySuccessAlert, setCopySuccessAlert] = useState(false)
+
+  const isPouchDomain = isPouch()
+  const brand = getBrandConfig()
+
+  // Theme colors
+  const primaryThemeColor = isPouchDomain ? '#10b981' : '#8b5cf6' // Green for pouch.eco, Purple for achievepack
+  const primaryBtnClass = isPouchDomain 
+    ? 'bg-emerald-600 hover:bg-emerald-700 text-white focus:ring-emerald-500' 
+    : 'bg-violet-600 hover:bg-violet-700 text-white focus:ring-violet-500'
+
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
     if (newIndex < 0) newIndex = retortGallery.length - 1
     if (newIndex >= retortGallery.length) newIndex = 0
     setGalleryEnlarged({ src: retortGallery[newIndex].src, index: newIndex })
+  }
+
+  // Copy B2B proposal email logic
+  const handleCopyProposal = () => {
+    const emailBody = `Subject: VitoPouch Retort Pouch Solution & Sample Offer
+
+Hi ${customerName || '[Customer Name]'},
+
+Thank you for the great discussion today. As promised, here is a summary of the VitoPouch solution and the sample/testing and pricing details for your team to review.
+
+### Why you don’t need a valve
+
+Our proposal is to switch from glass jars with a valve pouch concept to a high‑barrier, heat‑resistant retort pouch (what we call “VitoPouch”). This is basically a “soft can”: a flexible laminated pouch designed to be cooked and sterilized at around 121–130 °C, similar to how canned foods, shelf‑stable tuna, chestnuts, and ready‑to‑eat rice are processed.
+
+Because the pouch and seals are engineered for these conditions, it can safely handle internal pressure during cooking and the gas produced by fermentation, as long as the product and process are correctly designed. That means you can avoid using a gas/liquid valve in most cases, which simplifies the packaging and reduces cost.
+
+By contrast, valves are technically more complex, often patented, and can easily cost in the range of 0.20 USD or more per piece in many applications, sometimes more than the pouch itself. If you add an expensive valve on top of the pouch, you quickly get to a cost where you might as well stay with glass.
+
+### Glass vs. retort pouch
+
+Glass jars are reusable and can be eco‑friendly if the consumer reuses them many times, but they are heavy and fragile, which increases shipping cost and carbon footprint per unit. Decoration is usually limited to labels, which are standard and visually “safe” but do not create a strong on‑shelf selling point.
+
+The retort pouch solves several of these issues:
+- Lightweight and unbreakable, so shipping cost and damage rates are lower.  
+- Same “soft can” functionality as canned food – you can cook in the pouch and have a long, shelf‑stable product.
+- Fully printable surface: you can do full‑coverage digital printing with unlimited colors, metallic effects, and strong branding, instead of just a small label.  
+
+### Product proposal: VitoPouch (example size)
+
+For your ${productName || 'kimchi'} application, our initial suggestion is a zipper stand‑up retort pouch around:
+- 13 × 22 cm  
+- Stand‑up pouch with zipper  
+- High‑barrier foil structure, suitable for retort/“cook in bag” processing  
+
+We can adjust the dimensions after you confirm your typical fill weight (${targetWeight || '350g'}) and product density.
+
+### Samples and shipping
+
+- Sample pouches: Free (we can send around 10 pieces or more for testing).  
+- Shipping to Europe:
+  - Approx. 10–20 days transit: about 40 USD.
+  - Approx. 1 month transit: about 20 USD.
+- Local import tax/VAT: usually charged by your customs or courier, approximately around 10 USD for a small sample shipment (subject to your local rules).  
+
+All sample pouches will be supplied unprinted but with the correct material structure and pre‑sealed sides, so you can fill them and use your heat sealer to close the top and perform your own tests.
+
+If you are happy, you can confirm which shipping option you prefer (20‑day vs. 1‑month), and we will arrange the sample shipment.
+
+### Printing and design flexibility
+
+VitoPouch supports high‑quality digital printing:
+- Unlimited colors, photo‑quality printing.  
+- Fully printed front, back, and gusset – no need to rely on separate labels.  
+- Foil‑based barrier for excellent oxygen and moisture protection, plus premium metallic look if desired.
+
+The only real limitation is your artwork and imagination. We can also help by sharing dielines so your designer can place the graphics correctly.
+
+### MOQ and pricing ranges
+
+For custom printed pouches:
+- Trial MOQ: about 100–120 pieces (good for internal tests and soft launch).
+- Economical range: 3,000–5,000 pieces per design gives you the best unit price.  
+
+As a reference, for one design in the 13 × 22 cm zipper stand‑up format, at a quantity around 3,000–5,000 units, you are roughly in the ballpark of about 0.34 USD per bag including air shipping (exact cost depends on final size, thickness, print coverage, and shipping method).
+
+Once you confirm the exact size(s) you need, I can send you a detailed quotation with:
+- Unit price by quantity break (e.g., 500 / 1,000 / 3,000 / 5,000 pcs).  
+- Clear indication of what is included (printing, material, zipper, shipping terms).  
+
+### Next steps
+
+If this concept fits what you were looking for, please:
+1. Confirm the approximate pouch size (your proposed 13 × 22 cm zipper stand‑up pouch is a good starting point; feel free to add any other size you need).  
+2. Let me know which sample shipping option you prefer (around 20‑day or around 1‑month).  
+3. Share your estimated yearly volume, so we can optimize the pricing for you.  
+
+As soon as I receive your confirmation, I will:
+- Send you a detailed quotation with price ranges for different quantities.  
+- Issue a proforma invoice for the sample shipping cost only.  
+- Prepare and ship the free sample pouches so that you can receive them in around 20 days (if you select that option) and start testing.
+
+Thank you again, and I look forward to your feedback tomorrow.
+
+Best regards,  
+
+${senderName || '[Your Name]'}  
+${senderTitle || '[Your Title]'}  
+${brand.name}  
+${brand.email} | ${brand.phone}`
+
+    navigator.clipboard.writeText(emailBody)
+      .then(() => {
+        setCopied(true)
+        setCopySuccessAlert(true)
+        setTimeout(() => {
+          setCopied(false)
+        }, 2000)
+        setTimeout(() => {
+          setCopySuccessAlert(false)
+        }, 4000)
+      })
+      .catch((err) => {
+        console.error('Failed to copy text: ', err)
+      })
   }
 
   // Alternating layout component
@@ -65,7 +188,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
-            <p className="text-sm text-primary-600 font-medium">{titleCn}</p>
+            <p className="text-sm font-medium" style={{ color: primaryThemeColor }}>{titleCn}</p>
             <p className="text-neutral-700">{content}</p>
             <p className="text-neutral-600 text-sm">{contentCn}</p>
           </div>
@@ -74,7 +197,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
         <>
           <div className="space-y-4 md:order-1">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
-            <p className="text-sm text-primary-600 font-medium">{titleCn}</p>
+            <p className="text-sm font-medium" style={{ color: primaryThemeColor }}>{titleCn}</p>
             <p className="text-neutral-700">{content}</p>
             <p className="text-neutral-600 text-sm">{contentCn}</p>
           </div>
@@ -94,15 +217,15 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'intro',
       title: 'High-Barrier Retort Pouches Overview',
-      icon: <Flame className="h-5 w-5 text-primary-600" />,
+      icon: <Flame className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
+          <div className="bg-gradient-to-r from-neutral-50 to-neutral-100 p-6 rounded-xl border border-neutral-200 shadow-sm">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>Shelf-stable ready meals without cans or jars</strong> — Digital printed retort pouches designed for high-temperature sterilization, offering long shelf life at ambient temperature with 100 pcs low MOQ.
+              <strong>{isPouchDomain ? 'Start Your Gourmet Brand with Just 100 Bags' : 'Shelf-Stable Ready Meals Without Heavy Cans or Jars'}</strong> — Digital printed retort pouches designed for high-temperature sterilization, offering long shelf life at ambient temperature.
             </p>
-            <p className="text-neutral-700">
-              NoRequireTin CanGlass，AlsoCanAchieveRoom TemperatureProtectQualityReady-to-EatMeal — DigitalPrintingSteamingBag，SuitableWithHighTemperatureKillBacteria，100 PackUltraLowMinimum Order
+            <p className="text-neutral-600 text-sm leading-relaxed">
+              No require heavy cans or glass, also can achieve room temperature preservation of ready-to-eat meals. Digital printing retort pouches withstand high-temperature sterilization with ultra-low trial runs.
             </p>
           </div>
           
@@ -111,7 +234,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             imageAlt="High-Barrier Retort Pouches Hero"
             title="High-Barrier Retort Pouches"
             titleCn="HighBarrierSteamingBag"
-            content="Using food-grade multi-layer film structures (PET/AL/NY/CPP), our retort pouches withstand 116–135°C sterilization. Ideal for curries, ready meals, baby food, pet food and more. Digital printing available from just 100 pieces."
+            content="Using food-grade multi-layer film structures (PET/AL/NY/CPP), our retort pouches withstand 116–135°C sterilization. Ideal for curries, ready meals, baby food, pet food and fermented specialties like kimchi. Digital printing available starting from low MOQs."
             contentCn="UseFood GradeMulti-LayerFilmStructure（PET/Aluminum Foil/Nylon/CPP），OurSteamingBagCanWithstand 116–135℃ KillBacteria。SuitableSuitableCurry、Ready-to-EatMeal、BabyFood、PetFoodEtc，DigitalPrintingOnlyRequire 100 PackMinimum Order。"
             imageLeft={true}
             index={0}
@@ -120,9 +243,251 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
       )
     },
     {
+      id: 'showdown',
+      title: 'The Fermented Food Showdown: VitoPouch vs. Glass vs. Valve',
+      icon: <Layers className="h-5 w-5" style={{ color: primaryThemeColor }} />,
+      content: (
+        <div className="space-y-8">
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <h3 className="text-lg font-bold text-neutral-900 mb-3 flex items-center gap-2">
+              <Info className="h-5 w-5" style={{ color: primaryThemeColor }} />
+              The Science of Sterilization & Degassing
+            </h3>
+            <p className="text-neutral-700 text-sm leading-relaxed mb-4">
+              Fermented foods (like artisan kimchi, sauerkraut, or hot sauces) are traditionally packed in glass jars or pouches equipped with one-way degassing valves to prevent "pouch bloating" caused by active yeast and lactic acid bacteria. However, this adds high costs and operational headaches.
+            </p>
+            <div className="bg-white p-4 rounded-lg border border-neutral-200/80 shadow-sm text-sm">
+              <h4 className="font-bold text-neutral-800 mb-1">💡 The VitoPouch Retort Solution:</h4>
+              <p className="text-neutral-600">
+                When you pack in our VitoPouch retort pouches and run them through a commercial sterilization autoclave (121°C–130°C for 30 minutes), **all active gas-producing organisms are completely pasteurized**. Since no further fermentation occurs inside the sealed bag, **no outgassing happens, rendering degassing valves 100% redundant.**
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Glass Jar */}
+            <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <span className="text-xs font-bold bg-neutral-100 text-neutral-600 px-2.5 py-1 rounded-full">Traditional Option</span>
+                <h4 className="font-bold text-lg text-neutral-900 mt-3 mb-2">Glass Jars</h4>
+                <p className="text-xs text-neutral-500 mb-4">Reusable but logistically heavy and environmentally taxing.</p>
+                <ul className="space-y-2.5 text-xs text-neutral-600 border-t border-neutral-100 pt-4">
+                  <li className="flex items-center gap-2 text-red-600">❌ Heavy weight (approx. 2,500 kg per 5k units)</li>
+                  <li className="flex items-center gap-2 text-red-600">❌ High breakage rate during shipping</li>
+                  <li className="flex items-center gap-2 text-red-600">❌ Stick-on label branding only (limited visual impact)</li>
+                  <li className="flex items-center gap-2 text-emerald-600">✓ Reusable by end consumers</li>
+                </ul>
+              </div>
+              <div className="mt-6 border-t border-neutral-100 pt-4 flex justify-between items-center text-xs">
+                <span className="text-neutral-500">Unit Cost Ballpark:</span>
+                <span className="font-bold text-neutral-900">$0.45 – $0.90+</span>
+              </div>
+            </div>
+
+            {/* Valve Pouches */}
+            <div className="bg-white rounded-xl border border-neutral-200 p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <span className="text-xs font-bold bg-amber-50 text-amber-700 px-2.5 py-1 rounded-full">Complex Pouch</span>
+                <h4 className="font-bold text-lg text-neutral-900 mt-3 mb-2">Degassing Valve Pouches</h4>
+                <p className="text-xs text-neutral-500 mb-4">Uses a one-way plastic valve to vent fermentation gas.</p>
+                <ul className="space-y-2.5 text-xs text-neutral-600 border-t border-neutral-100 pt-4">
+                  <li className="flex items-center gap-2 text-red-600">❌ Bulky, expensive plastic backflow valves</li>
+                  <li className="flex items-center gap-2 text-red-600">❌ Valve can warp/leak under retort sterilization</li>
+                  <li className="flex items-center gap-2 text-red-600">❌ High mechanical assembly failure rates</li>
+                  <li className="flex items-center gap-2 text-emerald-600">✓ Keeps raw/non-sterilized ferment active</li>
+                </ul>
+              </div>
+              <div className="mt-6 border-t border-neutral-100 pt-4 flex justify-between items-center text-xs">
+                <span className="text-neutral-500">Unit Cost Ballpark:</span>
+                <span className="font-bold text-neutral-900">$0.55 – $0.80+</span>
+              </div>
+            </div>
+
+            {/* VitoPouch */}
+            <div className="rounded-xl p-6 shadow-md flex flex-col justify-between hover:shadow-lg transition-shadow border-2 relative overflow-hidden"
+                 style={{ borderColor: primaryThemeColor, backgroundColor: isPouchDomain ? 'rgba(16, 185, 129, 0.03)' : 'rgba(139, 92, 246, 0.03)' }}>
+              <div className="absolute top-0 right-0 bg-primary-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider"
+                   style={{ backgroundColor: primaryThemeColor }}>
+                Highly Recommended
+              </div>
+              <div>
+                <span className="text-xs font-bold text-white px-2.5 py-1 rounded-full" style={{ backgroundColor: primaryThemeColor }}>VitoPouch "Soft Can"</span>
+                <h4 className="font-bold text-lg text-neutral-900 mt-3 mb-2">Retort VitoPouch</h4>
+                <p className="text-xs text-neutral-500 mb-4">Unbreakable heat-resistant laminated structure without valve.</p>
+                <ul className="space-y-2.5 text-xs text-neutral-600 border-t border-neutral-100 pt-4">
+                  <li className="flex items-center gap-2 text-emerald-600">✓ **Zero Valve Cost** (saves over $0.20 per piece)</li>
+                  <li className="flex items-center gap-2 text-emerald-600">✓ 100% shelf-stable without refrigeration</li>
+                  <li className="flex items-center gap-2 text-emerald-600">✓ Flat featherweight (50 kg per 5,000 bags)</li>
+                  <li className="flex items-center gap-2 text-emerald-600">✓ Stunning full-bleed edge-to-edge digital print</li>
+                </ul>
+              </div>
+              <div className="mt-6 border-t border-neutral-100 pt-4 flex justify-between items-center text-xs">
+                <span className="text-neutral-500">Unit Cost Ballpark:</span>
+                <span className="font-bold text-neutral-900" style={{ color: primaryThemeColor }}>~$0.34 (inc. Air Shipping!)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'proposal-generator',
+      title: 'Interactive Sales Proposal & Quotation Generator',
+      icon: <FileText className="h-5 w-5" style={{ color: primaryThemeColor }} />,
+      content: (
+        <div className="space-y-8">
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+            <p className="text-sm text-neutral-700 leading-relaxed">
+              Sales reps and founders: customize this template for your client, preview it in real-time, and copy it directly to your email composer or sales CRM. It includes our **13 × 22 cm zipper retort pouch** pricing standard.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            {/* Input Controls */}
+            <div className="lg:col-span-5 bg-white p-6 rounded-xl border border-neutral-200 shadow-sm space-y-4">
+              <h3 className="text-base font-bold text-neutral-900 border-b border-neutral-100 pb-2 mb-2">Proposal Inputs</h3>
+              <div>
+                <label className="block text-xs font-semibold text-neutral-600 mb-1">Customer / Lead Name</label>
+                <input 
+                  type="text" 
+                  value={customerName} 
+                  onChange={(e) => setCustomerName(e.target.value)} 
+                  className="w-full text-sm border border-neutral-200 rounded-lg px-3 py-2 text-neutral-800 focus:outline-none focus:border-neutral-400"
+                  placeholder="e.g. Sarah"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-neutral-600 mb-1">Target Food Product</label>
+                <input 
+                  type="text" 
+                  value={productName} 
+                  onChange={(e) => setProductName(e.target.value)} 
+                  className="w-full text-sm border border-neutral-200 rounded-lg px-3 py-2 text-neutral-800 focus:outline-none focus:border-neutral-400"
+                  placeholder="e.g. Kimchi"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-neutral-600 mb-1">Target Net Weight</label>
+                <input 
+                  type="text" 
+                  value={targetWeight} 
+                  onChange={(e) => setTargetWeight(e.target.value)} 
+                  className="w-full text-sm border border-neutral-200 rounded-lg px-3 py-2 text-neutral-800 focus:outline-none focus:border-neutral-400"
+                  placeholder="e.g. 350g"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-neutral-600 mb-1">Your Name</label>
+                  <input 
+                    type="text" 
+                    value={senderName} 
+                    onChange={(e) => setSenderName(e.target.value)} 
+                    className="w-full text-sm border border-neutral-200 rounded-lg px-3 py-2 text-neutral-800 focus:outline-none focus:border-neutral-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-neutral-600 mb-1">Your Title</label>
+                  <input 
+                    type="text" 
+                    value={senderTitle} 
+                    onChange={(e) => setSenderTitle(e.target.value)} 
+                    className="w-full text-sm border border-neutral-200 rounded-lg px-3 py-2 text-neutral-800 focus:outline-none focus:border-neutral-400"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Email Preview */}
+            <div className="lg:col-span-7 bg-neutral-100 p-1.5 rounded-xl border border-neutral-200 shadow-inner flex flex-col max-h-[500px]">
+              {/* Fake Email Header */}
+              <div className="bg-white rounded-t-lg px-4 py-3 border-b border-neutral-200 text-xs text-neutral-600 space-y-1">
+                <div><span className="font-bold text-neutral-400">To:</span> {customerName || '[Customer Name]'}</div>
+                <div><span className="font-bold text-neutral-400">Subject:</span> VitoPouch Retort Pouch Solution & Sample Offer</div>
+                <div><span className="font-bold text-neutral-400">From:</span> {senderName} &lt;{brand.email}&gt;</div>
+              </div>
+              {/* Fake Email Body */}
+              <div className="bg-white px-6 py-4 overflow-y-auto text-sm text-neutral-700 font-mono leading-relaxed select-text h-[350px]">
+                <p>Hi {customerName || '[Customer Name]'},</p>
+                <br />
+                <p>Thank you for the great discussion today. As promised, here is a summary of the VitoPouch solution and the sample/testing and pricing details for your team to review.</p>
+                <br />
+                <p className="font-bold text-neutral-900 border-b border-neutral-100 pb-1">1. Why you don’t need a valve</p>
+                <p>Our proposal is to switch from glass jars with a valve pouch concept to a high‑barrier, heat‑resistant retort pouch (what we call “VitoPouch”). This is basically a “soft can”: a flexible laminated pouch designed to be cooked and sterilized at around 121–130 °C, similar to how canned foods, shelf‑stable tuna, chestnuts, and ready‑to‑eat rice are processed.</p>
+                <p>Because the pouch and seals are engineered for these conditions, it can safely handle internal pressure during cooking and the gas produced by fermentation, as long as the product and process are correctly designed. That means you can avoid using a gas/liquid valve in most cases, which simplifies the packaging and reduces cost.</p>
+                <p>By contrast, valves are technically more complex, often patented, and can easily cost in the range of 0.20 USD or more per piece in many applications, sometimes more than the pouch itself. If you add an expensive valve on top of the pouch, you quickly get to a cost where you might as well stay with glass.</p>
+                <br />
+                <p className="font-bold text-neutral-900 border-b border-neutral-100 pb-1">2. Glass vs. retort pouch</p>
+                <p>Glass jars are reusable and can be eco‑friendly if the consumer reuses them many times, but they are heavy and fragile, which increases shipping cost and carbon footprint per unit. Decoration is usually limited to labels, which are standard and visually “safe” but do not create a strong on‑shelf selling point.</p>
+                <p>The retort pouch solves several of these issues:</p>
+                <ul>
+                  <li>• Lightweight and unbreakable, so shipping cost and damage rates are lower.</li>
+                  <li>• Same “soft can” functionality as canned food – you can cook in the pouch and have a long, shelf‑stable product.</li>
+                  <li>• Fully printable surface: you can do full‑coverage digital printing with unlimited colors, metallic effects, and strong branding, instead of just a small label.</li>
+                </ul>
+                <br />
+                <p className="font-bold text-neutral-900 border-b border-neutral-100 pb-1">3. Product proposal: VitoPouch (example size)</p>
+                <p>For your {productName || 'kimchi'} application, our initial suggestion is a zipper stand‑up retort pouch around:</p>
+                <ul>
+                  <li>• **13 × 22 cm** stand-up pouch with zipper</li>
+                  <li>• High‑barrier foil structure, suitable for retort/“cook in bag” processing</li>
+                  <li>• Custom dimension fitted for fill weight ({targetWeight || '350g'})</li>
+                </ul>
+                <br />
+                <p className="font-bold text-neutral-900 border-b border-neutral-100 pb-1">4. Samples and shipping</p>
+                <ul>
+                  <li>• Sample pouches: **Free** (we can send around 10 pieces or more for testing).</li>
+                  <li>• Shipping to Europe:
+                    <ul>
+                      <li>- Approx. 10–20 days transit: about **40 USD**.</li>
+                      <li>- Approx. 1 month transit: about **20 USD**.</li>
+                    </ul>
+                  </li>
+                  <li>• Local import tax/VAT: approximately around **10 USD** (courier invoice).</li>
+                </ul>
+                <br />
+                <p className="font-bold text-neutral-900 border-b border-neutral-100 pb-1">5. MOQ and pricing ranges</p>
+                <ul>
+                  <li>• Trial MOQ: about **100–120 pieces** (good for internal tests and soft launch).</li>
+                  <li>• Economical range: **3,000–5,000 pieces** per design gives you the best unit price.</li>
+                  <li>• **Ballpark Price**: for one design in the 13 × 22 cm zipper stand‑up format, at a quantity around 3,000–5,000 units, you are roughly in the ballpark of about **0.34 USD per bag including air shipping**.</li>
+                </ul>
+                <br />
+                <p>Please let me know your preferred shipping method so we can prepare your proforma invoice and sample package.</p>
+                <br />
+                <p>Best regards,</p>
+                <p>{senderName}</p>
+                <p>{senderTitle}</p>
+                <p>{brand.name}</p>
+              </div>
+              {/* Copy CTA */}
+              <div className="bg-white rounded-b-lg p-3 border-t border-neutral-200 flex justify-end">
+                <button
+                  onClick={handleCopyProposal}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold cursor-pointer transition ${primaryBtnClass}`}
+                >
+                  {copied ? (
+                    <>
+                      <Check className="h-4 w-4" />
+                      Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="h-4 w-4" />
+                      Copy Email Proposal
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'what-is-retort',
       title: 'What Is Retort Packaging?',
-      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      icon: <Shield className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -137,20 +502,20 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
           />
           
           <div className="grid md:grid-cols-3 gap-4 mt-6">
-            <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-              <Thermometer className="h-5 w-5 text-amber-600 mb-2" />
-              <h4 className="font-semibold text-amber-800">116–135°C sterilization</h4>
-              <p className="text-sm text-amber-700">CanWithstandHighTemperatureKillBacteria</p>
+            <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+              <Thermometer className="h-5 w-5 mb-2" style={{ color: primaryThemeColor }} />
+              <h4 className="font-semibold text-neutral-800">116–135°C sterilization</h4>
+              <p className="text-xs text-neutral-500">CanWithstandHighTemperatureKillBacteria</p>
             </div>
-            <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-              <Package className="h-5 w-5 text-amber-600 mb-2" />
-              <h4 className="font-semibold text-amber-800">Replace cans & jars</h4>
-              <p className="text-sm text-amber-700">AlternativeTin CanAndGlass</p>
+            <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+              <Package className="h-5 w-5 mb-2" style={{ color: primaryThemeColor }} />
+              <h4 className="font-semibold text-neutral-800">Replace cans & jars</h4>
+              <p className="text-xs text-neutral-500">AlternativeTin CanAndGlass</p>
             </div>
-            <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-              <CheckCircle className="h-5 w-5 text-amber-600 mb-2" />
-              <h4 className="font-semibold text-amber-800">Ambient shelf life</h4>
-              <p className="text-sm text-amber-700">Room TemperatureLong Shelf Life</p>
+            <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
+              <CheckCircle className="h-5 w-5 mb-2" style={{ color: primaryThemeColor }} />
+              <h4 className="font-semibold text-neutral-800">Ambient shelf life</h4>
+              <p className="text-xs text-neutral-500">Room TemperatureLong Shelf Life</p>
             </div>
           </div>
         </div>
@@ -159,7 +524,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'layers',
       title: '4-Layer Retort Structure',
-      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      icon: <Layers className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -173,22 +538,22 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             index={2}
           />
           
-          <div className="grid md:grid-cols-4 gap-3 mt-6">
+          <div className="grid grid-cols-4 gap-3 mt-6">
             <div className="bg-gray-100 p-3 rounded-lg text-center">
-              <div className="font-bold text-gray-800">PET</div>
-              <p className="text-xs text-gray-600">OutsideLayer Print Layer</p>
+              <div className="font-bold text-gray-800 text-sm">PET</div>
+              <p className="text-[10px] text-gray-600">Outer print layer</p>
             </div>
             <div className="bg-gray-200 p-3 rounded-lg text-center">
-              <div className="font-bold text-gray-800">AL</div>
-              <p className="text-xs text-gray-600">Aluminum Foil Barrier</p>
+              <div className="font-bold text-gray-800 text-sm">AL</div>
+              <p className="text-[10px] text-gray-600">Aluminum foil barrier</p>
             </div>
             <div className="bg-gray-300 p-3 rounded-lg text-center">
-              <div className="font-bold text-gray-800">NY/OPA</div>
-              <p className="text-xs text-gray-600">Nylon Puncture</p>
+              <div className="font-bold text-gray-800 text-sm">NY/OPA</div>
+              <p className="text-[10px] text-gray-600">Nylon puncture support</p>
             </div>
-            <div className="bg-amber-100 p-3 rounded-lg text-center">
-              <div className="font-bold text-amber-800">CPP</div>
-              <p className="text-xs text-amber-600">ResistantHighTemperature Seal</p>
+            <div className="bg-neutral-100 p-3 rounded-lg text-center border" style={{ borderColor: primaryThemeColor }}>
+              <div className="font-bold text-sm" style={{ color: primaryThemeColor }}>CPP</div>
+              <p className="text-[10px] text-neutral-600">High-temp sealant</p>
             </div>
           </div>
         </div>
@@ -197,7 +562,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'high-temp',
       title: 'High-Temperature Sterilization',
-      icon: <Thermometer className="h-5 w-5 text-primary-600" />,
+      icon: <Thermometer className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -216,7 +581,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'barrier',
       title: 'Extreme Barrier Protection',
-      icon: <Shield className="h-5 w-5 text-primary-600" />,
+      icon: <Shield className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -229,31 +594,13 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             imageLeft={true}
             index={4}
           />
-          
-          <div className="grid md:grid-cols-3 gap-4 mt-6">
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center">
-              <div className="text-2xl mb-2">🛡️</div>
-              <h4 className="font-semibold text-blue-800">O₂ Barrier</h4>
-              <p className="text-xs text-blue-600">OxygenBarrier</p>
-            </div>
-            <div className="bg-cyan-50 p-4 rounded-lg border border-cyan-200 text-center">
-              <div className="text-2xl mb-2">💧</div>
-              <h4 className="font-semibold text-cyan-800">Moisture Barrier</h4>
-              <p className="text-xs text-cyan-600">WaterSteamBarrier</p>
-            </div>
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200 text-center">
-              <div className="text-2xl mb-2">☀️</div>
-              <h4 className="font-semibold text-purple-800">Light Barrier</h4>
-              <p className="text-xs text-purple-600">Light BlockingProtection</p>
-            </div>
-          </div>
         </div>
       )
     },
     {
       id: 'seals',
       title: 'Strong Hermetic Seals',
-      icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
+      icon: <CheckCircle className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -272,7 +619,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'convenience',
       title: 'Ready-to-Heat Convenience',
-      icon: <Zap className="h-5 w-5 text-primary-600" />,
+      icon: <Zap className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -291,7 +638,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'shelf-stable',
       title: 'Shelf-Stable Ready Meals',
-      icon: <Package className="h-5 w-5 text-primary-600" />,
+      icon: <Package className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -310,7 +657,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'logistics',
       title: 'Space & Cost Efficiency',
-      icon: <Package className="h-5 w-5 text-primary-600" />,
+      icon: <Package className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -329,7 +676,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'low-moq',
       title: '100 pcs Low MOQ',
-      icon: <Tag className="h-5 w-5 text-primary-600" />,
+      icon: <Tag className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -343,10 +690,11 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             index={10}
           />
           
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200 text-center">
-            <div className="text-4xl font-bold text-green-700 mb-2">100 pcs</div>
-            <p className="text-green-800 font-medium">Minimum OrderVolumeOnly 100 Pack</p>
-            <p className="text-sm text-green-600 mt-2">Minimum order for digital printed retort pouches</p>
+          <div className="p-6 rounded-xl border text-center shadow-sm" 
+               style={{ borderColor: primaryThemeColor, backgroundColor: isPouchDomain ? 'rgba(16, 185, 129, 0.05)' : 'rgba(139, 92, 246, 0.05)' }}>
+            <div className="text-4xl font-extrabold mb-2" style={{ color: primaryThemeColor }}>100 pcs</div>
+            <p className="font-bold text-neutral-800">Minimum Trial Order for Custom Prints</p>
+            <p className="text-sm text-neutral-600 mt-2">Test your new product range and multiple designs without large stock inventory risk.</p>
           </div>
         </div>
       )
@@ -354,7 +702,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'digital-print',
       title: 'Full-Color Digital Printing',
-      icon: <Printer className="h-5 w-5 text-primary-600" />,
+      icon: <Printer className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -367,31 +715,13 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             imageLeft={true}
             index={11}
           />
-          
-          <div className="grid md:grid-cols-3 gap-4 mt-6">
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <Printer className="h-5 w-5 text-purple-600 mb-2" />
-              <h4 className="font-semibold text-purple-800">No plate fees</h4>
-              <p className="text-sm text-purple-700">NoRequireMadeEditionFee</p>
-            </div>
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <Package className="h-5 w-5 text-purple-600 mb-2" />
-              <h4 className="font-semibold text-purple-800">Multiple SKUs</h4>
-              <p className="text-sm text-purple-700">Multiple SKU MixSuitableProduction</p>
-            </div>
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <Sparkles className="h-5 w-5 text-purple-600 mb-2" />
-              <h4 className="font-semibold text-purple-800">Photo-quality</h4>
-              <p className="text-sm text-purple-700">PhotoPieceGradePattern</p>
-            </div>
-          </div>
         </div>
       )
     },
     {
       id: 'multi-sku',
       title: 'Low MOQ for Many SKUs',
-      icon: <Package className="h-5 w-5 text-primary-600" />,
+      icon: <Package className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -410,7 +740,7 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'custom-system',
       title: 'Design Your Retort System',
-      icon: <Package className="h-5 w-5 text-primary-600" />,
+      icon: <Package className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
@@ -424,32 +754,31 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
             index={9}
           />
           
-          <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
+          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
             <h4 className="font-bold text-neutral-900 mb-4">3 Steps to Your Custom Retort Pouch</h4>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 gap-6">
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                <div className="w-8 h-8 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0" style={{ backgroundColor: primaryThemeColor }}>1</div>
                 <div>
-                  <p className="font-medium text-neutral-800">Choose size & format</p>
-                  <p className="text-xs text-neutral-600">ChooseDimensionsAndStyle</p>
+                  <p className="font-semibold text-neutral-800 text-sm">Choose size & format</p>
+                  <p className="text-xs text-neutral-500">ChooseDimensionsAndStyle</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+                <div className="w-8 h-8 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0" style={{ backgroundColor: primaryThemeColor }}>2</div>
                 <div>
-                  <p className="font-medium text-neutral-800">Select structure & barrier</p>
-                  <p className="text-xs text-neutral-600">ChooseStructureAndBarrier Level</p>
+                  <p className="font-semibold text-neutral-800 text-sm">Select structure & barrier</p>
+                  <p className="text-xs text-neutral-500">ChooseStructureAndBarrier Level</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+                <div className="w-8 h-8 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0" style={{ backgroundColor: primaryThemeColor }}>3</div>
                 <div>
-                  <p className="font-medium text-neutral-800">Add branding & artwork</p>
-                  <p className="text-xs text-neutral-600">AddEnterBrandAndPattern</p>
+                  <p className="font-semibold text-neutral-800 text-sm">Add branding & artwork</p>
+                  <p className="text-xs text-neutral-500">AddEnterBrandAndPattern</p>
                 </div>
               </div>
             </div>
-            <p className="text-sm text-neutral-600 mt-4 text-center">From baby food to curries and pet meals, one retort system for your whole line<br/>FromBabyFoodToCurryAndPetMeal，OneSetSteamingSystemCoverWholeStripProductLine</p>
           </div>
         </div>
       )
@@ -457,69 +786,39 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
     {
       id: 'trust-eeat',
       title: 'Why Trust Achieve Pack?',
-      icon: <Award className="h-5 w-5 text-primary-600" />,
+      icon: <Award className="h-5 w-5" style={{ color: primaryThemeColor }} />,
       content: (
         <div className="space-y-8">
-          {/* E-E-A-T Trust Signals */}
-          <div className="bg-gradient-to-r from-primary-50 to-amber-50 p-6 rounded-xl border border-primary-200">
+          <div className="bg-gradient-to-r from-neutral-50 to-neutral-100 p-6 rounded-xl border border-neutral-200">
             <h3 className="text-xl font-bold text-neutral-900 mb-4">Industry-Leading Expertise in Retort Packaging</h3>
-            <p className="text-neutral-700 mb-4">
-              With over 13 years of experience manufacturing flexible packaging, Achieve Pack has supplied retort pouches to ready meal brands, baby food manufacturers, and pet food companies across North America, Europe, and Asia-Pacific.
+            <p className="text-neutral-700 text-sm leading-relaxed mb-4">
+              With over 13 years of specialized engineering in flexible food-grade packaging materials, {brand.name} has supplied retort pouches to baby food brands, wet pet food brands, and ready meal developers across North America, Europe, and Asia-Pacific.
             </p>
-            <p className="text-neutral-600">
-              Our BRC and ISO-certified facilities produce <Link to="/packaging/retort-pouches" className="text-primary-600 underline hover:text-primary-800">retort pouches</Link> using food-grade multi-layer films designed for commercial sterilization, trusted by leading <Link to="/industry/snacks-food" className="text-primary-600 underline hover:text-primary-800">food brands</Link> worldwide.
+            <p className="text-neutral-700 text-sm leading-relaxed">
+              Our BRCGS Global Standard and ISO-certified cleanroom manufacturing lines produce custom <Link to="/pricing" className="text-primary-600 underline hover:text-primary-800">retort pouches</Link> using 100% FDA-compliant, food-safe high-temperature polymers.
             </p>
           </div>
           
-          {/* Trust Badges Grid */}
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center shadow-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center shadow-sm">
               <FileCheck className="h-8 w-8 mx-auto mb-2 text-blue-600" />
-              <h4 className="font-bold text-neutral-900">FDA Compliant</h4>
-              <p className="text-xs text-neutral-600">Food Contact Safe</p>
+              <h4 className="font-bold text-neutral-900 text-sm">FDA Compliant</h4>
+              <p className="text-[10px] text-neutral-500">Food Contact Safe Material</p>
             </div>
-            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center shadow-sm">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center shadow-sm">
               <Shield className="h-8 w-8 mx-auto mb-2 text-green-600" />
-              <h4 className="font-bold text-neutral-900">BRC Certified</h4>
-              <p className="text-xs text-neutral-600">Global Food Standard</p>
+              <h4 className="font-bold text-neutral-900 text-sm">BRC Certified</h4>
+              <p className="text-[10px] text-neutral-500">GFSI Food Safe Standard</p>
             </div>
-            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center shadow-sm">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center shadow-sm">
               <Building2 className="h-8 w-8 mx-auto mb-2 text-purple-600" />
-              <h4 className="font-bold text-neutral-900">500+ Brands</h4>
-              <p className="text-xs text-neutral-600">Trusted by Industry</p>
+              <h4 className="font-bold text-neutral-900 text-sm">500+ Food Brands</h4>
+              <p className="text-[10px] text-neutral-500">Trusted Industry Supply</p>
             </div>
-            <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center shadow-sm">
+            <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center shadow-sm">
               <Globe className="h-8 w-8 mx-auto mb-2 text-amber-600" />
-              <h4 className="font-bold text-neutral-900">13+ Years</h4>
-              <p className="text-xs text-neutral-600">Manufacturing Expert</p>
-            </div>
-          </div>
-          
-          {/* Internal Links for SEO */}
-          <div className="bg-neutral-50 p-6 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-4 flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary-600" />
-              Explore Related Packaging Solutions
-            </h4>
-            <div className="grid md:grid-cols-3 gap-3">
-              <Link to="/materials/recyclable-mono-pe" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
-                <Recycle className="h-4 w-4" /> Recyclable Mono-PE
-              </Link>
-              <Link to="/materials/pcr" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
-                <Recycle className="h-4 w-4" /> PCR Materials
-              </Link>
-              <Link to="/features/barrier-options" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
-                <Shield className="h-4 w-4" /> Barrier Options
-              </Link>
-              <Link to="/packaging/stand-up-pouches" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
-                <Package className="h-4 w-4" /> Stand Up Pouches
-              </Link>
-              <Link to="/industry/snacks-food" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
-                <Flame className="h-4 w-4" /> Food Industry
-              </Link>
-              <Link to="/company/certificates" className="flex items-center gap-2 text-sm text-primary-600 hover:text-primary-800 hover:underline">
-                <FileCheck className="h-4 w-4" /> Our Certificates
-              </Link>
+              <h4 className="font-bold text-neutral-900 text-sm">13+ Years</h4>
+              <p className="text-[10px] text-neutral-500">Autoclave Packaging Experts</p>
             </div>
           </div>
         </div>
@@ -530,22 +829,28 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
       title: 'Ready to Get Started?',
       icon: <Flame className="h-5 w-5 text-white" />,
       content: (
-        <div className="bg-gradient-to-br from-amber-500 to-orange-600 text-white p-8 rounded-xl">
+        <div className="bg-gradient-to-br from-neutral-800 to-neutral-900 text-white p-8 rounded-xl border border-neutral-700 shadow-lg">
           <h3 className="text-2xl font-bold mb-6 text-center">Choose How You'd Like to Connect</h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
-              <Calendar className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Book a Call</h4>
-              <p className="text-sm text-white/80 mb-4">30-min free consultation</p>
-              <button onClick={openCalendly} className="w-full bg-white text-amber-600 px-4 py-2 rounded-lg font-semibold hover:bg-amber-50 transition cursor-pointer">
-                Schedule Now
+            <div className="bg-white/5 backdrop-blur p-6 rounded-lg text-center border border-white/10 hover:border-white/20 transition">
+              <Calendar className="h-8 w-8 mx-auto mb-3 text-neutral-300" />
+              <h4 className="font-semibold mb-2">Book a Consultation</h4>
+              <p className="text-xs text-white/60 mb-4">30-min free session with our engineering team</p>
+              <button 
+                onClick={openCalendly} 
+                className="w-full bg-white text-neutral-900 py-2.5 rounded-lg text-sm font-semibold hover:bg-neutral-100 transition cursor-pointer"
+              >
+                Schedule Free Call
               </button>
             </div>
-            <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
-              <Mail className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Email Quote</h4>
-              <p className="text-sm text-white/80 mb-4">Get response within 24hrs</p>
-              <a href="mailto:ryan@achievepack.com?subject=Digital Printed Retort Bags Quote" className="block w-full bg-white text-amber-600 px-4 py-2 rounded-lg font-semibold hover:bg-amber-50 transition">
+            <div className="bg-white/5 backdrop-blur p-6 rounded-lg text-center border border-white/10 hover:border-white/20 transition">
+              <Mail className="h-8 w-8 mx-auto mb-3 text-neutral-300" />
+              <h4 className="font-semibold mb-2">Request an Instant Quote</h4>
+              <p className="text-xs text-white/60 mb-4">Send dimensions and get detailed pricing breaks</p>
+              <a 
+                href={`mailto:${brand.email}?subject=Digital Printed Retort Pouch Quote - VitoPouch`} 
+                className="block w-full py-2.5 rounded-lg text-sm font-semibold text-center border border-white/30 hover:border-white/50 text-white transition"
+              >
                 Send Email
               </a>
             </div>
@@ -557,102 +862,98 @@ const DigitalPrintedRetortBagsPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "What is retort packaging and how does it work?",
-      answer: "Retort packaging uses multi-layer flexible films that can withstand high-temperature sterilization (116–135°C). The sealed pouches go through a commercial retort process that kills bacteria, enabling shelf-stable storage at ambient temperature without refrigeration—just like canned food but in a flexible format."
+      question: "Why does retorting eliminate the need for a degassing valve in fermented foods?",
+      answer: "During commercial retort (121°C–130°C for 30 minutes), the high heat completely pasteurizes the food, destroying all active fermenting yeasts, enzymes, and gas-producing bacteria. Since no further fermentation occurs within the hermetically sealed pouch during its shelf life, no carbon dioxide is generated. This renders expensive one-way degassing valves entirely unnecessary, saving up to $0.20+ per bag."
     },
     {
-      question: "What temperature can retort pouches withstand?",
-      answer: "Our retort pouches are designed for commercial sterilization at 121–135°C (250–275°F) for 30–50 minutes without seal failure. The multi-layer structure (PET/AL/NY/CPP) ensures the pouch maintains integrity throughout the retort process."
+      question: "What temperature and pressure profiles can these retort bags handle?",
+      answer: "VitoPouch retort bags are engineered using specialty Cast Polypropylene (CPP) and nylon laminates that withstand autoclave processing up to 135°C (275°F) at up to 0.25 MPa counter-pressure. This ensures the hermetic seals remain intact and will not leak, rupture, or delaminate during heating or cooling cycles."
     },
     {
-      question: "What is the minimum order quantity for digital printed retort bags?",
-      answer: "Our digital printing technology enables a minimum order of just 100 pieces for printed retort pouches. This makes it ideal for product launches, sampling, new flavor testing, and small brands looking to minimize inventory risk."
+      question: "How do retort pouches compare to glass jars in logistics carbon emissions?",
+      answer: "Glass jars represent a massive logistics carbon liability. A pallet of empty glass jars weighs roughly 95% more than the equivalent capacity of flat, unfilled VitoPouch bags (e.g. ~50 kg for 5,000 pouches vs. ~2,500 kg for 5,000 glass jars). Switching to pouches slashes shipping fuel consumption, reduces warehousing space by up to 85%, and eliminates transport damage due to glass fracturing."
     },
     {
-      question: "What products are suitable for retort pouches?",
-      answer: "Retort pouches are ideal for ready-to-eat meals (curries, pasta, soups), baby food and purees, pet food (wet food, treats), sauces and gravies, seafood, and any product requiring shelf-stable packaging without refrigeration."
+      question: "Are these retort pouches safe for food contact?",
+      answer: "Yes, 100%. All films used in VitoPouch are BRCGS certified and fully comply with US FDA Regulation 21 CFR 177.1390 (for high-temperature food laminates) and European Commission Regulation (EU) No 10/2011, ensuring zero toxic migration under extreme heat."
     },
     {
-      question: "How do retort pouches compare to cans and jars?",
-      answer: "Retort pouches are lighter, require less storage space, have lower shipping costs, and offer better heat penetration for faster processing. They're also easier for consumers to open and can be microwaved in many cases. The shelf life is comparable to traditional cans."
+      question: "Can I print multiple product designs/flavors in one custom order?",
+      answer: "Absolutely. Thanks to our advanced digital printing setup, we do not require traditional rotogravure copper printing plates. This allows us to group multiple SKUs (e.g. Mild Kimchi, Spicy Kimchi, Vegan Kimchi) into a single production run from an MOQ of just 100 pieces, eliminating hundreds of dollars in plate fees."
     },
     {
-      question: "Can I print multiple SKUs in one order?",
-      answer: "Yes! Digital printing eliminates the need for plates, so you can mix multiple designs in a single production run. This is perfect for launching a full flavor line or testing different packaging designs without committing to large quantities of each."
-    },
-    {
-      question: "What barrier properties do retort pouches offer?",
-      answer: "Our retort pouches feature aluminum foil barrier layer that provides excellent protection against oxygen, moisture, and light. This maintains food quality, preserves flavor and nutrients, and extends shelf life—typically 12–24 months at ambient temperature."
-    },
-    {
-      question: "What certifications do your retort pouches have?",
-      answer: "Our retort pouches are manufactured in BRC and ISO-certified facilities. All materials are FDA compliant for food contact. We can provide COA, COC, and third-party test reports for retort resistance, seal strength, and barrier properties."
+      question: "What is the typical shelf life of food inside a VitoPouch?",
+      answer: "Thanks to our 4-layer aluminum foil barrier structure (PET/AL/NY/CPP), VitoPouch provides a near-perfect barrier to oxygen, moisture, and light. When combined with correct commercial sterilization, ready meals can safely achieve a shelf life of 12 to 24 months stored at ambient room temperatures without refrigeration."
     }
   ]
 
   const relatedLinks = [
-    // Material options
     { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Recyclable single-material options" },
     { title: "PCR Materials", url: "/materials/pcr", description: "Post-consumer recycled content" },
     { title: "High Barrier Films", url: "/features/barrier-options", description: "Aluminum and metallized options" },
     { title: "Compostable Pouches", url: "/materials/compostable", description: "Eco-friendly alternatives" },
-    // Packaging shapes
     { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Self-standing retort pouches" },
     { title: "Flat Pouches", url: "/packaging/flat-pouches", description: "Traditional flat retort bags" },
     { title: "Spout Pouches", url: "/packaging/spout-pouches", description: "Liquid-dispensing options" },
-    // Features
     { title: "Barrier Options", url: "/features/barrier-options", description: "Choose your protection level" },
     { title: "Reclosure Options", url: "/features/reclosure-options", description: "Zippers and reseal features" },
-    { title: "Printing Capabilities", url: "/printing/digital-printing", description: "Digital and rotogravure" },
-    // Related function pages
-    { title: "Microwave Steam Bags", url: "/function/microwave-steam-bags", description: "Heat-and-eat solutions" },
-    { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging" },
-    { title: "Child-Resistant Bags", url: "/function/child-resistant-bags", description: "Safety-compliant CR packaging" },
-    // Knowledge & Support
-    { title: "Certificates", url: "/company/certificates", description: "View our certifications" },
-    { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }
+    { title: "Printing Capabilities", url: "/printing/digital-printing", description: "Digital and rotogravure" }
   ]
 
   return (
     <>
-      <SEOPageLayout heroBgColor="#1f2937"
-        title="Digital Printed Retort Bags | 100 pcs Low MOQ | High-Barrier Sterilization Pouches"
-        description="Custom digital printed retort pouches with 100 pcs low MOQ. High-barrier multi-layer structure withstands 121-135°C sterilization. Ideal for ready meals, baby food, pet food. BRC certified, FDA compliant."
-        keywords={['retort pouches', 'retort bags', 'digital printed pouches', 'sterilization pouches', 'ready meal packaging', 'baby food pouches', 'pet food bags', 'shelf stable packaging', 'high barrier pouches', 'low MOQ pouches', '100 pcs minimum order', 'aluminum foil pouches', 'heat resistant bags', 'food safe pouches']}
+      <SEOPageLayout 
+        heroBgColor="#171717"
+        title="Digital Printed Retort Bags | VitoPouch 'Soft Can' High-Barrier Solution"
+        description="Custom digital printed retort pouches with 100 pcs low MOQ. VitoPouch multi-layer high-barrier structures withstand 121-135°C sterilization. The perfect eco-friendly, valve-free shelf-stable alternative to glass jars."
+        keywords={['retort pouches', 'retort bags', 'digital printed pouches', 'sterilization pouches', 'ready meal packaging', 'baby food pouches', 'pet food bags', 'shelf stable packaging', 'high barrier pouches', 'low MOQ pouches', 'aluminum foil pouches', 'vitopouch', 'kimchi pouch', 'soft can packaging']}
         canonicalUrl="https://achievepack.com/function/digital-printed-retort-bags"
-        heroTitle="Digital Printed Retort Bags"
-        heroSubtitle="100 pcs Low MOQ · High-Barrier · 121–135°C Sterilization Ready"
+        heroTitle="VitoPouch™ Retort Pouches"
+        heroSubtitle={isPouchDomain ? "100 pcs Low MOQ · High-Barrier · 'Soft Can' Solution for Startups" : "Enterprise High-Barrier Retort Solutions · 121–135°C Autoclave Ready"}
         heroImage="/imgs/function/retort/retort-hero.webp"
         heroImageAlt="Achieve Pack Digital Printed High-Barrier Retort Pouches"
-        introSummary="Custom retort pouches with digital printing from just 100 pieces. Multi-layer high-barrier structure for commercial sterilization. Perfect for ready meals, baby food, pet food and more."
+        introSummary={isPouchDomain ? "Launch your shelf-stable gourmet food line with digital printed VitoPouch. Minimum runs start at just 100 bags. Save costs and test multiple designs easily!" : "Upgrade from heavy glass jars and complex valves. VitoPouch is an unbreakable 'soft can' laminate designed for high-speed autoclave lines, BRC and FDA compliant."}
         sections={sections}
         faqs={faqs}
         relatedLinks={relatedLinks}
         ctaTitle="Ready to Design Your Retort Pouches?"
-        ctaDescription="Get custom retort pouches with digital printing from 100 pcs. Food-safe, high-barrier, and sterilization-ready."
+        ctaDescription="Get custom retort pouches with full bleed digital printing. Food-safe, high-barrier, and sterilization-ready."
         ctaButtonText="Get a Quote"
       />
       
+      {/* Toast Clipboard Copy Alert */}
+      {copySuccessAlert && (
+        <div className="fixed bottom-6 right-6 z-50 bg-neutral-900 text-white px-5 py-3.5 rounded-xl border border-neutral-700 shadow-xl flex items-center gap-3 animate-bounce">
+          <div className="h-6 w-6 bg-emerald-500 rounded-full flex items-center justify-center text-white">
+            <Check className="h-4 w-4" />
+          </div>
+          <div>
+            <p className="font-bold text-xs text-white">Proposal Copied!</p>
+            <p className="text-[10px] text-neutral-400">Ready to paste into your sales email.</p>
+          </div>
+        </div>
+      )}
+
       {/* Gallery Lightbox Modal */}
       {galleryEnlarged && (
         <div 
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={() => setGalleryEnlarged(null)}
         >
           <button onClick={() => setGalleryEnlarged(null)} className="absolute top-4 right-4 text-white hover:text-neutral-300 transition">
             <X className="h-8 w-8" />
           </button>
-          <button onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} className="absolute left-4 text-white hover:text-neutral-300 transition p-2">
-            <ChevronLeft className="h-10 w-10" />
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('prev'); }} className="absolute left-4 text-white hover:text-neutral-300 transition p-2 bg-white/5 rounded-full">
+            <ChevronLeft className="h-8 w-8" />
           </button>
-          <img src={galleryEnlarged.src} alt={retortGallery[galleryEnlarged.index]?.title || 'Enlarged view'} className="max-w-full max-h-[80vh] object-contain" onClick={(e) => e.stopPropagation()} />
-          <button onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} className="absolute right-4 text-white hover:text-neutral-300 transition p-2">
-            <ChevronRight className="h-10 w-10" />
+          <img src={galleryEnlarged.src} alt={retortGallery[galleryEnlarged.index]?.title || 'Enlarged view'} className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl" onClick={(e) => e.stopPropagation()} />
+          <button onClick={(e) => { e.stopPropagation(); navigateGallery('next'); }} className="absolute right-4 text-white hover:text-neutral-300 transition p-2 bg-white/5 rounded-full">
+            <ChevronRight className="h-8 w-8" />
           </button>
-          <div className="absolute bottom-4 text-center text-white max-w-xl px-4">
-            <p className="text-lg font-semibold">{retortGallery[galleryEnlarged.index]?.title}</p>
-            <p className="text-sm text-neutral-300">{retortGallery[galleryEnlarged.index]?.desc}</p>
-            <p className="text-xs mt-2 text-neutral-400">{galleryEnlarged.index + 1} / {retortGallery.length}</p>
+          <div className="absolute bottom-6 text-center text-white max-w-xl px-4 bg-black/50 backdrop-blur-md py-2.5 rounded-xl">
+            <p className="text-base font-semibold">{retortGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-xs text-neutral-300 mt-1">{retortGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-[10px] mt-2 text-neutral-400 font-semibold">{galleryEnlarged.index + 1} / {retortGallery.length}</p>
           </div>
         </div>
       )}
