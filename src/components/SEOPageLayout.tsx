@@ -1,10 +1,11 @@
 import React, { useState, useTransition, useEffect, useRef, useMemo } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart, Gift, Menu } from 'lucide-react'
+import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart, Gift, Menu, DollarSign } from 'lucide-react'
 import SEO from './SEO'
 import { useTranslation } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
 import { LEARN_PAGES } from './LearnNavigation'
+import { blogPosts } from '../data/blogData'
 import { ShareButton } from './animate-ui/components/community/share-button'
 import Footer from './Footer'
 import ReadingProgress from './ReadingProgress'
@@ -35,11 +36,32 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
 const SEOPageHeader: React.FC = () => {
   const navigate = useNavigate()
   const [isPending, startTransition] = useTransition()
-  const [activeMenu, setActiveMenu] = useState<'learn' | 'blog' | null>(null)
+  const [activeMenu, setActiveMenu] = useState<'resources' | null>(null)
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [hoveredPage, setHoveredPage] = useState<{ name: string; link: string; image: string } | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Pre-fill Resources menu with random content when it opens
+  useEffect(() => {
+    if (activeMenu === 'resources' && !activeCategory) {
+      const categoryKeys = Object.keys(LEARN_PAGES)
+      const randomCategoryKey = categoryKeys[Math.floor(Math.random() * categoryKeys.length)]
+      setActiveCategory(randomCategoryKey)
+      const category = LEARN_PAGES[randomCategoryKey as keyof typeof LEARN_PAGES]
+      if (category && category.pages.length > 0) {
+        const randomPage = category.pages[Math.floor(Math.random() * category.pages.length)]
+        setHoveredPage(randomPage)
+      }
+    }
+  }, [activeMenu])
+
+  useEffect(() => {
+    if (activeMenu !== 'resources') {
+      setActiveCategory(null)
+      setHoveredPage(null)
+    }
+  }, [activeMenu])
 
   // Get random pages to fill empty space when Learn menu opens
   const randomPages = useMemo(() => {
@@ -54,7 +76,7 @@ const SEOPageHeader: React.FC = () => {
     return shuffled.slice(0, 6)
   }, [])
 
-  const handleMouseEnter = (menu: 'learn' | 'blog') => {
+  const handleMouseEnter = (menu: 'resources') => {
     if (menuTimeoutRef.current) {
       clearTimeout(menuTimeoutRef.current)
       menuTimeoutRef.current = null
@@ -92,28 +114,24 @@ const SEOPageHeader: React.FC = () => {
 
           {/* Nav Items - Desktop */}
           <nav className="flex items-center gap-1">
-            {/* LEARN Menu */}
+            {/* PRICING Menu */}
+            <Link
+              to="/pricing"
+              className="flex items-center gap-1 px-3 py-2 text-sm font-medium hover:bg-primary-600 rounded-lg transition"
+            >
+              <DollarSign className="h-4 w-4 text-emerald-300" />
+              Pricing
+            </Link>
+
+            {/* RESOURCES (LEARN & BLOG) */}
             <div
               className="relative"
-              onMouseEnter={() => handleMouseEnter('learn')}
+              onMouseEnter={() => handleMouseEnter('resources')}
               onMouseLeave={handleMouseLeave}
             >
               <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium hover:bg-primary-600 rounded-lg transition">
                 <BookOpen className="h-4 w-4" />
-                Learn
-                <ChevronDown className="h-3 w-3" />
-              </button>
-            </div>
-
-            {/* BLOG Menu */}
-            <div
-              className="relative"
-              onMouseEnter={() => handleMouseEnter('blog')}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium hover:bg-primary-600 rounded-lg transition">
-                <FileText className="h-4 w-4" />
-                Blog
+                Resources
                 <ChevronDown className="h-3 w-3" />
               </button>
             </div>
@@ -238,17 +256,17 @@ const SEOPageHeader: React.FC = () => {
         </div>
       )}
 
-      {/* LEARN Mega Menu */}
-      {activeMenu === 'learn' && (
+      {/* RESOURCES Mega Menu */}
+      {activeMenu === 'resources' && (
         <div
-          className="fixed left-1/2 -translate-x-1/2 top-14 pt-2 z-50"
-          onMouseEnter={() => handleMouseEnter('learn')}
+          className="fixed left-1/2 -translate-x-1/2 top-14 pt-2 z-50 animate-fade-in"
+          onMouseEnter={() => handleMouseEnter('resources')}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="w-[95vw] max-w-[1000px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+          <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden text-neutral-800 text-left">
             <div className="grid grid-cols-12">
-              {/* Left: All Categories */}
-              <div className="col-span-3 bg-neutral-50 p-3 border-r border-neutral-100 max-h-[60vh] overflow-y-auto">
+              {/* Left: Learn Center Categories (col-span-3) */}
+              <div className="col-span-3 bg-neutral-50 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
                 <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2 flex items-center gap-2">
                   <BookOpen className="h-4 w-4" />
                   Learn Center
@@ -259,7 +277,6 @@ const SEOPageHeader: React.FC = () => {
                       <button
                         onMouseEnter={() => { 
                           setActiveCategory(key); 
-                          // Auto-select a random page from this category
                           const pages = category.pages;
                           if (pages.length > 0) {
                             const randomPage = pages[Math.floor(Math.random() * pages.length)];
@@ -269,7 +286,7 @@ const SEOPageHeader: React.FC = () => {
                           }
                         }}
                         className={`w-full flex items-center justify-between py-1.5 px-2 rounded-lg text-xs font-medium transition-all ${
-                          activeCategory === key ? 'bg-primary-100 text-primary-700' : 'text-neutral-700 hover:bg-neutral-100'
+                          activeCategory === key ? 'bg-primary-100 text-primary-700 font-semibold' : 'text-neutral-700 hover:bg-neutral-100'
                         }`}
                       >
                         <span className="flex items-center gap-1.5">
@@ -283,8 +300,8 @@ const SEOPageHeader: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Middle: Pages of selected category */}
-              <div className="col-span-5 p-3 border-r border-neutral-100 max-h-[60vh] overflow-y-auto">
+              {/* Middle-Left: Pages of selected category (col-span-3) */}
+              <div className="col-span-3 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
                 {activeCategory && LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES] ? (
                   <>
                     <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
@@ -298,7 +315,7 @@ const SEOPageHeader: React.FC = () => {
                             onClick={handleNavigation(page.link)}
                             onMouseEnter={() => setHoveredPage(page)}
                             className={`block py-1.5 px-2 rounded-lg text-xs transition-all ${
-                              hoveredPage?.link === page.link ? 'bg-primary-50 text-primary-700' : 'text-neutral-600 hover:bg-neutral-50'
+                              hoveredPage?.link === page.link ? 'bg-primary-50 text-primary-700 font-semibold' : 'text-neutral-600 hover:bg-neutral-50'
                             }`}
                           >
                             {page.name}
@@ -310,124 +327,134 @@ const SEOPageHeader: React.FC = () => {
                 ) : (
                   <div className="text-center py-8 text-neutral-400 text-sm">
                     <BookOpen className="h-8 w-8 mx-auto mb-2 opacity-50" />
-                    Hover a category
+                    Hover a category to see pages
                   </div>
                 )}
               </div>
 
-              {/* Right: Hero Image Preview - Show random pages when no selection */}
-              <div className="col-span-4 p-3 bg-neutral-50">
+              {/* Middle-Right: Blog Quick Links & Latest (col-span-3) */}
+              <div className="col-span-3 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
+                <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2 flex items-center gap-2">
+                  <FileText className="h-4 w-4" />
+                  Blog News
+                </h3>
+                <ul className="space-y-0.5 mb-4">
+                  <li>
+                    <a
+                      href="/blog"
+                      onClick={handleNavigation('/blog')}
+                      className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all"
+                    >
+                      <ChevronRight className="h-3 w-3 text-neutral-400" />
+                      All Articles
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/blog?category=Newsletter"
+                      onClick={handleNavigation('/blog?category=Newsletter')}
+                      className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all"
+                    >
+                      <ChevronRight className="h-3 w-3 text-neutral-400" />
+                      Newsletter
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/blog?category=Packaging"
+                      onClick={handleNavigation('/blog?category=Packaging')}
+                      className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all"
+                    >
+                      <ChevronRight className="h-3 w-3 text-neutral-400" />
+                      Packaging Tips
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/blog?category=Sustainability"
+                      onClick={handleNavigation('/blog?category=Sustainability')}
+                      className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all"
+                    >
+                      <ChevronRight className="h-3 w-3 text-neutral-400" />
+                      Sustainability
+                    </a>
+                  </li>
+                </ul>
+                <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Latest Posts</h4>
+                <ul className="space-y-1.5">
+                  {[...blogPosts].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).slice(0, 3).map((post) => (
+                    <li key={post.id}>
+                      <a
+                        href={`/blog/${post.slug}`}
+                        onClick={handleNavigation(`/blog/${post.slug}`)}
+                        className="block hover:text-primary-600 transition-colors group"
+                      >
+                        <span className="text-[10px] text-primary-600 font-medium block">{post.category}</span>
+                        <span className="text-xs font-medium text-neutral-800 line-clamp-1 group-hover:text-primary-600 transition-colors">{post.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Right Column: Hero Preview Card (col-span-3) */}
+              <div className="col-span-3 p-3 bg-neutral-50 flex flex-col justify-between">
                 {hoveredPage ? (
                   <div className="h-full flex flex-col">
                     <img
                       src={hoveredPage.image}
                       alt={hoveredPage.name}
-                      className="w-full aspect-[4/3] object-cover rounded-lg mb-2"
+                      className="w-full aspect-[4/3] object-cover rounded-lg mb-2 border border-neutral-200 shadow-sm"
                       loading="lazy"
                     />
-                    <h5 className="text-sm font-semibold text-neutral-800 mb-1">{hoveredPage.name}</h5>
+                    <h5 className="text-xs font-bold text-neutral-900 mb-1">{hoveredPage.name}</h5>
+                    <p className="text-[10px] text-neutral-500 leading-normal mb-2 flex-grow">
+                      Sustainably sourced B2B guides for brands that scale. BRC, FDA compliant.
+                    </p>
                     <a
                       href={hoveredPage.link}
                       onClick={handleNavigation(hoveredPage.link)}
-                      className="text-xs text-primary-600 hover:text-primary-700 font-medium"
+                      className="text-xs text-primary-600 hover:text-primary-700 font-bold flex items-center gap-1"
                     >
-                      Read more →
+                      Read Article →
                     </a>
                   </div>
                 ) : (
-                  <div className="h-full">
-                    <h5 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Featured Articles</h5>
-                    <div className="grid grid-cols-2 gap-2">
-                      {randomPages.slice(0, 4).map((page, idx) => (
-                        <a
-                          key={idx}
-                          href={page.link}
-                          onClick={handleNavigation(page.link)}
-                          className="group"
-                        >
-                          <img
-                            src={page.image}
-                            alt={page.name}
-                            className="w-full aspect-[4/3] object-cover rounded-lg mb-1 group-hover:ring-2 ring-primary-500 transition"
-                            loading="lazy"
-                          />
-                          <p className="text-xs text-neutral-700 font-medium truncate group-hover:text-primary-600">{page.name}</p>
-                        </a>
-                      ))}
+                  <div className="h-full flex items-center justify-center text-neutral-400 text-sm">
+                    <div className="text-center">
+                      <Search className="h-8 w-8 mx-auto mb-2 opacity-50" />
+                      Hover a page to preview
                     </div>
                   </div>
                 )}
               </div>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* BLOG Mega Menu */}
-      {activeMenu === 'blog' && (
-        <div
-          className="fixed right-[calc(50%-500px+200px)] top-14 pt-2 z-50 max-[1100px]:right-4"
-          onMouseEnter={() => handleMouseEnter('blog')}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="w-[280px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
-            <div className="p-4">
-              <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <FileText className="h-4 w-4" />
-                Blog Categories
-              </h3>
-              <ul className="space-y-1">
-                <li>
-                  <a
-                    href="/blog"
-                    onClick={handleNavigation('/blog')}
-                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
-                  >
-                    <FileText className="h-4 w-4 text-primary-500" />
-                    All Articles
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/blog?category=Newsletter"
-                    onClick={handleNavigation('/blog?category=Newsletter')}
-                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm bg-primary-50 text-primary-700 hover:bg-primary-100 transition"
-                  >
-                    <Mail className="h-4 w-4 text-primary-500" />
-                    Newsletter
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/blog?category=Packaging"
-                    onClick={handleNavigation('/blog?category=Packaging')}
-                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
-                  >
-                    <Package className="h-4 w-4 text-primary-500" />
-                    Packaging Tips
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/blog?category=Sustainability"
-                    onClick={handleNavigation('/blog?category=Sustainability')}
-                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
-                  >
-                    <Leaf className="h-4 w-4 text-primary-500" />
-                    Sustainability
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/blog?category=Industry"
-                    onClick={handleNavigation('/blog?category=Industry')}
-                    className="flex items-center gap-2 py-2 px-3 rounded-lg text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition"
-                  >
-                    <Factory className="h-4 w-4 text-primary-500" />
-                    Industry News
-                  </a>
-                </li>
-              </ul>
+            {/* Bottom Footer */}
+            <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100 flex items-center justify-between">
+              <div className="flex gap-4">
+                <a
+                  href="/learn"
+                  onClick={handleNavigation('/learn')}
+                  className="text-xs font-bold text-primary-600 hover:text-primary-700 transition-colors"
+                >
+                  📚 Learn Index ({Object.values(LEARN_PAGES).reduce((sum, cat) => sum + cat.pages.length, 0)} Articles)
+                </a>
+                <a
+                  href="/blog"
+                  onClick={handleNavigation('/blog')}
+                  className="text-xs font-bold text-primary-600 hover:text-primary-700 transition-colors"
+                >
+                  📝 Blog Index ({blogPosts.length} Posts)
+                </a>
+              </div>
+              <a
+                href="https://calendly.com/30-min-free-packaging-consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-primary-600 hover:text-primary-700 flex items-center gap-1"
+              >
+                Book packaging consultation →
+              </a>
             </div>
           </div>
         </div>

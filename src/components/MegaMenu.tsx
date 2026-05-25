@@ -1,6 +1,6 @@
 import { useState, useRef, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout, Recycle, Gift, Coffee, Layout } from 'lucide-react'
+import { ChevronDown, ChevronRight, Layers, Palette, Package, BookOpen, Calendar, FileText, Sparkles, Search, Leaf, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Menu, X, Sprout, Recycle, Gift, Coffee, Layout, DollarSign } from 'lucide-react'
 import { useCustomQuote } from '../contexts/CustomQuoteContext'
 import { LEARN_PAGES } from './LearnNavigation'
 import { blogPosts } from '../data/blogData'
@@ -592,7 +592,7 @@ export function RightNavMenu() {
   
   // Pre-fill Learn menu with random content when it opens
   useEffect(() => {
-    if (activeMenu === 'learn' && !activeCategory) {
+    if (activeMenu === 'resources' && !activeCategory) {
       const categoryKeys = Object.keys(LEARN_PAGES)
       const randomCategoryKey = categoryKeys[Math.floor(Math.random() * categoryKeys.length)]
       setActiveCategory(randomCategoryKey)
@@ -605,7 +605,7 @@ export function RightNavMenu() {
   }, [activeMenu])
   
   useEffect(() => {
-    if (activeMenu !== 'learn') {
+    if (activeMenu !== 'resources') {
       setActiveCategory(null)
       setHoveredPage(null)
     }
@@ -622,18 +622,29 @@ export function RightNavMenu() {
 
   return (
     <nav className="flex items-center">
-        {/* LEARN */}
-        <div className="relative" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
-          <Link to="/learn" className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'learn' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
-            <BookOpen className="h-4 w-4" />
-            LEARN
-            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'learn' ? 'rotate-180' : ''}`} />
+        {/* PRICING */}
+        <div className="relative">
+          <Link 
+            to="/pricing" 
+            className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-neutral-700 hover:text-primary-600 transition-colors"
+          >
+            <DollarSign className="h-4 w-4 text-emerald-600" />
+            PRICING
           </Link>
-          {activeMenu === 'learn' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50" onMouseEnter={() => handleMouseEnter('learn')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
+        </div>
+
+        {/* RESOURCES (LEARN & BLOG) */}
+        <div className="relative" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
+          <Link to="/learn" className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'resources' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
+            <BookOpen className="h-4 w-4" />
+            RESOURCES
+            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'resources' ? 'rotate-180' : ''}`} />
+          </Link>
+          {activeMenu === 'resources' && (
+            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50 animate-fade-in" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
+              <div className="w-[95vw] max-w-[1100px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden text-neutral-800 text-left">
                 <div className="grid grid-cols-12">
-                  {/* Left: All Categories */}
+                  {/* Left: Learn Center Categories (col-span-3) */}
                   <div className="col-span-3 bg-neutral-50 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
                     <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2 flex items-center gap-2">
                       <BookOpen className="h-4 w-4" />
@@ -645,7 +656,6 @@ export function RightNavMenu() {
                           <button
                             onMouseEnter={() => { 
                               setActiveCategory(key); 
-                              // Auto-select a random page from this category to show preview
                               const pages = category.pages;
                               if (pages.length > 0) {
                                 const randomPage = pages[Math.floor(Math.random() * pages.length)];
@@ -669,8 +679,8 @@ export function RightNavMenu() {
                     </ul>
                   </div>
 
-                  {/* Middle: Pages of selected category */}
-                  <div className="col-span-5 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
+                  {/* Middle-Left: Pages of selected category (col-span-3) */}
+                  <div className="col-span-3 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
                     {activeCategory && LEARN_PAGES[activeCategory as keyof typeof LEARN_PAGES] ? (
                       <>
                         <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">
@@ -700,22 +710,70 @@ export function RightNavMenu() {
                     )}
                   </div>
 
-                  {/* Right: Hero Image Preview */}
-                  <div className="col-span-4 p-3 bg-neutral-50">
+                  {/* Middle-Right: Blog Quick Links & Latest (col-span-3) */}
+                  <div className="col-span-3 p-3 border-r border-neutral-100 max-h-[70vh] overflow-y-auto">
+                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2 flex items-center gap-2">
+                      <FileText className="h-4 w-4" />
+                      Blog News
+                    </h3>
+                    <ul className="space-y-0.5 mb-4">
+                      <li>
+                        <Link to="/blog" className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          All Articles
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=Newsletter" className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Newsletter
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=Packaging" className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Packaging Tips
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/blog?category=Sustainability" className="flex items-center gap-2 py-1 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
+                          <ChevronRight className="h-3 w-3 text-neutral-400" />
+                          Sustainability
+                        </Link>
+                      </li>
+                    </ul>
+                    <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Latest Posts</h4>
+                    <ul className="space-y-1.5">
+                      {[...blogPosts].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).slice(0, 3).map((post) => (
+                        <li key={post.id}>
+                          <Link to={`/blog/${post.slug}`} className="block hover:text-primary-600 transition-colors group">
+                            <span className="text-[10px] text-primary-600 font-medium block">{post.category}</span>
+                            <span className="text-xs font-medium text-neutral-800 line-clamp-1 group-hover:text-primary-600 transition-colors">{post.title}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Right Column: Hero Preview Card (col-span-3) */}
+                  <div className="col-span-3 p-3 bg-neutral-50 flex flex-col justify-between">
                     {hoveredPage ? (
                       <div className="h-full flex flex-col">
                         <img
                           src={hoveredPage.image}
                           alt={hoveredPage.name}
-                          className="w-full aspect-[4/3] object-cover rounded-lg mb-2"
+                          className="w-full aspect-[4/3] object-cover rounded-lg mb-2 border border-neutral-200 shadow-sm"
                           loading="lazy"
                         />
-                        <h5 className="text-sm font-semibold text-neutral-800 mb-1">{hoveredPage.name}</h5>
+                        <h5 className="text-xs font-bold text-neutral-900 mb-1">{hoveredPage.name}</h5>
+                        <p className="text-[10px] text-neutral-500 leading-normal mb-2 flex-grow">
+                          Sustainably sourced B2B guides for brands that scale. BRC, FDA compliant.
+                        </p>
                         <Link
                           to={hoveredPage.link}
-                          className="text-xs text-primary-600 hover:text-primary-700 font-medium"
+                          className="text-xs text-primary-600 hover:text-primary-700 font-bold flex items-center gap-1"
                         >
-                          Read more →
+                          Read Article →
                         </Link>
                       </div>
                     ) : (
@@ -728,105 +786,25 @@ export function RightNavMenu() {
                     )}
                   </div>
                 </div>
+                {/* Bottom Footer */}
                 <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100 flex items-center justify-between">
-                  <Link to="/learn" className="text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors">
-                    Browse All Pages →
-                  </Link>
+                  <div className="flex gap-4">
+                    <Link to="/learn" className="text-xs font-bold text-primary-600 hover:text-primary-700 transition-colors">
+                      📚 Learn Index ({Object.values(LEARN_PAGES).reduce((sum, cat) => sum + cat.pages.length, 0)} Articles)
+                    </Link>
+                    <Link to="/blog" className="text-xs font-bold text-primary-600 hover:text-primary-700 transition-colors">
+                      📝 Blog Index ({blogPosts.length} Posts)
+                    </Link>
+                  </div>
                   <a
                     href="https://calendly.com/30-min-free-packaging-consultancy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-primary-600 text-xs font-semibold hover:text-primary-700 transition-colors"
+                    className="flex items-center gap-1.5 text-primary-600 text-xs font-bold hover:text-primary-700 transition-colors"
                   >
                     <Calendar className="h-3.5 w-3.5" />
                     Book Consultation
                   </a>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* BLOG */}
-        <div className="relative" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
-          <Link to="/blog" className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-colors ${activeMenu === 'blog' ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'}`}>
-            <FileText className="h-4 w-4" />
-            BLOG
-            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === 'blog' ? 'rotate-180' : ''}`} />
-          </Link>
-          {activeMenu === 'blog' && (
-            <div className="fixed left-1/2 -translate-x-1/2 top-[88px] pt-2 z-50" onMouseEnter={() => handleMouseEnter('blog')} onMouseLeave={handleMouseLeave}>
-              <div className="w-[95vw] max-w-[900px] bg-white shadow-2xl rounded-xl border border-neutral-200 overflow-hidden">
-                <div className="grid grid-cols-12">
-                  {/* Left: Blog Categories */}
-                  <div className="col-span-3 bg-neutral-50 p-3 border-r border-neutral-100">
-                    <h3 className="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2 flex items-center gap-2">
-                      <FileText className="h-4 w-4" />
-                      Blog
-                    </h3>
-                    <ul className="space-y-0.5">
-                      <li>
-                        <Link to="/blog" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
-                          <ChevronRight className="h-3 w-3 text-neutral-400" />
-                          All Articles
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/blog?category=Newsletter" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium bg-primary-50 text-primary-700 hover:bg-primary-100 transition-all">
-                          <ChevronRight className="h-3 w-3 text-primary-500" />
-                          Newsletter
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/blog?category=Packaging" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
-                          <ChevronRight className="h-3 w-3 text-neutral-400" />
-                          Packaging Tips
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/blog?category=Sustainability" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
-                          <ChevronRight className="h-3 w-3 text-neutral-400" />
-                          Sustainability
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/blog?category=Industry" className="flex items-center gap-2 py-1.5 px-2 rounded-lg text-xs font-medium text-neutral-700 hover:bg-primary-100 hover:text-primary-700 transition-all">
-                          <ChevronRight className="h-3 w-3 text-neutral-400" />
-                          Industry News
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Right: Latest Blog Posts with Images */}
-                  <div className="col-span-9 p-3">
-                    <h4 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Latest Articles</h4>
-                    <div className="grid grid-cols-3 gap-3">
-                      {[...blogPosts].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).slice(0, 6).map((post) => (
-                        <Link
-                          key={post.id}
-                          to={`/blog/${post.slug}`}
-                          className="group"
-                        >
-                          <div className="aspect-[16/10] rounded-lg overflow-hidden mb-2 bg-neutral-100">
-                            <img
-                              src={post.featuredImage}
-                              alt={post.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              loading="lazy"
-                            />
-                          </div>
-                          <span className="text-[10px] text-primary-600 font-medium">{post.category}</span>
-                          <h5 className="text-xs font-medium text-neutral-800 line-clamp-2 group-hover:text-primary-600 transition-colors">{post.title}</h5>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-neutral-50 px-4 py-2 border-t border-neutral-100">
-                  <Link to="/blog" className="text-xs font-semibold text-primary-600 hover:text-primary-700 transition-colors">
-                    View All Posts →
-                  </Link>
                 </div>
               </div>
             </div>
