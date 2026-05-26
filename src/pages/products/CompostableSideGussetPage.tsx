@@ -35,7 +35,7 @@ const CompostableSideGussetPage: React.FC = () => {
           
           <div className="mt-6">
             <ClickableImage 
-              src="/imgs/store/products/compostable-side-gusset-collection.png" 
+              src="/imgs/store/products/compostable-side-gusset-collection.png?v=2" 
               alt="Natural brown Kraft paper side gusset pouch collection for specialty coffee" 
               className="w-full rounded-2xl shadow-md border border-neutral-200"
               caption="Achieve Pack's premium compostable Kraft side gusset bag collection"
@@ -174,7 +174,7 @@ const CompostableSideGussetPage: React.FC = () => {
 
           <div className="mt-6">
             <ClickableImage 
-              src="/imgs/store/products/compostable-side-gusset-retail-box.png" 
+              src="/imgs/store/products/compostable-side-gusset-retail-box.png?v=2" 
               alt="Natural unprinted Kraft paper side gusset bags arranged dynamically at various angles on a sleek dark studio background" 
               className="w-full rounded-2xl shadow-md border border-neutral-200"
               caption="Achieve Pack's unprinted premium Kraft side gusset coffee bags at various angles"
@@ -313,7 +313,7 @@ const CompostableSideGussetPage: React.FC = () => {
 
           <div className="mt-6">
             <ClickableImage 
-              src="/imgs/store/products/compostable-side-gusset-retail-box.png" 
+              src="/imgs/store/products/compostable-side-gusset-retail-box.png?v=2" 
               alt="Premium natural Kraft coffee pouch seated inside a black retail box on a green mossy background" 
               className="w-full rounded-2xl shadow-md border border-neutral-200"
               caption="Achieve Pack's B2B premium pouch-in-box retail presentation"
@@ -406,7 +406,7 @@ const CompostableSideGussetPage: React.FC = () => {
         introSummary="Premium compostable side gusset pouches engineered specifically for specialty coffee roasters. Combining the classic artisanal quad-fold look with certified BPI home-compostable barrier technologies, expandable gussets, and optional degassing valves."
         sections={sections}
         faqs={faqs}
-        heroImage="/imgs/store/products/compostable-side-gusset-collection.png"
+        heroImage="/imgs/store/products/compostable-side-gusset-collection.png?v=2"
         heroImageAlt="Achieve Pack premium compostable Kraft paper side gusset pouch collection"
       />
 
