@@ -121,6 +121,145 @@ const CompostableSideGussetPage: React.FC = () => {
             
             <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-xl border border-neutral-200/50">
               <div className="w-10 h-10 bg-amber-50 text-amber-600 border border-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 text-xl font-bold">
+                🏷️
+              </div>
+              <div>
+                <h4 className="font-bold text-neutral-900 text-sm">Premium PLA Biodegradable Sealing Stickers</h4>
+                <p className="text-xs text-neutral-500 mt-0.5 leading-relaxed">
+                  Due to the structural folds of expandable side gusset bags, standard internal press-to-close zippers are not feasible. Instead, we highly recommend using our certified 100% plant-based <Link to="/store/product/eco-pla-sealing-sticker" className="text-primary-600 font-semibold underline hover:text-primary-800">Premium PLA Sealing Stickers</Link> or <Link to="/products/custom-compostable-labels" className="text-primary-600 font-semibold underline hover:text-primary-800">Custom Compostable Labels</Link> to secure and seal rolled-down headers post-fill.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'composting',
+      title: 'Certified Biodegradation Timeline',
+      icon: <Leaf className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>
+            Our side gusset bags are engineered to decompose cleanly back into organic soil humus without leaving microplastics or volatile chemical traces:
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-6 mt-4">
+            <div className="bg-white border border-neutral-200 p-5 rounded-2xl shadow-sm space-y-3">
+              <span className="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-green-50 text-green-700 border border-green-100 rounded-md uppercase tracking-wider">
+                Home Compostable (AS 5810)
+              </span>
+              <h4 className="font-bold text-neutral-900 text-base">Backyard Compost Bin</h4>
+              <p className="text-xs text-neutral-500 leading-relaxed">
+                Decomposes fully within <strong>180 days</strong> at ambient backyard temperatures (approx. 20-30°C). Our bio-barrier is certified safe for garden soil and worm farms.
+              </p>
+              <div className="text-[10px] font-mono text-neutral-400 mt-2">
+                Standards: AS 5810, NF T51-800
+              </div>
+            </div>
+            
+            <div className="bg-white border border-neutral-200 p-5 rounded-2xl shadow-sm space-y-3">
+              <span className="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-md uppercase tracking-wider">
+                Industrial Compostable (EN 13432)
+              </span>
+              <h4 className="font-bold text-neutral-900 text-base">Municipal Organics Run</h4>
+              <p className="text-xs text-neutral-500 leading-relaxed">
+                Decomposes fully within <strong>90 days</strong> under active industrial composting facilities (elevated heat 55-60°C and managed moisture). 
+              </p>
+              <div className="text-[10px] font-mono text-neutral-400 mt-2">
+                Standards: EN 13432, ASTM D6400, BPI
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6">
+            <ClickableImage 
+              src="/imgs/store/products/compostable-side-gusset-retail-box.png" 
+              alt="Natural unprinted Kraft paper side gusset bags arranged dynamically at various angles on a sleek dark studio background" 
+              className="w-full rounded-2xl shadow-md border border-neutral-200"
+              caption="Achieve Pack's unprinted premium Kraft side gusset coffee bags at various angles"
+            />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'materials',
+      title: 'High-Barrier Sustainable Materials',
+      icon: <Layers className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>
+            To achieve high-barrier coffee protection without using standard aluminum foils or fossil-fuel plastics, we engineer a premium **Triplex lamination structure** composed entirely of plant-based materials:
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4 mt-4">
+            <div className="border border-neutral-200 rounded-xl p-4 bg-white shadow-sm">
+              <span className="text-2xl block mb-2">🪵</span>
+              <h4 className="font-bold text-neutral-900 mb-1 text-sm">1. Outer Layer: Kraft Paper</h4>
+              <p className="text-xs text-neutral-500 leading-relaxed">
+                Sustainably sourced FSC-certified Kraft paper (White or Brown). Provides structural stiffness, direct ink stamp-holding properties, and raw tactile organic aesthetics.
+              </p>
+            </div>
+            <div className="border border-neutral-200 rounded-xl p-4 bg-white shadow-sm">
+              <span className="text-2xl block mb-2">🌽</span>
+              <h4 className="font-bold text-neutral-900 mb-1 text-sm">2. Middle Barrier: NatureFlex™</h4>
+              <p className="text-xs text-neutral-500 leading-relaxed">
+                Renewable wood-pulp cellulose film. Provides an exceptional barrier against moisture, oxygen, and mineral oils, guaranteeing standard 12-month coffee shelf stability.
+              </p>
+            </div>
+            <div className="border border-neutral-200 rounded-xl p-4 bg-white shadow-sm">
+              <span className="text-2xl block mb-2">🌱</span>
+              <h4 className="font-bold text-neutral-900 mb-1 text-sm">3. Inner Sealant: PLA / PBAT</h4>
+              <p className="text-xs text-neutral-500 leading-relaxed">
+                Certified plant-starch copolymer (Polyacetic Acid & PBAT). Creates high-strength airtight hermetic seals at standard sealing bar temperatures.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-amber-50/50 p-4 rounded-xl border border-amber-100 mt-4 text-xs leading-relaxed text-amber-900">
+            <strong>🚀 B2B Packaging Note:</strong> Unlike cheap compostable bags that suffer from static electricity or tear easily, our proprietary PLA/PBAT blend features dynamic slip agents that slide easily on vertical form-fill-seal (VFFS) machinery pipelines.
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'features',
+      title: 'Closure & Valve Configurations',
+      icon: <Cpu className="h-5 w-5 text-primary-600" />,
+      content: (
+        <div className="space-y-4 text-neutral-700">
+          <p>
+            Customize your side gusset bags with fully compostable functional closure features tailored to your B2B/B2C fulfillment parameters:
+          </p>
+          
+          <div className="space-y-3 mt-4">
+            <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-xl border border-neutral-200/50">
+              <div className="w-10 h-10 bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0 text-xl font-bold">
+                💨
+              </div>
+              <div>
+                <h4 className="font-bold text-neutral-900 text-sm">One-Way Compostable Degassing Valve</h4>
+                <p className="text-xs text-neutral-500 mt-0.5 leading-relaxed">
+                  Crucial for freshly roasted coffee beans. Releases carbon dioxide gas build-up while locking out ambient oxygen. Our valves are certified compostable, ensuring the whole pouch degrades cleanly as one single unit.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-xl border border-neutral-200/50">
+              <div className="w-10 h-10 bg-emerald-50 text-emerald-600 border border-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 text-xl font-bold">
+                🔗
+              </div>
+              <div>
+                <h4 className="font-bold text-neutral-900 text-sm">Premium Reusable Tin-Tie Closures</h4>
+                <p className="text-xs text-neutral-500 mt-0.5 leading-relaxed">
+                  The classic roaster look. Allows customers to roll down the top header of the bag and seal it tightly with side metal ties. Tin-ties are easily peelable prior to backyard disposal.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-xl border border-neutral-200/50">
+              <div className="w-10 h-10 bg-amber-50 text-amber-600 border border-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 text-xl font-bold">
                 🔒
               </div>
               <div>
@@ -174,69 +313,11 @@ const CompostableSideGussetPage: React.FC = () => {
 
           <div className="mt-6">
             <ClickableImage 
-              src="/imgs/store/products/compostable-side-gusset-retail-box.png" 
-              alt="Premium natural Kraft coffee pouch seated in a matte black retail box" 
+              src="/imgs/store/products/compostable-side-gusset-collection.png" 
+              alt="Premium certified compostable natural brown Kraft paper side gusset pouch collection infographic layout" 
               className="w-full rounded-2xl shadow-md border border-neutral-200"
-              caption="Achieve Pack's B2B premium retail presentation in matte cardboard boxed sets"
+              caption="Achieve Pack's premium certified high-barrier Kraft side gusset bag collection infographic layout"
             />
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'customisation',
-      title: 'Bespoke Sizing & B2B Volume Pricing',
-      icon: <Award className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>
-            We accommodate low trial run digital printing starting from <strong>500 pieces</strong>, and high-volume rotogravure printing for enterprise scaling:
-          </p>
-          
-          <div className="overflow-x-auto mt-4 border border-neutral-200 rounded-xl overflow-hidden shadow-sm">
-            <table className="w-full text-xs border-collapse">
-              <thead>
-                <tr className="bg-neutral-900 text-white font-mono text-[10px] uppercase tracking-wider">
-                  <th className="p-3 text-left">Capacity Label</th>
-                  <th className="p-3 text-left">Gusset Dimension Range</th>
-                  <th className="p-3 text-left">Estimated MOQ</th>
-                  <th className="p-3 text-left">Unit Rate Starting At</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-bold text-neutral-800">150g Capacity</td>
-                  <td className="p-3 font-mono">160 × 260 + 80 mm</td>
-                  <td className="p-3 font-semibold">500 units</td>
-                  <td className="p-3 text-emerald-600 font-extrabold">$2.40 USD / pouch</td>
-                </tr>
-                <tr className="border-b border-neutral-200 bg-neutral-50/50">
-                  <td className="p-3 font-bold text-neutral-800">250g Capacity</td>
-                  <td className="p-3 font-mono">180 × 280 + 80 mm</td>
-                  <td className="p-3 font-semibold">500 units</td>
-                  <td className="p-3 text-emerald-600 font-extrabold">$2.60 USD / pouch</td>
-                </tr>
-                <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-bold text-neutral-800">500g Capacity</td>
-                  <td className="p-3 font-mono">200 × 300 + 80 mm</td>
-                  <td className="p-3 font-semibold">500 units</td>
-                  <td className="p-3 text-emerald-600 font-extrabold">$2.70 USD / pouch</td>
-                </tr>
-                <tr className="border-b border-neutral-200 bg-neutral-50/50">
-                  <td className="p-3 font-bold text-neutral-800">1kg Capacity</td>
-                  <td className="p-3 font-mono">260 × 340 + 80 mm</td>
-                  <td className="p-3 font-semibold">500 units</td>
-                  <td className="p-3 text-emerald-600 font-extrabold">$2.90 USD / pouch</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="bg-indigo-50 border border-indigo-100 p-4 rounded-xl mt-4 flex items-start gap-3">
-            <span className="text-xl">✨</span>
-            <div className="text-xs text-indigo-900 leading-relaxed">
-              <strong>Millimeter Tailoring Sizing:</strong> Need a taller or narrower custom dimension? Under our specialized PaaS (Packaging-as-a-Service) framework, custom millimeter adjustments smaller than 260×340+80mm are allowed at **$0 setup setup cylinder fee**!
-            </div>
           </div>
         </div>
       )
