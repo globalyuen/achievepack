@@ -57,6 +57,7 @@ const SharedQuotePage: React.FC = () => {
   useEffect(() => {
     const fetchQuote = async () => {
       if (!id) return;
+      isLoadedFromDb.current = false;
       
       // Retry logic with exponential backoff for transient errors
       const maxRetries = 2;
@@ -130,6 +131,10 @@ const SharedQuotePage: React.FC = () => {
         }
         if (data.shippingMultiplier) setShippingMultiplier(data.shippingMultiplier);
         if (data.customer) setCustomerName(data.customer);
+          
+          setTimeout(() => {
+            isLoadedFromDb.current = true;
+          }, 150);
           
           setLoading(false);
           return; // Success — exit retry loop
@@ -222,13 +227,14 @@ const SharedQuotePage: React.FC = () => {
   };
 
   const isFirstRender = useRef(true);
+  const isLoadedFromDb = useRef(false);
 
   // RE-RENDER LOGIC (Copied from DailyReportsPage)
   useEffect(() => {
     if (!pricingData || pricingData.length === 0) return;
     
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
+    // Skip re-calculation during database load so custom saved HTML is preserved on refresh
+    if (!isLoadedFromDb.current) {
       return;
     }
     
