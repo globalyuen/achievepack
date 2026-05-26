@@ -215,11 +215,11 @@ export default function PouchEcoGPTKPage() {
 
     if (optionId === 'custom-conven') {
       moq = 100;
+      let totalPrice = 0;
       if (qtyPerDesign < 100) {
         isBelowMoq = true;
       } else {
         // Look up flat price based on size
-        let totalPrice = 0;
         if (isSize1) {
           if (qtyPerDesign === 100) totalPrice = 190;
           else if (qtyPerDesign === 500) totalPrice = 290;
@@ -242,10 +242,10 @@ export default function PouchEcoGPTKPage() {
           else if (qtyPerDesign === 1000) totalPrice = 720;
           else if (qtyPerDesign === 5000) totalPrice = 2470;
         }
-        unitPrice = totalPrice / qtyPerDesign;
+        unitPrice = totalPrice / (qtyPerDesign * numDesigns);
       }
 
-      const totalCost = isBelowMoq ? 0 : unitPrice * qtyPerDesign;
+      const totalCost = isBelowMoq ? 0 : totalPrice;
       const isClear = subOption === 'glossy-clear';
       const displayImg = isClear
         ? '/imgs/store/con-digital/sup-clear-zip/1.webp'
