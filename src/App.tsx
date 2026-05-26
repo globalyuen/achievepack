@@ -2450,7 +2450,6 @@ function App() {
                 <li><Link to="/packaging/vacuum-pouches" className="hover:text-primary-500">{t('footer.links.vacuumPouches')}</Link></li>
                 <li><Link to="/packaging/flat-pouches" className="hover:text-primary-500">{t('footer.links.flatPouches')}</Link></li>
                 <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-500">{t('footer.links.sideGussetBags')}</Link></li>
-                <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-500">Compostable Side Gusset Bags</Link></li>
                 <li><Link to="/packaging/custom-boxes" className="hover:text-primary-500">Custom Boxes</Link></li>
                 <li><Link to="/products/labels-and-stickers" className="hover:text-primary-500">Labels & Stickers</Link></li>
                 <li><Link to="/products/lab-bags" className="hover:text-primary-500">Lab Bags</Link></li>
@@ -2604,6 +2603,7 @@ function App() {
             <div>
               <h4 className="text-sm font-semibold mb-2">Composting</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
+                <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-500 font-semibold text-[#10b981]">🌱 Compostable Side Gusset Bags</Link></li>
                 <li><Link to="/composting/composting-benefits" className="hover:text-primary-500">Composting Benefits</Link></li>
                 <li><Link to="/composting/composting-services" className="hover:text-primary-500">Service Finder</Link></li>
                 <li><Link to="/composting/biodegradable-vs-compostable" className="hover:text-primary-500">Biodegradable vs Compostable</Link></li>
