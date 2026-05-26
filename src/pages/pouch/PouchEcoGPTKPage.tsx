@@ -245,7 +245,7 @@ export default function PouchEcoGPTKPage() {
         unitPrice = totalPrice / qtyPerDesign;
       }
 
-      const totalCost = isBelowMoq ? 0 : unitPrice * qtyPerDesign * numDesigns;
+      const totalCost = isBelowMoq ? 0 : unitPrice * qtyPerDesign;
       const isClear = subOption === 'glossy-clear';
       const displayImg = isClear
         ? '/imgs/store/con-digital/sup-clear-zip/1.webp'
