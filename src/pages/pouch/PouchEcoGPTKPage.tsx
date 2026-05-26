@@ -272,7 +272,7 @@ export default function PouchEcoGPTKPage() {
         accentColor: '#10b981',
         certLogo: isCompostable ? '🌱 Certified Bio' : '♻️ SPI Code 4',
         leadTime: '20 - 25 Days',
-        image: isCompostable ? '/imgs/store/products/invest-cal-compostable.jpg' : '/imgs/store/products/invest-cal-recyclable.jpg',
+        image: isCompostable ? '/imgs/store/products/compostable-kraft-premium.png' : '/imgs/store/products/pe-flat-bottom-premium.png',
         points: isCompostable
           ? [
               'Sturdy Box-Style Flat Bottom Shape with Side Gussets',
@@ -310,7 +310,7 @@ export default function PouchEcoGPTKPage() {
         accentColor: '#3b82f6',
         certLogo: isCompostable ? '🌱 Bio-Saver 50%' : '♻️ Eco-Saver 50%',
         leadTime: '20 - 25 Days',
-        image: '/imgs/pouch-shape/eco-stand-up-pouch.png',
+        image: isCompostable ? '/imgs/store/products/compostable-oval-doypack-premium.png' : '/imgs/store/products/pe-oval-doypack-premium.png',
         points: isCompostable
           ? [
               'Stand-Up Pouch Shape (Doypack with Oval Bottom)',
@@ -734,7 +734,7 @@ export default function PouchEcoGPTKPage() {
                         <span className="text-sm text-neutral-450 font-bold">/ pouch</span>
                       </div>
                       <div className="text-[11px] text-emerald-600 font-bold mt-1.5 flex items-center gap-1">
-                        <Zap className="w-3.5 h-3.5 text-emerald-500 fill-emerald-100" /> Exactly half price of Flat Bottom &bull; <span className="text-neutral-900">${ovalData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD total</span>
+                        <Zap className="w-3.5 h-3.5 text-emerald-500 fill-emerald-100" /> <span className="text-neutral-900">${ovalData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD total</span>
                       </div>
                     </>
                   )}

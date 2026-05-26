@@ -216,6 +216,10 @@
       "destination": "/api/:path*"
     },
     {
+      "source": "/store/product/:productId",
+      "destination": "/api/product-page?productId=:productId"
+    },
+    {
       "source": "/((?!assets|imgs|api|3d|.*\\.).*)",
       "destination": "/index.html"
     },

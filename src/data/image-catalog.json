@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-25",
-  "total_images": 1804,
+  "total_images": 1808,
   "total_categories": 161,
   "extensions": {
     ".webp": 1298,
-    ".png": 296,
+    ".png": 300,
     ".jpg": 207,
     ".svg": 3
   },
@@ -8280,8 +8280,32 @@
       ]
     },
     "store/products": {
-      "count": 204,
+      "count": 208,
       "images": [
+        {
+          "filename": "compostable-oval-doypack-premium.png",
+          "path": "/imgs/store/products/compostable-oval-doypack-premium.png",
+          "extension": ".png",
+          "modified": "2026-05-25T15:04:03.410Z"
+        },
+        {
+          "filename": "pe-oval-doypack-premium.png",
+          "path": "/imgs/store/products/pe-oval-doypack-premium.png",
+          "extension": ".png",
+          "modified": "2026-05-25T15:04:03.406Z"
+        },
+        {
+          "filename": "compostable-kraft-premium.png",
+          "path": "/imgs/store/products/compostable-kraft-premium.png",
+          "extension": ".png",
+          "modified": "2026-05-25T14:09:58.399Z"
+        },
+        {
+          "filename": "pe-flat-bottom-premium.png",
+          "path": "/imgs/store/products/pe-flat-bottom-premium.png",
+          "extension": ".png",
+          "modified": "2026-05-25T14:09:58.393Z"
+        },
         {
           "filename": "custom-multilayer-sticker-label-thumbnail-2.png",
           "path": "/imgs/store/products/custom-multilayer-sticker-label-thumbnail-2.png",
