@@ -2450,6 +2450,7 @@ function App() {
                 <li><Link to="/packaging/vacuum-pouches" className="hover:text-primary-500">{t('footer.links.vacuumPouches')}</Link></li>
                 <li><Link to="/packaging/flat-pouches" className="hover:text-primary-500">{t('footer.links.flatPouches')}</Link></li>
                 <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-500">{t('footer.links.sideGussetBags')}</Link></li>
+                <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-500">Compostable Side Gusset Bags</Link></li>
                 <li><Link to="/packaging/custom-boxes" className="hover:text-primary-500">Custom Boxes</Link></li>
                 <li><Link to="/products/labels-and-stickers" className="hover:text-primary-500">Labels & Stickers</Link></li>
                 <li><Link to="/products/lab-bags" className="hover:text-primary-500">Lab Bags</Link></li>
@@ -2530,6 +2531,7 @@ function App() {
               <h4 className="text-sm font-semibold mb-2">Product Guides</h4>
               <ul className="space-y-1 text-neutral-400 text-xs">
                 <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-500">Compostable Coffee Bags</Link></li>
+                <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-500">Compostable Side Gusset</Link></li>
                 <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-500">Compostable Stand-Up</Link></li>
                 <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-500">Recyclable Mono-Material</Link></li>
                 <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-500">Coffee Degassing Valve</Link></li>

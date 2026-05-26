@@ -113,6 +113,7 @@ const CUSTOM_ORDER_TYPES = [
 
 const CUSTOM_PRODUCTS = [
   { name: 'Eco Digital Pouches', link: '/store?category=eco-digital', image: '/imgs/store/eco-digital/os9CHhTSQoGASvA8lsfm-iHYfG4kddPoZP2wYMh47fs=.webp', badge: '🌱 Eco' },
+  { name: 'Compostable Side Gusset', link: '/products/compostable-side-gusset-bags', image: '/imgs/store/products/compostable-side-gusset-collection.png', badge: '🌱 Eco' },
   { name: 'Custom Boxes', link: '/store?category=boxes', image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', badge: '' },
   { name: 'Custom Mailer Bags', link: '/store?category=mailer', image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', badge: '' },
   { name: 'Compostable Labels', link: '/products/custom-compostable-labels', image: '/taobao/compostable-label/eco_friendly_stickers.svg', badge: '🌱 Eco' },
@@ -467,7 +468,7 @@ export default function MegaMenu({ hideLearnBlog = false }: MegaMenuProps) {
                   {/* Right: Products with Hover Images */}
                   <div className="col-span-9 p-4">
                     <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-3">Products</h3>
-                    <div className="grid grid-cols-5 gap-3">
+                    <div className="grid grid-cols-6 gap-3">
                       {CUSTOM_PRODUCTS.map((product) => (
                         <Link
                           key={product.name}

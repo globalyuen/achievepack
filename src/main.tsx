@@ -79,6 +79,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/materials/plastic-free-kraft': () => import('./pages/materials/PlasticFreeKraftPage'),
   '/function/heat-resistant-compostable-pouches': () => import('./pages/function/HeatResistantCandlePackagingPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
+  '/products/compostable-side-gusset-bags': () => import('./pages/products/CompostableSideGussetPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
   '/pricing': () => import('./pages/pouch/PouchEcoGPTKPage'),
   '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
@@ -719,6 +720,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/products/low-moq-packaging" element={<LowMOQPackagingGuide />} />
                   <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesGuide />} />
                   <Route path="/products/custom-compostable-labels" element={<CustomCompostableLabelsPage />} />
+                  <Route path="/products/compostable-side-gusset-bags" element={<CompostableSideGussetPage />} />
                   <Route path="/tech-specs" element={<PouchTechSpecsPage />} />
                   <Route path="/quotes/flat-bottom" element={<FlatBottomQuotePage />} />
                   <Route path="/quotes/three-side-seal" element={<ThreeSideSealQuotePage />} />
