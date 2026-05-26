@@ -47,6 +47,7 @@ export default function StoreFooter() {
               <li><Link to="/packaging/flat-bottom-bags" className="hover:text-primary-400">Flat Bottom Bags</Link></li>
               <li><Link to="/packaging/flat-pouches" className="hover:text-primary-400">3 Side Seal</Link></li>
               <li><Link to="/packaging/side-gusset-bags" className="hover:text-primary-400">Side Gusset</Link></li>
+              <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-400 font-medium text-primary-400">Compostable Side Gusset <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/packaging/spout-pouches" className="hover:text-primary-400">Spout Pouches</Link></li>
               <li><Link to="/packaging/custom-boxes" className="hover:text-primary-400">Custom Boxes</Link></li>
               <li><Link to="/quotes/rollstock" className="hover:text-primary-400">Rollstock</Link></li>

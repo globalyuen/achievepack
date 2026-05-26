@@ -67,6 +67,7 @@ const LEARN_PAGES = {
     pages: [
       { name: 'Compostable Coffee Bags', link: '/products/compostable-coffee-bags', image: '/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp' },
       { name: 'Compostable Stand Up Pouches', link: '/products/compostable-stand-up-pouches', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
+      { name: 'Compostable Side Gusset', link: '/products/compostable-side-gusset-bags', image: '/imgs/store/products/compostable-side-gusset-collection.png' },
       { name: 'Recyclable Mono Pouches', link: '/products/recyclable-mono-material-pouches', image: '/imgs/illustrated/a_recyclable_mono_pe_card_v1_2991486.webp' },
       { name: 'Coffee Bags with Valve', link: '/products/coffee-bags-degassing-valve', image: '/imgs/illustrated/a_topic_03_coffee_materials_var_c_6491567.webp' },
       { name: 'Low MOQ Packaging', link: '/products/low-moq-packaging', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },

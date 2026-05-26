@@ -345,6 +345,7 @@ const RyanWongPage = lazyWithRetry(() => import('./pages/team/RyanWongPage'))
 
 // Products Pages - SEO Focused - Lazy loaded
 const CompostableCoffeeBagsPage = lazyWithRetry(() => import('./pages/products/CompostableCoffeeBagsPage'))
+const CompostableSideGussetPage = lazyWithRetry(() => import('./pages/products/CompostableSideGussetPage'))
 const CompostableStandUpPouchesPage = lazyWithRetry(() => import('./pages/products/CompostableStandUpPouchesPage'))
 const RecyclableMonoMaterialPage = lazyWithRetry(() => import('./pages/products/RecyclableMonoMaterialPage'))
 const CoffeeBagsDegassingValvePage = lazyWithRetry(() => import('./pages/products/CoffeeBagsDegassingValvePage'))
@@ -946,6 +947,7 @@ if (getDomain() === 'pouch') {
 
                         {/* Products Pages - SEO Focused */}
                         <Route path="/products/compostable-coffee-bags" element={<CompostableCoffeeBagsPage />} />
+                        <Route path="/products/compostable-side-gusset-bags" element={<CompostableSideGussetPage />} />
                         <Route path="/products/compostable-stand-up-pouches" element={<CompostableStandUpPouchesPage />} />
                         <Route path="/products/recyclable-mono-material-pouches" element={<RecyclableMonoMaterialPage />} />
                         <Route path="/products/coffee-bags-degassing-valve" element={<CoffeeBagsDegassingValvePage />} />

@@ -167,6 +167,7 @@ export default function Footer() {
               <li><Link to="/products/compostable-coffee-bags" className="hover:text-primary-400">Compostable Coffee Bags</Link></li>
               <li><Link to="/products/coffee-bags-degassing-valve" className="hover:text-primary-400">Coffee Bags with Valve</Link></li>
               <li><Link to="/products/compostable-stand-up-pouches" className="hover:text-primary-400">Compostable Pouches</Link></li>
+              <li><Link to="/products/compostable-side-gusset-bags" className="hover:text-primary-400 font-medium text-primary-400">Compostable Side Gusset <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/products/recyclable-mono-material-pouches" className="hover:text-primary-400">Recyclable Mono-Material</Link></li>
               <li><Link to="/products/low-moq-packaging" className="hover:text-primary-400">Low MOQ Packaging</Link></li>
               <li><Link to="/products/labels-and-stickers" className="hover:text-primary-400">Labels & Stickers</Link></li>
