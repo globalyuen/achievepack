@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banana Nano Pro 2 - Custom Packaging CAD Quotation</title>
+  <!-- Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #15803d;
+      --primary-dark: #166534;
+      --primary-light: #f0fdf4;
+      --neutral-dark: #0f172a;
+      --neutral-light: #f8fafc;
+      --neutral-border: #cbd5e1;
+      --accent-cyan: #0891b2;
+      --accent-cyan-light: #ecfeff;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #334155;
+      background-color: #f1f5f9;
+      padding: 40px 20px;
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    /* Print action bar */
+    .action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--neutral-dark);
+      padding: 12px 24px;
+      color: white;
+    }
+    
+    .action-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+    }
+
+    .print-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .print-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Main Invoice Sheet */
+    .invoice-sheet {
+      padding: 40px;
+    }
+
+    /* Header Section */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 24px;
+      margin-bottom: 30px;
+    }
+
+    .brand-section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ap-logo {
+      height: 38px;
+      width: auto;
+      margin-bottom: 8px;
+      object-fit: contain;
+    }
+
+    .invoice-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--neutral-dark);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .quote-number {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .contact-info {
+      text-align: right;
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    .company-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--neutral-dark);
+      margin-bottom: 4px;
+    }
+
+    /* Client Info */
+    .client-grid {
+      display: grid;
+      grid-cols-2;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      background: var(--neutral-light);
+      padding: 20px 24px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 30px;
+    }
+
+    .client-label {
+      font-size: 10px;
+      font-weight: 800;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .client-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--neutral-dark);
+    }
+    
+    .client-subtext {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* DDP Notice Banner */
+    .ddp-banner {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .ddp-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .ddp-text {
+      font-size: 12px;
+      color: #15803d;
+      line-height: 1.5;
+    }
+
+    /* Item Section */
+    .item-section {
+      margin-bottom: 35px;
+      page-break-inside: avoid;
+    }
+
+    .item-header {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 12px;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .item-header-icon {
+      background: var(--primary-light);
+      color: var(--primary);
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    /* Specifications Card */
+    .specs-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spec-label {
+      font-size: 9px;
+      font-weight: 800;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    .spec-val {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--neutral-dark);
+    }
+
+    /* Pricing Table */
+    .table-container {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--neutral-dark);
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      padding: 12px 16px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .qty-cell {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--neutral-dark);
+    }
+
+    .price-subtext {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .air-header {
+      background: #3b0764;
+      color: #f5f3ff;
+      text-align: right;
+    }
+
+    .air-cell {
+      background: #faf5ff;
+      color: #6b21a8;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .sea-header {
+      background: #172554;
+      color: #eff6ff;
+      text-align: right;
+    }
+
+    .sea-cell {
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    /* Timelines & Terms */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 20px;
+      border-top: 2px solid #e2e8f0;
+      padding-top: 30px;
+      page-break-inside: avoid;
+    }
+
+    .timeline-card {
+      background: var(--neutral-light);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .timeline-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 6px 0;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+    
+    .timeline-row:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-label {
+      color: #64748b;
+    }
+
+    .timeline-val {
+      font-weight: 700;
+      color: var(--neutral-dark);
+    }
+
+    .terms-card {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .terms-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--neutral-dark);
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .terms-list {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+
+    .terms-list li {
+      margin-bottom: 4px;
+    }
+
+    .invoice-footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 10px;
+      color: #94a3b8;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 15px;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+      .container {
+        border: none;
+        box-shadow: none;
+        max-width: 100%;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .invoice-sheet {
+        padding: 0;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 15mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Action Bar (Hidden in Print) -->
+    <div class="action-bar no-print">
+      <div class="action-title">✨ CUSTOMER-READY B2C PRESENTATION</div>
+      <button class="print-btn" onclick="window.print()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Print / Save PDF
+      </button>
+    </div>
+
+    <!-- Main Quotation Sheet -->
+    <div class="invoice-sheet">
+      <!-- Header -->
+      <div class="header">
+        <div>
+          <img src="../ap-logo.svg" alt="Achieve Pack Logo" class="ap-logo" />
+          <div class="invoice-title">Quotation Summary</div>
+          <div class="quote-number">PREPARED FOR: BANANA NANO PRO 2 | QUOTE: AP-2026-BNP2</div>
+        </div>
+        <div class="contact-info">
+          <div class="company-name">Achieve Pack</div>
+          WhatsApp: +852 69704411<br>
+          hello@achievepack.com<br>
+          www.achievepack.com<br>
+          HK BRN: 41007097-000-07-14-4
+        </div>
+      </div>
+
+      <!-- Client Grid -->
+      <div class="client-grid">
+        <div>
+          <div class="client-label">Brand Name</div>
+          <div class="client-value">Banana Nano Pro 2</div>
+          <div class="client-subtext">Premium Specialty Packaging</div>
+        </div>
+        <div style="text-align: right;">
+          <div class="client-label">Date Prepared</div>
+          <div class="client-value" style="font-size: 15px;">May 27, 2026</div>
+          <div class="client-subtext">Valid for 30 Days</div>
+        </div>
+      </div>
+
+      <!-- DDP Duties Guarantee Banner -->
+      <div class="ddp-banner">
+        <div class="ddp-title">
+          🌱 100% Inclusive DDP Terms (Delivered Duty Paid)
+        </div>
+        <div class="ddp-text">
+          Achieve Pack handles all customs entry clearances, paying 100% of Canadian import tariffs, customs entry brokerage, and door-to-door delivery. <strong>There are zero hidden border fees, zero tariff billing, and no local taxes to deal with at delivery.</strong>
+        </div>
+      </div>
+
+      <!-- Item 1: 500g High Barrier -->
+      <div class="item-section">
+        <div class="item-header">
+          <div class="item-header-icon">🌱</div>
+          500g Premium High-Barrier Stand-Up Zipper Bag
+        </div>
+        
+        <div class="specs-card">
+          <div class="spec-item">
+            <div class="spec-label">Material Structure</div>
+            <div class="spec-val">Rice Paper 30g / NK25 Wood Pulp Bio-Barrier / PBAT 75</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Dimensions</div>
+            <div class="spec-val">220 x 240 + 90 mm</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Print Specification</div>
+            <div class="spec-val">Unprinted Blank (No Cylinder/Plate Fees Required)</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Closure & Valve</div>
+            <div class="spec-val">Premium Resealable Zipper + Certified Compostable Degassing Valve</div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 20%;">Quantity</th>
+                <th style="width: 20%; text-align: right;">EXW Unit (USD)</th>
+                <th style="width: 20%; text-align: right;">FOB SZ Unit (USD)</th>
+                <th class="air-header" style="width: 20%;">✈ Air DDP (CAD Total)</th>
+                <th class="sea-header" style="width: 20%;">🚢 Sea DDP (CAD Total)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="qty-cell">500 units</td>
+                <td style="text-align: right;">$0.9970<br><span class="price-subtext">Total: $499 USD</span></td>
+                <td style="text-align: right; color: #166534; font-weight: 600;">$1.0270<br><span class="price-subtext">Total: $514 USD</span></td>
+                <td class="air-cell">$1.98 CAD / ea<br><span class="price-subtext" style="color:#7e22ce">Total: $991.88 CAD</span></td>
+                <td class="sea-cell">$1.57 CAD / ea<br><span class="price-subtext" style="color:#1d4ed8">Total: $786.38 CAD</span></td>
+              </tr>
+              <tr>
+                <td class="qty-cell">1,000 units</td>
+                <td style="text-align: right;">$0.7420<br><span class="price-subtext">Total: $743 USD</span></td>
+                <td style="text-align: right; color: #166534; font-weight: 600;">$0.7640<br><span class="price-subtext">Total: $765 USD</span></td>
+                <td class="air-cell">$1.63 CAD / ea<br><span class="price-subtext" style="color:#7e22ce">Total: $1,634.41 CAD</span></td>
+                <td class="sea-cell">$1.22 CAD / ea<br><span class="price-subtext" style="color:#1d4ed8">Total: $1,223.41 CAD</span></td>
+              </tr>
+              <tr>
+                <td class="qty-cell">2,000 units</td>
+                <td style="text-align: right;">$0.6490<br><span class="price-subtext">Total: $1,299 USD</span></td>
+                <td style="text-align: right; color: #166534; font-weight: 600;">$0.6690<br><span class="price-subtext">Total: $1,338 USD</span></td>
+                <td class="air-cell">$1.51 CAD / ea<br><span class="price-subtext" style="color:#7e22ce">Total: $3,012.63 CAD</span></td>
+                <td class="sea-cell">$1.10 CAD / ea<br><span class="price-subtext" style="color:#1d4ed8">Total: $2,190.63 CAD</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Item 2: 1kg High Barrier -->
+      <div class="item-section">
+        <div class="item-header">
+          <div class="item-header-icon">🌱</div>
+          1kg Premium High-Barrier Stand-Up Zipper Bag
+        </div>
+        
+        <div class="specs-card">
+          <div class="spec-item">
+            <div class="spec-label">Material Structure</div>
+            <div class="spec-val">Rice Paper 30g / NK25 Wood Pulp Bio-Barrier / PBAT 75</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Dimensions</div>
+            <div class="spec-val">210 x 310 + 110 mm</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Print Specification</div>
+            <div class="spec-val">Unprinted Blank (No Cylinder/Plate Fees Required)</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Closure & Valve</div>
+            <div class="spec-val">Premium Resealable Zipper + Certified Compostable Degassing Valve</div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 20%;">Quantity</th>
+                <th style="width: 20%; text-align: right;">EXW Unit (USD)</th>
+                <th style="width: 20%; text-align: right;">FOB SZ Unit (USD)</th>
+                <th class="air-header" style="width: 20%;">✈ Air DDP (CAD Total)</th>
+                <th class="sea-header" style="width: 20%;">🚢 Sea DDP (CAD Total)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="qty-cell">500 units</td>
+                <td style="text-align: right;">$1.4610<br><span class="price-subtext">Total: $731 USD</span></td>
+                <td style="text-align: right; color: #166534; font-weight: 600;">$1.5050<br><span class="price-subtext">Total: $753 USD</span></td>
+                <td class="air-cell">$2.82 CAD / ea<br><span class="price-subtext" style="color:#7e22ce">Total: $1,412.47 CAD</span></td>
+                <td class="sea-cell">$2.28 CAD / ea<br><span class="price-subtext" style="color:#1d4ed8">Total: $1,138.47 CAD</span></td>
+              </tr>
+              <tr>
+                <td class="qty-cell">1,000 units</td>
+                <td style="text-align: right;">$0.9740<br><span class="price-subtext">Total: $974 USD</span></td>
+                <td style="text-align: right; color: #166534; font-weight: 600;">$1.0030<br><span class="price-subtext">Total: $1,004 USD</span></td>
+                <td class="air-cell">$2.16 CAD / ea<br><span class="price-subtext" style="color:#7e22ce">Total: $2,156.38 CAD</span></td>
+                <td class="sea-cell">$1.61 CAD / ea<br><span class="price-subtext" style="color:#1d4ed8">Total: $1,608.38 CAD</span></td>
+              </tr>
+              <tr>
+                <td class="qty-cell">2,000 units</td>
+                <td style="text-align: right;">$0.7190<br><span class="price-subtext">Total: $1,438 USD</span></td>
+                <td style="text-align: right; color: #166534; font-weight: 600;">$0.7400<br><span class="price-subtext">Total: $1,481 USD</span></td>
+                <td class="air-cell">$1.81 CAD / ea<br><span class="price-subtext" style="color:#7e22ce">Total: $3,614.06 CAD</span></td>
+                <td class="sea-cell">$1.26 CAD / ea<br><span class="price-subtext" style="color:#1d4ed8">Total: $2,518.06 CAD</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Timelines & Terms -->
+      <div class="footer-grid">
+        <div class="timeline-card">
+          <div class="timeline-title">⏱ Lead Times & Transit</div>
+          <div class="timeline-row">
+            <span class="timeline-label">🏭 Production Timeline</span>
+            <span class="timeline-val">3-4 Weeks</span>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-label">✈ Air Shipping Transit</span>
+            <span class="timeline-val">7-10 Days (DDP)</span>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-label">🚢 Sea Shipping Transit</span>
+            <span class="timeline-val">4-5 Weeks (DDP)</span>
+          </div>
+        </div>
+
+        <div class="terms-card">
+          <div class="terms-title">📝 Terms & Conditions</div>
+          <ul class="terms-list">
+            <li><strong>DDP Incoterms:</strong> Achieve Pack covers all duties, customs clearance entry fees, and domestic Canadian delivery charges.</li>
+            <li><strong>Payment Terms:</strong> 50% deposit to initiate production, 50% balance paid upon completion before shipping.</li>
+            <li>All CAD conversions are locked at an commercial rate of <strong>1.37 CAD per USD</strong>.</li>
+            <li>Rice Paper materials are 100% biodegradable and certified under ASTM D6400 / EN 13432.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Centered Print Instructions -->
+      <div class="invoice-footer">
+        © 2026 Achieve Pack. Rates are fully certified door-to-door (DDP) in Canadian Dollars (CAD). 
+        <br>Questions? WhatsApp: +852 69704411 | hello@achievepack.com
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
