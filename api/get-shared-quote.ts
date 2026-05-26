@@ -1,39 +1,37 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
 
-export const config = {
-  runtime: 'edge'
-}
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Handle CORS
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization'
+  );
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, OPTIONS',
-  'Content-Type': 'application/json',
-  'Cache-Control': 'no-store, no-cache, must-revalidate',
-};
-
-export default async function handler(req: Request): Promise<Response> {
-  // Handle CORS for OPTIONS
   if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: CORS_HEADERS });
+    return res.status(200).end();
   }
 
   if (req.method !== 'GET') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405, headers: CORS_HEADERS });
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const url = new URL(req.url);
-    const id = url.searchParams.get('id');
+    const id = req.query.id as string;
 
     if (!id) {
-      return new Response(JSON.stringify({ error: 'No quote ID provided' }), { status: 400, headers: CORS_HEADERS });
+      return res.status(400).json({ error: 'No quote ID provided' });
     }
 
     const SUPABASE_URL = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
     const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY;
     
     if (!SUPABASE_URL || !SUPABASE_KEY) {
-      return new Response(JSON.stringify({ error: 'Server configuration error' }), { status: 500, headers: CORS_HEADERS });
+      return res.status(500).json({ error: 'Server configuration error' });
     }
 
     // Use service key to bypass RLS since this is a public link
@@ -47,7 +45,7 @@ export default async function handler(req: Request): Promise<Response> {
       .single();
 
     if (logError || !logRow) {
-      return new Response(JSON.stringify({ error: 'Quote not found or link has expired.' }), { status: 404, headers: CORS_HEADERS });
+      return res.status(404).json({ error: 'Quote not found or link has expired.' });
     }
 
     let rawData = logRow.raw_data;
@@ -62,27 +60,24 @@ export default async function handler(req: Request): Promise<Response> {
     const quoteHtml = rawData?.quoteHtml;
 
     if (!quoteHtml) {
-      return new Response(JSON.stringify({ error: 'Quote content is missing.' }), { status: 404, headers: CORS_HEADERS });
+      return res.status(404).json({ error: 'Quote content is missing.' });
     }
 
-    return new Response(JSON.stringify({ 
+    return res.status(200).json({ 
       success: true, 
       quoteHtml,
       pricingData: rawData?.pricingData,
       profitMultiplier: rawData?.profitMultiplier,
       shippingMultiplier: rawData?.shippingMultiplier,
       customer: rawData?.customer
-    }), { 
-      status: 200, 
-      headers: CORS_HEADERS
     });
 
   } catch (err: any) {
     console.error("Get Shared Quote API Error:", err.message);
-    return new Response(JSON.stringify({ 
+    return res.status(500).json({ 
       success: false,
       error: 'Failed to access quote', 
       details: err.message 
-    }), { status: 500, headers: CORS_HEADERS });
+    });
   }
 }

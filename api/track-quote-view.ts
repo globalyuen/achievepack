@@ -1,42 +1,41 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
 
-export const config = {
-  runtime: 'edge'
-}
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Handle CORS
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization'
+  );
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Content-Type': 'application/json',
-};
-
-export default async function handler(req: Request): Promise<Response> {
   if (req.method === 'OPTIONS') {
-    return new Response(null, { headers: CORS_HEADERS });
+    return res.status(200).end();
   }
 
   if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405, headers: CORS_HEADERS });
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const body = await req.json() as any;
-    const { quoteId, customerName } = body;
+    const { quoteId, customerName } = req.body || {};
 
     if (!quoteId) {
-      return new Response(JSON.stringify({ error: 'Missing quoteId' }), { status: 400, headers: CORS_HEADERS });
+      return res.status(400).json({ error: 'Missing quoteId' });
     }
 
-    const country = req.headers.get('x-vercel-ip-country') || 'Unknown';
-    const city = req.headers.get('x-vercel-ip-city') || 'Unknown';
-    const ip = req.headers.get('x-real-ip') || req.headers.get('x-forwarded-for') || 'Unknown';
-    const userAgent = req.headers.get('user-agent') || 'Unknown';
+    const country = (req.headers['x-vercel-ip-country'] as string) || 'Unknown';
+    const city = (req.headers['x-vercel-ip-city'] as string) || 'Unknown';
+    const ip = (req.headers['x-real-ip'] as string) || (req.headers['x-forwarded-for'] as string) || 'Unknown';
+    const userAgent = (req.headers['user-agent'] as string) || 'Unknown';
 
     const SUPABASE_URL = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
     const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY;
     
     if (!SUPABASE_URL || !SUPABASE_KEY) {
-      return new Response(JSON.stringify({ error: 'Server configuration error' }), { status: 500, headers: CORS_HEADERS });
+      return res.status(500).json({ error: 'Server configuration error' });
     }
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -60,16 +59,13 @@ export default async function handler(req: Request): Promise<Response> {
 
     if (error) {
       console.error("Supabase insert error:", error);
-      return new Response(JSON.stringify({ error: 'Failed to log view' }), { status: 500, headers: CORS_HEADERS });
+      return res.status(500).json({ error: 'Failed to log view' });
     }
 
-    return new Response(JSON.stringify({ success: true }), { 
-      status: 200, 
-      headers: CORS_HEADERS
-    });
+    return res.status(200).json({ success: true });
 
   } catch (err: any) {
     console.error("Track Quote View API Error:", err.message);
-    return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500, headers: CORS_HEADERS });
+    return res.status(500).json({ error: 'Internal Server Error', details: err.message });
   }
 }
