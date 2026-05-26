@@ -242,10 +242,10 @@ export default function PouchEcoGPTKPage() {
           else if (qtyPerDesign === 1000) totalPrice = 720;
           else if (qtyPerDesign === 5000) totalPrice = 2470;
         }
-        unitPrice = totalPrice / (qtyPerDesign * numDesigns);
+        unitPrice = totalPrice / qtyPerDesign;
       }
 
-      const totalCost = isBelowMoq ? 0 : totalPrice;
+      const totalCost = isBelowMoq ? 0 : unitPrice * qtyPerDesign * numDesigns;
       const isClear = subOption === 'glossy-clear';
       const displayImg = isClear
         ? '/imgs/store/con-digital/sup-clear-zip/1.webp'
@@ -812,7 +812,10 @@ export default function PouchEcoGPTKPage() {
                         <span className="text-sm text-neutral-450 font-bold">/ pouch</span>
                       </div>
                       <div className="text-[11px] text-neutral-500 font-bold mt-1.5 flex items-center gap-1">
-                        <Zap className="w-3.5 h-3.5 text-indigo-500 fill-indigo-100" /> <span className="text-neutral-900">${convenData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD total</span>
+                        <Zap className="w-3.5 h-3.5 text-indigo-500 fill-indigo-100" /> 
+                        <span>
+                          Estimated Total: <span className="text-neutral-900">${convenData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD</span> for {numDesigns} SKU{numDesigns > 1 ? 's' : ''}
+                        </span>
                       </div>
                     </>
                   )}
