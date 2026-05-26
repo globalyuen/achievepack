@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import fs from 'fs';
 import path from 'path';
-import { FEATURED_PRODUCTS } from '../src/store/productData';
+import { FEATURED_PRODUCTS } from '../src/store/productData.js';
 
 function escapeHtml(unsafe: string): string {
   return unsafe
