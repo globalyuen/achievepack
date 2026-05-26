@@ -231,12 +231,12 @@ const SharedQuotePage: React.FC = () => {
 
   // RE-RENDER LOGIC (Copied from DailyReportsPage)
   useEffect(() => {
-    if (!pricingData || pricingData.length === 0) return;
-    
-    // Skip re-calculation during database load so custom saved HTML is preserved on refresh
-    if (!isLoadedFromDb.current) {
+    // Only re-calculate if we are in admin edit mode and initial DB load is complete
+    if (!editMode || !isLoadedFromDb.current) {
       return;
     }
+    
+    if (!pricingData || pricingData.length === 0) return;
     
     try {
       const RMB_TO_USD = 6.9;
