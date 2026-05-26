@@ -61,6 +61,10 @@ export default function StoreFooter() {
               <li><Link to="/materials/recyclable-mono-pe" className="hover:text-primary-400">Recyclable Mono-PE</Link></li>
               <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR</Link></li>
               <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
+              <li><Link to="/materials/kraft-low-barrier" className="hover:text-primary-400">Kraft Low Barrier</Link></li>
+              <li><Link to="/materials/kraft-medium-barrier" className="hover:text-primary-400">Kraft Medium Barrier</Link></li>
+              <li><Link to="/materials/kraft-high-barrier" className="hover:text-primary-400">Kraft High Barrier</Link></li>
+              <li><Link to="/materials/plastic-free-kraft" className="hover:text-primary-400">Plastic-Free Kraft</Link></li>
               <li><Link to="/materials/combustion-safety-test" className="hover:text-primary-400">Combustion Test</Link></li>
               <li><Link to="/knowledge/eco-packaging-reality" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco-Packaging Reality <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
@@ -72,6 +76,7 @@ export default function StoreFooter() {
             <ul className="space-y-2 text-xs text-neutral-400">
               <li><Link to="/materials/data-sheet" className="hover:text-primary-400">Material Data Sheet</Link></li>
               <li><Link to="/features/material-barrier-properties" className="hover:text-primary-400">Barrier Properties</Link></li>
+              <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-400">Heat-Resistant Pouches</Link></li>
             </ul>
           </div>
 

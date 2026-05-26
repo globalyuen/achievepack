@@ -40,6 +40,10 @@ const LEARN_PAGES = {
       { name: 'Recyclable Mono PP', link: '/materials/recyclable-mono-pp', image: '/imgs/illustrated/a_recyclable_mono_pp_card_v2_2805205.webp' },
       { name: 'Bio-PE', link: '/materials/bio-pe', image: '/imgs/illustrated/a_bio_pe_card_v3_4603248.webp' },
       { name: 'PCR Recycled', link: '/materials/pcr', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
+      { name: 'Kraft Low Barrier', link: '/materials/kraft-low-barrier', image: '/imgs/illustrated/a_home_compostable_card_v1_2166648.webp' },
+      { name: 'Kraft Medium Barrier', link: '/materials/kraft-medium-barrier', image: '/imgs/illustrated/a_industrial_compostable_card_v1_5916306.webp' },
+      { name: 'Kraft High Barrier', link: '/materials/kraft-high-barrier', image: '/imgs/illustrated/a_pcr_card_v1_0334493.webp' },
+      { name: 'Plastic-Free Kraft', link: '/materials/plastic-free-kraft', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
       { name: 'Combustion Safety Test', link: '/materials/combustion-safety-test', image: '/imgs/materials/combustion-safety-test.jpg' },
     ]
   },
@@ -232,6 +236,7 @@ const LEARN_PAGES = {
       { name: 'Pre-Zippered Rollstock', link: '/function/pre-zippered-rollstock', image: '/imgs/function/roll/hero.webp' },
       { name: 'Rice Paper Bags', link: '/function/rice-paper-bags', image: '/imgs/function/rice/hero.webp' },
       { name: 'PVA Water-Soluble Bags', link: '/function/pva-water-soluble-bags', image: '/imgs/function/water/hero.webp' },
+      { name: 'Heat-Resistant Pouches', link: '/function/heat-resistant-compostable-pouches', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' },
     ]
   },
   lab: {

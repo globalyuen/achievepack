@@ -104,6 +104,9 @@ export default function Footer() {
               <li><Link to="/materials/recyclable-mono-pp" className="hover:text-primary-400">Recyclable Mono PP</Link></li>
               <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE (Plant-Based)</Link></li>
               <li><Link to="/materials/pcr" className="hover:text-primary-400">PCR (Recycled Content)</Link></li>
+              <li><Link to="/materials/kraft-low-barrier" className="hover:text-primary-400">Kraft Low Barrier</Link></li>
+              <li><Link to="/materials/kraft-medium-barrier" className="hover:text-primary-400">Kraft Medium Barrier</Link></li>
+              <li><Link to="/materials/kraft-high-barrier" className="hover:text-primary-400">Kraft High Barrier</Link></li>
               <li><Link to="/materials/plastic-free-kraft" className="hover:text-primary-400 font-medium text-primary-400">Plastic-Free Kraft <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
               <li><Link to="/materials/combustion-safety-test" className="hover:text-primary-400 font-medium text-primary-400">Combustion Safety Test <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
@@ -275,6 +278,7 @@ export default function Footer() {
               <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">Spout Pouches Juice</Link></li>
               <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-400">Retort Bags</Link></li>
               <li><Link to="/function/rice-paper-bags" className="hover:text-primary-400">Rice Paper Bags</Link></li>
+              <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-400">Heat-Resistant Pouches</Link></li>
             </ul>
           </div>
 

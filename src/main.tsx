@@ -73,6 +73,11 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/pouch/material-barrier-properties': () => import('./pages/pouch/PouchMaterialBarrierPropertiesPage'),
   '/pouch/material-data-sheet': () => import('./pages/pouch/MaterialDataSheetPage'),
   '/materials/data-sheet': () => import('./pages/materials/MaterialDataSheetPage'),
+  '/materials/kraft-low-barrier': () => import('./pages/materials/KraftLowBarrierPage'),
+  '/materials/kraft-medium-barrier': () => import('./pages/materials/KraftMediumBarrierPage'),
+  '/materials/kraft-high-barrier': () => import('./pages/materials/KraftHighBarrierPage'),
+  '/materials/plastic-free-kraft': () => import('./pages/materials/PlasticFreeKraftPage'),
+  '/function/heat-resistant-compostable-pouches': () => import('./pages/function/HeatResistantCandlePackagingPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
   '/pricing': () => import('./pages/pouch/PouchEcoGPTKPage'),
@@ -142,6 +147,8 @@ const BioPEPage = lazyWithRetry(() => import('./pages/materials/BioPEPage'))
 const PCRPage = lazyWithRetry(() => import('./pages/materials/PCRPage'))
 const HomeCompostablePage = lazyWithRetry(() => import('./pages/materials/HomeCompostablePage'))
 const IndustrialCompostablePage = lazyWithRetry(() => import('./pages/materials/IndustrialCompostablePage'))
+const KraftLowBarrierPage = lazyWithRetry(() => import('./pages/materials/KraftLowBarrierPage'))
+const KraftMediumBarrierPage = lazyWithRetry(() => import('./pages/materials/KraftMediumBarrierPage'))
 const KraftHighBarrierPage = lazyWithRetry(() => import('./pages/materials/KraftHighBarrierPage'))
 const PlasticFreeKraftPage = lazyWithRetry(() => import('./pages/materials/PlasticFreeKraftPage'))
 const CombustionSafetyTestPage = lazyWithRetry(() => import('./pages/materials/CombustionSafetyTestPage'))
@@ -831,6 +838,8 @@ if (getDomain() === 'pouch') {
                         <Route path="/materials/pcr" element={<PCRPage />} />
                         <Route path="/materials/home-compostable" element={<HomeCompostablePage />} />
                         <Route path="/materials/industrial-compostable" element={<IndustrialCompostablePage />} />
+                        <Route path="/materials/kraft-low-barrier" element={<KraftLowBarrierPage />} />
+                        <Route path="/materials/kraft-medium-barrier" element={<KraftMediumBarrierPage />} />
                         <Route path="/materials/plastic-free-kraft" element={<PlasticFreeKraftPage />} />
                         <Route path="/materials/kraft-high-barrier" element={<KraftHighBarrierPage />} />
                         <Route path="/materials/combustion-safety-test" element={<CombustionSafetyTestPage />} />
