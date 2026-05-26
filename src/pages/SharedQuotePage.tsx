@@ -585,6 +585,17 @@ const SharedQuotePage: React.FC = () => {
             <span className="text-xs font-black text-gray-700 uppercase tracking-tighter">Secure Quotation Viewer</span>
           </div>
           <div className="flex items-center gap-2">
+            <button 
+              onClick={() => {
+                setLoading(true);
+                setRefreshKey(prev => prev + 1);
+              }}
+              className="flex items-center gap-1.5 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg font-bold text-xs transition shadow-sm"
+              title="Force reload the quote from database, bypassing all caches"
+            >
+              <RotateCw className="w-3.5 h-3.5" />
+              <span>Clear Cache</span>
+            </button>
             <button onClick={editMode ? () => setEditMode(false) : handleEditClick} className="flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold text-xs transition">
               {editMode ? <X className="w-3.5 h-3.5" /> : <Pencil className="w-3.5 h-3.5" />}
               {editMode ? 'Close' : 'Admin'}
