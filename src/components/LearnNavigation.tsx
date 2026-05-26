@@ -84,6 +84,7 @@ const LEARN_PAGES = {
       { name: 'White Ink Underprint', link: '/knowledge/white-ink-underprint', image: '/imgs/knowledge/white-ink/hero.webp' },
       { name: 'Fin Seal vs Lap Seal', link: '/knowledge/fin-seal-lap-seal', image: '/imgs/knowledge/fin-lap/hero.webp' },
       { name: 'Workflow', link: '/knowledge/workflow', image: '/imgs/illustrated/a_lowmoq_warm_3372406.webp' },
+      { name: 'Eco-Packaging Reality', link: '/knowledge/eco-packaging-reality', image: '/imgs/knowledge/eco-packaging-reality.png' },
     ]
   },
   support: {

@@ -62,6 +62,7 @@ export default function StoreFooter() {
               <li><Link to="/materials/bio-pe" className="hover:text-primary-400">Bio-PE / PCR</Link></li>
               <li><Link to="/materials/home-compostable" className="hover:text-primary-400">Home Compostable</Link></li>
               <li><Link to="/materials/combustion-safety-test" className="hover:text-primary-400">Combustion Test</Link></li>
+              <li><Link to="/knowledge/eco-packaging-reality" className="hover:text-primary-400 font-medium text-primary-400 flex items-center gap-1">Eco-Packaging Reality <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 
