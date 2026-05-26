@@ -484,6 +484,7 @@ interface SEOPageLayoutProps {
   // Page Content
   heroTitle: string
   heroSubtitle: string
+  aboveTitle?: React.ReactNode
   heroImage?: string
   heroImageAlt?: string
   hero3DModelUrl?: string
@@ -557,7 +558,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   ctaButtonText = 'Get Free Quote',
   ctaButtonUrl = '/#contact',
   heroStyle = 'split',
-  heroBgColor
+  heroBgColor,
+  aboveTitle
 }) => {
   const [scrollPercent, setScrollPercent] = useState(0)
   const [hero3DTilt, setHero3DTilt] = useState({ x: 0, y: 0 })
@@ -756,6 +758,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                       />
                     </div>
                   )}
+                  {aboveTitle && <div className="mb-4">{aboveTitle}</div>}
                   <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-white drop-shadow-md">
                     {heroTitle}
                   </h1>
@@ -794,6 +797,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                         />
                       </div>
                     )}
+                    {aboveTitle && <div className="mb-4">{aboveTitle}</div>}
                     <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                       {heroTitle}
                     </h1>
