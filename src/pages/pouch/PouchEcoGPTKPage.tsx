@@ -248,8 +248,8 @@ export default function PouchEcoGPTKPage() {
       const totalCost = isBelowMoq ? 0 : unitPrice * qtyPerDesign * numDesigns;
       const isClear = subOption === 'glossy-clear';
       const displayImg = isClear
-        ? '/imgs/store/products/conven-sup-clear-zip-premium.png'
-        : '/imgs/store/products/conven-sup-met-zip-premium.png';
+        ? '/imgs/store/con-digital/sup-clear-zip/1.webp'
+        : '/imgs/store/con-digital/sup-met-zip/1.webp';
 
       return {
         unitPrice,
