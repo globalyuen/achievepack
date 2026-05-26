@@ -313,10 +313,10 @@ const CompostableSideGussetPage: React.FC = () => {
 
           <div className="mt-6">
             <ClickableImage 
-              src="/imgs/store/products/compostable-side-gusset-collection.png" 
-              alt="Premium certified compostable natural brown Kraft paper side gusset pouch collection infographic layout" 
+              src="/imgs/store/products/compostable-side-gusset-retail-box.png" 
+              alt="Premium natural Kraft coffee pouch seated inside a black retail box on a green mossy background" 
               className="w-full rounded-2xl shadow-md border border-neutral-200"
-              caption="Achieve Pack's premium certified high-barrier Kraft side gusset bag collection infographic layout"
+              caption="Achieve Pack's B2B premium pouch-in-box retail presentation"
             />
           </div>
         </div>
