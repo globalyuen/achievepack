@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, Image as ImageIcon, Video as VideoIcon, SlidersHorizontal, MessageCircle, Calendar } from 'lucide-react';
+import { Loader2, AlertCircle, FileText, Download, Pencil, X, Save, CheckCircle, Lock, ChevronDown, Copy, Share, Image as ImageIcon, Video as VideoIcon, SlidersHorizontal, MessageCircle, Calendar, RotateCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/SEO';
 
@@ -28,6 +28,7 @@ const SharedQuotePage: React.FC = () => {
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [saveError, setSaveError] = useState('');
   const [copySuccess, setCopySuccess] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
   
   // Pricing and Recalculation
   const [pricingData, setPricingData] = useState<any[]>([]);
@@ -720,9 +721,18 @@ const SharedQuotePage: React.FC = () => {
             <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="font-black uppercase text-xl">Quotation Content (HTML)</h3>
-                <button onClick={handleSave} disabled={saving} className="bg-[#D4FF00] border-2 border-black px-6 py-2 font-black uppercase text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all">
-                  {saving ? 'Saving...' : 'Save All Changes'}
-                </button>
+                <div className="flex items-center gap-3">
+                  <button 
+                    onClick={() => setRefreshKey(prev => prev + 1)} 
+                    className="bg-white hover:bg-neutral-100 border-2 border-black px-4 py-2 font-black uppercase text-xs shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all flex items-center gap-1.5"
+                    title="Force refresh the visual quote preview to reflect recent HTML edits"
+                  >
+                    <RotateCw className="w-3.5 h-3.5 animate-hover-spin" /> Clear Cache & Refresh
+                  </button>
+                  <button onClick={handleSave} disabled={saving} className="bg-[#D4FF00] border-2 border-black px-6 py-2 font-black uppercase text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-all">
+                    {saving ? 'Saving...' : 'Save All Changes'}
+                  </button>
+                </div>
               </div>
               <textarea
                 ref={textareaRef}
@@ -797,7 +807,7 @@ const SharedQuotePage: React.FC = () => {
         <div className="bg-white border-2 border-gray-200 shadow-xl rounded-xl overflow-hidden">
           {editedHtml && (
             <iframe
-              key={shippingMultiplier + '-' + customerName + '-' + (pricingData ? pricingData.map(it => it.adjustment).join(',') : '')}
+              key={refreshKey + '-' + shippingMultiplier + '-' + customerName + '-' + (pricingData ? pricingData.map(it => it.adjustment).join(',') : '')}
               srcDoc={getSrcDoc(editedHtml)}
               className="w-full border-none"
               style={{ height: iframeHeight + 'px', display: 'block' }}
