@@ -31,9 +31,9 @@ const BAG_SIZES: BagSize[] = [
 interface TableRow {
   name: string
   stockCards: string
-  customStandard: string
-  customRecyclable: string
-  customCompostable: string
+  customConven: string
+  customOval: string
+  customFlat: string
 }
 
 interface TableCategory {
@@ -48,23 +48,23 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Base Material',
         stockCards: 'High-Barrier Conventional Pouch',
-        customStandard: 'Conventional Stand-Up Multi-Laminate',
-        customRecyclable: '♻️ PE+EVOH Recyclable Flat Bottom',
-        customCompostable: '🌱 Bio-compostable Kraft Flat Bottom'
+        customConven: 'Conventional Multi-Laminate (Foil/Clear)',
+        customOval: '♻️ PE+EVOH Recyclable OR 🌱 Bio Kraft',
+        customFlat: '♻️ PE+EVOH Recyclable OR 🌱 Bio Kraft'
       },
       {
         name: 'Pouch Shape',
         stockCards: 'Flat Bottom (Side Gusset)',
-        customStandard: 'Stand-Up Pouch Shape (Doypack)',
-        customRecyclable: 'Flat Bottom Pouch Shape (Side Gussets)',
-        customCompostable: 'Flat Bottom Pouch Shape (Side Gussets)'
+        customConven: 'Stand-Up Pouch Shape (Doypack)',
+        customOval: 'Stand-Up Pouch Shape (Doypack)',
+        customFlat: 'Flat Bottom Pouch Shape (Side Gussets)'
       },
       {
         name: 'Side Gusset Support',
         stockCards: 'Yes (Sturdy base)',
-        customStandard: 'No (Oval bottom gusset)',
-        customRecyclable: 'Yes (Sturdy structural gusset)',
-        customCompostable: 'Yes (Sturdy structural gusset)'
+        customConven: 'No (Oval bottom gusset)',
+        customOval: 'No (Oval bottom gusset)',
+        customFlat: 'Yes (Sturdy structural gusset)'
       }
     ]
   },
@@ -74,23 +74,23 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Printing Method',
         stockCards: 'Modular card insert / roped tag / sticker',
-        customStandard: 'Full Digital Edge-to-Edge custom print',
-        customRecyclable: 'Full Digital Edge-to-Edge custom print',
-        customCompostable: 'Full Digital Edge-to-Edge custom print'
+        customConven: 'Full Digital Edge-to-Edge custom print',
+        customOval: 'Full Digital Edge-to-Edge custom print',
+        customFlat: 'Full Digital Edge-to-Edge custom print'
       },
       {
         name: 'Clear Display Window',
         stockCards: 'No Window (Matte finish)',
-        customStandard: 'Optional',
-        customRecyclable: 'Optional (High clarity)',
-        customCompostable: 'Optional'
+        customConven: 'Optional (High clarity clear zip)',
+        customOval: 'Optional',
+        customFlat: 'Optional'
       },
       {
         name: 'Cylinder Setup Fees',
         stockCards: '$0 Waived',
-        customStandard: '$0 Waived (Digital)',
-        customRecyclable: '$0 Waived (Digital)',
-        customCompostable: '$0 Waived (Digital)'
+        customConven: '$0 Waived (Digital)',
+        customOval: '$0 Waived (Digital)',
+        customFlat: '$0 Waived (Digital)'
       }
     ]
   },
@@ -100,23 +100,23 @@ const TABLE_CATEGORIES: TableCategory[] = [
       {
         name: 'Zipper Closure',
         stockCards: 'Regular premium zipper',
-        customStandard: 'One-Sided Zipper / Pull-Tab',
-        customRecyclable: '♻️ Recyclable One-Sided Zip',
-        customCompostable: '🌱 Certified Bio One-Sided Zip'
+        customConven: 'Regular premium zipper',
+        customOval: '♻️ Recyclable Zip OR 🌱 Certified Bio Zip',
+        customFlat: '♻️ Recyclable Zip OR 🌱 Certified Bio Zip'
       },
       {
         name: 'Degassing Valve',
         stockCards: 'Optional',
-        customStandard: 'One-way degassing valve integrated',
-        customRecyclable: 'One-way degassing valve integrated',
-        customCompostable: 'Certified bio-valve integrated'
+        customConven: 'One-way degassing valve integrated',
+        customOval: 'Integrated valve (PE or Bio-valve)',
+        customFlat: 'Integrated valve (PE or Bio-valve)'
       },
       {
         name: 'Barrier Level',
         stockCards: 'High (Oxygen/Moisture foil)',
-        customStandard: 'High (Optimal freshness)',
-        customRecyclable: 'High (PE+EVOH gas lock)',
-        customCompostable: 'High (VM-Cello aroma seal)'
+        customConven: 'High (Aroma/Oxygen locking barrier)',
+        customOval: 'High (PE+EVOH gas lock / Bio-Cello)',
+        customFlat: 'High (PE+EVOH gas lock / Bio-Cello)'
       }
     ]
   }
@@ -133,6 +133,9 @@ export default function PouchEcoGPTKPage() {
   
   // State for sub-options in Card 1 (Stock Conventional)
   const [stockOption, setStockOption] = useState<'card' | 'tag' | 'sticker'>('card')
+
+  // State for sub-options in Card 2 (Custom Conventional)
+  const [convenOption, setConvenOption] = useState<'matt-metallised' | 'glossy-clear'>('matt-metallised')
 
   // State for sub-options in the Custom printed cards (PE+EVOH Recyclable vs Compostable)
   const [ovalEcoOption, setOvalEcoOption] = useState<'pe-evoh' | 'compostable'>('pe-evoh')
@@ -155,7 +158,7 @@ export default function PouchEcoGPTKPage() {
   }
 
   // Real-time Pricing Calculation Engine
-  const calculateOptionPrice = (optionId: string, subOption?: 'pe-evoh' | 'compostable') => {
+  const calculateOptionPrice = (optionId: string, subOption?: string) => {
     const sizeText = selectedSize.dimensions;
     const isSize1 = sizeText.includes('160');
     const isSize2 = sizeText.includes('180');
@@ -207,6 +210,77 @@ export default function PouchEcoGPTKPage() {
           'Reusable with premium integrated zipper seal',
           '100pcs Ultra-Low MOQ'
         ]
+      };
+    }
+
+    if (optionId === 'custom-conven') {
+      moq = 100;
+      if (qtyPerDesign < 100) {
+        isBelowMoq = true;
+      } else {
+        // Look up flat price based on size
+        let totalPrice = 0;
+        if (isSize1) {
+          if (qtyPerDesign === 100) totalPrice = 190;
+          else if (qtyPerDesign === 500) totalPrice = 290;
+          else if (qtyPerDesign === 1000) totalPrice = 530;
+          else if (qtyPerDesign === 5000) totalPrice = 1700;
+        } else if (isSize2) {
+          if (qtyPerDesign === 100) totalPrice = 210;
+          else if (qtyPerDesign === 500) totalPrice = 320;
+          else if (qtyPerDesign === 1000) totalPrice = 600;
+          else if (qtyPerDesign === 5000) totalPrice = 1870;
+        } else if (isSize3) {
+          if (qtyPerDesign === 100) totalPrice = 210;
+          else if (qtyPerDesign === 500) totalPrice = 320;
+          else if (qtyPerDesign === 1000) totalPrice = 590;
+          else if (qtyPerDesign === 5000) totalPrice = 1980;
+        } else {
+          // isSize4 or custom fallback
+          if (qtyPerDesign === 100) totalPrice = 240;
+          else if (qtyPerDesign === 500) totalPrice = 430;
+          else if (qtyPerDesign === 1000) totalPrice = 720;
+          else if (qtyPerDesign === 5000) totalPrice = 2470;
+        }
+        unitPrice = totalPrice / qtyPerDesign;
+      }
+
+      const totalCost = isBelowMoq ? 0 : unitPrice * qtyPerDesign * numDesigns;
+      const isClear = subOption === 'glossy-clear';
+      const displayImg = isClear
+        ? '/imgs/store/products/conven-sup-clear-zip-premium.png'
+        : '/imgs/store/products/conven-sup-met-zip-premium.png';
+
+      return {
+        unitPrice,
+        totalCost,
+        isBelowMoq,
+        moq,
+        badge: isClear 
+          ? 'Custom Conventional (Glossy Clear)' 
+          : 'Custom Conventional (Matt Metallised)',
+        desc: isClear
+          ? 'Glossy transparent stand-up pouch (Doypack) custom-printed edge-to-edge. Perfect blend of visibility, high shelf appeal, and resealable convenience.'
+          : 'Premium matte metalised stand-up pouch (Doypack) custom-printed edge-to-edge. Offers superb light and moisture barrier properties with custom branding.',
+        accentColor: '#4f46e5',
+        certLogo: isClear ? '✨ High Visibility' : '⭐ Best Seller',
+        leadTime: '15 - 20 Days',
+        image: displayImg,
+        points: isClear
+          ? [
+              'Stand-Up Pouch Shape (Doypack with Oval Bottom)',
+              'Glossy Crystal Clear Film for Maximum Product Visibility',
+              'High-Strength Premium Zipper & Tear Notch',
+              '100pcs Ultra-Low MOQ Edge-to-Edge Custom Printing',
+              'Waived Cylinder Plate Fees with Digital Print'
+            ]
+          : [
+              'Stand-Up Pouch Shape (Doypack with Oval Bottom)',
+              'Matt Metallised Film with Superior Oxygen/Moisture Barrier',
+              'Durable Resealable Zipper & Heat-Sealable Top',
+              '100pcs Ultra-Low MOQ Edge-to-Edge Custom Printing',
+              'Waived Cylinder Plate Fees with Digital Print'
+            ]
       };
     }
 
@@ -265,7 +339,7 @@ export default function PouchEcoGPTKPage() {
         totalCost,
         isBelowMoq,
         moq,
-        badge: isCompostable ? 'Custom Flat Bottom Eco (Compostable)' : 'Custom Flat Bottom Eco (Recyclable)',
+        badge: isCompostable ? 'Custom printed/sized Flat Bottom (Compostable)' : 'Custom printed/sized Flat Bottom (Recyclable)',
         desc: isCompostable
           ? '100% Home & Industrial certified compostable Kraft laminate flat bottom pouch with side gussets, degassing valve and bio-adhesives.'
           : 'Recyclable Mono-PE flat bottom pouch with EVOH high oxygen barrier layer and side gussets, supporting zero microplastic footprints.',
@@ -292,7 +366,7 @@ export default function PouchEcoGPTKPage() {
     }
 
     if (optionId === 'custom-oval') {
-      // Oval Bottom Eco is stand-up Doypack pouch shape, priced at exactly half of the Flat Bottom Eco price!
+      // Oval Bottom is stand-up Doypack pouch shape, priced at exactly half of the Flat Bottom price!
       const flatPrices = calculateOptionPrice('custom-flat', subOption);
       unitPrice = flatPrices.unitPrice / 2;
       const totalCost = isBelowMoq ? 0 : unitPrice * qtyPerDesign * numDesigns;
@@ -303,7 +377,7 @@ export default function PouchEcoGPTKPage() {
         totalCost,
         isBelowMoq,
         moq,
-        badge: isCompostable ? 'Custom Oval Bottom Eco (Compostable)' : 'Custom Oval Bottom Eco (Recyclable)',
+        badge: isCompostable ? 'Custom printed/sized Oval Bottom (Compostable)' : 'Custom printed/sized Oval Bottom (Recyclable)',
         desc: isCompostable
           ? 'Stand-Up Doypack pouch shape with an oval bottom gusset. Saves 50% material costs while retaining certified bio-compostable Kraft papers and valve seals.'
           : 'Stand-Up Doypack pouch shape with an oval bottom gusset. Saves 50% material costs while retaining premium recyclable Mono-PE EVOH gas barriers and zip seals.',
@@ -346,12 +420,14 @@ export default function PouchEcoGPTKPage() {
 
   // Pre-calculated data matching selections for all Tiers
   const cardData = useMemo(() => calculateOptionPrice('stock-cards'), [qtyPerDesign, numDesigns, selectedSize, stockOption])
+  const convenData = useMemo(() => calculateOptionPrice('custom-conven', convenOption), [qtyPerDesign, numDesigns, selectedSize, convenOption])
   const ovalData = useMemo(() => calculateOptionPrice('custom-oval', ovalEcoOption), [qtyPerDesign, numDesigns, selectedSize, ovalEcoOption])
   const flatData = useMemo(() => calculateOptionPrice('custom-flat', flatEcoOption), [qtyPerDesign, numDesigns, selectedSize, flatEcoOption])
 
   // Telemetry values for the "WhatsApp Configurator Summary"
   const getBilingualRfqText = () => {
     const cardStatus = cardData.isBelowMoq ? 'Below MOQ' : `$${cardData.unitPrice.toFixed(2)} USD (Total: $${cardData.totalCost.toFixed(2)})`;
+    const convenStatus = convenData.isBelowMoq ? 'Below MOQ' : `$${convenData.unitPrice.toFixed(2)} USD (Total: $${convenData.totalCost.toFixed(2)})`;
     const ovalStatus = ovalData.isBelowMoq ? 'Below MOQ' : `$${ovalData.unitPrice.toFixed(2)} USD (Total: $${ovalData.totalCost.toFixed(2)})`;
     const flatStatus = flatData.isBelowMoq ? 'Below MOQ' : `$${flatData.unitPrice.toFixed(2)} USD (Total: $${flatData.totalCost.toFixed(2)})`;
 
@@ -365,9 +441,11 @@ export default function PouchEcoGPTKPage() {
 方案實時估算 (Real-time Options Quotation):
 1️⃣ Stock Conventional 方案 (Modular: ${stockOption === 'card' ? 'Insert Card' : stockOption === 'tag' ? 'Roped Tag' : 'Sticker'}):
    - ${cardStatus}
-2️⃣ Custom Oval Bottom Eco 客製自立袋方案 (Oval Stand-Up - ${ovalEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : 'Compostable'}):
+2️⃣ Custom Conventional 客製常規印刷方案 (${convenOption === 'matt-metallised' ? 'Matt Metallised' : 'Glossy Clear'}):
+   - ${convenStatus}
+3️⃣ Custom printed/sized Oval Bottom 客製自立袋方案 (Oval Stand-Up - ${ovalEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : 'Compostable'}):
    - ${ovalStatus}
-3️⃣ Custom Flat Bottom Eco 客製方底袋方案 (Premium Flat Bottom - ${flatEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : 'Compostable'}):
+4️⃣ Custom printed/sized Flat Bottom 客製方底袋方案 (Premium Flat Bottom - ${flatEcoOption === 'pe-evoh' ? 'PE+EVOH Recyclable' : 'Compostable'}):
    - ${flatStatus}
 
 --------------------------------------------------
@@ -391,7 +469,7 @@ export default function PouchEcoGPTKPage() {
         {/* Helmet Header Elements */}
         <Helmet>
           <title>Pricing | Custom Coffee Bags Pricing Plans | Achieve Pack</title>
-          <meta name="description" content="Calculate B2B packaging costs instantly. Compare Stock Conventional card / tag / sticker modular bags, Custom Stand-Up Oval Bottom Eco pouches, and Custom Premium Flat Bottom Eco retail packaging." />
+          <meta name="description" content="Calculate B2B packaging costs instantly. Compare Stock Conventional, Custom Print standard conventional, Custom Oval Bottom, and Custom Premium Flat Bottom retail packaging." />
           <link rel="canonical" href="https://achievepack.com/pricing" />
         </Helmet>
 
@@ -560,9 +638,9 @@ export default function PouchEcoGPTKPage() {
           </div>
         </section>
 
-        {/* LINEAR-STYLE PLANS GRID (3 COLUMNS) */}
+        {/* LINEAR-STYLE PLANS GRID (4 COLUMNS) */}
         <section className="max-w-7xl mx-auto px-4 md:px-6 pt-10">
-          <div className="grid lg:grid-cols-3 gap-6 items-stretch max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch max-w-7xl mx-auto">
             
             {/* TIER 1 CARD: STOCK CONVENTIONAL */}
             <div className={`bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between relative group transition-all duration-300 ${sizeMode === 'custom' ? 'opacity-50 hover:border-neutral-200' : 'hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md'}`}>
@@ -669,7 +747,113 @@ export default function PouchEcoGPTKPage() {
               </div>
             </div>
 
-            {/* TIER 2 CARD: CUSTOM OVAL BOTTOM ECO */}
+            {/* TIER 2 CARD: CUSTOM CONVENTIONAL */}
+            <div className={`bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between relative group transition-all duration-300 ${sizeMode === 'custom' ? 'opacity-50 hover:border-neutral-200' : 'hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md'}`}>
+              <div className="space-y-6">
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="inline-block bg-indigo-50 text-indigo-700 border border-indigo-100 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
+                      Custom Conventional
+                    </span>
+                    <span className="text-[10px] text-neutral-400 font-semibold font-mono">MOQ: 100pcs</span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
+                    Custom Conventional
+                  </h3>
+                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                    Stand-Up Doypack shape with custom print. Let you select Matt Metallised or Glossy Clear. Low MOQ, $0 plate cylinder setup.
+                  </p>
+                </div>
+
+                {/* Sub-options for Card 2 */}
+                <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-2 text-center text-[10px] font-bold font-sans">
+                  <button 
+                    type="button" 
+                    onClick={() => sizeMode === 'standard' && setConvenOption('matt-metallised')}
+                    disabled={sizeMode === 'custom'}
+                    className={`py-1.5 rounded-lg transition ${convenOption === 'matt-metallised' ? 'bg-white text-indigo-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
+                  >
+                    Matt Metallised
+                  </button>
+                  <button 
+                    type="button" 
+                    onClick={() => sizeMode === 'standard' && setConvenOption('glossy-clear')}
+                    disabled={sizeMode === 'custom'}
+                    className={`py-1.5 rounded-lg transition ${convenOption === 'glossy-clear' ? 'bg-white text-indigo-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
+                  >
+                    Glossy Clear
+                  </button>
+                </div>
+
+                {/* Click to Zoom Visual Pouch Image */}
+                <div 
+                  onClick={() => setEnlargedImage(convenData.image)}
+                  className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
+                >
+                  <img src={convenData.image} alt={convenData.badge} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103" />
+                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2 py-1 rounded-lg border border-neutral-200/70 shadow-md">Click to Zoom</span>
+                  </div>
+                </div>
+
+                {/* Primary Price */}
+                <div className="border-t border-b border-neutral-100 py-5">
+                  {convenData.isBelowMoq ? (
+                    <div className="py-2">
+                      <span className="text-2xl font-extrabold text-red-500 uppercase tracking-wider block font-['Outfit']">Below MOQ</span>
+                      <span className="text-[10px] text-neutral-400 font-semibold mt-1 block">Conventional custom print requires 100+ pcs</span>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-5xl font-extrabold text-neutral-900 tracking-tight font-['Outfit']">
+                          ${convenData.unitPrice.toFixed(2)}
+                        </span>
+                        <span className="text-sm text-neutral-450 font-bold">/ pouch</span>
+                      </div>
+                      <div className="text-[11px] text-neutral-500 font-bold mt-1.5 flex items-center gap-1">
+                        <Zap className="w-3.5 h-3.5 text-indigo-500 fill-indigo-100" /> <span className="text-neutral-900">${convenData.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD total</span>
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {/* Sizing details */}
+                <div className="bg-neutral-50 border border-neutral-200/80 rounded-2xl p-3 text-center">
+                  <span className="text-[10px] text-neutral-400 uppercase font-mono tracking-wider font-bold block">Sizing details</span>
+                  <div className="text-xs font-black text-neutral-800 mt-0.5 truncate">
+                    {sizeMode === 'custom' ? 'Standard dimensions only' : `approx ${selectedSize.dimensions}`}
+                  </div>
+                  <span className="text-[9px] text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-full inline-block mt-1 font-bold">
+                    Standard Sizes Only
+                  </span>
+                </div>
+
+                {/* Features points */}
+                <div className="space-y-3 pt-2">
+                  <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-neutral-400">Conventional print features</h4>
+                  <ul className="space-y-2 text-xs font-semibold text-neutral-600">
+                    {convenData.points.map((pt, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="pt-8">
+                <button
+                  onClick={() => setExpandedOption('custom-conven')}
+                  className="w-full bg-neutral-50 hover:bg-neutral-100 text-neutral-800 border border-neutral-200 font-extrabold text-xs py-3 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1 select-none cursor-pointer"
+                >
+                  View Technical Specs
+                </button>
+              </div>
+            </div>
+
+            {/* TIER 3 CARD: CUSTOM OVAL BOTTOM */}
             <div className={`bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between relative group transition-all duration-300 ${sizeMode === 'custom' ? 'opacity-50 hover:border-neutral-200' : 'hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md'}`}>
               <div className="space-y-6">
                 <div>
@@ -680,7 +864,7 @@ export default function PouchEcoGPTKPage() {
                     <span className="text-[10px] text-emerald-600 font-bold font-mono">MOQ: 500pcs</span>
                   </div>
                   <h3 className="text-xl md:text-2xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
-                    Custom Oval Bottom Eco
+                    Custom printed/sized Oval Bottom
                   </h3>
                   <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
                     Stand-Up Pouch Shape (Doypack). Saves 50% material costs compared to flat bottom designs. Waived Cylinder plates.
@@ -775,7 +959,7 @@ export default function PouchEcoGPTKPage() {
               </div>
             </div>
 
-            {/* TIER 3 CARD: CUSTOM FLAT BOTTOM ECO */}
+            {/* TIER 4 CARD: CUSTOM FLAT BOTTOM */}
             <div className={`bg-white border rounded-3xl p-6 flex flex-col justify-between relative group transition-all duration-300 scale-[1.02] shadow-[0_12px_36px_rgba(0,0,0,0.06)] border-emerald-600/30 ring-4 ring-emerald-500/5`}>
               <div className="absolute top-0 right-6 -translate-y-1/2 bg-emerald-600 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
                 HERO FLAT BOTTOM BOX Gusset
@@ -790,7 +974,7 @@ export default function PouchEcoGPTKPage() {
                     <span className="text-[10px] text-emerald-600 font-bold font-mono">MOQ: 500pcs</span>
                   </div>
                   <h3 className="text-xl md:text-2xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
-                    Custom Flat Bottom Eco
+                    Custom printed/sized Flat Bottom
                   </h3>
                   <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
                     Box-Style Flat Bottom Shape with Side Gussets. Maximizes volume and retail shelf presentation. Waived digital cylinder setups.
@@ -999,14 +1183,14 @@ export default function PouchEcoGPTKPage() {
               <CheckCircle className="w-5 h-5 text-emerald-600" /> Options Feature Comparison Matrix
             </h3>
             <div className="overflow-x-auto mt-4 font-sans">
-              <table className="w-full text-left border-collapse min-w-[800px] text-xs font-semibold text-neutral-700">
+              <table className="w-full text-left border-collapse min-w-[900px] text-xs font-semibold text-neutral-700">
                 <thead>
                   <tr className="border-b border-neutral-200 bg-neutral-50">
                     <th className="p-3 font-bold uppercase text-neutral-400 w-[200px]">Parameter Specs</th>
                     <th className="p-3 font-bold uppercase text-neutral-900 border-l border-neutral-100">Stock Conventional</th>
-                    <th className="p-3 font-bold uppercase text-neutral-900 border-l border-neutral-100">Custom Oval Bottom Eco</th>
-                    <th className="p-3 font-bold uppercase text-neutral-900 border-l border-neutral-100">Custom Recyclable Flat</th>
-                    <th className="p-3 font-bold uppercase text-neutral-900 border-l border-neutral-100">Custom Compostable Flat</th>
+                    <th className="p-3 font-bold uppercase text-neutral-900 border-l border-neutral-100">Custom Conventional</th>
+                    <th className="p-3 font-bold uppercase text-neutral-900 border-l border-neutral-100">Custom printed/sized Oval Bottom</th>
+                    <th className="p-3 font-bold uppercase text-neutral-900 border-l border-neutral-100">Custom printed/sized Flat Bottom</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1026,9 +1210,9 @@ export default function PouchEcoGPTKPage() {
                           <tr key={rowIdx} className={`border-b border-neutral-150 transition-colors ${rowBgClass}`}>
                             <td className="p-3 text-xs font-bold text-neutral-900 bg-neutral-50/30 w-[200px]">{row.name}</td>
                             <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.stockCards}</td>
-                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.customStandard}</td>
-                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.customRecyclable}</td>
-                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.customCompostable}</td>
+                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.customConven}</td>
+                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.customOval}</td>
+                            <td className="p-3 border-l border-neutral-150 text-[11px] font-medium text-neutral-600">{row.customFlat}</td>
                           </tr>
                         );
                       })}
@@ -1054,8 +1238,8 @@ export default function PouchEcoGPTKPage() {
           <div className="space-y-3">
             {[
               {
-                q: "Why are Custom Oval Bottom and Custom Flat Bottom Eco pricing hidden if I choose 100 pcs?",
-                a: "Because custom print orders require a Minimum Order Quantity (MOQ) of 500 pcs per size and design to calibrate our high-resolution HP Indigo digital printers. For quantities below 500 (such as 100 pcs MOQ), please choose the Stock Conventional modular branding system which supports $0 plate cylinder setup fees."
+                q: "Why are Custom printed/sized Oval Bottom and Custom printed/sized Flat Bottom pricing hidden if I choose 100 pcs?",
+                a: "Because our premium eco custom print orders (Oval & Flat bottom recyclable/compostable structures) require a Minimum Order Quantity (MOQ) of 500 pcs per size and design to calibrate our high-resolution digital printers. For quantities below 500 (such as 100 pcs MOQ), please choose the Custom Conventional option (which supports 100pcs MOQ) or the Stock Conventional modular branding system."
               },
               {
                 q: "How does the half-price volume discount for 5,000 pcs work?",
@@ -1171,6 +1355,8 @@ export default function PouchEcoGPTKPage() {
           let data = { unitPrice: 0, totalCost: 0, isBelowMoq: true, moq: 500, badge: '', desc: '', certLogo: '', leadTime: '', image: '', points: [] as string[] };
           if (expandedOption === 'stock-cards') {
             data = cardData;
+          } else if (expandedOption === 'custom-conven') {
+            data = convenData;
           } else if (expandedOption === 'custom-oval') {
             data = ovalData;
           } else if (expandedOption === 'custom-flat') {
