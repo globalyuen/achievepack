@@ -1,10 +1,10 @@
 {
-  "generated": "2026-05-25",
-  "total_images": 1808,
-  "total_categories": 161,
+  "generated": "2026-05-26",
+  "total_images": 1809,
+  "total_categories": 162,
   "extensions": {
     ".webp": 1298,
-    ".png": 300,
+    ".png": 301,
     ".jpg": 207,
     ".svg": 3
   },
@@ -3773,6 +3773,17 @@
           "path": "/imgs/illustrated/a_topic_04_digital_print_var_c_4560298.webp",
           "extension": ".webp",
           "modified": "2025-12-24T20:55:54.000Z"
+        }
+      ]
+    },
+    "knowledge": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "eco-packaging-reality.png",
+          "path": "/imgs/knowledge/eco-packaging-reality.png",
+          "extension": ".png",
+          "modified": "2026-05-26T02:09:17.080Z"
         }
       ]
     },

@@ -251,6 +251,7 @@ const KSealStandUpPouchesPage = lazyWithRetry(() => import('./pages/knowledge/KS
 const WhiteInkUnderprintPage = lazyWithRetry(() => import('./pages/knowledge/WhiteInkUnderprintPage'))
 const FinSealLapSealPage = lazyWithRetry(() => import('./pages/knowledge/FinSealLapSealPage'))
 const FlatBottomVsGussetPage = lazyWithRetry(() => import('./pages/knowledge/FlatBottomVsGussetPage'))
+const EcoPackagingRealityPage = lazyWithRetry(() => import('./pages/knowledge/EcoPackagingRealityPage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -891,6 +892,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/white-ink-underprint" element={<WhiteInkUnderprintPage />} />
                         <Route path="/knowledge/fin-seal-lap-seal" element={<FinSealLapSealPage />} />
                         <Route path="/knowledge/flat-bottom-vs-gusset" element={<FlatBottomVsGussetPage />} />
+                        <Route path="/knowledge/eco-packaging-reality" element={<EcoPackagingRealityPage />} />
 
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />
