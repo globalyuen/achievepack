@@ -5,11 +5,208 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import ClickableImage from '../../components/ClickableImage'
+import { getDomain } from '../../utils/domain'
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 const RecyclableMonoPPPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.recyclableMonoPP'
+  const isPouchDomain = getDomain() === 'pouch'
+
+  // B2C Specific Content & Layout
+  const b2cSections = [
+    {
+      id: 'hot-fill',
+      title: 'Hot-Fill & Microwave Ready: The Superpower of Mono-PP for Food Startups',
+      icon: <Thermometer className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            If you're a food startup launching hot-fill sauces, gourmet soups, purees, or microwaveable convenience meals, conventional plastic pouches present a massive hurdle. They either melt, warp, or leach chemicals when exposed to heat. Traditional multi-layer laminates can handle the heat, but they are impossible to recycle—ending up straight in a landfill.
+          </p>
+          <div className="bg-[#D4FF00] p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono']">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase">
+              🔥 Built to Take the Heat
+            </p>
+            <p className="text-sm text-neutral-800 leading-relaxed font-sans">
+              Our revolutionary Single-Material Polypropylene (Mono-PP) pouches comfortably withstand hot-fill temperatures up to 130°C and are completely microwave-safe. Because they are made from a single material (100% PP), they are accepted in standard #5 PP recycling streams. Now you can hot-pack your gourmet sauce, maintain total shelf freshness, and keep your brand 100% circular.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <div className="border-4 border-black rounded-lg overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
+              <img src="/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp" alt="Recyclable mono-PP pouches" className="w-full h-auto object-cover" />
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Mono-PP Performance Advantages:</h4>
+              <ul className="text-sm space-y-2 text-neutral-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Hot-Fill Safe (Up to 130°C):</strong> Fill directly with hot soups, purees, or sauces without container warping or chemical migration.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Microwaveable Convenience:</strong> Perfect for ready-to-heat grains, rice, and frozen meals. True steam-in-the-bag potential.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>100% PP Recyclable:</strong> Fits perfectly in curbside #5 recycling programs, avoiding the landfill destination of multi-layer plastics.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'glass-clarity',
+      title: 'Glass-Like Clarity Windows & Bulletproof Moisture Barriers',
+      icon: <Sparkles className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            DTC customers buy with their eyes. If you're selling premium ingredients, colorful superfoods, custom spices, or organic pet treats, you want your product to shine. Conventional PE packaging is naturally hazy and dulls the vibrant colors of your food.
+          </p>
+          <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">Crystal-Clear Window & Crisp Presentation</h4>
+            <p className="text-sm text-neutral-800 leading-relaxed font-sans">
+              Mono-PP offers exceptional high-gloss, glass-like optical clarity. It gives your packaging a premium look while providing a highly rigid structure. This stiffness ensures your stand-up pouches stand perfectly straight on shelves and inside shipping boxes, refusing to crumple or fold.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <div className="space-y-3">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">The Technical Details Simplified:</h4>
+              <ul className="text-sm space-y-2 text-neutral-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Excellent Moisture & Gas Barrier:</strong> Maintains an airtight seal that extends shelf-life from 12 to 18 months, keeping moisture out and freshness in.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Resistant to Oils & Fats:</strong> Perfect for oily snacks, pet treats, keto mixes, or fatty foods that normally degrade weak plastic films.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>High Stiffness:</strong> Looks premium and stands tall, providing a superior shelf presence compared to standard flimsier PE bags.</span>
+                </li>
+              </ul>
+            </div>
+            <div className="border-4 border-black rounded-lg overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
+              <img src="/imgs/seo-photos/a_achievepack_mono_kitchen_8539724.webp" alt="Vibrant high clarity packaging" className="w-full h-auto object-cover" />
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'low-moq',
+      title: 'DTC Launch Agility: Custom Printing from 500 Bags',
+      icon: <Target className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Many industrial B2B suppliers force brands into huge minimum orders of 10,000+ bags per design. If you are launching a startup or testing three different flavors, that means risking thousands of dollars of cash flow on unverified packaging.
+          </p>
+          <div className="bg-[#FF00FF] text-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black mb-2 uppercase font-['JetBrains_Mono'] text-white">No Plate Fees · Split Your Designs</h4>
+            <p className="text-sm leading-relaxed font-sans">
+              At Pouch.eco, we specialize in helping startup brands scale dynamically. We print custom Mono-PP pouches starting at just <strong>500 units</strong>. By leveraging advanced digital printing, we eliminate the need for expensive copper plate setup fees. You can easily split your order across multiple product varieties or test seasonal runs with minimal financial exposure.
+            </p>
+          </div>
+          <div className="bg-[#D4FF00] text-black border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p className="font-bold text-sm uppercase font-['JetBrains_Mono']">💡 Pouch.eco Startup Advice:</p>
+            <p className="text-xs mt-1 font-sans">
+              "When you are launch-testing, buy a small batch of digitally printed custom Mono-PP stand-up bags to verify your market-fit. If you want to keep costs even lower, buy unprinted bags in bulk and use DIY custom rubber stamps to customize your packaging on the fly."
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'personalization',
+      title: 'Brutalism meets Eco: Scent Lines & Custom Labels',
+      icon: <Building2 className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Are you designing a retro-brutalist brand or a minimalistic wellness product? Mono-PP provides the perfect canvas. Its highly rigid structure and premium gloss surface are ideal for holding vibrant, modern digital prints or minimal white-ink underprints.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="border-4 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white">
+              <h4 className="font-bold text-black font-['JetBrains_Mono'] uppercase mb-2">🌸 Scent & Variant Lines</h4>
+              <p className="text-sm text-neutral-600 font-sans">
+                Selling bath salts, cleaning refills, or botanical teas? Distinguish your scents with clean, bold typography bands. The rigidity of Mono-PP keeps the layout perfectly flat and readable.
+              </p>
+            </div>
+            <div className="border-4 border-black p-4 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] bg-white">
+              <h4 className="font-bold text-black font-['JetBrains_Mono'] uppercase mb-2">🏷️ Custom Labels & Stickers</h4>
+              <p className="text-sm text-neutral-600 font-sans">
+                You can also order unprinted stock pouches and apply custom plant-based compostable labels. It is the ultimate low-cost, ultra-flexible packaging setup for experimental DTC startups.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  if (isPouchDomain) {
+    return (
+      <BlogArticleTemplate
+        title="Recyclable Mono-PP Pouches Guide: High-Clarity DTC Packaging | POUCH.ECO"
+        metaDescription="Ultra-clear, stiff, and highly recyclable Mono-PP pouches designed for DTC food startups. Certified curbside recyclable with low MOQs starting from 500 units."
+        canonicalUrl="https://pouch.eco/materials/recyclable-mono-pp"
+        heroTitle={
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#10b981] text-white border-2 border-black uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                🔥 Hot-Fill & Microwave Ready
+              </span>
+              <Link 
+                to="/materials/recyclable" 
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#D4FF00] text-black border-2 border-black hover:bg-[#00FFFF] transition-colors uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              >
+                🔄 View Recyclability Guide →
+              </Link>
+            </div>
+
+            <h1 className="font-black text-4xl md:text-6xl lg:text-7xl uppercase leading-tight mt-4">
+              Recyclable Mono-PP<br />
+              <span className="text-[#00FFFF] bg-black text-white px-2 inline-block my-1">Pouches & Films</span><br />
+              DTC Startup Guide
+            </h1>
+          </div>
+        }
+        heroSubtitle="Revolutionary single-material packaging designed specifically for startups selling hot-fill liquids, ready-to-heat foods, or premium dry goods. Maximum stiffness, crystal clarity, and low MOQs."
+        heroImage="/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp"
+        heroImageAlt="POUCH.ECO Recyclable Mono-PP Packaging"
+        categoryTag="RECYCLABLE_MATERIALS"
+        categoryColor="#D4FF00"
+        readTime="4 min read"
+        sections={b2cSections}
+        ctaTitle="Scale Your Brand with Recyclable Packaging"
+        ctaDescription="Book a free 30-minute consultation. Let's design custom hot-fill or high-clarity mono-PP pouches tailored to your startup's needs and scaling goals."
+        calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
+        achievePackLink="https://achievepack.com/materials/recyclable-mono-pp"
+        achievePackText="Looking for high-volume B2B hot-fill film rolls or industrial packaging specifications?"
+        showTableOfContents={true}
+        relatedArticles={[
+          {
+            title: "Recyclable Mono-PE",
+            url: "/materials/recyclable-mono-pe",
+            image: "/imgs/seo-photos/a_achievepack_mono_kitchen_8539724.webp"
+          },
+          {
+            title: "Sugarcane Bio-PE",
+            url: "/materials/bio-pe",
+            image: "/imgs/biope/what/a_hero_bio_pe_article_2212774.webp"
+          }
+        ]}
+      />
+    )
+  }
+
+  // B2B Section data
   const sections = [
     {
       id: 'infographic',
@@ -131,7 +328,6 @@ const RecyclableMonoPPPage: React.FC = () => {
         </div>
       )
     },
-    // ========== Scenario (Industry Applications) ==========
     {
       id: 'industry-scenarios',
       title: 'Industry Applications',
@@ -206,7 +402,6 @@ const RecyclableMonoPPPage: React.FC = () => {
         </div>
       )
     },
-    // ========== Data (Market & Performance Data) ==========
     {
       id: 'market-data',
       title: 'MarketData Market & Performance Data',
@@ -306,7 +501,6 @@ const RecyclableMonoPPPage: React.FC = () => {
         </div>
       )
     },
-    // ========== Contrast (Material Comparison) ==========
     {
       id: 'material-comparison',
       title: 'Material Comparison',
@@ -458,26 +652,26 @@ const RecyclableMonoPPPage: React.FC = () => {
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-purple-600 text-white p-6 rounded-lg text-center">
-              <Phone className="h-8 w-8 mx-auto mb-2" />
-              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
-              <p className="text-sm opacity-90 mb-4">Book a call to discuss hot-fill specs</p>
+            <div className="bg-purple-600 text-white p-6 rounded-lg text-center font-sans">
+              <Phone className="h-8 w-8 mx-auto mb-2 text-white" />
+              <h4 className="font-bold text-lg mb-2 text-white">Ready to Move Fast?</h4>
+              <p className="text-sm opacity-90 mb-4 text-white">Book a call to discuss hot-fill specs</p>
               <button onClick={openCalendly} className="inline-block bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-50 transition cursor-pointer">
                 Book a Call
               </button>
             </div>
-            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
+            <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300 font-sans">
               <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
-              <h4 className="font-bold text-lg mb-2 text-neutral-900">Want to Test First?</h4>
-              <p className="text-sm text-neutral-600 mb-4">Order mono-PP samples for testing</p>
+              <h4 className="font-bold text-lg mb-2 text-neutral-900 font-sans">Want to Test First?</h4>
+              <p className="text-sm text-neutral-600 mb-4 text-neutral-600 font-sans">Order mono-PP samples for testing</p>
               <Link to="/store" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
                 Get Samples
               </Link>
             </div>
-            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
+            <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200 font-sans">
               <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
               <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
-              <p className="text-sm text-neutral-600 mb-4">Compare PP vs PE recyclable options</p>
+              <p className="text-sm text-neutral-600 mb-4 text-neutral-600">Compare PP vs PE recyclable options</p>
               <Link to="/materials/recyclable-mono-pe" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-purple-300 transition">
                 Compare Materials
               </Link>
@@ -503,7 +697,7 @@ const RecyclableMonoPPPage: React.FC = () => {
 
   return (
     <SEOPageLayout heroBgColor="#1e3a8a"
-      title={t('seoPages.pages.recyclableMonoPP.title')}
+      title="Recyclable Mono-PP Pouches | High Heat Resistant Packaging"
       description="Recyclable mono-PP flexible packaging with high heat resistance and clarity. Hot-fill and microwave safe. Single-material for PP recycling streams. MOQ 500."
       keywords={[
         'mono-PP pouch',
