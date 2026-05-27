@@ -420,7 +420,12 @@
     "/materials",
     "/reports/state-of-packaging-2026",
     "/workshop-register",
-    "/function/carbon-neutral-bags"
+    "/function/carbon-neutral-bags",
+    "/function/spout-pouches-juice",
+    "/function/rice-paper-bags",
+    "/function/pva-water-soluble-bags",
+    "/function/pre-zippered-rollstock",
+    "/materials/recyclable-mono-pp"
   ],
   "pending": [
     "/store",
