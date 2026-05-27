@@ -5901,6 +5901,82 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       }
     ],
     customPrintNote: 'Custom prints and custom colors available from 5,000+ pieces. Please consult our team.'
+  },
+  // Large Format Kraft Multi-Wall Side Gusset Pouch (Conventional Stock)
+  {
+    id: 'large-format-kraft-heavy-bag-conventional',
+    name: 'Large Format Kraft Multi-Wall Side Gusset Pouch (Conventional Stock)',
+    category: 'conventional-stock',
+    shape: 'Side Gusset Pouch',
+    material: 'Heavy-Duty FSC Kraft Paper (120gsm) + High-Strength PP Woven Lamination Inner (140 Microns)',
+    description: 'An exceptionally durable, high-capacity stock side-gusset packaging solution designed for heavy-duty B2B commercial applications. Engineered with a multi-wall structure combining thick FSC-certified natural Kraft paper outer shell with a high-tensile strength PP woven inner liner. This puncture-proof, non-pilling sack is designed to carry heavy payloads between 2.5 kg and 25 kg without tearing or stretching. Equipped with expandable M-folded side panels for maximizing storage capacity and a heat-sealable header compatible with industrial continuous band sealers. An ideal and reliable solution for packing premium pet treats, dog food, organic charcoal, wholesale flour, agricultural grains, and wood pellets. Sold in accessible 10-piece convenient bulk packs.',
+    shortDesc: 'Heavy-duty multi-wall Kraft paper side gusset sacks with high-strength PP woven inner liners for heavy bulk payloads',
+    features: [
+      'Heavy-Duty PP Woven Liner: Unrivaled high-tensile and puncture resistance holds heavy contents securely without tears.',
+      'Expandable M-Folded Side Gusset: Side panels expand to maximize bulk volume storage while maintaining neat packaging lines.',
+      'Water-Resistant PE/PP Barrier: Keeps moisture, damp air, and grease locked out, ensuring contents remain completely dry and dry-preserved.',
+      'FSC Certified Natural Kraft: Provides an organic, eco-friendly commercial aesthetic with premium tactile grip.',
+      'Impulse & Band Seal Ready: Thick upper header designed for industrial and manual high-heat sealers for airtight preservation.'
+    ],
+    images: [
+      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-1.jpg',
+      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-2.jpg',
+      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-3.jpg'
+    ],
+    badge: '⚡ Heavy Duty',
+    rating: 4.9,
+    reviews: 12,
+    inStock: true,
+    basePrice: 25.20,
+    pricePerPiece: 2.52,
+    minQuantity: 10,
+    minOrder: 10,
+    turnaround: '5-7 days',
+    quantityStep: 10,
+    sizeInfo: 'S (Holds 2.5–5kg): 25x45+10cm • M (Holds 5–10kg): 30x55+10cm • L (Holds 10–15kg): 35x65+12cm • XL (Holds 20–25kg): 45x80+15cm',
+    sizeVariants: [
+      { 
+        id: 'lf-kraft-heavy-s', 
+        label: 'Small (Holds 2.5–5kg) 25×45+10cm - 10 Pcs', 
+        dimensions: '25 × 45 + 10 cm • Multi-Wall Kraft/PP Woven • Holds 2.5 to 5 kg', 
+        hasHole: false, 
+        quantity: 10, 
+        totalPrice: 25.20, 
+        unitPrice: 2.52, 
+        heroImageIndex: 0 
+      },
+      { 
+        id: 'lf-kraft-heavy-m', 
+        label: 'Medium (Holds 5–10kg) 30×55+10cm - 10 Pcs', 
+        dimensions: '30 × 55 + 10 cm • Multi-Wall Kraft/PP Woven • Holds 5 to 10 kg', 
+        hasHole: false, 
+        quantity: 10, 
+        totalPrice: 35.00, 
+        unitPrice: 3.50, 
+        heroImageIndex: 1 
+      },
+      { 
+        id: 'lf-kraft-heavy-l', 
+        label: 'Large (Holds 10–15kg) 35×65+12cm - 10 Pcs', 
+        dimensions: '35 × 65 + 12 cm • Multi-Wall Kraft/PP Woven • Holds 10 to 15 kg', 
+        hasHole: false, 
+        quantity: 10, 
+        totalPrice: 50.40, 
+        unitPrice: 5.04, 
+        heroImageIndex: 2 
+      },
+      { 
+        id: 'lf-kraft-heavy-xl', 
+        label: 'Extra Large (Holds 20–25kg) 45×80+15cm - 10 Pcs', 
+        dimensions: '45 × 80 + 15 cm • Multi-Wall Kraft/PP Woven • Holds 20 to 25 kg', 
+        hasHole: false, 
+        quantity: 10, 
+        totalPrice: 77.00, 
+        unitPrice: 7.70, 
+        heroImageIndex: 2 
+      }
+    ],
+    customPrintNote: 'Custom flexo and rotogravure prints available from 2,000+ pieces. Please consult our team.'
   }
 ]
 
