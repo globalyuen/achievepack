@@ -442,7 +442,7 @@ const StorePage: React.FC = () => {
           }
         }}
       />
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-neutral-50 flex flex-col lg:h-screen lg:overflow-hidden">
       {/* Store Header - Same as Landing Page */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -675,9 +675,9 @@ const StorePage: React.FC = () => {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl w-full mx-auto px-4 py-6 flex-1 flex flex-col min-h-0 lg:overflow-hidden">
         {/* Search Result Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 flex-shrink-0">
           <div>
             <h2 className="text-xl text-neutral-600">
               {searchQuery ? (
@@ -839,10 +839,10 @@ const StorePage: React.FC = () => {
           </div>
         )}
 
-        <div className="flex gap-8">
+        <div className="flex gap-8 flex-1 min-h-0 lg:overflow-hidden items-stretch">
           {/* Sidebar Filters - Sticky */}
-          <aside className="hidden lg:block w-72 flex-shrink-0">
-            <div className="sticky top-[88px]">
+          <aside className="hidden lg:block w-72 flex-shrink-0 lg:h-full lg:overflow-y-auto pr-2 custom-scrollbar pb-6">
+            <div className="space-y-4">
               {/* NEW: Hierarchical Category Menu */}
               <div className="bg-white border border-neutral-200 rounded-xl p-5 mb-4">
                 <h3 className="font-bold text-neutral-900 mb-4">Categories</h3>
@@ -926,7 +926,8 @@ const StorePage: React.FC = () => {
           </aside>
 
           {/* Product Grid/List */}
-          <div className="flex-1">
+          <div className="flex-1 lg:h-full lg:overflow-y-auto pr-2 custom-scrollbar pb-16 flex flex-col">
+            <div className="flex-1">
 
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -1068,13 +1069,20 @@ const StorePage: React.FC = () => {
                 </button>
               </div>
             )}
+            </div>
+
+            {/* Render Footer inside scrollable product pane for desktop only */}
+            <div className="hidden lg:block mt-16 border-t border-neutral-200 pt-8 w-full flex-shrink-0">
+              <Footer />
+            </div>
           </div>
         </div>
       </main>
 
-
-      {/* Footer */}
-      <Footer />
+      {/* Footer for mobile only */}
+      <div className="lg:hidden">
+        <Footer />
+      </div>
     </div>
     </>
   )
