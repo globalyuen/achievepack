@@ -536,19 +536,25 @@ export default function PouchEcoGPTKPage() {
                   ))}
                 </div>
                 
-                {/* Size Guide & Dieline Finder links */}
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2 border-t border-neutral-100 mt-3">
+                {/* Size Guide & Sizing Guide & Dieline Finder links */}
+                <div className="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-3 pt-2 border-t border-neutral-100 mt-3 text-xs font-semibold">
                   <Link 
                     to="/size-guide" 
-                    className="inline-flex items-center gap-1 text-xs text-[#10b981] hover:underline font-semibold"
+                    className="inline-flex items-center gap-1 text-[#10b981] hover:underline whitespace-nowrap"
                   >
-                    <Ruler className="w-3.5 h-3.5" /> View Visual Size Guide (Cola Can Comparison)
+                    <Ruler className="w-3.5 h-3.5" /> View Visual Size Guide (Cola Can)
+                  </Link>
+                  <Link 
+                    to="/knowledge/pouch-sizing" 
+                    className="inline-flex items-center gap-1 text-indigo-600 hover:underline whitespace-nowrap"
+                  >
+                    <Info className="w-3.5 h-3.5 text-indigo-500" /> Pouch Sizing Calculator
                   </Link>
                   <Link 
                     to="/dieline-finder" 
-                    className="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-emerald-600 transition font-semibold"
+                    className="inline-flex items-center gap-1 text-neutral-500 hover:text-emerald-600 transition whitespace-nowrap"
                   >
-                    <HelpCircle className="w-4 h-4" /> Open Sizing & Dieline Finder
+                    <HelpCircle className="w-3.5 h-3.5" /> Open Dieline Finder
                   </Link>
                 </div>
               </div>
@@ -564,18 +570,24 @@ export default function PouchEcoGPTKPage() {
                     <li>**Custom printed eco cards (Oval & Flat bottom)** allow millimeter-level dimensions tailoring at exactly the same unit rates as the closest standard categories!</li>
                   </ul>
                 </div>
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2 border-t border-emerald-100 mt-2">
+                <div className="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-3 pt-2 border-t border-emerald-100 mt-2 text-xs font-semibold">
                   <Link 
                     to="/size-guide" 
-                    className="inline-flex items-center gap-1 text-xs text-emerald-700 hover:underline font-semibold"
+                    className="inline-flex items-center gap-1 text-emerald-700 hover:underline whitespace-nowrap"
                   >
                     <Ruler className="w-3.5 h-3.5" /> View Visual Size Guide
                   </Link>
                   <Link 
-                    to="/dieline-finder" 
-                    className="inline-flex items-center gap-1 text-xs text-emerald-700 hover:text-emerald-900 transition font-semibold"
+                    to="/knowledge/pouch-sizing" 
+                    className="inline-flex items-center gap-1 text-emerald-800 hover:underline whitespace-nowrap"
                   >
-                    <HelpCircle className="w-3.5 h-3.5" /> View Sizing & Dieline Finder Guide
+                    <Info className="w-3.5 h-3.5 text-emerald-600" /> Pouch Sizing Guide
+                  </Link>
+                  <Link 
+                    to="/dieline-finder" 
+                    className="inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-900 transition whitespace-nowrap"
+                  >
+                    <HelpCircle className="w-3.5 h-3.5" /> View Dieline Guide
                   </Link>
                 </div>
               </div>
