@@ -146,7 +146,7 @@ export default function PouchSizeGuidePage() {
                   onClick={() => setSelectedImage(item.image)}
                 >
                   <div className="aspect-[3/4] bg-gray-100 border-b-4 border-black flex items-center justify-center overflow-hidden">
-                    <img src={item.image} alt={item.size} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                    <img src={item.image} alt={item.size} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <Maximize2 className="w-8 h-8 text-white" />
                     </div>
@@ -178,7 +178,7 @@ export default function PouchSizeGuidePage() {
                   onClick={() => setSelectedImage(item.image)}
                 >
                   <div className="aspect-[3/4] bg-gray-100 border-b-4 border-black flex items-center justify-center overflow-hidden">
-                    <img src={item.image} alt={item.size} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                    <img src={item.image} alt={item.size} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <Maximize2 className="w-8 h-8 text-white" />
                     </div>
@@ -255,7 +255,7 @@ export default function PouchSizeGuidePage() {
               className="relative border-8 border-white bg-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <img src={selectedImage} alt="Size Detail" className="max-w-full max-h-[85vh] object-contain grayscale hover:grayscale-0 transition-all duration-500" />
+              <img src={selectedImage} alt="Size Detail" className="max-w-full max-h-[85vh] object-contain transition-all duration-500" />
               <div className="absolute -bottom-4 left-4 right-4 bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-black p-4 text-center border-4 border-white uppercase text-xl">
                 Visual Comparison Mode: Standard 330ml Can Reference
               </div>

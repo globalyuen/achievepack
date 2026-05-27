@@ -8300,6 +8300,18 @@
       "count": 231,
       "images": [
         {
+          "filename": "conven-sup-met-zip-premium.png",
+          "path": "/imgs/store/products/conven-sup-met-zip-premium.png",
+          "extension": ".png",
+          "modified": "2026-05-27T14:20:47.723Z"
+        },
+        {
+          "filename": "conven-sup-clear-zip-premium.png",
+          "path": "/imgs/store/products/conven-sup-clear-zip-premium.png",
+          "extension": ".png",
+          "modified": "2026-05-27T14:20:47.719Z"
+        },
+        {
           "filename": "recyclable-flat-bottom-one-sided-zipper-pouch-thumbnail-5.png",
           "path": "/imgs/store/products/recyclable-flat-bottom-one-sided-zipper-pouch-thumbnail-5.png",
           "extension": ".png",
@@ -8418,18 +8430,6 @@
           "path": "/imgs/store/products/compostable-side-gusset-collection.png",
           "extension": ".png",
           "modified": "2026-05-26T12:03:58.082Z"
-        },
-        {
-          "filename": "conven-sup-clear-zip-premium.png",
-          "path": "/imgs/store/products/conven-sup-clear-zip-premium.png",
-          "extension": ".png",
-          "modified": "2026-05-26T08:08:57.997Z"
-        },
-        {
-          "filename": "conven-sup-met-zip-premium.png",
-          "path": "/imgs/store/products/conven-sup-met-zip-premium.png",
-          "extension": ".png",
-          "modified": "2026-05-26T08:08:57.991Z"
         },
         {
           "filename": "conven-sup-met-zip-artwork.png",

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useState, useMemo } from 'react'
 import { 
-  Coffee, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box, 
+  Coffee, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box, Ruler, 
   Sparkles, DollarSign, Clock, HelpCircle, Mail, Download, Compass, 
   MapPin, Check, Layers, AlertCircle, ShoppingBag, Grid, Info, Sparkle, Globe,
   Copy, Phone, RefreshCw, AlertTriangle, Calendar, ChevronDown, ChevronRight, MessageSquare
@@ -536,13 +536,19 @@ export default function PouchEcoGPTKPage() {
                   ))}
                 </div>
                 
-                {/* Dieline Finder / Help link */}
-                <div className="flex justify-end pt-1">
+                {/* Size Guide & Dieline Finder links */}
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2 border-t border-neutral-100 mt-3">
+                  <Link 
+                    to="/size-guide" 
+                    className="inline-flex items-center gap-1 text-xs text-[#10b981] hover:underline font-semibold"
+                  >
+                    <Ruler className="w-3.5 h-3.5" /> View Visual Size Guide (Cola Can Comparison)
+                  </Link>
                   <Link 
                     to="/dieline-finder" 
                     className="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-emerald-600 transition font-semibold"
                   >
-                    <HelpCircle className="w-4 h-4" /> Don't know what size to choose? Open Sizing & Dieline Finder
+                    <HelpCircle className="w-4 h-4" /> Open Sizing & Dieline Finder
                   </Link>
                 </div>
               </div>
@@ -558,7 +564,13 @@ export default function PouchEcoGPTKPage() {
                     <li>**Custom printed eco cards (Oval & Flat bottom)** allow millimeter-level dimensions tailoring at exactly the same unit rates as the closest standard categories!</li>
                   </ul>
                 </div>
-                <div className="flex justify-end pt-1">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2 border-t border-emerald-100 mt-2">
+                  <Link 
+                    to="/size-guide" 
+                    className="inline-flex items-center gap-1 text-xs text-emerald-700 hover:underline font-semibold"
+                  >
+                    <Ruler className="w-3.5 h-3.5" /> View Visual Size Guide
+                  </Link>
                   <Link 
                     to="/dieline-finder" 
                     className="inline-flex items-center gap-1 text-xs text-emerald-700 hover:text-emerald-900 transition font-semibold"
