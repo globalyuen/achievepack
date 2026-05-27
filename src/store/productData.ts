@@ -2709,6 +2709,234 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       ]}
     ],
     customPrintNote: 'Contact us for bulk wholesale orders or custom sizes.',
+  },
+  // 250g Recyclable One Side Zipper One Way Degassing Valve Stand-Up Pouch
+  {
+    id: '250g-recyclable-one-side-zipper-one-way-degassing-valve-stand-up-pouch',
+    name: '250g Recyclable One Side Zipper One Way Degassing Valve Stand-Up Pouch',
+    category: 'eco-stock',
+    description: 'An ultra-premium, eco-responsible stand up packaging solution. Engineered from high-barrier mono-material PE, this metal-free and aluminum-free pouch is fully recyclable in standard plastic streams. Equipped with a premium one-way degassing valve and a secure one-side zipper. Perfect for 250g specialty whole bean coffees, artisanal ground coffees, loose leaf teas, and high-end organic powders.',
+    shortDesc: 'Premium metal-free recyclable stand up pouch with degassing valve and one-side zipper',
+    features: [
+      'Single-Stream Recyclable: 100% Mono-PE composite film, completely aluminum-free and metal-free',
+      'One-Way Degassing Valve: Keeps oxygen out and releases excess CO2 to lock in freshness',
+      'One-Side Pocket Zipper: Strong resealable pocket zipper with easy-tear notches for daily convenience',
+      'Generous Bottom Gusset: Flat bottom expansion stands upright on shelves for neat presentation',
+      'FDA & LFGB Food Safety Compliant'
+    ],
+    images: [
+      '/imgs/store/products/250g-recyclable-one-side-zipper-one-way-degassing-valve-stand-up-pouch-thumbnail-1.png',
+      '/imgs/store/products/250g-recyclable-one-side-zipper-one-way-degassing-valve-stand-up-pouch-thumbnail-2.png',
+      '/imgs/store/products/250g-recyclable-one-side-zipper-one-way-degassing-valve-stand-up-pouch-thumbnail-3.png'
+    ],
+    badge: '♻️ 100% Recyclable',
+    rating: 4.9,
+    reviews: 48,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 100,
+    shape: 'Stand Up Pouch',
+    material: 'Mono-PE High-Barrier Recyclable Lamination (Aluminum-Free / Metal-Free)',
+    basePrice: 34.00,
+    pricePerPiece: 0.340,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: '250g (W130 × H200 + G70 mm)',
+    shelfLife: '+24 months freshness',
+    certification: 'FDA Food-Grade & Recyclable Mono-PE Certified',
+    sizeVariants: [
+      {
+        id: 'recyclable-pouch-250g-100pcs',
+        label: '100 Pcs',
+        dimensions: 'W130 × H200 + G70 mm • Holds ~250g coffee beans • Matte White',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 34.00,
+        unitPrice: 0.3400,
+        heroImageIndex: 0
+      },
+      {
+        id: 'recyclable-pouch-250g-200pcs',
+        label: '200 Pcs',
+        dimensions: 'W130 × H200 + G70 mm • Holds ~250g coffee beans • Matte White',
+        hasHole: false,
+        quantity: 200,
+        totalPrice: 61.20,
+        unitPrice: 0.3060,
+        heroImageIndex: 0
+      },
+      {
+        id: 'recyclable-pouch-250g-500pcs',
+        label: '500 Pcs',
+        dimensions: 'W130 × H200 + G70 mm • Holds ~250g coffee beans • Matte White',
+        hasHole: false,
+        quantity: 500,
+        totalPrice: 136.00,
+        unitPrice: 0.2720,
+        heroImageIndex: 0
+      }
+    ],
+    customPrintNote: 'Custom multi-color digital prints and sizing options available from 500+ pieces. Please consult our team.',
+  },
+  // Recyclable Flat Bottom One Sided Zipper Pouch
+  {
+    id: 'recyclable-flat-bottom-one-sided-zipper-pouch',
+    name: 'Recyclable Flat Bottom One Sided Zipper Pouch',
+    category: 'eco-stock',
+    description: 'A premium, single-stream recyclable flat bottom eight-side seal packaging solution. Built from high-barrier mono-material PE, this metal-free, aluminum-free stand-up block-bottom pouch is perfect for bulk roasted coffee beans, artisanal loose leaf teas, organic powders, and premium dry foods. Features a robust one-way degassing valve and a secure one-sided pocket zipper for ultimate daily freshness.',
+    shortDesc: 'Premium metal-free recyclable flat bottom pouch with one-way degassing valve and one-sided pocket zipper',
+    features: [
+      'Single-Stream Recyclable: 100% Mono-PE composite lamination, fully aluminum-free and metal-free',
+      'One-Way Degassing Valve: Integrated micro-filter lets excess CO2 escape while locking oxygen out',
+      'One-Sided Pocket Zipper: Airtight resealable zipper with quick easy-tear notches',
+      'Eight-Side Seal Flat Bottom: Solid square base stands upright on retail shelves with zero slouching',
+      'Premium Matte Lamination: Clean organic appearance with FDA and LFGB food-grade compliance'
+    ],
+    images: [
+      '/imgs/store/products/recyclable-flat-bottom-one-sided-zipper-pouch-thumbnail-1.png',
+      '/imgs/store/products/recyclable-flat-bottom-one-sided-zipper-pouch-thumbnail-2.png',
+      '/imgs/store/products/recyclable-flat-bottom-one-sided-zipper-pouch-thumbnail-3.png',
+      '/imgs/store/products/recyclable-flat-bottom-one-sided-zipper-pouch-thumbnail-4.png',
+      '/imgs/store/products/recyclable-flat-bottom-one-sided-zipper-pouch-thumbnail-5.png'
+    ],
+    badge: '♻️ Mono-PE Recyclable',
+    rating: 4.9,
+    reviews: 64,
+    inStock: true,
+    turnaround: '3-5 days',
+    minOrder: 100,
+    shape: 'Flat Bottom Pouch',
+    material: 'Mono-PE High-Barrier Recyclable Lamination (Aluminum-Free / Metal-Free)',
+    basePrice: 34.00,
+    pricePerPiece: 0.340,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: '250g / 500g (W110xH190+G80mm / W12.5xH25+G80mm)',
+    shelfLife: '+24 months freshness',
+    certification: 'FDA Food-Grade & Recyclable Mono-PE Certified',
+    sizeVariants: [
+      {
+        id: 'rec-fb-onezip-500g-white-matte-100pcs',
+        label: '500g (W12.5xH25+G8cm) - Matte White (100 Pcs)',
+        dimensions: 'W125 × H250 + G80 mm • Holds ~500g coffee beans • Matte White (哑白) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 0
+      },
+      {
+        id: 'rec-fb-onezip-250g-white-matte-100pcs',
+        label: '250g (W11xH19+G8cm) - Matte White (100 Pcs)',
+        dimensions: 'W110 × H190 + G80 mm • Holds ~250g coffee beans • Matte White (哑白) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 34.00,
+        unitPrice: 0.3400,
+        heroImageIndex: 1
+      },
+      {
+        id: 'rec-fb-onezip-250g-gray-matte-100pcs',
+        label: '250g (W11xH19+G8cm) - Matte Gray (100 Pcs)',
+        dimensions: 'W110 × H190 + G80 mm • Holds ~250g coffee beans • Matte Gray (哑灰) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 34.00,
+        unitPrice: 0.3400,
+        heroImageIndex: 2
+      },
+      {
+        id: 'rec-fb-onezip-500g-gray-matte-100pcs',
+        label: '500g (W12.5xH25+G8cm) - Matte Gray (100 Pcs)',
+        dimensions: 'W125 × H250 + G80 mm • Holds ~500g coffee beans • Matte Gray (哑灰) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 3
+      },
+      {
+        id: 'rec-fb-onezip-250g-white-ordinary-100pcs',
+        label: '250g (W11xH19+G8cm) - Ordinary Matte White (100 Pcs)',
+        dimensions: 'W110 × H190 + G80 mm • Holds ~250g coffee beans • Ordinary Matte White (普通哑白) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 30.00,
+        unitPrice: 0.3000,
+        heroImageIndex: 4
+      },
+      {
+        id: 'rec-fb-onezip-500g-white-ordinary-100pcs',
+        label: '500g (W12.5xH25+G8cm) - Ordinary Matte White (100 Pcs)',
+        dimensions: 'W125 × H250 + G80 mm • Holds ~500g coffee beans • Ordinary Matte White (普通哑白) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 38.00,
+        unitPrice: 0.3800,
+        heroImageIndex: 4
+      },
+      {
+        id: 'rec-fb-onezip-250g-black-matte-100pcs',
+        label: '250g (W11xH19+G8cm) - Matte Black (100 Pcs)',
+        dimensions: 'W110 × H190 + G80 mm • Holds ~250g coffee beans • Matte Black (哑黑) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 34.00,
+        unitPrice: 0.3400,
+        heroImageIndex: 2
+      },
+      {
+        id: 'rec-fb-onezip-500g-black-matte-100pcs',
+        label: '500g (W12.5xH25+G8cm) - Matte Black (100 Pcs)',
+        dimensions: 'W125 × H250 + G80 mm • Holds ~500g coffee beans • Matte Black (哑黑) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 42.00,
+        unitPrice: 0.4200,
+        heroImageIndex: 3
+      },
+      {
+        id: 'rec-fb-onezip-250g-white-nopocket-100pcs',
+        label: '250g (W11xH19+G8cm) - Matte White No Pocket (100 Pcs)',
+        dimensions: 'W110 × H190 + G80 mm • Holds ~250g coffee beans • Matte White (哑白) • One-Way Degassing Valve • No Pocket Zipper',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 31.00,
+        unitPrice: 0.3100,
+        heroImageIndex: 1
+      },
+      {
+        id: 'rec-fb-onezip-500g-white-nopocket-100pcs',
+        label: '500g (W12.5xH25+G8cm) - Matte White No Pocket (100 Pcs)',
+        dimensions: 'W125 × H250 + G80 mm • Holds ~500g coffee beans • Matte White (哑白) • One-Way Degassing Valve • No Pocket Zipper',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 39.00,
+        unitPrice: 0.3900,
+        heroImageIndex: 0
+      },
+      {
+        id: 'rec-fb-onezip-250g-kraft-valve-100pcs',
+        label: '250g (W11xH19+G8cm) - Kraft Brown (100 Pcs)',
+        dimensions: 'W110 × H190 + G80 mm • Holds ~250g coffee beans • Kraft Brown (黄牛皮) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 32.00,
+        unitPrice: 0.3200,
+        heroImageIndex: 2
+      },
+      {
+        id: 'rec-fb-onezip-500g-kraft-valve-100pcs',
+        label: '500g (W12.5xH25+G8cm) - Kraft Brown (100 Pcs)',
+        dimensions: 'W125 × H250 + G80 mm • Holds ~500g coffee beans • Kraft Brown (黄牛皮) • One-Way Degassing Valve',
+        hasHole: false,
+        quantity: 100,
+        totalPrice: 40.00,
+        unitPrice: 0.4000,
+        heroImageIndex: 3
+      }
+    ],
+    customPrintNote: 'Custom multi-color digital prints and sizing options available from 500+ pieces. Please consult our team.',
   }
 ]
 
