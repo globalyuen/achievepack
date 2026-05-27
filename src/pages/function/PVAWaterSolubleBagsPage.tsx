@@ -3,6 +3,8 @@ import { Package, Droplets, Layers, Settings, Fish, Award, Users, Globe, FileChe
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { getDomain } from '../../utils/domain'
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images from /imgs/function/water/
 const pvaGallery = [
@@ -20,6 +22,157 @@ const pvaGallery = [
 const PVAWaterSolubleBagsPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
+  
+  const isPouchDomain = getDomain() === 'pouch'
+
+  const b2cSections = [
+    {
+      id: 'zero-waste',
+      title: 'Zero-Waste Packaging: Cold-Water Soluble Polymer Films',
+      icon: <Droplets className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For eco-conscious DTC startups in the home care, laundry, and personal care spaces, traditional plastic packaging is the ultimate enemy. Consumers are actively demanding zero-waste alternatives. That's where **Polyvinyl Alcohol (PVA)** comes in—a completely water-soluble, biodegradable polymer that dissolves 100% in water.
+          </p>
+          <div className="bg-[#D4FF00] p-6 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-black">
+            <p className="text-lg font-black uppercase font-['JetBrains_Mono'] mb-2">
+              🌱 Dissolves completely in water with zero residue
+            </p>
+            <p className="text-sm font-medium leading-relaxed">
+              Our high-strength PVA films dissolve completely in cold water (even at temperatures as low as 5°C / 40°F) in under 60 seconds. When dissolved, it breaks down into water and carbon dioxide via naturally occurring microorganisms, leaving absolutely zero microplastics or toxic chemical residue behind.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/water/a_dissolution_step2_dissolving_9965853.webp', index: 3 })}
+              className="block border-4 border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group"
+            >
+              <img src="/imgs/function/water/a_dissolution_step2_dissolving_9965853.webp" alt="PVA film dissolving in water" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-800 text-center font-bold border-t-4 border-black">Click to enlarge</div>
+            </button>
+            <div className="space-y-3">
+              <h4 className="font-black text-neutral-900 font-['JetBrains_Mono'] uppercase">Perfect For Pods, Tablets & Concentrates</h4>
+              <p className="text-sm text-neutral-700 leading-relaxed">
+                Whether you're formulating laundry detergent pods, dishwashing tablets, concentrated cleaning sheets, bath bombs, or single-dose cosmetic powders, PVA water-soluble bags provide the ultimate convenience. Consumers simply toss the pack directly into the washer, sink, or bath—no unwrapping, no waste, no mess.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'film-engineering',
+      title: 'High-Strength Film Engineering & Scent Protection',
+      icon: <Layers className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            One of the biggest challenges for laundry and personal care startups is retaining intense scent and protecting active ingredients from degrading on the shelf. PVA isn't just about water solubility; it's also a highly advanced technical barrier.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h4 className="font-black text-neutral-900 font-['JetBrains_Mono'] uppercase">Advanced Barrier & Physical Properties</h4>
+              <p className="text-sm text-neutral-700 leading-relaxed">
+                Our polymer films are engineered to hold heavy scent lines and essential oils without letting volatile organic compounds escape. This keeps your products smelling freshly manufactured for months.
+              </p>
+              <ul className="text-sm space-y-2 text-neutral-700 font-medium">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Scents Locked In:</strong> Superior gas barrier prevents fragrance migration and keeps volatile scents perfectly contained.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>High Tensile Strength:</strong> Resists tearing and punctures during shipping and handling, ensuring pods don't burst prematurely.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Moisture-Resistant Outer Wrap Option:</strong> Can be combined with our biodegradable outer pouches to keep ambient humidity away.</span>
+                </li>
+              </ul>
+            </div>
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/water/a_pva_material_closeup_8668927.webp', index: 1 })}
+              className="block border-4 border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group"
+            >
+              <img src="/imgs/function/water/a_pva_material_closeup_8668927.webp" alt="PVA water soluble film close up" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-800 text-center font-bold border-t-4 border-black">Click to enlarge</div>
+            </button>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'agile-launchpad',
+      title: 'Agile Startup Launchpad: Low MOQs & Custom Specs',
+      icon: <Sparkles className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Artisanal wellness and household cleaning brands shouldn't be locked out of sustainable packaging by massive minimum order requirements. Standard industrial factories require 100,000+ units. Pouch.eco is built explicitly to support emerging brands as they scale.
+          </p>
+          <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
+            <h4 className="font-black text-lg mb-2 uppercase font-['JetBrains_Mono']">📦 Low 500-Unit MOQ For Stock Sizes</h4>
+            <p className="text-sm font-medium leading-relaxed">
+              Test your formulas in the real world with minimal capital risk. We offer stock sizes of cold-water soluble PVA pouches starting at just <strong>500 units</strong>. For custom printed runs or unique dimensions tailored to your machinery, our entry thresholds are the lowest in the industry.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+            <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">DIY Custom Stamps</h5>
+              <p className="text-xs text-neutral-700">Use our stock PVA bags and apply a custom organic ink stamp to your outer paper sleeve for a rustic, bespoke look.</p>
+            </div>
+            <div className="bg-[#D4FF00] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-black">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Multi-Scent Flex</h5>
+              <p className="text-xs font-semibold">Distribute your volume across multiple scents or formulations to find your best seller without multiplying your startup costs.</p>
+            </div>
+            <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Rapid Prototypes</h5>
+              <p className="text-xs text-neutral-700">Get plain material samples shipped to your lab in days, allowing you to test solubility rate, heat-seal compatibility, and shelf-life.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'eco-friendly-scaling',
+      title: 'Startup Scaling Tips: Navigating Eco Standards',
+      icon: <Recycle className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            When marketing a sustainable brand, transparency is your strongest asset. Greenwashing claims will destroy consumer trust. When scaling your zero-waste detergent or cosmetics line, utilize certified compostable and water-soluble standards.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/water/a_specification_custom_sizes_2365104.webp', index: 7 })}
+              className="block border-4 border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group"
+            >
+              <img src="/imgs/function/water/a_specification_custom_sizes_2365104.webp" alt="PVA bag sizes and specifications" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-800 text-center font-bold border-t-4 border-black">Click to enlarge</div>
+            </button>
+            <div className="space-y-4">
+              <h4 className="font-black text-neutral-900 font-['JetBrains_Mono'] uppercase">E-E-A-T Technical Advice for DTC Brands</h4>
+              <p className="text-sm text-neutral-700 leading-relaxed">
+                As you design your product experience, remember these three engineering rules:
+              </p>
+              <div className="space-y-3 text-sm text-neutral-700">
+                <div className="p-3 bg-neutral-50 border-l-4 border-black rounded shadow-sm font-medium">
+                  <strong>1. Control Moisture Content:</strong> Ensure your soap sheets, tabs, or pods have a very low moisture index before packaging. Excess free water inside your formulation will activate the PVA film prematurely.
+                </div>
+                <div className="p-3 bg-neutral-50 border-l-4 border-black rounded shadow-sm font-medium">
+                  <strong>2. Use Resealable Outer Pouches:</strong> Protect your water-soluble products from bathroom or laundry room humidity by pairing them with our high-barrier compostable Kraft stand-up pouches.
+                </div>
+                <div className="p-3 bg-neutral-50 border-l-4 border-black rounded shadow-sm font-medium">
+                  <strong>3. Leverage Certifications:</strong> Highlight the 100% biodegradable, microplastic-free nature of your PVA formulation on your product packaging and website FAQs.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ]
   
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
@@ -602,6 +755,76 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
     { title: "Factory Tour", url: "/company/factory-tour", description: "See our production facility" },
     { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }
   ]
+
+  if (isPouchDomain) {
+    return (
+      <BlogArticleTemplate
+        title="PVA Water-Soluble Bags | Zero-Waste Packaging | Pouch.eco"
+        metaDescription="100% biodegradable cold-water soluble PVA bags & films for laundry, cleaning, and personal care startups. Low MOQs starting from 500 units!"
+        canonicalUrl="https://pouch.eco/function/pva-water-soluble-bags"
+        keywords={['PVA water soluble bags', 'water soluble film', 'zero waste packaging', 'laundry pod film', 'biodegradable bags']}
+        publishedDate="2026-05-27"
+        modifiedDate="2026-05-27"
+        author="POUCH.ECO Editorial Team"
+        heroTitle={
+          <div className="space-y-4">
+            {/* Neo-brutalist Breadcrumb Navigation */}
+            <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black">
+              <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+              <span>/</span>
+              <Link to="/materials" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Friendly Materials</Link>
+              <span>/</span>
+              <span className="bg-[#00FFFF] text-black px-1.5 py-0.5 border border-black">PVA Water-Soluble Bags</span>
+            </div>
+
+            {/* Badges / Cross Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#10b981] text-white border-2 border-black uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                🌱 100% Zero-Waste
+              </span>
+              <Link 
+                to="/function/carbon-neutral-bags" 
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#D4FF00] text-black border-2 border-black hover:bg-[#00FFFF] transition-colors uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              >
+                🔄 View Carbon Neutral Bags →
+              </Link>
+            </div>
+
+            <h1 className="font-black text-4xl md:text-6xl lg:text-7xl uppercase leading-tight mt-4">
+              PVA Water-Soluble<br />
+              <span className="text-[#00FFFF] bg-black text-white px-2 inline-block my-1">Bags & Films</span><br />
+              DTC Startup Guide
+            </h1>
+          </div>
+        }
+        heroSubtitle="Scale your eco-conscious laundry, cleaning, or personal care brand with premium cold-water soluble polymer films. High tensile strength, zero microplastics, and low MOQs."
+        heroImage="/imgs/function/water/hero.webp"
+        heroImageAlt="POUCH.ECO PVA Water-Soluble Packaging"
+        categoryTag="ECO_PRODUCTS"
+        categoryColor="#00FFFF"
+        readTime="5 min read"
+        sections={b2cSections}
+        ctaTitle="Launch Zero-Waste Packaging Today"
+        ctaDescription="Book a free 30-minute packaging consultation. Let's design custom water-soluble films tailored to your scent formulations, active ingredients, and scaling goals."
+        calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
+        achievePackLink="https://achievepack.com/function/pva-water-soluble-bags"
+        achievePackText="Looking for high-volume B2B fishing tackle bait bag wholesale or industrial polymer specifications?"
+        showTableOfContents={true}
+        relatedArticles={[
+          {
+            title: "Carbon Neutral Bags",
+            url: "/function/carbon-neutral-bags",
+            image: "/imgs/function/carbon/hero.webp"
+          },
+          {
+            title: "Rice Paper Bags",
+            url: "/function/rice-paper-bags",
+            image: "/imgs/function/rice/hero.webp"
+          }
+        ]}
+      />
+    )
+  }
 
   return (
     <>

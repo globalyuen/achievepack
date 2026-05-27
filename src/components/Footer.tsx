@@ -282,6 +282,7 @@ export default function Footer() {
               <li><Link to="/function/digital-printed-retort-bags" className="hover:text-primary-400">Retort Bags</Link></li>
               <li><Link to="/function/rice-paper-bags" className="hover:text-primary-400">Rice Paper Bags</Link></li>
               <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-400">Heat-Resistant Pouches</Link></li>
+              <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-400">PVA Water-Soluble Bags</Link></li>
             </ul>
           </div>
 
