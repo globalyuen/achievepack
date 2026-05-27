@@ -5835,6 +5835,72 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     shelfLife: '24 months under dry and cool conditions',
     certification: 'FSC Certified Face Stock, SGS Toxicity Passed, RoHS Compliant Adhesives',
     customPrintNote: 'Fully customized shapes, dimensions, and pages. Contact our team to book a meeting or message on WhatsApp.'
+  },
+  // Side Gusset Individual Dessert Pouch with Tray (Conventional Stock)
+  {
+    id: 'side-gusset-bag-and-tray-conventional',
+    name: 'Side Gusset Individual Dessert Pouch with Tray (Conventional Stock)',
+    category: 'conventional-stock',
+    shape: 'Side Gusset Pouch',
+    material: 'Matte Translucent OPP + Food-Safe PE (80 Microns) + Clear PET Individual Tray',
+    description: 'An unprinted, premium stock-ready packaging solution containing matching clear plastic trays and frosted matte side gusset wraps. Specifically designed for individual portion packaging of small bakery goods, pineapple cakes, cookies, mooncakes, and gourmet confectioneries. The rigid clear tray insert provides ultimate physical protection against crushing or bending during transport, while the grease-proof, moisture-barrier wrapping bag locks in flavor freshness and prevents grease bleeding. Extremely popular for boutique bakeries and artisanal sweet shops looking for high-end retail presentation.',
+    shortDesc: 'Matte frosted side gusset wrapping bags with matching clear plastic dessert trays for shape integrity and premium gift presentation',
+    features: [
+      'Rigid Individual Tray Insert: Keeps delicate cakes, pastries, and baked goods in perfect, uncrushed shape during retail handling and shipping.',
+      'Premium Translucent Matte Wrapper: The frosted side-gusset film creates an elegant, high-end presentation that beautifully showcases product silhouettes.',
+      'Grease-Proof & Flavor-Locking Barrier: Multi-layer structure prevents oil bleeding and forms an airtight barrier against moisture, staleness, and ambient odors.',
+      'Clean Heat-Sealable Header: Perfectly designed to work with all standard impulse and continuous heat sealers for a professional, secure commercial finish.',
+      'Convenient 1,000-Piece Bulk Packs: Ready-to-ship unprinted stock at wholesale tier pricing, perfect for boutique confectioners and seasonal gift-giving lines.'
+    ],
+    images: [
+      '/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-1.jpg',
+      '/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-2.jpg',
+      '/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-3.jpg'
+    ],
+    badge: '⚡ Popular Stock',
+    rating: 4.9,
+    reviews: 24,
+    inStock: true,
+    basePrice: 23.10,
+    pricePerPiece: 0.0231,
+    minQuantity: 1000,
+    minOrder: 1000,
+    turnaround: '5-7 days',
+    quantityStep: 1000,
+    sizeInfo: 'Small (Holds 35g-40g): 4.5×12+2.5cm • Medium (Holds 45g-50g): 5×13+2.5cm • Large (Holds 75g-80g): 5.5×14+3cm',
+    sizeVariants: [
+      { 
+        id: 'sg-tray-conventional-small', 
+        label: 'Small (35g-40g) 4.5×12+2.5cm (with Tray) - 1,000 Pcs', 
+        dimensions: 'Bag: 4.5 × 12 + 2.5 cm • Tray: 6.5 × 3.8 × 2.2 cm • Holds ~35g-40g', 
+        hasHole: false, 
+        quantity: 1000, 
+        totalPrice: 23.10, 
+        unitPrice: 0.0231, 
+        heroImageIndex: 0 
+      },
+      { 
+        id: 'sg-tray-conventional-medium', 
+        label: 'Medium (45g-50g) 5.0×13+2.5cm (with Tray) - 1,000 Pcs', 
+        dimensions: 'Bag: 5.0 × 13 + 2.5 cm • Tray: 7.0 × 4.5 × 2.5 cm • Holds ~45g-50g', 
+        hasHole: false, 
+        quantity: 1000, 
+        totalPrice: 27.30, 
+        unitPrice: 0.0273, 
+        heroImageIndex: 1 
+      },
+      { 
+        id: 'sg-tray-conventional-large', 
+        label: 'Large (75g-80g) 5.5×14+3.0cm (with Tray) - 1,000 Pcs', 
+        dimensions: 'Bag: 5.5 × 14 + 3.0 cm • Tray: 8.0 × 5.0 × 2.8 cm • Holds ~75g-80g', 
+        hasHole: false, 
+        quantity: 1000, 
+        totalPrice: 35.70, 
+        unitPrice: 0.0357, 
+        heroImageIndex: 2 
+      }
+    ],
+    customPrintNote: 'Custom prints and custom colors available from 5,000+ pieces. Please consult our team.'
   }
 ]
 
