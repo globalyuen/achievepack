@@ -1,11 +1,11 @@
 {
   "generated": "2026-05-27",
-  "total_images": 1815,
+  "total_images": 1821,
   "total_categories": 162,
   "extensions": {
     ".webp": 1298,
     ".png": 306,
-    ".jpg": 208,
+    ".jpg": 214,
     ".svg": 3
   },
   "categories": {
@@ -8297,8 +8297,44 @@
       ]
     },
     "store/products": {
-      "count": 213,
+      "count": 219,
       "images": [
+        {
+          "filename": "large-format-kraft-heavy-bag-conventional-thumbnail-3.jpg",
+          "path": "/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-27T09:51:55.742Z"
+        },
+        {
+          "filename": "large-format-kraft-heavy-bag-conventional-thumbnail-2.jpg",
+          "path": "/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-27T09:51:55.741Z"
+        },
+        {
+          "filename": "large-format-kraft-heavy-bag-conventional-thumbnail-1.jpg",
+          "path": "/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-27T09:51:55.738Z"
+        },
+        {
+          "filename": "side-gusset-bag-and-tray-conventional-thumbnail-3.jpg",
+          "path": "/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-27T09:32:17.182Z"
+        },
+        {
+          "filename": "side-gusset-bag-and-tray-conventional-thumbnail-2.jpg",
+          "path": "/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-27T09:32:17.178Z"
+        },
+        {
+          "filename": "side-gusset-bag-and-tray-conventional-thumbnail-1.jpg",
+          "path": "/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-27T09:32:17.175Z"
+        },
         {
           "filename": "compostable-side-gusset-retail-box.png",
           "path": "/imgs/store/products/compostable-side-gusset-retail-box.png",

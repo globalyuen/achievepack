@@ -3,6 +3,8 @@ import { Zap, Shield, Thermometer, Package, Droplets, Maximize, ArrowRight, Leaf
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { getDomain } from '../../utils/domain'
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images from /imgs/function/microwave/
 const microwaveGallery = [
@@ -22,6 +24,8 @@ const MicrowaveSteamBagsPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   
+  const isPouchDomain = getDomain() === 'pouch'
+
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
@@ -505,6 +509,226 @@ const MicrowaveSteamBagsPage: React.FC = () => {
     { title: "Certificates", url: "/company/certificates", description: "View our certifications" },
     { title: "Lead Time", url: "/support/lead-time", description: "Production schedules" }
   ]
+
+  // B2C Specific Content & Layout
+  const b2cSections = [
+    {
+      id: 'meal-prep',
+      title: 'The Ultimate Microwave Meal Prep Hack',
+      icon: <Zap className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For fast-growing DTC food brands, fresh meal delivery services, and busy home cooks, packaging shouldn't just store food—it should cook it perfectly. Traditional rigid plastic meal containers take up massive amounts of storage space and leave behind a pile of dishes to wash.
+          </p>
+          <div className="bg-[#D4FF00] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">
+              <strong>"From Freezer to Microwave in One Single Bag."</strong>
+            </p>
+            <p className="text-sm text-neutral-800 leading-relaxed">
+              Our food-grade microwave steam bags handle the entire culinary journey: package your ingredients, store them in the freezer or fridge, microwave to steam-cook, and serve directly from the self-standing pouch. Minimal preparation, zero cookware cleanup, and premium taste preservation.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/microwave/a_kv_1_hero_main_4427371.webp', index: 0 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/microwave/a_kv_1_hero_main_4427371.webp" alt="Eco-Friendly Microwave Cooking Bags" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-3">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Ideal for Vegetables, Seafood, and Pre-Portioned Meals</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Whether you're packing ready-to-heat organic broccoli florets, marinated wild-caught salmon, or wholesome high-protein diet prep, the wide opening makes filling extremely easy. It is the ultimate convenience upgrade for active, modern lifestyles.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'steam-vent',
+      title: 'Smart Self-Venting Design',
+      icon: <Droplets className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Ever had a plastic container or standard ziplock bag explode in your microwave, leaving behind a splattered mess? Or had food turn rubbery and bone-dry from escaping steam? Our engineered cooking pouches solve both of these headaches.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Precision Vents & Sturdy Base</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Above the sturdy double-track zipper, we integrate precision micro-vents that act as automatic pressure release valves. When the temperature rises:
+              </p>
+              <ul className="text-sm space-y-2 text-neutral-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Pressure Safety:</strong> Steam vents release internal hot air safely before the bag can over-inflate and burst.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Moisture Lock:</strong> Retains a perfect pocket of hot water vapor, active-steaming food from the inside so it stays tender and juicy.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Stand-Up Base:</strong> The sturdy bottom gusset ensures the bag remains perfectly upright in the microwave, avoiding leaks and spills.</span>
+                </li>
+              </ul>
+            </div>
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/microwave/a_kv_4_detail_steamvent_4869525.webp', index: 3 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/microwave/a_kv_4_detail_steamvent_4869525.webp" alt="Built-in Steam Vent Detail" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'food-safety',
+      title: 'Certified Non-Toxic & High-Heat Safe',
+      icon: <Shield className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Cooking inside plastic can be concerning due to chemical leaching. That's why we hold our materials to the highest safety and regulatory standards, utilizing specialized high-temperature food-grade composite films.
+          </p>
+          <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">Third-Party Lab Tested & Approved</h4>
+            <p className="text-sm text-neutral-700 leading-relaxed">
+              Our microwave steam bags are manufactured in BRC-certified facilities and rigorously tested to meet FDA food-contact compliance. They are 100% BPA-free, plasticizer-free, and specifically engineered to remain structurally stable up to 100°C without transferring any odors or chemical compounds to your food.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/microwave/a_kv_2_info_foodsafe_5240576.webp', index: 1 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/microwave/a_kv_2_info_foodsafe_5240576.webp" alt="Certified Food Safe Microwave Material" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-3">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">See Freshness at a Glance</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                The high-clarity semi-transparent front window lets customers or chefs monitor cooking progress, watch food swell to perfection, and easily verify doneness without breaking the seal. Ideal for maintaining on-the-line kitchen efficiency.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'sustainability',
+      title: 'Up to 70% Less Plastic Than Rigid Tubs',
+      icon: <Leaf className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For eco-conscious food startups and retail customers, the massive volume of rigid plastic tubs ending up in landfills is a major concern. By transitioning to flexible, lightweight pouches, your brand can offer premium heating performance while significantly lowering its environmental footprint.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Eco-Conscious Material Solutions</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                At Pouch.eco, we engineer microwave-safe cooking bags using sustainable material alternatives that don't compromise heating performance:
+              </p>
+              <div className="space-y-3 text-sm text-neutral-700">
+                <div className="p-3 bg-neutral-50 border-l-4 border-black rounded shadow-sm">
+                  <strong>Mono-PE Recyclable structures:</strong> Made from a single polymer class designed to go straight into standard recycling programs, eliminating mixed-plastic waste.
+                </div>
+                <div className="p-3 bg-neutral-50 border-l-4 border-black rounded shadow-sm">
+                  <strong>Lightweight footprint:</strong> Because they ship flat, these pouches require up to 80% less shipping truck space than empty rigid tubs, saving fuel and reducing cargo emissions.
+                </div>
+              </div>
+            </div>
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/microwave/a_kv_9_info_ecocomparison_5260427.webp', index: 8 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/microwave/a_kv_9_info_ecocomparison_5260427.webp" alt="Eco Friendly Material comparison" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  if (isPouchDomain) {
+    return (
+      <BlogArticleTemplate
+        title="Microwave Steam Bags | Eco-Friendly Cooking Pouches | POUCH.ECO"
+        metaDescription="Certified food-safe microwave steam cooking bags for meal prep and veggies. Features built-in steam vents, stands up, low MOQ, recyclable/compostable options!"
+        canonicalUrl="https://pouch.eco/function/microwave-steam-bags"
+        keywords={['microwave steam bags', 'microwave cooking pouches', 'vegetable steam bags', 'food-safe microwave bags', 'eco-friendly cooking bags', 'meal prep pouches', 'steam vent bags']}
+        publishedDate="2026-05-27"
+        modifiedDate="2026-05-27"
+        author="POUCH.ECO Editorial Team"
+        heroTitle={
+          <div className="space-y-4">
+            {/* Neo-brutalist Breadcrumb Navigation */}
+            <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black">
+              <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+              <span>/</span>
+              <Link to="/materials" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Friendly Materials</Link>
+              <span>/</span>
+              <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">Microwave Steam Bags</span>
+            </div>
+
+            {/* Badges / Cross Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#10b981] text-white border-2 border-black uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                🔥 100% Microwave-Safe & BPA-Free
+              </span>
+              <Link 
+                to="/products/compostable-side-gusset-bags" 
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#00FFFF] text-black border-2 border-black hover:bg-[#D4FF00] transition-colors uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              >
+                🔄 View Gusset Bags →
+              </Link>
+            </div>
+
+            <h1 className="font-black text-4xl md:text-6xl lg:text-7xl uppercase leading-tight mt-4">
+              Microwave Steam<br />
+              <span className="text-[#10b981]">Cooking Bags</span><br />
+              DTC Food Brand Guide
+            </h1>
+          </div>
+        }
+        heroSubtitle="Scale your meal-prep startup or restaurant takeout service with professional, self-venting cooking pouches. Low MOQs, beautiful eco materials, and zero plate cylinder setups."
+        heroImage="/imgs/function/microwave/a_kv_1_hero_main_4427371.webp"
+        heroImageAlt="POUCH.ECO microwave steam cooking bags guide"
+        categoryTag="ECO_PRODUCTS"
+        categoryColor="#10b981"
+        readTime="6 min read"
+        sections={b2cSections}
+        ctaTitle="Upgrade Your Food Brand Today"
+        ctaDescription="Book a free 30-minute consultation with our flexible packaging experts to review microwave safety certifications, material barriers, custom printing templates, and order free product samples."
+        calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
+        achievePackLink="https://achievepack.com/function/microwave-steam-bags"
+        achievePackText="Need enterprise-level bulk volume or heavy B2B commercial packaging specs?"
+        showTableOfContents={true}
+        relatedArticles={[
+          {
+            title: "Compostable Pouches Guide",
+            url: "/materials/compostable"
+          },
+          {
+            title: "Child-Resistant Pouches",
+            url: "/function/child-resistant-bags"
+          },
+          {
+            title: "Recyclable Mono-PE",
+            url: "/materials/recyclable-mono-pe"
+          }
+        ]}
+      />
+    )
+  }
 
   return (
     <>

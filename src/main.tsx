@@ -79,6 +79,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/materials/plastic-free-kraft': () => import('./pages/materials/PlasticFreeKraftPage'),
   '/function/heat-resistant-compostable-pouches': () => import('./pages/function/HeatResistantCandlePackagingPage'),
   '/function/child-resistant-bags': () => import('./pages/function/ChildResistantBagsPage'),
+  '/function/microwave-steam-bags': () => import('./pages/function/MicrowaveSteamBagsPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
   '/products/compostable-side-gusset-bags': () => import('./pages/products/CompostableSideGussetPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
