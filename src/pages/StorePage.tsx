@@ -592,6 +592,19 @@ const StorePage: React.FC = () => {
         </div>
       </div>
 
+      {/* Premium Free Air Shipping Announcement Banner */}
+      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-750 text-white border-b border-emerald-800 shadow-sm relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 py-2 sm:py-2.5">
+          <div className="flex items-center justify-center gap-2 text-center text-[10px] sm:text-xs font-semibold tracking-wide uppercase">
+            <Plane className="h-3.5 w-3.5 animate-bounce text-emerald-100 flex-shrink-0" />
+            <span>
+              ✈️ Special Offer: For all <span className="underline decoration-wavy decoration-emerald-300 font-extrabold text-amber-300">stock packaging</span> orders above <span className="bg-emerald-900/50 px-2 py-0.5 rounded-full font-bold text-amber-200">USD $200</span> enjoy <span className="text-amber-300 font-extrabold">Free Air Shipping!</span>
+            </span>
+            <Sparkles className="h-3 w-3 text-amber-300 hidden sm:inline" />
+          </div>
+        </div>
+      </div>
+
       {/* Feature Carousel Section */}
       <section className="hidden md:block bg-white py-2.5 border-b border-neutral-200 mb-2 relative overflow-hidden">
         <div className="absolute inset-y-0 left-4 flex items-center z-20 pointer-events-none">
