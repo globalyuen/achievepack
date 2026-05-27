@@ -78,6 +78,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/materials/kraft-high-barrier': () => import('./pages/materials/KraftHighBarrierPage'),
   '/materials/plastic-free-kraft': () => import('./pages/materials/PlasticFreeKraftPage'),
   '/function/heat-resistant-compostable-pouches': () => import('./pages/function/HeatResistantCandlePackagingPage'),
+  '/function/child-resistant-bags': () => import('./pages/function/ChildResistantBagsPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
   '/products/compostable-side-gusset-bags': () => import('./pages/products/CompostableSideGussetPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
@@ -654,6 +655,7 @@ if (getDomain() === 'pouch') {
                   
                   {/* New SEO Pages */}
                   <Route path="/function/heat-resistant-compostable-pouches" element={<HeatResistantCandlePackagingPage />} />
+                  <Route path="/function/child-resistant-bags" element={<ChildResistantBagsPage />} />
                   <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
                   <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
                   <Route path="/packaging/side-gusset-bags" element={<PouchSideGussetBagsPage />} />

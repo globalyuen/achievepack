@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { Shield, Lock, Package, Leaf, AlertTriangle, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Baby, Droplets, Factory, Award, Users, Globe, FileCheck, Building2, Sparkles } from 'lucide-react'
+import { Shield, Lock, Package, Leaf, AlertTriangle, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Baby, Droplets, Factory, Award, Users, Globe, FileCheck, Building2, Sparkles, LayoutPanelTop, Database } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { getDomain } from '../../utils/domain'
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images from /imgs/function/child/
 const childResistantGallery = [
@@ -22,6 +24,8 @@ const ChildResistantBagsPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   
+  const isPouchDomain = getDomain() === 'pouch'
+
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
@@ -359,7 +363,6 @@ const ChildResistantBagsPage: React.FC = () => {
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
-          {/* E-E-A-T Trust Signals */}
           <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-xl border border-primary-200">
             <h3 className="text-xl font-bold text-neutral-900 mb-4">Industry-Leading Expertise in Child-Resistant Packaging</h3>
             <p className="text-neutral-700 mb-4">
@@ -370,7 +373,6 @@ const ChildResistantBagsPage: React.FC = () => {
             </p>
           </div>
           
-          {/* Trust Badges Grid */}
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <FileCheck className="h-8 w-8 text-green-600 mx-auto mb-2" />
@@ -394,7 +396,6 @@ const ChildResistantBagsPage: React.FC = () => {
             </div>
           </div>
           
-          {/* Internal Links for SEO */}
           <div className="bg-neutral-50 p-6 rounded-lg">
             <h4 className="font-semibold text-neutral-800 mb-3">Explore Related Solutions</h4>
             <div className="grid md:grid-cols-3 gap-3">
@@ -486,30 +487,237 @@ const ChildResistantBagsPage: React.FC = () => {
     }
   ]
 
-  // Enhanced related links for internal linking SEO
   const relatedLinks = [
-    // Material options
     { title: "Compostable Pouches", url: "/materials/compostable", description: "100% plastic-free eco-friendly material options" },
     { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Fully recyclable single-material structure" },
     { title: "PCR Materials", url: "/materials/pcr", description: "Post-consumer recycled content options" },
-    // Packaging shapes
     { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Versatile self-standing packaging" },
     { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-bottom pouch style" },
     { title: "Side Gusset Bags", url: "/packaging/side-gusset-bags", description: "Traditional gusseted bag format" },
-    // Features
     { title: "Reclosure Options", url: "/features/reclosure-options", description: "All zipper and seal types available" },
     { title: "Barrier Options", url: "/features/barrier-options", description: "Choose your protection level" },
     { title: "Surface Finishes", url: "/features/surface-finish", description: "Matte, gloss, soft-touch options" },
-    // Related function pages
     { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging solutions" },
     { title: "Microwave Steam Bags", url: "/function/microwave-steam-bags", description: "Food-safe heating pouches" },
-    // Industry applications
     { title: "Supplements Packaging", url: "/industry/supplements-powders", description: "Nutraceutical pouch solutions" },
     { title: "Pet Food Bags", url: "/industry/pet-food", description: "Durable pet treat packaging" },
-    // Knowledge & Support
     { title: "Certificates", url: "/company/certificates", description: "View our safety certifications" },
     { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }
   ]
+
+  // B2C Specific Content & Layout
+  const b2cSections = [
+    {
+      id: 'safety-first',
+      title: 'Pinch & Slide: How Child-Resistant Locks Work',
+      icon: <Lock className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For small brands making botanical supplements, herbal teas, or custom organic wellness treats, child-resistant packaging is not just a nice-to-have—it is often a legal requirement. Accidental ingestion by curious toddlers can be a nightmare for parents and a severe liability for your startup.
+          </p>
+          <div className="bg-amber-50 p-6 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">
+              <strong>"Easy for adults, impossible for kids under five."</strong>
+            </p>
+            <p className="text-sm text-neutral-700 leading-relaxed">
+              Our child-resistant pouches use certified push-to-open and pinch-and-slide locking tracks. This dual-action mechanism requires an intentional press-and-pull movement. While it's simple and stress-free for adult hands, children under 5 lack the cognitive coordination to squeeze and slide simultaneously.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/child/a_manual_instruction_sequence_1396492.webp', index: 2 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/child/a_manual_instruction_sequence_1396492.webp" alt="Child Resistant mechanism instructions" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-3">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Certified U.S. 16 CFR 1700 Safety Standards</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                All closures are certified and rigorously tested by third-party laboratories. When you choose Pouch.eco, you receive full compliance certificates so you can list on major marketplaces (Amazon, Etsy, or Shopify) without the fear of product compliance takedowns.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'barrier-protection',
+      title: 'Odor Control & Moisture Defense',
+      icon: <Shield className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Sensitive organic products, potent botanical oils, and dried herbal blends react strongly to environmental factors. Without a heavy barrier, oxygen, moisture, and light will quickly degrade active ingredients, dampening scent and reducing potency.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Premium Odor-Locking Composites</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Our bags use high-barrier Mylar and PET layers that completely contain strong aromas. Whether it's bath salts, dried supplements, or organic gummies, no smell escapes the sealed pouch.
+              </p>
+              <ul className="text-sm space-y-2 text-neutral-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>100% Odor Block:</strong> Keep smells locked inside the pouch, perfect for high-potency products.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Moisture & Light Shield:</strong> Thick aluminum or metalized layers keep damp air and UV rays out.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Tamper-Evident Heat Seals:</strong> Easy-tear notches allow consumers to quickly pull open the sealed top.</span>
+                </li>
+              </ul>
+            </div>
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/child/a_detail_odor_tamper_2823302.webp', index: 5 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/child/a_detail_odor_tamper_2823302.webp" alt="Odor proof Mylar bag" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'low-moq-digital',
+      title: 'DTC Agility: Low MOQs & Multi-SKU Flexibility',
+      icon: <Sparkles className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For artisanal brands launching a new product line, high B2B order requirements are a barrier. Traditional plate printing demands 5,000+ units per SKU. If you have 5 different scents or supplement flavors, you'd need to order 25,000 bags—a massive capital risk for a launch.
+          </p>
+          <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">Our 500-Unit Multi-SKU Hack</h4>
+            <p className="text-sm text-neutral-700 leading-relaxed">
+              We leverage modern high-resolution digital printing to offer ultra-low MOQs. You can start with just <strong>1,000 total pouches</strong>, and split that volume across multiple unique flavor or scent designs (e.g. 5 designs x 200 bags). Plus, there are absolutely <strong>zero cylinder plate fees</strong>.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+            <div className="bg-[#D4FF00] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">500 pcs MOQ</h5>
+              <p className="text-xs text-black">Test different market flavors with minimal initial investment.</p>
+            </div>
+            <div className="bg-[#00FFFF] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">No Plate Costs</h5>
+              <p className="text-xs text-black">Upload your PDF designs directly with zero upfront block setups.</p>
+            </div>
+            <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Artisanal Matte</h5>
+              <p className="text-xs text-neutral-700">Write batch details or hand-stamp artisanal ink designs on Kraft paper.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'eco-friendly-cr',
+      title: 'Eco-Friendly Child Safety: Recyclable & Compostable Options',
+      icon: <Leaf className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For conscious consumers, plastic packaging is a major turn-off. We bridge the gap between safety compliance and deep sustainability by engineering high-performance recyclable PE and certified compostable Kraft paper options.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/child/a_detail_eco_friendly_0335391.webp', index: 6 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/child/a_detail_eco_friendly_0335391.webp" alt="Eco friendly child resistant bags" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Choose Your Sustainable Path</h4>
+              <div className="space-y-3 text-sm text-neutral-700">
+                <div className="p-3 bg-neutral-50 border-l-4 border-black rounded shadow-sm">
+                  <strong>Mono-PE Recyclable:</strong> A single-material structure designed for standard recycling bins. Fully recyclable, yet securely child-resistant.
+                </div>
+                <div className="p-3 bg-neutral-50 border-l-4 border-black rounded shadow-sm">
+                  <strong>Compostable Kraft Paper:</strong> Plant-based materials and biodegradable cellulose. Safe for the earth and compost-heap friendly.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  if (isPouchDomain) {
+    return (
+      <BlogArticleTemplate
+        title="Child-Resistant Stand Up Pouches | POUCH.ECO"
+        metaDescription="Certified child-resistant zipper bags for DTC wellness and supplements. High barrier odor-proof bags starting from 500 units, compliant and fully eco-friendly!"
+        canonicalUrl="https://pouch.eco/function/child-resistant-bags"
+        keywords={['child-resistant bags', 'child-resistant pouches', 'child safety packaging', 'CR zipper bags', 'compliant supplement packaging']}
+        publishedDate="2026-05-27"
+        modifiedDate="2026-05-27"
+        author="POUCH.ECO Editorial Team"
+        heroTitle={
+          <div className="space-y-4">
+            {/* Neo-brutalist Breadcrumb Navigation */}
+            <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black">
+              <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+              <span>/</span>
+              <Link to="/materials" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Friendly Materials</Link>
+              <span>/</span>
+              <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">Child-Resistant Bags</span>
+            </div>
+
+            {/* Badges / Cross Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#10b981] text-white border-2 border-black uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                🔒 U.S. 16 CFR 1700 Certified
+              </span>
+              <Link 
+                to="/products/compostable-side-gusset-bags" 
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#00FFFF] text-black border-2 border-black hover:bg-[#D4FF00] transition-colors uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              >
+                🔄 View Gusset Bags →
+              </Link>
+            </div>
+
+            <h1 className="font-black text-4xl md:text-6xl lg:text-7xl uppercase leading-tight mt-4">
+              Child-Resistant<br />
+              <span className="text-[#10b981]">Safety Pouches</span><br />
+              DTC Startup Guide
+            </h1>
+          </div>
+        }
+        heroSubtitle="Meet safety regulations and protect your customers with premium pinch-and-slide Mylar packaging. Low MOQ from 500 units, custom branding, and zero plate setups."
+        heroImage="/imgs/function/child/a_hero_kv_child_resistant_6350351.webp"
+        heroImageAlt="POUCH.ECO child-resistant safety packaging guide"
+        categoryTag="ECO_PRODUCTS"
+        categoryColor="#10b981"
+        readTime="7 min read"
+        sections={b2cSections}
+        ctaTitle="Launch Compliant Packaging Today"
+        ctaDescription="Book a free 30-minute consultation with our packaging specialists to review child-resistant specifications, CPSC compliance certificates, and order free custom-branded samples."
+        calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
+        achievePackLink="https://achievepack.com/function/child-resistant-bags"
+        achievePackText="Need enterprise-level volume discounts or heavy B2B chemical compliant specs?"
+        showTableOfContents={true}
+        relatedArticles={[
+          {
+            title: 'Writabl & Stampable Eco Pouches: SKU Agility for Craft Brands',
+            url: '/knowledge/writable-stampable-pouches',
+            image: '/imgs/knowledge/writable-stampable-pouches.jpg'
+          },
+          {
+            title: 'Compostable Side Gusset Pouches: Thermal Pouring & Rigidity',
+            url: '/products/compostable-side-gusset-bags',
+            image: '/imgs/store/products/compostable-side-gusset-collection.png'
+          }
+        ]}
+      />
+    )
+  }
 
   return (
     <>
