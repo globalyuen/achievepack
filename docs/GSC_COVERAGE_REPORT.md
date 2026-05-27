@@ -1,8 +1,8 @@
 # Google Search Console Coverage Report
 
-**Generated:** 2026-02-05
+**Generated:** 2026-05-27
 
-**Total URLs:** 160
+**Total URLs:** 176
 
 > **Note:** This is a local report. For real-time data from Google Search Console, set up API credentials.
 
@@ -12,14 +12,14 @@
 |----------|-------|
 | Homepage | 1 |
 | Materials | 17 |
-| Industries | 7 |
+| Industries | 9 |
 | Knowledge Base | 8 |
 | Company | 6 |
 | Store | 1 |
 | Support | 3 |
-| Legal | 3 |
+| Legal | 6 |
 | Specifications | 37 |
-| Other | 77 |
+| Other | 88 |
 
 ## URLs by Category
 
@@ -47,8 +47,10 @@
 - https://achievepack.com/recyclable/roadmap-sme
 - https://achievepack.com/recyclable/mono-material-foundation
 
-### Industries (7)
+### Industries (9)
 
+- https://pouch.eco/industry/baby-food
+- https://pouch.eco/industry/frozen-food
 - https://achievepack.com/industry/coffee-tea
 - https://achievepack.com/industry/snacks-food
 - https://achievepack.com/industry/pet-food
@@ -87,10 +89,13 @@
 - https://achievepack.com/support/faqs
 - https://achievepack.com/support/lead-time
 
-### Legal (3)
+### Legal (6)
 
 - https://achievepack.com/terms
 - https://achievepack.com/privacy
+- https://achievepack.com/shipping
+- https://achievepack.com/privacy
+- https://achievepack.com/terms
 - https://achievepack.com/shipping
 
 ### Specifications (37)
@@ -133,8 +138,16 @@
 - https://achievepack.com/spec/biope-pp-kraft-quadlex-aluminum
 - https://achievepack.com/spec/biope-kraft-duplex-low
 
-### Other (77)
+### Other (88)
 
+- https://pouch.eco/
+- https://pouch.eco/packaging/stand-up-pouches
+- https://pouch.eco/packaging/flat-bottom-bags
+- https://pouch.eco/materials/compostable
+- https://pouch.eco/materials/recyclable
+- https://pouch.eco/packaging/spout-pouches
+- https://pouch.eco/packaging/flat-pouches
+- https://pouch.eco/packaging/vacuum-pouches
 - https://achievepack.com/blog
 - https://achievepack.com/packaging/stand-up-pouches
 - https://achievepack.com/packaging/flat-bottom-bags
@@ -203,6 +216,8 @@
 - https://achievepack.com/usa/coffee-packaging
 - https://achievepack.com/usa/snacks-packaging
 - https://achievepack.com/usa/labeling-guide
+- https://achievepack.com/free-service
+- https://achievepack.com/free-service/all
 - https://achievepack.com/free-service/packaging-design-consultation
 - https://achievepack.com/free-service/website-upgrade
 - https://achievepack.com/free-service/packaging-mockup
@@ -212,6 +227,7 @@
 - https://achievepack.com/products/recyclable-mono-material-pouches
 - https://achievepack.com/products/coffee-bags-degassing-valve
 - https://achievepack.com/products/low-moq-packaging
+- https://achievepack.com/return-policy
 
 ## Monitoring Checklist
 
@@ -307,4 +323,4 @@ npm run monitor:gsc
 
 ---
 
-*Last updated: 2026-02-05*
+*Last updated: 2026-05-27*
