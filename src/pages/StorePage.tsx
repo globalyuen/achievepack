@@ -146,6 +146,51 @@ const STORE_FEATURES = [
   }
 ]
 
+const getProductClassification = (product: StoreProduct): 'compostable' | 'recyclable' | 'conventional' => {
+  const name = product.name.toLowerCase()
+  const desc = (product.description || '').toLowerCase()
+  const mat = ('material' in product ? (product.material || '') : '').toLowerCase()
+  const cat = (product.category || '').toLowerCase()
+  
+  if (cat.includes('conventional') || name.includes('(conventional') || product.id.includes('conventional')) {
+    if (product.id === 'side-gusset-bag-and-tray-conventional') {
+      return 'recyclable'
+    }
+    return 'conventional'
+  }
+  
+  if (cat.includes('boxes') || name.includes('tuck box') || name.includes('corrugated box')) {
+    return 'conventional'
+  }
+  
+  const text = `${name} ${desc} ${mat} ${cat}`
+  
+  if (
+    text.includes('compostable') || 
+    text.includes('biodegradable') || 
+    text.includes('pla') || 
+    text.includes('paper wrap') || 
+    text.includes('honeycomb') || 
+    text.includes('pbat')
+  ) {
+    return 'compostable'
+  }
+  
+  if (
+    text.includes('recyclable') || 
+    text.includes('mono-pp') || 
+    text.includes('mono pp') || 
+    text.includes('mono-pe') || 
+    text.includes('mono pe') || 
+    text.includes('recycling') || 
+    text.includes('kraft tin tie')
+  ) {
+    return 'recyclable'
+  }
+  
+  return 'conventional'
+}
+
 const StorePage: React.FC = () => {
   const { t } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
@@ -908,9 +953,18 @@ const StorePage: React.FC = () => {
                       className="block"
                     >
                     <div className="relative aspect-square bg-neutral-50 overflow-hidden p-2 sm:p-4">
+                      {/* Triangle Ribbon Badge */}
+                      <div className="absolute top-0 left-0 w-14 h-14 overflow-hidden z-10 pointer-events-none">
+                        <div className={`absolute top-[6px] left-[-24px] w-[75px] h-[18px] text-white text-[8px] font-extrabold flex items-center justify-center -rotate-45 shadow-sm uppercase tracking-wider ${
+                          getProductClassification(product) === 'conventional' ? 'bg-neutral-950' : 'bg-emerald-600'
+                        }`}>
+                          {getProductClassification(product) === 'compostable' ? 'ECO' : getProductClassification(product) === 'recyclable' ? 'RECY' : 'CONV'}
+                        </div>
+                      </div>
+
                       <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                       {product.badge && (
-                        <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-primary-500 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full">
+                        <span className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 z-10 bg-primary-500 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-sm">
                           {product.badge}
                         </span>
                       )}
@@ -960,9 +1014,18 @@ const StorePage: React.FC = () => {
                       className="flex flex-col sm:flex-row flex-1"
                     >
                     <div className="relative w-full sm:w-48 h-48 bg-neutral-50 overflow-hidden p-4 flex-shrink-0">
+                      {/* Triangle Ribbon Badge */}
+                      <div className="absolute top-0 left-0 w-14 h-14 overflow-hidden z-10 pointer-events-none">
+                        <div className={`absolute top-[6px] left-[-24px] w-[75px] h-[18px] text-white text-[8px] font-extrabold flex items-center justify-center -rotate-45 shadow-sm uppercase tracking-wider ${
+                          getProductClassification(product) === 'conventional' ? 'bg-neutral-950' : 'bg-emerald-600'
+                        }`}>
+                          {getProductClassification(product) === 'compostable' ? 'ECO' : getProductClassification(product) === 'recyclable' ? 'RECY' : 'CONV'}
+                        </div>
+                      </div>
+
                       <img src={getProductDisplayImage(product)} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
                       {product.badge && (
-                        <span className="absolute top-3 left-3 bg-primary-500 text-white text-xs px-2 py-0.5 rounded-full">
+                        <span className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 z-10 bg-primary-500 text-white text-xs px-2 py-0.5 rounded-full shadow-sm">
                           {product.badge}
                         </span>
                       )}
