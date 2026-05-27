@@ -625,6 +625,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/knowledge/white-ink-underprint" element={<PouchWhiteInkUnderprintPage />} />
                   <Route path="/knowledge/fin-seal-lap-seal" element={<PouchFinSealLapSealPage />} />
                   <Route path="/knowledge/flat-bottom-vs-gusset" element={<PouchFlatBottomVsGussetPage />} />
+                  <Route path="/knowledge/eco-packaging-reality" element={<EcoPackagingRealityPage />} />
+                  <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
                   <Route path="/blog/industrial-compostable-guide" element={<IndustrialCompostableGuide />} />
                   <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} />
                   <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
