@@ -1,11 +1,11 @@
 {
-  "generated": "2026-05-26",
-  "total_images": 1814,
+  "generated": "2026-05-27",
+  "total_images": 1815,
   "total_categories": 162,
   "extensions": {
     ".webp": 1298,
     ".png": 306,
-    ".jpg": 207,
+    ".jpg": 208,
     ".svg": 3
   },
   "categories": {
@@ -3777,8 +3777,14 @@
       ]
     },
     "knowledge": {
-      "count": 1,
+      "count": 2,
       "images": [
+        {
+          "filename": "writable-stampable-pouches.jpg",
+          "path": "/imgs/knowledge/writable-stampable-pouches.jpg",
+          "extension": ".jpg",
+          "modified": "2026-05-27T05:30:16.191Z"
+        },
         {
           "filename": "eco-packaging-reality.png",
           "path": "/imgs/knowledge/eco-packaging-reality.png",

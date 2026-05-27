@@ -83,6 +83,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
   '/pricing': () => import('./pages/pouch/PouchEcoGPTKPage'),
   '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
+  '/knowledge/writable-stampable-pouches': () => import('./pages/knowledge/WritableStampablePouchesPage'),
 }
 
 // Export preload function for use in navigation components
@@ -260,6 +261,7 @@ const WhiteInkUnderprintPage = lazyWithRetry(() => import('./pages/knowledge/Whi
 const FinSealLapSealPage = lazyWithRetry(() => import('./pages/knowledge/FinSealLapSealPage'))
 const FlatBottomVsGussetPage = lazyWithRetry(() => import('./pages/knowledge/FlatBottomVsGussetPage'))
 const EcoPackagingRealityPage = lazyWithRetry(() => import('./pages/knowledge/EcoPackagingRealityPage'))
+const WritableStampablePouchesPage = lazyWithRetry(() => import('./pages/knowledge/WritableStampablePouchesPage'))
 
 // Support Pages - Lazy loaded
 const FAQsPage = lazyWithRetry(() => import('./pages/support/FAQsPage'))
@@ -905,6 +907,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/knowledge/fin-seal-lap-seal" element={<FinSealLapSealPage />} />
                         <Route path="/knowledge/flat-bottom-vs-gusset" element={<FlatBottomVsGussetPage />} />
                         <Route path="/knowledge/eco-packaging-reality" element={<EcoPackagingRealityPage />} />
+                        <Route path="/knowledge/writable-stampable-pouches" element={<WritableStampablePouchesPage />} />
 
                         {/* Support Pages */}
                         <Route path="/support/faqs" element={<FAQsPage />} />
