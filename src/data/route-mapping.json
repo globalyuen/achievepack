@@ -97,7 +97,13 @@
     "/quote",
     "/support/sample-quote",
     "/reports/state-of-packaging-2026",
-    "/workshop-register"
+    "/workshop-register",
+    "/function/carbon-neutral-bags",
+    "/function/spout-pouches-juice",
+    "/function/rice-paper-bags",
+    "/function/pva-water-soluble-bags",
+    "/function/pre-zippered-rollstock",
+    "/materials/recyclable-mono-pp"
   ],
   "achieve": [
     "/",
@@ -413,7 +419,8 @@
     "/products",
     "/materials",
     "/reports/state-of-packaging-2026",
-    "/workshop-register"
+    "/workshop-register",
+    "/function/carbon-neutral-bags"
   ],
   "pending": [
     "/store",
@@ -448,7 +455,6 @@
     "/packaging/side-gusset-bags",
     "/packaging/custom-boxes",
     "/materials/recyclable-mono-pe",
-    "/materials/recyclable-mono-pp",
     "/printing/digital-printing",
     "/printing/plate-printing",
     "/features/reclosure-options",
@@ -459,13 +465,8 @@
     "/features/high-barrier",
     "/features/material-barrier-properties",
     "/function/microwave-steam-bags",
-    "/function/carbon-neutral-bags",
-    "/function/spout-pouches-juice",
     "/function/child-resistant-bags",
-    "/function/pre-zippered-rollstock",
     "/function/digital-printed-retort-bags",
-    "/function/rice-paper-bags",
-    "/function/pva-water-soluble-bags",
     "/lab/lateral-filter-bags",
     "/lab/wire-closure-bags",
     "/lab/lab-blender-bags",
