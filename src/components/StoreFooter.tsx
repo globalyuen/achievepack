@@ -83,6 +83,8 @@ export default function StoreFooter() {
               <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">Spout Pouches Juice</Link></li>
               <li><Link to="/function/rice-paper-bags" className="hover:text-primary-400">Rice Paper Bags</Link></li>
               <li><Link to="/function/pva-water-soluble-bags" className="hover:text-primary-400">PVA Water-Soluble Bags</Link></li>
+              <li><Link to="/function/large-format-kraft-heavy-bags" className="hover:text-primary-400 font-medium text-primary-400">Kraft Heavy-Duty Sacks <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
+              <li><Link to="/function/pre-zippered-rollstock" className="hover:text-primary-400 font-medium text-primary-400 font-semibold">Pre-Zippered Rollstock <span className="bg-primary-500/20 text-[10px] px-1.5 py-0.5 rounded leading-none uppercase">New</span></Link></li>
             </ul>
           </div>
 

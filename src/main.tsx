@@ -63,6 +63,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/packaging/flat-bottom-bags': () => import('./pages/packaging/FlatBottomBagsPage'),
   '/materials/compostable': () => import('./pages/materials/CompostablePage'),
   '/materials/recyclable-mono-pe': () => import('./pages/materials/RecyclableMonoPEPage'),
+  '/materials/recyclable-mono-pp': () => import('./pages/materials/RecyclableMonoPPPage'),
   '/features/reclosure-options': () => import('./pages/features/ReclosureOptionsPage'),
   '/features/surface-finish': () => import('./pages/features/SurfaceFinishPage'),
   '/features/barrier-options': () => import('./pages/features/BarrierOptionsPage'),
@@ -84,6 +85,8 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/function/spout-pouches-juice': () => import('./pages/function/SpoutPouchesJuicePage'),
   '/function/rice-paper-bags': () => import('./pages/function/RicePaperBagsPage'),
   '/function/pva-water-soluble-bags': () => import('./pages/function/PVAWaterSolubleBagsPage'),
+  '/function/large-format-kraft-heavy-bags': () => import('./pages/function/LargeFormatKraftHeavyBagPage'),
+  '/function/pre-zippered-rollstock': () => import('./pages/function/PreZipperedRollstockPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
   '/products/compostable-side-gusset-bags': () => import('./pages/products/CompostableSideGussetPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
@@ -235,6 +238,7 @@ const PreZipperedRollstockPage = lazyWithRetry(() => import('./pages/function/Pr
 const DigitalPrintedRetortBagsPage = lazyWithRetry(() => import('./pages/function/DigitalPrintedRetortBagsPage'))
 const RicePaperBagsPage = lazyWithRetry(() => import('./pages/function/RicePaperBagsPage'))
 const PVAWaterSolubleBagsPage = lazyWithRetry(() => import('./pages/function/PVAWaterSolubleBagsPage'))
+const LargeFormatKraftHeavyBagPage = lazyWithRetry(() => import('./pages/function/LargeFormatKraftHeavyBagPage'))
 const HeatResistantCandlePackagingPage = lazyWithRetry(() => import('./pages/function/HeatResistantCandlePackagingPage'))
 
 
@@ -666,6 +670,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/function/spout-pouches-juice" element={<SpoutPouchesJuicePage />} />
                   <Route path="/function/rice-paper-bags" element={<RicePaperBagsPage />} />
                   <Route path="/function/pva-water-soluble-bags" element={<PVAWaterSolubleBagsPage />} />
+                  <Route path="/function/large-format-kraft-heavy-bags" element={<LargeFormatKraftHeavyBagPage />} />
+                  <Route path="/function/pre-zippered-rollstock" element={<PreZipperedRollstockPage />} />
                   <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
                   <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
                   <Route path="/packaging/side-gusset-bags" element={<PouchSideGussetBagsPage />} />
@@ -676,6 +682,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/materials/industrial-compostable" element={<PouchIndustrialCompostablePage />} />
                   <Route path="/materials/kraft-high-barrier" element={<PouchKraftHighBarrierPage />} />
                   <Route path="/materials/recyclable" element={<PouchRecyclablePage />} />
+                  <Route path="/materials/recyclable-mono-pe" element={<RecyclableMonoPEPage />} />
+                  <Route path="/materials/recyclable-mono-pp" element={<RecyclableMonoPPPage />} />
                   <Route path="/materials/plastic-free-kraft" element={<PouchPlasticFreeKraftPage />} />
                   <Route path="/materials/combustion-safety-test" element={<PouchCombustionSafetyTestPage />} />
                   <Route path="/industry/baby-food" element={<PouchBabyFoodPage />} />
@@ -887,6 +895,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/function/digital-printed-retort-bags" element={<DigitalPrintedRetortBagsPage />} />
                         <Route path="/function/rice-paper-bags" element={<RicePaperBagsPage />} />
                         <Route path="/function/pva-water-soluble-bags" element={<PVAWaterSolubleBagsPage />} />
+                        <Route path="/function/large-format-kraft-heavy-bags" element={<LargeFormatKraftHeavyBagPage />} />
                         <Route path="/function/heat-resistant-compostable-pouches" element={<HeatResistantCandlePackagingPage />} />
 
                         {/* Lab Pages */}

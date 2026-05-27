@@ -3,6 +3,8 @@ import { Package, Zap, DollarSign, Settings, Gauge, Layers, ShoppingBag, Award, 
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { getDomain } from '../../utils/domain'
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images from /imgs/function/roll/
 const rollstockGallery = [
@@ -19,6 +21,7 @@ const rollstockGallery = [
 const PreZipperedRollstockPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
+  const isPouchDomain = getDomain() === 'pouch'
   
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
@@ -564,6 +567,213 @@ const PreZipperedRollstockPage: React.FC = () => {
     { title: "Certificates", url: "/company/certificates", description: "View our safety certifications" },
     { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }
   ]
+
+  const b2cSections = [
+    {
+      id: 'zero-machinery-investment',
+      title: 'Resealable Pouches with Zero Equipment Investment',
+      icon: <Sparkles className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For growing direct-to-consumer (DTC) brands, upgrading to premium resealable pouches is a massive branding victory. However, standard in-line zipper machinery additions can cost tens of thousands of dollars in upfront capital. That is a massive budget barrier for a startup. 
+          </p>
+          <div className="bg-[#D4FF00] p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-sans">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">
+              <strong>"Upgrade your bags on your existing machines today."</strong>
+            </p>
+            <p className="text-sm text-neutral-800 leading-relaxed font-semibold">
+              With Pouch.eco's pre-zippered roll film, you can bypass the capital equipment overhead entirely. Startups can upgrade standard pillow packs, three-side seal bags, or stand-up tubes into fully resealable, customer-friendly zipper pouches using their existing Vertical Form Fill Seal (VFFS) or Horizontal Form Fill Seal (HFFS) packaging machinery.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/roll/a_kv4_no_equipment_5802224.webp', index: 3 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/roll/a_kv4_no_equipment_5802224.webp" alt="No expensive packaging machinery upgrades required" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-3 font-sans">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Minor Adjustments, Major Results</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                By pre-applying the resealable zipper transversely on the film before it is rolled and shipped to your facility, the only adjustment required on your standard packing machine is minor clearance tweaks on the forming tube or folder. Your existing bagger can run this film seamlessly at high speeds.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'how-pre-applied-works',
+      title: 'The Magic of Pre-Applied Zipper Technology',
+      icon: <Layers className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            How does it work without heavy inline tooling? We handle the engineering complexity in our specialized cleanrooms before the film ever leaves our floor.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4 font-sans">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Under the Hood: Pre-Applied Film</h4>
+              <ul className="text-sm space-y-2 text-neutral-600 font-semibold">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Transverse Application:</strong> We seal high-quality zipper profiles at precise spacing intervals directly onto the flat web film roll.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Zero Heat Shock:</strong> The zippers are applied with surgical heat control to prevent structural crinkling, ensuring your final pouch lies completely flat.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Ready-to-Feed:</strong> The film arrives rolled and aligned perfectly with your print layouts. Simply mount it to your HFFS/VFFS roll spindle and start filling.</span>
+                </li>
+              </ul>
+            </div>
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/roll/a_achievepack_zipper_technology_4352447.webp', index: 2 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/roll/a_achievepack_zipper_technology_4352447.webp" alt="Pre-applied zipper zone details" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'startup-moq-digital',
+      title: 'Startup-Friendly Low MOQs & Test Runs',
+      icon: <Gauge className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Enterprise rollstock manufacturers usually demand tens of thousands of meters per design run. This locks out small-batch roasters, boutique spice blenders, organic pet treat crafters, and startup supplement lines who are still testing market-fit. 
+          </p>
+          <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] font-sans">
+            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">Flexible Short Runs (500–1000m)</h4>
+            <p className="text-sm text-neutral-700 leading-relaxed font-semibold">
+              We have re-engineered the film lamination line to support startup testing. You can order customized pre-zippered roll film in ultra-convenient short runs starting from just 500 to 1,000 meters. Try new recipes, seasonal fragrances, or regional flavor profiles without tying up critical cash flow in heavy warehouse inventory.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+            <div className="bg-[#00FFFF] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-sans">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">No Cylinder Fees</h5>
+              <p className="text-xs text-black">Our high-resolution digital press means you pay $0 in cylinder setup fees. Pivot and edit designs instantly.</p>
+            </div>
+            <div className="bg-[#D4FF00] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-sans">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Multi-SKU Batches</h5>
+              <p className="text-xs text-black">Split your short film run between different flavor designs or seasonal variations under a single order.</p>
+            </div>
+            <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-sans">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Rapid Prototypes</h5>
+              <p className="text-xs text-neutral-700">Receive custom-printed film rolls on your packing line in under 2 weeks. Launch quickly!</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'freshness-branding-lock',
+      title: 'Pantry Freshness & DTC Brand Loyalty',
+      icon: <ShoppingBag className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For premium artisanal goods, packaging is an extension of your customer experience. Once a consumer tears open a conventional non-resealable bag, they are forced to use ugly chip-clips, tape, or dump the contents into generic glass jars—losing your branded artwork and logo entirely.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center font-sans">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/roll/a_achievepack_versatility_9776242.webp', index: 6 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/roll/a_achievepack_versatility_9776242.webp" alt="DTC Brand loyalty and packaging freshness" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase font-semibold">Keep Your Logo in the Spotlight</h4>
+              <ul className="text-sm space-y-2 text-neutral-700 font-semibold">
+                <li>🍉 Ultimate Product Freshness: Multi-layer barrier lamination protects volatile flavor profiles, delicate scents, and sensitive moisture levels.</li>
+                <li>🏡 Daily Pantry Billboard: When the bag sits in the pantry, your bold custom-printed retro design stays front and center for every snack session.</li>
+                <li>🛠️ Tailored Sizing & Features: Match your specific pouch width, tear notches, hang holes, and gloss/matte finishes to design a highly personalized, sensory-rich box.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  if (isPouchDomain) {
+    return (
+      <BlogArticleTemplate
+        title="Pre-Zippered Rollstock | Resealable Film for Startups | POUCH.ECO"
+        metaDescription="Upgrade standard packaging into resealable pouches on your existing VFFS/HFFS lines with ZERO equipment investment. Low MOQs from 500-1000m!"
+        canonicalUrl="https://pouch.eco/function/pre-zippered-rollstock"
+        keywords={['pre-zippered rollstock', 'resealable roll film', 'HFFS VFFS rollstock', 'low MOQ flexible packaging', 'startup roll film']}
+        publishedDate="2026-05-27"
+        modifiedDate="2026-05-27"
+        author="POUCH.ECO Editorial Team"
+        heroTitle={
+          <div className="space-y-4">
+            {/* Neo-brutalist Breadcrumb Navigation */}
+            <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black">
+              <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+              <span>/</span>
+              <Link to="/function" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Packaging Functions</Link>
+              <span>/</span>
+              <span className="bg-[#D4FF00] text-black px-1.5 py-0.5 border border-black font-bold font-semibold">Pre-Zippered Rollstock</span>
+            </div>
+
+            {/* Badges / Cross Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-black text-[#D4FF00] border-2 border-black uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold">
+                🚀 Zero Machine Capital Required
+              </span>
+              <Link 
+                to="/packaging/stand-up-pouches" 
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#00FFFF] text-black border-2 border-black hover:bg-[#D4FF00] transition-colors uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-bold"
+              >
+                🔄 View Premade Pouches →
+              </Link>
+            </div>
+
+            <h1 className="font-black text-4xl md:text-6xl lg:text-7xl uppercase leading-tight mt-4">
+              Pre-Zippered<br />
+              <span className="text-[#10b981]">Roll Film</span><br />
+              Startup Guide
+            </h1>
+          </div>
+        }
+        heroSubtitle="Resealable convenience without the expensive machine upgrades. Feed our pre-zippered rollstock directly into your standard HFFS/VFFS form-fill benders and generate gorgeous zipper pouches on day one."
+        heroImage="/imgs/function/roll/hero.webp"
+        heroImageAlt="POUCH.ECO pre-zippered roll film packaging guide for startups"
+        categoryTag="FUNCTION"
+        categoryColor="#10b981"
+        readTime="4 min read"
+        sections={b2cSections}
+        ctaTitle="Ditch the Equipment Overhead"
+        ctaDescription="Book a free 30-minute machinery and design consultation. We will analyze your current HFFS/VFFS setup, verify forming tube clearance specs, and send custom roll stock trial samples to your production site."
+        calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
+        achievePackLink="https://achievepack.com/function/pre-zippered-rollstock"
+        achievePackText="Looking for industrial volume B2B contract packing and commercial rollstock runs?"
+        showTableOfContents={true}
+        relatedArticles={[
+          {
+            title: 'Writable & Stampable Pouches: SKU Agility for Craft Brands',
+            url: '/knowledge/writable-stampable-pouches',
+            image: '/imgs/knowledge/writable-stampable-pouches.jpg'
+          },
+          {
+            title: 'Child-Resistant Packaging: Safety-Lock Zip Guide',
+            url: '/function/child-resistant-bags',
+            image: '/imgs/function/cr/a_hero_child_resistant_bags_2511210.webp'
+          }
+        ]}
+      />
+    )
+  }
 
   return (
     <>
