@@ -2937,6 +2937,73 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       }
     ],
     customPrintNote: 'Custom multi-color digital prints and sizing options available from 500+ pieces. Please consult our team.',
+  },
+  // Side Gusset Individual Dessert Pouch with Tray (Recyclable Mono-PP Stock)
+  {
+    id: 'side-gusset-bag-and-tray-conventional',
+    name: 'Side Gusset Individual Dessert Pouch with Tray (Recyclable Mono-PP Stock)',
+    category: 'eco-stock',
+    shape: 'Side Gusset Pouch',
+    material: 'Frosted Recyclable Mono-PP Side Gusset Wrap (80 Microns) + Food-Safe Recyclable Tray',
+    description: 'An unprinted, premium stock-ready eco-packaging solution containing matching food-safe rigid recyclable trays and frosted recyclable Mono-PP side gusset wraps. Specially engineered for individual portion packaging of small bakery goods, pineapple cakes, cookies, mooncakes, and gourmet confectioneries. The matching high-performance Mono-PP material allows for seamless collection and recycling in standard Category 5 PP streams, promoting a circular economy. The rigid tray insert provides ultimate physical protection against crushing or bending during transit, while the high-barrier, grease-proof frosted wrapper locks in flavor freshness, extends shelf life, and beautifully displays your dessert portion branding for premium B2C retail presentation.',
+    shortDesc: 'Fully recyclable Mono-PP frosted side gusset wrapping bags with matching food-safe recyclable trays for premium portion gift presentation and circular economy integration.',
+    features: [
+      '[100% CIRCULAR ECONOMY INTEGRATION] Engineered entirely from Mono-PP (Category 5 PP) frosted wrapping bags and matching rigid trays, enabling effortless, single-material recycling to eliminate mixed-plastic waste.',
+      '[RIGID DESSERT PROTECTION TRAY] Matching food-safe recyclable tray insert provides robust structural support, keeping delicate pastries, mooncakes, and cookies perfectly intact through transport and handling.',
+      '[PREMIUM FROSTED SILHOUETTE PRESENTATION] Frosted translucent matte wrap creates a highly elegant, high-end retail presentation that beautifully showcases individual dessert portion aesthetics.',
+      '[HIGH-BARRIER FRESHNESS PRESERVATION] Grease-proof, moisture-barrier structure locks in flavor freshness, blocks humidity, and prevents grease bleed-through for extended shelf life.',
+      '[SEALABLE STOCK BULK VALUE] Pre-cut easy-to-use side-gusset bags designed for quick manual or automatic impulse heat sealing, sold in wholesale 1,000-piece bulk packs for commercial bakeries.'
+    ],
+    images: [
+      '/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-1.jpg',
+      '/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-2.jpg',
+      '/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-3.jpg'
+    ],
+    badge: '♻️ Recyclable Mono-PP',
+    rating: 4.9,
+    reviews: 24,
+    inStock: true,
+    basePrice: 23.10,
+    pricePerPiece: 0.0231,
+    minQuantity: 1000,
+    minOrder: 1000,
+    turnaround: '5-7 days',
+    quantityStep: 1000,
+    sizeInfo: 'Small (Holds 35g-40g): 4.5×12+2.5cm • Medium (Holds 45g-50g): 5×13+2.5cm • Large (Holds 75g-80g): 5.5×14+3cm',
+    certification: 'Fully Recyclable Mono-PP (Category 5 PP), FDA Food Contact Safe',
+    sizeVariants: [
+      { 
+        id: 'sg-tray-conventional-small', 
+        label: 'Small (35g-40g) 4.5×12+2.5cm (Recyclable Mono-PP with Tray) - 1,000 Pcs', 
+        dimensions: 'Bag: 4.5 × 12 + 2.5 cm • Tray: 6.5 × 3.8 × 2.2 cm • Holds ~35g-40g', 
+        hasHole: false, 
+        quantity: 1000, 
+        totalPrice: 23.10, 
+        unitPrice: 0.0231, 
+        heroImageIndex: 0 
+      },
+      { 
+        id: 'sg-tray-conventional-medium', 
+        label: 'Medium (45g-50g) 5.0×13+2.5cm (Recyclable Mono-PP with Tray) - 1,000 Pcs', 
+        dimensions: 'Bag: 5.0 × 13 + 2.5 cm • Tray: 7.0 × 4.5 × 2.5 cm • Holds ~45g-50g', 
+        hasHole: false, 
+        quantity: 1000, 
+        totalPrice: 27.30, 
+        unitPrice: 0.0273, 
+        heroImageIndex: 1 
+      },
+      { 
+        id: 'sg-tray-conventional-large', 
+        label: 'Large (75g-80g) 5.5×14+3.0cm (Recyclable Mono-PP with Tray) - 1,000 Pcs', 
+        dimensions: 'Bag: 5.5 × 14 + 3.0 cm • Tray: 8.0 × 5.0 × 2.8 cm • Holds ~75g-80g', 
+        hasHole: false, 
+        quantity: 1000, 
+        totalPrice: 35.70, 
+        unitPrice: 0.0357, 
+        heroImageIndex: 2 
+      }
+    ],
+    customPrintNote: 'Custom prints and custom colors available from 5,000+ pieces. Please consult our team.'
   }
 ]
 
@@ -3131,73 +3198,6 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-8.jpg',
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-9.jpg'
     ]
-  },
-  // Side Gusset Individual Dessert Pouch with Tray (Recyclable Mono-PP Stock)
-  {
-    id: 'side-gusset-bag-and-tray-conventional',
-    name: 'Side Gusset Individual Dessert Pouch with Tray (Recyclable Mono-PP Stock)',
-    category: 'eco-stock',
-    shape: 'Side Gusset Pouch',
-    material: 'Frosted Recyclable Mono-PP Side Gusset Wrap (80 Microns) + Food-Safe Recyclable Tray',
-    description: 'An unprinted, premium stock-ready eco-packaging solution containing matching food-safe rigid recyclable trays and frosted recyclable Mono-PP side gusset wraps. Specially engineered for individual portion packaging of small bakery goods, pineapple cakes, cookies, mooncakes, and gourmet confectioneries. The matching high-performance Mono-PP material allows for seamless collection and recycling in standard Category 5 PP streams, promoting a circular economy. The rigid tray insert provides ultimate physical protection against crushing or bending during transit, while the high-barrier, grease-proof frosted wrapper locks in flavor freshness, extends shelf life, and beautifully displays your dessert portion branding for premium B2C retail presentation.',
-    shortDesc: 'Fully recyclable Mono-PP frosted side gusset wrapping bags with matching food-safe recyclable trays for premium portion gift presentation and circular economy integration.',
-    features: [
-      '[100% CIRCULAR ECONOMY INTEGRATION] Engineered entirely from Mono-PP (Category 5 PP) frosted wrapping bags and matching rigid trays, enabling effortless, single-material recycling to eliminate mixed-plastic waste.',
-      '[RIGID DESSERT PROTECTION TRAY] Matching food-safe recyclable tray insert provides robust structural support, keeping delicate pastries, mooncakes, and cookies perfectly intact through transport and handling.',
-      '[PREMIUM FROSTED SILHOUETTE PRESENTATION] Frosted translucent matte wrap creates a highly elegant, high-end retail presentation that beautifully showcases individual dessert portion aesthetics.',
-      '[HIGH-BARRIER FRESHNESS PRESERVATION] Grease-proof, moisture-barrier structure locks in flavor freshness, blocks humidity, and prevents grease bleed-through for extended shelf life.',
-      '[SEALABLE STOCK BULK VALUE] Pre-cut easy-to-use side-gusset bags designed for quick manual or automatic impulse heat sealing, sold in wholesale 1,000-piece bulk packs for commercial bakeries.'
-    ],
-    images: [
-      '/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-1.jpg',
-      '/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-2.jpg',
-      '/imgs/store/products/side-gusset-bag-and-tray-conventional-thumbnail-3.jpg'
-    ],
-    badge: '♻️ Recyclable Mono-PP',
-    rating: 4.9,
-    reviews: 24,
-    inStock: true,
-    basePrice: 23.10,
-    pricePerPiece: 0.0231,
-    minQuantity: 1000,
-    minOrder: 1000,
-    turnaround: '5-7 days',
-    quantityStep: 1000,
-    sizeInfo: 'Small (Holds 35g-40g): 4.5×12+2.5cm • Medium (Holds 45g-50g): 5×13+2.5cm • Large (Holds 75g-80g): 5.5×14+3cm',
-    certification: 'Fully Recyclable Mono-PP (Category 5 PP), FDA Food Contact Safe',
-    sizeVariants: [
-      { 
-        id: 'sg-tray-conventional-small', 
-        label: 'Small (35g-40g) 4.5×12+2.5cm (Recyclable Mono-PP with Tray) - 1,000 Pcs', 
-        dimensions: 'Bag: 4.5 × 12 + 2.5 cm • Tray: 6.5 × 3.8 × 2.2 cm • Holds ~35g-40g', 
-        hasHole: false, 
-        quantity: 1000, 
-        totalPrice: 23.10, 
-        unitPrice: 0.0231, 
-        heroImageIndex: 0 
-      },
-      { 
-        id: 'sg-tray-conventional-medium', 
-        label: 'Medium (45g-50g) 5.0×13+2.5cm (Recyclable Mono-PP with Tray) - 1,000 Pcs', 
-        dimensions: 'Bag: 5.0 × 13 + 2.5 cm • Tray: 7.0 × 4.5 × 2.5 cm • Holds ~45g-50g', 
-        hasHole: false, 
-        quantity: 1000, 
-        totalPrice: 27.30, 
-        unitPrice: 0.0273, 
-        heroImageIndex: 1 
-      },
-      { 
-        id: 'sg-tray-conventional-large', 
-        label: 'Large (75g-80g) 5.5×14+3.0cm (Recyclable Mono-PP with Tray) - 1,000 Pcs', 
-        dimensions: 'Bag: 5.5 × 14 + 3.0 cm • Tray: 8.0 × 5.0 × 2.8 cm • Holds ~75g-80g', 
-        hasHole: false, 
-        quantity: 1000, 
-        totalPrice: 35.70, 
-        unitPrice: 0.0357, 
-        heroImageIndex: 2 
-      }
-    ],
-    customPrintNote: 'Custom prints and custom colors available from 5,000+ pieces. Please consult our team.'
   },
 ]
 
