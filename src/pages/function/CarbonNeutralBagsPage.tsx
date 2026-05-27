@@ -3,6 +3,8 @@ import { Leaf, Recycle, Target, BarChart3, Package, Users, CheckCircle, Calendar
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { getDomain } from '../../utils/domain'
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images from /imgs/function/carbon/
 const carbonGallery = [
@@ -22,6 +24,8 @@ const CarbonNeutralBagsPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   
+  const isPouchDomain = getDomain() === 'pouch'
+
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
@@ -415,7 +419,6 @@ const CarbonNeutralBagsPage: React.FC = () => {
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
-          {/* E-E-A-T Trust Signals */}
           <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-xl border border-primary-200">
             <h3 className="text-xl font-bold text-neutral-900 mb-4">Sustainability Experts Since 2011</h3>
             <p className="text-neutral-700 mb-4">
@@ -426,7 +429,6 @@ const CarbonNeutralBagsPage: React.FC = () => {
             </p>
           </div>
           
-          {/* Trust Badges Grid */}
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <FileCheck className="h-8 w-8 text-green-600 mx-auto mb-2" />
@@ -450,7 +452,6 @@ const CarbonNeutralBagsPage: React.FC = () => {
             </div>
           </div>
           
-          {/* Internal Links for SEO */}
           <div className="bg-neutral-50 p-6 rounded-lg">
             <h4 className="font-semibold text-neutral-800 mb-3">Explore Related Solutions</h4>
             <div className="grid md:grid-cols-3 gap-3">
@@ -542,30 +543,231 @@ const CarbonNeutralBagsPage: React.FC = () => {
     }
   ]
 
-  // Enhanced related links for internal linking SEO
   const relatedLinks = [
-    // Material options
     { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Fully recyclable single-material structure" },
     { title: "Bio-PE Materials", url: "/materials/bio-pe", description: "Plant-based polyethylene options" },
     { title: "PCR Recycled", url: "/materials/pcr", description: "Post-consumer recycled content" },
     { title: "Compostable Pouches", url: "/materials/compostable", description: "100% plastic-free materials" },
-    // Packaging shapes
     { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Self-standing packaging" },
     { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-bottom style" },
-    // Features
     { title: "Barrier Options", url: "/features/barrier-options", description: "Choose protection level" },
     { title: "Surface Finishes", url: "/features/surface-finish", description: "Matte, gloss, soft-touch" },
-    // Related function pages
     { title: "Child-Resistant Bags", url: "/function/child-resistant-bags", description: "Safety-certified pouches" },
     { title: "Microwave Steam Bags", url: "/function/microwave-steam-bags", description: "Food-safe heating pouches" },
     { title: "Spout Pouches", url: "/function/spout-pouches-juice", description: "Liquid packaging solutions" },
-    // Industry applications
     { title: "Coffee Packaging", url: "/industry/coffee-tea", description: "Premium coffee bags" },
     { title: "Pet Food Bags", url: "/industry/pet-food", description: "Sustainable pet packaging" },
-    // Knowledge & Support
     { title: "Certificates", url: "/company/certificates", description: "View our certifications" },
     { title: "About Us", url: "/company/about", description: "Our sustainability story" }
   ]
+
+  // B2C Specific Content & Layout
+  const b2cSections = [
+    {
+      id: 'carbon-neutrality',
+      title: 'What is a Carbon-Neutral Pouch?',
+      icon: <Leaf className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For modern, direct-to-consumer (DTC) startups, building a brand isn't just about selling a great product—it’s about sharing a value system. Eco-conscious shoppers are actively seeking brands that respect the planet. A <strong>carbon-neutral pouch</strong> is one of the most effective ways to lower your brand's footprint without compromising on durability or premium shelf presence.
+          </p>
+          <div className="bg-[#D4FF00] p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">
+              <strong>"Every pouch counts towards net-zero."</strong>
+            </p>
+            <p className="text-sm text-neutral-800 leading-relaxed">
+              Our carbon-neutral bags calculate the greenhouse gas emissions from raw materials, production, and shipping. We minimize these emissions by using renewable energy and high-barrier sustainable films, then offset the rest through certified carbon reduction projects like Gold Standard and Stripe Climate. The result? A net-zero carbon footprint for your packaging.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/carbon/a_hero_card_1_carbon_neutral_materials_3157781.webp', index: 0 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group animate-fade-in"
+            >
+              <img src="/imgs/function/carbon/a_hero_card_1_carbon_neutral_materials_3157781.webp" alt="Carbon-neutral materials" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-3">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Full LCA Transparency</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                We conduct strict Life-Cycle Assessments (LCAs) for our materials. When you choose Pouch.eco, you get real data on your carbon footprint, enabling you to share authentic, green storytelling with your community on Instagram, TikTok, and Shopify.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'sustainable-materials',
+      title: 'PCR PE, Sugarcane Bio-PE & Plant-Based Choices',
+      icon: <Sparkles className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Carbon-neutrality doesn't mean sticking to standard plastic and buying credits. The best strategy is to <strong>reduce emissions at the source</strong> by utilizing low-carbon material composites:
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Custom Materials for Eco-Conscious Brands</h4>
+              <ul className="text-sm space-y-2 text-neutral-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>PCR PE (Post-Consumer Recycled):</strong> Made from recycled household milk jugs and bottles, diverting plastic waste from oceans.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Bio-based Green PE:</strong> Synthesized from sugarcane ethylene, capturing carbon dioxide from the atmosphere as it grows.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Mono-PE Recyclable:</strong> A single-polymer structure that is 100% recyclable in standard soft-plastic collection streams.</span>
+                </li>
+              </ul>
+            </div>
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/carbon/a_image6_materials_mix_options_2058438.webp', index: 5 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/carbon/a_image6_materials_mix_options_2058438.webp" alt="Materials Mix Options" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'dtc-moq',
+      title: 'DTC Agility: 500-Unit MOQ & Multi-SKU Digital Printing',
+      icon: <Recycle className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Standard B2B packaging pipelines demand 5,000 to 10,000 units per design. If you're a startup launching three flavors of coffee or a brand-new line of wellness teas, you can't afford that capital risk. 
+          </p>
+          <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">Zero Plate Fees, Low Risk Scaling</h4>
+            <p className="text-sm text-neutral-700 leading-relaxed">
+              Pouch.eco uses advanced digital printing to unlock ultra-low minimum order quantities (MOQs) starting from just <strong>500 pouches</strong>. You can print multiple SKUs in the same batch, split colors, try different designs, and launch seasonal scents without any cylinder setup fees or heavy inventory commitments.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+            <div className="bg-[#00FFFF] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Fast Turnaround</h5>
+              <p className="text-xs text-black">Ship custom-printed eco bags in as little as 10-14 days.</p>
+            </div>
+            <div className="bg-[#D4FF00] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">DIY Custom Stamping</h5>
+              <p className="text-xs text-black">Order plain stock Kraft bags and hand-stamp flavor tags for an organic, rustic vibe.</p>
+            </div>
+            <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Scent & Vapor Lock</h5>
+              <p className="text-xs text-neutral-700">High-performance lamination holds delicate essential oils and volatile scents inside.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'climate-positive',
+      title: 'Stripe Climate Partners: Climate-Positive Storytelling',
+      icon: <Users className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Packaging is more than protection—it's a billboard for your values. We donate a percentage of our revenue to Stripe Climate (1% for the Planet) to fund frontier carbon removal technologies. When you partner with Pouch.eco, you're not just greenwashing; you're supporting active planetary restoration.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/carbon/a_image3_ap_carbon_neutral_badge_6727135.webp', index: 2 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/carbon/a_image3_ap_carbon_neutral_badge_6727135.webp" alt="Carbon neutral badge" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">How to Share Your Story:</h4>
+              <ul className="text-sm space-y-2 text-neutral-700">
+                <li>🎨 <strong>Custom Green Badges:</strong> We supply official carbon-neutral badges to print directly onto your pouch design.</li>
+                <li>📝 <strong>Shopify Integration:</strong> Highlight the carbon-offset data at checkout to boost conversion rates and build deep brand affinity.</li>
+                <li>📈 <strong>ESG Proof:</strong> We provide formal certificate offsets showing exact CO₂ equivalent weights offset.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  if (isPouchDomain) {
+    return (
+      <BlogArticleTemplate
+        title="Carbon-Neutral Pouches | Premium Eco-Branding | POUCH.ECO"
+        metaDescription="Launch custom carbon-neutral pouches starting from 500 units. Digital printing, zero cylinder plate fees, sugarcane bio-PE, and Stripe Climate offsets!"
+        canonicalUrl="https://pouch.eco/function/carbon-neutral-bags"
+        keywords={['carbon-neutral bags', 'climate-positive packaging', 'sustainable pouch', 'sugarcane PE', 'low MOQ eco packaging']}
+        publishedDate="2026-05-27"
+        modifiedDate="2026-05-27"
+        author="POUCH.ECO Editorial Team"
+        heroTitle={
+          <div className="space-y-4">
+            {/* Neo-brutalist Breadcrumb Navigation */}
+            <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black">
+              <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+              <span>/</span>
+              <Link to="/materials" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Friendly Materials</Link>
+              <span>/</span>
+              <span className="bg-[#D4FF00] text-black px-1.5 py-0.5 border border-black font-bold">Carbon-Neutral Bags</span>
+            </div>
+
+            {/* Badges / Cross Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-black text-[#D4FF00] border-2 border-black uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono']">
+                🌱 Stripe Climate Partner
+              </span>
+              <Link 
+                to="/materials/compostable" 
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#00FFFF] text-black border-2 border-black hover:bg-[#D4FF00] transition-colors uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              >
+                🔄 View Compostable Options →
+              </Link>
+            </div>
+
+            <h1 className="font-black text-4xl md:text-6xl lg:text-7xl uppercase leading-tight mt-4">
+              Carbon-Neutral<br />
+              <span className="text-[#10b981]">Sustainable Bags</span><br />
+              DTC Scaling Guide
+            </h1>
+          </div>
+        }
+        heroSubtitle="Calculate, reduce, and balance every gram of CO₂. Launch certified carbon-neutral custom printed pouches with ultra-low MOQs (500 units), fast turnarounds, and zero plate setups."
+        heroImage="/imgs/function/carbon/a_hero_card_1_carbon_neutral_materials_3157781.webp"
+        heroImageAlt="POUCH.ECO carbon-neutral custom pouch packaging guide"
+        categoryTag="ECO_PRODUCTS"
+        categoryColor="#10b981"
+        readTime="5 min read"
+        sections={b2cSections}
+        ctaTitle="Go Climate Positive Today"
+        ctaDescription="Book a free 30-minute design consultation. We'll outline your carbon reduction options, review Stripe Climate badges for your designs, and ship physical samples to your door."
+        calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
+        achievePackLink="https://achievepack.com/function/carbon-neutral-bags"
+        achievePackText="Looking for enterprise vertical-form-fill-seal (VFFS) rollstock or bulk B2B logistics?"
+        showTableOfContents={true}
+        relatedArticles={[
+          {
+            title: 'Mono-PE Recyclable Bags: The Single-Material Future',
+            url: '/materials/recyclable',
+            image: '/imgs/function/carbon/a_image7_recyclable_structures_3548261.webp'
+          },
+          {
+            title: 'Writabl & Stampable Eco Pouches: SKU Agility for Craft Brands',
+            url: '/knowledge/writable-stampable-pouches',
+            image: '/imgs/knowledge/writable-stampable-pouches.jpg'
+          }
+        ]}
+      />
+    )
+  }
 
   return (
     <>
