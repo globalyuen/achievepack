@@ -3,6 +3,8 @@ import { Package, Leaf, Layers, Settings, ShoppingBag, Coffee, Award, Users, Glo
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { getDomain } from '../../utils/domain'
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images from /imgs/function/rice/
 const ricePaperGallery = [
@@ -21,6 +23,8 @@ const RicePaperBagsPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   
+  const isPouchDomain = getDomain() === 'pouch'
+
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
@@ -29,7 +33,7 @@ const RicePaperBagsPage: React.FC = () => {
     setGalleryEnlarged({ src: ricePaperGallery[newIndex].src, index: newIndex })
   }
 
-  // Alternating layout component
+  // Alternating layout component for B2B layout
   const AlternatingSection = ({ 
     image, 
     imageAlt, 
@@ -594,33 +598,258 @@ const RicePaperBagsPage: React.FC = () => {
     }
   ]
 
-  // Enhanced related links for internal linking SEO
   const relatedLinks = [
-    // Material options
     { title: "Compostable Materials", url: "/materials/compostable", description: "100% plastic-free eco-friendly material options" },
     { title: "Home Compostable", url: "/materials/home-compostable", description: "OK Compost HOME certified materials" },
     { title: "Industrial Compostable", url: "/materials/industrial-compostable", description: "EN 13432 / ASTM D6400 certified options" },
-    // Packaging shapes
     { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Versatile self-standing packaging" },
     { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-bottom pouch style" },
     { title: "Side Gusset Bags", url: "/packaging/side-gusset-bags", description: "Classic side-fold coffee bag format" },
-    // Products
     { title: "Compostable Coffee Bags", url: "/products/compostable-coffee-bags", description: "Eco-friendly coffee packaging" },
     { title: "Compostable Stand Up Pouches", url: "/products/compostable-stand-up-pouches", description: "Fully compostable standing pouches" },
-    // Features
     { title: "Reclosure Options", url: "/features/reclosure-options", description: "Zipper and seal types available" },
     { title: "Digital Printing", url: "/printing/digital-printing", description: "Low MOQ custom printed pouches" },
-    // Industries
     { title: "Coffee & Tea Industry", url: "/industry/coffee-tea", description: "Specialty coffee & tea packaging" },
     { title: "Snacks & Food", url: "/industry/snacks-food", description: "Dry snack packaging solutions" },
     { title: "Pet Food", url: "/industry/pet-food", description: "Pet treat and food pouches" },
-    // Related function pages
     { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging solutions" },
     { title: "Spout Pouches", url: "/function/spout-pouches-juice", description: "Liquid packaging with spout" },
-    // Knowledge & Support
     { title: "Certificates", url: "/company/certificates", description: "View our certifications" },
     { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }
   ]
+
+  // B2C Specific Content & Layout
+  const b2cSections = [
+    {
+      id: 'organic-texture',
+      title: 'Eco-Aesthetic: Authentic Rice Paper Texture for Coffee & Tea Startups',
+      icon: <Coffee className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For modern, direct-to-consumer (DTC) organic coffee, tea, and wellness brands, the first point of physical contact with your customer is your packaging. Before they smell the fresh roast or taste the botanical herbal tea, they <em>feel</em> the bag.
+          </p>
+          <div className="bg-[#D4FF00] p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono']">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase">
+              "Touch is the first sensor of quality."
+            </p>
+            <p className="text-sm text-neutral-800 leading-relaxed">
+              Our authentic rice paper pouches feature a beautiful, textured, natural-fiber finish that instantly communicates artisan care and sustainable values. It breaks the monotony of generic plastic bags on supermarket shelves or inside shipping boxes, giving your brand an organic, tactile edge that customers love.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/rice/hero.webp', index: 0 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/rice/hero.webp" alt="Authentic rice paper texture" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-3">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Why Organic Startups Choose Rice Paper:</h4>
+              <ul className="text-sm space-y-2 text-neutral-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Artisan Appeal:</strong> Conveys a handcrafted, premium micro-batch aesthetic that justifies higher retail pricing.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Visual Contrast:</strong> The delicate cloud-like paper fibers catch the light beautifully, standing out under shop lights or in product photos.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>100% Organic Match:</strong> Align your packaging material with your pure, pesticide-free product inside.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'low-moq',
+      title: 'Low-Risk Launches: 500-Unit MOQ & Multi-SKU Digital Printing',
+      icon: <Sparkles className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Many traditional B2B manufacturers require massive minimum orders of 10,000+ units per design just to get started. If you're a startup launching three different coffee origins or a new line of seasonal botanical tea blends, that's thousands of dollars of cash flow locked up in inventory.
+          </p>
+          <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">Zero Plate Setup Fees · Launch More SKUs</h4>
+            <p className="text-sm text-neutral-800 leading-relaxed">
+              At Pouch.eco, we believe in supporting growing brands with ultimate agility. We offer custom-printed rice paper bags starting from just <strong>500 units</strong>. And because we use high-fidelity digital printing, there are absolutely zero plate fees or setup charges. You can split your order across multiple SKUs and designs, keeping your inventory lean and testing new flavors with zero risk.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Start Small, Scale Smart:</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Test custom packaging directly with your customers, optimize the design based on their feedback, and print exactly what you need when you need it. As your customer base grows, we seamlessly scale with you to larger, high-volume runs with volume discounts.
+              </p>
+            </div>
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp', index: 7 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp" alt="Custom printed rice paper bags" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'diy-stamping',
+      title: 'DIY Friendly: Hand-Writing & Ink-Stamping Compatibility',
+      icon: <Palette className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Startups love the authentic, rustic feel of hand-stamped or handwritten packaging. The fibrous texture of our organic rice paper bags is highly receptive to stamps, pigment ink, and permanent markers.
+          </p>
+          <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-bold text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">The Rustic Micro-Batch Aesthetic</h4>
+            <p className="text-sm text-neutral-700 leading-relaxed">
+              Instead of printing every single batch detail, you can buy beautiful, plain stock rice paper pouches and add custom stampers for flavor varieties, roast dates, single-origin tags, or custom holiday branding. It gives your products a highly personalized, hand-packed look that signals high attention to detail and a true connection to the craft.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+            <div className="bg-[#F0F0F0] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-bold uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Stamper Friendly</h5>
+              <p className="text-xs text-neutral-700">Porous texture absorbs inks perfectly without smudging, giving you clean, crisp stamp edges.</p>
+            </div>
+            <div className="bg-[#D4FF00] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-bold uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Handwrite Batches</h5>
+              <p className="text-xs text-black">Perfect for adding custom signatures, limited edition batch numbers, or personalized thank-you notes.</p>
+            </div>
+            <div className="bg-[#00FFFF] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-bold uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Sticker Compatibility</h5>
+              <p className="text-xs text-black">Textured surface allows organic, paper-based labels to adhere firmly without lifting at the edges.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'compostability',
+      title: 'Compostability Without Compromise: BPI & EN 13432 Certified Barriers',
+      icon: <Leaf className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            For eco-conscious consumers, a sustainable package must back up its claims with verified certifications. A bag that looks like paper but contains standard plastic lining is not compostable.
+          </p>
+          <div className="bg-[#D4FF00] p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">100% Certified Compostable Structure</h4>
+            <p className="text-sm text-neutral-800 leading-relaxed font-semibold">
+              Our rice paper pouches are laminated with high-performance compostable inner bio-films (like PLA or cellulose films) which are fully BPI and EN 13432 certified compostable. The entire structure degrades into organic humus within 90-180 days in standard composting setups, leaving zero toxic microplastics or harmful residues behind.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp', index: 1 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp" alt="Certified compostable material layer closeup" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+            <div className="space-y-3">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">High-Performance Barrier Features:</h4>
+              <ul className="text-sm space-y-2 text-neutral-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Vapor & Aroma Lock:</strong> Keeps your delicate whole bean coffee aromas or delicate tea essential oils locked inside safely.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Oxygen & Moisture Defense:</strong> Prevents premature oxidation or humidity infiltration to maintain product crunch and freshness.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Fully Eco-Certified:</strong> Print BPI or OK Compost logos directly on your bags to gain immediate consumer trust.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'customization',
+      title: 'Agile Customization: Compostable Zippers, Clear Windows & Custom Shapes',
+      icon: <Layers className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            A great bag is both beautiful and functional. At Pouch.eco, we don't believe you should sacrifice convenience to be eco-friendly. Customize your rice paper bags with high-performance reclosure features and visibility:
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Tailored Add-Ons for Modern Products:</h4>
+              <ul className="text-sm space-y-2 text-neutral-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Compostable Zippers:</strong> Add an airtight, resealable compostable ziplock to keep tea and snacks dry and fresh for multiple uses.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Transparent Windows:</strong> Incorporate clean, clear biodegradable windows so customers can see your beautiful loose tea leaves, colorful granola, or organic treats.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>One-Way Degassing Valves:</strong> Essential for fresh coffee beans. Allows carbon dioxide to escape without letting oxygen in, preventing bag bloating.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Custom Dimensions:</strong> From 2oz sample sachets to 5lb bulk bags, we manufacture custom dimensions to match your exact product volume perfectly.</span>
+                </li>
+              </ul>
+            </div>
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp', index: 3 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp" alt="Coffee degassing valve feature" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+            </button>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  if (isPouchDomain) {
+    return (
+      <BlogArticleTemplate
+        title="Rice Paper Bags | Premium Tactile Eco-Branding | POUCH.ECO"
+        metaDescription="Launch custom textured rice paper bags starting from 500 units. Certified compostable BPI/EN 13432 barrier films, digital printing, coffee valves, & custom shapes."
+        canonicalUrl="https://pouch.eco/function/rice-paper-bags"
+        keywords={['rice paper bags', 'compostable pouches', 'organic tea packaging', 'textured coffee bag', 'low MOQ custom printed bags', 'BPI certified compostable']}
+        publishedDate="2026-05-27"
+        modifiedDate="2026-05-27"
+        author="POUCH.ECO Editorial Team"
+        heroTitle={
+          <span>
+            Rice Paper <span className="bg-[#D4FF00] px-2 text-black">Bags</span>
+          </span>
+        }
+        heroSubtitle="Give your startup coffee, tea, or snack brand a tactile, premium organic aesthetic with certified compostable natural-fiber textured pouches."
+        heroImage="/imgs/function/rice/hero.webp"
+        heroImageAlt="Tactile rice paper packaging for startups"
+        categoryTag="Function & Aesthetic"
+        categoryColor="#D4FF00"
+        readTime="4 min read"
+        sections={b2cSections}
+        ctaTitle="Ready to Elevate Your Startup's Packaging?"
+        ctaDescription="Book a free 30-minute design consultation. Let's discuss low MOQs, digital proofing, and how to create the ultimate organic tactile branding for your products."
+        calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
+        achievePackLink="https://achievepack.com/function/rice-paper-bags"
+        achievePackText="Need enterprise volumes or high-volume wholesale discounts? Visit AchievePack.com"
+        showTableOfContents={true}
+      />
+    )
+  }
 
   return (
     <>

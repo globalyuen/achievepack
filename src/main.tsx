@@ -82,6 +82,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/function/microwave-steam-bags': () => import('./pages/function/MicrowaveSteamBagsPage'),
   '/function/carbon-neutral-bags': () => import('./pages/function/CarbonNeutralBagsPage'),
   '/function/spout-pouches-juice': () => import('./pages/function/SpoutPouchesJuicePage'),
+  '/function/rice-paper-bags': () => import('./pages/function/RicePaperBagsPage'),
   '/products/custom-compostable-labels': () => import('./pages/products/CustomCompostableLabelsPage'),
   '/products/compostable-side-gusset-bags': () => import('./pages/products/CompostableSideGussetPage'),
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
@@ -662,6 +663,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/function/microwave-steam-bags" element={<MicrowaveSteamBagsPage />} />
                   <Route path="/function/carbon-neutral-bags" element={<CarbonNeutralBagsPage />} />
                   <Route path="/function/spout-pouches-juice" element={<SpoutPouchesJuicePage />} />
+                  <Route path="/function/rice-paper-bags" element={<RicePaperBagsPage />} />
                   <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
                   <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
                   <Route path="/packaging/side-gusset-bags" element={<PouchSideGussetBagsPage />} />
