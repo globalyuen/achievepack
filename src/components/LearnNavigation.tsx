@@ -238,6 +238,7 @@ const LEARN_PAGES = {
       { name: 'Pre-Zippered Rollstock', link: '/function/pre-zippered-rollstock', image: '/imgs/function/roll/hero.webp' },
       { name: 'Rice Paper Bags', link: '/function/rice-paper-bags', image: '/imgs/function/rice/hero.webp' },
       { name: 'PVA Water-Soluble Bags', link: '/function/pva-water-soluble-bags', image: '/imgs/function/water/hero.webp' },
+      { name: 'Kraft Heavy-Duty Sacks', link: '/function/large-format-kraft-heavy-bags', image: '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-4.png' },
       { name: 'Heat-Resistant Pouches', link: '/function/heat-resistant-compostable-pouches', image: '/imgs/illustrated/a_snacks_food_hero_v1_9854447.webp' },
     ]
   },

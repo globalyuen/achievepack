@@ -5919,9 +5919,10 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       'Impulse & Band Seal Ready: Thick upper header designed for industrial and manual high-heat sealers for airtight preservation.'
     ],
     images: [
-      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-1.jpg',
-      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-2.jpg',
-      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-3.jpg'
+      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-1.png',
+      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-2.png',
+      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-3.png',
+      '/imgs/store/products/large-format-kraft-heavy-bag-conventional-thumbnail-4.png'
     ],
     badge: '⚡ Heavy Duty',
     rating: 4.9,
