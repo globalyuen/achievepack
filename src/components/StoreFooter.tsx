@@ -80,6 +80,7 @@ export default function StoreFooter() {
               <li><Link to="/features/material-barrier-properties" className="hover:text-primary-400">Barrier Properties</Link></li>
               <li><Link to="/function/heat-resistant-compostable-pouches" className="hover:text-primary-400">Heat-Resistant Pouches</Link></li>
               <li><Link to="/function/carbon-neutral-bags" className="hover:text-primary-400">Carbon-Neutral Bags</Link></li>
+              <li><Link to="/function/spout-pouches-juice" className="hover:text-primary-400">Spout Pouches Juice</Link></li>
             </ul>
           </div>
 

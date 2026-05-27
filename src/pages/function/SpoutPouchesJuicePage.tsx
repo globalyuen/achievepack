@@ -3,6 +3,8 @@ import { Droplets, Recycle, Package, Shield, Users, CheckCircle, Calendar, Mail,
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { getDomain } from '../../utils/domain'
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images from /imgs/function/spout/
 const spoutGallery = [
@@ -22,6 +24,8 @@ const SpoutPouchesJuicePage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   
+  const isPouchDomain = getDomain() === 'pouch'
+
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
@@ -478,28 +482,235 @@ const SpoutPouchesJuicePage: React.FC = () => {
   ]
 
   const relatedLinks = [
-    // Material options
     { title: "Recyclable Mono-PE", url: "/materials/recyclable-mono-pe", description: "Fully recyclable single-material structure" },
     { title: "PCR Materials", url: "/materials/pcr", description: "Post-consumer recycled content options" },
     { title: "Bio-Based Materials", url: "/materials/bio-pe", description: "Plant-derived sustainable materials" },
     { title: "Compostable Pouches", url: "/materials/compostable", description: "100% plastic-free eco-friendly options" },
-    // Packaging shapes
     { title: "Spout Pouches", url: "/packaging/spout-pouches", description: "All spout pouch options and sizes" },
     { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Versatile self-standing packaging" },
     { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-pouch designs" },
-    // Features
     { title: "Barrier Options", url: "/features/barrier-options", description: "Choose your protection level" },
     { title: "Printing Capabilities", url: "/printing/digital-printing", description: "Digital and rotogravure options" },
-    // Related function pages
     { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging solutions" },
     { title: "Microwave Steam Bags", url: "/function/microwave-steam-bags", description: "Food-safe heating pouches" },
     { title: "Child-Resistant Bags", url: "/function/child-resistant-bags", description: "Safety-compliant CR packaging" },
-    // Industry applications
     { title: "Liquid Packaging", url: "/industry/sauces-condiments", description: "Complete liquid pouch solutions" },
-    // Knowledge & Support
     { title: "Certificates", url: "/company/certificates", description: "View our safety certifications" },
     { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }
   ]
+
+  // B2C personalization styling and contents
+  const b2cSections = [
+    {
+      id: 'ditch-bottles',
+      title: 'The Liquid Startup Hack: Ditch Heavy Glass & Cans',
+      icon: <Recycle className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Starting a boutique beverage brand, a craft cold-brew tea line, or an organic juice startup is an exciting journey. But you quickly run into the traditional B2B manufacturer wall: heavy glass bottles and aluminum cans require massive upfront wholesale pre-orders (often 10,000+ units minimum) and take up a massive amount of physical storage space.
+          </p>
+          <div className="bg-[#D4FF00] p-6 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">
+              <strong>Lightweight, Collapsible, and Carbon-Positive</strong>
+            </p>
+            <p className="text-sm text-neutral-700 leading-relaxed font-['JetBrains_Mono']">
+              Spout pouches are up to <strong>90% lighter</strong> than traditional glass packaging. They collapse completely flat when empty. This means you can store 10,000 empty pouches in a single cardboard box instead of occupying three full warehouse pallets! This drastically lowers your inbound freight costs, storage space, and overall carbon footprint by up to 70%!
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp', index: 0 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp" alt="DTC Spout Pouches for Juice" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-black">Click to enlarge</div>
+            </button>
+            <div className="space-y-3">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Shatter-Proof & On-the-Go Friendly</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Unlike glass, spout pouches won't break in transit or shatter when dropped at the gym, beach, or during a sports commute. They are the perfect container for busy modern lifestyles.
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'hot-fill',
+      title: 'Hot Fill & Pasteurization Ready',
+      icon: <Droplets className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Food safety is non-negotiable when dealing with organic juices, nutritional smoothies, or wellness elixirs. Fresh, raw beverages can spoil quickly if not pasteurized, but many packaging materials melt or warp under high thermal temperatures.
+          </p>
+          <div className="bg-cyan-50 p-6 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">
+              <strong>Engineered to Stand the Heat (Up to 85°C / 185°F)</strong>
+            </p>
+            <p className="text-sm text-neutral-700 leading-relaxed font-['JetBrains_Mono']">
+              Our spout pouches are manufactured using specialized heat-resistant polymer matrices. They easily support standard <strong>hot-fill pasteurization processes</strong> up to 85°C (185°F) without leakage, flavor degradation, or packaging delamination. Once filled hot and sealed, the pouch can be quickly chilled to lock in vitamins and raw colors.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">High-Barrier Laminated Freshness</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                We utilize food-grade multi-layer laminates (such as PET/PE or 100% recyclable mono-PE) with specialized barrier coatings to prevent oxygen ingress and block out UV light, maintaining peak flavor and shelf life.
+              </p>
+            </div>
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/spout/a_barrier_freshness_juice_9675285.webp', index: 4 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/spout/a_barrier_freshness_juice_9675285.webp" alt="High barrier spout pouch structure" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-black">Click to enlarge</div>
+            </button>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'leak-proof',
+      title: 'Airtight, Leak-Proof & Custom Caps',
+      icon: <Package className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            Whether your customer is jogging, commuting, or tossing a morning protein shake into their gym bag, they need absolute leak-proof reliability. There is nothing worse than sticky orange juice ruining an expensive laptop or gym gear.
+          </p>
+          <div className="bg-[#00FFFF] p-6 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">
+              <strong>Zero-Leak Screw Caps & Custom Colors</strong>
+            </p>
+            <p className="text-sm text-neutral-700 leading-relaxed font-['JetBrains_Mono']">
+              Our standard screw caps utilize dynamic threaded closures that seal airtight with a satisfying twist, blocking leaks completely even under pressure. Want to stand out? Mix and match vibrant, high-contrast cap colors (like electric lime, hot orange, or punchy pink) to complement your bold retro branding.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <button 
+              onClick={() => setGalleryEnlarged({ src: '/imgs/function/spout/a_detail_spout_cap_2155787.webp', index: 2 })}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+            >
+              <img src="/imgs/function/spout/a_detail_spout_cap_2155787.webp" alt="Airtight leak proof spout and cap design" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-black">Click to enlarge</div>
+            </button>
+            <div className="space-y-4">
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Flexible Spout Options</h4>
+              <p className="text-sm text-neutral-600 leading-relaxed">
+                Choose from various spout diameters (from 8.6mm standard to 10mm for thicker smoothies or pulpy beverages) and closure types (anti-choke child caps, sports flip lids, or classic twist-off screw caps).
+              </p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'low-moq',
+      title: 'DTC Agility: Low MOQ & Fast Turnaround',
+      icon: <Sparkles className="h-5 w-5 text-black" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-neutral-700">
+            At Pouch.eco, we specialize in helping startup brands scale from garage-based operations to supermarket shelf success. Traditional beverage packaging manufacturers require 5,000 to 10,000 bags per flavor SKU. If you want to launch with 4 different recipes, you'd need to fork out thousands of dollars in massive B2B wholesale commitments.
+          </p>
+          <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <p className="text-lg font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">
+              <strong>DTC Packaging Agility: 500 Unit Minimums & No Setup Fees</strong>
+            </p>
+            <p className="text-sm text-neutral-700 leading-relaxed font-['JetBrains_Mono']">
+              Pouch.eco uses cutting-edge high-fidelity digital printing to deliver custom spout pouches with a minimum order quantity of just <strong>500 units per SKU</strong>. You can test your brand, try multiple juice variations, and get professional, retail-ready pouches in your hands in just 2-3 weeks—with absolutely zero plate cylinder fees!
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+            <div className="bg-[#D4FF00] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">500 MOQ</h5>
+              <p className="text-xs text-black">Launch a new flavor line without high capital risk.</p>
+            </div>
+            <div className="bg-[#00FFFF] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Digital Printing</h5>
+              <p className="text-xs text-black">High-definition prints with zero cylinder fees.</p>
+            </div>
+            <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">DIY Branding</h5>
+              <p className="text-xs text-neutral-700">Add custom labels or stamp batch codes on unprinted matte pouches.</p>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  if (isPouchDomain) {
+    return (
+      <BlogArticleTemplate
+        title="Eco-Friendly Spout Juice Pouches | POUCH.ECO"
+        metaDescription="Food-safe, recyclable, custom-shaped spout pouches for startup beverage and juice brands. Low MOQ from 500 units, leak-proof screw caps, and hot-fill ready."
+        canonicalUrl="https://pouch.eco/function/spout-pouches-juice"
+        keywords={['spout pouches', 'juice pouches', 'recyclable spout bags', 'beverage packaging', 'liquid pouches', 'food-safe pouches', 'custom spout pouches', 'drink pouches', 'juice pouch packaging']}
+        publishedDate="2026-05-27"
+        modifiedDate="2026-05-27"
+        author="POUCH.ECO Editorial Team"
+        heroTitle={
+          <div className="space-y-4">
+            {/* Neo-brutalist Breadcrumb Navigation */}
+            <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black">
+              <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+              <span>/</span>
+              <Link to="/materials" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Friendly Materials</Link>
+              <span>/</span>
+              <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">Spout Juice Pouches</span>
+            </div>
+
+            {/* Badges / Cross Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#10b981] text-white border-2 border-black uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                🌱 FDA Food-Safe & Hot-Fill Ready
+              </span>
+              <Link 
+                to="/packaging/spout-pouches" 
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#00FFFF] text-black border-2 border-black hover:bg-[#D4FF00] transition-colors uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              >
+                🔄 View Spout Options →
+              </Link>
+            </div>
+
+            <h1 className="font-black text-4xl md:text-6xl lg:text-7xl uppercase leading-tight mt-4">
+              Eco Spout<br />
+              <span className="text-[#10b981]">Juice Pouches</span><br />
+              DTC Startup Guide
+            </h1>
+          </div>
+        }
+        heroSubtitle="Scale your beverage startup with flexible spouted liquid pouches. Shatter-proof, hot-fill pasteurization ready, airtight leak-proof screw caps, and low 500-unit MOQ."
+        heroImage="/imgs/function/spout/a_hero_kv_juice_pouch_7892714.webp"
+        heroImageAlt="POUCH.ECO custom spout pouches for juice and beverages"
+        categoryTag="ECO_PRODUCTS"
+        categoryColor="#10b981"
+        readTime="6 min read"
+        sections={b2cSections}
+        ctaTitle="Launch Your Liquid Pouch Today"
+        ctaDescription="Book a free 30-minute consultation with our liquid packaging specialists to review barrier specifications, hot-fill compatibility, cap sizes, and order free custom-branded samples."
+        calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
+        achievePackLink="https://achievepack.com/function/spout-pouches-juice"
+        achievePackText="Need enterprise-level bulk wholesale quotes or high-volume automated vertical-form-fill-seal (VFFS) pipeline packaging?"
+        showTableOfContents={true}
+        relatedArticles={[
+          {
+            title: 'Writable & Stampable Eco Pouches: SKU Agility for Craft Brands',
+            url: '/knowledge/writable-stampable-pouches',
+            image: '/imgs/knowledge/writable-stampable-pouches.jpg'
+          },
+          {
+            title: 'Compostable Stand Up Pouches: High-Barrier Food Protection',
+            url: '/products/compostable-stand-up-pouches',
+            image: '/imgs/store/products/compostable-stand-up-collection.png'
+          }
+        ]}
+      />
+    )
+  }
 
   return (
     <>
