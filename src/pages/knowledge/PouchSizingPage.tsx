@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from 'react'
-import { Ruler, Box, Maximize2, Package, Calculator, Settings, ArrowRightLeft, CheckCircle, Eye, X, Layers, ShoppingCart, ArrowRight, Download, Sparkles } from 'lucide-react'
+import React, { useState, useMemo, useRef, useEffect } from 'react'
+import { Ruler, Box, Maximize2, Package, Calculator, Settings, ArrowRightLeft, CheckCircle, Eye, X, Layers, ShoppingCart, ArrowRight, Download, Sparkles, Send, Loader2, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import SortableSizesTable, { STAND_UP_SIZES, FLAT_BOTTOM_SIZES } from '../../components/SortableSizesTable'
+import { DIELINE_CATALOG, type DielineItem } from '../../data/dielineCatalog'
 
 // Volumetric density database for standard B2B packaging products
 const PRODUCT_DENSITIES = [
@@ -27,6 +28,15 @@ const POUCH_SIZE_BRACKETS = [
   { code: 'XXL', maxVol: 99999, dims: '300 × 400 + 120 mm', inDims: '11.8" × 15.7" + 4.7"', label: 'Double Extra Large (XXL)', storeId: 'eco-standup', recommendedDieline: '/dielines/ap-dieline-300x400.pdf' }
 ];
 
+const REFERENCE_DIMENSIONS: Record<string, { w: number, h: number }> = {
+  XS: { w: 100, h: 150 },
+  S: { w: 130, h: 200 },
+  M: { w: 160, h: 230 },
+  L: { w: 190, h: 260 },
+  XL: { w: 230, h: 340 },
+  XXL: { w: 300, h: 400 }
+};
+
 const PouchSizingPage: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
@@ -36,6 +46,19 @@ const PouchSizingPage: React.FC = () => {
   const [weightUnit, setWeightUnit] = useState<'g' | 'oz'>('g')
   const [bagShape, setBagShape] = useState<'stand-up' | 'flat-bottom'>('stand-up')
   const [headspacePercent, setHeadspacePercent] = useState<number>(25)
+
+  // Email Lead Gate & CAPTCHA States
+  const [clientEmail, setClientEmail] = useState('')
+  const [emailDielineFilename, setEmailDielineFilename] = useState('')
+  const [selectedEmailDieline, setSelectedEmailDieline] = useState<DielineItem | null>(null)
+  const [sendingEmail, setSendingEmail] = useState(false)
+  const [emailSuccess, setEmailSuccess] = useState(false)
+  
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const turnstileRef = useRef<HTMLDivElement>(null)
+  const turnstileWidgetId = useRef<string | null>(null)
+
+  const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
 
   // Use the newly generated stunning B2B studio reference image as our primary hero
   const heroImage = '/imgs/pouch_size_ref_guide.png'
@@ -85,6 +108,126 @@ const PouchSizingPage: React.FC = () => {
       }
     };
   }, [productType, weightInput, weightUnit, headspacePercent]);
+
+  // Load similar dielines based on current matched sizing code and shape
+  const similarDielines = useMemo(() => {
+    const shapeFilter = bagShape === 'stand-up' ? 'Stand Up Pouch' : 'Flat Bottom'
+    const ref = REFERENCE_DIMENSIONS[calcResult?.size || 'M'] || { w: 160, h: 230 }
+    
+    return DIELINE_CATALOG
+      .filter(item => item.shape === shapeFilter && item.unit === 'mm')
+      .map(item => {
+        const dist = Math.pow(item.width - ref.w, 2) + Math.pow(item.height - ref.h, 2)
+        return { item, dist }
+      })
+      .sort((a, b) => a.dist - b.dist)
+      .map(entry => entry.item)
+      .slice(0, 5)
+  }, [bagShape, calcResult?.size])
+
+  // Auto-select first matching similar dieline when catalog shifts
+  useEffect(() => {
+    if (similarDielines.length > 0) {
+      const alreadySelected = similarDielines.some(d => d.filename === emailDielineFilename)
+      if (!alreadySelected) {
+        setSelectedEmailDieline(similarDielines[0])
+        setEmailDielineFilename(similarDielines[0].filename)
+      }
+    } else {
+      setSelectedEmailDieline(null)
+      setEmailDielineFilename('')
+    }
+  }, [similarDielines, emailDielineFilename])
+
+  // Prefill email from localStorage on mount
+  useEffect(() => {
+    const savedEmail = localStorage.getItem('dieline_finder_email')
+    if (savedEmail) {
+      setClientEmail(savedEmail)
+    }
+  }, [])
+
+  // Load Cloudflare Turnstile Script Dynamically & Initialize Widget
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !(window as any).turnstile) {
+      const script = document.createElement('script')
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad'
+      script.async = true
+      script.defer = true
+      document.body.appendChild(script)
+    }
+
+    const renderWidget = () => {
+      if (turnstileRef.current && (window as any).turnstile && !turnstileWidgetId.current) {
+        turnstileWidgetId.current = (window as any).turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          'expired-callback': () => setTurnstileToken(null),
+          'error-callback': () => setTurnstileToken(null)
+        })
+      }
+    }
+
+    if ((window as any).turnstile) {
+      renderWidget()
+    } else {
+      (window as any).onTurnstileLoad = renderWidget
+    }
+
+    return () => {
+      if (turnstileWidgetId.current && (window as any).turnstile) {
+        try {
+          (window as any).turnstile.remove(turnstileWidgetId.current)
+        } catch (e) {
+          console.error('Turnstile clean error:', e)
+        }
+        turnstileWidgetId.current = null
+      }
+    }
+  }, [calcResult?.size, bagShape])
+
+  const handleEmailDielineSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!clientEmail || !turnstileToken || !selectedEmailDieline) return
+
+    setSendingEmail(true)
+    try {
+      const response = await fetch('/api/send-dieline', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: clientEmail,
+          dielineFilename: selectedEmailDieline.filename,
+          dielineUrl: selectedEmailDieline.url,
+          dielineDisplayName: selectedEmailDieline.displayName,
+          turnstileToken,
+          shape: selectedEmailDieline.shape,
+          width: selectedEmailDieline.width,
+          height: selectedEmailDieline.height,
+          gusset: selectedEmailDieline.gusset,
+          unit: selectedEmailDieline.unit,
+          capacity: selectedEmailDieline.capacity
+        })
+      })
+
+      const result = await response.json()
+      if (response.ok && result.success) {
+        setEmailSuccess(true)
+        localStorage.setItem('dieline_finder_email', clientEmail)
+      } else {
+        alert(result.error || 'Failed to send email.')
+      }
+    } catch (err) {
+      console.error(err)
+      alert('A network error occurred. Please try again.')
+    } finally {
+      setSendingEmail(false)
+      if ((window as any).turnstile && turnstileWidgetId.current) {
+        (window as any).turnstile.reset(turnstileWidgetId.current)
+        setTurnstileToken(null)
+      }
+    }
+  }
 
   const sections = [
     {
@@ -251,6 +394,87 @@ const PouchSizingPage: React.FC = () => {
                 >
                   <Download className="h-3.5 w-3.5 text-amber-500" /> Download Vector Dieline (.PDF)
                 </a>
+              </div>
+
+              {/* Interactive Sizing Email Dieline Form */}
+              <div className="mt-6 border-t border-neutral-850 pt-6">
+                <div className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-3 flex items-center gap-1.5">
+                  <Mail className="h-4 w-4" /> Email Dieline Template to Me
+                </div>
+                
+                {/* Similar Dielines Selector */}
+                <div className="mb-4">
+                  <label className="block text-[10px] uppercase text-neutral-450 font-semibold mb-1.5">Choose Dieline Template</label>
+                  <select
+                    value={emailDielineFilename}
+                    onChange={(e) => {
+                      const found = similarDielines.find(d => d.filename === e.target.value)
+                      if (found) {
+                        setSelectedEmailDieline(found)
+                        setEmailDielineFilename(found.filename)
+                      }
+                    }}
+                    className="w-full bg-neutral-900 border border-neutral-750 text-xs rounded-lg px-2.5 py-2 text-white outline-none focus:border-amber-400 transition"
+                  >
+                    {similarDielines.map((d) => (
+                      <option key={d.filename} value={d.filename}>
+                        {d.displayName} ({d.width}x{d.height}mm {d.ext})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                
+                {/* Email Form fields */}
+                {emailSuccess ? (
+                  <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-4 text-center">
+                    <CheckCircle className="h-6 w-6 text-emerald-400 mx-auto mb-2" />
+                    <div className="text-xs font-bold text-emerald-200">Email Sent Successfully!</div>
+                    <p className="text-[10px] text-neutral-400 mt-1">We emailed the template link to <strong>{clientEmail}</strong>. Please check your inbox.</p>
+                    <button 
+                      type="button"
+                      onClick={() => setEmailSuccess(false)}
+                      className="text-[10px] text-amber-400 font-bold uppercase mt-3 hover:underline"
+                    >
+                      Send Another
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleEmailDielineSubmit} className="space-y-3">
+                    <div>
+                      <input
+                        type="email"
+                        required
+                        placeholder="designer@company.com"
+                        value={clientEmail}
+                        onChange={(e) => setClientEmail(e.target.value)}
+                        className="w-full bg-neutral-900 border border-neutral-750 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400 transition"
+                      />
+                    </div>
+                    
+                    {/* Cloudflare Turnstile CAPTCHA container */}
+                    <div ref={turnstileRef} className="cf-turnstile w-full flex justify-center scale-90 -my-1" />
+                    
+                    <button
+                      type="submit"
+                      disabled={sendingEmail || !turnstileToken}
+                      className="w-full flex items-center justify-center gap-1.5 py-2 bg-amber-500 hover:bg-amber-600 disabled:bg-neutral-850 disabled:text-neutral-500 disabled:border-neutral-750 text-neutral-950 font-bold rounded-xl text-xs transition"
+                    >
+                      {sendingEmail ? (
+                        <>
+                          <Loader2 className="h-3.5 w-3.5 animate-spin" /> Sending Email...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-3.5 w-3.5" /> Email Dieline Template
+                        </>
+                      )}
+                    </button>
+                    
+                    <p className="text-[9px] text-neutral-500 leading-normal text-center">
+                      🔒 We value privacy. Your email is strictly used to deliver custom dielines. We do not spam.
+                    </p>
+                  </form>
+                )}
               </div>
 
             </div>

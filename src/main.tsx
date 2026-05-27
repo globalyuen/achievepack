@@ -1,6 +1,6 @@
 import { StrictMode, Suspense, lazy, ComponentType } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
@@ -607,7 +607,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                   <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
                   <Route path="/solutions" element={<PouchSolutionsPage />} />
-                  <Route path="/size-guide" element={<PouchSizeGuidePage />} />
+                  <Route path="/size-guide" element={<Navigate to="/knowledge/pouch-sizing" replace />} />
                   <Route path="/testimonials" element={<PouchTestimonialsPage />} />
                   <Route path="/blog" element={<PouchBlogPage />} />
                   <Route path="/blog/:slug" element={<PouchBlogArticlePage />} />
@@ -790,6 +790,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/" element={<App />} />
                         <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                         <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
+                        <Route path="/size-guide" element={<Navigate to="/knowledge/pouch-sizing" replace />} />
                         <Route path="/store" element={<StorePage />} />
                         <Route path="/store/product/:productId" element={<ProductPage />} />
                         <Route path="/store/checkout" element={<CheckoutPage />} />

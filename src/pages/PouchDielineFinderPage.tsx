@@ -80,6 +80,15 @@ export default function PouchDielineFinderPage() {
     return ['ALL', ...Array.from(new Set(allShapes))]
   }, [])
 
+  // Email Lead Gate & Turnstile CAPTCHA States
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const turnstileRef = useRef<HTMLDivElement>(null)
+  const turnstileWidgetId = useRef<string | null>(null)
+  const [sendingEmail, setSendingEmail] = useState(false)
+  const [emailSuccess, setEmailSuccess] = useState(false)
+
+  const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
+
   // Check LocalStorage for previously unlocked emails
   useEffect(() => {
     const savedEmail = localStorage.getItem('dieline_finder_email')
@@ -88,6 +97,47 @@ export default function PouchDielineFinderPage() {
       setIsUnlocked(true)
     }
   }, [])
+
+  // Load Cloudflare Turnstile script dynamically & initialize widget
+  useEffect(() => {
+    if (isUnlocked) return // Only load if locked!
+    
+    if (typeof window !== 'undefined' && !(window as any).turnstile) {
+      const script = document.createElement('script')
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad'
+      script.async = true
+      script.defer = true
+      document.body.appendChild(script)
+    }
+
+    const renderWidget = () => {
+      if (turnstileRef.current && (window as any).turnstile && !turnstileWidgetId.current) {
+        turnstileWidgetId.current = (window as any).turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          'expired-callback': () => setTurnstileToken(null),
+          'error-callback': () => setTurnstileToken(null)
+        })
+      }
+    }
+
+    if ((window as any).turnstile) {
+      renderWidget()
+    } else {
+      (window as any).onTurnstileLoad = renderWidget
+    }
+
+    return () => {
+      if (turnstileWidgetId.current && (window as any).turnstile) {
+        try {
+          (window as any).turnstile.remove(turnstileWidgetId.current)
+        } catch (e) {
+          console.error('Turnstile clean error:', e)
+        }
+        turnstileWidgetId.current = null
+      }
+    }
+  }, [isUnlocked, selectedDieline])
 
   // Filtered Dielines Catalog
   const filteredDielines = useMemo(() => {
@@ -115,20 +165,60 @@ export default function PouchDielineFinderPage() {
     }
   }, [filteredDielines, selectedDieline])
 
-  // Handle Email Submit Unlock
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  // Handle Email Submit Unlock & Email delivery
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setShowEmailError(true)
       return
     }
+    if (!turnstileToken) {
+      alert('Please complete the Cloudflare CAPTCHA verification.')
+      return
+    }
     
     setShowEmailError(false)
-    localStorage.setItem('dieline_finder_email', email)
-    setIsUnlocked(true)
+    setSendingEmail(true)
 
-    // Trigger auto-download
-    triggerDownload(selectedDieline)
+    try {
+      const response = await fetch('/api/send-dieline', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          dielineFilename: selectedDieline.filename,
+          dielineUrl: selectedDieline.url,
+          dielineDisplayName: selectedDieline.displayName,
+          turnstileToken,
+          shape: selectedDieline.shape,
+          width: selectedDieline.width,
+          height: selectedDieline.height,
+          gusset: selectedDieline.gusset,
+          unit: selectedDieline.unit,
+          capacity: selectedDieline.capacity
+        })
+      })
+
+      const result = await response.json()
+      if (response.ok && result.success) {
+        localStorage.setItem('dieline_finder_email', email)
+        setIsUnlocked(true)
+        setEmailSuccess(true)
+        // Trigger auto-download for maximum user convenience!
+        triggerDownload(selectedDieline)
+      } else {
+        alert(result.error || 'Failed to send dieline email.')
+      }
+    } catch (err) {
+      console.error(err)
+      alert('A network error occurred. Please try again.')
+    } finally {
+      setSendingEmail(false)
+      if ((window as any).turnstile && turnstileWidgetId.current) {
+        (window as any).turnstile.reset(turnstileWidgetId.current)
+        setTurnstileToken(null)
+      }
+    }
   }
 
   // Trigger File Download
@@ -741,10 +831,10 @@ export default function PouchDielineFinderPage() {
                       <form onSubmit={handleEmailSubmit} className="flex flex-col gap-4">
                         <div>
                           <h4 className="font-black text-base uppercase leading-none mb-1 flex items-center gap-1.5">
-                            <Mail className="w-4 h-4 text-purple-600" /> Unlock Free Technical Downloads
+                            <Mail className="w-4 h-4 text-purple-600" /> Unlock & Email Vector Dielines
                           </h4>
                           <p className="text-xs text-neutral-600 leading-normal">
-                            Enter your email address to unlock instant access to our entire 166 vector packaging blueprints directory.
+                            Enter your email address to automatically receive a download link for this print-ready template and unlock our entire 166 vector blueprint library.
                           </p>
                         </div>
 
@@ -761,23 +851,36 @@ export default function PouchDielineFinderPage() {
                               }`}
                             />
                             {showEmailError && (
-                              <p className="text-xs text-red-600 font-semibold mt-1">Please enter a valid email address.</p>
+                              <p className="text-xs text-red-650 font-semibold mt-1">Please enter a valid email address.</p>
                             )}
                           </div>
                           
                           <button
                             type="submit"
-                            className={`px-6 py-2.5 text-sm font-black uppercase border-2 border-black transition-all flex items-center justify-center gap-1.5 ${
+                            disabled={sendingEmail || !turnstileToken}
+                            className={`px-6 py-2.5 text-sm font-black uppercase border-2 border-black transition-all flex items-center justify-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed ${
                               isPouch
                                 ? 'bg-black text-[#D4FF00] hover:bg-neutral-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]'
                                 : 'bg-indigo-600 text-white border-indigo-600 rounded-xl hover:bg-indigo-700'
                             }`}
                           >
-                            Unlock & Download <ArrowRight className="w-4 h-4" />
+                            {sendingEmail ? (
+                              <>
+                                <Loader2 className="w-4 h-4 animate-spin" /> Emailing...
+                              </>
+                            ) : (
+                              <>
+                                Unlock & Email <ArrowRight className="w-4 h-4" />
+                              </>
+                            )}
                           </button>
                         </div>
-                        <p className="text-[10px] text-neutral-500 font-medium">
-                          🔒 We value privacy. Your email will be logged to verify dieline download permissions.
+                        
+                        {/* Cloudflare Turnstile CAPTCHA container */}
+                        <div ref={turnstileRef} className="cf-turnstile w-full flex justify-center scale-90 -my-1" />
+
+                        <p className="text-[10px] text-neutral-500 font-medium text-center">
+                          🔒 We value privacy. Your email is strictly used to deliver custom dielines. We do not spam.
                         </p>
                       </form>
                     ) : (
