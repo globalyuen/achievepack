@@ -1,9 +1,10 @@
 import { ReactNode, useState } from 'react'
-import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight, Zap, Coffee, Layout } from 'lucide-react'
+import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight, Zap, Coffee, Layout, Search } from 'lucide-react'
 import { NeoButton, NeoBadge } from './PouchUI'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from '../AppIcons'
+import SearchModal from '../SearchModal'
 
 interface PouchLayoutProps {
   children: ReactNode
@@ -13,6 +14,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
   const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAppsDropdownOpen, setIsAppsDropdownOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const isActive = (path: string) => location.pathname === path
 
@@ -204,6 +206,18 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
 
           {/* Mobile & Desktop Right Actions */}
           <div className="flex items-center gap-2">
+            {/* Search Trigger Button */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="border-2 border-black p-2 hover:bg-[#D4FF00] transition-colors relative group text-black bg-white"
+              title="Search eco packaging"
+            >
+              <Search className="w-6 h-6" />
+              <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 text-[10px] font-['JetBrains_Mono'] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50">
+                Search
+              </span>
+            </button>
+
             {/* AchievePack Enterprise Link */}
             <a
               href="https://achievepack.com"
@@ -744,6 +758,9 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
           </div>
         </div>
       </footer>
+
+      {/* Global B2C Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} theme="b2c" />
     </div>
   )
 }

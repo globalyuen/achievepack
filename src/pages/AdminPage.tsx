@@ -22,6 +22,7 @@ import {
 } from '@radix-ui/react-collapsible'
 import TestimonialManagement from '../components/admin/TestimonialManagement'
 import SeoMigrationDashboard from '../components/admin/SeoMigrationDashboard'
+import SearchAnalyticsDashboard from '../components/admin/SearchAnalyticsDashboard'
 
 // Industry detection keywords
 const INDUSTRY_KEYWORDS: Record<string, string[]> = {
@@ -66,7 +67,7 @@ function detectIndustry(text: string): string {
   return 'Other'
 }
 
-type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building' | 'testimonials' | 'seo-migration'
+type TabType = 'dashboard' | 'customers' | 'orders' | 'quotes' | 'quote-management' | 'artwork' | 'artwork-proof' | 'image-catalog' | 'documents' | 'newsletter' | 'crm' | 'email-marketing' | 'email-followup' | 'website' | 'website-demos' | 'settings' | 'automation' | 'recycle-bin' | 'seo-ranking' | 'link-building' | 'testimonials' | 'seo-migration' | 'search-analytics'
 
 // Sidebar menu structure with collapsible groups
 const sidebarMenuItems = [
@@ -105,6 +106,7 @@ const sidebarMenuItems = [
       { id: 'seo-ranking', label: 'SEO & Ranking', icon: TrendingUp },
       { id: 'seo-migration', label: 'SEO Migration', icon: RefreshCw },
       { id: 'link-building', label: 'Link Building', icon: ExternalLink },
+      { id: 'search-analytics', label: 'Search Analytics', icon: Search },
       { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
     ]
   },
@@ -1939,6 +1941,10 @@ th{background:#f5f5f5}.header{border-bottom:2px solid #333;padding-bottom:20px;m
 
           {activeTab === 'seo-migration' && (
             <SeoMigrationDashboard />
+          )}
+
+          {activeTab === 'search-analytics' && (
+            <SearchAnalyticsDashboard />
           )}
 
           {activeTab === 'dashboard' && (

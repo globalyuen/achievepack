@@ -5,6 +5,7 @@ import { ShoppingCart, User, Globe, Menu, X, Gift, Search, ChevronDown, ChevronR
 import { LEARN_PAGES } from './LearnNavigation'
 import { useStore } from '../store/StoreContext'
 import MegaMenu, { RightNavMenu } from './MegaMenu'
+import SearchModal from './SearchModal'
 
 interface SiteHeaderProps {
   showLanguageSelector?: boolean
@@ -172,6 +173,7 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -197,6 +199,13 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
           {/* Top Row: Icons only on right */}
           <div className="hidden lg:flex items-center justify-end h-10 pt-2">
             <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setIsSearchOpen(true)}
+                className="w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors"
+                aria-label="Search"
+              >
+                <Search className="h-4 w-4 text-white" />
+              </button>
               <button
                 onClick={() => {
                   if (cartCount === 0) {
@@ -263,6 +272,13 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
               <img src="/ap-logo.svg" alt="Achieve Pack Logo" className="h-10 w-auto" loading="eager" decoding="async" width="120" height="40" />
             </Link>
             <div className="flex items-center gap-2">
+              <button
+                onClick={() => setIsSearchOpen(true)}
+                className="w-11 h-11 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors active:scale-95"
+                aria-label="Search website"
+              >
+                <Search className="h-5 w-5 text-white" />
+              </button>
               <Link
                 to="/store"
                 className="w-11 h-11 rounded-full bg-primary-600 flex items-center justify-center hover:bg-primary-700 transition-colors active:scale-95"
@@ -417,6 +433,9 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
 
       {/* Spacer for fixed header */}
       <div className="h-16 lg:h-[88px]"></div>
+
+      {/* Global Search Overlay */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} theme="b2b" />
     </>
   )
 }
