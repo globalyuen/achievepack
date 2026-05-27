@@ -653,6 +653,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/seo-guide" element={<PouchSEOPage />} />
                   
                   {/* New SEO Pages */}
+                  <Route path="/function/heat-resistant-compostable-pouches" element={<HeatResistantCandlePackagingPage />} />
                   <Route path="/packaging/stand-up-pouches" element={<PouchStandUpPouchesPage />} />
                   <Route path="/packaging/flat-bottom-bags" element={<PouchFlatBottomBagsPage />} />
                   <Route path="/packaging/side-gusset-bags" element={<PouchSideGussetBagsPage />} />

@@ -3,6 +3,8 @@ import { Zap, Shield, Thermometer, Package, Droplets, Maximize, ArrowRight, Leaf
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { getDomain } from '../../utils/domain'
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images for Candle Wax Packaging
 const candleGallery = [
@@ -15,6 +17,34 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   
+  const isPouchDomain = getDomain() === 'pouch'
+
+  const visualBreadcrumbsAndLabels = (
+    <div className="space-y-3">
+      {/* Visual Breadcrumb Navigation */}
+      <div className="flex flex-wrap items-center gap-1.5 text-[10px] sm:text-xs font-semibold text-neutral-300/90 uppercase tracking-wider">
+        <Link to="/" className="hover:text-white transition">Home</Link>
+        <span className="text-neutral-400">/</span>
+        <Link to="/materials" className="hover:text-white transition">Eco-Friendly Materials</Link>
+        <span className="text-neutral-400">/</span>
+        <span className="text-[#10b981] font-bold">Heat-Resistant Candle Bags</span>
+      </div>
+
+      {/* Visual Badges & Switch Link */}
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 text-[10px] font-bold bg-[#10b981] text-white rounded-full uppercase tracking-wider shadow-sm">
+          🌱 Certified Eco friendly
+        </span>
+        <Link 
+          to="/products/compostable-side-gusset-bags" 
+          className="inline-flex items-center gap-1 px-2.5 py-0.5 text-[10px] font-bold bg-white/10 hover:bg-white/20 text-white rounded-full transition border border-white/20 uppercase tracking-wider"
+        >
+          🔄 View Compostable Gusset Bags →
+        </Link>
+      </div>
+    </div>
+  )
+
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
@@ -326,6 +356,76 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
     { title: "High-Barrier Materials", url: "/features/barrier-options", description: "Protecting your fragrance integrity." },
   ]
 
+  if (isPouchDomain) {
+    return (
+      <BlogArticleTemplate
+        title="High-Heat Compostable Candle Wax Pouches Guide | POUCH.ECO"
+        metaDescription="Pour hot wax directly into certified 100% compostable candle pouches. No glass jars, low MOQ from 500 units, beautiful natural organic Kraft!"
+        canonicalUrl="https://pouch.eco/function/heat-resistant-compostable-pouches"
+        keywords={['compostable candle bags', 'heat resistant candle pouches', 'wax pour pouches', 'PBS pouches', 'NatureFlex candle bags']}
+        publishedDate="2026-05-27"
+        modifiedDate="2026-05-27"
+        author="POUCH.ECO Editorial Team"
+        heroTitle={
+          <div className="space-y-4">
+            {/* Neo-brutalist Breadcrumb Navigation */}
+            <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black">
+              <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+              <span>/</span>
+              <Link to="/materials" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Friendly Materials</Link>
+              <span>/</span>
+              <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">Heat-Resistant Candle Bags</span>
+            </div>
+
+            {/* Badges / Cross Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#10b981] text-white border-2 border-black uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                🌱 High-Heat Certified
+              </span>
+              <Link 
+                to="/products/compostable-side-gusset-bags" 
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#00FFFF] text-black border-2 border-black hover:bg-[#D4FF00] transition-colors uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
+              >
+                🔄 View Compostable Gusset Bags →
+              </Link>
+            </div>
+
+            <h1 className="font-black text-4xl md:text-6xl lg:text-7xl uppercase leading-tight mt-4">
+              High-Heat<br />
+              <span className="text-[#10b981]">Candle Pouches</span><br />
+              DTC Startup Guide
+            </h1>
+          </div>
+        }
+        heroSubtitle="Safely pour hot wax at 85°C into 100% compostable packaging. Ditch heavy glass jars and start with just 500 units!"
+        heroImage="/imgs/function/heat-resistant-candle-hero.png"
+        heroImageAlt="POUCH.ECO heat resistant compostable candle pouch wax pour guide"
+        categoryTag="ECO_PRODUCTS"
+        categoryColor="#10b981"
+        readTime="8 min read"
+        sections={sections}
+        ctaTitle="Ditch Heavy Glass Jars Today"
+        ctaDescription="Book a quick 30-minute packaging audit with our specialists to review candle wax formulas, sizes, and order free custom stamp sample kits."
+        calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
+        achievePackLink="https://achievepack.com/function/heat-resistant-compostable-pouches"
+        achievePackText="Need enterprise-level bulk orders or advanced B2B material engineering?"
+        showTableOfContents={true}
+        relatedArticles={[
+          {
+            title: 'Why Writable & Stampable Pouches are Essential for Eco-Packers',
+            url: '/knowledge/writable-stampable-pouches',
+            image: '/imgs/knowledge/writable-stampable-pouches.jpg'
+          },
+          {
+            title: 'Compostable Side Gusset Pouches: Sizing & Scent Preservation',
+            url: '/products/compostable-side-gusset-bags',
+            image: '/imgs/store/products/compostable-side-gusset-collection.png'
+          }
+        ]}
+      />
+    )
+  }
+
   return (
     <>
       <SEOPageLayout heroBgColor="#171717"
@@ -335,6 +435,7 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
         canonicalUrl="https://achievepack.com/function/heat-resistant-compostable-pouches"
         heroTitle="The High-Heat Eco Pouch for Candle Makers"
         heroSubtitle="Safely pour hot wax at 85°C into 100% compostable packaging. No plates, low MOQ, zero compromises on heat resistance."
+        aboveTitle={visualBreadcrumbsAndLabels}
         heroImage="/imgs/function/heat-resistant-candle-hero.png"
         heroImageAlt="Premium compostable candle pouch being filled with hot wax"
         introSummary="Transitioning to sustainable packaging shouldn't mean compromising on your manufacturing process. We provide the material know-how to handle 85°C wax pours in a fully certified compostable format."
