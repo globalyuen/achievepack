@@ -299,6 +299,16 @@ const SHAPE_ITEMS = [
     )
   }
 ]
+const getCustomQuoteRoute = (id: string): string => {
+  switch (id) {
+    case 'rollstock-custom': return '/quotes/rollstock';
+    case 'flat-bottom-custom': return '/quotes/flat-bottom';
+    case 'three-side-seal-custom': return '/quotes/three-side-seal';
+    case 'stand-up-pouch-custom': return '/quotes/stand-up-pouch';
+    case 'spouted-pouch-custom': return '/quotes/spouted-pouch';
+    default: return '/store';
+  }
+};
 
 const StorePage: React.FC = () => {
   const { t } = useTranslation()
@@ -621,7 +631,7 @@ const StorePage: React.FC = () => {
     })
   }, [filteredProducts, sortBy])
 
-  // Insert Rollstock product into display list if appropriate
+  // Insert Rollstock & other custom shapes into display list if appropriate
   const displayProducts = useMemo(() => {
     const rollstockItem: StoreProduct = {
       id: 'rollstock-custom',
@@ -639,16 +649,97 @@ const StorePage: React.FC = () => {
       badge: 'Custom Roll'
     } as any;
 
-    if (selectedShape === 'Rollstock') {
-      return [rollstockItem];
+    const flatBottomItem: StoreProduct = {
+      id: 'flat-bottom-custom',
+      name: 'Custom Flat Bottom Kraft Pouch (Box Bottom)',
+      shortDesc: 'Premium eco-friendly flat bottom pouch designed for excellent shelf presence and stability. Certified compostable.',
+      description: 'Custom-designed flat bottom pouch (box bottom bag) offering five printable panels for maximum branding impact. Available in TUV-certified home compostable kraft structures or high-barrier recyclable mono-material films. Optional resealable zippers and degassing valves.',
+      basePrice: 0.12,
+      turnaround: '15 - 20 Days',
+      rating: 4.9,
+      reviews: 36,
+      images: ['/imgs/product/pouch1.webp'],
+      category: 'eco-digital',
+      shape: 'Flat Squared Bottom Pouch',
+      inquiryOnly: true,
+      badge: 'Custom Box'
+    } as any;
+
+    const threeSideSealItem: StoreProduct = {
+      id: 'three-side-seal-custom',
+      name: 'Custom Three-Side Seal Pouch (Sachet)',
+      shortDesc: 'Flat 3-side seal sachet for portion control, samples, and high barrier commercial applications.',
+      description: 'High-speed line compatible 3-side seal flat pouch, ideal for single-use portion packaging, pharmaceutical samples, cosmetics, and dry foods. Made from certified home compostable cellulose or fully recyclable single-polymer plastic layers.',
+      basePrice: 0.05,
+      turnaround: '15 - 20 Days',
+      rating: 4.9,
+      reviews: 24,
+      images: ['/imgs/store/products/three_side_seal_1779970750437.png'],
+      category: 'eco-digital',
+      shape: '3 Side Seal Pouch',
+      inquiryOnly: true,
+      badge: 'Custom Flat'
+    } as any;
+
+    const standUpPouchItem: StoreProduct = {
+      id: 'stand-up-pouch-custom',
+      name: 'Custom Stand Up Pouch / Doypack',
+      shortDesc: 'Standard commercial stand-up doypack with zipper. Custom print with compostable or recyclable options.',
+      description: 'The industry-standard resealable stand-up pouch (doypack). Highly customizable with tear notches, round corners, hang holes, and transparent windows. Choose between FSC-certified kraft paper, high-clarity recyclable mono-PE, or metallized compostable film.',
+      basePrice: 0.07,
+      turnaround: '15 - 20 Days',
+      rating: 4.9,
+      reviews: 52,
+      images: ['/imgs/store/products/zipper_stand_up_pouch_602_1779971142436.png'],
+      category: 'eco-digital',
+      shape: 'Stand Up Pouch / Doypack',
+      inquiryOnly: true,
+      badge: 'Custom Pouch'
+    } as any;
+
+    const spoutedPouchItem: StoreProduct = {
+      id: 'spouted-pouch-custom',
+      name: 'Custom Spouted Stand Up Pouch',
+      shortDesc: 'Liquids and purees spouted stand-up pouch. Reusable screw cap with tamper-evident seal.',
+      description: 'High-performance liquid packaging solution with standard center or side spout placement. Equipped with screw caps and tamper-evident ring seals. Perfect for organic juices, baby food purees, honey, syrups, oils, and home care liquids.',
+      basePrice: 0.15,
+      turnaround: '15 - 20 Days',
+      rating: 4.9,
+      reviews: 18,
+      images: ['/imgs/pouch-shape/ads/a_achieve_pack_spout_pouch_closeup_5874382.webp'],
+      category: 'eco-digital',
+      shape: 'Spouted Stand Up Pouch',
+      inquiryOnly: true,
+      badge: 'Custom Spout'
+    } as any;
+
+    const customItems = [rollstockItem, flatBottomItem, threeSideSealItem, standUpPouchItem, spoutedPouchItem];
+
+    // Filter custom items based on selected category, shape, search query
+    const matchingCustomItems = customItems.filter(item => {
+      // Category filter: custom items have category = 'eco-digital'
+      const matchesCategory = selectedCategory === 'all' || selectedCategory === 'eco-digital';
+      
+      const internalShape = urlShapeToInternal[selectedShape] || selectedShape;
+      const matchesShape = selectedShape === 'all' || (item as any).shape === internalShape || (item as any).shape === selectedShape;
+      
+      const matchesSearch = searchQuery === '' || 
+                            item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            item.description.toLowerCase().includes(searchQuery.toLowerCase());
+      
+      return matchesCategory && matchesShape && matchesSearch;
+    });
+
+    if (selectedShape !== 'all') {
+      return [...sortedProducts, ...matchingCustomItems];
     }
     
     if (selectedShape === 'all' && searchQuery === '') {
-      return [...sortedProducts, rollstockItem];
+      return [...sortedProducts, ...matchingCustomItems];
     }
 
     return sortedProducts;
-  }, [sortedProducts, selectedShape, searchQuery]);
+  }, [sortedProducts, selectedShape, searchQuery, selectedCategory]);
 
   const getSortLabel = (sort: SortOption) => {
     const labels: Record<SortOption, string> = {
@@ -1307,7 +1398,7 @@ const StorePage: React.FC = () => {
                       <span className="hidden sm:inline">Quote</span>
                     </button>
                     <Link
-                      to={product.id === 'rollstock-custom' ? '/quotes/rollstock' : `/store/product/${product.id}`}
+                      to={product.id.endsWith('-custom') ? getCustomQuoteRoute(product.id) : `/store/product/${product.id}`}
                       className="block"
                     >
                     <div className="relative aspect-square bg-neutral-50 overflow-hidden p-2 sm:p-4">
@@ -1368,7 +1459,7 @@ const StorePage: React.FC = () => {
                       <span>Quote</span>
                     </button>
                     <Link
-                      to={product.id === 'rollstock-custom' ? '/quotes/rollstock' : `/store/product/${product.id}`}
+                      to={product.id.endsWith('-custom') ? getCustomQuoteRoute(product.id) : `/store/product/${product.id}`}
                       className="flex flex-col sm:flex-row flex-1"
                     >
                     <div className="relative w-full sm:w-48 h-48 bg-neutral-50 overflow-hidden p-4 flex-shrink-0">
