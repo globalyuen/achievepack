@@ -3117,6 +3117,177 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       }
     ],
     customPrintNote: 'Core sizing, custom eye-marks, alternative web widths, and larger bulk quantities (up to 1,000,000+ pieces) are fully supported. Please contact our industrial FFS engineering team for assistance.'
+  },
+  {
+    id: 'rice-paper-zipper-bags',
+    name: 'Rice Paper Stand-up Zipper Bags',
+    category: 'eco-stock',
+    description: 'An elegant, eco-friendly packaging solution crafted from authentic 30g textured white rice paper. Available in low-barrier (natural PBAT layer) and high-barrier (NK25 bio-film layer) models for optimal freshness preservation. High texture, organic appeal, perfect for premium B2B foods, coffee, dried herbs, and luxury goods. Equipped with a compostable zipper and tear notches.',
+    shortDesc: 'Premium compostable stand-up zipper bags made of authentic 30g white rice paper with bio-linings',
+    features: [
+      'Authentic Textured White Rice Paper: Organic, premium visual and tactile shelf appeal.',
+      'Compostable Construction: Made with biodegradable rice paper and PLA/PBAT lining.',
+      'Flexible Barrier Options: Low-barrier (PBAT) or High-barrier (NK25/PBAT) models to match your product needs.',
+      'Compostable Resealable Zipper: Keeps contents airtight and fresh with convenient resealability.',
+      'Heat-Sealable & Tear Notch: Easy manual heat seal with convenient tear notches for customers.'
+    ],
+    images: [
+      '/imgs/store/products/rice-paper-zipper-bags.png'
+    ],
+    badge: '🌱 100% Compostable Rice Paper',
+    rating: 4.9,
+    reviews: 18,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 500,
+    shape: 'Stand Up Pouch',
+    material: 'Textured White Rice Paper 30g / PBAT or NK25 / PLA Biodegradable Linings',
+    basePrice: 264.71,
+    pricePerPiece: 0.529,
+    minQuantity: 500,
+    quantityStep: 500,
+    sizeInfo: '500g (220×240+90mm) / 1kg (210×310+110mm) • Low & High Barrier Options',
+    sizeWithQuantities: [
+      {
+        id: 'rice-paper-500g-low-barrier',
+        label: '500g Low Barrier (220×240+90mm)',
+        dimensions: '220 × 240 + 90 mm • Low Barrier PBAT • 100 Microns',
+        quantityOptions: [
+          { quantity: 500, unitPrice: 0.529, totalPrice: 264.71 },
+          { quantity: 1000, unitPrice: 0.382, totalPrice: 382.35 },
+          { quantity: 2000, unitPrice: 0.309, totalPrice: 617.65 }
+        ]
+      },
+      {
+        id: 'rice-paper-500g-high-barrier',
+        label: '500g High Barrier (220×240+90mm)',
+        dimensions: '220 × 240 + 90 mm • High Barrier NK25 • 100 Microns',
+        quantityOptions: [
+          { quantity: 500, unitPrice: 0.632, totalPrice: 316.18 },
+          { quantity: 1000, unitPrice: 0.471, totalPrice: 470.59 },
+          { quantity: 2000, unitPrice: 0.412, totalPrice: 823.53 }
+        ]
+      },
+      {
+        id: 'rice-paper-1kg-low-barrier',
+        label: '1kg Low Barrier (210×310+110mm)',
+        dimensions: '210 × 310 + 110 mm • Low Barrier PBAT • 110 Microns',
+        quantityOptions: [
+          { quantity: 500, unitPrice: 0.824, totalPrice: 411.76 },
+          { quantity: 1000, unitPrice: 0.529, totalPrice: 529.41 },
+          { quantity: 2000, unitPrice: 0.382, totalPrice: 764.71 }
+        ]
+      },
+      {
+        id: 'rice-paper-1kg-high-barrier',
+        label: '1kg High Barrier (210×310+110mm)',
+        dimensions: '210 × 310 + 110 mm • High Barrier NK25 • 110 Microns',
+        quantityOptions: [
+          { quantity: 500, unitPrice: 0.926, totalPrice: 463.24 },
+          { quantity: 1000, unitPrice: 0.618, totalPrice: 617.65 },
+          { quantity: 2000, unitPrice: 0.456, totalPrice: 911.76 }
+        ]
+      }
+    ],
+    customPrintNote: 'Custom prints available from 2,000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'flat-bottom-magic-tape-pouches',
+    name: 'Eight-Side Seal Magic Tape Zipper Bags (4 lb Dry Food)',
+    category: 'eco-stock',
+    description: 'A premium, eco-friendly flat-bottom eight-side seal packaging solution designed specifically for dry food storage. Engineered with a fully recyclable PE70/EVOH-PE70 structure, this high-barrier pouch keeps dry food, treats, and grains perfectly preserved from moisture. Equipped with an innovative B2B magic tape zipper, which is extremely easy for customers to open, reseal, and use repeatedly.',
+    shortDesc: 'Recyclable high-barrier 4 lb flat-bottom packaging bags with easy B2B magic tape zippers',
+    features: [
+      '100% Recyclable Mono-PE: Fully recyclable mono-material structure with high-performance EVOH barrier.',
+      'Flat Bottom Eight-Side Seal: Unmatched shelf stability, stands perfectly upright for premium retail presentation.',
+      'Magic Tape Zipper: Innovative velcro-like closure that seals easily even when powdery content remains in the track.',
+      'High Barrier Protection: Protects contents from humidity, odor, and light degradation.',
+      'Large 4 lb Capacity: Perfect B2B bulk sizing for pet food, wholesale ingredients, flour, and grains.'
+    ],
+    images: [
+      '/imgs/store/products/flat-bottom-pouches.png'
+    ],
+    badge: '♻️ 100% Recyclable',
+    rating: 4.8,
+    reviews: 12,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 10000,
+    shape: 'Flat Bottom Pouch',
+    material: 'Recyclable Mono-PE70 / EVOH-PE70',
+    basePrice: 4411.76,
+    pricePerPiece: 0.441,
+    minQuantity: 10000,
+    quantityStep: 5000,
+    sizeInfo: '4 lb Capacity (230×406.5+101.6mm)',
+    sizeWithQuantities: [
+      {
+        id: 'flat-bottom-4lb-recyclable',
+        label: '4 lb Capacity (230×406.5+101.6mm)',
+        dimensions: '230 × 406.5 + 101.6 mm • Recyclable EVOH-PE • Magic Tape Zipper',
+        quantityOptions: [
+          { quantity: 10000, unitPrice: 0.441, totalPrice: 4411.76 },
+          { quantity: 25000, unitPrice: 0.346, totalPrice: 8639.71 },
+          { quantity: 50000, unitPrice: 0.412, totalPrice: 20588.24 },
+          { quantity: 80000, unitPrice: 0.407, totalPrice: 32588.24 },
+          { quantity: 100000, unitPrice: 0.404, totalPrice: 40441.18 }
+        ]
+      }
+    ],
+    customPrintNote: 'Custom brand prints and colors available from 10,000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'compostable-stand-up-pouches',
+    name: 'Compostable Stand-Up Zipper Pouches',
+    category: 'eco-stock',
+    description: 'Sustainable, industrial compostable stand-up pouches designed for snacks, premium food ingredients, and industrial dry items. Combining a natural White Kraft paper outer shell with a biodegradable PLA/PBAT lining, these eco-friendly pouches are designed to break down naturally in standard industrial composting facilities without leaving harmful microplastics. Equipped with a compostable airtight zipper.',
+    shortDesc: 'Kraft paper compostable stand-up zipper pouches for organic snacks and wholesale B2B storage',
+    features: [
+      'FSC-Certified White Kraft: Natural, bio-oriented e-shop presentation with excellent tactile quality.',
+      'Industrial Compostable: Certified compostable structure using PLA and PBAT bio-resins.',
+      'Airtight Resealable Zipper: Keeps nuts, tea, seeds, coffee, and spices crisp and fresh.',
+      'Robust Structural Integrity: Excellent stand-up strength to look gorgeous on customer countertops or shelves.',
+      'Flexible B2B Sizing: Available in 5 oz snack sizes and custom industrial specifications.'
+    ],
+    images: [
+      '/imgs/store/products/compostable-stand-up-pouches.png'
+    ],
+    badge: '🌱 100% Compostable Kraft',
+    rating: 4.9,
+    reviews: 22,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 500,
+    shape: 'Stand Up Pouch',
+    material: 'White Kraft Paper / PLA / PBAT Bio-linings',
+    basePrice: 393.75,
+    pricePerPiece: 0.788,
+    minQuantity: 500,
+    quantityStep: 500,
+    sizeInfo: '5 oz Snack (141×203.2+64mm) / Industrial (200×120×35mm)',
+    sizeWithQuantities: [
+      {
+        id: 'compostable-sup-5oz-snack',
+        label: '5 oz Snack Size (141×203.2+64mm)',
+        dimensions: '141 × 203.2 + 64 mm • High Barrier NK25/Kraft/PLA80 • Resealable Zipper',
+        quantityOptions: [
+          { quantity: 10000, unitPrice: 0.176, totalPrice: 1764.71 },
+          { quantity: 25000, unitPrice: 0.154, totalPrice: 3860.29 },
+          { quantity: 50000, unitPrice: 0.151, totalPrice: 7573.53 },
+          { quantity: 100000, unitPrice: 0.147, totalPrice: 14705.88 }
+        ]
+      },
+      {
+        id: 'compostable-sup-industrial',
+        label: 'Industrial Compostable Pouch (200×120×35mm)',
+        dimensions: '200 × 120 × 35 mm • White Kraft Paper 60g/PLA Aluminized/PLA+PBAT',
+        quantityOptions: [
+          { quantity: 500, unitPrice: 0.788, totalPrice: 393.75 },
+          { quantity: 1000, unitPrice: 0.477, totalPrice: 476.76 }
+        ]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 500+ pieces. Please consult our team.'
   }
 ]
 
@@ -3311,7 +3482,7 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-8.jpg',
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-9.jpg'
     ]
-  },
+  }
 ]
 
 // Conventional Stock Products (Ready-made Premium)

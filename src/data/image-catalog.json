@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-28",
-  "total_images": 1836,
+  "total_images": 1839,
   "total_categories": 162,
   "extensions": {
     ".webp": 1298,
-    ".png": 321,
+    ".png": 324,
     ".jpg": 214,
     ".svg": 3
   },
@@ -8297,8 +8297,26 @@
       ]
     },
     "store/products": {
-      "count": 234,
+      "count": 237,
       "images": [
+        {
+          "filename": "compostable-stand-up-pouches.png",
+          "path": "/imgs/store/products/compostable-stand-up-pouches.png",
+          "extension": ".png",
+          "modified": "2026-05-28T12:12:34.703Z"
+        },
+        {
+          "filename": "flat-bottom-pouches.png",
+          "path": "/imgs/store/products/flat-bottom-pouches.png",
+          "extension": ".png",
+          "modified": "2026-05-28T12:12:34.702Z"
+        },
+        {
+          "filename": "rice-paper-zipper-bags.png",
+          "path": "/imgs/store/products/rice-paper-zipper-bags.png",
+          "extension": ".png",
+          "modified": "2026-05-28T12:12:34.699Z"
+        },
         {
           "filename": "home-compostable-rollstock-film-thumbnail-2.png",
           "path": "/imgs/store/products/home-compostable-rollstock-film-thumbnail-2.png",
