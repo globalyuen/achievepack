@@ -3017,6 +3017,106 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
       }
     ],
     customPrintNote: 'Custom prints and custom colors available from 5,000+ pieces. Please consult our team.'
+  },
+  // Home Compostable Dual-Sided Rollstock Film
+  {
+    id: 'eco-compostable-rollstock-film',
+    name: 'Home Compostable Dual-Sided Rollstock Film',
+    category: 'eco-stock',
+    productType: 'stock',
+    subCategory: 'eco-stock-plain',
+    description: 'A professional, high-performance eco-friendly rollstock film engineered specifically for automated Form-Fill-Seal (FFS) packaging machinery. Featuring a unique dual-sided composite architecture—biodegradable Coated Kraft Paper on the front side and Coated Translucent Paper on the back side—this packaging film enables beautiful brand visibility while maintaining complete home compostability. Perfect for portion packaging, small sachets, coffee pods, tea envelopes, and artisanal spices.',
+    shortDesc: 'Premium home compostable dual-sided Kraft rollstock film designed for automated Form-Fill-Seal packaging lines',
+    features: [
+      'Dual-Sided Eco Architecture: Natural Kraft Paper 50g (Front) + Translucent Kraft Paper 50g (Back) for visual shelf appeal',
+      'Automated FFS Ready: Engineered for seamless slip and high tensile strength on automatic packing and sachet machines',
+      'Certified Home Compostable: Breaks down naturally in home/residential backyard composting environments',
+      'Digital Custom Print: Zero plate fees, vivid multi-color reproduction using compostable HP Indigo water-based inks',
+      'Food Grade Certified: 100% compliant with FDA, LFGB, and BRC standards for dry food contact safety'
+    ],
+    images: [
+      '/imgs/store/products/home-compostable-rollstock-film-thumbnail-1.png',
+      '/imgs/store/products/home-compostable-rollstock-film-thumbnail-2.png',
+      '/imgs/store/products/home-compostable-rollstock-film-thumbnail-3.png'
+    ],
+    badge: '🌱 Home Compostable',
+    rating: 4.9,
+    reviews: 28,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 10000,
+    shape: 'Rollstock',
+    material: 'Coated Kraft Paper 50g (Front) / Coated Translucent Kraft Paper 50g (Back)',
+    basePrice: 0.126,
+    pricePerPiece: 0.126,
+    minQuantity: 10000,
+    quantityStep: 10000,
+    sizeInfo: 'Sachet cut yield size: 80 × 80 mm (Custom width, core, and eye-marks available on request)',
+    shelfLife: '12 months backyard composting',
+    certification: 'TÜV AUSTRIA Home Compostable, FSC Certified & FDA Compliant',
+    sizeVariants: [
+      {
+        id: 'rollstock-blank-10k',
+        label: 'Unprinted Blank Roll (10,000 Pcs yield)',
+        dimensions: '80 × 80 mm sachet size • Unprinted/Bare Material • Core: 3 inches (76mm) • Holds small portion/sachet products',
+        hasHole: false,
+        quantity: 10000,
+        totalPrice: 1260.00,
+        unitPrice: 0.1260,
+        heroImageIndex: 0
+      },
+      {
+        id: 'rollstock-blank-50k',
+        label: 'Unprinted Blank Roll (50,000 Pcs yield)',
+        dimensions: '80 × 80 mm sachet size • Unprinted/Bare Material • Core: 3 inches (76mm) • Holds small portion/sachet products',
+        hasHole: false,
+        quantity: 50000,
+        totalPrice: 3150.00,
+        unitPrice: 0.0630,
+        heroImageIndex: 0
+      },
+      {
+        id: 'rollstock-blank-100k',
+        label: 'Unprinted Blank Roll (100,000 Pcs yield)',
+        dimensions: '80 × 80 mm sachet size • Unprinted/Bare Material • Core: 3 inches (76mm) • Holds small portion/sachet products',
+        hasHole: false,
+        quantity: 100000,
+        totalPrice: 5040.00,
+        unitPrice: 0.0504,
+        heroImageIndex: 0
+      },
+      {
+        id: 'rollstock-printed-10k',
+        label: 'Custom Digital Print Roll (10,000 Pcs yield)',
+        dimensions: '80 × 80 mm sachet size • HP Indigo Custom Full-Color Digital Print • Water-based compostable inks • Core: 3 inches',
+        hasHole: false,
+        quantity: 10000,
+        totalPrice: 1680.00,
+        unitPrice: 0.1680,
+        heroImageIndex: 1
+      },
+      {
+        id: 'rollstock-printed-50k',
+        label: 'Custom Digital Print Roll (50,000 Pcs yield)',
+        dimensions: '80 × 80 mm sachet size • HP Indigo Custom Full-Color Digital Print • Water-based compostable inks • Core: 3 inches',
+        hasHole: false,
+        quantity: 50000,
+        totalPrice: 6300.00,
+        unitPrice: 0.1260,
+        heroImageIndex: 1
+      },
+      {
+        id: 'rollstock-printed-100k',
+        label: 'Custom Digital Print Roll (100,000 Pcs yield)',
+        dimensions: '80 × 80 mm sachet size • HP Indigo Custom Full-Color Digital Print • Water-based compostable inks • Core: 3 inches',
+        hasHole: false,
+        quantity: 100000,
+        totalPrice: 10500.00,
+        unitPrice: 0.1050,
+        heroImageIndex: 1
+      }
+    ],
+    customPrintNote: 'Core sizing, custom eye-marks, alternative web widths, and larger bulk quantities (up to 1,000,000+ pieces) are fully supported. Please contact our industrial FFS engineering team for assistance.'
   }
 ]
 

@@ -526,7 +526,7 @@ const ProductPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'visualization' | 'specifications'>('visualization')
 
   // Derive lists of dimensions for Multi-Dimensional Selector
-  const isMultiDimensional = isEcoStock && ecoStockProduct && (
+  const isMultiDimensional = isEcoStock && ecoStockProduct && product && (
     product.id === 'flat-bottom-pouch-tin-tie' ||
     product.id === 'coffee-tea-one-sided-zipper-flat-bottom-pouch-with-hanging-strip' ||
     product.id === 'textured-burlap-cork-pattern-coffee-pouch-with-valve' ||
@@ -534,7 +534,7 @@ const ProductPage: React.FC = () => {
   );
 
   const { uniqueSizes, uniqueColors, uniqueQuantities } = useMemo(() => {
-    if (!isMultiDimensional || !ecoStockProduct?.sizeVariants) {
+    if (!isMultiDimensional || !ecoStockProduct?.sizeVariants || !product) {
       return { uniqueSizes: [], uniqueColors: [], uniqueQuantities: [] };
     }
     
@@ -554,7 +554,7 @@ const ProductPage: React.FC = () => {
       uniqueColors: Array.from(colorsSet),
       uniqueQuantities: Array.from(quantitiesSet).sort((a, b) => a - b)
     };
-  }, [isMultiDimensional, ecoStockProduct, product.id]);
+  }, [isMultiDimensional, ecoStockProduct, product?.id]);
 
   // Synchronize multi-dimensional state from selectedSizeVariant
   useEffect(() => {
