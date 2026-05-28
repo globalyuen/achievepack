@@ -880,6 +880,210 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
   {
+    id: 'stand-up-pouch-white-kraft-paper-60g-pla-aluminum-coating-pl',
+    name: '300mm x 340mm + 150mm Stand Up Pouch ( White Kraft Paper 60g )',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty White Kraft Paper 60g/PLA Aluminum Coating/PLA+PBAT Biodegradable multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B stand up pouch made of White Kraft Paper 60g/PLA Aluminum Coating/PLA+PBAT Biodegradable',
+    features: [
+      "Advanced B2B Specs: Biodegradable zipper 13mm-PLA2, transparent bag",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance White Kraft Paper 60g/PLA Aluminum Coating/PLA+PBAT Biodegradable layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/stand-up-pouch-white-kraft-paper-60g-pla-aluminum-coating-pl.png'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Stand Up Pouch',
+    material: 'White Kraft Paper 60g/PLA Aluminum Coating/PLA+PBAT Biodegradable',
+    basePrice: 519,
+    pricePerPiece: 0.519,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: '300mm x 340mm + 150mm',
+    viewQuoteLink: '/view-quote/87967ae3-1f33-4de3-a3ed-ae67ab34c346',
+    sizeWithQuantities: [
+      {
+        id: 'stand-up-pouch-white-kraft-paper-60g-pla-aluminum-coating-pl-size-default',
+        label: '300mm x 340mm + 150mm',
+        dimensions: '300mm x 340mm + 150mm • White Kraft Paper 60g • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1000,
+                    "unitPrice": 0.519,
+                    "totalPrice": 519
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'stand-up-zipper-bag-50-tablets-white-kraft-paper-60g-pla-pba',
+    name: '215 mm * 215 mm * 100 mm Stand Up Pouch ( White kraft paper 60g )',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty White kraft paper 60g / PLA+PBAT biodegradable multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B stand up pouch made of White kraft paper 60g / PLA+PBAT biodegradable',
+    features: [
+      "Advanced B2B Specs: Partial anti-discoloration oil, biodegradable zipper 13mm PLA2, thickness 135",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance White kraft paper 60g / PLA+PBAT biodegradable layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/stand-up-zipper-bag-50-tablets-white-kraft-paper-60g-pla-pba.png'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Stand Up Pouch',
+    material: 'White kraft paper 60g / PLA+PBAT biodegradable',
+    basePrice: 456,
+    pricePerPiece: 0.456,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: '215 mm * 215 mm * 100 mm',
+    viewQuoteLink: '/view-quote/5c84f8bc-04b2-4505-be26-759c25c3d528',
+    sizeWithQuantities: [
+      {
+        id: 'stand-up-zipper-bag-50-tablets-white-kraft-paper-60g-pla-pba-size-default',
+        label: '215 mm * 215 mm * 100 mm',
+        dimensions: '215 mm * 215 mm * 100 mm • White kraft paper 60g  • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1000,
+                    "unitPrice": 0.456,
+                    "totalPrice": 456
+          },
+          {
+                    "quantity": 2500,
+                    "unitPrice": 0.331,
+                    "totalPrice": 827.5
+          },
+          {
+                    "quantity": 5000,
+                    "unitPrice": 0.261,
+                    "totalPrice": 1305
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'stand-up-zipper-bag-50-tablets-suggested-size-white-kraft-pa',
+    name: '215 mm x 215 mm x 100 mm Stand-up Zipper Bag (50 tablets suggested size)',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty White kraft paper 60g / PLA aluminized / PLA+PBAT degradable multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B stand up pouch made of White kraft paper 60g / PLA aluminized / PLA+PBAT degradable',
+    features: [
+      "Advanced B2B Specs: Anti-discoloration oil, degradable zipper 13mm PLA2, thickness 150",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance White kraft paper 60g / PLA aluminized / PLA+PBAT degradable layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/stand-up-zipper-bag-50-tablets-suggested-size-white-kraft-pa.png'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Stand Up Pouch',
+    material: 'White kraft paper 60g / PLA aluminized / PLA+PBAT degradable',
+    basePrice: 538,
+    pricePerPiece: 0.538,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: '215 mm x 215 mm x 100 mm',
+    viewQuoteLink: '/view-quote/6f401019-a133-458a-af31-e6a186ff5fbb',
+    sizeWithQuantities: [
+      {
+        id: 'stand-up-zipper-bag-50-tablets-suggested-size-white-kraft-pa-size-default',
+        label: '215 mm x 215 mm x 100 mm',
+        dimensions: '215 mm x 215 mm x 100 mm • White kraft paper 60g  • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1000,
+                    "unitPrice": 0.538,
+                    "totalPrice": 538
+          },
+          {
+                    "quantity": 2500,
+                    "unitPrice": 0.392,
+                    "totalPrice": 980
+          },
+          {
+                    "quantity": 5000,
+                    "unitPrice": 0.302,
+                    "totalPrice": 1510
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'stand-up-pouch-white-kraft-paper-60g-pla-aluminized-pla-pbat',
+    name: '300 x 340 + 150 mm Stand Up Pouch ( White kraft paper 60g )',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty White kraft paper 60g / PLA aluminized / PLA+PBAT biodegradable multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B stand up pouch made of White kraft paper 60g / PLA aluminized / PLA+PBAT biodegradable',
+    features: [
+      "Advanced B2B Specs: Degradable zipper 13mm PLA2",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance White kraft paper 60g / PLA aluminized / PLA+PBAT biodegradable layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/stand-up-pouch-white-kraft-paper-60g-pla-aluminized-pla-pbat.png'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Stand Up Pouch',
+    material: 'White kraft paper 60g / PLA aluminized / PLA+PBAT biodegradable',
+    basePrice: 368,
+    pricePerPiece: 0.368,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: '300 x 340 + 150 mm',
+    viewQuoteLink: '/view-quote/cf14e726-7347-4467-b032-5af5ef902368',
+    sizeWithQuantities: [
+      {
+        id: 'stand-up-pouch-white-kraft-paper-60g-pla-aluminized-pla-pbat-size-default',
+        label: '300 x 340 + 150 mm',
+        dimensions: '300 x 340 + 150 mm • White kraft paper 60g  • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1000,
+                    "unitPrice": 0.368,
+                    "totalPrice": 368
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1000+ pieces. Please consult our team.'
+  },
+  {
     id: '602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50',
     name: '602-4 Zipper Stand-up Pouch',
     category: 'eco-stock',
@@ -3371,6 +3575,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     minQuantity: 500,
     quantityStep: 500,
     sizeInfo: '500g (220×240+90mm) / 1kg (210×310+110mm) • Low & High Barrier Options',
+    viewQuoteLink: '/view-quote/b580f2d0-e030-495c-b27e-774f6335e0be', // Consolidated rice paper quotes
     sizeWithQuantities: [
       {
         id: 'rice-paper-500g-low-barrier',
@@ -3444,6 +3649,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     minQuantity: 10000,
     quantityStep: 5000,
     sizeInfo: '4 lb Capacity (230×406.5+101.6mm)',
+    viewQuoteLink: '/view-quote/5cdcf9f8-fdd3-4796-bc8a-0fb5365668c2', // Consolidated magic tape pouch quotes: 5cdcf9f8-fdd3-4796-bc8a-0fb5365668c2, 1a1daa0c-7179-4c3f-9ca0-672e01551a67
     sizeWithQuantities: [
       {
         id: 'flat-bottom-4lb-recyclable',
@@ -3489,6 +3695,7 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     minQuantity: 500,
     quantityStep: 500,
     sizeInfo: '5 oz Snack (141×203.2+64mm) / Industrial (200×120×35mm)',
+    viewQuoteLink: '/view-quote/3c6b25de-9495-4d6d-8d9e-cd2dcb12e89b',
     sizeWithQuantities: [
       {
         id: 'compostable-sup-5oz-snack',
@@ -3711,6 +3918,459 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
 
 // Conventional Stock Products (Ready-made Premium)
 const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
+  {
+    id: 'stand-up-pouch-full-matte-finish-pe70-evoh-pe70-140-microns',
+    name: '260 mm x 325 mm + 120 mm Stand Up Pouch ( Full Matte Finish PE70 )',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty Full Matte Finish PE70/EVOH-PE70, 140 microns thickness multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B stand up pouch made of Full Matte Finish PE70/EVOH-PE70',
+    features: [
+      "Advanced B2B Specs: Standard zipper",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance Full Matte Finish PE70/EVOH-PE70, 140 microns thickness layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 100 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/stand-up-pouch-full-matte-finish-pe70-evoh-pe70-140-microns.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 100,
+    shape: 'Stand Up Pouch',
+    material: 'Full Matte Finish PE70/EVOH-PE70, 140 microns thickness',
+    basePrice: 558.8,
+    pricePerPiece: 5.588,
+    minQuantity: 100,
+    quantityStep: 100,
+    sizeInfo: '260 mm x 325 mm + 120 mm',
+    viewQuoteLink: '/view-quote/47f0d6bd-b2d1-40f7-a214-9c624f031780',
+    sizeWithQuantities: [
+      {
+        id: 'stand-up-pouch-full-matte-finish-pe70-evoh-pe70-140-microns-size-default',
+        label: '260 mm x 325 mm + 120 mm',
+        dimensions: '260 mm x 325 mm + 120 mm • Full Matte Finish PE70 • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 100,
+                    "unitPrice": 5.588,
+                    "totalPrice": 558.8
+          },
+          {
+                    "quantity": 500,
+                    "unitPrice": 1.471,
+                    "totalPrice": 735.5
+          },
+          {
+                    "quantity": 1000,
+                    "unitPrice": 1,
+                    "totalPrice": 1000
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 100+ pieces. Please consult our team.'
+  },
+  {
+    id: '28-lb-dry-food-bag-pet12-ny15-metallocene-milky-white-pe135',
+    name: '406mm Width x 790mm Height x 152mm Gusset Stand Up Pouch ( PET12 )',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty PET12/NY15/Metallocene + Milky White PE135 (3-layer structure) multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B side gusset pouch made of PET12/NY15/Metallocene + Milky White PE135 (3-layer structure)',
+    features: [
+      "Advanced B2B Specs: Quad seal side gusset bag, no zipper, 9 colors + matte varnish",
+      "Side Gusset Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance PET12/NY15/Metallocene + Milky White PE135 (3-layer structure) layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 10,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/28-lb-dry-food-bag-pet12-ny15-metallocene-milky-white-pe135.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 10000,
+    shape: 'Side Gusset Pouch',
+    material: 'PET12/NY15/Metallocene + Milky White PE135 (3-layer structure)',
+    basePrice: 7060,
+    pricePerPiece: 0.706,
+    minQuantity: 10000,
+    quantityStep: 10000,
+    sizeInfo: '406mm Width x 790mm Height x 152mm Gusset',
+    viewQuoteLink: '/view-quote/309366be-ccbe-4347-bc74-e0a0ffa63766',
+    sizeWithQuantities: [
+      {
+        id: '28-lb-dry-food-bag-pet12-ny15-metallocene-milky-white-pe135-size-default',
+        label: '406mm Width x 790mm Height x 152mm Gusset',
+        dimensions: '406mm Width x 790mm Height x 152mm Gusset • PET12 • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 10000,
+                    "unitPrice": 0.706,
+                    "totalPrice": 7060
+          },
+          {
+                    "quantity": 25000,
+                    "unitPrice": 0.676,
+                    "totalPrice": 16900
+          },
+          {
+                    "quantity": 50000,
+                    "unitPrice": 0.662,
+                    "totalPrice": 33100
+          },
+          {
+                    "quantity": 100000,
+                    "unitPrice": 0.647,
+                    "totalPrice": 64700
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 10000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'flat-bottom-pouch-pe-evoh-pe-140-microns-thickness-110w-x-39',
+    name: '110W x 390H x 65OBG/OSG mm Flat Bottom Pouch ( PE )',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty PE/EVOH-PE, 140 microns thickness multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B flat bottom pouch made of PE/EVOH-PE',
+    features: [
+      "Advanced B2B Specs: One-way degassing valve, full matte surface, one-sided zipper",
+      "Flat Bottom Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance PE/EVOH-PE, 140 microns thickness layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/flat-bottom-pouch-pe-evoh-pe-140-microns-thickness-110w-x-39.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Flat Bottom Pouch',
+    material: 'PE/EVOH-PE, 140 microns thickness',
+    basePrice: 1382,
+    pricePerPiece: 1.382,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: '110W x 390H x 65OBG/OSG mm',
+    viewQuoteLink: '/view-quote/c89bfde2-21dd-4a75-8979-b1e9c6a5272f',
+    sizeWithQuantities: [
+      {
+        id: 'flat-bottom-pouch-pe-evoh-pe-140-microns-thickness-110w-x-39-size-default',
+        label: '110W x 390H x 65OBG/OSG mm',
+        dimensions: '110W x 390H x 65OBG/OSG mm • PE • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1000,
+                    "unitPrice": 1.382,
+                    "totalPrice": 1382
+          },
+          {
+                    "quantity": 3000,
+                    "unitPrice": 0.853,
+                    "totalPrice": 2559
+          },
+          {
+                    "quantity": 5000,
+                    "unitPrice": 0.706,
+                    "totalPrice": 3530
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'compostable-vacuum-sealing-3-side-seal-bag-certified-home-co',
+    name: '140 x 140 mm Side Gusset Pouch ( Certified Home Composite material )',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty Certified Home Composite material, 70 UM thickness multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B side gusset pouch made of Certified Home Composite material',
+    features: [
+      "Advanced B2B Specs: 4-color printing",
+      "Side Gusset Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance Certified Home Composite material, 70 UM thickness layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 15,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/compostable-vacuum-sealing-3-side-seal-bag-certified-home-co.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 15000,
+    shape: 'Side Gusset Pouch',
+    material: 'Certified Home Composite material, 70 UM thickness',
+    basePrice: 705,
+    pricePerPiece: 0.047,
+    minQuantity: 15000,
+    quantityStep: 15000,
+    sizeInfo: '140 x 140 mm',
+    viewQuoteLink: '/view-quote/de1638f9-047e-4d79-8790-df2fc26413e9',
+    sizeWithQuantities: [
+      {
+        id: 'compostable-vacuum-sealing-3-side-seal-bag-certified-home-co-size-default',
+        label: '140 x 140 mm',
+        dimensions: '140 x 140 mm • Certified Home Composite material, 70 UM thickness • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 15000,
+                    "unitPrice": 0.047,
+                    "totalPrice": 705
+          },
+          {
+                    "quantity": 30000,
+                    "unitPrice": 0.037,
+                    "totalPrice": 1110
+          },
+          {
+                    "quantity": 50000,
+                    "unitPrice": 0.032,
+                    "totalPrice": 1600
+          },
+          {
+                    "quantity": 200000,
+                    "unitPrice": 0.031,
+                    "totalPrice": 6200
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 15000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'three-side-seal-bag-mopp-dual-corona-enhanced-vmpet-regular',
+    name: '70x70 mm Side Gusset Pouch ( MOPP-Dual Corona )',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty MOPP-Dual Corona/Enhanced VMPET/Regular PE, 100 microns multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B side gusset pouch made of MOPP-Dual Corona/Enhanced VMPET/Regular PE',
+    features: [
+      "Advanced B2B Specs: Three-side seal design",
+      "Side Gusset Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance MOPP-Dual Corona/Enhanced VMPET/Regular PE, 100 microns layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/three-side-seal-bag-mopp-dual-corona-enhanced-vmpet-regular.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Side Gusset Pouch',
+    material: 'MOPP-Dual Corona/Enhanced VMPET/Regular PE, 100 microns',
+    basePrice: 179,
+    pricePerPiece: 0.179,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: '70x70 mm',
+    viewQuoteLink: '/view-quote/a7aea9fa-4653-47fe-8792-1d90dd0c9ee7',
+    sizeWithQuantities: [
+      {
+        id: 'three-side-seal-bag-mopp-dual-corona-enhanced-vmpet-regular-size-default',
+        label: '70x70 mm',
+        dimensions: '70x70 mm • MOPP-Dual Corona • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1000,
+                    "unitPrice": 0.179,
+                    "totalPrice": 179
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1000+ pieces. Please consult our team.'
+  },
+  {
+    id: 'stand-up-spout-pouch-10mm-pet12-al7-ny15-pe80-102x152-4-28-5',
+    name: '102x152.4+28.5 mm Stand-Up Spout Pouch (10mm)',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty PET12/AL7/NY15/PE80 multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B spout pouch made of PET12/AL7/NY15/PE80',
+    features: [
+      "Advanced B2B Specs: Spout pouch with 6g per piece",
+      "Spout Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance PET12/AL7/NY15/PE80 layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/stand-up-spout-pouch-10mm-pet12-al7-ny15-pe80-102x152-4-28-5.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Spout Pouch',
+    material: 'PET12/AL7/NY15/PE80',
+    basePrice: 471,
+    pricePerPiece: 0.471,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: '102x152.4+28.5 mm',
+    viewQuoteLink: '/view-quote/e5b6b437-9120-4f78-9b5a-eb1e8bcc2253',
+    sizeWithQuantities: [
+      {
+        id: 'stand-up-spout-pouch-10mm-pet12-al7-ny15-pe80-102x152-4-28-5-size-default',
+        label: '102x152.4+28.5 mm',
+        dimensions: '102x152.4+28.5 mm • PET12 • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1000,
+                    "unitPrice": 0.471,
+                    "totalPrice": 471
+          },
+          {
+                    "quantity": 3000,
+                    "unitPrice": 0.221,
+                    "totalPrice": 663
+          },
+          {
+                    "quantity": 5000,
+                    "unitPrice": 0.162,
+                    "totalPrice": 810
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1000+ pieces. Please consult our team.'
+  },
+  {
+    id: '9-1-13-8-3-93-stand-up-pouch-w-velcro-mopp-double-electric-e',
+    name: '231.5 mm*350.5 mm+100mm Stand Up Pouch ( MOPP-Double Electric )',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty MOPP-Double Electric/Enhanced VMPET///Regular PE multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B stand up pouch made of MOPP-Double Electric/Enhanced VMPET///Regular PE',
+    features: [
+      "Advanced B2B Specs: Thickness 140 microns, Velcro closure 23MM",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance MOPP-Double Electric/Enhanced VMPET///Regular PE layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 200 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/9-1-13-8-3-93-stand-up-pouch-w-velcro-mopp-double-electric-e.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 200,
+    shape: 'Stand Up Pouch',
+    material: 'MOPP-Double Electric/Enhanced VMPET///Regular PE',
+    basePrice: 376.4,
+    pricePerPiece: 1.882,
+    minQuantity: 200,
+    quantityStep: 200,
+    sizeInfo: '231.5 mm*350.5 mm+100mm',
+    viewQuoteLink: '/view-quote/e9fd5ac3-76cd-4aeb-90f7-c09855eefaa1',
+    sizeWithQuantities: [
+      {
+        id: '9-1-13-8-3-93-stand-up-pouch-w-velcro-mopp-double-electric-e-size-default',
+        label: '231.5 mm*350.5 mm+100mm',
+        dimensions: '231.5 mm*350.5 mm+100mm • MOPP-Double Electric • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 200,
+                    "unitPrice": 1.882,
+                    "totalPrice": 376.4
+          },
+          {
+                    "quantity": 600,
+                    "unitPrice": 0.818,
+                    "totalPrice": 490.8
+          },
+          {
+                    "quantity": 1000,
+                    "unitPrice": 0.613,
+                    "totalPrice": 613
+          },
+          {
+                    "quantity": 2000,
+                    "unitPrice": 0.462,
+                    "totalPrice": 924
+          },
+          {
+                    "quantity": 10000,
+                    "unitPrice": 0.31,
+                    "totalPrice": 3100
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 200+ pieces. Please consult our team.'
+  },
+  {
+    id: 'stand-up-zipper-bag-mopp-double-sided-pet-12-al-ordinary-pe',
+    name: '120 mm x 200 mm x 70 mm Stand Up Pouch ( MOPP double-sided )',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty MOPP double-sided / PET-12 / AL / Ordinary PE multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B stand up pouch made of MOPP double-sided / PET-12 / AL / Ordinary PE',
+    features: [
+      "Advanced B2B Specs: Ordinary zipper 13mm PPE, thickness 120 microns, stamp foiling",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance MOPP double-sided / PET-12 / AL / Ordinary PE layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,500 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/stand-up-zipper-bag-mopp-double-sided-pet-12-al-ordinary-pe.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1500,
+    shape: 'Stand Up Pouch',
+    material: 'MOPP double-sided / PET-12 / AL / Ordinary PE',
+    basePrice: 357,
+    pricePerPiece: 0.238,
+    minQuantity: 1500,
+    quantityStep: 1500,
+    sizeInfo: '120 mm x 200 mm x 70 mm',
+    viewQuoteLink: '/view-quote/2ed9b5e3-9384-417a-b14c-bdb0d32dbed2',
+    sizeWithQuantities: [
+      {
+        id: 'stand-up-zipper-bag-mopp-double-sided-pet-12-al-ordinary-pe-size-default',
+        label: '120 mm x 200 mm x 70 mm',
+        dimensions: '120 mm x 200 mm x 70 mm • MOPP double-sided  • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1500,
+                    "unitPrice": 0.238,
+                    "totalPrice": 357
+          },
+          {
+                    "quantity": 3000,
+                    "unitPrice": 0.179,
+                    "totalPrice": 537
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1500+ pieces. Please consult our team.'
+  },
   {
     id: 'stand-up-zipper-bag-mopp-double-sided-al-pet-12-standard-pe',
     name: '120 mm*200 mm*35 mm Stand Up Pouch ( MOPP double-sided )',

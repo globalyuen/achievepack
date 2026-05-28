@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { 
   Sparkles, 
@@ -14,7 +14,9 @@ import {
   RefreshCw,
   Compass,
   CheckCircle,
-  HelpCircle
+  HelpCircle,
+  Mail,
+  Loader2
 } from 'lucide-react'
 import { jsPDF } from 'jspdf'
 import SiteHeader from '../components/SiteHeader'
@@ -111,6 +113,146 @@ export default function PouchDielineCreatorPage() {
   // PDF Export Format State
   const [pdfFormat, setPdfFormat] = useState<'a4' | '1to1'>('1to1')
   const [isExporting, setIsExporting] = useState(false)
+
+  // Lead Capture State
+  const [email, setEmail] = useState('')
+  const [isUnlocked, setIsUnlocked] = useState(false)
+  const [showEmailError, setShowEmailError] = useState(false)
+  const [sendingEmail, setSendingEmail] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  
+  const turnstileRef = useRef<HTMLDivElement>(null)
+  const turnstileWidgetId = useRef<string | null>(null)
+
+  const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACJvySd2iBsvYcJv'
+
+  // Load dimensions from URL parameters if present on component mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const w = params.get('w')
+    const h = params.get('h')
+    const g = params.get('g')
+    const z = params.get('z')
+    const tn = params.get('tn')
+    const s = params.get('s')
+    const c = params.get('c')
+    const rc = params.get('rc')
+
+    if (w) setWidth(Number(w))
+    if (h) setHeight(Number(h))
+    if (g) setGusset(Number(g))
+    if (z) setZipper(Number(z))
+    if (tn) setTearNotch(Number(tn))
+    if (s) setSideSeals(Number(s))
+    if (c) setBottomSealCurve(Number(c))
+    if (rc) setRoundCorners(rc === 'true')
+  }, [])
+
+  // Check LocalStorage for previously unlocked emails
+  useEffect(() => {
+    const savedEmail = localStorage.getItem('dieline_finder_email')
+    if (savedEmail) {
+      setEmail(savedEmail)
+      setIsUnlocked(true)
+    }
+  }, [])
+
+  // Load Cloudflare Turnstile script dynamically & initialize widget
+  useEffect(() => {
+    if (isUnlocked) return // Only load if unlocked!
+    
+    if (typeof window !== 'undefined' && !(window as any).turnstile) {
+      const script = document.createElement('script')
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad'
+      script.async = true
+      script.defer = true
+      document.body.appendChild(script)
+    }
+
+    const renderWidget = () => {
+      if (turnstileRef.current && (window as any).turnstile && !turnstileWidgetId.current) {
+        turnstileWidgetId.current = (window as any).turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => setTurnstileToken(token),
+          'expired-callback': () => setTurnstileToken(null),
+          'error-callback': () => setTurnstileToken(null)
+        })
+      }
+    }
+
+    if ((window as any).turnstile) {
+      renderWidget()
+    } else {
+      (window as any).onTurnstileLoad = renderWidget
+    }
+
+    return () => {
+      if (turnstileWidgetId.current && (window as any).turnstile) {
+        try {
+          (window as any).turnstile.remove(turnstileWidgetId.current)
+        } catch (e) {
+          console.error('Turnstile clean error:', e)
+        }
+        turnstileWidgetId.current = null
+      }
+    }
+  }, [isUnlocked])
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setShowEmailError(true)
+      return
+    }
+    if (!turnstileToken) {
+      alert('Please complete the Cloudflare CAPTCHA verification.')
+      return
+    }
+    
+    setShowEmailError(false)
+    setSendingEmail(true)
+
+    const customDielineUrl = `https://achievepack.com/dieline-creator?w=${width}&h=${height}&g=${gusset}&z=${zipper}&tn=${tearNotch}&s=${sideSeals}&c=${bottomSealCurve}&rc=${roundCorners}`
+
+    try {
+      const response = await fetch('/api/send-dieline', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          dielineFilename: `achievepack-custom-dieline-${width}x${height}x${gusset}-${pdfFormat}.pdf`,
+          dielineUrl: customDielineUrl,
+          dielineDisplayName: `Custom Stand-Up Pouch (${width}x${height}x${gusset}mm)`,
+          turnstileToken,
+          shape: 'Stand Up Pouch',
+          width,
+          height,
+          gusset,
+          unit: 'mm',
+          capacity: `${width}x${height}x${gusset}mm Custom Size`
+        })
+      })
+
+      const result = await response.json()
+      if (response.ok && result.success) {
+        localStorage.setItem('dieline_finder_email', email)
+        setIsUnlocked(true)
+        // Automatically trigger PDF download
+        handlePdfDownload()
+      } else {
+        alert(result.error || 'Failed to send dieline email.')
+      }
+    } catch (err) {
+      console.error(err)
+      alert('A network error occurred. Please try again.')
+    } finally {
+      setSendingEmail(false)
+      if ((window as any).turnstile && turnstileWidgetId.current) {
+        (window as any).turnstile.reset(turnstileWidgetId.current)
+        setTurnstileToken(null)
+      }
+    }
+  }
 
   // Apply Preset
   const applyPreset = (preset: DielinePreset) => {
@@ -903,24 +1045,93 @@ export default function PouchDielineCreatorPage() {
                   </div>
                 </div>
 
-                {/* PDF Download Button */}
-                <button
-                  onClick={handlePdfDownload}
-                  disabled={isExporting}
-                  className="w-full py-4 px-6 bg-green-500 hover:bg-green-600 text-black text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isExporting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-                      <span>Verifying Technical Math...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Download className="w-4 h-4 stroke-[2.5]" />
-                      <span>Download Print Dieline PDF</span>
-                    </>
-                  )}
-                </button>
+                {!isUnlocked ? (
+                  <form onSubmit={handleEmailSubmit} className="flex flex-col gap-4 border-t border-neutral-850 pt-4 mt-2">
+                    <div>
+                      <h4 className="font-bold text-xs uppercase tracking-wider text-green-400 flex items-center gap-1.5 mb-1.5">
+                        <Mail className="w-3.5 h-3.5" /> Unlock & Email PDF Template
+                      </h4>
+                      <p className="text-[10px] text-neutral-400 leading-normal">
+                        Enter your email to receive this custom template and unlock unlimited high-fidelity vector dieline downloads instantly.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <input
+                        type="email"
+                        required
+                        placeholder="brand-manager@company.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-4 py-2.5 text-xs bg-neutral-950 border border-neutral-800 hover:border-neutral-700 text-white rounded-xl outline-none font-medium focus:border-green-500 focus:ring-1 focus:ring-green-500"
+                      />
+                      {showEmailError && (
+                        <p className="text-[10px] text-red-400 font-semibold">Please enter a valid email address.</p>
+                      )}
+                      
+                      <button
+                        type="submit"
+                        disabled={sendingEmail || !turnstileToken}
+                        className="w-full py-3.5 px-6 bg-green-500 hover:bg-green-600 text-black text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {sendingEmail ? (
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin text-black" />
+                            <span>Unlocking & Emailing...</span>
+                          </>
+                        ) : (
+                          <>
+                            <Mail className="w-4 h-4 stroke-[2.5]" />
+                            <span>Unlock & Email PDF</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    
+                    {/* Cloudflare Turnstile CAPTCHA container */}
+                    <div ref={turnstileRef} className="cf-turnstile w-full flex justify-center scale-90 -my-1" />
+
+                    <p className="text-[9px] text-neutral-500 font-medium text-center">
+                      🔒 We value privacy. Your email is strictly used to deliver custom dielines. We do not spam.
+                    </p>
+                  </form>
+                ) : (
+                  <div className="flex flex-col gap-3">
+                    {/* PDF Download Button */}
+                    <button
+                      onClick={handlePdfDownload}
+                      disabled={isExporting}
+                      className="w-full py-4 px-6 bg-green-500 hover:bg-green-600 text-black text-sm font-bold uppercase tracking-wider rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isExporting ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                          <span>Verifying Technical Math...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Download className="w-4 h-4 stroke-[2.5]" />
+                          <span>Download Print Dieline PDF</span>
+                        </>
+                      )}
+                    </button>
+
+                    <div className="flex items-center justify-between px-1">
+                      <span className="text-[10px] text-green-400 font-bold flex items-center gap-1">
+                        <CheckCircle className="w-3.5 h-3.5" /> Downloads Unlocked
+                      </span>
+                      <button
+                        onClick={() => {
+                          localStorage.removeItem('dieline_finder_email');
+                          setIsUnlocked(false);
+                        }}
+                        className="text-[9px] font-bold uppercase text-neutral-500 hover:text-red-400 underline"
+                      >
+                        Change Email
+                      </button>
+                    </div>
+                  </div>
+                )}
 
               </div>
 
