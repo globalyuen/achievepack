@@ -247,6 +247,56 @@ const SHAPE_ITEMS = [
         <path d="M59 19.5 V65" strokeWidth="1" />
       </svg>
     )
+  },
+  {
+    id: 'Spouted Stand Up Pouch',
+    label: 'Spouted Stand Up',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <rect x="46" y="8" width="8" height="10" rx="1" />
+        <line x1="42" y1="12" x2="58" y2="12" strokeWidth="1.5" />
+        <line x1="42" y1="15" x2="58" y2="15" strokeWidth="1.5" />
+        <path d="M34 18 H46 V22 H54 V18 H66 V55 C66 63 60 67 50 67 C40 67 34 63 34 55 Z" />
+        <path d="M34 55 C40 59 60 59 66 55" strokeWidth="1.8" />
+      </svg>
+    )
+  },
+  {
+    id: 'Mailer Bag',
+    label: 'Mailer Bag',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M30 20 H70 V68 H30 Z" />
+        <path d="M30 20 L50 38 L70 20" strokeWidth="2" />
+        <line x1="33" y1="25" x2="67" y2="25" strokeWidth="1" strokeDasharray="3 3" />
+        <path d="M30 60 H70" strokeWidth="1" strokeDasharray="2 2" />
+      </svg>
+    )
+  },
+  {
+    id: 'Corrugated Box',
+    label: 'Box',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M25 32 L50 42 V70 L25 58 Z" />
+        <path d="M50 42 L75 32 V58 L50 70 Z" />
+        <path d="M25 32 L50 20 L75 32 L50 42 Z" />
+        <line x1="50" y1="20" x2="50" y2="42" strokeWidth="1" strokeDasharray="2 2" />
+      </svg>
+    )
+  },
+  {
+    id: 'Label & Sticker',
+    label: 'Label',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <rect x="28" y="16" width="44" height="48" rx="8" strokeDasharray="3 3" strokeWidth="1.2" />
+        <path d="M34 22 H66 V48 L56 58 H34 Z" fill="none" />
+        <path d="M66 48 L56 58 V48 Z" strokeWidth="2" />
+        <circle cx="46" cy="36" r="6" strokeWidth="1.5" />
+        <line x1="38" y1="48" x2="54" y2="48" strokeWidth="1.5" />
+      </svg>
+    )
   }
 ]
 
@@ -264,6 +314,8 @@ const StorePage: React.FC = () => {
   
   const [selectedCategory, setSelectedCategory] = useState<string>(urlCategory)
   const [selectedShape, setSelectedShape] = useState<string>(urlShape)
+  const [selectedSubMaterial, setSelectedSubMaterial] = useState<string>('all')
+  const [selectedSubType, setSelectedSubType] = useState<string>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [viewMode, setViewMode] = useState<ViewMode>('grid')
   const [sortBy, setSortBy] = useState<SortOption>('popularity')
@@ -299,7 +351,11 @@ const StorePage: React.FC = () => {
     const newCategory = searchParams.get('category') || 'all'
     const newShape = searchParams.get('shape') || 'all'
     if (newCategory !== selectedCategory) setSelectedCategory(newCategory)
-    if (newShape !== selectedShape) setSelectedShape(newShape)
+    if (newShape !== selectedShape) {
+      setSelectedShape(newShape)
+      setSelectedSubMaterial('all')
+      setSelectedSubType('all')
+    }
   }, [searchParams])
 
   // Debounced search handler for INP optimization
@@ -328,6 +384,8 @@ const StorePage: React.FC = () => {
     startTransition(() => {
       const nextShape = selectedShape === shapeId ? 'all' : shapeId
       setSelectedShape(nextShape)
+      setSelectedSubMaterial('all')
+      setSelectedSubType('all')
       const newParams = new URLSearchParams(searchParams)
       if (nextShape === 'all') {
         newParams.delete('shape')
@@ -369,12 +427,112 @@ const StorePage: React.FC = () => {
   const getProductShape = (product: StoreProduct): string | null => {
     if ('shape' in product) {
       const shape = product.shape
-      // Normalize conventional digital shapes to match SHAPES filter format
+      if (!shape) return null
+      
+      const lowerShape = shape.toLowerCase()
+      
+      // 1. Rollstock
+      if (lowerShape.includes('rollstock') || lowerShape.includes('film')) {
+        return 'Rollstock'
+      }
+      
+      // 2. 3 Side Seal
+      if (
+        lowerShape.includes('3-side-seal') || 
+        lowerShape.includes('3 side seal') || 
+        lowerShape === 'flat-wire-cut zipper bag' ||
+        lowerShape.includes('three side')
+      ) {
+        return '3 Side Seal Pouch'
+      }
+      
+      // 3. Center Seal
+      if (
+        lowerShape.includes('center seal') || 
+        lowerShape.includes('pillow') || 
+        lowerShape.includes('tea filter bag')
+      ) {
+        return 'Center Seal Pouch'
+      }
+      
+      // 4. Stand Up Pouch
+      if (
+        lowerShape.includes('stand up') || 
+        lowerShape.includes('stand-up') || 
+        lowerShape.includes('doypack') || 
+        lowerShape.includes('standup')
+      ) {
+        return 'Stand Up Pouch / Doypack'
+      }
+      
+      // 5. Flat Bottom
+      if (
+        lowerShape.includes('flat squared bottom') || 
+        lowerShape.includes('flat bottom') || 
+        lowerShape.includes('eight-side seal') ||
+        lowerShape.includes('box pouch')
+      ) {
+        return 'Flat Squared Bottom Pouch'
+      }
+      
+      // 6. Side Gusset
+      if (lowerShape.includes('side gusset') || lowerShape.includes('gusset')) {
+        return 'Side Gusset Pouch'
+      }
+      
+      // 7. Quad Seal
+      if (lowerShape.includes('quad seal') || lowerShape.includes('quad-seal')) {
+        return 'Quad Seal Pouch'
+      }
+      
+      // 8. Box Bottom
+      if (lowerShape.includes('box bottom')) {
+        return 'Box Bottom Pouch'
+      }
+      
+      // 9. Spouted Stand Up
+      if (lowerShape.includes('spout') || lowerShape.includes('spouted')) {
+        return 'Spouted Stand Up Pouch'
+      }
+      
+      // 10. Mailer Bag
+      if (lowerShape.includes('mailer')) {
+        return 'Mailer Bag'
+      }
+      
+      // 11. Box
+      if (
+        lowerShape.includes('box') || 
+        lowerShape.includes('tuck') || 
+        lowerShape.includes('corrugated')
+      ) {
+        return 'Corrugated Box'
+      }
+      
+      // 12. Label & Sticker
+      if (lowerShape.includes('label') || lowerShape.includes('sticker')) {
+        return 'Label & Sticker'
+      }
+      
+      // Fallback mapping
       const shapeMap: Record<string, string> = {
         '3-side-seal': '3 Side Seal Pouch',
         'zipper-3-side-seal': '3 Side Seal Pouch',
         'stand-up': 'Stand Up Pouch / Doypack',
         'zipper-stand-up': 'Stand Up Pouch / Doypack',
+        '3 Side Seal Pouch': '3 Side Seal Pouch',
+        'Center Seal Pouch': 'Center Seal Pouch',
+        'Stand Up Pouch / Doypack': 'Stand Up Pouch / Doypack',
+        'Box Bottom Pouch': 'Box Bottom Pouch',
+        'Flat Squared Bottom Pouch': 'Flat Squared Bottom Pouch',
+        'Quad Seal Pouch': 'Quad Seal Pouch',
+        'Side Gusset Pouch': 'Side Gusset Pouch',
+        'Spouted Stand Up Pouch': 'Spouted Stand Up Pouch',
+        'Header Bag': 'Header Bag',
+        'Mailer Bag': 'Mailer Bag',
+        'Corrugated Box': 'Corrugated Box',
+        'Tuck Box': 'Tuck Box',
+        'Label & Sticker': 'Label & Sticker',
       }
       return shapeMap[shape] || shape
     }
@@ -390,6 +548,9 @@ const StorePage: React.FC = () => {
     'side-gusset': 'Side Gusset Pouch',
     'spout': 'Spouted Stand Up Pouch',
     'spouted-stand-up': 'Spouted Stand Up Pouch',
+    'mailer': 'Mailer Bag',
+    'box': 'Corrugated Box',
+    'label': 'Label & Sticker'
   }
 
   const filteredProducts = useMemo(() => {
@@ -428,9 +589,26 @@ const StorePage: React.FC = () => {
       const productShape = getProductShape(product)
       const matchesShape = selectedShape === 'all' || productShape === internalShape || productShape === selectedShape
       
-      return matchesCategory && matchesSearch && matchesShape
+      // Sub-filters for selected shape
+      const matchesSubMaterial = selectedSubMaterial === 'all' || getProductClassification(product) === selectedSubMaterial
+      
+      let productType: 'custom' | 'stock' = 'custom'
+      if (
+        productSubCategory === 'eco-stock-plain' || 
+        productSubCategory === 'conventional-stock-plain' || 
+        product.category === 'conventional-stock' || 
+        product.category === 'eco-stock' ||
+        product.id.includes('stock') ||
+        product.id.includes('plain')
+      ) {
+        productType = 'stock'
+      }
+      
+      const matchesSubType = selectedSubType === 'all' || productType === selectedSubType
+      
+      return matchesCategory && matchesSearch && matchesShape && matchesSubMaterial && matchesSubType
     })
-  }, [selectedCategory, searchQuery, selectedShape])
+  }, [selectedCategory, searchQuery, selectedShape, selectedSubMaterial, selectedSubType])
 
   const sortedProducts = useMemo(() => {
     return [...filteredProducts].sort((a, b) => {
@@ -673,26 +851,26 @@ const StorePage: React.FC = () => {
       </div>
 
       {/* Interactive Shape Filter Grid - Replacing the Feature Carousel */}
-      <section className="hidden md:block bg-white border-b border-neutral-200 py-6 mb-4 relative overflow-hidden select-none">
+      <section className="hidden md:block bg-white border-b border-neutral-200 py-3 mb-2 relative overflow-hidden select-none">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-sm grid grid-cols-8 divide-x divide-neutral-200">
+          <div className="border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-sm grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 divide-x lg:divide-y-0 divide-y sm:divide-y-0 divide-neutral-200">
             {SHAPE_ITEMS.map((item) => {
               const isActive = selectedShape === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleShapeChange(item.id)}
-                  className={`flex flex-col items-center justify-between py-5 px-3 transition-all duration-200 group cursor-pointer relative overflow-hidden ${
+                  className={`flex flex-col items-center justify-between py-3.5 px-2 transition-all duration-200 group cursor-pointer relative overflow-hidden ${
                     isActive 
                       ? 'bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 font-black shadow-inner' 
                       : 'hover:bg-neutral-50/80 text-neutral-800 hover:text-primary-600 hover:-translate-y-0.5 transform duration-150'
                   }`}
                 >
-                  <span className={`text-[11px] font-black uppercase text-center tracking-tight mb-4 min-h-[32px] flex items-center justify-center transition-colors duration-150 ${isActive ? 'text-primary-700 animate-pulse' : 'text-neutral-800 group-hover:text-primary-600'}`}>
+                  <span className={`text-[10px] font-black uppercase text-center tracking-tight mb-2 min-h-[28px] flex items-center justify-center transition-colors duration-150 leading-tight ${isActive ? 'text-primary-700 animate-pulse' : 'text-neutral-800 group-hover:text-primary-600'}`}>
                     {item.label}
                   </span>
                   
-                  <div className={`w-14 h-11 flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${isActive ? 'text-primary-600' : 'text-neutral-500 group-hover:text-neutral-800'}`}>
+                  <div className={`w-12 h-9 flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${isActive ? 'text-primary-600' : 'text-neutral-500 group-hover:text-neutral-800'}`}>
                     {item.icon}
                   </div>
                   
@@ -708,31 +886,31 @@ const StorePage: React.FC = () => {
       </section>
 
       {/* Mobile Scrollable Shape Strip */}
-      <section className="block md:hidden bg-white border-b border-neutral-200 py-4 mb-2 select-none overflow-x-auto no-scrollbar scroll-smooth snap-x">
-        <div className="flex px-4 gap-3">
+      <section className="block md:hidden bg-white border-b border-neutral-200 py-3 mb-1 select-none overflow-x-auto no-scrollbar scroll-smooth snap-x">
+        <div className="flex px-4 gap-2.5">
           {SHAPE_ITEMS.map((item) => {
             const isActive = selectedShape === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => handleShapeChange(item.id)}
-                className={`flex-shrink-0 flex flex-col items-center justify-between py-3.5 px-3 w-[105px] border rounded-xl transition-all duration-200 snap-center relative overflow-hidden ${
+                className={`flex-shrink-0 flex flex-col items-center justify-between py-3 px-2.5 w-[96px] border rounded-xl transition-all duration-200 snap-center relative overflow-hidden ${
                   isActive 
                     ? 'bg-gradient-to-b from-primary-50 to-primary-100/30 border-primary-500 text-primary-700 font-bold shadow-sm' 
                     : 'bg-white border-neutral-200 text-neutral-600 active:bg-neutral-50'
                 }`}
               >
-                <span className="text-[9px] font-black uppercase text-center tracking-tight mb-2.5 h-[24px] flex items-center justify-center line-clamp-2">
+                <span className="text-[9px] font-black uppercase text-center tracking-tight mb-2 h-[20px] flex items-center justify-center line-clamp-2 leading-tight">
                   {item.label}
                 </span>
                 
-                <div className={`w-10 h-10 flex items-center justify-center transition-transform duration-200 ${isActive ? 'text-primary-600' : 'text-neutral-400'}`}>
+                <div className={`w-9 h-9 flex items-center justify-center transition-transform duration-200 ${isActive ? 'text-primary-600' : 'text-neutral-400'}`}>
                   {item.icon}
                 </div>
                 
                 {/* Mobile bottom active indicator */}
                 {isActive && (
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-500" />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500" />
                 )}
               </button>
             );
@@ -740,50 +918,164 @@ const StorePage: React.FC = () => {
         </div>
       </section>
 
-      <main className="max-w-7xl w-full mx-auto px-4 py-6 flex-1 flex flex-col min-h-0 lg:overflow-hidden">
-        {/* Search Result Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 flex-shrink-0">
-          <div>
-            <h2 className="text-xl text-neutral-600">
+      {/* Shape-selected Sub-filters Panel */}
+      <AnimatePresence>
+        {selectedShape !== 'all' && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="max-w-7xl w-full mx-auto px-4 mb-2 flex-shrink-0"
+          >
+            <div className="bg-gradient-to-r from-neutral-50 via-white to-neutral-50 border border-neutral-200 rounded-xl p-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm select-none">
+              {/* Left side: Active Shape indicator */}
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-black uppercase text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full border border-primary-200/50 animate-pulse">
+                  Shape: {SHAPE_ITEMS.find(item => item.id === selectedShape)?.label || selectedShape}
+                </span>
+                <button
+                  onClick={() => handleShapeChange('all')}
+                  className="text-[9px] font-extrabold text-neutral-400 hover:text-red-500 transition-colors uppercase cursor-pointer"
+                >
+                  Clear [x]
+                </button>
+              </div>
+
+              {/* Right side: Dynamic Sub-filters */}
+              <div className="flex flex-wrap items-center gap-3">
+                {/* Sub-filter 1: Material */}
+                <div className="flex items-center gap-1">
+                  <span className="text-[10px] font-black text-neutral-400 uppercase mr-1">Material:</span>
+                  {[
+                    { id: 'all', label: 'All', icon: '✨' },
+                    { id: 'recyclable', label: 'Recyclable', icon: '♻️' },
+                    { id: 'compostable', label: 'Compostable', icon: '🌱' },
+                    { id: 'conventional', label: 'Conventional', icon: '💎' },
+                  ].map((mat) => {
+                    const isSelected = selectedSubMaterial === mat.id;
+                    return (
+                      <button
+                        key={mat.id}
+                        onClick={() => setSelectedSubMaterial(mat.id)}
+                        className={`flex items-center gap-0.5 px-2 py-0.5 text-[10px] rounded-full border transition-all duration-150 cursor-pointer ${
+                          isSelected
+                            ? 'bg-neutral-900 border-neutral-900 text-white font-extrabold shadow-sm'
+                            : 'bg-white border-neutral-200 text-neutral-600 hover:border-neutral-300 font-semibold'
+                        }`}
+                      >
+                        <span>{mat.icon}</span>
+                        <span>{mat.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Divider */}
+                <div className="w-px h-4 bg-neutral-200 hidden md:block" />
+
+                {/* Sub-filter 2: Production Type */}
+                <div className="flex items-center gap-1">
+                  <span className="text-[10px] font-black text-neutral-400 uppercase mr-1">Type:</span>
+                  {[
+                    { id: 'all', label: 'All', icon: '📦' },
+                    { id: 'custom', label: 'Custom Print', icon: '🎨' },
+                    { id: 'stock', label: 'Plain Stock', icon: '🏷️' },
+                  ].map((type) => {
+                    const isSelected = selectedSubType === type.id;
+                    return (
+                      <button
+                        key={type.id}
+                        onClick={() => setSelectedSubType(type.id)}
+                        className={`flex items-center gap-0.5 px-2 py-0.5 text-[10px] rounded-full border transition-all duration-150 cursor-pointer ${
+                          isSelected
+                            ? 'bg-neutral-900 border-neutral-900 text-white font-extrabold shadow-sm'
+                            : 'bg-white border-neutral-200 text-neutral-600 hover:border-neutral-300 font-semibold'
+                        }`}
+                      >
+                        <span>{type.icon}</span>
+                        <span>{type.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <main className="max-w-7xl w-full mx-auto px-4 py-2 sm:py-3 flex-1 flex flex-col min-h-0 lg:overflow-hidden">
+        {/* Search Result Header - Highly Compact */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-3 flex-shrink-0">
+          <div className="flex flex-col sm:flex-row sm:items-baseline gap-2">
+            <h2 className="text-base text-neutral-600 flex items-baseline gap-1.5">
               {searchQuery ? (
-                <>Search result for: <span className="font-bold text-neutral-900">{searchQuery}</span></>
+                <>Search result for: <span className="font-bold text-neutral-900">"{searchQuery}"</span></>
               ) : (
-                <span className="font-bold text-neutral-900">All Products</span>
+                <span className="font-black text-neutral-900 tracking-tight text-lg">All Products</span>
               )}
+              <span className="text-xs text-neutral-400 font-semibold">({filteredProducts.length} items)</span>
             </h2>
-            <p className="text-sm text-neutral-500 mt-1">{sortedProducts.length} products found</p>
+
+            {/* Quick Sort Badges strip next to the title */}
+            <div className="flex flex-wrap items-center gap-1">
+              {[
+                { id: 'all', label: 'All', icon: '🛒' },
+                { id: 'eco-digital', label: 'Custom Print', icon: '🎨' },
+                { id: 'eco-stock-plain', label: 'Eco Stock', icon: '🌱' },
+                { id: 'conventional-stock-plain', label: 'Conventional Stock', icon: '⚙️' },
+                { id: 'boxes', label: 'Boxes', icon: '📦' }
+              ].map(cat => {
+                const isCatActive = selectedCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => handleCategoryChange(cat.id)}
+                    className={`flex items-center gap-0.5 px-2 py-0.5 text-[10px] rounded-full border transition-all duration-150 cursor-pointer ${
+                      isCatActive
+                        ? 'bg-primary-600 border-primary-600 text-white font-extrabold shadow-sm'
+                        : 'bg-white border-neutral-200 text-neutral-500 hover:border-neutral-300 font-semibold'
+                    }`}
+                  >
+                    <span>{cat.icon}</span>
+                    <span>{cat.label}</span>
+                  </button>
+                )
+              })}
+            </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            {/* Search Box - Desktop */}
+          <div className="flex items-center gap-2.5">
+            {/* Search Box - Desktop (Super Compact) */}
             <div className="hidden md:block relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-neutral-400" />
               <input
                 type="text"
-                placeholder="Search products..."
+                placeholder="Search..."
                 defaultValue={searchQuery}
                 onChange={handleSearchChange}
-                className="pl-9 pr-4 py-2.5 rounded-lg bg-white border border-neutral-200 text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 w-48"
+                className="pl-8 pr-3 py-1.5 rounded-lg bg-white border border-neutral-200 text-xs text-neutral-700 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 w-36 focus:w-44 transition-all duration-200"
               />
             </div>
 
-            {/* Sort Dropdown */}
+            {/* Sort Dropdown - Compact */}
             <div className="relative">
               <button
                 onClick={() => setIsSortOpen(!isSortOpen)}
-                className="flex items-center gap-2 px-4 py-2.5 bg-white border border-neutral-200 rounded-lg hover:border-neutral-300 transition min-w-[180px] justify-between"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-neutral-200 rounded-lg hover:border-neutral-300 transition text-xs justify-between min-w-[140px]"
               >
-                <span className="text-sm text-neutral-600">Sort by: <span className="text-neutral-900 font-medium">{getSortLabel(sortBy)}</span></span>
-                <ChevronDown className={`h-4 w-4 text-neutral-400 transition-transform ${isSortOpen ? 'rotate-180' : ''}`} />
+                <span className="text-neutral-500">Sort: <span className="text-neutral-900 font-semibold">{getSortLabel(sortBy)}</span></span>
+                <ChevronDown className={`h-3 w-3 text-neutral-400 transition-transform ${isSortOpen ? 'rotate-180' : ''}`} />
               </button>
               {isSortOpen && (
-                <div className="absolute top-full right-0 mt-1 w-full bg-white border border-neutral-200 rounded-lg shadow-lg z-10">
+                <div className="absolute top-full right-0 mt-1 w-full bg-white border border-neutral-200 rounded-lg shadow-lg z-10 select-none">
                   {(['popularity', 'price-low', 'price-high', 'newest'] as SortOption[]).map(option => (
                     <button
                       key={option}
                       onClick={() => handleSortChange(option)}
-                      className={`w-full text-left px-4 py-2.5 text-sm hover:bg-neutral-50 transition ${
-                        sortBy === option ? 'text-primary-600 font-medium bg-primary-50' : 'text-neutral-700'
+                      className={`w-full text-left px-3 py-1.5 text-xs hover:bg-neutral-50 transition ${
+                        sortBy === option ? 'text-primary-600 font-semibold bg-primary-50' : 'text-neutral-700'
                       }`}
                     >
                       {getSortLabel(option)}
@@ -793,19 +1085,19 @@ const StorePage: React.FC = () => {
               )}
             </div>
 
-            {/* View Toggle */}
+            {/* View Toggle - Compact */}
             <div className="flex border border-neutral-200 rounded-lg overflow-hidden">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2.5 transition ${viewMode === 'grid' ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-600 hover:bg-neutral-50'}`}
+                className={`p-1.5 transition ${viewMode === 'grid' ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-600 hover:bg-neutral-50'}`}
               >
-                <Grid3X3 className="h-5 w-5" />
+                <Grid3X3 className="h-4 w-4" />
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2.5 transition ${viewMode === 'list' ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-600 hover:bg-neutral-50'}`}
+                className={`p-1.5 transition ${viewMode === 'list' ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-600 hover:bg-neutral-50'}`}
               >
-                <List className="h-5 w-5" />
+                <List className="h-4 w-4" />
               </button>
             </div>
           </div>
