@@ -92,6 +92,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/solutions/citrus-oil-packaging': () => import('./pages/solutions/CitrusOilPackagingPage'),
   '/pricing': () => import('./pages/pouch/PouchEcoGPTKPage'),
   '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
+  '/dieline-creator': () => import('./pages/PouchDielineCreatorPage'),
   '/knowledge/writable-stampable-pouches': () => import('./pages/knowledge/WritableStampablePouchesPage'),
 }
 
@@ -536,6 +537,7 @@ const PouchBlogArticlePage = lazyWithRetry(() => import('./pages/pouch/blog/Pouc
 const Product3DShowcasePage = lazyWithRetry(() => import('./pages/Product3DShowcasePage'))
 const PouchEcoGPTKPage = lazyWithRetry(() => import('./pages/pouch/PouchEcoGPTKPage'))
 const PouchDielineFinderPage = lazyWithRetry(() => import('./pages/PouchDielineFinderPage'))
+const PouchDielineCreatorPage = lazyWithRetry(() => import('./pages/PouchDielineCreatorPage'))
 
 // Bio-PE Pages - Lazy loaded
 const WhatIsBioPEPage = lazyWithRetry(() => import('./pages/biope/WhatIsBioPEPage'))
@@ -606,6 +608,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/" element={<PouchHomePage />} />
                   <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                   <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
+                  <Route path="/dieline-creator" element={<PouchDielineCreatorPage />} />
                   <Route path="/solutions" element={<PouchSolutionsPage />} />
                   <Route path="/size-guide" element={<Navigate to="/knowledge/pouch-sizing" replace />} />
                   <Route path="/testimonials" element={<PouchTestimonialsPage />} />
@@ -790,6 +793,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/" element={<App />} />
                         <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                         <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
+                        <Route path="/dieline-creator" element={<PouchDielineCreatorPage />} />
                         <Route path="/size-guide" element={<Navigate to="/knowledge/pouch-sizing" replace />} />
                         <Route path="/store" element={<StorePage />} />
                         <Route path="/store/product/:productId" element={<ProductPage />} />

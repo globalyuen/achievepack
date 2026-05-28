@@ -410,6 +410,39 @@ export default function PouchDielineFinderPage() {
             {/* LEFT PANEL: Filters and Directory List (5 cols) */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               
+              {/* NEW: Custom Dieline Creator CTA Banner */}
+              <div className={`p-5 border-4 border-black text-white ${
+                isPouch 
+                  ? 'bg-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' 
+                  : 'bg-gradient-to-br from-indigo-900 to-slate-900 rounded-3xl border border-neutral-800 shadow-xl'
+              }`}>
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[10px] font-bold font-mono px-2 py-0.5 bg-green-500 text-black rounded">
+                      NEW APP
+                    </span>
+                    <span className="text-xs font-black tracking-wider text-green-400 font-mono uppercase">
+                      Custom Size Builder
+                    </span>
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="font-bold text-sm uppercase tracking-tight text-white flex items-center gap-1">
+                      Stand-Up Pouch Dieline Creator
+                    </h4>
+                    <p className="text-[11px] text-neutral-400 leading-normal">
+                      Can't find your exact dimensions in our free catalog? Try our interactive builder to generate custom sizes, preview layouts, and download vector templates instantly!
+                    </p>
+                  </div>
+                  <a
+                    href="/dieline-creator"
+                    className="w-full text-center py-2.5 px-4 bg-green-500 hover:bg-green-600 text-black text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <span>Launch Dieline Creator</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
               {/* Search & Unit Filters */}
               <div className={`p-4 border-4 border-black ${
                 isPouch 

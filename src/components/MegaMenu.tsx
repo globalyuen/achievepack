@@ -886,6 +886,21 @@ export function RightNavMenu() {
                       </div>
                     </Link>
 
+                    {/* Dieline Creator */}
+                    <Link
+                      to="/dieline-creator"
+                      className="flex items-center gap-3 p-2 hover:bg-neutral-50 rounded-xl border border-transparent hover:border-neutral-100 transition-all group"
+                    >
+                      <img src="/imgs/free/dieline-finder-hero.jpg" className="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-neutral-200 group-hover:scale-105 transition-transform" alt="Dieline Creator" />
+                      <div className="text-left">
+                        <div className="font-bold text-xs uppercase tracking-tight text-neutral-850 group-hover:text-green-600 transition-colors flex items-center gap-1">
+                          Dieline Creator
+                          <span className="text-[8px] bg-green-100 text-green-800 px-1 py-0.5 rounded font-black uppercase">NEW</span>
+                        </div>
+                        <div className="text-[10px] text-neutral-500 leading-tight mt-0.5">Custom dieline builder & vector PDF exporter</div>
+                      </div>
+                    </Link>
+
                     {/* Pricing */}
                     <Link
                       to="/pricing"
