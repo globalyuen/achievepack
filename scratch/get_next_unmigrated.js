@@ -62,15 +62,16 @@ async function run() {
     if (pricingData) {
       const items = Array.isArray(pricingData) ? pricingData : Object.values(pricingData);
       items.forEach(item => {
-        const name = item.product_name || item.productName || 'N/A';
+        const rawName = item.product_name || item.productName || 'N/A';
         const material = item.material || 'N/A';
         const size = item.size || 'N/A';
         const features = item.features || 'N/A';
         const pricing = item.pricing || [];
         
-        if (name === 'N/A' || pricing.length === 0) return;
+        if (rawName === 'N/A' || pricing.length === 0) return;
         
-        const slug = generateSlug(name, material, size);
+        const name = `${size} ${rawName}`;
+        const slug = generateSlug(rawName, material, size);
         candidates.push({
           slug,
           name,
@@ -78,7 +79,8 @@ async function run() {
           size,
           features,
           pricing,
-          logId: log.id
+          logId: log.id,
+          viewQuoteLink: `/view-quote/${log.id}`
         });
       });
     }
@@ -149,7 +151,8 @@ async function run() {
     sizeInfo: targetProduct.size,
     usdPricingTiers,
     formattedFeatures,
-    logId: targetProduct.logId
+    logId: targetProduct.logId,
+    viewQuoteLink: targetProduct.viewQuoteLink
   };
   
   console.log(JSON.stringify(result, null, 2));

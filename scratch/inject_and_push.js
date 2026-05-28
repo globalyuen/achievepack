@@ -54,6 +54,7 @@ const productObjectString = `
     minQuantity: ${product.minQuantity},
     quantityStep: ${product.minQuantity},
     sizeInfo: '${product.sizeInfo}',
+    viewQuoteLink: '${product.viewQuoteLink}',
     sizeWithQuantities: [
       {
         id: '${product.slug}-size-default',

@@ -33,6 +33,8 @@ export interface PouchProduct {
   videoUrl?: string
   videoUrls?: string[]
   inquiryOnly?: boolean
+  // Link to official custom quote page reference
+  viewQuoteLink?: string
 }
 
 // New store product types
@@ -61,6 +63,8 @@ export interface BaseStoreProduct {
   inquiryOnly?: boolean
   // Original Taobao supplier source links
   taobaoLinks?: string[]
+  // Link to official custom quote page reference
+  viewQuoteLink?: string
 }
 
 // Sample product
@@ -3707,6 +3711,72 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
 
 // Conventional Stock Products (Ready-made Premium)
 const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
+  {
+    id: 'soft-touch-matte-standup-pouch-432b83ee',
+    name: '231.5 mm * 350.5 mm + 100 mm Stand-up Pouch ( Soft Touch Matte Coating )',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec B2B packaging solution engineered to meet high-performance packaging standards. Utilizing a heavy-duty H touch film / reinforced VMPET / standard PE, thickness 140 microns composite structure, this product ensures maximum barrier resistance against humidity, light, and oxidation. Formulated specifically to retain shelf stability and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, dry treats, specialty foods, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom B2B stand up pouch with Soft Touch Matte Coating (H touch film / reinforced VMPET / standard PE)',
+    features: [
+      "Advanced B2B Specs: Ordinary zipper 13mm-PPE, Digital Print, 140 microns",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance H touch film / reinforced VMPET / standard PE layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 200 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+    ],
+    images: [
+      '/imgs/store/products/soft-touch-matte-standup-pouch-432b83ee.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 200,
+    shape: 'Stand Up Pouch',
+    material: 'H touch film / reinforced VMPET / standard PE, thickness 140 microns',
+    basePrice: 385.20,
+    pricePerPiece: 1.926,
+    minQuantity: 200,
+    quantityStep: 200,
+    sizeInfo: '231.5 mm * 350.5 mm + 100 mm',
+    viewQuoteLink: '/view-quote/432b83ee-cbfb-4c0c-b900-89a02b7c8cab',
+    sizeWithQuantities: [
+      {
+        id: 'soft-touch-matte-standup-pouch-432b83ee-size-default',
+        label: '231.5 mm * 350.5 mm + 100 mm',
+        dimensions: '231.5 mm * 350.5 mm + 100 mm • Soft Touch Matte • Industrial Grade',
+        quantityOptions: [
+          {
+            "quantity": 200,
+            "unitPrice": 1.926,
+            "totalPrice": 385.20
+          },
+          {
+            "quantity": 600,
+            "unitPrice": 0.838,
+            "totalPrice": 502.80
+          },
+          {
+            "quantity": 1000,
+            "unitPrice": 0.625,
+            "totalPrice": 625.00
+          },
+          {
+            "quantity": 2000,
+            "unitPrice": 0.471,
+            "totalPrice": 942.00
+          },
+          {
+            "quantity": 10000,
+            "unitPrice": 0.315,
+            "totalPrice": 3150.00
+          }
+        ]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 200+ pieces. Please consult our team.'
+  },
   // Flat Bottom Pouch with One-Sided Zipper (Conventional Stock)
   {
     id: 'flat-bottom-one-sided-zipper-conventional',

@@ -2088,6 +2088,28 @@ const ProductPage: React.FC = () => {
               
               <p className="text-sm sm:text-base text-neutral-600">{product.description}</p>
               
+              {product.viewQuoteLink && (
+                <div className="bg-emerald-50/50 border border-emerald-200/80 rounded-xl p-4 flex items-center justify-between shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-lg shadow-sm">
+                      📋
+                    </div>
+                    <div className="text-left">
+                      <p className="text-xs text-emerald-800 font-bold uppercase tracking-wider">Official Custom Quote Reference</p>
+                      <p className="text-[10px] text-neutral-500 leading-normal mt-0.5">This product is direct-converted from a verified client factory quote.</p>
+                    </div>
+                  </div>
+                  <a
+                    href={product.viewQuoteLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-white border border-emerald-200 shadow-sm hover:shadow px-4 py-2 rounded-lg transition-all"
+                  >
+                    View Live Quote
+                  </a>
+                </div>
+              )}
+              
               {/* Dynamic Description for Eco Stock - Not for box products */}
               {!isBoxes && (
                 product.id === 'eco-custom-label' ? (
