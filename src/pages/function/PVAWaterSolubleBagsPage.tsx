@@ -117,18 +117,22 @@ const PVAWaterSolubleBagsPage: React.FC = () => {
               Test your formulas in the real world with minimal capital risk. We offer stock sizes of cold-water soluble PVA pouches starting at just <strong>500 units</strong>. For custom printed runs or unique dimensions tailored to your machinery, our entry thresholds are the lowest in the industry.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-4 mt-6">
+          <div className="grid md:grid-cols-4 gap-4 mt-6">
             <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">DIY Custom Stamps</h5>
-              <p className="text-xs text-neutral-700">Use our stock PVA bags and apply a custom organic ink stamp to your outer paper sleeve for a rustic, bespoke look.</p>
+              <p className="text-xs text-neutral-700">Apply custom organic ink stamps to outer paper sleeves over our stock plain PVA bags for an ultra-rapid, low-cost B2C brand launch.</p>
             </div>
             <div className="bg-[#D4FF00] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-black">
               <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Multi-Scent Flex</h5>
-              <p className="text-xs font-semibold">Distribute your volume across multiple scents or formulations to find your best seller without multiplying your startup costs.</p>
+              <p className="text-xs font-semibold">Split your low volume across lavender, citrus, or unscented lines without paying set plate setup fees—perfect for early product discovery.</p>
             </div>
             <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Rapid Prototypes</h5>
-              <p className="text-xs text-neutral-700">Get plain material samples shipped to your lab in days, allowing you to test solubility rate, heat-seal compatibility, and shelf-life.</p>
+              <p className="text-xs text-neutral-700">Plain test samples ship out in 48 hours to evaluate film thickness, heat-seal settings, VFFS machine compatibility, and water dissolution rates.</p>
+            </div>
+            <div className="bg-[#00FFFF] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-black">
+              <h5 className="font-black uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">FAST 7-DAY TURNAROUNDS</h5>
+              <p className="text-xs font-semibold">Skip months of factory delays. Our digital-first printing setup delivers custom-engineered soluble films to your packaging line in record time.</p>
             </div>
           </div>
         </div>
