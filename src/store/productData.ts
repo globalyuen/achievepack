@@ -875,6 +875,66 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
+  {
+    id: 'three-side-seal-bag-recyclable-pe-evoh-pe-composite-film-102',
+    name: 'Three-side seal bag',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec B2B packaging solution engineered to meet high-performance packaging standards. Utilizing a heavy-duty recyclable PE/EVOH-PE composite film composite structure, this product ensures maximum barrier resistance against humidity, light, and oxidation. Formulated specifically to retain shelf stability and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, dry treats, specialty foods, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom B2B three-side seal bag made of recyclable PE/EVOH-PE composite film',
+    features: [
+      "Advanced B2B Specs: no zipper, standard seal width",
+      "Three-Side Seal Bag Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance recyclable PE/EVOH-PE composite film layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 200 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/three-side-seal-bag-recyclable-pe-evoh-pe-composite-film-102.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 200,
+    shape: 'Three-Side Seal Bag',
+    material: 'recyclable PE/EVOH-PE composite film',
+    basePrice: 220.6,
+    pricePerPiece: 1.103,
+    minQuantity: 200,
+    quantityStep: 200,
+    sizeInfo: '102mm x 152mm',
+    sizeWithQuantities: [
+      {
+        id: 'three-side-seal-bag-recyclable-pe-evoh-pe-composite-film-102-size-default',
+        label: '102mm x 152mm',
+        dimensions: '102mm x 152mm • recyclable PE • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 200,
+                    "unitPrice": 1.103,
+                    "totalPrice": 220.6
+          },
+          {
+                    "quantity": 500,
+                    "unitPrice": 0.588,
+                    "totalPrice": 294
+          },
+          {
+                    "quantity": 1000,
+                    "unitPrice": 0.324,
+                    "totalPrice": 324
+          },
+          {
+                    "quantity": 5000,
+                    "unitPrice": 0.103,
+                    "totalPrice": 515
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 200+ pieces. Please consult our team.'
+  },
   // Honeycomb Paper Wrap
   {
     id: 'eco-friendly-kraft-honeycomb-packing-paper-wrap',
