@@ -986,6 +986,56 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     customPrintNote: 'Custom full-color print versions available from 1000+ pieces. Please consult our team.'
   },
   {
+    id: 'middle-seal-gusset-bag-transparent-compostable',
+    name: 'Middle seal gusset bag (Transparent)',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec B2B packaging solution engineered to meet high-performance packaging standards. Utilizing a high-clarity compostable PLA/PBAT transparent structure, this product ensures excellent product visibility while maintaining high barrier protection against humidity and dust. Formulated specifically to retain shelf stability and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, dry treats, specialty foods, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom B2B side gusset pouch with high-clarity transparent compostable film',
+    features: [
+      "Advanced B2B Specs: Transparent bag, thickness 150",
+      "Side Gusset Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance transparent compostable PLA+PBAT layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+    ],
+    images: [
+      '/imgs/store/products/middle-seal-gusset-bag-transparent-compostable.png'
+    ],
+    badge: '🌱 100% Compostable Clear',
+    rating: 4.9,
+    reviews: 12,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Side Gusset Pouch',
+    material: 'Transparent compostable film PLA+PBAT degradable',
+    basePrice: 170,
+    pricePerPiece: 0.17,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: '80 mm +45mm *210 mm +10 mm',
+    sizeWithQuantities: [
+      {
+        id: 'middle-seal-gusset-bag-transparent-compostable-size-default',
+        label: '80 mm +45mm *210 mm +10 mm',
+        dimensions: '80 mm +45mm *210 mm +10 mm • Transparent Compostable • Industrial Grade',
+        quantityOptions: [
+          {
+            "quantity": 1000,
+            "unitPrice": 0.17,
+            "totalPrice": 170
+          },
+          {
+            "quantity": 2000,
+            "unitPrice": 0.113,
+            "totalPrice": 226
+          }
+        ]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 10000+ pieces. Please consult our team.'
+  },
+  {
     id: 'three-side-seal-bag-recyclable-pe-evoh-pe-composite-film-102',
     name: 'Three-side seal bag',
     category: 'conventional-stock',

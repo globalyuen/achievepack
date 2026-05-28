@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-28",
-  "total_images": 1842,
+  "total_images": 1843,
   "total_categories": 162,
   "extensions": {
     ".webp": 1298,
-    ".png": 327,
+    ".png": 328,
     ".jpg": 214,
     ".svg": 3
   },
@@ -8297,8 +8297,14 @@
       ]
     },
     "store/products": {
-      "count": 240,
+      "count": 241,
       "images": [
+        {
+          "filename": "middle-seal-gusset-bag-transparent-compostable.png",
+          "path": "/imgs/store/products/middle-seal-gusset-bag-transparent-compostable.png",
+          "extension": ".png",
+          "modified": "2026-05-28T12:41:46.207Z"
+        },
         {
           "filename": "602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50.png",
           "path": "/imgs/store/products/602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50.png",
