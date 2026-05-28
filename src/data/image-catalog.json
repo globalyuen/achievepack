@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-28",
-  "total_images": 1844,
+  "total_images": 1845,
   "total_categories": 162,
   "extensions": {
     ".webp": 1298,
-    ".png": 329,
+    ".png": 330,
     ".jpg": 214,
     ".svg": 3
   },
@@ -8297,8 +8297,14 @@
       ]
     },
     "store/products": {
-      "count": 242,
+      "count": 243,
       "images": [
+        {
+          "filename": "stand-up-zipper-bag-mopp-double-sided-al-pet-12-standard-pe.png",
+          "path": "/imgs/store/products/stand-up-zipper-bag-mopp-double-sided-al-pet-12-standard-pe.png",
+          "extension": ".png",
+          "modified": "2026-05-28T13:38:36.266Z"
+        },
         {
           "filename": "soft-touch-matte-standup-pouch-432b83ee.png",
           "path": "/imgs/store/products/soft-touch-matte-standup-pouch-432b83ee.png",

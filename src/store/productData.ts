@@ -3712,6 +3712,57 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
 // Conventional Stock Products (Ready-made Premium)
 const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
   {
+    id: 'stand-up-zipper-bag-mopp-double-sided-al-pet-12-standard-pe',
+    name: '120 mm*200 mm*35 mm Stand Up Pouch ( MOPP double-sided )',
+    category: 'conventional-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty MOPP double-sided/AL/PET-12//Standard PE multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B stand up pouch made of MOPP double-sided/AL/PET-12//Standard PE',
+    features: [
+      "Advanced B2B Specs: Ordinary zipper 13mm-PPE, thickness 120",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance MOPP double-sided/AL/PET-12//Standard PE layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,500 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/stand-up-zipper-bag-mopp-double-sided-al-pet-12-standard-pe.png'
+    ],
+    badge: '♻️ Recyclable High Barrier',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1500,
+    shape: 'Stand Up Pouch',
+    material: 'MOPP double-sided/AL/PET-12//Standard PE',
+    basePrice: 510,
+    pricePerPiece: 0.34,
+    minQuantity: 1500,
+    quantityStep: 1500,
+    sizeInfo: '120 mm*200 mm*35 mm',
+    viewQuoteLink: '/view-quote/a906bc05-b5c4-48e5-9554-2a504bce3345',
+    sizeWithQuantities: [
+      {
+        id: 'stand-up-zipper-bag-mopp-double-sided-al-pet-12-standard-pe-size-default',
+        label: '120 mm*200 mm*35 mm',
+        dimensions: '120 mm*200 mm*35 mm • MOPP double-sided • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1500,
+                    "unitPrice": 0.34,
+                    "totalPrice": 510
+          },
+          {
+                    "quantity": 3000,
+                    "unitPrice": 0.261,
+                    "totalPrice": 783
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1500+ pieces. Please consult our team.'
+  },
+  {
     id: 'soft-touch-matte-standup-pouch-432b83ee',
     name: '231.5 mm * 350.5 mm + 100 mm Stand-up Pouch ( Soft Touch Matte Coating )',
     category: 'conventional-stock',

@@ -199,6 +199,7 @@ async function run() {
   console.log(`Log ID: ${targetProduct.logId}`);
   
   // 5. Generate high-quality marketing mockup image
+  const shape = detectShape(targetProduct.name);
   const imageFilename = `${targetProduct.slug}.png`;
   const isEco = targetProduct.material.toLowerCase().includes('compostable') || 
                 targetProduct.material.toLowerCase().includes('kraft') ||
@@ -211,10 +212,34 @@ async function run() {
   
   const prompt = `A professional Amazon-quality B2B e-commerce product mockup of ${targetProduct.name} standing upright, featuring its exact material details (${targetProduct.material}) and size specifications (${targetProduct.size}). Studio lighting, modern premium setup, ${themeAccent} themed backdrop, elegant e-shop presentation, clean aesthetic, achievepack.com branding, sharp details`;
   
-  const imageGenerated = await generateMockup(prompt, imageFilename);
+  let imageGenerated = await generateMockup(prompt, imageFilename);
   if (!imageGenerated) {
-    console.error("Failed to generate product mockup image. Aborting migration to maintain visual quality.");
-    process.exit(1);
+    console.log("Mockup generation failed. Utilizing high-quality e-shop template fallback...");
+    let fallbackSrc = "conven-sup-met-zip-premium.png"; // default conventional
+    if (isEco) {
+      fallbackSrc = "compostable-oval-doypack-premium.png";
+      if (targetProduct.material.toLowerCase().includes("kraft")) {
+        fallbackSrc = "compostable-kraft-premium.png";
+      }
+    } else {
+      if (shape.includes("Flat Bottom")) {
+        fallbackSrc = "pe-flat-bottom-premium.png";
+      } else if (shape.includes("Gusset")) {
+        fallbackSrc = "pe-oval-doypack-premium.png";
+      } else {
+        fallbackSrc = targetProduct.material.toLowerCase().includes("transparent") ? "conven-sup-clear-zip-premium.png" : "conven-sup-met-zip-premium.png";
+      }
+    }
+    const srcPath = path.join(imageDir, fallbackSrc);
+    const destPath = path.join(imageDir, imageFilename);
+    if (fs.existsSync(srcPath)) {
+      fs.copyFileSync(srcPath, destPath);
+      console.log(`Successfully copied fallback mockup template: ${fallbackSrc} -> ${imageFilename}`);
+      imageGenerated = true;
+    } else {
+      console.error(`Fallback template not found at ${srcPath}. Aborting.`);
+      process.exit(1);
+    }
   }
   
   // 6. Convert pricing tiers to USD (rmb / 6.8)
@@ -234,7 +259,6 @@ async function run() {
   usdPricingTiers.sort((a, b) => a.quantity - b.quantity);
   
   const baseTier = usdPricingTiers[0];
-  const shape = detectShape(targetProduct.name);
   const category = isEco ? 'eco-stock' : 'conventional-stock';
   
   // Create features array
@@ -273,6 +297,7 @@ async function run() {
     minQuantity: ${baseTier.quantity},
     quantityStep: ${baseTier.quantity},
     sizeInfo: '${targetProduct.size}',
+    viewQuoteLink: '/view-quote/\${targetProduct.logId}',
     sizeWithQuantities: [
       {
         id: '${targetProduct.slug}-size-default',
@@ -284,12 +309,13 @@ async function run() {
     customPrintNote: 'Custom full-color print versions available from ${baseTier.quantity}+ pieces. Please consult our team.'
   },`;
 
-  // 8. Inject productObjectString right after the ECO_STOCK_PRODUCTS array declaration:
-  // "const ECO_STOCK_PRODUCTS: EcoStockProduct[] = ["
-  const targetArrayKey = "const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [";
+  // 8. Inject productObjectString right after the correct array declaration:
+  const targetArrayKey = category === 'eco-stock' 
+    ? "const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [" 
+    : "const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [";
   const index = productDataText.indexOf(targetArrayKey);
   if (index === -1) {
-    console.error("Could not find ECO_STOCK_PRODUCTS array inside productData.ts");
+    console.error(`Could not find ${targetArrayKey} array inside productData.ts`);
     process.exit(1);
   }
   
@@ -300,7 +326,7 @@ async function run() {
     productDataText.slice(insertionPoint);
     
   fs.writeFileSync(productDataPath, updatedProductDataText, 'utf8');
-  console.log(`\nSuccessfully injected new B2B product [${targetProduct.slug}] into productData.ts!`);
+  console.log(`\nSuccessfully injected new B2B product [${targetProduct.slug}] into productData.ts under [${category}]!`);
   
   console.log("Migration complete!");
 }
