@@ -16,7 +16,16 @@ import {
   CheckCircle,
   HelpCircle,
   Mail,
-  Loader2
+  Loader2,
+  CheckSquare,
+  ThumbsUp,
+  Edit3,
+  AlertTriangle,
+  UploadCloud,
+  MessageCircle,
+  Calendar,
+  ShieldAlert,
+  Scale
 } from 'lucide-react'
 import { jsPDF } from 'jspdf'
 import SiteHeader from '../components/SiteHeader'
@@ -90,6 +99,9 @@ const PRESETS: DielinePreset[] = [
 
 export default function PouchDielineCreatorPage() {
   const isPouchDomain = getDomain() === 'pouch'
+  const checkboxClass = isPouchDomain 
+    ? "rounded-none border-2 border-black text-black focus:ring-0 w-5 h-5 cursor-pointer" 
+    : "rounded border border-neutral-700 bg-neutral-950 text-green-500 focus:ring-0 w-5 h-5 cursor-pointer"
 
   // Sizing State
   const [width, setWidth] = useState(170)
@@ -100,6 +112,59 @@ export default function PouchDielineCreatorPage() {
   const [sideSeals, setSideSeals] = useState(10)
   const [bottomSealCurve, setBottomSealCurve] = useState(45)
   const [roundCorners, setRoundCorners] = useState(true)
+
+  // Checklist Interactive State
+  const [checklist, setChecklist] = useState({
+    size: false,
+    colors: false,
+    eyespot: false,
+    weight: false,
+    upc: false,
+    rollDirection: false,
+    addons: false,
+    seal: false
+  })
+
+  // Selected Decision state
+  const [decision, setDecision] = useState<'approve' | 'approve_changes' | 'revision' | null>(null)
+
+  // Upload/Submit State
+  const [uploadFile, setUploadFile] = useState<File | null>(null)
+  const [uploadProgress, setUploadProgress] = useState(0)
+  const [uploadSuccess, setUploadSuccess] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0]
+      setUploadFile(file)
+      setUploadSuccess(false)
+      setUploadProgress(0)
+    }
+  }
+
+  const simulateUpload = () => {
+    if (!uploadFile) return
+    setIsUploading(true)
+    let progress = 0
+    const interval = setInterval(() => {
+      progress += 10
+      setUploadProgress(progress)
+      if (progress >= 100) {
+        clearInterval(interval)
+        setIsUploading(false)
+        setUploadSuccess(true)
+      }
+    }, 120)
+  }
+
+  const resetUpload = () => {
+    setUploadFile(null)
+    setUploadProgress(0)
+    setUploadSuccess(false)
+    setIsUploading(false)
+  }
 
   // Layer Controls
   const [showGrid, setShowGrid] = useState(true)
@@ -1575,6 +1640,482 @@ export default function PouchDielineCreatorPage() {
                     <p>**Safety Margin bounds**: Keep critical typography, labels, branding, and regulatory nutrition grids strictly inside the amber dotted border.</p>
                   </div>
                 </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* ======================================================== */}
+        {/* POST-DESIGN WORKFLOW: PLACE ARTWORK & SUBMIT SUB-APP     */}
+        {/* ======================================================== */}
+        <div className="mt-12 space-y-12">
+          
+          {/* Section Divider */}
+          <div className="relative flex py-5 items-center">
+            <div className="flex-grow border-t border-neutral-800"></div>
+            <span className={`mx-4 flex-shrink text-xs font-bold uppercase tracking-widest font-mono ${isPouchDomain ? 'text-black' : 'text-neutral-500'}`}>
+              Production Setup & Artwork Submission
+            </span>
+            <div className="flex-grow border-t border-neutral-800"></div>
+          </div>
+
+          {/* Timeline / Visual Illustration of the Process */}
+          <div className={`${isPouchDomain ? "bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-8 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-6`}>
+            <div>
+              <h3 className={`${isPouchDomain ? "font-black text-2xl uppercase tracking-tight font-mono" : "font-extrabold text-xl uppercase tracking-wider text-white"} mb-2`}>
+                Post-Design Guidelines: 4 Simple Steps
+              </h3>
+              <p className="text-sm text-neutral-400">
+                What to do after downloading your custom stand-up pouch template:
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+              {/* Step 1 */}
+              <div className="flex flex-col gap-3 relative">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${isPouchDomain ? 'bg-[#00FFFF] border-2 border-black text-black font-mono shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-blue-500/10 border border-blue-500/20 text-blue-400'}`}>
+                  01
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm uppercase tracking-wide text-white">Import Dieline</h4>
+                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                    Open the A4 or 1:1 Vector PDF file directly in vector software like Adobe Illustrator, CorelDraw, or Figma. Keep the dieline locked on its original layer.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex flex-col gap-3 relative">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${isPouchDomain ? 'bg-[#D4FF00] border-2 border-black text-black font-mono shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'}`}>
+                  02
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm uppercase tracking-wide text-white">Design Layering</h4>
+                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                    Place your custom graphics, logos, and textures on a separate <strong className="text-green-400">Artwork Layer</strong> placed <em>underneath</em> the locked dieline cuts.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex flex-col gap-3 relative">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${isPouchDomain ? 'bg-amber-400 border-2 border-black text-black font-mono shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-amber-500/10 border border-amber-500/20 text-amber-400'}`}>
+                  03
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm uppercase tracking-wide text-white">Prepress Check</h4>
+                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                    Convert all text fonts to outlines, map spot colors, embed graphics, and expand backgrounds to the 3mm bleed margin (green dotted line).
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div className="flex flex-col gap-3 relative">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${isPouchDomain ? 'bg-purple-400 border-2 border-black text-black font-mono shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' : 'bg-purple-500/10 border border-purple-500/20 text-purple-400'}`}>
+                  04
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm uppercase tracking-wide text-white">Verification Sign-off</h4>
+                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                    Run through the prepress checklist below and submit your production file directly to our review desk through one of three pathways.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Three Channel Artwork Submission Area */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Direct Upload Box (7 Columns) */}
+            <div className="lg:col-span-7 flex flex-col gap-6">
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-6`}>
+                <div>
+                  <div className="flex items-center justify-between border-b border-neutral-800 pb-3 mb-2">
+                    <div className="flex items-center gap-2">
+                      <UploadCloud className="w-5 h-5 text-green-400" />
+                      <h3 className={`${isPouchDomain ? "font-black text-xl uppercase tracking-tight font-mono" : "font-extrabold text-base uppercase tracking-wider text-white"}`}>
+                        Submit Finished Artwork Layer
+                      </h3>
+                    </div>
+                    <span className="text-[10px] text-green-400 font-bold bg-green-500/10 px-2 py-0.5 rounded-full font-mono">
+                      SECURE PIPELINE
+                    </span>
+                  </div>
+                  <p className="text-xs text-neutral-400 leading-relaxed">
+                    Upload your completed Adobe Illustrator (.ai), vector PDF, or high-res EPS print file directly to our prepress verification server:
+                  </p>
+                </div>
+
+                {/* Upload drag drop placeholder */}
+                <div 
+                  onClick={() => fileInputRef.current?.click()}
+                  className={`border-2 border-dashed ${isPouchDomain ? 'border-black hover:bg-neutral-50' : 'border-neutral-800 bg-neutral-950 hover:bg-neutral-900'} p-8 rounded-2xl flex flex-col items-center justify-center gap-3 cursor-pointer transition-all`}
+                >
+                  <input 
+                    ref={fileInputRef}
+                    type="file" 
+                    onChange={handleFileChange}
+                    accept=".ai,.pdf,.eps,.zip,.rar"
+                    className="hidden" 
+                  />
+                  <div className={`w-12 h-12 rounded-full ${isPouchDomain ? 'bg-[#00FFFF] border-2 border-black' : 'bg-neutral-900 border border-neutral-800'} flex items-center justify-center text-green-400`}>
+                    <UploadCloud className="w-6 h-6 stroke-[1.8]" />
+                  </div>
+                  <div className="text-center space-y-1">
+                    <p className="text-xs font-bold text-white uppercase tracking-wide">
+                      {uploadFile ? uploadFile.name : 'Select or Drag Dieline Artwork File'}
+                    </p>
+                    <p className="text-[10px] text-neutral-500">
+                      {uploadFile ? `File size: ${(uploadFile.size / 1024 / 1024).toFixed(2)} MB` : 'Supports AI, PDF, EPS, ZIP, RAR up to 150MB'}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Upload Action buttons */}
+                {uploadFile && (
+                  <div className={`p-4 ${isPouchDomain ? 'bg-neutral-50 border-2 border-black' : 'bg-neutral-950 border border-neutral-800'} rounded-xl space-y-4`}>
+                    
+                    {/* Progress Bar */}
+                    {isUploading && (
+                      <div className="space-y-1.5">
+                        <div className="flex justify-between text-[10px] font-bold font-mono">
+                          <span className="text-neutral-400">UPLOADING VECTOR ASSETS...</span>
+                          <span className="text-green-400">{uploadProgress}%</span>
+                        </div>
+                        <div className="w-full bg-neutral-900 h-2 rounded-full overflow-hidden border border-neutral-800">
+                          <div 
+                            className="bg-green-500 h-full transition-all duration-150" 
+                            style={{ width: `${uploadProgress}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Success check */}
+                    {uploadSuccess && (
+                      <div className="flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400 p-3 rounded-lg text-xs font-bold font-mono">
+                        <CheckCircle className="w-4.5 h-4.5" />
+                        <span>PREPRESS UPLOAD COMPLETE! OUR DESIGN DESK HAS RECEIVED YOUR DIELINE SPECIFICATIONS.</span>
+                      </div>
+                    )}
+
+                    {/* Actions */}
+                    <div className="flex gap-2 justify-end">
+                      <button 
+                        onClick={resetUpload}
+                        className={`px-4 py-2 text-xs font-bold uppercase tracking-wider border rounded-lg transition-colors ${isPouchDomain ? 'border-black hover:bg-neutral-100 text-black' : 'border-neutral-800 hover:bg-neutral-900 text-neutral-450'}`}
+                      >
+                        Reset
+                      </button>
+                      <button 
+                        onClick={simulateUpload}
+                        disabled={isUploading || uploadSuccess}
+                        className={`px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors bg-green-500 hover:bg-green-600 text-black disabled:opacity-50`}
+                      >
+                        {isUploading ? 'Uploading...' : uploadSuccess ? 'Submitted' : 'Submit Prepress Package'}
+                      </button>
+                    </div>
+
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Email, WhatsApp, and Meeting channels (5 Columns) */}
+            <div className="lg:col-span-5 flex flex-col gap-4">
+              
+              {/* Channel B: Direct Contact */}
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-4`}>
+                <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono" : "font-extrabold text-sm uppercase tracking-wider text-white"}`}>
+                  Direct Submission Desk
+                </h3>
+                
+                <div className="flex flex-col gap-3">
+                  
+                  {/* Email */}
+                  <a 
+                    href="mailto:artwork@achievepack.com?subject=Custom%20Dieline%20Artwork%20Submission&body=Hi%20Achieve%20Pack%20Team,%20%0A%0AI%20have%20completed%20the%20packaging%20artwork%20using%20your%20custom%20dieline%20creator.%20Please%20find%20the%20attached%20files%20and%20let%20me%20know%20if%20there%20are%20any%20prepress%20revisions%20needed.%20%0A%0ABest%20regards,"
+                    className={`flex items-center gap-3 p-3 border rounded-xl hover:scale-[1.01] transition-all ${isPouchDomain ? 'border-black hover:bg-neutral-50 text-black' : 'border-neutral-850 bg-neutral-950 hover:bg-neutral-900 text-neutral-200'}`}
+                  >
+                    <div className={`w-8 h-8 rounded-lg ${isPouchDomain ? 'bg-[#00FFFF] border-2 border-black' : 'bg-neutral-900 border border-neutral-800'} flex items-center justify-center text-blue-400`}>
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-xs font-bold block uppercase">Submit via Email</span>
+                      <span className="text-[10px] text-neutral-500 font-mono">artwork@achievepack.com</span>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-neutral-500" />
+                  </a>
+
+                  {/* WhatsApp */}
+                  <a 
+                    href="https://wa.me/85269704411?text=Hi%20Achieve%20Pack%20Team,%20I%20have%20completed%20our%20packaging%20artwork%20using%20your%20custom%20dieline%20creator.%20Could%20you%20please%20connect%20me%20with%20a%20packaging%20expert%20to%20verify%20our%20prepress%20tolerance?"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center gap-3 p-3 border rounded-xl hover:scale-[1.01] transition-all ${isPouchDomain ? 'border-black hover:bg-neutral-50 text-black' : 'border-neutral-855 bg-neutral-950 hover:bg-neutral-900 text-neutral-200'}`}
+                  >
+                    <div className={`w-8 h-8 rounded-lg ${isPouchDomain ? 'bg-[#D4FF00] border-2 border-black' : 'bg-neutral-900 border border-neutral-800'} flex items-center justify-center text-green-400`}>
+                      <MessageCircle className="w-4 h-4" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-xs font-bold block uppercase">Submit via WhatsApp</span>
+                      <span className="text-[10px] text-neutral-500 font-mono">+852 6970 4411 (Prepress Desk)</span>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-neutral-500" />
+                  </a>
+
+                </div>
+              </div>
+
+              {/* Channel C: Meeting Consult */}
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-4`}>
+                <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono" : "font-extrabold text-sm uppercase tracking-wider text-white"}`}>
+                  Need a Prepress Alignment?
+                </h3>
+                <p className="text-[11px] leading-relaxed text-neutral-400">
+                  Book a rapid 15-minute screen share review session with Ryan Wong (Co-Founder & Packaging Engineer) to verify your final design:
+                </p>
+
+                <a 
+                  href="https://calendly.com/achievepack/prepress-review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3 px-4 flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-wider border rounded-xl transition-all hover:scale-[1.01] ${isPouchDomain ? 'bg-black text-white border-black hover:bg-neutral-800' : 'bg-neutral-950 hover:bg-neutral-900 border-neutral-800 text-white'}`}
+                >
+                  <Calendar className="w-4 h-4 text-green-400" />
+                  <span>Book 1:1 Prepress Alignment</span>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* ======================================================== */}
+          {/* VERIFICATION CHECKLIST & APPROVAL MATRIX SECTION         */}
+          {/* ======================================================== */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Interactive Checklist (7 Columns) */}
+            <div className="lg:col-span-7 flex flex-col gap-6">
+              
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-6`}>
+                
+                <div>
+                  <div className="flex items-center gap-2 border-b border-neutral-800 pb-3 mb-2">
+                    <CheckSquare className="w-5 h-5 text-green-400" />
+                    <h3 className={`${isPouchDomain ? "font-black text-xl uppercase tracking-tight font-mono" : "font-extrabold text-base uppercase tracking-wider text-white"}`}>
+                      Prepress Verification Checklist
+                    </h3>
+                  </div>
+                  <p className="text-xs text-neutral-400 leading-relaxed">
+                    Before giving your final production print approval, please carefully check and verify the following parameters against your imported design:
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  
+                  {/* Item 1 */}
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.size ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                    <input 
+                      type="checkbox" 
+                      checked={checklist.size}
+                      onChange={() => setChecklist({ ...checklist, size: !checklist.size })}
+                      className={checkboxClass}
+                    />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Size Verification</span>
+                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Dieline dimensions, gussets, and side seals match original layout.</span>
+                    </div>
+                  </label>
+
+                  {/* Item 2 */}
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.colors ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                    <input 
+                      type="checkbox" 
+                      checked={checklist.colors}
+                      onChange={() => setChecklist({ ...checklist, colors: !checklist.colors })}
+                      className={checkboxClass}
+                    />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Correct Colors</span>
+                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Mapped to CMYK print profiles or Pantone Solid Coated (no RGB).</span>
+                    </div>
+                  </label>
+
+                  {/* Item 3 */}
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.eyespot ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                    <input 
+                      type="checkbox" 
+                      checked={checklist.eyespot}
+                      onChange={() => setChecklist({ ...checklist, eyespot: !checklist.eyespot })}
+                      className={checkboxClass}
+                    />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Eyespot Size & Location</span>
+                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Correct eye-mark sensor size and coordinates for high-speed cutters.</span>
+                    </div>
+                  </label>
+
+                  {/* Item 4 */}
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.weight ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                    <input 
+                      type="checkbox" 
+                      checked={checklist.weight}
+                      onChange={() => setChecklist({ ...checklist, weight: !checklist.weight })}
+                      className={checkboxClass}
+                    />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Weight Description</span>
+                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Net weight font is compliant (height minimum 2mm is verified).</span>
+                    </div>
+                  </label>
+
+                  {/* Item 5 */}
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.upc ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                    <input 
+                      type="checkbox" 
+                      checked={checklist.upc}
+                      onChange={() => setChecklist({ ...checklist, upc: !checklist.upc })}
+                      className={checkboxClass}
+                    />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Correct UPC / Bar Code</span>
+                      <span className="text-[10px] text-neutral-500 leading-relaxed block">High contrast solid background scale (minimum 80% to 120%).</span>
+                    </div>
+                  </label>
+
+                  {/* Item 6 */}
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.rollDirection ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                    <input 
+                      type="checkbox" 
+                      checked={checklist.rollDirection}
+                      onChange={() => setChecklist({ ...checklist, rollDirection: !checklist.rollDirection })}
+                      className={checkboxClass}
+                    />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Roll Direction</span>
+                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Wind layout alignment conforms to your packaging machinery specs.</span>
+                    </div>
+                  </label>
+
+                  {/* Item 7 */}
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.addons ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                    <input 
+                      type="checkbox" 
+                      checked={checklist.addons}
+                      onChange={() => setChecklist({ ...checklist, addons: !checklist.addons })}
+                      className={checkboxClass}
+                    />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Add Ons (e.g. zipper, tear notch, etc)</span>
+                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Zipper placement, tear notches, pegs, or degassing valves are correct.</span>
+                    </div>
+                  </label>
+
+                  {/* Item 8 */}
+                  <label className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-all ${checklist.seal ? (isPouchDomain ? 'bg-[#D4FF00]/10 border-black' : 'bg-green-500/5 border-green-500/20') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 hover:border-neutral-700')}`}>
+                    <input 
+                      type="checkbox" 
+                      checked={checklist.seal}
+                      onChange={() => setChecklist({ ...checklist, seal: !checklist.seal })}
+                      className={checkboxClass}
+                    />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Fin / Lap Seal</span>
+                      <span className="text-[10px] text-neutral-500 leading-relaxed block">Back seal seam overlaps are aligned with appropriate margins.</span>
+                    </div>
+                  </label>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Decision Matrix & Legal Warnings (5 Columns) */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              
+              {/* Decision Choice Box */}
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-4`}>
+                <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono text-black" : "font-extrabold text-sm uppercase tracking-wider text-white"}`}>
+                  Your Decision
+                </h3>
+
+                <div className="flex flex-col gap-2">
+                  
+                  {/* Approve as is */}
+                  <button 
+                    onClick={() => setDecision('approve')}
+                    className={`text-left p-3 border rounded-xl transition-all flex items-start gap-3 ${decision === 'approve' ? (isPouchDomain ? 'bg-[#D4FF00] border-black text-black' : 'border-green-500 bg-green-500/10 text-green-400') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 bg-neutral-950 hover:border-neutral-850 text-neutral-400')}`}
+                  >
+                    <ThumbsUp className={`w-4 h-4 mt-0.5 ${decision === 'approve' ? 'text-green-500' : 'text-neutral-500'}`} />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Approve as is</span>
+                      <span className="text-[10px] text-neutral-500 leading-normal block">Perfect! Ready for full commercial production.</span>
+                    </div>
+                  </button>
+
+                  {/* Approve with changes */}
+                  <button 
+                    onClick={() => setDecision('approve_changes')}
+                    className={`text-left p-3 border rounded-xl transition-all flex items-start gap-3 ${decision === 'approve_changes' ? (isPouchDomain ? 'bg-[#00FFFF] border-black text-black' : 'border-blue-500 bg-blue-500/10 text-blue-400') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 bg-neutral-950 hover:border-neutral-855 text-neutral-400')}`}
+                  >
+                    <Edit3 className={`w-4 h-4 mt-0.5 ${decision === 'approve_changes' ? 'text-blue-500' : 'text-neutral-500'}`} />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Approve with changes</span>
+                      <span className="text-[10px] text-neutral-500 leading-normal block">Proceed after minor noted corrections.</span>
+                    </div>
+                  </button>
+
+                  {/* Requires Revision */}
+                  <button 
+                    onClick={() => setDecision('revision')}
+                    className={`text-left p-3 border rounded-xl transition-all flex items-start gap-3 ${decision === 'revision' ? (isPouchDomain ? 'bg-red-400 border-black text-black' : 'border-rose-500 bg-rose-500/10 text-rose-400') : (isPouchDomain ? 'border-neutral-200 hover:border-black' : 'border-neutral-800 bg-neutral-950 hover:border-neutral-855 text-neutral-400')}`}
+                  >
+                    <AlertTriangle className={`w-4 h-4 mt-0.5 ${decision === 'revision' ? 'text-rose-500' : 'text-neutral-500'}`} />
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold block uppercase text-white">Requires Revision</span>
+                      <span className="text-[10px] text-neutral-500 leading-normal block">Do NOT print. Request new proof after changes.</span>
+                    </div>
+                  </button>
+
+                </div>
+              </div>
+
+              {/* Important notice block */}
+              <div className={`${isPouchDomain ? "bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black" : "bg-neutral-900 border border-neutral-800 p-6 text-neutral-200 shadow-xl rounded-3xl"} flex flex-col gap-4`}>
+                <div className="flex items-center gap-2 border-b border-neutral-800 pb-2">
+                  <ShieldAlert className="w-5 h-5 text-amber-500" />
+                  <h3 className={`${isPouchDomain ? "font-black text-base uppercase tracking-tight font-mono text-black" : "font-extrabold text-sm uppercase tracking-wider text-white"}`}>
+                    Important Notice - Please Read Before Approval
+                  </h3>
+                </div>
+
+                <div className="text-[10.5px] leading-relaxed text-neutral-400 space-y-2">
+                  <p>• This proof is an exact duplicate of the original production artwork that will be used to print your product.</p>
+                  <p>• All copy, punctuation and spelling has been proof read by the account executive.</p>
+                  <p className="text-amber-400 font-bold">• We will not be responsible for any discrepancies that are approved by the customer.</p>
+                  <p>• Color Management will be controlled by other document.</p>
+                </div>
+
+                {/* Tolerances */}
+                <div className={`mt-2 p-3 ${isPouchDomain ? 'bg-neutral-50 border border-black' : 'bg-neutral-950 border border-neutral-850'} rounded-xl flex items-center justify-between`}>
+                  <div className="flex items-center gap-2 text-xs font-bold">
+                    <Scale className="w-4 h-4 text-green-400" />
+                    <span>Tolerances:</span>
+                  </div>
+                  <div className="flex gap-4 text-[10px] font-bold font-mono">
+                    <span className="text-neutral-400">Bag Making Tolerance: <strong className="text-white">+/-2mm</strong></span>
+                    <span className="text-neutral-400">Color Tolerance: <strong className="text-white">+/-10%</strong></span>
+                  </div>
+                </div>
+
               </div>
 
             </div>

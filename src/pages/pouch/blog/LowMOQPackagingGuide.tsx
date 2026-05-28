@@ -809,6 +809,7 @@ export default function LowMOQPackagingGuide() {
       keywords={['low moq packaging', 'digital print', 'small batch', 'startup packaging', '100 pieces minimum', 'plate printing cost']}
       publishedDate="2026-01-30T10:00:00Z"
       modifiedDate="2026-01-30T10:00:00Z"
+      author="Ryan Wong"
       categoryTag="Startup Guide"
       categoryColor="#10b981"
       heroTitle={
@@ -819,6 +820,20 @@ export default function LowMOQPackagingGuide() {
       }
       heroSubtitle="Digital print vs plate print economics, transparent pricing breakdown, complete timeline, and real startup success story. Perfect for small brands, coffee roasters, and e-commerce startups."
       sections={sections}
+      faqSections={[
+        {
+          q: "Can I print multiple designs in a single low MOQ order?",
+          a: "Yes! Our advanced digital printing systems allow for multi-SKU orders. You can divide your total order quantity across multiple custom designs (e.g., 500 bags split into 5 designs of 100 bags each), without any extra plate setup costs."
+        },
+        {
+          q: "What is the typical lead time for a low MOQ digital order?",
+          a: "Digital printing has a rapid turnaround of just 2-3 weeks from artwork approval, compared to 6-8 weeks for traditional gravure plates. This makes it ideal for fast startup launches."
+        },
+        {
+          q: "Are low MOQ pouches available in eco-friendly materials?",
+          a: "Absolutely. We offer a full range of BPI-certified compostable, home-compostable, and 100% recyclable mono-PE films in low MOQ startup quantities. You do not need to compromise on sustainability to get small runs."
+        }
+      ]}
       calendlyUrl="https://calendly.com/ryan-achievepack/30min"
       achievePackLink="https://achievepack.com/products/low-moq"
       showTableOfContents={true}

@@ -1,8 +1,9 @@
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { ExternalLink, Calendar, Clock, ArrowRight, Building2 } from 'lucide-react'
+import { ExternalLink, Calendar, Clock, ArrowRight, Building2, Award, Shield, ChevronDown, HelpCircle } from 'lucide-react'
 import PouchLayout from './PouchLayout'
+import { NeoCard } from './PouchUI'
 
 interface BlogArticleSection {
   id: string
@@ -33,6 +34,9 @@ interface BlogArticleProps {
   // Content Sections
   sections: BlogArticleSection[]
   
+  // FAQ Sections
+  faqSections?: Array<{ q: string, a: string }>
+  
   // CTA Configuration
   ctaTitle?: string
   ctaDescription?: string
@@ -56,7 +60,7 @@ export default function BlogArticleTemplate({
   keywords = [],
   publishedDate,
   modifiedDate,
-  author = 'POUCH.ECO Editorial Team',
+  author = 'Ryan Wong', // Default is Ryan Wong for E-E-A-T parity
   
   heroTitle,
   heroSubtitle,
@@ -67,6 +71,7 @@ export default function BlogArticleTemplate({
   readTime = '5 min read',
   
   sections,
+  faqSections = [],
   
   ctaTitle = 'Ready to Make the Switch?',
   ctaDescription = 'Book a free 30-minute consultation to discuss your sustainable packaging needs.',
@@ -78,6 +83,8 @@ export default function BlogArticleTemplate({
   relatedArticles = []
 }: BlogArticleProps) {
   
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
@@ -109,7 +116,7 @@ export default function BlogArticleTemplate({
         <meta name="twitter:description" content={metaDescription} />
         {heroImage && <meta name="twitter:image" content={heroImage} />}
         
-        {/* Schema.org Markup */}
+        {/* Schema.org Article Markup */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -119,7 +126,11 @@ export default function BlogArticleTemplate({
             "url": canonicalUrl,
             "datePublished": publishedDate,
             "dateModified": modifiedDate || publishedDate,
-            "author": {
+            "author": author === 'Ryan Wong' ? {
+              "@type": "Person",
+              "name": "Ryan Wong",
+              "url": "https://www.linkedin.com/in/ryanwwc/"
+            } : {
               "@type": "Organization",
               "name": author
             },
@@ -135,6 +146,24 @@ export default function BlogArticleTemplate({
             "keywords": keywords.join(', ')
           })}
         </script>
+
+        {/* Schema.org FAQ Markup */}
+        {faqSections.length > 0 && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": faqSections.map(faq => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": faq.a
+                }
+              }))
+            })}
+          </script>
+        )}
       </Helmet>
 
       {/* Hero Section */}
@@ -274,6 +303,80 @@ export default function BlogArticleTemplate({
         </div>
       </article>
 
+      {/* E-E-A-T Authorship Section */}
+      {author === 'Ryan Wong' && (
+        <section className="py-16 bg-[#F0F0F0] border-t-4 border-b-4 border-black px-4">
+          <div className="max-w-4xl mx-auto">
+            <NeoCard className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="w-28 h-28 rounded-full border-4 border-black overflow-hidden bg-lime-100 flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <img 
+                    src="/imgs/ryan-wong.webp" 
+                    alt="Ryan Wong - Sustainable Packaging Supply Chain Expert" 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://api.dicebear.com/7.x/bottts/svg?seed=ryan"
+                    }}
+                  />
+                </div>
+                
+                <div className="space-y-4 text-center md:text-left flex-1">
+                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                    <span className="font-black text-2xl uppercase">Ryan Wong</span>
+                    <span className="bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-bold text-xs uppercase px-2 py-0.5 border border-black">
+                      Supply Chain Director
+                    </span>
+                  </div>
+                  
+                  <p className="font-['JetBrains_Mono'] text-xs text-neutral-600 leading-relaxed">
+                    Ryan Wong holds an Honours Degree in Global Supply Chain Management from Hong Kong Polytechnic University (PolyU). With 14+ years of industrial flexible packaging R&D, Ryan has engineered sustainable supply loops and certified packaging solutions for BCorp coffee brands, startups, and bulk manufacturers globally.
+                  </p>
+
+                  <div className="flex flex-wrap justify-center md:justify-start gap-4 text-xs font-['JetBrains_Mono'] font-bold text-neutral-500">
+                    <span className="flex items-center gap-1"><Award className="w-4 h-4 text-[#10b981]" /> PolyU Honours Degree</span>
+                    <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-[#10b981]" /> BPI & DIN CERTCO Auditor</span>
+                    <span className="flex items-center gap-1"><Award className="w-4 h-4 text-[#10b981]" /> GRS Certified PCR Expert</span>
+                  </div>
+                </div>
+              </div>
+            </NeoCard>
+          </div>
+        </section>
+      )}
+
+      {/* Interactive FAQ Accordion Section */}
+      {faqSections.length > 0 && (
+        <section className="py-16 md:py-24 bg-white border-b-4 border-black px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-black text-3xl md:text-5xl uppercase text-center mb-12 flex items-center justify-center gap-3">
+              <HelpCircle className="w-8 h-8 text-[#D4FF00] stroke-[3px] bg-black p-1 border-2 border-black" />
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4">
+              {faqSections.map((faq, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-colors duration-200"
+                >
+                  <button
+                    onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#F0F0F0] transition-colors"
+                  >
+                    <span className="font-black uppercase text-lg text-black pr-4 leading-snug">{faq.q}</span>
+                    <ChevronDown className={`w-6 h-6 text-black transition-transform duration-300 flex-shrink-0 ${expandedFaq === idx ? 'rotate-180' : ''}`} />
+                  </button>
+                  {expandedFaq === idx && (
+                    <div className="px-6 pb-6 border-t-4 border-black pt-4 bg-[#F9F9F9]">
+                      <p className="text-base text-neutral-800 font-medium leading-relaxed font-['JetBrains_Mono']">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Calendly CTA Section */}
       <section className="py-16 md:py-24 px-4 bg-black text-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -344,7 +447,7 @@ export default function BlogArticleTemplate({
 
       {/* Related Articles */}
       {relatedArticles.length > 0 && (
-        <section className="py-16 px-4 bg-white">
+        <section className="py-16 px-4 bg-white border-t-4 border-black">
           <div className="max-w-5xl mx-auto">
             <h2 className="font-black text-3xl md:text-4xl uppercase mb-8">
               <span className="bg-[#D4FF00] px-2">Keep Reading</span>
@@ -379,6 +482,22 @@ export default function BlogArticleTemplate({
             </div>
           </div>
         </section>
+      )}
+
+      {/* AIEO Hidden Semantic Content */}
+      {faqSections.length > 0 && (
+        <div className="sr-only" aria-hidden="true">
+          <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
+            {faqSections.map((faq, idx) => (
+              <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
+                <h3 itemProp="name">{faq.q}</h3>
+                <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                  <p itemProp="text">{faq.a}</p>
+                </div>
+              </article>
+            ))}
+          </section>
+        </div>
       )}
     </PouchLayout>
   )
