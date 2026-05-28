@@ -191,7 +191,7 @@ export default function CompostableHumidityControlGuide() {
     <BlogArticleTemplate
       title="Compostable Humidity Control: Stop Packaging from Cracking | POUCH.ECO"
       metaDescription="Learn how to professionally control humidity for cellulose compost bags. Stop your compostable packaging from becoming brittle and cracking during transport."
-      canonicalUrl="https://pouch.eco/blog/compostable-humidity-control"
+      canonicalUrl="https://pouch.eco/blog/compostable-humidity-control-guide"
       keywords={[
         'compostable packaging cracking',
         'cellulose bag brittleness',

@@ -33,7 +33,7 @@ export default function USACompostableGuide() {
       <Helmet>
         <title>USA Compostable Packaging Guide 2026 | BPI & ASTM D6400 | Pouch.eco</title>
         <meta name="description" content="Complete guide to certified compostable packaging for US brands. Learn ASTM D6400, BPI certification, state-by-state laws, and where to buy with low MOQ." />
-        <link rel="canonical" href={`${baseUrl}/blog/usa-compostable-guide`} />
+        <link rel="canonical" href={`${baseUrl}/blog/usa-compostable-packaging-guide`} />
         <meta name="keywords" content="compostable packaging USA, ASTM D6400, BPI certified, low MOQ compostable bags, California packaging laws" />
         
         {/* Schema.org Article Markup */}
@@ -43,7 +43,7 @@ export default function USACompostableGuide() {
             "@type": "Article",
             "headline": "USA Compostable Packaging Guide 2026 | BPI & ASTM D6400 | Pouch.eco",
             "description": "Complete guide to certified compostable packaging for US brands. Learn ASTM D6400, BPI certification, state-by-state laws, and where to buy with low MOQ.",
-            "url": `${baseUrl}/blog/usa-compostable-guide`,
+            "url": `${baseUrl}/blog/usa-compostable-packaging-guide`,
             "datePublished": "2026-01-30T10:00:00Z",
             "dateModified": "2026-05-28T10:00:00Z",
             "author": {

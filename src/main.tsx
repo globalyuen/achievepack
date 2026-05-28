@@ -614,7 +614,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/testimonials" element={<PouchTestimonialsPage />} />
                   <Route path="/blog" element={<PouchBlogPage />} />
                   <Route path="/blog/:slug" element={<PouchBlogArticlePage />} />
-                  <Route path="/blog/usa-compostable-guide" element={<USACompostableGuide />} />
+                  <Route path="/blog/usa-compostable-packaging-guide" element={<USACompostableGuide />} />
                   <Route path="/blog/coffee-packaging-guide" element={<CoffeePackagingGuide />} />
                   <Route path="/blog/usa-coffee-packaging" element={<USACoffeePackaging />} />
                   <Route path="/blog/compostable-stand-up-pouches-guide" element={<CompostableStandUpPouchesGuide />} />
@@ -644,8 +644,8 @@ if (getDomain() === 'pouch') {
                   <Route path="/blog/bpi-certified-guide" element={<BPICertifiedGuide />} />
                   <Route path="/blog/coffee-degassing-valve-guide" element={<CoffeeDegassingValveGuide />} />
                   <Route path="/blog/home-compostable-guide" element={<HomeCompostableGuide />} />
-                  <Route path="/blog/organic-compliance-support" element={<OrganicComplianceSupportGuide />} />
-                  <Route path="/blog/compostable-humidity-control" element={<CompostableHumidityControlPage />} />
+                  <Route path="/blog/organic-compliance-support-guide" element={<OrganicComplianceSupportGuide />} />
+                  <Route path="/blog/compostable-humidity-control-guide" element={<PouchHumidityControlGuide />} />
                   <Route path="/blog/compostable-zipper-no-removal" element={<PouchCompostableZipperNoRemovalPage />} />
                   <Route path="/blog/stamp-foil-recyclability" element={<PouchStampFoilRecyclabilityPage />} />
                   <Route path="/certifications" element={<PouchCertificationsPage />} />
