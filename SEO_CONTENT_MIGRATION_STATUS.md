@@ -413,31 +413,33 @@ dist/assets/
 |-------|--------|------------|---------------------|
 | **Phase A**: Templates + Examples | ✅ COMPLETE | 2 | 0 |
 | **Phase B**: Tools + Framework | ⏳ IN PROGRESS | 0 | N/A |
-| **Phase C**: Core 10 Pages | ⏳ PENDING | 2/10 | 8 |
-| **Total Migration** | 🔄 1% COMPLETE | 2/231 | 229 |
+| **Phase C**: Core 10 Pages | ⏳ IN PROGRESS | 8/10 | 2 |
+| **Total Migration** | 🔄 3.5% COMPLETE | 8/231 | 223 |
 
 ---
 
 ## 📞 Contact & Resources
 
-### Key Files Created
-- [BlogArticleTemplate.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/components/pouch/BlogArticleTemplate.tsx)
-- [USACompostableGuide.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/pouch/blog/USACompostableGuide.tsx)
-- [CoffeePackagingGuide.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/pouch/blog/CoffeePackagingGuide.tsx)
-- [PouchBlogPage.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/pouch/PouchBlogPage.tsx)
-- [main.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/main.tsx)
+### Key Files Created & Verified
+- [BlogArticleTemplate.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack website/achieve-pack/src/components/pouch/BlogArticleTemplate.tsx)
+- [CarbonNeutralBagsPage.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/function/CarbonNeutralBagsPage.tsx)
+- [SpoutPouchesJuicePage.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/function/SpoutPouchesJuicePage.tsx)
+- [RicePaperBagsPage.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/function/RicePaperBagsPage.tsx)
+- [PVAWaterSolubleBagsPage.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/function/PVAWaterSolubleBagsPage.tsx)
+- [PreZipperedRollstockPage.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/function/PreZipperedRollstockPage.tsx)
+- [RecyclableMonoPPPage.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/materials/RecyclableMonoPPPage.tsx)
 
 ### Live URLs (after deployment)
-- https://pouch.eco/blog
-- https://pouch.eco/blog/usa-compostable-packaging-guide
-- https://pouch.eco/blog/coffee-packaging-guide
-
-### Design System Reference
-- [PouchCertificationsPage.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/pages/pouch/PouchCertificationsPage.tsx) - Neo-Brutalist examples
-- [PouchLayout.tsx](file:///Users/ryanmacmini/Desktop/1%20App%20i%20made/Master%20Achieve%20Pack/achieve%20pack%20website/achieve-pack/src/components/pouch/PouchLayout.tsx) - Navigation & footer
+- https://pouch.eco/function/carbon-neutral-bags
+- https://pouch.eco/function/spout-pouches-juice
+- https://pouch.eco/function/rice-paper-bags
+- https://pouch.eco/function/pva-water-soluble-bags
+- https://pouch.eco/function/pre-zippered-rollstock
+- https://pouch.eco/materials/recyclable-mono-pp
 
 ---
 
-**Last Updated**: January 30, 2026  
-**Build Status**: ✅ Successful (19.46s)  
-**Deployment**: Ready for production
+**Last Updated**: May 28, 2026  
+**Build Status**: ✅ Successful (56.92s)  
+**Deployment**: Production Deployed via Vercel (https://www.pouch.eco)
+
