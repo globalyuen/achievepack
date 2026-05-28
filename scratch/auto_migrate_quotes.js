@@ -297,7 +297,7 @@ async function run() {
     minQuantity: ${baseTier.quantity},
     quantityStep: ${baseTier.quantity},
     sizeInfo: '${targetProduct.size}',
-    viewQuoteLink: '/view-quote/\${targetProduct.logId}',
+    viewQuoteLink: '/view-quote/${targetProduct.logId}',
     sizeWithQuantities: [
       {
         id: '${targetProduct.slug}-size-default',
