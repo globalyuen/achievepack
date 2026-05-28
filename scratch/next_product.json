@@ -1,35 +1,45 @@
 {
   "status": "FOUND",
-  "slug": "middle-seal-gusset-bag-white-kraft-paper-60g-pla-aluminized",
-  "name": "Middle seal gusset bag",
-  "material": "White kraft paper-60g/PLA aluminized///PLA+PBAT degradable",
-  "size": "80 mm +45mm *210 mm +10 mm",
+  "slug": "602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50",
+  "name": "602-4 Zipper Stand-up Pouch",
+  "material": "High Barrier NK25/White Kraft 50g/PBS 60, total thickness 135U",
+  "size": "190x275+55 mm",
   "category": "eco-stock",
-  "shape": "Side Gusset Pouch",
+  "shape": "Stand Up Pouch",
   "badgeLabel": "🌱 100% Compostable",
   "isEco": true,
-  "basePrice": 385,
-  "pricePerPiece": 0.385,
-  "minQuantity": 1000,
-  "sizeInfo": "80 mm +45mm *210 mm +10 mm",
+  "basePrice": 1740,
+  "pricePerPiece": 0.174,
+  "minQuantity": 10000,
+  "sizeInfo": "190x275+55 mm",
   "usdPricingTiers": [
     {
-      "quantity": 1000,
-      "unitPrice": 0.385,
-      "totalPrice": 385
+      "quantity": 10000,
+      "unitPrice": 0.174,
+      "totalPrice": 1740
     },
     {
-      "quantity": 2000,
-      "unitPrice": 0.253,
-      "totalPrice": 506
+      "quantity": 20000,
+      "unitPrice": 0.169,
+      "totalPrice": 3380
+    },
+    {
+      "quantity": 30000,
+      "unitPrice": 0.166,
+      "totalPrice": 4980
+    },
+    {
+      "quantity": 50000,
+      "unitPrice": 0.163,
+      "totalPrice": 8150
     }
   ],
   "formattedFeatures": [
-    "Advanced B2B Specs: Partial copper plate matte oil, thickness 150",
-    "Side Gusset Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
-    "Premium Material Structure: Engineered using high-performance White kraft paper-60g/PLA aluminized///PLA+PBAT degradable layers.",
-    "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+    "Advanced B2B Specs: Zipper stand-up pouch, 22.81g per bag",
+    "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+    "Premium Material Structure: Engineered using high-performance High Barrier NK25/White Kraft 50g/PBS 60, total thickness 135U layers.",
+    "Wholesale Value Tiers: Low MOQ starting from 10,000 pieces with custom discounts.",
     "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
   ],
-  "logId": "7ad53a68-837e-43a2-9386-9d4cc1f50512"
+  "logId": "e99d6a2b-8209-46e0-9634-9eea5d75ad6b"
 }

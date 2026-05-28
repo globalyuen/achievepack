@@ -876,6 +876,66 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
   {
+    id: '602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50',
+    name: '602-4 Zipper Stand-up Pouch',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec B2B packaging solution engineered to meet high-performance packaging standards. Utilizing a heavy-duty High Barrier NK25/White Kraft 50g/PBS 60, total thickness 135U composite structure, this product ensures maximum barrier resistance against humidity, light, and oxidation. Formulated specifically to retain shelf stability and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, dry treats, specialty foods, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom B2B stand up pouch made of High Barrier NK25/White Kraft 50g/PBS 60',
+    features: [
+      "Advanced B2B Specs: Zipper stand-up pouch, 22.81g per bag",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance High Barrier NK25/White Kraft 50g/PBS 60, total thickness 135U layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 10,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50.png'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 10000,
+    shape: 'Stand Up Pouch',
+    material: 'High Barrier NK25/White Kraft 50g/PBS 60, total thickness 135U',
+    basePrice: 1740,
+    pricePerPiece: 0.174,
+    minQuantity: 10000,
+    quantityStep: 10000,
+    sizeInfo: '190x275+55 mm',
+    sizeWithQuantities: [
+      {
+        id: '602-4-zipper-stand-up-pouch-high-barrier-nk25-white-kraft-50-size-default',
+        label: '190x275+55 mm',
+        dimensions: '190x275+55 mm • High Barrier NK25 • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 10000,
+                    "unitPrice": 0.174,
+                    "totalPrice": 1740
+          },
+          {
+                    "quantity": 20000,
+                    "unitPrice": 0.169,
+                    "totalPrice": 3380
+          },
+          {
+                    "quantity": 30000,
+                    "unitPrice": 0.166,
+                    "totalPrice": 4980
+          },
+          {
+                    "quantity": 50000,
+                    "unitPrice": 0.163,
+                    "totalPrice": 8150
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 10000+ pieces. Please consult our team.'
+  },
+  {
     id: 'middle-seal-gusset-bag-white-kraft-paper-60g-pla-aluminized',
     name: 'Middle seal gusset bag',
     category: 'eco-stock',
