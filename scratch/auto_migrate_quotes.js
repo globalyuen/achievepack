@@ -142,15 +142,25 @@ async function run() {
     if (pricingData) {
       const items = Array.isArray(pricingData) ? pricingData : Object.values(pricingData);
       items.forEach(item => {
-        const name = item.product_name || item.productName || 'N/A';
+        const rawName = item.product_name || item.productName || 'N/A';
         const material = item.material || 'N/A';
         const size = item.size || 'N/A';
         const features = item.features || 'N/A';
         const pricing = item.pricing || [];
         
-        if (name === 'N/A' || pricing.length === 0) return;
+        if (rawName === 'N/A' || pricing.length === 0) return;
         
-        const slug = generateSlug(name, material, size);
+        const shape = detectShape(rawName);
+        let name = `${size} ${rawName}`;
+        if (!rawName.includes('(') && !rawName.includes(')')) {
+          let matClean = material.split(',')[0].trim();
+          matClean = matClean.replace(/thickness.*$/gi, '').trim();
+          matClean = matClean.split('/')[0].trim(); // Get outer layer / primary coating
+          matClean = matClean.replace(/\s*\/+\s*$/g, '').trim();
+          name = `${size} ${shape} ( ${matClean} )`;
+        }
+
+        const slug = generateSlug(rawName, material, size);
         candidates.push({
           slug,
           name,
@@ -167,9 +177,10 @@ async function run() {
   // 4. Find the first unmigrated unique product
   let targetProduct = null;
   for (const p of candidates) {
-    // Check if productData.ts already has this slug/id
+    // Check if productData.ts already has this slug/id or quote ID
     const hasSlug = productDataText.includes(`id: '${p.slug}'`) || productDataText.includes(`id: "${p.slug}"`);
-    if (!hasSlug) {
+    const hasQuoteId = productDataText.includes(p.logId);
+    if (!hasSlug && !hasQuoteId) {
       targetProduct = p;
       break;
     }

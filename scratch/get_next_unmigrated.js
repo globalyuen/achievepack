@@ -70,7 +70,16 @@ async function run() {
         
         if (rawName === 'N/A' || pricing.length === 0) return;
         
-        const name = `${size} ${rawName}`;
+        const shape = detectShape(rawName);
+        let name = `${size} ${rawName}`;
+        if (!rawName.includes('(') && !rawName.includes(')')) {
+          let matClean = material.split(',')[0].trim();
+          matClean = matClean.replace(/thickness.*$/gi, '').trim();
+          matClean = matClean.split('/')[0].trim(); // Get outer layer / primary coating
+          matClean = matClean.replace(/\s*\/+\s*$/g, '').trim();
+          name = `${size} ${shape} ( ${matClean} )`;
+        }
+
         const slug = generateSlug(rawName, material, size);
         candidates.push({
           slug,
@@ -89,7 +98,8 @@ async function run() {
   let targetProduct = null;
   for (const p of candidates) {
     const hasSlug = productDataText.includes(`id: '${p.slug}'`) || productDataText.includes(`id: "${p.slug}"`);
-    if (!hasSlug) {
+    const hasQuoteId = productDataText.includes(p.logId);
+    if (!hasSlug && !hasQuoteId) {
       targetProduct = p;
       break;
     }
