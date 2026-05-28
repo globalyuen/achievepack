@@ -3047,8 +3047,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     minOrder: 10000,
     shape: 'Rollstock',
     material: 'Coated Kraft Paper 50g (Front) / Coated Translucent Kraft Paper 50g (Back)',
-    basePrice: 0.126,
-    pricePerPiece: 0.126,
+    basePrice: 0.066,
+    pricePerPiece: 0.066,
     minQuantity: 10000,
     quantityStep: 10000,
     sizeInfo: 'Sachet cut yield size: 80 × 80 mm (Custom width, core, and eye-marks available on request)',
@@ -3061,8 +3061,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '80 × 80 mm sachet size • Unprinted/Bare Material • Core: 3 inches (76mm) • Holds small portion/sachet products',
         hasHole: false,
         quantity: 10000,
-        totalPrice: 1260.00,
-        unitPrice: 0.1260,
+        totalPrice: 660.00,
+        unitPrice: 0.0660,
         heroImageIndex: 0
       },
       {
@@ -3071,8 +3071,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '80 × 80 mm sachet size • Unprinted/Bare Material • Core: 3 inches (76mm) • Holds small portion/sachet products',
         hasHole: false,
         quantity: 50000,
-        totalPrice: 3150.00,
-        unitPrice: 0.0630,
+        totalPrice: 1650.00,
+        unitPrice: 0.0330,
         heroImageIndex: 0
       },
       {
@@ -3081,8 +3081,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '80 × 80 mm sachet size • Unprinted/Bare Material • Core: 3 inches (76mm) • Holds small portion/sachet products',
         hasHole: false,
         quantity: 100000,
-        totalPrice: 5040.00,
-        unitPrice: 0.0504,
+        totalPrice: 2600.00,
+        unitPrice: 0.0260,
         heroImageIndex: 0
       },
       {
@@ -3091,8 +3091,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '80 × 80 mm sachet size • HP Indigo Custom Full-Color Digital Print • Water-based compostable inks • Core: 3 inches',
         hasHole: false,
         quantity: 10000,
-        totalPrice: 1680.00,
-        unitPrice: 0.1680,
+        totalPrice: 880.00,
+        unitPrice: 0.0880,
         heroImageIndex: 1
       },
       {
@@ -3101,8 +3101,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '80 × 80 mm sachet size • HP Indigo Custom Full-Color Digital Print • Water-based compostable inks • Core: 3 inches',
         hasHole: false,
         quantity: 50000,
-        totalPrice: 6300.00,
-        unitPrice: 0.1260,
+        totalPrice: 3300.00,
+        unitPrice: 0.0660,
         heroImageIndex: 1
       },
       {
@@ -3111,8 +3111,8 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
         dimensions: '80 × 80 mm sachet size • HP Indigo Custom Full-Color Digital Print • Water-based compostable inks • Core: 3 inches',
         hasHole: false,
         quantity: 100000,
-        totalPrice: 10500.00,
-        unitPrice: 0.1050,
+        totalPrice: 5500.00,
+        unitPrice: 0.0550,
         heroImageIndex: 1
       }
     ],
