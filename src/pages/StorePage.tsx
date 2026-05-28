@@ -85,6 +85,7 @@ const CATEGORIES = [
 
 const SHAPES = [
   { id: 'all', label: 'All Shapes' },
+  { id: 'Rollstock', label: 'Rollstock' },
   { id: '3 Side Seal Pouch', label: '3 Side Seal' },
   { id: 'Center Seal Pouch', label: 'Center Seal' },
   { id: 'Stand Up Pouch / Doypack', label: 'Stand Up' },
@@ -98,52 +99,6 @@ const SHAPES = [
   { id: 'Corrugated Box', label: 'Corrugated Box' },
   { id: 'Tuck Box', label: 'Tuck Box' },
   { id: 'Label & Sticker', label: 'Label & Sticker' },
-]
-
-const STORE_FEATURES = [
-  {
-    id: 'flat-bottom-zipper',
-    title: 'Flat Bottom Pouch with One-Sided Zipper',
-    description: 'Conventional Stock Flat Bottom eight-side seal pouch with convenient easy-tear zipper closure. Pure matte finish, high-barrier fresh aroma preservation.',
-    link: '/store/product/flat-bottom-one-sided-zipper-conventional',
-    images: [
-      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-1.jpg',
-      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-2.jpg',
-      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-3.jpg',
-      '/imgs/store/products/flat-bottom-one-sided-zipper-conventional-thumbnail-4.jpg'
-    ],
-  },
-  {
-    id: 'triangle-box',
-    title: 'Triangle Coffee Box with Card Insertion Slot',
-    description: 'Premium structural triangular B2B paper box featuring an integrated label card slot. FSC eco-responsible stock, perfect for premium modular roaster branding.',
-    link: '/store/product/triangle-coffee-box-card',
-    images: [
-      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-1.jpg',
-      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-2.jpg',
-      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-3.jpg',
-      '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-4.jpg'
-    ],
-  },
-  {
-    id: 'conventional',
-    title: 'Conventional Stand Up Pouch',
-    description: 'Metallised with Zipper. Get high barrier protection with an optional premium foiling effect.',
-    link: '/store/product/conven-sup-met-zip',
-    images: [
-      '/imgs/store/hero/conventional.png'
-    ],
-  },
-  {
-    id: 'eco',
-    title: 'Eco Digital Stand Up Pouch',
-    description: 'Premium eco stand-up pouch. Excellent shelf presence with sustainable materials.',
-    link: '/store/product/eco-standup',
-    images: [
-      '/imgs/store/hero/eco-digital.png',
-      '/imgs/store/pouch shape/stand-up.webp'
-    ],
-  }
 ]
 
 const getProductClassification = (product: StoreProduct): 'compostable' | 'recyclable' | 'conventional' => {
@@ -191,6 +146,110 @@ const getProductClassification = (product: StoreProduct): 'compostable' | 'recyc
   return 'conventional'
 }
 
+const SHAPE_ITEMS = [
+  {
+    id: 'Rollstock',
+    label: 'Rollstock',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <ellipse cx="75" cy="40" rx="4" ry="10" />
+        <ellipse cx="75" cy="40" rx="9" ry="20" />
+        <ellipse cx="75" cy="40" rx="14" ry="30" />
+        <path d="M75 10 C 50 10, 36 14, 26 34 C 20 48, 18 64, 8 64 C 5 64, 3 60, 5 56 C 7 52, 11 52, 14 56" />
+        <path d="M75 70 L52 70 C 46 70, 43 66, 41 60" />
+      </svg>
+    )
+  },
+  {
+    id: '3 Side Seal Pouch',
+    label: '3 side seal',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M32 15 H68 V26 L65 28 L68 30 V64 C68 68 65 71 61 71 H39 C35 71 32 68 32 64 V30 L35 28 L32 26 Z" />
+        <line x1="32" y1="20" x2="68" y2="20" strokeWidth="1" />
+        <path d="M37 15 V66 H63 V15" strokeWidth="1" strokeDasharray="2 2" />
+      </svg>
+    )
+  },
+  {
+    id: 'Center Seal Pouch',
+    label: 'Center seal',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M30 15 H70" strokeWidth="3" />
+        <path d="M30 67 H70" strokeWidth="3" />
+        <path d="M30 15 C21 28 21 54 30 67" />
+        <path d="M70 15 C79 28 79 54 70 67" />
+        <path d="M47 15 V67 M53 15 V67" strokeWidth="1.2" />
+        <path d="M47 25 L53 30 M47 40 L53 45 M47 55 L53 60" strokeWidth="1" />
+      </svg>
+    )
+  },
+  {
+    id: 'Stand Up Pouch / Doypack',
+    label: 'Stand Up Pouch',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M32 15 H68 V26 L66 28 L68 30 V58 C68 65 61 69 50 69 C39 69 32 65 32 58 V30 L34 28 L32 26 Z" />
+        <line x1="32" y1="21" x2="68" y2="21" strokeWidth="1" />
+        <path d="M32 58 C38 62 62 62 68 58" strokeWidth="1.8" />
+        <path d="M35 59 L38 65 M65 59 L62 65" strokeWidth="1" />
+      </svg>
+    )
+  },
+  {
+    id: 'Flat Squared Bottom Pouch',
+    label: 'Flat Bottom Pouch',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M32 18 H54 V70 H32 Z" />
+        <path d="M54 18 L68 23 V64 L54 70" />
+        <path d="M32 18 L54 18 L68 23" strokeWidth="3" />
+        <path d="M61 20.5 V67" strokeWidth="1" strokeDasharray="3 3" />
+        <path d="M32 70 L54 70 L68 64" />
+      </svg>
+    )
+  },
+  {
+    id: 'Side Gusset Pouch',
+    label: 'Side Gusset Pouch',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M35 15 H65 V20 L61 25 V70 H39 V25 L35 20 Z" />
+        <path d="M44 25 V70" strokeWidth="1.5" />
+        <path d="M56 25 V70" strokeWidth="1.5" strokeDasharray="2 2" />
+        <line x1="35" y1="20" x2="65" y2="20" strokeWidth="1.5" />
+      </svg>
+    )
+  },
+  {
+    id: 'Quad Seal Pouch',
+    label: 'Quad Seal Pouch',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M32 18 H52 V68 H32 Z" />
+        <path d="M52 18 L66 22 V63 L52 68" />
+        <path d="M35 18 V68 M49 18 V68 M55 19 V66 M63 21 V64" strokeWidth="1.2" />
+        <path d="M32 18 H52 L66 22" strokeWidth="2.2" />
+      </svg>
+    )
+  },
+  {
+    id: 'Box Bottom Pouch',
+    label: 'Box Bottom Pouch',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <path d="M32 18 H52 V68 H32 Z" />
+        <path d="M52 18 L66 21 V63 L52 68" />
+        <path d="M32 68 L42 72 L52 68 L66 63" />
+        <path d="M42 72 V68" strokeWidth="1" strokeDasharray="2 2" />
+        <path d="M32 18 L52 18 L66 21" strokeWidth="3" />
+        <path d="M59 19.5 V65" strokeWidth="1" />
+      </svg>
+    )
+  }
+]
+
 const StorePage: React.FC = () => {
   const { t } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
@@ -211,24 +270,7 @@ const StorePage: React.FC = () => {
   const [isSortOpen, setIsSortOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
-  const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0)
-  const [imageTick, setImageTick] = useState(0)
 
-  // Auto-advance featured banner image thumbnails
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setImageTick(prev => prev + 1)
-    }, 2200)
-    return () => clearInterval(timer)
-  }, [])
-
-  // Auto-advance main featured slides
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentFeatureIndex(prev => (prev + 1) % STORE_FEATURES.length)
-    }, 9000)
-    return () => clearInterval(timer)
-  }, [])
 
   // Dynamically compute category counts based on FEATURED_PRODUCTS
   const categoryCounts = useMemo(() => {
@@ -250,13 +292,7 @@ const StorePage: React.FC = () => {
     return counts
   }, [])
 
-  const nextFeature = () => {
-    setCurrentFeatureIndex((prev) => (prev + 1) % STORE_FEATURES.length)
-  }
 
-  const prevFeature = () => {
-    setCurrentFeatureIndex((prev) => (prev - 1 + STORE_FEATURES.length) % STORE_FEATURES.length)
-  }
 
   // Sync state with URL params when they change
   useEffect(() => {
@@ -290,16 +326,17 @@ const StorePage: React.FC = () => {
 
   const handleShapeChange = useCallback((shapeId: string) => {
     startTransition(() => {
-      setSelectedShape(shapeId)
+      const nextShape = selectedShape === shapeId ? 'all' : shapeId
+      setSelectedShape(nextShape)
       const newParams = new URLSearchParams(searchParams)
-      if (shapeId === 'all') {
+      if (nextShape === 'all') {
         newParams.delete('shape')
       } else {
-        newParams.set('shape', shapeId)
+        newParams.set('shape', nextShape)
       }
       setSearchParams(newParams, { replace: true })
     })
-  }, [searchParams, setSearchParams])
+  }, [selectedShape, searchParams, setSearchParams])
 
   const handleSortChange = useCallback((option: SortOption) => {
     setSortBy(option)
@@ -346,6 +383,7 @@ const StorePage: React.FC = () => {
 
   // Map URL shape params to internal shape names
   const urlShapeToInternal: Record<string, string> = {
+    'rollstock': 'Rollstock',
     '3-side-seal': '3 Side Seal Pouch',
     'stand-up': 'Stand Up Pouch / Doypack',
     'flat-bottom': 'Flat Squared Bottom Pouch',
@@ -404,6 +442,35 @@ const StorePage: React.FC = () => {
       }
     })
   }, [filteredProducts, sortBy])
+
+  // Insert Rollstock product into display list if appropriate
+  const displayProducts = useMemo(() => {
+    const rollstockItem: StoreProduct = {
+      id: 'rollstock-custom',
+      name: 'Pre-Zippered Rollstock (Continuous Film)',
+      shortDesc: 'Automated FFS packaging film with pre-applied zippers. Recyclable or certified compostable materials.',
+      description: 'Premium continuous film rollstock engineered for automated Form-Fill-Seal (FFS) high-speed lines. Available in single-stream recyclable Mono-PE, Bio-PE, or TUV certified compostable kraft structures. Optional pre-applied inline resealable zipper closures.',
+      basePrice: 0.08,
+      turnaround: '15 - 20 Days',
+      rating: 4.9,
+      reviews: 48,
+      images: ['/imgs/pouch-shape/ads/a_achieve_pack_rollstock_closeup_5394787.webp'],
+      category: 'eco-digital',
+      shape: 'Rollstock',
+      inquiryOnly: true,
+      badge: 'Custom Roll'
+    } as any;
+
+    if (selectedShape === 'Rollstock') {
+      return [rollstockItem];
+    }
+    
+    if (selectedShape === 'all' && searchQuery === '') {
+      return [...sortedProducts, rollstockItem];
+    }
+
+    return sortedProducts;
+  }, [sortedProducts, selectedShape, searchQuery]);
 
   const getSortLabel = (sort: SortOption) => {
     const labels: Record<SortOption, string> = {
@@ -605,86 +672,71 @@ const StorePage: React.FC = () => {
         </div>
       </div>
 
-      {/* Feature Carousel Section */}
-      <section className="hidden md:block bg-white py-2.5 border-b border-neutral-200 mb-2 relative overflow-hidden">
-        <div className="absolute inset-y-0 left-4 flex items-center z-20 pointer-events-none">
-          <button 
-            onClick={prevFeature}
-            className="flex p-1 rounded-full bg-white/90 backdrop-blur shadow border border-neutral-200 text-neutral-600 hover:text-primary-600 hover:bg-white transition-all transform hover:-translate-x-0.5 pointer-events-auto mx-1"
-          >
-            <ChevronLeft className="w-3.5 h-3.5" />
-          </button>
-        </div>
-        <div className="absolute inset-y-0 right-4 flex items-center z-20 pointer-events-none">
-          <button 
-            onClick={nextFeature}
-            className="flex p-1 rounded-full bg-white/90 backdrop-blur shadow border border-neutral-200 text-neutral-600 hover:text-primary-600 hover:bg-white transition-all transform hover:translate-x-0.5 pointer-events-auto mx-1"
-          >
-            <ChevronRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        <div className="max-w-5xl mx-auto px-10 relative">
-          <div className="relative">
-            {STORE_FEATURES.map((feature, idx) => (
-              <div 
-                key={feature.id}
-                className={`transition-opacity duration-500 ease-in-out ${idx === currentFeatureIndex ? 'opacity-100 relative z-10' : 'opacity-0 absolute inset-0 z-0 pointer-events-none'}`}
-              >
-                <div className="flex items-center justify-between gap-6 max-w-4xl mx-auto">
-                  {/* Left Group: Info & Buy Button */}
-                  <div className="flex-1 flex flex-col justify-center text-left min-w-0">
-                    <div className="inline-flex items-center gap-1 text-[9px] font-bold text-primary-600 uppercase tracking-wider mb-0.5">
-                      <Sparkles className="w-2.5 h-2.5" />
-                      Featured Product
-                    </div>
-                    <h2 className="text-sm font-bold text-neutral-900 mb-0.5 tracking-tight leading-snug truncate">
-                      {feature.title}
-                    </h2>
-                    <p className="text-[10px] text-neutral-500 mb-1.5 leading-relaxed line-clamp-1">
-                      {feature.description}
-                    </p>
-                    <div className="pointer-events-auto">
-                      <Link 
-                        to={feature.link}
-                        className="inline-flex items-center justify-center bg-primary-600 text-white px-2.5 py-0.5 rounded-full text-[9px] font-semibold hover:bg-primary-700 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 transform duration-200"
-                      >
-                        <ShoppingCart className="w-2.5 h-2.5 mr-1" />
-                        Buy Now
-                      </Link>
-                    </div>
+      {/* Interactive Shape Filter Grid - Replacing the Feature Carousel */}
+      <section className="hidden md:block bg-white border-b border-neutral-200 py-6 mb-4 relative overflow-hidden select-none">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-sm grid grid-cols-8 divide-x divide-neutral-200">
+            {SHAPE_ITEMS.map((item) => {
+              const isActive = selectedShape === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleShapeChange(item.id)}
+                  className={`flex flex-col items-center justify-between py-5 px-3 transition-all duration-200 group cursor-pointer relative overflow-hidden ${
+                    isActive 
+                      ? 'bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 font-black shadow-inner' 
+                      : 'hover:bg-neutral-50/80 text-neutral-800 hover:text-primary-600 hover:-translate-y-0.5 transform duration-150'
+                  }`}
+                >
+                  <span className={`text-[11px] font-black uppercase text-center tracking-tight mb-4 min-h-[32px] flex items-center justify-center transition-colors duration-150 ${isActive ? 'text-primary-700 animate-pulse' : 'text-neutral-800 group-hover:text-primary-600'}`}>
+                    {item.label}
+                  </span>
+                  
+                  <div className={`w-14 h-11 flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${isActive ? 'text-primary-600' : 'text-neutral-500 group-hover:text-neutral-800'}`}>
+                    {item.icon}
                   </div>
                   
-                  {/* Right Group: Media with dynamic auto-rolling image carousel */}
-                  <div className="w-[110px] h-[110px] flex-shrink-0 relative overflow-hidden rounded-xl shadow-md border border-neutral-150 bg-white flex items-center justify-center">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={`${feature.id}-${imageTick % feature.images.length}`}
-                        src={feature.images[imageTick % feature.images.length]}
-                        alt={`${feature.title} thumbnail`}
-                        initial={{ opacity: 0, scale: 0.96 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.04 }}
-                        transition={{ duration: 0.35, ease: 'easeInOut' }}
-                        className="absolute inset-0 w-full h-full object-contain p-1"
-                      />
-                    </AnimatePresence>
-                  </div>
-                </div>
-              </div>
-            ))}
+                  {/* Premium bottom active highlight indicator */}
+                  {isActive && (
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-600 rounded-t-full" />
+                  )}
+                </button>
+              );
+            })}
           </div>
-          
-          <div className="flex justify-center mt-1.5 gap-1 relative z-20 pointer-events-auto">
-            {STORE_FEATURES.map((_, idx) => (
+        </div>
+      </section>
+
+      {/* Mobile Scrollable Shape Strip */}
+      <section className="block md:hidden bg-white border-b border-neutral-200 py-4 mb-2 select-none overflow-x-auto no-scrollbar scroll-smooth snap-x">
+        <div className="flex px-4 gap-3">
+          {SHAPE_ITEMS.map((item) => {
+            const isActive = selectedShape === item.id;
+            return (
               <button
-                key={idx}
-                onClick={() => setCurrentFeatureIndex(idx)}
-                className={`w-1 h-1 rounded-full transition-all ${idx === currentFeatureIndex ? 'bg-primary-600 w-3' : 'bg-neutral-300 hover:bg-primary-400'}`}
-                aria-label={`Go to feature ${idx + 1}`}
-              />
-            ))}
-          </div>
+                key={item.id}
+                onClick={() => handleShapeChange(item.id)}
+                className={`flex-shrink-0 flex flex-col items-center justify-between py-3.5 px-3 w-[105px] border rounded-xl transition-all duration-200 snap-center relative overflow-hidden ${
+                  isActive 
+                    ? 'bg-gradient-to-b from-primary-50 to-primary-100/30 border-primary-500 text-primary-700 font-bold shadow-sm' 
+                    : 'bg-white border-neutral-200 text-neutral-600 active:bg-neutral-50'
+                }`}
+              >
+                <span className="text-[9px] font-black uppercase text-center tracking-tight mb-2.5 h-[24px] flex items-center justify-center line-clamp-2">
+                  {item.label}
+                </span>
+                
+                <div className={`w-10 h-10 flex items-center justify-center transition-transform duration-200 ${isActive ? 'text-primary-600' : 'text-neutral-400'}`}>
+                  {item.icon}
+                </div>
+                
+                {/* Mobile bottom active indicator */}
+                {isActive && (
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-500" />
+                )}
+              </button>
+            );
+          })}
         </div>
       </section>
 
@@ -944,7 +996,7 @@ const StorePage: React.FC = () => {
 
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6">
-                {sortedProducts.map(product => (
+                {displayProducts.map(product => (
                   <div
                     key={product.id}
                     className="product-card bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group relative"
@@ -963,7 +1015,7 @@ const StorePage: React.FC = () => {
                       <span className="hidden sm:inline">Quote</span>
                     </button>
                     <Link
-                      to={`/store/product/${product.id}`}
+                      to={product.id === 'rollstock-custom' ? '/quotes/rollstock' : `/store/product/${product.id}`}
                       className="block"
                     >
                     <div className="relative aspect-square bg-neutral-50 overflow-hidden p-2 sm:p-4">
@@ -1005,7 +1057,7 @@ const StorePage: React.FC = () => {
               </div>
             ) : (
               <div className="space-y-4">
-                {sortedProducts.map(product => (
+                {displayProducts.map(product => (
                   <div
                     key={product.id}
                     className="product-card flex flex-col sm:flex-row bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-neutral-200 hover:shadow-lg hover:border-neutral-300 transition group relative"
@@ -1024,7 +1076,7 @@ const StorePage: React.FC = () => {
                       <span>Quote</span>
                     </button>
                     <Link
-                      to={`/store/product/${product.id}`}
+                      to={product.id === 'rollstock-custom' ? '/quotes/rollstock' : `/store/product/${product.id}`}
                       className="flex flex-col sm:flex-row flex-1"
                     >
                     <div className="relative w-full sm:w-48 h-48 bg-neutral-50 overflow-hidden p-4 flex-shrink-0">
@@ -1067,7 +1119,7 @@ const StorePage: React.FC = () => {
               </div>
             )}
 
-            {sortedProducts.length === 0 && (
+            {displayProducts.length === 0 && (
               <div className="text-center py-16">
                 <p className="text-neutral-500 text-lg">No products found matching your criteria.</p>
                 <button

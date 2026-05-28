@@ -688,24 +688,21 @@ export default function PouchEcoGPTKPage() {
                 <div className="bg-neutral-50 border border-neutral-250/70 p-1 rounded-xl grid grid-cols-3 text-center text-[10px] font-bold font-sans">
                   <button 
                     type="button" 
-                    onClick={() => sizeMode === 'standard' && setStockOption('card')}
-                    disabled={sizeMode === 'custom'}
+                    onClick={() => { setStockOption('card'); setSizeMode('standard'); }}
                     className={`py-1.5 rounded-lg transition ${stockOption === 'card' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
                   >
                     Insert Card
                   </button>
                   <button 
                     type="button" 
-                    onClick={() => sizeMode === 'standard' && setStockOption('tag')}
-                    disabled={sizeMode === 'custom'}
+                    onClick={() => { setStockOption('tag'); setSizeMode('standard'); }}
                     className={`py-1.5 rounded-lg transition ${stockOption === 'tag' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
                   >
                     Roped Tag
                   </button>
                   <button 
                     type="button" 
-                    onClick={() => sizeMode === 'standard' && setStockOption('sticker')}
-                    disabled={sizeMode === 'custom'}
+                    onClick={() => { setStockOption('sticker'); setSizeMode('standard'); }}
                     className={`py-1.5 rounded-lg transition ${stockOption === 'sticker' ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
                   >
                     Stickers
@@ -793,16 +790,14 @@ export default function PouchEcoGPTKPage() {
                 <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-2 text-center text-[10px] font-bold font-sans">
                   <button 
                     type="button" 
-                    onClick={() => sizeMode === 'standard' && setConvenOption('matt-metallised')}
-                    disabled={sizeMode === 'custom'}
+                    onClick={() => { setConvenOption('matt-metallised'); setSizeMode('standard'); }}
                     className={`py-1.5 rounded-lg transition ${convenOption === 'matt-metallised' ? 'bg-white text-indigo-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
                   >
                     Matt Metallised
                   </button>
                   <button 
                     type="button" 
-                    onClick={() => sizeMode === 'standard' && setConvenOption('glossy-clear')}
-                    disabled={sizeMode === 'custom'}
+                    onClick={() => { setConvenOption('glossy-clear'); setSizeMode('standard'); }}
                     className={`py-1.5 rounded-lg transition ${convenOption === 'glossy-clear' ? 'bg-white text-indigo-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
                   >
                     Glossy Clear
@@ -902,16 +897,14 @@ export default function PouchEcoGPTKPage() {
                 <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-2 text-center text-[10px] font-bold font-sans">
                   <button 
                     type="button" 
-                    onClick={() => sizeMode === 'standard' && setOvalEcoOption('pe-evoh')}
-                    disabled={sizeMode === 'custom'}
+                    onClick={() => { setOvalEcoOption('pe-evoh'); setSizeMode('standard'); }}
                     className={`py-1.5 rounded-lg transition ${ovalEcoOption === 'pe-evoh' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
                   >
                     ♻️ Recyclable PE
                   </button>
                   <button 
                     type="button" 
-                    onClick={() => sizeMode === 'standard' && setOvalEcoOption('compostable')}
-                    disabled={sizeMode === 'custom'}
+                    onClick={() => { setOvalEcoOption('compostable'); setSizeMode('standard'); }}
                     className={`py-1.5 rounded-lg transition ${ovalEcoOption === 'compostable' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
                   >
                     🌱 Compostable
