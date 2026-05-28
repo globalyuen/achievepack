@@ -59,6 +59,8 @@ export interface BaseStoreProduct {
   allowCustomSize?: boolean
   // Inquiry only product that does not show cost but displays buttons for Meeting or WhatsApp
   inquiryOnly?: boolean
+  // Original Taobao supplier source links
+  taobaoLinks?: string[]
 }
 
 // Sample product
@@ -2783,6 +2785,17 @@ const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
     id: 'recyclable-flat-bottom-one-sided-zipper-pouch',
     name: 'Recyclable Flat Bottom One Sided Zipper Pouch',
     category: 'eco-stock',
+    taobaoLinks: [
+      'https://item.taobao.com/item.htm?id=910304616571',
+      'https://item.taobao.com/item.htm?id=909779960247',
+      'https://item.taobao.com/item.htm?id=908812617091',
+      'https://item.taobao.com/item.htm?id=908802849764',
+      'https://item.taobao.com/item.htm?id=908332858616',
+      'https://item.taobao.com/item.htm?id=908795661109',
+      'https://item.taobao.com/item.htm?id=908766925205',
+      'https://item.taobao.com/item.htm?id=909681368684',
+      'https://item.taobao.com/item.htm?id=908024711796'
+    ],
     description: 'A premium, single-stream recyclable flat bottom eight-side seal packaging solution. Built from high-barrier mono-material PE, this metal-free, aluminum-free stand-up block-bottom pouch is perfect for bulk roasted coffee beans, artisanal loose leaf teas, organic powders, and premium dry foods. Features a robust one-way degassing valve and a secure one-sided pocket zipper for ultimate daily freshness.',
     shortDesc: 'Premium metal-free recyclable flat bottom pouch with one-way degassing valve and one-sided pocket zipper',
     features: [

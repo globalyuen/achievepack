@@ -1971,6 +1971,28 @@ const ProductPage: React.FC = () => {
                       <dt className="text-neutral-500">Shipping</dt>
                       <dd className="text-neutral-900 col-span-2">Air Freight (Included)</dd>
                     </div>
+                    {(ecoStockProduct as any).taobaoLinks && (
+                      <div className="grid grid-cols-3 gap-2 pt-2 border-t border-neutral-100">
+                        <dt className="text-neutral-500">Taobao Sources</dt>
+                        <dd className="text-neutral-900 col-span-2 flex flex-wrap gap-1.5">
+                          {(ecoStockProduct as any).taobaoLinks.map((link: string, idx: number) => {
+                            const matchId = link.match(/id=(\d+)/);
+                            const itemId = matchId ? matchId[1] : `Item ${idx + 1}`;
+                            return (
+                              <a 
+                                key={idx}
+                                href={link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-green-700 hover:text-green-800 font-medium hover:underline text-xs bg-green-50 hover:bg-green-100 px-2 py-0.5 border border-green-200 rounded transition-all"
+                              >
+                                📦 Item ID: {itemId}
+                              </a>
+                            );
+                          })}
+                        </dd>
+                      </div>
+                    )}
                   </dl>
                 </div>
               </div>
