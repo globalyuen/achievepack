@@ -876,6 +876,56 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
   {
+    id: 'middle-seal-gusset-bag-white-kraft-paper-60g-pla-aluminized',
+    name: 'Middle seal gusset bag',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec B2B packaging solution engineered to meet high-performance packaging standards. Utilizing a heavy-duty White kraft paper-60g/PLA aluminized///PLA+PBAT degradable composite structure, this product ensures maximum barrier resistance against humidity, light, and oxidation. Formulated specifically to retain shelf stability and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, dry treats, specialty foods, or industrial supplies. Features convenient tear notches and robust seal lines.',
+    shortDesc: 'Premium custom B2B side gusset pouch made of White kraft paper-60g/PLA aluminized///PLA+PBAT degradable',
+    features: [
+      "Advanced B2B Specs: Partial copper plate matte oil, thickness 150",
+      "Side Gusset Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance White kraft paper-60g/PLA aluminized///PLA+PBAT degradable layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+],
+    images: [
+      '/imgs/store/products/middle-seal-gusset-bag-white-kraft-paper-60g-pla-aluminized.png'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Side Gusset Pouch',
+    material: 'White kraft paper-60g/PLA aluminized///PLA+PBAT degradable',
+    basePrice: 385,
+    pricePerPiece: 0.385,
+    minQuantity: 1000,
+    quantityStep: 1000,
+    sizeInfo: '80 mm +45mm *210 mm +10 mm',
+    sizeWithQuantities: [
+      {
+        id: 'middle-seal-gusset-bag-white-kraft-paper-60g-pla-aluminized-size-default',
+        label: '80 mm +45mm *210 mm +10 mm',
+        dimensions: '80 mm +45mm *210 mm +10 mm • White kraft paper-60g • Industrial Grade',
+        quantityOptions: [
+          {
+                    "quantity": 1000,
+                    "unitPrice": 0.385,
+                    "totalPrice": 385
+          },
+          {
+                    "quantity": 2000,
+                    "unitPrice": 0.253,
+                    "totalPrice": 506
+          }
+]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 1000+ pieces. Please consult our team.'
+  },
+  {
     id: 'three-side-seal-bag-recyclable-pe-evoh-pe-composite-film-102',
     name: 'Three-side seal bag',
     category: 'conventional-stock',

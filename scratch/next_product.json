@@ -1,46 +1,35 @@
 {
   "status": "FOUND",
-  "slug": "three-side-seal-bag-recyclable-pe-evoh-pe-composite-film-102",
-  "name": "Three-side seal bag",
-  "material": "recyclable PE/EVOH-PE composite film",
-  "size": "102mm x 152mm",
-  "category": "conventional-stock",
-  "shape": "Three-Side Seal Bag",
-  "badgeLabel": "♻️ Recyclable High Barrier",
-  "isEco": false,
-  "prompt": "A professional Amazon-quality B2B e-commerce product mockup of Three-side seal bag standing upright, featuring its exact material details (recyclable PE/EVOH-PE composite film) and size specifications (102mm x 152mm). Studio lighting, modern premium setup, premium commercial minimalist B2B packaging showcase themed backdrop, elegant e-shop presentation, clean aesthetic, achievepack.com branding, sharp details",
-  "basePrice": 220.6,
-  "pricePerPiece": 1.103,
-  "minQuantity": 200,
-  "sizeInfo": "102mm x 152mm",
+  "slug": "middle-seal-gusset-bag-white-kraft-paper-60g-pla-aluminized",
+  "name": "Middle seal gusset bag",
+  "material": "White kraft paper-60g/PLA aluminized///PLA+PBAT degradable",
+  "size": "80 mm +45mm *210 mm +10 mm",
+  "category": "eco-stock",
+  "shape": "Side Gusset Pouch",
+  "badgeLabel": "🌱 100% Compostable",
+  "isEco": true,
+  "basePrice": 385,
+  "pricePerPiece": 0.385,
+  "minQuantity": 1000,
+  "sizeInfo": "80 mm +45mm *210 mm +10 mm",
   "usdPricingTiers": [
     {
-      "quantity": 200,
-      "unitPrice": 1.103,
-      "totalPrice": 220.6
-    },
-    {
-      "quantity": 500,
-      "unitPrice": 0.588,
-      "totalPrice": 294
-    },
-    {
       "quantity": 1000,
-      "unitPrice": 0.324,
-      "totalPrice": 324
+      "unitPrice": 0.385,
+      "totalPrice": 385
     },
     {
-      "quantity": 5000,
-      "unitPrice": 0.103,
-      "totalPrice": 515
+      "quantity": 2000,
+      "unitPrice": 0.253,
+      "totalPrice": 506
     }
   ],
   "formattedFeatures": [
-    "Advanced B2B Specs: no zipper, standard seal width",
-    "Three-Side Seal Bag Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
-    "Premium Material Structure: Engineered using high-performance recyclable PE/EVOH-PE composite film layers.",
-    "Wholesale Value Tiers: Low MOQ starting from 200 pieces with custom discounts.",
+    "Advanced B2B Specs: Partial copper plate matte oil, thickness 150",
+    "Side Gusset Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+    "Premium Material Structure: Engineered using high-performance White kraft paper-60g/PLA aluminized///PLA+PBAT degradable layers.",
+    "Wholesale Value Tiers: Low MOQ starting from 1,000 pieces with custom discounts.",
     "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
   ],
-  "logId": "eee7be70-5997-4caa-a558-121e691194e6"
+  "logId": "7ad53a68-837e-43a2-9386-9d4cc1f50512"
 }
