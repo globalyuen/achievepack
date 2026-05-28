@@ -172,9 +172,14 @@ export default function PouchDielineCreatorPage() {
         const canvasW = width * 2 + 30 + margin * 2;
         const canvasH = height + gusset + 40 + margin * 2;
 
+        // Convert canvas width and height from mm to pt for the constructor format array.
+        // Custom sizes passed to jsPDF constructor are ALWAYS parsed as points (pt).
+        const canvasW_pt = canvasW * 72 / 25.4;
+        const canvasH_pt = canvasH * 72 / 25.4;
+
         const doc = new jsPDF({
           unit: 'mm',
-          format: [canvasW, canvasH]
+          format: [canvasW_pt, canvasH_pt]
         });
 
         // Background
@@ -215,6 +220,8 @@ export default function PouchDielineCreatorPage() {
 
         // Function to draw panel lines (Cut, Fold, Bleed, Safe)
         const drawPanel = (startX: number, label: string) => {
+          const ctx = doc.context2d as any;
+
           // 1. Bleed Margin (3mm Offset)
           doc.setDrawColor(16, 185, 129); // green
           doc.setLineWidth(0.3);
@@ -222,7 +229,38 @@ export default function PouchDielineCreatorPage() {
           doc.rect(startX - 3, panelY - 3, width + 6, height + 6);
           doc.setLineDashPattern([], 0);
 
-          // 2. Cut lines (Magenta boundary)
+          // 2. Side Seals Zone (drawn before the Cut lines so the red boundary rests on top)
+          ctx.beginPath();
+          ctx.fillStyle = 'rgb(240, 240, 240)';
+          if (roundCorners) {
+            const r = 8;
+            // Left side seal with rounded outer edges
+            ctx.moveTo(startX + sideSeals, panelY);
+            ctx.lineTo(startX + r, panelY);
+            ctx.quadraticCurveTo(startX, panelY, startX, panelY + r);
+            ctx.lineTo(startX, panelY + height - r);
+            ctx.quadraticCurveTo(startX, panelY + height, startX + r, panelY + height);
+            ctx.lineTo(startX + sideSeals, panelY + height);
+            ctx.closePath();
+            ctx.fill();
+
+            // Right side seal with rounded outer edges
+            ctx.beginPath();
+            ctx.moveTo(startX + width - sideSeals, panelY);
+            ctx.lineTo(startX + width - r, panelY);
+            ctx.quadraticCurveTo(startX + width, panelY, startX + width, panelY + r);
+            ctx.lineTo(startX + width, panelY + height - r);
+            ctx.quadraticCurveTo(startX + width, panelY + height, startX + width - r, panelY + height);
+            ctx.lineTo(startX + width - sideSeals, panelY + height);
+            ctx.closePath();
+            ctx.fill();
+          } else {
+            ctx.rect(startX, panelY, sideSeals, height);
+            ctx.rect(startX + width - sideSeals, panelY, sideSeals, height);
+            ctx.fill();
+          }
+
+          // 3. Cut lines (Magenta boundary)
           doc.setDrawColor(225, 29, 72); // rose red
           doc.setLineWidth(0.6);
           if (roundCorners) {
@@ -232,14 +270,6 @@ export default function PouchDielineCreatorPage() {
           } else {
             doc.rect(startX, panelY, width, height);
           }
-
-          // 3. Side Seals Zone
-          doc.setDrawColor(180, 180, 180);
-          doc.setLineWidth(0.2);
-          // shaded left seal
-          doc.setFillColor(240, 240, 240);
-          doc.rect(startX, panelY, sideSeals, height, 'F');
-          doc.rect(startX + width - sideSeals, panelY, sideSeals, height, 'F');
 
           // 4. Zipper folding lines
           doc.setDrawColor(168, 85, 247); // purple
@@ -261,12 +291,23 @@ export default function PouchDielineCreatorPage() {
           doc.rect(startX + sideSeals + 3, panelY + zipper + 10, width - sideSeals * 2 - 6, height - zipper - bottomSealCurve - 10);
           doc.setLineDashPattern([], 0);
 
-          // 7. Bottom Gusset curve weld seals
-          doc.setDrawColor(59, 130, 246); // blue
-          doc.setLineWidth(0.4);
-          doc.setLineDashPattern([3, 3], 0);
-          doc.line(startX, panelY + height - bottomSealCurve, startX + width, panelY + height - bottomSealCurve);
-          doc.setLineDashPattern([], 0);
+          // 7. Bottom Gusset curve weld seals (exact bezier matching visualizer)
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgb(59, 130, 246)';
+          ctx.lineWidth = 0.4;
+          if (typeof ctx.setLineDash === 'function') {
+            ctx.setLineDash([3, 3]);
+          }
+          ctx.moveTo(startX, panelY + height - bottomSealCurve);
+          ctx.bezierCurveTo(
+            startX + width * 0.25, panelY + height - bottomSealCurve * 0.3,
+            startX + width * 0.75, panelY + height - bottomSealCurve * 0.3,
+            startX + width, panelY + height - bottomSealCurve
+          );
+          ctx.stroke();
+          if (typeof ctx.setLineDash === 'function') {
+            ctx.setLineDash([]);
+          }
 
           // Labels
           doc.setFont('Helvetica', 'bold');
@@ -336,7 +377,16 @@ export default function PouchDielineCreatorPage() {
         doc.line(frontX - 6, gussetY, frontX - 6, gussetY + gusset);
         doc.text(`${gusset}mm`, frontX - 11, gussetY + gusset / 2, { angle: 90 });
 
-        doc.save(`achievepack-dieline-${width}x${height}x${gusset}-${pdfFormat}.pdf`);
+        // Programmatic Blob download trigger to secure native file downloads
+        const blob = doc.output('blob');
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = `achievepack-dieline-${width}x${height}x${gusset}-${pdfFormat}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(blobUrl);
 
       } else {
         // A4 Technical Spec Sheet - Landscape format (297 x 210 mm)
@@ -432,7 +482,63 @@ export default function PouchDielineCreatorPage() {
         const bX = fX + w + 10;
         const pY = viewY + 15;
 
-        // Front Panel
+        // Shaded side seals (drawn first so cut boundary outlines them cleanly)
+        const ctx = doc.context2d as any;
+        ctx.beginPath();
+        ctx.fillStyle = 'rgb(245, 245, 245)';
+        if (roundCorners) {
+          const r = 3;
+          // Front Panel Left
+          ctx.moveTo(fX + s, pY);
+          ctx.lineTo(fX + r, pY);
+          ctx.quadraticCurveTo(fX, pY, fX, pY + r);
+          ctx.lineTo(fX, pY + h - r);
+          ctx.quadraticCurveTo(fX, pY + h, fX + r, pY + h);
+          ctx.lineTo(fX + s, pY + h);
+          ctx.closePath();
+          ctx.fill();
+
+          // Front Panel Right
+          ctx.beginPath();
+          ctx.moveTo(fX + w - s, pY);
+          ctx.lineTo(fX + w - r, pY);
+          ctx.quadraticCurveTo(fX + w, pY, fX + w, pY + r);
+          ctx.lineTo(fX + w, pY + h - r);
+          ctx.quadraticCurveTo(fX + w, pY + h, fX + w - r, pY + h);
+          ctx.lineTo(fX + w - s, pY + h);
+          ctx.closePath();
+          ctx.fill();
+
+          // Back Panel Left
+          ctx.beginPath();
+          ctx.moveTo(bX + s, pY);
+          ctx.lineTo(bX + r, pY);
+          ctx.quadraticCurveTo(bX, pY, bX, pY + r);
+          ctx.lineTo(bX, pY + h - r);
+          ctx.quadraticCurveTo(bX, pY + h, bX + r, pY + h);
+          ctx.lineTo(bX + s, pY + h);
+          ctx.closePath();
+          ctx.fill();
+
+          // Back Panel Right
+          ctx.beginPath();
+          ctx.moveTo(bX + w - s, pY);
+          ctx.lineTo(bX + w - r, pY);
+          ctx.quadraticCurveTo(bX + w, pY, bX + w, pY + r);
+          ctx.lineTo(bX + w, pY + h - r);
+          ctx.quadraticCurveTo(bX + w, pY + h, bX + w - r, pY + h);
+          ctx.lineTo(bX + w - s, pY + h);
+          ctx.closePath();
+          ctx.fill();
+        } else {
+          ctx.rect(fX, pY, s, h);
+          ctx.rect(fX + w - s, pY, s, h);
+          ctx.rect(bX, pY, s, h);
+          ctx.rect(bX + w - s, pY, s, h);
+          ctx.fill();
+        }
+
+        // Cut lines (drawn on top of side seals)
         doc.setDrawColor(225, 29, 72);
         doc.setLineWidth(0.4);
         if (roundCorners) {
@@ -442,13 +548,6 @@ export default function PouchDielineCreatorPage() {
           doc.rect(fX, pY, w, h);
           doc.rect(bX, pY, w, h);
         }
-
-        // Shaded side seals
-        doc.setFillColor(245, 245, 245);
-        doc.rect(fX, pY, s, h, 'F');
-        doc.rect(fX + w - s, pY, s, h, 'F');
-        doc.rect(bX, pY, s, h, 'F');
-        doc.rect(bX + w - s, pY, s, h, 'F');
 
         // Zipper Crease
         doc.setDrawColor(168, 85, 247);
@@ -463,11 +562,34 @@ export default function PouchDielineCreatorPage() {
         doc.line(fX - 1, pY + tn, fX + 1, pY + tn);
         doc.line(fX + w - 1, pY + tn, fX + w + 1, pY + tn);
 
-        // Bottom crease
-        doc.setDrawColor(59, 130, 246);
-        doc.setLineDashPattern([2, 2], 0);
-        doc.line(fX, pY + h - (bottomSealCurve * pScale), fX + w, pY + h - (bottomSealCurve * pScale));
-        doc.setLineDashPattern([], 0);
+        // Bottom crease (beautiful curves matching preview)
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgb(59, 130, 246)';
+        ctx.lineWidth = 0.4;
+        if (typeof ctx.setLineDash === 'function') {
+          ctx.setLineDash([3, 3]);
+        }
+        const scaledCurve = bottomSealCurve * pScale;
+        
+        ctx.moveTo(fX, pY + h - scaledCurve);
+        ctx.bezierCurveTo(
+          fX + w * 0.25, pY + h - scaledCurve * 0.3,
+          fX + w * 0.75, pY + h - scaledCurve * 0.3,
+          fX + w, pY + h - scaledCurve
+        );
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(bX, pY + h - scaledCurve);
+        ctx.bezierCurveTo(
+          bX + w * 0.25, pY + h - scaledCurve * 0.3,
+          bX + w * 0.75, pY + h - scaledCurve * 0.3,
+          bX + w, pY + h - scaledCurve
+        );
+        ctx.stroke();
+        if (typeof ctx.setLineDash === 'function') {
+          ctx.setLineDash([]);
+        }
 
         // Labels
         doc.setFont('Helvetica', 'bold');
@@ -501,7 +623,16 @@ export default function PouchDielineCreatorPage() {
         doc.line(fX - 3, bGussetY, fX - 3, bGussetY + g);
         doc.text(`${gusset}mm`, fX - 8, bGussetY + g / 2, { angle: 90 });
 
-        doc.save(`achievepack-technical-dieline-${width}x${height}x${gusset}-${pdfFormat}.pdf`);
+        // Programmatic Blob download trigger to secure native file downloads
+        const blob = doc.output('blob');
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = `achievepack-technical-dieline-${width}x${height}x${gusset}-${pdfFormat}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(blobUrl);
       }
     } catch (err) {
       console.error(err);
