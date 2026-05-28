@@ -613,6 +613,10 @@ const CarbonNeutralBagsPage: React.FC = () => {
               <ul className="text-sm space-y-2 text-neutral-600">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
+                  <span><strong>Natural Craft Paper (Brown Kraft):</strong> Crafted from sustainable FSC-certified wood pulp, offering an organic tactile feel, retro-earthy aesthetics, and premium textured sensations that DTC customers love to touch. Laminated with plant-based high-barrier bio-linings to ensure absolute freshness.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
                   <span><strong>PCR PE (Post-Consumer Recycled):</strong> Made from recycled household milk jugs and bottles, diverting plastic waste from oceans.</span>
                 </li>
                 <li className="flex items-start gap-2">
