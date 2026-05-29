@@ -4,12 +4,13 @@ import {
   Search, AlertTriangle, Package, Activity, MessageSquare, 
   Calendar, Clock, LockKeyhole, Loader2, LogOut, Plus, 
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
-  FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon,
+  FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon, FileCheck,
   ClipboardList, Hash, History, ScrollText, RotateCcw,
   ChevronUp, ChevronDown, ArrowRight, Share, Download
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
+import SpecSheetTab from '../../components/admin/SpecSheetTab';
 import * as XLSX from 'xlsx';
 
 
@@ -96,7 +97,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'>('reports');
+  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'>('reports');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
   const [logs, setLogs] = useState<WebhookLog[]>([]);
@@ -1199,11 +1200,21 @@ export default function DailyReportsPage() {
             <span className="hidden xs:inline">Packing List</span>
             <span className="xs:hidden">Packing</span>
           </button>
+          <button onClick={() => setActiveTab('spec')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'spec' ? 'border-b-4 border-blue-600 text-blue-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <FileCheck className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+            <span className="hidden xs:inline">Spec Maker</span>
+            <span className="xs:hidden">Spec</span>
+          </button>
         </div>
 
         {/* Tab Content: Packing List */}
         {activeTab === 'packing' && (
           <PackingListTab />
+        )}
+
+        {/* Tab Content: Spec Sheet Generator */}
+        {activeTab === 'spec' && (
+          <SpecSheetTab />
         )}
 
         {/* Tab Content: Daily Reports */}
