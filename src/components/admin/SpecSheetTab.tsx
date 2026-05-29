@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Plus, Trash2, Loader2, FileText, Check, Printer, FileCheck, Layers, FileCode, ShieldCheck, Truck, ClipboardList } from 'lucide-react';
+import { Download, Plus, Trash2, Loader2, FileText, Check, Printer, FileCheck, Layers, FileCode, ShieldCheck, Truck, ClipboardList, Save } from 'lucide-react';
 
 interface SpecSheetData {
   customer: string;
@@ -66,6 +66,7 @@ interface SpecSheetData {
   tearNotch: string;
   hangHole: string;
   artworkImage: string;
+  artworkImages?: string[];
 }
 
 const PRESETS: Record<string, { label: string; description: string; data: SpecSheetData }> = {
@@ -323,10 +324,30 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
   }
 };
 
+interface SavedSpecSheet {
+  id: string;
+  name: string;
+  timestamp: string;
+  data: SpecSheetData;
+}
+
 export default function SpecSheetTab() {
   const [data, setData] = useState<SpecSheetData>(PRESETS.pvdc.data);
   const [activeFormTab, setActiveFormTab] = useState<'general' | 'material' | 'barrier' | 'slitting' | 'regulatory' | 'approval'>('general');
   const [successMsg, setSuccessMsg] = useState('');
+  const [savedSpecs, setSavedSpecs] = useState<SavedSpecSheet[]>([]);
+
+  // Load saved specs from localStorage on mount
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('achievepack_saved_spec_sheets');
+      if (stored) {
+        setSavedSpecs(JSON.parse(stored));
+      }
+    } catch (e) {
+      console.error('Error loading saved spec sheets:', e);
+    }
+  }, []);
 
   const loadPreset = (key: string) => {
     if (PRESETS[key]) {
@@ -344,15 +365,124 @@ export default function SpecSheetTab() {
   };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      const loadedImages: string[] = [...(data.artworkImages || [])];
+      let filesProcessed = 0;
+      
+      for (let i = 0; i < files.length; i++) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          if (reader.result) {
+            loadedImages.push(reader.result as string);
+          }
+          filesProcessed++;
+          if (filesProcessed === files.length) {
+            setData(prev => ({
+              ...prev,
+              artworkImages: loadedImages
+            }));
+            setSuccessMsg(`Uploaded ${files.length} design proof(s) successfully!`);
+            setTimeout(() => setSuccessMsg(''), 3000);
+          }
+        };
+        reader.readAsDataURL(files[i]);
+      }
+    }
+  };
+
+  const handleRemoveImage = (indexToRemove: number) => {
+    setData(prev => ({
+      ...prev,
+      artworkImages: (prev.artworkImages || []).filter((_, idx) => idx !== indexToRemove)
+    }));
+    setSuccessMsg('Design proof removed.');
+    setTimeout(() => setSuccessMsg(''), 3000);
+  };
+
+  const handleSaveSpec = () => {
+    const defaultName = `${data.customer || 'Unnamed Product'} - ${data.itemNo || 'No Code'}`;
+    const nameInput = prompt('Enter a name for this saved Specification Sheet:', defaultName);
+    
+    if (nameInput === null) return; // Cancelled
+    const finalName = nameInput.trim() || defaultName;
+
+    const newSavedItem: SavedSpecSheet = {
+      id: Date.now().toString(),
+      name: finalName,
+      timestamp: new Date().toISOString(),
+      data: data
+    };
+
+    const updated = [newSavedItem, ...savedSpecs];
+    setSavedSpecs(updated);
+    localStorage.setItem('achievepack_saved_spec_sheets', JSON.stringify(updated));
+    setSuccessMsg(`Specification Sheet "${finalName}" saved locally!`);
+    setTimeout(() => setSuccessMsg(''), 3000);
+  };
+
+  const handleLoadSpec = (spec: SavedSpecSheet) => {
+    setData(spec.data);
+    setSuccessMsg(`Restored Spec Sheet: ${spec.name}`);
+    setTimeout(() => setSuccessMsg(''), 3000);
+  };
+
+  const handleDeleteSpec = (idToDelete: string, name: string) => {
+    if (confirm(`Are you sure you want to permanently delete the saved spec sheet "${name}"?`)) {
+      const updated = savedSpecs.filter(item => item.id !== idToDelete);
+      setSavedSpecs(updated);
+      localStorage.setItem('achievepack_saved_spec_sheets', JSON.stringify(updated));
+      setSuccessMsg('Deleted saved spec sheet.');
+      setTimeout(() => setSuccessMsg(''), 3000);
+    }
+  };
+
+  const handleExportBackup = () => {
+    try {
+      const jsonStr = JSON.stringify(savedSpecs, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `achievepack_spec_sheets_backup_${new Date().toISOString().split('T')[0]}.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      setSuccessMsg('JSON Backup downloaded successfully!');
+      setTimeout(() => setSuccessMsg(''), 3000);
+    } catch (e) {
+      console.error('Backup failed:', e);
+    }
+  };
+
+  const handleImportBackup = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => {
-        handleFieldChange('artworkImage', reader.result as string);
-        setSuccessMsg('Artwork uploaded successfully!');
-        setTimeout(() => setSuccessMsg(''), 3000);
+      reader.onload = (event) => {
+        try {
+          const parsed = JSON.parse(event.target?.result as string);
+          if (Array.isArray(parsed)) {
+            const valid = parsed.every(item => item.id && item.name && item.data);
+            if (valid) {
+              const merged = [...parsed, ...savedSpecs];
+              const unique = merged.filter((v, i, a) => a.findIndex(t => t.id === v.id) === i);
+              setSavedSpecs(unique);
+              localStorage.setItem('achievepack_saved_spec_sheets', JSON.stringify(unique));
+              setSuccessMsg(`Successfully imported ${parsed.length} spec sheet(s)!`);
+              setTimeout(() => setSuccessMsg(''), 3000);
+            } else {
+              alert('Invalid backup format. Make sure the JSON represents an array of spec sheets.');
+            }
+          } else {
+            alert('Invalid backup format. Make sure the file is a JSON array.');
+          }
+        } catch (err) {
+          alert('Failed to parse backup file. Please check that the file is valid JSON.');
+        }
       };
-      reader.readAsDataURL(file);
+      reader.readAsText(file);
     }
   };
 
@@ -416,6 +546,86 @@ export default function SpecSheetTab() {
               >
                 Clear / Custom Blank Sheet
               </button>
+            </div>
+          </div>
+
+          {/* Saved Specs List */}
+          <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200 flex flex-col gap-3">
+            <div className="flex justify-between items-center">
+              <h3 className="text-sm font-extrabold text-gray-800 uppercase tracking-wider flex items-center gap-2">
+                <FileCheck className="w-4 h-4 text-emerald-600" />
+                2. Saved Custom Spec Sheets
+              </h3>
+              <span className="text-[10px] bg-emerald-100 text-emerald-700 font-extrabold px-2 py-0.5 rounded-full">{savedSpecs.length} Saved</span>
+            </div>
+            
+            {savedSpecs.length > 0 ? (
+              <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1">
+                {savedSpecs.map(item => (
+                  <div key={item.id} className="flex justify-between items-center p-2.5 rounded-xl border border-gray-100 bg-gray-50 hover:bg-gray-100/70 transition text-xs">
+                    <div className="flex flex-col gap-0.5 max-w-[70%]">
+                      <div className="flex items-center gap-1.5">
+                        <span className={`text-[8px] font-extrabold px-1.5 py-0.5 rounded uppercase tracking-wider ${item.data.specType === 'pouch' ? 'bg-indigo-100 text-indigo-700' : 'bg-orange-100 text-orange-700'}`}>
+                          {item.data.specType === 'pouch' ? 'Pouch' : 'Roll'}
+                        </span>
+                        <span className="font-extrabold text-gray-900 truncate">{item.name}</span>
+                      </div>
+                      <div className="text-[10px] text-gray-500 font-medium truncate">
+                        {item.data.customerDesc || 'No desc'} • {new Date(item.timestamp).toLocaleDateString()}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <button
+                        type="button"
+                        onClick={() => handleLoadSpec(item)}
+                        className="p-1.5 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg text-gray-500 transition active:scale-95"
+                        title="Load Spec Sheet"
+                      >
+                        <FileText className="w-4 h-4" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteSpec(item.id, item.name)}
+                        className="p-1.5 hover:bg-red-50 hover:text-red-700 rounded-lg text-gray-500 transition active:scale-95"
+                        title="Delete Spec Sheet"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="border border-dashed border-gray-200 rounded-xl p-6 text-center text-gray-400">
+                <ClipboardList className="w-8 h-8 text-gray-300 mx-auto mb-1 stroke-[1.5]" />
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block">No Custom Saved Specs</span>
+                <span className="text-[9px] text-gray-400 leading-normal max-w-[200px] mx-auto block mt-0.5">
+                  Configure a template and click "Save Spec" at the bottom to build your list.
+                </span>
+              </div>
+            )}
+
+            {/* Offline Backup Tools */}
+            <div className="border-t border-gray-100 pt-3 flex justify-between items-center text-[10px] text-gray-500 font-bold uppercase tracking-wider">
+              <span>Backup Manager:</span>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={handleExportBackup}
+                  className="text-indigo-600 hover:text-indigo-800 transition"
+                >
+                  Export JSON
+                </button>
+                <label className="text-indigo-600 hover:text-indigo-800 transition cursor-pointer relative">
+                  <span>Import JSON</span>
+                  <input
+                    type="file"
+                    accept=".json"
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    onChange={handleImportBackup}
+                  />
+                </label>
+              </div>
             </div>
           </div>
 
@@ -499,24 +709,41 @@ export default function SpecSheetTab() {
                     <input type="date" value={data.issueDate} onChange={e => handleFieldChange('issueDate', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Technical Artwork Proof Image</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Technical Artwork Proof Images (Multiple allowed)</label>
                     <div className="mt-1 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-xl p-4 bg-gray-50/50 hover:bg-gray-50 hover:border-indigo-500 transition cursor-pointer relative group">
-                      <input type="file" accept="image/*" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onChange={handleImageUpload} />
-                      {data.artworkImage ? (
-                        <div className="flex flex-col items-center gap-2">
-                          <img src={data.artworkImage} alt="Artwork preview" className="h-20 w-auto object-contain rounded border border-gray-200 shadow-sm" />
-                          <span className="text-[10px] font-semibold text-emerald-600 flex items-center gap-1">
-                            <Check className="w-3 h-3" /> Change Artwork Image
-                          </span>
-                        </div>
-                      ) : (
-                        <div className="flex flex-col items-center gap-1.5 text-center">
-                          <Plus className="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transition" />
-                          <span className="text-xs font-bold text-gray-700">Upload Artwork Proof</span>
-                          <span className="text-[10px] text-gray-400">Drag or click to choose PNG, JPG, or WEBP</span>
-                        </div>
-                      )}
+                      <input type="file" accept="image/*" multiple className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onChange={handleImageUpload} />
+                      <div className="flex flex-col items-center gap-1.5 text-center">
+                        <Plus className="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transition" />
+                        <span className="text-xs font-bold text-gray-700">Upload Design Proofs</span>
+                        <span className="text-[10px] text-gray-400">Drag or click to choose PNG, JPG, or WEBP (Multiple ok)</span>
+                      </div>
                     </div>
+                    {/* Thumbnail previews in form */}
+                    {(((data.artworkImages && data.artworkImages.length > 0) || data.artworkImage) && (
+                      <div className="mt-3 grid grid-cols-4 gap-2 border border-gray-100 bg-gray-50/30 p-2 rounded-xl">
+                        {(data.artworkImages && data.artworkImages.length > 0 ? data.artworkImages : [data.artworkImage]).map((imgSrc, idx) => {
+                          if (!imgSrc) return null;
+                          return (
+                            <div key={idx} className="relative group/thumb border border-gray-200 rounded-lg overflow-hidden bg-white aspect-square flex items-center justify-center p-1 shadow-sm">
+                              <img src={imgSrc} alt={`Proof thumbnail ${idx + 1}`} className="max-h-full max-w-full object-contain" />
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (data.artworkImages && data.artworkImages.length > 0) {
+                                    handleRemoveImage(idx);
+                                  } else {
+                                    handleFieldChange('artworkImage', '');
+                                  }
+                                }}
+                                className="absolute -top-1 -right-1 bg-red-500 hover:bg-red-600 text-white rounded-full p-1 shadow-md hover:scale-105 transition"
+                              >
+                                <Trash2 className="w-3 h-3" />
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
@@ -940,14 +1167,22 @@ export default function SpecSheetTab() {
               )}
             </div>
 
-            <div className="bg-gray-50 border-t border-gray-200 p-4 mt-auto">
+            <div className="bg-gray-50 border-t border-gray-200 p-4 mt-auto flex gap-3">
+              <button
+                type="button"
+                onClick={handleSaveSpec}
+                className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 px-4 rounded-xl text-xs shadow-md transition active:scale-95 uppercase tracking-wider"
+              >
+                <Save className="w-4 h-4" />
+                Save Spec
+              </button>
               <button
                 type="button"
                 onClick={handlePrint}
-                className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3 px-4 rounded-xl text-sm shadow-md transition active:scale-95"
+                className="flex-1 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3 px-4 rounded-xl text-xs shadow-md transition active:scale-95 uppercase tracking-wider"
               >
                 <Printer className="w-4 h-4" />
-                Export Spec Sheet (PDF)
+                Export PDF
               </button>
             </div>
           </div>
@@ -1058,27 +1293,57 @@ export default function SpecSheetTab() {
                     {/* Architectural Blueprint Grid */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:16px_16px] opacity-35"></div>
                     
-                    {data.artworkImage ? (
-                      <div className="relative z-10 flex flex-col items-center justify-center h-full w-full p-2">
-                        <img
-                          src={data.artworkImage}
-                          alt="Technical Artwork Proof"
-                          className="max-h-[280px] w-auto object-contain border border-gray-300 shadow-md rounded bg-white"
-                        />
-                        <div className="mt-3 bg-blue-900/10 border border-blue-900/20 text-blue-950 px-3 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-widest flex items-center gap-1">
-                          <ShieldCheck className="w-3.5 h-3.5 text-blue-800"/>
-                          APPROVED SYSTEM PROOF
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="relative z-10 flex flex-col items-center justify-center text-gray-400 p-4">
-                        <FileCode className="w-12 h-12 text-gray-300 mb-2 stroke-[1.5]" />
-                        <span className="text-[10px] font-extrabold text-gray-500 uppercase tracking-widest mb-1">TECHNICAL BLUEPRINT PROOF</span>
-                        <span className="text-[9px] text-gray-400 max-w-[180px] leading-normal">
-                          No artwork image uploaded. Add proof image via general configurations uploader.
-                        </span>
-                      </div>
-                    )}
+                    {(() => {
+                      const imagesList = data.artworkImages && data.artworkImages.length > 0 ? data.artworkImages : (data.artworkImage ? [data.artworkImage] : []);
+                      if (imagesList.length > 0) {
+                        return (
+                          <div className="relative z-10 flex flex-col items-center justify-center h-full w-full p-1">
+                            {imagesList.length === 1 ? (
+                              <div className="flex flex-col items-center justify-center">
+                                <img
+                                  src={imagesList[0]}
+                                  alt="Technical Artwork Proof"
+                                  className="max-h-[260px] w-auto object-contain border border-gray-300 shadow-md rounded bg-white"
+                                />
+                                <div className="mt-3 bg-blue-900/10 border border-blue-900/20 text-blue-950 px-3 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-widest flex items-center gap-1">
+                                  <ShieldCheck className="w-3.5 h-3.5 text-blue-800"/>
+                                  APPROVED SYSTEM PROOF
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="w-full flex flex-col gap-3">
+                                <div className={`grid gap-2.5 w-full ${imagesList.length >= 5 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+                                  {imagesList.map((imgSrc, idx) => (
+                                    <div key={idx} className="bg-white border border-gray-200 rounded-lg p-1.5 shadow-sm flex flex-col items-center gap-1 aspect-[4/3] justify-center relative">
+                                      <img
+                                        src={imgSrc}
+                                        alt={`Design Proof ${idx + 1}`}
+                                        className="max-h-[65px] w-auto object-contain bg-white"
+                                      />
+                                      <span className="text-[8px] font-bold text-gray-500 uppercase tracking-wider block">Design {idx + 1}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                                <div className="mt-1 bg-blue-900/10 border border-blue-900/20 text-blue-950 px-3 py-0.5 rounded-full text-[8px] font-extrabold uppercase tracking-widest flex items-center gap-1 self-center">
+                                  <ShieldCheck className="w-3.5 h-3.5 text-blue-800"/>
+                                  MULTI-DESIGN SYSTEM PROOFS ({imagesList.length})
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      } else {
+                        return (
+                          <div className="relative z-10 flex flex-col items-center justify-center text-gray-400 p-4">
+                            <FileCode className="w-12 h-12 text-gray-300 mb-2 stroke-[1.5]" />
+                            <span className="text-[10px] font-extrabold text-gray-500 uppercase tracking-widest mb-1">TECHNICAL BLUEPRINT PROOF</span>
+                            <span className="text-[9px] text-gray-400 max-w-[180px] leading-normal">
+                              No artwork image uploaded. Add proof image via general configurations uploader.
+                            </span>
+                          </div>
+                        );
+                      }
+                    })()}
                   </div>
                 </div>
               </div>
@@ -1428,26 +1693,56 @@ export default function SpecSheetTab() {
                 {/* Architectural Blueprint Grid */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:16px_16px] opacity-25"></div>
                 
-                {data.artworkImage ? (
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full w-full p-1">
-                    <img
-                      src={data.artworkImage}
-                      alt="Technical Artwork Proof"
-                      className="max-h-[280px] w-auto object-contain border border-gray-400 shadow rounded bg-white"
-                      style={{ maxHeight: '280px' }}
-                    />
-                    <div className="mt-2 bg-blue-900/10 border border-blue-900/20 text-blue-950 px-2 py-0.5 rounded-full text-[8px] font-extrabold uppercase tracking-widest flex items-center gap-1" style={{ color: '#1e3a8a' }}>
-                      APPROVED SYSTEM PROOF
-                    </div>
-                  </div>
-                ) : (
-                  <div className="relative z-10 flex flex-col items-center justify-center text-gray-400 p-2">
-                    <span className="text-[9px] font-extrabold text-gray-500 uppercase tracking-widest mb-1">TECHNICAL BLUEPRINT PROOF</span>
-                    <span className="text-[8px] text-gray-400 max-w-[180px] leading-normal">
-                      No artwork image uploaded.
-                    </span>
-                  </div>
-                )}
+                {(() => {
+                  const imagesList = data.artworkImages && data.artworkImages.length > 0 ? data.artworkImages : (data.artworkImage ? [data.artworkImage] : []);
+                  if (imagesList.length > 0) {
+                    return (
+                      <div className="relative z-10 flex flex-col items-center justify-center h-full w-full p-1">
+                        {imagesList.length === 1 ? (
+                          <div className="flex flex-col items-center justify-center">
+                            <img
+                              src={imagesList[0]}
+                              alt="Technical Artwork Proof"
+                              className="max-h-[260px] w-auto object-contain border border-gray-400 shadow rounded bg-white"
+                              style={{ maxHeight: '260px' }}
+                            />
+                            <div className="mt-2 bg-blue-900/10 border border-blue-900/20 text-blue-950 px-2 py-0.5 rounded-full text-[8px] font-extrabold uppercase tracking-widest flex items-center gap-1" style={{ color: '#1e3a8a' }}>
+                              APPROVED SYSTEM PROOF
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="w-full flex flex-col gap-2">
+                            <div className={`grid gap-2 w-full ${imagesList.length >= 5 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+                              {imagesList.map((imgSrc, idx) => (
+                                <div key={idx} className="bg-white border border-gray-300 rounded p-1.5 shadow flex flex-col items-center gap-1 justify-center relative" style={{ height: imagesList.length >= 5 ? '80px' : '100px' }}>
+                                  <img
+                                    src={imgSrc}
+                                    alt={`Design Proof ${idx + 1}`}
+                                    className="max-h-[60px] w-auto object-contain bg-white"
+                                    style={{ maxHeight: imagesList.length >= 5 ? '50px' : '70px' }}
+                                  />
+                                  <span className="text-[8px] font-bold text-gray-500 uppercase tracking-wider block">Design {idx + 1}</span>
+                                </div>
+                              ))}
+                            </div>
+                            <div className="mt-1 bg-blue-900/10 border border-blue-900/20 text-blue-950 px-2 py-0.5 rounded-full text-[8px] font-extrabold uppercase tracking-widest flex items-center gap-1 self-center" style={{ color: '#1e3a8a' }}>
+                              MULTI-DESIGN SYSTEM PROOFS ({imagesList.length})
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div className="relative z-10 flex flex-col items-center justify-center text-gray-400 p-2">
+                        <span className="text-[9px] font-extrabold text-gray-500 uppercase tracking-widest mb-1">TECHNICAL BLUEPRINT PROOF</span>
+                        <span className="text-[8px] text-gray-400 max-w-[180px] leading-normal">
+                          No artwork image uploaded.
+                        </span>
+                      </div>
+                    );
+                  }
+                })()}
               </div>
             </div>
           </div>
