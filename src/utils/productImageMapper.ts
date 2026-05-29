@@ -12,6 +12,7 @@ export type ShapeType =
   | 'Quad Seal Pouch'
   | 'Side Gusset Pouch'
   | 'Label & Sticker'
+  | 'Spouted Stand Up Pouch'
 
 export type ClosureType = 'No' | 'Regular Zipper' | 'One-Sided Zipper' | 'Child Resistant Zipper' | 'Slider' | 'Tin Tie' | 'Spout'
 export type SurfaceType = 'Glossy' | 'Matt' | 'Metallic' | 'Soft Touch' | 'Emboss' | 'Stamp Foil'
@@ -48,6 +49,7 @@ const shapeNameMap: Record<ShapeType, string> = {
   'Quad Seal Pouch': 'quad-seal',
   'Side Gusset Pouch': 'side -seal',
   'Label & Sticker': 'label-sticker',
+  'Spouted Stand Up Pouch': 'spout',
 }
 
 const closureMap: Record<ClosureType, string> = {
@@ -102,6 +104,11 @@ export function getProductImage(options: ImageMapperOptions): string {
   }
 
   const shapeName = shapeNameMap[shape]
+
+  if (!shapeName) {
+    console.warn(`Shape mapping not found for: ${shape}, using fallback`)
+    return `${IMAGE_BASE_URL}stand-up.webp`
+  }
 
   // If size is provided and shape is Stand Up Pouch, return size-specific image
   if (size && shape === 'Stand Up Pouch / Doypack') {

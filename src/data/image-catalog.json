@@ -1,9 +1,9 @@
 {
   "generated": "2026-05-28",
-  "total_images": 1859,
+  "total_images": 1860,
   "total_categories": 162,
   "extensions": {
-    ".webp": 1298,
+    ".webp": 1299,
     ".png": 344,
     ".jpg": 214,
     ".svg": 3
@@ -8250,8 +8250,14 @@
       ]
     },
     "store/pouch shape": {
-      "count": 7,
+      "count": 8,
       "images": [
+        {
+          "filename": "spout.webp",
+          "path": "/imgs/store/pouch shape/spout.webp",
+          "extension": ".webp",
+          "modified": "2026-05-28T16:41:31.513Z"
+        },
         {
           "filename": "side -seal.webp",
           "path": "/imgs/store/pouch shape/side -seal.webp",
