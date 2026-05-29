@@ -825,23 +825,7 @@ export default function SpecSheetTab() {
                 </tbody>
               </table>
 
-              {/* TABLE: STORAGE & FOOD CONTACT */}
-              <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-blue-700"/>
-                F. Storage & Regulatory Compliance Information
-              </h4>
-              <table className="w-full border-collapse border border-gray-300 text-left">
-                <tbody>
-                  <tr className="border-b border-gray-300">
-                    <td className="bg-gray-50 font-bold p-2.5 w-[220px] border-r border-gray-300 align-top">Storage and Handling Instruction:</td>
-                    <td className="p-2.5 leading-relaxed text-gray-700 whitespace-pre-wrap font-sans text-[10px]">{data.storage || 'N/A'}</td>
-                  </tr>
-                  <tr>
-                    <td className="bg-gray-50 font-bold p-2.5 border-r border-gray-300 align-top">Food Contact Regulatory Status:</td>
-                    <td className="p-2.5 leading-relaxed text-gray-700 whitespace-pre-wrap font-mono text-[9px] bg-blue-50/20">{data.foodContact || 'N/A'}</td>
-                  </tr>
-                </tbody>
-              </table>
+
 
             </div>
 
@@ -854,17 +838,25 @@ export default function SpecSheetTab() {
                 <span>page 4 / 4</span>
               </div>
 
-              {/* BRAND HEADER */}
-              <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-3 mb-4">
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <img src="/logo.png" alt="AchievePack" className="h-10 w-auto object-contain" />
-                    <span className="text-lg font-extrabold tracking-widest text-blue-950">achievepack</span>
-                  </div>
-                </div>
-              </div>
+              {/* TABLE: STORAGE & FOOD CONTACT */}
+              <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider flex items-center gap-1.5 mt-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-blue-700"/>
+                F. Storage & Regulatory Compliance Information
+              </h4>
+              <table className="w-full border-collapse border border-gray-300 mb-6 text-left">
+                <tbody>
+                  <tr className="border-b border-gray-300">
+                    <td className="bg-gray-50 font-bold p-2 w-[220px] border-r border-gray-300 align-top">Storage and Handling Instruction:</td>
+                    <td className="p-2 leading-relaxed text-gray-700 whitespace-pre-wrap font-sans text-[10px]">{data.storage || 'N/A'}</td>
+                  </tr>
+                  <tr>
+                    <td className="bg-gray-50 font-bold p-2 border-r border-gray-300 align-top">Food Contact Regulatory Status:</td>
+                    <td className="p-2 leading-relaxed text-gray-700 whitespace-pre-wrap font-mono text-[9px] bg-blue-50/20">{data.foodContact || 'N/A'}</td>
+                  </tr>
+                </tbody>
+              </table>
 
-              <div className="flex-1 flex flex-col justify-center gap-16 py-12">
+              <div className="flex-1 flex flex-col justify-center gap-4 py-2">
                 
                 {/* SIGN-OFF TEXT */}
                 <div className="text-center space-y-4 max-w-[500px] mx-auto">
@@ -1135,21 +1127,7 @@ export default function SpecSheetTab() {
             </tbody>
           </table>
 
-          <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
-            F. Storage & Regulatory Compliance Information
-          </h4>
-          <table className="w-full">
-            <tbody>
-              <tr>
-                <td className="bg-gray-50 font-bold w-[220px] align-top">Storage and Handling Instruction:</td>
-                <td className="leading-relaxed text-gray-700" style={{ whiteSpace: 'pre-wrap' }}>{data.storage || 'N/A'}</td>
-              </tr>
-              <tr>
-                <td className="bg-gray-50 font-bold align-top">Food Contact Regulatory Status:</td>
-                <td className="leading-relaxed text-gray-700" style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace', fontSize: '8px' }}>{data.foodContact || 'N/A'}</td>
-              </tr>
-            </tbody>
-          </table>
+
 
           <div className="absolute bottom-[8mm] left-[12mm] right-[12mm] flex justify-between text-[9px] text-gray-400 font-medium border-t pt-2">
             <span>Issue date: 23/06/15</span>
@@ -1168,7 +1146,23 @@ export default function SpecSheetTab() {
             </div>
           </div>
 
-          <div className="flex-1 flex flex-col justify-center gap-16 py-12">
+          <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
+            F. Storage & Regulatory Compliance Information
+          </h4>
+          <table className="w-full mb-4">
+            <tbody>
+              <tr>
+                <td className="bg-gray-50 font-bold w-[220px] align-top">Storage and Handling Instruction:</td>
+                <td className="leading-relaxed text-gray-700" style={{ whiteSpace: 'pre-wrap' }}>{data.storage || 'N/A'}</td>
+              </tr>
+              <tr>
+                <td className="bg-gray-50 font-bold align-top">Food Contact Regulatory Status:</td>
+                <td className="leading-relaxed text-gray-700" style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace', fontSize: '8px' }}>{data.foodContact || 'N/A'}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div className="flex-1 flex flex-col justify-between gap-4 py-2">
             <div className="text-center space-y-4 max-w-[500px] mx-auto">
               <h3 className="text-base font-extrabold text-blue-950">Technical Specifications Agreement</h3>
               <p className="text-[9px] leading-relaxed text-gray-500">
