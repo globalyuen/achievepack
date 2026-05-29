@@ -727,16 +727,6 @@ export default function SpecSheetTab() {
                 <span>page 2 / 4</span>
               </div>
 
-              {/* BRAND HEADER */}
-              <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-3 mb-4">
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <img src="/logo.png" alt="AchievePack" className="h-10 w-auto object-contain" />
-                    <span className="text-lg font-extrabold tracking-widest text-blue-950">achievepack</span>
-                  </div>
-                </div>
-              </div>
-
               {/* TABLE: PROPERTY SPECIFICATIONS */}
               <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-blue-700"/>
@@ -791,16 +781,6 @@ export default function SpecSheetTab() {
               <div className="absolute bottom-[8mm] left-[10mm] right-[10mm] flex justify-between text-[9px] text-gray-400 font-medium">
                 <span>Issue date: 23/06/15</span>
                 <span>page 3 / 4</span>
-              </div>
-
-              {/* BRAND HEADER */}
-              <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-3 mb-4">
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-2">
-                    <img src="/logo.png" alt="AchievePack" className="h-10 w-auto object-contain" />
-                    <span className="text-lg font-extrabold tracking-widest text-blue-950">achievepack</span>
-                  </div>
-                </div>
               </div>
 
               {/* TABLE: SLITTING AND PACKING INFO */}
@@ -867,16 +847,16 @@ export default function SpecSheetTab() {
                 </div>
 
                 {/* SIGNATURE BLOCKS */}
-                <div className="grid grid-cols-2 gap-12 mt-8">
+                <div className="grid grid-cols-2 gap-12 mt-4">
                   
                   {/* ACHIEVEPACK APPROVAL */}
-                  <div className="border border-gray-300 rounded-xl p-5 flex flex-col min-h-[220px] bg-gray-50/30">
-                    <div className="bg-blue-900 text-white font-bold text-[10px] py-1 px-3 rounded uppercase tracking-wider text-center self-start mb-6">
+                  <div className="border border-gray-300 rounded-xl p-4 flex flex-col min-h-[140px] bg-gray-50/30">
+                    <div className="bg-blue-900 text-white font-bold text-[9px] py-1 px-3 rounded uppercase tracking-wider text-center self-start mb-3">
                       Approved by AchievePack
                     </div>
                     
-                    <div className="flex-1 flex flex-col justify-end space-y-1 mt-auto border-t border-dashed border-gray-300 pt-6">
-                      <div className="font-extrabold text-sm text-blue-950 italic font-serif select-none pointer-events-none mb-1">
+                    <div className="flex-1 flex flex-col justify-end space-y-0.5 mt-auto border-t border-dashed border-gray-300 pt-3">
+                      <div className="font-extrabold text-sm text-blue-950 italic font-serif select-none pointer-events-none mb-0.5">
                         {data.approvedAchieve || 'Pending Signature'}
                       </div>
                       <div className="flex justify-between text-[10px] text-gray-500">
@@ -891,13 +871,13 @@ export default function SpecSheetTab() {
                   </div>
 
                   {/* CUSTOMER APPROVAL */}
-                  <div className="border border-gray-300 rounded-xl p-5 flex flex-col min-h-[220px] bg-gray-50/30">
-                    <div className="bg-amber-800 text-white font-bold text-[10px] py-1 px-3 rounded uppercase tracking-wider text-center self-start mb-6">
+                  <div className="border border-gray-300 rounded-xl p-4 flex flex-col min-h-[140px] bg-gray-50/30">
+                    <div className="bg-amber-800 text-white font-bold text-[9px] py-1 px-3 rounded uppercase tracking-wider text-center self-start mb-3">
                       Approved by Customer
                     </div>
                     
-                    <div className="flex-1 flex flex-col justify-end space-y-1 mt-auto border-t border-dashed border-gray-300 pt-6">
-                      <div className="font-extrabold text-sm text-blue-950 italic font-serif select-none pointer-events-none mb-1">
+                    <div className="flex-1 flex flex-col justify-end space-y-0.5 mt-auto border-t border-dashed border-gray-300 pt-3">
+                      <div className="font-extrabold text-sm text-blue-950 italic font-serif select-none pointer-events-none mb-0.5">
                         {data.approvedCustomer || 'Pending Sign-off'}
                       </div>
                       <div className="flex justify-between text-[10px] text-gray-500">
@@ -939,23 +919,31 @@ export default function SpecSheetTab() {
             }
             .print-page {
               width: 210mm;
-              height: 297mm;
-              padding: 18mm 12mm 15mm 12mm;
+              height: 280mm; /* Safe compact height to fully prevent overflow on default margins */
+              padding: 10mm 12mm 10mm 12mm;
               position: relative;
               page-break-after: always !important;
+              page-break-inside: avoid !important;
               box-sizing: border-box;
             }
             .print-page:last-child {
               page-break-after: avoid !important;
             }
+            h4 {
+              margin-top: 8px !important;
+              margin-bottom: 5px !important;
+              font-size: 10px !important;
+            }
             table {
               border-collapse: collapse;
               width: 100%;
+              margin-bottom: 6px !important;
             }
             th, td {
               border: 1px solid #7f8c8d;
-              padding: 4px 6px;
-              font-size: 10px;
+              padding: 3px 5px !important;
+              font-size: 9px !important;
+              line-height: 1.25 !important;
             }
             .bg-gray-50 {
               background-color: #f2f2f2 !important;
@@ -1040,15 +1028,6 @@ export default function SpecSheetTab() {
 
         {/* PRINT PAGE 2 */}
         <div className="print-page">
-          <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-3 mb-4">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <img src="/logo.png" alt="AchievePack" className="h-10 w-auto object-contain" />
-                <span className="text-lg font-extrabold tracking-widest text-blue-950" style={{ fontFamily: 'sans-serif' }}>achievepack</span>
-              </div>
-            </div>
-          </div>
-
           <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
             C. Physical Property Specifications & Tolerances
           </h4>
@@ -1098,15 +1077,6 @@ export default function SpecSheetTab() {
 
         {/* PRINT PAGE 3 */}
         <div className="print-page">
-          <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-3 mb-4">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <img src="/logo.png" alt="AchievePack" className="h-10 w-auto object-contain" />
-                <span className="text-lg font-extrabold tracking-widest text-blue-950" style={{ fontFamily: 'sans-serif' }}>achievepack</span>
-              </div>
-            </div>
-          </div>
-
           <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
             E. Slitting, Packing, Transport & Storage Information
           </h4>
@@ -1136,16 +1106,7 @@ export default function SpecSheetTab() {
         </div>
 
         {/* PRINT PAGE 4 */}
-        <div className="print-page flex flex-col justify-between" style={{ height: '297mm' }}>
-          <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-3 mb-4">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <img src="/logo.png" alt="AchievePack" className="h-10 w-auto object-contain" />
-                <span className="text-lg font-extrabold tracking-widest text-blue-950" style={{ fontFamily: 'sans-serif' }}>achievepack</span>
-              </div>
-            </div>
-          </div>
-
+        <div className="print-page flex flex-col justify-between">
           <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
             F. Storage & Regulatory Compliance Information
           </h4>
@@ -1170,16 +1131,16 @@ export default function SpecSheetTab() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-12 mt-8">
+            <div className="grid grid-cols-2 gap-12 mt-4">
               
               {/* ACHIEVEPACK APPROVAL */}
-              <div className="border border-gray-300 rounded-xl p-5 flex flex-col min-h-[220px] bg-gray-50/10">
-                <div className="bg-blue-900 text-white font-bold text-[10px] py-1 px-3 rounded uppercase tracking-wider text-center self-start mb-6" style={{ backgroundColor: '#1e3a8a', color: 'white' }}>
+              <div className="border border-gray-300 rounded-xl p-4 flex flex-col min-h-[140px] bg-gray-50/10">
+                <div className="bg-blue-900 text-white font-bold text-[9px] py-1 px-3 rounded uppercase tracking-wider text-center self-start mb-3" style={{ backgroundColor: '#1e3a8a', color: 'white' }}>
                   Approved by AchievePack
                 </div>
                 
-                <div className="flex-1 flex flex-col justify-end space-y-1 mt-auto border-t border-dashed border-gray-300 pt-6">
-                  <div className="font-extrabold text-sm text-blue-950 italic font-serif mb-1" style={{ color: '#172554', fontFamily: 'Georgia, serif' }}>
+                <div className="flex-1 flex flex-col justify-end space-y-0.5 mt-auto border-t border-dashed border-gray-300 pt-3">
+                  <div className="font-extrabold text-sm text-blue-950 italic font-serif mb-0.5" style={{ color: '#172554', fontFamily: 'Georgia, serif' }}>
                     {data.approvedAchieve || 'Pending Signature'}
                   </div>
                   <div className="flex justify-between text-[10px] text-gray-500">
@@ -1194,13 +1155,13 @@ export default function SpecSheetTab() {
               </div>
 
               {/* CUSTOMER APPROVAL */}
-              <div className="border border-gray-300 rounded-xl p-5 flex flex-col min-h-[220px] bg-gray-50/10">
-                <div className="bg-amber-800 text-white font-bold text-[10px] py-1 px-3 rounded uppercase tracking-wider text-center self-start mb-6" style={{ backgroundColor: '#92400e', color: 'white' }}>
+              <div className="border border-gray-300 rounded-xl p-4 flex flex-col min-h-[140px] bg-gray-50/10">
+                <div className="bg-amber-800 text-white font-bold text-[9px] py-1 px-3 rounded uppercase tracking-wider text-center self-start mb-3" style={{ backgroundColor: '#92400e', color: 'white' }}>
                   Approved by Customer
                 </div>
                 
-                <div className="flex-1 flex flex-col justify-end space-y-1 mt-auto border-t border-dashed border-gray-300 pt-6">
-                  <div className="font-extrabold text-sm text-blue-950 italic font-serif mb-1" style={{ color: '#172554', fontFamily: 'Georgia, serif' }}>
+                <div className="flex-1 flex flex-col justify-end space-y-0.5 mt-auto border-t border-dashed border-gray-300 pt-3">
+                  <div className="font-extrabold text-sm text-blue-950 italic font-serif mb-0.5" style={{ color: '#172554', fontFamily: 'Georgia, serif' }}>
                     {data.approvedCustomer || 'Pending Sign-off'}
                   </div>
                   <div className="flex justify-between text-[10px] text-gray-500">
