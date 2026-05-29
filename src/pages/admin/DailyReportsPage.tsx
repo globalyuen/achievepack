@@ -1046,12 +1046,12 @@ export default function DailyReportsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12 font-sans">
+    <div className="min-h-screen bg-gray-50 pt-24 pb-12 font-sans print:pt-0 print:pb-0 print:bg-white">
       <Helmet><title>Control Center | Achieve Pack</title></Helmet>
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 print:px-0 print:max-w-none">
         
         {/* Header */}
-        <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-6 sm:p-8 text-white shadow-2xl mb-8 relative overflow-hidden flex flex-col gap-4 sm:flex-row justify-between items-start sm:items-center">
+        <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-6 sm:p-8 text-white shadow-2xl mb-8 relative overflow-hidden flex flex-col gap-4 sm:flex-row justify-between items-start sm:items-center print:hidden">
           <div className="relative z-10 flex-1">
             <h1 className="text-2xl sm:text-3xl font-extrabold mb-3 flex items-center gap-3"><Activity className="h-7 w-7 sm:h-8 sm:w-8 text-blue-400" /> Control Center</h1>
             <div className="flex flex-wrap gap-2 items-center">
@@ -1093,7 +1093,7 @@ export default function DailyReportsPage() {
 
 
         {/* Customer/Project Selector - Global for all tabs */}
-        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-4 sm:p-5 mb-6">
+        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-4 sm:p-5 mb-6 print:hidden">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
               <ClipboardList className="w-5 h-5 text-indigo-600 flex-shrink-0" />
@@ -1174,7 +1174,7 @@ export default function DailyReportsPage() {
         </div>
 
         {/* Tab Switcher - Mobile Optimized */}
-        <div className="flex gap-1.5 sm:gap-4 mb-6 border-b border-gray-200 pb-2 overflow-x-auto scrollbar-hide -mx-2 px-2">
+        <div className="flex gap-1.5 sm:gap-4 mb-6 border-b border-gray-200 pb-2 overflow-x-auto scrollbar-hide -mx-2 px-2 print:hidden">
           <button onClick={() => setActiveTab('reports')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'reports' ? 'border-b-4 border-blue-600 text-blue-700' : 'text-gray-500 hover:text-gray-900'}`}>
             <ClipboardList className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
             <span className="hidden xs:inline">Daily Reports</span>
