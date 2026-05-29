@@ -55,6 +55,17 @@ interface SpecSheetData {
   approvedCustomer: string;
   approvedCustomerPos: string;
   approvedCustomerDate: string;
+
+  // Pouch Mode & Artwork Uploader variables
+  specType: 'rollstock' | 'pouch';
+  pouchShape: string;
+  pouchWidth: string;
+  pouchLength: string;
+  pouchGusset: string;
+  zipperType: string;
+  tearNotch: string;
+  hangHole: string;
+  artworkImage: string;
 }
 
 const PRESETS: Record<string, { label: string; description: string; data: SpecSheetData }> = {
@@ -109,7 +120,16 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedAchieveDate: 'Monday, December 05, 2016',
       approvedCustomer: 'Dennis Marazzato',
       approvedCustomerPos: 'Customer Quality Manager',
-      approvedCustomerDate: 'Monday, December 05, 2016'
+      approvedCustomerDate: 'Monday, December 05, 2016',
+      specType: 'rollstock',
+      pouchShape: 'Stand Up Pouch',
+      pouchWidth: '',
+      pouchLength: '',
+      pouchGusset: '',
+      zipperType: 'None',
+      tearNotch: 'None',
+      hangHole: 'None',
+      artworkImage: ''
     }
   },
   compostable: {
@@ -163,7 +183,16 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedAchieveDate: 'Friday, May 29, 2026',
       approvedCustomer: 'Sara Jenkins',
       approvedCustomerPos: 'Eco-Brand Operations Manager',
-      approvedCustomerDate: 'Friday, May 29, 2026'
+      approvedCustomerDate: 'Friday, May 29, 2026',
+      specType: 'pouch',
+      pouchShape: 'Stand Up Pouch',
+      pouchWidth: '160mm',
+      pouchLength: '230mm',
+      pouchGusset: '40mm * 2',
+      zipperType: 'Press-to-close zipper',
+      tearNotch: 'Two tear notches',
+      hangHole: 'None',
+      artworkImage: ''
     }
   },
   recyclable: {
@@ -217,7 +246,16 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedAchieveDate: 'Friday, May 29, 2026',
       approvedCustomer: 'Clara Oswald',
       approvedCustomerPos: 'Technical Operations Director',
-      approvedCustomerDate: 'Friday, May 29, 2026'
+      approvedCustomerDate: 'Friday, May 29, 2026',
+      specType: 'pouch',
+      pouchShape: 'Stand Up Pouch',
+      pouchWidth: '150mm',
+      pouchLength: '210mm',
+      pouchGusset: '35mm * 2',
+      zipperType: 'Press-to-close zipper',
+      tearNotch: 'Two tear notches',
+      hangHole: 'None',
+      artworkImage: ''
     }
   },
   pcr: {
@@ -271,7 +309,16 @@ const PRESETS: Record<string, { label: string; description: string; data: SpecSh
       approvedAchieveDate: 'Friday, May 29, 2026',
       approvedCustomer: 'Liam Vance',
       approvedCustomerPos: 'Global Procurement Manager',
-      approvedCustomerDate: 'Friday, May 29, 2026'
+      approvedCustomerDate: 'Friday, May 29, 2026',
+      specType: 'rollstock',
+      pouchShape: 'Stand Up Pouch',
+      pouchWidth: '',
+      pouchLength: '',
+      pouchGusset: '',
+      zipperType: 'None',
+      tearNotch: 'None',
+      hangHole: 'None',
+      artworkImage: ''
     }
   }
 };
@@ -294,6 +341,19 @@ export default function SpecSheetTab() {
       ...prev,
       [field]: value
     }));
+  };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        handleFieldChange('artworkImage', reader.result as string);
+        setSuccessMsg('Artwork uploaded successfully!');
+        setTimeout(() => setSuccessMsg(''), 3000);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handlePrint = () => {
@@ -341,12 +401,13 @@ export default function SpecSheetTab() {
                 onClick={() => {
                   setData({
                     customer: '', customerDesc: '', customerCode: '', materialStructure: '', achieveDescription: '', apnBarcode: '', revision: 'New', issueDate: new Date().toISOString().split('T')[0], itemNo: '',
-                    printingProcess: '', printQuality: '', rewindDirection: '', numColours: '', totalRetainSolvent: '', solidColourVariation: '', barcodeScanQuality: '',
+                    printingProcess: 'Rotogravure / Cylinder Printing', printQuality: '', rewindDirection: '', numColours: '6 Colors', totalRetainSolvent: '', solidColourVariation: '', barcodeScanQuality: '',
                     opacity: '', opticalDensity: '', bondStrength: '', heatSealStrength: '', wvtr: '', otr: '', cofExternal: '', cofInternal: '', thickness: '', yieldGsm: '', repeatLength: '', slitWidth: '',
                     odour: '', generalQuality: '', stewardshipRecyclability: '',
                     core: 'Paper core ID 76 mm', joinsNumber: '1 max', joinsTape: 'Red tape', stackPallet: '', positionJoins: '', rollLabelInfo: '', rollSize: '', palletType: 'Wood', generalPackaging: '',
                     storage: '', foodContact: '',
-                    approvedAchieve: '', approvedAchievePos: '', approvedAchieveDate: '', approvedCustomer: '', approvedCustomerPos: '', approvedCustomerDate: ''
+                    approvedAchieve: '', approvedAchievePos: '', approvedAchieveDate: '', approvedCustomer: '', approvedCustomerPos: '', approvedCustomerDate: '',
+                    specType: 'rollstock', pouchShape: 'Stand Up Pouch', pouchWidth: '', pouchLength: '', pouchGusset: '', zipperType: 'None', tearNotch: 'None', hangHole: 'None', artworkImage: ''
                   });
                   setSuccessMsg('Form Cleared (Custom Blank Pouch Template)');
                   setTimeout(() => setSuccessMsg(''), 3000);
@@ -366,6 +427,27 @@ export default function SpecSheetTab() {
                 2. Customize Technical Data
               </h3>
               <span className="text-[10px] bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded-full">Interactive Form</span>
+            </div>
+
+            {/* Spec Format Selector (Segmented Switch) */}
+            <div className="bg-gray-50/50 px-4 py-3 border-b border-gray-200 flex items-center justify-between gap-4">
+              <span className="text-xs font-bold text-gray-700 uppercase tracking-wider">Format Type:</span>
+              <div className="flex bg-gray-200/80 p-0.5 rounded-xl border border-gray-300 w-fit">
+                <button
+                  type="button"
+                  onClick={() => handleFieldChange('specType', 'rollstock')}
+                  className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${data.specType === 'rollstock' ? 'bg-indigo-600 text-white shadow-sm' : 'text-gray-500 hover:text-gray-800'}`}
+                >
+                  Rollstock Film
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleFieldChange('specType', 'pouch')}
+                  className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${data.specType === 'pouch' ? 'bg-indigo-600 text-white shadow-sm' : 'text-gray-500 hover:text-gray-800'}`}
+                >
+                  Pouch Packaging
+                </button>
+              </div>
             </div>
 
             {/* Form Category Switcher */}
@@ -416,6 +498,26 @@ export default function SpecSheetTab() {
                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Issue Date</label>
                     <input type="date" value={data.issueDate} onChange={e => handleFieldChange('issueDate', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" />
                   </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Technical Artwork Proof Image</label>
+                    <div className="mt-1 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-xl p-4 bg-gray-50/50 hover:bg-gray-50 hover:border-indigo-500 transition cursor-pointer relative group">
+                      <input type="file" accept="image/*" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onChange={handleImageUpload} />
+                      {data.artworkImage ? (
+                        <div className="flex flex-col items-center gap-2">
+                          <img src={data.artworkImage} alt="Artwork preview" className="h-20 w-auto object-contain rounded border border-gray-200 shadow-sm" />
+                          <span className="text-[10px] font-semibold text-emerald-600 flex items-center gap-1">
+                            <Check className="w-3 h-3" /> Change Artwork Image
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center gap-1.5 text-center">
+                          <Plus className="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transition" />
+                          <span className="text-xs font-bold text-gray-700">Upload Artwork Proof</span>
+                          <span className="text-[10px] text-gray-400">Drag or click to choose PNG, JPG, or WEBP</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               )}
 
@@ -440,30 +542,158 @@ export default function SpecSheetTab() {
                       <input type="text" value={data.yieldGsm} onChange={e => handleFieldChange('yieldGsm', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. 86 gsm ± 10%" />
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Slit Width (± 1mm)</label>
-                      <input type="text" value={data.slitWidth} onChange={e => handleFieldChange('slitWidth', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. 740mm" />
+                  {data.specType === 'pouch' ? (
+                    <div className="space-y-4 animate-in fade-in duration-200">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Pouch Shape / Format</label>
+                        <select
+                          value={data.pouchShape}
+                          onChange={e => handleFieldChange('pouchShape', e.target.value)}
+                          className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500 cursor-pointer font-medium"
+                        >
+                          <option value="Stand Up Pouch">Stand Up Pouch</option>
+                          <option value="Three Side Seal">Three Side Seal</option>
+                          <option value="Flat Bottom Pouch">Flat Bottom Pouch</option>
+                          <option value="Side Gusset Pouch">Side Gusset Pouch</option>
+                          <option value="Spouted Pouch">Spouted Pouch</option>
+                          <option value="Custom Shape">Custom Shape / Format</option>
+                        </select>
+                      </div>
+                      <div className="grid grid-cols-3 gap-3">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Width (mm)</label>
+                          <input
+                            type="text"
+                            value={data.pouchWidth}
+                            onChange={e => handleFieldChange('pouchWidth', e.target.value)}
+                            className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                            placeholder="e.g. 150mm"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Length (mm)</label>
+                          <input
+                            type="text"
+                            value={data.pouchLength}
+                            onChange={e => handleFieldChange('pouchLength', e.target.value)}
+                            className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                            placeholder="e.g. 230mm"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Gusset (mm)</label>
+                          <input
+                            type="text"
+                            value={data.pouchGusset}
+                            onChange={e => handleFieldChange('pouchGusset', e.target.value)}
+                            className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                            placeholder="e.g. 40mm * 2"
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Repeat Length (± 1mm)</label>
-                      <input type="text" value={data.repeatLength} onChange={e => handleFieldChange('repeatLength', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Plain / 320mm" />
+                  ) : (
+                    <div className="space-y-4 animate-in fade-in duration-200">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Slit Width (± 1mm)</label>
+                          <input
+                            type="text"
+                            value={data.slitWidth}
+                            onChange={e => handleFieldChange('slitWidth', e.target.value)}
+                            className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                            placeholder="e.g. 740mm"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Repeat Length (± 1mm)</label>
+                          <input
+                            type="text"
+                            value={data.repeatLength}
+                            onChange={e => handleFieldChange('repeatLength', e.target.value)}
+                            className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                            placeholder="e.g. Plain / 320mm"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Rewind Direction to Customer</label>
+                        <input
+                          type="text"
+                          value={data.rewindDirection}
+                          onChange={e => handleFieldChange('rewindDirection', e.target.value)}
+                          className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                          placeholder="e.g. PE Side Inside"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Rewind Direction to Customer</label>
-                    <input type="text" value={data.rewindDirection} onChange={e => handleFieldChange('rewindDirection', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. PE Side Inside" />
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Printing Process</label>
-                      <input type="text" value={data.printingProcess} onChange={e => handleFieldChange('printingProcess', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Cylinder Gravure" />
+                  )}
+
+                  <div className="space-y-3 pt-2">
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Printing Process</label>
+                        <select
+                          value={
+                            ["Rotogravure / Cylinder Printing", "Digital Printing", "Flexographic / Water-Based Printing", "Flexographic / Soy-Based Printing", "Off-Set / Gravure Hybrid"].includes(data.printingProcess)
+                              ? data.printingProcess
+                              : "Custom / Other"
+                          }
+                          onChange={e => {
+                            const val = e.target.value;
+                            if (val === "Custom / Other") {
+                              handleFieldChange('printingProcess', '');
+                            } else {
+                              handleFieldChange('printingProcess', val);
+                            }
+                          }}
+                          className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500 cursor-pointer font-medium"
+                        >
+                          <option value="Rotogravure / Cylinder Printing">Rotogravure / Cylinder Printing</option>
+                          <option value="Digital Printing">Digital Printing</option>
+                          <option value="Flexographic / Water-Based Printing">Flexographic / Water-Based Printing</option>
+                          <option value="Flexographic / Soy-Based Printing">Flexographic / Soy-Based Printing</option>
+                          <option value="Off-Set / Gravure Hybrid">Off-Set / Gravure Hybrid</option>
+                          <option value="Custom / Other">Custom / Other (Specify)</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Number of Colours</label>
+                        <input
+                          type="text"
+                          value={data.numColours}
+                          onChange={e => handleFieldChange('numColours', e.target.value)}
+                          className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                          placeholder="e.g. 6 Colors / 8 Colors (CMYK)"
+                        />
+                      </div>
                     </div>
+
+                    {(!["Rotogravure / Cylinder Printing", "Digital Printing", "Flexographic / Water-Based Printing", "Flexographic / Soy-Based Printing", "Off-Set / Gravure Hybrid"].includes(data.printingProcess) || data.printingProcess === '') && (
+                      <div className="animate-in fade-in duration-200">
+                        <label className="block text-[10px] font-bold text-indigo-600 uppercase mb-1">Specify Custom Printing Process</label>
+                        <input
+                          type="text"
+                          value={data.printingProcess}
+                          onChange={e => handleFieldChange('printingProcess', e.target.value)}
+                          className="w-full border border-indigo-200 rounded-lg text-sm px-3 py-2 bg-indigo-50/10 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                          placeholder="Enter custom printing process..."
+                        />
+                      </div>
+                    )}
+
                     <div>
                       <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Print Quality Grade</label>
-                      <input type="text" value={data.printQuality} onChange={e => handleFieldChange('printQuality', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. N/A / High-Def" />
+                      <input
+                        type="text"
+                        value={data.printQuality}
+                        onChange={e => handleFieldChange('printQuality', e.target.value)}
+                        className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                        placeholder="e.g. High-Def Glossy / N/A"
+                      />
                     </div>
                   </div>
+
                 </div>
               )}
 
@@ -515,39 +745,134 @@ export default function SpecSheetTab() {
 
               {/* TAB: SLITTING & PACKING */}
               {activeFormTab === 'slitting' && (
-                <div className="space-y-4 animate-in fade-in duration-200">
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Core Size (Diameter)</label>
-                      <input type="text" value={data.core} onChange={e => handleFieldChange('core', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Paper core ID 76 mm" />
+                <div>
+                  {data.specType === 'pouch' ? (
+                    <div className="space-y-4 animate-in fade-in duration-200">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Zipper & Reclosure</label>
+                          <select
+                            value={data.zipperType}
+                            onChange={e => handleFieldChange('zipperType', e.target.value)}
+                            className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500 cursor-pointer font-medium"
+                          >
+                            <option value="None">None</option>
+                            <option value="Press-to-close zipper">Press-to-close zipper</option>
+                            <option value="Velcro zipper">Velcro zipper</option>
+                            <option value="E-Z Pull zipper">E-Z Pull zipper</option>
+                            <option value="Spout & Cap">Spout & Cap</option>
+                            <option value="Custom Reclosure">Custom Reclosure</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Tear Notch Style</label>
+                          <select
+                            value={data.tearNotch}
+                            onChange={e => handleFieldChange('tearNotch', e.target.value)}
+                            className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500 cursor-pointer font-medium"
+                          >
+                            <option value="None">None</option>
+                            <option value="Two tear notches">Two tear notches</option>
+                            <option value="One tear notch">One tear notch</option>
+                            <option value="Custom Tear Notch">Custom Tear Notch</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Hang Hole / Display Feature</label>
+                        <select
+                          value={data.hangHole}
+                          onChange={e => handleFieldChange('hangHole', e.target.value)}
+                          className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500 cursor-pointer font-medium"
+                        >
+                          <option value="None">None</option>
+                          <option value="Euro slot">Euro slot</option>
+                          <option value="Round hole">Round hole</option>
+                          <option value="Custom Hang Hole">Custom Hang Hole</option>
+                        </select>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Pouch Packing Layout (Stack Pallet)</label>
+                          <input
+                            type="text"
+                            value={data.stackPallet}
+                            onChange={e => handleFieldChange('stackPallet', e.target.value)}
+                            className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                            placeholder="e.g. 500 pcs/carton, 40 cartons/pallet"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Pallet Setup Type</label>
+                          <input
+                            type="text"
+                            value={data.palletType}
+                            onChange={e => handleFieldChange('palletType', e.target.value)}
+                            className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                            placeholder="e.g. Standard Heat-Treated Wood"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Carton & Transport Packaging</label>
+                        <textarea
+                          rows={2}
+                          value={data.generalPackaging}
+                          onChange={e => handleFieldChange('generalPackaging', e.target.value)}
+                          className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500"
+                          placeholder="e.g. Pouches packed in master cartons with protective PE inner liners."
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Joins Tape Color</label>
-                      <input type="text" value={data.joinsTape} onChange={e => handleFieldChange('joinsTape', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Red tape" />
+                  ) : (
+                    <div className="space-y-4 animate-in fade-in duration-200">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Core Size (Diameter)</label>
+                          <input type="text" value={data.core} onChange={e => handleFieldChange('core', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Paper core ID 76 mm" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Joins Tape Color</label>
+                          <input type="text" value={data.joinsTape} onChange={e => handleFieldChange('joinsTape', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Red tape" />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Max Joins Allowed</label>
+                          <input type="text" value={data.joinsNumber} onChange={e => handleFieldChange('joinsNumber', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. 1 max" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Roll Setup / Stack Pallet</label>
+                          <input type="text" value={data.stackPallet} onChange={e => handleFieldChange('stackPallet', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. 25 rolls/layer" />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Roll Size / Length / Weight</label>
+                          <input type="text" value={data.rollSize} onChange={e => handleFieldChange('rollSize', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. 180mm O/D, 220m, 15 kg max" />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Pallet Setup Type</label>
+                          <input type="text" value={data.palletType} onChange={e => handleFieldChange('palletType', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Standard Wood Pallet" />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Position Joins Flag</label>
+                        <input type="text" value={data.positionJoins} onChange={e => handleFieldChange('positionJoins', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Butt/In register, Red flags" />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Roll Label Requirements</label>
+                        <input type="text" value={data.rollLabelInfo} onChange={e => handleFieldChange('rollLabelInfo', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="Contains Job details, Customer name..." />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">General Transport Packaging</label>
+                        <textarea rows={2} value={data.generalPackaging} onChange={e => handleFieldChange('generalPackaging', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. rolls protected by wrap..." />
+                      </div>
                     </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Max Joins Allowed</label>
-                      <input type="text" value={data.joinsNumber} onChange={e => handleFieldChange('joinsNumber', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. 1 max" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Roll Setup / Stack Pallet</label>
-                      <input type="text" value={data.stackPallet} onChange={e => handleFieldChange('stackPallet', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. 25 rolls/layer" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Roll Dimensions / Weight</label>
-                    <input type="text" value={data.rollSize} onChange={e => handleFieldChange('rollSize', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. 180mm O/D, 220m, 15 kg max" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Position Joins Flag</label>
-                    <input type="text" value={data.positionJoins} onChange={e => handleFieldChange('positionJoins', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Butt/In register, Red flags" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Roll Label Requirements</label>
-                    <input type="text" value={data.rollLabelInfo} onChange={e => handleFieldChange('rollLabelInfo', e.target.value)} className="w-full border-gray-300 rounded-lg text-sm px-3 py-2 bg-gray-50 focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="Contains Job details, Customer name..." />
-                  </div>
+                  )}
                 </div>
               )}
 
@@ -683,38 +1008,80 @@ export default function SpecSheetTab() {
                 </div>
               </div>
 
-              {/* TABLE: PRODUCT DETAILS */}
-              <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-blue-700"/>
-                A. Product Details
-              </h4>
-              <table className="w-full border-collapse border border-gray-300 mb-6 text-left">
-                <tbody>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 w-[220px] border-r border-gray-300">Customer Name:</td><td className="p-2 font-medium">{data.customer || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Customer Description:</td><td className="p-2">{data.customerDesc || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Customer Code:</td><td className="p-2 font-mono">{data.customerCode || 'NA'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Material Structure Description:</td><td className="p-2 font-mono font-bold text-emerald-800">{data.materialStructure || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">AchievePack Internal Description:</td><td className="p-2 font-mono">{data.achieveDescription || 'N/A'}</td></tr>
-                  <tr><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">APN Barcode Number:</td><td className="p-2 font-mono">{data.apnBarcode || 'NA'}</td></tr>
-                </tbody>
-              </table>
+              {/* TWO-COLUMN GRID WRAPPER */}
+              <div className="grid grid-cols-2 gap-6 flex-1 mt-2">
+                {/* LEFT COLUMN: Section A & B */}
+                <div className="space-y-4">
+                  {/* TABLE: PRODUCT DETAILS */}
+                  <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 mb-1.5 uppercase tracking-wider flex items-center gap-1.5">
+                    <Layers className="w-3 h-3 text-blue-700"/>
+                    A. Product Details
+                  </h4>
+                  <table className="w-full border-collapse border border-gray-300 mb-4 text-left">
+                    <tbody>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 w-[130px] border-r border-gray-300">Customer Name:</td><td className="p-1.5 font-medium">{data.customer || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Customer Description:</td><td className="p-1.5">{data.customerDesc || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Customer Code:</td><td className="p-1.5 font-mono">{data.customerCode || 'NA'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Material Structure:</td><td className="p-1.5 font-mono font-bold text-emerald-800">{data.materialStructure || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Internal Description:</td><td className="p-1.5 font-mono">{data.achieveDescription || 'N/A'}</td></tr>
+                      <tr><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">APN Barcode Number:</td><td className="p-1.5 font-mono">{data.apnBarcode || 'NA'}</td></tr>
+                    </tbody>
+                  </table>
 
-              {/* TABLE: PRINTING SPECS */}
-              <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider flex items-center gap-1.5">
-                <FileCode className="w-3.5 h-3.5 text-blue-700"/>
-                B. Printing Information & Specifications
-              </h4>
-              <table className="w-full border-collapse border border-gray-300 text-left">
-                <tbody>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 w-[220px] border-r border-gray-300">Printing Process:</td><td className="p-2">{data.printingProcess || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Print Quality Standard:</td><td className="p-2">{data.printQuality || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Rewind Direction to Customer:</td><td className="p-2 font-bold text-orange-800">{data.rewindDirection || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Print Number Colours:</td><td className="p-2">{data.numColours || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Total Retain Solvent Limit:</td><td className="p-2 font-mono">{data.totalRetainSolvent || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Solid Colour Variation (tolerance):</td><td className="p-2 font-mono">{data.solidColourVariation || 'N/A'}</td></tr>
-                  <tr><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">APN Bar Code Scan Quality:</td><td className="p-2">{data.barcodeScanQuality || 'N/A'}</td></tr>
-                </tbody>
-              </table>
+                  {/* TABLE: PRINTING SPECS */}
+                  <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 mb-1.5 uppercase tracking-wider flex items-center gap-1.5">
+                    <FileCode className="w-3 h-3 text-blue-700"/>
+                    B. Printing Specifications
+                  </h4>
+                  <table className="w-full border-collapse border border-gray-300 text-left">
+                    <tbody>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 w-[130px] border-r border-gray-300">Printing Process:</td><td className="p-1.5">{data.printingProcess || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Print Quality Standard:</td><td className="p-1.5">{data.printQuality || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Rewind / Film Direction:</td><td className="p-1.5 font-bold text-orange-800">{data.rewindDirection || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Print Number Colours:</td><td className="p-1.5">{data.numColours || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Total Retain Solvent Limit:</td><td className="p-1.5 font-mono">{data.totalRetainSolvent || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">Colour Variation (tolerance):</td><td className="p-1.5 font-mono">{data.solidColourVariation || 'N/A'}</td></tr>
+                      <tr><td className="bg-gray-50 font-bold p-1.5 border-r border-gray-300">APN Barcode Scan Quality:</td><td className="p-1.5">{data.barcodeScanQuality || 'N/A'}</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* RIGHT COLUMN: Section C Technical Artwork Proof */}
+                <div className="flex flex-col h-full justify-between">
+                  <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 mb-1.5 uppercase tracking-wider flex items-center gap-1.5">
+                    <FileText className="w-3 h-3 text-blue-700"/>
+                    C. Technical Artwork Reference Proof
+                  </h4>
+                  
+                  {/* Technical Blueprint Proof Box */}
+                  <div className="border border-gray-300 rounded-lg p-4 bg-gray-50/50 flex-1 flex flex-col items-center justify-center min-h-[340px] text-center relative overflow-hidden">
+                    {/* Architectural Blueprint Grid */}
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:16px_16px] opacity-35"></div>
+                    
+                    {data.artworkImage ? (
+                      <div className="relative z-10 flex flex-col items-center justify-center h-full w-full p-2">
+                        <img
+                          src={data.artworkImage}
+                          alt="Technical Artwork Proof"
+                          className="max-h-[280px] w-auto object-contain border border-gray-300 shadow-md rounded bg-white"
+                        />
+                        <div className="mt-3 bg-blue-900/10 border border-blue-900/20 text-blue-950 px-3 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-widest flex items-center gap-1">
+                          <ShieldCheck className="w-3.5 h-3.5 text-blue-800"/>
+                          APPROVED SYSTEM PROOF
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="relative z-10 flex flex-col items-center justify-center text-gray-400 p-4">
+                        <FileCode className="w-12 h-12 text-gray-300 mb-2 stroke-[1.5]" />
+                        <span className="text-[10px] font-extrabold text-gray-500 uppercase tracking-widest mb-1">TECHNICAL BLUEPRINT PROOF</span>
+                        <span className="text-[9px] text-gray-400 max-w-[180px] leading-normal">
+                          No artwork image uploaded. Add proof image via general configurations uploader.
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
 
             </div>
 
@@ -783,27 +1150,54 @@ export default function SpecSheetTab() {
                 <span>page 3 / 4</span>
               </div>
 
-              {/* TABLE: SLITTING AND PACKING INFO */}
-              <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider flex items-center gap-1.5">
-                <Truck className="w-3.5 h-3.5 text-blue-700"/>
-                E. Slitting, Packing, Transport & Storage Information
-              </h4>
-              <table className="w-full border-collapse border border-gray-300 mb-6 text-left">
-                <tbody>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 w-[220px] border-r border-gray-300">Roll Core ID (Diameter):</td><td className="p-2">{data.core || 'Paper core ID 76 mm'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Joins Tape Specification:</td><td className="p-2">{data.joinsTape || 'Red tape'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Maximum Joins Allowed:</td><td className="p-2 font-mono">{data.joinsNumber || '1 max'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Position of Joins (flagging):</td><td className="p-2">{data.positionJoins || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Roll Label Requirements:</td><td className="p-2 leading-snug">{data.rollLabelInfo || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Roll Size / Length / Weight:</td><td className="p-2 font-mono">{data.rollSize || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Stack roll on pallet layout:</td><td className="p-2">{data.stackPallet || 'N/A'}</td></tr>
-                  <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Pallet Setup Type:</td><td className="p-2">{data.palletType || 'Plain wood'}</td></tr>
-                  <tr>
-                    <td className="bg-gray-50 font-bold p-2 border-r border-gray-300 align-top">General Transport Packaging:</td>
-                    <td className="p-2 leading-relaxed text-gray-700">{data.generalPackaging || 'N/A'}</td>
-                  </tr>
-                </tbody>
-              </table>
+              {/* TABLE: SLITTING AND PACKING INFO / DYNAMIC SECTION E */}
+              {data.specType === 'pouch' ? (
+                <div className="animate-in fade-in duration-200">
+                  <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider flex items-center gap-1.5">
+                    <Truck className="w-3.5 h-3.5 text-blue-700"/>
+                    E. Pouch Dimensions, Features & Packing Information
+                  </h4>
+                  <table className="w-full border-collapse border border-gray-300 mb-6 text-left">
+                    <tbody>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 w-[220px] border-r border-gray-300">Pouch Shape / Format:</td><td className="p-2 font-bold text-indigo-900">{data.pouchShape || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Pouch Dimensions (Width × Length):</td><td className="p-2 font-semibold font-mono">{data.pouchWidth && data.pouchLength ? `${data.pouchWidth} × ${data.pouchLength}` : 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Pouch Gusset Dimension:</td><td className="p-2 font-mono">{data.pouchGusset || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Zipper & Reclosure Type:</td><td className="p-2 font-medium text-blue-900">{data.zipperType || 'None'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Tear Notch Style:</td><td className="p-2">{data.tearNotch || 'None'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Hang Hole / Display Feature:</td><td className="p-2">{data.hangHole || 'None'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Pouch Carton Packing Layout:</td><td className="p-2">{data.stackPallet || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Pallet Setup Type:</td><td className="p-2">{data.palletType || 'Plain wood'}</td></tr>
+                      <tr>
+                        <td className="bg-gray-50 font-bold p-2 border-r border-gray-300 align-top">Carton & Transport Packaging:</td>
+                        <td className="p-2 leading-relaxed text-gray-700">{data.generalPackaging || 'N/A'}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div className="animate-in fade-in duration-200">
+                  <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider flex items-center gap-1.5">
+                    <Truck className="w-3.5 h-3.5 text-blue-700"/>
+                    E. Slitting, Packing, Transport & Storage Information
+                  </h4>
+                  <table className="w-full border-collapse border border-gray-300 mb-6 text-left">
+                    <tbody>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 w-[220px] border-r border-gray-300">Roll Core ID (Diameter):</td><td className="p-2">{data.core || 'Paper core ID 76 mm'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Joins Tape Specification:</td><td className="p-2">{data.joinsTape || 'Red tape'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Maximum Joins Allowed:</td><td className="p-2 font-mono">{data.joinsNumber || '1 max'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Position of Joins (flagging):</td><td className="p-2">{data.positionJoins || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Roll Label Requirements:</td><td className="p-2 leading-snug">{data.rollLabelInfo || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Roll Size / Length / Weight:</td><td className="p-2 font-mono">{data.rollSize || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Stack roll on pallet layout:</td><td className="p-2">{data.stackPallet || 'N/A'}</td></tr>
+                      <tr className="border-b border-gray-300"><td className="bg-gray-50 font-bold p-2 border-r border-gray-300">Pallet Setup Type:</td><td className="p-2">{data.palletType || 'Plain wood'}</td></tr>
+                      <tr>
+                        <td className="bg-gray-50 font-bold p-2 border-r border-gray-300 align-top">General Transport Packaging:</td>
+                        <td className="p-2 leading-relaxed text-gray-700">{data.generalPackaging || 'N/A'}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              )}
 
 
 
@@ -976,49 +1370,87 @@ export default function SpecSheetTab() {
             </div>
           </div>
 
-          <div className="bg-blue-900 text-white text-center font-bold text-sm uppercase py-2 tracking-widest rounded mb-6">
+          <div className="bg-blue-900 text-white text-center font-bold text-sm uppercase py-2 tracking-widest rounded mb-5">
             Product Specification Sheet
           </div>
 
-          <div className="flex justify-between items-start mb-6">
+          <div className="flex justify-between items-start mb-4">
             <div className="space-y-1">
-              <div className="flex gap-1.5"><span className="font-bold text-gray-700 w-24">Revision Code:</span><span className="font-semibold text-gray-900">{data.revision || 'New'}</span></div>
-              <div className="flex gap-1.5"><span className="font-bold text-gray-700 w-24">Issue Date:</span><span className="font-semibold text-gray-900">{data.issueDate || 'N/A'}</span></div>
+              <div className="flex gap-1.5 text-[9px]"><span className="font-bold text-gray-700 w-24">Revision Code:</span><span className="font-semibold text-gray-900">{data.revision || 'New'}</span></div>
+              <div className="flex gap-1.5 text-[9px]"><span className="font-bold text-gray-700 w-24">Issue Date:</span><span className="font-semibold text-gray-900">{data.issueDate || 'N/A'}</span></div>
             </div>
-            <div className="bg-gray-100 border border-gray-300 rounded px-5 py-3 text-center min-w-[150px]">
-              <span className="text-[9px] font-bold text-gray-400 block uppercase tracking-wider mb-1">Item Ref / Code</span>
-              <span className="text-sm font-extrabold text-blue-950 font-mono tracking-wide">{data.itemNo || 'N/A'}</span>
+            <div className="bg-gray-100 border border-gray-300 rounded px-4 py-2 text-center min-w-[120px]">
+              <span className="text-[8px] font-bold text-gray-400 block uppercase tracking-wider mb-0.5">Item Ref / Code</span>
+              <span className="text-xs font-extrabold text-blue-950 font-mono tracking-wide">{data.itemNo || 'N/A'}</span>
             </div>
           </div>
 
-          <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
-            A. Product Details
-          </h4>
-          <table className="w-full mb-6">
-            <tbody>
-              <tr><td className="bg-gray-50 font-bold w-[220px]">Customer Name:</td><td className="font-medium">{data.customer || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Customer Description:</td><td>{data.customerDesc || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Customer Code:</td><td className="font-mono">{data.customerCode || 'NA'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Material Structure Description:</td><td className="font-mono font-bold text-emerald-800" style={{ color: '#065f46' }}>{data.materialStructure || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">AchievePack Internal Description:</td><td className="font-mono">{data.achieveDescription || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">APN Barcode Number:</td><td className="font-mono">{data.apnBarcode || 'NA'}</td></tr>
-            </tbody>
-          </table>
+          {/* TWO-COLUMN GRID FOR PRINT */}
+          <div className="grid grid-cols-2 gap-6 flex-1 mt-4">
+            {/* LEFT COLUMN: Section A & B */}
+            <div className="space-y-3">
+              <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 mb-2 uppercase tracking-wider">
+                A. Product Details
+              </h4>
+              <table className="w-full mb-4">
+                <tbody>
+                  <tr><td className="bg-gray-50 font-bold w-[120px]">Customer Name:</td><td className="font-medium">{data.customer || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Customer Description:</td><td>{data.customerDesc || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Customer Code:</td><td className="font-mono">{data.customerCode || 'NA'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Material Structure:</td><td className="font-mono font-bold text-emerald-800" style={{ color: '#065f46' }}>{data.materialStructure || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Internal Description:</td><td className="font-mono">{data.achieveDescription || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">APN Barcode:</td><td className="font-mono">{data.apnBarcode || 'NA'}</td></tr>
+                </tbody>
+              </table>
 
-          <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
-            B. Printing Information & Specifications
-          </h4>
-          <table className="w-full">
-            <tbody>
-              <tr><td className="bg-gray-50 font-bold w-[220px]">Printing Process:</td><td>{data.printingProcess || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Print Quality Standard:</td><td>{data.printQuality || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold text-orange-800" style={{ color: '#9a3412' }}>Rewind Direction to Customer:</td><td className="font-bold">{data.rewindDirection || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Print Number Colours:</td><td>{data.numColours || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Total Retain Solvent Limit:</td><td className="font-mono">{data.totalRetainSolvent || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Solid Colour Variation (tolerance):</td><td className="font-mono">{data.solidColourVariation || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">APN Bar Code Scan Quality:</td><td>{data.barcodeScanQuality || 'N/A'}</td></tr>
-            </tbody>
-          </table>
+              <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 mb-2 uppercase tracking-wider">
+                B. Printing Specifications
+              </h4>
+              <table className="w-full">
+                <tbody>
+                  <tr><td className="bg-gray-50 font-bold w-[120px]">Printing Process:</td><td>{data.printingProcess || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Print Quality Standard:</td><td>{data.printQuality || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold text-orange-800" style={{ color: '#9a3412' }}>Rewind / Film Dir:</td><td className="font-bold">{data.rewindDirection || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Number Colours:</td><td>{data.numColours || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Retain Solvent Limit:</td><td className="font-mono">{data.totalRetainSolvent || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Colour Variation:</td><td className="font-mono">{data.solidColourVariation || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">APN Barcode Quality:</td><td>{data.barcodeScanQuality || 'N/A'}</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* RIGHT COLUMN: Section C Technical Artwork Proof */}
+            <div className="flex flex-col h-full justify-between">
+              <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 mb-2 uppercase tracking-wider">
+                C. Technical Artwork Proof
+              </h4>
+              <div className="border border-gray-400 rounded-lg p-3 bg-gray-50 flex-1 flex flex-col items-center justify-center min-h-[300px] text-center relative overflow-hidden" style={{ minHeight: '320px' }}>
+                {/* Architectural Blueprint Grid */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:16px_16px] opacity-25"></div>
+                
+                {data.artworkImage ? (
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full w-full p-1">
+                    <img
+                      src={data.artworkImage}
+                      alt="Technical Artwork Proof"
+                      className="max-h-[280px] w-auto object-contain border border-gray-400 shadow rounded bg-white"
+                      style={{ maxHeight: '280px' }}
+                    />
+                    <div className="mt-2 bg-blue-900/10 border border-blue-900/20 text-blue-950 px-2 py-0.5 rounded-full text-[8px] font-extrabold uppercase tracking-widest flex items-center gap-1" style={{ color: '#1e3a8a' }}>
+                      APPROVED SYSTEM PROOF
+                    </div>
+                  </div>
+                ) : (
+                  <div className="relative z-10 flex flex-col items-center justify-center text-gray-400 p-2">
+                    <span className="text-[9px] font-extrabold text-gray-500 uppercase tracking-widest mb-1">TECHNICAL BLUEPRINT PROOF</span>
+                    <span className="text-[8px] text-gray-400 max-w-[180px] leading-normal">
+                      No artwork image uploaded.
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
 
           <div className="absolute bottom-[8mm] left-[12mm] right-[12mm] flex justify-between text-[9px] text-gray-400 font-medium border-t pt-2">
             <span>Issue date: 23/06/15</span>
@@ -1077,27 +1509,51 @@ export default function SpecSheetTab() {
 
         {/* PRINT PAGE 3 */}
         <div className="print-page">
-          <h4 className="font-extrabold text-blue-900 text-[11px] border-b border-gray-300 pb-1 mb-2.5 uppercase tracking-wider">
-            E. Slitting, Packing, Transport & Storage Information
-          </h4>
-          <table className="w-full mb-6">
-            <tbody>
-              <tr><td className="bg-gray-50 font-bold w-[220px]">Roll Core ID (Diameter):</td><td>{data.core || 'Paper core ID 76 mm'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Joins Tape Specification:</td><td>{data.joinsTape || 'Red tape'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Maximum Joins Allowed:</td><td className="font-mono">{data.joinsNumber || '1 max'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Position of Joins (flagging):</td><td>{data.positionJoins || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Roll Label Requirements:</td><td>{data.rollLabelInfo || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Roll Size / Length / Weight:</td><td className="font-mono">{data.rollSize || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Stack roll on pallet layout:</td><td>{data.stackPallet || 'N/A'}</td></tr>
-              <tr><td className="bg-gray-50 font-bold">Pallet Setup Type:</td><td>{data.palletType || 'Plain wood'}</td></tr>
-              <tr>
-                <td className="bg-gray-50 font-bold align-top">General Transport Packaging:</td>
-                <td className="leading-relaxed text-gray-700">{data.generalPackaging || 'N/A'}</td>
-              </tr>
-            </tbody>
-          </table>
-
-
+          {data.specType === 'pouch' ? (
+            <div>
+              <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 mb-2 uppercase tracking-wider">
+                E. Pouch Dimensions, Features & Packing Information
+              </h4>
+              <table className="w-full mb-6">
+                <tbody>
+                  <tr><td className="bg-gray-50 font-bold w-[220px]">Pouch Shape / Format:</td><td className="font-bold text-indigo-900">{data.pouchShape || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Pouch Dimensions (W × L):</td><td className="font-semibold font-mono">{data.pouchWidth && data.pouchLength ? `${data.pouchWidth} × ${data.pouchLength}` : 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Pouch Gusset Dimension:</td><td className="font-mono">{data.pouchGusset || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Zipper & Reclosure Type:</td><td className="font-medium text-blue-900">{data.zipperType || 'None'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Tear Notch Style:</td><td>{data.tearNotch || 'None'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Hang Hole / Display Feature:</td><td>{data.hangHole || 'None'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Pouch Carton Packing Layout:</td><td>{data.stackPallet || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Pallet Setup Type:</td><td>{data.palletType || 'Plain wood'}</td></tr>
+                  <tr>
+                    <td className="bg-gray-50 font-bold align-top">Carton & Transport Packaging:</td>
+                    <td className="leading-relaxed text-gray-700">{data.generalPackaging || 'N/A'}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div>
+              <h4 className="font-extrabold text-blue-900 text-[10px] border-b border-gray-300 pb-1 mb-2 uppercase tracking-wider">
+                E. Slitting, Packing, Transport & Storage Information
+              </h4>
+              <table className="w-full mb-6">
+                <tbody>
+                  <tr><td className="bg-gray-50 font-bold w-[220px]">Roll Core ID (Diameter):</td><td>{data.core || 'Paper core ID 76 mm'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Joins Tape Specification:</td><td>{data.joinsTape || 'Red tape'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Maximum Joins Allowed:</td><td className="font-mono">{data.joinsNumber || '1 max'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Position of Joins (flagging):</td><td>{data.positionJoins || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Roll Label Requirements:</td><td>{data.rollLabelInfo || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Roll Size / Length / Weight:</td><td className="font-mono">{data.rollSize || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Stack roll on pallet layout:</td><td>{data.stackPallet || 'N/A'}</td></tr>
+                  <tr><td className="bg-gray-50 font-bold">Pallet Setup Type:</td><td>{data.palletType || 'Plain wood'}</td></tr>
+                  <tr>
+                    <td className="bg-gray-50 font-bold align-top">General Transport Packaging:</td>
+                    <td className="leading-relaxed text-gray-700">{data.generalPackaging || 'N/A'}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
 
           <div className="absolute bottom-[8mm] left-[12mm] right-[12mm] flex justify-between text-[9px] text-gray-400 font-medium border-t pt-2">
             <span>Issue date: 23/06/15</span>
