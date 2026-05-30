@@ -129,55 +129,7 @@ export default function PouchDielineCreatorPage() {
   const [bottomCurveMmStr, setBottomCurveMmStr] = useState('45')
   const [bottomCurveInchStr, setBottomCurveInchStr] = useState('1.77')
 
-  // Synchronize string inputs when the numeric state changes (presets, sliders, URL parameters)
-  useEffect(() => {
-    if (document.activeElement?.id !== 'width-mm-input' && document.activeElement?.id !== 'width-inch-input') {
-      setWidthMmStr(width.toString());
-      setWidthInchStr((width / 25.4).toFixed(2));
-    }
-  }, [width]);
 
-  useEffect(() => {
-    if (document.activeElement?.id !== 'height-mm-input' && document.activeElement?.id !== 'height-inch-input') {
-      setHeightMmStr(height.toString());
-      setHeightInchStr((height / 25.4).toFixed(2));
-    }
-  }, [height]);
-
-  useEffect(() => {
-    if (document.activeElement?.id !== 'gusset-mm-input' && document.activeElement?.id !== 'gusset-inch-input') {
-      setGussetMmStr(gusset.toString());
-      setGussetInchStr((gusset / 25.4).toFixed(2));
-    }
-  }, [gusset]);
-
-  useEffect(() => {
-    if (document.activeElement?.id !== 'zipper-mm-input' && document.activeElement?.id !== 'zipper-inch-input') {
-      setZipperMmStr(zipper.toString());
-      setZipperInchStr((zipper / 25.4).toFixed(2));
-    }
-  }, [zipper]);
-
-  useEffect(() => {
-    if (document.activeElement?.id !== 'tearNotch-mm-input' && document.activeElement?.id !== 'tearNotch-inch-input') {
-      setTearNotchMmStr(tearNotch.toString());
-      setTearNotchInchStr((tearNotch / 25.4).toFixed(2));
-    }
-  }, [tearNotch]);
-
-  useEffect(() => {
-    if (document.activeElement?.id !== 'sideSeals-mm-input' && document.activeElement?.id !== 'sideSeals-inch-input') {
-      setSideSealsMmStr(sideSeals.toString());
-      setSideSealsInchStr((sideSeals / 25.4).toFixed(2));
-    }
-  }, [sideSeals]);
-
-  useEffect(() => {
-    if (document.activeElement?.id !== 'bottomSealCurve-mm-input' && document.activeElement?.id !== 'bottomSealCurve-inch-input') {
-      setBottomCurveMmStr(bottomSealCurve.toString());
-      setBottomCurveInchStr((bottomSealCurve / 25.4).toFixed(2));
-    }
-  }, [bottomSealCurve]);
 
   // Handler functions for Millimeter and Inch text inputs (preserving typing decimal strings)
   const handleWidthChangeMm = (valStr: string) => {
@@ -403,14 +355,38 @@ export default function PouchDielineCreatorPage() {
     const c = params.get('c')
     const rc = params.get('rc')
 
-    if (w) setWidth(Number(w))
-    if (h) setHeight(Number(h))
-    if (g) setGusset(Number(g))
-    if (z) setZipper(Number(z))
-    if (tn) setTearNotch(Number(tn))
-    if (s) setSideSeals(Number(s))
-    if (c) setBottomSealCurve(Number(c))
+    let targetW = 170
+    let targetH = 270
+    let targetG = 90
+    let targetZ = 27
+    let targetTN = 18
+    let targetS = 10
+    let targetC = 45
+
+    if (w) { targetW = Number(w); setWidth(targetW); }
+    if (h) { targetH = Number(h); setHeight(targetH); }
+    if (g) { targetG = Number(g); setGusset(targetG); }
+    if (z) { targetZ = Number(z); setZipper(targetZ); }
+    if (tn) { targetTN = Number(tn); setTearNotch(targetTN); }
+    if (s) { targetS = Number(s); setSideSeals(targetS); }
+    if (c) { targetC = Number(c); setBottomSealCurve(targetC); }
     if (rc) setRoundCorners(rc === 'true')
+
+    // Force synchronization of text inputs on mount
+    setWidthMmStr(targetW.toString());
+    setWidthInchStr((targetW / 25.4).toFixed(2));
+    setHeightMmStr(targetH.toString());
+    setHeightInchStr((targetH / 25.4).toFixed(2));
+    setGussetMmStr(targetG.toString());
+    setGussetInchStr((targetG / 25.4).toFixed(2));
+    setZipperMmStr(targetZ.toString());
+    setZipperInchStr((targetZ / 25.4).toFixed(2));
+    setTearNotchMmStr(targetTN.toString());
+    setTearNotchInchStr((targetTN / 25.4).toFixed(2));
+    setSideSealsMmStr(targetS.toString());
+    setSideSealsInchStr((targetS / 25.4).toFixed(2));
+    setBottomCurveMmStr(targetC.toString());
+    setBottomCurveInchStr((targetC / 25.4).toFixed(2));
   }, [])
 
   // Check LocalStorage for previously unlocked emails
@@ -529,6 +505,22 @@ export default function PouchDielineCreatorPage() {
     setSideSeals(preset.sideSeals)
     setBottomSealCurve(preset.bottomSealCurve)
     setRoundCorners(preset.roundCorners)
+
+    // Force synchronization of text inputs on preset load
+    setWidthMmStr(preset.width.toString());
+    setWidthInchStr((preset.width / 25.4).toFixed(2));
+    setHeightMmStr(preset.height.toString());
+    setHeightInchStr((preset.height / 25.4).toFixed(2));
+    setGussetMmStr(preset.gusset.toString());
+    setGussetInchStr((preset.gusset / 25.4).toFixed(2));
+    setZipperMmStr(preset.zipper.toString());
+    setZipperInchStr((preset.zipper / 25.4).toFixed(2));
+    setTearNotchMmStr(preset.tearNotch.toString());
+    setTearNotchInchStr((preset.tearNotch / 25.4).toFixed(2));
+    setSideSealsMmStr(preset.sideSeals.toString());
+    setSideSealsInchStr((preset.sideSeals / 25.4).toFixed(2));
+    setBottomCurveMmStr(preset.bottomSealCurve.toString());
+    setBottomCurveInchStr((preset.bottomSealCurve / 25.4).toFixed(2));
   }
 
   // Auto-calculated scales for side-by-side proportional rendering in A4 landscape aspect box
