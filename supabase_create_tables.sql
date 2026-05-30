@@ -251,6 +251,13 @@ INSERT INTO shipping_records (
 -- 验证步骤：
 -- 1. 在 Supabase Dashboard 左侧点击 "Table Editor"
 -- 2. 确认看到 "production_jobs" 和 "shipping_records" 两个新表
--- 3. 检查表结构和索引是否正确创建
+-- 3. 检查表结构 and 索引是否正确创建
 -- 4. 返回告诉我 "表创建成功"，我会继续完成前端代码
 -- =====================================================
+
+-- =====================================================
+-- API EXPLICIT GRANTS (Fixes Supabase Breaking Change #45329)
+-- =====================================================
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.production_jobs TO anon, authenticated, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.shipping_records TO anon, authenticated, service_role;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO anon, authenticated, service_role;

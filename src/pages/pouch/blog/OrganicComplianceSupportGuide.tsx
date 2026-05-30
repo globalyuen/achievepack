@@ -213,7 +213,7 @@ export default function OrganicComplianceSupportGuide() {
     <BlogArticleTemplate
       title="Organic & Non-GMO Compliance Support | POUCH.ECO"
       metaDescription="Maintain your USDA Organic and EU Organic certifications. Download our Transparency Kit with Non-GMO affidavits and TÜV certificates for your auditor."
-      canonicalUrl="https://pouch.eco/blog/organic-compliance-support"
+      canonicalUrl="https://pouch.eco/blog/organic-compliance-support-guide"
       keywords={[
         'organic packaging compliance',
         'non gmo packaging',

@@ -3,8 +3,8 @@
   "total_images": 1857,
   "total_categories": 162,
   "extensions": {
-    ".webp": 1298,
-    ".png": 342,
+    ".webp": 1299,
+    ".png": 344,
     ".jpg": 214,
     ".svg": 3
   },
@@ -8250,7 +8250,7 @@
       ]
     },
     "store/pouch shape": {
-      "count": 7,
+      "count": 8,
       "images": [
         {
           "filename": "3-side.webp",
@@ -8297,7 +8297,7 @@
       ]
     },
     "store/products": {
-      "count": 255,
+      "count": 257,
       "images": [
         {
           "filename": "three-side-seal-bag-mopp-dual-corona-enhanced-vmpet-regular.png",

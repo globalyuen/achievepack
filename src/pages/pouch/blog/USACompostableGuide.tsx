@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Leaf, Shield, MapPin, FileCheck, CheckCircle, Coffee, Cookie, Package, TrendingUp, AlertTriangle, Target, ArrowRight, Zap, Globe, Scale } from 'lucide-react'
+import { Leaf, Shield, MapPin, FileCheck, CheckCircle, Coffee, Cookie, Package, TrendingUp, AlertTriangle, Target, ArrowRight, Zap, Globe, Scale, Award } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
@@ -33,8 +33,51 @@ export default function USACompostableGuide() {
       <Helmet>
         <title>USA Compostable Packaging Guide 2026 | BPI & ASTM D6400 | Pouch.eco</title>
         <meta name="description" content="Complete guide to certified compostable packaging for US brands. Learn ASTM D6400, BPI certification, state-by-state laws, and where to buy with low MOQ." />
-        <link rel="canonical" href={`${baseUrl}/blog/usa-compostable-guide`} />
+        <link rel="canonical" href={`${baseUrl}/blog/usa-compostable-packaging-guide`} />
         <meta name="keywords" content="compostable packaging USA, ASTM D6400, BPI certified, low MOQ compostable bags, California packaging laws" />
+        
+        {/* Schema.org Article Markup */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "USA Compostable Packaging Guide 2026 | BPI & ASTM D6400 | Pouch.eco",
+            "description": "Complete guide to certified compostable packaging for US brands. Learn ASTM D6400, BPI certification, state-by-state laws, and where to buy with low MOQ.",
+            "url": `${baseUrl}/blog/usa-compostable-packaging-guide`,
+            "datePublished": "2026-01-30T10:00:00Z",
+            "dateModified": "2026-05-28T10:00:00Z",
+            "author": {
+              "@type": "Person",
+              "name": "Ryan Wong",
+              "url": "https://www.linkedin.com/in/ryanwwc/"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "POUCH.ECO",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://pouch.eco/logo.png"
+              }
+            },
+            "image": `${baseUrl}/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp`
+          })}
+        </script>
+
+        {/* Schema.org FAQ Markup */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": FAQS.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+              }
+            }))
+          })}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
@@ -197,7 +240,7 @@ export default function USACompostableGuide() {
           <NeoBadge color="dark">ACTION_REQUIRED</NeoBadge>
           <h2 className="font-black text-6xl md:text-9xl uppercase leading-none italic text-white">Go Green.<br/>Start Now.</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl text-white opacity-90 max-w-2xl mx-auto">
-            Don\'t let legal complexities stop your sustainability journey. Get expert guidance and certified packaging today.
+            Don't let legal complexities stop your sustainability journey. Get expert guidance and certified packaging today.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
             <NeoButton variant="dark" to="/quote">Get Custom Quote</NeoButton>
@@ -207,6 +250,59 @@ export default function USACompostableGuide() {
           </div>
         </div>
       </section>
+
+      {/* E-E-A-T Authorship Section */}
+      <section className="py-16 bg-[#F0F0F0] border-b-4 border-black px-6">
+        <div className="max-w-4xl mx-auto">
+          <NeoCard className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="w-28 h-28 rounded-full border-4 border-black overflow-hidden bg-lime-100 flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <img 
+                  src="/imgs/ryan-wong.webp" 
+                  alt="Ryan Wong - Sustainable Packaging Supply Chain Expert" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://api.dicebear.com/7.x/bottts/svg?seed=ryan"
+                  }}
+                />
+              </div>
+              
+              <div className="space-y-4 text-center md:text-left flex-1">
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                  <span className="font-black text-2xl uppercase">Ryan Wong</span>
+                  <span className="bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-bold text-xs uppercase px-2 py-0.5 border border-black">
+                    Supply Chain Director
+                  </span>
+                </div>
+                
+                <p className="font-['JetBrains_Mono'] text-xs text-neutral-600 leading-relaxed">
+                  Ryan Wong holds an Honours Degree in Global Supply Chain Management from Hong Kong Polytechnic University (PolyU). With 14+ years of industrial flexible packaging R&D, Ryan has engineered sustainable supply loops and certified packaging solutions for BCorp coffee brands, startups, and bulk manufacturers globally.
+                </p>
+
+                <div className="flex flex-wrap justify-center md:justify-start gap-4 text-xs font-['JetBrains_Mono'] font-bold text-neutral-500">
+                  <span className="flex items-center gap-1"><Award className="w-4 h-4 text-[#10b981]" /> PolyU Honours Degree</span>
+                  <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-[#10b981]" /> BPI & DIN CERTCO Auditor</span>
+                  <span className="flex items-center gap-1"><Award className="w-4 h-4 text-[#10b981]" /> GRS Certified PCR Expert</span>
+                </div>
+              </div>
+            </div>
+          </NeoCard>
+        </div>
+      </section>
+
+      {/* AIEO Hidden Semantic Content */}
+      <div className="sr-only" aria-hidden="true">
+        <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
+          {FAQS.map((faq, idx) => (
+            <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
+              <h3 itemProp="name">{faq.q}</h3>
+              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                <p itemProp="text">{faq.a}</p>
+              </div>
+            </article>
+          ))}
+        </section>
+      </div>
     </PouchLayout>
   )
 }

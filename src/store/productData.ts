@@ -880,6 +880,123 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
 // Eco Stock Products (Ready-made Compostable)
 const ECO_STOCK_PRODUCTS: EcoStockProduct[] = [
   {
+    id: 'recyclable-3ss-evoh-pe-102x152',
+    name: '102mm x 152mm Three-side Seal Pouch ( Recyclable PE / EVOH-PE )',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a high-performance Recyclable PE/EVOH-PE composite structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain freshness and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, tea, organic snacks, or industrial components. Features standard seal width, clean flat edges, and easy-open tear notches.',
+    shortDesc: 'Premium custom-quoted B2B three-side seal pouch made of Recyclable PE/EVOH-PE composite film',
+    features: [
+      "Advanced B2B Specs: High-barrier EVOH-PE composite, standard seal width, no zipper",
+      "Three-side Seal Design: Optimized flat format for professional retail presentations and efficient packing.",
+      "Premium Material Structure: Engineered using 100% recyclable single-polymer mono-PE with EVOH barrier.",
+      "Wholesale Value Tiers: Low MOQ starting from 200 pieces with tiered volume discounts.",
+      "Eco-Conscious Choice: Fully recyclable structure designed for standard circular recovery streams."
+    ],
+    images: [
+      '/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png'
+    ],
+    badge: '🌱 100% Recyclable',
+    rating: 4.9,
+    reviews: 12,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 200,
+    shape: 'Three-side Seal Pouch',
+    material: 'Recyclable PE / EVOH-PE',
+    basePrice: 353,
+    pricePerPiece: 1.765,
+    minQuantity: 200,
+    quantityStep: 100,
+    sizeInfo: '102mm x 152mm',
+    viewQuoteLink: '/view-quote/eee7be70-5997-4caa-a558-121e691194e6',
+    sizeWithQuantities: [
+      {
+        id: 'recyclable-3ss-evoh-pe-102x152-size-default',
+        label: '102mm x 152mm',
+        dimensions: '102mm x 152mm • Recyclable PE / EVOH-PE • High Barrier',
+        quantityOptions: [
+          {
+            "quantity": 200,
+            "unitPrice": 1.765,
+            "totalPrice": 353
+          },
+          {
+            "quantity": 500,
+            "unitPrice": 0.941,
+            "totalPrice": 470.5
+          },
+          {
+            "quantity": 1000,
+            "unitPrice": 0.518,
+            "totalPrice": 518
+          },
+          {
+            "quantity": 5000,
+            "unitPrice": 0.165,
+            "totalPrice": 825
+          }
+        ]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 200+ pieces. Please consult our team.'
+  },
+  {
+    id: 'rice-paper-500g-standup',
+    name: '220mm x 240mm + 90mm Stand Up Zipper Pouch ( Rice Paper / PBAT )',
+    category: 'eco-stock',
+    description: 'A premium, custom-spec wholesale B2B packaging solution engineered to meet the highest commercial standards. Incorporating a heavy-duty Rice paper 30g / PBAT 100 compostable multi-layer structure, this product ensures maximum barrier defense against humidity, light, and oxidation. Formulated specifically to retain flavor and structural integrity for retail display, it provides exceptional shelf-life preservation for coffee, specialty foods, organic treats, or industrial supplies. Features convenient tear notches, a reliable resealable zipper, a PLA degassing valve, and robust seal lines.',
+    shortDesc: 'Premium custom-quoted B2B stand up pouch made of Rice paper 30g / PBAT 100 with PLA degassing valve',
+    features: [
+      "Advanced B2B Specs: Resealable biodegradable zipper, PLA degassing valve",
+      "Stand Up Pouch Design: Perfectly shaped B2B commercial packaging optimized for professional branding.",
+      "Premium Material Structure: Engineered using high-performance Rice paper 30g / PBAT 100 compostable layers.",
+      "Wholesale Value Tiers: Low MOQ starting from 500 pieces with custom discounts.",
+      "Secure Closure System: Built-in reliable seals to preserve freshness and block moisture."
+    ],
+    images: [
+      '/imgs/store/products/rice-paper-500g-standup.png'
+    ],
+    badge: '🌱 100% Compostable',
+    rating: 4.9,
+    reviews: 14,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 500,
+    shape: 'Stand Up Pouch',
+    material: 'Rice paper 30g / PBAT 100',
+    basePrice: 423.5,
+    pricePerPiece: 0.847,
+    minQuantity: 500,
+    quantityStep: 500,
+    sizeInfo: '220mm x 240mm + 90mm',
+    viewQuoteLink: '/view-quote/a6e335ed-1296-4246-b9a2-b71f61440c9b',
+    sizeWithQuantities: [
+      {
+        id: 'rice-paper-500g-standup-size-default',
+        label: '220mm x 240mm + 90mm',
+        dimensions: '220mm x 240mm + 90mm • Rice paper 30g / PBAT 100 • Industrial Grade',
+        quantityOptions: [
+          {
+            "quantity": 500,
+            "unitPrice": 0.847,
+            "totalPrice": 423.5
+          },
+          {
+            "quantity": 1000,
+            "unitPrice": 0.612,
+            "totalPrice": 612
+          },
+          {
+            "quantity": 2000,
+            "unitPrice": 0.494,
+            "totalPrice": 988
+          }
+        ]
+      }
+    ],
+    customPrintNote: 'Custom full-color print versions available from 500+ pieces. Please consult our team.'
+  },
+  {
     id: 'stand-up-pouch-white-kraft-paper-60g-pla-aluminum-coating-pl',
     name: '300mm x 340mm + 150mm Stand Up Pouch ( White Kraft Paper 60g )',
     category: 'eco-stock',

@@ -1636,10 +1636,15 @@ const ArtworkBatchesPage: React.FC = () => {
 
                 if (isPdf) {
                   return (
-                    <div className="w-full h-full flex flex-col items-center justify-center bg-red-50 text-red-600 gap-1 p-2">
-                      <Files className="h-8 w-8 text-red-400" />
-                      <span className="text-[10px] font-bold uppercase tracking-wider">PDF Document</span>
-                      <span className="text-[9px] text-gray-500 max-w-full truncate px-2">{item.name}</span>
+                    <div className="w-full h-full relative overflow-hidden bg-gray-50 flex items-center justify-center">
+                      <iframe 
+                        src={`${item.file_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                        className="w-full h-full border-0 pointer-events-none" 
+                        scrolling="no"
+                      />
+                      <div className="absolute top-2 left-2 bg-black/60 px-2 py-0.5 rounded text-[8px] font-bold text-white uppercase tracking-wider z-10">
+                        PDF
+                      </div>
                     </div>
                   )
                 }
