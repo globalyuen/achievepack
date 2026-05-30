@@ -908,19 +908,40 @@ export default function PouchEcoGPTKPage() {
                 <div className="bg-neutral-50 border border-neutral-200 p-1 rounded-xl grid grid-cols-2 text-center text-[10px] font-bold font-sans">
                   <button 
                     type="button" 
-                    onClick={() => { setOvalEcoOption('pe-evoh'); setSizeMode('standard'); }}
+                    onClick={() => setOvalEcoOption('pe-evoh')}
                     className={`py-1.5 rounded-lg transition ${ovalEcoOption === 'pe-evoh' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
                   >
                     ♻️ Recyclable PE
                   </button>
                   <button 
                     type="button" 
-                    onClick={() => { setOvalEcoOption('compostable'); setSizeMode('standard'); }}
+                    onClick={() => setOvalEcoOption('compostable')}
                     className={`py-1.5 rounded-lg transition ${ovalEcoOption === 'compostable' ? 'bg-white text-emerald-700 shadow-sm border border-neutral-200/50 font-black' : 'text-neutral-500'}`}
                   >
                     🌱 Compostable
                   </button>
                 </div>
+
+                {/* Dynamic Inline Selector ONLY when Custom Size is active inside Oval Bottom Eco card */}
+                {sizeMode === 'custom' && (
+                  <div className="bg-emerald-50/50 border border-emerald-100 p-2.5 rounded-xl space-y-1.5 mt-2">
+                    <span className="block text-[10px] font-bold uppercase text-emerald-950 font-mono tracking-wider">
+                      Reference Capacity (選擇起算容量)
+                    </span>
+                    <div className="grid grid-cols-4 gap-1 text-[10px] text-center font-bold">
+                      {BAG_SIZES.map(s => (
+                        <button
+                          key={s.id}
+                          type="button"
+                          onClick={() => setSelectedSize(s)}
+                          className={`py-1.5 rounded-lg border transition ${selectedSize.id === s.id ? 'bg-white border-emerald-600 text-emerald-700 shadow-sm font-black' : 'bg-transparent border-neutral-200 text-neutral-500 hover:text-neutral-900'}`}
+                        >
+                          {s.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Click to Zoom Visual Pouch Image */}
                 <div 
