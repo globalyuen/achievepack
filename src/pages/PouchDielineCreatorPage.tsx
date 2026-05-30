@@ -113,6 +113,206 @@ export default function PouchDielineCreatorPage() {
   const [bottomSealCurve, setBottomSealCurve] = useState(45)
   const [roundCorners, setRoundCorners] = useState(true)
 
+  // Sizing String Input Buffers for Real-time Dual-Unit Conversion (Inches & MM)
+  const [widthMmStr, setWidthMmStr] = useState('170')
+  const [widthInchStr, setWidthInchStr] = useState('6.69')
+  const [heightMmStr, setHeightMmStr] = useState('270')
+  const [heightInchStr, setHeightInchStr] = useState('10.63')
+  const [gussetMmStr, setGussetMmStr] = useState('90')
+  const [gussetInchStr, setGussetInchStr] = useState('3.54')
+  const [zipperMmStr, setZipperMmStr] = useState('27')
+  const [zipperInchStr, setZipperInchStr] = useState('1.06')
+  const [tearNotchMmStr, setTearNotchMmStr] = useState('18')
+  const [tearNotchInchStr, setTearNotchInchStr] = useState('0.71')
+  const [sideSealsMmStr, setSideSealsMmStr] = useState('10')
+  const [sideSealsInchStr, setSideSealsInchStr] = useState('0.39')
+  const [bottomCurveMmStr, setBottomCurveMmStr] = useState('45')
+  const [bottomCurveInchStr, setBottomCurveInchStr] = useState('1.77')
+
+  // Synchronize string inputs when the numeric state changes (presets, sliders, URL parameters)
+  useEffect(() => {
+    if (document.activeElement?.id !== 'width-mm-input' && document.activeElement?.id !== 'width-inch-input') {
+      setWidthMmStr(width.toString());
+      setWidthInchStr((width / 25.4).toFixed(2));
+    }
+  }, [width]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'height-mm-input' && document.activeElement?.id !== 'height-inch-input') {
+      setHeightMmStr(height.toString());
+      setHeightInchStr((height / 25.4).toFixed(2));
+    }
+  }, [height]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'gusset-mm-input' && document.activeElement?.id !== 'gusset-inch-input') {
+      setGussetMmStr(gusset.toString());
+      setGussetInchStr((gusset / 25.4).toFixed(2));
+    }
+  }, [gusset]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'zipper-mm-input' && document.activeElement?.id !== 'zipper-inch-input') {
+      setZipperMmStr(zipper.toString());
+      setZipperInchStr((zipper / 25.4).toFixed(2));
+    }
+  }, [zipper]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'tearNotch-mm-input' && document.activeElement?.id !== 'tearNotch-inch-input') {
+      setTearNotchMmStr(tearNotch.toString());
+      setTearNotchInchStr((tearNotch / 25.4).toFixed(2));
+    }
+  }, [tearNotch]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'sideSeals-mm-input' && document.activeElement?.id !== 'sideSeals-inch-input') {
+      setSideSealsMmStr(sideSeals.toString());
+      setSideSealsInchStr((sideSeals / 25.4).toFixed(2));
+    }
+  }, [sideSeals]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'bottomSealCurve-mm-input' && document.activeElement?.id !== 'bottomSealCurve-inch-input') {
+      setBottomCurveMmStr(bottomSealCurve.toString());
+      setBottomCurveInchStr((bottomSealCurve / 25.4).toFixed(2));
+    }
+  }, [bottomSealCurve]);
+
+  // Handler functions for Millimeter and Inch text inputs (preserving typing decimal strings)
+  const handleWidthChangeMm = (valStr: string) => {
+    setWidthMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setWidth(parsed);
+      setWidthInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleWidthChangeInch = (valStr: string) => {
+    setWidthInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setWidth(mmVal);
+      setWidthMmStr(mmVal.toString());
+    }
+  };
+
+  const handleHeightChangeMm = (valStr: string) => {
+    setHeightMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setHeight(parsed);
+      setHeightInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleHeightChangeInch = (valStr: string) => {
+    setHeightInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setHeight(mmVal);
+      setHeightMmStr(mmVal.toString());
+    }
+  };
+
+  const handleGussetChangeMm = (valStr: string) => {
+    setGussetMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setGusset(parsed);
+      setGussetInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleGussetChangeInch = (valStr: string) => {
+    setGussetInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setGusset(mmVal);
+      setGussetMmStr(mmVal.toString());
+    }
+  };
+
+  const handleZipperChangeMm = (valStr: string) => {
+    setZipperMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setZipper(parsed);
+      setZipperInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleZipperChangeInch = (valStr: string) => {
+    setZipperInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setZipper(mmVal);
+      setZipperMmStr(mmVal.toString());
+    }
+  };
+
+  const handleTearNotchChangeMm = (valStr: string) => {
+    setTearNotchMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setTearNotch(parsed);
+      setTearNotchInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleTearNotchChangeInch = (valStr: string) => {
+    setTearNotchInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setTearNotch(mmVal);
+      setTearNotchMmStr(mmVal.toString());
+    }
+  };
+
+  const handleSideSealsChangeMm = (valStr: string) => {
+    setSideSealsMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setSideSeals(parsed);
+      setSideSealsInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleSideSealsChangeInch = (valStr: string) => {
+    setSideSealsInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setSideSeals(mmVal);
+      setSideSealsMmStr(mmVal.toString());
+    }
+  };
+
+  const handleBottomCurveChangeMm = (valStr: string) => {
+    setBottomCurveMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setBottomSealCurve(parsed);
+      setBottomCurveInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleBottomCurveChangeInch = (valStr: string) => {
+    setBottomCurveInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setBottomSealCurve(mmVal);
+      setBottomCurveMmStr(mmVal.toString());
+    }
+  };
+
   // Checklist Interactive State
   const [checklist, setChecklist] = useState({
     size: false,
@@ -418,7 +618,7 @@ export default function PouchDielineCreatorPage() {
 
         // Tech specs footer table
         doc.setFont('Helvetica', 'bold');
-        doc.text(`Width: ${width}mm  |  Height: ${height}mm  |  Bottom Gusset: ${gusset}mm  |  Zipper: ${zipper}mm  |  Tear Notch: ${tearNotch}mm  |  Side Seals: ${sideSeals}mm  |  Corner: ${roundCorners ? 'Rounded (8mm)' : 'Square'}`, 10, canvasH - 10);
+        doc.text(`Width: ${width}mm (${(width / 25.4).toFixed(2)}in)  |  Height: ${height}mm (${(height / 25.4).toFixed(2)}in)  |  Bottom Gusset: ${gusset}mm (${(gusset / 25.4).toFixed(2)}in)  |  Zipper: ${zipper}mm (${(zipper / 25.4).toFixed(2)}in)  |  Tear Notch: ${tearNotch}mm (${(tearNotch / 25.4).toFixed(2)}in)  |  Side Seals: ${sideSeals}mm (${(sideSeals / 25.4).toFixed(2)}in)  |  Corner: ${roundCorners ? 'Rounded (8mm)' : 'Square'}`, 10, canvasH - 10);
 
         // Coordinate offsets
         const frontX = margin;
@@ -566,23 +766,23 @@ export default function PouchDielineCreatorPage() {
         // Front Panel annotations
         // Width line
         doc.line(frontX, panelY - 8, frontX + width, panelY - 8);
-        doc.text(`${width}mm`, frontX + width / 2 - 5, panelY - 11);
+        doc.text(`${width}mm (${(width / 25.4).toFixed(2)}in)`, frontX + width / 2 - 12, panelY - 11);
         // Height line
         doc.line(frontX - 6, panelY, frontX - 6, panelY + height);
-        doc.text(`${height}mm`, frontX - 11, panelY + height / 2, { angle: 90 });
+        doc.text(`${height}mm (${(height / 25.4).toFixed(2)}in)`, frontX - 11, panelY + height / 2, { angle: 90 });
         // Zipper height
         doc.line(frontX + width + 5, panelY, frontX + width + 5, panelY + zipper);
-        doc.text(`${zipper}mm`, frontX + width + 8, panelY + zipper / 2 + 2);
+        doc.text(`${zipper}mm (${(zipper / 25.4).toFixed(2)}in)`, frontX + width + 8, panelY + zipper / 2 + 2);
         // Tear Notch height
         doc.line(frontX + width + 15, panelY, frontX + width + 15, panelY + tearNotch);
-        doc.text(`${tearNotch}mm`, frontX + width + 18, panelY + tearNotch / 2 + 2);
+        doc.text(`${tearNotch}mm (${(tearNotch / 25.4).toFixed(2)}in)`, frontX + width + 18, panelY + tearNotch / 2 + 2);
         // Side seal height
         doc.line(frontX, panelY + height + 5, frontX + sideSeals, panelY + height + 5);
-        doc.text(`${sideSeals}mm`, frontX + 2, panelY + height + 9);
+        doc.text(`${sideSeals}mm (${(sideSeals / 25.4).toFixed(2)}in)`, frontX + 2, panelY + height + 9);
 
         // Bottom gusset annotations
         doc.line(frontX - 6, gussetY, frontX - 6, gussetY + gusset);
-        doc.text(`${gusset}mm`, frontX - 11, gussetY + gusset / 2, { angle: 90 });
+        doc.text(`${gusset}mm (${(gusset / 25.4).toFixed(2)}in)`, frontX - 11, gussetY + gusset / 2, { angle: 90 });
 
         // Programmatic Blob download trigger to secure native file downloads
         const blob = doc.output('blob');
@@ -630,12 +830,12 @@ export default function PouchDielineCreatorPage() {
         doc.setFont('Helvetica', 'normal');
         doc.setFontSize(8);
         const specs = [
-          ['Format Size:', `${width} x ${height} mm`],
-          ['Bottom Gusset:', `${gusset} mm`],
-          ['Zipper Depth:', `${zipper} mm`],
-          ['Tear Notch:', `${tearNotch} mm`],
-          ['Side Seals:', `${sideSeals} mm`],
-          ['Gusset Seal:', `${bottomSealCurve} mm`],
+          ['Format Size:', `${width}x${height} mm (${(width / 25.4).toFixed(2)}"x${(height / 25.4).toFixed(2)}")`],
+          ['Bottom Gusset:', `${gusset} mm (${(gusset / 25.4).toFixed(2)}")`],
+          ['Zipper Depth:', `${zipper} mm (${(zipper / 25.4).toFixed(2)}")`],
+          ['Tear Notch:', `${tearNotch} mm (${(tearNotch / 25.4).toFixed(2)}")`],
+          ['Side Seals:', `${sideSeals} mm (${(sideSeals / 25.4).toFixed(2)}")`],
+          ['Gusset Seal:', `${bottomSealCurve} mm (${(bottomSealCurve / 25.4).toFixed(2)}")`],
           ['Corner Shape:', roundCorners ? 'Rounded' : 'Square'],
           ['Tolerances:', '± 1.5 mm'],
           ['Certification:', 'ISO-9001 / BRC']
@@ -818,17 +1018,17 @@ export default function PouchDielineCreatorPage() {
         doc.text('GUSSET', fX + w / 2 - 6, bGussetY + g / 2 - 1);
 
         // Dimensions Text tags
-        doc.setFontSize(6);
+        doc.setFontSize(5.5);
         doc.setTextColor(59, 130, 246);
         // Width
         doc.line(fX, pY - 3, fX + w, pY - 3);
-        doc.text(`${width}mm`, fX + w / 2 - 5, pY - 4);
+        doc.text(`${width}mm (${(width / 25.4).toFixed(2)}in)`, fX + w / 2 - 12, pY - 4);
         // Height
         doc.line(fX - 3, pY, fX - 3, pY + h);
-        doc.text(`${height}mm`, fX - 8, pY + h / 2, { angle: 90 });
+        doc.text(`${height}mm (${(height / 25.4).toFixed(2)}in)`, fX - 8, pY + h / 2, { angle: 90 });
         // Gusset height
         doc.line(fX - 3, bGussetY, fX - 3, bGussetY + g);
-        doc.text(`${gusset}mm`, fX - 8, bGussetY + g / 2, { angle: 90 });
+        doc.text(`${gusset}mm (${(gusset / 25.4).toFixed(2)}in)`, fX - 8, bGussetY + g / 2, { angle: 90 });
 
         // Programmatic Blob download trigger to secure native file downloads
         const blob = doc.output('blob');
@@ -932,113 +1132,267 @@ export default function PouchDielineCreatorPage() {
               <div className="flex flex-col gap-4">
                 
                 {/* Width */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-neutral-400">Pouch Width (W)</span>
-                    <span className="text-green-400 font-mono font-bold">{width} mm</span>
+                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                  <div className="flex justify-between items-center text-xs font-semibold">
+                    <span className="text-neutral-400 font-bold">Pouch Width (W)</span>
+                    <span className="text-green-400 font-mono font-bold">{(width / 25.4).toFixed(2)} in / {width} mm</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="relative">
+                      <input
+                        id="width-mm-input"
+                        type="text"
+                        value={widthMmStr}
+                        onChange={(e) => handleWidthChangeMm(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                    </div>
+                    <div className="relative">
+                      <input
+                        id="width-inch-input"
+                        type="text"
+                        value={widthInchStr}
+                        onChange={(e) => handleWidthChangeInch(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                    </div>
                   </div>
                   <input
                     type="range"
                     min="100"
                     max="350"
                     value={width}
-                    onChange={(e) => setWidth(Number(e.target.value))}
+                    onChange={(e) => handleWidthChangeMm(e.target.value)}
                     className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Length/Height */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-neutral-400">Pouch Height / Length (H)</span>
-                    <span className="text-green-400 font-mono font-bold">{height} mm</span>
+                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                  <div className="flex justify-between items-center text-xs font-semibold">
+                    <span className="text-neutral-400 font-bold">Pouch Height / Length (H)</span>
+                    <span className="text-green-400 font-mono font-bold">{(height / 25.4).toFixed(2)} in / {height} mm</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="relative">
+                      <input
+                        id="height-mm-input"
+                        type="text"
+                        value={heightMmStr}
+                        onChange={(e) => handleHeightChangeMm(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                    </div>
+                    <div className="relative">
+                      <input
+                        id="height-inch-input"
+                        type="text"
+                        value={heightInchStr}
+                        onChange={(e) => handleHeightChangeInch(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                    </div>
                   </div>
                   <input
                     type="range"
                     min="100"
                     max="450"
                     value={height}
-                    onChange={(e) => setHeight(Number(e.target.value))}
+                    onChange={(e) => handleHeightChangeMm(e.target.value)}
                     className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Bottom Gusset */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-semibold flex-wrap">
-                    <span className="text-neutral-400">Bottom Gusset Flat Height (BG)</span>
-                    <span className="text-green-400 font-mono font-bold">{gusset} mm <span className="text-neutral-600">({gusset / 2}mm depth)</span></span>
+                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                  <div className="flex justify-between items-center text-xs font-semibold flex-wrap">
+                    <span className="text-neutral-400 font-bold">Bottom Gusset Flat Height (BG)</span>
+                    <span className="text-green-400 font-mono font-bold">{(gusset / 25.4).toFixed(2)} in / {gusset} mm <span className="text-neutral-600">({(gusset / 2 / 25.4).toFixed(2)}" depth)</span></span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="relative">
+                      <input
+                        id="gusset-mm-input"
+                        type="text"
+                        value={gussetMmStr}
+                        onChange={(e) => handleGussetChangeMm(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-555 uppercase tracking-wider font-mono select-none">mm</span>
+                    </div>
+                    <div className="relative">
+                      <input
+                        id="gusset-inch-input"
+                        type="text"
+                        value={gussetInchStr}
+                        onChange={(e) => handleGussetChangeInch(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-555 uppercase tracking-wider font-mono select-none">in</span>
+                    </div>
                   </div>
                   <input
                     type="range"
                     min="40"
                     max="150"
                     value={gusset}
-                    onChange={(e) => setGusset(Number(e.target.value))}
+                    onChange={(e) => handleGussetChangeMm(e.target.value)}
                     className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Zipper Position */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-neutral-400">Zipper Position (From Top)</span>
-                    <span className="text-green-400 font-mono font-bold">{zipper} mm</span>
+                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                  <div className="flex justify-between items-center text-xs font-semibold">
+                    <span className="text-neutral-400 font-bold">Zipper Position (From Top)</span>
+                    <span className="text-green-400 font-mono font-bold">{(zipper / 25.4).toFixed(2)} in / {zipper} mm</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="relative">
+                      <input
+                        id="zipper-mm-input"
+                        type="text"
+                        value={zipperMmStr}
+                        onChange={(e) => handleZipperChangeMm(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                    </div>
+                    <div className="relative">
+                      <input
+                        id="zipper-inch-input"
+                        type="text"
+                        value={zipperInchStr}
+                        onChange={(e) => handleZipperChangeInch(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                    </div>
                   </div>
                   <input
                     type="range"
                     min="15"
                     max="60"
                     value={zipper}
-                    onChange={(e) => setZipper(Number(e.target.value))}
+                    onChange={(e) => handleZipperChangeMm(e.target.value)}
                     className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Tear Notch */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-neutral-400">Tear Notch Position (From Top)</span>
-                    <span className="text-green-400 font-mono font-bold">{tearNotch} mm</span>
+                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                  <div className="flex justify-between items-center text-xs font-semibold">
+                    <span className="text-neutral-400 font-bold">Tear Notch Position (From Top)</span>
+                    <span className="text-green-400 font-mono font-bold">{(tearNotch / 25.4).toFixed(2)} in / {tearNotch} mm</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="relative">
+                      <input
+                        id="tearNotch-mm-input"
+                        type="text"
+                        value={tearNotchMmStr}
+                        onChange={(e) => handleTearNotchChangeMm(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                    </div>
+                    <div className="relative">
+                      <input
+                        id="tearNotch-inch-input"
+                        type="text"
+                        value={tearNotchInchStr}
+                        onChange={(e) => handleTearNotchChangeInch(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                    </div>
                   </div>
                   <input
                     type="range"
                     min="10"
                     max="50"
                     value={tearNotch}
-                    onChange={(e) => setTearNotch(Number(e.target.value))}
+                    onChange={(e) => handleTearNotchChangeMm(e.target.value)}
                     className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Side Seals */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-neutral-400">Side Seal Weld Width</span>
-                    <span className="text-green-400 font-mono font-bold">{sideSeals} mm</span>
+                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                  <div className="flex justify-between items-center text-xs font-semibold">
+                    <span className="text-neutral-400 font-bold">Side Seal Weld Width</span>
+                    <span className="text-green-400 font-mono font-bold">{(sideSeals / 25.4).toFixed(2)} in / {sideSeals} mm</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="relative">
+                      <input
+                        id="sideSeals-mm-input"
+                        type="text"
+                        value={sideSealsMmStr}
+                        onChange={(e) => handleSideSealsChangeMm(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                    </div>
+                    <div className="relative">
+                      <input
+                        id="sideSeals-inch-input"
+                        type="text"
+                        value={sideSealsInchStr}
+                        onChange={(e) => handleSideSealsChangeInch(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                    </div>
                   </div>
                   <input
                     type="range"
                     min="5"
                     max="15"
                     value={sideSeals}
-                    onChange={(e) => setSideSeals(Number(e.target.value))}
+                    onChange={(e) => handleSideSealsChangeMm(e.target.value)}
                     className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
 
                 {/* Bottom Seal Curve */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-neutral-400">Bottom Seal Weld Curve height</span>
-                    <span className="text-green-400 font-mono font-bold">{bottomSealCurve} mm</span>
+                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                  <div className="flex justify-between items-center text-xs font-semibold">
+                    <span className="text-neutral-400 font-bold">Bottom Seal Weld Curve height</span>
+                    <span className="text-green-400 font-mono font-bold">{(bottomSealCurve / 25.4).toFixed(2)} in / {bottomSealCurve} mm</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="relative">
+                      <input
+                        id="bottomSealCurve-mm-input"
+                        type="text"
+                        value={bottomCurveMmStr}
+                        onChange={(e) => handleBottomCurveChangeMm(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                    </div>
+                    <div className="relative">
+                      <input
+                        id="bottomSealCurve-inch-input"
+                        type="text"
+                        value={bottomCurveInchStr}
+                        onChange={(e) => handleBottomCurveChangeInch(e.target.value)}
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                      />
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                    </div>
                   </div>
                   <input
                     type="range"
                     min="15"
                     max="70"
                     value={bottomSealCurve}
-                    onChange={(e) => setBottomSealCurve(Number(e.target.value))}
+                    onChange={(e) => handleBottomCurveChangeMm(e.target.value)}
                     className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
                   />
                 </div>
@@ -1493,7 +1847,7 @@ export default function PouchDielineCreatorPage() {
                         <polygon points={`0,-12 5,-15 5,-9`} />
                         <polygon points={`${scales.w},-12 ${scales.w-5},-15 ${scales.w-5},-9`} />
                         <text x={scales.w / 2} y="-18" fontSize="11" fontWeight="bold" fontFamily="monospace" textAnchor="middle" stroke="none" fill="#3b82f6">
-                          W: {width}mm
+                          W: {width}mm ({(width / 25.4).toFixed(2)}")
                         </text>
 
                         {/* Height line (right of Back panel) */}
@@ -1502,7 +1856,7 @@ export default function PouchDielineCreatorPage() {
                           <polygon points={`0,0 -3,5 3,5`} />
                           <polygon points={`0,${scales.h} -3,${scales.h-5} 3,${scales.h-5}`} />
                           <text x="8" y={scales.h / 2 + 3} fontSize="11" fontWeight="bold" fontFamily="monospace" stroke="none" fill="#3b82f6">
-                            H: {height}mm
+                            H: {height}mm ({(height / 25.4).toFixed(2)}")
                           </text>
                         </g>
 
@@ -1512,7 +1866,7 @@ export default function PouchDielineCreatorPage() {
                           <polygon points={`0,0 -2,3 2,3`} />
                           <polygon points={`0,${scales.z} -2,${scales.z-3} 2,${scales.z-3}`} />
                           <text x="6" y={scales.z / 2 + 2} fontSize="9" fontWeight="bold" fontFamily="monospace" stroke="none" fill="#a855f7">
-                            Z: {zipper}mm
+                            Z: {zipper}mm ({(zipper / 25.4).toFixed(2)}")
                           </text>
                         </g>
 
@@ -1522,7 +1876,7 @@ export default function PouchDielineCreatorPage() {
                           <polygon points={`0,0 -2,3 2,3`} />
                           <polygon points={`0,${scales.tn} -2,${scales.tn-3} 2,${scales.tn-3}`} />
                           <text x="-25" y={scales.tn / 2 + 2} fontSize="9" fontWeight="bold" fontFamily="monospace" stroke="none" fill="#e11d48">
-                            TN: {tearNotch}mm
+                            TN: {tearNotch}mm ({(tearNotch / 25.4).toFixed(2)}")
                           </text>
                         </g>
 
@@ -1532,7 +1886,7 @@ export default function PouchDielineCreatorPage() {
                           <polygon points={`0,0 -3,5 3,5`} />
                           <polygon points={`0,${scales.g} -3,${scales.g-5} 3,${scales.g-5}`} />
                           <text x="8" y={scales.g / 2 + 3} fontSize="11" fontWeight="bold" fontFamily="monospace" stroke="none" fill="#3b82f6">
-                            BG: {gusset}mm
+                            BG: {gusset}mm ({(gusset / 25.4).toFixed(2)}")
                           </text>
                         </g>
 
