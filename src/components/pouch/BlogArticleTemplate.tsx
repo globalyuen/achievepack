@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { ExternalLink, Calendar, Clock, ArrowRight, Building2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import PouchLayout from './PouchLayout'
 
 interface BlogArticleSection {
@@ -140,6 +141,21 @@ export default function BlogArticleTemplate({
       {/* Hero Section */}
       <section className="pt-8 md:pt-16 pb-12 md:pb-20 px-4 bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:20px_20px] relative overflow-hidden">
         <div className="max-w-5xl mx-auto">
+          {/* Breadcrumbs */}
+          <div className="flex flex-wrap items-center gap-2 mb-8 font-['JetBrains_Mono'] text-xs md:text-sm uppercase tracking-wider">
+            <Link to="/" className="hover:bg-black hover:text-white font-bold text-black bg-[#D4FF00] px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors">Home</Link>
+            <span className="text-black font-black">❯</span>
+            <Link to="/blog" className="hover:bg-black hover:text-white font-bold text-black bg-[#00FFFF] px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors">Blog</Link>
+            {categoryTag && (
+              <>
+                <span className="text-black font-black">❯</span>
+                <Link to={`/blog?category=${categoryTag}`} className="hover:bg-black hover:text-white font-bold text-black bg-[#FFA500] px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors">{categoryTag}</Link>
+              </>
+            )}
+            <span className="text-black font-black">❯</span>
+            <span className="text-neutral-500 font-bold truncate max-w-[200px] md:max-w-[none] bg-white px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{title.split('|')[0].trim()}</span>
+          </div>
+
           {/* Category Tag */}
           {categoryTag && (
             <motion.div

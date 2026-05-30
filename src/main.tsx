@@ -337,6 +337,7 @@ const BioCelloTriplexHighestPage = lazyWithRetry(() => import('./pages/spec/BioC
 const BioCelloTriplexMetalisedPage = lazyWithRetry(() => import('./pages/spec/BioCelloTriplexMetalisedPage'))
 const BioKraftVmCelloPage = lazyWithRetry(() => import('./pages/spec/BioKraftVmCelloPage'))
 const BioKraftPbatLowPage = lazyWithRetry(() => import('./pages/spec/BioKraftPbatLowPage'))
+const CompostablePouchGeoPage = lazyWithRetry(() => import('./pages/spec/CompostablePouchGeoPage'))
 
 // BioPE Spec Pages - Plant-Based Bio-PE Structures - Lazy loaded
 const BioPePetDuplexClearPage = lazyWithRetry(() => import('./pages/spec/BioPePetDuplexClearPage'))
@@ -1122,6 +1123,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/spec/bio-cello-triplex-metalised" element={<BioCelloTriplexMetalisedPage />} />
                         <Route path="/spec/bio-kraft-vm-cello" element={<BioKraftVmCelloPage />} />
                         <Route path="/spec/bio-kraft-pbat-low" element={<BioKraftPbatLowPage />} />
+                        <Route path="/spec/compostable-pouch-geo" element={<CompostablePouchGeoPage />} />
 
                         {/* BioPE Spec Pages - Plant-Based Bio-PE Structures */}
                         <Route path="/spec/biope-pet-duplex-clear" element={<BioPePetDuplexClearPage />} />

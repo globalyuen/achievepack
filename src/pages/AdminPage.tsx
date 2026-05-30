@@ -107,6 +107,7 @@ const sidebarMenuItems = [
       { id: 'seo-migration', label: 'SEO Migration', icon: RefreshCw },
       { id: 'link-building', label: 'Link Building', icon: ExternalLink },
       { id: 'search-analytics', label: 'Search Analytics', icon: Search },
+      { id: 'compostable-pouch-geo', label: 'Compostable Pouch GEO App', icon: Bot, externalLink: '/spec/compostable-pouch-geo' },
       { id: 'newsletter', label: 'Newsletter', icon: Newspaper, countKey: 'subscribers' },
     ]
   },

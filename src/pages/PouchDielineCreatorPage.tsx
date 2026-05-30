@@ -101,6 +101,11 @@ export default function PouchDielineCreatorPage() {
   const [bottomSealCurve, setBottomSealCurve] = useState(45)
   const [roundCorners, setRoundCorners] = useState(true)
 
+  // Custom Options State
+  const [hasZipper, setHasZipper] = useState(true)
+  const [hasValve, setHasValve] = useState(false)
+  const [valvePosition, setValvePosition] = useState(180) // 2/3 of 270 height initially
+
   // Layer Controls
   const [showGrid, setShowGrid] = useState(true)
   const [showCutLines, setShowCutLines] = useState(true)
@@ -137,6 +142,9 @@ export default function PouchDielineCreatorPage() {
     const s = params.get('s')
     const c = params.get('c')
     const rc = params.get('rc')
+    const hz = params.get('hz')
+    const hv = params.get('hv')
+    const vp = params.get('vp')
 
     if (w) setWidth(Number(w))
     if (h) setHeight(Number(h))
@@ -146,7 +154,21 @@ export default function PouchDielineCreatorPage() {
     if (s) setSideSeals(Number(s))
     if (c) setBottomSealCurve(Number(c))
     if (rc) setRoundCorners(rc === 'true')
+    if (hz) setHasZipper(hz === 'true')
+    if (hv) setHasValve(hv === 'true')
+    if (vp) setValvePosition(Number(vp))
   }, [])
+
+  // Dynamic synchronization of valve position defaulting to 2/3 pouch height
+  useEffect(() => {
+    const defaultVal = Math.round(height * 2 / 3)
+    const minVal = 30
+    const maxVal = height - bottomSealCurve - 15
+    setValvePosition(prev => {
+      // Keep it synced with 2/3 of current height by default, but clamp it to stay valid
+      return Math.max(minVal, Math.min(defaultVal, maxVal))
+    })
+  }, [height, bottomSealCurve])
 
   // Check LocalStorage for previously unlocked emails
   useEffect(() => {
@@ -212,7 +234,14 @@ export default function PouchDielineCreatorPage() {
     setShowEmailError(false)
     setSendingEmail(true)
 
-    const customDielineUrl = `https://achievepack.com/dieline-creator?w=${width}&h=${height}&g=${gusset}&z=${zipper}&tn=${tearNotch}&s=${sideSeals}&c=${bottomSealCurve}&rc=${roundCorners}`
+    const customDielineUrl = `https://achievepack.com/dieline-creator?w=${width}&h=${height}&g=${gusset}&z=${zipper}&tn=${tearNotch}&s=${sideSeals}&c=${bottomSealCurve}&rc=${roundCorners}&hz=${hasZipper}&hv=${hasValve}&vp=${valvePosition}`
+
+    const featuresList = [
+      hasZipper ? 'Zipper' : null,
+      hasValve ? `Degassing Valve (${valvePosition}mm)` : null
+    ].filter(Boolean).join(', ')
+
+    const dielineDisplayName = `Custom Stand-Up Pouch (${width}x${height}x${gusset}mm${featuresList ? ` w/ ${featuresList}` : ''})`
 
     try {
       const response = await fetch('/api/send-dieline', {
@@ -222,14 +251,14 @@ export default function PouchDielineCreatorPage() {
           email,
           dielineFilename: `achievepack-custom-dieline-${width}x${height}x${gusset}-${pdfFormat}.pdf`,
           dielineUrl: customDielineUrl,
-          dielineDisplayName: `Custom Stand-Up Pouch (${width}x${height}x${gusset}mm)`,
+          dielineDisplayName: dielineDisplayName,
           turnstileToken,
           shape: 'Stand Up Pouch',
           width,
           height,
           gusset,
           unit: 'mm',
-          capacity: `${width}x${height}x${gusset}mm Custom Size`
+          capacity: `${width}x${height}x${gusset}mm Custom Size${featuresList ? ` (${featuresList})` : ''}`
         })
       })
 
@@ -264,6 +293,8 @@ export default function PouchDielineCreatorPage() {
     setSideSeals(preset.sideSeals)
     setBottomSealCurve(preset.bottomSealCurve)
     setRoundCorners(preset.roundCorners)
+    setHasZipper(true)
+    setHasValve(false)
   }
 
   // Auto-calculated scales for side-by-side proportional rendering in A4 landscape aspect box
@@ -294,9 +325,10 @@ export default function PouchDielineCreatorPage() {
       curve: bottomSealCurve * scale,
       spacing: spacing * scale,
       totalW: totalW * scale,
-      totalH: totalH * scale
+      totalH: totalH * scale,
+      vp: valvePosition * scale
     }
-  }, [width, height, gusset, zipper, tearNotch, sideSeals, bottomSealCurve])
+  }, [width, height, gusset, zipper, tearNotch, sideSeals, bottomSealCurve, valvePosition])
 
   // PDF Generation using crisp vector commands
   const handlePdfDownload = async () => {
@@ -353,7 +385,7 @@ export default function PouchDielineCreatorPage() {
 
         // Tech specs footer table
         doc.setFont('Helvetica', 'bold');
-        doc.text(`Width: ${width}mm  |  Height: ${height}mm  |  Bottom Gusset: ${gusset}mm  |  Zipper: ${zipper}mm  |  Tear Notch: ${tearNotch}mm  |  Side Seals: ${sideSeals}mm  |  Corner: ${roundCorners ? 'Rounded (8mm)' : 'Square'}`, 10, canvasH - 10);
+        doc.text(`Width: ${width}mm  |  Height: ${height}mm  |  Bottom Gusset: ${gusset}mm  |  Zipper: ${hasZipper ? `${zipper}mm` : 'None'}  |  Valve: ${hasValve ? `${valvePosition}mm` : 'None'}  |  Tear Notch: ${tearNotch}mm  |  Side Seals: ${sideSeals}mm  |  Corner: ${roundCorners ? 'Rounded (8mm)' : 'Square'}`, 10, canvasH - 10);
 
         // Coordinate offsets
         const frontX = margin;
@@ -413,12 +445,14 @@ export default function PouchDielineCreatorPage() {
             doc.rect(startX, panelY, width, height);
           }
 
-          // 4. Zipper folding lines
-          doc.setDrawColor(168, 85, 247); // purple
-          doc.setLineWidth(0.4);
-          doc.setLineDashPattern([1, 1], 0);
-          doc.line(startX, panelY + zipper, startX + width, panelY + zipper);
-          doc.setLineDashPattern([], 0);
+          // 4. Zipper folding lines (conditional)
+          if (hasZipper) {
+            doc.setDrawColor(168, 85, 247); // purple
+            doc.setLineWidth(0.4);
+            doc.setLineDashPattern([1, 1], 0);
+            doc.line(startX, panelY + zipper, startX + width, panelY + zipper);
+            doc.setLineDashPattern([], 0);
+          }
 
           // 5. Tear notch
           doc.setDrawColor(225, 29, 72);
@@ -427,13 +461,42 @@ export default function PouchDielineCreatorPage() {
           doc.line(startX + width - 2, panelY + tearNotch, startX + width + 2, panelY + tearNotch);
 
           // 6. Safe design area
+          const safeTop = hasZipper ? (zipper + 10) : 15;
+          const safeHeight = height - safeTop - bottomSealCurve - 10;
           doc.setDrawColor(245, 158, 11); // amber
           doc.setLineWidth(0.3);
           doc.setLineDashPattern([1, 2], 0);
-          doc.rect(startX + sideSeals + 3, panelY + zipper + 10, width - sideSeals * 2 - 6, height - zipper - bottomSealCurve - 10);
+          doc.rect(startX + sideSeals + 3, panelY + safeTop, width - sideSeals * 2 - 6, safeHeight);
           doc.setLineDashPattern([], 0);
 
-          // 7. Bottom Gusset curve weld seals (exact bezier matching visualizer)
+          // 7. Degassing Valve (drawn on front panel center only)
+          if (hasValve && label === 'Front') {
+            const valveX = startX + width / 2;
+            const valveY = panelY + valvePosition;
+            
+            // Outer valve boundary (6mm diameter = 3mm radius)
+            doc.setDrawColor(225, 29, 72); // rose red (die cut)
+            doc.setLineWidth(0.4);
+            doc.circle(valveX, valveY, 3, 'D');
+            
+            // Inner concentric vent (3mm diameter = 1.5mm radius)
+            doc.circle(valveX, valveY, 1.5, 'D');
+            
+            // Placement alignment crosshairs
+            doc.setLineWidth(0.15);
+            doc.setLineDashPattern([1, 1], 0);
+            doc.line(valveX - 8, valveY, valveX + 8, valveY);
+            doc.line(valveX, valveY - 8, valveX, valveY + 8);
+            doc.setLineDashPattern([], 0);
+            
+            // Label
+            doc.setFont('Helvetica', 'bold');
+            doc.setFontSize(6);
+            doc.setTextColor(225, 29, 72);
+            doc.text('VALVE CENTER', valveX + 4, valveY + 1.5);
+          }
+
+          // 8. Bottom Gusset curve weld seals (exact bezier matching visualizer)
           ctx.beginPath();
           ctx.strokeStyle = 'rgb(59, 130, 246)';
           ctx.lineWidth = 0.4;
@@ -506,8 +569,20 @@ export default function PouchDielineCreatorPage() {
         doc.line(frontX - 6, panelY, frontX - 6, panelY + height);
         doc.text(`${height}mm`, frontX - 11, panelY + height / 2, { angle: 90 });
         // Zipper height
-        doc.line(frontX + width + 5, panelY, frontX + width + 5, panelY + zipper);
-        doc.text(`${zipper}mm`, frontX + width + 8, panelY + zipper / 2 + 2);
+        if (hasZipper) {
+          doc.line(frontX + width + 5, panelY, frontX + width + 5, panelY + zipper);
+          doc.text(`${zipper}mm`, frontX + width + 8, panelY + zipper / 2 + 2);
+        }
+        // Valve height position annotation
+        if (hasValve) {
+          doc.setDrawColor(225, 29, 72);
+          doc.setTextColor(225, 29, 72);
+          doc.line(frontX + width / 2 - 10, panelY, frontX + width / 2 - 10, panelY + valvePosition);
+          doc.text(`${valvePosition}mm (Valve)`, frontX + width / 2 - 12, panelY + valvePosition / 2 + 2, { angle: 90 });
+          // Restore color for other lines
+          doc.setTextColor(59, 130, 246);
+          doc.setDrawColor(59, 130, 246);
+        }
         // Tear Notch height
         doc.line(frontX + width + 15, panelY, frontX + width + 15, panelY + tearNotch);
         doc.text(`${tearNotch}mm`, frontX + width + 18, panelY + tearNotch / 2 + 2);
@@ -567,22 +642,23 @@ export default function PouchDielineCreatorPage() {
         const specs = [
           ['Format Size:', `${width} x ${height} mm`],
           ['Bottom Gusset:', `${gusset} mm`],
-          ['Zipper Depth:', `${zipper} mm`],
+          ['Zipper Depth:', hasZipper ? `${zipper} mm` : 'None'],
           ['Tear Notch:', `${tearNotch} mm`],
           ['Side Seals:', `${sideSeals} mm`],
           ['Gusset Seal:', `${bottomSealCurve} mm`],
+          ['Degas Valve:', hasValve ? `${valvePosition} mm` : 'None'],
           ['Corner Shape:', roundCorners ? 'Rounded' : 'Square'],
           ['Tolerances:', '± 1.5 mm'],
           ['Certification:', 'ISO-9001 / BRC']
         ];
         
-        let specY = 55;
+        let specY = 52;
         specs.forEach(([k, v]) => {
           doc.setFont('Helvetica', 'bold');
           doc.text(k, 220, specY);
           doc.setFont('Helvetica', 'normal');
           doc.text(v, 255, specY);
-          specY += 10;
+          specY += 9;
         });
 
         // Safe Guidelines Key
@@ -692,17 +768,48 @@ export default function PouchDielineCreatorPage() {
         }
 
         // Zipper Crease
-        doc.setDrawColor(168, 85, 247);
-        doc.setLineWidth(0.25);
-        doc.setLineDashPattern([1, 1], 0);
-        doc.line(fX, pY + z, fX + w, pY + z);
-        doc.line(bX, pY + z, bX + w, pY + z);
-        doc.setLineDashPattern([], 0);
+        if (hasZipper) {
+          doc.setDrawColor(168, 85, 247);
+          doc.setLineWidth(0.25);
+          doc.setLineDashPattern([1, 1], 0);
+          doc.line(fX, pY + z, fX + w, pY + z);
+          doc.line(bX, pY + z, bX + w, pY + z);
+          doc.setLineDashPattern([], 0);
+        }
 
         // Tear notch markers
         doc.setDrawColor(225, 29, 72);
         doc.line(fX - 1, pY + tn, fX + 1, pY + tn);
         doc.line(fX + w - 1, pY + tn, fX + w + 1, pY + tn);
+
+        // Degassing Valve drawing on A4 Front Panel
+        if (hasValve) {
+          const fValveX = fX + w / 2;
+          const fValveY = pY + valvePosition * pScale;
+          const scaledValvePos = valvePosition * pScale;
+
+          doc.setDrawColor(225, 29, 72); // Rose red (cut/mechanical layer)
+          doc.setLineWidth(0.25);
+          doc.circle(fValveX, fValveY, 1.2, 'D'); // outer circle scaled (~6mm diameter)
+          doc.circle(fValveX, fValveY, 0.6, 'D'); // inner circle scaled
+
+          // Crosshairs
+          doc.setLineWidth(0.1);
+          doc.setLineDashPattern([1, 1], 0);
+          doc.line(fValveX - 3, fValveY, fValveX + 3, fValveY);
+          doc.line(fValveX, fValveY - 3, fValveX, fValveY + 3);
+          doc.setLineDashPattern([], 0);
+
+          // Valve Position Annotation inside preview area
+          if (showDimensions) {
+            doc.setFontSize(4.5);
+            doc.setTextColor(225, 29, 72);
+            doc.setDrawColor(225, 29, 72);
+            doc.setLineWidth(0.12);
+            doc.line(fValveX - 6, pY, fValveX - 6, fValveY);
+            doc.text(`VP: ${valvePosition}mm`, fValveX - 16, pY + scaledValvePos / 2 + 1);
+          }
+        }
 
         // Bottom crease (beautiful curves matching preview)
         ctx.beginPath();
@@ -914,21 +1021,75 @@ export default function PouchDielineCreatorPage() {
                   />
                 </div>
 
-                {/* Zipper Position */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-xs font-semibold">
-                    <span className="text-neutral-400">Zipper Position (From Top)</span>
-                    <span className="text-green-400 font-mono font-bold">{zipper} mm</span>
+                {/* Include Zipper Toggle */}
+                <div className="flex items-center justify-between border-t border-neutral-850 pt-3">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">Include Press-to-Close Zipper</span>
+                    <span className="text-[10px] text-neutral-500 font-mono">Adds standard reclosable zipper layer</span>
                   </div>
-                  <input
-                    type="range"
-                    min="15"
-                    max="60"
-                    value={zipper}
-                    onChange={(e) => setZipper(Number(e.target.value))}
-                    className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
-                  />
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input 
+                      type="checkbox" 
+                      checked={hasZipper} 
+                      onChange={() => setHasZipper(!hasZipper)}
+                      className="sr-only peer"
+                    />
+                    <div className="w-11 h-6 bg-neutral-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-neutral-300 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500 peer-checked:after:bg-white"></div>
+                  </label>
                 </div>
+
+                {/* Zipper Position Slider (Conditional) */}
+                {hasZipper && (
+                  <div className="space-y-1 pl-3 border-l-2 border-green-500/20 py-1 transition-all">
+                    <div className="flex justify-between text-xs font-semibold">
+                      <span className="text-neutral-400">Zipper Position (From Top)</span>
+                      <span className="text-green-400 font-mono font-bold">{zipper} mm</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="15"
+                      max="60"
+                      value={zipper}
+                      onChange={(e) => setZipper(Number(e.target.value))}
+                      className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
+                    />
+                  </div>
+                )}
+
+                {/* Include Valve Toggle */}
+                <div className="flex items-center justify-between border-t border-neutral-850 pt-3">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">Include Degassing Valve</span>
+                    <span className="text-[10px] text-neutral-500 font-mono">One-way venting valve for coffee/gasses</span>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input 
+                      type="checkbox" 
+                      checked={hasValve} 
+                      onChange={() => setHasValve(!hasValve)}
+                      className="sr-only peer"
+                    />
+                    <div className="w-11 h-6 bg-neutral-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-neutral-300 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500 peer-checked:after:bg-white"></div>
+                  </label>
+                </div>
+
+                {/* Valve Position Slider (Conditional) */}
+                {hasValve && (
+                  <div className="space-y-1 pl-3 border-l-2 border-green-500/20 py-1 transition-all">
+                    <div className="flex justify-between text-xs font-semibold">
+                      <span className="text-neutral-400">Valve Position (From Top)</span>
+                      <span className="text-green-400 font-mono font-bold">{valvePosition} mm <span className="text-neutral-500 font-normal">({Math.round(valvePosition / height * 100)}% of height)</span></span>
+                    </div>
+                    <input
+                      type="range"
+                      min="30"
+                      max={height - bottomSealCurve - 15}
+                      value={valvePosition}
+                      onChange={(e) => setValvePosition(Number(e.target.value))}
+                      className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
+                    />
+                  </div>
+                )}
 
                 {/* Tear Notch */}
                 <div className="space-y-1">
@@ -1223,7 +1384,7 @@ export default function PouchDielineCreatorPage() {
                       </g>
 
                       {/* Zipper Crease fold lines (Purple) */}
-                      {showFoldLines && (
+                      {hasZipper && showFoldLines && (
                         <g>
                           <line
                             x1="0"
@@ -1244,13 +1405,31 @@ export default function PouchDielineCreatorPage() {
                         <line x1={scales.w - 3} y1={scales.tn} x2={scales.w + 3} y2={scales.tn} />
                       </g>
 
+                      {/* Degassing Valve placement (Front Panel center) */}
+                      {hasValve && (
+                        <g transform={`translate(${scales.w / 2}, ${scales.vp})`}>
+                          {/* Outer physical die-cut hole (scaled) */}
+                          <circle r="10" fill="none" stroke="#e11d48" strokeWidth="1.5" />
+                          <circle r="5" fill="none" stroke="#e11d48" strokeWidth="1.0" />
+                          {/* Concentric inner valve filter */}
+                          <circle r="2" fill="#e11d48" />
+                          {/* Crosshair alignment marks */}
+                          <line x1="-16" y1="0" x2="16" y2="0" stroke="#e11d48" strokeWidth="0.8" strokeDasharray="2,2" />
+                          <line x1="0" y1="-16" x2="0" y2="16" stroke="#e11d48" strokeWidth="0.8" strokeDasharray="2,2" />
+                          <text x="14" y="3" fill="#e11d48" fontSize="7" fontWeight="bold" fontFamily="monospace">VALVE</text>
+                        </g>
+                      )}
+
                       {/* Safe art zone (Amber dotted lines) */}
                       {showSafeZone && (
                         <rect
                           x={scales.seals + 6}
-                          y={scales.z + 15}
+                          y={hasZipper ? (scales.z + 15) : 15}
                           width={scales.w - scales.seals * 2 - 12}
-                          height={scales.h - scales.z - scales.curve - 25}
+                          height={hasZipper 
+                            ? (scales.h - scales.z - scales.curve - 25)
+                            : (scales.h - scales.curve - 30)
+                          }
                           fill="none"
                           stroke="#f59e0b"
                           strokeWidth="1.2"
@@ -1334,7 +1513,7 @@ export default function PouchDielineCreatorPage() {
                       </g>
 
                       {/* Zipper Crease */}
-                      {showFoldLines && (
+                      {hasZipper && showFoldLines && (
                         <line
                           x1="0"
                           y1={scales.z}
@@ -1356,9 +1535,12 @@ export default function PouchDielineCreatorPage() {
                       {showSafeZone && (
                         <rect
                           x={scales.seals + 6}
-                          y={scales.z + 15}
+                          y={hasZipper ? (scales.z + 15) : 15}
                           width={scales.w - scales.seals * 2 - 12}
-                          height={scales.h - scales.z - scales.curve - 25}
+                          height={hasZipper 
+                            ? (scales.h - scales.z - scales.curve - 25)
+                            : (scales.h - scales.curve - 30)
+                          }
                           fill="none"
                           stroke="#f59e0b"
                           strokeWidth="1.2"
@@ -1442,14 +1624,28 @@ export default function PouchDielineCreatorPage() {
                         </g>
 
                         {/* Zipper height line (right of Front panel) */}
-                        <g transform={`translate(${scales.w + 10}, 0)`}>
-                          <line x1="0" y1="0" x2="0" y2={scales.z} />
-                          <polygon points={`0,0 -2,3 2,3`} />
-                          <polygon points={`0,${scales.z} -2,${scales.z-3} 2,${scales.z-3}`} />
-                          <text x="6" y={scales.z / 2 + 2} fontSize="9" fontWeight="bold" fontFamily="monospace" stroke="none" fill="#a855f7">
-                            Z: {zipper}mm
-                          </text>
-                        </g>
+                        {hasZipper && (
+                          <g transform={`translate(${scales.w + 10}, 0)`}>
+                            <line x1="0" y1="0" x2="0" y2={scales.z} />
+                            <polygon points={`0,0 -2,3 2,3`} />
+                            <polygon points={`0,${scales.z} -2,${scales.z-3} 2,${scales.z-3}`} />
+                            <text x="6" y={scales.z / 2 + 2} fontSize="9" fontWeight="bold" fontFamily="monospace" stroke="none" fill="#a855f7">
+                              Z: {zipper}mm
+                            </text>
+                          </g>
+                        )}
+
+                        {/* Valve height line (middle of Front panel, shifted left) */}
+                        {hasValve && (
+                          <g transform={`translate(${scales.w / 2 - 25}, 0)`}>
+                            <line x1="0" y1="0" x2="0" y2={scales.vp} stroke="#e11d48" strokeWidth="1" />
+                            <polygon points={`0,0 -2,3 2,3`} fill="#e11d48" stroke="#e11d48" />
+                            <polygon points={`0,${scales.vp} -2,${scales.vp-3} 2,${scales.vp-3}`} fill="#e11d48" stroke="#e11d48" />
+                            <text x="6" y={scales.vp / 2 + 3} fontSize="9" fontWeight="bold" fontFamily="monospace" stroke="none" fill="#e11d48">
+                              VP: {valvePosition}mm
+                            </text>
+                          </g>
+                        )}
 
                         {/* Tear Notch line (left of Back panel) */}
                         <g transform={`translate(${scales.w + scales.spacing - 10}, 0)`}>

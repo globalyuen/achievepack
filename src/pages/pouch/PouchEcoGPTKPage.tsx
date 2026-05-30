@@ -43,80 +43,80 @@ interface TableCategory {
 
 const TABLE_CATEGORIES: TableCategory[] = [
   {
-    title: '📦 Structural Design & Base Specifications',
+    title: '📦 Structural Design & Base Specifications (採購材料與合規基礎)',
     rows: [
       {
-        name: 'Base Material',
-        stockCards: 'High-Barrier Conventional Pouch',
-        customConven: 'Conventional Multi-Laminate (Foil/Clear)',
-        customOval: '♻️ PE+EVOH Recyclable OR 🌱 Bio Kraft',
-        customFlat: '♻️ PE+EVOH Recyclable OR 🌱 Bio Kraft'
+        name: 'Base Material (材料架構 - 影響保鮮與認證)',
+        stockCards: 'Pre-made Foil Laminated structure (Matte Finish)',
+        customConven: 'Conventional Multi-Laminate Foil (High-barrier PET/AL/PE)',
+        customOval: '♻️ Mono-PE (EVOH gas lock) OR 🌱 Bio Kraft (ASTM D6400 Home compostable PBAT layers)',
+        customFlat: '♻️ Mono-PE (EVOH gas lock) OR 🌱 Bio Kraft (ASTM D6400 Home compostable PBAT layers)'
       },
       {
-        name: 'Pouch Shape',
-        stockCards: 'Flat Bottom (Side Gusset)',
-        customConven: 'Stand-Up Pouch Shape (Doypack)',
-        customOval: 'Stand-Up Pouch Shape (Doypack)',
-        customFlat: 'Flat Bottom Pouch Shape (Side Gussets)'
+        name: 'Pouch Shape (袋型設計 - 影響貨架陳列與容量)',
+        stockCards: 'Flat Bottom / Box Pouch Shape (Side Gussets)',
+        customConven: 'Oval Stand-Up Pouch Shape (Doypack)',
+        customOval: 'Oval Stand-Up Pouch Shape (Doypack - saves 50% material unit cost)',
+        customFlat: 'Box-Style Flat Bottom Pouch Shape (Side Gussets for maximum display volume)'
       },
       {
-        name: 'Side Gusset Support',
-        stockCards: 'Yes (Sturdy base)',
-        customConven: 'No (Oval bottom gusset)',
-        customOval: 'No (Oval bottom gusset)',
-        customFlat: 'Yes (Sturdy structural gusset)'
+        name: 'Logistics Protection (包裝防禦 - 降低海運破損率)',
+        stockCards: 'Standard single-wall corrugated transport packing',
+        customConven: 'Heavy-duty double-wall master cartons',
+        customOval: 'Heavy-duty double-wall master cartons + inner moisture-barrier polybags (Ocean-Freight Proof)',
+        customFlat: 'Heavy-duty double-wall master cartons + inner moisture-barrier polybags (Ocean-Freight Proof)'
       }
     ]
   },
   {
-    title: '🎨 Customization & Branding Mechanics',
+    title: '🎨 Customization & Printing Mechanics (客製印刷與版費政策)',
     rows: [
       {
-        name: 'Printing Method',
-        stockCards: 'Modular card insert / roped tag / sticker',
-        customConven: 'Full Digital Edge-to-Edge custom print',
-        customOval: 'Full Digital Edge-to-Edge custom print',
-        customFlat: 'Full Digital Edge-to-Edge custom print'
+        name: 'Printing Method (印刷工藝 - 匹配起訂量與成本)',
+        stockCards: 'Modular branding (card inserts, tags, or matte stickers)',
+        customConven: 'High-Resolution CMYK Digital Print (Waived cylinder setups)',
+        customOval: 'High-Resolution CMYK Digital Print (Short runs) OR Rotogravure CMYK+3 Spot (Bulk runs)',
+        customFlat: 'High-Resolution CMYK Digital Print (Short runs) OR Rotogravure CMYK+3 Spot (Bulk runs)'
       },
       {
-        name: 'Clear Display Window',
-        stockCards: 'No Window (Matte finish)',
-        customConven: 'Optional (High clarity clear zip)',
-        customOval: 'Optional',
-        customFlat: 'Optional'
+        name: 'Cylinder Setup Fees (印刷版費 - 降低首單試錯成本)',
+        stockCards: '$0 Waived completely',
+        customConven: '$0 Waived completely (Digital setup)',
+        customOval: '$0 Waived (Digital) OR $160 per color (Waived on first gravure run over 10k)',
+        customFlat: '$0 Waived (Digital) OR $160 per color (Waived on first gravure run over 10k)'
       },
       {
-        name: 'Cylinder Setup Fees',
-        stockCards: '$0 Waived',
-        customConven: '$0 Waived (Digital)',
-        customOval: '$0 Waived (Digital)',
-        customFlat: '$0 Waived (Digital)'
+        name: 'Mechanical Tolerances (機械灌裝拉力 - 確保灌裝線不爆袋)',
+        stockCards: 'Standard manual loading parameters',
+        customConven: 'Durable side-seals, drop-test rated up to 1.5 meters',
+        customOval: 'High tensile-strength seals, optimized for high-speed automated VFFS filling lines (65 bags/min)',
+        customFlat: 'High tensile-strength seals, optimized for high-speed automated VFFS filling lines (65 bags/min)'
       }
     ]
   },
   {
-    title: '🛡️ Closure & Aroma Preservation',
+    title: '🛡️ Closure & Aroma Preservation (拉鏈與單向閥保鮮效能)',
     rows: [
       {
-        name: 'Zipper Closure',
-        stockCards: 'Regular premium zipper',
-        customConven: 'Regular premium zipper',
-        customOval: '♻️ Recyclable Zip OR 🌱 Certified Bio Zip',
-        customFlat: '♻️ Recyclable Zip OR 🌱 Certified Bio Zip'
+        name: 'Zipper Closure (密封拉鏈 - 確保開封後防潮防漏)',
+        stockCards: 'Premium airtight reclosable zipper',
+        customConven: 'Premium airtight reclosable zipper',
+        customOval: '♻️ Mono-PE Recyclable Zipper OR 🌱 EN 13432 certified Biodegradable Zip closure',
+        customFlat: '♻️ Mono-PE Recyclable Zipper OR 🌱 EN 13432 certified Biodegradable Zip closure'
       },
       {
-        name: 'Degassing Valve',
-        stockCards: 'Optional',
-        customConven: 'One-way degassing valve integrated',
-        customOval: 'Integrated valve (PE or Bio-valve)',
-        customFlat: 'Integrated valve (PE or Bio-valve)'
+        name: 'Degassing Valve (單向排氣閥 - 防止排氣胀袋爆袋)',
+        stockCards: 'Optional pre-installed degassing valve',
+        customConven: 'One-way aroma preservation degassing valve integrated',
+        customOval: 'Integrated custom PE/Bio-valve (OTR < 1.0 cc/m²/24h for fresh organic roasted beans)',
+        customFlat: 'Integrated custom PE/Bio-valve (OTR < 1.0 cc/m²/24h for fresh organic roasted beans)'
       },
       {
-        name: 'Barrier Level',
-        stockCards: 'High (Oxygen/Moisture foil)',
-        customConven: 'High (Aroma/Oxygen locking barrier)',
-        customOval: 'High (PE+EVOH gas lock / Bio-Cello)',
-        customFlat: 'High (PE+EVOH gas lock / Bio-Cello)'
+        name: 'Barrier OTR / WVTR (隔絕水氧性能 - 保證12個月保質期)',
+        stockCards: 'High (Standard metal foil lock)',
+        customConven: 'High (Durable aluminum-foil aroma barrier)',
+        customOval: 'Ultra-High (< 1.0 OTR/WVTR matching metal foil, protecting organic beans against staling)',
+        customFlat: 'Ultra-High (< 1.0 OTR/WVTR matching metal foil, protecting organic beans against staling)'
       }
     ]
   }
@@ -468,13 +468,24 @@ export default function PouchEcoGPTKPage() {
       <div className="bg-[#ffffff] text-neutral-800 font-sans selection:bg-emerald-500 selection:text-white pb-24">
         {/* Helmet Header Elements */}
         <Helmet>
-          <title>Pricing | Custom Coffee Bags Pricing Plans | Achieve Pack</title>
-          <meta name="description" content="Calculate B2B packaging costs instantly. Compare Stock Conventional, Custom Print standard conventional, Custom Oval Bottom, and Custom Premium Flat Bottom retail packaging." />
+          <title>Custom Coffee Bags with Low MOQ & High-Barrier Sustainable Options for Roasters | Achieve Pack Direct Supplier</title>
+          <meta name="description" content="Calculate custom coffee bags and flexible packaging costs instantly. Compare low MOQ digital short runs, high-barrier recyclable Mono-PE EVOH, and certified industrial compostable flat bottom pouches." />
           <link rel="canonical" href="https://achievepack.com/pricing" />
         </Helmet>
 
+        {/* B2B Clickable Breadcrumbs (Slide 06) */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-2">
+          <nav className="flex text-xs font-semibold text-neutral-400 gap-1.5 items-center">
+            <Link to="/" className="hover:text-emerald-600 transition">Home</Link>
+            <span>/</span>
+            <Link to="/materials/recyclable-mono-pe" className="hover:text-emerald-600 transition">Custom Packaging</Link>
+            <span>/</span>
+            <span className="text-neutral-800 font-black">Pricing Calculator</span>
+          </nav>
+        </div>
+
         {/* HERO SECTION */}
-        <section className="relative pt-36 pb-10 bg-white text-center">
+        <section className="relative pt-8 pb-10 bg-white text-center">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.02)_0%,transparent_50%)] pointer-events-none" />
           
           <div className="max-w-4xl mx-auto px-4 relative z-10 space-y-4">
@@ -482,7 +493,7 @@ export default function PouchEcoGPTKPage() {
               B2B Packaging Pricing Plans
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900 font-['Outfit']">
-              Choose the plan that's right for you
+              Custom Coffee Bags & Flexible Packaging Pricing for B2B Specialty Roasters
             </h1>
             <p className="text-sm font-mono text-emerald-600 uppercase tracking-widest font-bold">
               ☕ 咖啡茶葉袋客製 實時單價與配置成本計算器
@@ -1258,24 +1269,28 @@ export default function PouchEcoGPTKPage() {
           <div className="space-y-3">
             {[
               {
-                q: "Why are Custom printed/sized Oval Bottom and Custom printed/sized Flat Bottom pricing hidden if I choose 100 pcs?",
-                a: "Because our premium eco custom print orders (Oval & Flat bottom recyclable/compostable structures) require a Minimum Order Quantity (MOQ) of 500 pcs per size and design to calibrate our high-resolution digital printers. For quantities below 500 (such as 100 pcs MOQ), please choose the Custom Conventional option (which supports 100pcs MOQ) or the Stock Conventional modular branding system."
+                q: "1. Minimum Order Quantity (MOQ) Policy — 最低起訂量是多少？能否支持試單？",
+                a: "我們提供靈活的階梯起訂量。對於常規現貨加裝卡片或貼紙（Stock Conventional），最低僅需 100 個起訂（支持極小規模品牌測試）。而對於全客製印刷的自立袋（Custom Oval）與高端八邊封平底袋（Custom Flat），由於需要配合高速數碼印刷機校準，單款設計最低起訂量為 500 個。大貨凹版印刷起訂量為 10,000 個。"
               },
               {
-                q: "How does the half-price volume discount for 5,000 pcs work?",
-                a: "To make B2B growth as smooth as possible for commercial roasters, we offer extremely steep scale discounts. For a production run of 5,000 pcs or more per design, the per-unit price is strictly half of the 1,000 pcs unit price. This makes bulk runs highly economical."
+                q: "2. Free Pre-Production Sample Policy — 是否提供免費樣品？索取流程是什麼？",
+                a: "是的！我們為專業採購提供免費的「實物樣品包」（包含 PE+EVOH 可回收袋、可降解牛皮紙袋及不同容量袋型）。你只需填寫收件地址並支付基礎快遞費用即可安排寄出。如需客製品牌打樣（Digital Custom Sample），可聯絡專員安排單獨打樣打版。"
               },
               {
-                q: "Can I adjust the width, height, or gusset to custom millimeter dimensions?",
-                a: "Yes! For both the PE+EVOH Recyclable and certified Biodegradable Compostable options, Achieve Pack provides completely custom tailored sizing. If you require dimensions smaller than our standard listings (e.g., to match custom coffee weight metrics), there is no extra setup premium. We adjust structural layouts for free."
+                q: "3. OEM Custom Blueprints & Blueprints Support — 能否支持按圖紙或特定規格做？",
+                a: "完全支持！Achieve Pack 提供完整的 Adobe Illustrator（AI）向量刀模圖紙（Dieline templates）。你可以下載並直接套用你的品牌設計。不論是毫米級的寬度、高度，還是底部折邊（gusset）與拉鏈高度，我們均能按圖紙客製，無任何額外刀模版費費用。"
               },
               {
-                q: "What is the difference between PE+EVOH Recyclable and Compostable pouches?",
-                a: "Our recyclable option uses a high-barrier Mono-PE structure with an integrated EVOH gas-lock layer, globally certified as Class 4 SPI Recyclable and completely free of microplastics. Our compostable option uses certified bio-laminated Kraft paper shells and plant-based barrier sheets that decompose naturally in industrial composting facilities."
+                q: "4. Lead Time & Delivery Calculations — 正常的生產交期和運輸時間是多久？",
+                a: "我們的數碼印刷交期非常迅速：在確認印刷稿件及付款後，現貨組合方案僅需 3-5 天；數碼客製印刷袋在 10-12 天內即可完成生產裝箱。海運 DDP（含稅門到門）通常需要 6-7 週，而空運/快遞 DDP 僅需 8-10 天。我們會為你提供實時海關清關狀態追蹤。"
               },
               {
-                q: "How long is the B2B lead delivery time?",
-                a: "Stock pouch attachments dispatch locally in 3-5 days from stock. Custom printed stand-up oval bottom eco runs take 20 days, and premium eco-sustainable flat bottom custom runs take 20-25 days, which includes structural validation checks and quality control checks."
+                q: "5. Verifiable Certificates Verification — 產品能否提供 BPI、TÜV 或 GRS 等官方認證證書？",
+                a: "我們所有的環保包裝均附帶真實、可驗證的官方檢測報告。可回收 Mono-PE 結構符合全球塑料循環認證（Class 4 SPI）；可降解牛皮紙系列則擁有美國 BPI（ASTM D6400 註冊號 #900385）及歐洲 TÜV Austria OK Compost（EN 13432）工業及家用雙重降解認證，確保無任何有毒殘留物，暢通出口歐美海關。"
+              },
+              {
+                q: "6. Custom Wholesale Quote Checklist — 索取精確報價需要提交哪些具體參數？",
+                a: "為了給你計算最精確的批發價格，請準備好以下資訊並提供給專員：（1）袋子尺寸與袋型（自立袋或平底袋）；（2）材料偏好（可回收 PE、可降解牛皮紙或常規鋁箔）；（3）單款設計起訂量及設計款式總數（SKU）；（4）功能配件需求（是否需要加裝單向排氣閥、掛孔或特殊拉鏈）。"
               }
             ].map((faq, idx) => {
               const isOpen = faqStates[idx];

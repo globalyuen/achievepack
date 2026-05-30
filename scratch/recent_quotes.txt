@@ -1,0 +1,171 @@
+◇ injected env (3) from .env // tip: ⌘ enable debugging { debug: true }
+Found 11 logs since May 18, 2026.
+
+===========================================
+Record #0 | ID: 5c84f8bc-04b2-4505-be26-759c25c3d528 | Created: 2026-05-18T02:14:22.477419+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: Stand-up Zipper Bag - 50 Tablets
+    Material: White kraft paper 60g / PLA+PBAT biodegradable
+    Size: 215 mm * 215 mm * 100 mm
+    Features: Partial anti-discoloration oil, biodegradable zipper 13mm PLA2, thickness 135
+    Pricing tiers: [{"qty":1000,"unit_rmb":3.098,"weight_kg":18.45},{"qty":2500,"unit_rmb":2.249,"weight_kg":44.2},{"qty":5000,"unit_rmb":1.777,"weight_kg":88.39}]
+  Item 2:
+    Product Name: Stand-up Zipper Bag - 30 Tablets
+    Material: White kraft paper 60g / PLA+PBAT biodegradable
+    Size: 170 mm * 170 mm * 80 mm
+    Features: Partial anti-discoloration oil, biodegradable zipper 13mm PLA2, thickness 135
+    Pricing tiers: [{"qty":1000,"unit_rmb":2.731,"weight_kg":11.49},{"qty":2500,"unit_rmb":1.914,"weight_kg":28.25},{"qty":5000,"unit_rmb":1.582,"weight_kg":56.5}]
+
+===========================================
+Record #1 | ID: cf14e726-7347-4467-b032-5af5ef902368 | Created: 2026-05-18T08:25:00.460882+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: Stand-up Pouch
+    Material: White kraft paper 60g / PLA aluminized / PLA+PBAT biodegradable
+    Size: 300 x 340 + 150 mm
+    Features: Degradable zipper 13mm PLA2
+    Pricing tiers: [{"qty":1000,"unit_rmb":2.5,"weight_kg":42.85}]
+  Item 2:
+    Product Name: Stand-up Pouch
+    Material: White kraft paper 60g / PLA aluminized / PLA+PBAT biodegradable
+    Size: 300 x 340 + 150 mm
+    Features: Spot UV matte varnish, degradable zipper 13mm PLA2
+    Pricing tiers: [{"qty":1000,"unit_rmb":5,"weight_kg":42.85}]
+
+===========================================
+Record #2 | ID: 6f401019-a133-458a-af31-e6a186ff5fbb | Created: 2026-05-18T03:05:28.308121+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: Stand-up Zipper Bag (50 tablets suggested size)
+    Material: White kraft paper 60g / PLA aluminized / PLA+PBAT degradable
+    Size: 215 mm x 215 mm x 100 mm
+    Features: Anti-discoloration oil, degradable zipper 13mm PLA2, thickness 150
+    Pricing tiers: [{"qty":1000,"unit_rmb":3.661,"weight_kg":20.6},{"qty":2500,"unit_rmb":2.664,"weight_kg":50.54},{"qty":5000,"unit_rmb":2.055,"weight_kg":100.12}]
+  Item 2:
+    Product Name: Stand-up Zipper Bag (30 tablets suggested size)
+    Material: White kraft paper 60g / PLA aluminized / PLA+PBAT degradable
+    Size: 170 mm x 170 mm x 80 mm
+    Features: Anti-discoloration oil, degradable zipper 13mm PLA2, thickness 150
+    Pricing tiers: [{"qty":1000,"unit_rmb":3.217,"weight_kg":12.84},{"qty":2500,"unit_rmb":2.25,"weight_kg":31.62},{"qty":5000,"unit_rmb":1.885,"weight_kg":63.25}]
+
+===========================================
+Record #3 | ID: e9fd5ac3-76cd-4aeb-90f7-c09855eefaa1 | Created: 2026-05-19T05:40:48.348659+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: 9.1”×13.8”×3.93” Stand-up Pouch w/ Velcro
+    Material: MOPP-Double Electric/Enhanced VMPET///Regular PE
+    Size: 231.5 mm*350.5 mm+100mm
+    Features: Thickness 140 microns, Velcro closure 23MM
+    Pricing tiers: [{"qty":200,"unit_rmb":12.8,"weight_kg":6.31},{"qty":600,"unit_rmb":5.56,"weight_kg":17.97},{"qty":1000,"unit_rmb":4.17,"weight_kg":28.67},{"qty":2000,"unit_rmb":3.14,"weight_kg":57.34},{"qty":10000,"unit_rmb":2.11,"weight_kg":284.78}]
+  Item 2:
+    Product Name: 9.1”×13.8”×3.93”Stand-up Pouch w/regular zip
+    Material: MOPP-Double Electric/Enhanced VMPET///Regular PE
+    Size: 231.5 mm*350.5 mm+100mm
+    Features: Thickness 140 microns, Regular Zipper 13mm-PPE
+    Pricing tiers: [{"qty":200,"unit_rmb":12.26,"weight_kg":6},{"qty":600,"unit_rmb":5.29,"weight_kg":17.05},{"qty":1000,"unit_rmb":3.96,"weight_kg":27.14},{"qty":2000,"unit_rmb":2.97,"weight_kg":54.28},{"qty":10000,"unit_rmb":1.97,"weight_kg":268.54}]
+  Item 3:
+    Product Name: 4.7”×6.7”×3.14” Stand-up Zipper Pouch
+    Material: MOPP-Double Electric/Enhanced VMPET///Regular PE
+    Size: 120 mm*170.2 mm*80mm
+    Features: Thickness 140 microns, Velcro closure 23MM
+    Pricing tiers: [{"qty":100,"unit_rmb":11.5,"weight_kg":1.75},{"qty":300,"unit_rmb":4.5,"weight_kg":3.32},{"qty":500,"unit_rmb":2.96,"weight_kg":4.9},{"qty":1000,"unit_rmb":1.83,"weight_kg":8.84},{"qty":5000,"unit_rmb":0.97,"weight_kg":42.26}]
+  Item 4:
+    Product Name: 4.7”×6.7”×3.14” Stand-up Zipper Pouch
+    Material: MOPP-Double Electric/Enhanced VMPET///Regular PE
+    Size: 120 mm*170.2 mm*80mm
+    Features: Thickness 140 microns, Regular Zipper 13mm-PPE
+    Pricing tiers: [{"qty":100,"unit_rmb":10.6,"weight_kg":1.67},{"qty":300,"unit_rmb":4.08,"weight_kg":3.08},{"qty":500,"unit_rmb":2.8,"weight_kg":4.5},{"qty":1000,"unit_rmb":1.71,"weight_kg":8.04},{"qty":5000,"unit_rmb":0.9,"weight_kg":38.3}]
+
+===========================================
+Record #4 | ID: 3c6b25de-9495-4d6d-8d9e-cd2dcb12e89b | Created: 2026-05-19T06:24:32.356314+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: Industrial Compostable Stand-up Zipper Bag
+    Material: White Kraft Paper-60g/PLA Aluminized///PLA+PBAT Degradable
+    Size: 200 mm*120 mm*35 mm
+    Features: Partial coated matte oil, hot stamping 1 color, degradable zipper 13mm-PLA2, thickness 150
+    Pricing tiers: [{"qty":500,"unit_rmb":5.355,"weight_kg":6.25},{"qty":1000,"unit_rmb":3.242,"weight_kg":11.54}]
+
+===========================================
+Record #5 | ID: 2ed9b5e3-9384-417a-b14c-bdb0d32dbed2 | Created: 2026-05-20T02:53:46.752633+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: Stand-up Zipper Bag
+    Material: MOPP double-sided / PET-12 / AL / Ordinary PE
+    Size: 120 mm x 200 mm x 70 mm
+    Features: Ordinary zipper 13mm PPE, thickness 120 microns, stamp foiling
+    Pricing tiers: [{"qty":1500,"unit_rmb":1.62,"weight_kg":12.82},{"qty":3000,"unit_rmb":1.22,"weight_kg":25.63}]
+
+===========================================
+Record #6 | ID: a906bc05-b5c4-48e5-9554-2a504bce3345 | Created: 2026-05-20T03:18:34.932866+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: Stand-up Zipper Bag
+    Material: MOPP double-sided/AL/PET-12//Standard PE
+    Size: 120 mm*200 mm*35 mm
+    Features: Ordinary zipper 13mm-PPE, thickness 120
+    Pricing tiers: [{"qty":1500,"unit_rmb":2.311,"weight_kg":12.82},{"qty":3000,"unit_rmb":1.772,"weight_kg":25.63}]
+
+===========================================
+Record #7 | ID: 432b83ee-cbfb-4c0c-b900-89a02b7c8cab | Created: 2026-05-21T01:02:36.255088+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: Stand-up Pouch ( Soft Touch Matte Coating )
+    Material: H touch film / reinforced VMPET / standard PE, thickness 140 microns
+    Size: 231.5 mm * 350.5 mm + 100 mm
+    Features: Ordinary zipper 13mm-PPE
+    Pricing tiers: [{"qty":200,"unit_rmb":13.1,"weight_kg":6.03},{"qty":600,"unit_rmb":5.7,"weight_kg":17.11},{"qty":1000,"unit_rmb":4.253,"weight_kg":27.24},{"qty":2000,"unit_rmb":3.2,"weight_kg":54.49},{"qty":10000,"unit_rmb":2.14,"weight_kg":269.56}]
+  Item 2:
+    Product Name: Stand-up Pouch ( Normal Matte Coating)
+    Material: MOPP double corona / reinforced VMPET / standard PE, thickness 140 microns
+    Size: 231.5 mm * 350.5 mm + 100 mm
+    Features: Ordinary zipper 13mm-PPE
+    Pricing tiers: [{"qty":200,"unit_rmb":12.26,"weight_kg":6},{"qty":600,"unit_rmb":5.29,"weight_kg":17.05},{"qty":1000,"unit_rmb":3.96,"weight_kg":27.14},{"qty":2000,"unit_rmb":2.97,"weight_kg":54.28},{"qty":10000,"unit_rmb":1.97,"weight_kg":268.54}]
+
+===========================================
+Record #8 | ID: e99d6a2b-8209-46e0-9634-9eea5d75ad6b | Created: 2026-05-25T01:23:57.803648+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: 602-4 Zipper Stand-up Pouch
+    Material: High Barrier NK25/White Kraft 50g/PBS 60, total thickness 135U
+    Size: 190x275+55 mm
+    Features: Zipper stand-up pouch, 22.81g per bag
+    Pricing tiers: [{"qty":10000,"unit_rmb":1.18,"weight_kg":228},{"qty":20000,"unit_rmb":1.15,"weight_kg":456},{"qty":30000,"unit_rmb":1.13,"weight_kg":684},{"qty":50000,"unit_rmb":1.11,"weight_kg":1140}]
+
+===========================================
+Record #9 | ID: 7ad53a68-837e-43a2-9386-9d4cc1f50512 | Created: 2026-05-26T09:23:06.706217+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: Middle seal gusset bag
+    Material: White kraft paper-60g/PLA aluminized///PLA+PBAT degradable
+    Size: 80 mm +45mm *210 mm +10 mm
+    Features: Partial copper plate matte oil, thickness 150
+    Pricing tiers: [{"qty":1000,"unit_rmb":2.62,"weight_kg":9.72},{"qty":2000,"unit_rmb":1.72,"weight_kg":19.44}]
+  Item 2:
+    Product Name: Middle seal gusset bag
+    Material: White kraft paper-60g/PLA aluminized///PLA+PBAT degradable
+    Size: 80 mm +45mm *210 mm +10 mm
+    Features: Transparent bag, thickness 150
+    Pricing tiers: [{"qty":1000,"unit_rmb":1.156,"weight_kg":9.72},{"qty":2000,"unit_rmb":0.77,"weight_kg":19.44}]
+
+===========================================
+Record #10 | ID: eee7be70-5997-4caa-a558-121e691194e6 | Created: 2026-05-27T22:44:39.238628+00:00
+Message: Quote shared for Valued Client
+Customer: Valued Client
+  Item 1:
+    Product Name: Three-side seal bag
+    Material: recyclable PE/EVOH-PE composite film
+    Size: 102mm x 152mm
+    Features: no zipper, standard seal width
+    Pricing tiers: [{"qty":200,"unit_rmb":7.5,"weight_kg":1},{"qty":500,"unit_rmb":4,"weight_kg":2.5},{"qty":1000,"unit_rmb":2.2,"weight_kg":5},{"qty":5000,"unit_rmb":0.7,"weight_kg":25}]

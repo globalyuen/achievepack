@@ -149,7 +149,6 @@ const ArtworkBatchesPage: React.FC = () => {
   const [fileProgresses, setFileProgresses] = useState<FileProgress[]>([])
 
   // Layout states for admin customization
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [gridCols, setGridCols] = useState(3)
   const [cardSize, setCardSize] = useState<'small' | 'large'>('large')
 
@@ -2233,9 +2232,9 @@ const ArtworkBatchesPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen lg:h-screen flex flex-col bg-gray-50 lg:overflow-hidden">
       {/* Header */}
-      <header className="bg-white border-b sticky top-0 z-40">
+      <header className="bg-white border-b flex-shrink-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-4">
@@ -2257,33 +2256,11 @@ const ArtworkBatchesPage: React.FC = () => {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex flex-col lg:flex-row gap-6 relative">
-          {/* Sidebar Toggle Button - Subtle Floating Sidebar Tab */}
-          <button
-            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            className={`hidden lg:flex fixed left-0 top-1/2 -translate-y-1/2 z-50 items-center justify-center h-12 w-6 bg-white border border-gray-200 rounded-r-lg shadow-md hover:bg-gray-50 transition-all hover:w-8 group ${sidebarCollapsed ? 'translate-x-0' : 'translate-x-0 opacity-0 hover:opacity-100'}`}
-            style={{ left: sidebarCollapsed ? '0' : '320px' }} // 320px is lg:w-80
-            title={sidebarCollapsed ? "Show Batch List" : "Hide Batch List"}
-          >
-            {sidebarCollapsed ? (
-              <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-primary-600" />
-            ) : (
-              <ChevronLeft className="h-4 w-4 text-gray-400 group-hover:text-primary-600" />
-            )}
-          </button>
-
+      <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-6 h-full lg:overflow-hidden">
           {/* Left: Batch List */}
-          {!sidebarCollapsed && (
-            <div className="w-full lg:w-80 flex-shrink-0 animate-in slide-in-from-left duration-200 relative">
-              {/* Internal Collapse Button */}
-              <button 
-                onClick={() => setSidebarCollapsed(true)}
-                className="hidden lg:flex absolute -right-3 top-4 z-10 h-6 w-6 bg-white border border-gray-200 rounded-full items-center justify-center shadow-sm hover:text-primary-600 transition"
-              >
-                <ChevronLeft className="h-3 w-3" />
-              </button>
-            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <div className="w-full lg:w-80 flex-shrink-0 lg:h-full flex flex-col relative">
+            <div className="bg-white rounded-xl border border-gray-200 flex flex-col lg:h-full overflow-hidden shadow-sm">
               <div className="p-4 border-b border-gray-100">
                 <div className="flex items-center justify-between mb-3">
                   <h2 className="font-semibold text-gray-900">All Batches</h2>
@@ -2340,7 +2317,7 @@ const ArtworkBatchesPage: React.FC = () => {
                   )}
                 </div>
               ) : (
-                <div className="divide-y divide-gray-100 max-h-[calc(100vh-350px)] overflow-y-auto">
+                <div className="divide-y divide-gray-100 max-h-[400px] lg:max-h-none lg:flex-1 overflow-y-auto">
                   {filteredBatches.map(batch => {
                     const isSelected = selectedBatch?.id === batch.id
                     return (
@@ -2447,11 +2424,10 @@ const ArtworkBatchesPage: React.FC = () => {
                 </div>
               )}
             </div>
-            </div>
-          )}
+          </div>
 
           {/* Right: Batch Detail */}
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 lg:h-full lg:overflow-y-auto lg:pr-1">
             {selectedBatch ? (
               <div className="space-y-6">
                 {/* Batch Header */}
