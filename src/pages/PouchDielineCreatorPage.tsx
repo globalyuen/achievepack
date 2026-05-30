@@ -25,7 +25,8 @@ import {
   MessageCircle,
   Calendar,
   ShieldAlert,
-  Scale
+  Scale,
+  Lock
 } from 'lucide-react'
 import { jsPDF } from 'jspdf'
 import SiteHeader from '../components/SiteHeader'
@@ -176,6 +177,12 @@ export default function PouchDielineCreatorPage() {
     if (!isNaN(parsed) && parsed > 0) {
       setGusset(parsed);
       setGussetInchStr((parsed / 25.4).toFixed(2));
+
+      // Auto-calculate Bottom Seal Weld Curve (half of BG)
+      const curveVal = Math.round(parsed / 2);
+      setBottomSealCurve(curveVal);
+      setBottomCurveMmStr(curveVal.toString());
+      setBottomCurveInchStr((curveVal / 25.4).toFixed(2));
     }
   };
 
@@ -186,6 +193,12 @@ export default function PouchDielineCreatorPage() {
       const mmVal = Math.round(parsed * 25.4);
       setGusset(mmVal);
       setGussetMmStr(mmVal.toString());
+
+      // Auto-calculate Bottom Seal Weld Curve (half of BG)
+      const curveVal = Math.round(mmVal / 2);
+      setBottomSealCurve(curveVal);
+      setBottomCurveMmStr(curveVal.toString());
+      setBottomCurveInchStr((curveVal / 25.4).toFixed(2));
     }
   };
 
@@ -1351,11 +1364,16 @@ export default function PouchDielineCreatorPage() {
                   />
                 </div>
 
-                {/* Bottom Seal Curve */}
-                <div className="space-y-2 bg-neutral-950/20 p-3 rounded-2xl border border-neutral-800/40">
+                {/* Bottom Seal Curve (Auto-Calculated & Locked) */}
+                <div className="space-y-2 bg-neutral-950/40 p-3 rounded-2xl border border-neutral-900/60 opacity-60 relative overflow-hidden select-none">
                   <div className="flex justify-between items-center text-xs font-semibold">
-                    <span className="text-neutral-400 font-bold">Bottom Seal Weld Curve height</span>
-                    <span className="text-green-400 font-mono font-bold">{(bottomSealCurve / 25.4).toFixed(2)} in / {bottomSealCurve} mm</span>
+                    <span className="text-neutral-500 font-bold flex items-center gap-1.5">
+                      <Lock className="w-3.5 h-3.5 text-neutral-500" />
+                      Gusset Seal Weld Curve (C)
+                    </span>
+                    <span className="text-neutral-500 text-[10px] font-mono">
+                      Auto-Calculated (BG / 2)
+                    </span>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="relative">
@@ -1363,30 +1381,28 @@ export default function PouchDielineCreatorPage() {
                         id="bottomSealCurve-mm-input"
                         type="text"
                         value={bottomCurveMmStr}
-                        onChange={(e) => handleBottomCurveChangeMm(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        readOnly
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-950 border border-neutral-900 text-neutral-500 rounded-xl outline-none font-mono font-bold cursor-not-allowed select-none"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">mm</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-600 uppercase tracking-wider font-mono select-none">mm</span>
                     </div>
                     <div className="relative">
                       <input
                         id="bottomSealCurve-inch-input"
                         type="text"
                         value={bottomCurveInchStr}
-                        onChange={(e) => handleBottomCurveChangeInch(e.target.value)}
-                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 focus:border-green-500 focus:ring-1 focus:ring-green-500 rounded-xl outline-none font-mono text-white font-bold"
+                        readOnly
+                        className="w-full pl-3 pr-8 py-2 text-xs bg-neutral-955 border border-neutral-800 text-neutral-550 rounded-xl outline-none font-mono font-bold cursor-not-allowed select-none"
                       />
-                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-550 uppercase tracking-wider font-mono select-none">in</span>
+                      <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] font-bold text-neutral-600 uppercase tracking-wider font-mono select-none">in</span>
                     </div>
                   </div>
-                  <input
-                    type="range"
-                    min="15"
-                    max="70"
-                    value={bottomSealCurve}
-                    onChange={(e) => handleBottomCurveChangeMm(e.target.value)}
-                    className="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-green-500"
-                  />
+                  <div className="w-full h-1 bg-neutral-900/60 rounded-lg overflow-hidden relative pointer-events-none">
+                    <div 
+                      className="bg-neutral-600 h-full transition-all duration-150"
+                      style={{ width: `${((bottomSealCurve - 15) / (70 - 15)) * 100}%` }}
+                    ></div>
+                  </div>
                 </div>
 
                 {/* Round Corner Toggle */}
