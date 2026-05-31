@@ -51,6 +51,14 @@ interface PageStatus {
 type SortKey = 'title' | 'traffic' | 'seoScore' | 'aieoScore' | 'sioScore' | 'imagesCount' | 'wordCount' | 'lastUpdated'
 type SortOrder = 'asc' | 'desc'
 
+function getStableHash(str: string): number {
+  let hash = 0
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash)
+  }
+  return Math.abs(hash)
+}
+
 export default function SeoMigrationDashboard() {
   const [pages, setPages] = useState<PageStatus[]>([])
   const [loading, setLoading] = useState(true)
@@ -76,10 +84,9 @@ export default function SeoMigrationDashboard() {
       if (error && error.code !== '42P01') console.error(error)
 
       const seoPages = (en as any).seoPages?.pages || {}
-      const combinedPages: PageStatus[] = []
-
+      
       // 1. Process AchievePack (B2B) Routes
-      routeMapping.achieve.forEach(route => {
+      const rawAchievePages = routeMapping.achieve.map(route => {
         const slug = route.startsWith('/') ? route.substring(1) : route
         const parts = slug.split('/')
         const category = parts.length > 1 ? parts[0] : 'other'
@@ -87,7 +94,7 @@ export default function SeoMigrationDashboard() {
         const isSyncedCodebase = routeMapping.synced.includes(route)
         const isSyncedDatabase = migratedData?.find(p => p.slug === slug || p.slug === parts[parts.length-1])
         const isMigrated = isSyncedCodebase || !!isSyncedDatabase
-        const status = isMigrated ? 'migrated' : 'pending'
+        const status = isMigrated ? 'migrated' as const : 'pending' as const
 
         let title = ''
         const key = Object.keys(seoPages).find(k => k.toLowerCase() === parts[parts.length-1].replace(/-/g, '').toLowerCase())
@@ -97,12 +104,13 @@ export default function SeoMigrationDashboard() {
           title = parts[parts.length-1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
         }
 
-        // Base traffic for AchievePack (B2B)
+        // Deterministic base traffic for AchievePack (B2B)
+        const hashVal = getStableHash(slug)
         let baseTraffic = 0
-        if (['packaging', 'industry', 'materials'].includes(category)) baseTraffic = 1200 + Math.random() * 3500
-        else if (category === 'topics') baseTraffic = 350 + Math.random() * 1200
-        else if (category === 'spec') baseTraffic = 100 + Math.random() * 400
-        else baseTraffic = 50 + Math.random() * 200
+        if (['packaging', 'industry', 'materials'].includes(category)) baseTraffic = 1200 + (hashVal % 3500)
+        else if (category === 'topics') baseTraffic = 350 + (hashVal % 1200)
+        else if (category === 'spec') baseTraffic = 100 + (hashVal % 400)
+        else baseTraffic = 50 + (hashVal % 200)
 
         if (isMigrated) baseTraffic *= 1.3
 
@@ -144,7 +152,7 @@ export default function SeoMigrationDashboard() {
           recommendation = '表現良好，持續監控'
         }
 
-        combinedPages.push({
+        return {
           key: `achieve-${slug}`,
           title,
           slug,
@@ -153,25 +161,25 @@ export default function SeoMigrationDashboard() {
           seoScore: Math.min(seoScore, 98),
           aieoScore: Math.min(aieoScore, 98),
           sioScore: Math.min(sioScore, 98),
-          traffic: Math.floor(baseTraffic),
+          baseTraffic,
           lastUpdated: routeData ? routeData.lastUpdated : (isSyncedDatabase ? new Date(isSyncedDatabase.updated_at).getTime() : 0),
           sourceUrl: `https://achievepack.com/${slug}`,
           pouchUrl: `https://pouch.eco${route}`,
           imagesCount,
           wordCount,
           recommendation,
-          domain: 'achievepack.com',
+          domain: 'achievepack.com' as const,
           missingImages
-        })
+        }
       })
 
       // 2. Process EcoPouch (B2C) Routes
-      routeMapping.pouch.forEach(route => {
+      const rawPouchPages = routeMapping.pouch.map(route => {
         const slug = route.startsWith('/') ? route.substring(1) : route
         const parts = slug.split('/')
         const category = parts.length > 1 ? parts[0] : 'other'
         
-        const status = 'migrated'
+        const status = 'migrated' as const
         const isSyncedDatabase = migratedData?.find(p => p.slug === slug || p.slug === parts[parts.length-1])
 
         let title = ''
@@ -182,12 +190,13 @@ export default function SeoMigrationDashboard() {
           title = parts[parts.length-1].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
         }
 
-        // B2C pouch.eco has optimized layouts, driving higher traffic multiplier
+        // Deterministic base traffic for EcoPouch (B2C)
+        const hashVal = getStableHash(slug)
         let baseTraffic = 0
-        if (['packaging', 'industry', 'materials'].includes(category)) baseTraffic = 2200 + Math.random() * 5500
-        else if (category === 'topics') baseTraffic = 750 + Math.random() * 2500
-        else if (category === 'spec') baseTraffic = 220 + Math.random() * 800
-        else baseTraffic = 90 + Math.random() * 350
+        if (['packaging', 'industry', 'materials'].includes(category)) baseTraffic = 2200 + (hashVal % 5500)
+        else if (category === 'topics') baseTraffic = 750 + (hashVal % 2500)
+        else if (category === 'spec') baseTraffic = 220 + (hashVal % 800)
+        else baseTraffic = 90 + (hashVal % 350)
 
         const routeData = (pageMetrics as Record<string, {words: number, images: number, lastUpdated: number}>)[route] || null
 
@@ -225,7 +234,7 @@ export default function SeoMigrationDashboard() {
           recommendation = '表現優異，已完全符合 SEO/GEO/SIO 最佳實踐'
         }
 
-        combinedPages.push({
+        return {
           key: `pouch-${slug}`,
           title,
           slug,
@@ -234,18 +243,57 @@ export default function SeoMigrationDashboard() {
           seoScore: Math.min(seoScore, 100),
           aieoScore: Math.min(aieoScore, 100),
           sioScore: Math.min(sioScore, 100),
-          traffic: Math.floor(baseTraffic),
-          lastUpdated: routeData ? routeData.lastUpdated : (isSyncedDatabase ? new Date(isSyncedDatabase.updated_at).getTime() : Date.now() - 3600000 * 24 * (Math.random() * 5)),
+          baseTraffic,
+          lastUpdated: routeData ? routeData.lastUpdated : (isSyncedDatabase ? new Date(isSyncedDatabase.updated_at).getTime() : Date.now() - 3600000 * 24 * (hashVal % 5)),
           sourceUrl: `https://achievepack.com/${slug}`,
           pouchUrl: `https://pouch.eco${route}`,
           imagesCount,
           wordCount,
           recommendation,
-          domain: 'pouch.eco',
+          domain: 'pouch.eco' as const,
           missingImages
-        })
+        }
       })
 
+      // 3. Scale traffic values mathematically to hit the exact target totals
+      const sumAchieveBase = rawAchievePages.reduce((acc, p) => acc + p.baseTraffic, 0) || 1
+      const sumPouchBase = rawPouchPages.reduce((acc, p) => acc + p.baseTraffic, 0) || 1
+
+      const achieveTarget = 143544
+      const pouchTarget = 189367
+
+      const achieveScale = achieveTarget / sumAchieveBase
+      const pouchScale = pouchTarget / sumPouchBase
+
+      let currentAchieveSum = 0
+      const scaledAchievePages = rawAchievePages.map((p, idx) => {
+        let traffic = Math.round(p.baseTraffic * achieveScale)
+        if (idx === rawAchievePages.length - 1) {
+          traffic = achieveTarget - currentAchieveSum
+        } else {
+          currentAchieveSum += traffic
+        }
+        return {
+          ...p,
+          traffic
+        }
+      })
+
+      let currentPouchSum = 0
+      const scaledPouchPages = rawPouchPages.map((p, idx) => {
+        let traffic = Math.round(p.baseTraffic * pouchScale)
+        if (idx === rawPouchPages.length - 1) {
+          traffic = pouchTarget - currentPouchSum
+        } else {
+          currentPouchSum += traffic
+        }
+        return {
+          ...p,
+          traffic
+        }
+      })
+
+      const combinedPages = [...scaledAchievePages, ...scaledPouchPages]
       setPages(combinedPages)
     } catch (err) {
       console.error('Error loading SEO data:', err)
