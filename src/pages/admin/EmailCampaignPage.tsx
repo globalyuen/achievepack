@@ -54,7 +54,7 @@ const EmailCampaignPage = () => {
         <table border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td style="padding-right: 20px;">
-                    <img src="https://achievepack.com/imgs/emails/ryan_headshot_v2.png" alt="Ryan" width="100" height="100" style="width: 100px; height: 100px; border-radius: 500px; object-fit: cover; border: 4px solid #D4FF00; display: block; -webkit-border-radius: 500px; -moz-border-radius: 500px;">
+                    <img src="https://achievepack.com/imgs/team/Ryan%20Wong%20-%20Packaging%20Specialist.png" alt="Ryan" width="100" height="100" style="width: 100px; height: 100px; border-radius: 500px; object-fit: cover; border: 4px solid #D4FF00; display: block; -webkit-border-radius: 500px; -moz-border-radius: 500px;">
                 </td>
                 <td valign="middle">
                     <p style="margin: 0; font-weight: 900; font-size: 22px; color: #000; line-height: 1;">Ryan</p>

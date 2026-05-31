@@ -841,7 +841,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     <div className="pt-4 border-t border-black/10 flex flex-wrap items-center gap-4 text-xs font-['JetBrains_Mono'] font-bold text-black/80">
                       <div className="flex items-center gap-2">
                         <img 
-                          src="/imgs/emails/ryan_headshot_v2.png" 
+                          src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
                           alt="Ryan Wong" 
                           className="w-6 h-6 rounded-full object-cover border-2 border-black" 
                         />
@@ -1245,7 +1245,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <div className="mt-4 pt-4 border-t border-neutral-100 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
                     <div className="flex items-center gap-2">
                       <img 
-                        src="/imgs/emails/ryan_headshot_v2.png" 
+                        src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
                         alt="Ryan Wong" 
                         className="w-6 h-6 rounded-full object-cover border border-neutral-200" 
                       />
@@ -1439,7 +1439,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   </div>
                   <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-100 flex flex-col items-center text-center">
                     <img 
-                      src="/imgs/emails/ryan_headshot_v2.png" 
+                      src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
                       alt="Ryan Wong" 
                       className="w-16 h-16 rounded-full object-cover border-2 border-primary-500 shadow-md mb-3" 
                     />

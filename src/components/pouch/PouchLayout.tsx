@@ -457,7 +457,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             <div className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-8 items-center">
               <div className="flex-shrink-0 text-center">
                 <img 
-                  src="/imgs/emails/ryan_headshot_v2.png" 
+                  src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
                   alt="Ryan Wong" 
                   className="w-24 h-24 rounded-full object-cover border-4 border-black mx-auto mb-3" 
                 />

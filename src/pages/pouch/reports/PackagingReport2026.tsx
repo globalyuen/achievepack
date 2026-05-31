@@ -159,7 +159,7 @@ const PackagingReport2026 = () => {
                     "We've moved beyond the era of 'green-washing'. Brands that don't adapt to the data-backed structures outlined in this report will be left behind by a more conscious consumer base."
                   </p>
                   <div className="flex items-center gap-4">
-                    <img src="/imgs/emails/ryan_headshot_v2.png" className="w-16 h-16 rounded-full border-2 border-[#D4FF00]" alt="Ryan" />
+                    <img src="/imgs/team/Ryan Wong - Packaging Specialist.png" className="w-16 h-16 rounded-full border-2 border-[#D4FF00]" alt="Ryan" />
                     <div>
                       <p className="font-black uppercase">Ryan Wong</p>
                       <p className="text-xs font-bold text-neutral-500">Founder, Achieve Pack</p>
