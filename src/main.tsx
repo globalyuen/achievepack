@@ -621,6 +621,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/size-guide" element={<Navigate to="/knowledge/pouch-sizing" replace />} />
                   <Route path="/testimonials" element={<PouchTestimonialsPage />} />
                   <Route path="/blog" element={<PouchBlogPage />} />
+                  <Route path="/blog/eu-ppwr-compliance-guide" element={<EUPPWRCompliancePage />} />
                   <Route path="/blog/:slug" element={<PouchBlogArticlePage />} />
                   <Route path="/blog/usa-compostable-packaging-guide" element={<USACompostableGuide />} />
                   <Route path="/blog/coffee-packaging-guide" element={<CoffeePackagingGuide />} />
