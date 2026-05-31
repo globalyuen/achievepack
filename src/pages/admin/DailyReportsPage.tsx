@@ -13,6 +13,7 @@ import PackingListTab from '../../components/admin/PackingListTab';
 import SpecSheetTab from '../../components/admin/SpecSheetTab';
 import SeoMigrationDashboard from '../../components/admin/SeoMigrationDashboard';
 import SeoRankingDashboard from '../../components/admin/SeoRankingDashboard';
+import SearchDirectoryModal from '../../components/admin/SearchDirectoryModal';
 import * as XLSX from 'xlsx';
 
 
@@ -129,6 +130,7 @@ export default function DailyReportsPage() {
 
   const [showSeoCommand, setShowSeoCommand] = useState(false);
   const [copiedSeoCommand, setCopiedSeoCommand] = useState(false);
+  const [showSearchDirectoryModal, setShowSearchDirectoryModal] = useState(false);
 
   // AI
   const [rawText, setRawText] = useState('');
@@ -1091,6 +1093,16 @@ export default function DailyReportsPage() {
                   <span className="hidden xs:inline">Sealer Video</span>
                   <span className="xs:hidden">Video</span>
                 </a>
+
+                {/* Search Index Directory Button */}
+                <button 
+                  onClick={() => setShowSearchDirectoryModal(true)}
+                  className="flex items-center gap-1.5 bg-blue-500/20 text-blue-200 px-3 py-1.5 rounded-full text-sm font-semibold border border-blue-500/30 hover:bg-blue-500/40 transition active:scale-95 shadow-sm"
+                  title="Open Search Index Directory for ap and ep pages"
+                >
+                  <Search className="h-3.5 w-3.5 text-blue-300" />
+                  <span>Search Directory</span>
+                </button>
 
                 {/* B2B SEO/GEO Rewrite Command */}
                 <button 
@@ -2358,6 +2370,12 @@ export default function DailyReportsPage() {
           </div>
         </div>
       )}
+
+      {/* Search Index Directory Modal */}
+      <SearchDirectoryModal 
+        isOpen={showSearchDirectoryModal}
+        onClose={() => setShowSearchDirectoryModal(false)}
+      />
     </div>
   );
 }
