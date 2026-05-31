@@ -1,6 +1,6 @@
 {
   "generated": "2026-05-30",
-  "total_images": 1857,
+  "total_images": 1860,
   "total_categories": 162,
   "extensions": {
     ".webp": 1299,
@@ -8253,6 +8253,12 @@
       "count": 8,
       "images": [
         {
+          "filename": "spout.webp",
+          "path": "/imgs/store/pouch shape/spout.webp",
+          "extension": ".webp",
+          "modified": "2026-05-30T16:29:07.750Z"
+        },
+        {
           "filename": "3-side.webp",
           "path": "/imgs/store/pouch shape/3-side.webp",
           "extension": ".webp",
@@ -8299,6 +8305,18 @@
     "store/products": {
       "count": 257,
       "images": [
+        {
+          "filename": "rice-paper-500g-standup.png",
+          "path": "/imgs/store/products/rice-paper-500g-standup.png",
+          "extension": ".png",
+          "modified": "2026-05-30T16:29:07.756Z"
+        },
+        {
+          "filename": "recyclable-3ss-evoh-pe-102x152.png",
+          "path": "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
+          "extension": ".png",
+          "modified": "2026-05-30T16:29:07.754Z"
+        },
         {
           "filename": "three-side-seal-bag-mopp-dual-corona-enhanced-vmpet-regular.png",
           "path": "/imgs/store/products/three-side-seal-bag-mopp-dual-corona-enhanced-vmpet-regular.png",

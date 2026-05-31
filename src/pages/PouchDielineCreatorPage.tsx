@@ -132,6 +132,238 @@ export default function PouchDielineCreatorPage() {
   const [pdfFormat, setPdfFormat] = useState<'a4' | '1to1'>('1to1')
   const [isExporting, setIsExporting] = useState(false)
 
+  // Prepress Verification Checklist & Decision States
+  const [checklist, setChecklist] = useState({
+    size: false,
+    colors: false,
+    eyespot: false,
+    weight: false,
+    upc: false,
+    rollDirection: false,
+    addons: false,
+    seal: false
+  })
+  const [decision, setDecision] = useState<string | null>(null)
+
+  // Sizing String Input Buffers for Real-time Dual-Unit Conversion (Inches & MM)
+  const [widthMmStr, setWidthMmStr] = useState('170')
+  const [widthInchStr, setWidthInchStr] = useState('6.69')
+  const [heightMmStr, setHeightMmStr] = useState('270')
+  const [heightInchStr, setHeightInchStr] = useState('10.63')
+  const [gussetMmStr, setGussetMmStr] = useState('90')
+  const [gussetInchStr, setGussetInchStr] = useState('3.54')
+  const [zipperMmStr, setZipperMmStr] = useState('27')
+  const [zipperInchStr, setZipperInchStr] = useState('1.06')
+  const [tearNotchMmStr, setTearNotchMmStr] = useState('18')
+  const [tearNotchInchStr, setTearNotchInchStr] = useState('0.71')
+  const [sideSealsMmStr, setSideSealsMmStr] = useState('10')
+  const [sideSealsInchStr, setSideSealsInchStr] = useState('0.39')
+  const [bottomCurveMmStr, setBottomCurveMmStr] = useState('45')
+  const [bottomCurveInchStr, setBottomCurveInchStr] = useState('1.77')
+
+  // Upload/Submit State
+  const [uploadFile, setUploadFile] = useState<File | null>(null)
+  const [uploadProgress, setUploadProgress] = useState(0)
+  const [uploadSuccess, setUploadSuccess] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  // Synchronize string inputs when the numeric state changes (presets, sliders, URL parameters)
+  useEffect(() => {
+    if (document.activeElement?.id !== 'width-mm-input' && document.activeElement?.id !== 'width-inch-input') {
+      setWidthMmStr(width.toString());
+      setWidthInchStr((width / 25.4).toFixed(2));
+    }
+  }, [width]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'height-mm-input' && document.activeElement?.id !== 'height-inch-input') {
+      setHeightMmStr(height.toString());
+      setHeightInchStr((height / 25.4).toFixed(2));
+    }
+  }, [height]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'gusset-mm-input' && document.activeElement?.id !== 'gusset-inch-input') {
+      setGussetMmStr(gusset.toString());
+      setGussetInchStr((gusset / 25.4).toFixed(2));
+    }
+  }, [gusset]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'zipper-mm-input' && document.activeElement?.id !== 'zipper-inch-input') {
+      setZipperMmStr(zipper.toString());
+      setZipperInchStr((zipper / 25.4).toFixed(2));
+    }
+  }, [zipper]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'tearNotch-mm-input' && document.activeElement?.id !== 'tearNotch-inch-input') {
+      setTearNotchMmStr(tearNotch.toString());
+      setTearNotchInchStr((tearNotch / 25.4).toFixed(2));
+    }
+  }, [tearNotch]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'sideSeals-mm-input' && document.activeElement?.id !== 'sideSeals-inch-input') {
+      setSideSealsMmStr(sideSeals.toString());
+      setSideSealsInchStr((sideSeals / 25.4).toFixed(2));
+    }
+  }, [sideSeals]);
+
+  useEffect(() => {
+    if (document.activeElement?.id !== 'bottomSealCurve-mm-input' && document.activeElement?.id !== 'bottomSealCurve-inch-input') {
+      setBottomCurveMmStr(bottomSealCurve.toString());
+      setBottomCurveInchStr((bottomSealCurve / 25.4).toFixed(2));
+    }
+  }, [bottomSealCurve]);
+
+  // Handler functions for Millimeter and Inch text inputs (preserving typing decimal strings)
+  const handleWidthChangeMm = (valStr: string) => {
+    setWidthMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setWidth(parsed);
+      setWidthInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleWidthChangeInch = (valStr: string) => {
+    setWidthInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setWidth(mmVal);
+      setWidthMmStr(mmVal.toString());
+    }
+  };
+
+  const handleHeightChangeMm = (valStr: string) => {
+    setHeightMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setHeight(parsed);
+      setHeightInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleHeightChangeInch = (valStr: string) => {
+    setHeightInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setHeight(mmVal);
+      setHeightMmStr(mmVal.toString());
+    }
+  };
+
+  const handleGussetChangeMm = (valStr: string) => {
+    setGussetMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setGusset(parsed);
+      setGussetInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleGussetChangeInch = (valStr: string) => {
+    setGussetInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setGusset(mmVal);
+      setGussetMmStr(mmVal.toString());
+    }
+  };
+
+  const handleTearNotchChangeMm = (valStr: string) => {
+    setTearNotchMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setTearNotch(parsed);
+      setTearNotchInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleTearNotchChangeInch = (valStr: string) => {
+    setTearNotchInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setTearNotch(mmVal);
+      setTearNotchMmStr(mmVal.toString());
+    }
+  };
+
+  const handleSideSealsChangeMm = (valStr: string) => {
+    setSideSealsMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setSideSeals(parsed);
+      setSideSealsInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleSideSealsChangeInch = (valStr: string) => {
+    setSideSealsInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setSideSeals(mmVal);
+      setSideSealsMmStr(mmVal.toString());
+    }
+  };
+
+  const handleBottomCurveChangeMm = (valStr: string) => {
+    setBottomCurveMmStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      setBottomSealCurve(parsed);
+      setBottomCurveInchStr((parsed / 25.4).toFixed(2));
+    }
+  };
+
+  const handleBottomCurveChangeInch = (valStr: string) => {
+    setBottomCurveInchStr(valStr);
+    const parsed = parseFloat(valStr);
+    if (!isNaN(parsed) && parsed > 0) {
+      const mmVal = Math.round(parsed * 25.4);
+      setBottomSealCurve(mmVal);
+      setBottomCurveMmStr(mmVal.toString());
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0]
+      setUploadFile(file)
+      setUploadSuccess(false)
+      setUploadProgress(0)
+    }
+  }
+
+  const simulateUpload = () => {
+    if (!uploadFile) return
+    setIsUploading(true)
+    let progress = 0
+    const interval = setInterval(() => {
+      progress += 10
+      setUploadProgress(progress)
+      if (progress >= 100) {
+        clearInterval(interval)
+        setIsUploading(false)
+        setUploadSuccess(true)
+      }
+    }, 120)
+  }
+
+  const resetUpload = () => {
+    setUploadFile(null)
+    setUploadProgress(0)
+    setUploadSuccess(false)
+    setIsUploading(false)
+  }
+
   // Lead Capture State
   const [email, setEmail] = useState('')
   const [isUnlocked, setIsUnlocked] = useState(false)
