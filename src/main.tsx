@@ -216,6 +216,7 @@ const PouchFlatBottomVsGussetPage = lazyWithRetry(() => import('./pages/pouch/kn
 const PouchRecycledOceanPlasticPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchRecycledOceanPlasticPackagingPage'))
 const PouchMinimalistD2CPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMinimalistD2CPackagingPage'))
 const DynamicPouchTopicPage = lazyWithRetry(() => import('./pages/pouch/topics/DynamicPouchTopicPage'))
+const EUPPWRCompliancePage = lazyWithRetry(() => import('./pages/topics/EUPPWRCompliancePage'))
 
 // Printing Pages - Lazy loaded
 const DigitalPrintingPage = lazyWithRetry(() => import('./pages/printing/DigitalPrintingPage'))
@@ -982,6 +983,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/blog/eco-packaging-mistakes" element={<EcoPackagingMistakesPage />} />
                         <Route path="/blog/compostable-zipper-no-removal" element={<CompostableZipperNoRemovalPage />} />
                         <Route path="/blog/stamp-foil-recyclability" element={<StampFoilRecyclabilityPage />} />
+                        <Route path="/blog/eu-ppwr-compliance-guide" element={<EUPPWRCompliancePage />} />
                         <Route path="/blog/:slug" element={<BlogPostPage />} />
 
                         {/* Learn Center */}
@@ -1036,6 +1038,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/topics/recyclable-snack-packaging" element={<RecyclableSnackPackagingPage />} />
                         <Route path="/topics/custom-printed-sustainable-pouches" element={<CustomPrintedSustainablePouchesPage />} />
                         <Route path="/topics/eco-packaging-regulations" element={<EcoPackagingRegulationsPage />} />
+                        <Route path="/topics/eu-ppwr-compliance" element={<EUPPWRCompliancePage />} />
                         <Route path="/topics/compostable-pouch-suppliers" element={<CustomCompostablePouchSuppliersPage />} />
                         <Route path="/topics/low-moq-startup-packaging" element={<LowMOQStartupPackagingPage />} />
                         <Route path="/topics/compostable-baby-food-bags" element={<CompostableBabyFoodBagsPage />} />

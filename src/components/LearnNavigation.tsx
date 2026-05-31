@@ -190,6 +190,7 @@ const LEARN_PAGES = {
       { name: 'Recyclable Snack Packaging', link: '/topics/recyclable-snack-packaging', image: '/imgs/illustrated/a_snack_brand_variation_1_5605894.webp' },
       { name: 'Custom Printed Pouches', link: '/topics/custom-printed-sustainable-pouches', image: '/imgs/illustrated/a_digital_printing_close_detail_b_7761926.webp' },
       { name: 'Packaging Regulations', link: '/topics/eco-packaging-regulations', image: '/imgs/illustrated/a_corporate_sustainability_variation_1_1739210.webp' },
+      { name: 'EU PPWR Compliance', link: '/topics/eu-ppwr-compliance', image: '/imgs/topics/eu-ppwr-compliance.png' },
       { name: 'Compostable Suppliers', link: '/topics/compostable-pouch-suppliers', image: '/imgs/illustrated/a_compostable_v3_9254998.webp' },
       { name: 'Low MOQ Startup', link: '/topics/low-moq-startup-packaging', image: '/imgs/illustrated/a_startup_founder_variation_3_2900816.webp' },
       { name: 'Baby Food Bags', link: '/topics/compostable-baby-food-bags', image: '/imgs/illustrated/a_baby_food_hero_v1_7008467.webp' },
