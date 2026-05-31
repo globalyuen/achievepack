@@ -482,17 +482,17 @@ export default function BPICertifiedGuide() {
     {
       title: 'Industrial Compostable Guide: BPI and ASTM D6400',
       url: '/blog/industrial-compostable-guide',
-      image: '/imgs/seo-photos/materials/compostable/a_industrial_compost_facility_2850870.webp'
+      image: '/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp'
     },
     {
       title: 'USA Compostable Hub: State Laws and Compliance',
       url: '/blog/usa-compostable-packaging-guide',
-      image: '/imgs/seo-photos/usa/hub/a_usa_compostable_packaging_regulation_2589743.webp'
+      image: '/imgs/seo-photos/usa/hub/a_sustainability_labeling_guide_7131825.webp'
     },
     {
       title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way',
       url: '/blog/coffee-degassing-valve-guide',
-      image: '/imgs/seo-photos/industries/coffee/a_coffee_degassing_valve_2850365.webp'
+      image: '/imgs/blog/coffee_degassing_valve.png'
     }
   ]
 
@@ -510,7 +510,7 @@ export default function BPICertifiedGuide() {
       categoryTag="Materials"
       categoryColor="green"
       readTime="13 min"
-      heroImage="/imgs/seo-photos/materials/compostable/a_bpi_certification_mark_4735893.webp"
+      heroImage="/imgs/company/bpi/bpipouch.webp"
       heroImageAlt="BPI Compostable certification trust mark stamped on compostable barrier pouches"
       sections={sections}
       relatedArticles={relatedArticles}
