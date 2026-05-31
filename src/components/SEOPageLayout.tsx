@@ -12,6 +12,9 @@ import ReadingProgress from './ReadingProgress'
 import StickyFreeSampleCTA from './StickyFreeSampleCTA'
 import { ThreePouchViewer } from './ThreePouchViewer'
 import SiteHeader from './SiteHeader'
+import { getDomain } from '../utils/domain'
+import PouchLayout from './pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from './pouch/PouchUI'
 
 // Category icons for Learn Menu
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -603,7 +606,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   const [isPending, startTransition] = useTransition()
   
   // Generate canonical URL from current path if not provided
-  const effectiveCanonicalUrl = canonicalUrl || `https://achievepack.com${location.pathname}`
+  const effectiveCanonicalUrl = canonicalUrl || `${getDomain() === 'pouch' ? 'https://pouch.eco' : 'https://achievepack.com'}${location.pathname}`
   
   // Scroll to top when page loads
   useEffect(() => {
@@ -654,7 +657,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
 
   // Generate Breadcrumb
   const breadcrumbItems = [
-    { name: 'Home', url: 'https://achievepack.com/' },
+    { name: 'Home', url: getDomain() === 'pouch' ? 'https://pouch.eco/' : 'https://achievepack.com/' },
     { name: title, url: effectiveCanonicalUrl }
   ]
 
@@ -671,11 +674,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
       // WebSite Entity
       {
         "@type": "WebSite",
-        "@id": "https://achievepack.com/#website",
-        "url": "https://achievepack.com",
-        "name": "Achieve Pack",
-        "description": "Sustainable eco-friendly packaging solutions",
-        "publisher": { "@id": "https://achievepack.com/#organization" },
+        "@id": `${getDomain() === 'pouch' ? 'https://pouch.eco' : 'https://achievepack.com'}/#website`,
+        "url": getDomain() === 'pouch' ? 'https://pouch.eco' : 'https://achievepack.com',
+        "name": getDomain() === 'pouch' ? 'Pouch.eco' : 'Achieve Pack',
+        "description": getDomain() === 'pouch' ? 'Eco-friendly compostable packaging for brands' : 'Sustainable eco-friendly packaging solutions',
+        "publisher": { "@id": `${getDomain() === 'pouch' ? 'https://pouch.eco' : 'https://achievepack.com'}/#organization` },
         "inLanguage": "en-US"
       },
       
@@ -686,8 +689,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         "url": effectiveCanonicalUrl,
         "name": title,
         "description": description,
-        "isPartOf": { "@id": "https://achievepack.com/#website" },
-        "about": { "@id": "https://achievepack.com/#organization" },
+        "isPartOf": { "@id": `${getDomain() === 'pouch' ? 'https://pouch.eco' : 'https://achievepack.com'}/#website` },
+        "about": { "@id": `${getDomain() === 'pouch' ? 'https://pouch.eco' : 'https://achievepack.com'}/#organization` },
         "inLanguage": "en-US",
         "datePublished": "2025-01-01",
         "dateModified": new Date().toISOString().split('T')[0]
@@ -701,7 +704,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         "description": description,
         "image": heroImage || ogImage,
         "author": { "@id": authorEntity['@id'] },
-        "publisher": { "@id": "https://achievepack.com/#organization" },
+        "publisher": { "@id": `${getDomain() === 'pouch' ? 'https://pouch.eco' : 'https://achievepack.com'}/#organization` },
         "datePublished": "2025-01-01",
         "dateModified": new Date().toISOString().split('T')[0],
         "mainEntityOfPage": {
@@ -715,6 +718,362 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
       // Breadcrumb
       generateBreadcrumb(breadcrumbItems)
     ].filter(Boolean)
+  }
+
+  if (getDomain() === 'pouch') {
+    return (
+      <>
+        <SEO 
+          title={`${title} | Pouch.eco`}
+          description={description}
+          url={effectiveCanonicalUrl}
+          keywords={keywords}
+          image={ogImage.startsWith('http') ? ogImage : `https://pouch.eco${ogImage}`}
+          schema={enhancedSchema}
+          faq={faqs || undefined}
+        />
+        <PouchLayout>
+          <div className="min-h-screen bg-[#F0F0F0] text-black font-['Space_Grotesk'] pb-16">
+            {/* Breadcrumbs */}
+            {breadcrumbs && breadcrumbs.length > 0 && (
+              <div className="max-w-7xl mx-auto px-4 md:px-6 pt-6">
+                <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs md:text-sm uppercase tracking-wider text-black">
+                  {breadcrumbs.map((crumb, idx) => (
+                    <React.Fragment key={idx}>
+                      {idx > 0 && <span className="text-black font-black">❯</span>}
+                      {idx === breadcrumbs.length - 1 ? (
+                        <span className="bg-white px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-bold">{crumb.label}</span>
+                      ) : (
+                        <Link to={crumb.url} className="hover:bg-black hover:text-white font-bold bg-[#D4FF00] px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors">
+                          {crumb.label}
+                        </Link>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Hero Section */}
+            <section className="max-w-7xl mx-auto px-4 md:px-6 pt-8 pb-12">
+              <div className="border-4 border-black bg-white p-6 md:p-10 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row gap-8 items-center">
+                {/* Hero Left Content */}
+                <div className="flex-1 space-y-6">
+                  {aboveTitle && (
+                    <div className="inline-block bg-[#00FFFF] text-black border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      {aboveTitle}
+                    </div>
+                  )}
+                  {heroLogo && (
+                    <div className="mb-2">
+                      <img 
+                        src={heroLogo} 
+                        alt={heroLogoAlt || 'Eco Certification'} 
+                        className="h-16 w-auto bg-white rounded border-2 border-black p-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                      />
+                    </div>
+                  )}
+                  <h1 className="font-black text-4xl md:text-6xl uppercase tracking-tighter leading-none">
+                    {heroTitle}
+                  </h1>
+                  <p className="font-['Space_Grotesk'] text-lg md:text-xl text-neutral-800 leading-relaxed font-semibold">
+                    {heroSubtitle}
+                  </p>
+                  
+                  {/* Dual CTAs (B2C Low-MOQ & B2B Volume) */}
+                  <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                    <NeoButton 
+                      variant="primary"
+                      href="/store"
+                      className="text-xs md:text-sm"
+                    >
+                      Shop Starter Kits (Low MOQ)
+                    </NeoButton>
+                    <NeoButton 
+                      variant="dark"
+                      href="https://calendly.com/30-min-free-packaging-consultancy"
+                      className="text-xs md:text-sm"
+                    >
+                      Book Wholesale Call
+                    </NeoButton>
+                  </div>
+                </div>
+
+                {/* Hero Right Media */}
+                {hero3DModelUrl ? (
+                  <div 
+                    ref={hero3DCardRef}
+                    onMouseMove={handleHero3DMouseMove}
+                    onMouseLeave={handleHero3DMouseLeave}
+                    className="w-full md:w-[400px] h-[300px] md:h-[400px] flex justify-center items-center relative overflow-hidden border-4 border-black bg-[#F5F5F5] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+                  >
+                    <ThreePouchViewer 
+                      modelUrl={hero3DModelUrl} 
+                      tilt={hero3DTilt} 
+                      scrollPercent={scrollPercent} 
+                      isMobile={false} 
+                    />
+                  </div>
+                ) : heroImage ? (
+                  <div className="w-full md:w-[400px] flex justify-center items-center">
+                    <img 
+                      src={heroImage} 
+                      alt={heroImageAlt || heroTitle}
+                      className="w-full h-auto max-h-[400px] object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                      loading="eager"
+                    />
+                  </div>
+                ) : null}
+              </div>
+            </section>
+
+            {/* Quick Summary Section */}
+            <section className="max-w-7xl mx-auto px-4 md:px-6 pb-12">
+              <NeoCard color="bg-[#D4FF00]" className="border-4 border-black p-6 md:p-8">
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                  <div className="flex-1 space-y-4">
+                    <h2 className="font-['JetBrains_Mono'] text-xs font-black uppercase tracking-wider text-black bg-white border-2 border-black px-2 py-0.5 inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      Quick Summary
+                    </h2>
+                    <p className="text-xl font-bold leading-relaxed text-black">{introSummary}</p>
+                    
+                    {/* E-E-A-T trust byline */}
+                    <div className="pt-4 border-t border-black/10 flex flex-wrap items-center gap-4 text-xs font-['JetBrains_Mono'] font-bold text-black/80">
+                      <div className="flex items-center gap-2">
+                        <img 
+                          src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                          alt="Ryan Wong" 
+                          className="w-6 h-6 rounded-full object-cover border-2 border-black" 
+                        />
+                        <span>BY RYAN WONG, ECO PACKAGING PROTOCOL</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 bg-black rounded-full animate-pulse"></span>
+                        <span>VERIFIED BY POUCH.ECO SUSTAINABILITY LAB</span>
+                      </div>
+                      <div className="border-2 border-black bg-white px-2 py-0.5 text-xs uppercase font-black tracking-tighter">
+                        ASTM D6400 / EN 13432 CERTIFIED
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0 pt-1">
+                    <ShareButton
+                      url={effectiveCanonicalUrl}
+                      title={title}
+                      description={description}
+                      size="sm"
+                      icon="prefix"
+                    >
+                      Share
+                    </ShareButton>
+                  </div>
+                </div>
+              </NeoCard>
+            </section>
+
+            {/* Main Content Layout */}
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
+              <div className="grid lg:grid-cols-4 gap-8">
+                {/* Sidebar Navigation */}
+                <aside className="hidden lg:block lg:col-span-1">
+                  <div className="sticky top-28 bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] space-y-4">
+                    <h3 className="font-['JetBrains_Mono'] text-xs font-black uppercase tracking-wider text-neutral-500">
+                      Contents
+                    </h3>
+                    <nav className="flex flex-col gap-2 font-['JetBrains_Mono'] font-bold text-sm">
+                      {sections.filter(section => section.id !== 'ai-search').map((section) => (
+                        <a
+                          key={section.id}
+                          href={`#${section.id}`}
+                          className="block p-2 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all"
+                        >
+                          [{section.title.toUpperCase()}]
+                        </a>
+                      ))}
+                      {faqs && faqs.length > 0 && (
+                        <a 
+                          href="#faq" 
+                          className="block p-2 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all"
+                        >
+                          [FAQ]
+                        </a>
+                      )}
+                    </nav>
+                  </div>
+                </aside>
+
+                {/* Main Content Sections */}
+                <main className="lg:col-span-3 space-y-8">
+                  {sections.map((section) => {
+                    const isAiSearch = section.id === 'ai-search'
+                    return (
+                      <section
+                        key={section.id}
+                        id={section.id}
+                        className={isAiSearch 
+                          ? 'sr-only overflow-hidden' 
+                          : 'border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] space-y-6'
+                        }
+                      >
+                        {isAiSearch ? (
+                          <div>
+                            <h2>{section.title}</h2>
+                            <div>{section.content}</div>
+                          </div>
+                        ) : (
+                          <>
+                            <div className="flex items-center gap-4 border-b-4 border-black pb-4">
+                              {section.icon && (
+                                <div className="p-3 bg-[#D4FF00] border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                  {section.icon}
+                                </div>
+                              )}
+                              <h2 className="font-black text-2xl md:text-3xl uppercase tracking-tight">
+                                {section.title}
+                              </h2>
+                            </div>
+                            <div className="prose prose-neutral max-w-none font-['Space_Grotesk'] text-neutral-800 prose-headings:font-black prose-headings:uppercase prose-a:text-[#10b981] prose-a:no-underline hover:prose-a:underline prose-strong:text-black prose-img:border-4 prose-img:border-black">
+                              {section.content}
+                            </div>
+                          </>
+                        )}
+                      </section>
+                    )
+                  })}
+
+                  {/* Data Tables (Neobrutalist) */}
+                  {tables && tables.map((table, idx) => (
+                    <section key={idx} className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                      <h2 className="font-black text-2xl md:text-3xl uppercase mb-6">{table.title}</h2>
+                      <div className="overflow-x-auto border-4 border-black">
+                        <table className="w-full text-sm font-['Space_Grotesk']">
+                          <thead>
+                            <tr className="border-b-4 border-black">
+                              {table.data.headers.map((header, i) => (
+                                <th key={i} className="text-left py-4 px-4 font-black uppercase text-black bg-[#D4FF00] border-r-4 border-black last:border-r-0">
+                                  {header}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {table.data.rows.map((row, i) => (
+                              <tr key={i} className="border-b-4 border-black last:border-b-0 hover:bg-[#F9F9F9] font-semibold">
+                                {row.map((cell, j) => (
+                                  <td key={j} className="py-4 px-4 text-black border-r-4 border-black last:border-r-0">
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  ))}
+
+                  {/* FAQ Accordion (Neobrutalist) */}
+                  {faqs && faqs.length > 0 && (
+                    <section id="faq" className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                      <h2 className="font-black text-2xl md:text-3xl uppercase mb-6 flex items-center gap-2">
+                        <HelpCircle className="w-7 h-7 text-black stroke-[3px]" />
+                        Frequently Asked Questions
+                      </h2>
+                      <div className="space-y-4">
+                        {faqs.map((faq, idx) => (
+                          <details key={idx} className="group border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <summary className="flex items-center justify-between p-5 cursor-pointer font-black uppercase text-lg hover:bg-[#F0F0F0] select-none">
+                              {faq.question}
+                              <span className="ml-2 text-black transition-transform group-open:rotate-180 font-mono text-xl">▼</span>
+                            </summary>
+                            <div className="px-5 pb-5 border-t-4 border-black pt-4 bg-[#F9F9F9] font-['Space_Grotesk'] text-neutral-800 text-base leading-relaxed">
+                              {faq.answer}
+                            </div>
+                          </details>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
+                  {/* Related Links */}
+                  {relatedLinks && relatedLinks.length > 0 && (
+                    <section className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                      <h2 className="font-black text-2xl md:text-3xl uppercase mb-6">Related Resources</h2>
+                      <div className="grid sm:grid-cols-2 gap-6">
+                        {relatedLinks.map((link, idx) => (
+                          <Link
+                            key={idx}
+                            to={link.url}
+                            className="block bg-[#F0F0F0] p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-[#D4FF00] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all group"
+                          >
+                            <h3 className="font-black text-lg uppercase group-hover:text-black mb-2">{link.title}</h3>
+                            {link.description && (
+                              <p className="text-sm text-neutral-700 font-medium">{link.description}</p>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
+                  {/* High-converting Dual CTAs (B2C & B2B) */}
+                  <section className="border-4 border-black bg-black p-8 shadow-[12px_12px_0px_0px_rgba(20,83,45,1)] text-white text-center space-y-6">
+                    <h2 className="font-black text-3xl md:text-5xl uppercase tracking-tighter text-[#D4FF00]">
+                      {ctaTitle.toUpperCase()}
+                    </h2>
+                    <p className="font-semibold text-lg text-neutral-300 max-w-2xl mx-auto">
+                      {ctaDescription}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center pt-2">
+                      <a
+                        href="/store"
+                        className="inline-flex items-center justify-center gap-3 bg-[#D4FF00] text-black px-8 py-4 border-4 border-[#D4FF00] font-['JetBrains_Mono'] font-bold uppercase hover:bg-transparent hover:text-[#D4FF00] transition-colors shadow-[8px_8px_0px_0px_rgba(212,255,0,1)]"
+                      >
+                        Shop Low MOQ (500+)
+                      </a>
+                      <a
+                        href="https://calendly.com/30-min-free-packaging-consultancy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-3 bg-transparent text-white px-8 py-4 border-4 border-white font-['JetBrains_Mono'] font-bold uppercase hover:bg-white hover:text-black transition-colors"
+                      >
+                        Custom Enterprise Quote
+                      </a>
+                    </div>
+                  </section>
+                </main>
+              </div>
+            </div>
+
+            {/* Lightbox Modal */}
+            {lightboxOpen && (
+              <div 
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90" 
+                onClick={closeLightbox}
+              >
+                <button
+                  onClick={closeLightbox}
+                  className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-50"
+                >
+                  <X className="h-8 w-8" />
+                </button>
+                <img
+                  src={lightboxImage}
+                  alt={lightboxAlt}
+                  className="max-w-[90vw] max-h-[90vh] object-contain border-4 border-black bg-white"
+                  onClick={(e) => e.stopPropagation()}
+                />
+                {lightboxAlt && (
+                  <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-black font-bold text-center bg-white border-2 border-black px-4 py-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    {lightboxAlt}
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+        </PouchLayout>
+      </>
+    )
   }
 
   return (

@@ -782,6 +782,24 @@ if (getDomain() === 'pouch') {
                   <Route path="/support/color-accuracy-digital-printing" element={<ColorAccuracyDigitalPrintingPage />} />
                   <Route path="/reports/state-of-packaging-2026" element={<PackagingReport2026 />} />
                   <Route path="/workshop-register" element={<WorkshopRegisterPage />} />
+
+                  {/* Batch 7 Spec Pages */}
+                  <Route path="/spec/pcr-kraft-vmpet" element={<PcrKraftVmpetPage />} />
+                  <Route path="/spec/biope-kraft-vmpet" element={<BioPeKraftVmpetPage />} />
+                  <Route path="/spec/biope-pet-kraft-triplex-clear" element={<BioPePetKraftTriplexClearPage />} />
+                  <Route path="/spec/biope-pet-triplex-aluminum" element={<BioPePetTriplexAluminumPage />} />
+                  <Route path="/spec/mono-pe-duplex-clear" element={<MonoPeDuplexClearPage />} />
+                  <Route path="/spec/biope-pp-duplex-nowindow" element={<BioPePpDuplexNoWindowPage />} />
+                  <Route path="/spec/pcr-pp-triplex-aluminum" element={<PcrPpTriplexAluminumPage />} />
+                  <Route path="/spec/biope-pp-triplex-metalised" element={<BioPePpTriplexMetalisedPage />} />
+                  <Route path="/spec/pcr-pet-triplex-metalised" element={<PcrPetTriplexMetalisedPage />} />
+                  <Route path="/spec/bio-cello-duplex-clear" element={<BioCelloDuplexClearPage />} />
+                  <Route path="/spec/pcr-pp-duplex-clear" element={<PcrPpDuplexClearPage />} />
+                  <Route path="/spec/pcr-pet-triplex-aluminum" element={<PcrPetTriplexAluminumPage />} />
+                  <Route path="/spec/pcr-pet-kraft-triplex-clear" element={<PcrPetKraftTriplexClearPage />} />
+                  <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
+                  <Route path="/spec/pcr-kraft-duplex-low" element={<PcrKraftDuplexLowPage />} />
+
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="*" element={<PouchHomePage />} />
                 </Routes>
