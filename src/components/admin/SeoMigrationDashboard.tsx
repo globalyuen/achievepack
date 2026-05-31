@@ -215,7 +215,7 @@ export default function SeoMigrationDashboard() {
         }
         
         // Flag BPI certified stamp missing specifically
-        if (route.includes('bpi-certified') || route.includes('bpicertified')) {
+        if ((route.includes('bpi-certified') || route.includes('bpicertified')) && imagesCount < 4) {
           missingImages.push('BPI Compostable certification trust mark stamped on compostable barrier pouches')
         } else if (route.includes('coffee') && imagesCount < 4) {
           missingImages.push('Degassing valve high-pressure schematic')
