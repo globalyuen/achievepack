@@ -116,7 +116,7 @@ const CUSTOM_PRODUCTS = [
   { name: 'Compostable Side Gusset', link: '/products/compostable-side-gusset-bags', image: '/imgs/store/products/compostable-side-gusset-collection.png', badge: '🌱 Eco' },
   { name: 'Custom Boxes', link: '/store?category=boxes', image: '/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp', badge: '' },
   { name: 'Custom Mailer Bags', link: '/store?category=mailer', image: '/imgs/menu/mailer/447849b2-65ea-49fb-86de-1278a636c795_upscayl_3x_upscayl-standard-4x.webp', badge: '' },
-  { name: 'Compostable Labels', link: '/products/custom-compostable-labels', image: '/taobao/compostable-label/eco_friendly_stickers.svg', badge: '🌱 Eco' },
+  { name: 'Compostable Labels', link: '/products/custom-compostable-labels', image: '/taobao/compostable-label/compostable-label-cover.jpg', badge: '🌱 Eco' },
   { name: 'Custom Labels', link: '/products/custom-labels', image: '/imgs/label/custom-label/hero.webp', badge: '' },
 ]
 

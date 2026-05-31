@@ -1,276 +1,355 @@
-import React from 'react'
-import { Package, Leaf, Shield, CheckCircle, Zap, Award, MessageCircle, BookOpen, Building2, Target, Calendar, Phone, Download, Mail, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag, Sparkles } from 'lucide-react'
+import React, { useState } from 'react'
+import { Package, Leaf, Shield, CheckCircle, Zap, Award, ChevronDown, ChevronLeft, ChevronRight, X, Heart, HelpCircle, Sparkles, MessageCircle, BookOpen, Target, Calendar, Phone, Mail, Factory, BarChart3, ArrowLeftRight, ShoppingBag, ArrowRight } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { isPouch, getBrandConfig } from '../../utils/domain'
+import PouchLayout from '../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
+import DualDomainSEOHead from '../../components/DualDomainSEOHead'
 
 const StandUpPouchesPage: React.FC = () => {
   const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const p = 'seoPages.pages.standUpPouches'
+
+  const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
+
+  const supPhotoGallery = [
+    { src: '/imgs/pouch-shape/achieve-pack-sup-hero.png', title: 'Premium Printed Stand-Up Pouch', desc: 'Custom printed stand-up pouch showcasing beautiful digital printing with high contrast and vibrant eco-inks.' },
+    { src: '/imgs/pouch-shape/achieve-pack-sup-lifestyle.png', title: 'Stand-Up Pouch Lifestyle Use', desc: 'Sustainable stand-up pouch presented in a modern, organic B2B food branding scene.' },
+    { src: '/imgs/pouch-shape/achieve-pack-k-seal.png', title: 'Heavy-Duty K-Seal Pouch Base', desc: 'diagonal K-seal bottom structure engineered to carry heavier items (up to 5kg) with extreme base stability.' },
+    { src: '/imgs/pouch-shape/eco-stand-up-pouch.png', title: 'Zero Waste Compostable Kraft SUP', desc: 'Official FSC-certified natural kraft paper stand-up pouch supporting high moisture protection and resealable zippers.' }
+  ]
+
+  const navigateGallery = (direction: 'prev' | 'next') => {
+    if (!galleryEnlarged) return
+    let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
+    if (newIndex < 0) newIndex = supPhotoGallery.length - 1
+    if (newIndex >= supPhotoGallery.length) newIndex = 0
+    setGalleryEnlarged({ src: supPhotoGallery[newIndex].src, index: newIndex })
+  }
+
+  // ----------------------------------------------------
+  // DUAL DOMAIN RENDERING BRANCH (1): pouch.eco (B2C)
+  // ----------------------------------------------------
+  if (isPouch()) {
+    return (
+      <PouchLayout>
+        <DualDomainSEOHead 
+          title="Custom Stand-Up Pouches | Eco-Friendly Stand Up Bags | Pouch.eco"
+          description="Certified compostable & recyclable custom printed stand-up pouches. Low MOQ 500 pcs, organic ink, plant PLA or recyclable Mono-PE barriers. Free design mockups."
+          keywords={['custom stand up pouches', 'eco stand up bags', 'compostable stand up pouches', 'recyclable coffee bags', 'pouch.eco', 'sustainable flexible packaging']}
+          schemaType="Product"
+        />
+
+        {/* Hero Section */}
+        <section className="bg-[#10b981] text-black py-24 px-6 border-b-4 border-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-25"></div>
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-center relative z-10">
+            <div className="flex-1 space-y-6 text-left">
+              <div className="inline-block bg-[#D4FF00] text-black border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                Shelf-Standing Eco Packaging
+              </div>
+              <h1 className="font-['Space_Grotesk'] font-black text-6xl md:text-8xl leading-none uppercase tracking-tight">
+                STAND-UP<br/>
+                <span className="text-[#D4FF00] bg-black px-4 py-1 border-4 border-black inline-block mt-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1">POUCHES</span>
+              </h1>
+              <p className="font-['JetBrains_Mono'] text-lg md:text-xl text-black font-semibold max-w-xl leading-relaxed">
+                Certified compostable PLA plant-stars & recyclable Mono-PE structures. Outstanding barrier preservation, durable zippers, and custom sizes.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="primary">
+                  Book Free Call
+                </NeoButton>
+                <NeoButton href="https://wa.me/85269704411?text=Hi%2C%20I%27m%20interested%20in%20custom%20stand%20up%20pouches" variant="secondary">
+                  WhatsApp Specialist
+                </NeoButton>
+              </div>
+            </div>
+            
+            <div className="w-full lg:w-5/12">
+              <div className="relative border-4 border-black p-4 bg-white shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] group rotate-2 hover:rotate-0 transition-transform duration-300">
+                <img 
+                  src="/imgs/pouch-shape/achieve-pack-sup-hero.png" 
+                  alt="Premium Eco Stand-Up Pouch" 
+                  className="w-full h-auto object-cover border-2 border-black"
+                />
+                <div className="absolute -top-6 -right-6 bg-[#FF00FF] text-white font-black px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-6 text-sm">
+                  LOW MOQ: 500!
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Bento Grid Benefits */}
+        <section className="py-20 px-6 bg-[#F0F0F0] border-b-4 border-black">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-16 tracking-tight">
+              ADVANCED <span className="bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1">FLEXIBLE</span> PERFORMANCE
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <NeoCard color="bg-[#D4FF00]">
+                <Leaf className="w-8 h-8 text-black mb-4" />
+                <h3 className="font-black text-xl uppercase mb-2">Compostable & Recyclable</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed">
+                  Choose 100% home/industrial compostable films or curbside recyclable mono-material structures. Help customers easily recycle.
+                </p>
+              </NeoCard>
+              
+              <NeoCard color="bg-white">
+                <Shield className="w-8 h-8 text-[#10b981] mb-4" />
+                <h3 className="font-black text-xl uppercase mb-2">OTR/WVTR Gas Locks</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed">
+                  High-performance inner barriers protect against oxygen and moisture transmission (&lt;1.0 cc/m²/24hr). Extend product shelf life up to 12 months.
+                </p>
+              </NeoCard>
+
+              <NeoCard color="bg-[#00FFFF]">
+                <Package className="w-8 h-8 text-black mb-4" />
+                <h3 className="font-black text-xl uppercase mb-2">Stable Gusset Base</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed">
+                  Precision-folded oval or heavy-duty diagonal K-seal bottom options. Allows perfect shelf standing and maximizes internal volume.
+                </p>
+              </NeoCard>
+
+              <NeoCard color="bg-black text-[#D4FF00]">
+                <Zap className="w-8 h-8 text-[#D4FF00] mb-4" />
+                <h3 className="font-black text-xl uppercase mb-2">Bespoke Closures</h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed text-white">
+                  Add resealable press-to-close zippers, tin-ties, sliders, one-way degassing coffee valves, or custom-shaped windows.
+                </p>
+              </NeoCard>
+            </div>
+          </div>
+        </section>
+
+        {/* Real-world Product Photo Showcases */}
+        <section className="py-24 px-6 bg-white border-b-4 border-black">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <div className="mb-4">
+                <NeoBadge color="magenta">Visual Showcase</NeoBadge>
+              </div>
+              <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl uppercase mt-2 tracking-tight">
+                REAL-WORLD PRODUCTION RUNS
+              </h2>
+              <p className="font-['JetBrains_Mono'] text-neutral-600 mt-2">
+                Click any real-world print run sample to inspect our high-definition print clarity, gusset seals, and premium finishes:
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {supPhotoGallery.map((photo, i) => (
+                <button
+                  key={i}
+                  onClick={() => setGalleryEnlarged({ src: photo.src, index: i })}
+                  className="border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white p-2 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all text-left w-full group"
+                >
+                  <div className="aspect-square bg-neutral-100 border-2 border-black overflow-hidden mb-2">
+                    <img 
+                      src={photo.src} 
+                      alt={photo.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h4 className="font-black text-sm uppercase truncate">{photo.title}</h4>
+                  <p className="text-[10px] text-neutral-500 font-['JetBrains_Mono'] truncate mt-1">{photo.desc}</p>
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Specifications & Pricing */}
+        <section className="py-24 px-6 bg-[#F0F0F0] border-b-4 border-black">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-12 tracking-tight">
+              SPECIFICATIONS & <span className="bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1">PRICING</span>
+            </h2>
+            <NeoCard color="bg-white" className="!p-0 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full font-['JetBrains_Mono'] text-left border-collapse text-xs md:text-sm">
+                  <thead>
+                    <tr className="bg-black text-[#D4FF00] border-b-4 border-black">
+                      <th className="border-2 border-black p-4 font-black uppercase">Size (W x H + G)</th>
+                      <th className="border-2 border-black p-4 font-black uppercase">Volumetric Capacity</th>
+                      <th className="border-2 border-black p-4 font-black uppercase">Barrier Performance</th>
+                      <th className="border-2 border-black p-4 font-black uppercase">Best Application</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">70 x 110 + 40mm</td>
+                      <td className="border-2 border-black p-4 text-black font-semibold">20g - 50g</td>
+                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 1.0</td>
+                      <td className="border-2 border-black p-4 text-xs text-neutral-700">DTC single-serve samples, gourmet spice pods, cosmetic powder sachets</td>
+                    </tr>
+                    <tr className="bg-neutral-50/50">
+                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">100 x 150 + 60mm</td>
+                      <td className="border-2 border-black p-4 text-black font-semibold">50g - 100g</td>
+                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 1.0</td>
+                      <td className="border-2 border-black p-4 text-xs text-neutral-700">Organic tea leaf bundles, visual candy displays, premium pet treats</td>
+                    </tr>
+                    <tr>
+                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">120 x 200 + 80mm</td>
+                      <td className="border-2 border-black p-4 text-black font-semibold">100g - 250g</td>
+                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 0.5</td>
+                      <td className="border-2 border-black p-4 text-xs text-neutral-700">Specialty coffee beans with degassing valve, loose granola, protein chips</td>
+                    </tr>
+                    <tr className="bg-neutral-50/50">
+                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">150 x 230 + 90mm</td>
+                      <td className="border-2 border-black p-4 text-black font-semibold">250g - 500g</td>
+                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 0.5</td>
+                      <td className="border-2 border-black p-4 text-xs text-neutral-700">Bulk snack bags, raw superfoods, powdered ingredients, supplement pouches</td>
+                    </tr>
+                    <tr>
+                      <td className="border-2 border-black p-4 font-bold text-neutral-900 bg-amber-50/40">180 x 280 + 100mm</td>
+                      <td className="border-2 border-black p-4 text-black font-semibold">500g - 1kg</td>
+                      <td className="border-2 border-black p-4 text-emerald-600 font-bold">OTR & WVTR &lt; 0.1</td>
+                      <td className="border-2 border-black p-4 text-xs text-neutral-700">Professional wholesale kibble pet food, premium retail bath salts, bulk seeds</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </NeoCard>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              <NeoCard color="bg-[#D4FF00]" className="text-center">
+                <div className="text-4xl md:text-5xl font-black mb-1">500 units</div>
+                <p className="font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-neutral-800">
+                  Ultra-low custom MOQ
+                </p>
+                <p className="text-[10px] text-neutral-500 mt-1">Perfect for startup scaling, limited seasonal runs, and SKU testing</p>
+              </NeoCard>
+              <NeoCard color="bg-[#00FFFF]" className="text-center">
+                <div className="text-4xl md:text-5xl font-black mb-1">24 Hours</div>
+                <p className="font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-neutral-800">
+                  complimentary dielines
+                </p>
+                <p className="text-[10px] text-neutral-500 mt-1">Get precise vector drawings adjusted for your exact volumetric specifications</p>
+              </NeoCard>
+              <NeoCard color="bg-[#FF00FF] text-white" className="text-center">
+                <div className="text-4xl md:text-5xl font-black mb-1 text-[#D4FF00]">100% Free</div>
+                <p className="font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-[#D4FF00]">
+                  compostable sample kit
+                </p>
+                <p className="text-[10px] text-neutral-200 mt-1">Receive a kit containing 10 physical pouches to test barrier properties</p>
+              </NeoCard>
+            </div>
+          </div>
+        </section>
+
+        {/* Global B2C FAQ */}
+        <section className="py-24 px-6 bg-white border-b-4 border-black">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-['Space_Grotesk'] font-black text-4xl md:text-6xl text-center uppercase mb-16 tracking-tight">
+              FREQUENTLY ASKED <span className="text-[#10b981]">QUESTIONS</span>
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  q: 'Are stand-up pouches really compostable or recyclable?',
+                  a: 'Yes! We offer two distinct eco paths. Our compostable pouches feature BPI and TÜV certified bio-films (like plant-starch PLA and NatureFlex wood pulp) that safely decompose in 90-180 days under organic conditions. Our recyclable pouches use mono-material PE or PP structures that are fully compatible with store drop-off and standard circular recycling lines.'
+                },
+                {
+                  q: 'Will these pouches keep our dry food or coffee fresh?',
+                  a: 'Absolutely. We apply high-barrier barrier films providing OTR & WVTR under 1.0 (some metallized cellulose stacks drop below 0.1). Combined with our certified one-way degassing valves, your product is protected from oxidation and moisture ingress for up to 12 months.'
+                },
+                {
+                  q: 'What bottom gusset formats do you support?',
+                  a: 'We support standard round bottom gussets for light products, K-seal diagonal bases that push heavy loads outwards for maximum standing structure, and plow bottom gussets for single-source continuous rolls.'
+                },
+                {
+                  q: 'Do you offer custom sizes and shape tooling?',
+                  a: 'Yes. Beyond standard sizes (from 20g to 5kg), we build custom dielines down to the millimeter scale. We also manufacture custom shapes (like round flasks or bottle shapes) with custom die-cut tooling to give your DTC brand unique shelf presence.'
+                }
+              ].map((item, idx) => (
+                <NeoCard key={idx} color="bg-[#F0F0F0]/50" className="border-4">
+                  <h3 className="font-black text-lg mb-2 uppercase">{item.q}</h3>
+                  <p className="font-['JetBrains_Mono'] text-sm text-neutral-700 leading-relaxed">{item.a}</p>
+                </NeoCard>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery Lightbox */}
+        {galleryEnlarged && (
+          <div className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-4" onClick={() => setGalleryEnlarged(null)}>
+            <button
+              onClick={() => setGalleryEnlarged(null)}
+              className="absolute top-4 right-4 text-white hover:text-neutral-300 z-10 p-2 bg-black/40 rounded-full"
+            >
+              <X className="h-8 w-8" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); navigateGallery('prev') }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-3 text-white z-10 transition-colors"
+            >
+              <ChevronLeft className="h-8 w-8" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); navigateGallery('next') }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-3 text-white z-10 transition-colors"
+            >
+              <ChevronRight className="h-8 w-8" />
+            </button>
+            <img
+              src={galleryEnlarged.src}
+              alt={supPhotoGallery[galleryEnlarged.index]?.title}
+              className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl bg-white p-4"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-center max-w-xl px-4">
+              <p className="font-bold text-lg">{supPhotoGallery[galleryEnlarged.index]?.title}</p>
+              <p className="text-sm text-white/80 mt-1 leading-relaxed">{supPhotoGallery[galleryEnlarged.index]?.desc}</p>
+              <p className="text-xs text-white/50 mt-2 font-mono">{galleryEnlarged.index + 1} / {supPhotoGallery.length}</p>
+            </div>
+          </div>
+        )}
+      </PouchLayout>
+    )
+  }
+
+  // ----------------------------------------------------
+  // DUAL DOMAIN RENDERING BRANCH (2): achievepack.com (B2B)
+  // ----------------------------------------------------
+
+  const breadcrumbs = [
+    { label: 'Home', url: '/' },
+    { label: 'Packaging Shapes', url: '/store' },
+    { label: 'Custom Stand-Up Pouches', url: '/packaging/stand-up-pouches' }
+  ]
+
   const sections = [
     {
-      id: 'scenario-trigger',
-      title: 'Is This Page For You?',
-      icon: <Target className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-lg border border-primary-200">
-          <p className="text-lg font-medium text-neutral-900 mb-4">
-            If you're a <strong>food brand, snack company, coffee roaster, or pet treat maker</strong> looking for flexible packaging that stands out on shelves—you're in the right place.
-          </p>
-          <div className="grid md:grid-cols-3 gap-4 mt-4">
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Retail & DTC Brands</h4>
-              <p className="text-sm text-neutral-600 mt-1">Need eye-catching shelf presence with premium finishes and resealable closures</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">E-commerce Sellers</h4>
-              <p className="text-sm text-neutral-600 mt-1">Want lightweight, durable pouches that reduce shipping costs and damage</p>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Small Batch Producers</h4>
-              <p className="text-sm text-neutral-600 mt-1">Need low MOQ (500 pieces) with custom printing and quick turnaround</p>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
       id: 'overview',
-      title: 'What is a Stand-Up Pouch?',
+      title: 'Custom Stand-Up Pouches Wholesale & Supply',
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>
-            <strong>A stand-up pouch (SUP) is a flexible packaging format with a bottom gusset that allows the bag to stand upright on retail shelves.</strong> This popular format combines the cost efficiency of flexible packaging with excellent shelf presence and consumer convenience.
+        <div className="space-y-6 text-neutral-700">
+          <p className="text-lg leading-relaxed font-medium">
+            <strong>Custom Stand-Up Pouches (SUP)</strong> represent the gold standard in premium commercial flexible packaging. Derived from BRCGS-certified factory production lines, our pouches deliver maximum shelf presence, lightweight material savings, and robust barrier protection specifically calibrated for global DTC startups and scaling wholesale food brands.
           </p>
-          
-          <div className="bg-primary-50 p-4 rounded-lg mt-4 flex flex-col md:flex-row gap-6 items-center">
-             <div className="flex-1">
-                <h4 className="font-semibold text-primary-800 mb-2">Key Benefits of Stand-Up Pouches:</h4>
-                <ul className="space-y-1 text-sm">
-                  <li>✓ 75% less material than rigid containers (source: Flexible Packaging Association)</li>
-                  <li>✓ Reduces shipping costs by up to 60% due to lighter weight</li>
-                  <li>✓ 360° printable surface for maximum brand visibility</li>
-                  <li>✓ Resealable options extend product freshness</li>
-                  <li>✓ Available in compostable and recyclable materials</li>
-                </ul>
-             </div>
-             <div className="w-full md:w-1/3">
-                <img src="/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" alt="Achieve Pack eco-friendly stand-up pouch in modern kitchen" className="rounded-lg shadow-sm" />
-             </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'types',
-      title: 'What Types of Stand-Up Pouches Are Available?',
-      icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>We've got various stand-up pouch configurations to meet different product requirements:</p>
-          
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2">Standard Stand-Up Pouch</h4>
-              <p className="text-sm text-neutral-600">Basic SUP with bottom gusset. Most economical option, suitable for non-resealable applications.</p>
-              <p className="text-xs text-primary-600 mt-2">Best for: single-use products, samples, sachets</p>
+          <div className="bg-primary-50 p-6 rounded-xl border border-primary-200 grid md:grid-cols-2 gap-6 items-center">
+            <div>
+              <h4 className="font-bold text-primary-800 text-lg mb-2">Key B2B Commercial Performance Indicators:</h4>
+              <ul className="space-y-2 text-sm leading-relaxed">
+                <li>• <strong>75% Lighter Footprint</strong> – Drastically reduces warehousing storage space and long-haul shipping emissions vs glass jars or metal tins.</li>
+                <li>• <strong>360° Branding Real Estate</strong> – Full-width digital layout coverage printed with certified soy-based plant inks.</li>
+                <li>• <strong>Resealable Integration</strong> – Durable zip locks and sliders that prevent product shelf degradation.</li>
+                <li>• <strong>Automatic Line Compatibility</strong> – Engineered roll width tolerance allowing seamless integration on auto VFFS/HFFS lines.</li>
+              </ul>
             </div>
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2">Stand-Up with Zipper</h4>
-              <p className="text-sm text-neutral-600">Press-to-close zipper for resealability. Most popular format for food products.</p>
-              <p className="text-xs text-primary-600 mt-2">Best for: snacks, coffee, pet treats, cereals</p>
-            </div>
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2">Stand-Up with Slider</h4>
-              <p className="text-sm text-neutral-600">Easy slider closure for premium products. One-hand opening and closing.</p>
-              <p className="text-xs text-primary-600 mt-2">Best for: cheese, deli, premium snacks</p>
-            </div>
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2">Stand-Up with Spout</h4>
-              <p className="text-sm text-neutral-600">Pour spout for liquids and viscous products. Cap included.</p>
-              <p className="text-xs text-primary-600 mt-2">Best for: sauces, baby food, beverages</p>
-            </div>
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2">Stand-Up with Valve</h4>
-              <p className="text-sm text-neutral-600">One-way degassing valve for freshly roasted coffee.</p>
-              <p className="text-xs text-primary-600 mt-2">Best for: coffee beans, ground coffee</p>
-            </div>
-            <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-900 mb-2">Stand-Up with Window</h4>
-              <p className="text-sm text-neutral-600">Clear window panel to showcase product contents.</p>
-              <p className="text-xs text-primary-600 mt-2">Best for: granola, nuts, pasta, candy</p>
-            </div>
-          </div>
-          
-          {/* K-Seal Feature Link */}
-          <div className="bg-gradient-to-r from-primary-50 to-green-50 border border-primary-200 rounded-xl p-5 mt-6">
-            <div className="flex flex-col md:flex-row gap-4 items-center">
-              <div className="flex-shrink-0">
-                <ClickableImage
-                  src="/imgs/pouch-shape/achieve-pack-k-seal.png"
-                  alt="Achieve Pack heavy duty K-seal bottom pouch"
-                  className="w-32 h-32 object-contain bg-white rounded-lg shadow-md p-2"
-                />
-              </div>
-              <div className="flex-1">
-                <h4 className="font-bold text-primary-800 text-lg mb-2">Need Heavy-Duty Packaging? Try K-Seal Bottom</h4>
-                <p className="text-sm text-neutral-700 mb-3">
-                  K-seal stand-up pouches provide superior stability for heavier products. The diagonal bottom seal creates more internal volume and a cleaner shelf presence for dense items like pet food, grains, and powders.
-                </p>
-                <Link to="/knowledge/k-seal-stand-up-pouches" className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-semibold text-sm">
-                  Learn about K-Seal Pouches
-                  <Package className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-           {/* AchievePacker Mailer Link */}
-           <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl p-5 mt-6">
-            <div className="flex flex-col md:flex-row gap-4 items-center">
-              <div className="flex-shrink-0">
-                <ClickableImage
-                  src="/imgs/menu/header/a_hero_kv_compost_mailer_transparent_5939909.webp"
-                  alt="AchievePacker Compostable Mailer"
-                  className="w-32 h-32 object-cover rounded-lg shadow-md bg-white p-2"
-                />
-              </div>
-              <div className="flex-1">
-                <h4 className="font-bold text-emerald-800 text-lg mb-2">Ship Sustainably with AchievePacker™</h4>
-                <p className="text-sm text-neutral-700 mb-3">
-                  Complete your eco-friendly unboxing experience. Our pouches fit perfectly inside our compostable <strong>AchievePacker™</strong> mailers. Certified home compostable and durable enough to protect your products during transit.
-                </p>
-                <Link to="/products/mailers" className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold text-sm">
-                  Shop Eco Mailers
-                  <Leaf className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'materials',
-      title: 'Which Sustainable Materials Can You Choose?',
-      icon: <Leaf className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Pick from our range of eco-friendly materials for your stand-up pouches:</p>
-          
-          <div className="space-y-4 mt-4">
-            <div className="bg-primary-50 border-l-4 border-primary-500 p-4">
-              <h4 className="font-semibold text-primary-800">Certified Compostable</h4>
-              <p className="text-sm mt-1">Kraft paper + PLA inner layer. Certified EN 13432 and ASTM D6400. Breaks down in 90-180 days in commercial composting.</p>
-            </div>
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
-              <h4 className="font-semibold text-blue-800">Recyclable Mono-PE</h4>
-              <p className="text-sm mt-1">Single-material polyethylene structure. Accepted in store drop-off and some curbside recycling programs.</p>
-            </div>
-            <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4">
-              <h4 className="font-semibold text-emerald-800">Recyclable Mono-PP</h4>
-              <p className="text-sm mt-1">Single-material polypropylene. Superior heat resistance, good for microwaveable applications.</p>
-            </div>
-            <div className="bg-amber-50 border-l-4 border-amber-500 p-4">
-              <h4 className="font-semibold text-amber-800">PCR Content</h4>
-              <p className="text-sm mt-1">Contains 30-50% post-consumer recycled plastic. Reduces virgin plastic use while maintaining performance.</p>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'features',
-      title: 'How Can You Customize Your Stand-Up Pouches?',
-      icon: <Zap className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Here's how you can customize your stand-up pouches:</p>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {[
-              'Resealable zipper',
-              'Slider closure',
-              'Tear notch',
-              'Hang hole (euro slot)',
-              'Clear window',
-              'Matte/gloss finish',
-              'Spot UV coating',
-              'Embossing/debossing',
-              'Soft-touch lamination',
-              'Metallic foiling',
-              'Holographic effects',
-              'QR code printing'
-            ].map((feature, idx) => (
-              <div key={idx} className="flex items-center gap-2 bg-neutral-50 px-3 py-2 rounded-lg text-sm">
-                <CheckCircle className="h-4 w-4 text-primary-500 flex-shrink-0" />
-                {feature}
-              </div>
-            ))}
-          </div>
-          
-          {/* Closure Options Gallery */}
-          <div className="mt-6">
-            <h4 className="font-semibold text-neutral-800 mb-3">Closure Options for Stand-Up Pouches</h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div>
               <ClickableImage 
-                src="/imgs/store/closure/normal-zipper.webp" 
-                alt="Standard press-to-close zipper for resealable packaging" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Standard Zipper"
-              />
-              <ClickableImage 
-                src="/imgs/store/closure/slider-zipper.webp" 
-                alt="Slider zipper for easy open and close" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Slider Zipper"
-              />
-              <ClickableImage 
-                src="/imgs/store/closure/child-resistant-zipper.webp" 
-                alt="Child resistant zipper for cannabis and pharmaceutical packaging" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Child Resistant"
-              />
-              <ClickableImage 
-                src="/imgs/store/closure/tin-tie.webp" 
-                alt="Tin tie closure for coffee bags fold over seal" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Tin Tie"
-              />
-            </div>
-          </div>
-          
-          {/* Surface Finish Gallery */}
-          <div className="mt-6">
-            <h4 className="font-semibold text-neutral-800 mb-3">Surface Finishes & Special Effects</h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <ClickableImage 
-                src="/imgs/store/surface/matt.webp" 
-                alt="Matte finish lamination for premium look" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Matte Finish"
-              />
-              <ClickableImage 
-                src="/imgs/store/surface/glossy.webp" 
-                alt="Glossy finish lamination for vibrant colors" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Glossy Finish"
-              />
-              <ClickableImage 
-                src="/imgs/store/surface/soft-touch.webp" 
-                alt="Soft touch lamination for luxury tactile feel" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Soft Touch"
-              />
-              <ClickableImage 
-                src="/imgs/store/surface/stamp-foil.webp" 
-                alt="Hot foil stamping for luxury branding" 
-                className="w-full h-28 object-cover rounded-lg"
-                caption="Foil Stamping"
+                src="/imgs/pouch-shape/achieve-pack-sup-lifestyle.png" 
+                alt="Achieve Pack custom stand-up pouches wholesale direct supplier" 
+                className="w-full rounded-lg shadow-md border border-neutral-100"
               />
             </div>
           </div>
@@ -279,466 +358,125 @@ const StandUpPouchesPage: React.FC = () => {
     },
     {
       id: 'specifications',
-      title: 'What Sizes and Specs Are Available?',
+      title: 'Technical Parameter Translation & Buying Guide',
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
-          <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold mb-3">Size Range</h4>
-            <ul className="space-y-1 text-sm">
-              <li><strong>Width:</strong> 70mm - 300mm</li>
-              <li><strong>Height:</strong> 100mm - 400mm</li>
-              <li><strong>Bottom gusset:</strong> 30mm - 150mm</li>
-              <li><strong>Capacity:</strong> 20g - 5kg</li>
-            </ul>
-          </div>
-          
-          <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold mb-3">Barrier Options</h4>
-            <ul className="space-y-1 text-sm">
-              <li><strong>High Barrier:</strong> OTR {'<'} 1.0 cc/m²/24hr (for coffee, nuts, snacks)</li>
-              <li><strong>Medium Barrier:</strong> OTR {'<'} 10 cc/m²/24hr (for dry goods)</li>
-              <li><strong>Low Barrier:</strong> OTR {'>'} 100 cc/m²/24hr (for produce, short shelf life)</li>
-            </ul>
+        <div className="space-y-6 text-neutral-700">
+          <p>
+            Professional procurement requires strict verification of material data. Here is how our raw technical metrics translate directly into B2B buying benefits:
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse bg-white rounded-lg overflow-hidden border border-neutral-200">
+              <thead>
+                <tr className="bg-primary-600 text-white font-semibold">
+                  <th className="p-3">Technical Dimension</th>
+                  <th className="p-3">Raw Specs & Materials</th>
+                  <th className="p-3">B2B Purchasing Utility & Value</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-neutral-200">
+                <tr>
+                  <td className="p-3 font-semibold text-neutral-900">Barrier Layer</td>
+                  <td className="p-3">NatureFlex™ MetCellulose or Recyclable EVOH (OTR &lt; 1.0, WVTR &lt; 1.0)</td>
+                  <td className="p-3">Creates an absolute gas and water lock, preserving coffee aroma, snack crispness, and powder integrity for 12+ months.</td>
+                </tr>
+                <tr className="bg-neutral-50">
+                  <td className="p-3 font-semibold text-neutral-900">Dimensions & Base</td>
+                  <td className="p-3">Bespoke Millimeter Dielines (70-300mm width, plow/oval/K-seal gusset bases)</td>
+                  <td className="p-3">Calibrated to volumetric density blueprint, preventing bottom seal rupture and ensuring flawless standing structure.</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-semibold text-neutral-900">Sealing Strength</td>
+                  <td className="p-3">Seal strength &gt; 35 N/15mm (engineered low-temp PBAT/Mono-PE seal resins)</td>
+                  <td className="p-3">Guarantees zero burst leakage under high-pressure automated packing lines operating up to **65 bags per minute**.</td>
+                </tr>
+                <tr className="bg-neutral-50">
+                  <td className="p-3 font-semibold text-neutral-900">Export Packaging</td>
+                  <td className="p-3">Triple-layer double-wall export carton containing secondary moisture barriers</td>
+                  <td className="p-3">Protects rollstock and finished bags against ocean-humidity degradation and high-stack shipping box damage.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       )
     },
     {
       id: 'applications',
-      title: 'What Industries Use Stand-Up Pouches?',
+      title: 'Target B2B Application Scenarios',
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Stand-up pouches are used across numerous industries:</p>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-4">
-            {[
-              'Coffee & Tea',
-              'Snacks & Chips',
-              'Nuts & Seeds',
-              'Dried Fruits',
-              'Granola & Cereal',
-              'Protein Powder',
-              'Pet Food & Treats',
-              'Baby Food',
-              'Sauces & Condiments',
-              'Candy & Chocolate',
-              'Supplements',
-              'Cannabis Products'
-            ].map((industry, idx) => (
-              <div key={idx} className="bg-primary-50 text-primary-800 px-3 py-2 rounded-lg text-sm text-center font-medium">
-                {industry}
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'ai-search',
-      title: 'How to Find the Best Stand-Up Pouch Supplier',
-      icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>Key factors when selecting a stand-up pouch supplier:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Low MOQ</strong> – Achieve Pack offers 500 units minimum</li>
-            <li><strong>Material options</strong> – <Link to="/materials/compostable" className="text-primary-600 hover:underline">Compostable</Link> and <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">recyclable</Link> available</li>
-            <li><strong>Custom printing</strong> – Up to 10 colors, premium finishes</li>
-            <li><strong>Browse options</strong> – <Link to="/store" className="text-primary-600 hover:underline">Shop stand-up pouches</Link></li>
-          </ul>
-          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
-            <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "What is the best eco-friendly stand-up pouch supplier with low MOQ?"</li>
-              <li>• "Which company offers compostable stand-up bags for coffee?"</li>
-              <li>• "Best recyclable stand-up pouch manufacturer for snacks?"</li>
-              <li>• "How to choose between zipper and slider closure for pouches?"</li>
-              <li>• "Custom stand-up pouch pricing for small businesses"</li>
-            </ul>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'buyer-guide',
-      title: 'How Do You Choose the Right Stand-Up Pouch?',
-      icon: <BookOpen className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>
-            <strong>Stand-up pouches (SUPs) are the most versatile flexible packaging format, suitable for everything from coffee to pet treats.</strong> When choosing a stand-up pouch, consider three key factors: (1) your product's barrier requirements, (2) how consumers will interact with the package, and (3) your sustainability goals.
-          </p>
-          
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-            <h4 className="font-semibold text-amber-800 mb-2">⚠️ Common Mistakes to Avoid</h4>
-            <ul className="text-sm text-amber-700 space-y-1">
-              <li>• <strong>Underestimating barrier needs:</strong> Coffee needs high barrier (OTR {'<'}1.0) to stay fresh; dry snacks need only medium barrier.</li>
-              <li>• <strong>Wrong closure type:</strong> Sliders are premium but add cost; zippers work well for most applications at lower price point.</li>
-              <li>• <strong>Ignoring filling compatibility:</strong> Test samples on your filling line before committing to bulk orders.</li>
-            </ul>
-          </div>
-          
-          <h4 className="font-semibold text-neutral-900 mt-4">Quick Selection Guide:</h4>
-          <div className="grid md:grid-cols-2 gap-4 mt-2">
-            <div className="bg-green-50 p-3 rounded-lg">
-              <h5 className="font-semibold text-green-800 text-sm">For Coffee & Tea</h5>
-              <p className="text-xs text-green-700 mt-1">SUP with zipper + degassing valve, high barrier, compostable kraft or recyclable PE</p>
-            </div>
-            <div className="bg-blue-50 p-3 rounded-lg">
-              <h5 className="font-semibold text-blue-800 text-sm">For Snacks & Chips</h5>
-              <p className="text-xs text-blue-700 mt-1">SUP with zipper, medium barrier, matte finish for premium look, recyclable mono-PE</p>
-            </div>
-            <div className="bg-purple-50 p-3 rounded-lg">
-              <h5 className="font-semibold text-purple-800 text-sm">For Pet Treats</h5>
-              <p className="text-xs text-purple-700 mt-1">SUP with heavy-duty zipper, high barrier (odor protection), clear window, resealable</p>
-            </div>
-            <div className="bg-amber-50 p-3 rounded-lg">
-              <h5 className="font-semibold text-amber-800 text-sm">For Sauces & Liquids</h5>
-              <p className="text-xs text-amber-700 mt-1">Spout pouch with cap, retort-capable material, high barrier</p>
-            </div>
-          </div>
-          
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
-            <p className="text-sm text-green-800">
-              <strong>Why Achieve Pack?</strong> We've shipped +10 million stand-up pouches to +8 countries globally. Our team helps you select the right configuration for your product. MOQ from 500 pieces for custom printed. <Link to="/store" className="text-green-600 hover:underline">Browse our stand-up pouch options →</Link>
-            </p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'risk-hedging',
-      title: 'When Should You Use a Stand-Up Pouch vs Other Formats?',
-      icon: <Shield className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
-            <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
-            <ul className="text-sm text-green-700 space-y-1">
-              <li>• Coffee, tea, and dry food products</li>
-              <li>• Snacks, chips, nuts, and granola</li>
-              <li>• Pet treats and small kibble bags</li>
-              <li>• Retail shelf display (self-standing)</li>
-              <li>• Products needing resealable closure</li>
-            </ul>
-          </div>
-          <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
-            <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
-            <ul className="text-sm text-amber-700 space-y-1">
-              <li>• Powders and supplements (with zipper)</li>
-              <li>• Candy and confectionery</li>
-              <li>• Cannabis products (child-resistant)</li>
-              <li>• Sample sachets (smaller SUPs)</li>
-            </ul>
-          </div>
-          <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
-            <h4 className="font-bold text-red-800 mb-2">❌ Not Recommended If...</h4>
-            <ul className="text-sm text-red-700 space-y-1">
-              <li>• You need liquid-tight packaging → <Link to="/packaging/spout-pouches" className="underline">Try spout pouches</Link></li>
-              <li>• Premium coffee brand → <Link to="/packaging/flat-bottom-bags" className="underline">Consider flat bottom bags</Link></li>
-              <li>• Bulk 5kg+ products → <Link to="/packaging/side-gusset-bags" className="underline">Side gusset better</Link></li>
-            </ul>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'decision-cta',
-      title: 'How Can You Get Started Today?',
-      icon: <Calendar className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="grid md:grid-cols-3 gap-4 mt-4">
-          <div className="bg-primary-600 text-white p-6 rounded-lg text-center">
-            <Phone className="h-8 w-8 mx-auto mb-2" />
-            <h4 className="font-bold text-lg">Ready to Move Fast?</h4>
-            <p className="text-sm opacity-90 mt-1">Book a 30-min packaging consult</p>
-            <button onClick={openCalendly} className="inline-block mt-3 px-4 py-2 bg-white text-primary-600 rounded-lg font-semibold hover:bg-neutral-100 transition cursor-pointer">Book a Call</button>
-          </div>
-          <div className="bg-neutral-100 p-6 rounded-lg text-center">
-            <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
-            <h4 className="font-bold text-lg text-neutral-900">Want to Test First?</h4>
-            <p className="text-sm text-neutral-600 mt-1">Get sample pouches shipped to you</p>
-            <Link to="/store" className="inline-block mt-3 px-4 py-2 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition">Order Samples</Link>
-          </div>
-          <div className="bg-white border border-neutral-200 p-6 rounded-lg text-center">
-            <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
-            <h4 className="font-bold text-lg text-neutral-900">Still Exploring?</h4>
-            <p className="text-sm text-neutral-600 mt-1">See how other brands solved it</p>
-            <Link to="/case-studies/coffee-roastery" className="inline-block mt-3 px-4 py-2 border border-primary-600 text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition">View Case Studies</Link>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'case-studies',
-      title: 'How Have Other Brands Succeeded With Our Pouches?',
-      icon: <Building2 className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-4 text-neutral-700">
-          <p>See how brands across industries use our stand-up pouches:</p>
-          
-          <div className="grid md:grid-cols-2 gap-4">
-            <Link to="/case-studies/coffee-roastery" className="block p-4 bg-neutral-50 rounded-lg border border-neutral-200 hover:border-primary-300 hover:shadow-md transition">
-              <h4 className="font-semibold text-neutral-900">Specialty Coffee Roaster</h4>
-              <p className="text-sm text-neutral-600 mt-1">Kraft/PLA compostable SUP with degassing valve. Reduced carbon footprint by 65% vs rigid packaging. EN 13432 certified.</p>
-              <span className="text-xs text-primary-600 mt-2 inline-block">Read case study →</span>
-            </Link>
-            <Link to="/case-studies/pet-treats" className="block p-4 bg-neutral-50 rounded-lg border border-neutral-200 hover:border-primary-300 hover:shadow-md transition">
-              <h4 className="font-semibold text-neutral-900">Premium Pet Treats Brand</h4>
-              <p className="text-sm text-neutral-600 mt-1">Recyclable mono-PE SUP with window and heavy-duty zipper. Improved shelf presence and repeat purchases.</p>
-              <span className="text-xs text-primary-600 mt-2 inline-block">Read case study →</span>
-            </Link>
-          </div>
-          
-          <p className="text-sm text-neutral-600 mt-4">
-            Over 500 brands trust Achieve Pack for their stand-up pouch needs. <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">Book a free consultation</a> to discuss your requirements.
-          </p>
-        </div>
-      )
-    },
-    {
-      id: 'industry-scenarios',
-      title: 'Which Industries Are Using Stand-Up Pouches?',
-      icon: <Factory className="h-5 w-5 text-primary-600" />,
-      content: (
         <div className="space-y-6 text-neutral-700">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
-              <div className="flex items-center gap-2 mb-3">
-                <ShoppingBag className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-neutral-900">Coffee & Tea Brands</h4>
-              </div>
-              <p className="text-sm text-neutral-600 mb-3">SUPs with degassing valves and high-barrier for freshly roasted coffee.</p>
-              <ul className="text-xs text-neutral-500 space-y-1">
-                <li>• Specialty roasters</li>
-                <li>• Loose-leaf tea brands</li>
-                <li>• Matcha & specialty teas</li>
-              </ul>
+          <p>
+            Our custom printed stand-up bags are engineered to meet specific regulatory and chemical barrier criteria across professional use cases:
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="border border-amber-200 bg-amber-50/50 p-5 rounded-lg">
+              <h4 className="font-bold text-amber-900 mb-2">☕ Specialty Coffee Roasters</h4>
+              <p className="text-xs text-neutral-600 leading-relaxed mb-3">
+                High OTR locks combined with one-way degassing valves to vent gas while locking out oxygen ingress. Perfect for retaining roasted bean integrity.
+              </p>
+              <span className="text-[10px] bg-white text-amber-700 border border-amber-300 px-2 py-0.5 rounded font-semibold">12-Month Roasted Freshness</span>
             </div>
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Leaf className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-neutral-900">Snack Food Companies</h4>
-              </div>
-              <p className="text-sm text-neutral-600 mb-3">Resealable pouches with clear windows for retail shelf impact.</p>
-              <ul className="text-xs text-neutral-500 space-y-1">
-                <li>• Granola & trail mix</li>
-                <li>• Chips & crisps</li>
-                <li>• Dried fruits & nuts</li>
-              </ul>
+            <div className="border border-green-200 bg-green-50/50 p-5 rounded-lg">
+              <h4 className="font-bold text-green-900 mb-2">🌱 Organic Foods & Snacks</h4>
+              <p className="text-xs text-neutral-600 leading-relaxed mb-3">
+                Compostable kraft paper and PLA starch bio-films certified under European EN 13432. Meets rising retail and consumer eco-expectations.
+              </p>
+              <span className="text-[10px] bg-white text-green-700 border border-green-300 px-2 py-0.5 rounded font-semibold">TÜV Home Compostable</span>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-200">
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-neutral-900">Pet Treat Brands</h4>
-              </div>
-              <p className="text-sm text-neutral-600 mb-3">Heavy-duty zippers and odor barriers for pet food freshness.</p>
-              <ul className="text-xs text-neutral-500 space-y-1">
-                <li>• Dog training treats</li>
-                <li>• Cat snacks</li>
-                <li>• Freeze-dried treats</li>
-              </ul>
+            <div className="border border-blue-200 bg-blue-50/50 p-5 rounded-lg">
+              <h4 className="font-bold text-blue-900 mb-2">🐾 Pet Food & Treats</h4>
+              <p className="text-xs text-neutral-600 leading-relaxed mb-3">
+                Heavy-duty diagonal K-seal bottoms that prevent grease migration and support bulk volumetric weight (from 1kg up to 5kg) without bursting.
+              </p>
+              <span className="text-[10px] bg-white text-blue-700 border border-blue-300 px-2 py-0.5 rounded font-semibold">Diagonal Gusset Stability</span>
             </div>
           </div>
-          <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">🏆 Customer Success: Bean & Bole Coffee</h4>
-            <p className="text-sm text-neutral-600 mb-3">Switched to our compostable SUPs with degassing valves, reducing packaging carbon footprint by 65% while maintaining 12-month shelf life for specialty coffee.</p>
-            <div className="flex flex-wrap gap-4 text-xs">
-              <span className="bg-white px-3 py-1 rounded-full border">✓ 65% Carbon Reduction</span>
-              <span className="bg-white px-3 py-1 rounded-full border">✓ 12-Month Shelf Life</span>
-              <span className="bg-white px-3 py-1 rounded-full border">✓ Premium Brand Image</span>
+          <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6 flex flex-col md:flex-row items-center gap-6">
+            <div className="flex-1">
+              <h4 className="font-bold text-neutral-900 mb-2">Heavier Volume stability: K-Seal Bottom Spotlight</h4>
+              <p className="text-sm text-neutral-600 mb-3">
+                For wholesale pet food, high-density supplements, or coffee beans, we integrate custom **K-seal bases**. The diagonal sealing structure guides product weight outwards, improving shelf-standing stability and preventing base crumple.
+              </p>
+              <Link to="/knowledge/k-seal-stand-up-pouches" className="inline-flex items-center gap-1 text-primary-700 font-bold hover:underline text-xs">
+                Learn how K-seal increases volume capacity →
+              </Link>
+            </div>
+            <div className="w-full md:w-1/4">
+              <ClickableImage 
+                src="/imgs/pouch-shape/achieve-pack-k-seal.png" 
+                alt="Achieve Pack K-seal stand up pouches wholesale" 
+                className="w-full rounded-lg bg-white p-2 border border-neutral-100 shadow-sm"
+              />
             </div>
           </div>
         </div>
       )
     },
     {
-      id: 'branding-spotlight',
-      title: 'Showcase Your Eco-Commitment',
+      id: 'gallery',
+      title: 'Real Production Runs & Materials Verification',
       icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
-         <div className="bg-gradient-to-br from-neutral-50 to-emerald-50 rounded-xl overflow-hidden shadow-lg border border-emerald-100">
-           <div className="grid md:grid-cols-2 items-center">
-             <div className="p-8">
-               <h4 className="text-2xl font-bold mb-4 text-emerald-900">Certified for Sustainability</h4>
-               <p className="text-neutral-600 mb-6">
-                 Build trust with your customers using our <strong>Achieve Pack</strong> certified compostable pouches. 
-                 Featuring high-definition printing of eco-labels and certification marks that prove your commitment to the planet.
-               </p>
-               <div className="flex gap-4">
-                 <div className="text-center">
-                    <div className="text-emerald-600 font-bold text-xl">HD</div>
-                    <div className="text-xs text-neutral-500">Print Quality</div>
-                 </div>
-                 <div className="text-center">
-                    <div className="text-emerald-600 font-bold text-xl">Eco</div>
-                    <div className="text-xs text-neutral-500">Certified Inks</div>
-                 </div>
-               </div>
-             </div>
-             <div className="h-full bg-white flex items-center justify-center p-6">
-                <img 
-                  src="/imgs/pouch-shape/achieve-pack-branding-spotlight.png" 
-                  alt="Achieve Pack eco-friendly pouch branding details" 
-                  className="max-h-64 object-contain"
-                />
-             </div>
-           </div>
-         </div>
-      )
-    },
-    {
-      id: 'market-data',
-      title: 'What Do Market Trends Say About Stand-Up Pouches?',
-      icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">$48B</div>
-              <div className="text-sm opacity-90">Flexible Packaging 2027</div>
-            </div>
-            <div className="bg-gradient-to-br from-green-500 to-emerald-500 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">7.2%</div>
-              <div className="text-sm opacity-90">Stand-Up Pouch CAGR</div>
-            </div>
-            <div className="bg-gradient-to-br from-amber-500 to-orange-500 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">75%</div>
-              <div className="text-sm opacity-90">Less Material vs Rigid</div>
-            </div>
-            <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">60%</div>
-              <div className="text-sm opacity-90">Shipping Cost Savings</div>
-            </div>
-          </div>
-          <div className="bg-white p-4 rounded-xl border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">Stand-Up Pouch Performance by Closure Type</h4>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-neutral-200">
-                    <th className="text-left py-2 font-medium">Closure Type</th>
-                    <th className="text-center py-2 font-medium">Reseal Count</th>
-                    <th className="text-center py-2 font-medium">Best For</th>
-                    <th className="text-center py-2 font-medium">Cost Index</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-neutral-100">
-                    <td className="py-2">Press-to-Close Zipper</td>
-                    <td className="text-center py-2">100+ times</td>
-                    <td className="text-center py-2">Snacks, coffee</td>
-                    <td className="text-center py-2">1.0x</td>
-                  </tr>
-                  <tr className="border-b border-neutral-100">
-                    <td className="py-2">Slider Zipper</td>
-                    <td className="text-center py-2">200+ times</td>
-                    <td className="text-center py-2">Premium, cheese</td>
-                    <td className="text-center py-2">1.3x</td>
-                  </tr>
-                  <tr className="border-b border-neutral-100">
-                    <td className="py-2">Tin Tie</td>
-                    <td className="text-center py-2">50+ times</td>
-                    <td className="text-center py-2">Coffee, bakery</td>
-                    <td className="text-center py-2">1.1x</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div className="bg-green-50 p-4 rounded-xl border border-green-200">
-            <h4 className="font-semibold text-green-800 mb-2">🌍 Environmental Impact</h4>
-            <p className="text-sm text-green-700">Stand-up pouches use 75% less material than rigid containers and reduce transportation emissions by 60% due to lighter weight and compact shipping.</p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'material-comparison',
-      title: 'How Do Stand-Up Pouch Materials Compare?',
-      icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
-      content: (
-        <div className="space-y-6 text-neutral-700">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm border border-neutral-200 rounded-xl overflow-hidden">
-              <thead className="bg-neutral-100">
-                <tr>
-                  <th className="text-left p-3 font-semibold">Feature</th>
-                  <th className="text-center p-3 font-semibold text-green-700">Compostable</th>
-                  <th className="text-center p-3 font-semibold text-blue-700">Mono-PE</th>
-                  <th className="text-center p-3 font-semibold text-purple-700">PCR Content</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Best Applications</td>
-                  <td className="text-center p-3">✅ Coffee, dry goods</td>
-                  <td className="text-center p-3">✅ All food types</td>
-                  <td className="text-center p-3">✅ All food types</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Barrier Level</td>
-                  <td className="text-center p-3">Medium-High</td>
-                  <td className="text-center p-3">High</td>
-                  <td className="text-center p-3">High</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Clear Window</td>
-                  <td className="text-center p-3">✅ PLA window</td>
-                  <td className="text-center p-3">✅ Full clarity</td>
-                  <td className="text-center p-3">✅ Available</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">Shelf Life</td>
-                  <td className="text-center p-3">6-12 months</td>
-                  <td className="text-center p-3">12-18 months</td>
-                  <td className="text-center p-3">12-18 months</td>
-                </tr>
-                <tr className="border-b border-neutral-100">
-                  <td className="p-3 font-medium">End-of-Life</td>
-                  <td className="text-center p-3">🌱 Compostable</td>
-                  <td className="text-center p-3">♻️ Recyclable</td>
-                  <td className="text-center p-3">♻️ Recyclable</td>
-                </tr>
-                <tr>
-                  <td className="p-3 font-medium">Price Point</td>
-                  <td className="text-center p-3">💰💰💰</td>
-                  <td className="text-center p-3">💰💰</td>
-                  <td className="text-center p-3">💰💰</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="bg-amber-50 p-5 rounded-xl border border-amber-200">
-            <h4 className="font-semibold text-amber-800 mb-3">💡 Decision Guide for Stand-Up Pouches</h4>
-            <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div>
-                <p className="font-medium text-amber-900">Choose Compostable if:</p>
-                <ul className="text-amber-700 mt-1 space-y-1">
-                  <li>• Eco-conscious brand image</li>
-                  <li>• Coffee or dry products</li>
-                  <li>• Premium positioning</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-medium text-amber-900">Choose Mono-PE if:</p>
-                <ul className="text-amber-700 mt-1 space-y-1">
-                  <li>• Maximum shelf life</li>
-                  <li>• Full clarity window</li>
-                  <li>• Cost optimization</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-medium text-amber-900">Choose PCR if:</p>
-                <ul className="text-amber-700 mt-1 space-y-1">
-                  <li>• Corporate ESG goals</li>
-                  <li>• Circular economy focus</li>
-                  <li>• Balance cost & eco</li>
-                </ul>
-              </div>
-            </div>
+        <div className="space-y-6">
+          <p className="text-neutral-700 text-sm">
+            We operate 4 high-speed digital lines supporting multiple SKUs. Review our actual production runs of BRC compliant, certified compostable and recyclable stand-up pouches:
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {supPhotoGallery.map((photo, i) => (
+              <button
+                key={i}
+                onClick={() => setGalleryEnlarged({ src: photo.src, index: i })}
+                className="block text-left w-full border border-neutral-200 rounded-xl p-2 bg-white hover:shadow-md transition cursor-pointer"
+              >
+                <div className="aspect-square rounded-lg overflow-hidden bg-neutral-50 mb-2">
+                  <img src={photo.src} alt={photo.title} className="w-full h-full object-cover" />
+                </div>
+                <h5 className="font-bold text-xs text-neutral-800 truncate">{photo.title}</h5>
+                <p className="text-[10px] text-neutral-500 truncate mt-0.5">{photo.desc}</p>
+              </button>
+            ))}
           </div>
         </div>
       )
@@ -747,104 +485,108 @@ const StandUpPouchesPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "What is the difference between a stand-up pouch and a flat pouch?",
-      answer: "A stand-up pouch has a bottom gusset (fold) that expands when filled, allowing it to stand upright on shelves. A flat pouch lies flat with no gusset. Stand-up pouches offer better shelf presence and typically hold more product volume."
+      question: "1. What is the Minimum Order Quantity (MOQ) for custom stand-up pouches?",
+      answer: "We support startups with an industry-low digital printing MOQ of just 500 units per design. For larger wholesale volumes, we operate rotogravure plate printing from 5,000 units, providing the ultimate wholesale cost efficiency."
     },
     {
-      question: "Are stand-up pouches recyclable?",
-      answer: "Yes, we offer recyclable stand-up pouches made from mono-material PE or PP. These single-material structures are accepted in store drop-off recycling and some curbside programs. We also offer certified compostable options that break down in commercial composting facilities."
+      question: "2. Do you provide physical pre-production samples?",
+      answer: "Yes, we ship a free sustainable sample kit with 10 physical pouches to test barrier properties. For custom orders, we generate a 24-hour PDF soft proof and can construct exact custom digital mockups before bulk manufacture."
     },
     {
-      question: "What is the minimum order for custom stand-up pouches?",
-      answer: "Our minimum order quantity is 500 units for custom printed stand-up pouches. This low MOQ makes quality packaging accessible for small businesses, startups, and product testing."
+      question: "3. Can you manufacture stand-up pouches according to custom volumetric CAD drawings?",
+      answer: "Yes. Our material engineers analyze your product volumetric density and customize bottom gussets and dimensions down to the millimeter scale. We provide a custom dieline layout PDF within 24 hours."
     },
     {
-      question: "How long does production take for stand-up pouches?",
-      answer: "Standard production time is 2-3 weeks after artwork approval. For urgent orders, we offer expedited production of 7-10 days at additional cost. Stock pouches (pre-made without printing) ship within 3-5 business days."
+      question: "4. What is the production and transit lead time for commercial runs?",
+      answer: "Digital runs finish in 7-10 business days; rotogravure plate orders take 12-14 days. Express DHL/FedEx air delivery to USA/EU takes 5-7 business days, and economical ocean freight is available in 20-30 days."
     },
     {
-      question: "Can stand-up pouches have clear windows?",
-      answer: "Yes, we can add clear windows in any shape or size to show your product. Windows can be positioned on the front, back, or both panels. For compostable pouches, we use PLA clear film; for recyclable, we use PE or PP clear film."
+      question: "5. What certifications are available to verify eco-friendly compliance?",
+      answer: "Our biopolymers carry official certificate numbers from BPI (Biodegradable Products Institute #10529618) and TÜV Austria (OK Compost HOME). Stacks comply with ASTM D6400 (US) and EN 13432 (EU) compostability guidelines."
+    },
+    {
+      question: "6. What details must be submitted to receive a wholesale quotation?",
+      answer: "Please provide estimated volumetric capacity (or exact dimensions), material preference (compostable kraft, mono-PE recyclable, high barrier), zip/degassing valve requirements, number of SKUs, and vector artwork."
     }
   ]
 
   const tables = [
     {
-      title: "Stand-Up Pouch Size Guide",
+      title: "Commercial Volumetric Size Matrix",
       data: {
-        headers: ["Size (W x H + G)", "Capacity", "Common Uses"],
+        headers: ["Dimensions (W x H + G)", "Volumetric Weight", "Recommended Application Scenarios"],
         rows: [
-          ["70 x 110 + 40mm", "20-50g", "Samples, single-serve, sachets"],
-          ["100 x 150 + 60mm", "50-100g", "Tea, small snacks, candy"],
-          ["120 x 200 + 80mm", "100-250g", "Coffee, nuts, treats"],
-          ["150 x 230 + 90mm", "250-500g", "Granola, large snacks"],
-          ["180 x 280 + 100mm", "500g-1kg", "Pet food, bulk coffee"],
-          ["220 x 350 + 120mm", "1-2kg", "Large format dry goods"]
+          ["70 x 110 + 40mm", "20g - 50g", "Product sample sachets, gourmet spices, dry botanical extracts"],
+          ["100 x 150 + 60mm", "50g - 100g", "Skincare powder bags, single-origin tea leaf, pet treat boxes"],
+          ["120 x 200 + 80mm", "100g - 250g", "Specialty coffee beans (with valve), organic granolas, protein crisps"],
+          ["150 x 230 + 90mm", "250g - 500g", "Commercial organic oats, large snack SKUs, bath salt canisters"],
+          ["180 x 280 + 100mm", "500g - 1kg", "Pet food kibble bags, bulk grains, wholesale coffee beans"]
         ]
       }
     }
   ]
 
   const relatedLinks = [
-    {
-      title: "Shop Stand-Up Pouches",
-      url: "/store",
-      description: "Browse all sizes and options - MOQ from 100 pieces"
-    },
-    {
-      title: "Flat Bottom Bags",
-      url: "/packaging/flat-bottom-bags",
-      description: "Premium alternative with stable base"
-    },
-    {
-      title: "Coffee & Tea Packaging",
-      url: "/industry/coffee-tea",
-      description: "SUP with degassing valves"
-    },
-    {
-      title: "Compostable Materials",
-      url: "/materials/compostable",
-      description: "Certified sustainable options"
-    },
-    {
-      title: "Sustainable Packaging Guide",
-      url: "/blog/sustainable-packaging-supplier-analysis",
-      description: "Compare eco-friendly suppliers"
-    }
+    { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Stable 5-panel box-gusset alternative" },
+    { title: "Coffee & Tea Solutions", url: "/industry/coffee-tea", description: "Bags with degassing valves and tin-ties" },
+    { title: "Compostable Material Spec", url: "/materials/compostable", description: "Compare OK Compost biopolymer specs" }
   ]
 
   return (
-    <SEOPageLayout heroBgColor="#1f2937"
-      title="Stand-Up Pouches | Custom Printed SUP Bags | Eco-Friendly Options"
-      description="Custom stand-up pouches with zipper, slider, spout, and valve options. Compostable, recyclable materials. MOQ 500 units. Premium printing. 2-3 week lead time."
-      keywords={[
-        'stand up pouch',
-        'stand up bag',
-        'SUP packaging',
-        'resealable pouch',
-        'zipper pouch',
-        'custom stand up pouch',
-        'compostable stand up pouch',
-        'recyclable pouch',
-        'flexible packaging',
-        'food pouch'
-      ]}
-      canonicalUrl="https://achievepack.com/packaging/stand-up-pouches"
-      heroTitle={t('seoPages.pages.standUpPouches.heroTitle')}
-      heroSubtitle={t('seoPages.pages.standUpPouches.heroSubtitle')}
-      heroImage="/imgs/pouch-shape/achieve-pack-sup-hero.png"
-      heroImageAlt="Achieve Pack branded premium stand-up pouch with eco-friendly design"
-      hero3DModelUrl="/3d/3d-pouch/stand-up-pouch2.glb"
-      introSummary={t('seoPages.pages.standUpPouches.introSummary')}
-      sections={sections}
-      faqs={faqs}
-      tables={tables}
-      schemaType="Product"
-      relatedLinks={relatedLinks}
-      ctaTitle={t(`${p}.cta.title`)}
-      ctaDescription={t(`${p}.cta.description`)}
-      ctaButtonText={t(`${p}.cta.button`)}
-    />
+    <>
+      <SEOPageLayout 
+        heroBgColor="#166534"
+        title="Custom Stand-Up Pouches Wholesale | Direct Manufacturer | Achieve Pack"
+        description="BRCGS & ISO-9001 certified stand-up pouches. Custom printed SUP bags using compostable PLA or recyclable Mono-PE films. Low MOQ 500 pcs, global shipping."
+        canonicalUrl="https://achievepack.com/packaging/stand-up-pouches"
+        heroTitle="Custom Stand-Up Pouches Wholesale"
+        heroSubtitle="BRCGS Certified Factory-Direct • Low MOQ 500 Units • 100% Certified Eco-Films"
+        introSummary="Direct supplier of certified compostable and curbside recyclable stand-up pouches. Calibrated with high-performance OTR/WVTR oxygen barriers and diagnostic bottom gussets to prevent seal burst, ensuring 12+ months shelf life."
+        heroImage="/imgs/pouch-shape/achieve-pack-sup-hero.png"
+        sections={sections}
+        keywords={['custom stand up pouches', 'wholesale stand up bags', 'compostable stand up pouches', 'BRC certified flexible packaging', 'achieve pack stand up pouch']}
+        schemaType="Product"
+        faqs={faqs}
+        tables={tables}
+        relatedLinks={relatedLinks}
+        breadcrumbs={breadcrumbs}
+      />
+
+      {/* Gallery Lightbox */}
+      {galleryEnlarged && (
+        <div className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-4" onClick={() => setGalleryEnlarged(null)}>
+          <button
+            onClick={() => setGalleryEnlarged(null)}
+            className="absolute top-4 right-4 text-white hover:text-neutral-300 z-10 p-2 bg-black/40 rounded-full"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); navigateGallery('prev') }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-3 text-white z-10 transition-colors"
+          >
+            <ChevronLeft className="h-8 w-8" />
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); navigateGallery('next') }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-3 text-white z-10 transition-colors"
+          >
+            <ChevronRight className="h-8 w-8" />
+          </button>
+          <img
+            src={galleryEnlarged.src}
+            alt={supPhotoGallery[galleryEnlarged.index]?.title}
+            className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl bg-white p-4"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-center max-w-xl px-4">
+            <p className="font-bold text-lg">{supPhotoGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-sm text-white/80 mt-1 leading-relaxed">{supPhotoGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-xs text-white/50 mt-2 font-mono">{galleryEnlarged.index + 1} / {supPhotoGallery.length}</p>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 

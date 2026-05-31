@@ -11,6 +11,7 @@ import Footer from './Footer'
 import ReadingProgress from './ReadingProgress'
 import StickyFreeSampleCTA from './StickyFreeSampleCTA'
 import { ThreePouchViewer } from './ThreePouchViewer'
+import SiteHeader from './SiteHeader'
 
 // Category icons for Learn Menu
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -531,6 +532,12 @@ interface SEOPageLayoutProps {
   // Hero Style
   heroStyle?: 'split' | 'banner'
   heroBgColor?: string // hex code or tailwind class
+
+  // Breadcrumbs
+  breadcrumbs?: {
+    label: string
+    url: string
+  }[]
 }
 
 const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
@@ -559,7 +566,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   ctaButtonUrl = '/#contact',
   heroStyle = 'split',
   heroBgColor,
-  aboveTitle
+  aboveTitle,
+  breadcrumbs
 }) => {
   const [scrollPercent, setScrollPercent] = useState(0)
   const [hero3DTilt, setHero3DTilt] = useState({ x: 0, y: 0 })
@@ -721,12 +729,32 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         faq={faqs || undefined}
       />
 
-      <div className="min-h-screen bg-neutral-50 pt-14 overflow-x-hidden">
+      <div className="min-h-screen bg-neutral-50 overflow-x-hidden">
         {/* Header with LEARN and BLOG Mega Menus */}
-        <SEOPageHeader />
+        <SiteHeader showLanguageSelector={true} />
         
         {/* Reading Progress Bar */}
         <ReadingProgress />
+
+        {/* Visual Breadcrumbs */}
+        {breadcrumbs && breadcrumbs.length > 0 && (
+          <div className="bg-neutral-100 border-b border-neutral-200 py-3 px-4 pt-20">
+            <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-500 font-mono">
+              {breadcrumbs.map((crumb, idx) => (
+                <React.Fragment key={idx}>
+                  {idx > 0 && <span className="text-neutral-300">/</span>}
+                  {idx === breadcrumbs.length - 1 ? (
+                    <span className="text-neutral-800">{crumb.label}</span>
+                  ) : (
+                    <Link to={crumb.url} className="hover:text-primary-600 transition">
+                      {crumb.label}
+                    </Link>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Hero Section */}
         {heroStyle === 'banner' ? (
