@@ -887,7 +887,7 @@ export default function PouchEcoGPTKPage() {
             </div>
 
             {/* TIER 3 CARD: CUSTOM OVAL BOTTOM */}
-            <div className={`bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between relative group transition-all duration-300 ${sizeMode === 'custom' ? 'opacity-50 hover:border-neutral-200' : 'hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md'}`}>
+            <div className={`bg-white border border-neutral-200/80 rounded-3xl p-6 shadow-sm flex flex-col justify-between relative group transition-all duration-300 hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md`}>
               <div className="space-y-6">
                 <div>
                   <div className="flex justify-between items-start">
