@@ -1,10 +1,10 @@
 {
   "generated": "2026-05-31",
-  "total_images": 1862,
+  "total_images": 1864,
   "total_categories": 163,
   "extensions": {
     ".webp": 1299,
-    ".png": 346,
+    ".png": 348,
     ".jpg": 214,
     ".svg": 3
   },
@@ -11795,8 +11795,20 @@
       ]
     },
     "topics": {
-      "count": 28,
+      "count": 30,
       "images": [
+        {
+          "filename": "eu-ppwr-sorting-labels.png",
+          "path": "/imgs/topics/eu-ppwr-sorting-labels.png",
+          "extension": ".png",
+          "modified": "2026-05-31T10:01:35.761Z"
+        },
+        {
+          "filename": "eu-ppwr-void-space.png",
+          "path": "/imgs/topics/eu-ppwr-void-space.png",
+          "extension": ".png",
+          "modified": "2026-05-31T10:01:35.759Z"
+        },
         {
           "filename": "eu-ppwr-compliance.png",
           "path": "/imgs/topics/eu-ppwr-compliance.png",

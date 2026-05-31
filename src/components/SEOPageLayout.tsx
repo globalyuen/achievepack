@@ -841,7 +841,7 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                     <div className="pt-4 border-t border-black/10 flex flex-wrap items-center gap-4 text-xs font-['JetBrains_Mono'] font-bold text-black/80">
                       <div className="flex items-center gap-2">
                         <img 
-                          src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                          src="/imgs/emails/ryan_headshot_v2.png" 
                           alt="Ryan Wong" 
                           className="w-6 h-6 rounded-full object-cover border-2 border-black" 
                         />
@@ -1245,11 +1245,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   <div className="mt-4 pt-4 border-t border-neutral-100 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
                     <div className="flex items-center gap-2">
                       <img 
-                        src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                        src="/imgs/emails/ryan_headshot_v2.png" 
                         alt="Ryan Wong" 
                         className="w-6 h-6 rounded-full object-cover border border-neutral-200" 
                       />
-                      <span>Written by <Link to="/team/ryan-wong" className="font-semibold text-primary-700 hover:underline">Ryan Wong</Link>, Packaging Specialist</span>
+                      <span>Written by <Link to="/team/ryan-wong" className="font-semibold text-primary-700 hover:underline">Ryan Wong</Link>, Supply Chain Director</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
@@ -1439,12 +1439,12 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   </div>
                   <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-100 flex flex-col items-center text-center">
                     <img 
-                      src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                      src="/imgs/emails/ryan_headshot_v2.png" 
                       alt="Ryan Wong" 
                       className="w-16 h-16 rounded-full object-cover border-2 border-primary-500 shadow-md mb-3" 
                     />
                     <h4 className="font-bold text-neutral-900 text-sm">Ryan Wong</h4>
-                    <p className="text-[11px] text-neutral-500 mb-2">Founder & Packaging Specialist</p>
+                    <p className="text-[11px] text-neutral-500 mb-2">Supply Chain Director</p>
                     <p className="text-[10px] text-neutral-600 leading-snug mb-3">
                       B.Eng honors degree graduate from Hong Kong Polytechnic University. Serving brands in 8 countries.
                     </p>
