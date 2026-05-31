@@ -610,11 +610,14 @@ if (getDomain() === 'pouch') {
         <ErrorBoundary>
           <GeoBlocker>
             <BrowserRouter>
-              <CalendlyProvider>
-                <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  <Route path="/" element={<PouchHomePage />} />
-                  <Route path="/pricing" element={<PouchEcoGPTKPage />} />
+              <StoreProvider>
+                <CalendlyProvider>
+                  <CustomQuoteProvider>
+                    <CartSidebar />
+                    <Suspense fallback={<PageLoader />}>
+                      <Routes>
+                        <Route path="/" element={<PouchHomePage />} />
+                        <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                   <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
                   <Route path="/dieline-creator" element={<PouchDielineCreatorPage />} />
                   <Route path="/solutions" element={<PouchSolutionsPage />} />
@@ -824,17 +827,152 @@ if (getDomain() === 'pouch') {
                   <Route path="/spec/biope-pp-kraft-quadlex-aluminum" element={<BioPePpKraftQuadlexAluminumPage />} />
                   <Route path="/spec/biope-kraft-duplex-low" element={<BioPeKraftDuplexLowPage />} />
 
+                  {/* Migrated B2C Solutions & Case Studies */}
+                  <Route path="/solutions/startup-founder" element={<StartupFounderPage />} />
+                  <Route path="/solutions/ecommerce-brand" element={<EcommerceBrandPage />} />
+                  <Route path="/solutions/corporate-sustainability" element={<CorporateSustainabilityPage />} />
+                  <Route path="/solutions/food-manufacturer" element={<FoodManufacturerPage />} />
+                  <Route path="/solutions/product-developer" element={<ProductDeveloperPage />} />
+                  <Route path="/solutions/coffee-roaster" element={<CoffeeRoasterPage />} />
+                  <Route path="/solutions/artisan-producer" element={<ArtisanProducerPage />} />
+                  <Route path="/solutions/snack-brand-manager" element={<SnackBrandManagerPage />} />
+                  <Route path="/solutions/citrus-oil-packaging" element={<CitrusOilPackagingPage />} />
+                  <Route path="/case-studies/coffee-roastery" element={<CoffeeRoasteryCaseStudy />} />
+                  <Route path="/case-studies/tea-brand" element={<TeaBrandCaseStudy />} />
+                  <Route path="/case-studies/superfood-brand" element={<SuperfoodBrandCaseStudy />} />
+                  <Route path="/case-studies/pet-treats" element={<PetTreatsCaseStudy />} />
+                  <Route path="/case-studies/chocolate-brand" element={<ChocolateBrandCaseStudy />} />
+                  <Route path="/case-studies/candle-brand" element={<CandleBrandCaseStudy />} />
+                  <Route path="/case-studies/bakery" element={<BakeryCaseStudy />} />
+                  <Route path="/case-studies/wellness-brand" element={<WellnessBrandCaseStudy />} />
+                  <Route path="/case-studies/organic-nuts" element={<OrganicNutsCaseStudy />} />
+                  <Route path="/case-studies/bath-products" element={<BathProductsCaseStudy />} />
+                  <Route path="/case-studies/adaptogens" element={<AdaptogensCaseStudy />} />
+                  <Route path="/case-studies/outdoor-snacks" element={<OutdoorSnacksCaseStudy />} />
+
+                  {/* Composting & Free Services */}
+                  <Route path="/composting/biodegradable-vs-compostable" element={<BiodegradableVsCompostablePage />} />
+                  <Route path="/composting/commercial-composting" element={<CommercialCompostingPage />} />
+                  <Route path="/composting/home-vs-industrial-compostable" element={<HomeVsIndustrialCompostPage />} />
+                  <Route path="/composting/natural-cellulose-fiber" element={<NaturalCelluloseFiberPage />} />
+                  <Route path="/composting/organic-compliance-support" element={<OrganicComplianceSupportPage />} />
+                  <Route path="/free-service/packaging-design-consultation" element={<FreePackagingDesignPage />} />
+                  <Route path="/free-service/website-upgrade" element={<FreeWebsiteUpgradePage />} />
+                  <Route path="/free-service/packaging-mockup" element={<FreeMockupPage />} />
+                  <Route path="/free-service/customer-center" element={<FreeCustomerCenterPage />} />
+                  <Route path="/free-service/maxi-foods-demo" element={<MaxiFoodsDemoPage />} />
+                  <Route path="/free-service/achieve-chips-demo" element={<AchieveChipsDemoPage />} />
+                  <Route path="/free-service/pencil-demo" element={<PencilDemoPage />} />
+                  <Route path="/free-service/achieve-chocolate-demo" element={<AchieveChocolateDemoPage />} />
+                  <Route path="/free-service/achieve-supplement-demo" element={<AchieveSupplementDemoPage />} />
+                  <Route path="/free-service/achieve-tea-demo" element={<AchieveTeaDemoPage />} />
+                  <Route path="/free-service/achieve-energy-demo" element={<AchieveEnergyDemoPage />} />
+                  <Route path="/free-service/achieve-honey-demo" element={<AchieveHoneyDemoPage />} />
+                  <Route path="/free-service/achieve-superfood-demo" element={<AchieveSuperfoodDemoPage />} />
+                  <Route path="/free-service/achieve-cleaning-demo" element={<AchieveCleaningDemoPage />} />
+                  <Route path="/free-service/achieve-spreads-demo" element={<AchieveSpreadsDemoPage />} />
+                  <Route path="/free-service/achieve-muesli-demo" element={<AchieveMuesliDemoPage />} />
+                  <Route path="/free-service/achieve-bath-demo" element={<AchieveBathDemoPage />} />
+                  <Route path="/free-service/achieve-pet-demo" element={<AchievePetDemoPage />} />
+                  <Route path="/free-service/achieve-skin-demo" element={<AchieveSkinDemoPage />} />
+                  <Route path="/free-service/achieve-baby-demo" element={<AchieveBabyDemoPage />} />
+                  <Route path="/free-service/achieve-pouch-eco-demo" element={<AchievePouchEcoDemoPage />} />
+                  <Route path="/free-service/free-services-hub" element={<FreeServicesHubPage />} />
+                  <Route path="/free-service/all" element={<FreeServicesHubPage />} />
+                  <Route path="/free-service" element={<FreeServicesPage />} />
+
+                  {/* Products, Bio-PE, PCR, Recyclable, Legal & Support */}
+                  <Route path="/products/compostable-coffee-bags" element={<CompostableCoffeeBagsPage />} />
+                  <Route path="/products/custom-labels" element={<CustomLabelsPage />} />
+                  <Route path="/products/custom-stickers" element={<CustomStickersPage />} />
+                  <Route path="/products/labels-and-stickers" element={<LabelsAndStickersPage />} />
+                  <Route path="/products/lab-bags" element={<LabBagsPage />} />
+                  <Route path="/demo" element={<PouchHomePage />} />
+                  <Route path="/start" element={<PouchHomePage />} />
+                  <Route path="/3d-showcase" element={<Product3DShowcasePage />} />
+                  <Route path="/biope/what-is-bio-pe" element={<WhatIsBioPEPage />} />
+                  <Route path="/biope/bio-pe-vs-compostable" element={<BioPEVsCompostablePage />} />
+                  <Route path="/biope/bio-pe-epr-regulations" element={<BioPEEPRPage />} />
+                  <Route path="/biope/inside-im-green-bio-pe" element={<InsideImGreenBioPEPage />} />
+                  <Route path="/pcr/pcr-plastic-guide" element={<PCRGuidePage />} />
+                  <Route path="/pcr/7-checklist" element={<PCR7ChecklistPage />} />
+                  <Route path="/pcr/realistic-pcr-content" element={<PCRRealisticPage />} />
+                  <Route path="/pcr/recyclable-vs-pcr-biobased" element={<RecyclableVsPCRPage />} />
+                  <Route path="/recyclable/what-is-recyclable" element={<WhatIsRecyclablePage />} />
+                  <Route path="/recyclable/roadmap-sme" element={<RecyclableRoadmapPage />} />
+                  <Route path="/recyclable/mono-material-foundation" element={<MonoMaterialFoundationPage />} />
+                  <Route path="/reviews" element={<ReviewsPage />} />
+                  <Route path="/store" element={<StorePage />} />
+                  <Route path="/store/checkout" element={<CheckoutPage />} />
+                  <Route path="/store/order-confirmation" element={<OrderConfirmation />} />
+                  <Route path="/store/rfq-confirmation" element={<RfqConfirmation />} />
+                  <Route path="/signin" element={<SignInPage />} />
+                  <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+                  <Route path="/reset-password" element={<ResetPasswordPage />} />
+                  <Route path="/auth/callback" element={<AuthCallbackPage />} />
+                  <Route path="/dashboard" element={<DashboardPage />} />
+                  <Route path="/terms" element={<TermsPage />} />
+                  <Route path="/terms-of-use" element={<TermsOfUsePage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/privacy" element={<PrivacyPolicyPage />} />
+                  <Route path="/shipping" element={<ShippingPolicyPage />} />
+                  <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+                  <Route path="/company/b-corp" element={<BCorpPage />} />
+                  <Route path="/company/bpi-certified" element={<BPICertifiedPage />} />
+                  <Route path="/company/certificates" element={<CertificatesPage />} />
+                  <Route path="/team/ryan-wong" element={<RyanWongPage />} />
+                  <Route path="/support/faqs" element={<FAQsPage />} />
+                  <Route path="/support/lead-time" element={<LeadTimePage />} />
+                  <Route path="/blog/packaging-cost-guide" element={<PackagingCostGuidePage />} />
+                  <Route path="/blog/compostable-vs-recyclable" element={<CompostableVsRecyclablePage />} />
+                  <Route path="/blog/eco-packaging-mistakes" element={<EcoPackagingMistakesPage />} />
+                  <Route path="/learn" element={<LearnSearchPage />} />
+
+                  {/* Printing, Features & Lab Pages */}
+                  <Route path="/printing/digital-printing" element={<DigitalPrintingPage />} />
+                  <Route path="/printing/plate-printing" element={<PlatePrintingPage />} />
+                  <Route path="/features/reclosure-options" element={<ReclosureOptionsPage />} />
+                  <Route path="/features/surface-finish" element={<SurfaceFinishPage />} />
+                  <Route path="/features/barrier-options" element={<BarrierOptionsPage />} />
+                  <Route path="/features/low-barrier" element={<LowBarrierPage />} />
+                  <Route path="/features/medium-barrier" element={<MediumBarrierPage />} />
+                  <Route path="/features/high-barrier" element={<HighBarrierPage />} />
+                  <Route path="/features/material-barrier-properties" element={<MaterialBarrierPropertiesPage />} />
+                  <Route path="/function/digital-printed-retort-bags" element={<DigitalPrintedRetortBagsPage />} />
+                  <Route path="/lab/lateral-filter-bags" element={<LateralFilterBagsPage />} />
+                  <Route path="/lab/wire-closure-bags" element={<WireClosureBagsPage />} />
+                  <Route path="/lab/lab-blender-bags" element={<LabBlenderBagsPage />} />
+                  <Route path="/unsubscribe" element={<UnsubscribePage />} />
+
+                  {/* Admin Protected Routes in B2C */}
+                  <Route path="/ctrl-x9k7m" element={<AdminProtectedRoute><AdminPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/management" element={<AdminProtectedRoute><OrderManagementPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/order-workflow" element={<AdminProtectedRoute><OrderWorkflowPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/customer-map" element={<AdminProtectedRoute><CustomerMapPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/artwork-hub" element={<AdminProtectedRoute><ArtworkHubPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/artwork-batches" element={<AdminProtectedRoute><ArtworkBatchesPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/quotations" element={<AdminProtectedRoute><QuotationBatchesPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/prospects" element={<AdminProtectedRoute><ProspectFinderPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/prospects/lists" element={<AdminProtectedRoute><ProspectListsPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/shipments" element={<AdminProtectedRoute><ShipmentHubPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/document-templates" element={<AdminProtectedRoute><DocumentTemplatesPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/daily-reports" element={<AdminProtectedRoute><DailyReportsPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/email-campaign" element={<AdminProtectedRoute><EmailCampaignPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
+
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="*" element={<PouchHomePage />} />
                 </Routes>
               </Suspense>
-            </CalendlyProvider>
-          </BrowserRouter>
-        </GeoBlocker>
-        </ErrorBoundary>
-      </HelmetProvider>
-    </StrictMode>
-  )
+            </CustomQuoteProvider>
+          </CalendlyProvider>
+        </StoreProvider>
+      </BrowserRouter>
+    </GeoBlocker>
+    </ErrorBoundary>
+  </HelmetProvider>
+</StrictMode>
+)
 } else {
   root.render(
     <StrictMode>
