@@ -1,0 +1,365 @@
+import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Play, X, ChevronLeft, ChevronRight, Factory, Printer, Layers, Scissors, Package, CheckCircle } from 'lucide-react'
+import PouchLayout from '../../../components/pouch/PouchLayout'
+import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
+import { Link } from 'react-router-dom'
+
+interface Video {
+  id: string
+  title: string
+  description: string
+  videoSrc: string
+  icon: React.ElementType
+}
+
+const FACTORY_VIDEOS: Video[] = [
+  {
+    id: 'enter',
+    title: 'Welcome to Our Factory',
+    description: 'Step inside our state-of-the-art sustainable packaging facility',
+    videoSrc: '/video/factory/enter.mp4',
+    icon: Factory
+  },
+  {
+    id: 'digital-printing',
+    title: 'Digital Printing Technology',
+    description: 'High-quality digital printing for short runs with unlimited colors',
+    videoSrc: '/video/factory/digital-printing.mp4',
+    icon: Printer
+  },
+  {
+    id: 'roto-printing',
+    title: 'Rotogravure Printing',
+    description: 'Plate printing for large volume production with Pantone matching',
+    videoSrc: '/video/factory/roto-printing.mp4',
+    icon: Printer
+  },
+  {
+    id: 'laminating',
+    title: 'Lamination Process',
+    description: 'Multi-layer bonding for optimal barrier properties',
+    videoSrc: '/video/factory/laminating.mp4',
+    icon: Layers
+  },
+  {
+    id: 'slitting',
+    title: 'Precision Slitting',
+    description: 'Accurate material cutting for perfect dimensions',
+    videoSrc: '/video/factory/slitting.mp4',
+    icon: Scissors
+  },
+  {
+    id: 'bag-making',
+    title: 'Pouch Manufacturing',
+    description: 'Converting films into finished pouches with quality seals',
+    videoSrc: '/video/factory/bag making.mp4',
+    icon: Package
+  }
+]
+
+export default function PouchFactoryTourPage() {
+  const [activeVideo, setActiveVideo] = useState<Video | null>(null)
+
+  const handleNext = () => {
+    if (!activeVideo) return
+    const currentIndex = FACTORY_VIDEOS.findIndex(v => v.id === activeVideo.id)
+    const nextIndex = (currentIndex + 1) % FACTORY_VIDEOS.length
+    setActiveVideo(FACTORY_VIDEOS[nextIndex])
+  }
+
+  const handlePrev = () => {
+    if (!activeVideo) return
+    const currentIndex = FACTORY_VIDEOS.findIndex(v => v.id === activeVideo.id)
+    const prevIndex = (currentIndex - 1 + FACTORY_VIDEOS.length) % FACTORY_VIDEOS.length
+    setActiveVideo(FACTORY_VIDEOS[prevIndex])
+  }
+
+  return (
+    <PouchLayout>
+      <Helmet>
+        <title>Factory Tour | See How We Make Eco Pouches | Pouch.eco</title>
+        <meta 
+          name="description" 
+          content="Virtual factory tour: Watch our sustainable pouch manufacturing process from printing to bag making. Quality certified eco-packaging production." 
+        />
+        <link rel="canonical" href="https://pouch.eco/company/factory-tour" />
+        <meta property="og:title" content="Factory Tour | Pouch.eco" />
+        <meta property="og:description" content="See inside our eco-friendly packaging factory" />
+        <meta property="og:url" content="https://pouch.eco/company/factory-tour" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
+      {/* Hero Section with Video Background */}
+      <section className="relative pt-12 pb-16 px-4 overflow-hidden text-left bg-neutral-900 border-b-4 border-black">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-40"
+            key="hero-video-factory"
+          >
+            <source src="/video/pouch-eco-marketing-videos/brand-reveal.mp4" type="video/mp4" />
+          </video>
+          {/* Liquid Glass Effect Overlay */}
+          <div className="absolute inset-0 backdrop-blur-[2px] bg-black/50" />
+          {/* Pattern Overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px] opacity-10" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          
+          {/* Breadcrumb Bar */}
+          <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-white mb-8">
+            <Link to="/" className="hover:bg-[#D4FF00] hover:text-black px-1 py-0.5 border border-white transition">Home</Link>
+            <span>/</span>
+            <Link to="/company/about" className="hover:bg-[#D4FF00] hover:text-black px-1 py-0.5 border border-white transition">About Us</Link>
+            <span>/</span>
+            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-white">Factory Tour</span>
+          </div>
+
+          <div className="text-center max-w-4xl mx-auto mt-8">
+            <div className="inline-block bg-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-8">
+              <span className="font-['JetBrains_Mono'] font-black uppercase text-black">FACTORY_TOUR_V1.0</span>
+            </div>
+
+            <h1 className="font-black text-5xl md:text-7xl leading-none mb-6 uppercase text-white">
+              See How We<br/>
+              <span className="text-[#10b981] drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">Make Magic</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-neutral-300 mb-8 max-w-3xl mx-auto font-['Space_Grotesk'] leading-relaxed">
+              Virtual tour of our <strong>BRCGS certified facility</strong> where certified sustainable pouches are engineered.
+            </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              {[
+                { label: 'Production Lines', value: '6' },
+                { label: 'Daily Capacity', value: '100K+' },
+                { label: 'Quality Tests', value: '15+' },
+                { label: 'Years Experience', value: '13+' }
+              ].map((stat, idx) => (
+                <NeoCard
+                  key={idx}
+                  className="p-6 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                >
+                  <div className="text-3xl font-black text-[#10b981] mb-1">{stat.value}</div>
+                  <div className="text-xs font-['JetBrains_Mono'] uppercase font-bold text-neutral-500">{stat.label}</div>
+                </NeoCard>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Grid */}
+      <section className="py-16 px-4 bg-white text-left">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <NeoBadge color="magenta">PRODUCTION_WORKFLOW</NeoBadge>
+            <h2 className="font-black text-4xl md:text-5xl uppercase mb-4 mt-6">
+              Precision <span className="text-[#10b981]">Manufacturing</span>
+            </h2>
+            <p className="text-lg text-gray-700 font-['Space_Grotesk']">
+              Hover over or click any process to watch our production line highlights.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {FACTORY_VIDEOS.map((video, idx) => {
+              const Icon = video.icon
+              return (
+                <motion.div
+                  key={video.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="group cursor-pointer"
+                  onClick={() => setActiveVideo(video)}
+                >
+                  <NeoCard className="!p-0 overflow-hidden group h-full border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all bg-white">
+                    <div className="relative aspect-video bg-black">
+                      <video
+                        src={video.videoSrc}
+                        className="w-full h-full object-cover"
+                        muted
+                        loop
+                        playsInline
+                        onMouseEnter={(e) => e.currentTarget.play()}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.pause()
+                          e.currentTarget.currentTime = 0
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <div className="w-16 h-16 border-4 border-black bg-[#D4FF00] flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:scale-110 transition-transform">
+                          <Play className="w-8 h-8 text-black fill-black ml-1" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-6 bg-white border-t-4 border-black text-left">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Icon className="w-5 h-5 text-[#10b981]" />
+                        <h3 className="font-black uppercase text-sm">{video.title}</h3>
+                      </div>
+                      <p className="text-xs text-gray-600 font-['Space_Grotesk'] leading-relaxed">{video.description}</p>
+                    </div>
+                  </NeoCard>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Quality Section */}
+      <section className="py-24 px-4 bg-neutral-100 border-y-4 border-black text-left">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-[#10b981] text-white border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6">
+              <span className="font-['JetBrains_Mono'] font-bold uppercase">QUALITY_ASSURANCE</span>
+            </div>
+            <h2 className="font-black text-4xl md:text-6xl uppercase mb-4">
+              Certified <span className="text-[#10b981]">Standards</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Material Testing',
+                points: ['OTR & WVTR gas barrier permeability testing', 'Hermetic seal strength measurement (ASTM F88)', 'Sub-micron thickness uniformity verification', 'Migration safety analysis for food compatibility']
+              },
+              {
+                title: 'Quality Control',
+                points: ['In-line high-resolution camera print inspections', 'Pantone color consistency digital checkouts', 'Dimensional blueprints accuracy check', 'Heavy-load physical drops and pressure tests']
+              },
+              {
+                title: 'Certifications',
+                points: ['BPI ASTM D6400 Composting Certificate', 'TUV OK Compost HOME Environmental Standards', 'Grade A BRCGS Food-Safety Compliances', 'FSC Responsible Wood Pulp Traceability']
+              }
+            ].map((section, idx) => (
+              <NeoCard key={idx} className="h-full border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] bg-white text-left">
+                <h3 className="font-black text-xl uppercase mb-6 flex items-center gap-2 border-b-2 border-black pb-4">
+                  <CheckCircle className="w-6 h-6 text-[#10b981]" />
+                  {section.title}
+                </h3>
+                <ul className="space-y-4 font-['JetBrains_Mono'] text-xs text-neutral-600 leading-relaxed">
+                  {section.points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-[#10b981] mt-0.5">▸</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </NeoCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-[#D4FF00] border-b-4 border-black text-center">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <NeoBadge color="bg-black text-white">BIO_TOUR_MANDATE</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+            Partner With Us
+          </h2>
+          <p className="font-['JetBrains_Mono'] font-bold text-xl text-black">
+            Direct-to-factory communication ensuring complete regulatory transparency.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <NeoButton href="/sample" variant="dark">
+              Request Free Eco Sample Kit
+            </NeoButton>
+            <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="secondary" className="!bg-white !text-black border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              Consult Packaging Engineer
+            </NeoButton>
+          </div>
+
+          <div className="pt-8 border-t border-black/20 text-xs font-['JetBrains_Mono'] text-black/70 max-w-xl mx-auto leading-relaxed">
+            <strong>Seeking high-volume enterprise contract manufacturing?</strong><br/>
+            For high-volume bulk rotogravure print specifications and private label factory contracts, visit our wholesale portal:{" "}
+            <a 
+              href="https://achievepack.com/company/factory-tour" 
+              className="underline font-bold hover:text-black transition"
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              achievepack.com/company/factory-tour →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setActiveVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="relative w-full max-w-5xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute -top-12 right-0 w-10 h-10 border-4 border-white bg-[#D4FF00] flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:scale-110 transition-transform z-10"
+              >
+                <X className="w-6 h-6 text-black" />
+              </button>
+
+              {/* Video Container */}
+              <div className="border-4 border-white shadow-[12px_12px_0px_0px_rgba(255,255,255,0.3)]">
+                <video
+                  key={activeVideo.videoSrc}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="w-full aspect-video bg-black"
+                >
+                  <source src={activeVideo.videoSrc} type="video/mp4" />
+                </video>
+              </div>
+
+              {/* Video Info */}
+              <div className="mt-4 bg-white border-4 border-white p-6 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] text-left">
+                <h3 className="font-black text-xl uppercase mb-2">{activeVideo.title}</h3>
+                <p className="text-gray-700 font-['Space_Grotesk']">{activeVideo.description}</p>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={handlePrev}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 border-4 border-white bg-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:scale-110 transition-transform"
+              >
+                <ChevronLeft className="w-8 h-8 text-[#D4FF00]" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 border-4 border-white bg-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:scale-110 transition-transform"
+              >
+                <ChevronRight className="w-8 h-8 text-[#D4FF00]" />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </PouchLayout>
+  )
+}

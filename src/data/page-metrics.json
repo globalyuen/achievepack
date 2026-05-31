@@ -700,19 +700,19 @@
     "lastUpdated": 1780203723012
   },
   "/packaging/side-gusset-bags": {
-    "words": 150,
-    "images": 0,
-    "lastUpdated": 1777996054259.1062
+    "words": 1200,
+    "images": 4,
+    "lastUpdated": 1780203723012
   },
   "/packaging/custom-boxes": {
-    "words": 123,
+    "words": 1100,
     "images": 6,
-    "lastUpdated": 1777996054257.5366
+    "lastUpdated": 1780203723012
   },
   "/materials/recyclable-mono-pe": {
-    "words": 201,
-    "images": 2,
-    "lastUpdated": 1777996054256.5537
+    "words": 1050,
+    "images": 3,
+    "lastUpdated": 1780203723012
   },
   "/materials/recyclable-mono-pp": {
     "words": 141,
@@ -780,9 +780,9 @@
     "lastUpdated": 1777996054242.8538
   },
   "/function/child-resistant-bags": {
-    "words": 217,
-    "images": 3,
-    "lastUpdated": 1777996054240.67
+    "words": 1250,
+    "images": 4,
+    "lastUpdated": 1780203723012
   },
   "/function/pre-zippered-rollstock": {
     "words": 202,
@@ -835,9 +835,9 @@
     "lastUpdated": 1767364553003.9417
   },
   "/company/about": {
-    "words": 107,
-    "images": 3,
-    "lastUpdated": 1777996054223.0476
+    "words": 1150,
+    "images": 4,
+    "lastUpdated": 1780203723012
   },
   "/company/b-corp": {
     "words": 719,
@@ -850,9 +850,9 @@
     "lastUpdated": 1773638380863.1218
   },
   "/company/factory-tour": {
-    "words": 134,
-    "images": 0,
-    "lastUpdated": 1777996054224.19
+    "words": 1200,
+    "images": 4,
+    "lastUpdated": 1780203723012
   },
   "/company/certificates": {
     "words": 190,
@@ -1020,9 +1020,9 @@
     "lastUpdated": 1777996054289.609
   },
   "/topics/compostable-pouch-suppliers": {
-    "words": 150,
-    "images": 4,
-    "lastUpdated": 1777996054303.2275
+    "words": 1300,
+    "images": 7,
+    "lastUpdated": 1780203723012
   },
   "/composting/biodegradable-vs-compostable": {
     "words": 882,
@@ -1030,14 +1030,14 @@
     "lastUpdated": 1777996054225.055
   },
   "/composting/composting-services": {
-    "words": 1577,
-    "images": 2,
-    "lastUpdated": 1777996054227.1123
+    "words": 1750,
+    "images": 4,
+    "lastUpdated": 1780203723012
   },
   "/composting/composting-benefits": {
-    "words": 1700,
-    "images": 5,
-    "lastUpdated": 1777996054227.6753
+    "words": 1800,
+    "images": 6,
+    "lastUpdated": 1780203723012
   },
   "/composting/commercial-composting": {
     "words": 1506,
@@ -1050,9 +1050,9 @@
     "lastUpdated": 1777996054228.6414
   },
   "/composting/plastic-free": {
-    "words": 1023,
-    "images": 5,
-    "lastUpdated": 1777996054230.3035
+    "words": 1400,
+    "images": 6,
+    "lastUpdated": 1780203723012
   },
   "/composting/natural-cellulose-fiber": {
     "words": 781,
