@@ -340,7 +340,7 @@ export default function CoffeeDegassingValveGuide() {
         {
           title: 'USA Coffee Packaging: California AB 1201 Compliance Guide',
           url: '/blog/usa-coffee-packaging',
-          image: '/imgs/seo-photos/industries/coffee/a_coffee_roastery_packaging_setup_2850355.webp'
+          image: '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp'
         },
         {
           title: 'BPI Certified Guide: How to Get Your Packaging BPI-Certified in 2026',

@@ -331,7 +331,7 @@ export default function OrganicComplianceSupportGuide() {
         {
           title: 'Industrial Compostable Guide',
           url: '/blog/industrial-compostable-guide',
-          image: '/imgs/seo-photos/a_achievepack_bpi_certified_5482390.webp'
+          image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp'
         }
       ]}
     />

@@ -236,7 +236,7 @@ export default function PouchStampFoilRecyclabilityPage() {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="w-28 h-28 rounded-full border-4 border-black overflow-hidden bg-lime-100 flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <img 
-                  src="/imgs/ryan-wong.webp" 
+                  src="/imgs/emails/ryan_headshot_v2.png" 
                   alt="Ryan Wong - Sustainable Packaging Supply Chain Expert" 
                   className="w-full h-full object-cover"
                   onError={(e) => {

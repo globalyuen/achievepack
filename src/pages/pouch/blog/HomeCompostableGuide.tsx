@@ -275,6 +275,60 @@ export default function HomeCompostableGuide() {
       )
     },
     {
+      id: 'specifications',
+      title: 'B2B Technical Specs: Translating Raw Parameters to Procurement Value',
+      icon: <Package className="h-5 w-5" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-lg text-neutral-700 leading-relaxed">
+            Professional B2B buyers need clear specifications showing how home compostable barrier films perform on automated lines and during transport:
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border-4 border-black bg-white">
+              <thead>
+                <tr className="bg-black text-[#D4FF00]">
+                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">Raw Technical Parameter</th>
+                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">B2B Procurement Value / Operational Utility</th>
+                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">Standard Factory Specification</th>
+                </tr>
+              </thead>
+              <tbody className="font-mono text-xs">
+                <tr className="bg-[#F0F0F0]">
+                  <td className="border-2 border-black p-3 font-bold">NatureFlex™ Cellulose Laminate</td>
+                  <td className="border-2 border-black p-3 text-neutral-800">
+                    <strong>High-Barrier Eco Block:</strong> Excellent gas barrier preserves flavor and freshness while complying fully with OK Compost HOME.
+                  </td>
+                  <td className="border-2 border-black p-3">NatureFlex™ NM Cellulose / Bio-PBS Seal. <strong>OTR &lt; 1.0, WVTR &lt; 1.5</strong>.</td>
+                </tr>
+                <tr>
+                  <td className="border-2 border-black p-3 font-bold">110 Micron Caliper Thickness</td>
+                  <td className="border-2 border-black p-3 text-neutral-800">
+                    <strong>Production Runnability:</strong> Optimized tensile strength prevents bag burst and web break on automated vertical bagging lines.
+                  </td>
+                  <td className="border-2 border-black p-3">110µm thickness gauge (Tolerances ±3% in size calibrator).</td>
+                </tr>
+                <tr className="bg-[#F0F0F0]">
+                  <td className="border-2 border-black p-3 font-bold">Soft-Touch Anti-Scratch Matte</td>
+                  <td className="border-2 border-black p-3 text-neutral-800">
+                    <strong>Transport Integrity:</strong> Durable outer matte layer prevents micro-scuffs and scuff marks during maritime container shipping.
+                  </td>
+                  <td className="border-2 border-black p-3">Anti-Scratch Soft-Touch Lamination (Rejection rate &lt; 0.1% on arrival).</td>
+                </tr>
+                <tr>
+                  <td className="border-2 border-black p-3 font-bold">Double-Wall Heavy Cartons</td>
+                  <td className="border-2 border-black p-3 text-neutral-800">
+                    <strong>Logistical Care:</strong> Sturdy export boxes lined with thick protective PE polybags safeguard organic films from marine moisture.
+                  </td>
+                  <td className="border-2 border-black p-3">5-ply double-wall boxes + vacuum poly lining bags + dry silica gel packs.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )
+    },
+    {
       id: 'transparent-pricing',
       title: 'Transparent Pricing: What Home Compostable Packaging Costs',
       icon: <DollarSign className="h-5 w-5" />,
@@ -557,6 +611,33 @@ export default function HomeCompostableGuide() {
     }
   ]
 
+  const faqSections = [
+    {
+      q: "What is the MOQ for custom-printed home compostable pouches?",
+      a: "Our minimum order quantity starts at just 500 units for digital printing with zero plate cylinder fees. For high-volume rotogravure printing, the MOQ is 10,000 units, which reduces the per-unit cost by up to 60%."
+    },
+    {
+      q: "Are the home compostable materials certified to AS 5810 and OK Home standards?",
+      a: "Yes, our raw films are pre-certified under AS 5810 (Australia), OK Compost HOME (TÜV Austria), and NF T51-800. These certifications confirm that the materials disintegrate and biodegrade at ambient home composting temperatures (20-30°C) within 180 days."
+    },
+    {
+      q: "What barrier performance (OTR & WVTR) do these bags provide?",
+      a: "Home compostable barrier materials like metallized NatureFlex™ cellulose provide excellent barriers with OTR < 1.0 cc/m²/day and WVTR < 1.5 g/m²/day, ensuring fresh shelf life for sensitive products like coffee or dried foods."
+    },
+    {
+      q: "Do you offer custom sizes, dielines, and integrated degassing valves?",
+      a: "Absolutely. We provide free vector dielines (.AI/PDF) for standard sizes from 50g to 1kg. We also offer custom dimensions, tear notches, resealable zippers, and certified compostable one-way degassing valves specifically for specialty coffee."
+    },
+    {
+      q: "Can I receive physical sample bags to test run on our automated filling lines?",
+      a: "Yes! We provide free stock sample kits containing various pouch sizes and material configurations. For custom print validation, we can run a 50-pouch pre-production proof batch for a flat fee of $100."
+    },
+    {
+      q: "What are the production and transit lead times for shipping to US/AU/EU?",
+      a: "Custom digital printing takes 12-14 business days from artwork sign-off. Rotogravure cylinder setup and printing requires 21-25 days. Express air shipping takes 3-5 days, while wholesale ocean cargo takes 20-30 days to major global ports."
+    }
+  ]
+
   return (
     <BlogArticleTemplate
       title="Home Compostable Packaging Guide: OK Home, AS 5810, TÜV Certification [2026]"
@@ -587,6 +668,9 @@ export default function HomeCompostableGuide() {
       heroImage="/imgs/seo-photos/a_achievepack_home_compostable_balcony_9883994.webp"
       heroImageAlt="Home compostable packaging in backyard compost bin"
       sections={sections}
+      faqSections={faqSections}
+      achievePackLink="https://achievepack.com/materials/home-compostable"
+      achievePackText="Need enterprise-level home compostable barrier films?"
       relatedArticles={relatedArticles}
     />
   )

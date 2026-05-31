@@ -520,17 +520,17 @@ export default function LowMOQPackagingGuide() {
     {
       title: 'Digital Printing Guide: Plateless Custom Bags',
       url: '/blog/digital-printing-packaging-guide',
-      image: '/imgs/seo-photos/printing/digital/a_digital_printing_press_7482935.webp'
+      image: '/imgs/seo-photos/a_digital_printing_customization_2717640.webp'
     },
     {
       title: 'Industrial Compostable Guide: BPI and ASTM D6400',
       url: '/blog/industrial-compostable-guide',
-      image: '/imgs/seo-photos/materials/compostable/a_industrial_compost_facility_2850870.webp'
+      image: '/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp'
     },
     {
       title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way',
       url: '/blog/coffee-degassing-valve-guide',
-      image: '/imgs/seo-photos/industries/coffee/a_coffee_degassing_valve_2850365.webp'
+      image: '/imgs/blog/coffee_degassing_valve.png'
     }
   ]
 
@@ -548,7 +548,7 @@ export default function LowMOQPackagingGuide() {
       categoryTag="Packaging Tips"
       categoryColor="cyan"
       readTime="12 min"
-      heroImage="/imgs/seo-photos/a_digital_indigo_press_7392813.webp"
+      heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
       heroImageAlt="High-speed digital Indigo packaging press running low MOQ custom stand-up pouches"
       sections={sections}
       relatedArticles={relatedArticles}

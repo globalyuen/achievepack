@@ -8,6 +8,8 @@ import { getBaseUrl } from '../../../utils/domain'
 
 export default function USACompostableGuide() {
   const baseUrl = getBaseUrl()
+  const faqSections = []
+  const achievePackLink="https://achievepack.com"
 
   const FAQS = [
     {
@@ -218,6 +220,62 @@ export default function USACompostableGuide() {
         </div>
       </section>
 
+      {/* B2B Technical Specifications */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-6">
+          <NeoBadge color="green">B2B_SPECIFICATIONS</NeoBadge>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase mb-12 italic">B2B Specs</h2>
+          <p className="font-['JetBrains_Mono'] text-lg text-gray-600 mb-8">
+            For procurement managers and supply chain directors, here is how our compostable barrier parameters map directly to operational utility on factory filling lines:
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full border-4 border-black bg-white">
+              <thead>
+                <tr className="bg-black text-[#D4FF00]">
+                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">Raw Technical Parameter</th>
+                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">B2B Procurement Value / Operational Utility</th>
+                  <th className="border-2 border-black p-4 text-left font-['JetBrains_Mono'] text-xs uppercase">Standard Factory Specification</th>
+                </tr>
+              </thead>
+              <tbody className="font-['JetBrains_Mono'] text-xs">
+                <tr className="bg-[#F0F0F0]">
+                  <td className="border-2 border-black p-3 font-bold">NatureFlex™ NM metallized film</td>
+                  <td className="border-2 border-black p-3 text-neutral-800">
+                    <strong>High-Barrier Preservation:</strong> Premium OTR and WVTR protect organic oils and prevent coffee degassing degradation.
+                  </td>
+                  <td className="border-2 border-black p-3">NatureFlex™ NM Cellulose / Bio-PBS Seal. <strong>OTR &lt; 1.0, WVTR &lt; 1.5</strong>.</td>
+                </tr>
+                <tr>
+                  <td className="border-2 border-black p-3 font-bold">110µm thickness gauge</td>
+                  <td className="border-2 border-black p-3 text-neutral-800">
+                    <strong>Production Runnability:</strong> High tensile strength ensures smooth form-fill-seal operation without film breakage.
+                  </td>
+                  <td className="border-2 border-black p-3">110 Micron Caliper Thickness (Tolerances ±3%).</td>
+                </tr>
+                <tr className="bg-[#F0F0F0]">
+                  <td className="border-2 border-black p-3 font-bold">Certified Degassing Valve</td>
+                  <td className="border-2 border-black p-3 text-neutral-800">
+                    <strong>Degassing Valve Integration:</strong> One-way valve vents carbon dioxide while keeping oxygen out, preventing pouch swelling.
+                  </td>
+                  <td className="border-2 border-black p-3">BPI certified home-compostable degassing valve.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          {/* AchievePack Link for Procurement */}
+          <div className="mt-8 bg-blue-50 border-4 border-black p-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div className="text-left">
+              <h4 className="font-black text-xl uppercase">Need wholesale enterprise packaging supply?</h4>
+              <p className="font-['JetBrains_Mono'] text-sm text-gray-600">Get volume discounts, raw film supply, and custom dimensions direct from the factory.</p>
+            </div>
+            <NeoButton variant="primary" href="https://achievepack.com/materials/home-compostable" target="_blank" rel="noopener noreferrer">
+              Visit AchievePack.com
+            </NeoButton>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
@@ -258,7 +316,7 @@ export default function USACompostableGuide() {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="w-28 h-28 rounded-full border-4 border-black overflow-hidden bg-lime-100 flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <img 
-                  src="/imgs/ryan-wong.webp" 
+                  src="/imgs/emails/ryan_headshot_v2.png" 
                   alt="Ryan Wong - Sustainable Packaging Supply Chain Expert" 
                   className="w-full h-full object-cover"
                   onError={(e) => {

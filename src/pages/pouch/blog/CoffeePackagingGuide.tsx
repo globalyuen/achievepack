@@ -317,12 +317,12 @@ export default function CoffeePackagingGuide() {
         {
           title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way',
           url: '/blog/coffee-degassing-valve-guide',
-          image: '/imgs/seo-photos/industries/coffee/a_coffee_degassing_valve_2850365.webp'
+          image: '/imgs/blog/coffee_degassing_valve.png'
         },
         {
           title: 'Digital Printing Guide: No Plate Fees & Low MOQ',
           url: '/blog/digital-printing-eco-packaging-guide',
-          image: '/imgs/seo-photos/printing/digital/a_digital_printing_press_packaging_4857399.webp'
+          image: '/imgs/seo-photos/a_digital_printing_customization_2717640.webp'
         }
       ]}
     />

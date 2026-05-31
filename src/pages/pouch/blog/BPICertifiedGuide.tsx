@@ -22,6 +22,24 @@ export default function BPICertifiedGuide() {
             The Biodegradable Products Institute (BPI) is the **single most recognized third-party certifying body** for compostable products in North America. A BPI Certification Mark verifies that packaging composts in commercial industrial facilities, strictly meeting the scientific limits of **ASTM D6400 or ASTM D6868 standards**. Without this mark, you cannot legally label your pouches as "compostable" in multiple US states.
           </p>
 
+          <div className="flex flex-col sm:flex-row items-center gap-6 my-8 bg-green-50 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <div className="w-full sm:w-1/4 flex justify-center bg-white p-4 border-2 border-black">
+              <img 
+                src="/imgs/company/bpi/bpi.svg" 
+                alt="BPI Compostable Certification Trust Mark" 
+                className="w-28 h-28 object-contain"
+              />
+            </div>
+            <div className="flex-1 text-black">
+              <h4 className="text-lg font-black uppercase mb-1 flex items-center gap-1.5 text-green-950 font-['JetBrains_Mono']">
+                🛡️ Verified BPI Manufacturer Registry #900385
+              </h4>
+              <p className="text-sm leading-relaxed font-medium">
+                Pouch.eco's direct-factory bio-PBS and composite films carry active certifications. This official **BPI Certification Trust Mark** guarantees complete degradation inside commercial facilities within 180 days, releasing zero harmful chemicals or added PFAS.
+              </p>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-6 my-8">
             <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <h3 className="text-2xl font-bold mb-4 font-['JetBrains_Mono']">The B2B Legal & Retail Reality</h3>

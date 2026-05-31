@@ -507,142 +507,50 @@ export default function IndustrialCompostableGuide() {
         </div>
       )
     },
-    {
-      id: 'faq-accordions',
-      title: 'Industrial Compostable FAQ: MOQ, Certification, and Machinery Integration',
-      icon: <HelpCircle className="h-5 w-5" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-lg leading-relaxed">
-            Find immediate answers to B2B logistics, technical certification parameters, and machinery compatibility questions:
-          </p>
-
-          <div className="space-y-4">
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden" open>
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>1. What is the Minimum Order Quantity (MOQ) for custom printing?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                Our MOQ starts at <strong>just 500 units</strong> for custom digital printing, enabling multi-SKU brands to launch without upfront cylinder plate costs. For larger wholesale runs, rotogravure plate printing begins at <strong>10,000 units</strong>, which lowers the per-unit cost by up to 60%.
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>2. Can I get free certified material samples before ordering?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                Yes, we offer a <strong>Free Compostable Sample Kit containing 10 pre-printed pouches</strong> in different sizes and materials (buyer covers shipping). For custom designs, we can manufacture a physical pre-production sample batch of 50 pouches using our digital setup for a flat fee of $100.
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>3. Do you support custom OEM dimensions and feature integrations?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                Absolutely. We support <strong>fully custom OEM shapes, sizes, and structure engineering</strong>. We integrate robust features including high-integrity compostable resealable zippers, laser tear notches, hanging holes, tin-ties, and high-performance compostable one-way degassing valves.
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>4. What is the manufacturing and delivery lead time?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                For custom digital printing, our standard production lead time is <strong>12-14 business days</strong> from artwork approval. Rotogravure plate printing requires <strong>21-25 business days</strong>. DHL/FedEx shipping takes 3-5 business days, and wholesale ocean freight takes 30-40 business days.
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>5. Are your compostable certificates active and verifiable?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                Yes, our factory materials are fully certified and listed under active certifications for <strong>ASTM D6400 (BPI #900385)</strong> in North America and <strong>EN 13432 (TÜV Austria OK Compost Industrial)</strong> in Europe. All certificates are actively maintained and copies are provided upon request.
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>6. What details must I submit to receive an official quote?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                To receive a precise pricing proposal within 24 hours, please submit: (1) <strong>Pouch style and exact dimensions</strong>, (2) <strong>Material composition or shelf-life requirement</strong>, (3) <strong>Number of active SKUs/designs</strong>, and (4) <strong>Target order quantity (e.g. 500 pcs vs. 10,000 pcs)</strong>.
-              </p>
-            </details>
-          </div>
-
-          <div className="bg-[#D4FF00] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] my-12 text-center">
-            <h4 className="text-3xl font-black uppercase mb-6 font-['JetBrains_Mono']">Ready to Partner with a Certified Direct Pouch Manufacturer?</h4>
-            <p className="text-lg mb-8 max-w-2xl mx-auto font-bold text-neutral-800">
-              Accelerate your brand's sustainability transition. Choose your action below to work directly with our packaging engineers:
-            </p>
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <a 
-                href="https://calendly.com/ryan-achievepack/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-black text-[#D4FF00] border-4 border-black px-6 py-4 font-['JetBrains_Mono'] font-bold uppercase text-sm hover:bg-white hover:text-black transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
-              >
-                Request Free Sample Kit (10 Pouches) →
-              </a>
-              <a 
-                href="https://achievepack.com/quote"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#00FFFF] text-black border-4 border-black px-6 py-4 font-['JetBrains_Mono'] font-bold uppercase text-sm hover:bg-white hover:text-black transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
-              >
-                Upload Blueprints / AI Drawings →
-              </a>
-              <a 
-                href="https://achievepack.com/pricing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-black border-4 border-black px-6 py-4 font-['JetBrains_Mono'] font-bold uppercase text-sm hover:bg-black hover:text-white transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
-              >
-                Get Wholesale Pricing Sheet →
-              </a>
-            </div>
-          </div>
-        </div>
-      )
-    }
   ]
 
   const relatedArticles = [
     {
       title: 'BPI Certified Guide: How to Get Your Packaging Certified',
       url: '/blog/bpi-certified-guide',
-      image: '/imgs/seo-photos/materials/compostable/a_bpi_certification_mark_4735893.webp'
+      image: '/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp'
     },
     {
       title: 'USA Compostable Hub: State Laws and Compliance',
       url: '/blog/usa-compostable-packaging-guide',
-      image: '/imgs/seo-photos/usa/hub/a_usa_compostable_packaging_regulation_2589743.webp'
+      image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
     },
     {
       title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way',
       url: '/blog/coffee-degassing-valve-guide',
-      image: '/imgs/seo-photos/industries/coffee/a_coffee_degassing_valve_2850365.webp'
+      image: '/imgs/blog/coffee_degassing_valve.png'
+    }
+  ]
+
+  const faqSections = [
+    {
+      q: "What is the Minimum Order Quantity (MOQ) for custom printing?",
+      a: "Our MOQ starts at just 500 units for custom digital printing, enabling multi-SKU brands to launch without upfront cylinder plate costs. For larger wholesale runs, rotogravure plate printing begins at 10,000 units, which lowers the per-unit cost by up to 60%."
+    },
+    {
+      q: "Can I get free certified material samples before ordering?",
+      a: "Yes, we offer a Free Compostable Sample Kit containing 10 pre-printed pouches in different sizes and materials (buyer covers shipping). For custom designs, we can manufacture a physical pre-production sample batch of 50 pouches using our digital setup for a flat fee of $100."
+    },
+    {
+      q: "Do you support custom OEM dimensions and feature integrations?",
+      a: "Absolutely. We support fully custom OEM shapes, sizes, and structure engineering. We integrate robust features including high-integrity compostable resealable zippers, laser tear notches, hanging holes, tin-ties, and high-performance compostable one-way degassing valves."
+    },
+    {
+      q: "What is the manufacturing and delivery lead time?",
+      a: "For custom digital printing, our standard production lead time is 12-14 business days from artwork approval. Rotogravure plate printing requires 21-25 business days. DHL/FedEx shipping takes 3-5 business days, and wholesale ocean freight takes 30-40 business days."
+    },
+    {
+      q: "Are your compostable certificates active and verifiable?",
+      a: "Yes, our factory materials are fully certified and listed under active certifications for ASTM D6400 (BPI #900385) in North America and EN 13432 (TÜV Austria OK Compost Industrial) in Europe. All certificates are actively maintained and copies are provided upon request."
+    },
+    {
+      q: "What details must I submit to receive an official quote?",
+      a: "To receive a precise pricing proposal within 24 hours, please submit: (1) Pouch style and exact dimensions, (2) Material composition or shelf-life requirement, (3) Number of active SKUs/designs, and (4) Target order quantity."
     }
   ]
 
@@ -653,7 +561,7 @@ export default function IndustrialCompostableGuide() {
       canonicalUrl="https://pouch.eco/blog/industrial-compostable-guide"
       keywords={['industrial compostable packaging', 'EN 13432', 'ASTM D6400 packaging', 'BPI certified compostable', 'commercial compostable pouches', 'PLA packaging bags', 'PBAT blend manufacturer', 'compostable coffee bags']}
       publishedDate="2026-01-30T10:00:00Z"
-      modifiedDate="2026-01-30T10:00:00Z"
+      modifiedDate="2026-05-31"
       author="Ryan Chen"
       heroTitle="Custom Industrial Compostable Packaging for Sustainable Brands"
       heroSubtitle="BPI & TUV certified ASTM D6400/EN 13432 compostable barrier pouches direct from OEM manufacturer."
@@ -663,6 +571,9 @@ export default function IndustrialCompostableGuide() {
       heroImage="/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp"
       heroImageAlt="BPI certified industrial compostable packaging production facility"
       sections={sections}
+      faqSections={faqSections}
+      achievePackLink="https://achievepack.com/materials/industrial-compostable"
+      achievePackText="Need enterprise wholesale industrial compostable pouches?"
       relatedArticles={relatedArticles}
     />
   )

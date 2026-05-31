@@ -11,6 +11,8 @@ import {
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
 import SpecSheetTab from '../../components/admin/SpecSheetTab';
+import SeoMigrationDashboard from '../../components/admin/SeoMigrationDashboard';
+import SeoRankingDashboard from '../../components/admin/SeoRankingDashboard';
 import * as XLSX from 'xlsx';
 
 
@@ -97,7 +99,8 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'>('reports');
+  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'>('reports');
+  const [seoSubTab, setSeoSubTab] = useState<'migration' | 'ranking'>('migration');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
   const [logs, setLogs] = useState<WebhookLog[]>([]);
@@ -1271,6 +1274,11 @@ export default function DailyReportsPage() {
             <span className="hidden xs:inline">Spec Maker</span>
             <span className="xs:hidden">Spec</span>
           </button>
+          <button onClick={() => setActiveTab('seo')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'seo' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <Activity className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+            <span className="hidden xs:inline">SEO/GEO Monitor</span>
+            <span className="xs:hidden">SEO</span>
+          </button>
         </div>
 
         {/* Tab Content: Packing List */}
@@ -1281,6 +1289,41 @@ export default function DailyReportsPage() {
         {/* Tab Content: Spec Sheet Generator */}
         {activeTab === 'spec' && (
           <SpecSheetTab />
+        )}
+
+        {/* Tab Content: SEO/GEO Monitor */}
+        {activeTab === 'seo' && (
+          <div className="bg-gray-50 p-6 rounded-2xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-6">
+            {/* Sub-tab Navigation */}
+            <div className="flex gap-4 border-b-4 border-black pb-4">
+              <button
+                onClick={() => setSeoSubTab('migration')}
+                className={`px-6 py-3 border-4 border-black font-black text-sm uppercase transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
+                  seoSubTab === 'migration' 
+                    ? 'bg-[#D4FF00] text-black shadow-none translate-x-1 translate-y-1' 
+                    : 'bg-white hover:bg-gray-50 text-black'
+                }`}
+              >
+                🗂️ 轉移與優化監控 (Migration & Audit)
+              </button>
+              <button
+                onClick={() => setSeoSubTab('ranking')}
+                className={`px-6 py-3 border-4 border-black font-black text-sm uppercase transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
+                  seoSubTab === 'ranking' 
+                    ? 'bg-blue-500 text-white shadow-none translate-x-1 translate-y-1' 
+                    : 'bg-white hover:bg-gray-50 text-black'
+                }`}
+              >
+                📈 關鍵字與流量排名 (Search & Traffic Rankings)
+              </button>
+            </div>
+
+            {seoSubTab === 'migration' ? (
+              <SeoMigrationDashboard />
+            ) : (
+              <SeoRankingDashboard />
+            )}
+          </div>
         )}
 
         {/* Tab Content: Daily Reports */}
