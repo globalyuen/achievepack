@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Scale, CheckCircle, AlertTriangle, Recycle, ArrowRight, ShieldCheck, HelpCircle, Award, Shield } from 'lucide-react'
+import { Scale, CheckCircle, AlertTriangle, Recycle, ArrowRight, ShieldCheck, HelpCircle, Award, Shield, Factory } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
@@ -25,6 +25,14 @@ export default function PouchStampFoilRecyclabilityPage() {
     {
       q: "Can I print a purple metallic foil logo on my recyclable skincare pouch?",
       a: "Absolutely. By using MDO-PE and LLDPE as the base layers (>95% weight), we can apply a purple hot-stamp logo. For the absolute safest route, we can use our advanced metallic inks to mimic the purple foil effect."
+    },
+    {
+      q: "What is the MOQ for hot-stamped custom pouches?",
+      a: "Our low MOQ program on pouch.eco allows hot-stamped foil accents on stand-up pouches starting at 500 units per design. For high-volume wholesale orders requiring custom shapes, please contact our enterprise line on achievepack.com."
+    },
+    {
+      q: "How much does hot stamping add to the manufacturing lead time?",
+      a: "Since hot foil stamping requires an offline heat-press die cylinder step after lamination, it adds 2 to 3 business days to our standard digital turnaround, resulting in an overall lead time of 14 to 17 business days."
     }
   ]
 
@@ -196,6 +204,35 @@ export default function PouchStampFoilRecyclabilityPage() {
         </div>
       </section>
 
+      {/* B2B Wholesale Callout Section */}
+      <section className="py-12 bg-white px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+             <div className="flex flex-col md:flex-row items-center gap-6">
+               <div className="bg-[#00FFFF] border-2 border-black p-4 shrink-0">
+                 <Factory className="w-10 h-10 text-black" />
+               </div>
+               <div className="space-y-2 flex-1">
+                 <h4 className="font-black text-2xl uppercase">Looking for Volume B2B Wholesale?</h4>
+                 <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 leading-relaxed">
+                   If your brand requires custom printed or hot-stamped recyclable pouches at wholesale scale (5,000+ units) with deep bulk volume discounts and custom dimensions, view our specialized B2B catalog on AchievePack.com.
+                 </p>
+                 <div className="pt-2">
+                   <a 
+                     href="https://achievepack.com/topics/stamp-foil-recyclability"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="inline-flex items-center gap-2 bg-black text-[#D4FF00] border-2 border-black px-4 py-2 font-['JetBrains_Mono'] font-bold text-xs uppercase hover:bg-white hover:text-black transition"
+                   >
+                     Request Custom MOQ & Wholesale Pricing →
+                   </a>
+                 </div>
+               </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
@@ -203,10 +240,17 @@ export default function PouchStampFoilRecyclabilityPage() {
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Questions?</h2>
           <div className="space-y-6">
             {FAQS.map((faq, i) => (
-              <NeoCard key={i} color="bg-white">
-                <h4 className="font-black text-xl mb-2">{faq.q}</h4>
-                <p className="font-['JetBrains_Mono'] text-gray-600">{faq.a}</p>
-              </NeoCard>
+              <details key={i} className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
+                  <h4 className="font-black text-xl uppercase font-['JetBrains_Mono'] flex items-center gap-2 text-black">
+                    <span>{faq.q}</span>
+                  </h4>
+                  <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200 text-black">+</span>
+                </summary>
+                <p className="mt-4 text-base leading-relaxed text-neutral-800 font-['JetBrains_Mono']">
+                  {faq.a}
+                </p>
+              </details>
             ))}
           </div>
         </div>
@@ -246,7 +290,7 @@ export default function PouchStampFoilRecyclabilityPage() {
               </div>
               
               <div className="space-y-4 text-center md:text-left flex-1">
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-black">
                   <span className="font-black text-2xl uppercase">Ryan Wong</span>
                   <span className="bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-bold text-xs uppercase px-2 py-0.5 border border-black">
                     Supply Chain Director

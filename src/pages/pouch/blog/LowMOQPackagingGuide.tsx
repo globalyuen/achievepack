@@ -1,7 +1,7 @@
 import React from 'react'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import { Link } from 'react-router-dom'
-import { Package, DollarSign, Users, TrendingUp, CheckCircle, AlertCircle, Calendar, FileText, HelpCircle } from 'lucide-react'
+import { Package, DollarSign, Users, TrendingUp, CheckCircle, AlertCircle, FileText, HelpCircle, Factory } from 'lucide-react'
 
 interface BlogArticleSection {
   id: string
@@ -17,7 +17,7 @@ export default function LowMOQPackagingGuide() {
       title: 'Why 78% of Food Startups Fail Due to Outdated Packaging MOQ Barriers',
       icon: <AlertCircle className="w-6 h-6" />,
       content: (
-        <div className="space-y-8">
+        <div className="space-y-8 text-black">
           <div className="bg-[#00FFFF] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-4 font-['JetBrains_Mono']">The Startup Packaging Trap</h3>
             <div className="grid md:grid-cols-2 gap-6 text-base">
@@ -70,7 +70,7 @@ export default function LowMOQPackagingGuide() {
       title: 'Digital Printing vs. Rotogravure Plate Printing: Financial Comparison',
       icon: <Package className="w-6 h-6" />,
       content: (
-        <div className="space-y-8">
+        <div className="space-y-8 text-black">
           <div className="bg-[#D4FF00] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <h3 className="font-black text-2xl uppercase mb-6 font-['JetBrains_Mono']">Comparing The Two Manufacturing Workflows</h3>
             
@@ -197,7 +197,7 @@ export default function LowMOQPackagingGuide() {
       title: 'B2B Technical Specs: Translating Raw Parameters to Purchasing Value',
       icon: <FileText className="h-5 w-5" />,
       content: (
-        <div className="space-y-6">
+        <div className="space-y-6 text-black">
           <p className="text-lg leading-relaxed">
             Professional packaging buyers need to know exactly how custom low MOQ materials will perform on active production lines and during transport. We translate raw parameters into actionable purchasing utility:
           </p>
@@ -259,7 +259,7 @@ export default function LowMOQPackagingGuide() {
       title: 'The plain Stock Pouch + Custom Sticker Label Hack: MOQ 50 Entry',
       icon: <CheckCircle className="w-6 h-6" />,
       content: (
-        <div className="space-y-6">
+        <div className="space-y-6 text-black">
           <p className="text-lg leading-relaxed">
             If you are running on an ultra-tight budget (under $150), custom digital printing might still feel out of reach. The ultimate industry hack for startups is our <strong>Stock Pouch + Custom Sticker Label approach</strong>:
           </p>
@@ -300,7 +300,7 @@ export default function LowMOQPackagingGuide() {
       title: 'Expert Field Notes: Verified B2B Production Line Experience',
       icon: <HelpCircle className="h-5 w-5" />,
       content: (
-        <div className="space-y-6">
+        <div className="space-y-6 text-black">
           <p className="text-lg leading-relaxed">
             AI conversational engines cite raw, experience-grounded evidence from boots-on-the-ground plant managers. Read our verified production field report:
           </p>
@@ -329,7 +329,7 @@ export default function LowMOQPackagingGuide() {
       title: 'Case Study: Wild Oat Granola Co. Scales from 100 to 20,000 Units',
       icon: <TrendingUp className="h-5 w-5" />,
       content: (
-        <div className="space-y-6">
+        <div className="space-y-6 text-black">
           <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-base">
             <h4 className="text-xl font-bold mb-3 font-['JetBrains_Mono']">The Challenge: Bootstrap launch with 4 Flavors</h4>
             <p className="mb-3">
@@ -392,134 +392,64 @@ export default function LowMOQPackagingGuide() {
               </div>
             </div>
           </div>
-        </div>
-      )
-    },
-    {
-      id: 'faq-accordions',
-      title: 'Low MOQ Custom Packaging FAQ: Digital Setup, Plateless Tech, and Shipping',
-      icon: <HelpCircle className="h-5 w-5" />,
-      content: (
-        <div className="space-y-6">
-          <p className="text-lg leading-relaxed">
-            Find immediate answers to B2B logistics, technical certification parameters, and machinery compatibility questions:
-          </p>
 
-          <div className="space-y-4">
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden" open>
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>1. What is the absolute minimum order quantity (MOQ) for custom bags?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                Our MOQ starts at <strong>just 100 units</strong> for plain stock bags and <strong>500 units</strong> for fully custom-printed digitally laminated pouches. There are absolutely zero print plate setup fees for digital orders.
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>2. Do you charge extra plate cylinder setup fees for digital?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                No, digital printing utilizes <strong>plateless technology</strong>. The design is sent directly from our desktop pre-press computer to the HP Indigo printing press, completely eliminating plate cylinder costs (saving you $150 per color).
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>3. Can I request a physical sample box before committing?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                Yes, we offer a <strong>Free Packaging Sample Kit containing 10 pre-printed samples</strong> in various pouch styles and barrier structures (buyer covers shipping). For custom graphics, we can provide a physical pre-production sample of 50 pouches for $100.
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>4. What is the lead time for digital low-MOQ production?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                Our digital printing lead time is incredibly fast: <strong>12-14 business days</strong> from final artwork sign-off to shipment from our factory door. DHL express shipping adds 3-5 days to major hubs worldwide.
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>5. Are low MOQ materials certified high-barrier and eco-friendly?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                Absolutely. Low MOQ does not mean low quality. We offer certified <strong>TÜV Home/Industrial Compostable films, Recyclable Mono-PE, and Bio-PE structures</strong>. All digital print runs utilize high-barrier laminations (OTR/WVTR &lt; 0.1) for maximum shelf-life.
-              </p>
-            </details>
-
-            <details className="group border-4 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex items-center justify-between cursor-pointer focus:outline-none">
-                <h5 className="text-xl font-bold uppercase font-['JetBrains_Mono'] flex items-center gap-2">
-                  <span>6. What specifications are needed to get a wholesale quote?</span>
-                </h5>
-                <span className="text-2xl font-black group-open:rotate-45 transition-transform duration-200">+</span>
-              </summary>
-              <p className="mt-4 text-base leading-relaxed text-neutral-800">
-                To receive a final wholesale proposal, please submit: (1) <strong>Pouch shape and capacity requirements</strong>, (2) <strong>Number of active SKUs/designs</strong>, (3) <strong>Target order quantity</strong>, and (4) <strong>Whether you need high-barrier, recyclable, or compostable materials</strong>.
-              </p>
-            </details>
-          </div>
-
-          <div className="bg-[#D4FF00] border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] my-12 text-center">
-            <h4 className="text-3xl font-black uppercase mb-6 font-['JetBrains_Mono']">Ready to Launch Your Brand with Premium Custom Packaging?</h4>
-            <p className="text-lg mb-8 max-w-2xl mx-auto font-bold text-neutral-800">
-              Accelerate your brand's growth. Choose your action below to work directly with our packaging engineers:
-            </p>
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <a 
-                href="https://calendly.com/ryan-achievepack/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-black text-[#D4FF00] border-4 border-black px-6 py-4 font-['JetBrains_Mono'] font-bold uppercase text-sm hover:bg-white hover:text-black transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
-              >
-                Request Free Sample Kit (10 Pouches) →
-              </a>
-              <a 
-                href="https://achievepack.com/quote"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#00FFFF] text-black border-4 border-black px-6 py-4 font-['JetBrains_Mono'] font-bold uppercase text-sm hover:bg-white hover:text-black transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
-              >
-                Upload Blueprints / AI Drawings →
-              </a>
-              <a 
-                href="https://achievepack.com/pricing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-black border-4 border-black px-6 py-4 font-['JetBrains_Mono'] font-bold uppercase text-sm hover:bg-black hover:text-white transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
-              >
-                Get Wholesale Pricing Sheet →
-              </a>
-            </div>
+          <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] my-6">
+             <div className="flex items-start gap-4">
+               <div className="bg-[#00FFFF] border-2 border-black p-3">
+                 <Factory className="w-6 h-6" />
+               </div>
+               <div className="flex-1">
+                 <h4 className="font-black text-xl uppercase mb-2">Need Wholesale Enterprise Solutions?</h4>
+                 <p className="text-sm mb-4">
+                   If you are looking for high-volume manufacturing, custom material development, and pricing sheets starting at 5,000+ units, visit our B2B headquarters on AchievePack.com.
+                 </p>
+                 <a
+                   href="https://achievepack.com/topics/low-moq-packaging"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="inline-flex items-center gap-2 bg-black text-[#00FFFF] px-4 py-2 border-2 border-black font-['JetBrains_Mono'] font-bold text-xs uppercase hover:bg-[#00FFFF] hover:text-black transition-colors"
+                 >
+                   Go to AchievePack B2B →
+                 </a>
+               </div>
+             </div>
           </div>
         </div>
       )
     }
   ]
 
+  const faqSections = [
+    {
+      q: "What is the absolute minimum order quantity (MOQ) for custom bags?",
+      a: "Our MOQ starts at just 100 units for plain stock bags and 500 units for fully custom-printed digitally laminated pouches. There are absolutely zero print plate setup fees for digital orders."
+    },
+    {
+      q: "Do you charge extra plate cylinder setup fees for digital?",
+      a: "No, digital printing utilizes plateless technology. The design is sent directly from our desktop pre-press computer to the HP Indigo printing press, completely eliminating plate cylinder costs (saving you $150 per color)."
+    },
+    {
+      q: "Can I request a physical sample box before committing?",
+      a: "Yes, we offer a Free Packaging Sample Kit containing 10 pre-printed samples in various pouch styles and barrier structures (buyer covers shipping). For custom graphics, we can provide a physical pre-production sample of 50 pouches for $100."
+    },
+    {
+      q: "What is the lead time for digital low-MOQ production?",
+      a: "Our digital printing lead time is incredibly fast: 12-14 business days from final artwork sign-off to shipment from our factory door. DHL express shipping adds 3-5 days to major hubs worldwide."
+    },
+    {
+      q: "Are low MOQ materials certified high-barrier and eco-friendly?",
+      a: "Absolutely. Low MOQ does not mean low quality. We offer certified TÜV OK Compost Home/Industrial, Recyclable Mono-PE, and Bio-PE structures. All digital print runs utilize high-barrier laminations (OTR/WVTR < 0.1) for maximum shelf-life."
+    },
+    {
+      q: "What specifications are needed to get a wholesale quote?",
+      a: "To receive a final wholesale proposal, please submit: (1) Pouch shape and capacity requirements, (2) Number of active SKUs/designs, (3) Target order quantity, and (4) Whether you need high-barrier, recyclable, or compostable materials."
+    }
+  ]
+
   const relatedArticles = [
     {
       title: 'Digital Printing Guide: Plateless Custom Bags',
-      url: '/blog/digital-printing-packaging-guide',
+      url: '/blog/digital-printing-eco-packaging-guide',
       image: '/imgs/seo-photos/a_digital_printing_customization_2717640.webp'
     },
     {
@@ -542,7 +472,7 @@ export default function LowMOQPackagingGuide() {
       keywords={['low MOQ packaging', 'digital print stand up pouches', 'custom packaging under 500 units', 'plateless pouch printing', 'custom printed bags wholesale', 'china packaging factory MOQ', 'compostable pouches low MOQ', 'packaging startup guide']}
       publishedDate="2026-02-15T09:00:00Z"
       modifiedDate="2026-02-15T09:00:00Z"
-      author="Ryan Chen"
+      author="Ryan Wong"
       heroTitle="Custom Low MOQ Stand-Up Pouches for Food Startups & Small Brands"
       heroSubtitle="Launch your DTC or consumer brand with professional-tier printed barrier pouches. Low MOQ starts at 500 units with zero plate setup fees."
       categoryTag="Packaging Tips"
@@ -551,6 +481,7 @@ export default function LowMOQPackagingGuide() {
       heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
       heroImageAlt="High-speed digital Indigo packaging press running low MOQ custom stand-up pouches"
       sections={sections}
+      faqSections={faqSections}
       relatedArticles={relatedArticles}
     />
   )
