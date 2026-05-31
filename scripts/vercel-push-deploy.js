@@ -34,6 +34,34 @@ function logMessage(msg) {
   console.log(`[DEPLOY-CRON] [${new Date().toISOString()}] ${msg}`);
 }
 
+// Strict mapping of TSX filenames to their actual canonical routes in main.tsx
+const SLUG_MAPPING = {
+  'BPICertifiedGuide.tsx': 'bpi-certified-guide',
+  'CompostableHumidityControlGuide.tsx': 'compostable-humidity-control-guide',
+  'IndustrialCompostableGuide.tsx': 'industrial-compostable-guide',
+  'LowMOQPackagingGuide.tsx': 'low-moq-packaging-guide',
+  'OrganicComplianceSupportGuide.tsx': 'organic-compliance-support-guide',
+  'PouchStampFoilRecyclabilityPage.tsx': 'stamp-foil-recyclability',
+  'USACompostableGuide.tsx': 'usa-compostable-packaging-guide',
+  'CoffeePackagingGuide.tsx': 'coffee-packaging-guide',
+  'USACoffeePackaging.tsx': 'usa-coffee-packaging',
+  'CompostableStandUpPouchesGuide.tsx': 'compostable-stand-up-pouches-guide',
+  'USASnacksPackagingGuide.tsx': 'usa-snacks-packaging-guide',
+  'USALabelingGuide.tsx': 'usa-labeling-guide',
+  'CoffeeDegassingValveGuide.tsx': 'coffee-degassing-valve-guide',
+  'HomeCompostableGuide.tsx': 'home-compostable-guide',
+  'EcoFriendlyFoodPackagingGuide.tsx': 'eco-friendly-food-packaging-guide',
+  'DTCSustainablePackagingGuide.tsx': 'dtc-sustainable-packaging-guide',
+  'RecyclableSnackPackagingGuide.tsx': 'recyclable-snack-packaging-guide',
+  'CompostableBabyFoodPackagingGuide.tsx': 'compostable-baby-food-packaging-guide',
+  'CustomCompostablePouchSuppliersGuide.tsx': 'custom-compostable-pouch-suppliers-guide',
+  'CustomPrintedMaterialsGuide.tsx': 'custom-printed-materials-guide',
+  'DigitalPrintingEcoPackagingGuide.tsx': 'digital-printing-eco-packaging-guide',
+  'EcoPackagingRegulationsGuide.tsx': 'eco-packaging-regulations-guide',
+  'GreenCoffeeMaterialsGuide.tsx': 'green-coffee-materials-guide',
+  'LowMOQStartupPackagingGuide.tsx': 'low-moq-startup-packaging-guide'
+};
+
 // 1. Identify newly modified or optimized pages in the last 24 hours
 function getRecentlyModifiedPages() {
   logMessage('Scanning blog directory for recently updated SEO pages...');
@@ -54,10 +82,13 @@ function getRecentlyModifiedPages() {
       const stat = fs.statSync(filePath);
       const isNewOrModified = (now - stat.mtimeMs) < ONE_DAY_MS;
       
-      // Convert component filename to URL slug
-      let slug = file.replace('.tsx', '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-      if (slug.endsWith('-guide')) {
-        slug = slug.replace('-guide', '');
+      // Convert component filename to URL slug using rigid dictionary mapping
+      let slug = SLUG_MAPPING[file];
+      if (!slug) {
+        slug = file.replace('.tsx', '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+        if (slug.endsWith('-guide')) {
+          slug = slug.replace('-guide', '');
+        }
       }
 
       // Read file to parse Title/Header
@@ -101,11 +132,22 @@ function deployUpdates() {
   }
 }
 
-// 3. Helper to verify HTTP status of live page URLs
-function verifyLiveStatus(url) {
+// 3. Helper to verify HTTP status of live page URLs (follows redirects up to 3 hops)
+function verifyLiveStatus(url, depth = 0) {
   return new Promise((resolve) => {
+    if (depth > 3) {
+      resolve('OFFLINE (TOO MANY REDIRECTS)');
+      return;
+    }
     https.get(url, (res) => {
-      resolve(res.statusCode === 200 ? 'ONLINE (200 OK)' : `PENDING DEPLOY (${res.statusCode})`);
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        const redirectUrl = res.headers.location.startsWith('http') 
+          ? res.headers.location 
+          : new URL(res.headers.location, url).href;
+        resolve(verifyLiveStatus(redirectUrl, depth + 1));
+      } else {
+        resolve(res.statusCode === 200 ? 'ONLINE (200 OK)' : `OFFLINE (${res.statusCode})`);
+      }
     }).on('error', () => {
       resolve('BUILDING / OFFLINE');
     });
@@ -119,10 +161,10 @@ async function main() {
   // A. Push recent local optimizations to production (triggers Vercel build)
   const didPush = deployUpdates();
   
-  // If we just pushed, let's wait 45 seconds for Vercel's build runner to begin packaging
+  // If we just pushed, let's wait 150 seconds (2.5 minutes) for Vercel's build pipeline to fully complete compilation & deploy
   if (didPush) {
-    logMessage('Waiting 45 seconds for Vercel pipeline compilation to propagate...');
-    await new Promise(resolve => setTimeout(resolve, 45000));
+    logMessage('Waiting 150 seconds for Vercel pipeline compilation & deployment to fully complete...');
+    await new Promise(resolve => setTimeout(resolve, 150000));
   }
 
   // B. Parse modified files and compile online checks
@@ -132,9 +174,9 @@ async function main() {
 
   logMessage(`Found ${optimizedList.length} pages updated in the last 24 hours. Verifying URLs...`);
 
-  // Verify online status for optimized pages
+  // Verify online status for optimized pages (using www to bypass Vercel's canonical non-www redirects)
   for (const page of optimizedList) {
-    const liveUrl = `https://pouch.eco/blog/${page.slug}`;
+    const liveUrl = `https://www.pouch.eco/blog/${page.slug}`;
     page.liveUrl = liveUrl;
     page.status = await verifyLiveStatus(liveUrl);
     logMessage(`Checked ${liveUrl} -> Status: ${page.status}`);

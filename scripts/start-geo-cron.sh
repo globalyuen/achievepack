@@ -104,7 +104,7 @@ case "$1" in
       NODE_PATH="/usr/local/bin/node"
     fi
     
-    CRON_LINE="0 7 * * * cd \"$PROJECT_ROOT\" && $NODE_PATH \"$SCRIPT_DIR/vercel-push-deploy.js\" >> \"$SCRIPT_DIR/vercel-push-deploy.log\" 2>&1"
+    CRON_LINE="0 8 * * * cd \"$PROJECT_ROOT\" && $NODE_PATH \"$SCRIPT_DIR/vercel-push-deploy.js\" >> \"$SCRIPT_DIR/vercel-push-deploy.log\" 2>&1"
     
     # Read existing crontab
     TEMP_CRON=$(mktemp)
@@ -120,8 +120,8 @@ case "$1" in
     crontab "$TEMP_CRON"
     rm "$TEMP_CRON"
     
-    echo "✅ Everyday 7:00 AM HKT persistent push scheduler successfully installed!"
-    echo "📝 It will run automatically in the background at 7:00 AM HKT."
+    echo "✅ Everyday 8:00 AM HKT persistent push scheduler successfully installed!"
+    echo "📝 It will run automatically in the background at 8:00 AM HKT."
     echo "📄 To view logs: tail -f \"$SCRIPT_DIR/vercel-push-deploy.log\""
     ;;
 
