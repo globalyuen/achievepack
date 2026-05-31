@@ -800,6 +800,30 @@ if (getDomain() === 'pouch') {
                   <Route path="/spec/pcr-pet-duplex-clear" element={<PcrPetDuplexClearPage />} />
                   <Route path="/spec/pcr-kraft-duplex-low" element={<PcrKraftDuplexLowPage />} />
 
+                  {/* Batch 8 Spec Pages (All remaining spec pages) */}
+                  <Route path="/spec/pcr-pp-kraft-triplex-clear" element={<PcrPpKraftTriplexClearPage />} />
+                  <Route path="/spec/pcr-pet-duplex-nowindow" element={<PcrPetDuplexNoWindowPage />} />
+                  <Route path="/spec/pcr-pp-duplex-nowindow" element={<PcrPpDuplexNoWindowPage />} />
+                  <Route path="/spec/pcr-pp-triplex-metalised" element={<PcrPpTriplexMetalisedPage />} />
+                  <Route path="/spec/pcr-pet-kraft-quadlex-aluminum" element={<PcrPetKraftQuadlexAluminumPage />} />
+                  <Route path="/spec/pcr-pp-kraft-quadlex-aluminum" element={<PcrPpKraftQuadlexAluminumPage />} />
+                  <Route path="/spec/mono-pp-duplex-clear" element={<MonoPpDuplexClearPage />} />
+                  <Route path="/spec/mono-pe-duplex-nowindow" element={<MonoPeDuplexNoWindowPage />} />
+                  <Route path="/spec/mono-pp-duplex-nowindow" element={<MonoPpDuplexNoWindowPage />} />
+                  <Route path="/spec/bio-cello-triplex-highest" element={<BioCelloTriplexHighestPage />} />
+                  <Route path="/spec/bio-cello-triplex-metalised" element={<BioCelloTriplexMetalisedPage />} />
+                  <Route path="/spec/bio-kraft-vm-cello" element={<BioKraftVmCelloPage />} />
+                  <Route path="/spec/bio-kraft-pbat-low" element={<BioKraftPbatLowPage />} />
+                  <Route path="/spec/biope-pet-duplex-clear" element={<BioPePetDuplexClearPage />} />
+                  <Route path="/spec/biope-pp-duplex-clear" element={<BioPePpDuplexClearPage />} />
+                  <Route path="/spec/biope-pp-kraft-triplex-clear" element={<BioPePpKraftTriplexClearPage />} />
+                  <Route path="/spec/biope-pet-duplex-nowindow" element={<BioPePetDuplexNoWindowPage />} />
+                  <Route path="/spec/biope-pet-triplex-metalised" element={<BioPePetTriplexMetalisedPage />} />
+                  <Route path="/spec/biope-pp-triplex-aluminum" element={<BioPePpTriplexAluminumPage />} />
+                  <Route path="/spec/biope-pet-kraft-quadlex-aluminum" element={<BioPePetKraftQuadlexAluminumPage />} />
+                  <Route path="/spec/biope-pp-kraft-quadlex-aluminum" element={<BioPePpKraftQuadlexAluminumPage />} />
+                  <Route path="/spec/biope-kraft-duplex-low" element={<BioPeKraftDuplexLowPage />} />
+
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="*" element={<PouchHomePage />} />
                 </Routes>
