@@ -1,4 +1,4 @@
-import { Cookie, TrendingUp, Shield, Package, DollarSign, CheckCircle } from 'lucide-react'
+import { Cookie, TrendingUp, Shield, Package, DollarSign, CheckCircle, Building2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import ClickableImage from '../../../components/ClickableImage'
@@ -123,9 +123,9 @@ export default function USASnacksPackagingGuide() {
                     <h5 className="font-bold mb-2">Requirements:</h5>
                     <ul className="text-sm space-y-1">
                       <li>✓ ASTM D6400 or D6868 certification required</li>
-                      <li>✓ "Commercially Compostable" label must be visible</li>
+                      <li>✓ \"Commercially Compostable\" label must be visible</li>
                       <li>✓ Green or brown color coding recommended</li>
-                      <li>✓ Cannot use "biodegradable" on plastic packaging</li>
+                      <li>✓ Cannot use \"biodegradable\" on plastic packaging</li>
                       <li>✓ Recyclable symbol restricted (60%+ recycling access)</li>
                     </ul>
                   </div>
@@ -158,7 +158,7 @@ export default function USASnacksPackagingGuide() {
                     <ul className="text-sm space-y-1">
                       <li>✓ ASTM D6400/D6868 certification</li>
                       <li>✓ Must be clearly distinguishable from non-compostable</li>
-                      <li>✓ "Compostable" claim substantiation required</li>
+                      <li>✓ \"Compostable\" claim substantiation required</li>
                       <li>✓ Third-party testing documentation</li>
                     </ul>
                   </div>
@@ -179,8 +179,8 @@ export default function USASnacksPackagingGuide() {
                   <span className="font-black text-xl uppercase">HB 22-1355</span>
                 </div>
                 <ul className="text-sm space-y-2">
-                  <li>• Products labeled "compostable" must meet ASTM D6400</li>
-                  <li>• Must include "Commercially Compostable Only" if not home compostable</li>
+                  <li>• Products labeled \"compostable\" must meet ASTM D6400</li>
+                  <li>• Must include \"Commercially Compostable Only\" if not home compostable</li>
                   <li>• Prohibits misleading environmental marketing claims</li>
                   <li>• Enforced by Colorado Dept. of Public Health and Environment</li>
                 </ul>
@@ -188,13 +188,13 @@ export default function USASnacksPackagingGuide() {
             </div>
 
             <div className="mt-6 bg-yellow-50 border-4 border-black p-4">
-              <h5 className="font-bold mb-2">🚨 Nationwide Trend: FTC Green Guides</h5>
+              <h5 className="font-bold mb-2">🚨 FTC Green Guides Compliance:</h5>
               <p className="text-sm">Federal Trade Commission guidelines apply to all states. Key points:</p>
               <ul className="text-sm space-y-1 mt-2">
-                <li>• "Compostable" claims must be substantiated</li>
+                <li>• \"Compostable\" claims must be substantiated</li>
                 <li>• Must specify industrial vs. home compostable</li>
-                <li>• Cannot make claims if composting facilities aren't accessible</li>
-                <li>• Avoid vague terms like "eco-friendly" or "green"</li>
+                <li>• Cannot make claims if composting facilities aren\'t accessible</li>
+                <li>• Avoid vague terms like \"eco-friendly\" or \"green\"</li>
               </ul>
             </div>
           </div>
@@ -256,13 +256,7 @@ export default function USASnacksPackagingGuide() {
                     <td className="border-2 border-black p-3 font-bold">Certification</td>
                     <td className="border-2 border-black p-3">ASTM D6400, BPI</td>
                     <td className="border-2 border-black p-3">ASTM D6400, BPI</td>
-                    <td className="border-2 border-black p-3"><Link to="/blog/usa-labeling-guide" className="hover:underline">How2Recycle label</Link></td>
-                  </tr>
-                  <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3 font-bold">End-of-Life</td>
-                    <td className="border-2 border-black p-3">🌱 Industrial compost (90-180 days)</td>
-                    <td className="border-2 border-black p-3">🌱 Industrial compost (90-180 days)</td>
-                    <td className="border-2 border-black p-3">♻️ Recyclable (if collected)</td>
+                    <td className="border-2 border-black p-3">How2Recycle label</td>
                   </tr>
                   <tr className="border-2 border-black bg-gray-50">
                     <td className="border-2 border-black p-3 font-bold">Cost (1,000 pcs)</td>
@@ -270,11 +264,52 @@ export default function USASnacksPackagingGuide() {
                     <td className="border-2 border-black p-3">$0.70-0.95</td>
                     <td className="border-2 border-black p-3">$0.45-0.65</td>
                   </tr>
-                  <tr className="border-2 border-black">
-                    <td className="border-2 border-black p-3 font-bold">Consumer Appeal</td>
-                    <td className="border-2 border-black p-3">⭐⭐⭐⭐⭐</td>
-                    <td className="border-2 border-black p-3">⭐⭐⭐⭐⭐</td>
-                    <td className="border-2 border-black p-3">⭐⭐⭐</td>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black text-2xl uppercase mb-4 bg-[#D4FF00] inline-block px-2">Technical-to-Purchasing Value Specs (Snacks)</h4>
+            <div className="overflow-x-auto mt-2">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b-4 border-black bg-[#F0F0F0]">
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">Raw Technical Field</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">B2B Procurement Translation</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold text-sm">Commercial Advantage & Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">WVTR (Moisture Transmission) &lt; 0.5 g/m²/24hr</td>
+                    <td className="p-3 border-r-2 border-black text-sm">Will our potato chips or crackers go soggy?</td>
+                    <td className="p-3 text-sm">Provides military-grade moisture exclusion. Keeps crispy and oily snacks crunchy and completely fresh, extending shelf life to 12+ months.</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">NatureFlex™ Biodegradable Cellulose Window</td>
+                    <td className="p-3 border-r-2 border-black text-sm">Can we have a transparent window while claiming compostability?</td>
+                    <td className="p-3 text-sm">Enables full product visibility utilizing certified wood-pulp derived film. Combines premium aesthetic appeal with zero landfill impact.</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">NKME Metallized Compostable Film</td>
+                    <td className="p-3 border-r-2 border-black text-sm">How does this compare to foil liners in chips?</td>
+                    <td className="p-3 text-sm">Fuses compostable cellulose with a micro-thin aluminum metallization layer. Delivers extreme oxygen/light barrier comparable to traditional PET/ALU structures.</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Co-Extruded Mono-PE (EVOH Barrier)</td>
+                    <td className="p-3 border-r-2 border-black text-sm">Is there a cheaper recyclable alternative that is still high barrier?</td>
+                    <td className="p-3 text-sm">Single-family plastic with microscopic EVOH layer. Qualifies for standard Store Drop-off recycling (#4) while protecting against rancidity and grease leaching.</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">VFFS High-Speed Seals (Pocket Zip / Press-Zip)</td>
+                    <td className="p-3 border-r-2 border-black text-sm">Will it slow down our co-packing machinery lines?</td>
+                    <td className="p-3 text-sm">Specially designed low-temperature sealing zippers allow rapid dwell times on automatic VFFS, maximizing co-packing speed with zero seal splits.</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Double-Wall Export Master Packing + Poly Liner</td>
+                    <td className="p-3 border-r-2 border-black text-sm">What is the shipping risk of moisture or punctures?</td>
+                    <td className="p-3 text-sm">Heavy-duty export boxes with moisture-proof polythene bags inside eliminate puncture risks and protect bag integrity during multi-week ocean transport.</td>
                   </tr>
                 </tbody>
               </table>
@@ -326,7 +361,7 @@ export default function USASnacksPackagingGuide() {
       content: (
         <div className="space-y-8">
           <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h3 className="font-black text-2xl uppercase mb-6">Complete Price Breakdown (<Link to="/industry/snacks" className="hover:underline">Compostable Snack Pouches</Link>)</h3>
+            <h3 className="font-black text-2xl uppercase mb-6">Complete Price Breakdown (Compostable Snack Pouches)</h3>
             <ClickableImage src="/imgs/seo-photos/a_data_doesnt_lie_comparison_1860300.webp" alt="Snack Packaging Price Comparison Chart" className="w-full h-64 object-cover border-4 border-black mb-6" />
             
             <div className="overflow-x-auto">
@@ -390,29 +425,12 @@ export default function USASnacksPackagingGuide() {
                     <td className="border-2 border-black p-3 bg-green-50">$0.80-$1.05</td>
                     <td className="border-2 border-black p-3">$0.95-$1.20</td>
                   </tr>
-
-                  <tr className="border-2 border-black bg-gray-50">
-                    <td className="border-2 border-black p-3 font-bold" rowSpan={3}>3,000 pcs</td>
-                    <td className="border-2 border-black p-3">4oz (100×170mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$0.45-$0.60</td>
-                    <td className="border-2 border-black p-3">$0.55-$0.75</td>
-                  </tr>
-                  <tr className="border-2 border-black bg-gray-50">
-                    <td className="border-2 border-black p-3">8oz (120×200mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$0.55-$0.75</td>
-                    <td className="border-2 border-black p-3">$0.65-$0.85</td>
-                  </tr>
-                  <tr className="border-2 border-black bg-gray-50">
-                    <td className="border-2 border-black p-3">12oz (140×240mm)</td>
-                    <td className="border-2 border-black p-3 bg-green-50">$0.65-$0.85</td>
-                    <td className="border-2 border-black p-3">$0.75-$0.95</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
 
             <div className="mt-6 bg-yellow-50 border-4 border-black p-4">
-              <h5 className="font-bold mb-2">📦 What's Included:</h5>
+              <h5 className="font-bold mb-2">📦 What\'s Included:</h5>
               <div className="grid md:grid-cols-2 gap-4 text-sm">
                 <div>
                   <p className="font-bold mb-1">✓ Included:</p>
@@ -459,6 +477,25 @@ export default function USASnacksPackagingGuide() {
               </div>
             </div>
           </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <a 
+              href="https://pouch.eco/products"
+              className="inline-flex items-center justify-center gap-3 bg-black text-[#D4FF00] px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <Package className="w-5 h-5" />
+              Shop Snack Pouches (MOQ 100)
+            </a>
+            <a 
+              href="https://achievepack.com/usa/snacks-packaging"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-[#00FFFF] text-black px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-black hover:text-[#00FFFF] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <Building2 className="w-5 h-5" />
+              Get Wholesale Bulk Pricing (5,000+)
+            </a>
+          </div>
         </div>
       )
     },
@@ -486,7 +523,7 @@ export default function USASnacksPackagingGuide() {
                 <ul className="space-y-2 text-sm">
                   <li>✗ Existing supplier MOQ: 5,000 pieces per SKU = $4,500</li>
                   <li>✗ Multi-layer plastic not accepted by target retailers</li>
-                  <li>✗ Customers asking "Is this recyclable?" at farmers markets</li>
+                  <li>✗ Customers asking \"Is this recyclable?\" at farmers markets</li>
                   <li>✗ No budget for $2,000 plate printing setup</li>
                 </ul>
               </div>
@@ -534,7 +571,7 @@ export default function USASnacksPackagingGuide() {
                       <li>• 500 bags (most popular SKU only)</li>
                       <li>• Same compostable material</li>
                       <li>• Refined design based on customer feedback</li>
-                      <li>• Added "ASTM D6400 Certified" badge</li>
+                      <li>• Added \"ASTM D6400 Certified\" badge</li>
                     </ul>
                   </div>
                   <div>
@@ -596,7 +633,7 @@ export default function USASnacksPackagingGuide() {
                 <div className="text-sm font-bold">Sales Increase YoY</div>
               </div>
               <div className="bg-white border-2 border-black p-6 text-center">
-                <div className="text-4xl font-black mb-2">5⭐</div>
+                <div className="text-4xl font-black mb-2">5★</div>
                 <div className="text-sm font-bold">Customer Reviews on Packaging</div>
               </div>
             </div>
@@ -616,7 +653,7 @@ export default function USASnacksPackagingGuide() {
                 </div>
                 <div>
                   <p className="font-bold mb-2">💬 Founder Quote:</p>
-                  <p className="italic">"The compostable packaging wasn't just a sustainability choice—it was our key to Whole Foods. Buyers told us directly that our ASTM D6400 certification was a major factor. Low MOQ let us prove the concept without betting the farm."</p>
+                  <p className="italic">\"The compostable packaging wasn\'t just a sustainability choice—it was our key to Whole Foods. Buyers told us directly that our ASTM D6400 certification was a major factor. Low MOQ let us prove the concept without betting the farm.\"</p>
                   <p className="mt-2 font-bold">— Sarah Chen, Founder</p>
                 </div>
               </div>
@@ -645,8 +682,38 @@ export default function USASnacksPackagingGuide() {
       }
       heroSubtitle="Complete guide for US snack brands: Compostable vs recyclable comparison, California/Washington/Colorado compliance, transparent pricing breakdown, and real startup success story. Perfect for granola, chips, trail mix, and organic snacks."
       sections={sections}
+      
+      faqSections={[
+        {
+          q: "What is the minimum order quantity for custom printed snack pouches in the US?",
+          a: "For emerging snack brands and seasonal SKUs, we support low MOQs starting at 100 bags via high-definition digital printing on Pouch.eco. For established food manufacturers seeking maximum cost efficiency, gravure plate printing is available starting at 5,000 bags on AchievePack.com."
+        },
+        {
+          q: "Can we request free samples of sustainable snack packaging?",
+          a: "Yes. We offer free sample kits featuring our entire range of snack packaging (compostable Kraft, high-barrier bio-cellulose, and recyclable mono-PE). This allows you to perform fit-tests and barrier testing. Standard shipping rates apply and are fully credited back to you on your first production order."
+        },
+        {
+          q: "Do you support custom dimensions, clear product windows, and resealable zippers?",
+          a: "Absolutely. We provide full OEM customization. You can customize the dimensions (height, width, gusset) and choose from premium features like press-to-close compostable zippers, tear notches, round or Euro-slot hang holes, and clear product windows utilizing biodegradable cellulose film."
+        },
+        {
+          q: "What are the production and delivery lead times to the United States?",
+          a: "Digital print runs (100–1,000 pouches) are completed and shipped in 2–3 weeks. Custom bulk gravure runs (5,000+ pouches) require 3–4 weeks for plate engraving and VFFS co-extrusion. We offer expedited air courier and cost-effective sea shipping directly to your facility."
+        },
+        {
+          q: "Are your compostable snack pouches fully compliant with California AB 1201 and FTC Green Guides?",
+          a: "Yes. Our compostable snack packaging is certified by BPI (Biodegradable Products Institute) and TÜV AUSTRIA to meet strict ASTM D6400 / EN 13432 standards. We use eco-friendly water-based inks and certified compostable zip closures, providing full documentation to satisfy California, Washington, and federal labeling requirements."
+        },
+        {
+          q: "What information is required to get a detailed commercial snack packaging quote?",
+          a: "Please provide: (1) Bag style (e.g., Stand-up, flat-bottom, flat bag), (2) Volumetric capacity (4oz, 8oz, 16oz), (3) Material structure (Compostable Kraft, High-Barrier Compostable, or Recyclable Mono-PE), (4) Total quantities per SKU, and (5) Artwork blueprints or design files."
+        }
+      ]}
+      
       calendlyUrl="https://calendly.com/ryan-achievepack/30min"
       achievePackLink="https://achievepack.com/usa/snacks-packaging"
+      achievePackText="Need Enterprise wholesale production? Visit AchievePack.com for B2B solutions"
+      
       showTableOfContents={true}
       relatedArticles={[
         {

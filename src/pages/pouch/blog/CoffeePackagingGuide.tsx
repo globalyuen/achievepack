@@ -1,5 +1,5 @@
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
-import { Coffee, Droplets, Wind, Lock, DollarSign, TrendingUp } from 'lucide-react'
+import { Coffee, Droplets, Wind, Lock, DollarSign, TrendingUp, Building2 } from 'lucide-react'
 
 export default function CoffeePackagingGuide() {
   const sections = [
@@ -36,41 +36,101 @@ export default function CoffeePackagingGuide() {
 
           <div className="bg-white border-4 border-black p-6">
             <h4 className="font-black text-2xl uppercase mb-4">Real Data: Shelf Life Comparison</h4>
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-black">
-                  <th className="text-left py-3 font-['JetBrains_Mono']">Packaging Type</th>
-                  <th className="text-center py-3 font-['JetBrains_Mono']">Aroma Retention</th>
-                  <th className="text-center py-3 font-['JetBrains_Mono']">Shelf Life</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-neutral-200">
-                  <td className="py-3">Regular Plastic Bag</td>
-                  <td className="text-center py-3 text-red-600 font-bold">30-45 days</td>
-                  <td className="text-center py-3">2-3 months</td>
-                </tr>
-                <tr className="border-b border-neutral-200">
-                  <td className="py-3">Paper Bag (No Liner)</td>
-                  <td className="text-center py-3 text-red-600 font-bold">14-21 days</td>
-                  <td className="text-center py-3">1 month</td>
-                </tr>
-                <tr className="border-b border-neutral-200">
-                  <td className="py-3 font-bold">High-Barrier Pouch + Valve</td>
-                  <td className="text-center py-3 text-green-600 font-bold">9-12 months</td>
-                  <td className="text-center py-3 font-bold">12-18 months</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b-2 border-black">
+                    <th className="text-left py-3 font-['JetBrains_Mono']">Packaging Type</th>
+                    <th className="text-center py-3 font-['JetBrains_Mono']">Aroma Retention</th>
+                    <th className="text-center py-3 font-['JetBrains_Mono']">Shelf Life</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-neutral-200">
+                    <td className="py-3">Regular Plastic Bag</td>
+                    <td className="text-center py-3 text-red-600 font-bold">30-45 days</td>
+                    <td className="text-center py-3">2-3 months</td>
+                  </tr>
+                  <tr className="border-b border-neutral-200">
+                    <td className="py-3">Paper Bag (No Liner)</td>
+                    <td className="text-center py-3 text-red-600 font-bold">14-21 days</td>
+                    <td className="text-center py-3">1 month</td>
+                  </tr>
+                  <tr className="border-b border-neutral-200">
+                    <td className="py-3 font-bold">High-Barrier Pouch + Valve</td>
+                    <td className="text-center py-3 text-green-600 font-bold">9-12 months</td>
+                    <td className="text-center py-3 font-bold">12-18 months</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <a 
-            href="https://pouch.eco/products"
-            className="inline-flex items-center gap-3 bg-black text-[#D4FF00] px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-          >
-            <Coffee className="w-5 h-5" />
-            Shop Coffee Pouches (MOQ 100)
-          </a>
+          <div className="bg-white border-4 border-black p-6 mt-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black text-2xl uppercase mb-4 bg-[#D4FF00] inline-block px-2">Technical-to-Purchasing Value Specs</h4>
+            <div className="overflow-x-auto mt-2">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b-4 border-black bg-[#F0F0F0]">
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">Raw Technical Field</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold border-r-2 border-black text-sm">B2B Procurement Translation</th>
+                    <th className="p-3 font-['JetBrains_Mono'] font-bold text-sm">Commercial Advantage & Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">OTR (Oxygen Transmission) &lt; 1.0 cc/m²/24hr</td>
+                    <td className="p-3 border-r-2 border-black text-sm">Does this fit coffee freshness standards?</td>
+                    <td className="p-3 text-sm">Prevents oxidation of premium volatile oils, extending shelf life from 30 days to 12+ months and protecting retail brand reputation.</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">NKME Metallized Cellulose Barrier</td>
+                    <td className="p-3 border-r-2 border-black text-sm">Is it certified compostable and protective?</td>
+                    <td className="p-3 text-sm">Fuses plastic-free sustainability with high-barrier performance, passing strict ASTM D6400 / EN 13432 certifications while resisting oil leaching.</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">One-Way Degassing Valve (Swiss import)</td>
+                    <td className="p-3 border-r-2 border-black text-sm">Will the bags rupture during transport/storage?</td>
+                    <td className="p-3 text-sm">Safely vents roasting CO2 gas build-up without admitting external oxygen. Eliminates ballooning and shelf-burst risks on retail shelves.</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Integrated Resealable Zipper / Pocket Zip</td>
+                    <td className="p-3 border-r-2 border-black text-sm">How does it enhance consumer retention?</td>
+                    <td className="p-3 text-sm">Maintains aroma barrier integrity post-opening. Elevates consumer brand experience, ensuring every cup tastes as fresh as day one.</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Custom VFFS Machinability Blueprinting</td>
+                    <td className="p-3 border-r-2 border-black text-sm">Can they run on automatic packaging machinery?</td>
+                    <td className="p-3 text-sm">Tailored dimensions ensure high-speed operation (up to 65 bags/min) on automatic vertical form-fill-seal lines with zero zip-splitting downtime.</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold border-r-2 border-black font-['JetBrains_Mono'] text-xs">Triple-Layer Export Master Carton Packing</td>
+                    <td className="p-3 border-r-2 border-black text-sm">What is our transport and shipping risk?</td>
+                    <td className="p-3 text-sm">Heavy-duty double-wall corrugated boxes with moisture-proof PE liners prevent shipping damages and moisture ingress during ocean transit.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <a 
+              href="https://pouch.eco/products"
+              className="inline-flex items-center justify-center gap-3 bg-black text-[#D4FF00] px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-[#D4FF00] hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <Coffee className="w-5 h-5" />
+              Shop Coffee Pouches (MOQ 100)
+            </a>
+            <a 
+              href="https://achievepack.com/industry/coffee-tea"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-[#00FFFF] text-black px-8 py-4 border-4 border-black font-['JetBrains_Mono'] font-bold uppercase hover:bg-black hover:text-[#00FFFF] transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <Building2 className="w-5 h-5" />
+              Get Wholesale Bulk Pricing (5,000+)
+            </a>
+          </div>
         </div>
       )
     },
@@ -173,14 +233,24 @@ export default function CoffeePackagingGuide() {
           <div className="bg-black text-white p-8 border-4 border-black">
             <h4 className="font-black text-2xl uppercase mb-4 text-[#D4FF00]">Not Sure Which to Choose?</h4>
             <p className="mb-4">Book a free consultation and we'll help you pick the right material based on your distribution, brand positioning, and budget.</p>
-            <a 
-              href="https://calendly.com/30-min-free-packaging-consultancy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#D4FF00] text-black px-6 py-3 font-['JetBrains_Mono'] font-bold border-2 border-[#D4FF00] hover:bg-transparent hover:text-[#D4FF00] transition-colors"
-            >
-              Book Free Call →
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a 
+                href="https://calendly.com/30-min-free-packaging-consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#D4FF00] text-black px-6 py-3 font-['JetBrains_Mono'] font-bold border-2 border-[#D4FF00] hover:bg-transparent hover:text-[#D4FF00] transition-colors text-center"
+              >
+                Book Free Call →
+              </a>
+              <a 
+                href="https://achievepack.com/industry/coffee-tea"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-white text-black px-6 py-3 font-['JetBrains_Mono'] font-bold border-2 border-white hover:bg-transparent hover:text-white transition-colors text-center"
+              >
+                Enterprise Solutions (5,000+)
+              </a>
+            </div>
           </div>
         </div>
       )
@@ -197,37 +267,39 @@ export default function CoffeePackagingGuide() {
 
           <div className="bg-[#00FFFF] border-4 border-black p-8">
             <h4 className="font-black text-3xl uppercase mb-6">Transparent Pricing Breakdown</h4>
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b-4 border-black">
-                  <th className="py-3 font-['JetBrains_Mono'] font-bold">Quantity</th>
-                  <th className="py-3 font-['JetBrains_Mono'] font-bold">Price/Pouch (12oz)</th>
-                  <th className="py-3 font-['JetBrains_Mono'] font-bold">Lead Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b-2 border-black">
-                  <td className="py-3 font-bold">100-500 pcs</td>
-                  <td className="py-3">$1.40-$2.10</td>
-                  <td className="py-3">2-3 weeks</td>
-                </tr>
-                <tr className="border-b-2 border-black">
-                  <td className="py-3 font-bold">500-1,000 pcs</td>
-                  <td className="py-3">$1.05-$1.75</td>
-                  <td className="py-3">2-3 weeks</td>
-                </tr>
-                <tr className="border-b-2 border-black">
-                  <td className="py-3 font-bold">1,000-3,000 pcs</td>
-                  <td className="py-3">$0.80-$1.40</td>
-                  <td className="py-3">3-4 weeks</td>
-                </tr>
-                <tr>
-                  <td className="py-3 font-bold">3,000+ pcs</td>
-                  <td className="py-3 text-green-600 font-bold">Request Quote</td>
-                  <td className="py-3">3-4 weeks</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="border-b-4 border-black">
+                    <th className="py-3 font-['JetBrains_Mono'] font-bold">Quantity</th>
+                    <th className="py-3 font-['JetBrains_Mono'] font-bold">Price/Pouch (12oz)</th>
+                    <th className="py-3 font-['JetBrains_Mono'] font-bold">Lead Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b-2 border-black">
+                    <td className="py-3 font-bold">100-500 pcs</td>
+                    <td className="py-3">$1.40-$2.10</td>
+                    <td className="py-3">2-3 weeks</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="py-3 font-bold">500-1,000 pcs</td>
+                    <td className="py-3">$1.05-$1.75</td>
+                    <td className="py-3">2-3 weeks</td>
+                  </tr>
+                  <tr className="border-b-2 border-black">
+                    <td className="py-3 font-bold">1,000-3,000 pcs</td>
+                    <td className="py-3">$0.80-$1.40</td>
+                    <td className="py-3">3-4 weeks</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 font-bold">3,000+ pcs</td>
+                    <td className="py-3 text-green-600 font-bold">Request Quote</td>
+                    <td className="py-3">3-4 weeks</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <p className="mt-4 text-sm">
               <strong>Note:</strong> Prices include full-color printing, degassing valve, and resealable zipper. Varies by size and material choice.
             </p>
@@ -254,7 +326,7 @@ export default function CoffeePackagingGuide() {
           <div className="bg-[#D4FF00] border-4 border-black p-6">
             <h4 className="font-black text-xl uppercase mb-3">🎁 What's Included:</h4>
             <ul className="space-y-2">
-              <li>✓ Full-color gravure printing (both sides)</li>
+              <li>✓ Full-color gravure/digital printing (both sides)</li>
               <li>✓ One-way degassing valve (essential for coffee)</li>
               <li>✓ Resealable zipper closure</li>
               <li>✓ Tear notch for easy opening</li>
@@ -301,6 +373,33 @@ export default function CoffeePackagingGuide() {
       
       sections={sections}
       
+      faqSections={[
+        {
+          q: "What is the minimum wholesale order quantity for custom printed coffee pouches?",
+          a: "For small-batch roasters, we support low MOQs starting at 100 bags using high-definition digital printing on Pouch.eco. For larger commercial wholesale runs and maximum price efficiency, traditional gravure plate printing is available starting at 5,000 bags on AchievePack.com."
+        },
+        {
+          q: "Can we request a free coffee pouch sample kit before ordering?",
+          a: "Absolutely. We offer free sample kits featuring our entire range of materials (compostable kraft, high-barrier recyclable mono-PE, and PCR post-consumer recycled plastics) in standard coffee sizes (12oz, 16oz, 32oz). Standard carrier shipping rates apply, which are fully credited back to you upon placing your first production order."
+        },
+        {
+          q: "Do you support custom dimensions, tin-ties, and degassing valve placement?",
+          a: "Yes. As a specialized manufacturer, we offer complete OEM customization. We can adjust width, gusset depth, and height to match your volumetric density. We also support one-way degassing valves (placed at your custom height specification), pocket zippers, tear notches, hang holes, and tin-ties."
+        },
+        {
+          q: "What are the standard manufacturing and delivery lead times?",
+          a: "Digital print runs of 100–1,000 pouches are typically completed and shipped in 2–3 weeks. High-volume gravure print runs (5,000+ pouches) require 3–4 weeks for cylinder engraving and production. Expedited air freight and cost-efficient ocean shipping options are available."
+        },
+        {
+          q: "Are your compostable coffee bags certified for commercial or home composting?",
+          a: "Our compostable coffee bags utilize genuine BPI-certified and TÜV AUSTRIA (OK Compost Industrial/Home) certified films and Swiss-imported degassing valves. They meet ASTM D6400 and EN 13432 standards, breaking down fully into organic nutrient-rich compost without leaving toxic residues."
+        },
+        {
+          q: "What technical specifications do you need to calculate a custom packaging quote?",
+          a: "To provide an accurate wholesale quote, please specify your: (1) Bag style (e.g., Stand-Up Pouch, Flat-Bottom Gusset, Side-Gusset Pouch), (2) Volumetric capacity (12oz, 16oz, 2lb, 5lb), (3) Material structure (Compostable Kraft, Recyclable Mono-PE, or PCR), (4) Total quantity, and (5) Design colors or artwork files."
+        }
+      ]}
+      
       ctaTitle="Ready to Upgrade Your Coffee Packaging?"
       ctaDescription="Start with just 100 pieces. Book a free consultation to get expert recommendations for your roastery."
       calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
@@ -311,18 +410,18 @@ export default function CoffeePackagingGuide() {
       relatedArticles={[
         {
           title: 'USA Compostable Packaging Guide',
-          url: '/blog/usa-compostable-packaging-guide',
+          url: '/blog/usa-compostable-guide',
           image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
         },
         {
           title: 'Coffee Bags Degassing Valve Guide: One-Way vs Two-Way',
           url: '/blog/coffee-degassing-valve-guide',
-          image: '/imgs/blog/coffee_degassing_valve.png'
+          image: '/imgs/seo-photos/industries/coffee/a_coffee_degassing_valve_2850365.webp'
         },
         {
           title: 'Digital Printing Guide: No Plate Fees & Low MOQ',
           url: '/blog/digital-printing-eco-packaging-guide',
-          image: '/imgs/seo-photos/a_digital_printing_customization_2717640.webp'
+          image: '/imgs/seo-photos/printing/digital/a_digital_printing_press_packaging_4857399.webp'
         }
       ]}
     />
