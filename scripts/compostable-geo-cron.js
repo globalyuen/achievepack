@@ -14,10 +14,15 @@
  * 5. Saves state back to `src/data/compostable_geo_state.json`.
  */
 
-const fs = require('fs');
-const path = require('path');
-const http = require('http');
-const https = require('https');
+import fs from 'fs';
+import path from 'path';
+import http from 'http';
+import https from 'https';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const STATE_FILE_PATH = path.join(__dirname, '..', 'src', 'data', 'compostable_geo_state.json');
 
