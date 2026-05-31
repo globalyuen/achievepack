@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, type MouseEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star, Play, Sparkles } from 'lucide-react'
+import { useNavigate, Link } from 'react-router-dom'
+import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star, Play, Sparkles, BookOpen, ShieldCheck, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -919,6 +919,125 @@ export default function PouchHomePage() {
                 </div>
               </NeoCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Resource & Circular Economy Guides Library */}
+      <section className="py-24 bg-white border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-block bg-[#FF00FF] text-white border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-bold text-xs uppercase mb-6">
+              📚 KNOWLEDGE_PORTAL
+            </div>
+            <h2 className="font-black text-5xl md:text-7xl uppercase leading-[0.9] tracking-tighter text-black">
+              ECO RESOURCE & LIBRARY
+            </h2>
+            <p className="font-['Space_Grotesk'] text-lg mt-6 leading-relaxed text-neutral-800 font-semibold">
+              Deep-dive technical reports, global compliance playbooks, and circular economy research drafted by certified experts to keep your brand aligned.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 font-['Space_Grotesk'] text-black">
+            {/* Guide 1: EU PPWR Compliance */}
+            <NeoCard color="bg-white" className="flex flex-col justify-between group">
+              <div>
+                <div className="flex justify-between items-center mb-4">
+                  <span className="bg-[#D4FF00] border-2 border-black text-black px-2 py-0.5 text-[10px] font-black uppercase font-['JetBrains_Mono']">
+                    COMPLIANCE_2026
+                  </span>
+                  <ShieldCheck className="w-5 h-5 text-green-600" />
+                </div>
+                <h3 className="font-black text-xl mb-3 uppercase leading-tight group-hover:text-[#10b981] transition-colors">
+                  EU PPWR Compliance Guide
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-xs leading-relaxed mb-6 text-neutral-600">
+                  Detailed analysis of void space ratios, harmonized recycling sorting labels, and eco-modulated modulation fees relief for EU-bound brand owners.
+                </p>
+              </div>
+              <NeoButton to="/blog/eu-ppwr-compliance-guide" className="text-xs !py-2.5 !px-4 w-full text-center">
+                Read Playbook →
+              </NeoButton>
+            </NeoCard>
+
+            {/* Guide 2: Stamp Foil Recyclability */}
+            <NeoCard color="bg-white" className="flex flex-col justify-between group">
+              <div>
+                <div className="flex justify-between items-center mb-4">
+                  <span className="bg-[#00FFFF] border-2 border-black text-black px-2 py-0.5 text-[10px] font-black uppercase font-['JetBrains_Mono']">
+                    RECYCLING_SPECS
+                  </span>
+                  <BookOpen className="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 className="font-black text-xl mb-3 uppercase leading-tight group-hover:text-[#10b981] transition-colors">
+                  Stamp Foil Recyclability
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-xs leading-relaxed mb-6 text-neutral-600">
+                  How hot stamp foils and metallic decorative embellishments affect sorting telemetry in municipal mono-material recycling streams.
+                </p>
+              </div>
+              <NeoButton to="/blog/stamp-foil-recyclability" className="text-xs !py-2.5 !px-4 w-full text-center">
+                Read Research →
+              </NeoButton>
+            </NeoCard>
+
+            {/* Guide 3: Compostable Zipper Study */}
+            <NeoCard color="bg-white" className="flex flex-col justify-between group">
+              <div>
+                <div className="flex justify-between items-center mb-4">
+                  <span className="bg-[#FF00FF] text-white border-2 border-black px-2 py-0.5 text-[10px] font-black uppercase font-['JetBrains_Mono']">
+                    MATERIAL_SCIENCE
+                  </span>
+                  <Zap className="w-5 h-5 text-pink-600" />
+                </div>
+                <h3 className="font-black text-xl mb-3 uppercase leading-tight group-hover:text-[#10b981] transition-colors">
+                  Compostable Zipper Durability
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-xs leading-relaxed mb-6 text-neutral-600">
+                  Analyzing oxygen transmission rates and tensile grip durability of 100% plant-based reclosure zippers without removal requirements.
+                </p>
+              </div>
+              <NeoButton to="/topics/compostable-zipper-durability" className="text-xs !py-2.5 !px-4 w-full text-center">
+                Read Technical Study →
+              </NeoButton>
+            </NeoCard>
+
+            {/* Guide 4: Custom vs Standard */}
+            <NeoCard color="bg-[#D4FF00]" className="flex flex-col justify-between group">
+              <div>
+                <div className="flex justify-between items-center mb-4">
+                  <span className="bg-black text-[#D4FF00] border-2 border-black px-2 py-0.5 text-[10px] font-black uppercase font-['JetBrains_Mono']">
+                    PROCUREMENT_ROI
+                  </span>
+                  <Leaf className="w-5 h-5 text-black" />
+                </div>
+                <h3 className="font-black text-xl mb-3 uppercase leading-tight group-hover:text-white transition-colors">
+                  Standard Runs vs. Custom Specs
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-xs leading-relaxed mb-6 text-neutral-850">
+                  Decision matrix comparing pre-made online packaging stock models with custom-engineered bulk B2B production specs to optimize unit pricing.
+                </p>
+              </div>
+              <NeoButton to="/topics/custom-vs-standard-packaging" variant="secondary" className="text-xs !py-2.5 !px-4 w-full text-center">
+                Compare Spec Sheets →
+              </NeoButton>
+            </NeoCard>
+          </div>
+
+          {/* Quick links list for remaining guides */}
+          <div className="mt-12 bg-neutral-50 border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] grid md:grid-cols-2 lg:grid-cols-3 gap-4 font-['JetBrains_Mono'] text-sm font-bold uppercase">
+            <Link to="/topics/real-world-sustainability" className="flex items-center justify-between p-3 border-2 border-black bg-white hover:bg-[#D4FF00] transition-colors group">
+              <span>🌱 Real-World Circular Sustainability</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link to="/topics/compostable-spouted-pouches" className="flex items-center justify-between p-3 border-2 border-black bg-white hover:bg-[#00FFFF] transition-colors group">
+              <span>💧 Spouted Biopolymer Composting</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link to="/solutions/citrus-oil-packaging" className="flex items-center justify-between p-3 border-2 border-black bg-white hover:bg-[#FF00FF] hover:text-white transition-colors group">
+              <span className="group-hover:text-white">🍊 Citrus Oil Protective Barriers</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform group-hover:text-white" />
+            </Link>
           </div>
         </div>
       </section>

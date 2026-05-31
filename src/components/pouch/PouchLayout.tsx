@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react'
-import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight, Zap, Coffee, Layout, Search } from 'lucide-react'
+import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight, Zap, Coffee, Layout, Search, Box, Sparkles } from 'lucide-react'
 import { NeoButton, NeoBadge } from './PouchUI'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -67,10 +67,10 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             >
               <button 
                 className={`px-2 py-1 transition-colors flex items-center gap-1 hover:bg-black hover:text-white ${
-                  isActive('/size-guide') || isActive('/tech-specs') || isActive('/pricing') || isActive('/free-service/packaging-mockup') || isActive('/free-service/website-upgrade') ? 'bg-black text-[#D4FF00]' : ''
+                  isActive('/size-guide') || isActive('/tech-specs') || isActive('/pricing') || isActive('/dieline-finder') || isActive('/dieline-creator') || isActive('/3d-showcase') || isActive('/free-service/packaging-mockup') ? 'bg-black text-[#D4FF00]' : ''
                 }`}
               >
-                [FREE ▾]
+                [APPS ▾]
               </button>
               
               <AnimatePresence>
@@ -79,12 +79,12 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute left-0 mt-2 w-[580px] bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-4 font-['Space_Grotesk'] text-black grid grid-cols-2 gap-4"
+                    className="absolute left-0 mt-2 w-[620px] bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 p-4 font-['Space_Grotesk'] text-black grid grid-cols-2 gap-4"
                   >
-                    {/* Left Column: Interactive Apps */}
+                    {/* Left Column: Sizing & Specs Apps */}
                     <div className="space-y-2">
                       <div className="bg-[#D4FF00] border-2 border-black p-1.5 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center mb-1">
-                        ⚡ Interactive Apps
+                        ⚡ Sizing & Specs Apps
                       </div>
                       
                       {/* Sizing Finder */}
@@ -93,7 +93,9 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                         onClick={() => setIsAppsDropdownOpen(false)}
                         className="flex items-center gap-3 p-1.5 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all group"
                       >
-                        <img src="/imgs/free/sizing-finder-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Sizing Finder" />
+                        <div className="w-10 h-10 border border-black bg-purple-100 flex items-center justify-center flex-shrink-0">
+                          <SizingFinderIcon className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        </div>
                         <div className="text-left">
                           <div className="font-bold text-xs uppercase tracking-tight">[SIZING FINDER]</div>
                           <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Find exact size & capacity</div>
@@ -106,23 +108,12 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                         onClick={() => setIsAppsDropdownOpen(false)}
                         className="flex items-center gap-3 p-1.5 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all group"
                       >
-                        <img src="/imgs/free/spec-finder-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Spec Finder" />
+                        <div className="w-10 h-10 border border-black bg-blue-100 flex items-center justify-center flex-shrink-0">
+                          <MaterialSpecFinderIcon className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        </div>
                         <div className="text-left">
                           <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[SPEC FINDER]</div>
                           <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Compare barrier OTR/WVTR</div>
-                        </div>
-                      </Link>
-
-                      {/* Dieline Finder */}
-                      <Link
-                        to="/dieline-finder"
-                        onClick={() => setIsAppsDropdownOpen(false)}
-                        className="flex items-center gap-3 p-1.5 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all group"
-                      >
-                        <img src="/imgs/free/dieline-finder-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Dieline Finder" />
-                        <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[DIELINE FINDER]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Directory of 160+ templates</div>
                         </div>
                       </Link>
 
@@ -132,7 +123,9 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                         onClick={() => setIsAppsDropdownOpen(false)}
                         className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
                       >
-                        <img src="/imgs/free/invest-cal-hero.jpg" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Pricing" />
+                        <div className="w-10 h-10 border border-black bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                          <Coffee className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        </div>
                         <div className="text-left">
                           <div className="font-bold text-xs uppercase tracking-tight">[PRICING]</div>
                           <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Packaging budget calculator</div>
@@ -140,61 +133,69 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                       </Link>
                     </div>
 
-                    {/* Right Column: Free B2B Services */}
+                    {/* Right Column: 3D & Dieline Creator Apps */}
                     <div className="space-y-2">
                       <div className="bg-[#00FFFF] border-2 border-black p-1.5 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center mb-1">
-                        🎁 Free B2B Services
+                        🎨 3D & Dieline Creator Apps
                       </div>
-                      
-                      {/* Free Mockup */}
-                      <Link
-                        to="/free-service/packaging-mockup"
-                        onClick={() => setIsAppsDropdownOpen(false)}
-                        className="flex items-center gap-3 p-1.5 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all group"
-                      >
-                        <img src="/imgs/free/mock/hero.webp" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Free Mockup" />
-                        <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[FREE MOCKUP]</div>
-                          <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Visualize packaging designs</div>
-                        </div>
-                      </Link>
 
-                      {/* Free Website */}
+                      {/* 3D WebGL Pouch Showcase */}
                       <Link
-                        to="/free-service/website-upgrade"
+                        to="/3d-showcase"
                         onClick={() => setIsAppsDropdownOpen(false)}
                         className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
                       >
-                        <img src="/imgs/free/website/hero.webp" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Free Website" />
+                        <div className="w-10 h-10 border border-black bg-amber-100 flex items-center justify-center flex-shrink-0">
+                          <Box className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[FREE WEBSITE]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Strategy call & homepage concept</div>
+                          <div className="font-bold text-xs uppercase tracking-tight">[3D WEBGL SHOWCASE]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Rotate & inspect eco pouch textures</div>
                         </div>
                       </Link>
 
-                      {/* Free MGT Tool / Customer Center */}
+                      {/* Real-Time Dieline Creator */}
                       <Link
-                        to="/free-service/customer-center"
+                        to="/dieline-creator"
                         onClick={() => setIsAppsDropdownOpen(false)}
                         className="flex items-center gap-3 p-1.5 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all group"
                       >
-                        <img src="/imgs/free/design/a_process_flow_infographic_5376739.webp" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Customer Center" />
+                        <div className="w-10 h-10 border border-black bg-cyan-100 flex items-center justify-center flex-shrink-0">
+                          <Sparkles className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[FREE MGT TOOL]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Order tracker & artwork manager</div>
+                          <div className="font-bold text-xs uppercase tracking-tight">[DIELINE CREATOR]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Generate custom PDF/DXF vectors</div>
                         </div>
                       </Link>
 
-                      {/* Free Design Consultation */}
+                      {/* Dynamic Dieline Finder */}
                       <Link
-                        to="/free-service/packaging-design-consultation"
+                        to="/dieline-finder"
                         onClick={() => setIsAppsDropdownOpen(false)}
-                        className="flex items-center gap-3 p-1.5 hover:bg-[#D4FF00] border-2 border-transparent hover:border-black transition-all group"
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#FF00FF] hover:text-white border-2 border-transparent hover:border-black transition-all group"
                       >
-                        <img src="/imgs/illustrated/a_coffee_roaster_variation_1_6758424.webp" className="w-10 h-10 border border-black rounded object-cover flex-shrink-0" alt="Design Consultation" />
+                        <div className="w-10 h-10 border border-black bg-pink-100 flex items-center justify-center flex-shrink-0">
+                          <Layout className="w-6 h-6 text-black animate-pulse" strokeWidth={2.5} />
+                        </div>
                         <div className="text-left">
-                          <div className="font-bold text-xs uppercase tracking-tight">[FREE DESIGN]</div>
-                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">20-min B2B layout strategy call</div>
+                          <div className="font-bold text-xs uppercase tracking-tight group-hover:text-white">[DIELINE FINDER]</div>
+                          <div className="text-[9px] text-neutral-600 group-hover:text-neutral-100 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Directory of 160+ standard templates</div>
+                        </div>
+                      </Link>
+
+                      {/* Free 3D Mockup Generator */}
+                      <Link
+                        to="/free-service/packaging-mockup"
+                        onClick={() => setIsAppsDropdownOpen(false)}
+                        className="flex items-center gap-3 p-1.5 hover:bg-[#00FFFF] border-2 border-transparent hover:border-black transition-all group"
+                      >
+                        <div className="w-10 h-10 border border-black bg-neutral-100 flex items-center justify-center flex-shrink-0">
+                          <Zap className="w-6 h-6 text-black" strokeWidth={2.5} />
+                        </div>
+                        <div className="text-left">
+                          <div className="font-bold text-xs uppercase tracking-tight">[3D MOCKUP GENERATOR]</div>
+                          <div className="text-[9px] text-neutral-600 font-semibold font-['JetBrains_Mono'] leading-tight mt-0.5">Upload artwork to visualize in 3D</div>
                         </div>
                       </Link>
                     </div>
@@ -337,17 +338,19 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                     [SOLUTIONS]
                   </Link>
                   
+                  <div className="bg-[#D4FF00] border-2 border-black p-1.5 font-['JetBrains_Mono'] font-bold text-xs uppercase text-center mt-2 mb-1">
+                    ⚡ Interactive Apps
+                  </div>
+
                   <Link
                     to="/size-guide"
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 border-4 border-black transition-all ${
-                      isActive('/size-guide') 
-                        ? 'bg-black text-[#D4FF00]' 
-                        : 'bg-white hover:bg-[#D4FF00]'
+                    className={`block px-4 py-2 border-2 border-black transition-all ${
+                      isActive('/size-guide') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
                     }`}
                   >
-                    <span className="flex items-center gap-2">
-                      <SizingFinderIcon className="w-5 h-5 text-black" strokeWidth={2.5} />
+                    <span className="flex items-center gap-2 text-xs font-bold font-['JetBrains_Mono']">
+                      <SizingFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
                       [SIZING FINDER APP]
                     </span>
                   </Link>
@@ -355,45 +358,78 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                   <Link
                     to="/tech-specs"
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 border-4 border-black transition-all ${
-                      isActive('/tech-specs') 
-                        ? 'bg-black text-[#D4FF00]' 
-                        : 'bg-white hover:bg-[#D4FF00]'
+                    className={`block px-4 py-2 border-2 border-black transition-all ${
+                      isActive('/tech-specs') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
                     }`}
                   >
-                    <span className="flex items-center gap-2">
-                      <MaterialSpecFinderIcon className="w-5 h-5 text-black" strokeWidth={2.5} />
+                    <span className="flex items-center gap-2 text-xs font-bold font-['JetBrains_Mono']">
+                      <MaterialSpecFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
                       [SPEC FINDER APP]
+                    </span>
+                  </Link>
+
+                  <Link
+                    to="/3d-showcase"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-2 border-2 border-black transition-all ${
+                      isActive('/3d-showcase') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2 text-xs font-bold font-['JetBrains_Mono']">
+                      <Box className="w-4 h-4 text-black" strokeWidth={2.5} />
+                      [3D SHOWCASE APP]
+                    </span>
+                  </Link>
+
+                  <Link
+                    to="/dieline-creator"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-2 border-2 border-black transition-all ${
+                      isActive('/dieline-creator') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2 text-xs font-bold font-['JetBrains_Mono']">
+                      <Sparkles className="w-4 h-4 text-black" strokeWidth={2.5} />
+                      [DIELINE CREATOR APP]
                     </span>
                   </Link>
 
                   <Link
                     to="/dieline-finder"
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 border-4 border-black transition-all ${
-                      isActive('/dieline-finder') 
-                        ? 'bg-black text-[#D4FF00]' 
-                        : 'bg-white hover:bg-[#D4FF00]'
+                    className={`block px-4 py-2 border-2 border-black transition-all ${
+                      isActive('/dieline-finder') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
                     }`}
                   >
-                    <span className="flex items-center gap-2">
-                      <Layout className="w-5 h-5 text-black" strokeWidth={2.5} />
+                    <span className="flex items-center gap-2 text-xs font-bold font-['JetBrains_Mono']">
+                      <Layout className="w-4 h-4 text-black" strokeWidth={2.5} />
                       [DIELINE FINDER APP]
+                    </span>
+                  </Link>
+
+                  <Link
+                    to="/free-service/packaging-mockup"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-2 border-2 border-black transition-all ${
+                      isActive('/free-service/packaging-mockup') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2 text-xs font-bold font-['JetBrains_Mono']">
+                      <Zap className="w-4 h-4 text-black" strokeWidth={2.5} />
+                      [3D MOCKUP GENERATOR]
                     </span>
                   </Link>
 
                   <Link
                     to="/pricing"
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 border-4 border-black transition-all ${
-                      isActive('/pricing') 
-                        ? 'bg-black text-[#00FFFF]' 
-                        : 'bg-white hover:bg-[#00FFFF]'
+                    className={`block px-4 py-2 border-2 border-black transition-all ${
+                      isActive('/pricing') ? 'bg-black text-[#D4FF00]' : 'bg-white hover:bg-[#D4FF00]'
                     }`}
                   >
-                    <span className="flex items-center gap-2">
-                      <Coffee className="w-5 h-5 text-black" strokeWidth={2.5} />
-                      [Pricing]
+                    <span className="flex items-center gap-2 text-xs font-bold font-['JetBrains_Mono']">
+                      <Coffee className="w-4 h-4 text-black" strokeWidth={2.5} />
+                      [PRICING CALCULATOR]
                     </span>
                   </Link>
                   
@@ -606,19 +642,49 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
             </div>
             <div>
               <h4 className="font-black uppercase mb-4 text-xl flex items-center gap-1.5 border-b-4 border-black pb-2">
-                <Zap className="w-5 h-5 text-black fill-current animate-pulse" /> Packaging App
+                <Zap className="w-5 h-5 text-black fill-current animate-pulse" /> Packaging Apps
               </h4>
-              <ul className="space-y-3 font-['JetBrains_Mono'] text-sm font-bold pt-2">
+              <ul className="space-y-2 font-['JetBrains_Mono'] text-sm font-bold pt-2 flex flex-col">
                 <li>
-                  <Link to="/size-guide" className="hover:bg-black hover:text-white transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-purple-600">
+                  <Link to="/size-guide" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-purple-600 w-full">
                     <SizingFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
-                    [SIZING FINDER]
+                    [SIZING FINDER APP]
                   </Link>
                 </li>
                 <li>
-                  <Link to="/tech-specs" className="hover:bg-black hover:text-white transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-blue-600">
+                  <Link to="/tech-specs" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-blue-600 w-full">
                     <MaterialSpecFinderIcon className="w-4 h-4 text-black" strokeWidth={2.5} />
-                    [SPEC FINDER]
+                    [SPEC FINDER APP]
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/3d-showcase" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-amber-600 w-full">
+                    <Box className="w-4 h-4 text-black" strokeWidth={2.5} />
+                    [3D SHOWCASE APP]
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dieline-creator" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-cyan-600 w-full">
+                    <Sparkles className="w-4 h-4 text-black" strokeWidth={2.5} />
+                    [DIELINE CREATOR]
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dieline-finder" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-pink-600 w-full">
+                    <Layout className="w-4 h-4 text-black" strokeWidth={2.5} />
+                    [DIELINE FINDER]
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/free-service/packaging-mockup" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-green-600 w-full">
+                    <Zap className="w-4 h-4 text-black animate-bounce" strokeWidth={2.5} />
+                    [3D MOCKUP GEN]
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/pricing" className="hover:bg-black hover:text-[#D4FF00] transition-all flex items-center gap-2 p-1.5 border-2 border-black bg-white inline-flex text-emerald-600 w-full">
+                    <Coffee className="w-4 h-4 text-black" strokeWidth={2.5} />
+                    [PRICING CALC]
                   </Link>
                 </li>
               </ul>
