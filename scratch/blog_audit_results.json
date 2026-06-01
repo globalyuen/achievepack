@@ -1,0 +1,374 @@
+[
+  {
+    "filename": "BPICertifiedGuide.tsx",
+    "wordCount": 9,
+    "imageCount": 5,
+    "images": [
+      "/imgs/company/bpi/bpi.svg",
+      "/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp",
+      "/imgs/seo-photos/usa/hub/a_sustainability_labeling_guide_7131825.webp",
+      "/imgs/blog/coffee_degassing_valve.png",
+      "/imgs/company/bpi/bpipouch.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": false,
+    "hasSpecTable": true,
+    "score": 40
+  },
+  {
+    "filename": "CoffeeDegassingValveGuide.tsx",
+    "wordCount": 105,
+    "imageCount": 4,
+    "images": [
+      "/imgs/store/additional/valve.webp",
+      "/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp",
+      "/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp",
+      "/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "CoffeePackagingGuide.tsx",
+    "wordCount": 81,
+    "imageCount": 4,
+    "images": [
+      "/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp",
+      "/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp",
+      "/imgs/blog/coffee_degassing_valve.png",
+      "/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 60
+  },
+  {
+    "filename": "CompostableBabyFoodPackagingGuide.tsx",
+    "wordCount": 98,
+    "imageCount": 4,
+    "images": [
+      "/imgs/seo-photos/organic/organic_dried_mango_pouch.webp",
+      "/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp",
+      "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp",
+      "/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "CompostableHumidityControlGuide.tsx",
+    "wordCount": 97,
+    "imageCount": 3,
+    "images": [
+      "/imgs/company/bpi/bpipouch.webp",
+      "/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp",
+      "/imgs/samples/humidity-control-sample.png"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "CompostableStandUpPouchesGuide.tsx",
+    "wordCount": 100,
+    "imageCount": 4,
+    "images": [
+      "/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp",
+      "/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp",
+      "/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp",
+      "/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "CustomCompostablePouchSuppliersGuide.tsx",
+    "wordCount": 39,
+    "imageCount": 3,
+    "images": [
+      "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp",
+      "/imgs/seo-photos/a_ecommerce_lightweight_pouch_achieve_pack_8535238.webp",
+      "/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": true,
+    "hasSpecTable": false,
+    "score": 40
+  },
+  {
+    "filename": "CustomPrintedMaterialsGuide.tsx",
+    "wordCount": 39,
+    "imageCount": 3,
+    "images": [
+      "/imgs/seo-photos/a_digital_printing_customization_2717640.webp",
+      "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp",
+      "/imgs/seo-photos/a_finishing_options_premium_showcase_3613860.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": true,
+    "hasSpecTable": false,
+    "score": 40
+  },
+  {
+    "filename": "DTCSustainablePackagingGuide.tsx",
+    "wordCount": 44,
+    "imageCount": 3,
+    "images": [
+      "/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp",
+      "/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp",
+      "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": true,
+    "hasSpecTable": false,
+    "score": 40
+  },
+  {
+    "filename": "DigitalPrintingEcoPackagingGuide.tsx",
+    "wordCount": 37,
+    "imageCount": 3,
+    "images": [
+      "/imgs/seo-photos/a_digital_printing_customization_2717640.webp",
+      "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp",
+      "/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": true,
+    "hasSpecTable": false,
+    "score": 40
+  },
+  {
+    "filename": "EcoFriendlyFoodPackagingGuide.tsx",
+    "wordCount": 230,
+    "imageCount": 3,
+    "images": [
+      "/imgs/seo-photos/usa/hub/a_sustainability_labeling_guide_7131825.webp",
+      "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp",
+      "/imgs/company/bpi/bpipouch.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "EcoPackagingRegulationsGuide.tsx",
+    "wordCount": 86,
+    "imageCount": 3,
+    "images": [
+      "/imgs/company/bpi/bpipouch.webp",
+      "/imgs/seo-photos/usa/hub/a_sustainability_labeling_guide_7131825.webp",
+      "/imgs/samples/humidity-control-sample.png"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "GreenCoffeeMaterialsGuide.tsx",
+    "wordCount": 37,
+    "imageCount": 4,
+    "images": [
+      "/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp",
+      "/imgs/seo-photos/a_achievepack_home_compostable_balcony_9883994.webp",
+      "/imgs/seo-photos/a_digital_printing_customization_2717640.webp",
+      "/imgs/seo-photos/a_mono_recyclable_certification_compliance_7572715.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 60
+  },
+  {
+    "filename": "HomeCompostableGuide.tsx",
+    "wordCount": 60,
+    "imageCount": 4,
+    "images": [
+      "/imgs/composting/commercial/a_windrow_composting_facility_0882621.webp",
+      "/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp",
+      "/imgs/composting/finder/a_achievepack_composting_locator_hero_9733153.webp",
+      "/imgs/seo-photos/a_achievepack_home_compostable_balcony_9883994.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "IndustrialCompostableGuide.tsx",
+    "wordCount": 11,
+    "imageCount": 4,
+    "images": [
+      "/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp",
+      "/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp",
+      "/imgs/blog/coffee_degassing_valve.png",
+      "/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "LowMOQPackagingGuide.tsx",
+    "wordCount": 9,
+    "imageCount": 3,
+    "images": [
+      "/imgs/seo-photos/a_digital_printing_customization_2717640.webp",
+      "/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp",
+      "/imgs/blog/coffee_degassing_valve.png"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": false,
+    "hasSpecTable": true,
+    "score": 40
+  },
+  {
+    "filename": "LowMOQStartupPackagingGuide.tsx",
+    "wordCount": 41,
+    "imageCount": 2,
+    "images": [
+      "/imgs/seo-photos/a_digital_printing_customization_2717640.webp",
+      "/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": true,
+    "hasSpecTable": false,
+    "score": 40
+  },
+  {
+    "filename": "OrganicComplianceSupportGuide.tsx",
+    "wordCount": 89,
+    "imageCount": 3,
+    "images": [
+      "/imgs/seo-photos/organic/organic_dried_mango_pouch.webp",
+      "/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp",
+      "/imgs/company/bpi/a_bpi_certification_verification_badge_3065504.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "PouchStampFoilRecyclabilityPage.tsx",
+    "wordCount": 309,
+    "imageCount": 2,
+    "images": [
+      "/imgs/4-infograhic/recyclable.webp",
+      "/imgs/emails/ryan_headshot_v2.png"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": false,
+    "hasSpecTable": false,
+    "score": 20
+  },
+  {
+    "filename": "RecyclableSnackPackagingGuide.tsx",
+    "wordCount": 93,
+    "imageCount": 3,
+    "images": [
+      "/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp",
+      "/imgs/seo-photos/a_ecommerce_lightweight_pouch_achieve_pack_8535238.webp",
+      "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "USACoffeePackaging.tsx",
+    "wordCount": 99,
+    "imageCount": 4,
+    "images": [
+      "/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp",
+      "/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp",
+      "/imgs/seo-photos/a_industrial_compostable_facility_2850870.webp",
+      "/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "USACompostableGuide.tsx",
+    "wordCount": 416,
+    "imageCount": 5,
+    "images": [
+      "/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp",
+      "/imgs/topics/compostable_coffee_bags.png",
+      "/imgs/topics/pfas_free_packaging.png",
+      "/imgs/topics/minimalist_d2c_packaging.png",
+      "/imgs/emails/ryan_headshot_v2.png"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "USALabelingGuide.tsx",
+    "wordCount": 93,
+    "imageCount": 2,
+    "images": [
+      "/imgs/company/bpi/bpipouch.webp",
+      "/imgs/seo-photos/usa/label/a_digital_labeling_strategy_0282148.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": true,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 80
+  },
+  {
+    "filename": "USASnacksPackagingGuide.tsx",
+    "wordCount": 53,
+    "imageCount": 6,
+    "images": [
+      "/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp",
+      "/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp",
+      "/imgs/seo-photos/usa/snack/a_snacks_pouch_format_comparison_8281669.webp",
+      "/imgs/seo-photos/a_data_doesnt_lie_comparison_1860300.webp",
+      "/imgs/seo-photos/little_sprouts_pouch.png",
+      "/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
+    ],
+    "brokenImages": [],
+    "hasFAQs": false,
+    "hasAchieveLink": true,
+    "hasSpecTable": true,
+    "score": 60
+  }
+]
