@@ -27,7 +27,7 @@ import {
 import { toast } from 'sonner'
 
 // ==========================================
-// 類型與資料結構 (極簡版，適合12歲小老闆)
+// 類型與資料結構 (適合10歲老闆的簡易版)
 // ==========================================
 
 export type CurrencyType = 'USD' | 'HKD' | 'RMB'
@@ -76,16 +76,16 @@ const CURRENCY_SYMBOLS: Record<CurrencyType, string> = {
   RMB: '¥'
 }
 
-// 生意項目的代表顏色
-const BUSINESS_COLORS: Record<BusinessType, string> = {
-  '包裝買賣 📦': 'from-blue-500 to-cyan-500 shadow-blue-500/20',
-  '車位出租 🅿️': 'from-purple-500 to-indigo-500 shadow-purple-500/20',
-  '汽車出租 🚗': 'from-amber-500 to-orange-500 shadow-amber-500/20',
-  '房屋出租 🏠': 'from-emerald-500 to-teal-500 shadow-emerald-500/20'
+// 生意項目的代表背景色 (溫柔日系奶油粉蠟色)
+const BUSINESS_Pill_STYLES: Record<BusinessType, { bg: string; text: string; border: string }> = {
+  '包裝買賣 📦': { bg: 'bg-[#E3F2FD]', text: 'text-[#1E88E5]', border: 'border-[#BBDEFB]' },
+  '車位出租 🅿️': { bg: 'bg-[#F3E5F5]', text: 'text-[#8E24AA]', border: 'border-[#E1BEE7]' },
+  '汽車出租 🚗': { bg: 'bg-[#FFF3E0]', text: 'text-[#F57C00]', border: 'border-[#FFE0B2]' },
+  '房屋出租 🏠': { bg: 'bg-[#E8F5E9]', text: 'text-[#388E3C]', border: 'border-[#C8E6C9]' }
 }
 
 // ==========================================
-// 6月份與5月份高水準模擬數據 (12歲老闆的生意)
+// 6月份與5月份高水準模擬數據 (10歲老闆的生意)
 // ==========================================
 
 const INITIAL_TRANSACTIONS: Transaction[] = [
@@ -99,7 +99,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'USD',
     business: '房屋出租 🏠',
     label: '收租金 💰',
-    description: '台北大安區公寓月度租金回籠',
+    description: '台北大安區出租房屋的月度租金',
     paymentMethod: '銀行轉帳'
   },
   {
@@ -111,7 +111,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'HKD',
     business: '車位出租 🅿️',
     label: '收租金 💰',
-    description: '中環商業中心 B2 車位月租 (港幣入帳)',
+    description: '中環商業中心車位收租金 (港幣入帳)',
     paymentMethod: '現金'
   },
   {
@@ -123,7 +123,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'RMB',
     business: '汽車出租 🚗',
     label: '收租金 💰',
-    description: '特斯拉 Model 3 週租金 (人民幣結算)',
+    description: '出租特斯拉 Model 3 一星期的租金',
     paymentMethod: '微信/支付寶'
   },
   {
@@ -135,7 +135,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'USD',
     business: '包裝買賣 📦',
     label: '商品銷售 📦',
-    description: '承接一批客製化可降解環保紙袋出貨',
+    description: '賣出一批環保 PBS 可降解咖啡包裝袋',
     paymentMethod: '銀行轉帳'
   },
   {
@@ -147,7 +147,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'RMB',
     business: '包裝買賣 📦',
     label: '進貨成本 📦',
-    description: '向廠商採購 PBS 環保原料顆粒 (人民幣付費)',
+    description: '向源頭工廠採購可降解 PBS 顆粒原料',
     paymentMethod: '銀行轉帳'
   },
   {
@@ -159,7 +159,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'HKD',
     business: '汽車出租 🚗',
     label: '日常維修 🛠️',
-    description: '出租車輛輪胎保養與局部劃痕修補',
+    description: '保養出租小汽車和更換新的輪胎',
     paymentMethod: '信用卡'
   },
   {
@@ -171,7 +171,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'USD',
     business: '房屋出租 🏠',
     label: '水電開銷 ⚡',
-    description: '出租屋走廊水電及物業代繳費',
+    description: '繳納出租房屋的本月水電瓦斯費用',
     paymentMethod: '信用卡'
   },
   
@@ -185,7 +185,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'USD',
     business: '房屋出租 🏠',
     label: '收租金 💰',
-    description: '出租公寓月租金回籠',
+    description: '出租房屋5月份租金順利收到啦！',
     paymentMethod: '銀行轉帳'
   },
   {
@@ -197,7 +197,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'HKD',
     business: '車位出租 🅿️',
     label: '收租金 💰',
-    description: '車位出租月租金收訖',
+    description: '車位順利收租金！',
     paymentMethod: '現金'
   },
   {
@@ -209,7 +209,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'USD',
     business: '汽車出租 🚗',
     label: '收租金 💰',
-    description: '豐田貨車週租金收益',
+    description: '出租大貨車載貨一週的租金',
     paymentMethod: '銀行轉帳'
   },
   {
@@ -221,7 +221,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'RMB',
     business: '包裝買賣 📦',
     label: '商品銷售 📦',
-    description: '向茶葉店銷售可降解封口袋',
+    description: '賣出牛皮紙立體袋給西雅圖客戶',
     paymentMethod: '微信/支付寶'
   },
   {
@@ -233,7 +233,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'USD',
     business: '包裝買賣 📦',
     label: '進貨成本 📦',
-    description: '購買牛皮紙立體袋現貨進庫存',
+    description: '補充環保咖啡密封袋的庫存商品',
     paymentMethod: '銀行轉帳'
   },
   {
@@ -245,13 +245,13 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     currency: 'RMB',
     business: '房屋出租 🏠',
     label: '日常維修 🛠️',
-    description: '更換出租房屋廚房熱水器水龍頭',
+    description: '請工人叔叔修理房屋水龍頭和燈泡',
     paymentMethod: '現金'
   }
 ]
 
 const BookkeepingPage: React.FC = () => {
-  // 分頁切換：overview (存錢罐), ledger (流水賬本), calendar (收支日曆), report (生意分析)
+  // 分頁切換：overview (存錢罐), ledger (流水帳本), calendar (收支日曆), report (生意分析)
   const [activeTab, setActiveTab] = useState<'overview' | 'ledger' | 'calendar' | 'report'>('overview')
 
   // 核心數據 state，綁定至本地儲存 LocalStorage
@@ -260,7 +260,7 @@ const BookkeepingPage: React.FC = () => {
     return saved ? JSON.parse(saved) : INITIAL_TRANSACTIONS
   })
 
-  // 自訂匯率 state (1 USD = 7.8 HKD | 7.25 RMB)
+  // 自訂匯率 state
   const [customRates, setCustomRates] = useState<Record<CurrencyType, number>>(() => {
     const saved = localStorage.getItem('kid_bookkeeping_rates')
     return saved ? JSON.parse(saved) : EXCHANGE_RATES
@@ -343,7 +343,7 @@ const BookkeepingPage: React.FC = () => {
     return amt / rate
   }, [formAmount, formCurrency, customRates])
 
-  // 實時跨幣別換算對照組 (讓12歲小朋友看到神奇的魔術換算)
+  // 實時跨幣別換算對照組 (讓10歲小朋友看到神奇的魔術換算)
   const liveConversions = useMemo(() => {
     if (!formAmount || isNaN(Number(formAmount))) return null
     const amt = Number(formAmount)
@@ -383,7 +383,7 @@ const BookkeepingPage: React.FC = () => {
       return
     }
     if (!formDescription.trim()) {
-      toast.error('請寫一點小備註，才不會忘記這筆錢是做什麼的唷！')
+      toast.error('請寫下簡單的小筆記，才不會忘記這筆錢是做什麼的唷！')
       return
     }
 
@@ -433,7 +433,7 @@ const BookkeepingPage: React.FC = () => {
 
   // 刪除交易
   const handleDeleteTransaction = (id: string) => {
-    if (window.confirm('確定要擦掉這一筆記賬小筆記嗎？擦掉就找不回來囉！')) {
+    if (window.confirm('確定要擦掉這一筆記賬小紀錄嗎？擦掉就找不回來囉！')) {
       setTransactions(prev => prev.filter(t => t.id !== id))
       toast.success('已經幫你把小筆記擦乾淨囉！🧹')
       setSelectedDayDetail(null)
@@ -499,7 +499,7 @@ const BookkeepingPage: React.FC = () => {
   }, [transactions, searchQuery, filterType, filterBusiness, filterCurrency])
 
   // ==========================================
-  // 收支日曆格網繪製邏輯 (簡易版)
+  // 收支日曆格網繪製邏輯
   // ==========================================
 
   const monthYearLabel = useMemo(() => {
@@ -601,10 +601,10 @@ const BookkeepingPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-zinc-900 text-slate-100 flex flex-col font-sans selection:bg-yellow-500 selection:text-slate-950">
+    <div className="min-h-screen bg-gradient-to-br from-[#FCF9F2] via-[#FAF6EE] to-[#F3EFE3] text-[#4A3B32] flex flex-col font-sans selection:bg-[#F5C77E] selection:text-slate-900">
       
-      {/* ----------------- 頂部大頭貼與標題列 ----------------- */}
-      <header className="bg-slate-800/80 backdrop-blur-md border-b border-slate-700/80 sticky top-0 z-40">
+      {/* ----------------- 頂部奶油溫馨 header ----------------- */}
+      <header className="bg-[#FCFAF5]/90 backdrop-blur-md border-b-2 border-[#EFE9DB] sticky top-0 z-40 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-4 sm:px-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             
@@ -612,23 +612,23 @@ const BookkeepingPage: React.FC = () => {
             <div className="flex items-center gap-3">
               <Link
                 to="/ctrl-x9k7m"
-                className="p-2 text-slate-400 hover:text-white hover:bg-slate-700/50 rounded-xl transition-all"
+                className="p-2.5 text-[#8E7E73] hover:text-[#4A3B32] hover:bg-[#F3ECE0] rounded-2xl transition-all"
               >
-                <ArrowLeft className="w-5 h-5" />
+                <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
               </Link>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-tr from-yellow-400 to-amber-500 rounded-2xl flex items-center justify-center shadow-lg shadow-yellow-500/20 text-xl font-bold animate-bounce-slow">
+                <div className="w-14 h-14 bg-[#F5C77E] border-2 border-[#EADFCD] rounded-3xl flex items-center justify-center shadow-md shadow-[#E2D8C3]/40 text-2xl font-bold animate-bounce-slow">
                   🧒
                 </div>
                 <div>
-                  <h1 className="text-xl sm:text-2xl font-black text-white tracking-wide flex items-center gap-2">
-                    12歲小老闆的記賬本
-                    <span className="text-xs bg-yellow-500/20 text-yellow-400 font-bold px-2 py-0.5 rounded-full border border-yellow-500/30">
-                      簡單版
+                  <h1 className="text-xl sm:text-2xl font-black text-[#2E2520] tracking-wide flex items-center gap-2">
+                    小老闆理財記賬本
+                    <span className="text-xs bg-[#FAF1DF] text-[#8C6D3B] font-black px-2.5 py-1 rounded-full border-2 border-[#EADFCD]">
+                      超簡單版
                     </span>
                   </h1>
-                  <p className="text-xs text-slate-400">
-                    學習管錢超級簡單！📦 包裝買賣 • 🚗 租車 • 🅿️ 租車位 • 🏠 租房
+                  <p className="text-xs text-[#8E7E73] font-bold">
+                    管錢超容易！學習記賬第一步 📦 包裝買賣 • 🚗 汽車 • 🅿️ 車位 • 🏠 房屋
                   </p>
                 </div>
               </div>
@@ -638,20 +638,20 @@ const BookkeepingPage: React.FC = () => {
             <div className="flex items-center gap-3 self-end sm:self-center">
               <button
                 onClick={() => setShowRateSettings(true)}
-                className="bg-slate-850 hover:bg-slate-750 text-yellow-400 text-xs font-bold px-3.5 py-2.5 rounded-xl border border-slate-700 transition-all flex items-center gap-1.5"
+                className="bg-[#FCFAF5] hover:bg-[#F5EFE0] text-[#8C6D3B] text-xs font-black px-4 py-3 rounded-2xl border-2 border-[#EADFCD] transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
               >
-                <RefreshCw className="w-3.5 h-3.5" />
-                設定匯率
+                <RefreshCw className="w-3.5 h-3.5 stroke-[2.5]" />
+                調整匯率
               </button>
               <button
                 onClick={() => {
                   resetForm()
                   setShowAddForm(true)
                 }}
-                className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-950 text-sm font-black px-5 py-2.5 rounded-2xl transition-all shadow-lg hover:scale-[1.03] flex items-center gap-1.5"
+                className="bg-[#F5B859] hover:bg-[#E5A749] text-[#2E2520] text-sm font-black px-6 py-3 rounded-2xl transition-all shadow-md hover:scale-[1.03] active:scale-95 flex items-center gap-1.5 border-2 border-[#DE9B3E]"
               >
                 <Plus className="w-4 h-4 stroke-[3]" />
-                記一筆 💰
+                記一筆收支 💰
               </button>
             </div>
 
@@ -659,13 +659,13 @@ const BookkeepingPage: React.FC = () => {
         </div>
       </header>
 
-      {/* ----------------- 全局統計面板 (我的小金庫) ----------------- */}
-      <section className="bg-slate-900/30 py-6 border-b border-slate-800">
+      {/* ----------------- 全局統計面板 (超可愛大卡片) ----------------- */}
+      <section className="py-6 bg-[#FCFAF5]/30 border-b border-[#EFE9DB]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           
-          {/* 匯率條 */}
-          <div className="mb-5 flex flex-wrap gap-3 text-xs bg-slate-850 p-2.5 rounded-xl border border-slate-800/80 text-slate-400 font-mono items-center">
-            <span className="font-sans font-bold text-yellow-400">📈 匯率小工具：</span>
+          {/* 匯率小工具 */}
+          <div className="mb-6 flex flex-wrap gap-3 text-xs bg-[#FCFAF5] px-4 py-3 rounded-2xl border-2 border-[#EFE9DB] text-[#8E7E73] font-bold shadow-inner">
+            <span className="text-[#8C6D3B] font-black">📈 自動換算器匯率基底：</span>
             <span>1 美金 (USD) = <strong>1.0 美金</strong></span>
             <span>•</span>
             <span>1 美金 (USD) = <strong>{customRates.HKD} 港幣 (HKD)</strong></span>
@@ -673,51 +673,57 @@ const BookkeepingPage: React.FC = () => {
             <span>1 美金 (USD) = <strong>{customRates.RMB} 人民幣 (RMB)</strong></span>
           </div>
 
-          {/* 三個巨大的彩色撲滿卡片 */}
+          {/* 三個巨大的彩色存錢罐卡片 (奶油溫馨色調) */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             
-            {/* 我的利潤 (剩下賺的錢) */}
-            <div className="bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-slate-900 border border-emerald-500/30 rounded-3xl p-5 shadow-xl shadow-emerald-950/20 group hover:border-emerald-500/50 transition-all">
-              <div className="flex justify-between items-start">
-                <p className="text-sm font-bold text-emerald-400">🐷 我的存錢罐剩下 (利潤)</p>
-                <span className="text-2xl">💰</span>
+            {/* 我的利潤 */}
+            <div className="bg-white border-2 border-[#C8E6C9] rounded-3xl p-6 shadow-md shadow-[#E2D8C3]/20 hover:border-[#81C784] transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start">
+                  <p className="text-xs font-black text-[#388E3C] uppercase tracking-wider">🐷 我的存錢罐剩下 (利潤)</p>
+                  <span className="text-2xl">💰</span>
+                </div>
+                <p className="text-3xl font-black text-[#2E2520] mt-3 font-mono">
+                  ${stats.pocketMoney.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  <span className="text-xs text-[#388E3C] font-bold ml-1.5">USD</span>
+                </p>
               </div>
-              <p className="text-3xl font-black text-white mt-3 font-mono">
-                ${stats.pocketMoney.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                <span className="text-xs text-emerald-400 font-bold ml-1.5">USD</span>
-              </p>
-              <p className="text-xs text-slate-400 mt-2">
-                總共賺進來的錢，扣掉花出去的錢，剩下的都在這裡！
+              <p className="text-[11px] text-[#8E7E73] font-bold mt-3 bg-[#E8F5E9] px-2.5 py-1.5 rounded-xl border border-[#C8E6C9]">
+                好棒！這是總共賺到、扣掉花出去後，剩下可以支配的錢！
               </p>
             </div>
 
             {/* 總共賺到 */}
-            <div className="bg-gradient-to-br from-yellow-500/10 via-amber-500/5 to-slate-900 border border-yellow-500/20 rounded-3xl p-5 shadow-xl group hover:border-yellow-500/40 transition-all">
-              <div className="flex justify-between items-start">
-                <p className="text-sm font-bold text-yellow-400">🎉 我總共賺進來 (收入)</p>
-                <span className="text-2xl">📈</span>
+            <div className="bg-white border-2 border-[#FFE0B2] rounded-3xl p-6 shadow-md shadow-[#E2D8C3]/20 hover:border-[#FFB74D] transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start">
+                  <p className="text-xs font-black text-[#F57C00] uppercase tracking-wider">🎉 我總共賺進來 (收入)</p>
+                  <span className="text-2xl">📈</span>
+                </div>
+                <p className="text-3xl font-black text-[#F57C00] mt-3 font-mono">
+                  +${stats.earned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  <span className="text-xs text-[#F57C00] font-bold ml-1.5">USD</span>
+                </p>
               </div>
-              <p className="text-3xl font-black text-yellow-400 mt-3 font-mono">
-                +${stats.earned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                <span className="text-xs text-yellow-400 font-bold ml-1.5">USD</span>
-              </p>
-              <p className="text-xs text-slate-400 mt-2">
-                各種生意賺到的零用錢，全部都在撲滿累積著！
+              <p className="text-[11px] text-[#8E7E73] font-bold mt-3 bg-[#FFF3E0] px-2.5 py-1.5 rounded-xl border border-[#FFE0B2]">
+                各種生意陸陸續續收進來的零用錢都在這裡累積！
               </p>
             </div>
 
             {/* 總共花掉 */}
-            <div className="bg-gradient-to-br from-rose-500/10 via-red-500/5 to-slate-900 border border-rose-500/20 rounded-3xl p-5 shadow-xl group hover:border-rose-500/40 transition-all">
-              <div className="flex justify-between items-start">
-                <p className="text-sm font-bold text-rose-400">💸 我總共花出去 (支出)</p>
-                <span className="text-2xl">📉</span>
+            <div className="bg-white border-2 border-[#FFE0E0] rounded-3xl p-6 shadow-md shadow-[#E2D8C3]/20 hover:border-[#FFB2B2] transition-all flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start">
+                  <p className="text-xs font-black text-[#CE8078] uppercase tracking-wider">💸 我總共花出去 (支出)</p>
+                  <span className="text-2xl">📉</span>
+                </div>
+                <p className="text-3xl font-black text-[#CE8078] mt-3 font-mono">
+                  -${stats.spent.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  <span className="text-xs text-[#CE8078] font-bold ml-1.5">USD</span>
+                </p>
               </div>
-              <p className="text-3xl font-black text-rose-400 mt-3 font-mono">
-                -${stats.spent.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                <span className="text-xs text-rose-400 font-bold ml-1.5">USD</span>
-              </p>
-              <p className="text-xs text-slate-400 mt-2">
-                進貨成本、水電和修理東西花掉的錢。
+              <p className="text-[11px] text-[#8E7E73] font-bold mt-3 bg-[#FFF0F0] px-2.5 py-1.5 rounded-xl border border-[#FFE0E0]">
+                買東西的進貨成本、修理和水電費的日常花銷。
               </p>
             </div>
 
@@ -728,23 +734,24 @@ const BookkeepingPage: React.FC = () => {
       {/* ----------------- 主要導覽標籤 ----------------- */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
         
-        <div className="flex border-b border-slate-700 mb-6 overflow-x-auto gap-2 scrollbar-none">
+        {/* 奶油風標籤卡片列 */}
+        <div className="flex border-b-2 border-[#EFE9DB] mb-6 overflow-x-auto gap-2 scrollbar-none">
           {[
             { id: 'overview', label: '🐷 生意小撲滿', icon: Sparkles },
-            { id: 'ledger', label: '📝 流水賬筆記', icon: Coins },
+            { id: 'ledger', label: '📝 流水賬日記', icon: Coins },
             { id: 'calendar', label: '📅 記賬小日曆', icon: Calendar },
             { id: 'report', label: '📊 生意分折表', icon: FileSpreadsheet }
           ].map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`flex items-center gap-2 px-5 py-3 text-sm font-black border-b-4 transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 px-5 py-3 text-sm font-black border-b-4 transition-all whitespace-nowrap active:scale-95 ${
                 activeTab === tab.id
-                  ? 'border-yellow-400 text-yellow-400 bg-yellow-500/5'
-                  : 'border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-800/30'
+                  ? 'border-[#F5B859] text-[#2E2520] bg-[#F5B859]/10 rounded-t-xl'
+                  : 'border-transparent text-[#8E7E73] hover:text-[#4A3B32] hover:bg-[#F3ECE0]/50'
               }`}
             >
-              <tab.icon className="w-4 h-4" />
+              <tab.icon className="w-4 h-4 stroke-[2.5]" />
               {tab.label}
             </button>
           ))}
@@ -755,42 +762,44 @@ const BookkeepingPage: React.FC = () => {
           <div className="space-y-6">
             
             <div className="flex justify-between items-center">
-              <h3 className="text-md font-black text-slate-300">📊 四個生意的賺錢情況</h3>
-              <p className="text-xs text-slate-400">點擊上方記一筆可以增加小筆記唷！</p>
+              <h3 className="text-sm font-black text-[#4A3B32] uppercase tracking-wider">📊 四大生意小賬戶表現</h3>
+              <p className="text-xs text-[#8E7E73] font-bold">點擊右上角的「記一筆」就能隨時記賬唷！</p>
             </div>
 
-            {/* 4個生意的小扑滿卡片 */}
+            {/* 4個小扑滿 (奶油風格) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {businessesList.map(b => {
                 const bStat = businessStats[b] || { earned: 0, spent: 0, profit: 0 }
                 const isProfit = bStat.profit >= 0
+                const colors = BUSINESS_Pill_STYLES[b]
+
                 return (
                   <div
                     key={b}
-                    className="bg-slate-850 border border-slate-800 rounded-3xl p-5 hover:border-yellow-400/40 transition-all flex flex-col justify-between"
+                    className="bg-white border-2 border-[#EFE9DB] rounded-3xl p-5 hover:border-[#F5B859]/60 shadow-sm transition-all flex flex-col justify-between hover:scale-[1.01]"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-xs font-bold bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg">
-                          我的生意
+                      <div className="flex items-center justify-between mb-4">
+                        <span className={`text-xs font-black px-3 py-1 rounded-xl border ${colors.bg} ${colors.text} ${colors.border}`}>
+                          小生意項目
                         </span>
-                        <span className="text-lg">🎨</span>
+                        <span className="text-xl">💰</span>
                       </div>
-                      <h4 className="text-lg font-black text-white tracking-wide">{b}</h4>
+                      <h4 className="text-lg font-black text-[#2E2520] tracking-wide">{b}</h4>
                     </div>
 
-                    <div className="mt-5 space-y-2 font-mono text-xs">
-                      <div className="flex justify-between text-slate-400">
-                        <span>賺到：</span>
-                        <span className="text-emerald-400 font-bold">+${bStat.earned.toFixed(0)}</span>
+                    <div className="mt-6 space-y-2.5 font-mono text-xs border-t border-[#FAF6EE] pt-4">
+                      <div className="flex justify-between text-[#8E7E73] font-bold">
+                        <span>賺到收支：</span>
+                        <span className="text-[#388E3C] font-black">+${bStat.earned.toFixed(0)}</span>
                       </div>
-                      <div className="flex justify-between text-slate-400">
-                        <span>花掉：</span>
-                        <span className="text-rose-400 font-bold">-${bStat.spent.toFixed(0)}</span>
+                      <div className="flex justify-between text-[#8E7E73] font-bold">
+                        <span>花掉成本：</span>
+                        <span className="text-[#CE8078] font-black">-${bStat.spent.toFixed(0)}</span>
                       </div>
-                      <div className="flex justify-between pt-2 border-t border-slate-800 text-sm">
-                        <span className="font-bold text-slate-300 font-sans">小利潤：</span>
-                        <span className={`font-black ${isProfit ? 'text-emerald-400' : 'text-rose-400'}`}>
+                      <div className="flex justify-between pt-2.5 border-t-2 border-[#EFE9DB] text-sm">
+                        <span className="font-bold text-[#4A3B32] font-sans">我的利潤：</span>
+                        <span className={`font-black ${isProfit ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
                           {isProfit ? '+' : '-'}${Math.abs(bStat.profit).toFixed(0)}
                         </span>
                       </div>
@@ -801,13 +810,13 @@ const BookkeepingPage: React.FC = () => {
               })}
             </div>
 
-            {/* 小提醒小板塊 */}
-            <div className="bg-slate-800/40 border border-slate-700/60 rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-4">
-              <div className="text-3xl">💡</div>
+            {/* 溫馨理財小卡片 */}
+            <div className="bg-[#FAF6EE] border-2 border-[#EFE9DB] rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-4">
+              <div className="text-4xl animate-bounce-slow">💡</div>
               <div className="space-y-1 text-center sm:text-left">
-                <h5 className="font-bold text-white">理財小秘訣！</h5>
-                <p className="text-xs text-slate-400">
-                  記賬是一個很棒的習慣！每天花1分鐘記一筆，你就能清清楚楚地知道是「包裝買賣 📦」賺得比較多，還是租車、租房、租車位賺得比較多囉！
+                <h5 className="font-black text-[#2E2520]">給小老闆的理財悄悄話</h5>
+                <p className="text-xs text-[#8E7E73] font-bold leading-relaxed">
+                  記賬不僅僅是記錄數字，更是建立良好的理財觀念！持之以恆，你就能看出哪一個生意（比如「房屋出租 🏠」或是「包裝買賣 📦」）是你的印鈔機喔！
                 </p>
               </div>
             </div>
@@ -815,47 +824,47 @@ const BookkeepingPage: React.FC = () => {
           </div>
         )}
 
-        {/* ----------------- 標籤頁: 流水賬筆記 ----------------- */}
+        {/* ----------------- 標籤頁: 流水賬日記 ----------------- */}
         {activeTab === 'ledger' && (
           <div className="space-y-6">
             
-            {/* 極簡過濾面板 */}
-            <div className="bg-slate-800/40 border border-slate-700/60 rounded-3xl p-5 space-y-4">
+            {/* 奶油溫馨風過濾面板 */}
+            <div className="bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-3xl p-5 space-y-4 shadow-sm">
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
                 
-                {/* 搜尋 */}
-                <div className="relative sm:col-span-1">
-                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                {/* 搜尋框 */}
+                <div className="relative">
+                  <Search className="w-4 h-4 text-[#8E7E73] absolute left-3.5 top-3.5 stroke-[2.5]" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="搜尋備註或科目..."
-                    className="w-full bg-slate-950 border border-slate-700 rounded-2xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none"
+                    placeholder="搜尋備註日記或科目..."
+                    className="w-full bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-2xl pl-10 pr-4 py-2.5 text-sm text-[#4A3B32] placeholder-[#A8988D] focus:outline-none transition-all font-bold shadow-inner"
                   />
                 </div>
 
-                {/* 賺錢/花錢過濾 */}
+                {/* 賺/花流向 */}
                 <div>
                   <select
                     value={filterType}
                     onChange={(e) => setFilterType(e.target.value as any)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-2xl px-4 py-2.5 text-sm text-white focus:outline-none"
+                    className="w-full bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-2xl px-4 py-2.5 text-sm text-[#4A3B32] focus:outline-none transition-all font-bold shadow-sm"
                   >
-                    <option value="all">所有收支方向</option>
-                    <option value="incoming">只看賺錢 💰</option>
-                    <option value="outgoing">只看花錢 💸</option>
+                    <option value="all">所有的錢方向</option>
+                    <option value="incoming">只看賺到的錢 💰</option>
+                    <option value="outgoing">只看花出去的錢 💸</option>
                   </select>
                 </div>
 
-                {/* 生意過濾 */}
+                {/* 生意項目 */}
                 <div>
                   <select
                     value={filterBusiness}
                     onChange={(e) => setFilterBusiness(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-2xl px-4 py-2.5 text-sm text-yellow-400 font-bold focus:outline-none"
+                    className="w-full bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-2xl px-4 py-2.5 text-sm text-[#8C6D3B] focus:outline-none transition-all font-black shadow-sm"
                   >
-                    <option value="all">所有生意</option>
+                    <option value="all">所有生意項目</option>
                     {businessesList.map(b => (
                       <option key={b} value={b}>{b}</option>
                     ))}
@@ -867,9 +876,9 @@ const BookkeepingPage: React.FC = () => {
                   <select
                     value={filterCurrency}
                     onChange={(e) => setFilterCurrency(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-2xl px-4 py-2.5 text-sm text-white focus:outline-none"
+                    className="w-full bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-2xl px-4 py-2.5 text-sm text-[#4A3B32] focus:outline-none transition-all font-bold shadow-sm"
                   >
-                    <option value="all">所有幣別</option>
+                    <option value="all">所有交易幣別</option>
                     <option value="USD">美金 (USD)</option>
                     <option value="HKD">港幣 (HKD)</option>
                     <option value="RMB">人民幣 (RMB)</option>
@@ -878,10 +887,10 @@ const BookkeepingPage: React.FC = () => {
 
               </div>
 
-              {/* 匯出報表與清除按鈕 */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-800">
-                <span className="text-xs text-slate-400 font-medium">
-                  共顯示 <strong className="text-white">{filteredTransactions.length}</strong> 筆記賬紀錄
+              {/* 報表導出與條件重置 */}
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-3.5 border-t-2 border-[#EFE9DB]">
+                <span className="text-xs text-[#8E7E73] font-bold">
+                  一共顯示了 <strong className="text-[#2E2520]">{filteredTransactions.length}</strong> 筆記賬紀錄
                 </span>
                 <div className="flex gap-2">
                   {(searchQuery || filterType !== 'all' || filterBusiness !== 'all' || filterCurrency !== 'all') && (
@@ -892,60 +901,61 @@ const BookkeepingPage: React.FC = () => {
                         setFilterBusiness('all')
                         setFilterCurrency('all')
                       }}
-                      className="text-xs text-red-400 hover:text-red-300 font-bold px-3 py-2"
+                      className="text-xs text-[#CE8078] hover:text-[#B75850] font-black px-3 py-2 active:scale-95"
                     >
-                      清除過濾條件
+                      重置所有條件
                     </button>
                   )}
                   <button
                     onClick={exportToCSV}
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 transition-all"
+                    className="bg-[#A3B899] hover:bg-[#8EAC90] text-[#2E2520] text-xs font-black px-4 py-2.5 rounded-xl border-2 border-[#819976] flex items-center gap-1.5 transition-all shadow-sm active:scale-95"
                   >
-                    <Download className="w-3.5 h-3.5" />
+                    <Download className="w-3.5 h-3.5 stroke-[2.5]" />
                     下載 CSV 報表 📊
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* 一個精美的發光容器裝著列表 */}
-            <div className="bg-slate-850 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
-              <div className="divide-y divide-slate-800">
+            {/* 流水賬清單 */}
+            <div className="bg-white border-2 border-[#EFE9DB] rounded-3xl overflow-hidden shadow-sm">
+              <div className="divide-y-2 divide-[#FAF6EE]">
                 
                 {filteredTransactions.length === 0 ? (
-                  <div className="py-16 text-center text-slate-500 space-y-2">
-                    <p className="text-3xl">📝</p>
-                    <p className="text-base font-bold">還沒有任何小日記唷</p>
-                    <p className="text-xs">請點擊上方【記一筆】或是清除篩選條件吧！</p>
+                  <div className="py-20 text-center text-[#8E7E73] space-y-3">
+                    <p className="text-4xl animate-pulse">📝</p>
+                    <p className="text-base font-black text-[#4A3B32]">小本子裡沒有紀錄唷</p>
+                    <p className="text-xs font-bold">點選上面「記一筆」或是「清除過濾條件」來看看吧！</p>
                   </div>
                 ) : (
                   filteredTransactions.map(t => {
                     const isIncome = t.type === 'incoming'
                     const showConversion = t.currency !== 'USD'
+                    const colors = BUSINESS_Pill_STYLES[t.business]
 
                     return (
                       <div
                         key={t.id}
-                        className="px-5 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-slate-800/30 transition-all"
+                        className="px-5 py-4.5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-[#FAF6EE]/45 transition-all"
                       >
                         {/* 左半部內容 */}
                         <div className="flex items-start gap-4">
-                          <div className={`p-3 rounded-2xl ${isIncome ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}`}>
+                          <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border ${isIncome ? 'bg-[#E8F5E9] border-[#C8E6C9] text-[#388E3C]' : 'bg-[#FFF0F0] border-[#FFE0E0] text-[#CE8078]'}`}>
                             <span className="text-lg">{isIncome ? '💰' : '💸'}</span>
                           </div>
                           <div>
-                            <p className="text-sm font-black text-white">{t.description}</p>
-                            <div className="flex flex-wrap items-center gap-2 mt-1.5 text-[11px] text-slate-400 font-medium font-sans">
-                              <span className="bg-slate-800 px-2 py-0.5 rounded text-white font-bold">
+                            <p className="text-sm sm:text-base font-black text-[#2E2520]">{t.description}</p>
+                            <div className="flex flex-wrap items-center gap-2 mt-2 text-[11px] text-[#8E7E73] font-bold">
+                              <span className={`px-2 py-0.5 rounded text-[10px] border ${colors.bg} ${colors.text} ${colors.border}`}>
                                 {t.business}
                               </span>
-                              <span className="bg-slate-800 px-2 py-0.5 rounded text-yellow-400 font-bold">
+                              <span className="bg-[#FAF6EE] border border-[#EADFCD] px-2 py-0.5 rounded text-[#8C6D3B]">
                                 {t.label}
                               </span>
                               <span>•</span>
                               <span>日期: {t.date}</span>
                               <span>•</span>
-                              <span>方式: {t.paymentMethod}</span>
+                              <span>管道: {t.paymentMethod}</span>
                             </div>
                           </div>
                         </div>
@@ -953,28 +963,29 @@ const BookkeepingPage: React.FC = () => {
                         {/* 右半部金額與按鈕 */}
                         <div className="flex items-center gap-4 self-end sm:self-center">
                           <div className="text-right font-mono">
-                            <p className={`text-base font-black ${isIncome ? 'text-emerald-400' : 'text-rose-400'}`}>
+                            <p className={`text-base sm:text-lg font-black ${isIncome ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
                               {isIncome ? '+' : '-'}{CURRENCY_SYMBOLS[t.currency]}{t.originalAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                             </p>
                             {showConversion && (
-                              <p className="text-[10px] text-slate-500">
+                              <p className="text-[10px] text-[#8E7E73] font-bold">
                                 折合: ${t.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })} USD
                               </p>
                             )}
                           </div>
 
+                          {/* 編輯/刪除按鈕 */}
                           <div className="opacity-0 group-hover:opacity-100 flex gap-1 transition-all">
                             <button
                               onClick={() => startEditTransaction(t)}
-                              className="p-1.5 hover:bg-slate-700 rounded-lg text-slate-300"
+                              className="p-1.5 bg-[#FAF6EE] hover:bg-[#F3ECE0] rounded-xl text-[#8E7E73] border border-[#EADFCD] transition-all"
                             >
-                              <Edit className="w-4 h-4" />
+                              <Edit className="w-4 h-4 stroke-[2.5]" />
                             </button>
                             <button
                               onClick={() => handleDeleteTransaction(t.id)}
-                              className="p-1.5 hover:bg-red-950/30 rounded-lg text-rose-400"
+                              className="p-1.5 bg-[#FFF0F0] hover:bg-[#FFE0E0] rounded-xl text-[#CE8078] border border-[#FFE0E0] transition-all"
                             >
-                              <Trash2 className="w-4 h-4" />
+                              <Trash2 className="w-4 h-4 stroke-[2.5]" />
                             </button>
                           </div>
                         </div>
@@ -994,13 +1005,13 @@ const BookkeepingPage: React.FC = () => {
         {activeTab === 'calendar' && (
           <div className="space-y-6">
             
-            <div className="bg-slate-800/40 border border-slate-700/60 rounded-3xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="bg-white border-2 border-[#EFE9DB] rounded-3xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 shadow-sm">
               <div>
-                <h4 className="text-md font-black text-white flex items-center gap-2">
-                  📅 記賬小日曆 (基準折算 USD)
+                <h4 className="text-md sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
+                  📅 收支大表格日曆 (統一 USD 計價)
                 </h4>
-                <p className="text-xs text-slate-400 mt-1">
-                  點擊任何一天，就可以查看那天賺了多少錢、花了多少錢，還可以直接在那一天記賬唷！
+                <p className="text-xs text-[#8E7E73] font-bold mt-1">
+                  點擊格網中任何一天，就能看到那天賺了多少或花了多少，也可以直接對那天快捷記賬唷！
                 </p>
               </div>
 
@@ -1008,25 +1019,25 @@ const BookkeepingPage: React.FC = () => {
               <div className="flex items-center gap-3">
                 <button
                   onClick={prevMonth}
-                  className="p-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-white"
+                  className="p-2 bg-[#FAF6EE] hover:bg-[#F3ECE0] border border-[#EADFCD] rounded-xl text-[#4A3B32] transition-all active:scale-95"
                 >
-                  <ChevronLeft className="w-4 h-4" />
+                  <ChevronLeft className="w-4 h-4 stroke-[2.5]" />
                 </button>
-                <span className="text-sm font-bold text-white font-mono w-32 text-center">
+                <span className="text-sm font-black text-[#2E2520] font-mono w-36 text-center select-none bg-[#FCFAF5] py-1.5 rounded-xl border border-[#EFE9DB]">
                   {monthYearLabel}
                 </span>
                 <button
                   onClick={nextMonth}
-                  className="p-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-white"
+                  className="p-2 bg-[#FAF6EE] hover:bg-[#F3ECE0] border border-[#EADFCD] rounded-xl text-[#4A3B32] transition-all active:scale-95"
                 >
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4 stroke-[2.5]" />
                 </button>
               </div>
             </div>
 
-            {/* 日曆格網 */}
-            <div className="bg-slate-850 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
-              <div className="grid grid-cols-7 bg-slate-850 border-b border-slate-800 text-center py-3 text-xs font-bold text-slate-400">
+            {/* 日曆表格 */}
+            <div className="bg-white border-2 border-[#EFE9DB] rounded-3xl overflow-hidden shadow-sm">
+              <div className="grid grid-cols-7 bg-[#FCFAF5] border-b-2 border-[#EFE9DB] text-center py-3 text-xs font-black text-[#8E7E73]">
                 <div>日</div>
                 <div>一</div>
                 <div>二</div>
@@ -1036,10 +1047,10 @@ const BookkeepingPage: React.FC = () => {
                 <div>六</div>
               </div>
 
-              <div className="grid grid-cols-7 bg-slate-900/10 divide-x divide-y divide-slate-800">
+              <div className="grid grid-cols-7 bg-[#FAF6EE]/20 divide-x-2 divide-y-2 divide-[#FAF6EE]">
                 {calendarDays.map((dayData, idx) => {
                   if (!dayData) {
-                    return <div key={`empty-${idx}`} className="min-h-[100px] bg-slate-950/20"></div>
+                    return <div key={`empty-${idx}`} className="min-h-[105px] bg-[#FAF6EE]/10"></div>
                   }
 
                   const { day, dateString, items, dayEarned, daySpent } = dayData
@@ -1049,18 +1060,18 @@ const BookkeepingPage: React.FC = () => {
                     <div
                       key={dateString}
                       onClick={() => handleDayClick(dayData)}
-                      className={`min-h-[100px] p-2 hover:bg-slate-800/40 transition-all cursor-pointer flex flex-col justify-between ${
-                        isToday ? 'bg-yellow-500/5 ring-1 ring-yellow-400/40' : ''
+                      className={`min-h-[105px] p-2 hover:bg-[#FAF6EE]/50 transition-all cursor-pointer flex flex-col justify-between group ${
+                        isToday ? 'bg-[#F5B859]/5 ring-2 ring-[#F5B859] rounded-xl z-10' : ''
                       }`}
                     >
                       <div className="flex justify-between items-center">
-                        <span className={`text-xs font-bold font-mono px-2 py-0.5 rounded-md ${
-                          isToday ? 'bg-yellow-400 text-slate-950 font-black' : 'text-slate-400'
+                        <span className={`text-xs font-black font-mono px-2 py-0.5 rounded-lg border ${
+                          isToday ? 'bg-[#F5B859] border-[#DE9B3E] text-[#2E2520]' : 'text-[#8E7E73] bg-[#FCFAF5] border-[#EFE9DB]'
                         }`}>
                           {day}日
                         </span>
                         {items.length > 0 && (
-                          <span className="text-[10px] bg-slate-800 text-slate-300 font-bold px-1 py-0.2 rounded">
+                          <span className="text-[10px] bg-[#FAF6EE] text-[#8C6D3B] border border-[#EADFCD] font-bold px-1.5 py-0.2 rounded-md">
                             {items.length}筆
                           </span>
                         )}
@@ -1068,13 +1079,13 @@ const BookkeepingPage: React.FC = () => {
 
                       <div className="space-y-1 mt-3">
                         {dayEarned > 0 && (
-                          <div className="text-[9px] font-bold text-emerald-400 bg-emerald-500/10 px-1 rounded flex justify-between">
+                          <div className="text-[9px] font-black text-[#388E3C] bg-[#E8F5E9] px-1.5 py-0.5 rounded-lg border border-[#C8E6C9] flex justify-between">
                             <span>賺:</span>
                             <span>+${Math.round(dayEarned)}</span>
                           </div>
                         )}
                         {daySpent > 0 && (
-                          <div className="text-[9px] font-bold text-rose-400 bg-rose-500/10 px-1 rounded flex justify-between">
+                          <div className="text-[9px] font-black text-[#CE8078] bg-[#FFF0F0] px-1.5 py-0.5 rounded-lg border border-[#FFE0E0] flex justify-between">
                             <span>花:</span>
                             <span>-${Math.round(daySpent)}</span>
                           </div>
@@ -1086,43 +1097,45 @@ const BookkeepingPage: React.FC = () => {
               </div>
             </div>
 
-            {/* 日曆彈窗詳情 */}
+            {/* 日曆單日詳細彈窗 */}
             {selectedDayDetail && (
-              <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                <div className="bg-slate-900 border border-slate-700 w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
-                  <div className="bg-slate-800 px-5 py-4 flex items-center justify-between border-b border-slate-700">
+              <div className="fixed inset-0 bg-[#4A3B32]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
+                  <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD]">
                     <div>
-                      <h3 className="text-md font-bold text-white flex items-center gap-1.5">
-                        <span>📅</span> {selectedDayDetail.dayString} 收支明細
+                      <h3 className="text-md sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
+                        <span>📅</span> {selectedDayDetail.dayString} 記賬大詳情
                       </h3>
                     </div>
                     <button
                       onClick={() => setSelectedDayDetail(null)}
-                      className="p-1 bg-slate-700 hover:bg-slate-600 rounded-lg text-slate-400"
+                      className="p-1 bg-white hover:bg-[#F3ECE0] rounded-xl border border-[#EADFCD] text-[#8E7E73] transition-all"
                     >
-                      <X className="w-4 h-4" />
+                      <X className="w-4 h-4 stroke-[2.5]" />
                     </button>
                   </div>
 
-                  <div className="p-5 max-h-[300px] overflow-y-auto space-y-3">
+                  <div className="p-5 max-h-[300px] overflow-y-auto space-y-3 bg-white">
                     {selectedDayDetail.items.length === 0 ? (
-                      <div className="py-8 text-center text-slate-500">
-                        <p className="text-sm">這一天空空如也，沒有記賬紀錄唷！</p>
+                      <div className="py-12 text-center text-[#8E7E73] font-bold">
+                        <p className="text-sm">這一天還空蕩蕩的喔，沒有任何小筆記。</p>
                       </div>
                     ) : (
                       selectedDayDetail.items.map(t => {
                         const isIncome = t.type === 'incoming'
+                        const colors = BUSINESS_Pill_STYLES[t.business]
+
                         return (
-                          <div key={t.id} className="p-3 bg-slate-850 rounded-2xl border border-slate-800 flex items-center justify-between gap-3">
+                          <div key={t.id} className="p-3.5 bg-[#FCFAF5] rounded-2xl border-2 border-[#EFE9DB] flex items-center justify-between gap-3">
                             <div>
-                              <p className="text-sm font-bold text-white">{t.description}</p>
-                              <div className="flex items-center gap-2 text-[10px] text-slate-400 mt-1">
-                                <span className="bg-slate-800 px-1.5 py-0.2 rounded text-white">{t.business}</span>
-                                <span className="bg-slate-800 px-1.5 py-0.2 rounded text-yellow-400">{t.label}</span>
+                              <p className="text-sm font-black text-[#2E2520]">{t.description}</p>
+                              <div className="flex items-center gap-2 text-[10px] text-[#8E7E73] font-bold mt-1.5">
+                                <span className={`px-1.5 py-0.2 rounded border ${colors.bg} ${colors.text} ${colors.border}`}>{t.business}</span>
+                                <span className="bg-[#FAF6EE] border border-[#EADFCD] px-1.5 py-0.2 rounded text-[#8C6D3B]">{t.label}</span>
                               </div>
                             </div>
-                            <div className="flex items-center gap-2 font-mono">
-                              <p className={`text-sm font-bold ${isIncome ? 'text-emerald-400' : 'text-rose-400'}`}>
+                            <div className="flex items-center gap-2.5 font-mono">
+                              <p className={`text-sm sm:text-base font-black ${isIncome ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
                                 {isIncome ? '+' : '-'}{CURRENCY_SYMBOLS[t.currency]}{t.originalAmount}
                               </p>
                               <button
@@ -1130,9 +1143,9 @@ const BookkeepingPage: React.FC = () => {
                                   setSelectedDayDetail(null)
                                   startEditTransaction(t)
                                 }}
-                                className="p-1 hover:bg-slate-700 rounded text-slate-350"
+                                className="p-1.5 bg-white hover:bg-[#F3ECE0] border border-[#EADFCD] rounded-lg text-[#8E7E73]"
                               >
-                                <Edit className="w-3.5 h-3.5" />
+                                <Edit className="w-3.5 h-3.5 stroke-[2.5]" />
                               </button>
                             </div>
                           </div>
@@ -1141,20 +1154,20 @@ const BookkeepingPage: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="bg-slate-850 px-5 py-4 flex justify-between items-center border-t border-slate-850">
+                  <div className="bg-[#FCFAF5] px-5 py-4 flex justify-between items-center border-t-2 border-[#EFE9DB]">
                     <button
                       onClick={() => {
                         setSelectedDayDetail(null)
                         setShowCalendarAddForm(true)
                       }}
-                      className="bg-yellow-400 hover:bg-yellow-500 text-slate-950 text-xs font-black px-4 py-2 rounded-xl flex items-center gap-1"
+                      className="bg-[#F5B859] hover:bg-[#E5A749] text-[#2E2520] text-xs font-black px-4.5 py-2.5 rounded-xl flex items-center gap-1 border border-[#DE9B3E] active:scale-95 transition-all shadow-sm"
                     >
                       <Plus className="w-3.5 h-3.5 stroke-[3]" />
-                      在此日期記一筆 💰
+                      就在今天記一筆 💰
                     </button>
                     <button
                       onClick={() => setSelectedDayDetail(null)}
-                      className="text-xs text-slate-400 hover:text-white"
+                      className="text-xs text-[#8E7E73] hover:text-[#4A3B32] font-bold"
                     >
                       關閉視窗
                     </button>
@@ -1170,42 +1183,42 @@ const BookkeepingPage: React.FC = () => {
         {activeTab === 'report' && (
           <div className="space-y-6">
             
-            <div className="bg-slate-800/40 border border-slate-700/60 rounded-3xl p-6 space-y-6 max-w-3xl mx-auto">
-              <div className="text-center space-y-2 border-b border-slate-800 pb-5">
-                <h3 className="text-lg sm:text-xl font-black text-white flex items-center justify-center gap-1.5">
-                  <span>📊</span> 簡明生意損益小報表 (Base USD)
+            <div className="bg-white border-2 border-[#EFE9DB] rounded-3xl p-6 space-y-6 max-w-3xl mx-auto shadow-sm">
+              <div className="text-center space-y-2 border-b-2 border-[#FAF6EE] pb-5">
+                <h3 className="text-lg sm:text-xl font-black text-[#2E2520] flex items-center justify-center gap-1.5">
+                  <span>📊</span> 簡明生意損益小報表 (美金基準)
                 </h3>
-                <p className="text-xs text-slate-400">
-                  各生意的營業收入和支出的統計表，自動幫你折算成美金加總！
+                <p className="text-xs text-[#8E7E73] font-bold">
+                  各個小生意的賺錢和花錢情況匯總表，全部自動折算成美金統計！
                 </p>
               </div>
 
-              {/* 報表清單 */}
+              {/* 報表內容 */}
               <div className="space-y-4">
                 {businessesList.map(b => {
                   const bStat = businessStats[b] || { earned: 0, spent: 0, profit: 0 }
                   const isProfit = bStat.profit >= 0
                   return (
-                    <div key={b} className="p-4 bg-slate-900/40 border border-slate-800 rounded-2xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div key={b} className="p-4.5 bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <div>
-                        <h4 className="text-base font-black text-white">{b}</h4>
-                        <p className="text-xs text-slate-500 mt-1">
-                          本生意下的所有收支金額匯總。
+                        <h4 className="text-base sm:text-lg font-black text-[#2E2520]">{b}</h4>
+                        <p className="text-xs text-[#8E7E73] font-bold mt-1">
+                          本項生意的全部收支紀錄加總。
                         </p>
                       </div>
 
                       <div className="flex gap-4 font-mono text-xs text-right self-end sm:self-center">
                         <div>
-                          <p className="text-slate-400">總賺入</p>
-                          <p className="text-emerald-400 font-bold">+${bStat.earned.toFixed(2)}</p>
+                          <p className="text-[#8E7E73] font-bold">總收入</p>
+                          <p className="text-[#388E3C] font-black text-sm">+${bStat.earned.toFixed(2)}</p>
                         </div>
                         <div>
-                          <p className="text-slate-400">總花費</p>
-                          <p className="text-rose-400 font-bold">-${bStat.spent.toFixed(2)}</p>
+                          <p className="text-[#8E7E73] font-bold">總支出</p>
+                          <p className="text-[#CE8078] font-black text-sm">-${bStat.spent.toFixed(2)}</p>
                         </div>
-                        <div className="border-l border-slate-800 pl-4">
-                          <p className="text-slate-300 font-sans font-bold">小淨利</p>
-                          <p className={`font-black text-sm ${isProfit ? 'text-emerald-400' : 'text-rose-400'}`}>
+                        <div className="border-l-2 border-[#EFE9DB] pl-4">
+                          <p className="text-[#4A3B32] font-sans font-black">小利潤</p>
+                          <p className={`font-black text-base ${isProfit ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
                             {isProfit ? '+' : '-'}${Math.abs(bStat.profit).toFixed(2)}
                           </p>
                         </div>
@@ -1215,14 +1228,14 @@ const BookkeepingPage: React.FC = () => {
                 })}
               </div>
 
-              {/* 匯出按鈕 */}
-              <div className="pt-4 border-t border-slate-800 text-center">
+              {/* 導出報表 */}
+              <div className="pt-4 border-t-2 border-[#FAF6EE] text-center">
                 <button
                   onClick={exportToCSV}
-                  className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-black text-sm px-6 py-3 rounded-2xl transition-all hover:scale-[1.02] flex items-center justify-center gap-1.5 mx-auto shadow-lg shadow-emerald-950/20"
+                  className="bg-[#A3B899] hover:bg-[#8EAC90] text-[#2E2520] font-black text-sm px-6 py-3.5 rounded-2xl border-2 border-[#819976] transition-all hover:scale-[1.02] flex items-center justify-center gap-1.5 mx-auto shadow-md active:scale-95"
                 >
-                  <FileSpreadsheet className="w-4 h-4" />
-                  匯出下載生意損益 CSV 報表 📊
+                  <FileSpreadsheet className="w-4 h-4 stroke-[2.5]" />
+                  下載生意小報表 CSV 📊
                 </button>
               </div>
 
@@ -1235,52 +1248,52 @@ const BookkeepingPage: React.FC = () => {
 
       {/* ----------------- MODAL: 調整匯率設定 ----------------- */}
       {showRateSettings && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 w-full max-w-md rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
+        <div className="fixed inset-0 bg-[#4A3B32]/45 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-md rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
             
-            <div className="bg-slate-800 px-5 py-4 flex items-center justify-between border-b border-slate-700">
-              <h3 className="text-md font-bold text-white flex items-center gap-1.5">
-                <RefreshCw className="w-4.5 h-4.5 text-yellow-400 animate-spin-slow" />
-                調整匯率計算機 (基準: USD)
+            <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD]">
+              <h3 className="text-sm sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
+                <RefreshCw className="w-4.5 h-4.5 text-[#8C6D3B] stroke-[2.5]" />
+                調整小老闆匯率計算機
               </h3>
               <button
                 onClick={() => setShowRateSettings(false)}
-                className="p-1 bg-slate-700 hover:bg-slate-600 rounded-lg text-slate-400"
+                className="p-1 bg-white hover:bg-[#F3ECE0] rounded-xl border border-[#EADFCD] text-[#8E7E73]"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4 stroke-[2.5]" />
               </button>
             </div>
 
-            <div className="p-5 space-y-4 text-xs">
-              <p className="text-slate-400">
-                小老闆在記賬的時候，如果輸入了港幣或人民幣，我們會用這個匯率幫你自動換算成美金存進你的小存錢罐唷！
+            <div className="p-5 space-y-4 text-xs bg-white">
+              <p className="text-[#8E7E73] font-bold leading-relaxed">
+                在記賬時，如果小老闆輸入了港幣 (HKD) 或人民幣 (RMB)，系統會自動以這個匯率基準，幫你變魔法換算成美金 (USD) 存進你的大撲滿喔！
               </p>
 
-              <div className="space-y-3 bg-slate-950 p-4 rounded-2xl border border-slate-850 font-mono">
+              <div className="space-y-3.5 bg-[#FCFAF5] p-4 rounded-2xl border-2 border-[#EFE9DB] font-mono font-bold text-[#4A3B32]">
                 
                 {/* USD */}
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-350 font-sans font-bold">1 美金 (USD) =</span>
-                  <div className="flex items-center gap-1 text-white font-bold">
+                  <span className="text-[#8E7E73] font-sans">1 美金 (USD) =</span>
+                  <div className="flex items-center gap-1 text-slate-800 font-bold">
                     <input
                       type="text"
                       readOnly
                       value="1.0 USD"
-                      className="w-24 bg-slate-900 border border-slate-800 rounded-xl px-2.5 py-1 text-center text-slate-500"
+                      className="w-24 bg-white border border-[#EFE9DB] rounded-xl px-2.5 py-1.5 text-center text-slate-400 font-bold"
                     />
                   </div>
                 </div>
 
                 {/* HKD */}
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-355 font-sans font-bold">1 美金 (USD) =</span>
-                  <div className="flex items-center gap-1 text-white font-bold">
+                  <span className="text-[#8E7E73] font-sans">1 美金 (USD) =</span>
+                  <div className="flex items-center gap-1.5 font-bold">
                     <input
                       type="number"
                       step="0.01"
                       value={customRates.HKD}
                       onChange={(e) => setCustomRates(prev => ({ ...prev, HKD: Number(e.target.value) || EXCHANGE_RATES.HKD }))}
-                      className="w-24 bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-1 text-center text-yellow-400 focus:outline-none"
+                      className="w-24 bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-xl px-2.5 py-1.5 text-center text-[#8C6D3B] focus:outline-none"
                     />
                     <span>港幣 (HKD)</span>
                   </div>
@@ -1288,14 +1301,14 @@ const BookkeepingPage: React.FC = () => {
 
                 {/* RMB */}
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-355 font-sans font-bold">1 美金 (USD) =</span>
-                  <div className="flex items-center gap-1 text-white font-bold">
+                  <span className="text-[#8E7E73] font-sans">1 美金 (USD) =</span>
+                  <div className="flex items-center gap-1.5 font-bold">
                     <input
                       type="number"
                       step="0.01"
                       value={customRates.RMB}
                       onChange={(e) => setCustomRates(prev => ({ ...prev, RMB: Number(e.target.value) || EXCHANGE_RATES.RMB }))}
-                      className="w-24 bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-1 text-center text-yellow-400 focus:outline-none"
+                      className="w-24 bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-xl px-2.5 py-1.5 text-center text-[#8C6D3B] focus:outline-none"
                     />
                     <span>人民幣 (RMB)</span>
                   </div>
@@ -1303,22 +1316,22 @@ const BookkeepingPage: React.FC = () => {
 
               </div>
 
-              <div className="flex justify-end gap-3 pt-2">
+              <div className="flex justify-end gap-3 pt-2.5">
                 <button
                   onClick={() => {
                     setCustomRates(EXCHANGE_RATES)
-                    toast.success('匯率已復原成標準匯率囉！')
+                    toast.success('匯率已復原成標準基準囉！')
                   }}
-                  className="text-xs text-slate-400 hover:text-white"
+                  className="text-xs text-[#8E7E73] hover:text-[#4A3B32] font-bold"
                 >
-                  還原標準值
+                  復原標準值
                 </button>
                 <button
                   onClick={() => {
                     setShowRateSettings(false)
                     toast.success('匯率更新成功！儲存完畢！🌸')
                   }}
-                  className="bg-yellow-400 hover:bg-yellow-500 text-slate-950 font-black px-4 py-2 rounded-xl text-xs transition-all"
+                  className="bg-[#F5B859] hover:bg-[#E5A749] text-[#2E2520] font-black px-4.5 py-2.5 rounded-xl text-xs active:scale-95 transition-all border border-[#DE9B3E]"
                 >
                   確認保存設定
                 </button>
@@ -1332,12 +1345,12 @@ const BookkeepingPage: React.FC = () => {
 
       {/* ----------------- 彈窗: 記一筆 / 編輯收支交易 ----------------- */}
       {(showAddForm || showCalendarAddForm) && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700 w-full max-w-md rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
+        <div className="fixed inset-0 bg-[#4A3B32]/45 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-md rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
             
-            <div className="bg-slate-800 px-5 py-4 flex items-center justify-between border-b border-slate-700">
-              <h3 className="text-md font-black text-white">
-                {editingTransactionId ? '✏️ 修改這筆小紀錄' : '💰 記一筆收支紀錄'}
+            <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD]">
+              <h3 className="text-md sm:text-base font-black text-[#2E2520]">
+                {editingTransactionId ? '✏️ 修改這筆小日記' : '💰 記一筆收支日記'}
               </h3>
               <button
                 onClick={() => {
@@ -1345,54 +1358,54 @@ const BookkeepingPage: React.FC = () => {
                   setShowCalendarAddForm(false)
                   resetForm()
                 }}
-                className="p-1 bg-slate-700 hover:bg-slate-600 rounded-lg text-slate-400"
+                className="p-1 bg-white hover:bg-[#F3ECE0] border border-[#EADFCD] rounded-xl text-[#8E7E73]"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4 stroke-[2.5]" />
               </button>
             </div>
 
-            <form onSubmit={handleSaveTransaction} className="p-5 space-y-4 text-xs">
+            <form onSubmit={handleSaveTransaction} className="p-5 space-y-4 text-xs bg-white">
               
-              {/* 交易日期 */}
+              {/* 日期 */}
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">交易日期</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">交易日期</label>
                 <input
                   type="date"
                   required
                   value={formDate}
                   onChange={(e) => setFormDate(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white text-sm focus:outline-none"
+                  className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold"
                 />
               </div>
 
-              {/* 賺錢/花錢大按鈕 */}
+              {/* 賺錢/花錢切換 */}
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">這是賺錢還是花錢呢？</label>
-                <div className="grid grid-cols-2 gap-2 bg-slate-950 p-1 rounded-xl border border-slate-800">
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">這是賺到錢還是花出錢呢？</label>
+                <div className="grid grid-cols-2 gap-2 bg-[#FCFAF5] p-1.5 rounded-2xl border-2 border-[#EFE9DB]">
                   <button
                     type="button"
                     onClick={() => setFormType('incoming')}
-                    className={`py-2 rounded-lg text-xs font-bold transition-all ${
-                      formType === 'incoming' ? 'bg-emerald-500 text-white shadow-md font-black' : 'text-slate-400 hover:text-white'
+                    className={`py-2.5 rounded-xl text-xs font-black transition-all active:scale-95 ${
+                      formType === 'incoming' ? 'bg-[#A3B899] border border-[#819976] text-[#2E2520] shadow-sm' : 'text-[#8E7E73] hover:text-[#4A3B32]'
                     }`}
                   >
-                    💰 存錢進來 (賺錢)
+                    💰 存錢進來 (賺錢啦)
                   </button>
                   <button
                     type="button"
                     onClick={() => setFormType('outgoing')}
-                    className={`py-2 rounded-lg text-xs font-bold transition-all ${
-                      formType === 'outgoing' ? 'bg-rose-500 text-white shadow-md font-black' : 'text-slate-400 hover:text-white'
+                    className={`py-2.5 rounded-xl text-xs font-black transition-all active:scale-95 ${
+                      formType === 'outgoing' ? 'bg-[#DE9B93] border border-[#CE8078] text-[#2E2520] shadow-sm' : 'text-[#8E7E73] hover:text-[#4A3B32]'
                     }`}
                   >
-                    💸 付錢出去 (花錢)
+                    💸 付錢出去 (花錢囉)
                   </button>
                 </div>
               </div>
 
-              {/* 四個生意的按鈕選擇 */}
+              {/* 屬於哪項生意 */}
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">屬於哪一個小生意？</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">是屬於哪一個小生意的？</label>
                 <div className="grid grid-cols-2 gap-2">
                   {businessesList.map(b => {
                     const isSelected = formBusiness === b
@@ -1401,10 +1414,10 @@ const BookkeepingPage: React.FC = () => {
                         key={b}
                         type="button"
                         onClick={() => setFormBusiness(b)}
-                        className={`py-2 rounded-xl text-xs font-bold border transition-all ${
+                        className={`py-2.5 rounded-xl text-xs font-black border-2 transition-all active:scale-95 ${
                           isSelected
-                            ? 'bg-yellow-400 border-yellow-400 text-slate-950 shadow-md font-black hover:scale-[1.01]'
-                            : 'bg-slate-950 border-slate-800 text-slate-350 hover:border-slate-700'
+                            ? 'bg-[#F5B859] border-[#DE9B3E] text-[#2E2520] shadow-sm'
+                            : 'bg-white border-[#EFE9DB] text-[#8E7E73] hover:border-[#EADFCD]'
                         }`}
                       >
                         {b}
@@ -1414,17 +1427,17 @@ const BookkeepingPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* 幣別與金額輸入 */}
+              {/* 幣別與金額 */}
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1.5 flex items-center justify-between">
-                  <span>填入金額與幣別</span>
-                  <span className="text-[10px] text-yellow-400 font-mono font-bold bg-yellow-500/10 px-2 py-0.5 rounded">
-                    基準貨幣: USD
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5 flex items-center justify-between">
+                  <span>填入金額與使用的幣別</span>
+                  <span className="text-[10px] text-[#8C6D3B] font-mono font-bold bg-[#FAF1DF] border border-[#EADFCD] px-2 py-0.5 rounded-lg">
+                    大撲滿基底: USD
                   </span>
                 </label>
 
-                {/* 幣別藥丸按鈕 */}
-                <div className="grid grid-cols-3 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 mb-2">
+                {/* 幣別藥丸 */}
+                <div className="grid grid-cols-3 gap-1 bg-[#FCFAF5] p-1.5 rounded-2xl border-2 border-[#EFE9DB] mb-2.5">
                   {(['USD', 'HKD', 'RMB'] as CurrencyType[]).map((curr) => {
                     const isActive = formCurrency === curr
                     return (
@@ -1432,10 +1445,10 @@ const BookkeepingPage: React.FC = () => {
                         key={curr}
                         type="button"
                         onClick={() => setFormCurrency(curr)}
-                        className={`py-1.5 rounded-lg text-xs font-bold font-mono transition-all flex items-center justify-center gap-1 ${
+                        className={`py-2 rounded-xl text-xs font-black font-mono transition-all flex items-center justify-center gap-1 active:scale-95 ${
                           isActive
-                            ? 'bg-yellow-400 text-slate-950 shadow-md scale-[1.02] font-black'
-                            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+                            ? 'bg-[#F5B859] text-[#2E2520] shadow-sm scale-[1.02]'
+                            : 'text-[#8E7E73] hover:text-[#4A3B32] hover:bg-white'
                         }`}
                       >
                         <span>{curr}</span>
@@ -1445,10 +1458,10 @@ const BookkeepingPage: React.FC = () => {
                   })}
                 </div>
 
-                {/* 輸入金額 */}
-                <div className="relative rounded-xl shadow-sm">
+                {/* 輸入欄 */}
+                <div className="relative rounded-2xl shadow-inner">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                    <span className="text-slate-400 font-mono text-sm font-bold">
+                    <span className="text-[#8E7E73] font-mono text-sm font-black">
                       {CURRENCY_SYMBOLS[formCurrency]}
                     </span>
                   </div>
@@ -1460,14 +1473,14 @@ const BookkeepingPage: React.FC = () => {
                     placeholder="0.00"
                     value={formAmount}
                     onChange={(e) => setFormAmount(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-700 rounded-xl pl-8 pr-4 py-2 text-white focus:outline-none focus:border-yellow-400 font-mono font-bold text-base"
+                    className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl pl-8 pr-4 py-2.5 text-[#2E2520] focus:outline-none focus:border-[#F5B859] font-mono font-black text-lg"
                   />
                 </div>
 
-                {/* 神奇魔術自動折算卡片 */}
+                {/* 金額魔法換算卡片 */}
                 {liveConversions && (
-                  <div className="mt-2.5 space-y-1">
-                    <p className="text-[10px] text-slate-400 font-bold">🪄 點擊下方小卡片，金額會神奇自動換算喔：</p>
+                  <div className="mt-3.5 space-y-1">
+                    <p className="text-[10px] text-[#8C6D3B] font-bold">🪄 點點下方卡片，金額會神奇自動換算唷：</p>
                     <div className="grid grid-cols-3 gap-2">
                       {(['USD', 'HKD', 'RMB'] as CurrencyType[]).map((curr) => {
                         const val = liveConversions[curr]
@@ -1482,16 +1495,16 @@ const BookkeepingPage: React.FC = () => {
                               setFormAmount(val.toFixed(2))
                               toast.info(`神奇魔法！金額已換算為 ${curr} ${val.toFixed(2)}`);
                             }}
-                            className={`border rounded-xl p-2 text-left transition-all font-mono group ${
+                            className={`border-2 rounded-2xl p-2.5 text-left transition-all font-mono group active:scale-95 ${
                               isCurrent
-                                ? 'bg-yellow-500/5 border-yellow-500/30 cursor-default'
-                                : 'bg-slate-950 hover:bg-slate-800 border-slate-800 hover:border-yellow-500/50 cursor-pointer'
+                                ? 'bg-[#FAF1DF] border-[#FFE0B2] cursor-default'
+                                : 'bg-[#FCFAF5] hover:bg-[#FAF6EE] border-[#EFE9DB] hover:border-[#F5B859]/60 cursor-pointer shadow-sm'
                             }`}
                           >
-                            <div className={`text-[9px] font-sans ${isCurrent ? 'text-yellow-400 font-bold' : 'text-slate-500 group-hover:text-yellow-400'}`}>
+                            <div className={`text-[9px] font-sans ${isCurrent ? 'text-[#8C6D3B] font-black' : 'text-[#8E7E73] group-hover:text-[#8C6D3B]'}`}>
                               {isCurrent ? '目前' : '折合'} {curr}
                             </div>
-                            <div className={`text-xs font-black truncate ${isCurrent ? 'text-white' : 'text-slate-350'}`}>
+                            <div className={`text-xs font-black truncate ${isCurrent ? 'text-[#2E2520]' : 'text-[#4A3B32]'}`}>
                               {CURRENCY_SYMBOLS[curr]}
                               {val.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </div>
@@ -1504,13 +1517,13 @@ const BookkeepingPage: React.FC = () => {
 
               </div>
 
-              {/* 收支科目別 */}
+              {/* 收支類別 */}
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">這是屬於什麼細項呢？</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">這是屬於哪一項收支呢？</label>
                 <select
                   value={formLabel}
                   onChange={(e) => setFormLabel(e.target.value as CategoryLabelType)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2.5 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold"
                 >
                   {formType === 'incoming' ? (
                     <>
@@ -1531,24 +1544,24 @@ const BookkeepingPage: React.FC = () => {
 
               {/* 描述/備註 */}
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">寫下你的小備註 (例: 特斯拉週租租金)</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">寫下一點好記的小筆記 (例: 特斯拉載客一星期的租費)</label>
                 <input
                   type="text"
                   required
-                  placeholder="寫一點好記的小備註吧..."
+                  placeholder="寫下一點簡單的小日記吧..."
                   value={formDescription}
                   onChange={(e) => setFormDescription(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2.5 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold placeholder-[#A8988D]"
                 />
               </div>
 
               {/* 支付方式 */}
               <div>
-                <label className="block text-xs font-bold text-slate-400 mb-1">交易付款方式</label>
+                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">這筆錢是怎麼交易的？</label>
                 <select
                   value={formPaymentMethod}
                   onChange={(e) => setFormPaymentMethod(e.target.value as any)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2.5 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold"
                 >
                   <option value="銀行轉帳">銀行轉帳</option>
                   <option value="現金">現金</option>
@@ -1557,7 +1570,7 @@ const BookkeepingPage: React.FC = () => {
                 </select>
               </div>
 
-              <div className="pt-3 flex justify-between gap-3">
+              <div className="pt-3 flex justify-between gap-3 border-t border-[#FAF6EE]">
                 <button
                   type="button"
                   onClick={() => {
@@ -1565,15 +1578,15 @@ const BookkeepingPage: React.FC = () => {
                     setShowCalendarAddForm(false)
                     resetForm()
                   }}
-                  className="bg-slate-800 text-slate-400 hover:bg-slate-750 px-4 py-2 rounded-xl text-xs font-bold"
+                  className="bg-[#FCFAF5] hover:bg-[#F3ECE0] border border-[#EFE9DB] rounded-2xl text-[#8E7E73] font-bold text-xs px-5 py-2.5 active:scale-95 transition-all"
                 >
                   取消
                 </button>
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 px-5 py-2 rounded-xl text-xs font-black"
+                  className="bg-[#F5B859] hover:bg-[#E5A749] border border-[#DE9B3E] text-[#2E2520] px-6 py-2.5 rounded-2xl text-xs font-black active:scale-95 transition-all shadow-sm"
                 >
-                  確認保存紀錄 ✨
+                  確認保存這筆紀錄 ✨
                 </button>
               </div>
 
