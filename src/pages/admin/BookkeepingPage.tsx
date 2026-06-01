@@ -24,7 +24,9 @@ import {
   Layers,
   ArrowUpRight,
   ArrowDownRight,
-  Percent
+  Percent,
+  BriefcaseBusiness,
+  Coins
 } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -66,13 +68,22 @@ export interface Transaction {
   type: 'incoming' | 'outgoing'
   label: TransactionLabel
   assetId?: string // 可選關聯租賃資產
+  businessLine: string // 關聯業務板塊 (多業務核算關鍵字)
   description: string
   refNumber?: string
   paymentMethod: '銀行轉帳' | 'Paypal' | 'Stripe' | '現金支付' | '信用卡'
 }
 
+// 預設業務板塊清冊
+const DEFAULT_BUSINESS_LINES = [
+  'AchievePack B2B 集團包裝',
+  'Pouch.eco 零售袋裝',
+  '固定資產與廠房租賃',
+  '供應鏈諮詢與方案規劃'
+]
+
 // ==========================================
-// 高規格歷史模擬數據 (全面中文化)
+// 高規格歷史模擬數據 (全面支持多業務板塊歸檔)
 // ==========================================
 
 const INITIAL_ASSETS: RentAsset[] = [
@@ -137,6 +148,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-1',
+    businessLine: '固定資產與廠房租賃',
     description: '華東 A 區倉庫月度租金回籠',
     refNumber: 'INV-2026-0601',
     paymentMethod: '銀行轉帳'
@@ -148,6 +160,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-2',
+    businessLine: '固定資產與廠房租賃',
     description: '印刷滾筒設備組租金回籠',
     refNumber: 'INV-2026-0602',
     paymentMethod: 'Stripe'
@@ -159,6 +172,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-3',
+    businessLine: '固定資產與廠房租賃',
     description: '豐田堆高機 T-100 月租金回籠',
     refNumber: 'INV-2026-0603',
     paymentMethod: 'Paypal'
@@ -170,6 +184,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-5',
+    businessLine: '固定資產與廠房租賃',
     description: '環保立體袋結構專利 IP 月度授權金',
     refNumber: 'INV-2026-0605',
     paymentMethod: '銀行轉帳'
@@ -180,9 +195,21 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 18500,
     type: 'incoming',
     label: '客製訂單銷售',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '承接客製化可降解咖啡立體袋 - 5萬個中型生產跑單起算',
     refNumber: 'PO-984402',
     paymentMethod: '銀行轉帳'
+  },
+  {
+    id: 't-jun-5-b',
+    date: '2026-06-08',
+    amount: 9800,
+    type: 'incoming',
+    label: '客製訂單銷售',
+    businessLine: 'Pouch.eco 零售袋裝',
+    description: 'B2C 官網在線定制小包裝可降解拉鍊袋小批量回籠款',
+    refNumber: 'STRIP-9921',
+    paymentMethod: 'Stripe'
   },
   {
     id: 't-jun-6',
@@ -190,6 +217,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 3400,
     type: 'outgoing',
     label: '原材料採購支出',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '訂購高分子生物降解 PBS 包裝專用樹脂原料',
     refNumber: 'VEND-9981',
     paymentMethod: '信用卡'
@@ -201,6 +229,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'outgoing',
     label: '資產日常維護',
     assetId: 'asset-4',
+    businessLine: '固定資產與廠房租賃',
     description: '華南 B 區冷鏈倉庫屋頂防漏水及升降梯加固維修',
     refNumber: 'MNT-4402',
     paymentMethod: '銀行轉帳'
@@ -211,6 +240,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 480,
     type: 'outgoing',
     label: '辦公水電網費',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '辦公樓高頻電力、自來水及企業光纖寬頻水電費發票',
     refNumber: 'UTIL-06',
     paymentMethod: '信用卡'
@@ -224,6 +254,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-1',
+    businessLine: '固定資產與廠房租賃',
     description: '華東 A 區中央聯運倉庫月度租金回籠',
     refNumber: 'INV-2026-0501',
     paymentMethod: '銀行轉帳'
@@ -235,6 +266,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-2',
+    businessLine: '固定資產與廠房租賃',
     description: '印刷滾筒設備組月度租金回籠',
     refNumber: 'INV-2026-0502',
     paymentMethod: 'Stripe'
@@ -246,6 +278,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-3',
+    businessLine: '固定資產與廠房租賃',
     description: '豐田堆高機 T-100 月度租金回籠',
     refNumber: 'INV-2026-0503',
     paymentMethod: 'Paypal'
@@ -257,6 +290,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-5',
+    businessLine: '固定資產與廠房租賃',
     description: '環保立體袋結構專利 IP 授權費回籠',
     refNumber: 'INV-2026-0505',
     paymentMethod: '銀行轉帳'
@@ -267,9 +301,21 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 14200,
     type: 'incoming',
     label: '客製訂單銷售',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '高端手工巧克力外包裝拉鍊袋大貨款項（3萬袋訂單）',
     refNumber: 'PO-421890',
     paymentMethod: '銀行轉帳'
+  },
+  {
+    id: 't-may-5-b',
+    date: '2026-05-14',
+    amount: 6500,
+    type: 'incoming',
+    label: '客製訂單銷售',
+    businessLine: 'Pouch.eco 零售袋裝',
+    description: 'DTC 有機花草茶小批量牛皮紙立體袋銷售款',
+    refNumber: 'STRIP-9812',
+    paymentMethod: 'Stripe'
   },
   {
     id: 't-may-6',
@@ -277,6 +323,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 430,
     type: 'outgoing',
     label: '辦公水電網費',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '辦公室電力及水費帳單結清',
     refNumber: 'UTIL-05',
     paymentMethod: '信用卡'
@@ -287,6 +334,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 1500,
     type: 'outgoing',
     label: '物流貨運支出',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '批發可回收咖啡袋空運至西雅圖港運雜費結清',
     refNumber: 'FRT-8871',
     paymentMethod: '信用卡'
@@ -297,6 +345,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 6500,
     type: 'outgoing',
     label: '員工薪資發放',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '5月份辦公及生產研發團隊月度工資下發',
     refNumber: 'PAY-2026-05',
     paymentMethod: '銀行轉帳'
@@ -310,6 +359,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-1',
+    businessLine: '固定資產與廠房租賃',
     description: '華東 A 區中央聯運倉庫月租回籠',
     refNumber: 'INV-2026-0401',
     paymentMethod: '銀行轉帳'
@@ -321,6 +371,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-2',
+    businessLine: '固定資產與廠房租賃',
     description: '印刷滾筒設備組月租回籠',
     refNumber: 'INV-2026-0402',
     paymentMethod: 'Stripe'
@@ -332,6 +383,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-3',
+    businessLine: '固定資產與廠房租賃',
     description: '豐田堆高機 T-100 月租回籠',
     refNumber: 'INV-2026-0403',
     paymentMethod: 'Paypal'
@@ -343,6 +395,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-5',
+    businessLine: '固定資產與廠房租賃',
     description: '環保立體袋結構專利 IP 授權費',
     refNumber: 'INV-2026-0405',
     paymentMethod: '銀行轉帳'
@@ -353,6 +406,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 22000,
     type: 'incoming',
     label: '客製訂單銷售',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '承接大規格牛皮紙重載防潮種子袋（跨國集團訂單首期）',
     refNumber: 'PO-881203',
     paymentMethod: '銀行轉帳'
@@ -363,6 +417,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 5400,
     type: 'outgoing',
     label: '原材料採購支出',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '補庫原色未漂白針葉林木牛皮紙卷材料 8 噸',
     refNumber: 'VEND-9712',
     paymentMethod: '銀行轉帳'
@@ -373,6 +428,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 450,
     type: 'outgoing',
     label: '辦公水電網費',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '4月份辦公基礎能源與光纖網絡帳單繳納',
     refNumber: 'UTIL-04',
     paymentMethod: '信用卡'
@@ -383,6 +439,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 2200,
     type: 'outgoing',
     label: '物流貨運支出',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '環保重載袋至漢堡海運整櫃海運訂艙與報關什費',
     refNumber: 'FRT-8843',
     paymentMethod: '銀行轉帳'
@@ -393,6 +450,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 6500,
     type: 'outgoing',
     label: '員工薪資發放',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '4月份總部行政與生產端員工資發放',
     refNumber: 'PAY-2026-04',
     paymentMethod: '銀行轉帳'
@@ -406,6 +464,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-1',
+    businessLine: '固定資產與廠房租賃',
     description: '華東 A 區中央聯運倉庫月租回籠',
     refNumber: 'INV-2026-0301',
     paymentMethod: '銀行轉帳'
@@ -417,6 +476,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-2',
+    businessLine: '固定資產與廠房租賃',
     description: '印刷滾筒設備組月租回籠',
     refNumber: 'INV-2026-0302',
     paymentMethod: 'Stripe'
@@ -428,6 +488,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-3',
+    businessLine: '固定資產與廠房租賃',
     description: '豐田堆高機 T-100 月租回籠',
     refNumber: 'INV-2026-0303',
     paymentMethod: 'Paypal'
@@ -439,6 +500,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-5',
+    businessLine: '固定資產與廠房租賃',
     description: '環保立體袋結構專利 IP 授權費',
     refNumber: 'INV-2026-0305',
     paymentMethod: '銀行轉帳'
@@ -450,6 +512,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'outgoing',
     label: '資產日常維護',
     assetId: 'asset-3',
+    businessLine: '固定資產與廠房租賃',
     description: '堆高機液壓密封圈更換、齒輪油更換及蓄電池組維護',
     refNumber: 'MNT-4281',
     paymentMethod: '信用卡'
@@ -460,6 +523,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 16800,
     type: 'incoming',
     label: '客製訂單銷售',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '承接客製環保立體零食密封袋（DTC 新銳健康零食品牌）',
     refNumber: 'PO-330179',
     paymentMethod: '銀行轉帳'
@@ -470,6 +534,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 3200,
     type: 'outgoing',
     label: '企業稅收繳納',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '申報並繳納 2026 第一季度企業所得稅及地方附加稅',
     refNumber: 'TAX-2026-Q1',
     paymentMethod: '銀行轉帳'
@@ -480,6 +545,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 440,
     type: 'outgoing',
     label: '辦公水電網費',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '3月份總部大樓水電費帳單結清',
     refNumber: 'UTIL-03',
     paymentMethod: '信用卡'
@@ -490,6 +556,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 6500,
     type: 'outgoing',
     label: '員工薪資發放',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '3月份全體團隊月度薪資正常發放',
     refNumber: 'PAY-2026-03',
     paymentMethod: '銀行轉帳'
@@ -503,6 +570,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-1',
+    businessLine: '固定資產與廠房租賃',
     description: '華東 A 區中央聯運倉庫月租回籠',
     refNumber: 'INV-2026-0201',
     paymentMethod: '銀行轉帳'
@@ -514,6 +582,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-2',
+    businessLine: '固定資產與廠房租賃',
     description: '印刷滾筒設備組月租回籠',
     refNumber: 'INV-2026-0202',
     paymentMethod: 'Stripe'
@@ -525,6 +594,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-3',
+    businessLine: '固定資產與廠房租賃',
     description: '豐田堆高機 T-100 月租回籠',
     refNumber: 'INV-2026-0203',
     paymentMethod: 'Paypal'
@@ -536,6 +606,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-5',
+    businessLine: '固定資產與廠房租賃',
     description: '環保立體袋結構專利 IP 授權費',
     refNumber: 'INV-2026-0205',
     paymentMethod: '銀行轉帳'
@@ -546,6 +617,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 4100,
     type: 'outgoing',
     label: '原材料採購支出',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '採購複合軟包裝高阻隔 PET 薄膜及可降解拉鍊密封材料',
     refNumber: 'VEND-9602',
     paymentMethod: '銀行轉帳'
@@ -556,6 +628,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 460,
     type: 'outgoing',
     label: '辦公水電網費',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '2月份企業水電與光纖網絡帳單',
     refNumber: 'UTIL-02',
     paymentMethod: '信用卡'
@@ -566,6 +639,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 19800,
     type: 'incoming',
     label: '客製訂單銷售',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '承接客製環保可回收立體拉鍊袋（有機堅果連鎖品牌大貨）',
     refNumber: 'PO-930182',
     paymentMethod: '銀行轉帳'
@@ -576,6 +650,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 6500,
     type: 'outgoing',
     label: '員工薪資發放',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '2月份辦公及技術人員工資劃發',
     refNumber: 'PAY-2026-02',
     paymentMethod: '銀行轉帳'
@@ -589,6 +664,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-1',
+    businessLine: '固定資產與廠房租賃',
     description: '華東 A 區中央聯運倉庫月租回籠',
     refNumber: 'INV-2026-0101',
     paymentMethod: '銀行轉帳'
@@ -600,6 +676,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-2',
+    businessLine: '固定資產與廠房租賃',
     description: '印刷滾筒設備組月租回籠',
     refNumber: 'INV-2026-0102',
     paymentMethod: 'Stripe'
@@ -611,6 +688,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-3',
+    businessLine: '固定資產與廠房租賃',
     description: '豐田堆高機 T-100 月租回籠',
     refNumber: 'INV-2026-0103',
     paymentMethod: 'Paypal'
@@ -622,6 +700,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     type: 'incoming',
     label: '租金收入',
     assetId: 'asset-5',
+    businessLine: '固定資產與廠房租賃',
     description: '環保立體袋結構專利 IP 授權費',
     refNumber: 'INV-2026-0105',
     paymentMethod: '銀行轉帳'
@@ -632,6 +711,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 12000,
     type: 'incoming',
     label: '諮詢規劃收入',
+    businessLine: '供應鏈諮詢與方案規劃',
     description: '承接大型包裝製造業綠色循環包裝升級諮詢藍圖規劃案（尾款結清）',
     refNumber: 'INV-AP-9901',
     paymentMethod: '銀行轉帳'
@@ -642,6 +722,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 430,
     type: 'outgoing',
     label: '辦公水電網費',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '1月份企業總部辦公大樓能源費與環境維護費結案發票',
     refNumber: 'UTIL-01',
     paymentMethod: '信用卡'
@@ -652,6 +733,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 950,
     type: 'outgoing',
     label: '物流貨運支出',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '支付寄送海外高精細度打樣樣品包的特快空運費（順豐/DHL）',
     refNumber: 'FRT-7712',
     paymentMethod: '信用卡'
@@ -662,6 +744,7 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     amount: 6500,
     type: 'outgoing',
     label: '員工薪資發放',
+    businessLine: 'AchievePack B2B 集團包裝',
     description: '1月份核心管理與生產骨幹薪資劃扣發放',
     refNumber: 'PAY-2026-01',
     paymentMethod: '銀行轉帳'
@@ -687,6 +770,15 @@ const BookkeepingPage: React.FC = () => {
     return saved ? JSON.parse(saved) : INITIAL_TRANSACTIONS
   })
 
+  // 多業務板塊動態自訂列表
+  const [businessLines, setBusinessLines] = useState<string[]>(() => {
+    const saved = localStorage.getItem('achievepack_bookkeeping_businesses')
+    return saved ? JSON.parse(saved) : DEFAULT_BUSINESS_LINES
+  })
+
+  const [newBusinessName, setNewBusinessName] = useState('')
+  const [showAddBusiness, setShowAddBusiness] = useState(false)
+
   // 同步寫入 LocalStorage
   useEffect(() => {
     localStorage.setItem('achievepack_bookkeeping_assets', JSON.stringify(assets))
@@ -696,18 +788,42 @@ const BookkeepingPage: React.FC = () => {
     localStorage.setItem('achievepack_bookkeeping_transactions', JSON.stringify(transactions))
   }, [transactions])
 
+  useEffect(() => {
+    localStorage.setItem('achievepack_bookkeeping_businesses', JSON.stringify(businessLines))
+  }, [businessLines])
+
+  // 新增自訂業務板塊標籤
+  const handleAddBusinessLine = (e: React.FormEvent) => {
+    e.preventDefault()
+    const name = newBusinessName.trim()
+    if (!name) {
+      toast.error('請輸入業務板塊名稱')
+      return
+    }
+    if (businessLines.includes(name)) {
+      toast.error('該業務板塊已存在')
+      return
+    }
+
+    setBusinessLines(prev => [...prev, name])
+    setNewBusinessName('')
+    setShowAddBusiness(false)
+    toast.success(`自訂業務板塊「${name}」建立成功！`)
+  }
+
   // 總帳明細篩選器 state
   const [ledgerSearch, setLedgerSearch] = useState('')
   const [ledgerTypeFilter, setLedgerTypeFilter] = useState<'all' | 'incoming' | 'outgoing'>('all')
   const [ledgerLabelFilter, setLedgerLabelFilter] = useState<string>('all')
   const [ledgerAssetFilter, setLedgerAssetFilter] = useState<string>('all')
+  const [ledgerBusinessFilter, setLedgerBusinessFilter] = useState<string>('all') // 業務篩選器
 
   // 自訂日期篩選
   const [ledgerDateStart, setLedgerDateStart] = useState('')
   const [ledgerDateEnd, setLedgerDateEnd] = useState('')
 
   // 收支日曆 state
-  const [currentDate, setCurrentDate] = useState(new Date(2026, 5, 1)) // 起始設定於2026年6月，以對齊預設模擬數據
+  const [currentDate, setCurrentDate] = useState(new Date(2026, 5, 1)) // 起始設定於2026年6月
   const [selectedDayDetail, setSelectedDayDetail] = useState<{ dayString: string; items: Transaction[] } | null>(null)
   const [showCalendarAddForm, setShowCalendarAddForm] = useState(false)
 
@@ -718,6 +834,7 @@ const BookkeepingPage: React.FC = () => {
   const [formType, setFormType] = useState<'incoming' | 'outgoing'>('incoming')
   const [formLabel, setFormLabel] = useState<TransactionLabel>('租金收入')
   const [formAssetId, setFormAssetId] = useState('')
+  const [formBusinessLine, setFormBusinessLine] = useState('AchievePack B2B 集團包裝')
   const [formDescription, setFormDescription] = useState('')
   const [formRefNumber, setFormRefNumber] = useState('')
   const [formPaymentMethod, setFormPaymentMethod] = useState<Transaction['paymentMethod']>('銀行轉帳')
@@ -733,9 +850,10 @@ const BookkeepingPage: React.FC = () => {
   const [assetMaintenanceCost, setAssetMaintenanceCost] = useState('')
   const [editingAssetId, setEditingAssetId] = useState<string | null>(null)
 
-  // 損益表查詢年度與期間
+  // 損益表查詢年度、期間與業務板塊篩選器
   const [plYear, setPlYear] = useState('2026')
   const [plQuarter, setPlQuarter] = useState<'all' | 'Q1' | 'Q2' | 'Q3' | 'Q4'>('all')
+  const [plBusinessFilter, setPlBusinessFilter] = useState<string>('all') // 損益表業務板塊篩選器
 
   // 重置表單輔助函式
   const resetTransactionForm = () => {
@@ -744,6 +862,7 @@ const BookkeepingPage: React.FC = () => {
     setFormType('incoming')
     setFormLabel('租金收入')
     setFormAssetId('')
+    setFormBusinessLine(businessLines[0] || 'AchievePack B2B 集團包裝')
     setFormDescription('')
     setFormRefNumber('')
     setFormPaymentMethod('銀行轉帳')
@@ -779,6 +898,7 @@ const BookkeepingPage: React.FC = () => {
       type: formType,
       label: formLabel,
       assetId: formAssetId || undefined,
+      businessLine: formBusinessLine,
       description: formDescription.trim(),
       refNumber: formRefNumber.trim() || undefined,
       paymentMethod: formPaymentMethod
@@ -805,6 +925,7 @@ const BookkeepingPage: React.FC = () => {
     setFormType(t.type)
     setFormLabel(t.label)
     setFormAssetId(t.assetId || '')
+    setFormBusinessLine(t.businessLine || businessLines[0])
     setFormDescription(t.description)
     setFormRefNumber(t.refNumber || '')
     setFormPaymentMethod(t.paymentMethod)
@@ -885,7 +1006,7 @@ const BookkeepingPage: React.FC = () => {
   }, [formType])
 
   // ==========================================
-  // 動態指標與財務數據計算
+  // 動態指標與財務數據計算 (多業務核算)
   // ==========================================
 
   // 全局收支累積數據
@@ -909,13 +1030,13 @@ const BookkeepingPage: React.FC = () => {
     }
   }, [transactions, assets])
 
-  // 計算每個獨立資產的累計淨收益 (關聯收入 - 關聯維護支出 - 基準維護成本)
+  // 計算每個獨立資產的累計淨收益
   const assetNetYields = useMemo(() => {
     const yields: Record<string, number> = {}
     assets.forEach(a => {
       const linkedTransactions = transactions.filter(t => t.assetId === a.id)
       let income = 0
-      let expense = a.maintenanceCost // 以基礎月維護開支為基線
+      let expense = a.maintenanceCost
 
       linkedTransactions.forEach(t => {
         if (t.type === 'incoming') income += t.amount
@@ -925,6 +1046,31 @@ const BookkeepingPage: React.FC = () => {
     })
     return yields
   }, [transactions, assets])
+
+  // 各業務板塊的獲利與毛利分析比較 (用於儀表盤展示)
+  const businessProfitStats = useMemo(() => {
+    const bStats: Record<string, { income: number; expense: number; net: number }> = {}
+    
+    // 初始化所有已知業務板塊
+    businessLines.forEach(b => {
+      bStats[b] = { income: 0, expense: 0, net: 0 }
+    })
+
+    transactions.forEach(t => {
+      const bName = t.businessLine || '未分類板塊'
+      if (!bStats[bName]) {
+        bStats[bName] = { income: 0, expense: 0, net: 0 }
+      }
+      if (t.type === 'incoming') {
+        bStats[bName].income += t.amount
+      } else {
+        bStats[bName].expense += t.amount
+      }
+      bStats[bName].net = bStats[bName].income - bStats[bName].expense
+    })
+
+    return bStats
+  }, [transactions, businessLines])
 
   // 總帳明細過濾後的交易流水
   const filteredLedger = useMemo(() => {
@@ -936,6 +1082,7 @@ const BookkeepingPage: React.FC = () => {
       const matchType = ledgerTypeFilter === 'all' || t.type === ledgerTypeFilter
       const matchLabel = ledgerLabelFilter === 'all' || t.label === ledgerLabelFilter
       const matchAsset = ledgerAssetFilter === 'all' || t.assetId === ledgerAssetFilter
+      const matchBusiness = ledgerBusinessFilter === 'all' || t.businessLine === ledgerBusinessFilter
 
       let matchDate = true
       if (ledgerDateStart) {
@@ -945,11 +1092,11 @@ const BookkeepingPage: React.FC = () => {
         matchDate = matchDate && t.date <= ledgerDateEnd
       }
 
-      return matchSearch && matchType && matchLabel && matchAsset && matchDate
+      return matchSearch && matchType && matchLabel && matchAsset && matchBusiness && matchDate
     })
-  }, [transactions, ledgerSearch, ledgerTypeFilter, ledgerLabelFilter, ledgerAssetFilter, ledgerDateStart, ledgerDateEnd])
+  }, [transactions, ledgerSearch, ledgerTypeFilter, ledgerLabelFilter, ledgerAssetFilter, ledgerBusinessFilter, ledgerDateStart, ledgerDateEnd])
 
-  // P&L 財務報表專用科目歸檔與拆解
+  // P&L 財務報表專用科目歸檔與拆解 (全面支持「特定業務板塊」利潤核算)
   const plReport = useMemo(() => {
     let totalRevenue = 0
     let totalCOGS = 0 // 營業直接成本 (原材料採購、物流貨運等)
@@ -974,8 +1121,10 @@ const BookkeepingPage: React.FC = () => {
       const tYear = t.date.split('-')[0]
       const tMonth = Number(t.date.split('-')[1])
 
+      // 1. 年代過濾
       if (tYear !== plYear) return
 
+      // 2. 季度過濾
       if (plQuarter !== 'all') {
         const qMonths: Record<'Q1' | 'Q2' | 'Q3' | 'Q4', number[]> = {
           Q1: [1, 2, 3],
@@ -985,6 +1134,9 @@ const BookkeepingPage: React.FC = () => {
         }
         if (!qMonths[plQuarter].includes(tMonth)) return
       }
+
+      // 3. 業務板塊過濾 (動態財務分析核心)
+      if (plBusinessFilter !== 'all' && t.businessLine !== plBusinessFilter) return
 
       breakdown[t.label] += t.amount
 
@@ -1014,11 +1166,11 @@ const BookkeepingPage: React.FC = () => {
       netMargin,
       breakdown
     }
-  }, [transactions, plYear, plQuarter])
+  }, [transactions, plYear, plQuarter, plBusinessFilter])
 
   // P&L CSV 明細報表匯出
   const exportPLToCSV = () => {
-    const headers = '\uFEFF會計科目類別,累計總金額 (USD)\n'
+    const headers = `\uFEFF業務板塊: ${plBusinessFilter === 'all' ? '所有板塊' : plBusinessFilter},年度: ${plYear},期間: ${plQuarter}\n會計科目類別,累計總金額 (USD)\n`
     const rows = Object.entries(plReport.breakdown)
       .map(([label, amt]) => `"${label}",${amt}`)
       .join('\n')
@@ -1028,11 +1180,11 @@ const BookkeepingPage: React.FC = () => {
     const csvContent = 'data:text/csv;charset=utf-8,' + encodeURIComponent(headers + rows + summaryRows)
     const link = document.createElement('a')
     link.setAttribute('href', csvContent)
-    link.setAttribute('download', `AchievePack_企業損益分析表_${plYear}_${plQuarter}.csv`)
+    link.setAttribute('download', `AP_${plBusinessFilter}_損益分析表_${plYear}_${plQuarter}.csv`)
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
-    toast.success('企業損益分析數據已成功匯出為 CSV 報表！')
+    toast.success('該板塊損益分析數據已成功匯出為 CSV 報表！')
   }
 
   // ==========================================
@@ -1118,14 +1270,23 @@ const BookkeepingPage: React.FC = () => {
                   <DollarSign className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-white tracking-wide">企業財務記賬與現金流系統</h1>
-                  <p className="text-xs text-gray-400 font-mono">控制台總帳明細流水 • 安全邊緣架構</p>
+                  <h1 className="text-xl font-bold text-white tracking-wide">企業財務分板塊記賬與損益系統</h1>
+                  <p className="text-xs text-gray-400 font-mono">多個獨立業務利潤核算系統 • 數據邊緣安全持久儲存</p>
                 </div>
               </div>
             </div>
 
             {/* 快速新建功能 */}
             <div className="flex items-center gap-3">
+              <button
+                onClick={() => {
+                  setShowAddBusiness(true)
+                }}
+                className="bg-gray-850 hover:bg-gray-750 text-emerald-400 text-sm font-semibold px-4 py-2.5 rounded-xl border border-gray-700/80 transition-all flex items-center gap-2"
+              >
+                <BriefcaseBusiness className="w-4 h-4" />
+                管理自訂業務板塊
+              </button>
               <button
                 onClick={() => {
                   resetTransactionForm()
@@ -1158,7 +1319,7 @@ const BookkeepingPage: React.FC = () => {
             {/* 累計淨收益 */}
             <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/60 rounded-2xl p-5 hover:border-green-500/30 transition-all group">
               <div className="flex justify-between items-start">
-                <p className="text-sm font-medium text-gray-400">累計淨收益 (淨利額)</p>
+                <p className="text-sm font-medium text-gray-400">集團累計淨利額</p>
                 <span className={`p-1.5 rounded-lg text-xs font-semibold ${stats.net >= 0 ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
                   {stats.net >= 0 ? <ArrowUpRight className="w-4 h-4" /> : <ArrowDownRight className="w-4 h-4" />}
                 </span>
@@ -1175,7 +1336,7 @@ const BookkeepingPage: React.FC = () => {
             {/* 現金流入 */}
             <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/60 rounded-2xl p-5 hover:border-green-500/30 transition-all">
               <div className="flex justify-between items-start">
-                <p className="text-sm font-medium text-gray-400">累計現金流入 (收入)</p>
+                <p className="text-sm font-medium text-gray-400">現金流入 (營業收入總計)</p>
                 <span className="p-1.5 rounded-lg bg-green-500/10 text-green-400 text-xs">
                   <TrendingUp className="w-4 h-4" />
                 </span>
@@ -1183,13 +1344,13 @@ const BookkeepingPage: React.FC = () => {
               <p className="text-2xl font-bold text-green-400 tracking-tight mt-2 font-mono">
                 +${stats.inflow.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </p>
-              <p className="text-xs text-gray-500 mt-2">企業運營、銷售與租金所得累計</p>
+              <p className="text-xs text-gray-500 mt-2">包含集團銷售、客製零售與固定租賃所得</p>
             </div>
 
             {/* 現金流出 */}
             <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/60 rounded-2xl p-5 hover:border-red-500/30 transition-all">
               <div className="flex justify-between items-start">
-                <p className="text-sm font-medium text-gray-400">累計現金流出 (支出)</p>
+                <p className="text-sm font-medium text-gray-400">現金流出 (運營支出總計)</p>
                 <span className="p-1.5 rounded-lg bg-red-500/10 text-red-400 text-xs">
                   <TrendingDown className="w-4 h-4" />
                 </span>
@@ -1197,21 +1358,21 @@ const BookkeepingPage: React.FC = () => {
               <p className="text-2xl font-bold text-red-400 tracking-tight mt-2 font-mono">
                 -${stats.outflow.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </p>
-              <p className="text-xs text-gray-500 mt-2">原材料、薪資、物流與日常維護支出</p>
+              <p className="text-xs text-gray-500 mt-2">原材料、物流、資產維護與全體工資</p>
             </div>
 
-            {/* 資產數量 */}
+            {/* 業務板塊數量 */}
             <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/60 rounded-2xl p-5 hover:border-blue-500/30 transition-all">
               <div className="flex justify-between items-start">
-                <p className="text-sm font-medium text-gray-400">營運中租賃資產</p>
+                <p className="text-sm font-medium text-gray-400">當前營運業務板塊</p>
                 <span className="p-1.5 rounded-lg bg-blue-500/10 text-blue-400 text-xs">
-                  <Building className="w-4 h-4" />
+                  <BriefcaseBusiness className="w-4 h-4" />
                 </span>
               </div>
               <p className="text-2xl font-bold text-blue-400 tracking-tight mt-2 font-mono">
-                {stats.activeAssetsCount} <span className="text-sm text-gray-400 font-normal">/ {assets.length} 個項目</span>
+                {businessLines.length} <span className="text-sm text-gray-400 font-normal">個板塊單元</span>
               </p>
-              <p className="text-xs text-gray-500 mt-2">持續產生長期月度租金回籠</p>
+              <p className="text-xs text-gray-500 mt-2">各業務利潤獨立核算核對</p>
             </div>
           </div>
         </div>
@@ -1221,11 +1382,11 @@ const BookkeepingPage: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
         <div className="flex border-b border-gray-700/80 mb-8 overflow-x-auto gap-2 scrollbar-none">
           {[
-            { id: 'dashboard', label: '現金流儀表盤', icon: Sparkles },
+            { id: 'dashboard', label: '多業務現金流看板', icon: Sparkles },
             { id: 'transactions', label: '收支總帳明細', icon: Briefcase },
             { id: 'calendar', label: '收支日曆視圖', icon: Calendar },
             { id: 'assets', label: '租賃資產管理', icon: Building },
-            { id: 'pandl', label: '損益分析表 (P&L)', icon: FileSpreadsheet }
+            { id: 'pandl', label: '分業務板塊損益表 (P&L)', icon: FileSpreadsheet }
           ].map(tab => (
             <button
               key={tab.id}
@@ -1245,22 +1406,39 @@ const BookkeepingPage: React.FC = () => {
         {/* ----------------- 標籤頁: 儀表盤 ----------------- */}
         {activeTab === 'dashboard' && (
           <div className="space-y-8">
-            {/* 說明字樣 */}
-            <div className="bg-gray-800/20 rounded-2xl p-6 border border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div>
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-green-400" />
-                  企業財務狀況與核心健康概覽
-                </h3>
-                <p className="text-sm text-gray-400 mt-1">
-                  即時顯示租賃資產收益表現與企業營運支出分配結構。可點擊其餘標籤頁進行資料增刪修。
-                </p>
-              </div>
-              <div className="flex items-center gap-2 font-mono text-sm bg-gray-900/60 px-4 py-2.5 rounded-xl border border-gray-800">
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-                <span className="text-gray-400">數據存取狀態：</span>
-                <span className="text-white font-bold">100% 本地邊緣防丟失儲存</span>
-              </div>
+            {/* 多業務對比概覽列表 (NEW FEATURE: Comparative Grid) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              {businessLines.map(b => {
+                const bProfit = businessProfitStats[b] || { income: 0, expense: 0, net: 0 }
+                const isNetPositive = bProfit.net >= 0
+                return (
+                  <div key={b} className="bg-gray-850 border border-gray-800 rounded-2xl p-5 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs text-gray-400 font-bold bg-gray-800 px-2 py-0.5 rounded">業務單元</span>
+                        <Coins className={`w-4 h-4 ${isNetPositive ? 'text-green-400' : 'text-red-400'}`} />
+                      </div>
+                      <h4 className="text-sm font-bold text-white tracking-wide truncate">{b}</h4>
+                    </div>
+                    <div className="mt-4 space-y-1.5 text-xs">
+                      <div className="flex justify-between text-gray-400">
+                        <span>流入 (營收)：</span>
+                        <span className="font-mono text-green-400">+${bProfit.income.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-gray-400">
+                        <span>流出 (費用)：</span>
+                        <span className="font-mono text-red-400">-${bProfit.expense.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between pt-1.5 border-t border-gray-800">
+                        <span className="font-bold text-gray-300">淨利潤：</span>
+                        <span className={`font-mono font-bold ${isNetPositive ? 'text-green-400' : 'text-red-400'}`}>
+                          {isNetPositive ? '+' : '-'}${Math.abs(bProfit.net).toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
 
             {/* 資產效益與比例圖表 */}
@@ -1269,7 +1447,7 @@ const BookkeepingPage: React.FC = () => {
               <div className="lg:col-span-2 bg-gray-800/40 border border-gray-700/60 rounded-2xl p-6">
                 <h4 className="text-md font-bold text-white mb-4 flex items-center gap-2">
                   <Building className="w-4 h-4 text-emerald-400" />
-                  各項租賃資產月租表現 (累計淨利回籠)
+                  固定及實體資產月租表現 (累計淨利回籠)
                 </h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-sm border-collapse">
@@ -1289,7 +1467,7 @@ const BookkeepingPage: React.FC = () => {
                           <tr key={asset.id} className="hover:bg-gray-800/30 transition-all group">
                             <td className="py-4">
                               <p className="text-white font-bold group-hover:text-green-400 transition-colors">{asset.name}</p>
-                              <p className="text-xs text-gray-400 font-mono mt-0.5">{asset.type === 'Warehouse' ? '倉庫房產' : asset.type === 'Equipment' ? '重型機具' : asset.type === 'Vehicle' ? '物流車輛' : '專利授權'} • ID: {asset.id}</p>
+                              <p className="text-xs text-gray-400 font-mono mt-0.5">{asset.type === 'Warehouse' ? '倉庫房產' : asset.type === 'Equipment' ? '重型機具' : asset.type === 'Vehicle' ? '物流配送車輛' : '專利授權'} • ID: {asset.id}</p>
                             </td>
                             <td className="py-4 text-gray-300">{asset.tenant}</td>
                             <td className="py-4">
@@ -1379,78 +1557,6 @@ const BookkeepingPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* 最新交易明細表格 (前5筆) */}
-            <div className="bg-gray-800/40 border border-gray-700/60 rounded-2xl p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h4 className="text-md font-bold text-white flex items-center gap-2">
-                  <Briefcase className="w-4 h-4 text-emerald-400" />
-                  最新總帳明細交易流水
-                </h4>
-                <button
-                  onClick={() => setActiveTab('transactions')}
-                  className="text-xs text-green-400 hover:text-green-300 font-semibold"
-                >
-                  進入總帳查看完整流水 →
-                </button>
-              </div>
-              <div className="divide-y divide-gray-800/60">
-                {transactions.slice(0, 5).map(t => {
-                  const linkedAsset = assets.find(a => a.id === t.assetId)
-                  return (
-                    <div key={t.id} className="py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group">
-                      <div className="flex items-start gap-3">
-                        <div className={`p-2 rounded-xl mt-0.5 ${t.type === 'incoming' ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
-                          {t.type === 'incoming' ? <TrendingUp className="w-4.5 h-4.5" /> : <TrendingDown className="w-4.5 h-4.5" />}
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold text-white">{t.description}</p>
-                          <div className="flex flex-wrap items-center gap-2 text-xs text-gray-400 mt-1 font-mono">
-                            <span className="bg-gray-700/40 px-2 py-0.5 rounded text-gray-300">{t.label}</span>
-                            <span>•</span>
-                            <span>交易日期: {t.date}</span>
-                            {t.refNumber && (
-                              <>
-                                <span>•</span>
-                                <span>參考號: {t.refNumber}</span>
-                              </>
-                            )}
-                            {linkedAsset && (
-                              <>
-                                <span>•</span>
-                                <span className="text-emerald-400 font-semibold flex items-center gap-1">
-                                  <Building className="w-3 h-3" />
-                                  {linkedAsset.name}
-                                </span>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4 self-end sm:self-center font-mono">
-                        <p className={`text-md font-bold ${t.type === 'incoming' ? 'text-green-400' : 'text-red-400'}`}>
-                          {t.type === 'incoming' ? '+' : '-'}${t.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
-                        </p>
-                        <div className="opacity-0 group-hover:opacity-100 flex items-center gap-1.5 transition-all">
-                          <button
-                            onClick={() => startEditTransaction(t)}
-                            className="p-1.5 hover:bg-gray-700/60 rounded text-gray-300 hover:text-white"
-                          >
-                            <Edit className="w-4 h-4" />
-                          </button>
-                          <button
-                            onClick={() => handleDeleteTransaction(t.id)}
-                            className="p-1.5 hover:bg-red-950/40 rounded text-red-400 hover:text-red-300"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
           </div>
         )}
 
@@ -1459,16 +1565,16 @@ const BookkeepingPage: React.FC = () => {
           <div className="space-y-6">
             {/* 過濾控制面板 */}
             <div className="bg-gray-800/40 border border-gray-700/60 rounded-2xl p-5 space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                 {/* 關鍵字搜尋 */}
-                <div className="relative">
+                <div className="relative lg:col-span-1">
                   <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
                   <input
                     type="text"
                     value={ledgerSearch}
                     onChange={(e) => setLedgerSearch(e.target.value)}
                     placeholder="搜尋描述、發票參考編號..."
-                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none"
                   />
                 </div>
 
@@ -1477,11 +1583,25 @@ const BookkeepingPage: React.FC = () => {
                   <select
                     value={ledgerTypeFilter}
                     onChange={(e) => setLedgerTypeFilter(e.target.value as any)}
-                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"
                   >
                     <option value="all">所有收支方向</option>
                     <option value="incoming">現金流入 (+)</option>
                     <option value="outgoing">現金流出 (-)</option>
+                  </select>
+                </div>
+
+                {/* 業務板塊過濾 (NEW FILTER) */}
+                <div>
+                  <select
+                    value={ledgerBusinessFilter}
+                    onChange={(e) => setLedgerBusinessFilter(e.target.value)}
+                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none text-emerald-400 font-semibold"
+                  >
+                    <option value="all">所有業務板塊</option>
+                    {businessLines.map(b => (
+                      <option key={b} value={b}>{b}</option>
+                    ))}
                   </select>
                 </div>
 
@@ -1490,7 +1610,7 @@ const BookkeepingPage: React.FC = () => {
                   <select
                     value={ledgerLabelFilter}
                     onChange={(e) => setLedgerLabelFilter(e.target.value)}
-                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"
                   >
                     <option value="all">所有收支類別科目</option>
                     <option value="租金收入">租金收入</option>
@@ -1513,7 +1633,7 @@ const BookkeepingPage: React.FC = () => {
                   <select
                     value={ledgerAssetFilter}
                     onChange={(e) => setLedgerAssetFilter(e.target.value)}
-                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"
                   >
                     <option value="all">所有關聯租賃資產</option>
                     {assets.map(a => (
@@ -1544,19 +1664,20 @@ const BookkeepingPage: React.FC = () => {
                     className="bg-gray-900/60 border border-gray-600 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none"
                   />
                 </div>
-                {(ledgerSearch || ledgerTypeFilter !== 'all' || ledgerLabelFilter !== 'all' || ledgerAssetFilter !== 'all' || ledgerDateStart || ledgerDateEnd) && (
+                {(ledgerSearch || ledgerTypeFilter !== 'all' || ledgerLabelFilter !== 'all' || ledgerAssetFilter !== 'all' || ledgerBusinessFilter !== 'all' || ledgerDateStart || ledgerDateEnd) && (
                   <button
                     onClick={() => {
                       setLedgerSearch('')
                       setLedgerTypeFilter('all')
                       setLedgerLabelFilter('all')
                       setLedgerAssetFilter('all')
+                      setLedgerBusinessFilter('all')
                       setLedgerDateStart('')
                       setLedgerDateEnd('')
                     }}
                     className="text-xs text-red-400 hover:text-red-300 font-semibold"
                   >
-                    清除所有過濾篩選器
+                    清除所有過濾篩選條件
                   </button>
                 )}
               </div>
@@ -1574,7 +1695,7 @@ const BookkeepingPage: React.FC = () => {
                   <div className="py-20 text-center text-gray-500 space-y-3">
                     <Briefcase className="w-12 h-12 mx-auto text-gray-600" />
                     <p className="text-lg font-semibold">未搜尋到符合條件的收支記錄</p>
-                    <p className="text-sm">請嘗試拓寬搜尋字詞或點擊清除篩選條件按鈕</p>
+                    <p className="text-sm">請嘗試調整篩選條件或點擊清除過濾條件</p>
                   </div>
                 ) : (
                   filteredLedger.map(t => {
@@ -1588,7 +1709,11 @@ const BookkeepingPage: React.FC = () => {
                           <div>
                             <p className="text-sm font-bold text-white">{t.description}</p>
                             <div className="flex flex-wrap items-center gap-3.5 text-xs text-gray-400 mt-1 font-mono">
-                              <span className="bg-gray-700/50 px-2.5 py-0.5 rounded text-gray-300 flex items-center gap-1">
+                              <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded text-[11px] font-bold flex items-center gap-1 font-sans">
+                                <Briefcase className="w-3.5 h-3.5" />
+                                {t.businessLine || '未分類板塊'}
+                              </span>
+                              <span className="bg-gray-700/50 px-2.5 py-0.5 rounded text-gray-300 flex items-center gap-1 font-sans">
                                 <Tag className="w-3.5 h-3.5" />
                                 {t.label}
                               </span>
@@ -1601,7 +1726,7 @@ const BookkeepingPage: React.FC = () => {
                                 </>
                               )}
                               <span>•</span>
-                              <span>支付模式: {t.paymentMethod}</span>
+                              <span>渠道: {t.paymentMethod}</span>
                               {linkedAsset && (
                                 <>
                                   <span>•</span>
@@ -1652,7 +1777,7 @@ const BookkeepingPage: React.FC = () => {
                   月度企業現金收支日曆格網
                 </h4>
                 <p className="text-xs text-gray-400 mt-1">
-                  直觀顯示每日累計收入流入（綠色）與開支費用流出（紅色）。點擊任何日期 block 即可查看當日明細或在此日期快速記賬。
+                  每日收到的收入（綠色）與開支費用流出（紅色）。點擊任何日期 block 即可查看當日明細。
                 </p>
               </div>
 
@@ -1678,7 +1803,6 @@ const BookkeepingPage: React.FC = () => {
 
             {/* 日曆網格 */}
             <div className="bg-gray-850 border border-gray-750 rounded-2xl overflow-hidden shadow-2xl">
-              {/* 星期行 */}
               <div className="grid grid-cols-7 bg-gray-800/80 border-b border-gray-700/80 text-center py-3 text-xs font-bold text-gray-400 tracking-wider">
                 <div>星期日</div>
                 <div>星期一</div>
@@ -1689,7 +1813,6 @@ const BookkeepingPage: React.FC = () => {
                 <div>星期六</div>
               </div>
 
-              {/* 天數網格 */}
               <div className="grid grid-cols-7 bg-gray-900/20 divide-x divide-y divide-gray-800/80">
                 {calendarDays.map((dayData, idx) => {
                   if (!dayData) {
@@ -1720,7 +1843,6 @@ const BookkeepingPage: React.FC = () => {
                         )}
                       </div>
 
-                      {/* Cashflows */}
                       <div className="space-y-1 mt-4">
                         {inflow > 0 && (
                           <div className="text-[10px] font-bold font-mono text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded flex items-center justify-between">
@@ -1741,7 +1863,7 @@ const BookkeepingPage: React.FC = () => {
               </div>
             </div>
 
-            {/* 日曆點擊彈窗 (Drawer-like Modal) */}
+            {/* 日曆詳情 Drawer */}
             {selectedDayDetail && (
               <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                 <div className="bg-gray-900 border border-gray-700 w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
@@ -1773,12 +1895,10 @@ const BookkeepingPage: React.FC = () => {
                           <div key={t.id} className="p-4 bg-gray-850 rounded-xl border border-gray-800 flex items-center justify-between gap-4">
                             <div>
                               <p className="text-sm font-bold text-white">{t.description}</p>
-                              <div className="flex items-center gap-2 text-xs text-gray-400 mt-1 font-mono">
+                              <div className="flex items-center gap-2 text-xs text-gray-400 mt-1 flex-wrap font-mono">
+                                <span className="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded text-[10px] font-sans font-bold">{t.businessLine}</span>
                                 <span className="bg-gray-800 text-gray-300 px-2 py-0.5 rounded">{t.label}</span>
-                                <span>發票參考號: {t.refNumber || '無'}</span>
-                                {linkedAsset && (
-                                  <span className="text-emerald-400 font-semibold">{linkedAsset.name}</span>
-                                )}
+                                <span>參考發票號: {t.refNumber || '無'}</span>
                               </div>
                             </div>
                             <div className="flex items-center gap-3 font-mono">
@@ -1838,7 +1958,7 @@ const BookkeepingPage: React.FC = () => {
               {/* 受管資產網格 (左邊 2 欄位) */}
               <div className="lg:col-span-2 space-y-4">
                 <div className="flex justify-between items-center">
-                  <h4 className="text-sm font-bold text-gray-300 font-mono">企業受管固定及無形租賃資產清冊</h4>
+                  <h4 className="text-sm font-bold text-gray-300 font-mono">租賃資產清冊</h4>
                   <span className="text-xs text-gray-400 font-mono">共計營運 {assets.length} 個項目</span>
                 </div>
 
@@ -1914,40 +2034,46 @@ const BookkeepingPage: React.FC = () => {
               <div className="bg-gray-800/40 border border-gray-700/60 rounded-2xl p-6 space-y-4 h-fit">
                 <h4 className="text-md font-bold text-white flex items-center gap-2">
                   <Building className="w-4 h-4 text-green-400" />
-                  租賃資產淨回籠分析策略
+                  租賃資產與多業務綁定
                 </h4>
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  租賃資產是公司持有的固定實體或無形智慧產權，可透過持續出租產生穩健月租金收入。
+                <p className="text-xs text-gray-400 leading-relaxed font-sans">
+                  租賃固定資產通常歸屬於「固定資產與廠房租賃」業務板塊，您可在登錄流水時，雙重綁定業務板塊及關聯實體項目，以做到極致精細的二維利潤矩陣拆解。
                 </p>
-                <div className="bg-gray-900/60 p-4 rounded-xl border border-gray-850 space-y-2">
-                  <p className="text-xs font-bold text-white flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
-                    如何精準核算收益率：
-                  </p>
-                  <ol className="text-[11px] text-gray-400 space-y-1.5 list-decimal pl-4">
-                    <li>在此建立你的租賃資產（填寫月租與基準維修成本）。</li>
-                    <li>在「收支總帳」登錄收回租金時，在「關聯資產」欄位選擇對應的資產項目。</li>
-                    <li>登錄該倉庫或機具的損壞維修帳單時，同樣綁定此資產，系統即可動態計算其**實時純利回籠率**。</li>
-                  </ol>
-                </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* ----------------- 標籤頁: P&L 財務分析報表 ----------------- */}
+        {/* ----------------- 標籤頁: P&L 財務分析報表 (分業務板塊損益核算) ----------------- */}
         {activeTab === 'pandl' && (
           <div className="space-y-6">
             <div className="bg-gray-800/40 border border-gray-700/60 rounded-2xl p-6 space-y-6">
               {/* 年代與期間控制 */}
               <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-gray-800">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 flex-wrap">
+                  {/* Business Line selector for P&L (CRITICAL FEATURE) */}
+                  <div>
+                    <label className="block text-xs text-emerald-400 mb-1.5 font-bold flex items-center gap-1">
+                      <BriefcaseBusiness className="w-3.5 h-3.5" />
+                      獨立核算業務板塊
+                    </label>
+                    <select
+                      value={plBusinessFilter}
+                      onChange={(e) => setPlBusinessFilter(e.target.value)}
+                      className="bg-gray-900/60 border border-emerald-500/40 rounded-xl px-4 py-2 text-sm text-emerald-300 focus:outline-none focus:ring-2 focus:ring-green-500 font-bold"
+                    >
+                      <option value="all">📊 集團合算損益表 (All Consolidated)</option>
+                      {businessLines.map(b => (
+                        <option key={b} value={b}>🏢 {b}</option>
+                      ))}
+                    </select>
+                  </div>
                   <div>
                     <label className="block text-xs text-gray-400 mb-1.5 font-bold">選定財政年度</label>
                     <select
                       value={plYear}
                       onChange={(e) => setPlYear(e.target.value)}
-                      className="bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2 text-sm text-white focus:outline-none"
                     >
                       <option value="2026">2026年度</option>
                       <option value="2025">2025年度</option>
@@ -1958,7 +2084,7 @@ const BookkeepingPage: React.FC = () => {
                     <select
                       value={plQuarter}
                       onChange={(e) => setPlQuarter(e.target.value as any)}
-                      className="bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2 text-sm text-white focus:outline-none"
                     >
                       <option value="all">全年 (12 個月總帳)</option>
                       <option value="Q1">第一季度 (Q1: 1月 - 3月)</option>
@@ -1971,20 +2097,21 @@ const BookkeepingPage: React.FC = () => {
 
                 <button
                   onClick={exportPLToCSV}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl border border-emerald-500 transition-all flex items-center gap-2 hover:scale-[1.02]"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl border border-emerald-500 transition-all flex items-center gap-2 hover:scale-[1.02] self-end"
                 >
                   <FileSpreadsheet className="w-4 h-4" />
-                  匯出 Excel CSV 財務報表
+                  匯出選定業務損益 CSV 報表
                 </button>
               </div>
 
               {/* 損益表帳單渲染 */}
               <div className="space-y-8">
-                <div>
-                  <h3 className="text-lg font-bold text-white text-center">
-                    企業會計核算損益表 (Statement of Profit and Loss) — {plYear}年度 {plQuarter === 'all' ? '全年度合算' : plQuarter}
+                <div className="bg-gray-900/30 p-6 rounded-2xl border border-gray-800 max-w-3xl mx-auto">
+                  <h3 className="text-lg font-bold text-white text-center flex items-center justify-center gap-2">
+                    <Sparkles className="w-5 h-5 text-emerald-400" />
+                    【{plBusinessFilter === 'all' ? '集團合併核算' : plBusinessFilter}】損益結算表
                   </h3>
-                  <p className="text-xs text-gray-400 font-mono text-center mt-1">系統動態結轉時間：{new Date().toLocaleString()}</p>
+                  <p className="text-xs text-gray-400 font-mono text-center mt-1">財務期間：{plYear}年度 {plQuarter === 'all' ? '全年度合算' : plQuarter} • 結轉時間：{new Date().toLocaleString()}</p>
                 </div>
 
                 {/* 損益明細科目 */}
@@ -1996,7 +2123,7 @@ const BookkeepingPage: React.FC = () => {
                         <TrendingUp className="w-4.5 h-4.5 text-green-400" />
                         營業收入總額 (Operating Revenue)
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">包括月度資產租金回籠、產品銷售利潤與客製諮詢費用所得</p>
+                      <p className="text-xs text-gray-400 mt-1">該業務板塊科目下流入之總金額</p>
                     </div>
                     <span className="font-mono text-lg font-bold text-green-400">+${plReport.revenue.toLocaleString()}</span>
                   </div>
@@ -2008,7 +2135,7 @@ const BookkeepingPage: React.FC = () => {
                         <TrendingDown className="w-4.5 h-4.5 text-rose-400" />
                         主營直接成本 (Cost of Goods Sold - COGS)
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">包括生產原材料直接採購、國際與國內幹線物流貨運支出</p>
+                      <p className="text-xs text-gray-400 mt-1">分配至該板塊的生產耗用與主幹貨物運輸費</p>
                     </div>
                     <span className="font-mono text-lg font-bold text-rose-400">-${plReport.cogs.toLocaleString()}</span>
                   </div>
@@ -2017,7 +2144,7 @@ const BookkeepingPage: React.FC = () => {
                   <div className="p-4 bg-gray-900/60 rounded-xl border border-gray-700/60 flex items-center justify-between border-l-4 border-l-emerald-500">
                     <div>
                       <p className="text-md font-bold text-emerald-400 uppercase tracking-wider">營業毛利額與毛利率</p>
-                      <p className="text-xs text-gray-400 mt-1">扣除主營直接採購與物流成本後的原始毛利潤率表現</p>
+                      <p className="text-xs text-gray-400 mt-1">該業務單元扣除直接直接成本後的原始毛利水準</p>
                     </div>
                     <div className="text-right font-mono">
                       <p className="text-lg font-bold text-white">${plReport.grossProfit.toLocaleString()}</p>
@@ -2032,7 +2159,7 @@ const BookkeepingPage: React.FC = () => {
                         <TrendingDown className="w-4.5 h-4.5 text-rose-400" />
                         營業運營開支費用 (Operating Expenses - OpEx)
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">包括行政/操作員工資、租賃資產維修保養、大樓水電費及企業所得稅繳納</p>
+                      <p className="text-xs text-gray-400 mt-1">日常辦公耗能、團隊所得與分配至該板塊的維修保養</p>
                     </div>
                     <span className="font-mono text-lg font-bold text-rose-400">-${plReport.opex.toLocaleString()}</span>
                   </div>
@@ -2040,19 +2167,19 @@ const BookkeepingPage: React.FC = () => {
                   {/* Net Profit */}
                   <div className="p-5 bg-gradient-to-r from-emerald-950/20 to-teal-950/20 border border-green-500/30 rounded-xl flex items-center justify-between border-l-4 border-l-green-500">
                     <div>
-                      <p className="text-lg font-bold text-green-400 uppercase tracking-wider">淨利潤 (Net Income)</p>
-                      <p className="text-xs text-gray-400 mt-1">扣除直接生產成本與全額運營開支後，最終留在企業帳戶中的淨現金利潤額。</p>
+                      <p className="text-lg font-bold text-green-400 uppercase tracking-wider">板塊最終利潤 (Net Income)</p>
+                      <p className="text-xs text-gray-400 mt-1">該業務單元扣除所有分配開支後的最終現金收益。</p>
                     </div>
                     <div className="text-right font-mono">
                       <p className="text-xl font-bold text-green-400">${plReport.netProfit.toLocaleString()}</p>
-                      <p className="text-xs text-green-400 font-bold">淨利率 {plReport.netMargin.toFixed(1)}%</p>
+                      <p className="text-xs text-green-400 font-bold">純利率 {plReport.netMargin.toFixed(1)}%</p>
                     </div>
                   </div>
                 </div>
 
                 {/* 科目明細表 */}
                 <div className="max-w-3xl mx-auto pt-6 border-t border-gray-800 space-y-4">
-                  <h4 className="text-sm font-bold text-gray-300">各級會計科目累計明細拆解</h4>
+                  <h4 className="text-sm font-bold text-gray-300">該選定板塊之各級會計科目累計</h4>
                   <div className="overflow-hidden rounded-xl border border-gray-800 bg-gray-900/20">
                     <div className="divide-y divide-gray-800/60">
                       {Object.entries(plReport.breakdown).map(([label, amt]) => {
@@ -2074,6 +2201,84 @@ const BookkeepingPage: React.FC = () => {
           </div>
         )}
       </main>
+
+      {/* ----------------- MODAL: 管理自訂業務板塊 ----------------- */}
+      {showAddBusiness && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-gray-900 border border-gray-700 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
+            <div className="bg-gray-800 px-6 py-4 flex items-center justify-between border-b border-gray-700">
+              <h3 className="text-md font-bold text-white flex items-center gap-2">
+                <BriefcaseBusiness className="w-5 h-5 text-emerald-400" />
+                管理自訂業務板塊清單
+              </h3>
+              <button
+                onClick={() => setShowAddBusiness(false)}
+                className="p-1 bg-gray-700 hover:bg-gray-650 rounded-lg text-gray-400 hover:text-white"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-5 text-sm">
+              {/* Add form */}
+              <form onSubmit={handleAddBusinessLine} className="space-y-3">
+                <label className="block text-xs font-bold text-gray-400">建立新業務板塊標籤</label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    required
+                    placeholder="例如 咖啡烘焙包裝代工..."
+                    value={newBusinessName}
+                    onChange={(e) => setNewBusinessName(e.target.value)}
+                    className="flex-1 bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-green-500"
+                  />
+                  <button
+                    type="submit"
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    建立
+                  </button>
+                </div>
+              </form>
+
+              {/* Active list */}
+              <div className="space-y-2">
+                <label className="block text-xs font-bold text-gray-400">目前可選之業務板塊</label>
+                <div className="bg-gray-950 border border-gray-800 rounded-xl p-3 max-h-[220px] overflow-y-auto space-y-1.5">
+                  {businessLines.map(b => (
+                    <div key={b} className="flex justify-between items-center text-xs py-1 px-2 hover:bg-gray-900 rounded">
+                      <span className="text-gray-200 font-semibold">{b}</span>
+                      {businessLines.length > 1 && (
+                        <button
+                          onClick={() => {
+                            if (window.confirm(`確認要刪除「${b}」業務標籤嗎？`)) {
+                              setBusinessLines(prev => prev.filter(item => item !== b))
+                              toast.success('業務板塊標籤已移除')
+                            }
+                          }}
+                          className="text-red-400 hover:text-red-300"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-end pt-2">
+                <button
+                  onClick={() => setShowAddBusiness(false)}
+                  className="bg-gray-800 text-white px-4 py-2 rounded-xl text-xs font-semibold"
+                >
+                  關閉
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ----------------- 彈窗: 登錄/修改收支交易流水 ----------------- */}
       {showAddForm && (
@@ -2149,6 +2354,23 @@ const BookkeepingPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* 業務板塊綁定 (NEW dropdown in form) */}
+              <div>
+                <label className="block text-xs font-bold text-emerald-400 mb-1 flex items-center gap-1">
+                  <BriefcaseBusiness className="w-3.5 h-3.5" />
+                  歸屬業務板塊
+                </label>
+                <select
+                  value={formBusinessLine}
+                  onChange={(e) => setFormBusinessLine(e.target.value)}
+                  className="w-full bg-gray-950 border border-emerald-500/40 text-emerald-300 rounded-xl px-3 py-2 font-bold focus:outline-none"
+                >
+                  {businessLines.map(b => (
+                    <option key={b} value={b}>{b}</option>
+                  ))}
+                </select>
+              </div>
+
               {/* 科目別 */}
               <div>
                 <label className="block text-xs font-semibold text-gray-400 mb-1">收支會計科目類別</label>
@@ -2181,7 +2403,7 @@ const BookkeepingPage: React.FC = () => {
 
               {/* 關聯租賃資產 */}
               <div>
-                <label className="block text-xs font-semibold text-gray-400 mb-1">綁定關聯受管租賃資產 (選填)</label>
+                <label className="block text-xs font-semibold text-gray-400 mb-1">關聯租賃資產 (選填)</label>
                 <select
                   value={formAssetId}
                   onChange={(e) => setFormAssetId(e.target.value)}
@@ -2332,6 +2554,23 @@ const BookkeepingPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* 業務板塊 */}
+              <div>
+                <label className="block text-xs font-bold text-emerald-400 mb-1 flex items-center gap-1">
+                  <BriefcaseBusiness className="w-3.5 h-3.5" />
+                  歸屬業務板塊
+                </label>
+                <select
+                  value={formBusinessLine}
+                  onChange={(e) => setFormBusinessLine(e.target.value)}
+                  className="w-full bg-gray-950 border border-emerald-500/40 text-emerald-300 rounded-xl px-3 py-2 font-bold focus:outline-none"
+                >
+                  {businessLines.map(b => (
+                    <option key={b} value={b}>{b}</option>
+                  ))}
+                </select>
+              </div>
+
               {/* 科目別 */}
               <div>
                 <label className="block text-xs font-semibold text-gray-400 mb-1">會計科目科目類別</label>
@@ -2364,11 +2603,11 @@ const BookkeepingPage: React.FC = () => {
 
               {/* 關聯租賃資產 */}
               <div>
-                <label className="block text-xs font-semibold text-gray-400 mb-1">綁定關聯受管租賃資產 (選填)</label>
+                <label className="block text-xs font-semibold text-gray-400 mb-1">關聯租賃資產 (選填)</label>
                 <select
                   value={formAssetId}
                   onChange={(e) => setFormAssetId(e.target.value)}
-                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none"
+                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none font-sans"
                 >
                   <option value="">獨立交易（不與特定租賃資產綁定）</option>
                   {assets.map(a => (
