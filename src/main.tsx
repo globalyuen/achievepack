@@ -217,6 +217,9 @@ const PouchRecycledOceanPlasticPackagingPage = lazyWithRetry(() => import('./pag
 const PouchMinimalistD2CPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchMinimalistD2CPackagingPage'))
 const DynamicPouchTopicPage = lazyWithRetry(() => import('./pages/pouch/topics/DynamicPouchTopicPage'))
 const EUPPWRCompliancePage = lazyWithRetry(() => import('./pages/topics/EUPPWRCompliancePage'))
+const PouchCustomBrandPackagingServicePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchCustomBrandPackagingServicePage'))
+const PouchEcoFriendlySupplierVerificationPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchEcoFriendlySupplierVerificationPage'))
+const PouchReducePackagingWasteGuidePage = lazyWithRetry(() => import('./pages/pouch/topics/PouchReducePackagingWasteGuidePage'))
 
 // Printing Pages - Lazy loaded
 const DigitalPrintingPage = lazyWithRetry(() => import('./pages/printing/DigitalPrintingPage'))
@@ -393,9 +396,13 @@ const CompostableCertificationFAQPage = lazyWithRetry(() => import('./pages/topi
 const MonoMaterialSolutionPage = lazyWithRetry(() => import('./pages/topics/MonoMaterialSolutionPage'))
 const PCRPackagingGuidePage = lazyWithRetry(() => import('./pages/topics/PCRPackagingGuidePage'))
 const FoodPackagingSupplierServicePage = lazyWithRetry(() => import('./pages/topics/FoodPackagingSupplierServicePage'))
+const FoodPackagingSupplierPage = lazyWithRetry(() => import('./pages/topics/FoodPackagingSupplierPage'))
 const EcoFriendlySupplierServicePage = lazyWithRetry(() => import('./pages/topics/EcoFriendlySupplierServicePage'))
 const CustomBrandPackagingPage = lazyWithRetry(() => import('./pages/topics/CustomBrandPackagingPage'))
 const ReduceWasteGuidePage = lazyWithRetry(() => import('./pages/topics/ReduceWasteGuidePage'))
+const CustomBrandPackagingServicePage = lazyWithRetry(() => import('./pages/topics/CustomBrandPackagingServicePage'))
+const EcoFriendlySupplierVerificationPage = lazyWithRetry(() => import('./pages/topics/EcoFriendlySupplierVerificationPage'))
+const ReducePackagingWasteGuidePage = lazyWithRetry(() => import('./pages/topics/ReducePackagingWasteGuidePage'))
 const DTCSustainablePackagingPage = lazyWithRetry(() => import('./pages/topics/DTCSustainablePackagingPage'))
 const GreenCoffeeMaterialsPage = lazyWithRetry(() => import('./pages/topics/GreenCoffeeMaterialsPage'))
 const DigitalPrintingEcoPackagingPage = lazyWithRetry(() => import('./pages/topics/DigitalPrintingEcoPackagingPage'))
@@ -698,10 +705,13 @@ if (getDomain() === 'pouch') {
                   <Route path="/materials/pcr" element={<PouchPCRPage />} />
                   <Route path="/materials/home-compostable" element={<PouchHomeCompostablePage />} />
                   <Route path="/materials/industrial-compostable" element={<PouchIndustrialCompostablePage />} />
+                  <Route path="/materials/kraft-low-barrier" element={<KraftLowBarrierPage />} />
+                  <Route path="/materials/kraft-medium-barrier" element={<KraftMediumBarrierPage />} />
                   <Route path="/materials/kraft-high-barrier" element={<PouchKraftHighBarrierPage />} />
                   <Route path="/materials/recyclable" element={<PouchRecyclablePage />} />
                   <Route path="/materials/recyclable-mono-pe" element={<PouchRecyclableMonoPEPage />} />
                   <Route path="/materials/recyclable-mono-pp" element={<RecyclableMonoPPPage />} />
+                  <Route path="/spec/compostable-pouch-geo" element={<CompostablePouchGeoPage />} />
                   <Route path="/materials/plastic-free-kraft" element={<PouchPlasticFreeKraftPage />} />
                   <Route path="/materials/combustion-safety-test" element={<PouchCombustionSafetyTestPage />} />
                   <Route path="/composting/plastic-free" element={<PouchPlasticFreePage />} />
@@ -747,11 +757,22 @@ if (getDomain() === 'pouch') {
                   <Route path="/topics/minimalist-d2c-packaging" element={<PouchMinimalistD2CPackagingPage />} />
                   <Route path="/topics/high-heat-compostable-candle-packaging" element={<PouchHighHeatCandlePackagingPage />} />
                   <Route path="/topics/:slug" element={<DynamicPouchTopicPage />} />
+                  <Route path="/topics/custom-brand-solutions" element={<PouchCustomBrandPackagingServicePage />} />
+                  <Route path="/topics/eco-friendly-supplier-verification" element={<PouchEcoFriendlySupplierVerificationPage />} />
+                  <Route path="/topics/reduce-packaging-waste-guide" element={<PouchReducePackagingWasteGuidePage />} />
+                  <Route path="/image-catalog" element={<ImageCatalogPage />} />
+                  <Route path="/quote/coffee-pouch-2025" element={<CoffeePouchQuotePage />} />
+                  <Route path="/return-policy" element={<ReturnPolicyPage />} />
+                  <Route path="/ryan" element={<RyanHologramPage />} />
+                  <Route path="/topics/eu-ppwr-compliance" element={<EUPPWRCompliancePage />} />
+                  <Route path="/topics/food-packaging-supplier-audit" element={<FoodPackagingSupplierPage />} />
                   {/* Industry Solution Pages */}
                   <Route path="/industry/coffee-tea" element={<PouchCoffeeTeaPage />} />
                   <Route path="/industry/pet-food" element={<PouchPetFoodPage />} />
                   <Route path="/industry/snacks" element={<PouchSnacksPage />} />
+                  <Route path="/industry/snacks-food" element={<PouchSnacksPage />} />
                   <Route path="/industry/supplements" element={<PouchSupplementsPage />} />
+                  <Route path="/industry/supplements-powders" element={<PouchSupplementsPage />} />
                   <Route path="/blog/eco-friendly-food-packaging-guide" element={<EcoFriendlyFoodPackagingGuide />} />
                   <Route path="/blog/dtc-sustainable-packaging-guide" element={<DTCSustainablePackagingGuide />} />
                   <Route path="/blog/recyclable-snack-packaging-guide" element={<RecyclableSnackPackagingGuide />} />
@@ -1043,8 +1064,10 @@ if (getDomain() === 'pouch') {
 
                         {/* Industry Pages */}
                         <Route path="/industry/coffee-tea" element={<CoffeeTeaPage />} />
+                        <Route path="/industry/snacks" element={<SnacksFoodPage />} />
                         <Route path="/industry/snacks-food" element={<SnacksFoodPage />} />
                         <Route path="/industry/pet-food" element={<PetFoodPage />} />
+                        <Route path="/industry/supplements" element={<SupplementsPowdersPage />} />
                         <Route path="/industry/supplements-powders" element={<SupplementsPowdersPage />} />
                         <Route path="/industry/baby-food" element={<BabyFoodPage />} />
                         <Route path="/industry/frozen-food" element={<FrozenFoodPage />} />
@@ -1220,6 +1243,10 @@ if (getDomain() === 'pouch') {
                         <Route path="/topics/custom-printed-sustainable-pouches" element={<CustomPrintedSustainablePouchesPage />} />
                         <Route path="/topics/eco-packaging-regulations" element={<EcoPackagingRegulationsPage />} />
                         <Route path="/topics/eu-ppwr-compliance" element={<EUPPWRCompliancePage />} />
+                        <Route path="/topics/custom-brand-solutions" element={<CustomBrandPackagingServicePage />} />
+                        <Route path="/topics/eco-friendly-supplier-verification" element={<EcoFriendlySupplierVerificationPage />} />
+                        <Route path="/topics/reduce-packaging-waste-guide" element={<ReducePackagingWasteGuidePage />} />
+                        <Route path="/topics/food-packaging-supplier-audit" element={<FoodPackagingSupplierPage />} />
                         <Route path="/topics/compostable-pouch-suppliers" element={<CustomCompostablePouchSuppliersPage />} />
                         <Route path="/topics/low-moq-startup-packaging" element={<LowMOQStartupPackagingPage />} />
                         <Route path="/topics/compostable-baby-food-bags" element={<CompostableBabyFoodBagsPage />} />

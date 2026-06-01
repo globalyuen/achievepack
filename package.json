@@ -13,7 +13,7 @@
     "install-deps": "pnpm install --prefer-offline",
     "clean": "rm -rf node_modules .pnpm-store pnpm-lock.yaml && pnpm store prune",
     "update-catalog": "node scripts/update-image-catalog.cjs",
-    "update:sitemap": "node scripts/update-sitemap.cjs",
+    "update:sitemap": "node scripts/sync-route-mapping.js && node scripts/generate-sitemaps.js && node scripts/update-sitemap.cjs",
     "update:feed": "npx tsx scripts/generate-product-feed.ts",
     "monitor:gsc": "node scripts/monitor-gsc.cjs",
     "seo:audit": "npm run update:sitemap && npm run update:feed && npm run monitor:gsc"
