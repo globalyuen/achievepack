@@ -26,7 +26,8 @@ import {
   ArrowDownRight,
   Percent,
   BriefcaseBusiness,
-  Coins
+  Coins,
+  RefreshCw
 } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -61,17 +62,35 @@ export type TransactionLabel =
   | '企業稅收繳納'
   | '其他現金流出'
 
+export type CurrencyType = 'USD' | 'HKD' | 'RMB'
+
 export interface Transaction {
   id: string
   date: string // YYYY-MM-DD
-  amount: number
-  type: 'incoming' | 'outgoing'
+  amount: number // 結轉基準貨幣額 (Base USD)
+  originalAmount: number // 輸入原始金額
+  currency: CurrencyType // 輸入原始幣別
   label: TransactionLabel
   assetId?: string // 可選關聯租賃資產
-  businessLine: string // 關聯業務板塊 (多業務核算關鍵字)
+  businessLine: string // 關聯業務板塊 (多業務核算)
   description: string
   refNumber?: string
   paymentMethod: '銀行轉帳' | 'Paypal' | 'Stripe' | '現金支付' | '信用卡'
+}
+
+// 預設匯率常量 (可動態對齊)
+// 1 USD = 7.8 HKD | 1 USD = 7.25 RMB
+const EXCHANGE_RATES: Record<CurrencyType, number> = {
+  USD: 1.0,
+  HKD: 7.8,
+  RMB: 7.25
+}
+
+// 貨幣符號
+const CURRENCY_SYMBOLS: Record<CurrencyType, string> = {
+  USD: '$',
+  HKD: 'HK$',
+  RMB: '¥'
 }
 
 // 預設業務板塊清冊
@@ -83,7 +102,7 @@ const DEFAULT_BUSINESS_LINES = [
 ]
 
 // ==========================================
-// 高規格歷史模擬數據 (全面支持多業務板塊歸檔)
+// 高規格歷史模擬數據 (多幣別混合登錄，統一結轉)
 // ==========================================
 
 const INITIAL_ASSETS: RentAsset[] = [
@@ -140,12 +159,13 @@ const INITIAL_ASSETS: RentAsset[] = [
 ]
 
 const INITIAL_TRANSACTIONS: Transaction[] = [
-  // --- 2026年6月 (當前月份模擬數據) ---
+  // --- 2026年6月 (當前月份幣別混合數據) ---
   {
     id: 't-jun-1',
     date: '2026-06-02',
     amount: 4500,
-    type: 'incoming',
+    originalAmount: 4500,
+    currency: 'USD',
     label: '租金收入',
     assetId: 'asset-1',
     businessLine: '固定資產與廠房租賃',
@@ -157,11 +177,12 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-jun-2',
     date: '2026-06-02',
     amount: 1200,
-    type: 'incoming',
+    originalAmount: 9360,
+    currency: 'HKD', // 9360 HKD = 1200 USD
     label: '租金收入',
     assetId: 'asset-2',
     businessLine: '固定資產與廠房租賃',
-    description: '印刷滾筒設備組租金回籠',
+    description: '印刷滾筒設備組月度租金收訖 (港幣入帳)',
     refNumber: 'INV-2026-0602',
     paymentMethod: 'Stripe'
   },
@@ -169,7 +190,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-jun-3',
     date: '2026-06-02',
     amount: 600,
-    type: 'incoming',
+    originalAmount: 600,
+    currency: 'USD',
     label: '租金收入',
     assetId: 'asset-3',
     businessLine: '固定資產與廠房租賃',
@@ -181,11 +203,12 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-jun-4',
     date: '2026-06-02',
     amount: 1500,
-    type: 'incoming',
+    originalAmount: 10875,
+    currency: 'RMB', // 10875 RMB = 1500 USD
     label: '租金收入',
     assetId: 'asset-5',
     businessLine: '固定資產與廠房租賃',
-    description: '環保立體袋結構專利 IP 月度授權金',
+    description: '環保專利 IP 月度授權金 (人民幣結算)',
     refNumber: 'INV-2026-0605',
     paymentMethod: '銀行轉帳'
   },
@@ -193,7 +216,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-jun-5',
     date: '2026-06-05',
     amount: 18500,
-    type: 'incoming',
+    originalAmount: 18500,
+    currency: 'USD',
     label: '客製訂單銷售',
     businessLine: 'AchievePack B2B 集團包裝',
     description: '承接客製化可降解咖啡立體袋 - 5萬個中型生產跑單起算',
@@ -204,7 +228,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-jun-5-b',
     date: '2026-06-08',
     amount: 9800,
-    type: 'incoming',
+    originalAmount: 9800,
+    currency: 'USD',
     label: '客製訂單銷售',
     businessLine: 'Pouch.eco 零售袋裝',
     description: 'B2C 官網在線定制小包裝可降解拉鍊袋小批量回籠款',
@@ -215,10 +240,11 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-jun-6',
     date: '2026-06-10',
     amount: 3400,
-    type: 'outgoing',
+    originalAmount: 24650,
+    currency: 'RMB', // 24650 RMB = 3400 USD
     label: '原材料採購支出',
     businessLine: 'AchievePack B2B 集團包裝',
-    description: '訂購高分子生物降解 PBS 包裝專用樹脂原料',
+    description: '採購進口 PBS 可降解顆粒樹脂大貨 (人民幣採購)',
     refNumber: 'VEND-9981',
     paymentMethod: '信用卡'
   },
@@ -226,11 +252,12 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-jun-7',
     date: '2026-06-12',
     amount: 850,
-    type: 'outgoing',
+    originalAmount: 6630,
+    currency: 'HKD', // 6630 HKD = 850 USD
     label: '資產日常維護',
     assetId: 'asset-4',
     businessLine: '固定資產與廠房租賃',
-    description: '華南 B 區冷鏈倉庫屋頂防漏水及升降梯加固維修',
+    description: '華南冷鏈倉庫起降梯檢修維保 (香港商務結算)',
     refNumber: 'MNT-4402',
     paymentMethod: '銀行轉帳'
   },
@@ -238,10 +265,11 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-jun-8',
     date: '2026-06-15',
     amount: 480,
-    type: 'outgoing',
+    originalAmount: 3480,
+    currency: 'RMB', // 3480 RMB = 480 USD
     label: '辦公水電網費',
     businessLine: 'AchievePack B2B 集團包裝',
-    description: '辦公樓高頻電力、自來水及企業光纖寬頻水電費發票',
+    description: '辦公樓高頻電力、光纖網絡水電費 (人民幣代繳)',
     refNumber: 'UTIL-06',
     paymentMethod: '信用卡'
   },
@@ -251,7 +279,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-may-1',
     date: '2026-05-02',
     amount: 4500,
-    type: 'incoming',
+    originalAmount: 4500,
+    currency: 'USD',
     label: '租金收入',
     assetId: 'asset-1',
     businessLine: '固定資產與廠房租賃',
@@ -263,7 +292,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-may-2',
     date: '2026-05-02',
     amount: 1200,
-    type: 'incoming',
+    originalAmount: 9360,
+    currency: 'HKD',
     label: '租金收入',
     assetId: 'asset-2',
     businessLine: '固定資產與廠房租賃',
@@ -275,7 +305,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-may-3',
     date: '2026-05-02',
     amount: 600,
-    type: 'incoming',
+    originalAmount: 600,
+    currency: 'USD',
     label: '租金收入',
     assetId: 'asset-3',
     businessLine: '固定資產與廠房租賃',
@@ -287,7 +318,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-may-4',
     date: '2026-05-02',
     amount: 1500,
-    type: 'incoming',
+    originalAmount: 10875,
+    currency: 'RMB',
     label: '租金收入',
     assetId: 'asset-5',
     businessLine: '固定資產與廠房租賃',
@@ -299,7 +331,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-may-5',
     date: '2026-05-12',
     amount: 14200,
-    type: 'incoming',
+    originalAmount: 14200,
+    currency: 'USD',
     label: '客製訂單銷售',
     businessLine: 'AchievePack B2B 集團包裝',
     description: '高端手工巧克力外包裝拉鍊袋大貨款項（3萬袋訂單）',
@@ -310,7 +343,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-may-5-b',
     date: '2026-05-14',
     amount: 6500,
-    type: 'incoming',
+    originalAmount: 6500,
+    currency: 'USD',
     label: '客製訂單銷售',
     businessLine: 'Pouch.eco 零售袋裝',
     description: 'DTC 有機花草茶小批量牛皮紙立體袋銷售款',
@@ -321,7 +355,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-may-6',
     date: '2026-05-15',
     amount: 430,
-    type: 'outgoing',
+    originalAmount: 3117.5,
+    currency: 'RMB',
     label: '辦公水電網費',
     businessLine: 'AchievePack B2B 集團包裝',
     description: '辦公室電力及水費帳單結清',
@@ -332,7 +367,8 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-may-7',
     date: '2026-05-20',
     amount: 1500,
-    type: 'outgoing',
+    originalAmount: 10875,
+    currency: 'RMB',
     label: '物流貨運支出',
     businessLine: 'AchievePack B2B 集團包裝',
     description: '批發可回收咖啡袋空運至西雅圖港運雜費結清',
@@ -343,410 +379,12 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     id: 't-may-8',
     date: '2026-05-28',
     amount: 6500,
-    type: 'outgoing',
+    originalAmount: 50700,
+    currency: 'HKD', // 50700 HKD = 6500 USD
     label: '員工薪資發放',
     businessLine: 'AchievePack B2B 集團包裝',
-    description: '5月份辦公及生產研發團隊月度工資下發',
+    description: '5月份生產團隊與深圳辦工資 (港幣代發)',
     refNumber: 'PAY-2026-05',
-    paymentMethod: '銀行轉帳'
-  },
-
-  // --- 2026年4月 ---
-  {
-    id: 't-apr-1',
-    date: '2026-04-02',
-    amount: 4500,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-1',
-    businessLine: '固定資產與廠房租賃',
-    description: '華東 A 區中央聯運倉庫月租回籠',
-    refNumber: 'INV-2026-0401',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-apr-2',
-    date: '2026-04-02',
-    amount: 1200,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-2',
-    businessLine: '固定資產與廠房租賃',
-    description: '印刷滾筒設備組月租回籠',
-    refNumber: 'INV-2026-0402',
-    paymentMethod: 'Stripe'
-  },
-  {
-    id: 't-apr-3',
-    date: '2026-04-02',
-    amount: 600,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-3',
-    businessLine: '固定資產與廠房租賃',
-    description: '豐田堆高機 T-100 月租回籠',
-    refNumber: 'INV-2026-0403',
-    paymentMethod: 'Paypal'
-  },
-  {
-    id: 't-apr-4',
-    date: '2026-04-02',
-    amount: 1500,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-5',
-    businessLine: '固定資產與廠房租賃',
-    description: '環保立體袋結構專利 IP 授權費',
-    refNumber: 'INV-2026-0405',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-apr-5',
-    date: '2026-04-08',
-    amount: 22000,
-    type: 'incoming',
-    label: '客製訂單銷售',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '承接大規格牛皮紙重載防潮種子袋（跨國集團訂單首期）',
-    refNumber: 'PO-881203',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-apr-6',
-    date: '2026-04-10',
-    amount: 5400,
-    type: 'outgoing',
-    label: '原材料採購支出',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '補庫原色未漂白針葉林木牛皮紙卷材料 8 噸',
-    refNumber: 'VEND-9712',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-apr-7',
-    date: '2026-04-15',
-    amount: 450,
-    type: 'outgoing',
-    label: '辦公水電網費',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '4月份辦公基礎能源與光纖網絡帳單繳納',
-    refNumber: 'UTIL-04',
-    paymentMethod: '信用卡'
-  },
-  {
-    id: 't-apr-8',
-    date: '2026-04-20',
-    amount: 2200,
-    type: 'outgoing',
-    label: '物流貨運支出',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '環保重載袋至漢堡海運整櫃海運訂艙與報關什費',
-    refNumber: 'FRT-8843',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-apr-9',
-    date: '2026-04-28',
-    amount: 6500,
-    type: 'outgoing',
-    label: '員工薪資發放',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '4月份總部行政與生產端員工資發放',
-    refNumber: 'PAY-2026-04',
-    paymentMethod: '銀行轉帳'
-  },
-
-  // --- 2026年3月 ---
-  {
-    id: 't-mar-1',
-    date: '2026-03-02',
-    amount: 4500,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-1',
-    businessLine: '固定資產與廠房租賃',
-    description: '華東 A 區中央聯運倉庫月租回籠',
-    refNumber: 'INV-2026-0301',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-mar-2',
-    date: '2026-03-02',
-    amount: 1200,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-2',
-    businessLine: '固定資產與廠房租賃',
-    description: '印刷滾筒設備組月租回籠',
-    refNumber: 'INV-2026-0302',
-    paymentMethod: 'Stripe'
-  },
-  {
-    id: 't-mar-3',
-    date: '2026-03-02',
-    amount: 600,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-3',
-    businessLine: '固定資產與廠房租賃',
-    description: '豐田堆高機 T-100 月租回籠',
-    refNumber: 'INV-2026-0303',
-    paymentMethod: 'Paypal'
-  },
-  {
-    id: 't-mar-4',
-    date: '2026-03-02',
-    amount: 1500,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-5',
-    businessLine: '固定資產與廠房租賃',
-    description: '環保立體袋結構專利 IP 授權費',
-    refNumber: 'INV-2026-0305',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-mar-10',
-    date: '2026-03-05',
-    amount: 250,
-    type: 'outgoing',
-    label: '資產日常維護',
-    assetId: 'asset-3',
-    businessLine: '固定資產與廠房租賃',
-    description: '堆高機液壓密封圈更換、齒輪油更換及蓄電池組維護',
-    refNumber: 'MNT-4281',
-    paymentMethod: '信用卡'
-  },
-  {
-    id: 't-mar-11',
-    date: '2026-03-12',
-    amount: 16800,
-    type: 'incoming',
-    label: '客製訂單銷售',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '承接客製環保立體零食密封袋（DTC 新銳健康零食品牌）',
-    refNumber: 'PO-330179',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-mar-12',
-    date: '2026-03-15',
-    amount: 3200,
-    type: 'outgoing',
-    label: '企業稅收繳納',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '申報並繳納 2026 第一季度企業所得稅及地方附加稅',
-    refNumber: 'TAX-2026-Q1',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-mar-13',
-    date: '2026-03-15',
-    amount: 440,
-    type: 'outgoing',
-    label: '辦公水電網費',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '3月份總部大樓水電費帳單結清',
-    refNumber: 'UTIL-03',
-    paymentMethod: '信用卡'
-  },
-  {
-    id: 't-mar-14',
-    date: '2026-03-28',
-    amount: 6500,
-    type: 'outgoing',
-    label: '員工薪資發放',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '3月份全體團隊月度薪資正常發放',
-    refNumber: 'PAY-2026-03',
-    paymentMethod: '銀行轉帳'
-  },
-
-  // --- 2026年2月 ---
-  {
-    id: 't-feb-1',
-    date: '2026-02-02',
-    amount: 4500,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-1',
-    businessLine: '固定資產與廠房租賃',
-    description: '華東 A 區中央聯運倉庫月租回籠',
-    refNumber: 'INV-2026-0201',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-feb-2',
-    date: '2026-02-02',
-    amount: 1200,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-2',
-    businessLine: '固定資產與廠房租賃',
-    description: '印刷滾筒設備組月租回籠',
-    refNumber: 'INV-2026-0202',
-    paymentMethod: 'Stripe'
-  },
-  {
-    id: 't-feb-3',
-    date: '2026-02-02',
-    amount: 600,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-3',
-    businessLine: '固定資產與廠房租賃',
-    description: '豐田堆高機 T-100 月租回籠',
-    refNumber: 'INV-2026-0203',
-    paymentMethod: 'Paypal'
-  },
-  {
-    id: 't-feb-4',
-    date: '2026-02-02',
-    amount: 1500,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-5',
-    businessLine: '固定資產與廠房租賃',
-    description: '環保立體袋結構專利 IP 授權費',
-    refNumber: 'INV-2026-0205',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-feb-5',
-    date: '2026-02-15',
-    amount: 4100,
-    type: 'outgoing',
-    label: '原材料採購支出',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '採購複合軟包裝高阻隔 PET 薄膜及可降解拉鍊密封材料',
-    refNumber: 'VEND-9602',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-feb-6',
-    date: '2026-02-15',
-    amount: 460,
-    type: 'outgoing',
-    label: '辦公水電網費',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '2月份企業水電與光纖網絡帳單',
-    refNumber: 'UTIL-02',
-    paymentMethod: '信用卡'
-  },
-  {
-    id: 't-feb-7',
-    date: '2026-02-22',
-    amount: 19800,
-    type: 'incoming',
-    label: '客製訂單銷售',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '承接客製環保可回收立體拉鍊袋（有機堅果連鎖品牌大貨）',
-    refNumber: 'PO-930182',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-feb-8',
-    date: '2026-02-28',
-    amount: 6500,
-    type: 'outgoing',
-    label: '員工薪資發放',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '2月份辦公及技術人員工資劃發',
-    refNumber: 'PAY-2026-02',
-    paymentMethod: '銀行轉帳'
-  },
-
-  // --- 2026年1月 ---
-  {
-    id: 't-jan-1',
-    date: '2026-01-02',
-    amount: 4500,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-1',
-    businessLine: '固定資產與廠房租賃',
-    description: '華東 A 區中央聯運倉庫月租回籠',
-    refNumber: 'INV-2026-0101',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-jan-2',
-    date: '2026-01-02',
-    amount: 1200,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-2',
-    businessLine: '固定資產與廠房租賃',
-    description: '印刷滾筒設備組月租回籠',
-    refNumber: 'INV-2026-0102',
-    paymentMethod: 'Stripe'
-  },
-  {
-    id: 't-jan-3',
-    date: '2026-01-02',
-    amount: 600,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-3',
-    businessLine: '固定資產與廠房租賃',
-    description: '豐田堆高機 T-100 月租回籠',
-    refNumber: 'INV-2026-0103',
-    paymentMethod: 'Paypal'
-  },
-  {
-    id: 't-jan-4',
-    date: '2026-01-02',
-    amount: 1500,
-    type: 'incoming',
-    label: '租金收入',
-    assetId: 'asset-5',
-    businessLine: '固定資產與廠房租賃',
-    description: '環保立體袋結構專利 IP 授權費',
-    refNumber: 'INV-2026-0105',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-jan-5',
-    date: '2026-01-10',
-    amount: 12000,
-    type: 'incoming',
-    label: '諮詢規劃收入',
-    businessLine: '供應鏈諮詢與方案規劃',
-    description: '承接大型包裝製造業綠色循環包裝升級諮詢藍圖規劃案（尾款結清）',
-    refNumber: 'INV-AP-9901',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-jan-6',
-    date: '2026-01-15',
-    amount: 430,
-    type: 'outgoing',
-    label: '辦公水電網費',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '1月份企業總部辦公大樓能源費與環境維護費結案發票',
-    refNumber: 'UTIL-01',
-    paymentMethod: '信用卡'
-  },
-  {
-    id: 't-jan-7',
-    date: '2026-01-20',
-    amount: 950,
-    type: 'outgoing',
-    label: '物流貨運支出',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '支付寄送海外高精細度打樣樣品包的特快空運費（順豐/DHL）',
-    refNumber: 'FRT-7712',
-    paymentMethod: '信用卡'
-  },
-  {
-    id: 't-jan-8',
-    date: '2026-01-28',
-    amount: 6500,
-    type: 'outgoing',
-    label: '員工薪資發放',
-    businessLine: 'AchievePack B2B 集團包裝',
-    description: '1月份核心管理與生產骨幹薪資劃扣發放',
-    refNumber: 'PAY-2026-01',
     paymentMethod: '銀行轉帳'
   }
 ]
@@ -776,8 +414,15 @@ const BookkeepingPage: React.FC = () => {
     return saved ? JSON.parse(saved) : DEFAULT_BUSINESS_LINES
   })
 
+  // 匯率自訂設定 state (NEW FEATURE: Exchange rate adjustment)
+  const [customRates, setCustomRates] = useState<Record<CurrencyType, number>>(() => {
+    const saved = localStorage.getItem('achievepack_bookkeeping_rates')
+    return saved ? JSON.parse(saved) : EXCHANGE_RATES
+  })
+  
   const [newBusinessName, setNewBusinessName] = useState('')
   const [showAddBusiness, setShowAddBusiness] = useState(false)
+  const [showRateSettings, setShowRateSettings] = useState(false)
 
   // 同步寫入 LocalStorage
   useEffect(() => {
@@ -791,6 +436,10 @@ const BookkeepingPage: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('achievepack_bookkeeping_businesses', JSON.stringify(businessLines))
   }, [businessLines])
+
+  useEffect(() => {
+    localStorage.setItem('achievepack_bookkeeping_rates', JSON.stringify(customRates))
+  }, [customRates])
 
   // 新增自訂業務板塊標籤
   const handleAddBusinessLine = (e: React.FormEvent) => {
@@ -816,7 +465,8 @@ const BookkeepingPage: React.FC = () => {
   const [ledgerTypeFilter, setLedgerTypeFilter] = useState<'all' | 'incoming' | 'outgoing'>('all')
   const [ledgerLabelFilter, setLedgerLabelFilter] = useState<string>('all')
   const [ledgerAssetFilter, setLedgerAssetFilter] = useState<string>('all')
-  const [ledgerBusinessFilter, setLedgerBusinessFilter] = useState<string>('all') // 業務篩選器
+  const [ledgerBusinessFilter, setLedgerBusinessFilter] = useState<string>('all') 
+  const [ledgerCurrencyFilter, setLedgerCurrencyFilter] = useState<string>('all') // 幣別過濾
 
   // 自訂日期篩選
   const [ledgerDateStart, setLedgerDateStart] = useState('')
@@ -830,7 +480,8 @@ const BookkeepingPage: React.FC = () => {
   // 收支登錄表單 state
   const [showAddForm, setShowAddForm] = useState(false)
   const [formDate, setFormDate] = useState(new Date().toISOString().split('T')[0])
-  const [formAmount, setFormAmount] = useState('')
+  const [formAmount, setFormAmount] = useState('') // 原始金額輸入
+  const [formCurrency, setFormCurrency] = useState<CurrencyType>('USD') // 幣別選擇 (NEW)
   const [formType, setFormType] = useState<'incoming' | 'outgoing'>('incoming')
   const [formLabel, setFormLabel] = useState<TransactionLabel>('租金收入')
   const [formAssetId, setFormAssetId] = useState('')
@@ -853,12 +504,13 @@ const BookkeepingPage: React.FC = () => {
   // 損益表查詢年度、期間與業務板塊篩選器
   const [plYear, setPlYear] = useState('2026')
   const [plQuarter, setPlQuarter] = useState<'all' | 'Q1' | 'Q2' | 'Q3' | 'Q4'>('all')
-  const [plBusinessFilter, setPlBusinessFilter] = useState<string>('all') // 損益表業務板塊篩選器
+  const [plBusinessFilter, setPlBusinessFilter] = useState<string>('all') 
 
   // 重置表單輔助函式
   const resetTransactionForm = () => {
     setFormDate(new Date().toISOString().split('T')[0])
     setFormAmount('')
+    setFormCurrency('USD')
     setFormType('incoming')
     setFormLabel('租金收入')
     setFormAssetId('')
@@ -879,7 +531,7 @@ const BookkeepingPage: React.FC = () => {
     setEditingAssetId(null)
   }
 
-  // 儲存或更新收支記錄
+  // 儲存或更新收支記錄 (支援多幣別實時轉換基準貨幣)
   const handleSaveTransaction = (e: React.FormEvent) => {
     e.preventDefault()
     if (!formAmount || isNaN(Number(formAmount)) || Number(formAmount) <= 0) {
@@ -891,11 +543,17 @@ const BookkeepingPage: React.FC = () => {
       return
     }
 
+    const origAmt = Number(formAmount)
+    const rate = customRates[formCurrency] || 1.0
+    // 結轉換算 Base USD Amount
+    const baseUsdAmt = origAmt / rate
+
     const tData: Transaction = {
       id: editingTransactionId || `t-${Date.now()}`,
       date: formDate,
-      amount: Number(formAmount),
-      type: formType,
+      amount: baseUsdAmt, // 結轉儲存 USD 金額，用作報表加總
+      originalAmount: origAmt, // 原始輸入金額
+      currency: formCurrency, // 原始幣別
       label: formLabel,
       assetId: formAssetId || undefined,
       businessLine: formBusinessLine,
@@ -921,7 +579,9 @@ const BookkeepingPage: React.FC = () => {
   const startEditTransaction = (t: Transaction) => {
     setEditingTransactionId(t.id)
     setFormDate(t.date)
-    setFormAmount(String(t.amount))
+    // 編輯時載入原始輸入金額與原始幣別，而非已經換算的 USD
+    setFormAmount(String(t.originalAmount || t.amount))
+    setFormCurrency(t.currency || 'USD')
     setFormType(t.type)
     setFormLabel(t.label)
     setFormAssetId(t.assetId || '')
@@ -1005,8 +665,48 @@ const BookkeepingPage: React.FC = () => {
     }
   }, [formType])
 
+  // 實時計算匯率預覽額 (基於 formAmount 與 formCurrency)
+  const convertedPreviewAmount = useMemo(() => {
+    if (!formAmount || isNaN(Number(formAmount))) return 0
+    const amt = Number(formAmount)
+    const rate = customRates[formCurrency] || 1.0
+    return amt / rate
+  }, [formAmount, formCurrency, customRates])
+
+  // 實時跨幣別折算對照 (USD, HKD, RMB)
+  const liveConversions = useMemo(() => {
+    if (!formAmount || isNaN(Number(formAmount))) return null
+    const amt = Number(formAmount)
+    const hkdRate = customRates.HKD || 7.8
+    const rmbRate = customRates.RMB || 7.25
+    
+    let usdVal = 0
+    let hkdVal = 0
+    let rmbVal = 0
+
+    if (formCurrency === 'USD') {
+      usdVal = amt
+      hkdVal = amt * hkdRate
+      rmbVal = amt * rmbRate
+    } else if (formCurrency === 'HKD') {
+      usdVal = amt / hkdRate
+      hkdVal = amt
+      rmbVal = (amt / hkdRate) * rmbRate
+    } else if (formCurrency === 'RMB') {
+      usdVal = amt / rmbRate
+      hkdVal = (amt / rmbRate) * hkdRate
+      rmbVal = amt
+    }
+
+    return {
+      USD: usdVal,
+      HKD: hkdVal,
+      RMB: rmbVal
+    }
+  }, [formAmount, formCurrency, customRates])
+
   // ==========================================
-  // 動態指標與財務數據計算 (多業務核算)
+  // 動態指標與財務數據計算 (多幣別統一基準 USD 核算)
   // ==========================================
 
   // 全局收支累積數據
@@ -1051,7 +751,6 @@ const BookkeepingPage: React.FC = () => {
   const businessProfitStats = useMemo(() => {
     const bStats: Record<string, { income: number; expense: number; net: number }> = {}
     
-    // 初始化所有已知業務板塊
     businessLines.forEach(b => {
       bStats[b] = { income: 0, expense: 0, net: 0 }
     })
@@ -1083,6 +782,7 @@ const BookkeepingPage: React.FC = () => {
       const matchLabel = ledgerLabelFilter === 'all' || t.label === ledgerLabelFilter
       const matchAsset = ledgerAssetFilter === 'all' || t.assetId === ledgerAssetFilter
       const matchBusiness = ledgerBusinessFilter === 'all' || t.businessLine === ledgerBusinessFilter
+      const matchCurrency = ledgerCurrencyFilter === 'all' || (t.currency || 'USD') === ledgerCurrencyFilter
 
       let matchDate = true
       if (ledgerDateStart) {
@@ -1092,15 +792,15 @@ const BookkeepingPage: React.FC = () => {
         matchDate = matchDate && t.date <= ledgerDateEnd
       }
 
-      return matchSearch && matchType && matchLabel && matchAsset && matchBusiness && matchDate
+      return matchSearch && matchType && matchLabel && matchAsset && matchBusiness && matchCurrency && matchDate
     })
-  }, [transactions, ledgerSearch, ledgerTypeFilter, ledgerLabelFilter, ledgerAssetFilter, ledgerBusinessFilter, ledgerDateStart, ledgerDateEnd])
+  }, [transactions, ledgerSearch, ledgerTypeFilter, ledgerLabelFilter, ledgerAssetFilter, ledgerBusinessFilter, ledgerCurrencyFilter, ledgerDateStart, ledgerDateEnd])
 
-  // P&L 財務報表專用科目歸檔與拆解 (全面支持「特定業務板塊」利潤核算)
+  // P&L 財務報表專用科目歸檔與拆解 (支援特定業務板塊、基準 USD 計算)
   const plReport = useMemo(() => {
     let totalRevenue = 0
-    let totalCOGS = 0 // 營業直接成本 (原材料採購、物流貨運等)
-    let totalOpEx = 0 // 運營費用 (資產日常維護、水電網費、工資、稅收、其他)
+    let totalCOGS = 0 
+    let totalOpEx = 0 
 
     const breakdown: Record<TransactionLabel, number> = {
       '租金收入': 0,
@@ -1121,10 +821,8 @@ const BookkeepingPage: React.FC = () => {
       const tYear = t.date.split('-')[0]
       const tMonth = Number(t.date.split('-')[1])
 
-      // 1. 年代過濾
       if (tYear !== plYear) return
 
-      // 2. 季度過濾
       if (plQuarter !== 'all') {
         const qMonths: Record<'Q1' | 'Q2' | 'Q3' | 'Q4', number[]> = {
           Q1: [1, 2, 3],
@@ -1135,7 +833,6 @@ const BookkeepingPage: React.FC = () => {
         if (!qMonths[plQuarter].includes(tMonth)) return
       }
 
-      // 3. 業務板塊過濾 (動態財務分析核心)
       if (plBusinessFilter !== 'all' && t.businessLine !== plBusinessFilter) return
 
       breakdown[t.label] += t.amount
@@ -1167,25 +864,6 @@ const BookkeepingPage: React.FC = () => {
       breakdown
     }
   }, [transactions, plYear, plQuarter, plBusinessFilter])
-
-  // P&L CSV 明細報表匯出
-  const exportPLToCSV = () => {
-    const headers = `\uFEFF業務板塊: ${plBusinessFilter === 'all' ? '所有板塊' : plBusinessFilter},年度: ${plYear},期間: ${plQuarter}\n會計科目類別,累計總金額 (USD)\n`
-    const rows = Object.entries(plReport.breakdown)
-      .map(([label, amt]) => `"${label}",${amt}`)
-      .join('\n')
-
-    const summaryRows = `\n"營業收入總計",${plReport.revenue}\n"直接營業成本 (COGS)",${plReport.cogs}\n"營業毛利額",${plReport.grossProfit}\n"毛利率 %",${plReport.grossMargin.toFixed(2)}%\n"營業運營費用 (OpEx)",${plReport.opex}\n"企業淨利潤",${plReport.netProfit}\n"企業淨利率 %",${plReport.netMargin.toFixed(2)}%`
-
-    const csvContent = 'data:text/csv;charset=utf-8,' + encodeURIComponent(headers + rows + summaryRows)
-    const link = document.createElement('a')
-    link.setAttribute('href', csvContent)
-    link.setAttribute('download', `AP_${plBusinessFilter}_損益分析表_${plYear}_${plQuarter}.csv`)
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    toast.success('該板塊損益分析數據已成功匯出為 CSV 報表！')
-  }
 
   // ==========================================
   // 收支日曆格網繪製邏輯
@@ -1270,14 +948,21 @@ const BookkeepingPage: React.FC = () => {
                   <DollarSign className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-white tracking-wide">企業財務分板塊記賬與損益系統</h1>
-                  <p className="text-xs text-gray-400 font-mono">多個獨立業務利潤核算系統 • 數據邊緣安全持久儲存</p>
+                  <h1 className="text-xl font-bold text-white tracking-wide">多幣別分板塊企業記帳與損益系統</h1>
+                  <p className="text-xs text-gray-400 font-mono">支援港幣 HKD、人民幣 RMB、美金 USD • 實時匯率自動結轉</p>
                 </div>
               </div>
             </div>
 
             {/* 快速新建功能 */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => setShowRateSettings(true)}
+                className="bg-gray-850 hover:bg-gray-750 text-yellow-400 text-sm font-semibold px-4 py-2.5 rounded-xl border border-gray-700/80 transition-all flex items-center gap-2"
+              >
+                <RefreshCw className="w-4 h-4 animate-spin-slow" />
+                調整幣別匯率
+              </button>
               <button
                 onClick={() => {
                   setShowAddBusiness(true)
@@ -1285,7 +970,7 @@ const BookkeepingPage: React.FC = () => {
                 className="bg-gray-850 hover:bg-gray-750 text-emerald-400 text-sm font-semibold px-4 py-2.5 rounded-xl border border-gray-700/80 transition-all flex items-center gap-2"
               >
                 <BriefcaseBusiness className="w-4 h-4" />
-                管理自訂業務板塊
+                業務板塊管理
               </button>
               <button
                 onClick={() => {
@@ -1295,17 +980,17 @@ const BookkeepingPage: React.FC = () => {
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2 hover:scale-[1.02]"
               >
                 <Plus className="w-4 h-4" />
-                登錄收支明細
+                登錄收支流水
               </button>
               <button
                 onClick={() => {
                   resetAssetForm()
                   setShowAssetForm(true)
                 }}
-                className="bg-gray-700 hover:bg-gray-600 text-white text-sm font-semibold px-4 py-2.5 rounded-xl border border-gray-600 transition-all flex items-center gap-2"
+                className="bg-gray-700 hover:bg-gray-650 text-white text-sm font-semibold px-4 py-2.5 rounded-xl border border-gray-600 transition-all flex items-center gap-2"
               >
                 <Building className="w-4 h-4" />
-                新增租賃資產
+                新設租賃資產
               </button>
             </div>
           </div>
@@ -1315,11 +1000,21 @@ const BookkeepingPage: React.FC = () => {
       {/* ----------------- 數據卡片看板 ----------------- */}
       <section className="bg-gray-900/40 border-b border-gray-800 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Exchange rate quick bar (NEW) */}
+          <div className="mb-4 flex flex-wrap gap-4 text-xs bg-gray-850 p-3 rounded-xl border border-gray-800/80 text-gray-400 font-mono items-center">
+            <span className="font-sans font-bold text-gray-300">📊 當前基準折算匯率：</span>
+            <span>1 USD = <strong>{customRates.USD} USD</strong></span>
+            <span>•</span>
+            <span>1 USD = <strong>{customRates.HKD} HKD</strong></span>
+            <span>•</span>
+            <span>1 USD = <strong>{customRates.RMB} RMB</strong></span>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {/* 累計淨收益 */}
             <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/60 rounded-2xl p-5 hover:border-green-500/30 transition-all group">
               <div className="flex justify-between items-start">
-                <p className="text-sm font-medium text-gray-400">集團累計淨利額</p>
+                <p className="text-sm font-medium text-gray-400">折合集團淨收益總額 (USD)</p>
                 <span className={`p-1.5 rounded-lg text-xs font-semibold ${stats.net >= 0 ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
                   {stats.net >= 0 ? <ArrowUpRight className="w-4 h-4" /> : <ArrowDownRight className="w-4 h-4" />}
                 </span>
@@ -1329,14 +1024,14 @@ const BookkeepingPage: React.FC = () => {
               </p>
               <div className="flex items-center gap-1.5 mt-2 text-xs text-gray-400">
                 <Percent className="w-3.5 h-3.5 text-green-400" />
-                <span>累計淨利率: <strong className="text-gray-200">{stats.margin.toFixed(1)}%</strong></span>
+                <span>綜合淨利率: <strong className="text-gray-200">{stats.margin.toFixed(1)}%</strong></span>
               </div>
             </div>
 
             {/* 現金流入 */}
             <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/60 rounded-2xl p-5 hover:border-green-500/30 transition-all">
               <div className="flex justify-between items-start">
-                <p className="text-sm font-medium text-gray-400">現金流入 (營業收入總計)</p>
+                <p className="text-sm font-medium text-gray-400">現金總流入 (Revenues)</p>
                 <span className="p-1.5 rounded-lg bg-green-500/10 text-green-400 text-xs">
                   <TrendingUp className="w-4 h-4" />
                 </span>
@@ -1344,13 +1039,13 @@ const BookkeepingPage: React.FC = () => {
               <p className="text-2xl font-bold text-green-400 tracking-tight mt-2 font-mono">
                 +${stats.inflow.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </p>
-              <p className="text-xs text-gray-500 mt-2">包含集團銷售、客製零售與固定租賃所得</p>
+              <p className="text-xs text-gray-500 mt-2">各項幣別收入統一換算為 USD 加總</p>
             </div>
 
             {/* 現金流出 */}
             <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/60 rounded-2xl p-5 hover:border-red-500/30 transition-all">
               <div className="flex justify-between items-start">
-                <p className="text-sm font-medium text-gray-400">現金流出 (運營支出總計)</p>
+                <p className="text-sm font-medium text-gray-400">現金總流出 (OpEx & COGS)</p>
                 <span className="p-1.5 rounded-lg bg-red-500/10 text-red-400 text-xs">
                   <TrendingDown className="w-4 h-4" />
                 </span>
@@ -1358,13 +1053,13 @@ const BookkeepingPage: React.FC = () => {
               <p className="text-2xl font-bold text-red-400 tracking-tight mt-2 font-mono">
                 -${stats.outflow.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </p>
-              <p className="text-xs text-gray-500 mt-2">原材料、物流、資產維護與全體工資</p>
+              <p className="text-xs text-gray-500 mt-2">各項幣別開支統一換算為 USD 加總</p>
             </div>
 
             {/* 業務板塊數量 */}
             <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-700/60 rounded-2xl p-5 hover:border-blue-500/30 transition-all">
               <div className="flex justify-between items-start">
-                <p className="text-sm font-medium text-gray-400">當前營運業務板塊</p>
+                <p className="text-sm font-medium text-gray-400">營運中業務板塊</p>
                 <span className="p-1.5 rounded-lg bg-blue-500/10 text-blue-400 text-xs">
                   <BriefcaseBusiness className="w-4 h-4" />
                 </span>
@@ -1372,7 +1067,7 @@ const BookkeepingPage: React.FC = () => {
               <p className="text-2xl font-bold text-blue-400 tracking-tight mt-2 font-mono">
                 {businessLines.length} <span className="text-sm text-gray-400 font-normal">個板塊單元</span>
               </p>
-              <p className="text-xs text-gray-500 mt-2">各業務利潤獨立核算核對</p>
+              <p className="text-xs text-gray-500 mt-2">各業務獨立折算財務報表</p>
             </div>
           </div>
         </div>
@@ -1382,11 +1077,11 @@ const BookkeepingPage: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
         <div className="flex border-b border-gray-700/80 mb-8 overflow-x-auto gap-2 scrollbar-none">
           {[
-            { id: 'dashboard', label: '多業務現金流看板', icon: Sparkles },
-            { id: 'transactions', label: '收支總帳明細', icon: Briefcase },
+            { id: 'dashboard', label: '分板塊現金看板', icon: Sparkles },
+            { id: 'transactions', label: '收支總帳明細 (支援多幣別審計)', icon: Briefcase },
             { id: 'calendar', label: '收支日曆視圖', icon: Calendar },
             { id: 'assets', label: '租賃資產管理', icon: Building },
-            { id: 'pandl', label: '分業務板塊損益表 (P&L)', icon: FileSpreadsheet }
+            { id: 'pandl', label: '財務折算損益表 (P&L)', icon: FileSpreadsheet }
           ].map(tab => (
             <button
               key={tab.id}
@@ -1406,7 +1101,7 @@ const BookkeepingPage: React.FC = () => {
         {/* ----------------- 標籤頁: 儀表盤 ----------------- */}
         {activeTab === 'dashboard' && (
           <div className="space-y-8">
-            {/* 多業務對比概覽列表 (NEW FEATURE: Comparative Grid) */}
+            {/* 多業務對比概覽列表 */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
               {businessLines.map(b => {
                 const bProfit = businessProfitStats[b] || { income: 0, expense: 0, net: 0 }
@@ -1415,24 +1110,24 @@ const BookkeepingPage: React.FC = () => {
                   <div key={b} className="bg-gray-850 border border-gray-800 rounded-2xl p-5 hover:border-emerald-500/40 transition-all flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs text-gray-400 font-bold bg-gray-800 px-2 py-0.5 rounded">業務單元</span>
+                        <span className="text-xs text-gray-400 font-bold bg-gray-800 px-2 py-0.5 rounded font-sans">業務單元</span>
                         <Coins className={`w-4 h-4 ${isNetPositive ? 'text-green-400' : 'text-red-400'}`} />
                       </div>
                       <h4 className="text-sm font-bold text-white tracking-wide truncate">{b}</h4>
                     </div>
-                    <div className="mt-4 space-y-1.5 text-xs">
+                    <div className="mt-4 space-y-1.5 text-xs font-mono">
                       <div className="flex justify-between text-gray-400">
                         <span>流入 (營收)：</span>
-                        <span className="font-mono text-green-400">+${bProfit.income.toLocaleString()}</span>
+                        <span className="text-green-400">+${bProfit.income.toLocaleString(undefined, { maximumFractionDigits: 0 })} USD</span>
                       </div>
                       <div className="flex justify-between text-gray-400">
                         <span>流出 (費用)：</span>
-                        <span className="font-mono text-red-400">-${bProfit.expense.toLocaleString()}</span>
+                        <span className="text-red-400">-${bProfit.expense.toLocaleString(undefined, { maximumFractionDigits: 0 })} USD</span>
                       </div>
                       <div className="flex justify-between pt-1.5 border-t border-gray-800">
-                        <span className="font-bold text-gray-300">淨利潤：</span>
-                        <span className={`font-mono font-bold ${isNetPositive ? 'text-green-400' : 'text-red-400'}`}>
-                          {isNetPositive ? '+' : '-'}${Math.abs(bProfit.net).toLocaleString()}
+                        <span className="font-bold text-gray-300 font-sans">折合淨利：</span>
+                        <span className={`font-bold ${isNetPositive ? 'text-green-400' : 'text-red-400'}`}>
+                          {isNetPositive ? '+' : '-'}${Math.abs(bProfit.net).toLocaleString(undefined, { maximumFractionDigits: 0 })} USD
                         </span>
                       </div>
                     </div>
@@ -1447,7 +1142,7 @@ const BookkeepingPage: React.FC = () => {
               <div className="lg:col-span-2 bg-gray-800/40 border border-gray-700/60 rounded-2xl p-6">
                 <h4 className="text-md font-bold text-white mb-4 flex items-center gap-2">
                   <Building className="w-4 h-4 text-emerald-400" />
-                  固定及實體資產月租表現 (累計淨利回籠)
+                  固定租賃資產收益表現 (累計淨利折合 USD)
                 </h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-sm border-collapse">
@@ -1456,8 +1151,8 @@ const BookkeepingPage: React.FC = () => {
                         <th className="pb-3 font-semibold">資產名稱項目</th>
                         <th className="pb-3 font-semibold">承租客戶</th>
                         <th className="pb-3 font-semibold">營運狀態</th>
-                        <th className="pb-3 font-semibold text-right">約定月租</th>
-                        <th className="pb-3 font-semibold text-right">累計淨收益 (已收-已付)</th>
+                        <th className="pb-3 font-semibold text-right">定價月租</th>
+                        <th className="pb-3 font-semibold text-right">累計淨收益 (Base USD)</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-800/60 font-medium">
@@ -1479,7 +1174,7 @@ const BookkeepingPage: React.FC = () => {
                             </td>
                             <td className="py-4 text-right text-gray-300 font-mono">${asset.monthlyRate}/月</td>
                             <td className={`py-4 text-right font-mono font-bold ${netYield >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                              {netYield >= 0 ? '+' : '-'}${Math.abs(netYield).toLocaleString()}
+                              {netYield >= 0 ? '+' : '-'}${Math.abs(netYield).toLocaleString(undefined, { maximumFractionDigits: 0 })}
                             </td>
                           </tr>
                         )
@@ -1498,7 +1193,7 @@ const BookkeepingPage: React.FC = () => {
                 
                 {/* 收入來源配比 */}
                 <div className="space-y-4">
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">現金流入來源排行</p>
+                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">現金流入來源排行 (USD)</p>
                   {(() => {
                     const mix: Record<string, number> = {}
                     let total = 0
@@ -1515,7 +1210,7 @@ const BookkeepingPage: React.FC = () => {
                           <div key={lbl} className="space-y-1.5">
                             <div className="flex justify-between text-xs font-semibold">
                               <span className="text-gray-300">{lbl}</span>
-                              <span className="text-green-400 font-mono">${val.toLocaleString()} ({pct.toFixed(0)}%)</span>
+                              <span className="text-green-400 font-mono">${val.toLocaleString(undefined, { maximumFractionDigits: 0 })} ({pct.toFixed(0)}%)</span>
                             </div>
                             <div className="h-2 w-full bg-gray-700/40 rounded-full overflow-hidden">
                               <div className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full" style={{ width: `${pct}%` }}></div>
@@ -1528,7 +1223,7 @@ const BookkeepingPage: React.FC = () => {
 
                 {/* 支出去向配比 */}
                 <div className="space-y-4 pt-4 border-t border-gray-800">
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">現金流出分類排行</p>
+                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">現金流出分類排行 (USD)</p>
                   {(() => {
                     const mix: Record<string, number> = {}
                     let total = 0
@@ -1545,7 +1240,7 @@ const BookkeepingPage: React.FC = () => {
                           <div key={lbl} className="space-y-1.5">
                             <div className="flex justify-between text-xs font-semibold">
                               <span className="text-gray-300">{lbl}</span>
-                              <span className="text-red-400 font-mono">${val.toLocaleString()} ({pct.toFixed(0)}%)</span>
+                              <span className="text-red-400 font-mono">${val.toLocaleString(undefined, { maximumFractionDigits: 0 })} ({pct.toFixed(0)}%)</span>
                             </div>
                             <div className="h-2 w-full bg-gray-700/40 rounded-full overflow-hidden">
                               <div className="h-full bg-gradient-to-r from-red-500 to-rose-400 rounded-full" style={{ width: `${pct}%` }}></div>
@@ -1560,12 +1255,12 @@ const BookkeepingPage: React.FC = () => {
           </div>
         )}
 
-        {/* ----------------- 標籤頁: 收支總帳明細 ----------------- */}
+        {/* ----------------- 標籤頁: 收支總帳明細 (多幣別混合審計) ----------------- */}
         {activeTab === 'transactions' && (
           <div className="space-y-6">
             {/* 過濾控制面板 */}
             <div className="bg-gray-800/40 border border-gray-700/60 rounded-2xl p-5 space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
                 {/* 關鍵字搜尋 */}
                 <div className="relative lg:col-span-1">
                   <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
@@ -1591,7 +1286,7 @@ const BookkeepingPage: React.FC = () => {
                   </select>
                 </div>
 
-                {/* 業務板塊過濾 (NEW FILTER) */}
+                {/* 業務板塊過濾 */}
                 <div>
                   <select
                     value={ledgerBusinessFilter}
@@ -1602,6 +1297,20 @@ const BookkeepingPage: React.FC = () => {
                     {businessLines.map(b => (
                       <option key={b} value={b}>{b}</option>
                     ))}
+                  </select>
+                </div>
+
+                {/* 原始幣別篩選 (NEW FILTER) */}
+                <div>
+                  <select
+                    value={ledgerCurrencyFilter}
+                    onChange={(e) => setLedgerCurrencyFilter(e.target.value)}
+                    className="w-full bg-gray-900/60 border border-gray-600 rounded-xl px-4 py-2.5 text-sm text-yellow-400 font-semibold focus:outline-none"
+                  >
+                    <option value="all">所有交易幣別</option>
+                    <option value="USD">美金 (USD)</option>
+                    <option value="HKD">港幣 (HKD)</option>
+                    <option value="RMB">人民幣 (RMB)</option>
                   </select>
                 </div>
 
@@ -1664,7 +1373,7 @@ const BookkeepingPage: React.FC = () => {
                     className="bg-gray-900/60 border border-gray-600 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none"
                   />
                 </div>
-                {(ledgerSearch || ledgerTypeFilter !== 'all' || ledgerLabelFilter !== 'all' || ledgerAssetFilter !== 'all' || ledgerBusinessFilter !== 'all' || ledgerDateStart || ledgerDateEnd) && (
+                {(ledgerSearch || ledgerTypeFilter !== 'all' || ledgerLabelFilter !== 'all' || ledgerAssetFilter !== 'all' || ledgerBusinessFilter !== 'all' || ledgerCurrencyFilter !== 'all' || ledgerDateStart || ledgerDateEnd) && (
                   <button
                     onClick={() => {
                       setLedgerSearch('')
@@ -1672,6 +1381,7 @@ const BookkeepingPage: React.FC = () => {
                       setLedgerLabelFilter('all')
                       setLedgerAssetFilter('all')
                       setLedgerBusinessFilter('all')
+                      setLedgerCurrencyFilter('all')
                       setLedgerDateStart('')
                       setLedgerDateEnd('')
                     }}
@@ -1700,6 +1410,9 @@ const BookkeepingPage: React.FC = () => {
                 ) : (
                   filteredLedger.map(t => {
                     const linkedAsset = assets.find(a => a.id === t.assetId)
+                    const tCurrency = t.currency || 'USD'
+                    const tOriginalAmount = t.originalAmount || t.amount
+
                     return (
                       <div key={t.id} className="px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-gray-800/25 transition-all">
                         <div className="flex items-start gap-4">
@@ -1726,7 +1439,7 @@ const BookkeepingPage: React.FC = () => {
                                 </>
                               )}
                               <span>•</span>
-                              <span>渠道: {t.paymentMethod}</span>
+                              <span>管道: {t.paymentMethod}</span>
                               {linkedAsset && (
                                 <>
                                   <span>•</span>
@@ -1739,10 +1452,20 @@ const BookkeepingPage: React.FC = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="flex items-center gap-5 self-end sm:self-center font-mono">
-                          <p className={`text-lg font-bold ${t.type === 'incoming' ? 'text-green-400' : 'text-red-400'}`}>
-                            {t.type === 'incoming' ? '+' : '-'}${t.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
-                          </p>
+
+                        {/* ORIGINAL & BASE USD DOUBLE AMOUNT RENDER (NEW FEATURE) */}
+                        <div className="flex items-center gap-5 self-end sm:self-center font-mono text-right">
+                          <div>
+                            <p className={`text-md font-bold ${t.type === 'incoming' ? 'text-green-400' : 'text-red-400'}`}>
+                              {t.type === 'incoming' ? '+' : '-'}{CURRENCY_SYMBOLS[tCurrency]}{tOriginalAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                            </p>
+                            {tCurrency !== 'USD' && (
+                              <p className="text-[10px] text-gray-500">
+                                折合: ${t.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })} USD
+                              </p>
+                            )}
+                          </div>
+
                           <div className="opacity-0 group-hover:opacity-100 flex items-center gap-2 transition-all">
                             <button
                               onClick={() => startEditTransaction(t)}
@@ -1774,7 +1497,7 @@ const BookkeepingPage: React.FC = () => {
               <div>
                 <h4 className="text-md font-bold text-white flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-green-400" />
-                  月度企業現金收支日曆格網
+                  月度企業現金收支日曆格網 (折合基準 USD)
                 </h4>
                 <p className="text-xs text-gray-400 mt-1">
                   每日收到的收入（綠色）與開支費用流出（紅色）。點擊任何日期 block 即可查看當日明細。
@@ -1847,13 +1570,13 @@ const BookkeepingPage: React.FC = () => {
                         {inflow > 0 && (
                           <div className="text-[10px] font-bold font-mono text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded flex items-center justify-between">
                             <span>流入:</span>
-                            <span>+${inflow.toLocaleString()}</span>
+                            <span>+${inflow.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
                           </div>
                         )}
                         {outflow > 0 && (
                           <div className="text-[10px] font-bold font-mono text-red-400 bg-red-500/10 px-1.5 py-0.5 rounded flex items-center justify-between">
                             <span>流出:</span>
-                            <span>-${outflow.toLocaleString()}</span>
+                            <span>-${outflow.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
                           </div>
                         )}
                       </div>
@@ -1891,6 +1614,9 @@ const BookkeepingPage: React.FC = () => {
                     ) : (
                       selectedDayDetail.items.map(t => {
                         const linkedAsset = assets.find(a => a.id === t.assetId)
+                        const tCurrency = t.currency || 'USD'
+                        const tOriginalAmount = t.originalAmount || t.amount
+
                         return (
                           <div key={t.id} className="p-4 bg-gray-850 rounded-xl border border-gray-800 flex items-center justify-between gap-4">
                             <div>
@@ -1898,13 +1624,18 @@ const BookkeepingPage: React.FC = () => {
                               <div className="flex items-center gap-2 text-xs text-gray-400 mt-1 flex-wrap font-mono">
                                 <span className="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded text-[10px] font-sans font-bold">{t.businessLine}</span>
                                 <span className="bg-gray-800 text-gray-300 px-2 py-0.5 rounded">{t.label}</span>
-                                <span>參考發票號: {t.refNumber || '無'}</span>
+                                <span>發票號: {t.refNumber || '無'}</span>
                               </div>
                             </div>
                             <div className="flex items-center gap-3 font-mono">
-                              <span className={`text-sm font-bold ${t.type === 'incoming' ? 'text-green-400' : 'text-red-400'}`}>
-                                {t.type === 'incoming' ? '+' : '-'}${t.amount.toLocaleString()}
-                              </span>
+                              <div className="text-right">
+                                <p className={`text-sm font-bold ${t.type === 'incoming' ? 'text-green-400' : 'text-red-400'}`}>
+                                  {t.type === 'incoming' ? '+' : '-'}{CURRENCY_SYMBOLS[tCurrency]}{tOriginalAmount.toLocaleString()}
+                                </p>
+                                {tCurrency !== 'USD' && (
+                                  <p className="text-[10px] text-gray-500">折合: ${t.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })} USD</p>
+                                )}
+                              </div>
                               <button
                                 onClick={() => {
                                   setSelectedDayDetail(null)
@@ -1955,7 +1686,6 @@ const BookkeepingPage: React.FC = () => {
         {activeTab === 'assets' && (
           <div className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* 受管資產網格 (左邊 2 欄位) */}
               <div className="lg:col-span-2 space-y-4">
                 <div className="flex justify-between items-center">
                   <h4 className="text-sm font-bold text-gray-300 font-mono">租賃資產清冊</h4>
@@ -2034,10 +1764,10 @@ const BookkeepingPage: React.FC = () => {
               <div className="bg-gray-800/40 border border-gray-700/60 rounded-2xl p-6 space-y-4 h-fit">
                 <h4 className="text-md font-bold text-white flex items-center gap-2">
                   <Building className="w-4 h-4 text-green-400" />
-                  租賃資產與多業務綁定
+                  租賃資產與多幣別運算
                 </h4>
                 <p className="text-xs text-gray-400 leading-relaxed font-sans">
-                  租賃固定資產通常歸屬於「固定資產與廠房租賃」業務板塊，您可在登錄流水時，雙重綁定業務板塊及關聯實體項目，以做到極致精細的二維利潤矩陣拆解。
+                  資產定價一律使用美金基準（USD）計價。若租客繳納港幣（HKD）或人民幣（RMB），您可在快速記帳彈窗中直接選擇對應幣別輸入，系統將按照結轉匯率自動對齊美金月租率。
                 </p>
               </div>
             </div>
@@ -2051,7 +1781,7 @@ const BookkeepingPage: React.FC = () => {
               {/* 年代與期間控制 */}
               <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-gray-800">
                 <div className="flex items-center gap-4 flex-wrap">
-                  {/* Business Line selector for P&L (CRITICAL FEATURE) */}
+                  {/* Business Line selector for P&L */}
                   <div>
                     <label className="block text-xs text-emerald-400 mb-1.5 font-bold flex items-center gap-1">
                       <BriefcaseBusiness className="w-3.5 h-3.5" />
@@ -2062,7 +1792,7 @@ const BookkeepingPage: React.FC = () => {
                       onChange={(e) => setPlBusinessFilter(e.target.value)}
                       className="bg-gray-900/60 border border-emerald-500/40 rounded-xl px-4 py-2 text-sm text-emerald-300 focus:outline-none focus:ring-2 focus:ring-green-500 font-bold"
                     >
-                      <option value="all">📊 集團合算損益表 (All Consolidated)</option>
+                      <option value="all">📊 集團合算損益表 (Consolidated Base USD)</option>
                       {businessLines.map(b => (
                         <option key={b} value={b}>🏢 {b}</option>
                       ))}
@@ -2109,9 +1839,14 @@ const BookkeepingPage: React.FC = () => {
                 <div className="bg-gray-900/30 p-6 rounded-2xl border border-gray-800 max-w-3xl mx-auto">
                   <h3 className="text-lg font-bold text-white text-center flex items-center justify-center gap-2">
                     <Sparkles className="w-5 h-5 text-emerald-400" />
-                    【{plBusinessFilter === 'all' ? '集團合併核算' : plBusinessFilter}】損益結算表
+                    【{plBusinessFilter === 'all' ? '集團合併核算' : plBusinessFilter}】損益結算表 (Base USD)
                   </h3>
-                  <p className="text-xs text-gray-400 font-mono text-center mt-1">財務期間：{plYear}年度 {plQuarter === 'all' ? '全年度合算' : plQuarter} • 結轉時間：{new Date().toLocaleString()}</p>
+                  <p className="text-xs text-gray-400 font-mono text-center mt-1">
+                    所有多幣別交易已按照當前匯率統一換算為 **美金 (USD)** 結轉加總展示
+                  </p>
+                  <p className="text-[10px] text-gray-500 font-mono text-center mt-0.5">
+                    財務期間：{plYear}年度 {plQuarter === 'all' ? '全年度合算' : plQuarter} • 結轉時間：{new Date().toLocaleString()}
+                  </p>
                 </div>
 
                 {/* 損益明細科目 */}
@@ -2123,9 +1858,9 @@ const BookkeepingPage: React.FC = () => {
                         <TrendingUp className="w-4.5 h-4.5 text-green-400" />
                         營業收入總額 (Operating Revenue)
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">該業務板塊科目下流入之總金額</p>
+                      <p className="text-xs text-gray-400 mt-1">該業務板塊科目下流入之總金額 (Base USD)</p>
                     </div>
-                    <span className="font-mono text-lg font-bold text-green-400">+${plReport.revenue.toLocaleString()}</span>
+                    <span className="font-mono text-lg font-bold text-green-400">+${plReport.revenue.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
                   </div>
 
                   {/* COGS */}
@@ -2135,19 +1870,19 @@ const BookkeepingPage: React.FC = () => {
                         <TrendingDown className="w-4.5 h-4.5 text-rose-400" />
                         主營直接成本 (Cost of Goods Sold - COGS)
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">分配至該板塊的生產耗用與主幹貨物運輸費</p>
+                      <p className="text-xs text-gray-400 mt-1">分配至該板塊的生產耗用與主幹貨物運輸費 (Base USD)</p>
                     </div>
-                    <span className="font-mono text-lg font-bold text-rose-400">-${plReport.cogs.toLocaleString()}</span>
+                    <span className="font-mono text-lg font-bold text-rose-400">-${plReport.cogs.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
                   </div>
 
                   {/* Gross Margin */}
                   <div className="p-4 bg-gray-900/60 rounded-xl border border-gray-700/60 flex items-center justify-between border-l-4 border-l-emerald-500">
                     <div>
                       <p className="text-md font-bold text-emerald-400 uppercase tracking-wider">營業毛利額與毛利率</p>
-                      <p className="text-xs text-gray-400 mt-1">該業務單元扣除直接直接成本後的原始毛利水準</p>
+                      <p className="text-xs text-gray-400 mt-1">該業務單元營業淨收入扣除主營直接成本後的原始毛利率表現</p>
                     </div>
                     <div className="text-right font-mono">
-                      <p className="text-lg font-bold text-white">${plReport.grossProfit.toLocaleString()}</p>
+                      <p className="text-lg font-bold text-white">${plReport.grossProfit.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
                       <p className="text-xs text-emerald-400 font-semibold">毛利率 {plReport.grossMargin.toFixed(1)}%</p>
                     </div>
                   </div>
@@ -2159,19 +1894,19 @@ const BookkeepingPage: React.FC = () => {
                         <TrendingDown className="w-4.5 h-4.5 text-rose-400" />
                         營業運營開支費用 (Operating Expenses - OpEx)
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">日常辦公耗能、團隊所得與分配至該板塊的維修保養</p>
+                      <p className="text-xs text-gray-400 mt-1">日常辦公耗能、團隊所得與分配至該板塊的維修折舊開支 (Base USD)</p>
                     </div>
-                    <span className="font-mono text-lg font-bold text-rose-400">-${plReport.opex.toLocaleString()}</span>
+                    <span className="font-mono text-lg font-bold text-rose-400">-${plReport.opex.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
                   </div>
 
                   {/* Net Profit */}
                   <div className="p-5 bg-gradient-to-r from-emerald-950/20 to-teal-950/20 border border-green-500/30 rounded-xl flex items-center justify-between border-l-4 border-l-green-500">
                     <div>
-                      <p className="text-lg font-bold text-green-400 uppercase tracking-wider">板塊最終利潤 (Net Income)</p>
-                      <p className="text-xs text-gray-400 mt-1">該業務單元扣除所有分配開支後的最終現金收益。</p>
+                      <p className="text-lg font-bold text-green-400 uppercase tracking-wider">板塊最終結轉淨利 (Net Income)</p>
+                      <p className="text-xs text-gray-400 mt-1">該業務單元扣除所有營業直接與間接開支後的最終折合美金淨收益。</p>
                     </div>
                     <div className="text-right font-mono">
-                      <p className="text-xl font-bold text-green-400">${plReport.netProfit.toLocaleString()}</p>
+                      <p className="text-xl font-bold text-green-400">${plReport.netProfit.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
                       <p className="text-xs text-green-400 font-bold">純利率 {plReport.netMargin.toFixed(1)}%</p>
                     </div>
                   </div>
@@ -2179,7 +1914,7 @@ const BookkeepingPage: React.FC = () => {
 
                 {/* 科目明細表 */}
                 <div className="max-w-3xl mx-auto pt-6 border-t border-gray-800 space-y-4">
-                  <h4 className="text-sm font-bold text-gray-300">該選定板塊之各級會計科目累計</h4>
+                  <h4 className="text-sm font-bold text-gray-300">該選定板塊之各級會計科目累計 (折合 Base USD)</h4>
                   <div className="overflow-hidden rounded-xl border border-gray-800 bg-gray-900/20">
                     <div className="divide-y divide-gray-800/60">
                       {Object.entries(plReport.breakdown).map(([label, amt]) => {
@@ -2188,7 +1923,7 @@ const BookkeepingPage: React.FC = () => {
                           <div key={label} className="px-5 py-3 flex justify-between text-sm">
                             <span className="text-gray-400 font-semibold">{label}</span>
                             <span className={`font-mono font-bold ${isIncome ? 'text-green-400' : 'text-rose-400'}`}>
-                              {isIncome ? '+' : '-'}${amt.toLocaleString()}
+                              {isIncome ? '+' : '-'}${amt.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                             </span>
                           </div>
                         )
@@ -2202,6 +1937,99 @@ const BookkeepingPage: React.FC = () => {
         )}
       </main>
 
+      {/* ----------------- MODAL: 調整幣別匯率 (NEW FEATURE) ----------------- */}
+      {showRateSettings && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-gray-900 border border-gray-700 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
+            <div className="bg-gray-800 px-6 py-4 flex items-center justify-between border-b border-gray-700">
+              <h3 className="text-md font-bold text-white flex items-center gap-2">
+                <RefreshCw className="w-5 h-5 text-yellow-400" />
+                設定基準結轉匯率 (對美金 Base USD)
+              </h3>
+              <button
+                onClick={() => setShowRateSettings(false)}
+                className="p-1 bg-gray-700 hover:bg-gray-650 rounded-lg text-gray-400 hover:text-white"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-4 text-sm">
+              <p className="text-xs text-gray-400 leading-relaxed">
+                此處匯率用作當您輸入港幣（HKD）或人民幣（RMB）時，系統自動將交易流水的利潤加總轉換為基準美金（USD）財務報表。
+              </p>
+              
+              <div className="space-y-3 bg-gray-950 p-4 rounded-xl border border-gray-850 font-mono">
+                {/* USD rate */}
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-300 font-sans">美金匯率基線 (USD)</span>
+                  <div className="flex items-center gap-2 text-white font-bold">
+                    <span>1 USD =</span>
+                    <input
+                      type="text"
+                      readOnly
+                      value="1.0"
+                      className="w-20 bg-gray-900 border border-gray-800 rounded px-2.5 py-1 text-center text-gray-500"
+                    />
+                  </div>
+                </div>
+
+                {/* HKD rate */}
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-300 font-sans">港幣匯率對折 (HKD)</span>
+                  <div className="flex items-center gap-2 text-white font-bold">
+                    <span>1 USD =</span>
+                    <input
+                      type="number"
+                      step="0.001"
+                      value={customRates.HKD}
+                      onChange={(e) => setCustomRates(prev => ({ ...prev, HKD: Number(e.target.value) || EXCHANGE_RATES.HKD }))}
+                      className="w-20 bg-gray-900 border border-gray-700 rounded px-2.5 py-1 text-center text-yellow-400 focus:outline-none focus:ring-1 focus:ring-yellow-500"
+                    />
+                  </div>
+                </div>
+
+                {/* RMB rate */}
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-300 font-sans">人民幣匯率對折 (RMB)</span>
+                  <div className="flex items-center gap-2 text-white font-bold">
+                    <span>1 USD =</span>
+                    <input
+                      type="number"
+                      step="0.001"
+                      value={customRates.RMB}
+                      onChange={(e) => setCustomRates(prev => ({ ...prev, RMB: Number(e.target.value) || EXCHANGE_RATES.RMB }))}
+                      className="w-20 bg-gray-900 border border-gray-700 rounded px-2.5 py-1 text-center text-yellow-400 focus:outline-none focus:ring-1 focus:ring-yellow-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-3 pt-2">
+                <button
+                  onClick={() => {
+                    setCustomRates(EXCHANGE_RATES)
+                    toast.success('匯率已重設為系統預設值')
+                  }}
+                  className="text-xs text-gray-400 hover:text-white"
+                >
+                  重設預設
+                </button>
+                <button
+                  onClick={() => {
+                    setShowRateSettings(false)
+                    toast.success('基準折算匯率已更新並保存')
+                  }}
+                  className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold px-4 py-2 rounded-xl text-xs"
+                >
+                  確認保存匯率
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ----------------- MODAL: 管理自訂業務板塊 ----------------- */}
       {showAddBusiness && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -2213,14 +2041,13 @@ const BookkeepingPage: React.FC = () => {
               </h3>
               <button
                 onClick={() => setShowAddBusiness(false)}
-                className="p-1 bg-gray-700 hover:bg-gray-650 rounded-lg text-gray-400 hover:text-white"
+                className="p-1 bg-gray-700 hover:bg-gray-655 rounded-lg text-gray-400 hover:text-white"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             <div className="p-6 space-y-5 text-sm">
-              {/* Add form */}
               <form onSubmit={handleAddBusinessLine} className="space-y-3">
                 <label className="block text-xs font-bold text-gray-400">建立新業務板塊標籤</label>
                 <div className="flex gap-2">
@@ -2230,7 +2057,7 @@ const BookkeepingPage: React.FC = () => {
                     placeholder="例如 咖啡烘焙包裝代工..."
                     value={newBusinessName}
                     onChange={(e) => setNewBusinessName(e.target.value)}
-                    className="flex-1 bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-green-500"
+                    className="flex-1 bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none"
                   />
                   <button
                     type="submit"
@@ -2242,7 +2069,6 @@ const BookkeepingPage: React.FC = () => {
                 </div>
               </form>
 
-              {/* Active list */}
               <div className="space-y-2">
                 <label className="block text-xs font-bold text-gray-400">目前可選之業務板塊</label>
                 <div className="bg-gray-950 border border-gray-800 rounded-xl p-3 max-h-[220px] overflow-y-auto space-y-1.5">
@@ -2309,23 +2135,97 @@ const BookkeepingPage: React.FC = () => {
                     required
                     value={formDate}
                     onChange={(e) => setFormDate(e.target.value)}
-                    className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-green-500"
+                    className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none"
                   />
                 </div>
 
-                {/* 交易金額 */}
+                {/* 幣別與金額輸入 (NEW MULTI-CURRENCY SUPPORT) */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-400 mb-1">交易金額 (USD)</label>
-                  <input
-                    type="number"
-                    required
-                    min="0.01"
-                    step="0.01"
-                    placeholder="例如 1500"
-                    value={formAmount}
-                    onChange={(e) => setFormAmount(e.target.value)}
-                    className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-green-500 font-mono"
-                  />
+                  <label className="block text-xs font-bold text-gray-400 mb-1.5 flex items-center justify-between">
+                    <span>幣別與交易金額</span>
+                    <span className="text-[10px] text-yellow-400 font-mono font-bold bg-yellow-500/10 px-2 py-0.5 rounded">
+                      基準: USD
+                    </span>
+                  </label>
+                  
+                  {/* Premium Segmented Toggle Pills */}
+                  <div className="grid grid-cols-3 gap-1 bg-gray-950 p-1 rounded-xl border border-gray-800 mb-2">
+                    {(['USD', 'HKD', 'RMB'] as CurrencyType[]).map((curr) => {
+                      const isActive = formCurrency === curr;
+                      return (
+                        <button
+                          key={curr}
+                          type="button"
+                          onClick={() => setFormCurrency(curr)}
+                          className={`py-1.5 rounded-lg text-xs font-bold font-mono transition-all flex items-center justify-center gap-1 ${
+                            isActive
+                              ? 'bg-yellow-500 text-gray-950 shadow-md scale-[1.02]'
+                              : 'text-gray-400 hover:text-gray-205 hover:bg-gray-900'
+                          }`}
+                        >
+                          <span>{curr}</span>
+                          <span className="text-[10px] opacity-80">({CURRENCY_SYMBOLS[curr]})</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Amount Input with Large Currency Symbol Prefix */}
+                  <div className="relative rounded-xl shadow-sm">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                      <span className="text-gray-400 font-mono text-sm font-bold">
+                        {CURRENCY_SYMBOLS[formCurrency]}
+                      </span>
+                    </div>
+                    <input
+                      type="number"
+                      required
+                      min="0.01"
+                      step="0.01"
+                      placeholder="0.00"
+                      value={formAmount}
+                      onChange={(e) => setFormAmount(e.target.value)}
+                      className="w-full bg-gray-950 border border-gray-700 rounded-xl pl-9 pr-4 py-2 text-white focus:outline-none focus:border-yellow-500 font-mono font-bold text-lg"
+                    />
+                  </div>
+
+                  {/* Multi-Currency Live Preview Panel with interactive badges */}
+                  {liveConversions && (
+                    <div className="mt-2.5 space-y-1.5">
+                      <p className="text-[11px] text-gray-400 font-medium">💡 點擊下方卡片可直接按匯率轉換輸入金額：</p>
+                      <div className="grid grid-cols-3 gap-2">
+                        {(['USD', 'HKD', 'RMB'] as CurrencyType[]).map((curr) => {
+                          const val = liveConversions[curr];
+                          const isCurrent = curr === formCurrency;
+                          return (
+                            <button
+                              key={curr}
+                              type="button"
+                              disabled={isCurrent}
+                              onClick={() => {
+                                setFormCurrency(curr);
+                                setFormAmount(val.toFixed(2));
+                                toast.info(`已轉換金額為 ${curr} ${val.toFixed(2)}`);
+                              }}
+                              className={`border rounded-xl p-2 text-left transition-all font-mono group ${
+                                isCurrent
+                                  ? 'bg-yellow-500/5 border-yellow-500/30 cursor-default'
+                                  : 'bg-gray-950 hover:bg-gray-800 border-gray-800 hover:border-yellow-500/50 cursor-pointer'
+                              }`}
+                            >
+                              <div className={`text-[10px] font-sans ${isCurrent ? 'text-yellow-400 font-bold' : 'text-gray-500 group-hover:text-yellow-400'}`}>
+                                {isCurrent ? '目前' : '折合'} {curr}
+                              </div>
+                              <div className={`text-xs font-bold truncate ${isCurrent ? 'text-white' : 'text-gray-300'}`}>
+                                {CURRENCY_SYMBOLS[curr]}
+                                {val.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -2354,7 +2254,7 @@ const BookkeepingPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* 業務板塊綁定 (NEW dropdown in form) */}
+              {/* 業務板塊 */}
               <div>
                 <label className="block text-xs font-bold text-emerald-400 mb-1 flex items-center gap-1">
                   <BriefcaseBusiness className="w-3.5 h-3.5" />
@@ -2377,7 +2277,7 @@ const BookkeepingPage: React.FC = () => {
                 <select
                   value={formLabel}
                   onChange={(e) => setFormLabel(e.target.value as TransactionLabel)}
-                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-green-500"
+                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none"
                 >
                   {formType === 'incoming' ? (
                     <>
@@ -2407,7 +2307,7 @@ const BookkeepingPage: React.FC = () => {
                 <select
                   value={formAssetId}
                   onChange={(e) => setFormAssetId(e.target.value)}
-                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-green-500"
+                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none"
                 >
                   <option value="">獨立交易（不與特定租賃資產綁定）</option>
                   {assets.map(a => (
@@ -2425,7 +2325,7 @@ const BookkeepingPage: React.FC = () => {
                   placeholder="例如 華東 A 倉庫月度租金回籠款"
                   value={formDescription}
                   onChange={(e) => setFormDescription(e.target.value)}
-                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-green-500"
+                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none"
                 />
               </div>
 
@@ -2513,19 +2413,93 @@ const BookkeepingPage: React.FC = () => {
                   />
                 </div>
 
-                {/* 交易金額 */}
+                {/* 幣別與金額輸入 */}
                 <div>
-                  <label className="block text-xs font-semibold text-gray-400 mb-1">交易金額 (USD)</label>
-                  <input
-                    type="number"
-                    required
-                    min="0.01"
-                    step="0.01"
-                    placeholder="例如 1500"
-                    value={formAmount}
-                    onChange={(e) => setFormAmount(e.target.value)}
-                    className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none font-mono"
-                  />
+                  <label className="block text-xs font-bold text-gray-400 mb-1.5 flex items-center justify-between">
+                    <span>幣別與交易金額</span>
+                    <span className="text-[10px] text-yellow-400 font-mono font-bold bg-yellow-500/10 px-2 py-0.5 rounded">
+                      基準: USD
+                    </span>
+                  </label>
+                  
+                  {/* Premium Segmented Toggle Pills */}
+                  <div className="grid grid-cols-3 gap-1 bg-gray-950 p-1 rounded-xl border border-gray-800 mb-2">
+                    {(['USD', 'HKD', 'RMB'] as CurrencyType[]).map((curr) => {
+                      const isActive = formCurrency === curr;
+                      return (
+                        <button
+                          key={curr}
+                          type="button"
+                          onClick={() => setFormCurrency(curr)}
+                          className={`py-1.5 rounded-lg text-xs font-bold font-mono transition-all flex items-center justify-center gap-1 ${
+                            isActive
+                              ? 'bg-yellow-500 text-gray-950 shadow-md scale-[1.02]'
+                              : 'text-gray-400 hover:text-gray-205 hover:bg-gray-900'
+                          }`}
+                        >
+                          <span>{curr}</span>
+                          <span className="text-[10px] opacity-80">({CURRENCY_SYMBOLS[curr]})</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Amount Input with Large Currency Symbol Prefix */}
+                  <div className="relative rounded-xl shadow-sm">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                      <span className="text-gray-400 font-mono text-sm font-bold">
+                        {CURRENCY_SYMBOLS[formCurrency]}
+                      </span>
+                    </div>
+                    <input
+                      type="number"
+                      required
+                      min="0.01"
+                      step="0.01"
+                      placeholder="0.00"
+                      value={formAmount}
+                      onChange={(e) => setFormAmount(e.target.value)}
+                      className="w-full bg-gray-950 border border-gray-700 rounded-xl pl-9 pr-4 py-2 text-white focus:outline-none focus:border-yellow-500 font-mono font-bold text-lg"
+                    />
+                  </div>
+
+                  {/* Multi-Currency Live Preview Panel with interactive badges */}
+                  {liveConversions && (
+                    <div className="mt-2.5 space-y-1.5">
+                      <p className="text-[11px] text-gray-400 font-medium">💡 點擊下方卡片可直接按匯率轉換輸入金額：</p>
+                      <div className="grid grid-cols-3 gap-2">
+                        {(['USD', 'HKD', 'RMB'] as CurrencyType[]).map((curr) => {
+                          const val = liveConversions[curr];
+                          const isCurrent = curr === formCurrency;
+                          return (
+                            <button
+                              key={curr}
+                              type="button"
+                              disabled={isCurrent}
+                              onClick={() => {
+                                setFormCurrency(curr);
+                                setFormAmount(val.toFixed(2));
+                                toast.info(`已轉換金額為 ${curr} ${val.toFixed(2)}`);
+                              }}
+                              className={`border rounded-xl p-2 text-left transition-all font-mono group ${
+                                isCurrent
+                                  ? 'bg-yellow-500/5 border-yellow-500/30 cursor-default'
+                                  : 'bg-gray-950 hover:bg-gray-800 border-gray-800 hover:border-yellow-500/50 cursor-pointer'
+                              }`}
+                            >
+                              <div className={`text-[10px] font-sans ${isCurrent ? 'text-yellow-400 font-bold' : 'text-gray-500 group-hover:text-yellow-400'}`}>
+                                {isCurrent ? '目前' : '折合'} {curr}
+                              </div>
+                              <div className={`text-xs font-bold truncate ${isCurrent ? 'text-white' : 'text-gray-300'}`}>
+                                {CURRENCY_SYMBOLS[curr]}
+                                {val.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -2577,7 +2551,7 @@ const BookkeepingPage: React.FC = () => {
                 <select
                   value={formLabel}
                   onChange={(e) => setFormLabel(e.target.value as TransactionLabel)}
-                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-green-500"
+                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none"
                 >
                   {formType === 'incoming' ? (
                     <>
@@ -2607,7 +2581,7 @@ const BookkeepingPage: React.FC = () => {
                 <select
                   value={formAssetId}
                   onChange={(e) => setFormAssetId(e.target.value)}
-                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none font-sans"
+                  className="w-full bg-gray-950 border border-gray-700 rounded-xl px-3 py-2 text-white focus:outline-none"
                 >
                   <option value="">獨立交易（不與特定租賃資產綁定）</option>
                   {assets.map(a => (
@@ -2695,7 +2669,7 @@ const BookkeepingPage: React.FC = () => {
                   setShowAssetForm(false)
                   resetAssetForm()
                 }}
-                className="p-1 bg-gray-700 hover:bg-gray-650 rounded-lg text-gray-400 hover:text-white"
+                className="p-1 bg-gray-700 hover:bg-gray-655 rounded-lg text-gray-400 hover:text-white"
               >
                 <X className="w-4 h-4" />
               </button>
