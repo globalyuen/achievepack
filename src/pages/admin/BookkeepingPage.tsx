@@ -28,9 +28,20 @@ import { toast } from 'sonner'
 
 // ==========================================
 // 類型與資料結構 (適合10歲老闆的簡易版)
-// ==========================================
-
 export type CurrencyType = 'USD' | 'HKD' | 'RMB'
+
+export type TimeframeType = 
+  | '1d' // 最近一日
+  | '1w' // 最近一個星期
+  | '1m' // 最近一個月
+  | '3m' // 最近三個月
+  | '6m' // 最近半年
+  | '1y' // 最近一年
+  | '2y' // 最近兩年
+  | '3y' // 最近三年
+  | '5y' // 最近五年
+  | '10y' // 最近十年
+  | 'all' // 歷史總計
 
 export type BusinessType = 
   | '包裝買賣 📦'
@@ -254,6 +265,9 @@ const BookkeepingPage: React.FC = () => {
   // 分頁切換：overview (存錢罐), ledger (流水帳本), calendar (收支日曆), report (生意分析)
   const [activeTab, setActiveTab] = useState<'overview' | 'ledger' | 'calendar' | 'report'>('overview')
 
+  // 10歲小老闆時光範圍選擇 state
+  const [overviewTimeframe, setOverviewTimeframe] = useState<TimeframeType>('all')
+
   // 核心數據 state，綁定至本地儲存 LocalStorage
   const [transactions, setTransactions] = useState<Transaction[]>(() => {
     const saved = localStorage.getItem('kid_bookkeeping_transactions')
@@ -441,14 +455,63 @@ const BookkeepingPage: React.FC = () => {
   }
 
   // ==========================================
-  // 計算財務指標 (基準美金)
+  // 計算財務指標 (基準美金 - 支援時光範圍篩選)
   // ==========================================
+
+  // 根據選擇的時間範圍過濾交易 (用於存錢罐首頁與分析)
+  const timeframeFilteredTransactions = useMemo(() => {
+    return transactions.filter(t => {
+      if (overviewTimeframe === 'all') return true
+      
+      const tDate = new Date(t.date)
+      const now = new Date()
+      
+      // 設定零點，純天數計算
+      const tDateZero = new Date(tDate.getFullYear(), tDate.getMonth(), tDate.getDate())
+      const nowZero = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+      
+      const diffTime = nowZero.getTime() - tDateZero.getTime()
+      const diffDays = diffTime / (1000 * 60 * 60 * 24)
+
+      if (overviewTimeframe === '1d') {
+        return Math.abs(diffDays) <= 1
+      }
+      if (overviewTimeframe === '1w') {
+        return diffDays <= 7
+      }
+      if (overviewTimeframe === '1m') {
+        return diffDays <= 30
+      }
+      if (overviewTimeframe === '3m') {
+        return diffDays <= 90
+      }
+      if (overviewTimeframe === '6m') {
+        return diffDays <= 180
+      }
+      if (overviewTimeframe === '1y') {
+        return diffDays <= 365
+      }
+      if (overviewTimeframe === '2y') {
+        return diffDays <= 730
+      }
+      if (overviewTimeframe === '3y') {
+        return diffDays <= 1095
+      }
+      if (overviewTimeframe === '5y') {
+        return diffDays <= 1825
+      }
+      if (overviewTimeframe === '10y') {
+        return diffDays <= 3650
+      }
+      return true
+    })
+  }, [transactions, overviewTimeframe])
 
   const stats = useMemo(() => {
     let earned = 0 // 收入
     let spent = 0 // 支出
     
-    transactions.forEach(t => {
+    timeframeFilteredTransactions.forEach(t => {
       if (t.type === 'incoming') earned += t.amount
       else spent += t.amount
     })
@@ -460,7 +523,7 @@ const BookkeepingPage: React.FC = () => {
       spent,
       pocketMoney
     }
-  }, [transactions])
+  }, [timeframeFilteredTransactions])
 
   // 各生意的收入與支出統計
   const businessStats = useMemo(() => {
@@ -471,7 +534,7 @@ const BookkeepingPage: React.FC = () => {
       '房屋出租 🏠': { earned: 0, spent: 0, profit: 0 }
     }
 
-    transactions.forEach(t => {
+    timeframeFilteredTransactions.forEach(t => {
       if (bMap[t.business]) {
         if (t.type === 'incoming') {
           bMap[t.business].earned += t.amount
@@ -483,7 +546,7 @@ const BookkeepingPage: React.FC = () => {
     })
 
     return bMap
-  }, [transactions])
+  }, [timeframeFilteredTransactions])
 
   // 篩選流水賬
   const filteredTransactions = useMemo(() => {
@@ -663,14 +726,40 @@ const BookkeepingPage: React.FC = () => {
       <section className="py-6 bg-[#FCFAF5]/30 border-b border-[#EFE9DB]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           
-          {/* 匯率小工具 */}
-          <div className="mb-6 flex flex-wrap gap-3 text-xs bg-[#FCFAF5] px-4 py-3 rounded-2xl border-2 border-[#EFE9DB] text-[#8E7E73] font-bold shadow-inner">
-            <span className="text-[#8C6D3B] font-black">📈 自動換算器匯率基底：</span>
-            <span>1 美金 (USD) = <strong>1.0 美金</strong></span>
-            <span>•</span>
-            <span>1 美金 (USD) = <strong>{customRates.HKD} 港幣 (HKD)</strong></span>
-            <span>•</span>
-            <span>1 美金 (USD) = <strong>{customRates.RMB} 人民幣 (RMB)</strong></span>
+          {/* 匯率小工具與時光範圍選擇器 */}
+          <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between mb-6">
+            {/* 匯率小工具 */}
+            <div className="flex flex-wrap gap-3 text-xs bg-[#FCFAF5] px-4 py-3.5 rounded-2xl border-2 border-[#EFE9DB] text-[#8E7E73] font-bold shadow-inner flex-1">
+              <span className="text-[#8C6D3B] font-black">📈 自動換算器匯率基底：</span>
+              <span>1 美金 (USD) = <strong>1.0 美金</strong></span>
+              <span>•</span>
+              <span>1 美金 (USD) = <strong>{customRates.HKD} 港幣 (HKD)</strong></span>
+              <span>•</span>
+              <span>1 美金 (USD) = <strong>{customRates.RMB} 人民幣 (RMB)</strong></span>
+            </div>
+
+            {/* 10歲小老闆時光範圍選擇器 */}
+            <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl border-2 border-[#EFE9DB] shadow-sm select-none">
+              <span className="text-base">🕒</span>
+              <span className="text-xs font-black text-[#4A3B32] whitespace-nowrap">選擇時光：</span>
+              <select
+                value={overviewTimeframe}
+                onChange={(e) => setOverviewTimeframe(e.target.value as TimeframeType)}
+                className="bg-transparent text-xs text-[#8C6D3B] font-black focus:outline-none cursor-pointer border-b-2 border-dashed border-[#F5B859] hover:text-[#2E2520] transition-colors"
+              >
+                <option value="all">📜 歷史總計 (所有記賬紀錄)</option>
+                <option value="1d">📅 最近一日 (今天/昨日)</option>
+                <option value="1w">📅 最近一個星期 (過去7天)</option>
+                <option value="1m">📅 最近一個月 (過去30天)</option>
+                <option value="3m">📅 最近三個月</option>
+                <option value="6m">📅 最近半年</option>
+                <option value="1y">📅 最近一年 (過去365天)</option>
+                <option value="2y">📅 最近兩年</option>
+                <option value="3y">📅 最近三年</option>
+                <option value="5y">📅 最近五年</option>
+                <option value="10y">📅 最近十年</option>
+              </select>
+            </div>
           </div>
 
           {/* 三個巨大的彩色存錢罐卡片 (奶油溫馨色調) */}
@@ -761,9 +850,80 @@ const BookkeepingPage: React.FC = () => {
         {activeTab === 'overview' && (
           <div className="space-y-6">
             
-            <div className="flex justify-between items-center">
-              <h3 className="text-sm font-black text-[#4A3B32] uppercase tracking-wider">📊 四大生意小賬戶表現</h3>
-              <p className="text-xs text-[#8E7E73] font-bold">點擊右上角的「記一筆」就能隨時記賬唷！</p>
+            <div className="bg-white border-2 border-[#EFE9DB] rounded-3xl p-5 shadow-sm space-y-4">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-[#FAF6EE] pb-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">📊</span>
+                    <h3 className="text-base font-black text-[#2E2520] tracking-wide">四大生意小賬戶表現</h3>
+                  </div>
+                  <p className="text-xs text-[#8E7E73] font-bold">
+                    點擊時間膠囊，所有生意小撲滿的收支會神奇地自動切換唷！🧒
+                  </p>
+                </div>
+                
+                {/* 此時光下的總盈虧 */}
+                <div className="bg-[#FCFAF5] border-2 border-[#EADFCD] rounded-2xl px-4 py-3 flex items-center justify-between gap-4 shadow-inner">
+                  <div className="text-left">
+                    <p className="text-[10px] text-[#8E7E73] font-bold">此時光總盈虧 (利潤)</p>
+                    <p className={`text-base font-black font-mono ${stats.pocketMoney >= 0 ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
+                      {stats.pocketMoney >= 0 ? '+' : '-'}${Math.abs(stats.pocketMoney).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </p>
+                  </div>
+                  <div className="text-right border-l border-[#EADFCD] pl-4">
+                    <p className="text-[10px] text-[#8E7E73] font-bold">選定範圍</p>
+                    <span className="text-xs bg-[#F5C77E] text-[#2E2520] font-black px-2 py-0.5 rounded-lg border border-[#DE9B3E]">
+                      {overviewTimeframe === 'all' && '📜 歷史總計'}
+                      {overviewTimeframe === '1d' && '⚡ 最近一日'}
+                      {overviewTimeframe === '1w' && '📅 最近一週'}
+                      {overviewTimeframe === '1m' && '📅 最近一月'}
+                      {overviewTimeframe === '3m' && '📅 最近三月'}
+                      {overviewTimeframe === '6m' && '📅 最近半年'}
+                      {overviewTimeframe === '1y' && '📅 最近一年'}
+                      {overviewTimeframe === '2y' && '📅 最近兩年'}
+                      {overviewTimeframe === '3y' && '📅 最近三年'}
+                      {overviewTimeframe === '5y' && '📅 最近五年'}
+                      {overviewTimeframe === '10y' && '📅 最近十年'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 橫向滑動時間膠囊按鈕 (溫馨奶油色) */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none -mx-2 px-2 sm:mx-0 sm:px-0">
+                {[
+                  { value: 'all', label: '歷史總計', icon: '📜' },
+                  { value: '1d', label: '最近一日', icon: '⚡' },
+                  { value: '1w', label: '最近一個星期', icon: '📅' },
+                  { value: '1m', label: '最近一個月', icon: '📅' },
+                  { value: '3m', label: '最近三個月', icon: '📅' },
+                  { value: '6m', label: '最近半年', icon: '📅' },
+                  { value: '1y', label: '最近一年', icon: '📅' },
+                  { value: '2y', label: '最近兩年', icon: '📅' },
+                  { value: '3y', label: '最近三年', icon: '📅' },
+                  { value: '5y', label: '最近五年', icon: '📅' },
+                  { value: '10y', label: '最近十年', icon: '📅' }
+                ].map((opt) => {
+                  const isActive = overviewTimeframe === opt.value
+                  return (
+                    <button
+                      key={opt.value}
+                      onClick={() => {
+                        setOverviewTimeframe(opt.value as TimeframeType)
+                        toast.success(`已為你切換至：${opt.label} 🌟`)
+                      }}
+                      className={`px-4 py-2.5 rounded-2xl text-xs font-black transition-all whitespace-nowrap active:scale-95 border-2 flex items-center gap-1.5 shadow-sm hover:scale-[1.02] ${
+                        isActive
+                          ? 'bg-[#F5C77E] border-[#D4A359] text-[#2E2520] scale-[1.03]'
+                          : 'bg-[#FCFAF5] border-[#EFE9DB] text-[#8E7E73] hover:border-[#EADFCD] hover:text-[#4A3B32] hover:bg-white'
+                      }`}
+                    >
+                      <span>{opt.icon}</span>
+                      <span>{opt.label}</span>
+                    </button>
+                  )
+                })}
+              </div>
             </div>
 
             {/* 4個小扑滿 (奶油風格) */}

@@ -11,6 +11,7 @@ import {
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
 import { analyzeArtworkWithXAI } from '../lib/artworkAnalysis'
+import { convertHeicFile } from '../lib/heicConverter'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -212,8 +213,9 @@ const ArtworkBatchesPage: React.FC = () => {
   }
 
   const handleUploadCustomThumb = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
+    let file = e.target.files?.[0]
     if (!file || !croppingItem) return
+    file = await convertHeicFile(file)
     
     setCustomThumbUploading(true)
     try {
@@ -453,7 +455,8 @@ const ArtworkBatchesPage: React.FC = () => {
     if (!selectedBatch || !e.target.files?.length) return
     
     const MAX_FILE_BYTES = 500 * 1024 * 1024 // 500 MB
-    const files = Array.from(e.target.files)
+    const rawFiles = Array.from(e.target.files)
+    const files = await Promise.all(rawFiles.map(file => convertHeicFile(file)))
 
     // Pre-check: reject files over 500 MB before even starting
     const oversized = files.filter(f => f.size > MAX_FILE_BYTES)
@@ -621,11 +624,13 @@ const ArtworkBatchesPage: React.FC = () => {
 
 
   // Core proof-upload logic — accepts a plain File, works for both click-to-upload and drag-and-drop
-  const uploadProofFile = async (file: File, itemId: string) => {
-    if (!file || !selectedBatch) {
-      console.warn('uploadProofFile: missing file or selectedBatch', { file, selectedBatch })
+  const uploadProofFile = async (rawFile: File, itemId: string) => {
+    if (!rawFile || !selectedBatch) {
+      console.warn('uploadProofFile: missing file or selectedBatch', { rawFile, selectedBatch })
       return
     }
+
+    const file = await convertHeicFile(rawFile)
 
     const MAX_FILE_BYTES = 500 * 1024 * 1024 // 500 MB
     if (file.size > MAX_FILE_BYTES) {
@@ -1033,8 +1038,9 @@ const ArtworkBatchesPage: React.FC = () => {
 
   // Add admin reply to comment thread
   const handleAdminAssetUpload = async (e: React.ChangeEvent<HTMLInputElement>, item: ArtworkBatchItem) => {
-    const file = e.target.files?.[0]
+    let file = e.target.files?.[0]
     if (!file) return
+    file = await convertHeicFile(file)
     
     setAdminUploadingAsset(true)
     try {
@@ -1943,7 +1949,7 @@ const ArtworkBatchesPage: React.FC = () => {
                     <div className="flex gap-0.5">
                       <label className="cursor-pointer p-1.5 text-gray-400 hover:text-primary-600 hover:bg-white rounded transition" title="Attach Image">
                         {adminUploadingAsset ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <ImageIcon className="h-3.5 w-3.5" />}
-                        <input type="file" accept="image/*" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
+                        <input type="file" accept="image/*,.heic,.heif" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
                       </label>
                       <button 
                         onClick={() => setShowAdminLinkInput(!showAdminLinkInput)}
@@ -2049,7 +2055,7 @@ const ArtworkBatchesPage: React.FC = () => {
                       <div className="flex gap-0.5">
                         <label className="cursor-pointer p-1.5 text-gray-400 hover:text-primary-600 hover:bg-white rounded transition" title="Attach Image">
                           {adminUploadingAsset ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <ImageIcon className="h-3.5 w-3.5" />}
-                          <input type="file" accept="image/*" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
+                          <input type="file" accept="image/*,.heic,.heif" className="hidden" onChange={(e) => handleAdminAssetUpload(e, item)} disabled={adminUploadingAsset} />
                         </label>
                         <button 
                           onClick={() => setShowAdminLinkInput(!showAdminLinkInput)}
@@ -2704,7 +2710,7 @@ const ArtworkBatchesPage: React.FC = () => {
                     <input
                       type="file"
                       multiple
-                      accept=".png,.jpg,.jpeg,.webp,.gif,.pdf,.ai,.eps,.tiff,.tif,.psd,.zip,.mp4,.mov,.webm"
+                      accept=".png,.jpg,.jpeg,.webp,.gif,.pdf,.ai,.eps,.tiff,.tif,.psd,.zip,.mp4,.mov,.webm,.heic,.heif"
                       onChange={handleFileUpload}
                       className="hidden"
                       disabled={uploading}
@@ -2952,7 +2958,7 @@ const ArtworkBatchesPage: React.FC = () => {
                                 <input
                                   type="file"
                                   multiple
-                                  accept=".png,.jpg,.jpeg,.webp,.gif,.pdf,.ai,.eps,.tiff,.tif,.psd,.zip,.mp4,.mov,.webm"
+                                  accept=".png,.jpg,.jpeg,.webp,.gif,.pdf,.ai,.eps,.tiff,.tif,.psd,.zip,.mp4,.mov,.webm,.heic,.heif"
                                   onChange={(e) => handleFileUpload(e, secName)}
                                   className="hidden"
                                   disabled={uploading}
@@ -3028,7 +3034,7 @@ const ArtworkBatchesPage: React.FC = () => {
                 <label className="cursor-pointer px-4 py-2 bg-blue-50 text-blue-700 font-medium rounded-lg hover:bg-blue-100 transition flex items-center gap-2">
                   {customThumbUploading ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
                   {customThumbUploading ? 'Uploading...' : 'Upload Custom Thumbnail'}
-                  <input type="file" className="hidden" accept="image/*" onChange={handleUploadCustomThumb} disabled={customThumbUploading} />
+                  <input type="file" className="hidden" accept="image/*,.heic,.heif" onChange={handleUploadCustomThumb} disabled={customThumbUploading} />
                 </label>
                 <button 
                   onClick={() => {
@@ -3060,7 +3066,7 @@ const ArtworkBatchesPage: React.FC = () => {
                       <label className="cursor-pointer px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 shadow-sm transition flex items-center gap-2">
                         {customThumbUploading ? <RefreshCw className="h-5 w-5 animate-spin" /> : <Upload className="h-5 w-5" />}
                         {customThumbUploading ? 'Uploading...' : 'Upload Custom Thumbnail'}
-                        <input type="file" className="hidden" accept="image/*" onChange={handleUploadCustomThumb} disabled={customThumbUploading} />
+                        <input type="file" className="hidden" accept="image/*,.heic,.heif" onChange={handleUploadCustomThumb} disabled={customThumbUploading} />
                       </label>
                     </div>
                   )

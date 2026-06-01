@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { Image as ImageIcon, Link as LinkIcon } from 'lucide-react'
 import { supabase, ArtworkBatch, ArtworkBatchItem, uploadWithTus } from '../lib/supabase'
+import { convertHeicFile } from '../lib/heicConverter'
 
 // Constants
 const IMPORTANT_NOTICE = [
@@ -541,9 +542,10 @@ const ArtworkReviewPage: React.FC = () => {
 
   const handleSupplierUploadMain = async (e: React.ChangeEvent<HTMLInputElement>, item: ArtworkBatchItem) => {
     if (!e.target.files || !e.target.files.length) return Promise.resolve();
-    const file = e.target.files[0];
+    let file = e.target.files[0];
     
     try {
+      file = await convertHeicFile(file);
       const timestamp = Date.now();
       const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
       const filePath = `artwork/${batchId}/${timestamp}_${safeName}`;
@@ -1418,8 +1420,9 @@ const ReviewModal: React.FC<{
   const allChecked = CHECKLIST_ITEMS.every(c => checklist[c.key])
 
   const handleAssetUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
+    let file = e.target.files?.[0]
     if (!file) return
+    file = await convertHeicFile(file)
     
     setUploadingAsset(true)
     try {
@@ -1646,7 +1649,7 @@ const ReviewModal: React.FC<{
                     <span>{uploadingNewArtwork ? '正在上传...' : '选择文件并覆盖原文件'}</span>
                     <input
                       type="file"
-                      accept="image/*,application/pdf"
+                      accept="image/*,application/pdf,.heic,.heif"
                       className="hidden"
                       disabled={uploadingNewArtwork}
                       onChange={(e) => handleSupplierUpload(e, item)}
@@ -1918,7 +1921,7 @@ const ReviewModal: React.FC<{
                       <div className="flex gap-1">
                         <label className="cursor-pointer p-2 text-gray-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition" title="Attach Image">
                           {uploadingAsset ? <RefreshCw className="h-5 w-5 animate-spin" /> : <ImageIcon className="h-5 w-5" />}
-                          <input type="file" accept="image/*" className="hidden" onChange={handleAssetUpload} disabled={uploadingAsset} />
+                          <input type="file" accept="image/*,.heic,.heif" className="hidden" onChange={handleAssetUpload} disabled={uploadingAsset} />
                         </label>
                         <button 
                           onClick={() => setShowLinkInput(!showLinkInput)}

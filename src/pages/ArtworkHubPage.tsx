@@ -9,6 +9,7 @@ import {
 import { useAuth } from '../hooks/useAuth'
 import { supabase, ArtworkFile, uploadWithTus } from '../lib/supabase'
 import { ArtworkAIAnalysis, getAISearchableText } from '../lib/artworkAnalysis'
+import { convertHeicFile } from '../lib/heicConverter'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
@@ -114,8 +115,8 @@ export default function ArtworkHubPage() {
 
   // Admin upload artwork for customer
   const handleAdminUpload = async (e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files
-    if (!files || files.length === 0) return
+    const rawFiles = e.target.files
+    if (!rawFiles || rawFiles.length === 0) return
     if (!selectedCustomer) {
       setUploadError('Please select a customer first')
       return
@@ -132,7 +133,8 @@ export default function ArtworkHubPage() {
     }
     
     try {
-      for (const file of Array.from(files) as File[]) {
+      const files = await Promise.all(Array.from(rawFiles).map(file => convertHeicFile(file)))
+      for (const file of files) {
         // Validate file size (500MB limit)
         const maxSize = 500 * 1024 * 1024
         if (file.size > maxSize) {
@@ -990,7 +992,7 @@ Check color profile"
                   <input
                     type="file"
                     multiple
-                    accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.zip,.psd"
+                    accept=".ai,.eps,.pdf,.png,.jpg,.jpeg,.tiff,.tif,.zip,.psd,.heic,.heif"
                     onChange={handleAdminUpload}
                     disabled={!selectedCustomer || uploading}
                     className="hidden"
@@ -1004,7 +1006,7 @@ Check color profile"
                     <>
                       <Upload className="h-8 w-8 text-purple-400 mb-2" />
                       <span className="text-sm text-purple-600 font-medium">Click to upload files</span>
-                      <span className="text-xs text-neutral-500 mt-1">AI, EPS, PDF, PNG, JPG, TIFF, PSD, ZIP</span>
+                      <span className="text-xs text-neutral-500 mt-1">AI, EPS, PDF, PNG, JPG, TIFF, PSD, ZIP, HEIC</span>
                     </>
                   )}
                 </label>
