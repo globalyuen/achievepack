@@ -94,6 +94,7 @@ const routeImportMap: Record<string, () => Promise<any>> = {
   '/dieline-finder': () => import('./pages/PouchDielineFinderPage'),
   '/dieline-creator': () => import('./pages/PouchDielineCreatorPage'),
   '/knowledge/writable-stampable-pouches': () => import('./pages/knowledge/WritableStampablePouchesPage'),
+  '/ctrl-x9k7m/bookkeeping': () => import('./pages/admin/BookkeepingPage'),
 }
 
 // Export preload function for use in navigation components
@@ -132,6 +133,7 @@ const RFQGeneratorPage = lazyWithRetry(() => import('./pages/admin/rfq/RFQGenera
 const RFQComparisonPage = lazyWithRetry(() => import('./pages/admin/rfq/RFQComparisonPage'))
 const SupplierHubPage = lazyWithRetry(() => import('./pages/rfq/SupplierHubPage'))
 const QuoteAnalyticsPage = lazyWithRetry(() => import('./pages/admin/QuoteAnalyticsPage'))
+const BookkeepingPage = lazyWithRetry(() => import('./pages/admin/BookkeepingPage'))
 
 // Industry Pages - Lazy loaded
 const CoffeeTeaPage = lazyWithRetry(() => import('./pages/industry/CoffeeTeaPage'))
@@ -980,6 +982,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/ctrl-x9k7m/daily-reports" element={<AdminProtectedRoute><DailyReportsPage /></AdminProtectedRoute>} />
                   <Route path="/ctrl-x9k7m/email-campaign" element={<AdminProtectedRoute><EmailCampaignPage /></AdminProtectedRoute>} />
                   <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
+                  <Route path="/ctrl-x9k7m/bookkeeping" element={<AdminProtectedRoute><BookkeepingPage /></AdminProtectedRoute>} />
 
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="*" element={<PouchHomePage />} />
@@ -1054,6 +1057,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/ctrl-x9k7m/quote-analytics" element={<AdminProtectedRoute><QuoteAnalyticsPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/email-campaign" element={<AdminProtectedRoute><EmailCampaignPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/ai-image" element={<AdminProtectedRoute><ImageGeneratorPage /></AdminProtectedRoute>} />
+                        <Route path="/ctrl-x9k7m/bookkeeping" element={<AdminProtectedRoute><BookkeepingPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/rfq-generator" element={<AdminProtectedRoute><RFQGeneratorPage /></AdminProtectedRoute>} />
                         <Route path="/ctrl-x9k7m/rfq/:batchId/comparison" element={<AdminProtectedRoute><RFQComparisonPage /></AdminProtectedRoute>} />
                         <Route path="/hub/:batchId" element={<SupplierHubPage />} />

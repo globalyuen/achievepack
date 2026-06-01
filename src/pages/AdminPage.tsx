@@ -125,6 +125,12 @@ const sidebarMenuItems = [
     ]
   },
   {
+    group: 'Finance',
+    items: [
+      { id: 'bookkeeping', label: 'Bookkeeping & Cashflow', icon: DollarSign, externalLink: '/ctrl-x9k7m/bookkeeping' }
+    ]
+  },
+  {
     group: 'System',
     items: [
       { id: 'settings', label: 'Settings', icon: Settings },
