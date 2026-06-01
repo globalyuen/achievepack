@@ -16,6 +16,21 @@ interface ProductCarouselProps {
 
 // 所有产品照片路径
 const productImages = [
+  // New Client Samples
+  '/imgs/clients-sample/IMG_6311.jpg',
+  '/imgs/clients-sample/IMG_6312.jpg',
+  '/imgs/clients-sample/IMG_8013.jpg',
+  '/imgs/clients-sample/IMG_8016.jpg',
+  '/imgs/clients-sample/IMG_8020.jpg',
+  '/imgs/clients-sample/IMG_8028.jpg',
+  '/imgs/clients-sample/IMG_8032.jpg',
+  '/imgs/clients-sample/IMG_8034.jpg',
+  '/imgs/clients-sample/IMG_8042.jpg',
+  '/imgs/clients-sample/IMG_8043.jpg',
+  '/imgs/clients-sample/IMG_8048.jpg',
+  '/imgs/clients-sample/IMG_8053.jpg',
+
+  // Original Product Photos
   '/all-product-photos/IMG_4362.webp',
   '/all-product-photos/IMG_4372.webp',
   '/all-product-photos/IMG_4385.webp',
@@ -48,29 +63,34 @@ export default function ProductCarousel({
   autoPlayInterval = 4000,
   className = ''
 }: ProductCarouselProps) {
+  // Randomize all images sequence once on load (synchronously initialized)
+  const [shuffledImages] = useState<string[]>(() => {
+    return [...productImages].sort(() => Math.random() - 0.5)
+  })
+
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
 
   // Auto-play功能
   useEffect(() => {
-    if (!autoPlay || isHovering) return
+    if (!autoPlay || isHovering || shuffledImages.length === 0) return
 
     const timer = setInterval(() => {
       nextSlide()
     }, autoPlayInterval)
 
     return () => clearInterval(timer)
-  }, [currentIndex, autoPlay, autoPlayInterval, isHovering])
+  }, [currentIndex, autoPlay, autoPlayInterval, isHovering, shuffledImages])
 
   const nextSlide = () => {
     setDirection(1)
-    setCurrentIndex((prev) => (prev + 1) % productImages.length)
+    setCurrentIndex((prev) => (prev + 1) % shuffledImages.length)
   }
 
   const prevSlide = () => {
     setDirection(-1)
-    setCurrentIndex((prev) => (prev - 1 + productImages.length) % productImages.length)
+    setCurrentIndex((prev) => (prev - 1 + shuffledImages.length) % shuffledImages.length)
   }
 
   const goToSlide = (index: number) => {
@@ -93,6 +113,8 @@ export default function ProductCarousel({
     })
   }
 
+  if (shuffledImages.length === 0) return null
+
   return (
     <div 
       className={`relative bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden ${className}`}
@@ -104,7 +126,7 @@ export default function ProductCarousel({
         <AnimatePresence initial={false} custom={direction}>
           <motion.img
             key={currentIndex}
-            src={productImages[currentIndex]}
+            src={shuffledImages[currentIndex]}
             alt={`Product ${currentIndex + 1}`}
             custom={direction}
             variants={slideVariants}
@@ -139,14 +161,14 @@ export default function ProductCarousel({
 
         {/* 图片计数器 */}
         <div className="absolute top-4 right-4 bg-black text-[#D4FF00] px-3 py-1 font-['JetBrains_Mono'] text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(212,255,0,1)] z-10">
-          {currentIndex + 1} / {productImages.length}
+          {currentIndex + 1} / {shuffledImages.length}
         </div>
       </div>
 
       {/* 指示器点 */}
       <div className="flex items-center justify-center gap-2 py-4 px-4 bg-neutral-50 border-t-4 border-black overflow-x-auto">
         <div className="flex items-center gap-2 min-w-max">
-          {productImages.map((_, index) => (
+          {shuffledImages.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
@@ -163,7 +185,7 @@ export default function ProductCarousel({
 
       {/* 缩略图预览（桌面端） */}
       <div className="hidden md:flex items-center gap-3 p-4 bg-white border-t-4 border-black overflow-x-auto">
-        {productImages.map((image, index) => (
+        {shuffledImages.map((image, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}

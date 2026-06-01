@@ -1,11 +1,11 @@
 {
   "generated": "2026-06-01",
-  "total_images": 1864,
-  "total_categories": 163,
+  "total_images": 1876,
+  "total_categories": 164,
   "extensions": {
     ".webp": 1299,
     ".png": 348,
-    ".jpg": 214,
+    ".jpg": 226,
     ".svg": 3
   },
   "categories": {
@@ -1153,6 +1153,83 @@
           "path": "/imgs/clien-logos/morlife.png",
           "extension": ".png",
           "modified": "2026-01-11T15:55:25.545Z"
+        }
+      ]
+    },
+    "clients-sample": {
+      "count": 12,
+      "images": [
+        {
+          "filename": "IMG_8042.jpg",
+          "path": "/imgs/clients-sample/IMG_8042.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:18.444Z"
+        },
+        {
+          "filename": "IMG_8043.jpg",
+          "path": "/imgs/clients-sample/IMG_8043.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:18.342Z"
+        },
+        {
+          "filename": "IMG_8053.jpg",
+          "path": "/imgs/clients-sample/IMG_8053.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:18.234Z"
+        },
+        {
+          "filename": "IMG_8020.jpg",
+          "path": "/imgs/clients-sample/IMG_8020.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:18.133Z"
+        },
+        {
+          "filename": "IMG_8034.jpg",
+          "path": "/imgs/clients-sample/IMG_8034.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:18.039Z"
+        },
+        {
+          "filename": "IMG_8032.jpg",
+          "path": "/imgs/clients-sample/IMG_8032.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:17.940Z"
+        },
+        {
+          "filename": "IMG_8016.jpg",
+          "path": "/imgs/clients-sample/IMG_8016.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:17.837Z"
+        },
+        {
+          "filename": "IMG_8028.jpg",
+          "path": "/imgs/clients-sample/IMG_8028.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:17.730Z"
+        },
+        {
+          "filename": "IMG_8013.jpg",
+          "path": "/imgs/clients-sample/IMG_8013.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:17.632Z"
+        },
+        {
+          "filename": "IMG_8048.jpg",
+          "path": "/imgs/clients-sample/IMG_8048.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:17.519Z"
+        },
+        {
+          "filename": "IMG_6312.jpg",
+          "path": "/imgs/clients-sample/IMG_6312.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:17.420Z"
+        },
+        {
+          "filename": "IMG_6311.jpg",
+          "path": "/imgs/clients-sample/IMG_6311.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-01T12:32:17.340Z"
         }
       ]
     },
