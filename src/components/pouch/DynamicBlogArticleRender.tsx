@@ -106,9 +106,9 @@ export default function DynamicBlogArticleRender({ post }: DynamicBlogArticleRen
   }))
 
   // Parse FAQs
-  const faqSections = (post.content?.faqs || []).map(f => ({
-    q: f.q,
-    a: f.a
+  const faqSections = (post.content?.faqs || []).map((f: any) => ({
+    q: f.q || f.question || f.Question || '',
+    a: f.a || f.answer || f.Answer || ''
   }))
 
   return (

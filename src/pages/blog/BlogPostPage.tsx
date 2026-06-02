@@ -29,11 +29,13 @@ export default function BlogPostPage() {
     if (faqs.length > 0) {
       html += `<h2>Frequently Asked Questions</h2>`;
       faqs.forEach((faq: any) => {
+        const qText = faq.q || faq.question || faq.Question || '';
+        const aText = faq.a || faq.answer || faq.Answer || '';
         html += `<div style="margin-bottom: 1.5rem; padding: 1.25rem; background-color: #f9fafb; border-left: 4px solid #10b981; border-radius: 4px;">
           <h4 style="margin: 0 0 0.5rem 0; color: #111827; font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
-            <span>💡</span> ${faq.q}
+            <span>💡</span> ${qText}
           </h4>
-          <p style="margin: 0; color: #4b5563; font-size: 0.9rem; line-height: 1.6;">${faq.a}</p>
+          <p style="margin: 0; color: #4b5563; font-size: 0.9rem; line-height: 1.6;">${aText}</p>
         </div>`;
       });
     }

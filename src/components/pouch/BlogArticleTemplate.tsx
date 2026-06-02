@@ -202,14 +202,18 @@ export default function BlogArticleTemplate({
             {JSON.stringify({
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "mainEntity": faqSections.map(faq => ({
-                "@type": "Question",
-                "name": faq.q,
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": faq.a
-                }
-              }))
+              "mainEntity": faqSections.map((faq: any) => {
+                const qText = faq.q || faq.question || faq.Question || '';
+                const aText = faq.a || faq.answer || faq.Answer || '';
+                return {
+                  "@type": "Question",
+                  "name": qText,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": aText
+                  }
+                };
+              })
             })}
           </script>
         )}
@@ -417,25 +421,29 @@ export default function BlogArticleTemplate({
               Frequently Asked Questions
             </h2>
             <div className="space-y-4">
-              {faqSections.map((faq, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-colors duration-200"
-                >
-                  <button
-                    onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#F0F0F0] transition-colors"
+              {faqSections.map((faq: any, idx) => {
+                const qText = faq.q || faq.question || faq.Question || '';
+                const aText = faq.a || faq.answer || faq.Answer || '';
+                return (
+                  <div
+                    key={idx}
+                    className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-colors duration-200"
                   >
-                    <span className="font-black uppercase text-lg text-black pr-4 leading-snug">{faq.q}</span>
-                    <ChevronDown className={`w-6 h-6 text-black transition-transform duration-300 flex-shrink-0 ${expandedFaq === idx ? 'rotate-180' : ''}`} />
-                  </button>
-                  {expandedFaq === idx && (
-                    <div className="px-6 pb-6 border-t-4 border-black pt-4 bg-[#F9F9F9]">
-                      <p className="text-base text-neutral-800 font-medium leading-relaxed font-['JetBrains_Mono']">{faq.a}</p>
-                    </div>
-                  )}
-                </div>
-              ))}
+                    <button
+                      onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
+                      className="w-full flex items-center justify-between p-6 text-left hover:bg-[#F0F0F0] transition-colors"
+                    >
+                      <span className="font-black uppercase text-lg text-black pr-4 leading-snug">{qText}</span>
+                      <ChevronDown className={`w-6 h-6 text-black transition-transform duration-300 flex-shrink-0 ${expandedFaq === idx ? 'rotate-180' : ''}`} />
+                    </button>
+                    {expandedFaq === idx && (
+                      <div className="px-6 pb-6 border-t-4 border-black pt-4 bg-[#F9F9F9]">
+                        <p className="text-base text-neutral-800 font-medium leading-relaxed font-['JetBrains_Mono']">{aText}</p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -552,14 +560,18 @@ export default function BlogArticleTemplate({
       {faqSections.length > 0 && (
         <div className="sr-only" aria-hidden="true">
           <section data-ai-faq="true" itemScope itemType="https://schema.org/FAQPage">
-            {faqSections.map((faq, idx) => (
-              <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
-                <h3 itemProp="name">{faq.q}</h3>
-                <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                  <p itemProp="text">{faq.a}</p>
-                </div>
-              </article>
-            ))}
+            {faqSections.map((faq: any, idx) => {
+              const qText = faq.q || faq.question || faq.Question || '';
+              const aText = faq.a || faq.answer || faq.Answer || '';
+              return (
+                <article key={idx} itemScope itemType="https://schema.org/Question" itemProp="mainEntity">
+                  <h3 itemProp="name">{qText}</h3>
+                  <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                    <p itemProp="text">{aText}</p>
+                  </div>
+                </article>
+              );
+            })}
           </section>
         </div>
       )}
