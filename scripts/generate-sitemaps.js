@@ -59,7 +59,7 @@ function buildSitemapXml(domain, routes) {
   // Filter out duplicate trailing slash / root duplicates
   const uniqueRoutes = Array.from(new Set(routes.map(r => r === '/' ? '' : r))).sort();
   
-  // Ensure homepage is first
+// Ensure homepage is first
   if (!uniqueRoutes.includes('')) {
     uniqueRoutes.unshift('');
   } else {
@@ -72,6 +72,10 @@ function buildSitemapXml(domain, routes) {
   }
 
   uniqueRoutes.forEach(route => {
+    // Skip admin, dashboard, and secret routes entirely
+    if (route.includes('ctrl-x9k7m') || route.includes('dashboard')) {
+      return;
+    }
     // Avoid double slashes in URL
     const url = `${domain}${route}`;
     const { changefreq, priority } = getSitemapParams(route);
@@ -126,6 +130,9 @@ function generate() {
 
   // Add Pouch routes
   pouchRoutes.forEach(route => {
+    if (route.includes('ctrl-x9k7m') || route.includes('dashboard')) {
+      return; // Skip admin/dashboard routes entirely
+    }
     const cleanRoute = route === '/' ? '' : route;
     const url = `https://pouch.eco${cleanRoute}`;
     const { changefreq, priority } = getSitemapParams(route);
@@ -139,6 +146,9 @@ function generate() {
 
   // Add Achieve routes
   achieveRoutes.forEach(route => {
+    if (route.includes('ctrl-x9k7m') || route.includes('dashboard')) {
+      return; // Skip admin/dashboard routes entirely
+    }
     const cleanRoute = route === '/' ? '' : route;
     const url = `https://achievepack.com${cleanRoute}`;
     const { changefreq, priority } = getSitemapParams(route);
@@ -152,7 +162,7 @@ function generate() {
 
   combinedXml += `</urlset>\n`;
   fs.writeFileSync(SITEMAP_COMBINED_PATH, combinedXml, 'utf-8');
-  console.log(`✅ Created ${SITEMAP_COMBINED_PATH} (${pouchRoutes.length + achieveRoutes.length} entries)`);
+  console.log(`✅ Created ${SITEMAP_COMBINED_PATH}`);
 
   console.log('🎉 Sitemaps generation completed successfully!');
 }

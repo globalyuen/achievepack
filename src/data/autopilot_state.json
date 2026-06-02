@@ -1,9 +1,9 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-02T14:22:57.085Z",
+  "lastUnifiedRun": "2026-06-02T14:28:45.973Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
-  "totalLinkedAnchors": 11,
+  "totalLinkedAnchors": 13,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -30,8 +30,8 @@
       "keyword": "recyclable high-barrier nuts pouch",
       "difficulty": "Low",
       "volume": 1500,
-      "status": "Pending",
-      "slug": ""
+      "status": "Published",
+      "slug": "recyclable-high-barrier-nuts-pouch"
     },
     {
       "keyword": "curbside recyclable coffee bag",
@@ -49,6 +49,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-02T14:26:35.974Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"recyclable high-barrier nuts pouch\" to /blog/recyclable-high-barrier-nuts-pouch"
+    },
     {
       "timestamp": "2026-06-02T14:22:10.978Z",
       "action": "Autopilot Error",
