@@ -2,8 +2,15 @@ import React from 'react'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import { Droplets, AlertTriangle, Shield, CheckCircle, Lightbulb } from 'lucide-react'
 import { NeoCard } from '../../../components/pouch/PouchUI'
+import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
+import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
 
 export default function CompostableHumidityControlGuide() {
+  const override = useSeoBlogOverride('compostable-humidity-control-guide')
+  if (override) {
+    return <DynamicBlogArticleRender post={override} />
+  }
+
   const sections = [
     {
       id: 'why-crack',

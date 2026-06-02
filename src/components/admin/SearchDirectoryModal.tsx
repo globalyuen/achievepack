@@ -623,10 +623,10 @@ const DIRECTORY_ITEMS: DirectoryItem[] = [
   },
   {
     name: "Humidity Control Science",
-    slug: "/blog/compostable-humidity-control",
+    slug: "/blog/compostable-humidity-control-guide",
     category: "blogs",
-    apPath: "https://achievepack.com/blog/compostable-humidity-control",
-    epPath: "https://pouch.eco/blog/compostable-humidity-control",
+    apPath: "https://achievepack.com/blog/compostable-humidity-control-guide",
+    epPath: "https://pouch.eco/blog/compostable-humidity-control-guide",
     description: "SEO blog explaining dynamic moisture balancing in sealed bags."
   },
   {

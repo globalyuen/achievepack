@@ -9,7 +9,15 @@ interface BlogArticleSection {
   content: React.ReactNode
 }
 
+import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
+import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
+
 export default function EcoFriendlyFoodPackagingGuide() {
+  const override = useSeoBlogOverride('eco-friendly-food-packaging-guide')
+  if (override) {
+    return <DynamicBlogArticleRender post={override} />
+  }
+
   const sections: BlogArticleSection[] = [
     {
       id: 'sustainability-challenge',

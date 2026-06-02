@@ -9,7 +9,15 @@ interface BlogArticleSection {
   content: React.ReactNode
 }
 
+import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
+import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
+
 export default function CustomCompostablePouchSuppliersGuide() {
+  const override = useSeoBlogOverride('custom-compostable-pouch-suppliers-guide')
+  if (override) {
+    return <DynamicBlogArticleRender post={override} />
+  }
+
   const sections: BlogArticleSection[] = [
     {
       id: 'vetting-suppliers',

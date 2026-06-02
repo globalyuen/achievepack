@@ -1,7 +1,14 @@
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import { Coffee, Droplets, Wind, Lock, DollarSign, TrendingUp, Building2 } from 'lucide-react'
+import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
+import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
 
 export default function CoffeePackagingGuide() {
+  const override = useSeoBlogOverride('coffee-packaging-guide')
+  if (override) {
+    return <DynamicBlogArticleRender post={override} />
+  }
+
   const sections = [
     {
       id: 'why-specialty-packaging',

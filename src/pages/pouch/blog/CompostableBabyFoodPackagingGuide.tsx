@@ -2,8 +2,15 @@ import { Baby, Shield, CheckCircle, Heart, FileCheck, Package, DollarSign, Trend
 import { Link } from 'react-router-dom'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import { NeoCard } from '../../../components/pouch/PouchUI'
+import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
+import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
 
 export default function CompostableBabyFoodPackagingGuide() {
+  const override = useSeoBlogOverride('compostable-baby-food-packaging-guide')
+  if (override) {
+    return <DynamicBlogArticleRender post={override} />
+  }
+
   const sections = [
     {
       id: 'safety-first',

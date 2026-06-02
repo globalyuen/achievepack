@@ -55,7 +55,7 @@ export default function PouchBlogPage() {
       date: '2026-03-01',
       category: 'Tips',
       readTime: '5 min',
-      link: '/blog/compostable-humidity-control'
+      link: '/blog/compostable-humidity-control-guide'
     },
     {
       title: 'Home Compostable Packaging Guide: OK Home, AS 5810, TÜV Certification',

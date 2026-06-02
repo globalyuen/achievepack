@@ -16,7 +16,19 @@ import {
   ArrowUp,
   ArrowDown,
   ArrowRightLeft,
-  MessageCircle
+  MessageCircle,
+  Trash2,
+  Save,
+  ChevronUp,
+  ChevronDown,
+  PlusCircle,
+  HelpCircle,
+  Briefcase,
+  Award,
+  FileCheck,
+  DollarSign,
+  Shield,
+  FileText
 } from 'lucide-react'
 import { createClient } from '@supabase/supabase-js'
 import en from '../../locales/en.json'
@@ -71,6 +83,23 @@ export default function SeoMigrationDashboard() {
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
   const [selectedPage, setSelectedPage] = useState<PageStatus | null>(null)
   const [subagentStatus, setSubagentStatus] = useState<string | null>(null)
+
+  // CMS State Variables
+  const [drawerTab, setDrawerTab] = useState<'checklist' | 'cms'>('checklist')
+  const [fetchingDb, setFetchingDb] = useState(false)
+  const [cmsTitle, setCmsTitle] = useState('')
+  const [cmsSlug, setCmsSlug] = useState('')
+  const [cmsCategory, setCmsCategory] = useState('')
+  const [cmsExcerpt, setCmsExcerpt] = useState('')
+  const [cmsMetaDescription, setCmsMetaDescription] = useState('')
+  const [cmsImageUrl, setCmsImageUrl] = useState('')
+  const [cmsSourceUrl, setCmsSourceUrl] = useState('')
+  const [cmsSections, setCmsSections] = useState<Array<{ title: string; icon?: string; content: string }>>([])
+  const [cmsFaqs, setCmsFaqs] = useState<Array<{ q: string; a: string }>>([])
+  const [cmsCtaTitle, setCmsCtaTitle] = useState('')
+  const [cmsCtaDescription, setCmsCtaDescription] = useState('')
+  const [cmsSaving, setCmsSaving] = useState(false)
+  const [cmsMessage, setCmsMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
   const loadData = useCallback(async (isRefresh = false) => {
     if (isRefresh) setRefreshing(true)
@@ -307,6 +336,196 @@ export default function SeoMigrationDashboard() {
     loadData()
   }, [loadData])
 
+  // Hydrate visual CMS states when selectedPage changes
+  useEffect(() => {
+    if (!selectedPage) {
+      setDrawerTab('checklist')
+      setCmsMessage(null)
+      return
+    }
+
+    async function hydrateCms() {
+      setFetchingDb(true)
+      setCmsMessage(null)
+      try {
+        const { data, error } = await supabase
+          .from('pouch_seo_blog')
+          .select('*')
+          .eq('slug', selectedPage.slug)
+          .maybeSingle()
+
+        if (error) {
+          console.error('Error fetching CMS data:', error)
+        }
+
+        if (data) {
+          setCmsTitle(data.title || selectedPage.title)
+          setCmsSlug(data.slug || selectedPage.slug)
+          setCmsCategory(data.category || selectedPage.category)
+          setCmsExcerpt(data.excerpt || selectedPage.title)
+          setCmsMetaDescription(data.meta_description || '')
+          setCmsImageUrl(data.image_url || '')
+          setCmsSourceUrl(data.source_url || selectedPage.sourceUrl)
+          
+          const content = data.content || {}
+          setCmsSections(content.sections || [])
+          setCmsFaqs(content.faqs || [])
+          setCmsCtaTitle(content.cta?.title || '')
+          setCmsCtaDescription(content.cta?.description || '')
+        } else {
+          // Fallback metadata hydration
+          setCmsTitle(selectedPage.title)
+          setCmsSlug(selectedPage.slug)
+          setCmsCategory(selectedPage.category)
+          setCmsExcerpt(selectedPage.title)
+          setCmsMetaDescription('')
+          setCmsImageUrl(selectedPage.domain === 'pouch.eco' ? '/imgs/blog/default.jpg' : '')
+          setCmsSourceUrl(selectedPage.sourceUrl)
+          setCmsSections([
+            { title: 'Overview', icon: 'info', content: `<p>Provide a detailed overview for ${selectedPage.title} here.</p>` },
+            { title: 'Technical Spec Details', icon: 'package', content: `<p>Detail materials, structure, and features.</p>` }
+          ])
+          setCmsFaqs([
+            { q: 'What is the wholesale MOQ?', a: 'Our standard wholesale order starts at 10,000 units.' },
+            { q: 'Can I request custom samples?', a: 'Yes! We offer fully custom printed samples.' }
+          ])
+          setCmsCtaTitle('Request a Free Sustainable Sample Kit')
+          setCmsCtaDescription('Get our custom printed, certified compostable or recyclable pouches delivered to your door.')
+        }
+      } catch (err) {
+        console.error('Error hydrating CMS:', err)
+      } finally {
+        setFetchingDb(false)
+      }
+    }
+
+    hydrateCms()
+  }, [selectedPage])
+
+  // CMS dynamic content list modifiers
+  const handleAddSection = () => {
+    setCmsSections(prev => [...prev, { title: 'New Section', icon: 'info', content: '<p>Section content...</p>' }])
+  }
+
+  const handleRemoveSection = (index: number) => {
+    setCmsSections(prev => prev.filter((_, i) => i !== index))
+  }
+
+  const handleSectionChange = (index: number, field: 'title' | 'icon' | 'content', value: string) => {
+    setCmsSections(prev => prev.map((sec, i) => i === index ? { ...sec, [field]: value } : sec))
+  }
+
+  const handleMoveSection = (index: number, direction: 'up' | 'down') => {
+    if (direction === 'up' && index === 0) return
+    if (direction === 'down' && index === cmsSections.length - 1) return
+    const nextIndex = direction === 'up' ? index - 1 : index + 1
+    const newSecs = [...cmsSections]
+    const temp = newSecs[index]
+    newSecs[index] = newSecs[nextIndex]
+    newSecs[nextIndex] = temp
+    setCmsSections(newSecs)
+  }
+
+  const handleAddFaq = () => {
+    setCmsFaqs(prev => [...prev, { q: 'New Question?', a: 'Answer...' }])
+  }
+
+  const handleRemoveFaq = (index: number) => {
+    setCmsFaqs(prev => prev.filter((_, i) => i !== index))
+  }
+
+  const handleFaqChange = (index: number, field: 'q' | 'a', value: string) => {
+    setCmsFaqs(prev => prev.map((faq, i) => i === index ? { ...faq, [field]: value } : faq))
+  }
+
+  const handleMoveFaq = (index: number, direction: 'up' | 'down') => {
+    if (direction === 'up' && index === 0) return
+    if (direction === 'down' && index === cmsFaqs.length - 1) return
+    const nextIndex = direction === 'up' ? index - 1 : index + 1
+    const newFaqs = [...cmsFaqs]
+    const temp = newFaqs[index]
+    newFaqs[index] = newFaqs[nextIndex]
+    newFaqs[nextIndex] = temp
+    setCmsFaqs(newFaqs)
+  }
+
+  // Create page handler
+  const handleCreateNewPage = () => {
+    const dummyPage: PageStatus = {
+      key: `pouch-new-${Date.now()}`,
+      title: 'New Eco Pouch Page',
+      slug: 'new-eco-pouch-page',
+      category: 'materials',
+      status: 'draft',
+      seoScore: 50,
+      aieoScore: 50,
+      sioScore: 50,
+      traffic: 0,
+      sourceUrl: 'https://achievepack.com/new-eco-pouch-page',
+      pouchUrl: 'https://pouch.eco/blog/new-eco-pouch-page',
+      imagesCount: 0,
+      wordCount: 0,
+      recommendation: 'New Draft SEO Page',
+      domain: 'pouch.eco',
+      missingImages: ['Hero banner image']
+    }
+    setSelectedPage(dummyPage)
+    setDrawerTab('cms')
+  }
+
+  // Save / Upsert back to database
+  const handleSaveCMS = async () => {
+    if (!cmsSlug) {
+      setCmsMessage({ type: 'error', text: 'Slug is required' })
+      return
+    }
+
+    setCmsSaving(true)
+    setCmsMessage(null)
+
+    try {
+      const payload = {
+        title: cmsTitle,
+        slug: cmsSlug,
+        category: cmsCategory,
+        excerpt: cmsExcerpt,
+        meta_description: cmsMetaDescription,
+        image_url: cmsImageUrl,
+        source_url: cmsSourceUrl,
+        published_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        content: {
+          sections: cmsSections,
+          faqs: cmsFaqs,
+          cta: {
+            title: cmsCtaTitle,
+            description: cmsCtaDescription
+          }
+        }
+      }
+
+      const { error } = await supabase
+        .from('pouch_seo_blog')
+        .upsert(payload, { onConflict: 'slug' })
+
+      if (error) throw error
+
+      setCmsMessage({ type: 'success', text: '🎉 SEO 頁面儲存成功！已即時發佈線上覆蓋！' })
+      
+      // Reload pages metrics
+      await loadData()
+      
+      setTimeout(() => {
+        setCmsMessage(null)
+      }, 3000)
+    } catch (err: any) {
+      console.error('Error saving CMS content:', err)
+      setCmsMessage({ type: 'error', text: `儲存失敗: ${err.message || '未知錯誤'}` })
+    } finally {
+      setCmsSaving(false)
+    }
+  }
+
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
@@ -405,13 +624,23 @@ export default function SeoMigrationDashboard() {
               </div>
             </div>
 
-            <button 
-              onClick={() => loadData(true)}
-              className="bg-[#D4FF00] text-black border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center gap-2 max-w-xs self-start lg:self-center"
-            >
-              <RefreshCw className={`w-5 h-5 ${refreshing ? 'animate-spin' : ''}`} />
-              <span className="font-black uppercase text-sm">更新數據 (Refresh)</span>
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button 
+                onClick={handleCreateNewPage}
+                className="bg-[#FF9800] text-black border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center gap-2 max-w-xs self-start lg:self-center font-black uppercase text-sm"
+              >
+                <Plus className="w-5 h-5" />
+                <span>新增 SEO 頁面 (Create)</span>
+              </button>
+
+              <button 
+                onClick={() => loadData(true)}
+                className="bg-[#D4FF00] text-black border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.3)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all flex items-center gap-2 max-w-xs self-start lg:self-center font-black uppercase text-sm"
+              >
+                <RefreshCw className={`w-5 h-5 ${refreshing ? 'animate-spin' : ''}`} />
+                <span>更新數據 (Refresh)</span>
+              </button>
+            </div>
         </div>
         <div className="absolute right-0 bottom-0 p-4 opacity-5 pointer-events-none">
           <Globe className="w-64 h-64" />
@@ -871,146 +1100,548 @@ And because these clear pouches are fully BPI and TUV certified compostable, our
                   </button>
                 </div>
                 
+                {/* Tabs Switcher */}
+                <div className="grid grid-cols-2 bg-gray-100 border-b-4 border-black font-black uppercase text-xs">
+                  <button
+                    onClick={() => setDrawerTab('checklist')}
+                    className={`py-3 text-center border-r-4 border-black transition-all ${
+                      drawerTab === 'checklist' ? 'bg-[#D4FF00] text-black font-black' : 'bg-white text-gray-500 hover:bg-gray-50'
+                    }`}
+                  >
+                    📊 審核與警示 (Audit & Checklist)
+                  </button>
+                  <button
+                    onClick={() => setDrawerTab('cms')}
+                    className={`py-3 text-center transition-all ${
+                      drawerTab === 'cms' ? 'bg-[#FF9800] text-black font-black' : 'bg-white text-gray-500 hover:bg-gray-50'
+                    }`}
+                  >
+                    📝 內容管理編輯器 (CMS Editor)
+                  </button>
+                </div>
+
                 {/* Drawer Body */}
                 <div className="flex-1 overflow-y-auto p-6 space-y-6 text-black bg-white">
-                  {/* KPI Performance Section */}
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="border-4 border-black p-4 text-center bg-green-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                      <div className="text-xs font-black uppercase tracking-widest text-green-800 mb-1">SEO 分數</div>
-                      <div className="text-4xl font-black">{selectedPage.seoScore}%</div>
-                      <div className="text-[10px] font-bold text-gray-500 mt-1">Search Engine</div>
+                  {fetchingDb ? (
+                    <div className="flex flex-col items-center justify-center py-24 gap-4">
+                      <RefreshCw className="w-12 h-12 text-[#FF9800] animate-spin stroke-[3px]" />
+                      <p className="font-black text-xs text-gray-500 uppercase tracking-widest animate-pulse">
+                        正在載入 Supabase 數據...
+                      </p>
                     </div>
-                    <div className="border-4 border-black p-4 text-center bg-purple-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                      <div className="text-xs font-black uppercase tracking-widest text-purple-800 mb-1">AEO / GEO</div>
-                      <div className="text-4xl font-black">{selectedPage.aieoScore}%</div>
-                      <div className="text-[10px] font-bold text-gray-500 mt-1">AI Answer Engine</div>
-                    </div>
-                    <div className="border-4 border-black p-4 text-center bg-blue-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                      <div className="text-xs font-black uppercase tracking-widest text-blue-800 mb-1">SIO 分數</div>
-                      <div className="text-4xl font-black">{selectedPage.sioScore}%</div>
-                      <div className="text-[10px] font-bold text-gray-500 mt-1">Intent Conversion</div>
-                    </div>
-                  </div>
-
-                  {/* Quick Metrics */}
-                  <div className="border-4 border-black p-4 bg-gray-50 flex justify-around text-center">
-                    <div>
-                      <div className="text-xs text-gray-500 font-bold uppercase">估計月流量</div>
-                      <div className="text-xl font-black text-black">{selectedPage.traffic.toLocaleString()} <span className="text-xs">IP</span></div>
-                    </div>
-                    <div className="border-l border-gray-300 h-8 my-auto" />
-                    <div>
-                      <div className="text-xs text-gray-500 font-bold uppercase">總字數</div>
-                      <div className="text-xl font-black text-black">{selectedPage.wordCount} <span className="text-xs">字</span></div>
-                    </div>
-                    <div className="border-l border-gray-300 h-8 my-auto" />
-                    <div>
-                      <div className="text-xs text-gray-500 font-bold uppercase">圖片數量</div>
-                      <div className="text-xl font-black text-black">{selectedPage.imagesCount} <span className="text-xs">張</span></div>
-                    </div>
-                  </div>
-
-                  {/* Image Check & Audit */}
-                  <div className="border-4 border-black p-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                    <h3 className="text-lg font-black uppercase mb-4 flex items-center gap-2">
-                      <ImageIcon className="w-5 h-5 text-amber-500" />
-                      圖片缺失稽核與警示 (Image Compliance)
-                    </h3>
-                    
-                    {selectedPage.missingImages.length > 0 ? (
-                      <div className="space-y-3">
-                        <div className="bg-red-50 text-red-800 border-2 border-red-200 p-3 text-xs font-bold rounded-lg flex items-center gap-2">
-                          <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0" />
-                          <span>偵測到該頁面缺失關鍵 B2B/B2C 營銷或信賴戳記圖片！</span>
+                  ) : drawerTab === 'checklist' ? (
+                    <>
+                      {/* KPI Performance Section */}
+                      <div className="grid grid-cols-3 gap-4">
+                        <div className="border-4 border-black p-4 text-center bg-green-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                          <div className="text-xs font-black uppercase tracking-widest text-green-800 mb-1">SEO 分數</div>
+                          <div className="text-4xl font-black">{selectedPage.seoScore}%</div>
+                          <div className="text-[10px] font-bold text-gray-500 mt-1">Search Engine</div>
                         </div>
-                        <ul className="space-y-2">
-                          {selectedPage.missingImages.map((img, idx) => (
-                            <li key={idx} className="flex items-center gap-2 bg-red-50 p-2.5 border border-red-300 rounded text-xs font-mono text-gray-800">
-                              <span className="w-4 h-4 rounded-full bg-red-600 text-white flex items-center justify-center font-black text-[10px]">!</span>
-                              <span>缺失: <strong className="text-red-700">{img}</strong></span>
-                            </li>
+                        <div className="border-4 border-black p-4 text-center bg-purple-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                          <div className="text-xs font-black uppercase tracking-widest text-purple-800 mb-1">AEO / GEO</div>
+                          <div className="text-4xl font-black">{selectedPage.aieoScore}%</div>
+                          <div className="text-[10px] font-bold text-gray-500 mt-1">AI Answer Engine</div>
+                        </div>
+                        <div className="border-4 border-black p-4 text-center bg-blue-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                          <div className="text-xs font-black uppercase tracking-widest text-blue-800 mb-1">SIO 分數</div>
+                          <div className="text-4xl font-black">{selectedPage.sioScore}%</div>
+                          <div className="text-[10px] font-bold text-gray-500 mt-1">Intent Conversion</div>
+                        </div>
+                      </div>
+
+                      {/* Quick Metrics */}
+                      <div className="border-4 border-black p-4 bg-gray-50 flex justify-around text-center">
+                        <div>
+                          <div className="text-xs text-gray-500 font-bold uppercase">估計月流量</div>
+                          <div className="text-xl font-black text-black">{selectedPage.traffic.toLocaleString()} <span className="text-xs">IP</span></div>
+                        </div>
+                        <div className="border-l border-gray-300 h-8 my-auto" />
+                        <div>
+                          <div className="text-xs text-gray-500 font-bold uppercase">總字數</div>
+                          <div className="text-xl font-black text-black">{selectedPage.wordCount} <span className="text-xs">字</span></div>
+                        </div>
+                        <div className="border-l border-gray-300 h-8 my-auto" />
+                        <div>
+                          <div className="text-xs text-gray-500 font-bold uppercase">圖片數量</div>
+                          <div className="text-xl font-black text-black">{selectedPage.imagesCount} <span className="text-xs">張</span></div>
+                        </div>
+                      </div>
+
+                      {/* Image Check & Audit */}
+                      <div className="border-4 border-black p-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                        <h3 className="text-lg font-black uppercase mb-4 flex items-center gap-2">
+                          <ImageIcon className="w-5 h-5 text-amber-500" />
+                          圖片缺失稽核與警示 (Image Compliance)
+                        </h3>
+                        
+                        {selectedPage.missingImages.length > 0 ? (
+                          <div className="space-y-3">
+                            <div className="bg-red-50 text-red-800 border-2 border-red-200 p-3 text-xs font-bold rounded-lg flex items-center gap-2">
+                              <AlertCircle className="w-4 h-4 text-red-600 flex-shrink-0" />
+                              <span>偵測到該頁面缺失關鍵 B2B/B2C 營銷或信賴戳記圖片！</span>
+                            </div>
+                            <ul className="space-y-2">
+                              {selectedPage.missingImages.map((img, idx) => (
+                                <li key={idx} className="flex items-center gap-2 bg-red-50 p-2.5 border border-red-300 rounded text-xs font-mono text-gray-800">
+                                  <span className="w-4 h-4 rounded-full bg-red-600 text-white flex items-center justify-center font-black text-[10px]">!</span>
+                                  <span>缺失: <strong className="text-red-700">{img}</strong></span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : (
+                          <div className="bg-green-50 text-green-800 border-2 border-green-200 p-4 text-xs font-bold rounded-lg flex items-center gap-2">
+                            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                            <span>圖片審核完全通過！所有關鍵產品結構圖、BPI 信賴戳記、以及排氣閥示意圖均已配置。</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Detailed Improvement Roadmap */}
+                      <div className="border-4 border-black p-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                        <h3 className="text-lg font-black uppercase mb-4 flex items-center gap-2">
+                          <Target className="w-5 h-5 text-blue-500" />
+                          SEO / GEO / SIO 深度優化指南 (Roadmap)
+                        </h3>
+                        
+                        <div className="space-y-4 text-xs">
+                          {/* SEO Checklist */}
+                          <div className="space-y-2">
+                            <h4 className="font-black text-sm uppercase text-gray-700 border-b border-gray-200 pb-1">1. SEO 搜尋引擎優化指標</h4>
+                            <ul className="space-y-1.5 pl-4 list-disc text-gray-600">
+                              <li className={selectedPage.wordCount >= 1000 ? "text-green-700 font-bold" : ""}>
+                                字數指標: {selectedPage.wordCount >= 1000 ? "✓ 已達標 (>1000字)" : "✗ 需擴增內容，加強深度描述 (>1000字)"}
+                              </li>
+                              <li className={selectedPage.imagesCount >= 4 ? "text-green-700 font-bold" : ""}>
+                                圖片配置: {selectedPage.imagesCount >= 4 ? "✓ 圖片數量充足 (>4張)" : "✗ 增加高清實體袋圖或材質特寫以利索引"}
+                              </li>
+                              <li className="text-green-700 font-bold">✓ Canonical 與 B2C URL 結構完美對齊</li>
+                            </ul>
+                          </div>
+
+                          {/* AEO Checklist */}
+                          <div className="space-y-2">
+                            <h4 className="font-black text-sm uppercase text-gray-700 border-b border-gray-200 pb-1">2. AEO / GEO 智能回答引擎優化 (AI-Ready)</h4>
+                            <ul className="space-y-1.5 pl-4 list-disc text-gray-600">
+                              <li className={selectedPage.aieoScore >= 80 ? "text-green-700 font-bold" : ""}>
+                                階梯問答: {selectedPage.aieoScore >= 80 ? "✓ 包含 6-Pillar FAQ 結構，完美觸發 AI Answer" : "✗ 需加入 6 大核心 FAQ 解決採購商疑惑"}
+                              </li>
+                              <li className="text-green-700 font-bold">✓ 已配置 JSON-LD 結構化 Schema 標記</li>
+                              <li className="text-gray-600">✗ 添加與 “PFAS-Free Barrier”, “BPI Certified”, “Compostable Bag MOQ” 等 AI 熱搜意圖詞</li>
+                            </ul>
+                          </div>
+
+                          {/* SIO Checklist */}
+                          <div className="space-y-2">
+                            <h4 className="font-black text-sm uppercase text-gray-700 border-b border-gray-200 pb-1">3. SIO 用戶意圖與轉化優化</h4>
+                            <ul className="space-y-1.5 pl-4 list-disc text-gray-600">
+                              <li className={selectedPage.sioScore >= 80 ? "text-green-700 font-bold" : ""}>
+                                產品參數: {selectedPage.sioScore >= 80 ? "✓ 已提供 B2B 規格對照表/規格書" : "✗ 添加袋型與容量換算表 (B2B 採購核心需求)"}
+                              </li>
+                              <li className="text-gray-600">✗ 配置 “Request Free Sample Kit” (索取免費樣品) 行動呼籲按鈕</li>
+                              <li className="text-gray-600">✗ 增加 B2B 專屬 CAD 刀模線/設計模板下載入口</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Subagent Optimization Trigger */}
+                      <div className="border-4 border-black p-6 bg-black text-[#D4FF00] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                        <h3 className="text-lg font-black uppercase mb-2 flex items-center gap-2">
+                          <Zap className="w-5 h-5 text-[#D4FF00] animate-pulse" />
+                          調度 SEO/GEO/SIO 協同 Subagent
+                        </h3>
+                        <p className="text-xs text-white opacity-80 mb-4 uppercase leading-relaxed">
+                          點擊下方按鈕將在後台調度專屬 subagent。它將掃描 pouch.eco 代碼庫，自動執行 B2B 5-Category 關鍵字重構，修復缺失圖片，並生成 Q&A 問答段落。
+                        </p>
+                        
+                        <button 
+                          onClick={() => triggerSubagentAudit(selectedPage)}
+                          className="w-full bg-[#D4FF00] text-black border-4 border-white p-3 font-black text-center hover:bg-white hover:border-[#D4FF00] transition-all uppercase text-xs"
+                        >
+                          🚀 啟動 AI 智能修復與優化 (Trigger Fix)
+                        </button>
+
+                        {subagentStatus && (
+                          <div className="mt-4 bg-[#D4FF00] text-black border-4 border-black p-4 text-xs font-black uppercase leading-normal">
+                            {subagentStatus}
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="space-y-6 pb-12 font-['Space_Grotesk'] text-black">
+                      {/* Save Status Alert Message */}
+                      {cmsMessage && (
+                        <div className={`p-4 border-4 border-black font-black text-xs uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${
+                          cmsMessage.type === 'success' ? 'bg-[#D4FF00] text-black' : 'bg-[#FF4D4D] text-white'
+                        }`}>
+                          {cmsMessage.text}
+                        </div>
+                      )}
+
+                      {/* Card 1: Basic Settings */}
+                      <div className="border-4 border-black p-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] space-y-4">
+                        <h3 className="text-lg font-black uppercase border-b-4 border-black pb-2 mb-4 flex items-center gap-2 text-black">
+                          <Globe className="w-5 h-5 text-[#FF9800]" />
+                          基本頁面設置 (Basic Settings)
+                        </h3>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="flex flex-col">
+                            <label className="text-[10px] font-black uppercase text-gray-500 mb-1">頁面標題 (Page Title)</label>
+                            <input
+                              type="text"
+                              value={cmsTitle}
+                              onChange={(e) => setCmsTitle(e.target.value)}
+                              className="p-2.5 border-2 border-black font-black text-xs focus:outline-none focus:bg-gray-50 text-black bg-white"
+                              placeholder="e.g. BPI Certified Compostable Guide"
+                            />
+                          </div>
+
+                          <div className="flex flex-col">
+                            <label className="text-[10px] font-black uppercase text-gray-500 mb-1">
+                              路由路徑 (Slug) 
+                              <span className="text-red-500 font-bold ml-1">*(關鍵字對齊)</span>
+                            </label>
+                            <input
+                              type="text"
+                              value={cmsSlug}
+                              onChange={(e) => setCmsSlug(e.target.value)}
+                              className="p-2.5 border-2 border-black font-mono text-xs focus:outline-none focus:bg-gray-50 text-black bg-white"
+                              placeholder="e.g. coffee-packaging-guide"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="flex flex-col">
+                            <label className="text-[10px] font-black uppercase text-gray-500 mb-1">分類目錄 (Category)</label>
+                            <select
+                              value={cmsCategory}
+                              onChange={(e) => setCmsCategory(e.target.value)}
+                              className="p-2.5 border-2 border-black font-black text-xs bg-white focus:outline-none text-black"
+                            >
+                              <option value="materials">MATERIALS (材質庫)</option>
+                              <option value="packaging">PACKAGING (袋型庫)</option>
+                              <option value="industry">INDUSTRY (行業包裝)</option>
+                              <option value="knowledge">KNOWLEDGE (科普百科)</option>
+                              <option value="topics">TOPICS (專題研究)</option>
+                            </select>
+                          </div>
+
+                          <div className="flex flex-col">
+                            <label className="text-[10px] font-black uppercase text-gray-500 mb-1">首頁封面圖 URL (Hero Image URL)</label>
+                            <input
+                              type="text"
+                              value={cmsImageUrl}
+                              onChange={(e) => setCmsImageUrl(e.target.value)}
+                              className="p-2.5 border-2 border-black font-mono text-xs focus:outline-none focus:bg-gray-50 text-black bg-white"
+                              placeholder="/imgs/blog/hero.jpg or external url"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col">
+                          <label className="text-[10px] font-black uppercase text-gray-500 mb-1">文章摘要 (Excerpt)</label>
+                          <textarea
+                            value={cmsExcerpt}
+                            onChange={(e) => setCmsExcerpt(e.target.value)}
+                            rows={2}
+                            className="p-2.5 border-2 border-black font-medium text-xs focus:outline-none focus:bg-gray-50 text-black bg-white"
+                            placeholder="Short overview teaser showing up on catalog cards..."
+                          />
+                        </div>
+
+                        <div className="flex flex-col">
+                          <div className="flex justify-between items-center mb-1">
+                            <label className="text-[10px] font-black uppercase text-gray-500">Google SEO Meta Description</label>
+                            <span className={`text-[10px] font-black uppercase ${
+                              cmsMetaDescription.length >= 140 && cmsMetaDescription.length <= 160 
+                                ? 'text-green-600' 
+                                : 'text-amber-600'
+                            }`}>
+                              {cmsMetaDescription.length} / 160 chars
+                            </span>
+                          </div>
+                          <textarea
+                            value={cmsMetaDescription}
+                            onChange={(e) => setCmsMetaDescription(e.target.value)}
+                            rows={3}
+                            className="p-2.5 border-2 border-black font-medium text-xs focus:outline-none focus:bg-gray-50 text-black bg-white"
+                            placeholder="SEO description showing in search engine results (140-160 characters recommend)..."
+                          />
+                        </div>
+
+                        <div className="flex flex-col">
+                          <label className="text-[10px] font-black uppercase text-gray-500 mb-1">
+                            B2B 採購對接原網址 (AchievePack Source B2B Link)
+                          </label>
+                          <input
+                            type="text"
+                            value={cmsSourceUrl}
+                            onChange={(e) => setCmsSourceUrl(e.target.value)}
+                            className="p-2.5 border-2 border-black font-mono text-xs focus:outline-none focus:bg-gray-50 text-black bg-white"
+                            placeholder="https://achievepack.com/spec/..."
+                          />
+                        </div>
+                      </div>
+
+                      {/* Card 2: Sections Builder */}
+                      <div className="border-4 border-black p-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] space-y-6">
+                        <div className="flex justify-between items-center border-b-4 border-black pb-2">
+                          <h3 className="text-lg font-black uppercase flex items-center gap-2 text-black">
+                            <FileText className="w-5 h-5 text-[#FF9800]" />
+                            內容區段編輯器 (Sections Builder)
+                          </h3>
+                          <button
+                            type="button"
+                            onClick={handleAddSection}
+                            className="px-3 py-1 bg-[#D4FF00] border-2 border-black font-black text-[10px] uppercase flex items-center gap-1 hover:bg-black hover:text-[#D4FF00] transition-all text-black"
+                          >
+                            <PlusCircle className="w-3.5 h-3.5" />
+                            <span>新增區段 (Add)</span>
+                          </button>
+                        </div>
+
+                        <div className="space-y-4">
+                          {cmsSections.map((sec, idx) => (
+                            <div key={idx} className="border-2 border-black p-4 bg-gray-50 relative space-y-3">
+                              <div className="flex justify-between items-center bg-black text-white p-2 text-xs font-black uppercase">
+                                <span>區段 #{idx + 1}: {sec.title || '未命名'}</span>
+                                <div className="flex items-center gap-1.5">
+                                  <button
+                                    type="button"
+                                    onClick={() => handleMoveSection(idx, 'up')}
+                                    disabled={idx === 0}
+                                    className="p-1 hover:bg-gray-800 disabled:opacity-30 text-[#D4FF00]"
+                                    title="上移"
+                                  >
+                                    <ChevronUp className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleMoveSection(idx, 'down')}
+                                    disabled={idx === cmsSections.length - 1}
+                                    className="p-1 hover:bg-gray-800 disabled:opacity-30 text-[#D4FF00]"
+                                    title="下移"
+                                  >
+                                    <ChevronDown className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleRemoveSection(idx)}
+                                    className="p-1 hover:bg-red-800 text-red-400"
+                                    title="刪除"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              </div>
+
+                              <div className="grid grid-cols-3 gap-3">
+                                <div className="col-span-2 flex flex-col">
+                                  <label className="text-[9px] font-black uppercase text-gray-500 mb-0.5">區段標題 (Section Title)</label>
+                                  <input
+                                    type="text"
+                                    value={sec.title}
+                                    onChange={(e) => handleSectionChange(idx, 'title', e.target.value)}
+                                    className="p-2 border border-black font-black text-xs bg-white focus:outline-none text-black"
+                                    placeholder="Section headline"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label className="text-[9px] font-black uppercase text-gray-500 mb-0.5">區段圖示 (Section Icon)</label>
+                                  <select
+                                    value={sec.icon || 'package'}
+                                    onChange={(e) => handleSectionChange(idx, 'icon', e.target.value)}
+                                    className="p-2 border border-black font-black text-xs bg-white focus:outline-none text-black"
+                                  >
+                                    <option value="info">Info (資訊)</option>
+                                    <option value="package">Package (包裝袋)</option>
+                                    <option value="checkcircle">Check (認證)</option>
+                                    <option value="award">Award (卓越)</option>
+                                    <option value="dollarsign">Cost (價格)</option>
+                                    <option value="target">Target (目標)</option>
+                                    <option value="briefcase">Business (商業)</option>
+                                    <option value="filetext">Document (說明)</option>
+                                    <option value="helpcircle">FAQ (問題)</option>
+                                    <option value="shield">Shield (安全)</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div className="flex flex-col">
+                                <div className="flex justify-between items-center mb-0.5">
+                                  <label className="text-[9px] font-black uppercase text-gray-500">區段內容 HTML (Section Body Content)</label>
+                                  <div className="flex gap-1 text-[8px] font-black text-gray-400">
+                                    <button type="button" onClick={() => handleSectionChange(idx, 'content', sec.content + '<b>加粗字</b>')} className="hover:text-black">加粗</button>
+                                    <span>|</span>
+                                    <button type="button" onClick={() => handleSectionChange(idx, 'content', sec.content + '<li>項目清單</li>')} className="hover:text-black">列表</button>
+                                    <span>|</span>
+                                    <button type="button" onClick={() => handleSectionChange(idx, 'content', sec.content + '<table className="w-full border-4 border-black text-left"><tr><td className="p-2 border-2 border-black font-bold">項目</td><td className="p-2 border-2 border-black font-bold">值</td></tr></table>')} className="hover:text-black">表格</button>
+                                  </div>
+                                </div>
+                                <textarea
+                                  value={sec.content}
+                                  onChange={(e) => handleSectionChange(idx, 'content', e.target.value)}
+                                  rows={5}
+                                  className="p-2 border border-black font-mono text-[11px] bg-white focus:outline-none text-black"
+                                  placeholder="HTML or plaintext content..."
+                                />
+                              </div>
+                            </div>
                           ))}
-                        </ul>
-                      </div>
-                    ) : (
-                      <div className="bg-green-50 text-green-800 border-2 border-green-200 p-4 text-xs font-bold rounded-lg flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                        <span>圖片審核完全通過！所有關鍵產品結構圖、BPI 信賴戳記、以及排氣閥示意圖均已配置。</span>
-                      </div>
-                    )}
-                  </div>
 
-                  {/* Detailed Improvement Roadmap */}
-                  <div className="border-4 border-black p-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                    <h3 className="text-lg font-black uppercase mb-4 flex items-center gap-2">
-                      <Target className="w-5 h-5 text-blue-500" />
-                      SEO / GEO / SIO 深度優化指南 (Roadmap)
-                    </h3>
-                    
-                    <div className="space-y-4 text-xs">
-                      {/* SEO Checklist */}
-                      <div className="space-y-2">
-                        <h4 className="font-black text-sm uppercase text-gray-700 border-b border-gray-200 pb-1">1. SEO 搜尋引擎優化指標</h4>
-                        <ul className="space-y-1.5 pl-4 list-disc text-gray-600">
-                          <li className={selectedPage.wordCount >= 1000 ? "text-green-700 font-bold" : ""}>
-                            字數指標: {selectedPage.wordCount >= 1000 ? "✓ 已達標 (>1000字)" : "✗ 需擴增內容，加強深度描述 (>1000字)"}
-                          </li>
-                          <li className={selectedPage.imagesCount >= 4 ? "text-green-700 font-bold" : ""}>
-                            圖片配置: {selectedPage.imagesCount >= 4 ? "✓ 圖片數量充足 (>4張)" : "✗ 增加高清實體袋圖或材質特寫以利索引"}
-                          </li>
-                          <li className="text-green-700 font-bold">✓ Canonical 與 B2C URL 結構完美對齊</li>
-                        </ul>
+                          {cmsSections.length === 0 && (
+                            <div className="p-8 border-2 border-dashed border-gray-300 text-center text-xs font-bold text-gray-400 uppercase">
+                              尚未加入任何文章內容區段，點擊上方按鈕開始新增
+                            </div>
+                          )}
+                        </div>
                       </div>
 
-                      {/* AEO Checklist */}
-                      <div className="space-y-2">
-                        <h4 className="font-black text-sm uppercase text-gray-700 border-b border-gray-200 pb-1">2. AEO / GEO 智能回答引擎優化 (AI-Ready)</h4>
-                        <ul className="space-y-1.5 pl-4 list-disc text-gray-600">
-                          <li className={selectedPage.aieoScore >= 80 ? "text-green-700 font-bold" : ""}>
-                            階梯問答: {selectedPage.aieoScore >= 80 ? "✓ 包含 6-Pillar FAQ 結構，完美觸發 AI Answer" : "✗ 需加入 6 大核心 FAQ 解決採購商疑惑"}
-                          </li>
-                          <li className="text-green-700 font-bold">✓ 已配置 JSON-LD 結構化 Schema 標記</li>
-                          <li className="text-gray-600">✗ 添加與 “PFAS-Free Barrier”, “BPI Certified”, “Compostable Bag MOQ” 等 AI 熱搜意圖詞</li>
-                        </ul>
+                      {/* Card 3: FAQs accordions */}
+                      <div className="border-4 border-black p-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] space-y-6">
+                        <div className="flex justify-between items-center border-b-4 border-black pb-2">
+                          <h3 className="text-lg font-black uppercase flex items-center gap-2 text-black font-black">
+                            <HelpCircle className="w-5 h-5 text-[#FF9800]" />
+                            常見問答編輯器 (FAQs Builder)
+                          </h3>
+                          <button
+                            type="button"
+                            onClick={handleAddFaq}
+                            className="px-3 py-1 bg-[#D4FF00] border-2 border-black font-black text-[10px] uppercase flex items-center gap-1 hover:bg-black hover:text-[#D4FF00] transition-all text-black"
+                          >
+                            <PlusCircle className="w-3.5 h-3.5" />
+                            <span>新增問答 (Add FAQ)</span>
+                          </button>
+                        </div>
+
+                        <div className="space-y-4">
+                          {cmsFaqs.map((faq, idx) => (
+                            <div key={idx} className="border-2 border-black p-4 bg-gray-50 relative space-y-3">
+                              <div className="flex justify-between items-center bg-black text-white p-2 text-xs font-black uppercase">
+                                <span>問答 #{idx + 1}</span>
+                                <div className="flex items-center gap-1.5">
+                                  <button
+                                    type="button"
+                                    onClick={() => handleMoveFaq(idx, 'up')}
+                                    disabled={idx === 0}
+                                    className="p-1 hover:bg-gray-800 disabled:opacity-30 text-[#D4FF00]"
+                                  >
+                                    <ChevronUp className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleMoveFaq(idx, 'down')}
+                                    disabled={idx === cmsFaqs.length - 1}
+                                    className="p-1 hover:bg-gray-800 disabled:opacity-30 text-[#D4FF00]"
+                                  >
+                                    <ChevronDown className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleRemoveFaq(idx)}
+                                    className="p-1 hover:bg-red-800 text-red-400"
+                                  >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
+                              </div>
+
+                              <div className="flex flex-col">
+                                <label className="text-[9px] font-black uppercase text-gray-500 mb-0.5">問題 (Question)</label>
+                                <input
+                                  type="text"
+                                  value={faq.q}
+                                  onChange={(e) => handleFaqChange(idx, 'q', e.target.value)}
+                                  className="p-2 border border-black font-black text-xs bg-white focus:outline-none text-black"
+                                  placeholder="FAQ Question"
+                                />
+                              </div>
+
+                              <div className="flex flex-col">
+                                <label className="text-[9px] font-black uppercase text-gray-500 mb-0.5">回答 (Answer)</label>
+                                <textarea
+                                  value={faq.a}
+                                  onChange={(e) => handleFaqChange(idx, 'a', e.target.value)}
+                                  rows={3}
+                                  className="p-2 border border-black font-medium text-xs bg-white focus:outline-none text-black"
+                                  placeholder="FAQ Answer details..."
+                                />
+                              </div>
+                            </div>
+                          ))}
+
+                          {cmsFaqs.length === 0 && (
+                            <div className="p-8 border-2 border-dashed border-gray-300 text-center text-xs font-bold text-gray-400 uppercase">
+                              尚未配置任何常見問答段落
+                            </div>
+                          )}
+                        </div>
                       </div>
 
-                      {/* SIO Checklist */}
-                      <div className="space-y-2">
-                        <h4 className="font-black text-sm uppercase text-gray-700 border-b border-gray-200 pb-1">3. SIO 用戶意圖與轉化優化</h4>
-                        <ul className="space-y-1.5 pl-4 list-disc text-gray-600">
-                          <li className={selectedPage.sioScore >= 80 ? "text-green-700 font-bold" : ""}>
-                            產品參數: {selectedPage.sioScore >= 80 ? "✓ 已提供 B2B 規格對照表/規格書" : "✗ 添加袋型與容量換算表 (B2B 採購核心需求)"}
-                          </li>
-                          <li className="text-gray-600">✗ 配置 “Request Free Sample Kit” (索取免費樣品) 行動呼籲按鈕</li>
-                          <li className="text-gray-600">✗ 增加 B2B 專屬 CAD 刀模線/設計模板下載入口</li>
-                        </ul>
+                      {/* Card 4: Wholesale CTA */}
+                      <div className="border-4 border-black p-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] space-y-4">
+                        <h3 className="text-lg font-black uppercase border-b-4 border-black pb-2 mb-4 flex items-center gap-2 text-black">
+                          <Target className="w-5 h-5 text-[#FF9800]" />
+                          轉化行動呼籲設置 (Bottom Wholesale CTA)
+                        </h3>
+
+                        <div className="flex flex-col">
+                          <label className="text-[10px] font-black uppercase text-gray-500 mb-1">CTA 按鈕標題 (CTA Button Title)</label>
+                          <input
+                            type="text"
+                            value={cmsCtaTitle}
+                            onChange={(e) => setCmsCtaTitle(e.target.value)}
+                            className="p-2.5 border-2 border-black font-black text-xs focus:outline-none focus:bg-gray-50 text-black bg-white"
+                            placeholder="Request a Free Sustainable Sample Kit"
+                          />
+                        </div>
+
+                        <div className="flex flex-col">
+                          <label className="text-[10px] font-black uppercase text-gray-500 mb-1">CTA 描述語 (CTA Subtext)</label>
+                          <textarea
+                            value={cmsCtaDescription}
+                            onChange={(e) => setCmsCtaDescription(e.target.value)}
+                            rows={3}
+                            className="p-2.5 border-2 border-black font-medium text-xs focus:outline-none focus:bg-gray-50 text-black bg-white"
+                            placeholder="Describe how buyers can easily request samples or standard size packages wholesale..."
+                          />
+                        </div>
+                      </div>
+
+                      {/* Form Actions Footer */}
+                      <div className="border-4 border-black p-4 bg-gray-100 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setSelectedPage(null)
+                            setSubagentStatus(null)
+                          }}
+                          className="px-4 py-2 border-2 border-black bg-white hover:bg-gray-50 text-black font-black text-xs uppercase transition-all"
+                        >
+                          取消退出
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={handleSaveCMS}
+                          disabled={cmsSaving}
+                          className="px-6 py-2.5 border-4 border-black bg-[#FF9800] hover:bg-black hover:text-[#FF9800] disabled:opacity-50 text-black font-black text-xs uppercase flex items-center gap-2 transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                        >
+                          {cmsSaving ? (
+                            <RefreshCw className="w-4 h-4 animate-spin" />
+                          ) : (
+                            <Save className="w-4 h-4" />
+                          )}
+                          <span>儲存並即時覆蓋發佈 (Save & Sync)</span>
+                        </button>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Subagent Optimization Trigger */}
-                  <div className="border-4 border-black p-6 bg-black text-[#D4FF00] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-                    <h3 className="text-lg font-black uppercase mb-2 flex items-center gap-2">
-                      <Zap className="w-5 h-5 text-[#D4FF00] animate-pulse" />
-                      調度 SEO/GEO/SIO 協同 Subagent
-                    </h3>
-                    <p className="text-xs text-white opacity-80 mb-4 uppercase leading-relaxed">
-                      點擊下方按鈕將在後台調度專屬 subagent。它將掃描 pouch.eco 代碼庫，自動執行 B2B 5-Category 關鍵字重構，修復缺失圖片，並生成 Q&A 問答段落。
-                    </p>
-                    
-                    <button 
-                      onClick={() => triggerSubagentAudit(selectedPage)}
-                      className="w-full bg-[#D4FF00] text-black border-4 border-white p-3 font-black text-center hover:bg-white hover:border-[#D4FF00] transition-all uppercase text-xs"
-                    >
-                      🚀 啟動 AI 智能修復與優化 (Trigger Fix)
-                    </button>
-
-                    {subagentStatus && (
-                      <div className="mt-4 bg-[#D4FF00] text-black border-4 border-black p-4 text-xs font-black uppercase leading-normal">
-                        {subagentStatus}
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
               </motion.div>
             </div>

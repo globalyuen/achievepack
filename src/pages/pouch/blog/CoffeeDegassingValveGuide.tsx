@@ -3,8 +3,15 @@ import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import { Link } from 'react-router-dom'
 import { Coffee, Zap, Leaf, DollarSign, Briefcase, Package, CheckCircle, Shield } from 'lucide-react'
 import { NeoCard } from '../../../components/pouch/PouchUI'
+import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
+import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
 
 export default function CoffeeDegassingValveGuide() {
+  const override = useSeoBlogOverride('coffee-degassing-valve-guide')
+  if (override) {
+    return <DynamicBlogArticleRender post={override} />
+  }
+
   const sections = [
     {
       id: 'why-valves-matter',

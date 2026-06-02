@@ -2,6 +2,8 @@ import React from 'react'
 import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import { Link } from 'react-router-dom'
 import { Award, FileCheck, DollarSign, Target, Briefcase, FileText, HelpCircle } from 'lucide-react'
+import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
+import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
 
 interface BlogArticleSection {
   id: string
@@ -11,6 +13,11 @@ interface BlogArticleSection {
 }
 
 export default function BPICertifiedGuide() {
+  const override = useSeoBlogOverride('bpi-certified-guide')
+  if (override) {
+    return <DynamicBlogArticleRender post={override} />
+  }
+
   const sections: BlogArticleSection[] = [
     {
       id: 'what-is-bpi',

@@ -2,8 +2,15 @@ import BlogArticleTemplate from '../../../components/pouch/BlogArticleTemplate'
 import { Link } from 'react-router-dom'
 import { Package, Leaf, Shield, DollarSign, CheckCircle, TrendingUp, Award, Clock, Droplets, Wind, Lock } from 'lucide-react'
 import { NeoCard } from '../../../components/pouch/PouchUI'
+import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
+import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
 
 export default function CompostableStandUpPouchesGuide() {
+  const override = useSeoBlogOverride('compostable-stand-up-pouches-guide')
+  if (override) {
+    return <DynamicBlogArticleRender post={override} />
+  }
+
   const sections = [
     {
       id: 'why-stand-up',

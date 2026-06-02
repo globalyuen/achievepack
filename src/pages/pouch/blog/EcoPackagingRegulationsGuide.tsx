@@ -9,7 +9,15 @@ interface BlogArticleSection {
   content: React.ReactNode
 }
 
+import { useSeoBlogOverride } from '../../../hooks/useSeoBlogOverride'
+import DynamicBlogArticleRender from '../../../components/pouch/DynamicBlogArticleRender'
+
 export default function EcoPackagingRegulationsGuide() {
+  const override = useSeoBlogOverride('eco-packaging-regulations-guide')
+  if (override) {
+    return <DynamicBlogArticleRender post={override} />
+  }
+
   const sections: BlogArticleSection[] = [
     {
       id: 'global-compliance',
