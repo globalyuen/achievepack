@@ -1,9 +1,9 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-02T22:13:11.000Z",
+  "lastUnifiedRun": "2026-06-02T14:22:57.085Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
-  "totalLinkedAnchors": 12,
+  "totalLinkedAnchors": 11,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -12,13 +12,48 @@
     "targetTrafficClicks": 350
   },
   "keywordBank": [
-    { "keyword": "kraft paper zipper doypack", "difficulty": "Low", "volume": 1200, "status": "Published", "slug": "kraft-paper-zipper-doypack" },
-    { "keyword": "compostable spouted baby puree bag", "difficulty": "Medium", "volume": 850, "status": "Staged", "slug": "compostable-spouted-baby-puree-bag" },
-    { "keyword": "recyclable high-barrier nuts pouch", "difficulty": "Low", "volume": 1500, "status": "Pending", "slug": "" },
-    { "keyword": "curbside recyclable coffee bag", "difficulty": "Medium", "volume": 2400, "status": "Pending", "slug": "" },
-    { "keyword": "TUV backyard compostable packaging", "difficulty": "High", "volume": 900, "status": "Pending", "slug": "" }
+    {
+      "keyword": "kraft paper zipper doypack",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Published",
+      "slug": "kraft-paper-zipper-doypack"
+    },
+    {
+      "keyword": "compostable spouted baby puree bag",
+      "difficulty": "Medium",
+      "volume": 850,
+      "status": "Staged",
+      "slug": "compostable-spouted-baby-puree-bag"
+    },
+    {
+      "keyword": "recyclable high-barrier nuts pouch",
+      "difficulty": "Low",
+      "volume": 1500,
+      "status": "Pending",
+      "slug": ""
+    },
+    {
+      "keyword": "curbside recyclable coffee bag",
+      "difficulty": "Medium",
+      "volume": 2400,
+      "status": "Pending",
+      "slug": ""
+    },
+    {
+      "keyword": "TUV backyard compostable packaging",
+      "difficulty": "High",
+      "volume": 900,
+      "status": "Pending",
+      "slug": ""
+    }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-02T14:22:10.978Z",
+      "action": "Autopilot Error",
+      "message": "Pipeline generation failed for keyword \"recyclable high-barrier nuts pouch\": new row violates row-level security policy for table \"pouch_seo_blog\""
+    },
     {
       "timestamp": "2026-06-02T22:13:11.000Z",
       "action": "Autopilot Hub Active",

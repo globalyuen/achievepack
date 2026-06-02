@@ -1,15 +1,15 @@
 {
-  "lastRun": "2026-06-02T14:22:02.971Z",
-  "campaignScore": 82,
+  "lastRun": "2026-06-02T14:26:29.824Z",
+  "campaignScore": 84,
   "campaignTarget": "Compostable Pouches",
   "cronActive": true,
   "cronInterval": "Every 24 Hours",
   "kpiMetrics": {
-    "currentBrandMentions": 5,
+    "currentBrandMentions": 6,
     "targetBrandMentions": 8,
-    "currentGeoScore": 82,
+    "currentGeoScore": 84,
     "targetGeoScore": 85,
-    "currentTrafficClicks": 129,
+    "currentTrafficClicks": 135,
     "targetTrafficClicks": 300,
     "currentRedditEngagement": 35,
     "targetRedditEngagement": 60,
@@ -131,8 +131,9 @@
       "day": 7,
       "task": "Audit results and automatically feed back high-density metrics into the AI generator.",
       "channel": "Optimization Feed",
-      "status": "in-progress",
-      "notes": "Refine prompts based on Perplexity search citations."
+      "status": "completed",
+      "notes": "Refine prompts based on Perplexity search citations. (Automated unified 24h sweep)",
+      "completedAt": "2026-06-02T14:26:29.824Z"
     }
   ],
   "generatedContent": {
