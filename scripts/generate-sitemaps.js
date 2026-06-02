@@ -102,8 +102,25 @@ function generate() {
   const rawData = fs.readFileSync(ROUTE_MAPPING_PATH, 'utf-8');
   const mapping = JSON.parse(rawData);
 
-  const pouchRoutes = mapping.pouch || [];
-  const achieveRoutes = mapping.achieve || [];
+  // Dynamic published Soro articles
+  const autopilotStatePath = path.join(__dirname, '../src/data/autopilot_state.json');
+  let dynamicBlogRoutes = [];
+  if (fs.existsSync(autopilotStatePath)) {
+    try {
+      const apState = JSON.parse(fs.readFileSync(autopilotStatePath, 'utf-8'));
+      if (apState && apState.keywordBank) {
+        dynamicBlogRoutes = apState.keywordBank
+          .filter(k => k.status === 'Published' && k.slug)
+          .map(k => `/blog/${k.slug}`);
+        console.log(`📡 Loaded ${dynamicBlogRoutes.length} dynamic blog routes from autopilot_state.json`);
+      }
+    } catch (e) {
+      console.warn('⚠️ Could not load dynamic blog routes from autopilot_state.json:', e.message);
+    }
+  }
+
+  const pouchRoutes = [...(mapping.pouch || []), ...dynamicBlogRoutes];
+  const achieveRoutes = [...(mapping.achieve || []), ...dynamicBlogRoutes];
 
   console.log(`📊 Loaded ${pouchRoutes.length} B2C (pouch) and ${achieveRoutes.length} B2B (achieve) routes.`);
 

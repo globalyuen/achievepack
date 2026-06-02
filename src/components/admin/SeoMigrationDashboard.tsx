@@ -973,14 +973,35 @@ export default function SeoMigrationDashboard() {
               <div className="space-y-3">
                 {keywordBank.map((kw, idx) => (
                   <div key={idx} className="border-2 border-black p-3 flex justify-between items-center bg-gray-50 text-xs font-bold uppercase">
-                    <div>
-                      <div className="font-black text-sm">{kw.keyword}</div>
-                      <div className="text-[10px] text-gray-500 font-mono mt-1">
-                        量: {kw.volume} | 難度: {kw.difficulty} {kw.slug && `| /blog/${kw.slug}`}
+                    <div className="flex-1 min-w-0 pr-4">
+                      <div className="font-black text-sm truncate">{kw.keyword}</div>
+                      <div className="text-[10px] text-gray-500 font-mono mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <span>量: {kw.volume} | 難度: {kw.difficulty}</span>
+                        {kw.slug && (
+                          <span className="flex items-center gap-1">
+                            <a 
+                              href={`https://achievepack.com/blog/${kw.slug}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:text-blue-800 underline font-bold"
+                            >
+                              ap (b2b)
+                            </a>
+                            <span className="text-gray-300">|</span>
+                            <a 
+                              href={`https://pouch.eco/blog/${kw.slug}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-emerald-600 hover:text-emerald-800 underline font-bold"
+                            >
+                              ep (b2c)
+                            </a>
+                          </span>
+                        )}
                       </div>
                     </div>
                     
-                    <span className={`px-2 py-0.5 border text-[9px] font-black ${
+                    <span className={`px-2 py-0.5 border text-[9px] font-black shrink-0 ${
                       kw.status === 'Published' 
                         ? 'bg-green-100 text-green-800 border-green-300' 
                         : kw.status === 'Staged'

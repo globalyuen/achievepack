@@ -159,6 +159,22 @@ export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword 
 
   const excerpt = `Professional guide to sourcing custom printed ${keyword} with certified high-barrier protections, low minimum orders starting from 100 pieces, and complete green certifications.`;
 
+  const lowerKeyword = keyword.toLowerCase();
+  let selectedImage = '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp';
+  if (lowerKeyword.includes('coffee')) {
+    selectedImage = '/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp';
+  } else if (lowerKeyword.includes('nuts') || lowerKeyword.includes('snack') || lowerKeyword.includes('chips')) {
+    selectedImage = '/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp';
+  } else if (lowerKeyword.includes('baby') || lowerKeyword.includes('puree') || lowerKeyword.includes('food')) {
+    selectedImage = '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp';
+  } else if (lowerKeyword.includes('label')) {
+    selectedImage = '/imgs/seo-photos/usa/label/a_digital_labeling_strategy_0282148.webp';
+  } else if (lowerKeyword.includes('paper') || lowerKeyword.includes('kraft')) {
+    selectedImage = '/imgs/seo-photos/a_achievepack_home_compostable_balcony_9883994.webp';
+  } else if (domain !== 'pouch.eco') {
+    selectedImage = '/imgs/blog/pouch_sizing_density_guide.png';
+  }
+
   // Payload formatting matching pouch_seo_blog schema
   const payload = {
     title: `${keyword.replace(/\b\w/g, c => c.toUpperCase())} Sourcing Guide`,
@@ -166,10 +182,8 @@ export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword 
     category: domain === 'pouch.eco' ? 'Sustainability' : 'Materials',
     excerpt,
     meta_description: excerpt,
-    image_url: domain === 'pouch.eco' 
-      ? '/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp' 
-      : '/imgs/blog/pouch_sizing_density_guide.png',
-    source_url: domain === 'pouch.eco' ? `https://achievepack.com/spec/${slug}` : `https://pouch.eco/blog/${slug}`,
+    image_url: selectedImage,
+    source_url: domain === 'pouch.eco' ? `https://achievepack.com/blog/${slug}` : `https://pouch.eco/blog/${slug}`,
     published_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
     content: {

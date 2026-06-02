@@ -225,6 +225,14 @@ async function main() {
   } catch (err) {
     console.error('[UNIFIED-CRON] Global internal link optimization sweep failed:', err);
   }
+
+  // Dynamic sitemaps generation
+  logMessage('Step 4b: Generating updated B2B & B2C sitemaps with dynamic paths...');
+  try {
+    execSync('node scripts/generate-sitemaps.js', { stdio: 'inherit' });
+  } catch (err) {
+    console.error('[UNIFIED-CRON] Failed to generate sitemaps:', err.message);
+  }
   
   // E. Local git push deploy verification (just like vercel-push-deploy.js)
   logMessage('Step 5: Verifying local Git repo status to push optimizations to edge...');
@@ -253,11 +261,17 @@ async function main() {
   
   // F. Poll live URL online check
   let deployStatus = 'STAGED / DRAFT';
+  let b2bDeployStatus = 'STAGED / DRAFT';
   if (newlyGeneratedPost) {
     const targetUrl = `https://www.pouch.eco/blog/${newlyGeneratedPost.slug}`;
-    logMessage(`Step 6: Confirming live deployment status at: ${targetUrl}`);
+    const targetB2bUrl = `https://achievepack.com/blog/${newlyGeneratedPost.slug}`;
+    logMessage(`Step 6: Confirming live B2C deployment status at: ${targetUrl}`);
     deployStatus = await verifyLiveStatus(targetUrl);
-    logMessage(`   * URL Online Status: ${deployStatus}`);
+    logMessage(`   * B2C URL Online Status: ${deployStatus}`);
+    
+    logMessage(`Step 6b: Confirming live B2B deployment status at: ${targetB2bUrl}`);
+    b2bDeployStatus = await verifyLiveStatus(targetB2bUrl);
+    logMessage(`   * B2B URL Online Status: ${b2bDeployStatus}`);
   }
   
   // G. Compile Telemetry WoW comparison & HTML progress summary
@@ -325,25 +339,36 @@ async function main() {
         <!-- Newly Generated Post card -->
         ${newlyGeneratedPost ? `
           <h3 style="text-transform: uppercase; font-size: 14px; border-bottom: 3px solid black; padding-bottom: 8px; margin-bottom: 15px;">
-            ✨ Newly Published Autopilot Page
+            ✨ Newly Published Autopilot Pages
           </h3>
           <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
             <thead>
               <tr style="background-color: #f3f4f6; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;">
-                <th align="left" style="padding: 10px; border-bottom: 3px solid black;">Soro Target Keyword</th>
+                <th align="left" style="padding: 10px; border-bottom: 3px solid black;">Soro Keyword & Domain</th>
                 <th align="left" style="padding: 10px; border-bottom: 3px solid black;">Edge Canonical Slug</th>
                 <th align="center" style="padding: 10px; border-bottom: 3px solid black; width: 120px;">Deploy Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style="padding: 10px; border-bottom: 2px solid black; font-weight: bold;">🌱 ${newlyGeneratedPost.title}</td>
-                <td style="padding: 10px; border-bottom: 2px solid black; font-family: monospace; font-size: 11px;">
-                  <a href="https://www.pouch.eco/blog/${newlyGeneratedPost.slug}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">/blog/${newlyGeneratedPost.slug}</a>
+                <td style="padding: 10px; border-bottom: 1px solid black; font-weight: bold;">🌱 ${newlyGeneratedPost.title} (B2C ep)</td>
+                <td style="padding: 10px; border-bottom: 1px solid black; font-family: monospace; font-size: 11px;">
+                  <a href="https://www.pouch.eco/blog/${newlyGeneratedPost.slug}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">pouch.eco/blog/${newlyGeneratedPost.slug}</a>
                 </td>
-                <td style="padding: 10px; border-bottom: 2px solid black; text-align: center;">
+                <td style="padding: 10px; border-bottom: 1px solid black; text-align: center;">
                   <span style="background-color: ${deployStatus.includes('200') ? '#dcfce7' : '#fee2e2'}; color: ${deployStatus.includes('200') ? '#166534' : '#991b1b'}; padding: 4px 8px; border: 2px solid black; font-size: 9px; font-weight: bold; text-transform: uppercase;">
                     ${deployStatus}
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 2px solid black; font-weight: bold;">💼 ${newlyGeneratedPost.title} (B2B ap)</td>
+                <td style="padding: 10px; border-bottom: 2px solid black; font-family: monospace; font-size: 11px;">
+                  <a href="https://achievepack.com/blog/${newlyGeneratedPost.slug}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">achievepack.com/blog/${newlyGeneratedPost.slug}</a>
+                </td>
+                <td style="padding: 10px; border-bottom: 2px solid black; text-align: center;">
+                  <span style="background-color: ${b2bDeployStatus.includes('200') ? '#dcfce7' : '#fee2e2'}; color: ${b2bDeployStatus.includes('200') ? '#166534' : '#991b1b'}; padding: 4px 8px; border: 2px solid black; font-size: 9px; font-weight: bold; text-transform: uppercase;">
+                    ${b2bDeployStatus}
                   </span>
                 </td>
               </tr>

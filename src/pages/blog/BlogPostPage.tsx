@@ -1,15 +1,44 @@
 import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
-import { Calendar, Clock, Tag, Share2, List, ChevronRight, ArrowUp, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, Tag, Share2, List, ChevronRight, ArrowUp, ArrowLeft, Loader2 } from 'lucide-react';
 import { useState, useMemo, useEffect, useTransition, useCallback } from 'react';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
-import { useSeoBlogOverride } from '../../hooks/useSeoBlogOverride';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
-  const override = useSeoBlogOverride(slug || '');
+  const [override, setOverride] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const staticPost = useMemo(() => blogPosts.find(p => p.slug === slug), [slug]);
+
+  useEffect(() => {
+    async function fetchPost() {
+      if (!slug) return;
+      setLoading(true);
+      try {
+        const { data, error } = await supabase
+          .from('pouch_seo_blog')
+          .select('*')
+          .eq('slug', slug)
+          .maybeSingle();
+
+        if (error) throw error;
+        setOverride(data);
+      } catch (err) {
+        console.error('Error fetching dynamic post:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPost();
+  }, [slug]);
+
   const [showToc, setShowToc] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const navigate = useNavigate();
@@ -45,7 +74,6 @@ export default function BlogPostPage() {
 
   // Transparently override the static post object with the real-time Supabase CMS record
   const post = useMemo(() => {
-    const staticPost = blogPosts.find(p => p.slug === slug);
     if (override) {
       return {
         id: override.slug,
@@ -64,7 +92,7 @@ export default function BlogPostPage() {
       };
     }
     return staticPost;
-  }, [slug, override, overrideHtml]);
+  }, [staticPost, override, overrideHtml]);
 
   // Optimized navigation for INP
   const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
@@ -110,6 +138,14 @@ export default function BlogPostPage() {
     }
     setShowToc(false);
   };
+
+  if (loading && !staticPost) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-neutral-50">
+        <Loader2 className="w-12 h-12 animate-spin text-green-600" />
+      </div>
+    );
+  }
 
   if (!post) {
     return <Navigate to="/blog" replace />;

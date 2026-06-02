@@ -1,9 +1,9 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-02T14:28:45.973Z",
+  "lastUnifiedRun": "2026-06-02T14:54:48.147Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
-  "totalLinkedAnchors": 13,
+  "totalLinkedAnchors": 15,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -23,7 +23,7 @@
       "keyword": "compostable spouted baby puree bag",
       "difficulty": "Medium",
       "volume": 850,
-      "status": "Staged",
+      "status": "Published",
       "slug": "compostable-spouted-baby-puree-bag"
     },
     {
@@ -37,8 +37,8 @@
       "keyword": "curbside recyclable coffee bag",
       "difficulty": "Medium",
       "volume": 2400,
-      "status": "Pending",
-      "slug": ""
+      "status": "Published",
+      "slug": "curbside-recyclable-coffee-bag"
     },
     {
       "keyword": "TUV backyard compostable packaging",
@@ -49,6 +49,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-02T14:52:52.542Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"curbside recyclable coffee bag\" to /blog/curbside-recyclable-coffee-bag"
+    },
     {
       "timestamp": "2026-06-02T14:26:35.974Z",
       "action": "Autopilot Generation",

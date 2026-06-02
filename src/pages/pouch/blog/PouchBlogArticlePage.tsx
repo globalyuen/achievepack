@@ -102,6 +102,7 @@ export default function PouchBlogArticlePage() {
       publishedDate={post.published_at}
       modifiedDate={post.updated_at}
       sections={sections}
+      faqSections={post.content?.faqs || []}
       ctaTitle={post.content?.cta?.title}
       ctaDescription={post.content?.cta?.description}
       achievePackLink={post.source_url}
