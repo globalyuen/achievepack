@@ -5,14 +5,64 @@ import { Calendar, Clock, Tag, Share2, List, ChevronRight, ArrowUp, ArrowLeft } 
 import { useState, useMemo, useEffect, useTransition, useCallback } from 'react';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
+import { useSeoBlogOverride } from '../../hooks/useSeoBlogOverride';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
-  const post = blogPosts.find(p => p.slug === slug);
+  const override = useSeoBlogOverride(slug || '');
   const [showToc, setShowToc] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const navigate = useNavigate();
   const [, startTransition] = useTransition();
+
+  // Dynamically map dynamic CMS overrides into standard B2B HTML format
+  const overrideHtml = useMemo(() => {
+    if (!override || !override.content) return '';
+    
+    let html = '';
+    const sections = override.content.sections || [];
+    sections.forEach((sec: any) => {
+      html += `<h2>${sec.title}</h2><div>${sec.content}</div>`;
+    });
+
+    const faqs = override.content.faqs || [];
+    if (faqs.length > 0) {
+      html += `<h2>Frequently Asked Questions</h2>`;
+      faqs.forEach((faq: any) => {
+        html += `<div style="margin-bottom: 1.5rem; padding: 1.25rem; background-color: #f9fafb; border-left: 4px solid #10b981; border-radius: 4px;">
+          <h4 style="margin: 0 0 0.5rem 0; color: #111827; font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>💡</span> ${faq.q}
+          </h4>
+          <p style="margin: 0; color: #4b5563; font-size: 0.9rem; line-height: 1.6;">${faq.a}</p>
+        </div>`;
+      });
+    }
+
+    return html;
+  }, [override]);
+
+  // Transparently override the static post object with the real-time Supabase CMS record
+  const post = useMemo(() => {
+    const staticPost = blogPosts.find(p => p.slug === slug);
+    if (override) {
+      return {
+        id: override.slug,
+        slug: override.slug,
+        title: override.title,
+        excerpt: override.excerpt || staticPost?.excerpt || '',
+        content: overrideHtml || staticPost?.content || '',
+        author: 'Ryan Wong',
+        publishDate: override.published_at?.substring(0, 10) || staticPost?.publishDate || new Date().toISOString().substring(0, 10),
+        updatedDate: override.updated_at?.substring(0, 10) || staticPost?.updatedDate || staticPost?.publishDate || new Date().toISOString().substring(0, 10),
+        category: override.category || staticPost?.category || 'Packaging',
+        tags: staticPost?.tags || [override.category || 'packaging', 'sustainable', 'b2b'],
+        featuredImage: override.image_url || staticPost?.featuredImage || '/imgs/blog/default.jpg',
+        readTime: staticPost?.readTime || 8,
+        metaDescription: override.meta_description || staticPost?.metaDescription || ''
+      };
+    }
+    return staticPost;
+  }, [slug, override, overrideHtml]);
 
   // Optimized navigation for INP
   const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
