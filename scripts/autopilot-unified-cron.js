@@ -38,7 +38,7 @@ const GSC_REPORT_PATH = path.join(__dirname, '../docs/GSC_COVERAGE_REPORT.md');
 const ADMIN_EMAIL = 'ryan@achievepack.com';
 
 const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 let supabase = null;
 if (supabaseUrl && supabaseKey) {
@@ -401,11 +401,36 @@ async function main() {
       logMessage(`Email campaign endpoint responded with status: ${res.statusCode}`);
       
       // Update Autopilot State file
-      autopilotState.lastUnifiedRun = new Date().toISOString();
+      const finalRunTime = new Date().toISOString();
+      autopilotState.lastUnifiedRun = finalRunTime;
       fs.writeFileSync(AUTOPILOT_STATE_PATH, JSON.stringify(autopilotState, null, 2), 'utf-8');
       
-      logMessage('🎉 UNIFIED SCHEDULER SWEEP COMPLETED SUCCESSFULLY!');
-      process.exit(0);
+      // Mirror state dynamically to Supabase webhook_logs so Admin Panel reflects it immediately!
+      if (supabase) {
+        logMessage('Syncing final Autopilot state back to Supabase webhook_logs config...');
+        supabase.from('webhook_logs').insert([{
+          source: 'soro_autopilot_config',
+          status: 'Config',
+          message: 'Soro Autopilot Scheduled Sweep Synchronized',
+          raw_data: {
+            autopilotMode: autopilotState.autopilotMode,
+            keywordBank: autopilotState.keywordBank,
+            logs: autopilotState.logs,
+            totalLinkedAnchors: autopilotState.totalLinkedAnchors
+          }
+        }]).then(({ error }) => {
+          if (error) {
+            console.error('Failed to sync final autopilot config to Supabase:', error);
+          } else {
+            logMessage('✅ Autopilot state successfully synchronized to Supabase webhook_logs.');
+          }
+          logMessage('🎉 UNIFIED SCHEDULER SWEEP COMPLETED SUCCESSFULLY!');
+          process.exit(0);
+        });
+      } else {
+        logMessage('🎉 UNIFIED SCHEDULER SWEEP COMPLETED SUCCESSFULLY!');
+        process.exit(0);
+      }
     });
   });
 
