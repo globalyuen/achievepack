@@ -113,9 +113,18 @@ export default function BlogPostPage() {
     return <Navigate to="/blog" replace />;
   }
 
-  const relatedPosts = blogPosts
-    .filter(p => p.id !== post.id && (p.category === post.category || p.tags.some(t => post.tags.includes(t))))
-    .slice(0, 3);
+  const relatedPosts = useMemo(() => {
+    const matched = blogPosts.filter(
+      p => p.id !== post.id && (p.category === post.category || p.tags.some(t => post.tags.includes(t)))
+    );
+    const fallbacks = blogPosts.filter(p => p.id !== post.id && !matched.some(m => m.id === p.id));
+    const merged = [...matched];
+    for (const p of fallbacks) {
+      if (merged.length >= 3) break;
+      merged.push(p);
+    }
+    return merged.slice(0, 3);
+  }, [post]);
 
   const handleShare = async () => {
     if (navigator.share) {

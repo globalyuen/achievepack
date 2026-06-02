@@ -720,6 +720,87 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
     ].filter(Boolean)
   }
 
+  // A curated list of default B2C related resources
+  const defaultB2cLinks = useMemo(() => [
+    {
+      title: 'BPI Certified Compostable Guide',
+      url: '/blog/bpi-certified-guide',
+      description: 'Understanding ASTM D6400 and certified circular industrial composting.'
+    },
+    {
+      title: 'Freshness Coffee Degassing Valves',
+      url: '/blog/coffee-degassing-valve-guide',
+      description: 'Why one-way degassing valves are mandatory for seam stability and off-gassing.'
+    },
+    {
+      title: 'Compostable Stand-Up Pouches',
+      url: '/blog/compostable-stand-up-pouches-guide',
+      description: 'Transitioning food startups to plant-based compostable flexible packaging.'
+    },
+    {
+      title: 'Cellulose Materials Crack Prevention',
+      url: '/blog/compostable-humidity-control-guide',
+      description: 'Prevent brittleness and shelf leaks with proper high-barrier humidity controls.'
+    },
+    {
+      title: 'Global Compliance & Regulations',
+      url: '/blog/eco-packaging-regulations-guide',
+      description: 'A complete guide to international green claims and FDA/FTC requirements.'
+    }
+  ], []);
+
+  // A curated list of default B2B related resources
+  const defaultB2bLinks = useMemo(() => [
+    {
+      title: 'Stand Up Pouches Guide',
+      url: '/packaging/stand-up-pouches',
+      description: 'Learn about the most versatile B2B flexible packaging format.'
+    },
+    {
+      title: 'Compostable Materials Guide',
+      url: '/materials/compostable',
+      description: 'A complete scientific overview of bio-based ASTM D6400 certified polymers.'
+    },
+    {
+      title: 'PCR Recycled Packaging',
+      url: '/materials/pcr',
+      description: 'Explore Post-Consumer Recycled plastics for high-level circular economy compliance.'
+    },
+    {
+      title: 'EU PPWR Compliance Guide',
+      url: '/topics/eu-ppwr-compliance',
+      description: 'Master the Packaging and Packaging Waste Regulation requirements for exporting.'
+    },
+    {
+      title: 'Low MOQ Wholesale Solutions',
+      url: '/products/low-moq-packaging',
+      description: 'Starter runs starting from just 500 units for new startups.'
+    }
+  ], []);
+
+  const activeRelatedLinks = useMemo(() => {
+    const isPouch = getDomain() === 'pouch';
+    const defaults = isPouch ? defaultB2cLinks : defaultB2bLinks;
+    
+    // Filter out the active page to avoid recommending itself
+    const candidates = defaults.filter(item => {
+      const pathOnly = item.url.startsWith('/') ? item.url : new URL(item.url).pathname;
+      return !location.pathname.endsWith(pathOnly);
+    });
+
+    const list = relatedLinks ? [...relatedLinks] : [];
+    
+    // Fill up to exactly 3 suggestions
+    for (const item of candidates) {
+      if (list.length >= 3) break;
+      if (!list.some(existing => existing.url === item.url)) {
+        list.push(item);
+      }
+    }
+    
+    return list.slice(0, 3);
+  }, [relatedLinks, location.pathname, defaultB2cLinks, defaultB2bLinks]);
+
   if (getDomain() === 'pouch') {
     return (
       <>
@@ -996,11 +1077,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                   )}
 
                   {/* Related Links */}
-                  {relatedLinks && relatedLinks.length > 0 && (
+                  {activeRelatedLinks && activeRelatedLinks.length > 0 && (
                     <section className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                       <h2 className="font-black text-2xl md:text-3xl uppercase mb-6">Related Resources</h2>
-                      <div className="grid sm:grid-cols-2 gap-6">
-                        {relatedLinks.map((link, idx) => (
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {activeRelatedLinks.map((link, idx) => (
                           <Link
                             key={idx}
                             to={link.url}
@@ -1391,11 +1472,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
               )}
 
               {/* Related Links */}
-              {relatedLinks && relatedLinks.length > 0 && (
+              {activeRelatedLinks && activeRelatedLinks.length > 0 && (
                 <section className="bg-neutral-100 rounded-xl p-6 md:p-8">
                   <h2 className="text-xl font-bold text-neutral-900 mb-4">{t('seoPages.relatedResources')}</h2>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    {relatedLinks.map((link, idx) => (
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {activeRelatedLinks.map((link, idx) => (
                       <Link
                         key={idx}
                         to={link.url}

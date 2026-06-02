@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { ExternalLink, Calendar, Clock, ArrowRight, Building2, Award, Shield, HelpCircle, ChevronDown } from 'lucide-react'
@@ -85,6 +85,54 @@ export default function BlogArticleTemplate({
 }: BlogArticleProps) {
   
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
+
+  // A curated list of default B2C articles to suggest for maximum reader retention
+  const defaultRelatedArticles = [
+    {
+      title: 'BPI Certified Compostable Guide: compliance and ASTM D6400',
+      url: '/blog/bpi-certified-guide',
+      image: '/imgs/company/bpi/bpipouch.webp'
+    },
+    {
+      title: 'One-Way Coffee Degassing Valves: Freshness and Structural Seams',
+      url: '/blog/coffee-degassing-valve-guide',
+      image: '/imgs/blog/coffee_degassing_valve.png'
+    },
+    {
+      title: 'Compostable Stand-Up Pouches: B2B Procurement transition',
+      url: '/blog/compostable-stand-up-pouches-guide',
+      image: '/imgs/company/materials/stand-up-pouch.webp'
+    },
+    {
+      title: 'Cellulose Compostable Materials: Why pouches crack',
+      url: '/blog/compostable-humidity-control-guide',
+      image: '/imgs/seo-photos/kraft/a_humidity_control_kraft_pouch_9185012.webp'
+    },
+    {
+      title: 'Global Compliance: EU PPWR & US Compostable regulations',
+      url: '/blog/eco-packaging-regulations-guide',
+      image: '/imgs/company/regulations.webp'
+    }
+  ];
+
+  // Merge provided relatedArticles with default fallbacks to guarantee at least 3 suggestions
+  const activeRelatedArticles = useMemo(() => {
+    // Filter out the current article from suggestion candidates to prevent recommending the same page!
+    const candidates = defaultRelatedArticles.filter(item => !canonicalUrl.endsWith(item.url));
+    
+    // Start with the passed props list
+    const list = [...relatedArticles];
+    
+    // Fill up to exactly 3 suggestions
+    for (const item of candidates) {
+      if (list.length >= 3) break;
+      if (!list.some(existing => existing.url === item.url)) {
+        list.push(item);
+      }
+    }
+    
+    return list.slice(0, 3);
+  }, [relatedArticles, canonicalUrl]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -462,14 +510,14 @@ export default function BlogArticleTemplate({
       )}
 
       {/* Related Articles */}
-      {relatedArticles.length > 0 && (
+      {activeRelatedArticles.length > 0 && (
         <section className="py-16 px-4 bg-white border-t-4 border-black">
           <div className="max-w-5xl mx-auto">
             <h2 className="font-black text-3xl md:text-4xl uppercase mb-8">
               <span className="bg-[#D4FF00] px-2">Keep Reading</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              {relatedArticles.map((article, idx) => (
+              {activeRelatedArticles.map((article, idx) => (
                 <a
                   key={idx}
                   href={article.url}
