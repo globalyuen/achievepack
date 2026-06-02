@@ -2270,7 +2270,7 @@ const ArtworkBatchesPage: React.FC = () => {
       <div className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:overflow-hidden">
         <div className="flex flex-col lg:flex-row gap-6 h-full lg:overflow-hidden">
           {/* Left: Batch List */}
-          <div className="w-full lg:w-80 flex-shrink-0 lg:h-full flex flex-col relative">
+          <div className={`w-full lg:w-80 flex-shrink-0 lg:h-full flex flex-col relative ${selectedBatch ? 'hidden lg:flex' : 'flex'}`}>
             <div className="bg-white rounded-xl border border-gray-200 flex flex-col lg:h-full overflow-hidden shadow-sm">
               <div className="p-4 border-b border-gray-100">
                 <div className="flex items-center justify-between mb-3">
@@ -2438,11 +2438,19 @@ const ArtworkBatchesPage: React.FC = () => {
           </div>
 
           {/* Right: Batch Detail */}
-          <div className="flex-1 min-w-0 lg:h-full lg:overflow-y-auto lg:pr-1">
+          <div className={`flex-1 min-w-0 lg:h-full lg:overflow-y-auto lg:pr-1 ${selectedBatch ? 'block' : 'hidden lg:block'}`}>
             {selectedBatch ? (
               <div className="space-y-6">
                 {/* Batch Header */}
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  {/* Mobile Back Button */}
+                  <button
+                    onClick={() => setSelectedBatch(null)}
+                    className="lg:hidden flex items-center gap-1.5 text-sm font-bold text-primary-600 hover:text-primary-700 mb-4 transition bg-primary-50 px-3 py-1.5 rounded-lg w-fit"
+                  >
+                    <ArrowLeft className="h-4 w-4" />
+                    Back to Batches
+                  </button>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
                       {editingBatchName ? (

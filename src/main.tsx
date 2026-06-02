@@ -803,6 +803,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/support/color-accuracy-digital-printing" element={<PouchColorAccuracyPage />} />
                   <Route path="/quote" element={<QuotationViewPage />} />
                   <Route path="/quote/:id" element={<QuotationViewPage />} />
+                  <Route path="/artwork-review/:batchId" element={<ArtworkReviewPage />} />
                   <Route path="/support/sample-quote" element={<CustomPrintedSamplePage />} />
                   <Route path="/support/unprinted-samples" element={<UnprintedSamplesPage />} />
                   <Route path="/support/color-accuracy-digital-printing" element={<ColorAccuracyDigitalPrintingPage />} />

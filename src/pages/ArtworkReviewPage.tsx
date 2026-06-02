@@ -743,22 +743,22 @@ const ArtworkReviewPage: React.FC = () => {
         )}
 
         {/* Progress Stats */}
-        <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="bg-white rounded-xl border border-gray-200 p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-6">
+          <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
             <div className="flex items-center gap-2">
               <Clock className="h-5 w-5 text-gray-400" />
               <span className="text-sm text-gray-500">{isSupplier ? '待审核' : 'Pending'}</span>
             </div>
             <p className="text-2xl font-bold text-gray-900 mt-1">{stats.pending}</p>
           </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-green-500" />
               <span className="text-sm text-gray-500">{isSupplier ? '已批准' : 'Approved'}</span>
             </div>
             <p className="text-2xl font-bold text-green-600 mt-1">{stats.approved}</p>
           </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-4">
+          <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
             <div className="flex items-center gap-2">
               <AlertCircle className="h-5 w-5 text-red-500" />
               <span className="text-sm text-gray-500">{isSupplier ? '需要修改' : 'Need Revision'}</span>
@@ -813,7 +813,7 @@ const ArtworkReviewPage: React.FC = () => {
             </select>
           </div>
           {/* Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-gray-100">
+          <div className="flex overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden items-center gap-2 mt-4 pt-4 border-t border-gray-100 pb-2 -mx-4 px-4 whitespace-nowrap sm:-mx-0 sm:px-0 sm:flex-wrap sm:pb-0">
             {[
               { id: 'all', label: isSupplier ? '全部' : 'All', icon: CheckCircle },
               { id: 'with-comment', label: isSupplier ? '有留言' : 'Comments', icon: MessageSquare },
@@ -1506,18 +1506,18 @@ const ReviewModal: React.FC<{
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center p-4 bg-black/50 overflow-y-auto">
-      <div className="bg-white rounded-2xl max-w-4xl w-full my-8 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-start justify-center sm:p-4 bg-black/50 overflow-y-auto">
+      <div className="bg-white sm:rounded-2xl max-w-4xl w-full sm:my-8 min-h-screen sm:min-h-0 shadow-2xl flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b">
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b sticky top-0 bg-white z-20 sm:rounded-t-2xl">
           <h2 className="text-xl font-bold text-gray-900">Review Artwork</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 transition p-1 hover:bg-gray-100 rounded-full">
             <X className="h-6 w-6" />
           </button>
         </div>
         
-        <div className="p-6">
-          <div className="grid md:grid-cols-2 gap-8">
+        <div className="p-4 sm:p-6 flex-1">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             {/* Left: Image Preview */}
             <div>
               <div 
@@ -1964,7 +1964,7 @@ const ReviewModal: React.FC<{
         </div>
         
         {/* Footer */}
-        <div className="flex gap-4 p-6 border-t bg-gray-50 rounded-b-2xl">
+        <div className="flex gap-3 sm:gap-4 p-4 sm:p-6 border-t bg-gray-50 sticky bottom-0 z-20 sm:rounded-b-2xl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
           <button
             onClick={onClose}
             className={`px-6 py-3.5 border border-gray-200 text-gray-700 font-bold rounded-xl hover:bg-white transition shadow-sm ${isSupplier ? 'w-full' : 'flex-1'}`}
