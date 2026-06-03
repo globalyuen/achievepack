@@ -34,13 +34,15 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 async function test() {
   const { data, error } = await supabase
     .from('pouch_seo_blog')
-    .select('*')
-    .limit(1)
+    .select('slug, title, content')
   
   if (error) {
     console.error('Error fetching pouch_seo_blog:', error)
   } else {
-    console.log('First article in pouch_seo_blog:', JSON.stringify(data ? data[0] : null, null, 2))
+    console.log('--- ALL SEO ARTICLES ---')
+    data.forEach(p => {
+      console.log(`- Slug: ${p.slug} | Approved: ${p.content?.approved} | Title: ${p.title}`)
+    })
   }
 }
 

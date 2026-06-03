@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T16:30:53.474Z",
+  "lastUnifiedRun": "2026-06-03T16:38:53.971Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 108,
+  "totalLinkedAnchors": 112,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -97,17 +97,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "eco-friendly-pouch-sizes-chart",
       "status": "Pending Approval",
       "volume": 1400,
       "keyword": "eco friendly pouch sizes chart",
-      "difficulty": "Low",
-      "slug": "eco-friendly-pouch-sizes-chart"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1600,
       "keyword": "sustainable sachet packaging solutions",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-sachet-packaging-solutions"
     },
     {
       "status": "Pending",
@@ -190,9 +191,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T16:30:24.150Z",
+      "timestamp": "2026-06-03T16:36:41.502Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly pouch sizes chart\" to /blog/eco-friendly-pouch-sizes-chart (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet packaging solutions\" to /blog/sustainable-sachet-packaging-solutions (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly pouch sizes chart\" to /blog/eco-friendly-pouch-sizes-chart (Pending Approval)",
+      "timestamp": "2026-06-03T16:30:24.150Z"
     },
     {
       "action": "Autopilot Generation Draft",
