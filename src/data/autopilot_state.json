@@ -1,6 +1,6 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-03T08:45:12.417Z",
+  "lastUnifiedRun": "2026-06-03T08:51:13.026Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
   "totalLinkedAnchors": 28,
@@ -16,64 +16,55 @@
       "keyword": "kraft paper zipper doypack",
       "difficulty": "Low",
       "volume": 1200,
-      "status": "Published",
-      "slug": "kraft-paper-zipper-doypack"
+      "status": "Pending"
     },
     {
       "keyword": "compostable spouted baby puree bag",
       "difficulty": "Medium",
       "volume": 850,
-      "status": "Published",
-      "slug": "compostable-spouted-baby-puree-bag"
+      "status": "Pending"
     },
     {
       "keyword": "recyclable high-barrier nuts pouch",
       "difficulty": "Low",
       "volume": 1500,
-      "status": "Published",
-      "slug": "recyclable-high-barrier-nuts-pouch"
+      "status": "Pending"
     },
     {
       "keyword": "curbside recyclable coffee bag",
       "difficulty": "Medium",
       "volume": 2400,
-      "status": "Published",
-      "slug": "curbside-recyclable-coffee-bag"
+      "status": "Pending"
     },
     {
       "keyword": "TUV backyard compostable packaging",
       "difficulty": "High",
       "volume": 900,
-      "status": "Published",
-      "slug": "tuv-backyard-compostable-packaging"
+      "status": "Pending"
     },
     {
       "keyword": "high-barrier retort pouch",
       "difficulty": "Medium",
       "volume": 1100,
-      "status": "Published",
-      "slug": "high-barrier-retort-pouch"
+      "status": "Pending"
     },
     {
       "keyword": "plastic-free compostable barrier pouch",
       "difficulty": "Medium",
       "volume": 950,
-      "status": "Published",
-      "slug": "plastic-free-compostable-barrier-pouch"
+      "status": "Pending"
     },
     {
       "keyword": "custom shape die-cut pouch",
       "difficulty": "Medium",
       "volume": 1300,
-      "status": "Published",
-      "slug": "custom-shape-die-cut-pouch"
+      "status": "Pending"
     },
     {
       "keyword": "mono-pe recyclable food packaging",
       "difficulty": "Low",
       "volume": 1800,
-      "status": "Published",
-      "slug": "mono-pe-recyclable-food-packaging"
+      "status": "Pending"
     }
   ],
   "logs": [
