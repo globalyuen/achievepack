@@ -512,7 +512,6 @@ export default function PouchEcoGPTKPage() {
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900 font-['Outfit'] leading-tight">
               Flexible Packaging Pricing for{' '}
               <span className="block mt-2">
-                B2B{' '}
                 <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-indigo-600 py-1">
                   <AnimatePresence mode="wait">
                     <motion.span
