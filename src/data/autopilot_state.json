@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T17:30:50.360Z",
+  "lastUnifiedRun": "2026-06-03T17:45:57.552Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 120,
@@ -132,17 +132,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "stand-up-pouch-4-oz-dimensions",
       "status": "Pending Approval",
       "volume": 1700,
       "keyword": "stand up pouch 4 oz dimensions",
-      "difficulty": "Low",
-      "slug": "stand-up-pouch-4-oz-dimensions"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "compostable flat bottom bags",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-flat-bottom-bags"
     },
     {
       "status": "Pending",
@@ -191,13 +192,126 @@
       "volume": 1750,
       "keyword": "sustainable packaging for pet food pouches",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "compostable stand up pouches with spout",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed sachet packaging wholesale",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch dimensions for 6 oz",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed barrier pouches small batch",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable high barrier film suppliers",
+      "difficulty": "Medium",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable flat bottom pouch sizes",
+      "difficulty": "Low",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono pe compostable sachet options",
+      "difficulty": "Low",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shape pouches for liquids",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable barrier sachets for coffee",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch 2 oz size chart",
+      "difficulty": "Low",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly digital print bags",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable pouch sourcing for snacks",
+      "difficulty": "Medium",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier sustainable flexible films",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom sachet dimensions for powders",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "printed compostable retort bags",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "low minimum digital pouch printing",
+      "difficulty": "Low",
+      "volume": 1050,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable stand up pouch suppliers",
+      "difficulty": "Medium",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "flexible packaging sachet size guide",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T17:30:22.620Z",
+      "timestamp": "2026-06-03T17:45:29.593Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch 4 oz dimensions\" to /blog/stand-up-pouch-4-oz-dimensions (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable flat bottom bags\" to /blog/compostable-flat-bottom-bags (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch 4 oz dimensions\" to /blog/stand-up-pouch-4-oz-dimensions (Pending Approval)",
+      "timestamp": "2026-06-03T17:30:22.620Z"
     },
     {
       "action": "Autopilot Generation Draft",
