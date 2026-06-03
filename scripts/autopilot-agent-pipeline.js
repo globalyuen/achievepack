@@ -41,8 +41,8 @@ if (supabaseUrl && supabaseKey) {
  * @param {boolean} publishDirectly If true, publishes to Supabase; otherwise saves as staged draft
  * @returns {Promise<any>} Deployed/staged article details
  */
-export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword = '', publishDirectly = true) {
-  console.log(`\n🤖 [PILOT-ENGINE] Initializing Multi-Agent Grok-3 Pipeline for keyword: "${keyword}" (Domain: ${domain})...`);
+export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword = '', publishDirectly = true, customSlug = null) {
+  console.log(`\n🤖 [PILOT-ENGINE] Initializing Multi-Agent Grok-3 Pipeline for keyword: "${keyword}" (Domain: ${domain}, CustomSlug: ${customSlug})...`);
   
   if (!keyword) {
     throw new Error('Keyword is mandatory for Soro Autopilot Generation.');
@@ -53,7 +53,7 @@ export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword 
     throw new Error('Missing XAI_API_KEY for content generation. Please check .env.local');
   }
 
-  const slug = keyword
+  const slug = customSlug || keyword
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
     .replace(/\s+/g, '-')

@@ -132,17 +132,46 @@ export default function SeoMigrationDashboard() {
   const handleDiscoverKeywords = async () => {
     setRefreshing(true);
     setTimeout(async () => {
-      const newKeywords = [
+      const keywordPool = [
         { keyword: "certified bio-kraft pouch wholesale", difficulty: "Low", volume: 1400, status: "Pending", slug: "" },
-        { keyword: "recyclable high-barrier mono-pp bags", difficulty: "Medium", volume: 1100, status: "Pending", slug: "" }
+        { keyword: "recyclable high-barrier mono-pp bags", difficulty: "Medium", volume: 1100, status: "Pending", slug: "" },
+        { keyword: "compostable degassing coffee valve bags", difficulty: "Low", volume: 1300, status: "Pending", slug: "" },
+        { keyword: "eco-friendly custom shape die-cut pouches", difficulty: "Medium", volume: 1250, status: "Pending", slug: "" },
+        { keyword: "monolayer recyclable snack packaging", difficulty: "Low", volume: 1550, status: "Pending", slug: "" },
+        { keyword: "high-temperature retort bag wholesale", difficulty: "Medium", volume: 1050, status: "Pending", slug: "" },
+        { keyword: "BPI certified compostable stand up pouches", difficulty: "Low", volume: 1650, status: "Pending", slug: "" },
+        { keyword: "custom printed compostable food packaging", difficulty: "Medium", volume: 1200, status: "Pending", slug: "" },
+        { keyword: "biodegradable flat bottom coffee bag", difficulty: "Low", volume: 1450, status: "Pending", slug: "" },
+        { keyword: "100% recyclable mono-material barrier doypack", difficulty: "Medium", volume: 1150, status: "Pending", slug: "" }
       ];
       
       const updatedBank = [...keywordBank];
-      newKeywords.forEach(nk => {
-        if (!updatedBank.some(k => k.keyword.toLowerCase() === nk.keyword.toLowerCase())) {
-          updatedBank.push(nk);
+      let addedCount = 0;
+      
+      for (const item of keywordPool) {
+        if (!updatedBank.some(k => k.keyword.toLowerCase() === item.keyword.toLowerCase())) {
+          updatedBank.push(item);
+          addedCount++;
+          if (addedCount >= 2) break;
         }
-      });
+      }
+      
+      // If we could not find at least 2 new keywords from the pool, generate fallback items with version numbers
+      if (addedCount < 2) {
+        const indexOffset = updatedBank.length;
+        const fallbacks = [
+          { keyword: `eco-barrier packaging custom run v${indexOffset + 1}`, difficulty: "Low", volume: 820 + (indexOffset * 8), status: "Pending", slug: "" },
+          { keyword: `compostable zero-waste pouch wholesale v${indexOffset + 2}`, difficulty: "Medium", volume: 960 + (indexOffset * 11), status: "Pending", slug: "" }
+        ];
+        
+        fallbacks.forEach(nk => {
+          if (addedCount < 2 && !updatedBank.some(k => k.keyword.toLowerCase() === nk.keyword.toLowerCase())) {
+            updatedBank.push(nk);
+            addedCount++;
+          }
+        });
+      }
+
       setKeywordBank(updatedBank);
 
       const log = {
