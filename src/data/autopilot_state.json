@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T18:00:54.329Z",
+  "lastUnifiedRun": "2026-06-03T18:15:53.549Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 123,
+  "totalLinkedAnchors": 127,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -146,17 +146,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-printing-on-flexible-packaging",
       "status": "Pending Approval",
       "volume": 2400,
       "keyword": "digital printing on flexible packaging",
-      "difficulty": "Medium",
-      "slug": "digital-printing-on-flexible-packaging"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "custom sachet filling and sealing",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-sachet-filling-and-sealing"
     },
     {
       "status": "Pending",
@@ -305,9 +306,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T18:00:23.846Z",
+      "timestamp": "2026-06-03T18:15:23.801Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printing on flexible packaging\" to /blog/digital-printing-on-flexible-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom sachet filling and sealing\" to /blog/custom-sachet-filling-and-sealing (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printing on flexible packaging\" to /blog/digital-printing-on-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-03T18:00:23.846Z"
     },
     {
       "action": "Autopilot Generation Draft",
