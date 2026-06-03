@@ -1,9 +1,9 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-02T14:54:48.147Z",
+  "lastUnifiedRun": "2026-06-03T06:07:00.140Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
-  "totalLinkedAnchors": 15,
+  "totalLinkedAnchors": 17,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -44,11 +44,40 @@
       "keyword": "TUV backyard compostable packaging",
       "difficulty": "High",
       "volume": 900,
-      "status": "Pending",
-      "slug": ""
+      "status": "Published",
+      "slug": "tuv-backyard-compostable-packaging"
+    },
+    {
+      "keyword": "high-barrier retort pouch",
+      "difficulty": "Medium",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "plastic-free compostable barrier pouch",
+      "difficulty": "Medium",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shape die-cut pouch",
+      "difficulty": "Medium",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono-pe recyclable food packaging",
+      "difficulty": "Low",
+      "volume": 1800,
+      "status": "Pending"
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-03T06:04:58.301Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"TUV backyard compostable packaging\" to /blog/tuv-backyard-compostable-packaging"
+    },
     {
       "timestamp": "2026-06-02T14:52:52.542Z",
       "action": "Autopilot Generation",
