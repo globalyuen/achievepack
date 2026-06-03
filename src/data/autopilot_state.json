@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T20:16:04.365Z",
+  "lastUnifiedRun": "2026-06-03T20:30:55.472Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 148,
+  "totalLinkedAnchors": 152,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -209,17 +209,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-printed-sachet-packaging-wholesale",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "custom printed sachet packaging wholesale",
-      "difficulty": "Low",
-      "slug": "custom-printed-sachet-packaging-wholesale"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "stand up pouch dimensions for 6 oz",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "stand-up-pouch-dimensions-for-6-oz"
     },
     {
       "status": "Pending",
@@ -314,9 +315,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T20:15:33.704Z",
+      "timestamp": "2026-06-03T20:30:23.309Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom printed sachet packaging wholesale\" to /blog/custom-printed-sachet-packaging-wholesale (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch dimensions for 6 oz\" to /blog/stand-up-pouch-dimensions-for-6-oz (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed sachet packaging wholesale\" to /blog/custom-printed-sachet-packaging-wholesale (Pending Approval)",
+      "timestamp": "2026-06-03T20:15:33.704Z"
     },
     {
       "action": "Autopilot Generation Draft",
