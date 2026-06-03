@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T19:45:51.120Z",
+  "lastUnifiedRun": "2026-06-03T20:00:59.741Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 145,
@@ -195,17 +195,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-packaging-for-pet-food-pouches",
       "status": "Pending Approval",
       "volume": 1750,
       "keyword": "sustainable packaging for pet food pouches",
-      "difficulty": "Low",
-      "slug": "sustainable-packaging-for-pet-food-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "compostable stand up pouches with spout",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-stand-up-pouches-with-spout"
     },
     {
       "status": "Pending",
@@ -312,9 +313,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T19:45:20.777Z",
+      "timestamp": "2026-06-03T20:00:28.512Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging for pet food pouches\" to /blog/sustainable-packaging-for-pet-food-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable stand up pouches with spout\" to /blog/compostable-stand-up-pouches-with-spout (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging for pet food pouches\" to /blog/sustainable-packaging-for-pet-food-pouches (Pending Approval)",
+      "timestamp": "2026-06-03T19:45:20.777Z"
     },
     {
       "action": "Autopilot Generation Draft",
