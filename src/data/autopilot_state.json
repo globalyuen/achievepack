@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T21:45:55.186Z",
+  "lastUnifiedRun": "2026-06-03T22:01:00.386Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 166,
+  "totalLinkedAnchors": 170,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -251,17 +251,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-shape-pouches-for-liquids",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "custom shape pouches for liquids",
-      "difficulty": "Low",
-      "slug": "custom-shape-pouches-for-liquids"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 950,
       "keyword": "recyclable barrier sachets for coffee",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-barrier-sachets-for-coffee"
     },
     {
       "status": "Pending",
@@ -320,9 +321,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T21:45:20.280Z",
+      "timestamp": "2026-06-03T22:00:25.518Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom shape pouches for liquids\" to /blog/custom-shape-pouches-for-liquids (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable barrier sachets for coffee\" to /blog/recyclable-barrier-sachets-for-coffee (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shape pouches for liquids\" to /blog/custom-shape-pouches-for-liquids (Pending Approval)",
+      "timestamp": "2026-06-03T21:45:20.280Z"
     },
     {
       "action": "Autopilot Generation Draft",
