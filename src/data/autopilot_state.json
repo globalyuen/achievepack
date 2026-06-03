@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T17:45:57.552Z",
+  "lastUnifiedRun": "2026-06-03T18:00:54.329Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 120,
+  "totalLinkedAnchors": 123,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -139,17 +139,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-flat-bottom-bags",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "compostable flat bottom bags",
-      "difficulty": "Low",
-      "slug": "compostable-flat-bottom-bags"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 2400,
       "keyword": "digital printing on flexible packaging",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "digital-printing-on-flexible-packaging"
     },
     {
       "status": "Pending",
@@ -194,119 +195,124 @@
       "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 1100,
       "keyword": "compostable stand up pouches with spout",
-      "difficulty": "Low",
-      "volume": 1100,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 900,
       "keyword": "custom printed sachet packaging wholesale",
-      "difficulty": "Low",
-      "volume": 900,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 1400,
       "keyword": "stand up pouch dimensions for 6 oz",
-      "difficulty": "Low",
-      "volume": 1400,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital printed barrier pouches small batch",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 700,
-      "status": "Pending"
+      "keyword": "digital printed barrier pouches small batch",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable high barrier film suppliers",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 800,
-      "status": "Pending"
+      "keyword": "compostable high barrier film suppliers",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "sustainable flat bottom pouch sizes",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1000,
-      "status": "Pending"
+      "keyword": "sustainable flat bottom pouch sizes",
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono pe compostable sachet options",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 600,
-      "status": "Pending"
+      "keyword": "mono pe compostable sachet options",
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 1200,
       "keyword": "custom shape pouches for liquids",
-      "difficulty": "Low",
-      "volume": 1200,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable barrier sachets for coffee",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "recyclable barrier sachets for coffee",
+      "difficulty": "Low"
     },
     {
-      "keyword": "stand up pouch 2 oz size chart",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1300,
-      "status": "Pending"
+      "keyword": "stand up pouch 2 oz size chart",
+      "difficulty": "Low"
     },
     {
-      "keyword": "eco friendly digital print bags",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "eco friendly digital print bags",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable pouch sourcing for snacks",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 750,
-      "status": "Pending"
+      "keyword": "compostable pouch sourcing for snacks",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "high barrier sustainable flexible films",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1100,
-      "status": "Pending"
+      "keyword": "high barrier sustainable flexible films",
+      "difficulty": "Low"
     },
     {
-      "keyword": "custom sachet dimensions for powders",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 900,
-      "status": "Pending"
+      "keyword": "custom sachet dimensions for powders",
+      "difficulty": "Low"
     },
     {
-      "keyword": "printed compostable retort bags",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 650,
-      "status": "Pending"
+      "keyword": "printed compostable retort bags",
+      "difficulty": "Low"
     },
     {
-      "keyword": "low minimum digital pouch printing",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1050,
-      "status": "Pending"
+      "keyword": "low minimum digital pouch printing",
+      "difficulty": "Low"
     },
     {
-      "keyword": "biodegradable stand up pouch suppliers",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1200,
-      "status": "Pending"
+      "keyword": "biodegradable stand up pouch suppliers",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "flexible packaging sachet size guide",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1400,
-      "status": "Pending"
+      "keyword": "flexible packaging sachet size guide",
+      "difficulty": "Low"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T17:45:29.593Z",
+      "timestamp": "2026-06-03T18:00:23.846Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable flat bottom bags\" to /blog/compostable-flat-bottom-bags (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital printing on flexible packaging\" to /blog/digital-printing-on-flexible-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable flat bottom bags\" to /blog/compostable-flat-bottom-bags (Pending Approval)",
+      "timestamp": "2026-06-03T17:45:29.593Z"
     },
     {
       "action": "Autopilot Generation Draft",
