@@ -1,6 +1,6 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-03T09:00:46.599Z",
+  "lastUnifiedRun": "2026-06-03T09:08:20.075Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
   "totalLinkedAnchors": 28,
@@ -23,7 +23,8 @@
       "keyword": "compostable spouted baby puree bag",
       "difficulty": "Medium",
       "volume": 850,
-      "status": "Pending"
+      "status": "Published",
+      "slug": "compostable-spouted-baby-puree-bag"
     },
     {
       "keyword": "recyclable high-barrier nuts pouch",
@@ -69,6 +70,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-03T09:05:56.780Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"compostable spouted baby puree bag\" to /blog/compostable-spouted-baby-puree-bag"
+    },
     {
       "timestamp": "2026-06-03T09:00:20.580Z",
       "action": "Autopilot Generation",
