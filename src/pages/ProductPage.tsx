@@ -468,7 +468,14 @@ const ProductPage: React.FC = () => {
     ]
   }, [product])
 
-  const isSheetProduct = !!(product?.name.toLowerCase().includes('paper') || product?.name.toLowerCase().includes('wrap') || (ecoStockProduct && 'shape' in ecoStockProduct && ecoStockProduct.shape.toLowerCase().includes('sheet')))
+  const isSheetProduct = !!(
+    (product?.name.toLowerCase().includes('paper') && 
+     !product?.name.toLowerCase().includes('pouch') && 
+     !product?.name.toLowerCase().includes('bag') && 
+     !product?.name.toLowerCase().includes('doypack')) || 
+    product?.name.toLowerCase().includes('wrap') || 
+    (ecoStockProduct && 'shape' in ecoStockProduct && ecoStockProduct.shape.toLowerCase().includes('sheet'))
+  )
   const isLabelProduct = !!(product?.id.toLowerCase().includes('label') || product?.id.toLowerCase().includes('sticker') || (product && 'shape' in product && (product as any).shape?.toLowerCase().includes('label')) || (product && 'shape' in product && (product as any).shape?.toLowerCase().includes('sticker')))
   const pluralUnit = isSheetProduct ? 'sheets' : 'pcs'
   const singleUnit = isSheetProduct ? 'sheet' : 'pc'

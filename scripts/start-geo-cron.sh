@@ -116,20 +116,20 @@ case "$1" in
     ;;
 
   install-autopilot)
-    echo "📅 Installing everyday 7:00 AM HKT persistent Autopilot Cron Daemon in macOS crontab..."
+    echo "📅 Installing persistent Autopilot Cron Daemon (running every 15 minutes) in macOS crontab..."
     NODE_PATH=$(which node)
     if [ -z "$NODE_PATH" ]; then
       NODE_PATH="/usr/local/bin/node"
     fi
-    CRON_LINE="0 7 * * * cd \"$PROJECT_ROOT\" && $NODE_PATH \"$SCRIPT_DIR/autopilot-unified-cron.js\" >> \"$SCRIPT_DIR/autopilot-unified-cron.log\" 2>&1"
+    CRON_LINE="*/15 * * * * cd \"$PROJECT_ROOT\" && $NODE_PATH \"$SCRIPT_DIR/autopilot-unified-cron.js\" >> \"$SCRIPT_DIR/autopilot-unified-cron.log\" 2>&1"
     TEMP_CRON=$(mktemp)
     crontab -l > "$TEMP_CRON" 2>/dev/null
     sed -i '' "/autopilot-unified-cron.js/d" "$TEMP_CRON" 2>/dev/null
     echo "$CRON_LINE" >> "$TEMP_CRON"
     crontab "$TEMP_CRON"
     rm "$TEMP_CRON"
-    echo "✅ Everyday 7:00 AM HKT persistent Autopilot Cron successfully installed!"
-    echo "📝 It will run automatically in the background at 7:00 AM HKT."
+    echo "✅ Persistent Autopilot Cron (running every 15 minutes) successfully installed!"
+    echo "📝 It will run automatically in the background every 15 minutes."
     echo "📄 To view logs: tail -f \"$SCRIPT_DIR/autopilot-unified-cron.log\""
     ;;
 
