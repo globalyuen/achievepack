@@ -26,8 +26,8 @@ export default function PouchBlogPage() {
           .select('*')
           .order('published_at', { ascending: false })
         
-        if (error) throw error
-        setDynamicPosts(data || [])
+        const approvedPosts = (data || []).filter(p => p.content?.approved !== false)
+        setDynamicPosts(approvedPosts)
       } catch (err) {
         console.error('Error fetching dynamic posts:', err)
       } finally {

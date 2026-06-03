@@ -25,7 +25,13 @@ export function useSeoBlogOverride(slug: string) {
         }
         
         if (data) {
-          setOverride(data)
+          const urlParams = new URLSearchParams(window.location.search);
+          const isPreview = urlParams.get('preview') === 'true';
+          if (data.content?.approved === false && !isPreview) {
+            setOverride(null);
+          } else {
+            setOverride(data);
+          }
         }
       } catch (err) {
         console.error(`Error in useSeoBlogOverride for ${slug}:`, err)

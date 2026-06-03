@@ -253,6 +253,7 @@ Strict Formatting Rules:
     published_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
     content: {
+      approved: publishDirectly,
       sections: mappedSections,
       faqs,
       cta: {

@@ -154,6 +154,212 @@ function advanceCampaignMetrics() {
   }
 }
 
+// Helper to send approval email via Brevo local/remote endpoint
+async function sendEmailApprovalNotification(post) {
+  const previewB2cUrl = `https://www.pouch.eco/blog/${post.slug}?preview=true`;
+  const previewB2bUrl = `https://achievepack.com/blog/${post.slug}?preview=true`;
+  const dashboardUrl = `https://achievepack.com/admin/daily-reports`;
+
+  const emailHtml = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Approval Required: New SEO Page Generated</title>
+    </head>
+    <body style="font-family: sans-serif; background-color: #f3f4f6; margin: 0; padding: 20px; color: #111827;">
+      <div style="max-width: 650px; margin: 0 auto; background: white; border: 4px solid black; padding: 30px; box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);">
+        
+        <!-- Header banner -->
+        <div style="background-color: #7c2d12; padding: 20px; border: 3px solid black; margin-bottom: 25px; color: white;">
+          <h1 style="margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 0.05em; color: #FFD700;">
+            ⚠️ Approval Required: New SEO Draft Generated
+          </h1>
+          <p style="margin: 5px 0 0 0; font-size: 12px; color: #ffedd5;">
+            Soro Autopilot has generated a new draft article and staged it for your review.
+          </p>
+        </div>
+
+        <p style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+          Hi Ryan,
+        </p>
+        <p style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+          A new SEO article has been generated for keyword <strong>"${post.slug.replace(/-/g, ' ')}"</strong>. It is pushed online in the database but remains **hidden/unlisted** until you approve it.
+        </p>
+
+        <!-- Page details card -->
+        <div style="background-color: #fffbeb; border: 3px solid black; padding: 20px; margin-bottom: 25px;">
+          <h3 style="margin: 0 0 10px 0; text-transform: uppercase; font-size: 14px; color: #9a3412;">Page Details:</h3>
+          <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.6;">
+            <li><strong>Title:</strong> ${post.title}</li>
+            <li><strong>Category:</strong> ${post.category}</li>
+            <li><strong>Excerpt:</strong> ${post.excerpt}</li>
+          </ul>
+        </div>
+
+        <!-- Preview links -->
+        <h3 style="text-transform: uppercase; font-size: 14px; border-bottom: 3px solid black; padding-bottom: 8px; margin-bottom: 15px;">
+          🔍 Review & Preview Links
+        </h3>
+        <p style="font-size: 13px; line-height: 1.5; color: #4b5563;">
+          Click the links below to inspect the draft page layouts in preview mode (appends <code>?preview=true</code>):
+        </p>
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 25px; font-size: 13px;">
+          <tbody>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid black; font-weight: bold; width: 120px;">🌱 B2C (pouch.eco)</td>
+              <td style="padding: 10px; border-bottom: 1px solid black; font-family: monospace;">
+                <a href="${previewB2cUrl}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">Preview B2C layout</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border-bottom: 2px solid black; font-weight: bold;">💼 B2B (achievepack)</td>
+              <td style="padding: 10px; border-bottom: 2px solid black; font-family: monospace;">
+                <a href="${previewB2bUrl}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">Preview B2B layout</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Approval CTA -->
+        <div style="background-color: #f0fdf4; border: 3px solid black; padding: 20px; box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); text-align: center; margin-bottom: 30px;">
+          <h4 style="margin: 0 0 10px 0; color: #166534; text-transform: uppercase; font-size: 14px;">Approve and List Online</h4>
+          <p style="margin: 0 0 15px 0; font-size: 12px; line-height: 1.5; color: #4b5563;">
+            Click below to open the Admin dashboard and approve this page with one click to publish it.
+          </p>
+          <a href="${dashboardUrl}" target="_blank" style="display: inline-block; background: black; color: #D4FF00; text-decoration: none; padding: 12px 24px; border: 3px solid black; font-weight: bold; text-transform: uppercase; font-size: 12px;">
+            Open Autopilot Hub to Approve ➔
+          </a>
+        </div>
+
+        <hr style="border: 2px solid black; margin-bottom: 20px;"/>
+        <p style="margin: 0; font-size: 10px; color: #9ca3af; text-align: center;">
+          *This email was generated automatically by Soro Autopilot Daemon.
+        </p>
+      </div>
+    </body>
+    </html>
+  `;
+
+  return new Promise((resolve) => {
+    const emailPayload = JSON.stringify({
+      subject: `⚠️ [Approval Required] New SEO draft generated: "${post.title}"`,
+      htmlContent: emailHtml,
+      testEmail: ADMIN_EMAIL
+    });
+
+    const options = {
+      hostname: 'achievepack.com',
+      port: 443,
+      path: '/api/send-campaign',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(emailPayload)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      res.on('data', () => {});
+      res.on('end', () => {
+        logMessage(`Email approval request dispatched successfully, status: ${res.statusCode}`);
+        resolve();
+      });
+    });
+
+    req.on('error', (e) => {
+      console.error('❌ Failed to dispatch approval request email:', e.message);
+      resolve();
+    });
+
+    req.write(emailPayload);
+    req.end();
+  });
+}
+
+// Function to refill keywords using Grok-3
+async function refillKeywordBank(autopilotState) {
+  const pendingCount = autopilotState.keywordBank.filter(k => k.status === 'Pending').length;
+  if (pendingCount >= 10) {
+    logMessage(`Keywords pool check: ${pendingCount} pending keywords in bank. No refill needed.`);
+    return;
+  }
+
+  logMessage(`⚠️ Keywords pool low: only ${pendingCount} pending keywords. Refilling keyword bank using xAI Grok-3...`);
+  
+  const apiKey = process.env.XAI_API_KEY || process.env.VITE_XAI_API_KEY;
+  if (!apiKey) {
+    logMessage('❌ Missing XAI_API_KEY for keyword refilling. Skipping refill.');
+    return;
+  }
+
+  // Get list of existing keywords to avoid duplicates
+  const existingKeywords = autopilotState.keywordBank.map(k => k.keyword.toLowerCase());
+
+  const prompt = `You are a packaging search engine optimization expert.
+Please discover 15-20 highly targeted, low-competition, relatively high-traffic SEO keywords for flexible packaging, custom pouches, compostable barrier packaging, stand-up pouch sizes, digital print bags, and sachet sourcing.
+For each keyword, estimate the monthly search volume (e.g. 500 to 3000) and difficulty (Low, Medium, High).
+Avoid these existing keywords: ${JSON.stringify(existingKeywords)}.
+
+You must output exactly a raw JSON array of objects, with NO markdown formatting wrapper or commentary. The objects must match this schema:
+[
+  {
+    "keyword": "compostable tea pouch with zipper",
+    "difficulty": "Low",
+    "volume": 1200
+  }
+]`;
+
+  try {
+    const response = await fetch('https://api.x.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'grok-3',
+        messages: [
+          { role: 'user', content: prompt }
+        ],
+        temperature: 0.5
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`X.AI API error: ${response.status} - ${await response.text()}`);
+    }
+
+    const resJson = await response.json();
+    let rawText = resJson.choices[0].message.content.trim();
+    if (rawText.startsWith('```')) {
+      rawText = rawText.replace(/^```[a-zA-Z]*\n/, '').replace(/\n```$/, '').trim();
+    }
+
+    const newKeywords = JSON.parse(rawText);
+    if (Array.isArray(newKeywords)) {
+      let added = 0;
+      newKeywords.forEach(k => {
+        const lowerK = k.keyword.toLowerCase();
+        if (!existingKeywords.includes(lowerK)) {
+          autopilotState.keywordBank.push({
+            keyword: k.keyword,
+            difficulty: k.difficulty || 'Low',
+            volume: k.volume || 1000,
+            status: 'Pending'
+          });
+          added++;
+        }
+      });
+      logMessage(`✅ Successfully discovered and added ${added} new pending keywords to bank!`);
+    } else {
+      logMessage('❌ Grok-3 returned invalid keyword list structure.');
+    }
+  } catch (err) {
+    console.error('❌ Keyword refilling failed:', err.message);
+  }
+}
+
 // 3. Main execution loop
 async function main() {
   logMessage('------------------------------------------------------------');
@@ -175,33 +381,76 @@ async function main() {
       logMessage('⚠️ Error reading autopilot state. Re-initializing default template.');
     }
   }
+
+  // Pull latest Soro config from Supabase to sync admin approval operations
+  if (supabase) {
+    logMessage('📡 Pulling latest Soro Autopilot Configuration from Supabase webhook_logs...');
+    try {
+      const { data: dbData, error: dbError } = await supabase
+        .from('webhook_logs')
+        .select('*')
+        .eq('source', 'soro_autopilot_config')
+        .order('created_at', { ascending: false })
+        .limit(1);
+
+      if (dbError) throw dbError;
+
+      if (dbData && dbData.length > 0 && dbData[0].raw_data) {
+        const dbConfig = dbData[0].raw_data;
+        logMessage(`✅ Connected! Loaded remote Soro config. Mode: ${dbConfig.autopilotMode}`);
+        
+        if (dbConfig.autopilotMode) autopilotState.autopilotMode = dbConfig.autopilotMode;
+        if (dbConfig.keywordBank) {
+          autopilotState.keywordBank = dbConfig.keywordBank;
+        }
+        if (dbConfig.logs) {
+          autopilotState.logs = dbConfig.logs;
+        }
+      }
+    } catch (syncErr) {
+      logMessage(`⚠️ Supabase config sync failed: ${syncErr.message}. Falling back to local state.`);
+    }
+  }
+
+  // D. Refill keyword bank if below 10 pending keywords
+  await refillKeywordBank(autopilotState);
   
   const isAutopilotModeB = autopilotState.autopilotMode === 'B';
+  const isAutopilotModeA = autopilotState.autopilotMode === 'A';
   let newlyGeneratedPost = null;
   let activeLinksCount = 0;
   
-  if (isAutopilotModeB) {
-    logMessage('Step 3: 模式 B [100% Autopilot Mode] is ENABLED. Sourcing keyword target...');
+  if (isAutopilotModeB || isAutopilotModeA) {
+    const isManual = isAutopilotModeA;
+    logMessage(`Step 3: Autopilot is active. Mode: ${isManual ? '模式 A [Manual approval]' : '模式 B [100% Autopilot]'}. Sourcing keyword target...`);
     
     // Find first pending keyword
     const target = autopilotState.keywordBank.find(k => k.status === 'Pending');
     
     if (target) {
-      logMessage(`🎯 Soro Keyword Selected: "${target.keyword}"`);
+      logMessage(`🎯 Soro Keyword Selected: "${target.keyword}" (Manual approval mode: ${isManual})`);
       
       try {
-        // Run full Agent Pipeline
-        newlyGeneratedPost = await runAutopilotWritingPipeline('pouch.eco', target.keyword, true);
+        // Run full Agent Pipeline. In manual approval mode, publishDirectly = false, which flags approved: false
+        newlyGeneratedPost = await runAutopilotWritingPipeline('pouch.eco', target.keyword, !isManual);
         
         // Update keyword bank item status
-        target.status = 'Published';
+        target.status = isManual ? 'Pending Approval' : 'Published';
         target.slug = newlyGeneratedPost.slug;
         
         autopilotState.logs.unshift({
           timestamp: new Date().toISOString(),
-          action: 'Autopilot Generation',
-          message: `Soro Pipeline auto-published article for keyword "${target.keyword}" to /blog/${newlyGeneratedPost.slug}`
+          action: isManual ? 'Autopilot Generation Draft' : 'Autopilot Generation',
+          message: isManual
+            ? `Soro Pipeline generated draft article for keyword "${target.keyword}" to /blog/${newlyGeneratedPost.slug} (Pending Approval)`
+            : `Soro Pipeline auto-published article for keyword "${target.keyword}" to /blog/${newlyGeneratedPost.slug}`
         });
+
+        // Send email notification if in manual approval mode
+        if (isManual) {
+          logMessage(`📧 Triggering email approval notification to Ryan for slug: "${newlyGeneratedPost.slug}"...`);
+          await sendEmailApprovalNotification(newlyGeneratedPost);
+        }
       } catch (err) {
         console.error('[UNIFIED-CRON] Agent Writing Pipeline failed:', err);
         autopilotState.logs.unshift({
@@ -211,10 +460,10 @@ async function main() {
         });
       }
     } else {
-      logMessage('   * All keyword bank items are currently published. No pending generation necessary.');
+      logMessage('   * All keyword bank items are currently published or pending approval. No pending generation necessary.');
     }
   } else {
-    logMessage('Step 3: 模式 A [Manual approval] is active. Skipping autopilot generation loop.');
+    logMessage('Step 3: Soro Autopilot is completely disabled.');
   }
   
   // D. Run recursive link linker globally to flow search rank juice

@@ -29,7 +29,14 @@ export default function BlogPostPage() {
           .maybeSingle();
 
         if (error) throw error;
-        setOverride(data);
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const isPreview = urlParams.get('preview') === 'true';
+        if (data && data.content?.approved === false && !isPreview) {
+          setOverride(null);
+        } else {
+          setOverride(data);
+        }
       } catch (err) {
         console.error('Error fetching dynamic post:', err);
       } finally {

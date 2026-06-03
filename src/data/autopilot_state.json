@@ -1,8 +1,8 @@
 {
-  "autopilotMode": "B",
+  "autopilotMode": "A",
   "lastUnifiedRun": "2026-06-03T16:00:33.331Z",
   "cronActive": true,
-  "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
+  "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 98,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
@@ -74,6 +74,78 @@
       "volume": 1800,
       "status": "Published",
       "slug": "mono-pe-recyclable-food-packaging"
+    },
+    {
+      "keyword": "compostable degassing valve",
+      "difficulty": "Low",
+      "volume": 1600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly barrier pouch",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "low moq coffee bags",
+      "difficulty": "Medium",
+      "volume": 2200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "reusable custom stand up pouches",
+      "difficulty": "Medium",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed tea packaging",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable snack bags wholesale",
+      "difficulty": "Low",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "plant based flexible packaging",
+      "difficulty": "Medium",
+      "volume": 1500,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable coffee pouch printing",
+      "difficulty": "Low",
+      "volume": 1700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable stand up pouch dimensions",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "fsc paper pouch with window",
+      "difficulty": "Medium",
+      "volume": 1250,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable pet treat packaging",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier recyclable food packaging",
+      "difficulty": "Medium",
+      "volume": 1950,
+      "status": "Pending"
     }
   ],
   "logs": [

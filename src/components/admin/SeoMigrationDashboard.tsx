@@ -75,7 +75,7 @@ export default function SeoMigrationDashboard() {
   const [pages, setPages] = useState<PageStatus[]>([])
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
-  const [activeTab, setActiveTab] = useState<'pending' | 'migrated' | 'reddit' | 'autopilot'>('migrated')
+  const [activeTab, setActiveTab] = useState<'pending' | 'migrated' | 'reddit' | 'autopilot' | 'pending-approval'>('migrated')
   const [activeDomain, setActiveDomain] = useState<'all' | 'achievepack.com' | 'pouch.eco'>('all')
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
@@ -83,6 +83,69 @@ export default function SeoMigrationDashboard() {
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
   const [selectedPage, setSelectedPage] = useState<PageStatus | null>(null)
   const [subagentStatus, setSubagentStatus] = useState<string | null>(null)
+  const [pendingApprovalPages, setPendingApprovalPages] = useState<any[]>([])
+
+  const handleApprovePage = async (slug: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('pouch_seo_blog')
+        .select('*')
+        .eq('slug', slug)
+        .single()
+
+      if (error) throw error
+      if (!data) throw new Error('Page not found')
+
+      const updatedContent = {
+        ...data.content,
+        approved: true
+      }
+
+      const { error: updateError } = await supabase
+        .from('pouch_seo_blog')
+        .update({ content: updatedContent })
+        .eq('slug', slug)
+
+      if (updateError) throw updateError
+
+      const { data: apData } = await supabase
+        .from('webhook_logs')
+        .select('*')
+        .eq('source', 'soro_autopilot_config')
+        .order('created_at', { ascending: false })
+        .limit(1)
+
+      if (apData && apData.length > 0) {
+        const cfg = apData[0].raw_data
+        if (cfg && cfg.keywordBank) {
+          const kw = cfg.keywordBank.find((k: any) => k.slug === slug)
+          if (kw) {
+            kw.status = 'Published'
+            
+            const newLog = {
+              timestamp: new Date().toISOString(),
+              action: 'Autopilot Approved',
+              message: `User approved draft article for keyword "${kw.keyword}" to /blog/${slug} (Published)`
+            }
+            cfg.logs = [newLog, ...(cfg.logs || [])]
+
+            await supabase.from('webhook_logs').insert([{
+              source: 'soro_autopilot_config',
+              status: 'Config',
+              message: 'Soro Autopilot Draft Approved by User',
+              raw_data: cfg
+            }])
+          }
+        }
+      }
+
+      alert('🎉 頁面已成功核准！後台將在 10 分鐘內同步內鏈與站點地圖並推送到線上。')
+      await loadData()
+    } catch (err: any) {
+      console.error('Error approving page:', err)
+      alert(`核准失敗: ${err.message}`)
+    }
+  }
 
   // Soro Autopilot State Variables
   const [autopilotMode, setAutopilotMode] = useState<'A' | 'B'>('B')

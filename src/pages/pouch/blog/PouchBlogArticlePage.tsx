@@ -29,6 +29,13 @@ export default function PouchBlogArticlePage() {
 
         if (error) throw error
         if (!data) throw new Error('Post not found')
+        
+        const urlParams = new URLSearchParams(window.location.search)
+        const isPreview = urlParams.get('preview') === 'true'
+        if (data.content?.approved === false && !isPreview) {
+          throw new Error('Post is not published yet')
+        }
+        
         setPost(data)
       } catch (err: any) {
         console.error('Error fetching post:', err)
