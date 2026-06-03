@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T18:15:53.549Z",
+  "lastUnifiedRun": "2026-06-03T18:30:59.439Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 127,
+  "totalLinkedAnchors": 129,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -153,17 +153,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "custom-sachet-filling-and-sealing",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "custom sachet filling and sealing",
-      "difficulty": "Low",
-      "slug": "custom-sachet-filling-and-sealing"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1500,
       "keyword": "high barrier compostable films",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-compostable-films"
     },
     {
       "status": "Pending",
@@ -306,9 +307,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T18:15:23.801Z",
+      "timestamp": "2026-06-03T18:30:28.299Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom sachet filling and sealing\" to /blog/custom-sachet-filling-and-sealing (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable films\" to /blog/high-barrier-compostable-films (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom sachet filling and sealing\" to /blog/custom-sachet-filling-and-sealing (Pending Approval)",
+      "timestamp": "2026-06-03T18:15:23.801Z"
     },
     {
       "action": "Autopilot Generation Draft",
