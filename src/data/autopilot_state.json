@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T19:30:56.542Z",
+  "lastUnifiedRun": "2026-06-03T19:45:51.120Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 141,
+  "totalLinkedAnchors": 145,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -188,17 +188,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "custom-shaped-flexible-packaging",
       "status": "Pending Approval",
       "volume": 1350,
       "keyword": "custom shaped flexible packaging",
-      "difficulty": "Low",
-      "slug": "custom-shaped-flexible-packaging"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1750,
       "keyword": "sustainable packaging for pet food pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-packaging-for-pet-food-pouches"
     },
     {
       "status": "Pending",
@@ -311,9 +312,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T19:30:25.351Z",
+      "timestamp": "2026-06-03T19:45:20.777Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom shaped flexible packaging\" to /blog/custom-shaped-flexible-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging for pet food pouches\" to /blog/sustainable-packaging-for-pet-food-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shaped flexible packaging\" to /blog/custom-shaped-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-03T19:30:25.351Z"
     },
     {
       "action": "Autopilot Generation Draft",
