@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T20:45:57.856Z",
+  "lastUnifiedRun": "2026-06-03T21:00:54.102Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 156,
@@ -223,17 +223,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-printed-barrier-pouches-small-batch",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "digital printed barrier pouches small batch",
-      "difficulty": "Low",
-      "slug": "digital-printed-barrier-pouches-small-batch"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "compostable high barrier film suppliers",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "compostable-high-barrier-film-suppliers"
     },
     {
       "status": "Pending",
@@ -316,9 +317,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T20:45:25.666Z",
+      "timestamp": "2026-06-03T21:00:21.427Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printed barrier pouches small batch\" to /blog/digital-printed-barrier-pouches-small-batch (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable high barrier film suppliers\" to /blog/compostable-high-barrier-film-suppliers (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed barrier pouches small batch\" to /blog/digital-printed-barrier-pouches-small-batch (Pending Approval)",
+      "timestamp": "2026-06-03T20:45:25.666Z"
     },
     {
       "action": "Autopilot Generation Draft",
