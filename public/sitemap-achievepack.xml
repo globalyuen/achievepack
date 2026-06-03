@@ -53,37 +53,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://achievepack.com/blog/bpi-certified-guide</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/blog/coffee-degassing-valve-guide</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/blog/coffee-packaging-guide</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/blog/compostable-baby-food-packaging-guide</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/blog/compostable-humidity-control-guide</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/blog/compostable-stand-up-pouches-guide</loc>
+    <loc>https://achievepack.com/blog/compostable-spouted-baby-puree-bag</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -101,31 +71,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://achievepack.com/blog/custom-compostable-pouch-suppliers-guide</loc>
+    <loc>https://achievepack.com/blog/curbside-recyclable-coffee-bag</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://achievepack.com/blog/custom-printed-materials-guide</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/blog/digital-printing-eco-packaging-guide</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/blog/dtc-sustainable-packaging-guide</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://achievepack.com/blog/eco-friendly-food-packaging-guide</loc>
+    <loc>https://achievepack.com/blog/custom-shape-die-cut-pouch</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -137,13 +89,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://achievepack.com/blog/eco-packaging-regulations-guide</loc>
+    <loc>https://achievepack.com/blog/eu-ppwr-compliance-guide</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://achievepack.com/blog/eu-ppwr-compliance-guide</loc>
+    <loc>https://achievepack.com/blog/high-barrier-retort-pouch</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -155,13 +107,37 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://achievepack.com/blog/mono-pe-recyclable-food-packaging</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://achievepack.com/blog/packaging-cost-guide</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://achievepack.com/blog/plastic-free-compostable-barrier-pouch</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/recyclable-high-barrier-nuts-pouch</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://achievepack.com/blog/stamp-foil-recyclability</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://achievepack.com/blog/tuv-backyard-compostable-packaging</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
