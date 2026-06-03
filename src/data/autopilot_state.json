@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T16:23:41.917Z",
+  "lastUnifiedRun": "2026-06-03T16:30:53.474Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 104,
+  "totalLinkedAnchors": 108,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -90,17 +90,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "barrier-film-flexible-packaging-wholesale",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "barrier film flexible packaging wholesale",
-      "difficulty": "Low",
-      "slug": "barrier-film-flexible-packaging-wholesale"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "eco friendly pouch sizes chart",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-pouch-sizes-chart"
     },
     {
       "status": "Pending",
@@ -189,9 +190,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T16:21:33.531Z",
+      "timestamp": "2026-06-03T16:30:24.150Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"barrier film flexible packaging wholesale\" to /blog/barrier-film-flexible-packaging-wholesale (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly pouch sizes chart\" to /blog/eco-friendly-pouch-sizes-chart (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"barrier film flexible packaging wholesale\" to /blog/barrier-film-flexible-packaging-wholesale (Pending Approval)",
+      "timestamp": "2026-06-03T16:21:33.531Z"
     },
     {
       "action": "Autopilot Generation",

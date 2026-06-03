@@ -478,7 +478,7 @@ async function main() {
   // Dynamic sitemaps generation
   logMessage('Step 4b: Generating updated B2B & B2C sitemaps with dynamic paths...');
   try {
-    execSync('node scripts/generate-sitemaps.js', { stdio: 'inherit' });
+    execSync(`${process.execPath} scripts/generate-sitemaps.js`, { stdio: 'inherit' });
   } catch (err) {
     console.error('[UNIFIED-CRON] Failed to generate sitemaps:', err.message);
   }
