@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T16:45:53.262Z",
+  "lastUnifiedRun": "2026-06-03T17:00:55.273Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 116,
+  "totalLinkedAnchors": 118,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -111,17 +111,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "recyclable-stand-up-pouch-with-spout",
       "status": "Pending Approval",
       "volume": 2100,
       "keyword": "recyclable stand up pouch with spout",
-      "difficulty": "Medium",
-      "slug": "recyclable-stand-up-pouch-with-spout"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "small batch custom pouch printing",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-custom-pouch-printing"
     },
     {
       "status": "Pending",
@@ -192,9 +193,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T16:45:22.563Z",
+      "timestamp": "2026-06-03T17:00:26.975Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable stand up pouch with spout\" to /blog/recyclable-stand-up-pouch-with-spout (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch custom pouch printing\" to /blog/small-batch-custom-pouch-printing (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable stand up pouch with spout\" to /blog/recyclable-stand-up-pouch-with-spout (Pending Approval)",
+      "timestamp": "2026-06-03T16:45:22.563Z"
     },
     {
       "action": "Autopilot Generation Draft",
