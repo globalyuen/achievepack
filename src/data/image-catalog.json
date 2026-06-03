@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-03",
-  "total_images": 1878,
+  "total_images": 1880,
   "total_categories": 164,
   "extensions": {
     ".webp": 1299,
-    ".png": 350,
+    ".png": 352,
     ".jpg": 226,
     ".svg": 3
   },
@@ -8391,13 +8391,25 @@
       ]
     },
     "store/products": {
-      "count": 259,
+      "count": 261,
       "images": [
+        {
+          "filename": "conven-fb-met-zip-zipper.png",
+          "path": "/imgs/store/products/conven-fb-met-zip-zipper.png",
+          "extension": ".png",
+          "modified": "2026-06-03T04:48:59.273Z"
+        },
+        {
+          "filename": "conven-fb-met-zip-gusset.png",
+          "path": "/imgs/store/products/conven-fb-met-zip-gusset.png",
+          "extension": ".png",
+          "modified": "2026-06-03T04:48:59.271Z"
+        },
         {
           "filename": "conven-fb-met-zip-artwork.png",
           "path": "/imgs/store/products/conven-fb-met-zip-artwork.png",
           "extension": ".png",
-          "modified": "2026-06-03T04:14:48.724Z"
+          "modified": "2026-06-03T04:47:37.496Z"
         },
         {
           "filename": "conven-fb-met-zip-premium.png",

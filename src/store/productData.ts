@@ -654,7 +654,9 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     features: ['Metalised Material', 'Flat Bottom + Zipper', 'High Barrier (Matte)', 'Self-Standing Structure'],
     images: [
       '/imgs/store/products/conven-fb-met-zip-premium.png',
-      '/imgs/store/products/conven-fb-met-zip-artwork.png'
+      '/imgs/store/products/conven-fb-met-zip-artwork.png',
+      '/imgs/store/products/conven-fb-met-zip-gusset.png',
+      '/imgs/store/products/conven-fb-met-zip-zipper.png'
     ],
     badge: '🆕 New Pouch',
     rating: 4.9,

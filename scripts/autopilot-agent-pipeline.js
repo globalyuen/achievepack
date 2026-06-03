@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 /**
- * 🤖 Soro Multi-Agent SEO/AEO Generation Pipeline
+ * 🤖 Soro Multi-Agent SEO/AEO Generation Pipeline - Grok-3 Edition
  * 
  * Agents:
  * 1. Brand DNA Technology (Voice extraction & high-barrier jargon vectors)
  * 2. Outline Agent (Competitor headers planner & PAA intent compiler)
- * 3. The Writing Agent Pipeline (Deep materials-centric technical writer)
+ * 3. The Writing Agent Pipeline (Deep materials-centric Grok-3 technical writer)
  * 4. SEO & AEO Auditing Agent (FAQ schemas, spec tables, and JSON-LD builders)
  * 5. Automatic Internal Linking Agent (Dynamic cross-reference injector)
  */
@@ -21,6 +21,7 @@ import { injectInternalLinks } from './automatic-internal-linker.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Load environment configurations
 dotenv.config({ path: path.join(__dirname, '../.env.local') });
 dotenv.config({ path: path.join(__dirname, '../.env') });
 
@@ -33,7 +34,7 @@ if (supabaseUrl && supabaseKey) {
 }
 
 /**
- * Executes the full Soro-inspired 5-Agent Writing Pipeline.
+ * Executes the full Soro-inspired 5-Agent Writing Pipeline using xAI Grok-3.
  * 
  * @param {string} domain 'pouch.eco' or 'achievepack.com'
  * @param {string} keyword Main target keyword
@@ -41,10 +42,15 @@ if (supabaseUrl && supabaseKey) {
  * @returns {Promise<any>} Deployed/staged article details
  */
 export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword = '', publishDirectly = true) {
-  console.log(`\n🤖 [PILOT-ENGINE] Initializing Multi-Agent Pipeline for keyword: "${keyword}" (Domain: ${domain})...`);
+  console.log(`\n🤖 [PILOT-ENGINE] Initializing Multi-Agent Grok-3 Pipeline for keyword: "${keyword}" (Domain: ${domain})...`);
   
   if (!keyword) {
     throw new Error('Keyword is mandatory for Soro Autopilot Generation.');
+  }
+
+  const apiKey = process.env.XAI_API_KEY || process.env.VITE_XAI_API_KEY;
+  if (!apiKey) {
+    throw new Error('Missing XAI_API_KEY for content generation. Please check .env.local');
   }
 
   const slug = keyword
@@ -55,96 +61,157 @@ export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword 
 
   // --- AGENT 1: Brand DNA Technology ---
   console.log('🧬 [Agent 1: Brand DNA] Extracting tone guidelines and technical packaging parameters...');
-  const brandVocab = domain === 'pouch.eco' 
-    ? ['certified compostable', 'organic biopolymers', 'BPI certified', 'TÜV Austria Home', 'Mono-PE', 'biodegradable zipper', 'zero waste caps']
-    : ['wholesale packaging', 'supply chain light-weighting', 'EVOH equivalent barriers', 'OTR and WVTR specifications', 'low MOQ', 'rotogravure printing', 'plate fees'];
-    
-  console.log(`   * Extracted vectors: [${brandVocab.join(', ')}]`);
-  const tone = domain === 'pouch.eco' ? 'Eco-vibrant, informative, organic, accessible' : 'B2B Technical, conversion-driven, supply-chain authoritative';
-
-  // --- AGENT 2: Outline Agent ---
-  console.log('📅 [Agent 2: Outline Agent] Analyzing search intent competitors & Google PAA topics...');
-  const sectionsOutline = [
-    { title: `Understanding ${keyword} in Modern Sourcing`, icon: 'info' },
-    { title: `Technical Specifications & Lamination Structure`, icon: 'package' },
-    { title: `Certifications & Regulatory Compliance Guides`, icon: 'check' },
-    { title: `Frequently Asked Sourcing & MOQ Questions`, icon: 'help' }
-  ];
-  console.log(`   * Structured Outline: ${sectionsOutline.map(s => s.title).join(' ➔ ')}`);
-
-  // --- AGENT 3: The Writing Agent Pipeline ---
-  console.log('✍️ [Agent 3: Writing Agent] Drafting 1000+ word high-barrier materials copy...');
+  const tone = domain === 'pouch.eco' 
+    ? 'Eco-vibrant, startup-friendly, retro-brutalist layouts, low MOQ (100 pieces), rapid prototype testing.' 
+    : 'Enterprise B2B technical, supply-chain optimization, VFFS compatibility, high-volume discounts, cleanroom certifications.';
   
-  const p1 = `As modern retail channels prioritize sustainable packaging compliance, managing product shelf-life barriers remains a vital milestone. Transitioning to custom <strong>${keyword}</strong> structures helps progressive brands secure organic freshness while actively addressing consumer demand for circular, eco-conscious materials.`;
+  // --- AGENT 2 & 3: Outline & Grok-3 Writer ---
+  console.log('✍️ [Agent 2/3: Grok-3 Writer] Invoking xAI Grok-3 for high-fidelity 800+ words SEO page content...');
   
-  const p2 = `Technically, our standard high-barrier lamination options offer absolute grease resistance and oxygen containment. By combining a natural Kraft paper outer surface with vacuum-metallized plant cellulose (NatureFlex) or curbside-recyclable Mono-PE barrier films, we successfully contain volatile organic compounds (VOCs) and moisture migrations.`;
+  const systemPrompt = `You are a professional packaging engineering AI copywriter working for AchievePack (B2B) and Pouch.eco (B2C/DTC).
+Your task is to write a highly detailed, comprehensive, premium-grade B2B/B2C sourcing guide for the keyword: "${keyword}".
+The target domain layout style is "${domain}".
 
-  const specTableHtml = `
-    <div style="margin: 20px 0; overflow-hidden; border: 4px solid black; box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);">
-      <table style="width:100%; border-collapse:collapse; background:white; font-family:sans-serif; text-align:left;">
-        <thead>
-          <tr style="background:black; color:#D4FF00; font-weight:bold; font-size:12px; text-transform:uppercase;">
-            <th style="padding:12px; border-bottom:2px solid black;">Laminate Structure</th>
-            <th style="padding:12px; border-bottom:2px solid black;">Thickness (Microns)</th>
-            <th style="padding:12px; border-bottom:2px solid black;">OTR Barrier (cc/m²)</th>
-            <th style="padding:12px; border-bottom:2px solid black;">Primary B2B Benefit</th>
-          </tr>
-        </thead>
-        <tbody style="font-size:12px; font-weight:bold;">
-          <tr>
-            <td style="padding:10px; border-bottom:1px solid #ddd;">Natural Kraft / VM-PLA / PBAT</td>
-            <td style="padding:10px; border-bottom:1px solid #ddd;">120 µm</td>
-            <td style="padding:10px; border-bottom:1px solid #ddd;">&lt; 1.2</td>
-            <td style="padding:10px; border-bottom:1px solid #ddd;">100% Certified Industrial Compostable</td>
-          </tr>
-          <tr style="background:#f9fafb;">
-            <td style="padding:10px; border-bottom:1px solid #ddd;">High-Barrier Mono-PE (EVOH-PE)</td>
-            <td style="padding:10px; border-bottom:1px solid #ddd;">100 µm</td>
-            <td style="padding:10px; border-bottom:1px solid #ddd;">&lt; 0.8</td>
-            <td style="padding:10px; border-bottom:1px solid #ddd;">Curbside Recyclable / Store Drop-Off</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  `;
+You must output exactly a JSON object, with NO markdown formatting wrapper or commentary. The JSON object must match this schema:
+{
+  "title": "A professional capitalized title, e.g. 'Curbside Recyclable Coffee Bag Sourcing Guide'",
+  "excerpt": "A high-converting 2-3 sentence summary of the sourcing guide.",
+  "sections": [
+    {
+      "title": "Understanding [Keyword] in Modern Sourcing",
+      "icon": "info",
+      "content": "At least 300 words. Start with a direct, punchy conclusion/hook. Analyze specific B2B sourcing challenges, search intent, and structural characteristics (e.g. moisture barrier, puncture resistance). Include concrete scenario metrics or case studies (e.g. running 10,000 pouches through VFFS machinery at 65 bags/min with zero rupture)."
+    },
+    {
+      "title": "Technical Specifications & Procurement Specs",
+      "icon": "package",
+      "content": "At least 300 words. Must contain a styled, highly readable HTML table inside a Neobrutalist card container summarizing the Technical-to-Purchasing Value Specs. 
+      The table must translate the following specs into direct procurement utility:
+      - Material Structure (e.g. Mono-PE with EVOH barrier, or plant cellulose biopolymers, pass FDA compliance, OTR/WVTR rate metrics).
+      - Size / Dimensions (custom OEM volume capacity matching blueprints).
+      - Surface Finish (matte anti-scratch lamination, resisting shipping/shelf wear).
+      - Packaging / Delivery (triple-layer export cartons with protective polybags preventing moisture/transit damage).
+      Include at least two paragraphs of deep material science context around these choices."
+    },
+    {
+      "title": "Certifications & B2B Application Scenarios",
+      "icon": "check",
+      "content": "At least 250 words. Focus on specific B2B application scenarios (e.g. specialty coffee, snacks, organic baby food). Explain certifications like BPI ASTM D6400 compliance, TÜV Austria Industrial/Home Compostable, GRS Recycled PCR content, or FSC paper sourcing. Detail how these satisfy compliance audits."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the minimum order quantity (MOQ) for custom printed [Keyword]?",
+      "a": "Detailed answer explaining digital print MOQ (starts at 100 pcs) vs high-volume gravure printing (starting at 10,000 pcs)."
+    },
+    {
+      "q": "Can I get a free sample kit of your packaging structures?",
+      "a": "Detailed answer explaining how to request sample kits (usually containing 10 plain/printed pouches) for sizing and barrier validation."
+    },
+    {
+      "q": "Do you support custom sizes, blueprints, and digital colors?",
+      "a": "Detailed answer confirming support for custom dimensions, cylinder or HP Indigo digital color matching, and vector blueprint overlays."
+    },
+    {
+      "q": "What is the average lead time for manufacturing and delivery?",
+      "a": "Detailed answer outlining digital print turnaround (10-14 days) vs gravure print wholesale shipping (25-35 days) including peak season guidelines."
+    },
+    {
+      "q": "What certifications do these packaging materials carry?",
+      "a": "Detailed answer listing verifiable certificates: BPI compostable (ASTM D6400), TÜV Austria, FSC, and GRS certification paths."
+    },
+    {
+      "q": "What details are required to get an accurate price quote?",
+      "a": "Detailed answer explaining quote requirements: bag style/dimensions, material structure/thickness, color layers, design artwork file, and quantity."
+    }
+  ]
+}
 
-  const p3 = `Sourcing custom printed packaging shouldn't put strain on startup capital. Standard gravure cylinder processes carry heavy plate setup charges, making trial batches expensive. AchievePack eliminates this financial hurdle using HP Indigo digital printing technologies, offering zero plate setup fees and flexible minimums beginning from just 100 units per custom printed run.`;
+Strict Formatting Rules:
+1. Total word count in all sections combined MUST exceed 800 words (aim for 900-1100 words of copy).
+2. The HTML table must be styled with inline CSS style attributes. Example styling:
+<div style="margin: 20px 0; overflow: auto; border: 4px solid black; box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);">
+  <table style="width:100%; border-collapse:collapse; background:white; font-family:sans-serif; text-align:left;">
+    <thead>
+      <tr style="background:black; color:#D4FF00; font-weight:bold; font-size:12px; text-transform:uppercase;">
+        <th style="padding:12px; border-bottom:2px solid black;">Specification</th>
+        <th style="padding:12px; border-bottom:2px solid black;">Technical Parameter</th>
+        <th style="padding:12px; border-bottom:2px solid black;">B2B Sourcing Value & Meaning</th>
+      </tr>
+    </thead>
+    <tbody style="font-size:12px; font-weight:bold;">
+      <tr>
+        <td style="padding:10px; border-bottom:1px solid #ddd;">...</td>
+        <td style="padding:10px; border-bottom:1px solid #ddd;">...</td>
+        <td style="padding:10px; border-bottom:1px solid #ddd;">...</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+3. Tone must be professional, authoritative, and reflect Ryan Wong's expert packaging background (14+ years in flexible packaging).
+4. No markdown like '##' or '*' inside 'content' field. Use clean HTML tags: '<p>', '<strong>', '<ul>', '<li>', '<table>' etc.
+5. Return ONLY the raw JSON object. No other text.`;
+
+  const response = await fetch('https://api.x.ai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      model: 'grok-3',
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: `Please generate the sourcing guide payload for keyword: "${keyword}" and domain: "${domain}". Tone setting: ${tone}` }
+      ],
+      temperature: 0.3
+    })
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`X.AI API error: ${response.status} - ${errorText}`);
+  }
+
+  const data = await response.json();
+  let rawText = data.choices[0].message.content.trim();
+  
+  // Safe JSON extraction from markdown wrappers if present
+  if (rawText.startsWith('```')) {
+    rawText = rawText.replace(/^```[a-zA-Z]*\n/, '').replace(/\n```$/, '').trim();
+  }
+
+  let generatedPayload;
+  try {
+    generatedPayload = JSON.parse(rawText);
+  } catch (e) {
+    console.error('Failed to parse generated JSON content:', rawText);
+    throw new Error(`Content generation failed to return valid JSON: ${e.message}`);
+  }
 
   // --- AGENT 4: SEO & AEO Auditing Agent ---
-  console.log('📊 [Agent 4: AEO & SEO Auditor] Injecting structured schemas, specs, and JSON-LD markers...');
+  console.log('📊 [Agent 4: AEO & SEO Auditor] Injecting structured schemas and verification details...');
   
-  const faqs = [
-    { q: `What is the wholesale MOQ for custom printed ${keyword}?`, a: 'Our minimum order starts at 100 pieces for digital runs, and 10,000 pieces for gravure wholesale volumes.' },
-    { q: `Are these materials fully compliant with US and European laws?`, a: 'Yes! Our compostable films are certified by BPI to ASTM D6400 standards, and Recyclable Mono-PE meets California SB 343 and EU PPWR guidelines.' }
-  ];
-
+  const faqs = generatedPayload.faqs || [];
+  
   // AEO JSON-LD Schema
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": faqs.map(f => ({
       "@type": "Question",
-      "name": f.q,
+      "name": f.q || f.question || '',
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": f.a
+        "text": f.a || f.answer || ''
       }
     }))
   };
-  
-  console.log('   * AI Engine Optimization schema injected successfully.');
-
-  // Compile full content body sections
-  const contentSections = [
-    { title: sectionsOutline[0].title, icon: sectionsOutline[0].icon, content: `<p>${p1}</p><p>${p2}</p>` },
-    { title: sectionsOutline[1].title, icon: sectionsOutline[1].icon, content: `<p>Review the exact material density and transmission tolerances below:</p>${specTableHtml}` },
-    { title: sectionsOutline[2].title, icon: sectionsOutline[2].icon, content: `<p>${p3}</p><p>We provide full transparency certifications including TÜV Austria certificates, BPI certifications, and USDA Organic compliant affidavits to keep your auditors completely satisfied.</p>` }
-  ];
 
   // --- AGENT 5: Automatic Internal Linking Agent ---
   console.log('🔗 [Agent 5: Internal Linker] Propagating recursive link-juice through article content...');
+  const contentSections = generatedPayload.sections || [];
   const mappedSections = contentSections.map(sec => {
-    // Inject B2C keywords for pouch.eco, B2B for achievepack
     const isB2C = domain === 'pouch.eco';
     const result = injectInternalLinks(sec.content, isB2C, 2, slug);
     if (result.linksInjected > 0) {
@@ -152,14 +219,14 @@ export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword 
     }
     return {
       title: sec.title,
-      icon: sec.icon,
+      icon: sec.icon || 'package',
       content: result.html
     };
   });
 
-  const excerpt = `Professional guide to sourcing custom printed ${keyword} with certified high-barrier protections, low minimum orders starting from 100 pieces, and complete green certifications.`;
-
+  const excerpt = generatedPayload.excerpt || `Professional guide to sourcing custom printed ${keyword} with certified high-barrier protections, low minimum orders starting from 100 pieces, and complete green certifications.`;
   const lowerKeyword = keyword.toLowerCase();
+  
   let selectedImage = '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp';
   if (lowerKeyword.includes('coffee')) {
     selectedImage = '/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp';
@@ -177,11 +244,11 @@ export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword 
 
   // Payload formatting matching pouch_seo_blog schema
   const payload = {
-    title: `${keyword.replace(/\b\w/g, c => c.toUpperCase())} Sourcing Guide`,
+    title: generatedPayload.title || `${keyword.replace(/\b\w/g, c => c.toUpperCase())} Sourcing Guide`,
     slug,
     category: domain === 'pouch.eco' ? 'Sustainability' : 'Materials',
     excerpt,
-    meta_description: excerpt,
+    meta_description: generatedPayload.meta_description || excerpt,
     image_url: selectedImage,
     source_url: domain === 'pouch.eco' ? `https://achievepack.com/blog/${slug}` : `https://pouch.eco/blog/${slug}`,
     published_at: new Date().toISOString(),
