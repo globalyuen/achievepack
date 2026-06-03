@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-06-03T07:45:01.360Z",
+  "lastRun": "2026-06-03T08:00:00.851Z",
   "campaignScore": 98,
   "campaignTarget": "Compostable Pouches",
   "cronActive": true,
@@ -9,7 +9,7 @@
     "targetBrandMentions": 8,
     "currentGeoScore": 98,
     "targetGeoScore": 85,
-    "currentTrafficClicks": 263,
+    "currentTrafficClicks": 281,
     "targetTrafficClicks": 300,
     "currentRedditEngagement": 42,
     "targetRedditEngagement": 60,
