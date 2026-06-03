@@ -45,7 +45,7 @@ interface PageStatus {
   title: string
   slug: string
   category: string
-  status: 'migrated' | 'pending' | 'draft'
+  status: 'migrated' | 'pending' | 'draft' | 'pending-approval'
   seoScore: number
   aieoScore: number // Shown as AEO / GEO in UI
   sioScore: number
@@ -577,7 +577,31 @@ export default function SeoMigrationDashboard() {
         }
       })
 
-      const combinedPages = [...scaledAchievePages, ...scaledPouchPages]
+      // 2b. Process Pending Approval dynamic drafts
+      const unapprovedDbPages = (migratedData || []).filter(p => p.content?.approved === false)
+      const parsedPendingApproval = unapprovedDbPages.map(p => {
+        return {
+          key: `pending-app-${p.slug}`,
+          title: p.title,
+          slug: p.slug,
+          category: p.category || 'Materials',
+          status: 'pending-approval' as const,
+          seoScore: 90,
+          aieoScore: 90,
+          sioScore: 90,
+          traffic: 0,
+          sourceUrl: `https://achievepack.com/blog/${p.slug}?preview=true`,
+          pouchUrl: `https://pouch.eco/blog/${p.slug}?preview=true`,
+          imagesCount: p.content?.sections?.reduce((acc: number, s: any) => acc + (s.content?.match(/<img/g)?.length || 0), 0) || 1,
+          wordCount: p.content?.sections?.reduce((acc: number, s: any) => acc + (s.content?.split(' ').length || 0), 0) || 500,
+          recommendation: '⌛ 待審核：請預覽並點擊核准以正式發佈上線',
+          domain: 'pouch.eco' as const,
+          missingImages: []
+        }
+      })
+      setPendingApprovalPages(parsedPendingApproval)
+
+      const combinedPages = [...scaledAchievePages, ...scaledPouchPages, ...parsedPendingApproval]
       setPages(combinedPages)
 
       // Fetch Soro Autopilot Configuration
@@ -859,11 +883,12 @@ export default function SeoMigrationDashboard() {
   const stats = useMemo(() => {
     const total = pages.length
     const migrated = pages.filter(p => p.status === 'migrated').length
-    const pending = total - migrated
+    const pendingApproval = pages.filter(p => p.status === 'pending-approval').length
+    const pending = pages.filter(p => p.status === 'pending').length
     const totalTraffic = pages.reduce((acc, p) => acc + p.traffic, 0)
     const pouchTraffic = pages.filter(p => p.domain === 'pouch.eco').reduce((acc, p) => acc + p.traffic, 0)
     const achieveTraffic = pages.filter(p => p.domain === 'achievepack.com').reduce((acc, p) => acc + p.traffic, 0)
-    return { total, migrated, pending, totalTraffic, pouchTraffic, achieveTraffic }
+    return { total, migrated, pending, pendingApproval, totalTraffic, pouchTraffic, achieveTraffic }
   }, [pages])
 
   const categories = useMemo(() => {
@@ -923,8 +948,20 @@ export default function SeoMigrationDashboard() {
         </div>
       </div>
 
-      {/* Tab Selectors - Pending / Migrated / Reddit Playbook / Soro Autopilot */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      {/* Tab Selectors - Pending Approval / Pending / Migrated / Reddit Playbook / Soro Autopilot */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <button
+          onClick={() => setActiveTab('pending-approval')}
+          className={`p-6 border-4 border-black font-black uppercase transition-all flex flex-col items-center justify-center text-center gap-1.5 ${
+            activeTab === 'pending-approval' ? 'bg-[#FF9800] text-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]' : 'bg-white hover:bg-gray-50 text-black'
+          }`}
+        >
+          <div className="flex items-center justify-center gap-2 text-lg">
+            <Clock className="w-6 h-6 text-black" /> 待審核頁面 (Pending Approval)
+          </div>
+          <div className="text-[10px] opacity-90">Soro 產出的草稿，需審核以點擊正式發佈上線</div>
+          <div className="text-3xl mt-1">{stats.pendingApproval} <span className="text-sm">頁</span></div>
+        </button>
         <button
           onClick={() => setActiveTab('pending')}
           className={`p-6 border-4 border-black font-black uppercase transition-all flex flex-col items-center justify-center text-center gap-1.5 ${
@@ -1395,12 +1432,21 @@ export default function SeoMigrationDashboard() {
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>
-                        <button 
-                          onClick={() => setSelectedPage(page)}
-                          className="px-2 py-1 border border-black bg-[#D4FF00] font-black text-[10px] hover:bg-black hover:text-[#D4FF00] transition-all uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] shadow-none"
-                        >
-                          深度稽核 (Audit)
-                        </button>
+                        {page.status === 'pending-approval' ? (
+                          <button 
+                            onClick={() => handleApprovePage(page.slug)}
+                            className="px-3 py-1 border border-black bg-[#D4FF00] text-black font-black text-xs hover:bg-black hover:text-[#D4FF00] transition-all uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                          >
+                            核准發佈 (Approve)
+                          </button>
+                        ) : (
+                          <button 
+                            onClick={() => setSelectedPage(page)}
+                            className="px-2 py-1 border border-black bg-[#D4FF00] font-black text-[10px] hover:bg-black hover:text-[#D4FF00] transition-all uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] shadow-none"
+                          >
+                            深度稽核 (Audit)
+                          </button>
+                        )}
                       </div>
                     </td>
                   </motion.tr>

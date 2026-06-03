@@ -1,6 +1,6 @@
 {
-  "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T16:00:33.331Z",
+  "autopilotMode": "B",
+  "lastUnifiedRun": "2026-06-03T16:16:14.104Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 98,
@@ -13,231 +13,273 @@
   },
   "keywordBank": [
     {
-      "keyword": "kraft paper zipper doypack",
-      "difficulty": "Low",
+      "slug": "kraft-paper-zipper-doypack",
+      "status": "Published",
       "volume": 1200,
-      "status": "Published",
-      "slug": "kraft-paper-zipper-doypack"
+      "keyword": "kraft paper zipper doypack",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable spouted baby puree bag",
-      "difficulty": "Medium",
+      "slug": "compostable-spouted-baby-puree-bag",
+      "status": "Published",
       "volume": 850,
-      "status": "Published",
-      "slug": "compostable-spouted-baby-puree-bag"
+      "keyword": "compostable spouted baby puree bag",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "recyclable high-barrier nuts pouch",
-      "difficulty": "Low",
+      "slug": "recyclable-high-barrier-nuts-pouch",
+      "status": "Published",
       "volume": 1500,
-      "status": "Published",
-      "slug": "recyclable-high-barrier-nuts-pouch"
+      "keyword": "recyclable high-barrier nuts pouch",
+      "difficulty": "Low"
     },
     {
-      "keyword": "curbside recyclable coffee bag",
-      "difficulty": "Medium",
+      "slug": "curbside-recyclable-coffee-bag",
+      "status": "Published",
       "volume": 2400,
-      "status": "Published",
-      "slug": "curbside-recyclable-coffee-bag"
+      "keyword": "curbside recyclable coffee bag",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "TUV backyard compostable packaging",
-      "difficulty": "High",
+      "slug": "tuv-backyard-compostable-packaging",
+      "status": "Published",
       "volume": 900,
-      "status": "Published",
-      "slug": "tuv-backyard-compostable-packaging"
+      "keyword": "TUV backyard compostable packaging",
+      "difficulty": "High"
     },
     {
-      "keyword": "high-barrier retort pouch",
-      "difficulty": "Medium",
+      "slug": "high-barrier-retort-pouch",
+      "status": "Published",
       "volume": 1100,
-      "status": "Published",
-      "slug": "high-barrier-retort-pouch"
+      "keyword": "high-barrier retort pouch",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "plastic-free compostable barrier pouch",
-      "difficulty": "Medium",
+      "slug": "plastic-free-compostable-barrier-pouch",
+      "status": "Published",
       "volume": 950,
-      "status": "Published",
-      "slug": "plastic-free-compostable-barrier-pouch"
+      "keyword": "plastic-free compostable barrier pouch",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "custom shape die-cut pouch",
-      "difficulty": "Medium",
+      "slug": "custom-shape-die-cut-pouch",
+      "status": "Published",
       "volume": 1300,
-      "status": "Published",
-      "slug": "custom-shape-die-cut-pouch"
+      "keyword": "custom shape die-cut pouch",
+      "difficulty": "Medium"
     },
     {
+      "slug": "mono-pe-recyclable-food-packaging",
+      "status": "Published",
+      "volume": 1800,
       "keyword": "mono-pe recyclable food packaging",
+      "difficulty": "Low"
+    },
+    {
+      "keyword": "compostable stand up pouches for snacks",
       "difficulty": "Low",
       "volume": 1800,
       "status": "Published",
-      "slug": "mono-pe-recyclable-food-packaging"
+      "slug": "compostable-stand-up-pouches-for-snacks"
     },
     {
-      "keyword": "compostable degassing valve",
+      "keyword": "custom digital printed sachets",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "barrier film flexible packaging wholesale",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly pouch sizes chart",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable sachet packaging solutions",
       "difficulty": "Low",
       "volume": 1600,
       "status": "Pending"
     },
     {
-      "keyword": "eco friendly barrier pouch",
-      "difficulty": "Low",
-      "volume": 1400,
-      "status": "Pending"
-    },
-    {
-      "keyword": "low moq coffee bags",
+      "keyword": "recyclable stand up pouch with spout",
       "difficulty": "Medium",
-      "volume": 2200,
+      "volume": 2100,
       "status": "Pending"
     },
     {
-      "keyword": "reusable custom stand up pouches",
-      "difficulty": "Medium",
-      "volume": 1100,
-      "status": "Pending"
-    },
-    {
-      "keyword": "custom printed tea packaging",
-      "difficulty": "Low",
-      "volume": 950,
-      "status": "Pending"
-    },
-    {
-      "keyword": "biodegradable snack bags wholesale",
-      "difficulty": "Low",
-      "volume": 1300,
-      "status": "Pending"
-    },
-    {
-      "keyword": "plant based flexible packaging",
-      "difficulty": "Medium",
-      "volume": 1500,
-      "status": "Pending"
-    },
-    {
-      "keyword": "sustainable coffee pouch printing",
-      "difficulty": "Low",
-      "volume": 1700,
-      "status": "Pending"
-    },
-    {
-      "keyword": "recyclable stand up pouch dimensions",
+      "keyword": "small batch custom pouch printing",
       "difficulty": "Low",
       "volume": 850,
       "status": "Pending"
     },
     {
-      "keyword": "fsc paper pouch with window",
-      "difficulty": "Medium",
-      "volume": 1250,
-      "status": "Pending"
-    },
-    {
-      "keyword": "compostable pet treat packaging",
+      "keyword": "biodegradable barrier bags for coffee",
       "difficulty": "Low",
-      "volume": 1400,
+      "volume": 1300,
       "status": "Pending"
     },
     {
-      "keyword": "high barrier recyclable food packaging",
+      "keyword": "stand up pouch 4 oz dimensions",
+      "difficulty": "Low",
+      "volume": 1700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable flat bottom bags",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printing on flexible packaging",
       "difficulty": "Medium",
-      "volume": 1950,
+      "volume": 2400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom sachet filling and sealing",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier compostable films",
+      "difficulty": "Low",
+      "volume": 1500,
+      "status": "Pending"
+    },
+    {
+      "keyword": "pouch packaging for liquids compostable",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft stand up pouches with window",
+      "difficulty": "Low",
+      "volume": 1900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material recyclable pouches",
+      "difficulty": "Medium",
+      "volume": 2200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped flexible packaging",
+      "difficulty": "Low",
+      "volume": 1350,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable packaging for pet food pouches",
+      "difficulty": "Low",
+      "volume": 1750,
       "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T10:45:22.982Z",
+      "timestamp": "2026-06-03T16:15:33.436Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"mono-pe recyclable food packaging\" to /blog/mono-pe-recyclable-food-packaging"
+      "message": "Soro Pipeline auto-published article for keyword \"compostable stand up pouches for snacks\" to /blog/compostable-stand-up-pouches-for-snacks"
     },
     {
-      "timestamp": "2026-06-03T10:30:22.042Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"custom shape die-cut pouch\" to /blog/custom-shape-die-cut-pouch"
+      "message": "Soro Pipeline auto-published article for keyword \"mono-pe recyclable food packaging\" to /blog/mono-pe-recyclable-food-packaging",
+      "timestamp": "2026-06-03T10:45:22.982Z"
     },
     {
-      "timestamp": "2026-06-03T10:15:19.692Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"plastic-free compostable barrier pouch\" to /blog/plastic-free-compostable-barrier-pouch"
+      "message": "Soro Pipeline auto-published article for keyword \"custom shape die-cut pouch\" to /blog/custom-shape-die-cut-pouch",
+      "timestamp": "2026-06-03T10:30:22.042Z"
     },
     {
-      "timestamp": "2026-06-03T10:00:24.625Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"high-barrier retort pouch\" to /blog/high-barrier-retort-pouch"
+      "message": "Soro Pipeline auto-published article for keyword \"plastic-free compostable barrier pouch\" to /blog/plastic-free-compostable-barrier-pouch",
+      "timestamp": "2026-06-03T10:15:19.692Z"
     },
     {
-      "timestamp": "2026-06-03T09:45:22.869Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"TUV backyard compostable packaging\" to /blog/tuv-backyard-compostable-packaging"
+      "message": "Soro Pipeline auto-published article for keyword \"high-barrier retort pouch\" to /blog/high-barrier-retort-pouch",
+      "timestamp": "2026-06-03T10:00:24.625Z"
     },
     {
-      "timestamp": "2026-06-03T09:30:26.248Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"curbside recyclable coffee bag\" to /blog/curbside-recyclable-coffee-bag"
+      "message": "Soro Pipeline auto-published article for keyword \"TUV backyard compostable packaging\" to /blog/tuv-backyard-compostable-packaging",
+      "timestamp": "2026-06-03T09:45:22.869Z"
     },
     {
-      "timestamp": "2026-06-03T09:15:17.924Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"recyclable high-barrier nuts pouch\" to /blog/recyclable-high-barrier-nuts-pouch"
+      "message": "Soro Pipeline auto-published article for keyword \"curbside recyclable coffee bag\" to /blog/curbside-recyclable-coffee-bag",
+      "timestamp": "2026-06-03T09:30:26.248Z"
     },
     {
-      "timestamp": "2026-06-03T09:05:56.780Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"compostable spouted baby puree bag\" to /blog/compostable-spouted-baby-puree-bag"
+      "message": "Soro Pipeline auto-published article for keyword \"recyclable high-barrier nuts pouch\" to /blog/recyclable-high-barrier-nuts-pouch",
+      "timestamp": "2026-06-03T09:15:17.924Z"
     },
     {
-      "timestamp": "2026-06-03T09:00:20.580Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"kraft paper zipper doypack\" to /blog/kraft-paper-zipper-doypack"
+      "message": "Soro Pipeline auto-published article for keyword \"compostable spouted baby puree bag\" to /blog/compostable-spouted-baby-puree-bag",
+      "timestamp": "2026-06-03T09:05:56.780Z"
     },
     {
-      "timestamp": "2026-06-03T06:45:26.054Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"mono-pe recyclable food packaging\" to /blog/mono-pe-recyclable-food-packaging"
+      "message": "Soro Pipeline auto-published article for keyword \"kraft paper zipper doypack\" to /blog/kraft-paper-zipper-doypack",
+      "timestamp": "2026-06-03T09:00:20.580Z"
     },
     {
-      "timestamp": "2026-06-03T06:30:28.771Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"custom shape die-cut pouch\" to /blog/custom-shape-die-cut-pouch"
+      "message": "Soro Pipeline auto-published article for keyword \"mono-pe recyclable food packaging\" to /blog/mono-pe-recyclable-food-packaging",
+      "timestamp": "2026-06-03T06:45:26.054Z"
     },
     {
-      "timestamp": "2026-06-03T06:15:18.620Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"plastic-free compostable barrier pouch\" to /blog/plastic-free-compostable-barrier-pouch"
+      "message": "Soro Pipeline auto-published article for keyword \"custom shape die-cut pouch\" to /blog/custom-shape-die-cut-pouch",
+      "timestamp": "2026-06-03T06:30:28.771Z"
     },
     {
-      "timestamp": "2026-06-03T06:11:49.038Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"high-barrier retort pouch\" to /blog/high-barrier-retort-pouch"
+      "message": "Soro Pipeline auto-published article for keyword \"plastic-free compostable barrier pouch\" to /blog/plastic-free-compostable-barrier-pouch",
+      "timestamp": "2026-06-03T06:15:18.620Z"
     },
     {
-      "timestamp": "2026-06-03T06:04:58.301Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"TUV backyard compostable packaging\" to /blog/tuv-backyard-compostable-packaging"
+      "message": "Soro Pipeline auto-published article for keyword \"high-barrier retort pouch\" to /blog/high-barrier-retort-pouch",
+      "timestamp": "2026-06-03T06:11:49.038Z"
     },
     {
-      "timestamp": "2026-06-02T14:52:52.542Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"curbside recyclable coffee bag\" to /blog/curbside-recyclable-coffee-bag"
+      "message": "Soro Pipeline auto-published article for keyword \"TUV backyard compostable packaging\" to /blog/tuv-backyard-compostable-packaging",
+      "timestamp": "2026-06-03T06:04:58.301Z"
     },
     {
-      "timestamp": "2026-06-02T14:26:35.974Z",
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"recyclable high-barrier nuts pouch\" to /blog/recyclable-high-barrier-nuts-pouch"
+      "message": "Soro Pipeline auto-published article for keyword \"curbside recyclable coffee bag\" to /blog/curbside-recyclable-coffee-bag",
+      "timestamp": "2026-06-02T14:52:52.542Z"
     },
     {
-      "timestamp": "2026-06-02T14:22:10.978Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"recyclable high-barrier nuts pouch\" to /blog/recyclable-high-barrier-nuts-pouch",
+      "timestamp": "2026-06-02T14:26:35.974Z"
+    },
+    {
       "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"recyclable high-barrier nuts pouch\": new row violates row-level security policy for table \"pouch_seo_blog\""
+      "message": "Pipeline generation failed for keyword \"recyclable high-barrier nuts pouch\": new row violates row-level security policy for table \"pouch_seo_blog\"",
+      "timestamp": "2026-06-02T14:22:10.978Z"
     },
     {
-      "timestamp": "2026-06-02T22:13:11.000Z",
       "action": "Autopilot Hub Active",
-      "message": "Initialized Soro Autopilot Mode B completely. Unified scheduled scheduler set to HKT 7:00 AM."
+      "message": "Initialized Soro Autopilot Mode B completely. Unified scheduled scheduler set to HKT 7:00 AM.",
+      "timestamp": "2026-06-02T22:13:11.000Z"
     }
   ]
 }
