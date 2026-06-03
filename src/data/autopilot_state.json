@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T17:00:55.273Z",
+  "lastUnifiedRun": "2026-06-03T17:16:08.173Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 118,
@@ -118,17 +118,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "small-batch-custom-pouch-printing",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "small batch custom pouch printing",
-      "difficulty": "Low",
-      "slug": "small-batch-custom-pouch-printing"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1300,
       "keyword": "biodegradable barrier bags for coffee",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "biodegradable-barrier-bags-for-coffee"
     },
     {
       "status": "Pending",
@@ -193,9 +194,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T17:00:26.975Z",
+      "timestamp": "2026-06-03T17:15:24.787Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"small batch custom pouch printing\" to /blog/small-batch-custom-pouch-printing (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable barrier bags for coffee\" to /blog/biodegradable-barrier-bags-for-coffee (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"small batch custom pouch printing\" to /blog/small-batch-custom-pouch-printing (Pending Approval)",
+      "timestamp": "2026-06-03T17:00:26.975Z"
     },
     {
       "action": "Autopilot Generation Draft",
