@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T21:00:54.102Z",
+  "lastUnifiedRun": "2026-06-03T21:15:53.640Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 156,
+  "totalLinkedAnchors": 160,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -230,17 +230,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-high-barrier-film-suppliers",
       "status": "Pending Approval",
       "volume": 800,
       "keyword": "compostable high barrier film suppliers",
-      "difficulty": "Medium",
-      "slug": "compostable-high-barrier-film-suppliers"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1000,
       "keyword": "sustainable flat bottom pouch sizes",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-flat-bottom-pouch-sizes"
     },
     {
       "status": "Pending",
@@ -317,9 +318,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T21:00:21.427Z",
+      "timestamp": "2026-06-03T21:15:20.692Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable high barrier film suppliers\" to /blog/compostable-high-barrier-film-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable flat bottom pouch sizes\" to /blog/sustainable-flat-bottom-pouch-sizes (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable high barrier film suppliers\" to /blog/compostable-high-barrier-film-suppliers (Pending Approval)",
+      "timestamp": "2026-06-03T21:00:21.427Z"
     },
     {
       "action": "Autopilot Generation Draft",
