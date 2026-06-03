@@ -1,11 +1,11 @@
 {
   "generated": "2026-06-03",
-  "total_images": 1927,
+  "total_images": 1929,
   "total_categories": 165,
   "extensions": {
     ".webp": 1299,
     ".png": 399,
-    ".jpg": 226,
+    ".jpg": 228,
     ".svg": 3
   },
   "categories": {
@@ -8600,8 +8600,20 @@
       ]
     },
     "store/products": {
-      "count": 274,
+      "count": 276,
       "images": [
+        {
+          "filename": "rice-paper-flat-bottom-flat-bottom-thumbnail-2.jpg",
+          "path": "/imgs/store/products/rice-paper-flat-bottom-flat-bottom-thumbnail-2.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-03T14:32:54.080Z"
+        },
+        {
+          "filename": "rice-paper-flat-bottom-flat-bottom-thumbnail-1.jpg",
+          "path": "/imgs/store/products/rice-paper-flat-bottom-flat-bottom-thumbnail-1.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-03T14:32:54.079Z"
+        },
         {
           "filename": "eco-sidegusset-premium.png",
           "path": "/imgs/store/products/eco-sidegusset-premium.png",
