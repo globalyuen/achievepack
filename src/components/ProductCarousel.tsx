@@ -12,6 +12,7 @@ interface ProductCarouselProps {
   autoPlay?: boolean
   autoPlayInterval?: number
   className?: string
+  variant?: 'neobrutalist' | 'clean'
 }
 
 // 所有产品照片路径
@@ -61,7 +62,8 @@ const productImages = [
 export default function ProductCarousel({ 
   autoPlay = true, 
   autoPlayInterval = 4000,
-  className = ''
+  className = '',
+  variant = 'neobrutalist'
 }: ProductCarouselProps) {
   // Randomize all images sequence once on load (synchronously initialized)
   const [shuffledImages] = useState<string[]>(() => {
@@ -115,14 +117,75 @@ export default function ProductCarousel({
 
   if (shuffledImages.length === 0) return null
 
+  // Conditional class configurations based on variant
+  const containerClass = variant === 'neobrutalist'
+    ? `border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] bg-white overflow-hidden`
+    : `border border-neutral-200 rounded-2xl shadow-xl bg-white overflow-hidden`
+
+  const imageContainerClass = variant === 'neobrutalist'
+    ? `relative aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-neutral-50`
+    : `relative aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-neutral-50 rounded-t-2xl`
+
+  const prevBtnClass = variant === 'neobrutalist'
+    ? `absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border-4 border-black hover:bg-[#D4FF00] transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:scale-105 z-10 flex items-center justify-center group`
+    : `absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/95 backdrop-blur-sm border border-neutral-200 rounded-full text-neutral-700 hover:bg-primary-500 hover:text-white transition-all shadow-md hover:scale-105 z-10 flex items-center justify-center group`
+
+  const nextBtnClass = variant === 'neobrutalist'
+    ? `absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border-4 border-black hover:bg-[#D4FF00] transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:scale-105 z-10 flex items-center justify-center group`
+    : `absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/95 backdrop-blur-sm border border-neutral-200 rounded-full text-neutral-700 hover:bg-primary-500 hover:text-white transition-all shadow-md hover:scale-105 z-10 flex items-center justify-center group`
+
+  const counterClass = variant === 'neobrutalist'
+    ? `absolute top-4 right-4 bg-black text-[#D4FF00] px-3 py-1 font-['JetBrains_Mono'] text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(212,255,0,1)] z-10`
+    : `absolute top-4 right-4 bg-neutral-900/80 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-semibold z-10`
+
+  const dotsContainerClass = variant === 'neobrutalist'
+    ? `flex items-center justify-center gap-2 py-4 px-4 bg-neutral-50 border-t-4 border-black overflow-x-auto`
+    : `flex items-center justify-center gap-2 py-4 px-4 bg-neutral-50 border-t border-neutral-200 overflow-x-auto`
+
+  const thumbnailsContainerClass = variant === 'neobrutalist'
+    ? `hidden md:flex items-center gap-3 p-4 bg-white border-t-4 border-black overflow-x-auto`
+    : `hidden md:flex items-center gap-3 p-4 bg-white border-t border-neutral-200 overflow-x-auto`
+
+  const getDotClass = (isActive: boolean) => {
+    if (variant === 'neobrutalist') {
+      return `transition-all border-2 border-black ${
+        isActive
+          ? 'w-12 h-4 bg-[#10b981] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+          : 'w-4 h-4 bg-white hover:bg-[#D4FF00] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+      }`
+    } else {
+      return `transition-all rounded-full ${
+        isActive
+          ? 'w-8 h-2 bg-primary-500'
+          : 'w-2 h-2 bg-neutral-300 hover:bg-primary-400'
+      }`
+    }
+  }
+
+  const getThumbnailClass = (isActive: boolean) => {
+    if (variant === 'neobrutalist') {
+      return `flex-shrink-0 w-20 h-20 border-4 overflow-hidden transition-all hover:scale-105 ${
+        isActive
+          ? 'border-[#10b981] shadow-[4px_4px_0px_0px_rgba(16,185,129,1)]'
+          : 'border-black hover:border-[#D4FF00] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+      }`
+    } else {
+      return `flex-shrink-0 w-20 h-20 border-2 rounded-lg overflow-hidden transition-all hover:scale-105 ${
+        isActive
+          ? 'border-primary-500 shadow-md scale-105'
+          : 'border-neutral-200 hover:border-primary-300 shadow-sm'
+      }`
+    }
+  }
+
   return (
     <div 
-      className={`relative bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden ${className}`}
+      className={`relative ${containerClass} ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
       {/* 主图片容器 */}
-      <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-neutral-50">
+      <div className={imageContainerClass}>
         <AnimatePresence initial={false} custom={direction}>
           <motion.img
             key={currentIndex}
@@ -145,7 +208,7 @@ export default function ProductCarousel({
         {/* 左右箭头按钮 */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border-4 border-black hover:bg-[#D4FF00] transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:scale-105 z-10 flex items-center justify-center group"
+          className={prevBtnClass}
           aria-label="Previous image"
         >
           <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform" />
@@ -153,30 +216,26 @@ export default function ProductCarousel({
 
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white border-4 border-black hover:bg-[#D4FF00] transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:scale-105 z-10 flex items-center justify-center group"
+          className={nextBtnClass}
           aria-label="Next image"
         >
           <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" />
         </button>
 
         {/* 图片计数器 */}
-        <div className="absolute top-4 right-4 bg-black text-[#D4FF00] px-3 py-1 font-['JetBrains_Mono'] text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(212,255,0,1)] z-10">
+        <div className={counterClass}>
           {currentIndex + 1} / {shuffledImages.length}
         </div>
       </div>
 
       {/* 指示器点 */}
-      <div className="flex items-center justify-center gap-2 py-4 px-4 bg-neutral-50 border-t-4 border-black overflow-x-auto">
+      <div className={dotsContainerClass}>
         <div className="flex items-center gap-2 min-w-max">
           {shuffledImages.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`transition-all border-2 border-black ${
-                index === currentIndex
-                  ? 'w-12 h-4 bg-[#10b981] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
-                  : 'w-4 h-4 bg-white hover:bg-[#D4FF00] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
-              }`}
+              className={getDotClass(index === currentIndex)}
               aria-label={`Go to image ${index + 1}`}
             />
           ))}
@@ -184,16 +243,12 @@ export default function ProductCarousel({
       </div>
 
       {/* 缩略图预览（桌面端） */}
-      <div className="hidden md:flex items-center gap-3 p-4 bg-white border-t-4 border-black overflow-x-auto">
+      <div className={thumbnailsContainerClass}>
         {shuffledImages.map((image, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`flex-shrink-0 w-20 h-20 border-4 overflow-hidden transition-all hover:scale-105 ${
-              index === currentIndex
-                ? 'border-[#10b981] shadow-[4px_4px_0px_0px_rgba(16,185,129,1)]'
-                : 'border-black hover:border-[#D4FF00] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
-            }`}
+            className={getThumbnailClass(index === currentIndex)}
           >
             <img
               src={image}

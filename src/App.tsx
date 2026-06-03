@@ -21,6 +21,7 @@ import ReadingProgress from './components/ReadingProgress'
 import { getDomain, getBrandConfig, getBaseUrl } from './utils/domain'
 import QuoteLightbox from './components/QuoteLightbox';
 import { ThreePouchViewer } from './components/ThreePouchViewer';
+import ProductCarousel from './components/ProductCarousel';
 
 // Error boundary to handle chunk loading failures
 class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
@@ -930,7 +931,21 @@ function App() {
         </div>
       </section>
 
-
+      {/* Product Photos Carousel (See Our Work) */}
+      <section className="py-20 bg-white border-b border-neutral-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm">Our Portfolio</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 leading-tight tracking-tight mt-2 mb-4">
+              See Our <span className="text-primary-500">Work</span>
+            </h2>
+            <p className="text-lg text-neutral-600">
+              Browse real product photos from brands we've helped launch. Your custom packaging could be next.
+            </p>
+          </div>
+          <ProductCarousel autoPlay autoPlayInterval={4000} variant="clean" />
+        </div>
+      </section>
 
       {/* Interactive 3D Eco Pouch Showcase */}
       <section 
