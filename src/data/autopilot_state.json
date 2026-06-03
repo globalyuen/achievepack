@@ -1,9 +1,9 @@
 {
-  "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-03T16:20:34.517Z",
+  "autopilotMode": "A",
+  "lastUnifiedRun": "2026-06-03T16:23:41.917Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 100,
+  "totalLinkedAnchors": 104,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -83,17 +83,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-digital-printed-sachets",
       "status": "Published",
       "volume": 1100,
       "keyword": "custom digital printed sachets",
-      "difficulty": "Low",
-      "slug": "custom-digital-printed-sachets"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 950,
       "keyword": "barrier film flexible packaging wholesale",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "barrier-film-flexible-packaging-wholesale"
     },
     {
       "status": "Pending",
@@ -188,9 +189,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T16:18:22.685Z",
+      "timestamp": "2026-06-03T16:21:33.531Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"barrier film flexible packaging wholesale\" to /blog/barrier-film-flexible-packaging-wholesale (Pending Approval)"
+    },
+    {
       "action": "Autopilot Generation",
-      "message": "Soro Pipeline auto-published article for keyword \"custom digital printed sachets\" to /blog/custom-digital-printed-sachets"
+      "message": "Soro Pipeline auto-published article for keyword \"custom digital printed sachets\" to /blog/custom-digital-printed-sachets",
+      "timestamp": "2026-06-03T16:18:22.685Z"
     },
     {
       "action": "Autopilot Generation",
