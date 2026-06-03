@@ -1,6 +1,6 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-03T08:51:13.026Z",
+  "lastUnifiedRun": "2026-06-03T09:00:46.599Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
   "totalLinkedAnchors": 28,
@@ -16,7 +16,8 @@
       "keyword": "kraft paper zipper doypack",
       "difficulty": "Low",
       "volume": 1200,
-      "status": "Pending"
+      "status": "Published",
+      "slug": "kraft-paper-zipper-doypack"
     },
     {
       "keyword": "compostable spouted baby puree bag",
@@ -68,6 +69,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-03T09:00:20.580Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"kraft paper zipper doypack\" to /blog/kraft-paper-zipper-doypack"
+    },
     {
       "timestamp": "2026-06-03T06:45:26.054Z",
       "action": "Autopilot Generation",
