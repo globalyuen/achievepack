@@ -1,9 +1,9 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-03T06:30:42.037Z",
+  "lastUnifiedRun": "2026-06-03T06:45:37.544Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
-  "totalLinkedAnchors": 22,
+  "totalLinkedAnchors": 28,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -72,10 +72,16 @@
       "keyword": "mono-pe recyclable food packaging",
       "difficulty": "Low",
       "volume": 1800,
-      "status": "Pending"
+      "status": "Published",
+      "slug": "mono-pe-recyclable-food-packaging"
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-03T06:45:26.054Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"mono-pe recyclable food packaging\" to /blog/mono-pe-recyclable-food-packaging"
+    },
     {
       "timestamp": "2026-06-03T06:30:28.771Z",
       "action": "Autopilot Generation",
