@@ -1,9 +1,9 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-03T06:15:28.518Z",
+  "lastUnifiedRun": "2026-06-03T06:30:42.037Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
-  "totalLinkedAnchors": 18,
+  "totalLinkedAnchors": 22,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -65,7 +65,8 @@
       "keyword": "custom shape die-cut pouch",
       "difficulty": "Medium",
       "volume": 1300,
-      "status": "Pending"
+      "status": "Published",
+      "slug": "custom-shape-die-cut-pouch"
     },
     {
       "keyword": "mono-pe recyclable food packaging",
@@ -75,6 +76,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-03T06:30:28.771Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"custom shape die-cut pouch\" to /blog/custom-shape-die-cut-pouch"
+    },
     {
       "timestamp": "2026-06-03T06:15:18.620Z",
       "action": "Autopilot Generation",
