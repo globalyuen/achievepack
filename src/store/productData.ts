@@ -6913,7 +6913,7 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-valve-info.jpg',
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-sealing.jpg',
       '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-features.png',
-      '/imgs/store/conventional-stock/rice-paper-flatbottom-valve.png'
+      '/imgs/store/conventional-stock/rice-paper-flatbottom-valve-details.png'
     ],
     badge: '⭐ Premium Stock',
     rating: 4.9,
