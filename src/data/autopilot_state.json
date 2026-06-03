@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T21:30:55.755Z",
+  "lastUnifiedRun": "2026-06-03T21:45:55.186Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 164,
+  "totalLinkedAnchors": 166,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -244,17 +244,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "mono-pe-compostable-sachet-options",
       "status": "Pending Approval",
       "volume": 600,
       "keyword": "mono pe compostable sachet options",
-      "difficulty": "Low",
-      "slug": "mono-pe-compostable-sachet-options"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "custom shape pouches for liquids",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-shape-pouches-for-liquids"
     },
     {
       "status": "Pending",
@@ -319,9 +320,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T21:30:20.902Z",
+      "timestamp": "2026-06-03T21:45:20.280Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono pe compostable sachet options\" to /blog/mono-pe-compostable-sachet-options (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom shape pouches for liquids\" to /blog/custom-shape-pouches-for-liquids (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe compostable sachet options\" to /blog/mono-pe-compostable-sachet-options (Pending Approval)",
+      "timestamp": "2026-06-03T21:30:20.902Z"
     },
     {
       "action": "Autopilot Generation Draft",
