@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T18:45:52.090Z",
+  "lastUnifiedRun": "2026-06-03T19:00:51.679Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 131,
+  "totalLinkedAnchors": 133,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -167,17 +167,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "pouch-packaging-for-liquids-compostable",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "pouch packaging for liquids compostable",
-      "difficulty": "Low",
-      "slug": "pouch-packaging-for-liquids-compostable"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1900,
       "keyword": "kraft stand up pouches with window",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "kraft-stand-up-pouches-with-window"
     },
     {
       "status": "Pending",
@@ -308,9 +309,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T18:45:21.573Z",
+      "timestamp": "2026-06-03T19:00:22.495Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"pouch packaging for liquids compostable\" to /blog/pouch-packaging-for-liquids-compostable (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"kraft stand up pouches with window\" to /blog/kraft-stand-up-pouches-with-window (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"pouch packaging for liquids compostable\" to /blog/pouch-packaging-for-liquids-compostable (Pending Approval)",
+      "timestamp": "2026-06-03T18:45:21.573Z"
     },
     {
       "action": "Autopilot Generation Draft",
