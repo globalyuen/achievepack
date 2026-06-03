@@ -1,11 +1,11 @@
 {
   "generated": "2026-06-03",
-  "total_images": 1929,
+  "total_images": 1932,
   "total_categories": 165,
   "extensions": {
     ".webp": 1299,
     ".png": 399,
-    ".jpg": 228,
+    ".jpg": 231,
     ".svg": 3
   },
   "categories": {
@@ -8600,8 +8600,26 @@
       ]
     },
     "store/products": {
-      "count": 276,
+      "count": 279,
       "images": [
+        {
+          "filename": "rice-paper-flat-bottom-flat-bottom-thumbnail-5.jpg",
+          "path": "/imgs/store/products/rice-paper-flat-bottom-flat-bottom-thumbnail-5.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-03T15:13:03.269Z"
+        },
+        {
+          "filename": "rice-paper-flat-bottom-flat-bottom-thumbnail-4.jpg",
+          "path": "/imgs/store/products/rice-paper-flat-bottom-flat-bottom-thumbnail-4.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-03T15:13:03.266Z"
+        },
+        {
+          "filename": "rice-paper-flat-bottom-flat-bottom-thumbnail-3.jpg",
+          "path": "/imgs/store/products/rice-paper-flat-bottom-flat-bottom-thumbnail-3.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-03T15:13:03.263Z"
+        },
         {
           "filename": "rice-paper-flat-bottom-flat-bottom-thumbnail-2.jpg",
           "path": "/imgs/store/products/rice-paper-flat-bottom-flat-bottom-thumbnail-2.jpg",
