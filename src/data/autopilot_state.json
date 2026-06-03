@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T18:30:59.439Z",
+  "lastUnifiedRun": "2026-06-03T18:45:52.090Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 129,
+  "totalLinkedAnchors": 131,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -160,17 +160,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-compostable-films",
       "status": "Pending Approval",
       "volume": 1500,
       "keyword": "high barrier compostable films",
-      "difficulty": "Low",
-      "slug": "high-barrier-compostable-films"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "pouch packaging for liquids compostable",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "pouch-packaging-for-liquids-compostable"
     },
     {
       "status": "Pending",
@@ -307,9 +308,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T18:30:28.299Z",
+      "timestamp": "2026-06-03T18:45:21.573Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable films\" to /blog/high-barrier-compostable-films (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"pouch packaging for liquids compostable\" to /blog/pouch-packaging-for-liquids-compostable (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable films\" to /blog/high-barrier-compostable-films (Pending Approval)",
+      "timestamp": "2026-06-03T18:30:28.299Z"
     },
     {
       "action": "Autopilot Generation Draft",
