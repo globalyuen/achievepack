@@ -1,9 +1,9 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-03T09:15:29.182Z",
+  "lastUnifiedRun": "2026-06-03T09:30:39.499Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
-  "totalLinkedAnchors": 28,
+  "totalLinkedAnchors": 30,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -37,7 +37,8 @@
       "keyword": "curbside recyclable coffee bag",
       "difficulty": "Medium",
       "volume": 2400,
-      "status": "Pending"
+      "status": "Published",
+      "slug": "curbside-recyclable-coffee-bag"
     },
     {
       "keyword": "TUV backyard compostable packaging",
@@ -71,6 +72,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-03T09:30:26.248Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"curbside recyclable coffee bag\" to /blog/curbside-recyclable-coffee-bag"
+    },
     {
       "timestamp": "2026-06-03T09:15:17.924Z",
       "action": "Autopilot Generation",

@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-03",
-  "total_images": 1881,
-  "total_categories": 164,
+  "total_images": 1890,
+  "total_categories": 165,
   "extensions": {
     ".webp": 1299,
-    ".png": 353,
+    ".png": 362,
     ".jpg": 226,
     ".svg": 3
   },
@@ -3850,6 +3850,65 @@
           "path": "/imgs/illustrated/a_topic_04_digital_print_var_c_4560298.webp",
           "extension": ".webp",
           "modified": "2025-12-24T20:55:54.000Z"
+        }
+      ]
+    },
+    "infographics": {
+      "count": 9,
+      "images": [
+        {
+          "filename": "mono-pe-recyclable-food-packaging-infographic.png",
+          "path": "/imgs/infographics/mono-pe-recyclable-food-packaging-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-03T08:58:24.741Z"
+        },
+        {
+          "filename": "custom-shape-die-cut-pouch-infographic.png",
+          "path": "/imgs/infographics/custom-shape-die-cut-pouch-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-03T08:58:24.739Z"
+        },
+        {
+          "filename": "high-barrier-retort-pouch-infographic.png",
+          "path": "/imgs/infographics/high-barrier-retort-pouch-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-03T08:58:24.737Z"
+        },
+        {
+          "filename": "tuv-backyard-compostable-packaging-infographic.png",
+          "path": "/imgs/infographics/tuv-backyard-compostable-packaging-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-03T08:58:24.734Z"
+        },
+        {
+          "filename": "curbside-recyclable-coffee-bag-infographic.png",
+          "path": "/imgs/infographics/curbside-recyclable-coffee-bag-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-03T08:58:24.731Z"
+        },
+        {
+          "filename": "recyclable-high-barrier-nuts-pouch-infographic.png",
+          "path": "/imgs/infographics/recyclable-high-barrier-nuts-pouch-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-03T08:58:24.728Z"
+        },
+        {
+          "filename": "compostable-spouted-baby-puree-bag-infographic.png",
+          "path": "/imgs/infographics/compostable-spouted-baby-puree-bag-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-03T08:58:24.725Z"
+        },
+        {
+          "filename": "kraft-paper-zipper-doypack-infographic.png",
+          "path": "/imgs/infographics/kraft-paper-zipper-doypack-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-03T08:58:24.722Z"
+        },
+        {
+          "filename": "plastic-free-compostable-barrier-pouch-infographic.png",
+          "path": "/imgs/infographics/plastic-free-compostable-barrier-pouch-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-03T08:50:16.657Z"
         }
       ]
     },

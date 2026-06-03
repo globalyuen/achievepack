@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { 
   Coffee, Leaf, Zap, CheckCircle, ArrowRight, Shield, Award, Box, Ruler, 
   Sparkles, DollarSign, Clock, HelpCircle, Mail, Download, Compass, 
@@ -123,6 +123,23 @@ const TABLE_CATEGORIES: TableCategory[] = [
 ]
 
 export default function PouchEcoGPTKPage() {
+  const rotatingCategories = [
+    'Specialty Coffee Roasters',
+    'Organic Tea Brands',
+    'Nutritional Supplement Brands',
+    'Artisanal Snack Brands',
+    'Gourmet Pet Treat Brands',
+    'Superfood Powder Brands'
+  ]
+  const [categoryIndex, setCategoryIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCategoryIndex(prev => (prev + 1) % rotatingCategories.length)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
+
   const [sizeMode, setSizeMode] = useState<'standard' | 'custom'>('standard')
   const [numDesigns, setNumDesigns] = useState<number>(3)
   const [qtyPerDesign, setQtyPerDesign] = useState<number>(500)
@@ -492,8 +509,25 @@ export default function PouchEcoGPTKPage() {
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase bg-emerald-50 border border-emerald-100 text-emerald-800 tracking-wider">
               B2B Packaging Pricing Plans
             </span>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900 font-['Outfit']">
-              Custom Coffee Bags & Flexible Packaging Pricing for B2B Specialty Roasters
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900 font-['Outfit'] leading-tight">
+              Custom Coffee Bags & Flexible Packaging Pricing for{' '}
+              <span className="block mt-2">
+                B2B{' '}
+                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-indigo-600 py-1">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={categoryIndex}
+                      initial={{ y: 15, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -15, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: 'easeOut' }}
+                      className="inline-block"
+                    >
+                      {rotatingCategories[categoryIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+              </span>
             </h1>
             <p className="text-sm font-mono text-emerald-600 uppercase tracking-widest font-bold">
               ☕ 咖啡茶葉袋客製 實時單價與配置成本計算器
