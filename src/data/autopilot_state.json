@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T21:15:53.640Z",
+  "lastUnifiedRun": "2026-06-03T21:30:55.755Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 160,
+  "totalLinkedAnchors": 164,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -237,17 +237,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "sustainable-flat-bottom-pouch-sizes",
       "status": "Pending Approval",
       "volume": 1000,
       "keyword": "sustainable flat bottom pouch sizes",
-      "difficulty": "Low",
-      "slug": "sustainable-flat-bottom-pouch-sizes"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 600,
       "keyword": "mono pe compostable sachet options",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "mono-pe-compostable-sachet-options"
     },
     {
       "status": "Pending",
@@ -318,9 +319,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T21:15:20.692Z",
+      "timestamp": "2026-06-03T21:30:20.902Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable flat bottom pouch sizes\" to /blog/sustainable-flat-bottom-pouch-sizes (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe compostable sachet options\" to /blog/mono-pe-compostable-sachet-options (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable flat bottom pouch sizes\" to /blog/sustainable-flat-bottom-pouch-sizes (Pending Approval)",
+      "timestamp": "2026-06-03T21:15:20.692Z"
     },
     {
       "action": "Autopilot Generation Draft",
