@@ -127,6 +127,20 @@ export default function BlogPostPage() {
     }));
   }, [post]);
 
+  const relatedPosts = useMemo(() => {
+    if (!post) return [];
+    const matched = blogPosts.filter(
+      p => p.id !== post.id && (p.category === post.category || p.tags.some(t => post.tags.includes(t)))
+    );
+    const fallbacks = blogPosts.filter(p => p.id !== post.id && !matched.some(m => m.id === p.id));
+    const merged = [...matched];
+    for (const p of fallbacks) {
+      if (merged.length >= 3) break;
+      merged.push(p);
+    }
+    return merged.slice(0, 3);
+  }, [post]);
+
   // Handle scroll to section
   const scrollToSection = (sectionSlug: string) => {
     const headings = document.querySelectorAll('h2');
@@ -150,19 +164,6 @@ export default function BlogPostPage() {
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
-
-  const relatedPosts = useMemo(() => {
-    const matched = blogPosts.filter(
-      p => p.id !== post.id && (p.category === post.category || p.tags.some(t => post.tags.includes(t)))
-    );
-    const fallbacks = blogPosts.filter(p => p.id !== post.id && !matched.some(m => m.id === p.id));
-    const merged = [...matched];
-    for (const p of fallbacks) {
-      if (merged.length >= 3) break;
-      merged.push(p);
-    }
-    return merged.slice(0, 3);
-  }, [post]);
 
   const handleShare = async () => {
     if (navigator.share) {
