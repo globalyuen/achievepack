@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T20:00:59.741Z",
+  "lastUnifiedRun": "2026-06-03T20:16:04.365Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 145,
+  "totalLinkedAnchors": 148,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -202,17 +202,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-stand-up-pouches-with-spout",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "compostable stand up pouches with spout",
-      "difficulty": "Low",
-      "slug": "compostable-stand-up-pouches-with-spout"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "custom printed sachet packaging wholesale",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-printed-sachet-packaging-wholesale"
     },
     {
       "status": "Pending",
@@ -313,9 +314,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T20:00:28.512Z",
+      "timestamp": "2026-06-03T20:15:33.704Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable stand up pouches with spout\" to /blog/compostable-stand-up-pouches-with-spout (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed sachet packaging wholesale\" to /blog/custom-printed-sachet-packaging-wholesale (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable stand up pouches with spout\" to /blog/compostable-stand-up-pouches-with-spout (Pending Approval)",
+      "timestamp": "2026-06-03T20:00:28.512Z"
     },
     {
       "action": "Autopilot Generation Draft",
