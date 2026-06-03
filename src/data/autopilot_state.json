@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T19:00:51.679Z",
+  "lastUnifiedRun": "2026-06-03T19:16:03.118Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 133,
+  "totalLinkedAnchors": 139,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -174,17 +174,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-stand-up-pouches-with-window",
       "status": "Pending Approval",
       "volume": 1900,
       "keyword": "kraft stand up pouches with window",
-      "difficulty": "Low",
-      "slug": "kraft-stand-up-pouches-with-window"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 2200,
       "keyword": "mono material recyclable pouches",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "mono-material-recyclable-pouches"
     },
     {
       "status": "Pending",
@@ -309,9 +310,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T19:00:22.495Z",
+      "timestamp": "2026-06-03T19:15:32.843Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft stand up pouches with window\" to /blog/kraft-stand-up-pouches-with-window (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono material recyclable pouches\" to /blog/mono-material-recyclable-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft stand up pouches with window\" to /blog/kraft-stand-up-pouches-with-window (Pending Approval)",
+      "timestamp": "2026-06-03T19:00:22.495Z"
     },
     {
       "action": "Autopilot Generation Draft",
