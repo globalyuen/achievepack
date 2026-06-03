@@ -1,6 +1,6 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-03T10:00:35.222Z",
+  "lastUnifiedRun": "2026-06-03T10:15:36.889Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
   "totalLinkedAnchors": 31,
@@ -58,7 +58,8 @@
       "keyword": "plastic-free compostable barrier pouch",
       "difficulty": "Medium",
       "volume": 950,
-      "status": "Pending"
+      "status": "Published",
+      "slug": "plastic-free-compostable-barrier-pouch"
     },
     {
       "keyword": "custom shape die-cut pouch",
@@ -74,6 +75,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-03T10:15:19.692Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"plastic-free compostable barrier pouch\" to /blog/plastic-free-compostable-barrier-pouch"
+    },
     {
       "timestamp": "2026-06-03T10:00:24.625Z",
       "action": "Autopilot Generation",
