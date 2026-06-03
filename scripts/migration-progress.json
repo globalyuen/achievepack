@@ -1,0 +1,14 @@
+{
+  "completed": {
+    "test-slug-schema": {
+      "keyword": "Test Slug Schema",
+      "migratedAt": "2026-06-03T22:51:15.363Z",
+      "status": "Published"
+    },
+    "coffee-degassing-valve-packaging": {
+      "keyword": "Coffee Degassing Valve Packaging",
+      "migratedAt": "2026-06-03T22:53:07.393Z",
+      "status": "Published"
+    }
+  }
+}

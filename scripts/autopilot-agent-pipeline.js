@@ -60,48 +60,106 @@ export async function runAutopilotWritingPipeline(domain = 'pouch.eco', keyword 
     .replace(/-+/g, '-');
 
   // --- AGENT 1: Brand DNA Technology ---
-  console.log('🧬 [Agent 1: Brand DNA] Extracting tone guidelines and technical packaging parameters...');
+  console.log('🧬 [Agent 1: Brand DNA] Selecting random brand and country seed...');
+  const BRAND_SEEDS = [
+    "Roastwood Coffee", "GreenLeaf Tea", "PureNature Superfoods", "BarkBites", "SnackSentry",
+    "CleanCycle Cosmetics", "VitaBlend Nutrition", "BloomBrews", "SpiceRoute Co", "DailyGrind Roasters",
+    "NurturePure", "SeaSalt & Co", "CocoaCrafters", "HerbVitality", "ZenPowder", "HappyPaws",
+    "CrunchTime", "AlpineBrews", "NutriFlow", "FreshPress", "TerraSnacks", "PodPerfection",
+    "OrchardNectar", "PureProtein", "PawfectBites", "BotanicaBlend", "RoastCraft", "GreenLife Organics",
+    "HoneyHarvest", "CleanBite"
+  ];
+
+  const COUNTRY_SEEDS = [
+    "Germany", "USA", "Canada", "United Kingdom", "Australia", "France", "Netherlands", "Switzerland",
+    "Sweden", "New Zealand", "Japan", "Singapore", "Norway", "Denmark", "Ireland", "Austria",
+    "Italy", "Spain", "Belgium", "Finland"
+  ];
+
+  const randomBrand = BRAND_SEEDS[Math.floor(Math.random() * BRAND_SEEDS.length)];
+  const randomCountry = COUNTRY_SEEDS[Math.floor(Math.random() * COUNTRY_SEEDS.length)];
+  console.log(`🧬 Seed Context Chosen: "${randomBrand}" operating in "${randomCountry}"`);
+
   const tone = domain === 'pouch.eco' 
-    ? 'Eco-vibrant, startup-friendly, retro-brutalist layouts, low MOQ (100 pieces), rapid prototype testing.' 
-    : 'Enterprise B2B technical, supply-chain optimization, VFFS compatibility, high-volume discounts, cleanroom certifications.';
+    ? `Eco-vibrant, startup-friendly, retro-brutalist layouts, low MOQ (100 pieces), rapid prototype testing, optimized for ${randomBrand} in ${randomCountry}.` 
+    : `Enterprise B2B technical, supply-chain optimization, VFFS compatibility, high-volume discounts, cleanroom certifications, optimized for ${randomBrand} in ${randomCountry}.`;
   
   // --- AGENT 2 & 3: Outline & Grok-3 Writer ---
-  console.log('✍️ [Agent 2/3: Grok-3 Writer] Invoking xAI Grok-3 for high-fidelity 800+ words SEO page content...');
+  console.log('✍️ [Agent 2/3: Grok-3 Writer] Invoking xAI Grok-3 for structured B2B/B2C content...');
   
   const systemPrompt = `You are a professional packaging engineering AI copywriter working for AchievePack (B2B) and Pouch.eco (B2C/DTC).
-Your task is to write a highly detailed, comprehensive, premium-grade B2B/B2C sourcing guide for the keyword: "${keyword}".
+Your task is to write a highly detailed, comprehensive, premium-grade sourcing guide for the keyword: "${keyword}".
 The target domain layout style is "${domain}".
+
+To avoid duplicate content patterns and write highly targeted content that ranks well on Google, you MUST write the guide from the perspective of a real-world B2B buyer scenario.
+Specifically, write the article with a seed focus context: Sourcing custom packaging for the brand "${randomBrand}" located/operating in "${randomCountry}".
+
+Explain how "${randomBrand}" in "${randomCountry}" researches, validates, and sources this packaging. Include specific local requirements (e.g. PPWR and sorting schemes in Europe/Germany, local FDA or California EPR regulations in the US, local retail market requirements, shipping times, customs, and factory inspections).
 
 You must output exactly a JSON object, with NO markdown formatting wrapper or commentary. The JSON object must match this schema:
 {
-  "title": "A professional capitalized title, e.g. 'Curbside Recyclable Coffee Bag Sourcing Guide'",
+  "title": "A professional capitalized title including the brand and country context (e.g., 'How ${randomBrand} (${randomCountry}) Sourced ${keyword}')",
   "excerpt": "A high-converting 2-3 sentence summary of the sourcing guide.",
+  "meta_description": "A search-optimized meta description containing the keyword, brand context, and target country.",
   "sections": [
     {
       "title": "Understanding [Keyword] in Modern Sourcing",
       "icon": "info",
-      "content": "At least 300 words. You MUST start the content with a beautifully styled Key Takeaways box using inline CSS: <div style=\"background: #e6f4ea; border-left: 6px solid #137333; padding: 20px; border-radius: 8px; margin-bottom: 24px;\"><h4 style=\"color: #137333; font-weight: bold; margin-top: 0; margin-bottom: 12px; font-size: 1.1rem;\">🔑 Key Sourcing Takeaways:</h4><ul style=\"margin: 0; padding-left: 20px; font-size: 0.95rem; line-height: 1.6; color: #202124;\"><li><strong>Takeaway 1</strong>: ...</li><li><strong>Takeaway 2</strong>: ...</li><li><strong>Takeaway 3</strong>: ...</li></ul></div>. Followed by a direct, punchy conclusion/hook. Analyze specific B2B sourcing challenges, search intent, and structural characteristics (e.g. moisture barrier, puncture resistance). Include concrete scenario metrics or case studies (e.g. running 10,000 pouches through VFFS machinery at 65 bags/min with zero rupture)."
+      "key_takeaways": [
+        "Takeaway 1: Explain a key sourcing takeaway related to ${randomBrand}'s context...",
+        "Takeaway 2: Explain another key sourcing takeaway...",
+        "Takeaway 3: Explain a technical takeaway..."
+      ],
+      "paragraphs": [
+        {
+          "text": "A detailed sourcing analysis paragraph (3-4 sentences). Discuss why standard packaging failed for this brand, what their specific search intent was, and how they identified this material spec.",
+          "image_prompt": "Minimalist clean infographic illustrating ${keyword} sourcing challenge for ${randomBrand} in ${randomCountry}. Show a package outline, shipping container route from factory, and local compliance certification icons. Nature green and black color palette."
+        },
+        {
+          "text": "Another detailed procurement paragraph (3-4 sentences) outlining the material performance (moisture/oxygen barriers, drop tests) and local supply chain logistics (lead times, bulk pricing tiers).",
+          "image_prompt": "Diagram illustrating material barrier layers. Clean annotations in English: 'Oxygen Barrier', 'Moisture Guard', '${randomBrand} Logo'."
+        }
+      ]
     },
     {
-      "title": "Technical Specifications & Procurement Specs",
+      "title": "Technical Specifications & Sourcing Blueprint",
       "icon": "package",
-      "content": "At least 300 words. You MUST start the content with an infographic image wrapper pointing to our generated asset using inline CSS: <div style=\"margin: 28px 0; text-align: center; border: 4px solid black; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); border-radius: 12px; overflow: hidden; background: #f8fafc;\"><img src=\"/imgs/infographics/${slug}-infographic.png\" alt=\"${keyword} Sourcing Infographic Diagram\" style=\"width: 100%; height: auto; display: block;\" /><div style=\"padding: 12px; background: black; color: #D4FF00; font-size: 12px; font-weight: bold; border-top: 4px solid black;\">📊 INFOGRAPHIC: ${keyword.toUpperCase()} LAYER STRUCTURE & VALUE ROADMAP</div></div>. Next, it must contain a styled, highly readable HTML table inside a Neobrutalist card container summarizing the Technical-to-Purchasing Value Specs. The table must translate the following specs into direct procurement utility:
-      - Material Structure (e.g. Mono-PE with EVOH barrier, or plant cellulose biopolymers, pass FDA compliance, OTR/WVTR rate metrics).
-      - Size / Dimensions (custom OEM volume capacity matching blueprints).
-      - Surface Finish (matte anti-scratch lamination, resisting shipping/shelf wear).
-      - Packaging / Delivery (triple-layer export cartons with protective polybags preventing moisture/transit damage).
-      Include at least two paragraphs of deep material science context around these choices."
+      "specs_table": [
+        { "specification": "Material Structure", "parameter": "Specify the structure (e.g. Mono-PE with EVOH or PLA/PBAT)", "value": "100% recyclable/compostable, satisfies ${randomCountry} packaging laws" },
+        { "specification": "Size / Dimensions", "parameter": "Custom OEM pouch dimensions", "value": "Fitted exactly to ${randomBrand}'s production line specifications" },
+        { "specification": "Surface Finish", "parameter": "Premium finish choice (matte, glossy, or tactile)", "value": "Protects graphic branding during transit and retail display" },
+        { "specification": "Packaging / Delivery", "parameter": "Master export cartons with polybags", "value": "Double-lined moisture-proof protection preventing transit damage" }
+      ],
+      "paragraphs": [
+        {
+          "text": "Detailed material science context (3-4 sentences) explaining why these material choices (such as Mono-PE EVOH gas locks, compostable biopolymers like PLA/PBAT) are critical for ${randomBrand}'s products and local compliance.",
+          "image_prompt": "Layer structure infographic showing a 3D cutaway of the multi-layer pouch structure with annotations of each layer and polymer type."
+        },
+        {
+          "text": "Discussion of logistics, VFFS high-speed run compatibility, sealing temperature windows, and quality control tests (such as vacuum leak chambers and drop tests) in the context of ${randomBrand}.",
+          "image_prompt": "Machinery run diagram showing VFFS roll stock feeding into a form-fill-seal line with annotations of seal jaw temperatures and line speeds."
+        }
+      ]
     },
     {
       "title": "Certifications & B2B Application Scenarios",
       "icon": "check",
-      "content": "At least 250 words. Focus on specific B2B application scenarios (e.g. specialty coffee, snacks, organic baby food). Explain certifications like BPI ASTM D6400 compliance, TÜV Austria Industrial/Home Compostable, GRS Recycled PCR content, or FSC paper sourcing. Detail how these satisfy compliance audits."
+      "paragraphs": [
+        {
+          "text": "Analysis of certificates (BPI ASTM D6400, TÜV Austria Industrial/Home Compostable, GRS, FSC) and how they protect ${randomBrand} from greenwashing claims, satisfy local environmental audits in ${randomCountry}, and qualify them for eco-tax reductions.",
+          "image_prompt": "Certificate compliance map showing the validation steps from raw material supplier testing to final BPI or TÜV certificate issuance."
+        },
+        {
+          "text": "Details on the phased transition approach for ${randomBrand}: starting with a low-MOQ test run (100 pieces) on a single SKU, scaling to high-volume gravure printing once shelf-life and shipping integrity are verified.",
+          "image_prompt": "A step-by-step roadmap timeline illustrating the transition phases from design blueprints to retail shelf launch."
+        }
+      ]
     }
   ],
   "faqs": [
     {
       "q": "What is the minimum order quantity (MOQ) for custom printed [Keyword]?",
-      "a": "Detailed answer explaining digital print MOQ (starts at 100 pcs) vs high-volume gravure printing (starting at 10,000 pcs)."
+      "a": "Detailed answer explaining digital print MOQ (starts at 100 pcs) vs high-volume gravure printing (starting at 10,000 pcs) suitable for ${randomBrand}'s budget."
     },
     {
       "q": "Can I get a free sample kit of your packaging structures?",
@@ -127,28 +185,10 @@ You must output exactly a JSON object, with NO markdown formatting wrapper or co
 }
 
 Strict Formatting Rules:
-1. Total word count in all sections combined MUST exceed 800 words (aim for 900-1100 words of copy).
-2. The HTML table must be styled with inline CSS style attributes. Example styling:
-<div style="margin: 20px 0; overflow: auto; border: 4px solid black; box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);">
-  <table style="width:100%; border-collapse:collapse; background:white; font-family:sans-serif; text-align:left;">
-    <thead>
-      <tr style="background:black; color:#D4FF00; font-weight:bold; font-size:12px; text-transform:uppercase;">
-        <th style="padding:12px; border-bottom:2px solid black;">Specification</th>
-        <th style="padding:12px; border-bottom:2px solid black;">Technical Parameter</th>
-        <th style="padding:12px; border-bottom:2px solid black;">B2B Sourcing Value & Meaning</th>
-      </tr>
-    </thead>
-    <tbody style="font-size:12px; font-weight:bold;">
-      <tr>
-        <td style="padding:10px; border-bottom:1px solid #ddd;">...</td>
-        <td style="padding:10px; border-bottom:1px solid #ddd;">...</td>
-        <td style="padding:10px; border-bottom:1px solid #ddd;">...</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+1. Keep each paragraph in the 'paragraphs' array concise (under 80 words, 3-4 sentences max).
+2. Ensure the content mentions the brand '${randomBrand}' and country '${randomCountry}' naturally, explaining their specific supply chain challenges, retail demands, and regulatory environment.
 3. Tone must be professional, authoritative, and reflect Ryan Wong's expert packaging background (14+ years in flexible packaging).
-4. No markdown like '##' or '*' inside 'content' field. Use clean HTML tags: '<p>', '<strong>', '<ul>', '<li>', '<table>' etc.
+4. No HTML tags inside 'text' or 'image_prompt'. Use clean, unformatted raw text. Do not use markdown like '##' or '**'.
 5. Return ONLY the raw JSON object. No other text.`;
 
   const response = await fetch('https://api.x.ai/v1/chat/completions', {
@@ -212,18 +252,29 @@ Strict Formatting Rules:
   const contentSections = generatedPayload.sections || [];
   const mappedSections = contentSections.map(sec => {
     const isB2C = domain === 'pouch.eco';
-    const result = injectInternalLinks(sec.content, isB2C, 2, slug);
-    if (result.linksInjected > 0) {
-      console.log(`   * Injected ${result.linksInjected} links inside section: "${sec.title}"`);
+    
+    const paragraphs = (sec.paragraphs || []).map(p => {
+      const result = injectInternalLinks(p.text, isB2C, 1, slug);
+      return {
+        text: result.html,
+        image_prompt: p.image_prompt
+      };
+    });
+
+    if (paragraphs.length > 0) {
+      console.log(`   * Processed ${paragraphs.length} paragraphs for section: "${sec.title}"`);
     }
+
     return {
       title: sec.title,
       icon: sec.icon || 'package',
-      content: result.html
+      paragraphs: paragraphs,
+      key_takeaways: sec.key_takeaways || null,
+      specs_table: sec.specs_table || null
     };
   });
 
-  const excerpt = generatedPayload.excerpt || `Professional guide to sourcing custom printed ${keyword} with certified high-barrier protections, low minimum orders starting from 100 pieces, and complete green certifications.`;
+  const excerpt = generatedPayload.excerpt || `Professional guide to sourcing custom printed ${keyword} for brands like ${randomBrand} in ${randomCountry} with certified high-barrier protections.`;
   const lowerKeyword = keyword.toLowerCase();
   
   let selectedImage = '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp';
@@ -258,7 +309,7 @@ Strict Formatting Rules:
       faqs,
       cta: {
         title: `Order Custom ${keyword} Sample Kit`,
-        description: 'Get plain and printed premium pouch samples delivered straight to your factory door. Fully credited back on your first custom order.'
+        description: `Get plain and printed premium pouch samples delivered straight to your factory door for ${randomBrand}. Fully credited back on your first custom order.`
       },
       jsonLd
     }

@@ -89,12 +89,15 @@ export default function PouchBlogArticlePage() {
     id: `section-${idx}`,
     title: s.title,
     icon: getIcon(s.icon),
-    content: (
+    content: s.content ? (
       <div 
         className="space-y-4"
         dangerouslySetInnerHTML={{ __html: s.content }}
       />
-    )
+    ) : undefined,
+    paragraphs: s.paragraphs || undefined,
+    keyTakeaways: s.key_takeaways || undefined,
+    specsTable: s.specs_table || undefined
   }))
 
   return (

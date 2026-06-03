@@ -57,8 +57,82 @@ export default function BlogPostPage() {
     
     let html = '';
     const sections = override.content.sections || [];
-    sections.forEach((sec: any) => {
-      html += `<h2>${sec.title}</h2><div>${sec.content}</div>`;
+    sections.forEach((sec: any, sIdx: number) => {
+      html += `<h2 id="section-${sIdx}">${sec.title}</h2>`;
+      
+      // Render Key Takeaways if present
+      if (sec.key_takeaways && Array.isArray(sec.key_takeaways)) {
+        html += `<div style="background: #e6f4ea; border-left: 6px solid #137333; padding: 20px; border-radius: 8px; margin-bottom: 24px; border: 4px solid black; box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);">
+          <h4 style="color: #137333; font-weight: bold; margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; text-transform: uppercase;">🔑 Key Sourcing Takeaways:</h4>
+          <ul style="margin: 0; padding-left: 20px; font-size: 0.95rem; line-height: 1.6; color: #202124; list-style-type: none;">`;
+        sec.key_takeaways.forEach((takeaway: string) => {
+          html += `<li style="margin-bottom: 8px; display: flex; align-items: start; gap: 8px;"><span style="color: #137333; font-weight: bold;">✔</span> <span>${takeaway}</span></li>`;
+        });
+        html += `</ul></div>`;
+      }
+
+      // Render Technical Specs Table if present
+      if (sec.specs_table && Array.isArray(sec.specs_table)) {
+        html += `<div style="margin: 20px 0; overflow: auto; border: 4px solid black; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); border-radius: 12px;">
+          <table style="width:100%; border-collapse:collapse; background:white; font-family:sans-serif; text-align:left;">
+            <thead>
+              <tr style="background:black; color:#D4FF00; font-weight:bold; font-size:12px; text-transform:uppercase;">
+                <th style="padding:12px; border-bottom:2px solid black;">Specification</th>
+                <th style="padding:12px; border-bottom:2px solid black;">Technical Parameter</th>
+                <th style="padding:12px; border-bottom:2px solid black;">B2B Sourcing Value & Meaning</th>
+              </tr>
+            </thead>
+            <tbody style="font-size:12px; font-weight:bold; color:black;">`;
+        sec.specs_table.forEach((row: any) => {
+          html += `<tr>
+            <td style="padding:12px; border-bottom:1px solid #ddd;">${row.specification || row.Spec || ''}</td>
+            <td style="padding:12px; border-bottom:1px solid #ddd;">${row.parameter || row.Param || ''}</td>
+            <td style="padding:12px; border-bottom:1px solid #ddd;">${row.value || row.Value || ''}</td>
+          </tr>`;
+        });
+        html += `</tbody></table></div>`;
+      }
+
+      // Render alternating layout paragraphs if present
+      if (sec.paragraphs && Array.isArray(sec.paragraphs)) {
+        sec.paragraphs.forEach((p: any, pIdx: number) => {
+          const isImageLeft = pIdx % 2 !== 0;
+          const imageHtml = `
+            <div style="border: 4px solid black; background: #fafafa; background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 16px 16px; border-radius: 12px; padding: 20px; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); margin: 15px 0; font-family: monospace; font-size: 11px; color: black; min-height: 160px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div style="background: black; color: white; padding: 4px 8px; margin: -20px -20px 15px -20px; font-weight: bold; border-bottom: 4px solid black; display: flex; justify-content: space-between; font-size: 10px;">
+                <span>INFOGRAPHIC SPEC v1.${pIdx + 1}</span>
+                <span>ACHIEVEPACK R&D</span>
+              </div>
+              <div style="font-style: italic; color: #4b5563; line-height: 1.5; flex-grow: 1; padding: 10px 0;">
+                "${p.image_prompt}"
+              </div>
+              <div style="border-top: 1px dashed #ccc; padding-top: 6px; text-align: right; font-size: 9px; color: #9ca3af; font-weight: bold;">
+                VISUAL IDENTITY SPECIFICATION
+              </div>
+            </div>
+          `;
+          const textHtml = `<div style="display: flex; align-items: center; min-height: 160px; margin: 15px 0;"><p style="margin: 0; line-height: 1.8; color: #374151; font-size: 1rem;">${p.text}</p></div>`;
+
+          if (isImageLeft) {
+            html += `
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 2rem; align-items: center;">
+                <div style="order: 2;">${imageHtml}</div>
+                <div style="order: 1;">${textHtml}</div>
+              </div>
+            `;
+          } else {
+            html += `
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 2rem; align-items: center;">
+                <div style="order: 1;">${textHtml}</div>
+                <div style="order: 2;">${imageHtml}</div>
+              </div>
+            `;
+          }
+        });
+      } else if (sec.content) {
+        // Fallback for legacy HTML content
+        html += `<div>${sec.content}</div>`;
+      }
     });
 
     const faqs = override.content.faqs || [];

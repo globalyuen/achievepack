@@ -30,7 +30,7 @@ async function test() {
   const { data, error } = await supabase
     .from('pouch_seo_blog')
     .select('*')
-    .eq('slug', 'curbside-recyclable-coffee-bag')
+    .eq('slug', 'test-slug-schema')
     .single()
   
   if (error) {

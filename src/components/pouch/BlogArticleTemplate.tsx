@@ -10,7 +10,79 @@ interface BlogArticleSection {
   id: string
   title: string
   icon: ReactNode
-  content: ReactNode
+  content?: ReactNode
+  paragraphs?: Array<{ text: string, image_prompt: string }>
+  keyTakeaways?: string[]
+  specsTable?: Array<{ specification: string, parameter: string, value: string }>
+}
+
+const InfographicCard: React.FC<{
+  prompt: string
+  index: number
+}> = ({ prompt, index }) => {
+  const [showPrompt, setShowPrompt] = useState(false)
+
+  return (
+    <div className="border-4 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl overflow-hidden flex flex-col h-full font-['JetBrains_Mono'] relative text-black">
+      {/* Card Header */}
+      <div className="bg-black text-white px-4 py-2 flex items-center justify-between border-b-4 border-black">
+        <span className="text-xs uppercase tracking-wider font-bold">Infographic Blueprint v1.{index + 1}</span>
+        <div className="flex gap-1">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500 border border-black"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 border border-black"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-green-500 border border-black"></span>
+        </div>
+      </div>
+
+      {/* Blueprint Visual Drawing Area */}
+      <div className="flex-1 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-[size:16px_16px] p-6 min-h-[180px] flex flex-col justify-center items-center relative overflow-hidden bg-neutral-50 border-b-4 border-black select-none">
+        {/* Mock Technical CAD Drawing */}
+        <div className="relative w-36 h-36 flex items-center justify-center border-2 border-dashed border-neutral-300 rounded-full animate-[spin_40s_linear_infinite]">
+          <div className="absolute inset-2 border-2 border-dashed border-neutral-200 rounded-full"></div>
+          <div className="absolute inset-8 border border-neutral-200 rounded-full"></div>
+        </div>
+        
+        {/* Layer representation using CSS stack */}
+        <div className="absolute flex flex-col gap-1 w-40">
+          <div className="bg-black/10 border-2 border-black h-5 transform -skew-x-12 -rotate-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-neutral-700">PRINT LAYER (MDO-PE)</div>
+          <div className="bg-[#00FFFF] border-2 border-black h-5 transform -skew-x-12 -rotate-6 translate-x-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-black">GAS LOCK (EVOH BARRIER)</div>
+          <div className="bg-[#D4FF00] border-2 border-black h-5 transform -skew-x-12 -rotate-6 translate-x-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-black">CORE LAYER (LLDPE)</div>
+          <div className="bg-[#FF00FF]/85 border-2 border-black h-5 transform -skew-x-12 -rotate-6 translate-x-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-white">HERMETIC SEAL LAYER (PE)</div>
+        </div>
+
+        {/* Blueprint watermark */}
+        <div className="absolute bottom-2 right-3 text-[9px] text-neutral-400 font-bold tracking-widest uppercase">AchievePack CAD R&D</div>
+      </div>
+
+      {/* Concept Summary / Description Section */}
+      <div className="p-4 bg-neutral-50 relative">
+        <h4 className="font-bold text-xs uppercase text-neutral-500 mb-2">Visual Prompt Specification:</h4>
+        <p className="text-[11px] leading-relaxed text-neutral-700 line-clamp-3">
+          {prompt}
+        </p>
+
+        {/* Toggle full prompt drawer */}
+        <button
+          onClick={() => setShowPrompt(!showPrompt)}
+          className="mt-2 text-[10px] font-bold uppercase underline text-black hover:text-green-600 block transition-colors"
+        >
+          {showPrompt ? 'Hide details' : 'Show full prompt spec'}
+        </button>
+
+        {showPrompt && (
+          <div className="absolute inset-0 bg-white border-t-4 border-black p-4 overflow-y-auto z-10 font-sans text-xs leading-relaxed text-neutral-800">
+            <div className="flex justify-between items-center mb-2 font-mono font-bold text-[10px] text-neutral-500 uppercase">
+              <span>Full Visual Specification</span>
+              <button onClick={() => setShowPrompt(false)} className="text-black hover:text-red-500 font-black">✕ Close</button>
+            </div>
+            <p className="font-mono text-[11px] leading-relaxed bg-neutral-50 p-2 border-2 border-black rounded">
+              {prompt}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  )
 }
 
 interface BlogArticleProps {
@@ -363,9 +435,87 @@ export default function BlogArticleTemplate({
                   </h2>
                 </div>
               </div>
-              <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:uppercase prose-a:text-[#10b981] prose-a:no-underline hover:prose-a:underline prose-strong:text-black prose-img:border-4 prose-img:border-black">
-                {section.content}
-              </div>
+              {/* Render Key Takeaways if present */}
+              {section.keyTakeaways && (
+                <div className="bg-[#e6f4ea] border-l-8 border-[#137333] p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl mb-8">
+                  <h4 className="text-[#137333] font-black text-lg uppercase mb-3 flex items-center gap-2">
+                    🔑 Key Sourcing Takeaways:
+                  </h4>
+                  <ul className="space-y-2 list-none p-0 m-0">
+                    {section.keyTakeaways.map((takeaway, tIdx) => (
+                      <li key={tIdx} className="flex items-start gap-2 text-sm md:text-base text-neutral-800 font-medium font-['JetBrains_Mono']">
+                        <span className="text-[#137333] font-black">✔</span>
+                        <span>{takeaway}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Render Technical Specs Table if present */}
+              {section.specsTable && (
+                <div className="overflow-x-auto border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl mb-8">
+                  <table className="w-full border-collapse bg-white font-['JetBrains_Mono'] text-left">
+                    <thead>
+                      <tr className="bg-black text-[#D4FF00] font-black text-xs md:text-sm uppercase tracking-wider">
+                        <th className="p-4 border-b-4 border-black">Specification</th>
+                        <th className="p-4 border-b-4 border-black">Technical Parameter</th>
+                        <th className="p-4 border-b-4 border-black">B2B Sourcing Value & Meaning</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-xs md:text-sm font-semibold divide-y divide-neutral-200 text-black">
+                      {section.specsTable.map((row, rIdx) => (
+                        <tr key={rIdx} className="hover:bg-neutral-50 transition-colors">
+                          <td className="p-4 border-b border-neutral-200">{row.specification}</td>
+                          <td className="p-4 border-b border-neutral-200">{row.parameter}</td>
+                          <td className="p-4 border-b border-neutral-200">{row.value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {/* Render structured alternating paragraphs */}
+              {section.paragraphs ? (
+                <div className="space-y-12">
+                  {section.paragraphs.map((p, pIdx) => {
+                    const isImageLeft = pIdx % 2 !== 0
+                    return (
+                      <div key={pIdx} className="grid md:grid-cols-12 gap-8 items-stretch">
+                        {isImageLeft ? (
+                          <>
+                            {/* Image/Infographic Column (Left) */}
+                            <div className="md:col-span-5 order-2 md:order-1 flex flex-col justify-between">
+                              <InfographicCard prompt={p.image_prompt} index={pIdx} />
+                            </div>
+                            {/* Content Column (Right) */}
+                            <div className="md:col-span-7 order-1 md:order-2 flex items-center font-['JetBrains_Mono'] font-medium text-neutral-800 text-base md:text-lg leading-relaxed prose prose-lg max-w-none">
+                              <p className="m-0 text-black leading-relaxed" dangerouslySetInnerHTML={{ __html: p.text }} />
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            {/* Content Column (Left) */}
+                            <div className="md:col-span-7 order-1 md:order-1 flex items-center font-['JetBrains_Mono'] font-medium text-neutral-800 text-base md:text-lg leading-relaxed prose prose-lg max-w-none">
+                              <p className="m-0 text-black leading-relaxed" dangerouslySetInnerHTML={{ __html: p.text }} />
+                            </div>
+                            {/* Image/Infographic Column (Right) */}
+                            <div className="md:col-span-5 order-2 md:order-2 flex flex-col justify-between">
+                              <InfographicCard prompt={p.image_prompt} index={pIdx} />
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              ) : (
+                /* Fallback for legacy HTML content */
+                <div className="prose prose-lg max-w-none prose-headings:font-black prose-headings:uppercase prose-a:text-[#10b981] prose-a:no-underline hover:prose-a:underline prose-strong:text-black prose-img:border-4 prose-img:border-black">
+                  {section.content}
+                </div>
+              )}
             </motion.section>
           ))}
         </div>
