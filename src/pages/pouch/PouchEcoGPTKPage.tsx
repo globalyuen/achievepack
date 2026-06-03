@@ -510,7 +510,7 @@ export default function PouchEcoGPTKPage() {
               B2B Packaging Pricing Plans
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-neutral-900 font-['Outfit'] leading-tight">
-              Custom Coffee Bags & Flexible Packaging Pricing for{' '}
+              Flexible Packaging Pricing for{' '}
               <span className="block mt-2">
                 B2B{' '}
                 <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-indigo-600 py-1">
@@ -529,9 +529,6 @@ export default function PouchEcoGPTKPage() {
                 </span>
               </span>
             </h1>
-            <p className="text-sm font-mono text-emerald-600 uppercase tracking-widest font-bold">
-              ☕ 咖啡茶葉袋客製 實時單價與配置成本計算器
-            </p>
             <p className="text-base text-neutral-500 max-w-2xl mx-auto leading-relaxed">
               Select your quantity, dimension size, and design counts using the segmented selectors below. Unit prices update instantly below to give you complete transparency.
             </p>
