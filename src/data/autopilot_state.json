@@ -1,9 +1,9 @@
 {
   "autopilotMode": "B",
-  "lastUnifiedRun": "2026-06-03T09:45:33.685Z",
+  "lastUnifiedRun": "2026-06-03T10:00:35.222Z",
   "cronActive": true,
   "cronInterval": "Every 24 Hours (7:00 HKT HKT)",
-  "totalLinkedAnchors": 30,
+  "totalLinkedAnchors": 31,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -51,7 +51,8 @@
       "keyword": "high-barrier retort pouch",
       "difficulty": "Medium",
       "volume": 1100,
-      "status": "Pending"
+      "status": "Published",
+      "slug": "high-barrier-retort-pouch"
     },
     {
       "keyword": "plastic-free compostable barrier pouch",
@@ -73,6 +74,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-03T10:00:24.625Z",
+      "action": "Autopilot Generation",
+      "message": "Soro Pipeline auto-published article for keyword \"high-barrier retort pouch\" to /blog/high-barrier-retort-pouch"
+    },
     {
       "timestamp": "2026-06-03T09:45:22.869Z",
       "action": "Autopilot Generation",
