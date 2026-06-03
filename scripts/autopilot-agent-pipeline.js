@@ -80,13 +80,12 @@ You must output exactly a JSON object, with NO markdown formatting wrapper or co
     {
       "title": "Understanding [Keyword] in Modern Sourcing",
       "icon": "info",
-      "content": "At least 300 words. Start with a direct, punchy conclusion/hook. Analyze specific B2B sourcing challenges, search intent, and structural characteristics (e.g. moisture barrier, puncture resistance). Include concrete scenario metrics or case studies (e.g. running 10,000 pouches through VFFS machinery at 65 bags/min with zero rupture)."
+      "content": "At least 300 words. You MUST start the content with a beautifully styled Key Takeaways box using inline CSS: <div style=\"background: #e6f4ea; border-left: 6px solid #137333; padding: 20px; border-radius: 8px; margin-bottom: 24px;\"><h4 style=\"color: #137333; font-weight: bold; margin-top: 0; margin-bottom: 12px; font-size: 1.1rem;\">🔑 Key Sourcing Takeaways:</h4><ul style=\"margin: 0; padding-left: 20px; font-size: 0.95rem; line-height: 1.6; color: #202124;\"><li><strong>Takeaway 1</strong>: ...</li><li><strong>Takeaway 2</strong>: ...</li><li><strong>Takeaway 3</strong>: ...</li></ul></div>. Followed by a direct, punchy conclusion/hook. Analyze specific B2B sourcing challenges, search intent, and structural characteristics (e.g. moisture barrier, puncture resistance). Include concrete scenario metrics or case studies (e.g. running 10,000 pouches through VFFS machinery at 65 bags/min with zero rupture)."
     },
     {
       "title": "Technical Specifications & Procurement Specs",
       "icon": "package",
-      "content": "At least 300 words. Must contain a styled, highly readable HTML table inside a Neobrutalist card container summarizing the Technical-to-Purchasing Value Specs. 
-      The table must translate the following specs into direct procurement utility:
+      "content": "At least 300 words. You MUST start the content with an infographic image wrapper pointing to our generated asset using inline CSS: <div style=\"margin: 28px 0; text-align: center; border: 4px solid black; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); border-radius: 12px; overflow: hidden; background: #f8fafc;\"><img src=\"/imgs/infographics/${slug}-infographic.png\" alt=\"${keyword} Sourcing Infographic Diagram\" style=\"width: 100%; height: auto; display: block;\" /><div style=\"padding: 12px; background: black; color: #D4FF00; font-size: 12px; font-weight: bold; border-top: 4px solid black;\">📊 INFOGRAPHIC: ${keyword.toUpperCase()} LAYER STRUCTURE & VALUE ROADMAP</div></div>. Next, it must contain a styled, highly readable HTML table inside a Neobrutalist card container summarizing the Technical-to-Purchasing Value Specs. The table must translate the following specs into direct procurement utility:
       - Material Structure (e.g. Mono-PE with EVOH barrier, or plant cellulose biopolymers, pass FDA compliance, OTR/WVTR rate metrics).
       - Size / Dimensions (custom OEM volume capacity matching blueprints).
       - Surface Finish (matte anti-scratch lamination, resisting shipping/shelf wear).
