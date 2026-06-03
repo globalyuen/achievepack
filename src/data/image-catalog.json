@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-03",
-  "total_images": 1890,
+  "total_images": 1896,
   "total_categories": 165,
   "extensions": {
     ".webp": 1299,
-    ".png": 362,
+    ".png": 368,
     ".jpg": 226,
     ".svg": 3
   },
@@ -8456,8 +8456,56 @@
       ]
     },
     "store/products": {
-      "count": 261,
+      "count": 267,
       "images": [
+        {
+          "filename": "conven-sup-met-zip-premium.png",
+          "path": "/imgs/store/products/conven-sup-met-zip-premium.png",
+          "extension": ".png",
+          "modified": "2026-06-03T10:15:24.427Z"
+        },
+        {
+          "filename": "conven-sup-met-xzip-premium.png",
+          "path": "/imgs/store/products/conven-sup-met-xzip-premium.png",
+          "extension": ".png",
+          "modified": "2026-06-03T10:14:16.886Z"
+        },
+        {
+          "filename": "conven-sup-clear-zip-premium.png",
+          "path": "/imgs/store/products/conven-sup-clear-zip-premium.png",
+          "extension": ".png",
+          "modified": "2026-06-03T10:13:20.873Z"
+        },
+        {
+          "filename": "conven-sup-clear-xzip-premium.png",
+          "path": "/imgs/store/products/conven-sup-clear-xzip-premium.png",
+          "extension": ".png",
+          "modified": "2026-06-03T10:12:31.825Z"
+        },
+        {
+          "filename": "conven-3ss-met-zip-premium.png",
+          "path": "/imgs/store/products/conven-3ss-met-zip-premium.png",
+          "extension": ".png",
+          "modified": "2026-06-03T10:11:48.970Z"
+        },
+        {
+          "filename": "conven-3ss-met-xzip-premium.png",
+          "path": "/imgs/store/products/conven-3ss-met-xzip-premium.png",
+          "extension": ".png",
+          "modified": "2026-06-03T10:11:04.348Z"
+        },
+        {
+          "filename": "conven-3ss-clear-zip-premium.png",
+          "path": "/imgs/store/products/conven-3ss-clear-zip-premium.png",
+          "extension": ".png",
+          "modified": "2026-06-03T10:10:30.333Z"
+        },
+        {
+          "filename": "conven-3ss-clear-xzip-premium.png",
+          "path": "/imgs/store/products/conven-3ss-clear-xzip-premium.png",
+          "extension": ".png",
+          "modified": "2026-06-03T10:09:55.546Z"
+        },
         {
           "filename": "conven-fb-met-zip-zipper.png",
           "path": "/imgs/store/products/conven-fb-met-zip-zipper.png",
@@ -8637,18 +8685,6 @@
           "path": "/imgs/store/products/home-compostable-rollstock-film-thumbnail-1.png",
           "extension": ".png",
           "modified": "2026-05-28T11:41:33.187Z"
-        },
-        {
-          "filename": "conven-sup-met-zip-premium.png",
-          "path": "/imgs/store/products/conven-sup-met-zip-premium.png",
-          "extension": ".png",
-          "modified": "2026-05-27T15:04:43.154Z"
-        },
-        {
-          "filename": "conven-sup-clear-zip-premium.png",
-          "path": "/imgs/store/products/conven-sup-clear-zip-premium.png",
-          "extension": ".png",
-          "modified": "2026-05-27T15:04:43.149Z"
         },
         {
           "filename": "recyclable-flat-bottom-one-sided-zipper-pouch-thumbnail-5.png",

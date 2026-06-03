@@ -454,6 +454,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$90 for 100 pcs',
     features: ['Clear Material', 'Low Barrier (Glossy)', 'Digital Print', 'Free Shipping'],
     images: [
+      '/imgs/store/products/conven-3ss-clear-xzip-premium.png',
       '/imgs/store/con-digital/3ss-clear-xzip/1.webp',
       '/imgs/store/con-digital/3ss-clear-xzip/2.webp',
       '/imgs/store/con-digital/3ss-clear-xzip/3.webp',
@@ -477,6 +478,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$110 for 100 pcs',
     features: ['Clear Material', 'Resealable Zipper', 'Low Barrier (Glossy)', 'Digital Print'],
     images: [
+      '/imgs/store/products/conven-3ss-clear-zip-premium.png',
       '/imgs/store/con-digital/3ss-clear-zip/1.webp',
       '/imgs/store/con-digital/3ss-clear-zip/2.webp',
       '/imgs/store/con-digital/3ss-clear-zip/3.webp',
@@ -500,6 +502,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$90 for 100 pcs',
     features: ['Metalised Material', 'High Barrier (Matte)', 'Light Protection', 'Digital Print'],
     images: [
+      '/imgs/store/products/conven-3ss-met-xzip-premium.png',
       '/imgs/store/con-digital/3ss-met-xzip/1.webp',
       '/imgs/store/con-digital/3ss-met-xzip/2.webp',
       '/imgs/store/con-digital/3ss-met-xzip/3.webp',
@@ -523,6 +526,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$110 for 100 pcs',
     features: ['Metalised Material', 'Resealable Zipper', 'High Barrier (Matte)', 'Maximum Freshness'],
     images: [
+      '/imgs/store/products/conven-3ss-met-zip-premium.png',
       '/imgs/store/con-digital/3ss-met-zip/1.webp',
       '/imgs/store/con-digital/3ss-met-zip/2.webp',
       '/imgs/store/con-digital/3ss-met-zip/3.webp',
@@ -548,6 +552,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$90 for 100 pcs',
     features: ['Clear Material', 'Stand Up Design', 'Low Barrier (Glossy)', 'Shelf Presence'],
     images: [
+      '/imgs/store/products/conven-sup-clear-xzip-premium.png',
       '/imgs/store/con-digital/sup-clear-xzip/1.webp',
       '/imgs/store/con-digital/sup-clear-xzip/2.webp',
       '/imgs/store/con-digital/sup-clear-xzip/3.webp',
@@ -573,6 +578,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$100 for 100 pcs',
     features: ['Clear Material', 'Stand Up + Zipper', 'Low Barrier (Glossy)', 'Free Shipping'],
     images: [
+      '/imgs/store/products/conven-sup-clear-zip-premium.png',
       '/imgs/store/con-digital/sup-clear-zip/1.webp',
       '/imgs/store/con-digital/sup-clear-zip/2.webp',
       '/imgs/store/con-digital/sup-clear-zip/3.webp',
@@ -598,6 +604,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$90 for 100 pcs',
     features: ['Metalised Material', 'Stand Up Design', 'High Barrier (Matte)', 'Premium Look'],
     images: [
+      '/imgs/store/products/conven-sup-met-xzip-premium.png',
       '/imgs/store/con-digital/sup-met-xzip/1.webp',
       '/imgs/store/con-digital/sup-met-xzip/2.webp',
       '/imgs/store/con-digital/sup-met-xzip/3.webp',
@@ -623,6 +630,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$100 for 100 pcs',
     features: ['Metalised Material', 'Stand Up + Zipper', 'High Barrier (Matte)', 'Best Seller'],
     images: [
+      '/imgs/store/products/conven-sup-met-zip-premium.png',
       '/imgs/store/con-digital/sup-met-zip/1.webp',
       '/imgs/store/con-digital/sup-met-zip/2.webp',
       '/imgs/store/con-digital/sup-met-zip/3.webp',
