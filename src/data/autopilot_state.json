@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T16:38:53.971Z",
+  "lastUnifiedRun": "2026-06-03T16:45:53.262Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 112,
+  "totalLinkedAnchors": 116,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -104,17 +104,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-sachet-packaging-solutions",
       "status": "Pending Approval",
       "volume": 1600,
       "keyword": "sustainable sachet packaging solutions",
-      "difficulty": "Low",
-      "slug": "sustainable-sachet-packaging-solutions"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 2100,
       "keyword": "recyclable stand up pouch with spout",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "recyclable-stand-up-pouch-with-spout"
     },
     {
       "status": "Pending",
@@ -191,9 +192,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T16:36:41.502Z",
+      "timestamp": "2026-06-03T16:45:22.563Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet packaging solutions\" to /blog/sustainable-sachet-packaging-solutions (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable stand up pouch with spout\" to /blog/recyclable-stand-up-pouch-with-spout (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet packaging solutions\" to /blog/sustainable-sachet-packaging-solutions (Pending Approval)",
+      "timestamp": "2026-06-03T16:36:41.502Z"
     },
     {
       "action": "Autopilot Generation Draft",
