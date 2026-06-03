@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-03",
-  "total_images": 1876,
+  "total_images": 1878,
   "total_categories": 164,
   "extensions": {
     ".webp": 1299,
-    ".png": 348,
+    ".png": 350,
     ".jpg": 226,
     ".svg": 3
   },
@@ -8391,8 +8391,20 @@
       ]
     },
     "store/products": {
-      "count": 257,
+      "count": 259,
       "images": [
+        {
+          "filename": "conven-fb-met-zip-artwork.png",
+          "path": "/imgs/store/products/conven-fb-met-zip-artwork.png",
+          "extension": ".png",
+          "modified": "2026-06-03T04:14:48.724Z"
+        },
+        {
+          "filename": "conven-fb-met-zip-premium.png",
+          "path": "/imgs/store/products/conven-fb-met-zip-premium.png",
+          "extension": ".png",
+          "modified": "2026-06-03T04:14:48.722Z"
+        },
         {
           "filename": "rice-paper-500g-standup.png",
           "path": "/imgs/store/products/rice-paper-500g-standup.png",

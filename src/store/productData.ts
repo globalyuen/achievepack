@@ -221,6 +221,7 @@ export const POUCH_SHAPES: PouchShape[] = [
   { id: 'zipper-3-side-seal', label: 'Zipper 3 Side Seal Pouch', hasZipper: true },
   { id: 'stand-up', label: 'Stand Up Pouch', hasZipper: false },
   { id: 'zipper-stand-up', label: 'Zipper Stand Up Pouch', hasZipper: true },
+  { id: 'zipper-flat-bottom', label: 'Zipper Flat Bottom Pouch', hasZipper: true },
 ]
 
 export const POUCH_SIZES: PouchSize[] = [
@@ -239,6 +240,10 @@ export const POUCH_SIZES: PouchSize[] = [
   { id: '210x310', label: '210 × 310mm', dimensions: '210x310', imperial: '8.3" × 12.2"', gusset: '100' },
   { id: '230x350', label: '230 × 350mm', dimensions: '230x350', imperial: '9.1" × 13.8"', gusset: '100' },
   { id: '260x350', label: '260 × 350mm', dimensions: '260x350', imperial: '10.2" × 13.8"', gusset: '100' },
+  { id: '160x260x80', label: '160 × 260 + 80mm', dimensions: '160x260x80', imperial: '6.3" × 10.2" + 3.1"', gusset: '80' },
+  { id: '180x280x80', label: '180 × 280 + 80mm', dimensions: '180x280x80', imperial: '7.1" × 11.0" + 3.1"', gusset: '80' },
+  { id: '200x300x80', label: '200 × 300 + 80mm', dimensions: '200x300x80', imperial: '7.9" × 11.8" + 3.1"', gusset: '80' },
+  { id: '260x240x80', label: '260 × 240 + 80mm', dimensions: '260x240x80', imperial: '10.2" × 9.4" + 3.1"', gusset: '80' },
 ]
 
 /**
@@ -248,6 +253,10 @@ export const POUCH_SIZES: PouchSize[] = [
 export const formatPouchSizeLabel = (size: PouchSize, shapeId: string): string => {
   const isFlat = shapeId.includes('3-side-seal')
   if (isFlat) {
+    return `${size.label} (${size.imperial})`
+  }
+  
+  if (shapeId.includes('flat-bottom')) {
     return `${size.label} (${size.imperial})`
   }
   
@@ -333,6 +342,12 @@ export const PRICING_DATA: Record<string, Record<string, Record<number, number>>
     '210x310': { 100: 170, 200: 190, 300: 260, 500: 320, 1000: 580, 2000: 950, 3000: 1330, 5000: 1960, 10000: 3330, 20000: 6500 },
     '230x350': { 100: 190, 200: 200, 300: 270, 500: 340, 1000: 620, 2000: 1020, 3000: 1450, 5000: 2140, 10000: 3740, 20000: 7060 },
     '260x350': { 100: 200, 200: 210, 300: 280, 500: 390, 1000: 680, 2000: 1080, 3000: 1630, 5000: 2430, 10000: 4240, 20000: 8240 }
+  },
+  'zipper-flat-bottom': {
+    '160x260x80': { 500: 900, 1000: 1530, 2000: 2340 },
+    '180x280x80': { 500: 950, 1000: 1600, 2000: 2380 },
+    '200x300x80': { 500: 1060, 1000: 1800, 2000: 2840 },
+    '260x240x80': { 500: 1210, 1000: 2120, 2000: 3400 }
   }
 }
 
@@ -629,6 +644,26 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
       'https://ofobzjpexljkrqsgdgua.supabase.co/storage/v1/object/public/artworks/batches/8312d2d0-2a3e-4871-8333-2a6d78f96030/1777910170433_yt1h1k19q0g.mp4',
       'https://youtu.be/xKusl5lOEYM'
     ],
+  },
+  {
+    id: 'conven-fb-met-zip',
+    name: 'Flat Bottom Pouch – Metalised, With Zipper',
+    category: 'conventional-digital',
+    description: 'Flat bottom zipper pouch with metalised high-barrier protection. Provides maximum stability, elegant structure, and premium shelf presentation.',
+    shortDesc: 'From US$900 for 500 pcs',
+    features: ['Metalised Material', 'Flat Bottom + Zipper', 'High Barrier (Matte)', 'Self-Standing Structure'],
+    images: [
+      '/imgs/store/products/conven-fb-met-zip-premium.png',
+      '/imgs/store/products/conven-fb-met-zip-artwork.png'
+    ],
+    badge: '🆕 New Pouch',
+    rating: 4.9,
+    reviews: 42,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 500,
+    shape: 'zipper-flat-bottom',
+    basePrice: 900,
   },
 ]
 
@@ -7637,6 +7672,7 @@ export const getProductImage = (shape: string): string => {
     'zipper-3-side-seal': '/imgs/store/pouch shape/3-side.webp',
     'stand-up': '/imgs/store/pouch shape/stand-up.webp',
     'zipper-stand-up': '/imgs/store/pouch shape/stand-up.webp',
+    'zipper-flat-bottom': '/imgs/store/pouch shape/flat-bottom.webp',
   }
   return images[shape] || '/imgs/store/pouch shape/stand-up.webp'
 }

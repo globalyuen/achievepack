@@ -1006,6 +1006,34 @@ const ProductPage: React.FC = () => {
       }
     })
   }, [isConventionalDigital, conventionalProduct])
+
+  // Reset selected conventional size if not available for the active product
+  useEffect(() => {
+    if (isConventionalDigital && conventionalProduct && conventionalSizes.length > 0) {
+      const hasSize = conventionalSizes.some(s => s.id === selectedConvSize)
+      if (!hasSize) {
+        setSelectedConvSize(conventionalSizes[0].id)
+      }
+    }
+  }, [isConventionalDigital, conventionalProduct, conventionalSizes, selectedConvSize])
+
+  // Get available quantities for selected conventional product and size
+  const conventionalQuantities = useMemo(() => {
+    if (!isConventionalDigital || !conventionalProduct) return QUANTITY_OPTIONS
+    const shapeKey = conventionalProduct.shape
+    const priceData = PRICING_DATA[shapeKey]
+    if (!priceData || !priceData[selectedConvSize]) return QUANTITY_OPTIONS
+    return Object.keys(priceData[selectedConvSize]).map(Number).sort((a, b) => a - b)
+  }, [isConventionalDigital, conventionalProduct, selectedConvSize])
+
+  // Reset selected conventional quantity if not available for the active size
+  useEffect(() => {
+    if (isConventionalDigital && conventionalQuantities.length > 0) {
+      if (!conventionalQuantities.includes(selectedConvQuantity)) {
+        setSelectedConvQuantity(conventionalQuantities[0])
+      }
+    }
+  }, [isConventionalDigital, conventionalQuantities, selectedConvQuantity])
   
   // Product image based on selections - Always show pouch shape for Eco Digital
   const productImage = useMemo(() => {
@@ -1812,7 +1840,7 @@ const ProductPage: React.FC = () => {
                     onChange={e => setSelectedConvQuantity(Number(e.target.value))} 
                     className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                   >
-                    {QUANTITY_OPTIONS.map(qty => (
+                    {conventionalQuantities.map(qty => (
                       <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
                     ))}
                   </select>

@@ -170,6 +170,31 @@ export const AI_SELLING_POINTS: Record<string, AISellingPoint> = {
     callToAction: 'Custom packaging from $100 — perfect for new brands and test markets.'
   },
 
+  'conven-fb-met-zip': {
+    productId: 'conven-fb-met-zip',
+    headline: 'Flat Bottom Metalised Pouch — Premium Shelf Presence & Stability',
+    targetAudience: ['Coffee roasters', 'Premium snack brands', 'Pet treat brands', 'Organic foods'],
+    keyBenefits: [
+      { icon: '📦', title: 'Flat Bottom Design', description: 'Stands perfectly upright with flat bottom and side gussets.' },
+      { icon: '✨', title: 'Premium Matte Finish', description: 'Elegant matte finish for high-end retail appeal.' },
+      { icon: '🛡️', title: 'High Barrier Protection', description: 'Aluminum foil barrier blocks oxygen, moisture, and light.' },
+      { icon: '🔒', title: 'Regular Zipper', description: 'Resealable closure to keep products fresh after opening.' },
+      { icon: '⚡', title: 'Low MOQ', description: 'Start from just 500 pieces.' },
+      { icon: '📐', title: '4 Sizes', description: '160×260×80mm to 260×240×80mm.' }
+    ],
+    specifications: [
+      { label: 'Material', value: 'Matte/AL/LLDPE (Aluminum Foil)' },
+      { label: 'Thickness', value: '120 micron' },
+      { label: 'MOQ', value: '500 pieces' },
+      { label: 'Printing', value: 'Digital (Unlimited Colors)' },
+      { label: 'Lead Time', value: '15-20 days' }
+    ],
+    useCases: ['Coffee beans', 'Organic snacks', 'Pet food & treats', 'Dried fruits & nuts', 'Powdered supplements'],
+    certifications: ['Food Safe', 'High Barrier Certified'],
+    comparisonAdvantage: 'Combines the stable self-standing profile of a box pouch with high-barrier aluminum foil protection and low MOQs.',
+    callToAction: 'Custom packaging from $900 for 500 bags — elevate your brand on the shelves.'
+  },
+
   'conven-sup-clear-zip': {
     productId: 'conven-sup-clear-zip',
     headline: 'Clear Stand-Up Pouch — Show Off Your Product',
