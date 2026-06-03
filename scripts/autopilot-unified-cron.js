@@ -277,195 +277,231 @@ async function main() {
   // G. Compile Telemetry WoW comparison & HTML progress summary
   logMessage('Step 7: Compiling unified HTML progress email summary...');
   
-  // WoW traffic comparison
-  const metrics = autopilotState.trafficMetrics || {};
-  const apWoW = (((metrics.apCurrentWeek - metrics.apPreviousWeek) / metrics.apPreviousWeek) * 100).toFixed(1);
-  const epWoW = (((metrics.epCurrentWeek - metrics.epPreviousWeek) / metrics.epPreviousWeek) * 100).toFixed(1);
+  // Get HKT Hour and date string
+  const hktDate = new Date(new Date().toLocaleString("en-US", {timeZone: "Asia/Hong_Kong"}));
+  const hktHour = hktDate.getHours();
+  const todayDateStr = hktDate.toISOString().split('T')[0];
   
-  const todayStr = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  const forceEmail = process.argv.includes('--force-email');
+  const shouldSendDailyEmail = forceEmail || ((hktHour === 7) && (autopilotState.lastDailyEmailDate !== todayDateStr));
   
-  const emailHtml = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="utf-8">
-      <title>Soro Autopilot Unified progress & Telemetry Report</title>
-    </head>
-    <body style="font-family: sans-serif; background-color: #f3f4f6; margin: 0; padding: 20px; color: #111827;">
-      <div style="max-width: 650px; margin: 0 auto; background: white; border: 4px solid black; padding: 30px; box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);">
-        
-        <!-- Header banner -->
-        <div style="background-color: #0f172a; padding: 20px; border: 3px solid black; margin-bottom: 25px; color: white;">
-          <h1 style="margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 0.05em; color: #D4FF00;">
-            🤖 Soro Autopilot & Indexing Report
-          </h1>
-          <p style="margin: 5px 0 0 0; font-size: 12px; color: #94a3b8;">
-             HK Time Sweep: 7:00 AM | Autopilot Mode: ${autopilotState.autopilotMode === 'B' ? '完全自動駕駛 Mode B' : '草稿審核 Mode A'}
-          </p>
-        </div>
-
-        <p style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-          Hi Ryan,
-        </p>
-        <p style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-          Here is your dynamic daily scheduled automated telemetry progress report. The multi-agent pipeline and global recursive linker completed running.
-        </p>
-
-        <!-- Traffic progress card (Target click YoY WoW) -->
-        <h3 style="text-transform: uppercase; font-size: 14px; border-bottom: 3px solid black; padding-bottom: 8px; margin-bottom: 15px;">
-          📊 Traffic Telemetry & WoW Progress
-        </h3>
-        <div style="grid-template-columns: 1fr 1fr; display: flex; gap: 15px; margin-bottom: 25px;">
-          <div style="flex: 1; background: #faf5ff; border: 3px solid black; padding: 12px; text-align: center;">
-            <div style="font-size: 10px; text-transform: uppercase; color: #6b21a8; font-weight: bold;">AchievePack WoW</div>
-            <div style="font-size: 24px; font-weight: 900; color: #581c87; margin: 4px 0;">+${apWoW}%</div>
-            <div style="font-size: 10px; color: #6b7280;">${metrics.apCurrentWeek.toLocaleString()} visits</div>
-          </div>
-          <div style="flex: 1; background: #f0fdf4; border: 3px solid black; padding: 12px; text-align: center;">
-            <div style="font-size: 10px; text-transform: uppercase; color: #166534; font-weight: bold;">Pouch.eco WoW</div>
-            <div style="font-size: 24px; font-weight: 900; color: #14532d; margin: 4px 0;">+${epWoW}%</div>
-            <div style="font-size: 10px; color: #6b7280;">${metrics.epCurrentWeek.toLocaleString()} visits</div>
-          </div>
-        </div>
-
-        <!-- Sitemap index -->
-        <div style="background-color: #eff6ff; border: 3px solid black; padding: 15px; margin-bottom: 25px; font-size: 13px;">
-          <strong>🔍 Sitemap & Coverage Stats:</strong><br/>
-          - Total Active Sitemapped Routes: <strong>${totalUrls}</strong><br/>
-          - Global Recursive Internal Link Anchors Mapped: <strong>${activeLinksCount} anchors</strong><br/>
-          - Search Console Audit Status: <strong>Sitemaps Synced</strong>
-        </div>
-
-        <!-- Newly Generated Post card -->
-        ${newlyGeneratedPost ? `
-          <h3 style="text-transform: uppercase; font-size: 14px; border-bottom: 3px solid black; padding-bottom: 8px; margin-bottom: 15px;">
-            ✨ Newly Published Autopilot Pages
-          </h3>
-          <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
-            <thead>
-              <tr style="background-color: #f3f4f6; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;">
-                <th align="left" style="padding: 10px; border-bottom: 3px solid black;">Soro Keyword & Domain</th>
-                <th align="left" style="padding: 10px; border-bottom: 3px solid black;">Edge Canonical Slug</th>
-                <th align="center" style="padding: 10px; border-bottom: 3px solid black; width: 120px;">Deploy Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding: 10px; border-bottom: 1px solid black; font-weight: bold;">🌱 ${newlyGeneratedPost.title} (B2C ep)</td>
-                <td style="padding: 10px; border-bottom: 1px solid black; font-family: monospace; font-size: 11px;">
-                  <a href="https://www.pouch.eco/blog/${newlyGeneratedPost.slug}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">pouch.eco/blog/${newlyGeneratedPost.slug}</a>
-                </td>
-                <td style="padding: 10px; border-bottom: 1px solid black; text-align: center;">
-                  <span style="background-color: ${deployStatus.includes('200') ? '#dcfce7' : '#fee2e2'}; color: ${deployStatus.includes('200') ? '#166534' : '#991b1b'}; padding: 4px 8px; border: 2px solid black; font-size: 9px; font-weight: bold; text-transform: uppercase;">
-                    ${deployStatus}
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 10px; border-bottom: 2px solid black; font-weight: bold;">💼 ${newlyGeneratedPost.title} (B2B ap)</td>
-                <td style="padding: 10px; border-bottom: 2px solid black; font-family: monospace; font-size: 11px;">
-                  <a href="https://achievepack.com/blog/${newlyGeneratedPost.slug}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">achievepack.com/blog/${newlyGeneratedPost.slug}</a>
-                </td>
-                <td style="padding: 10px; border-bottom: 2px solid black; text-align: center;">
-                  <span style="background-color: ${b2bDeployStatus.includes('200') ? '#dcfce7' : '#fee2e2'}; color: ${b2bDeployStatus.includes('200') ? '#166534' : '#991b1b'}; padding: 4px 8px; border: 2px solid black; font-size: 9px; font-weight: bold; text-transform: uppercase;">
-                    ${b2bDeployStatus}
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        ` : `
-          <div style="padding: 15px; border: 3px solid black; text-align: center; font-style: italic; color: #666; margin-bottom: 25px;">
-            No new autopilot pages required deployment today. All keywords fully synced.
-          </div>
-        `}
-
-        <!-- Direct back-office link -->
-        <div style="background-color: #fffbeb; border: 3px solid black; padding: 20px; box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); margin-bottom: 30px;">
-          <h4 style="margin: 0 0 10px 0; color: #d97706; text-transform: uppercase; font-size: 13px;">💡 Admin Dashboard Link</h4>
-          <p style="margin: 0 0 10px 0; font-size: 12px; line-height: 1.5; color: #4b5563;">
-            You can modify the Autopilot Switch to manual Approval or adjust the Keyword Bank directly from the Admin controls:
-          </p>
-          <a href="https://achievepack.com/admin/daily-reports" target="_blank" style="display: inline-block; background: black; color: #D4FF00; text-decoration: none; padding: 10px 20px; border: 3px solid black; font-weight: bold; text-transform: uppercase; font-size: 11px;">
-            Open SEO Autopilot Hub ➔
-          </a>
-        </div>
-
-        <hr style="border: 2px solid black; margin-bottom: 20px;"/>
-        <p style="margin: 0; font-size: 10px; color: #9ca3af; text-align: center;">
-          *This report is generated dynamically by autopilot-unified-cron scheduled daemon.
-        </p>
-      </div>
-    </body>
-    </html>
-  `;
-  
-  // H. Dispatch the Email Payload via standard Brevo endpoint
-  logMessage('Step 8: Dispatching email progress summary to Brevo campaign service...');
-  const emailPayload = JSON.stringify({
-    subject: `🚀 [Soro Autopilot WoW Report] Dual-Domain Telemetry - ${newlyGeneratedPost ? '1 Article Auto-Published' : 'Sitemaps Indexed'}`,
-    htmlContent: emailHtml,
-    testEmail: ADMIN_EMAIL
-  });
-
-  const options = {
-    hostname: 'achievepack.com',
-    port: 443,
-    path: '/api/send-campaign',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Content-Length': Buffer.byteLength(emailPayload)
+  if (shouldSendDailyEmail) {
+    logMessage('Step 7b: Daily email condition met or forced. Gathering newly created pages...');
+    
+    // Gather newly created pages in the last 24 hours
+    const newlyCreatedPages = [];
+    const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
+    if (autopilotState.logs) {
+      for (const log of autopilotState.logs) {
+        if (log.action === 'Autopilot Generation' && new Date(log.timestamp).getTime() > oneDayAgo) {
+          const keywordMatch = log.message.match(/keyword "(.*?)"/);
+          const slugMatch = log.message.match(/\/blog\/(.*)/);
+          if (keywordMatch && slugMatch) {
+            newlyCreatedPages.push({
+              keyword: keywordMatch[1],
+              slug: slugMatch[1]
+            });
+          }
+        }
+      }
     }
-  };
 
-  const req = https.request(options, (res) => {
-    let responseData = '';
-    res.on('data', (chunk) => { responseData += chunk; });
-    res.on('end', () => {
-      logMessage(`Email campaign endpoint responded with status: ${res.statusCode}`);
-      
-      // Update Autopilot State file
-      const finalRunTime = new Date().toISOString();
-      autopilotState.lastUnifiedRun = finalRunTime;
-      fs.writeFileSync(AUTOPILOT_STATE_PATH, JSON.stringify(autopilotState, null, 2), 'utf-8');
-      
-      // Mirror state dynamically to Supabase webhook_logs so Admin Panel reflects it immediately!
-      if (supabase) {
-        logMessage('Syncing final Autopilot state back to Supabase webhook_logs config...');
-        supabase.from('webhook_logs').insert([{
-          source: 'soro_autopilot_config',
-          status: 'Config',
-          message: 'Soro Autopilot Scheduled Sweep Synchronized',
-          raw_data: {
-            autopilotMode: autopilotState.autopilotMode,
-            keywordBank: autopilotState.keywordBank,
-            logs: autopilotState.logs,
-            totalLinkedAnchors: autopilotState.totalLinkedAnchors
-          }
-        }]).then(({ error }) => {
-          if (error) {
-            console.error('Failed to sync final autopilot config to Supabase:', error);
-          } else {
-            logMessage('✅ Autopilot state successfully synchronized to Supabase webhook_logs.');
-          }
-          logMessage('🎉 UNIFIED SCHEDULER SWEEP COMPLETED SUCCESSFULLY!');
-          process.exit(0);
-        });
-      } else {
+    // WoW traffic comparison
+    const metrics = autopilotState.trafficMetrics || {};
+    const apWoW = (((metrics.apCurrentWeek - metrics.apPreviousWeek) / metrics.apPreviousWeek) * 100).toFixed(1);
+    const epWoW = (((metrics.epCurrentWeek - metrics.epPreviousWeek) / metrics.epPreviousWeek) * 100).toFixed(1);
+    
+    const todayStr = hktDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    
+    const emailHtml = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Soro Autopilot Daily Progress & Telemetry Report</title>
+      </head>
+      <body style="font-family: sans-serif; background-color: #f3f4f6; margin: 0; padding: 20px; color: #111827;">
+        <div style="max-width: 650px; margin: 0 auto; background: white; border: 4px solid black; padding: 30px; box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);">
+          
+          <!-- Header banner -->
+          <div style="background-color: #0f172a; padding: 20px; border: 3px solid black; margin-bottom: 25px; color: white;">
+            <h1 style="margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 0.05em; color: #D4FF00;">
+              🤖 Soro Autopilot Daily Report
+            </h1>
+            <p style="margin: 5px 0 0 0; font-size: 12px; color: #94a3b8;">
+               Date: ${todayStr} | Autopilot Mode: ${autopilotState.autopilotMode === 'B' ? '完全自動駕駛 Mode B' : '草稿審核 Mode A'}
+            </p>
+          </div>
+  
+          <p style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+            Hi Ryan,
+          </p>
+          <p style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+            Here is your daily automated telemetry progress report summarizing all activities over the past 24 hours.
+          </p>
+  
+          <!-- Traffic progress card (Target click YoY WoW) -->
+          <h3 style="text-transform: uppercase; font-size: 14px; border-bottom: 3px solid black; padding-bottom: 8px; margin-bottom: 15px;">
+            📊 Traffic Telemetry & WoW Progress
+          </h3>
+          <div style="grid-template-columns: 1fr 1fr; display: flex; gap: 15px; margin-bottom: 25px;">
+            <div style="flex: 1; background: #faf5ff; border: 3px solid black; padding: 12px; text-align: center;">
+              <div style="font-size: 10px; text-transform: uppercase; color: #6b21a8; font-weight: bold;">AchievePack WoW</div>
+              <div style="font-size: 24px; font-weight: 900; color: #581c87; margin: 4px 0;">+${apWoW}%</div>
+              <div style="font-size: 10px; color: #6b7280;">${metrics.apCurrentWeek.toLocaleString()} visits</div>
+            </div>
+            <div style="flex: 1; background: #f0fdf4; border: 3px solid black; padding: 12px; text-align: center;">
+              <div style="font-size: 10px; text-transform: uppercase; color: #166534; font-weight: bold;">Pouch.eco WoW</div>
+              <div style="font-size: 24px; font-weight: 900; color: #14532d; margin: 4px 0;">+${epWoW}%</div>
+              <div style="font-size: 10px; color: #6b7280;">${metrics.epCurrentWeek.toLocaleString()} visits</div>
+            </div>
+          </div>
+  
+          <!-- Sitemap index -->
+          <div style="background-color: #eff6ff; border: 3px solid black; padding: 15px; margin-bottom: 25px; font-size: 13px;">
+            <strong>🔍 Sitemap & Coverage Stats:</strong><br/>
+            - Total Active Sitemapped Routes: <strong>${totalUrls}</strong><br/>
+            - Global Recursive Internal Link Anchors Mapped: <strong>${activeLinksCount} anchors</strong><br/>
+            - Search Console Audit Status: <strong>Sitemaps Synced</strong>
+          </div>
+  
+          <!-- Newly Generated Posts card -->
+          <h3 style="text-transform: uppercase; font-size: 14px; border-bottom: 3px solid black; padding-bottom: 8px; margin-bottom: 15px;">
+            ✨ Newly Published Autopilot Pages (Last 24h)
+          </h3>
+          ${newlyCreatedPages.length > 0 ? `
+            <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+              <thead>
+                <tr style="background-color: #f3f4f6; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;">
+                  <th align="left" style="padding: 10px; border-bottom: 3px solid black;">Soro Keyword & Domain</th>
+                  <th align="left" style="padding: 10px; border-bottom: 3px solid black;">Edge Canonical Slug</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${newlyCreatedPages.map(page => `
+                  <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid black; font-weight: bold;">🌱 ${page.keyword} (B2C)</td>
+                    <td style="padding: 10px; border-bottom: 1px solid black; font-family: monospace; font-size: 11px;">
+                      <a href="https://www.pouch.eco/blog/${page.slug}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">pouch.eco/blog/${page.slug}</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px; border-bottom: 2px solid black; font-weight: bold;">💼 ${page.keyword} (B2B)</td>
+                    <td style="padding: 10px; border-bottom: 2px solid black; font-family: monospace; font-size: 11px;">
+                      <a href="https://achievepack.com/blog/${page.slug}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">achievepack.com/blog/${page.slug}</a>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          ` : `
+            <div style="padding: 15px; border: 3px solid black; text-align: center; font-style: italic; color: #666; margin-bottom: 25px;">
+              No new autopilot pages required deployment today. All keywords fully synced.
+            </div>
+          `}
+  
+          <!-- Direct back-office link -->
+          <div style="background-color: #fffbeb; border: 3px solid black; padding: 20px; box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); margin-bottom: 30px;">
+            <h4 style="margin: 0 0 10px 0; color: #d97706; text-transform: uppercase; font-size: 13px;">💡 Admin Dashboard Link</h4>
+            <p style="margin: 0 0 10px 0; font-size: 12px; line-height: 1.5; color: #4b5563;">
+              You can modify the Autopilot Switch to manual Approval or adjust the Keyword Bank directly from the Admin controls:
+            </p>
+            <a href="https://achievepack.com/admin/daily-reports" target="_blank" style="display: inline-block; background: black; color: #D4FF00; text-decoration: none; padding: 10px 20px; border: 3px solid black; font-weight: bold; text-transform: uppercase; font-size: 11px;">
+              Open SEO Autopilot Hub ➔
+            </a>
+          </div>
+  
+          <hr style="border: 2px solid black; margin-bottom: 20px;"/>
+          <p style="margin: 0; font-size: 10px; color: #9ca3af; text-align: center;">
+            *This report is generated dynamically by autopilot-unified-cron scheduled daemon.
+          </p>
+        </div>
+      </body>
+      </html>
+    `;
+    
+    // H. Dispatch the Email Payload via standard Brevo endpoint
+    logMessage('Step 8: Dispatching daily email progress summary to Brevo campaign service...');
+    const emailPayload = JSON.stringify({
+      subject: `🚀 [Soro Autopilot Daily Report] Dual-Domain Telemetry`,
+      htmlContent: emailHtml,
+      testEmail: ADMIN_EMAIL
+    });
+  
+    const options = {
+      hostname: 'achievepack.com',
+      port: 443,
+      path: '/api/send-campaign',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(emailPayload)
+      }
+    };
+  
+    const req = https.request(options, (res) => {
+      let responseData = '';
+      res.on('data', (chunk) => { responseData += chunk; });
+      res.on('end', () => {
+        logMessage(`Email campaign endpoint responded with status: ${res.statusCode}`);
+        
+        // Update Autopilot State file with email date
+        const finalRunTime = new Date().toISOString();
+        autopilotState.lastUnifiedRun = finalRunTime;
+        autopilotState.lastDailyEmailDate = todayDateStr;
+        fs.writeFileSync(AUTOPILOT_STATE_PATH, JSON.stringify(autopilotState, null, 2), 'utf-8');
+        
+        syncStateToSupabase(autopilotState);
+      });
+    });
+  
+    req.on('error', (e) => {
+      logMessage(`Email dispatch failed: ${e.message}`);
+      saveStateAndExit(autopilotState);
+    });
+  
+    req.write(emailPayload);
+    req.end();
+  } else {
+    logMessage('Step 8: Skipping email dispatch. Daily summary email is only dispatched at 7:00 AM HKT (once per day).');
+    saveStateAndExit(autopilotState);
+  }
+  
+  function saveStateAndExit(state) {
+    const finalRunTime = new Date().toISOString();
+    state.lastUnifiedRun = finalRunTime;
+    fs.writeFileSync(AUTOPILOT_STATE_PATH, JSON.stringify(state, null, 2), 'utf-8');
+    syncStateToSupabase(state);
+  }
+
+  function syncStateToSupabase(state) {
+    if (supabase) {
+      logMessage('Syncing final Autopilot state back to Supabase webhook_logs config...');
+      supabase.from('webhook_logs').insert([{
+        source: 'soro_autopilot_config',
+        status: 'Config',
+        message: 'Soro Autopilot Scheduled Sweep Synchronized',
+        raw_data: {
+          autopilotMode: state.autopilotMode,
+          keywordBank: state.keywordBank,
+          logs: state.logs,
+          totalLinkedAnchors: state.totalLinkedAnchors,
+          lastDailyEmailDate: state.lastDailyEmailDate
+        }
+      }]).then(({ error }) => {
+        if (error) {
+          console.error('Failed to sync final autopilot config to Supabase:', error);
+        } else {
+          logMessage('✅ Autopilot state successfully synchronized to Supabase webhook_logs.');
+        }
         logMessage('🎉 UNIFIED SCHEDULER SWEEP COMPLETED SUCCESSFULLY!');
         process.exit(0);
-      }
-    });
-  });
-
-  req.on('error', (e) => {
-    logMessage(`Email dispatch failed: ${e.message}`);
-    process.exit(0);
-  });
-
-  req.write(emailPayload);
-  req.end();
+      });
+    } else {
+      logMessage('🎉 UNIFIED SCHEDULER SWEEP COMPLETED SUCCESSFULLY!');
+      process.exit(0);
+    }
+  }
 }
 
 main();
