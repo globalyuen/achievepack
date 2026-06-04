@@ -697,9 +697,9 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     shortDesc: 'From US$159.60 for 500 pcs',
     features: ['Silk Pure Aluminum (12丝)', 'Ultra-High Barrier', 'Hot Stamping & Digital Print', 'Custom Sizing & Shapes'],
     images: [
-      '/imgs/store/products/small-sachet-conventional-thumbnail-1.png',
-      '/imgs/store/products/small-sachet-conventional-thumbnail-2.png',
-      '/imgs/store/products/small-sachet-conventional-thumbnail-3.png'
+      '/imgs/store/products/small-sachet-conventional-thumbnail-1.png?v=3',
+      '/imgs/store/products/small-sachet-conventional-thumbnail-2.png?v=3',
+      '/imgs/store/products/small-sachet-conventional-thumbnail-3.png?v=3'
     ],
     badge: '⚡ Small Sachet Custom',
     rating: 4.9,
