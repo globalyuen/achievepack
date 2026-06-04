@@ -362,7 +362,7 @@ export function getProductFAQs(productId: string, categoryType: string): Product
     }
     return PRODUCT_FAQ_DATA['conventional-standup'];
   }
-  if (productId.includes('3ss') || productId.includes('3side')) {
+  if (productId.includes('3ss') || productId.includes('3side') || productId.includes('sachet')) {
     return PRODUCT_FAQ_DATA['3-side-seal'];
   }
   if (productId.includes('eco-stock')) {

@@ -1652,7 +1652,11 @@ const ProductPage: React.FC = () => {
                     <dl className="grid grid-cols-1 gap-y-3 text-sm">
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500">Shape</dt>
-                        <dd className="text-neutral-900 col-span-2">{conventionalProduct.shape.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</dd>
+                        <dd className="text-neutral-900 col-span-2">
+                          {conventionalProduct.shape === 'small-sachet-conventional' 
+                            ? '3 Side Seal Pouch (Sachet)' 
+                            : conventionalProduct.shape.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                        </dd>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
                         <dt className="text-neutral-500">Size</dt>

@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T11:00:49.897Z",
+  "lastUnifiedRun": "2026-06-04T11:15:34.018Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -510,17 +510,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "mono-material-stand-up-pouches-recyclable",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "mono material stand up pouches recyclable",
-      "difficulty": "Low",
-      "slug": "mono-material-stand-up-pouches-recyclable"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1600,
       "keyword": "sustainable packaging sachet sizes",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "sustainable-packaging-sachet-sizes"
     },
     {
       "status": "Pending",
@@ -579,9 +580,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T11:00:32.881Z",
+      "timestamp": "2026-06-04T11:15:20.657Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono material stand up pouches recyclable\" to /blog/mono-material-stand-up-pouches-recyclable (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging sachet sizes\" to /blog/sustainable-packaging-sachet-sizes (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono material stand up pouches recyclable\" to /blog/mono-material-stand-up-pouches-recyclable (Pending Approval)",
+      "timestamp": "2026-06-04T11:00:32.881Z"
     },
     {
       "action": "Autopilot Generation Draft",

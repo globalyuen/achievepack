@@ -253,7 +253,7 @@ export const POUCH_SIZES: PouchSize[] = [
  * Removes gusset info for 3-side seal pouches.
  */
 export const formatPouchSizeLabel = (size: PouchSize, shapeId: string): string => {
-  const isFlat = shapeId.includes('3-side-seal')
+  const isFlat = shapeId.includes('3-side-seal') || shapeId.includes('sachet')
   if (isFlat) {
     return `${size.label} (${size.imperial})`
   }
@@ -262,7 +262,7 @@ export const formatPouchSizeLabel = (size: PouchSize, shapeId: string): string =
     return `${size.label} (${size.imperial})`
   }
   
-  if (size.gusset) {
+  if (size.gusset && size.gusset !== '0') {
     // Add gusset back for stand-up pouches
     const cleanLabel = size.label.replace('mm', '')
     return `${cleanLabel}+${size.gusset}mm (${size.imperial})`
