@@ -225,6 +225,7 @@ export const POUCH_SHAPES: PouchShape[] = [
 ]
 
 export const POUCH_SIZES: PouchSize[] = [
+  { id: '80x80', label: '80 × 80mm', dimensions: '80x80', imperial: '3.1" × 3.1"', gusset: '0' },
   { id: '70x100', label: '70 × 100mm', dimensions: '70x100', imperial: '2.8" × 3.9"', gusset: '0' },
   { id: '90x130', label: '90 × 130mm', dimensions: '90x130', imperial: '3.5" × 5.1"', gusset: '60' },
   { id: '100x150', label: '100 × 150mm', dimensions: '100x150', imperial: '3.9" × 5.9"', gusset: '50' },
@@ -348,6 +349,18 @@ export const PRICING_DATA: Record<string, Record<string, Record<number, number>>
     '180x280x80': { 500: 950, 1000: 1600, 2000: 2380 },
     '200x300x80': { 500: 1060, 1000: 1800, 2000: 2840 },
     '260x240x80': { 500: 1210, 1000: 2120, 2000: 3400 }
+  },
+  'small-sachet-conventional': {
+    '80x80': {
+      500: 159.60,
+      1000: 210.00,
+      2000: 285.60,
+      3000: 441.00,
+      5000: 651.00,
+      10000: 1092.00,
+      20000: 2184.00,
+      50000: 1890.00
+    }
   }
 }
 
@@ -674,6 +687,27 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
     minOrder: 500,
     shape: 'zipper-flat-bottom',
     basePrice: 900,
+  },
+  {
+    id: 'small-sachet-conventional',
+    name: 'Small Sachet – Conventional Material',
+    category: 'conventional-digital',
+    description: 'Custom printed small sachet pouch made of premium silk pure aluminum multi-laminated structure (120 microns / 12丝). Provides ultra-high moisture and light barrier. Perfect for single-serving coffee, tea, powders, and cosmetic samples.',
+    shortDesc: 'From US$159.60 for 500 pcs',
+    features: ['Silk Pure Aluminum (12丝)', 'Ultra-High Barrier', 'Hot Stamping & Digital Print', 'Custom Sizing & Shapes'],
+    images: [
+      '/imgs/store/products/small-sachet-conventional-thumbnail-1.png',
+      '/imgs/store/products/small-sachet-conventional-thumbnail-2.png',
+      '/imgs/store/products/small-sachet-conventional-thumbnail-3.png'
+    ],
+    badge: '⚡ Small Sachet Custom',
+    rating: 4.9,
+    reviews: 84,
+    inStock: true,
+    turnaround: '10-15 days',
+    minOrder: 500,
+    shape: 'small-sachet-conventional',
+    basePrice: 159.60,
   },
 ]
 

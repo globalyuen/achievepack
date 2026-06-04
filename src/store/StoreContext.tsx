@@ -15,6 +15,8 @@ export interface ProductVariant {
   laserScoring?: string
   valve?: string
   hangHole?: string
+  print?: string
+  corners?: string
 }
 
 export interface CartItem {

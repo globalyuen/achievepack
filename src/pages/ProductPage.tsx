@@ -491,6 +491,12 @@ const ProductPage: React.FC = () => {
   const [selectedConvSize, setSelectedConvSize] = useState('130x180')
   const [selectedConvQuantity, setSelectedConvQuantity] = useState(100)
   const [selectedMainImage, setSelectedMainImage] = useState(0)
+
+  // Small Sachet Custom Options
+  const [sachetPrintMethod, setSachetPrintMethod] = useState<'hot-stamping' | 'digital' | 'traditional'>('hot-stamping')
+  const [sachetRoundCorners, setSachetRoundCorners] = useState<boolean>(false)
+  const [sachetStampingCoverage, setSachetStampingCoverage] = useState<'double-sided' | 'single-sided'>('double-sided')
+  const [sachetColorsCount, setSachetColorsCount] = useState<number>(2)
   
   // Eco Stock product options
   const [selectedEcoStockQuantity, setSelectedEcoStockQuantity] = useState(500)
@@ -984,6 +990,46 @@ const ProductPage: React.FC = () => {
   const conventionalPrice = useMemo(() => {
     if (!isConventionalDigital || !conventionalProduct) return { total: 0, unit: 0 }
     
+    // Custom calculation for Small Sachet
+    if (conventionalProduct.id === 'small-sachet-conventional') {
+      let basePrice = 0
+      let total = 0
+      
+      if (sachetPrintMethod === 'hot-stamping') {
+        if (selectedConvQuantity <= 500) basePrice = 159.60
+        else if (selectedConvQuantity <= 1000) basePrice = 210.00
+        else basePrice = 285.60
+        
+        total = basePrice
+        if (sachetRoundCorners) {
+          total += selectedConvQuantity * 0.0336
+        }
+      } else if (sachetPrintMethod === 'digital') {
+        if (selectedConvQuantity <= 1000) basePrice = 231.00
+        else if (selectedConvQuantity <= 2000) basePrice = 336.00
+        else if (selectedConvQuantity <= 3000) basePrice = 441.00
+        else if (selectedConvQuantity <= 5000) basePrice = selectedConvQuantity * 0.1302
+        else basePrice = selectedConvQuantity * 0.1092
+        
+        total = basePrice
+        if (sachetRoundCorners) {
+          total += selectedConvQuantity * 0.0336
+        }
+      } else {
+        basePrice = selectedConvQuantity * 0.0378
+        const setupFee = sachetColorsCount * 126.00
+        total = basePrice + setupFee
+        if (sachetRoundCorners) {
+          total += selectedConvQuantity * 0.0336
+        }
+      }
+      
+      return {
+        total,
+        unit: total / selectedConvQuantity
+      }
+    }
+    
     const shapeKey = conventionalProduct.shape
     const priceData = PRICING_DATA[shapeKey]
     if (!priceData || !priceData[selectedConvSize]) return { total: conventionalProduct.basePrice, unit: conventionalProduct.basePrice / 100 }
@@ -995,7 +1041,7 @@ const ProductPage: React.FC = () => {
       total: totalWithShipping,
       unit: totalWithShipping / selectedConvQuantity
     }
-  }, [isConventionalDigital, conventionalProduct, selectedConvSize, selectedConvQuantity])
+  }, [isConventionalDigital, conventionalProduct, selectedConvSize, selectedConvQuantity, sachetPrintMethod, sachetRoundCorners, sachetStampingCoverage, sachetColorsCount])
   
   // Get available sizes for conventional product
   const conventionalSizes = useMemo(() => {
@@ -1027,11 +1073,20 @@ const ProductPage: React.FC = () => {
   // Get available quantities for selected conventional product and size
   const conventionalQuantities = useMemo(() => {
     if (!isConventionalDigital || !conventionalProduct) return QUANTITY_OPTIONS
+    if (conventionalProduct.id === 'small-sachet-conventional') {
+      if (sachetPrintMethod === 'hot-stamping') {
+        return [500, 1000, 2000]
+      } else if (sachetPrintMethod === 'digital') {
+        return [1000, 2000, 3000, 5000, 10000, 20000]
+      } else {
+        return [50000]
+      }
+    }
     const shapeKey = conventionalProduct.shape
     const priceData = PRICING_DATA[shapeKey]
     if (!priceData || !priceData[selectedConvSize]) return QUANTITY_OPTIONS
     return Object.keys(priceData[selectedConvSize]).map(Number).sort((a, b) => a - b)
-  }, [isConventionalDigital, conventionalProduct, selectedConvSize])
+  }, [isConventionalDigital, conventionalProduct, selectedConvSize, sachetPrintMethod])
 
   // Reset selected conventional quantity if not available for the active size
   useEffect(() => {
@@ -1800,7 +1855,7 @@ const ProductPage: React.FC = () => {
                   ${conventionalPrice.unit.toFixed(2)}/piece • {selectedConvQuantity.toLocaleString()} pieces
                 </div>
                 <div className="text-xs text-primary-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
-                  ✓ $40 Air Shipping Included
+                  {product.id === 'small-sachet-conventional' ? '✓ Free Express Air Shipping & Delivery Included' : '✓ $40 Air Shipping Included'}
                 </div>
               </div>
 
@@ -1825,33 +1880,127 @@ const ProductPage: React.FC = () => {
               
               {/* Options */}
               <div className="space-y-4 pt-4 border-t">
-                {/* Size Selector */}
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Size (W × H + Gusset)</label>
-                  <select 
-                    value={selectedConvSize} 
-                    onChange={e => setSelectedConvSize(e.target.value)} 
-                    className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
-                  >
-                    {conventionalSizes.map(size => (
-                      <option key={size.id} value={size.id}>{size.label} ({size.imperial})</option>
-                    ))}
-                  </select>
-                </div>
-                
-                {/* Quantity Selector */}
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
-                  <select 
-                    value={selectedConvQuantity} 
-                    onChange={e => setSelectedConvQuantity(Number(e.target.value))} 
-                    className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
-                  >
-                    {conventionalQuantities.map(qty => (
-                      <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
-                    ))}
-                  </select>
-                </div>
+                {product.id === 'small-sachet-conventional' ? (
+                  <>
+                    {/* Size display */}
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-1">Size (Locked)</label>
+                      <div className="w-full p-3.5 border-2 border-neutral-100 bg-neutral-50 rounded-xl text-neutral-800 font-medium">
+                        80 × 80mm (3.1" × 3.1")
+                      </div>
+                    </div>
+
+                    {/* Print Method Selector */}
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Printing Method</label>
+                      <select 
+                        value={sachetPrintMethod} 
+                        onChange={e => {
+                          const val = e.target.value as any;
+                          setSachetPrintMethod(val);
+                          // Reset quantity default when print method changes
+                          if (val === 'hot-stamping') setSelectedConvQuantity(500);
+                          else if (val === 'digital') setSelectedConvQuantity(1000);
+                          else setSelectedConvQuantity(50000);
+                        }} 
+                        className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
+                      >
+                        <option value="hot-stamping">Hot Stamping (烫金) - Low MOQ</option>
+                        <option value="digital">Digital Color Printing (数码彩印) - Low MOQ</option>
+                        <option value="traditional">Traditional Gravure Printing (传统彩印) - High Vol</option>
+                      </select>
+                    </div>
+
+                    {/* Options specific to Hot Stamping */}
+                    {sachetPrintMethod === 'hot-stamping' && (
+                      <div>
+                        <label className="block text-sm font-medium text-neutral-700 mb-2">Stamping Coverage</label>
+                        <select 
+                          value={sachetStampingCoverage} 
+                          onChange={e => setSachetStampingCoverage(e.target.value as any)} 
+                          className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
+                        >
+                          <option value="double-sided">Double-Sided Stamping (含双面烫金/版费)</option>
+                          <option value="single-sided">Single-Sided Stamping</option>
+                        </select>
+                      </div>
+                    )}
+
+                    {/* Options specific to Traditional Plate printing */}
+                    {sachetPrintMethod === 'traditional' && (
+                      <div>
+                        <label className="block text-sm font-medium text-neutral-700 mb-2">Number of Printed Colors (Plate Fees)</label>
+                        <select 
+                          value={sachetColorsCount} 
+                          onChange={e => setSachetColorsCount(Number(e.target.value))} 
+                          className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
+                        >
+                          {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
+                            <option key={num} value={num}>{num} Color{num > 1 ? 's' : ''} Setup (+${(num * 126.00).toFixed(2)} USD)</option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+
+                    {/* Round Corners Option */}
+                    <div className="flex items-center gap-3 pt-2">
+                      <input 
+                        type="checkbox" 
+                        id="sachet-round-corners" 
+                        checked={sachetRoundCorners} 
+                        onChange={e => setSachetRoundCorners(e.target.checked)} 
+                        className="w-4.5 h-4.5 text-primary-600 border-neutral-300 rounded focus:ring-primary-500"
+                      />
+                      <label htmlFor="sachet-round-corners" className="text-sm font-semibold text-neutral-700 cursor-pointer select-none">
+                        Add Round Corners (圆角) (+${(0.0336).toFixed(4)} USD / unit)
+                      </label>
+                    </div>
+
+                    {/* Quantity Selector */}
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
+                      <select 
+                        value={selectedConvQuantity} 
+                        onChange={e => setSelectedConvQuantity(Number(e.target.value))} 
+                        className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
+                      >
+                        {conventionalQuantities.map(qty => (
+                          <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
+                        ))}
+                      </select>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Size Selector */}
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Size (W × H + Gusset)</label>
+                      <select 
+                        value={selectedConvSize} 
+                        onChange={e => setSelectedConvSize(e.target.value)} 
+                        className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
+                      >
+                        {conventionalSizes.map(size => (
+                          <option key={size.id} value={size.id}>{size.label} ({size.imperial})</option>
+                        ))}
+                      </select>
+                    </div>
+                    
+                    {/* Quantity Selector */}
+                    <div>
+                      <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
+                      <select 
+                        value={selectedConvQuantity} 
+                        onChange={e => setSelectedConvQuantity(Number(e.target.value))} 
+                        className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
+                      >
+                        {conventionalQuantities.map(qty => (
+                          <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
+                        ))}
+                      </select>
+                    </div>
+                  </>
+                )}
               </div>
               
               {/* Add to Cart */}
@@ -1862,7 +2011,19 @@ const ProductPage: React.FC = () => {
                       productId: product.id,
                       name: product.name,
                       image: product.images[0],
-                      variant: { shape: conventionalProduct.shape, size: selectedConvSize, material: product.name.includes('Metalised') ? 'Mattopp/VMPET/LLDPE' : 'Glossy PET/LLDPE' },
+                      variant: product.id === 'small-sachet-conventional' 
+                        ? { 
+                            shape: '3 Side Seal Sachet', 
+                            size: '80x80mm', 
+                            material: 'Silk pure aluminum (120um)', 
+                            print: sachetPrintMethod.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                            corners: sachetRoundCorners ? 'Round' : 'Square'
+                          }
+                        : { 
+                            shape: conventionalProduct.shape, 
+                            size: selectedConvSize, 
+                            material: product.name.includes('Metalised') ? 'Mattopp/VMPET/LLDPE' : 'Glossy PET/LLDPE' 
+                          },
                       quantity: 1,
                       unitPrice: conventionalPrice.total,
                       totalPrice: conventionalPrice.total,

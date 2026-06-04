@@ -267,6 +267,68 @@ export default function PouchEcoGPTKPage() {
         </div>
       </section>
 
+      {/* Small Sachet Conventional Option Section */}
+      <section className="py-24 px-4 md:px-6 border-t-4 border-black bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-black text-5xl md:text-7xl uppercase mb-4">
+              Conventional <span className="text-[#10b981]">Sachets</span>
+            </h2>
+            <p className="font-['JetBrains_Mono'] text-lg max-w-2xl mx-auto">
+              Looking for low MOQ conventional printed sachets instead of compostable kraft pouches?
+            </p>
+          </div>
+
+          <NeoCard color="bg-[#D4FF00]" className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-4">
+                <div className="inline-block bg-black text-white font-['JetBrains_Mono'] px-3 py-1 text-xs uppercase font-bold tracking-wider">
+                  Silk Pure Aluminum (12丝)
+                </div>
+                <h3 className="font-black text-3xl uppercase leading-tight">
+                  Small Sachet – Conventional Material
+                </h3>
+                <p className="font-['JetBrains_Mono'] text-sm leading-relaxed text-neutral-800">
+                  Ideal for sample packs, single-serve coffee/tea, cosmetic samples, and powder sachets. Made with high-strength pure aluminum laminate providing absolute moisture and light protection.
+                </p>
+                <div className="pt-2">
+                  <NeoButton to="/store/product/small-sachet-conventional" variant="secondary" className="!px-6 !py-3">
+                    View Sachet Options
+                  </NeoButton>
+                </div>
+              </div>
+
+              <div className="bg-white border-4 border-black p-4 space-y-3 font-['JetBrains_Mono'] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="font-black text-sm uppercase border-b-2 border-black pb-1.5 mb-2">
+                  ⚡ Pricing Matrix (80x80mm)
+                </div>
+                <div className="space-y-1.5 text-xs">
+                  <div className="flex justify-between">
+                    <span className="font-bold">Hot Stamping (500 pcs):</span>
+                    <span>$159.60 USD</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-bold">Hot Stamping (1,000 pcs):</span>
+                    <span>$210.00 USD</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-bold">Digital Print (1,000 pcs):</span>
+                    <span>$231.00 USD</span>
+                  </div>
+                  <div className="flex justify-between text-emerald-800">
+                    <span className="font-bold">Traditional Gravure (50k+):</span>
+                    <span>$0.0378 / pc</span>
+                  </div>
+                </div>
+                <div className="text-[10px] text-neutral-600 border-t-2 border-black pt-2 mt-2 leading-relaxed">
+                  * Optional round corners (圆角) at +$0.0336 USD / sachet. Air shipping & delivery included in standard markup formulas.
+                </div>
+              </div>
+            </div>
+          </NeoCard>
+        </div>
+      </section>
+
       {/* Pros & Cons */}
       <section className="py-16 px-4 md:px-6 border-t-4 border-black bg-white">
         <div className="max-w-6xl mx-auto">

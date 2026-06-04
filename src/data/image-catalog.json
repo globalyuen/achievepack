@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-04",
-  "total_images": 1939,
+  "total_images": 1942,
   "total_categories": 165,
   "extensions": {
     ".webp": 1299,
-    ".png": 406,
+    ".png": 409,
     ".jpg": 231,
     ".svg": 3
   },
@@ -8612,8 +8612,26 @@
       ]
     },
     "store/products": {
-      "count": 284,
+      "count": 287,
       "images": [
+        {
+          "filename": "small-sachet-conventional-thumbnail-3.png",
+          "path": "/imgs/store/products/small-sachet-conventional-thumbnail-3.png",
+          "extension": ".png",
+          "modified": "2026-06-04T02:16:30.994Z"
+        },
+        {
+          "filename": "small-sachet-conventional-thumbnail-2.png",
+          "path": "/imgs/store/products/small-sachet-conventional-thumbnail-2.png",
+          "extension": ".png",
+          "modified": "2026-06-04T02:16:30.992Z"
+        },
+        {
+          "filename": "small-sachet-conventional-thumbnail-1.png",
+          "path": "/imgs/store/products/small-sachet-conventional-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-06-04T02:15:59.313Z"
+        },
         {
           "filename": "cotton-paper-foil-gusset-pouch-thumbnail-5.png",
           "path": "/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-5.png",

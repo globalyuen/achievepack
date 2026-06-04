@@ -1258,6 +1258,130 @@ export default function PouchEcoGPTKPage() {
           </div>
         </section>
 
+        {/* SMALL SACHET CONVENTIONAL MATERIAL PRICING MATRIX */}
+        <section className="max-w-7xl mx-auto px-4 md:px-6 pt-16">
+          <div className="bg-neutral-50/50 border border-neutral-200 bg-white rounded-3xl p-6 md:p-8 shadow-sm max-w-5xl mx-auto space-y-6">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-100 pb-5">
+              <div>
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-indigo-50 border border-indigo-100 text-indigo-700">
+                  ⚡ New Custom Sachet Package
+                </span>
+                <h3 className="text-xl md:text-2xl font-extrabold text-neutral-950 font-['Outfit'] mt-1.5">
+                  Small Sachet – Conventional Material Pricing Matrix
+                </h3>
+                <p className="text-xs text-neutral-500 font-medium mt-1">
+                  Premium Silk Pure Aluminum (120um / 12丝) structure offering ultra-high moisture, oxygen, and light barriers. Dimensions: 80 × 80 mm.
+                </p>
+              </div>
+              <Link 
+                to="/store/product/small-sachet-conventional" 
+                className="shrink-0 inline-flex items-center justify-center gap-1.5 px-5 py-3 bg-primary-600 hover:bg-primary-750 text-white font-extrabold uppercase text-xs rounded-xl shadow-sm hover:shadow active:scale-95 transition-all"
+              >
+                Configure & Order <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Card 1: Hot Stamping */}
+              <div className="bg-white border border-neutral-200/80 rounded-2xl p-5 space-y-4 hover:border-neutral-300 transition-all hover:shadow-sm">
+                <div className="flex justify-between items-start">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-50 border border-amber-100 text-amber-700">
+                    Hot Stamping (烫金)
+                  </span>
+                  <span className="text-[10px] text-neutral-400 font-bold uppercase">Low MOQ</span>
+                </div>
+                <p className="text-xs text-neutral-500 font-medium leading-relaxed">
+                  Best for minimal logo designs on pre-made pouches. Waiver of plate cylinder setup fee. Includes double-sided single-color stamping.
+                </p>
+                <div className="border-t border-neutral-100 pt-3 space-y-2">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500 font-semibold">500 pcs</span>
+                    <span className="text-neutral-900 font-bold">$159.60 USD <span className="text-[10px] text-neutral-400 font-normal">($0.319/pc)</span></span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500 font-semibold">1,000 pcs</span>
+                    <span className="text-neutral-900 font-bold">$210.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.210/pc)</span></span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500 font-semibold">2,000 pcs</span>
+                    <span className="text-neutral-900 font-bold">$285.60 USD <span className="text-[10px] text-neutral-400 font-normal">($0.143/pc)</span></span>
+                  </div>
+                </div>
+                <div className="bg-neutral-50 rounded-xl p-2.5 text-[10px] text-neutral-500 leading-normal font-semibold">
+                  ✓ Cylinder setup fee: **$0 Free**<br />
+                  ✓ Coverage: **Double-sided single-color**
+                </div>
+              </div>
+
+              {/* Card 2: Digital Print */}
+              <div className="bg-white border border-neutral-200/80 rounded-2xl p-5 space-y-4 hover:border-neutral-300 transition-all hover:shadow-sm">
+                <div className="flex justify-between items-start">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-50 border border-indigo-100 text-indigo-700">
+                    Digital Color Printing (数码彩印)
+                  </span>
+                  <span className="text-[10px] text-neutral-400 font-bold uppercase">Multi-Color</span>
+                </div>
+                <p className="text-xs text-neutral-500 font-medium leading-relaxed">
+                  Excellent for complex multi-color artworks and photorealistic graphics. Waived setup fee, edge-to-edge printing.
+                </p>
+                <div className="border-t border-neutral-100 pt-3 space-y-2">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500 font-semibold">1,000 pcs</span>
+                    <span className="text-neutral-900 font-bold">$231.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.231/pc)</span></span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500 font-semibold">2,000 pcs</span>
+                    <span className="text-neutral-900 font-bold">$336.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.168/pc)</span></span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500 font-semibold">3,000 pcs</span>
+                    <span className="text-neutral-900 font-bold">$441.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.147/pc)</span></span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500 font-semibold">5,000 pcs</span>
+                    <span className="text-neutral-900 font-bold">$651.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.130/pc)</span></span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500 font-semibold">10,000+ pcs</span>
+                    <span className="text-neutral-900 font-bold">$0.109 USD / pc</span>
+                  </div>
+                </div>
+                <div className="bg-neutral-50 rounded-xl p-2.5 text-[10px] text-neutral-500 leading-normal font-semibold">
+                  ✓ Cylinder setup fee: **$0 Waived**<br />
+                  ✓ Sample proof fee: **$147.00 USD**
+                </div>
+              </div>
+
+              {/* Card 3: Traditional Printing */}
+              <div className="bg-white border border-neutral-200/80 rounded-2xl p-5 space-y-4 hover:border-neutral-300 transition-all hover:shadow-sm">
+                <div className="flex justify-between items-start">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 border border-emerald-100 text-emerald-700">
+                    Traditional Gravure (传统彩印)
+                  </span>
+                  <span className="text-[10px] text-neutral-400 font-bold uppercase">High Volume</span>
+                </div>
+                <p className="text-xs text-neutral-500 font-medium leading-relaxed">
+                  Best for high-volume commercial runs. Maximizes cost margins and provides exact color precision and cylinder engraving.
+                </p>
+                <div className="border-t border-neutral-100 pt-3 space-y-2">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500 font-semibold">50,000+ pcs (MOQ)</span>
+                    <span className="text-neutral-900 font-bold">$0.0378 USD / pc</span>
+                  </div>
+                </div>
+                <div className="bg-neutral-50 rounded-xl p-2.5 text-[10px] text-neutral-500 leading-normal font-semibold">
+                  ✓ Cylinder setup fee: **$126.00 USD / color**<br />
+                  ✓ Ideal for long term commercial runs
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-amber-50/50 border border-amber-200/85 rounded-2xl p-4 text-xs text-amber-800 leading-relaxed font-semibold">
+              ⚠️ **Optional Surcharges**: Round corner (圆角) processing is available at **+$0.0336 USD / sachet** for all order tiers. Plates/cylinders are stored securely for seamless future reorders.
+            </div>
+          </div>
+        </section>
+
         {/* B2B FEATURE MATRIX COMPARISON TABLE */}
         <section className="max-w-7xl mx-auto px-4 md:px-6 pt-16">
           <div className="border border-neutral-200 bg-white rounded-3xl p-6 shadow-sm overflow-hidden max-w-5xl mx-auto">
