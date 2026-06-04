@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T11:15:34.018Z",
+  "lastUnifiedRun": "2026-06-04T11:30:36.392Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -517,17 +517,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-packaging-sachet-sizes",
       "status": "Pending Approval",
       "volume": 1600,
       "keyword": "sustainable packaging sachet sizes",
-      "difficulty": "Medium",
-      "slug": "sustainable-packaging-sachet-sizes"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "compostable retort pouches for baby food",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-retort-pouches-for-baby-food"
     },
     {
       "status": "Pending",
@@ -576,13 +577,126 @@
       "volume": 1700,
       "keyword": "barrier film suppliers for flexible packaging",
       "difficulty": "Medium"
+    },
+    {
+      "keyword": "eco friendly stand up pouch dimensions",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed barrier sachets",
+      "difficulty": "Low",
+      "volume": 720,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable pouch sizes for powders",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print flexible packaging options",
+      "difficulty": "Medium",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable sachet dimensions guide",
+      "difficulty": "Low",
+      "volume": 480,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material pouch suppliers",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier compostable sachet",
+      "difficulty": "Low",
+      "volume": 920,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch size chart for liquids",
+      "difficulty": "Medium",
+      "volume": 780,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable flat bottom pouch sizes",
+      "difficulty": "Low",
+      "volume": 550,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable barrier film for flexible packaging",
+      "difficulty": "Low",
+      "volume": 1050,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort pouch suppliers",
+      "difficulty": "Low",
+      "volume": 630,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch sustainable pouch printing",
+      "difficulty": "Low",
+      "volume": 890,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper custom pouch sizes",
+      "difficulty": "Low",
+      "volume": 710,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly sachet packaging for spices",
+      "difficulty": "Low",
+      "volume": 1020,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch dimensions for coffee",
+      "difficulty": "Medium",
+      "volume": 1250,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable barrier pouch for pet food",
+      "difficulty": "Low",
+      "volume": 680,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed mono pe pouches",
+      "difficulty": "Low",
+      "volume": 540,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shape compostable sachets",
+      "difficulty": "Low",
+      "volume": 760,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T11:15:20.657Z",
+      "timestamp": "2026-06-04T11:30:27.483Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging sachet sizes\" to /blog/sustainable-packaging-sachet-sizes (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouches for baby food\" to /blog/compostable-retort-pouches-for-baby-food (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging sachet sizes\" to /blog/sustainable-packaging-sachet-sizes (Pending Approval)",
+      "timestamp": "2026-06-04T11:15:20.657Z"
     },
     {
       "action": "Autopilot Generation Draft",
