@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T07:30:42.167Z",
+  "lastUnifiedRun": "2026-06-04T07:45:20.728Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -412,17 +412,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-barrier-packaging-for-nuts",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "compostable barrier packaging for nuts",
-      "difficulty": "Low",
-      "slug": "compostable-barrier-packaging-for-nuts"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "small batch digital print bags",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-digital-print-bags"
     },
     {
       "status": "Pending",
@@ -565,9 +566,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T07:30:24.501Z",
+      "timestamp": "2026-06-04T07:45:13.728Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier packaging for nuts\" to /blog/compostable-barrier-packaging-for-nuts (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital print bags\" to /blog/small-batch-digital-print-bags (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier packaging for nuts\" to /blog/compostable-barrier-packaging-for-nuts (Pending Approval)",
+      "timestamp": "2026-06-04T07:30:24.501Z"
     },
     {
       "action": "Autopilot Generation Draft",
