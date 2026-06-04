@@ -166,6 +166,7 @@ const KraftMediumBarrierPage = lazyWithRetry(() => import('./pages/materials/Kra
 const KraftHighBarrierPage = lazyWithRetry(() => import('./pages/materials/KraftHighBarrierPage'))
 const PlasticFreeKraftPage = lazyWithRetry(() => import('./pages/materials/PlasticFreeKraftPage'))
 const CombustionSafetyTestPage = lazyWithRetry(() => import('./pages/materials/CombustionSafetyTestPage'))
+const ConventionalPrintedSachetsPage = lazyWithRetry(() => import('./pages/materials/ConventionalPrintedSachetsPage'))
 
 // Pouch Topics
 const PouchEcoFriendlyFoodPackagingPage = lazyWithRetry(() => import('./pages/pouch/topics/PouchEcoFriendlyFoodPackagingPage'))
@@ -717,6 +718,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/spec/compostable-pouch-geo" element={<CompostablePouchGeoPage />} />
                   <Route path="/materials/plastic-free-kraft" element={<PouchPlasticFreeKraftPage />} />
                   <Route path="/materials/combustion-safety-test" element={<PouchCombustionSafetyTestPage />} />
+                  <Route path="/materials/conventional-printed-sachets" element={<ConventionalPrintedSachetsPage />} />
                   <Route path="/composting/plastic-free" element={<PouchPlasticFreePage />} />
                   <Route path="/composting/composting-benefits" element={<PouchCompostingBenefitsPage />} />
                   <Route path="/composting/composting-services" element={<PouchCompostingServicesPage />} />
@@ -1101,6 +1103,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/materials/plastic-free-kraft" element={<PlasticFreeKraftPage />} />
                         <Route path="/materials/kraft-high-barrier" element={<KraftHighBarrierPage />} />
                         <Route path="/materials/combustion-safety-test" element={<CombustionSafetyTestPage />} />
+                        <Route path="/materials/conventional-printed-sachets" element={<ConventionalPrintedSachetsPage />} />
                         <Route path="/materials/data-sheet" element={<AchieveMaterialDataSheetPage />} />
 
                         {/* Printing Pages */}

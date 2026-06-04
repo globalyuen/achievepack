@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-04",
-  "total_images": 1942,
-  "total_categories": 165,
+  "total_images": 1943,
+  "total_categories": 166,
   "extensions": {
     ".webp": 1299,
-    ".png": 409,
+    ".png": 410,
     ".jpg": 231,
     ".svg": 3
   },
@@ -87,6 +87,17 @@
           "path": "/imgs/achieve-supplements/flat-pouch.png",
           "extension": ".png",
           "modified": "2026-01-26T13:21:43.052Z"
+        }
+      ]
+    },
+    "admin": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "sachet-cost-chinese.png",
+          "path": "/imgs/admin/sachet-cost-chinese.png",
+          "extension": ".png",
+          "modified": "2026-06-04T06:22:27.413Z"
         }
       ]
     },
@@ -8618,19 +8629,19 @@
           "filename": "small-sachet-conventional-thumbnail-3.png",
           "path": "/imgs/store/products/small-sachet-conventional-thumbnail-3.png",
           "extension": ".png",
-          "modified": "2026-06-04T02:16:30.994Z"
+          "modified": "2026-06-04T06:01:04.780Z"
         },
         {
           "filename": "small-sachet-conventional-thumbnail-2.png",
           "path": "/imgs/store/products/small-sachet-conventional-thumbnail-2.png",
           "extension": ".png",
-          "modified": "2026-06-04T02:16:30.992Z"
+          "modified": "2026-06-04T06:01:04.779Z"
         },
         {
           "filename": "small-sachet-conventional-thumbnail-1.png",
           "path": "/imgs/store/products/small-sachet-conventional-thumbnail-1.png",
           "extension": ".png",
-          "modified": "2026-06-04T02:15:59.313Z"
+          "modified": "2026-06-04T06:01:04.777Z"
         },
         {
           "filename": "cotton-paper-foil-gusset-pouch-thumbnail-5.png",

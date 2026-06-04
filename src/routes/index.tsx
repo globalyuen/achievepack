@@ -258,6 +258,7 @@ const routes = [
   { path: "/materials/home-compostable", element: <LazyRoute component={() => import('../pages/materials/HomeCompostablePage')} fallback={<LoadingFallback />} /> },
   { path: "/materials/industrial-compostable", element: <LazyRoute component={() => import('../pages/materials/IndustrialCompostablePage')} fallback={<LoadingFallback />} /> },
   { path: "/materials/combustion-safety-test", element: <LazyRoute component={() => import('../pages/materials/CombustionSafetyTestPage')} fallback={<LoadingFallback />} /> },
+  { path: "/materials/conventional-printed-sachets", element: <LazyRoute component={() => import('../pages/materials/ConventionalPrintedSachetsPage')} fallback={<LoadingFallback />} /> },
 
   // Printing Pages
   { path: "/printing/digital-printing", element: <LazyRoute component={() => import('../pages/printing/DigitalPrintingPage')} fallback={<LoadingFallback />} /> },

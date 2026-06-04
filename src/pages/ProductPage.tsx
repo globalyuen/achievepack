@@ -386,6 +386,20 @@ const getSizeDetails = (sizeCode: string, productId: string) => {
   return { label: sizeCode, sub: '' };
 };
 
+const SACHET_UNPRINTED_OPTIONS = [
+  { id: 'sample-9-pack', label: 'Silk & Kraft 9 Colors Sample Pack (蚕丝和牛皮9色各1个)', pcs: 9, price: 2.70 },
+  { id: 'off-white-100', label: 'Off-White Silk Paper 100 pcs (米白色 100个)', pcs: 100, price: 30.00 },
+  { id: 'black-100', label: 'Black Silk Paper 100 pcs (黑色 100个)', pcs: 100, price: 30.00 },
+  { id: 'pink-100', label: 'Pink Silk Paper 100 pcs (粉红色 100个)', pcs: 100, price: 30.00 },
+  { id: 'gold-100', label: 'Gold Silk Paper 100 pcs (金色 100个)', pcs: 100, price: 30.00 },
+  { id: 'blue-100', label: 'Blue Silk Paper 100 pcs (蓝色 100个)', pcs: 100, price: 30.00 },
+  { id: 'light-yellow-100', label: 'Light Yellow Silk Paper 100 pcs (浅黄色 100个)', pcs: 100, price: 30.00 },
+  { id: 'cyan-100', label: 'Teal/Cyan Silk Paper 100 pcs (青色 100个)', pcs: 100, price: 30.00 },
+  { id: 'yellow-kraft-100', label: 'Yellow Kraft Paper 100 pcs (黄色 牛皮纸100个)', pcs: 100, price: 30.00 },
+  { id: 'white-kraft-100', label: 'White Kraft Paper 100 pcs (白色 牛皮纸100个)', pcs: 100, price: 30.00 },
+  { id: 'white-cotton-100', label: 'White Cotton Paper 100 pcs (白色棉纸 100个)', pcs: 100, price: 30.00 }
+];
+
 const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>()
   const { addToCart, addToRfq, cartCount, setIsCartOpen, setActiveCartMode } = useStore()
@@ -493,7 +507,9 @@ const ProductPage: React.FC = () => {
   const [selectedMainImage, setSelectedMainImage] = useState(0)
 
   // Small Sachet Custom Options
-  const [sachetPrintMethod, setSachetPrintMethod] = useState<'hot-stamping' | 'digital' | 'traditional'>('hot-stamping')
+  const [sachetPrintMethod, setSachetPrintMethod] = useState<'unprinted' | 'hot-stamping' | 'digital' | 'traditional'>('unprinted')
+  const [sachetUnprintedColor, setSachetUnprintedColor] = useState<string>('sample-9-pack')
+  const [sachetUnprintedPacks, setSachetUnprintedPacks] = useState<number>(1)
   const [sachetRoundCorners, setSachetRoundCorners] = useState<boolean>(false)
   const [sachetStampingCoverage, setSachetStampingCoverage] = useState<'double-sided' | 'single-sided'>('double-sided')
   const [sachetColorsCount, setSachetColorsCount] = useState<number>(2)

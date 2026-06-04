@@ -131,6 +131,7 @@ export default function DailyReportsPage() {
   const [showSeoCommand, setShowSeoCommand] = useState(false);
   const [copiedSeoCommand, setCopiedSeoCommand] = useState(false);
   const [showSearchDirectoryModal, setShowSearchDirectoryModal] = useState(false);
+  const [showSachetCostModal, setShowSachetCostModal] = useState(false);
 
   // AI
   const [rawText, setRawText] = useState('');
@@ -1116,6 +1117,16 @@ export default function DailyReportsPage() {
                 >
                   <Sparkles className="h-3.5 w-3.5 animate-pulse text-indigo-300" />
                   <span>SEO Command</span>
+                </button>
+
+                {/* Sachet Cost Chinese Reference Image */}
+                <button 
+                  onClick={() => setShowSachetCostModal(true)}
+                  className="flex items-center gap-1.5 bg-amber-500/20 text-amber-200 px-3 py-1.5 rounded-full text-sm font-semibold border border-amber-500/30 hover:bg-amber-500/40 transition active:scale-95 shadow-sm"
+                  title="Open Sachet Cost Chinese Reference"
+                >
+                  <ImageIcon className="h-3.5 w-3.5 text-amber-300" />
+                  <span>Sachet Cost Table</span>
                 </button>
               </div>
             </div>
@@ -2376,6 +2387,27 @@ export default function DailyReportsPage() {
         isOpen={showSearchDirectoryModal}
         onClose={() => setShowSearchDirectoryModal(false)}
       />
+
+      {/* Sachet Cost Chinese Reference Image Modal */}
+      {showSachetCostModal && (
+        <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 print:hidden">
+          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-black max-w-2xl w-full relative animate-in zoom-in-95 duration-200">
+            <div className="bg-gradient-to-r from-amber-600 to-amber-700 p-5 text-white flex justify-between items-center border-b-4 border-black">
+              <h3 className="text-lg font-black uppercase tracking-wider">Conventional Sachet Cost</h3>
+              <button onClick={() => setShowSachetCostModal(false)} className="text-white hover:text-gray-200">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-6 text-center">
+              <img 
+                src="/imgs/admin/sachet-cost-chinese.png" 
+                alt="Conventional Sachet Cost" 
+                className="w-full h-auto object-contain rounded-xl border-2 border-gray-200" 
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

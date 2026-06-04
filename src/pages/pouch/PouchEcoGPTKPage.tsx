@@ -1444,28 +1444,28 @@ export default function PouchEcoGPTKPage() {
           <div className="space-y-3">
             {[
               {
-                q: "1. Minimum Order Quantity (MOQ) Policy — 最低起訂量是多少？能否支持試單？",
-                a: "我們提供靈活的階梯起訂量。對於常規現貨加裝卡片或貼紙（Stock Conventional），最低僅需 100 個起訂（支持極小規模品牌測試）。而對於全客製印刷的自立袋（Custom Oval）與高端八邊封平底袋（Custom Flat），由於需要配合高速數碼印刷機校準，單款設計最低起訂量為 500 個。大貨凹版印刷起訂量為 10,000 個。"
+                q: "1. Minimum Order Quantity (MOQ) Policy — What is the minimum order quantity? Can I order small sample runs?",
+                a: "We offer highly flexible quantity tiers. For standard blank stock pouches with card additions or sticker labels (Stock Conventional), the MOQ starts at just 100 units. For fully customized printed stand-up pouches (Custom Oval) and premium flat-bottom bags (Custom Flat), high-speed digital printing allows us to support low MOQs starting at 500 units per design. Large-volume commercial rotogravure runs start at 10,000 units."
               },
               {
-                q: "2. Free Pre-Production Sample Policy — 是否提供免費樣品？索取流程是什麼？",
-                a: "是的！我們為專業採購提供免費的「實物樣品包」（包含 PE+EVOH 可回收袋、可降解牛皮紙袋及不同容量袋型）。你只需填寫收件地址並支付基礎快遞費用即可安排寄出。如需客製品牌打樣（Digital Custom Sample），可聯絡專員安排單獨打樣打版。"
+                q: "2. Free Pre-Production Sample Policy — Do you provide free samples? What is the request process?",
+                a: "Yes! We provide free Physical Sample Packs for brands and procurement managers. These packs include various pouch types such as recyclable PE+EVOH pouches, compostable FSC kraft paper bags, and different capacity dimensions. You only need to provide your shipping address and cover the basic shipping cost. For fully customized branded samples printed with your custom artwork, please contact our team to set up a digital sample proof run."
               },
               {
-                q: "3. OEM Custom Blueprints & Blueprints Support — 能否支持按圖紙或特定規格做？",
-                a: "完全支持！Achieve Pack 提供完整的 Adobe Illustrator（AI）向量刀模圖紙（Dieline templates）。你可以下載並直接套用你的品牌設計。不論是毫米級的寬度、高度，還是底部折邊（gusset）與拉鏈高度，我們均能按圖紙客製，無任何額外刀模版費費用。"
+                q: "3. OEM Custom Blueprints & Specification Support — Can pouches be manufactured to custom dimensions?",
+                a: "Absolutely! Achieve Pack provides complete Adobe Illustrator (AI) vector dieline templates. You can download and apply your graphics directly. Whether you need customized millimeter-level width, height, gusset depth, or zipper height, we support fully bespoke dielines with zero extra tooling or plate setup fees."
               },
               {
-                q: "4. Lead Time & Delivery Calculations — 正常的生產交期和運輸時間是多久？",
-                a: "我們的數碼印刷交期非常迅速：在確認印刷稿件及付款後，現貨組合方案僅需 3-5 天；數碼客製印刷袋在 10-12 天內即可完成生產裝箱。海運 DDP（含稅門到門）通常需要 6-7 週，而空運/快遞 DDP 僅需 8-10 天。我們會為你提供實時海關清關狀態追蹤。"
+                q: "4. Lead Time & Delivery Calculations — What is the standard production and shipping time?",
+                a: "Our digital printing production is exceptionally fast: after confirming printing artwork proofs and receiving payment, stock custom label configurations ship within 3-5 days. Custom digital printed pouches are completed and packed in 10-12 business days. Ocean DDP (Duty Paid door-to-door) shipping typically takes 6-7 weeks, while Express DDP air freight takes only 8-10 days. We provide real-time customs clearance status tracking for all orders."
               },
               {
-                q: "5. Verifiable Certificates Verification — 產品能否提供 BPI、TÜV 或 GRS 等官方認證證書？",
-                a: "我們所有的環保包裝均附帶真實、可驗證的官方檢測報告。可回收 Mono-PE 結構符合全球塑料循環認證（Class 4 SPI）；可降解牛皮紙系列則擁有美國 BPI（ASTM D6400 註冊號 #900385）及歐洲 TÜV Austria OK Compost（EN 13432）工業及家用雙重降解認證，確保無任何有毒殘留物，暢通出口歐美海關。"
+                q: "5. Verifiable Certifications Verification — Do products carry official BPI, TÜV, or GRS certificates?",
+                a: "Yes, all of our eco-friendly packaging structures are supplied with official, verifiable test reports. Our recyclable Mono-PE structure is certified for Class 4 SPI plastic circularity streams. The compostable kraft paper series holds official USA BPI (ASTM D6400 registration #900385) and European TÜV Austria OK Compost (EN 13432) certificates for both industrial and home composting, guaranteeing chemical-free decomposition and smooth customs clearance."
               },
               {
-                q: "6. Custom Wholesale Quote Checklist — 索取精確報價需要提交哪些具體參數？",
-                a: "為了給你計算最精確的批發價格，請準備好以下資訊並提供給專員：（1）袋子尺寸與袋型（自立袋或平底袋）；（2）材料偏好（可回收 PE、可降解牛皮紙或常規鋁箔）；（3）單款設計起訂量及設計款式總數（SKU）；（4）功能配件需求（是否需要加裝單向排氣閥、掛孔或特殊拉鏈）。"
+                q: "6. Custom Wholesale Quote Checklist — What specifications are needed to request a formal quote?",
+                a: "To calculate the most accurate volume pricing for your wholesale runs, please provide our packaging specialists with: (1) pouch dimensions and style (e.g., Stand-Up Pouch or Flat Bottom Bag); (2) material preference (Recyclable PE, Compostable Kraft Paper, or Conventional High-Barrier foil); (3) quantity per design and total SKU count; and (4) functional accessories (such as one-way degassing valves, hang holes, or resealable zippers)."
               }
             ].map((faq, idx) => {
               const isOpen = faqStates[idx];
