@@ -233,6 +233,20 @@ export default function PouchStampFoilRecyclabilityPage() {
         </div>
       </section>
 
+      {/* Contextual B2B Store Products */}
+      <section className="py-6 bg-white px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="border-4 border-black p-8 bg-neutral-50 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <h4 className="font-black text-2xl uppercase mb-4 flex items-center gap-2">
+              <span>🛒</span> Contextual B2B Store Products
+            </h4>
+            <p className="font-['JetBrains_Mono'] text-sm text-neutral-800 leading-relaxed">
+              For packaging buyers planning their next production run, we recommend starting with our <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">B2B Biodegradable Sample Kit</a> to evaluate material thickness and barrier performance. For high-speed form-fill-seal automated packaging lines, check out our <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Custom Eco Rollstock Film</a>. If you are packaging confectionery or small items, our premium <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Cellophane Candy Wrapper</a> offers excellent clarity and compostability.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
