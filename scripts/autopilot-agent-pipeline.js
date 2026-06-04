@@ -190,22 +190,38 @@ Strict Formatting Rules:
 3. Tone must be professional, authoritative, and reflect Ryan Wong's expert packaging background (14+ years in flexible packaging).
 4. No HTML tags inside 'text' or 'image_prompt'. Use clean, unformatted raw text. Do not use markdown like '##' or '**'.
 5. Return ONLY the raw JSON object. No other text.`;
-
-  const response = await fetch('https://api.x.ai/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`
-    },
-    body: JSON.stringify({
-      model: 'grok-3',
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: `Please generate the sourcing guide payload for keyword: "${keyword}" and domain: "${domain}". Tone setting: ${tone}` }
-      ],
-      temperature: 0.3
-    })
-  });
+  let response;
+  let retries = 3;
+  while (retries > 0) {
+    try {
+      response = await fetch('https://api.x.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: 'grok-3',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: `Please generate the sourcing guide payload for keyword: "${keyword}" and domain: "${domain}". Tone setting: ${tone}` }
+          ],
+          temperature: 0.3
+        })
+      });
+      if (response.ok) break;
+      const errorText = await response.text();
+      console.warn(`[PILOT-ENGINE] API warning (retries left ${retries - 1}): ${response.status} - ${errorText}`);
+    } catch (fetchErr) {
+      console.warn(`[PILOT-ENGINE] Network warning (retries left ${retries - 1}):`, fetchErr.message);
+    }
+    retries--;
+    if (retries === 0) {
+      throw new Error(`X.AI API error: Failed after 3 attempts.`);
+    }
+    console.log('⏳ Waiting 5 seconds before retrying API request...');
+    await new Promise(r => setTimeout(r, 5000));
+  }
 
   if (!response.ok) {
     const errorText = await response.text();
@@ -220,6 +236,9 @@ Strict Formatting Rules:
     rawText = rawText.replace(/^```[a-zA-Z]*\n/, '').replace(/\n```$/, '').trim();
   }
 
+  // Strip trailing commas from arrays and objects before parsing
+  rawText = rawText.replace(/,\s*([\]}])/g, '$1');
+
   let generatedPayload;
   try {
     generatedPayload = JSON.parse(rawText);
@@ -227,7 +246,6 @@ Strict Formatting Rules:
     console.error('Failed to parse generated JSON content:', rawText);
     throw new Error(`Content generation failed to return valid JSON: ${e.message}`);
   }
-
   // --- AGENT 4: SEO & AEO Auditing Agent ---
   console.log('📊 [Agent 4: AEO & SEO Auditor] Injecting structured schemas and verification details...');
   
