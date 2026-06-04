@@ -7653,6 +7653,60 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       }
     ],
     customPrintNote: 'Custom flexo and rotogravure prints available from 2,000+ pieces. Please consult our team.'
+  },
+  // Premium Silk Cotton Paper Foil Laminated Side Gusset Pouch (Conventional Stock)
+  {
+    id: 'cotton-paper-foil-gusset-pouch',
+    name: 'Premium Silk Cotton Paper Foil Laminated Side Gusset Pouch',
+    category: 'conventional-stock',
+    shape: 'Side Gusset Pouch',
+    material: 'Premium Cotton Paper + Aluminum Foil Lamination + PE Lining (Silk Texture)',
+    description: 'Premium silk cotton paper side gusset pouch with high-barrier aluminum foil lamination and food-grade PE interior. Designed with a soft-touch natural cotton paper texture and a highly protective inner barrier shielding tea leaves, coffee, and delicate powders from light, moisture, and oxygen. Ideal for artisan packaging, premium tea collections, and custom specialty goods.',
+    shortDesc: 'Premium soft-touch cotton paper side gusset pouches with high-barrier aluminum foil lamination for premium tea and coffee packaging',
+    features: [
+      'Natural Cotton Paper Finish: Offers a luxurious, soft-touch organic texture that elevates your brand presentation.',
+      'Aluminum Foil High Barrier: Premium inner metallic lamination blocks 100% of light, moisture, and oxygen to maximize freshness.',
+      'Expandable Side Gusset: Side-gusseted design expands to increase volume capacity, displaying beautifully on shelves.',
+      'Secure Heat Sealable: Thick upper header compatible with standard manual or industrial heat sealers for an airtight closure.',
+      'Food-Grade Safe Lining: Inner PE layer is odor-free, non-toxic, and FDA-approved for direct food contact.'
+    ],
+    images: [
+      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-1.png',
+      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-2.png',
+      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-3.png',
+      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-4.png',
+      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-5.png'
+    ],
+    badge: '⭐ Premium Stock',
+    rating: 4.9,
+    reviews: 18,
+    inStock: true,
+    basePrice: 7.56,
+    pricePerPiece: 0.076,
+    minQuantity: 100,
+    minOrder: 100,
+    turnaround: '5-7 days',
+    quantityStep: 100,
+    sizeInfo: 'Multiple sizes: 18x6x5.5cm, 23x6x5.5cm, 22x8x7.5cm, 30x8x7.5cm in white, beige, pink, green, yellow, and gold',
+    sizeVariants: [
+      { id: 'cotton-paper-gusset-18x6-white', label: '18x6x5.5cm White (Special Offer) - 100 Pcs', dimensions: '18 × 6 × 5.5 cm', hasHole: false, quantity: 100, totalPrice: 7.56, unitPrice: 0.076 },
+      { id: 'cotton-paper-gusset-18x6-gold-special', label: '18x6x5.5cm Metallic Gold - 100 Pcs', dimensions: '18 × 6 × 5.5 cm', hasHole: false, quantity: 100, totalPrice: 8.82, unitPrice: 0.088 },
+      { id: 'cotton-paper-gusset-23x6-white', label: '23x6x5.5cm White (Special Offer) - 100 Pcs', dimensions: '23 × 6 × 5.5 cm', hasHole: false, quantity: 100, totalPrice: 10.92, unitPrice: 0.109 },
+      { id: 'cotton-paper-gusset-23x6-gold', label: '23x6x5.5cm Metallic Gold - 100 Pcs', dimensions: '23 × 6 × 5.5 cm', hasHole: false, quantity: 100, totalPrice: 13.02, unitPrice: 0.130 },
+      { id: 'cotton-paper-gusset-22x8-white', label: '22x8x7.5cm White - 100 Pcs', dimensions: '22 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 12.60, unitPrice: 0.126 },
+      { id: 'cotton-paper-gusset-22x8-cream', label: '22x8x7.5cm Cream/Beige - 100 Pcs', dimensions: '22 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 15.12, unitPrice: 0.151 },
+      { id: 'cotton-paper-gusset-22x8-pink', label: '22x8x7.5cm Pink - 100 Pcs', dimensions: '22 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 15.12, unitPrice: 0.151 },
+      { id: 'cotton-paper-gusset-22x8-green', label: '22x8x7.5cm Green - 100 Pcs', dimensions: '22 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 15.12, unitPrice: 0.151 },
+      { id: 'cotton-paper-gusset-22x8-yellow', label: '22x8x7.5cm Yellow-Gold - 100 Pcs', dimensions: '22 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 15.12, unitPrice: 0.151 },
+      { id: 'cotton-paper-gusset-22x8-gold', label: '22x8x7.5cm Metallic Gold - 100 Pcs', dimensions: '22 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 17.64, unitPrice: 0.176 },
+      { id: 'cotton-paper-gusset-30x8-white', label: '30x8x7.5cm White - 100 Pcs', dimensions: '30 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 16.80, unitPrice: 0.168 },
+      { id: 'cotton-paper-gusset-30x8-cream', label: '30x8x7.5cm Cream/Beige - 100 Pcs', dimensions: '30 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 19.32, unitPrice: 0.193 },
+      { id: 'cotton-paper-gusset-30x8-pink', label: '30x8x7.5cm Pink - 100 Pcs', dimensions: '30 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 19.32, unitPrice: 0.193 },
+      { id: 'cotton-paper-gusset-30x8-green', label: '30x8x7.5cm Green - 100 Pcs', dimensions: '30 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 19.32, unitPrice: 0.193 },
+      { id: 'cotton-paper-gusset-30x8-yellow', label: '30x8x7.5cm Yellow-Gold - 100 Pcs', dimensions: '30 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 19.32, unitPrice: 0.193 },
+      { id: 'cotton-paper-gusset-30x8-gold', label: '30x8x7.5cm Metallic Gold - 100 Pcs', dimensions: '30 × 8 × 7.5 cm', hasHole: false, quantity: 100, totalPrice: 21.84, unitPrice: 0.218 }
+    ],
+    customPrintNote: 'Custom prints available from 2,000+ pieces. Please consult our team.'
   }
 ]
 
