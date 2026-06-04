@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T06:45:23.150Z",
+  "lastUnifiedRun": "2026-06-04T07:00:34.532Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -391,17 +391,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-sachet-packaging-for-spices",
       "status": "Pending Approval",
       "volume": 1000,
       "keyword": "custom sachet packaging for spices",
-      "difficulty": "Low",
-      "slug": "custom-sachet-packaging-for-spices"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "sustainable stand up pouch with window",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-stand-up-pouch-with-window"
     },
     {
       "status": "Pending",
@@ -450,13 +451,126 @@
       "volume": 950,
       "keyword": "stand up pouch size guide compostable",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "compostable tea pouch with zipper",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable sachet packaging for spices",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed stand up pouches low minimum",
+      "difficulty": "Medium",
+      "volume": 1500,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable barrier film for snacks",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch dimensions chart for powders",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed custom pouches wholesale",
+      "difficulty": "Medium",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly flat bottom pouches for pet food",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material stand up pouches recyclable",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable packaging sachet sizes",
+      "difficulty": "Medium",
+      "volume": 1600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort pouches for baby food",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier compostable film for nuts",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shape pouches digital printing",
+      "difficulty": "Medium",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable barrier pouches for liquids",
+      "difficulty": "Low",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch printed flexible packaging",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable pouch with spout for beverages",
+      "difficulty": "Medium",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper stand up pouches custom",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable sachet filling solutions",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "barrier film suppliers for flexible packaging",
+      "difficulty": "Medium",
+      "volume": 1700,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T06:45:16.256Z",
+      "timestamp": "2026-06-04T07:00:26.016Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom sachet packaging for spices\" to /blog/custom-sachet-packaging-for-spices (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable stand up pouch with window\" to /blog/sustainable-stand-up-pouch-with-window (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom sachet packaging for spices\" to /blog/custom-sachet-packaging-for-spices (Pending Approval)",
+      "timestamp": "2026-06-04T06:45:16.256Z"
     },
     {
       "action": "Autopilot Generation Draft",
