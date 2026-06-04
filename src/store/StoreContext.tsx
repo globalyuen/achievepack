@@ -17,6 +17,7 @@ export interface ProductVariant {
   hangHole?: string
   print?: string
   corners?: string
+  packs?: string
 }
 
 export interface CartItem {
