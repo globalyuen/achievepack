@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T00:45:20.723Z",
+  "lastUnifiedRun": "2026-06-04T01:00:20.819Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -300,17 +300,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "printed-compostable-retort-bags",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "printed compostable retort bags",
-      "difficulty": "Low",
-      "slug": "printed-compostable-retort-bags"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1050,
       "keyword": "low minimum digital pouch printing",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "low-minimum-digital-pouch-printing"
     },
     {
       "status": "Pending",
@@ -441,9 +442,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T00:45:15.242Z",
+      "timestamp": "2026-06-04T01:00:15.226Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"printed compostable retort bags\" to /blog/printed-compostable-retort-bags (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"low minimum digital pouch printing\" to /blog/low-minimum-digital-pouch-printing (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"printed compostable retort bags\" to /blog/printed-compostable-retort-bags (Pending Approval)",
+      "timestamp": "2026-06-04T00:45:15.242Z"
     },
     {
       "action": "Autopilot Generation Draft",

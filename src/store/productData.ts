@@ -6937,13 +6937,13 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
     quantityStep: 100,
     sizeInfo: 'Multiple sizes (125g - 500g, with or without degassing valve)',
     sizeVariants: [
-      { id: 'white-125g-novalve', label: 'Flat Bottom (No Valve) - 125g (90×185+70mm) [Tea 100g]', dimensions: '90 × 185 + 70 mm', hasHole: false, quantity: 100, totalPrice: 22.00, unitPrice: 0.22, heroImageIndex: 0 },
-      { id: 'white-250g-novalve', label: 'Flat Bottom (No Valve) - 250g (130×200+70mm) [Tea 100g]', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 23.00, unitPrice: 0.23, heroImageIndex: 0 },
-      { id: 'white-500g-novalve', label: 'Flat Bottom (No Valve) - 500g (195×205+80mm) [Tea 200-250g]', dimensions: '195 × 205 + 80 mm', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.40, heroImageIndex: 0 },
-      { id: 'white-125g-valve', label: 'Flat Bottom (With Valve) - 1/4 lb (90×185+70mm) [Coffee]', dimensions: '90 × 185 + 70 mm', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.30, heroImageIndex: 0 },
-      { id: 'white-250g-valve', label: 'Flat Bottom (With Valve) - Half Pound (130×200+70mm) [Coffee]', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 31.00, unitPrice: 0.31, heroImageIndex: 0 },
-      { id: 'white-250g-valve-155', label: 'Flat Bottom (With Valve) - Half Pound (155×165+80mm) [Coffee]', dimensions: '155 × 165 + 80 mm', hasHole: false, quantity: 100, totalPrice: 39.00, unitPrice: 0.39, heroImageIndex: 0 },
-      { id: 'white-500g-valve', label: 'Flat Bottom (With Valve) - One Pound (195×205+80mm) [Coffee]', dimensions: '195 × 205 + 80 mm', hasHole: false, quantity: 100, totalPrice: 48.00, unitPrice: 0.48, heroImageIndex: 0 }
+      { id: 'white-125g-novalve', label: 'Flat Bottom (No Valve) - 125g (90×185+70mm) [Tea 100g]', dimensions: '90 × 185 + 70 mm', hasHole: false, quantity: 100, totalPrice: 22.00, unitPrice: 0.22 },
+      { id: 'white-250g-novalve', label: 'Flat Bottom (No Valve) - 250g (130×200+70mm) [Tea 100g]', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 23.00, unitPrice: 0.23 },
+      { id: 'white-500g-novalve', label: 'Flat Bottom (No Valve) - 500g (195×205+80mm) [Tea 200-250g]', dimensions: '195 × 205 + 80 mm', hasHole: false, quantity: 100, totalPrice: 40.00, unitPrice: 0.40 },
+      { id: 'white-125g-valve', label: 'Flat Bottom (With Valve) - 1/4 lb (90×185+70mm) [Coffee]', dimensions: '90 × 185 + 70 mm', hasHole: false, quantity: 100, totalPrice: 30.00, unitPrice: 0.30 },
+      { id: 'white-250g-valve', label: 'Flat Bottom (With Valve) - Half Pound (130×200+70mm) [Coffee]', dimensions: '130 × 200 + 70 mm', hasHole: false, quantity: 100, totalPrice: 31.00, unitPrice: 0.31 },
+      { id: 'white-250g-valve-155', label: 'Flat Bottom (With Valve) - Half Pound (155×165+80mm) [Coffee]', dimensions: '155 × 165 + 80 mm', hasHole: false, quantity: 100, totalPrice: 39.00, unitPrice: 0.39 },
+      { id: 'white-500g-valve', label: 'Flat Bottom (With Valve) - One Pound (195×205+80mm) [Coffee]', dimensions: '195 × 205 + 80 mm', hasHole: false, quantity: 100, totalPrice: 48.00, unitPrice: 0.48 }
     ],
     customPrintNote: 'Custom prints available from 100+ pieces. Please consult our team.',
   },
