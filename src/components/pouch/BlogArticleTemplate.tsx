@@ -5,6 +5,7 @@ import { ExternalLink, Calendar, Clock, ArrowRight, Building2, Award, Shield, He
 import { Link } from 'react-router-dom'
 import PouchLayout from './PouchLayout'
 import { NeoCard } from './PouchUI'
+import ClickableImage from '../ClickableImage'
 
 interface BlogArticleSection {
   id: string
@@ -21,7 +22,6 @@ const InfographicCard: React.FC<{
   index: number
   slug?: string
 }> = ({ prompt, index, slug }) => {
-  const [showPrompt, setShowPrompt] = useState(false)
   const [imgError, setImgError] = useState(false)
 
   const imgPath = slug 
@@ -35,7 +35,7 @@ const InfographicCard: React.FC<{
       {/* Card Header */}
       <div className="bg-black text-white px-4 py-2 flex items-center justify-between border-b-4 border-black">
         <span className="text-xs uppercase tracking-wider font-bold">
-          {imgPath && !imgError ? 'Visual Sourcing Infographic' : `Infographic Blueprint v1.${index + 1}`}
+          {imgPath && !imgError ? `Infographic Blueprint v1.${index + 1}` : `Infographic Blueprint v1.${index + 1}`}
         </span>
         <div className="flex gap-1">
           <span className="w-2.5 h-2.5 rounded-full bg-red-500 border border-black"></span>
@@ -46,16 +46,16 @@ const InfographicCard: React.FC<{
 
       {/* Blueprint Visual Drawing Area / Image */}
       {imgPath && !imgError ? (
-        <div className="flex-1 bg-white border-b-4 border-black overflow-hidden min-h-[220px] flex items-center justify-center">
-          <img 
+        <div className="flex-1 bg-white overflow-hidden min-h-[220px] flex items-center justify-center">
+          <ClickableImage 
             src={imgPath} 
-            alt={prompt} 
+            alt={`Technical blueprint illustrating material barrier layers showing structural specs for ${slug || 'packaging'}`}
             onError={() => setImgError(true)} 
             className="w-full h-full object-contain" 
           />
         </div>
       ) : (
-        <div className="flex-1 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-[size:16px_16px] p-6 min-h-[180px] flex flex-col justify-center items-center relative overflow-hidden bg-neutral-50 border-b-4 border-black select-none">
+        <div className="flex-1 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-[size:16px_16px] p-6 min-h-[220px] flex flex-col justify-center items-center relative overflow-hidden bg-neutral-50 select-none">
           {/* Mock Technical CAD Drawing */}
           <div className="relative w-36 h-36 flex items-center justify-center border-2 border-dashed border-neutral-300 rounded-full animate-[spin_40s_linear_infinite]">
             <div className="absolute inset-2 border-2 border-dashed border-neutral-200 rounded-full"></div>
@@ -74,34 +74,6 @@ const InfographicCard: React.FC<{
           <div className="absolute bottom-2 right-3 text-[9px] text-neutral-400 font-bold tracking-widest uppercase">AchievePack CAD R&D</div>
         </div>
       )}
-
-      {/* Concept Summary / Description Section */}
-      <div className="p-4 bg-neutral-50 relative">
-        <h4 className="font-bold text-xs uppercase text-neutral-500 mb-2">Visual Prompt Specification:</h4>
-        <p className="text-[11px] leading-relaxed text-neutral-700 line-clamp-3">
-          {prompt}
-        </p>
-
-        {/* Toggle full prompt drawer */}
-        <button
-          onClick={() => setShowPrompt(!showPrompt)}
-          className="mt-2 text-[10px] font-bold uppercase underline text-black hover:text-green-600 block transition-colors"
-        >
-          {showPrompt ? 'Hide details' : 'Show full prompt spec'}
-        </button>
-
-        {showPrompt && (
-          <div className="absolute inset-0 bg-white border-t-4 border-black p-4 overflow-y-auto z-10 font-sans text-xs leading-relaxed text-neutral-800">
-            <div className="flex justify-between items-center mb-2 font-mono font-bold text-[10px] text-neutral-500 uppercase">
-              <span>Full Visual Specification</span>
-              <button onClick={() => setShowPrompt(false)} className="text-black hover:text-red-500 font-black">✕ Close</button>
-            </div>
-            <p className="font-mono text-[11px] leading-relaxed bg-neutral-50 p-2 border-2 border-black rounded">
-              {prompt}
-            </p>
-          </div>
-        )}
-      </div>
     </div>
   )
 }
@@ -394,13 +366,12 @@ export default function BlogArticleTemplate({
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
-              className="border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden"
+              className="border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white"
             >
-              <img 
+              <ClickableImage 
                 src={heroImage} 
                 alt={heroImageAlt || heroSubtitle}
                 className="w-full h-auto"
-                loading="eager"
               />
             </motion.div>
           )}

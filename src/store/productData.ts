@@ -978,7 +978,7 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
   },
   {
     id: 'media__1780570697340.jpg',
-    name: 'media__1780570697340.jpg',
+    name: 'Custom Eco Rollstock',
     category: 'eco-digital',
     inquiryOnly: true,
     description: 'Custom eco-friendly rollstock film engineered specifically for automated Form-Fill-Seal (FFS) packaging machinery. Choose from PCR/Bio Plastic, Mono Recyclable, or Biodegradable materials.',

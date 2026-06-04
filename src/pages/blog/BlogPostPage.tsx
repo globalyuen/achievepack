@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
-import { Calendar, Clock, Tag, Share2, List, ChevronRight, ArrowUp, ArrowLeft, Loader2 } from 'lucide-react';
+import { Calendar, Clock, Tag, Share2, List, ChevronRight, ArrowUp, ArrowLeft, Loader2, X } from 'lucide-react';
 import { useState, useMemo, useEffect, useTransition, useCallback } from 'react';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
@@ -15,6 +15,7 @@ export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const [override, setOverride] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [activeZoomImage, setActiveZoomImage] = useState<{ src: string, alt: string } | null>(null);
   const staticPost = useMemo(() => blogPosts.find(p => p.slug === slug), [slug]);
 
   useEffect(() => {
@@ -50,6 +51,14 @@ export default function BlogPostPage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const navigate = useNavigate();
   const [, startTransition] = useTransition();
+
+  const handleContentClick = useCallback((e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'IMG') {
+      const img = target as HTMLImageElement;
+      setActiveZoomImage({ src: img.src, alt: img.alt || '' });
+    }
+  }, []);
 
   // Dynamically map dynamic CMS overrides into standard B2B HTML format
   const overrideHtml = useMemo(() => {
@@ -109,8 +118,9 @@ export default function BlogPostPage() {
                 <span>ACHIEVEPACK R&D</span>
               </div>
               
-              <div id="img-wrapper-${slug}-${pIdx}" style="display: block;">
+              <div id="img-wrapper-${slug}-${pIdx}" style="display: block; cursor: zoom-in;">
                 <img 
+                  class="blog-zoomable-img"
                   src="${imgPath}" 
                   alt="${p.image_prompt.replace(/"/g, '&quot;')}" 
                   onerror="this.style.display='none'; document.getElementById('fallback-${slug}-${pIdx}').style.display='flex';" 
@@ -118,13 +128,9 @@ export default function BlogPostPage() {
                 />
               </div>
 
-              <div id="fallback-${slug}-${pIdx}" style="display: none; padding: 20px; min-height: 160px; flex-direction: column; justify-content: space-between; background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 16px 16px;">
-                <div style="font-style: italic; color: #4b5563; line-height: 1.5; flex-grow: 1; padding: 10px 0;">
-                  "${p.image_prompt}"
-                </div>
-                <div style="border-top: 1px dashed #ccc; padding-top: 6px; text-align: right; font-size: 9px; color: #9ca3af; font-weight: bold;">
-                  VISUAL IDENTITY SPECIFICATION
-                </div>
+              <div id="fallback-${slug}-${pIdx}" style="display: none; padding: 20px; min-height: 160px; flex-direction: column; justify-content: center; align-items: center; background-color: #fafafa; background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 16px 16px;">
+                <div style="font-weight: bold; font-size: 12px; color: #64748b; text-transform: uppercase; margin-bottom: 8px;">Technical Specification Diagram</div>
+                <div style="font-size: 10px; color: #94a3b8; font-family: monospace;">R&D BLUEPRINT REVELATION</div>
               </div>
             </div>
           `;
@@ -458,20 +464,20 @@ export default function BlogPostPage() {
               </div>
 
               {/* Main Content */}
-              <div className="flex-1 max-w-3xl">
+              <div className="flex-1 max-w-3xl" onClick={handleContentClick}>
                 {/* Featured Image */}
                 {post.featuredImage && (
-                  <div className="mb-8 rounded-xl overflow-hidden shadow-lg border border-neutral-200 bg-neutral-50">
+                  <div className="mb-8 rounded-xl overflow-hidden shadow-lg border border-neutral-200 bg-neutral-50 cursor-zoom-in">
                     <img 
                       src={post.featuredImage} 
                       alt={post.title}
-                      className="w-full h-auto object-contain max-h-[600px] mx-auto block"
+                      className="w-full h-auto object-contain max-h-[600px] mx-auto block blog-zoomable-img"
                     />
                   </div>
                 )}
 
                 <div 
-                  className="prose prose-lg max-w-none prose-headings:font-sans prose-headings:font-bold prose-headings:text-neutral-900 prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-neutral-200 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-neutral-800 prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-neutral-700 prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:my-4 prose-a:text-green-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-900 prose-strong:font-semibold prose-ul:my-6 prose-ol:my-6 prose-li:text-neutral-700 prose-li:leading-relaxed prose-li:marker:text-green-500 prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:bg-neutral-50 prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:my-8 prose-blockquote:not-italic prose-blockquote:text-neutral-700 prose-table:my-8 prose-table:w-full prose-thead:bg-green-600 prose-thead:text-white prose-th:text-left prose-th:font-semibold prose-th:text-sm prose-th:uppercase prose-th:tracking-wider prose-th:py-3 prose-th:px-4 prose-td:py-3 prose-td:px-4 prose-td:border-b prose-td:border-neutral-200 prose-td:text-neutral-700 prose-tr:even:bg-neutral-50 prose-img:rounded-xl prose-img:w-full prose-figure:my-8 prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-neutral-500 prose-figcaption:mt-3"
+                  className="prose prose-lg max-w-none prose-headings:font-sans prose-headings:font-bold prose-headings:text-neutral-900 prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-neutral-200 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-neutral-800 prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-neutral-700 prose-p:text-neutral-700 prose-p:leading-relaxed prose-p:my-4 prose-a:text-green-600 prose-a:font-medium prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-900 prose-strong:font-semibold prose-ul:my-6 prose-ol:my-6 prose-li:text-neutral-700 prose-li:leading-relaxed prose-li:marker:text-green-500 prose-blockquote:border-l-4 prose-blockquote:border-green-500 prose-blockquote:bg-neutral-50 prose-blockquote:rounded-r-lg prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:my-8 prose-blockquote:not-italic prose-blockquote:text-neutral-700 prose-table:my-8 prose-table:w-full prose-thead:bg-green-600 prose-thead:text-white prose-th:text-left prose-th:font-semibold prose-th:text-sm prose-th:uppercase prose-th:tracking-wider prose-th:py-3 prose-th:px-4 prose-td:py-3 prose-td:px-4 prose-td:border-b prose-td:border-neutral-200 prose-td:text-neutral-700 prose-tr:even:bg-neutral-50 prose-img:rounded-xl prose-img:w-full prose-figure:my-8 prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-neutral-500 prose-figcaption:mt-3 prose-img:cursor-zoom-in"
                   dangerouslySetInnerHTML={{ __html: post.content }}
                 />
 
@@ -578,6 +584,33 @@ export default function BlogPostPage() {
           </button>
         )}
       </div>
+
+      {/* Lightbox Modal */}
+      {activeZoomImage && (
+        <div 
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-90 transition-opacity cursor-zoom-out" 
+          onClick={() => setActiveZoomImage(null)}
+        >
+          <button
+            onClick={() => setActiveZoomImage(null)}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2 border-2 border-white"
+            aria-label="Close image"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          <img
+            src={activeZoomImage.src}
+            alt={activeZoomImage.alt}
+            className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg border-4 border-white"
+            onClick={(e) => e.stopPropagation()}
+          />
+          {activeZoomImage.alt && (
+            <p className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center bg-black bg-opacity-50 px-4 py-2 rounded-lg max-w-lg">
+              {activeZoomImage.alt}
+            </p>
+          )}
+        </div>
+      )}
     </>
   );
 }

@@ -6,6 +6,7 @@ interface ClickableImageProps {
   alt: string
   className?: string
   caption?: string
+  onError?: () => void
 }
 
 /**
@@ -16,13 +17,14 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
   src, 
   alt, 
   className = '',
-  caption 
+  caption,
+  onError
 }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
-      <figure className="cursor-pointer group relative">
+      <figure className="cursor-pointer group relative w-full h-full flex items-center justify-center">
         <img
           src={src}
           alt={alt}
@@ -30,6 +32,7 @@ const ClickableImage: React.FC<ClickableImageProps> = ({
           onClick={() => setIsOpen(true)}
           loading="lazy"
           decoding="async"
+          onError={onError}
         />
         {caption && (
           <figcaption className="text-xs text-neutral-500 mt-1 text-center">{caption}</figcaption>

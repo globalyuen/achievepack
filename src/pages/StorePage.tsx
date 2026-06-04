@@ -99,6 +99,7 @@ const SHAPES = [
   { id: 'Corrugated Box', label: 'Corrugated Box' },
   { id: 'Tuck Box', label: 'Tuck Box' },
   { id: 'Label & Sticker', label: 'Label & Sticker' },
+  { id: 'Wrapping Paper', label: 'Wrapping Paper' },
 ]
 
 const getProductClassification = (product: StoreProduct): 'compostable' | 'recyclable' | 'conventional' => {
@@ -295,6 +296,18 @@ const SHAPE_ITEMS = [
         <path d="M66 48 L56 58 V48 Z" strokeWidth="2" />
         <circle cx="46" cy="36" r="6" strokeWidth="1.5" />
         <line x1="38" y1="48" x2="54" y2="48" strokeWidth="1.5" />
+      </svg>
+    )
+  },
+  {
+    id: 'Wrapping Paper',
+    label: 'Wrapping Paper',
+    icon: (
+      <svg viewBox="0 0 100 80" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-14 h-11">
+        <rect x="28" y="15" width="44" height="50" rx="2" strokeWidth="1.5" />
+        <path d="M28 35 H72 M28 55 H72" strokeWidth="1" strokeDasharray="2 2" />
+        <path d="M40 15 V65 M60 15 V65" strokeWidth="1" strokeDasharray="2 2" />
+        <path d="M34 25 C34 25 38 29 50 29 C62 29 66 25 66 25" strokeWidth="1" />
       </svg>
     )
   }
@@ -561,7 +574,8 @@ const StorePage: React.FC = () => {
     'spouted-stand-up': 'Spouted Stand Up Pouch',
     'mailer': 'Mailer Bag',
     'box': 'Corrugated Box',
-    'label': 'Label & Sticker'
+    'label': 'Label & Sticker',
+    'wrapping-paper': 'Wrapping Paper'
   }
 
   const filteredProducts = useMemo(() => {

@@ -166,7 +166,19 @@ export default function RecyclableSnackPackagingGuide() {
          </div>
       )
     }
-  ]
+  ,
+    {
+      id: 'b2b-store-links',
+      title: 'Contextual B2B Store Products',
+      icon: <span className="text-xl">🛒</span>,
+      content: (
+        <div className="space-y-6">
+          <p className="text-lg leading-relaxed">
+            For packaging buyers planning their next production run, we recommend starting with our <a href="https://achievepack.com/store/product/sample-assorted-eco" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">B2B Biodegradable Sample Kit</a> to evaluate material thickness and barrier performance. For high-speed form-fill-seal automated packaging lines, check out our <a href="https://achievepack.com/store/product/media__1780570697340.jpg" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Custom Eco Rollstock Film</a>. If you are packaging confectionery or small items, our premium <a href="https://achievepack.com/store/product/transparent-colorful-cellophane-candy-wrapping-paper" target="_blank" rel="noopener noreferrer" className="text-[#10b981] font-bold hover:underline">Cellophane Candy Wrapper</a> offers excellent clarity and compostability.
+          </p>
+        </div>
+      )
+    }]
 
   return (
     <BlogArticleTemplate
