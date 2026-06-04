@@ -49,7 +49,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
     badge: 'Buy Now',
     children: [
       { id: 'conventional-digital', label: 'Conventional Digital', count: 8 },
-      { id: 'eco-stock-plain', label: 'Eco Stock (Plain)', count: 4 },
+      { id: 'eco-stock-plain', label: 'Eco Stock (Plain)', count: 5 },
       { id: 'conventional-stock-plain', label: 'Conventional Stock', count: 1 },
     ]
   },
@@ -60,7 +60,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
     icon: '🎨',
     badge: 'RFQ',
     children: [
-      { id: 'eco-digital', label: 'Eco Digital', count: 7 },
+      { id: 'eco-digital', label: 'Eco Digital', count: 8 },
       { id: 'eco-stock-custom-print', label: 'Eco Stock Custom Print', count: 2 },
       { id: 'boxes', label: 'Custom Boxes', count: 2 },
     ]

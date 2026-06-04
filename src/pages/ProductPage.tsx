@@ -3120,11 +3120,14 @@ const ProductPage: React.FC = () => {
               {/* Price Display - Green theme */}
               {(() => {
                 if (product?.inquiryOnly) {
+                  const inquiryText = product.id === 'custom-multi-layer-sticker-labels'
+                    ? 'This is a highly customized double-layer peelable sticker label. Pricing depends entirely on size, shapes, Pagination, and order quantity. Contact our packaging engineers to get an instant customized quote.'
+                    : 'This is a highly customized eco-friendly rollstock film. Pricing depends entirely on material structure, dimensions, print colors, and order quantity. Contact our packaging engineers to get an instant customized quote.';
                   return (
                     <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border-2 border-green-200 p-6 shadow-sm">
                       <div className="text-lg font-bold text-green-800 mb-2">Bespoke Custom Production</div>
                       <p className="text-xs text-green-700 leading-relaxed">
-                        This is a highly customized double-layer peelable sticker label. Pricing depends entirely on size, shapes, Pagination, and order quantity. Contact our packaging engineers to get an instant customized quote.
+                        {inquiryText}
                       </p>
                     </div>
                   )

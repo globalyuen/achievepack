@@ -976,6 +976,41 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     },
     videoUrl: 'https://youtu.be/xKusl5lOEYM',
   },
+  {
+    id: 'media__1780570697340.jpg',
+    name: 'media__1780570697340.jpg',
+    category: 'eco-digital',
+    inquiryOnly: true,
+    description: 'Custom eco-friendly rollstock film engineered specifically for automated Form-Fill-Seal (FFS) packaging machinery. Choose from PCR/Bio Plastic, Mono Recyclable, or Biodegradable materials.',
+    shortDesc: 'Bespoke custom eco-friendly rollstock film designed for automated Form-Fill-Seal packaging lines',
+    features: [
+      'Eco Materials: Select from biodegradable, compostable, or recyclable polymer films',
+      'Automated FFS Ready: Engineered for seamless slip and high tensile strength on automatic packaging machines',
+      'Digital Custom Print: Waived plate fees and vivid multi-color reproduction for short runs',
+      'Food Grade Certified: 100% compliant with FDA, LFGB, and BRC safety standards'
+    ],
+    images: [
+      '/imgs/store/products/media__1780570697340.jpg-rollstock-thumbnail-1.png'
+    ],
+    badge: '🌿 Eco Custom',
+    rating: 4.8,
+    reviews: 14,
+    inStock: true,
+    turnaround: '20-30 days',
+    minOrder: 1000,
+    shape: 'Rollstock',
+    basePrice: 150,
+    ecoConfig: {
+      defaultMaterial: 'Mono Recyclable Plastic',
+      defaultSize: 'XS',
+      defaultQuantity: '1,000 (Digital print)',
+      defaultDesignCount: 1,
+      defaultBarrier: 'mid clear mid barrier (Optional Window)',
+      defaultStiffness: 'Without Paper Lining (Softer)',
+      defaultZipper: 'No',
+      defaultShippingMethod: 'Air Freight',
+    }
+  },
 ]
 
 // Eco Stock Products (Ready-made Compostable)
@@ -4131,6 +4166,60 @@ export const BOXES_PRODUCTS: BoxProduct[] = [
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-8.jpg',
       '/imgs/store/products/triangle-coffee-box-card-tuck-thumbnail-9.jpg'
     ]
+  },
+  {
+    id: 'transparent-colorful-cellophane-candy-wrapping-paper',
+    name: 'Transparent Colorful Cellophane Candy Wrapping Paper',
+    category: 'eco-stock',
+    productType: 'stock',
+    subCategory: 'eco-stock-plain',
+    description: 'Premium food-grade cellophane candy wrapping paper sheets made from natural cotton/wood cellulose. Fully biodegradable, compostable, and plastic-free. Features excellent transparency, high gloss, and twist-retention properties. Perfect for wrapping nougats, chocolates, hard candies, pastries, and holiday treats.',
+    shortDesc: 'Premium biodegradable cellulose candy wrapping sheets in multiple vibrant transparent colors',
+    features: [
+      '100% Biodegradable Cellulose: Made from organic plant-based wood and cotton pulp, decomposing naturally without microplastics.',
+      'Excellent Twist Retention: Features high stiffness and memory, holding its twisted shape securely around candies without unfolding.',
+      'Vivid Transparent Colors: Pure food-safe dyes providing brilliant color clarity (Red, Green, Orange, Pink, Blue, Purple, Yellow, Transparent).',
+      'Food Grade Certified: Completely non-toxic, odorless, and FDA-compliant for direct confectionery and food wrapping.',
+      'Heat Sealable Options: Compatible with standard hand-held or continuous heat sealing machines.'
+    ],
+    images: [
+      '/imgs/store/products/transparent-colorful-cellophane-candy-wrapping-paper-thumbnail-1.png',
+      '/imgs/store/products/transparent-colorful-cellophane-candy-wrapping-paper-thumbnail-2.png'
+    ],
+    badge: '🌱 Biodegradable & Compostable',
+    rating: 4.8,
+    reviews: 18,
+    inStock: true,
+    turnaround: '5-7 days',
+    minOrder: 1,
+    shape: 'Wrapping Paper',
+    material: 'Natural Organic Cellulose Film (Cellophane)',
+    basePrice: 5.38,
+    pricePerPiece: 0.1076,
+    minQuantity: 1,
+    quantityStep: 1,
+    sizeInfo: 'Available in 9×12cm, 9×12.5cm, and 15×15cm in multiple colors',
+    sizeVariants: [
+      { id: 'cellophane-red-9x12', label: 'Red 9×12cm (50 Pcs/Pack) - 红色 50张', dimensions: '9 × 12 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-green-9x12', label: 'Green 9×12cm (50 Pcs/Pack) - 绿色 50张', dimensions: '9 × 12 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-orange-9x12', label: 'Orange 9×12cm (50 Pcs/Pack) - 橙色 50张', dimensions: '9 × 12 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-pink-9x12', label: 'Pink 9×12cm (50 Pcs/Pack) - 粉红色 50张', dimensions: '9 × 12 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-blue-9x12', label: 'Blue 9×12cm (50 Pcs/Pack) - 蓝色 50张', dimensions: '9 × 12 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-purple-9x12', label: 'Purple 9×12cm (50 Pcs/Pack) - 紫色 50张', dimensions: '9 × 12 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-yellow-9x12', label: 'Yellow 9×12cm (50 Pcs/Pack) - 黄色 50张', dimensions: '9 × 12 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-transparent-9x12', label: 'Transparent 9×12cm (50 Pcs/Pack) - 透明 50张', dimensions: '9 × 12 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-mixed-9x12', label: 'Mixed Colors 9×12cm (100 Pcs/Pack) - 混色 100张', dimensions: '9 × 12 cm', hasHole: false, quantity: 100, totalPrice: 5.38, unitPrice: 0.0538, heroImageIndex: 0 },
+      { id: 'cellophane-mixed-9x12.5', label: 'Mixed Colors 9×12.5cm (100 Pcs/Pack) - 混色 100张', dimensions: '9 × 12.5 cm', hasHole: false, quantity: 100, totalPrice: 5.38, unitPrice: 0.0538, heroImageIndex: 0 },
+      { id: 'cellophane-red-15x15', label: 'Red 15×15cm (50 Pcs/Pack) - 红色 50张', dimensions: '15 × 15 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-blue-15x15', label: 'Blue 15×15cm (50 Pcs/Pack) - 蓝色 50张', dimensions: '15 × 15 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-yellow-15x15', label: 'Yellow 15×15cm (50 Pcs/Pack) - 黄色 50张', dimensions: '15 × 15 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-orange-15x15', label: 'Orange 15×15cm (50 Pcs/Pack) - 橙色 50张', dimensions: '15 × 15 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-purple-15x15', label: 'Purple 15×15cm (50 Pcs/Pack) - 紫色 50张', dimensions: '15 × 15 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-pink-15x15', label: 'Pink 15×15cm (50 Pcs/Pack) - 粉红色 50张', dimensions: '15 × 15 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-green-15x15', label: 'Green 15×15cm (50 Pcs/Pack) - 绿色 50张', dimensions: '15 × 15 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 },
+      { id: 'cellophane-transparent-15x15', label: 'Transparent 15×15cm (50 Pcs/Pack) - 透明 50张', dimensions: '15 × 15 cm', hasHole: false, quantity: 50, totalPrice: 5.38, unitPrice: 0.1076, heroImageIndex: 0 }
+    ],
+    customPrintNote: 'Custom full-color print versions and custom packaging dimensions are available from 10,000+ pieces. Please consult our team.'
   }
 ]
 

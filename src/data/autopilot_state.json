@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T11:45:33.667Z",
+  "lastUnifiedRun": "2026-06-04T12:00:29.192Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -531,17 +531,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-compostable-film-for-nuts",
       "status": "Pending Approval",
       "volume": 750,
       "keyword": "high barrier compostable film for nuts",
-      "difficulty": "Low",
-      "slug": "high-barrier-compostable-film-for-nuts"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "custom shape pouches digital printing",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "custom-shape-pouches-digital-printing"
     },
     {
       "status": "Pending",
@@ -690,9 +691,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T11:45:24.058Z",
+      "timestamp": "2026-06-04T12:00:17.030Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable film for nuts\" to /blog/high-barrier-compostable-film-for-nuts (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom shape pouches digital printing\" to /blog/custom-shape-pouches-digital-printing (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier compostable film for nuts\" to /blog/high-barrier-compostable-film-for-nuts (Pending Approval)",
+      "timestamp": "2026-06-04T11:45:24.058Z"
     },
     {
       "action": "Autopilot Generation Draft",

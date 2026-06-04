@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-04",
-  "total_images": 2000,
+  "total_images": 2001,
   "total_categories": 166,
   "extensions": {
     ".webp": 1299,
-    ".png": 467,
+    ".png": 468,
     ".jpg": 231,
     ".svg": 3
   },
@@ -8953,8 +8953,14 @@
       ]
     },
     "store/products": {
-      "count": 289,
+      "count": 290,
       "images": [
+        {
+          "filename": "media__1780570697340.jpg-rollstock-thumbnail-1.png",
+          "path": "/imgs/store/products/media__1780570697340.jpg-rollstock-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-06-04T12:01:58.801Z"
+        },
         {
           "filename": "small-sachet-conventional-thumbnail-5.png",
           "path": "/imgs/store/products/small-sachet-conventional-thumbnail-5.png",
