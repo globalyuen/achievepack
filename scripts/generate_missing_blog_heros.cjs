@@ -1,7 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
 const fs = require('fs');
 const path = require('path');
-const fetch = require('node-fetch');
 
 // Paths
 const baseDir = '/Users/ryanmacmini/Desktop/1 App i made/Master Achieve Pack/achieve pack website/achieve-pack';
@@ -112,7 +111,7 @@ async function run() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(payload),
-          timeout: 60000
+          signal: AbortSignal.timeout(60000)
         });
 
         if (response.ok) {
