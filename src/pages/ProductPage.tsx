@@ -388,16 +388,16 @@ const getSizeDetails = (sizeCode: string, productId: string) => {
 
 const SACHET_UNPRINTED_OPTIONS = [
   { id: 'sample-9-pack', label: 'Silk & Kraft 9 Colors Sample Pack (蚕丝和牛皮9色各1个)', pcs: 9, price: 2.70 },
-  { id: 'off-white-100', label: 'Off-White Silk Paper 100 pcs (米白色 100个)', pcs: 100, price: 30.00 },
-  { id: 'black-100', label: 'Black Silk Paper 100 pcs (黑色 100个)', pcs: 100, price: 30.00 },
-  { id: 'pink-100', label: 'Pink Silk Paper 100 pcs (粉红色 100个)', pcs: 100, price: 30.00 },
-  { id: 'gold-100', label: 'Gold Silk Paper 100 pcs (金色 100个)', pcs: 100, price: 30.00 },
-  { id: 'blue-100', label: 'Blue Silk Paper 100 pcs (蓝色 100个)', pcs: 100, price: 30.00 },
-  { id: 'light-yellow-100', label: 'Light Yellow Silk Paper 100 pcs (浅黄色 100个)', pcs: 100, price: 30.00 },
-  { id: 'cyan-100', label: 'Teal/Cyan Silk Paper 100 pcs (青色 100个)', pcs: 100, price: 30.00 },
-  { id: 'yellow-kraft-100', label: 'Yellow Kraft Paper 100 pcs (黄色 牛皮纸100个)', pcs: 100, price: 30.00 },
-  { id: 'white-kraft-100', label: 'White Kraft Paper 100 pcs (白色 牛皮纸100个)', pcs: 100, price: 30.00 },
-  { id: 'white-cotton-100', label: 'White Cotton Paper 100 pcs (白色棉纸 100个)', pcs: 100, price: 30.00 }
+  { id: 'off-white-100', label: 'Off-White Silk Paper 100 pcs (米白色 100个)', pcs: 100, price: 2.94 },
+  { id: 'black-100', label: 'Black Silk Paper 100 pcs (黑色 100个)', pcs: 100, price: 2.94 },
+  { id: 'pink-100', label: 'Pink Silk Paper 100 pcs (粉红色 100个)', pcs: 100, price: 2.94 },
+  { id: 'gold-100', label: 'Gold Silk Paper 100 pcs (金色 100个)', pcs: 100, price: 2.94 },
+  { id: 'blue-100', label: 'Blue Silk Paper 100 pcs (蓝色 100个)', pcs: 100, price: 2.94 },
+  { id: 'light-yellow-100', label: 'Light Yellow Silk Paper 100 pcs (浅黄色 100个)', pcs: 100, price: 2.94 },
+  { id: 'cyan-100', label: 'Teal/Cyan Silk Paper 100 pcs (青色 100个)', pcs: 100, price: 2.94 },
+  { id: 'yellow-kraft-100', label: 'Yellow Kraft Paper 100 pcs (黄色 牛皮纸100个)', pcs: 100, price: 2.94 },
+  { id: 'white-kraft-100', label: 'White Kraft Paper 100 pcs (白色 牛皮纸100个)', pcs: 100, price: 2.94 },
+  { id: 'white-cotton-100', label: 'White Cotton Paper 100 pcs (白色棉纸 100个)', pcs: 100, price: 2.94 }
 ];
 
 const ProductPage: React.FC = () => {
@@ -1011,7 +1011,14 @@ const ProductPage: React.FC = () => {
       let basePrice = 0
       let total = 0
       
-      if (sachetPrintMethod === 'hot-stamping') {
+      if (sachetPrintMethod === 'unprinted') {
+        const option = SACHET_UNPRINTED_OPTIONS.find(opt => opt.id === sachetUnprintedColor)
+        const totalVal = (option?.price || 0) * sachetUnprintedPacks
+        return {
+          total: totalVal,
+          unit: option ? totalVal / (option.pcs * sachetUnprintedPacks) : 0
+        }
+      } else if (sachetPrintMethod === 'hot-stamping') {
         if (selectedConvQuantity <= 500) basePrice = 159.60
         else if (selectedConvQuantity <= 1000) basePrice = 210.00
         else basePrice = 285.60
@@ -1057,7 +1064,7 @@ const ProductPage: React.FC = () => {
       total: totalWithShipping,
       unit: totalWithShipping / selectedConvQuantity
     }
-  }, [isConventionalDigital, conventionalProduct, selectedConvSize, selectedConvQuantity, sachetPrintMethod, sachetRoundCorners, sachetStampingCoverage, sachetColorsCount])
+  }, [isConventionalDigital, conventionalProduct, selectedConvSize, selectedConvQuantity, sachetPrintMethod, sachetRoundCorners, sachetStampingCoverage, sachetColorsCount, sachetUnprintedColor, sachetUnprintedPacks])
   
   // Get available sizes for conventional product
   const conventionalSizes = useMemo(() => {
@@ -1090,6 +1097,9 @@ const ProductPage: React.FC = () => {
   const conventionalQuantities = useMemo(() => {
     if (!isConventionalDigital || !conventionalProduct) return QUANTITY_OPTIONS
     if (conventionalProduct.id === 'small-sachet-conventional') {
+      if (sachetPrintMethod === 'unprinted') {
+        return [100]
+      }
       if (sachetPrintMethod === 'hot-stamping') {
         return [500, 1000, 2000]
       } else if (sachetPrintMethod === 'digital') {
@@ -1868,7 +1878,11 @@ const ProductPage: React.FC = () => {
               <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border-2 border-primary-200 p-4 sm:p-6">
                 <div className="text-2xl sm:text-3xl font-bold text-primary-700">US${conventionalPrice.total.toLocaleString()}</div>
                 <div className="text-sm text-primary-600 mt-1">
-                  ${conventionalPrice.unit.toFixed(2)}/piece • {selectedConvQuantity.toLocaleString()} pieces
+                  ${conventionalPrice.unit < 0.1 ? conventionalPrice.unit.toFixed(4) : conventionalPrice.unit.toFixed(2)}/piece • {
+                    product.id === 'small-sachet-conventional' && sachetPrintMethod === 'unprinted'
+                      ? ((SACHET_UNPRINTED_OPTIONS.find(o => o.id === sachetUnprintedColor)?.pcs || 100) * sachetUnprintedPacks).toLocaleString()
+                      : selectedConvQuantity.toLocaleString()
+                  } pieces
                 </div>
                 <div className="text-xs text-primary-700 mt-2 bg-white bg-opacity-40 rounded-lg p-2 text-center">
                   {product.id === 'small-sachet-conventional' ? '✓ Free Express Air Shipping & Delivery Included' : '✓ $40 Air Shipping Included'}
@@ -1915,17 +1929,52 @@ const ProductPage: React.FC = () => {
                           const val = e.target.value as any;
                           setSachetPrintMethod(val);
                           // Reset quantity default when print method changes
-                          if (val === 'hot-stamping') setSelectedConvQuantity(500);
+                          if (val === 'unprinted') setSelectedConvQuantity(100);
+                          else if (val === 'hot-stamping') setSelectedConvQuantity(500);
                           else if (val === 'digital') setSelectedConvQuantity(1000);
                           else setSelectedConvQuantity(50000);
                         }} 
                         className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
                       >
+                        <option value="unprinted">Plain / Unprinted (无印刷) - Ready Stock</option>
                         <option value="hot-stamping">Hot Stamping (烫金) - Low MOQ</option>
                         <option value="digital">Digital Color Printing (数码彩印) - Low MOQ</option>
                         <option value="traditional">Traditional Gravure Printing (传统彩印) - High Vol</option>
                       </select>
                     </div>
+
+                    {/* Options specific to Unprinted (Ready Stock) */}
+                    {sachetPrintMethod === 'unprinted' && (
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium text-neutral-700 mb-2">Select Color & Material Option</label>
+                          <select 
+                            value={sachetUnprintedColor} 
+                            onChange={e => setSachetUnprintedColor(e.target.value)} 
+                            className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
+                          >
+                            {SACHET_UNPRINTED_OPTIONS.map(opt => (
+                              <option key={opt.id} value={opt.id}>{opt.label} (${opt.price.toFixed(2)} USD)</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-neutral-700 mb-2">Packs Count</label>
+                          <select
+                            value={sachetUnprintedPacks}
+                            onChange={e => setSachetUnprintedPacks(Number(e.target.value))}
+                            className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
+                          >
+                            {[1, 2, 3, 4, 5, 10, 20, 50, 100].map(packs => {
+                              const pcs = packs * (SACHET_UNPRINTED_OPTIONS.find(o => o.id === sachetUnprintedColor)?.pcs || 100);
+                              return (
+                                <option key={packs} value={packs}>{packs} Pack{packs > 1 ? 's' : ''} ({pcs.toLocaleString()} pcs)</option>
+                              );
+                            })}
+                          </select>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Options specific to Hot Stamping */}
                     {sachetPrintMethod === 'hot-stamping' && (
@@ -1958,33 +2007,37 @@ const ProductPage: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Round Corners Option */}
-                    <div className="flex items-center gap-3 pt-2">
-                      <input 
-                        type="checkbox" 
-                        id="sachet-round-corners" 
-                        checked={sachetRoundCorners} 
-                        onChange={e => setSachetRoundCorners(e.target.checked)} 
-                        className="w-4.5 h-4.5 text-primary-600 border-neutral-300 rounded focus:ring-primary-500"
-                      />
-                      <label htmlFor="sachet-round-corners" className="text-sm font-semibold text-neutral-700 cursor-pointer select-none">
-                        Add Round Corners (圆角) (+${(0.0336).toFixed(4)} USD / unit)
-                      </label>
-                    </div>
+                    {sachetPrintMethod !== 'unprinted' && (
+                      <>
+                        {/* Round Corners Option */}
+                        <div className="flex items-center gap-3 pt-2">
+                          <input 
+                            type="checkbox" 
+                            id="sachet-round-corners" 
+                            checked={sachetRoundCorners} 
+                            onChange={e => setSachetRoundCorners(e.target.checked)} 
+                            className="w-4.5 h-4.5 text-primary-600 border-neutral-300 rounded focus:ring-primary-500"
+                          />
+                          <label htmlFor="sachet-round-corners" className="text-sm font-semibold text-neutral-700 cursor-pointer select-none">
+                            Add Round Corners (圆角) (+${(0.0336).toFixed(4)} USD / unit)
+                          </label>
+                        </div>
 
-                    {/* Quantity Selector */}
-                    <div>
-                      <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
-                      <select 
-                        value={selectedConvQuantity} 
-                        onChange={e => setSelectedConvQuantity(Number(e.target.value))} 
-                        className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
-                      >
-                        {conventionalQuantities.map(qty => (
-                          <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
-                        ))}
-                      </select>
-                    </div>
+                        {/* Quantity Selector */}
+                        <div>
+                          <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity</label>
+                          <select 
+                            value={selectedConvQuantity} 
+                            onChange={e => setSelectedConvQuantity(Number(e.target.value))} 
+                            className="w-full p-3.5 border-2 border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-200 focus:border-primary-500 bg-white text-neutral-900 font-medium transition-all hover:border-primary-300 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg%20xmlns%3d%22http%3a%2f%2fwww.w3.org%2f2000%2fsvg%22%20width%3d%2224%22%20height%3d%2224%22%20viewBox%3d%220%200%2024%2024%22%20fill%3d%22none%22%20stroke%3d%22%239ca3af%22%20stroke-width%3d%222%22%20stroke-linecap%3d%22round%22%20stroke-linejoin%3d%22round%22%3e%3cpolyline%20points%3d%226%209%2012%2015%2018%209%22%3e%3c%2fpolyline%3e%3c%2fsvg%3e')] bg-no-repeat bg-[right_12px_center] bg-[length:20px] pr-10"
+                          >
+                            {conventionalQuantities.map(qty => (
+                              <option key={qty} value={qty}>{qty.toLocaleString()} pieces</option>
+                            ))}
+                          </select>
+                        </div>
+                      </>
+                    )}
                   </>
                 ) : (
                   <>
@@ -2028,13 +2081,21 @@ const ProductPage: React.FC = () => {
                       name: product.name,
                       image: product.images[0],
                       variant: product.id === 'small-sachet-conventional' 
-                        ? { 
-                            shape: '3 Side Seal Sachet', 
-                            size: '80x80mm', 
-                            material: 'Silk pure aluminum (120um)', 
-                            print: sachetPrintMethod.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-                            corners: sachetRoundCorners ? 'Round' : 'Square'
-                          }
+                        ? sachetPrintMethod === 'unprinted'
+                          ? {
+                              shape: '3 Side Seal Sachet',
+                              size: '80x80mm',
+                              material: SACHET_UNPRINTED_OPTIONS.find(o => o.id === sachetUnprintedColor)?.label.split(' (')[0] || 'Silk paper sachet',
+                              print: 'Plain / Unprinted',
+                              packs: `${sachetUnprintedPacks} Pack${sachetUnprintedPacks > 1 ? 's' : ''}`
+                            }
+                          : { 
+                              shape: '3 Side Seal Sachet', 
+                              size: '80x80mm', 
+                              material: 'Silk pure aluminum (120um)', 
+                              print: sachetPrintMethod.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                              corners: sachetRoundCorners ? 'Round' : 'Square'
+                            }
                         : { 
                             shape: conventionalProduct.shape, 
                             size: selectedConvSize, 
