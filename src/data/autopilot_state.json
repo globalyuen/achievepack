@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T02:15:32.536Z",
+  "lastUnifiedRun": "2026-06-04T05:15:20.122Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -342,17 +342,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "wholesale-prices-for-compostable-pouches",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "wholesale prices for compostable pouches",
-      "difficulty": "Low",
-      "slug": "wholesale-prices-for-compostable-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "barrier film for custom flexible packaging",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "barrier-film-for-custom-flexible-packaging"
     },
     {
       "status": "Pending",
@@ -447,9 +448,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T02:15:26.087Z",
+      "timestamp": "2026-06-04T05:15:12.791Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"wholesale prices for compostable pouches\" to /blog/wholesale-prices-for-compostable-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"barrier film for custom flexible packaging\" to /blog/barrier-film-for-custom-flexible-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"wholesale prices for compostable pouches\" to /blog/wholesale-prices-for-compostable-pouches (Pending Approval)",
+      "timestamp": "2026-06-04T02:15:26.087Z"
     },
     {
       "action": "Autopilot Generation Draft",
