@@ -296,7 +296,7 @@ export default function BlogPostPage() {
       "name": "Achieve Pack",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://achievepack.com/imgs/logo.webp"
+        "url": "https://achievepack.com/logo.png"
       }
     },
     "datePublished": post.publishDate,
