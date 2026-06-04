@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T05:15:20.122Z",
+  "lastUnifiedRun": "2026-06-04T05:30:32.809Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -349,17 +349,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "barrier-film-for-custom-flexible-packaging",
       "status": "Pending Approval",
       "volume": 800,
       "keyword": "barrier film for custom flexible packaging",
-      "difficulty": "Low",
-      "slug": "barrier-film-for-custom-flexible-packaging"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1500,
       "keyword": "stand up pouch dimensions 8 oz",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "stand-up-pouch-dimensions-8-oz"
     },
     {
       "status": "Pending",
@@ -448,9 +449,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T05:15:12.791Z",
+      "timestamp": "2026-06-04T05:30:25.931Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"barrier film for custom flexible packaging\" to /blog/barrier-film-for-custom-flexible-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch dimensions 8 oz\" to /blog/stand-up-pouch-dimensions-8-oz (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"barrier film for custom flexible packaging\" to /blog/barrier-film-for-custom-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-04T05:15:12.791Z"
     },
     {
       "action": "Autopilot Generation Draft",
