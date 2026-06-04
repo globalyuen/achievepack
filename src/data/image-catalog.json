@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-04",
-  "total_images": 1943,
+  "total_images": 1948,
   "total_categories": 166,
   "extensions": {
     ".webp": 1299,
-    ".png": 410,
+    ".png": 415,
     ".jpg": 231,
     ".svg": 3
   },
@@ -3865,8 +3865,38 @@
       ]
     },
     "infographics": {
-      "count": 35,
+      "count": 40,
       "images": [
+        {
+          "filename": "kraft-paper-zipper-doypack-infographic-6.png",
+          "path": "/imgs/infographics/kraft-paper-zipper-doypack-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-04T06:34:31.717Z"
+        },
+        {
+          "filename": "kraft-paper-zipper-doypack-infographic-5.png",
+          "path": "/imgs/infographics/kraft-paper-zipper-doypack-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-04T06:34:31.715Z"
+        },
+        {
+          "filename": "kraft-paper-zipper-doypack-infographic-4.png",
+          "path": "/imgs/infographics/kraft-paper-zipper-doypack-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-04T06:34:31.713Z"
+        },
+        {
+          "filename": "kraft-paper-zipper-doypack-infographic-3.png",
+          "path": "/imgs/infographics/kraft-paper-zipper-doypack-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-04T06:34:31.709Z"
+        },
+        {
+          "filename": "kraft-paper-zipper-doypack-infographic-2.png",
+          "path": "/imgs/infographics/kraft-paper-zipper-doypack-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-04T06:34:31.705Z"
+        },
         {
           "filename": "custom-digital-printed-sachets-infographic.png",
           "path": "/imgs/infographics/custom-digital-printed-sachets-infographic.png",

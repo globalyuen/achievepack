@@ -97,9 +97,10 @@ export default function BlogPostPage() {
       if (sec.paragraphs && Array.isArray(sec.paragraphs)) {
         sec.paragraphs.forEach((p: any, pIdx: number) => {
           const isImageLeft = pIdx % 2 !== 0;
-          const imgPath = pIdx === 0 
+          const globalIdx = sIdx * 2 + pIdx;
+          const imgPath = globalIdx === 0 
             ? `/imgs/infographics/${slug}-infographic.png` 
-            : `/imgs/infographics/${slug}-infographic-${pIdx + 1}.png`;
+            : `/imgs/infographics/${slug}-infographic-${globalIdx + 1}.png`;
 
           const imageHtml = `
             <div style="border: 4px solid black; background: #fafafa; border-radius: 12px; overflow: hidden; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); margin: 15px 0; font-family: monospace; font-size: 11px; color: black;">

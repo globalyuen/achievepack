@@ -508,7 +508,7 @@ export default function BlogArticleTemplate({
                           <>
                             {/* Image/Infographic Column (Left) */}
                             <div className="md:col-span-5 order-2 md:order-1 flex flex-col justify-between">
-                              <InfographicCard prompt={p.image_prompt} index={pIdx} slug={slug} />
+                              <InfographicCard prompt={p.image_prompt} index={idx * 2 + pIdx} slug={slug} />
                             </div>
                             {/* Content Column (Right) */}
                             <div className="md:col-span-7 order-1 md:order-2 flex items-center font-['JetBrains_Mono'] font-medium text-neutral-800 text-base md:text-lg leading-relaxed prose prose-lg max-w-none">
@@ -523,7 +523,7 @@ export default function BlogArticleTemplate({
                             </div>
                             {/* Image/Infographic Column (Right) */}
                             <div className="md:col-span-5 order-2 md:order-2 flex flex-col justify-between">
-                              <InfographicCard prompt={p.image_prompt} index={pIdx} slug={slug} />
+                              <InfographicCard prompt={p.image_prompt} index={idx * 2 + pIdx} slug={slug} />
                             </div>
                           </>
                         )}

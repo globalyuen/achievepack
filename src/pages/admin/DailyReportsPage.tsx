@@ -1123,10 +1123,10 @@ export default function DailyReportsPage() {
                 <button 
                   onClick={() => setShowSachetCostModal(true)}
                   className="flex items-center gap-1.5 bg-amber-500/20 text-amber-200 px-3 py-1.5 rounded-full text-sm font-semibold border border-amber-500/30 hover:bg-amber-500/40 transition active:scale-95 shadow-sm"
-                  title="Open Sachet Cost Chinese Reference"
+                  title="Open Convent Sachet Cost Reference"
                 >
                   <ImageIcon className="h-3.5 w-3.5 text-amber-300" />
-                  <span>Sachet Cost Table</span>
+                  <span>Convent Sachet Cost</span>
                 </button>
               </div>
             </div>
