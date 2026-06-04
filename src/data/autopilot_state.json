@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T09:45:24.365Z",
+  "lastUnifiedRun": "2026-06-04T10:00:23.281Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -475,17 +475,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-printed-stand-up-pouches-low-minimum",
       "status": "Pending Approval",
       "volume": 1500,
       "keyword": "custom printed stand up pouches low minimum",
-      "difficulty": "Medium",
-      "slug": "custom-printed-stand-up-pouches-low-minimum"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "compostable barrier film for snacks",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-barrier-film-for-snacks"
     },
     {
       "status": "Pending",
@@ -574,9 +575,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T09:45:18.117Z",
+      "timestamp": "2026-06-04T10:00:16.996Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom printed stand up pouches low minimum\" to /blog/custom-printed-stand-up-pouches-low-minimum (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film for snacks\" to /blog/compostable-barrier-film-for-snacks (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed stand up pouches low minimum\" to /blog/custom-printed-stand-up-pouches-low-minimum (Pending Approval)",
+      "timestamp": "2026-06-04T09:45:18.117Z"
     },
     {
       "action": "Autopilot Generation Draft",
