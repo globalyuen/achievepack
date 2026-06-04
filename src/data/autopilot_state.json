@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-03T22:46:19.856Z",
+  "lastUnifiedRun": "2026-06-04T00:00:54.489Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 178,
+  "totalLinkedAnchors": 117,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -279,17 +279,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-pouch-sourcing-for-snacks",
       "status": "Pending Approval",
       "volume": 750,
       "keyword": "compostable pouch sourcing for snacks",
-      "difficulty": "Medium",
-      "slug": "compostable-pouch-sourcing-for-snacks"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "high barrier sustainable flexible films",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-sustainable-flexible-films"
     },
     {
       "status": "Pending",
@@ -438,9 +439,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-03T22:45:34.382Z",
+      "timestamp": "2026-06-04T00:00:29.998Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch sourcing for snacks\" to /blog/compostable-pouch-sourcing-for-snacks (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier sustainable flexible films\" to /blog/high-barrier-sustainable-flexible-films (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch sourcing for snacks\" to /blog/compostable-pouch-sourcing-for-snacks (Pending Approval)",
+      "timestamp": "2026-06-03T22:45:34.382Z"
     },
     {
       "action": "Autopilot Generation Draft",
