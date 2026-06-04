@@ -1,9 +1,9 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T00:00:54.489Z",
+  "lastUnifiedRun": "2026-06-04T00:15:33.667Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 117,
+  "totalLinkedAnchors": 45,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -286,17 +286,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "high-barrier-sustainable-flexible-films",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "high barrier sustainable flexible films",
-      "difficulty": "Low",
-      "slug": "high-barrier-sustainable-flexible-films"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "custom sachet dimensions for powders",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-sachet-dimensions-for-powders"
     },
     {
       "status": "Pending",
@@ -439,9 +440,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T00:00:29.998Z",
+      "timestamp": "2026-06-04T00:15:17.057Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier sustainable flexible films\" to /blog/high-barrier-sustainable-flexible-films (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom sachet dimensions for powders\" to /blog/custom-sachet-dimensions-for-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier sustainable flexible films\" to /blog/high-barrier-sustainable-flexible-films (Pending Approval)",
+      "timestamp": "2026-06-04T00:00:29.998Z"
     },
     {
       "action": "Autopilot Generation Draft",
