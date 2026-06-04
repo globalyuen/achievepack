@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T07:00:34.532Z",
+  "lastUnifiedRun": "2026-06-04T07:15:27.435Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -398,17 +398,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-stand-up-pouch-with-window",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "sustainable stand up pouch with window",
-      "difficulty": "Low",
-      "slug": "sustainable-stand-up-pouch-with-window"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "recyclable high barrier film suppliers",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-high-barrier-film-suppliers"
     },
     {
       "status": "Pending",
@@ -453,119 +454,124 @@
       "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 1200,
       "keyword": "compostable tea pouch with zipper",
-      "difficulty": "Low",
-      "volume": 1200,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 800,
       "keyword": "biodegradable sachet packaging for spices",
-      "difficulty": "Low",
-      "volume": 800,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "custom printed stand up pouches low minimum",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1500,
-      "status": "Pending"
+      "keyword": "custom printed stand up pouches low minimum",
+      "difficulty": "Medium"
     },
     {
+      "status": "Pending",
+      "volume": 900,
       "keyword": "compostable barrier film for snacks",
-      "difficulty": "Low",
-      "volume": 900,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 1100,
       "keyword": "stand up pouch dimensions chart for powders",
-      "difficulty": "Low",
-      "volume": 1100,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital printed custom pouches wholesale",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1300,
-      "status": "Pending"
+      "keyword": "digital printed custom pouches wholesale",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "eco friendly flat bottom pouches for pet food",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 700,
-      "status": "Pending"
+      "keyword": "eco friendly flat bottom pouches for pet food",
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono material stand up pouches recyclable",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "mono material stand up pouches recyclable",
+      "difficulty": "Low"
     },
     {
-      "keyword": "sustainable packaging sachet sizes",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1600,
-      "status": "Pending"
+      "keyword": "sustainable packaging sachet sizes",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "compostable retort pouches for baby food",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "compostable retort pouches for baby food",
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier compostable film for nuts",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 750,
-      "status": "Pending"
+      "keyword": "high barrier compostable film for nuts",
+      "difficulty": "Low"
     },
     {
-      "keyword": "custom shape pouches digital printing",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1400,
-      "status": "Pending"
+      "keyword": "custom shape pouches digital printing",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "recyclable barrier pouches for liquids",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1000,
-      "status": "Pending"
+      "keyword": "recyclable barrier pouches for liquids",
+      "difficulty": "Low"
     },
     {
-      "keyword": "small batch printed flexible packaging",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1200,
-      "status": "Pending"
+      "keyword": "small batch printed flexible packaging",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable pouch with spout for beverages",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1100,
-      "status": "Pending"
+      "keyword": "compostable pouch with spout for beverages",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "kraft paper stand up pouches custom",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 900,
-      "status": "Pending"
+      "keyword": "kraft paper stand up pouches custom",
+      "difficulty": "Low"
     },
     {
-      "keyword": "sustainable sachet filling solutions",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 800,
-      "status": "Pending"
+      "keyword": "sustainable sachet filling solutions",
+      "difficulty": "Low"
     },
     {
-      "keyword": "barrier film suppliers for flexible packaging",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1700,
-      "status": "Pending"
+      "keyword": "barrier film suppliers for flexible packaging",
+      "difficulty": "Medium"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T07:00:26.016Z",
+      "timestamp": "2026-06-04T07:15:14.991Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable stand up pouch with window\" to /blog/sustainable-stand-up-pouch-with-window (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable high barrier film suppliers\" to /blog/recyclable-high-barrier-film-suppliers (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable stand up pouch with window\" to /blog/sustainable-stand-up-pouch-with-window (Pending Approval)",
+      "timestamp": "2026-06-04T07:00:26.016Z"
     },
     {
       "action": "Autopilot Generation Draft",
