@@ -310,6 +310,69 @@ Strict Formatting Rules:
     selectedImage = '/imgs/blog/pouch_sizing_density_guide.png';
   }
 
+  // Generate Hero Image dynamically via xAI Grok Imagine
+  let imagePath = selectedImage;
+  const xaiApiKey = process.env.XAI_API_KEY || process.env.VITE_XAI_API_KEY;
+  if (xaiApiKey) {
+    try {
+      console.log(`🎨 [PILOT-ENGINE] Triggering dynamic image generation via Grok Imagine for slug: "${slug}"...`);
+      let materialType = "premium sustainable stand-up packaging pouch";
+      if (slug.includes('sachet') || slug.includes('stick-pack')) {
+        materialType = "premium high-barrier packaging sachet";
+      } else if (slug.includes('coffee') || slug.includes('tea')) {
+        materialType = "specialty high-barrier coffee bag with degassing valve";
+      } else if (slug.includes('retort')) {
+        materialType = "high-barrier retort packaging pouch";
+      } else if (slug.includes('flat-bottom')) {
+        materialType = "flat-bottom box pouch";
+      } else if (slug.includes('rollstock')) {
+        materialType = "custom printed packaging film rollstock roll";
+      }
+
+      const prompt = `A premium, professional, and visually stunning B2B product photography of a ${materialType} for: "${generatedPayload.title || keyword}". It should depict: ${excerpt}. Studio product photography layout, clean and soft natural light, minimal and neutral background (soft off-white/light grey), achievepack.com brand color tones and aesthetic, realistic paper or plastic texture, photorealistic, 8k resolution. Avoid generic icons, avoid text, avoid human hands, make it look like a real physical product mockup.`;
+
+      const response = await fetch("https://api.x.ai/v1/images/generations", {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${xaiApiKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: "grok-imagine-image",
+          prompt: prompt,
+          response_format: "b64_json"
+        }),
+        signal: AbortSignal.timeout(60000)
+      });
+
+      if (response.ok) {
+        const resJson = await response.json();
+        if (resJson.data && resJson.data.length > 0) {
+          const b64Data = resJson.data[0].b64_json;
+          const imgBuffer = Buffer.from(b64Data, 'base64');
+          
+          const outputDir = path.join(__dirname, '../public/imgs/blog/heros');
+          fs.mkdirSync(outputDir, { recursive: true });
+          const filename = `${slug}-hero.png`;
+          const targetFilePath = path.join(outputDir, filename);
+          fs.writeFileSync(targetFilePath, imgBuffer);
+          
+          imagePath = `/imgs/blog/heros/${filename}`;
+          console.log(`🎨 [PILOT-ENGINE] Dynamic image generated successfully: ${imagePath}`);
+        } else {
+          console.warn(`[PILOT-ENGINE] Grok Imagine response empty. Falling back to default: ${selectedImage}`);
+        }
+      } else {
+        const text = await response.text();
+        console.warn(`[PILOT-ENGINE] Grok Imagine API error (${response.status}): ${text}. Falling back to default: ${selectedImage}`);
+      }
+    } catch (err) {
+      console.warn(`[PILOT-ENGINE] Dynamic image generation failed: ${err.message}. Falling back to default: ${selectedImage}`);
+    }
+  } else {
+    console.log(`[PILOT-ENGINE] XAI_API_KEY missing. Skipping dynamic image generation. Falling back to default: ${selectedImage}`);
+  }
+
   // Payload formatting matching pouch_seo_blog schema
   const payload = {
     title: generatedPayload.title || `${keyword.replace(/\b\w/g, c => c.toUpperCase())} Sourcing Guide`,
@@ -317,7 +380,7 @@ Strict Formatting Rules:
     category: domain === 'pouch.eco' ? 'Sustainability' : 'Materials',
     excerpt,
     meta_description: generatedPayload.meta_description || excerpt,
-    image_url: selectedImage,
+    image_url: imagePath,
     source_url: domain === 'pouch.eco' ? `https://achievepack.com/blog/${slug}` : `https://pouch.eco/blog/${slug}`,
     published_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),

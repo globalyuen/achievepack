@@ -417,11 +417,11 @@ async function main() {
   
   const isAutopilotModeB = autopilotState.autopilotMode === 'B';
   const isAutopilotModeA = autopilotState.autopilotMode === 'A';
+  const isManual = isAutopilotModeA;
   let newlyGeneratedPost = null;
   let activeLinksCount = 0;
   
   if (isAutopilotModeB || isAutopilotModeA) {
-    const isManual = isAutopilotModeA;
     logMessage(`Step 3: Autopilot is active. Mode: ${isManual ? '模式 A [Manual approval]' : '模式 B [100% Autopilot]'}. Sourcing keyword target...`);
     
     // Find first pending keyword
@@ -447,10 +447,10 @@ async function main() {
         });
 
         // Send email notification if in manual approval mode
-        if (isManual) {
-          logMessage(`📧 Triggering email approval notification to Ryan for slug: "${newlyGeneratedPost.slug}"...`);
-          await sendEmailApprovalNotification(newlyGeneratedPost);
-        }
+        // if (isManual) {
+        //   logMessage(`📧 Triggering email approval notification to Ryan for slug: "${newlyGeneratedPost.slug}"...`);
+        //   await sendEmailApprovalNotification(newlyGeneratedPost);
+        // }
       } catch (err) {
         console.error('[UNIFIED-CRON] Agent Writing Pipeline failed:', err);
         autopilotState.logs.unshift({
@@ -512,8 +512,8 @@ async function main() {
   let deployStatus = 'STAGED / DRAFT';
   let b2bDeployStatus = 'STAGED / DRAFT';
   if (newlyGeneratedPost) {
-    const targetUrl = `https://www.pouch.eco/blog/${newlyGeneratedPost.slug}`;
-    const targetB2bUrl = `https://achievepack.com/blog/${newlyGeneratedPost.slug}`;
+    const targetUrl = `https://www.pouch.eco/blog/${newlyGeneratedPost.slug}?preview=true`;
+    const targetB2bUrl = `https://achievepack.com/blog/${newlyGeneratedPost.slug}?preview=true`;
     logMessage(`Step 6: Confirming live B2C deployment status at: ${targetUrl}`);
     deployStatus = await verifyLiveStatus(targetUrl);
     logMessage(`   * B2C URL Online Status: ${deployStatus}`);
