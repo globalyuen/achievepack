@@ -7671,11 +7671,10 @@ const CONVENTIONAL_STOCK_PRODUCTS: EcoStockProduct[] = [
       'Food-Grade Safe Lining: Inner PE layer is odor-free, non-toxic, and FDA-approved for direct food contact.'
     ],
     images: [
-      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-1.png',
+      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-5.png',
       '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-2.png',
       '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-3.png',
-      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-4.png',
-      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-5.png'
+      '/imgs/store/products/cotton-paper-foil-gusset-pouch-thumbnail-4.png'
     ],
     badge: '⭐ Premium Stock',
     rating: 4.9,
