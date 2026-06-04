@@ -1,7 +1,7 @@
 # Google Search Console Unified Coverage Report
 
 **Last Audited:** 2026-06-04 07:00 HKT
-**Total Monitored Sitemapped URLs:** 612
+**Total Monitored Sitemapped URLs:** 614
 
 ## Indexing Strategy Checklist
 - [x] Sitemap mapped routes parsed completely
@@ -24,4 +24,4 @@
 - https://pouch.eco/blog/coffee-packaging-guide
 - https://pouch.eco/blog/compostable-baby-food-packaging-guide
 - https://pouch.eco/blog/compostable-humidity-control-guide
-- ... and 597 additional URLs.
+- ... and 599 additional URLs.
