@@ -128,7 +128,7 @@ export default function PouchBlogPage() {
     {
       title: 'Custom Compostable Pouch Suppliers Guide',
       excerpt: 'How to choose a compostable pouch supplier. Red flags to avoid, certification checklists, and why low MOQ digital printing is the future.',
-      image: '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp',
+      image: '/imgs/company/bpi/bpipouch.webp',
       date: '2026-02-11',
       category: 'Sourcing Guide',
       readTime: '15 min',
@@ -138,7 +138,7 @@ export default function PouchBlogPage() {
     {
       title: 'Compostable Baby Food Packaging Guide 2026',
       excerpt: 'Safe, certified compostable packaging for baby food. FDA compliant, BPA-free spout pouches and snack bags. Build trust with eco-conscious parents.',
-      image: '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp',
+      image: '/imgs/seo-photos/organic/organic_dried_mango_pouch.webp',
       date: '2026-02-11',
       category: 'Baby & Kids',
       readTime: '12 min',
@@ -147,7 +147,7 @@ export default function PouchBlogPage() {
     {
       title: 'Eco-Friendly Food Packaging Guide 2026',
       excerpt: 'Comprehensive guide to sustainable food packaging. Compare compostable vs recyclable options, understand certifications, and choose the right barrier for freshness.',
-      image: '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp',
+      image: '/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp',
       date: '2026-02-10',
       category: 'Sustainable Solutions',
       readTime: '14 min',
@@ -322,7 +322,7 @@ export default function PouchBlogPage() {
     const formattedDynamic = dynamicPosts.map(p => ({
       title: p.title,
       excerpt: p.excerpt,
-      image: p.image_url || '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp',
+      image: p.image_url || '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp',
       date: new Date(p.published_at).toISOString().split('T')[0],
       category: p.category,
       readTime: '10 min',

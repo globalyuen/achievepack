@@ -238,7 +238,7 @@ export default function RecyclableSnackPackagingGuide() {
         {
           title: 'Eco-Friendly Food Packaging Guide',
           url: '/blog/eco-friendly-food-packaging-guide',
-          image: '/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp'
+          image: '/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp'
         },
         {
           title: 'DTC Sustainable Packaging Guide',
