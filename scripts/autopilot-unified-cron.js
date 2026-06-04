@@ -588,7 +588,7 @@ async function main() {
         <!-- Newly Generated Post card -->
         ${newlyGeneratedPost ? `
           <h3 style="text-transform: uppercase; font-size: 14px; border-bottom: 3px solid black; padding-bottom: 8px; margin-bottom: 15px;">
-            ✨ Newly Published Autopilot Pages
+            ${isManual ? '⚠️ Newly Staged Autopilot Drafts (Pending Approval)' : '✨ Newly Published Autopilot Pages (Auto-Published)'}
           </h3>
           <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
             <thead>
@@ -602,7 +602,7 @@ async function main() {
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid black; font-weight: bold;">🌱 ${newlyGeneratedPost.title} (B2C ep)</td>
                 <td style="padding: 10px; border-bottom: 1px solid black; font-family: monospace; font-size: 11px;">
-                  <a href="https://www.pouch.eco/blog/${newlyGeneratedPost.slug}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">pouch.eco/blog/${newlyGeneratedPost.slug}</a>
+                  <a href="https://www.pouch.eco/blog/${newlyGeneratedPost.slug}${isManual ? '?preview=true' : ''}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">pouch.eco/blog/${newlyGeneratedPost.slug}${isManual ? ' (Preview)' : ''}</a>
                 </td>
                 <td style="padding: 10px; border-bottom: 1px solid black; text-align: center;">
                   <span style="background-color: ${deployStatus.includes('200') ? '#dcfce7' : '#fee2e2'}; color: ${deployStatus.includes('200') ? '#166534' : '#991b1b'}; padding: 4px 8px; border: 2px solid black; font-size: 9px; font-weight: bold; text-transform: uppercase;">
@@ -613,7 +613,7 @@ async function main() {
               <tr>
                 <td style="padding: 10px; border-bottom: 2px solid black; font-weight: bold;">💼 ${newlyGeneratedPost.title} (B2B ap)</td>
                 <td style="padding: 10px; border-bottom: 2px solid black; font-family: monospace; font-size: 11px;">
-                  <a href="https://achievepack.com/blog/${newlyGeneratedPost.slug}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">achievepack.com/blog/${newlyGeneratedPost.slug}</a>
+                  <a href="https://achievepack.com/blog/${newlyGeneratedPost.slug}${isManual ? '?preview=true' : ''}" target="_blank" style="color: #3b82f6; text-decoration: underline; font-weight: bold;">achievepack.com/blog/${newlyGeneratedPost.slug}${isManual ? ' (Preview)' : ''}</a>
                 </td>
                 <td style="padding: 10px; border-bottom: 2px solid black; text-align: center;">
                   <span style="background-color: ${b2bDeployStatus.includes('200') ? '#dcfce7' : '#fee2e2'}; color: ${b2bDeployStatus.includes('200') ? '#166534' : '#991b1b'}; padding: 4px 8px; border: 2px solid black; font-size: 9px; font-weight: bold; text-transform: uppercase;">
@@ -623,6 +623,12 @@ async function main() {
               </tr>
             </tbody>
           </table>
+          ${isManual ? `
+            <!-- Actionable Approval Notice -->
+            <div style="background-color: #fffbeb; border: 3px solid #f59e0b; padding: 15px; margin-bottom: 25px; font-size: 13px;">
+              <strong>⚠️ Draft staged & unlisted:</strong> This article is staged as hidden (approved: false). Please review it via the preview links above, then approve it to publish it live from the admin portal.
+            </div>
+          ` : ''}
         ` : `
           <div style="padding: 15px; border: 3px solid black; text-align: center; font-style: italic; color: #666; margin-bottom: 25px;">
             No new autopilot pages required deployment today. All keywords fully synced.

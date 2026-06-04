@@ -22,9 +22,11 @@ import {
   RefreshCw,
   Home,
   Car,
-  Briefcase
+  Briefcase,
+  Settings
 } from 'lucide-react'
 import { toast } from 'sonner'
+import { supabase } from '../../lib/supabase'
 
 // ==========================================
 // 類型與資料結構 (適合10歲老闆的簡易版)
@@ -43,22 +45,21 @@ export type TimeframeType =
   | '10y' // 最近十年
   | 'all' // 歷史總計
 
-export type BusinessType = 
-  | '包裝買賣 📦'
-  | '車位出租 🅿️'
-  | '汽車出租 🚗'
-  | '房屋出租 🏠'
+export interface BusinessItem {
+  id: string
+  name: string
+  emoji: string
+  color_idx: number
+  created_at?: string
+}
 
-export type CategoryLabelType =
-  // 賺錢項目
-  | '收租金 💰'
-  | '商品銷售 📦'
-  | '其他收入 💵'
-  // 花錢項目
-  | '日常維修 🛠️'
-  | '水電開銷 ⚡'
-  | '進貨成本 📦'
-  | '其他支出 💸'
+export interface CategoryItem {
+  id: string
+  business_name: string
+  name: string
+  type: 'incoming' | 'outgoing'
+  created_at?: string
+}
 
 export interface Transaction {
   id: string
@@ -67,8 +68,8 @@ export interface Transaction {
   amount: number // 換算後的美金基準額 (Base USD)
   originalAmount: number // 原始輸入金額
   currency: CurrencyType // 原始幣別
-  business: BusinessType // 屬於哪一個生意
-  label: CategoryLabelType // 收支類別
+  business: string // 屬於哪一個生意 (動態)
+  label: string // 收支類別 (動態)
   description: string // 備註說明
   paymentMethod: '銀行轉帳' | '現金' | '信用卡' | '微信/支付寶'
 }
@@ -87,13 +88,23 @@ const CURRENCY_SYMBOLS: Record<CurrencyType, string> = {
   RMB: '¥'
 }
 
-// 生意項目的代表背景色 (溫柔日系奶油粉蠟色)
-const BUSINESS_Pill_STYLES: Record<BusinessType, { bg: string; text: string; border: string }> = {
-  '包裝買賣 📦': { bg: 'bg-[#E3F2FD]', text: 'text-[#1E88E5]', border: 'border-[#BBDEFB]' },
-  '車位出租 🅿️': { bg: 'bg-[#F3E5F5]', text: 'text-[#8E24AA]', border: 'border-[#E1BEE7]' },
-  '汽車出租 🚗': { bg: 'bg-[#FFF3E0]', text: 'text-[#F57C00]', border: 'border-[#FFE0B2]' },
-  '房屋出租 🏠': { bg: 'bg-[#E8F5E9]', text: 'text-[#388E3C]', border: 'border-[#C8E6C9]' }
-}
+// 溫柔日系奶油粉蠟色調，支持無限生意項目輪流使用
+const BUSINESS_COLORS = [
+  { bg: 'bg-[#E3F2FD]', text: 'text-[#1E88E5]', border: 'border-[#BBDEFB]' }, // 溫柔藍
+  { bg: 'bg-[#F3E5F5]', text: 'text-[#8E24AA]', border: 'border-[#E1BEE7]' }, // 夢幻紫
+  { bg: 'bg-[#FFF3E0]', text: 'text-[#F57C00]', border: 'border-[#FFE0B2]' }, // 活力橙
+  { bg: 'bg-[#E8F5E9]', text: 'text-[#388E3C]', border: 'border-[#C8E6C9]' }, // 森林綠
+  { bg: 'bg-[#FCE4EC]', text: 'text-[#D81B60]', border: 'border-[#F8BBD0]' }, // 甜美粉
+  { bg: 'bg-[#E0F7FA]', text: 'text-[#00ACC1]', border: 'border-[#B2EBF2]' }, // 蒂芙尼藍
+  { bg: 'bg-[#FFFDE7]', text: 'text-[#FBC02D]', border: 'border-[#FFF9C4]' }  // 香蕉黃
+]
+
+const DEFAULT_BUSINESSES: BusinessItem[] = [
+  { id: 'b-pkg', name: '包裝買賣 📦', emoji: '📦', color_idx: 0 },
+  { id: 'b-prk', name: '車位出租 🅿️', emoji: '🅿️', color_idx: 1 },
+  { id: 'b-car', name: '汽車出租 🚗', emoji: '🚗', color_idx: 2 },
+  { id: 'b-hse', name: '房屋出租 🏠', emoji: '🏠', color_idx: 3 }
+]
 
 // ==========================================
 // 6月份與5月份高水準模擬數據 (10歲老闆的生意)
@@ -210,54 +221,6 @@ const INITIAL_TRANSACTIONS: Transaction[] = [
     label: '收租金 💰',
     description: '車位順利收租金！',
     paymentMethod: '現金'
-  },
-  {
-    id: 't-may-3',
-    date: '2026-05-03',
-    type: 'incoming',
-    amount: 600,
-    originalAmount: 600,
-    currency: 'USD',
-    business: '汽車出租 🚗',
-    label: '收租金 💰',
-    description: '出租大貨車載貨一週的租金',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-may-4',
-    date: '2026-05-12',
-    type: 'incoming',
-    amount: 2500,
-    originalAmount: 18125,
-    currency: 'RMB',
-    business: '包裝買賣 📦',
-    label: '商品銷售 📦',
-    description: '賣出牛皮紙立體袋給西雅圖客戶',
-    paymentMethod: '微信/支付寶'
-  },
-  {
-    id: 't-may-5',
-    date: '2026-05-15',
-    type: 'outgoing',
-    amount: 900,
-    originalAmount: 900,
-    currency: 'USD',
-    business: '包裝買賣 📦',
-    label: '進貨成本 📦',
-    description: '補充環保咖啡密封袋的庫存商品',
-    paymentMethod: '銀行轉帳'
-  },
-  {
-    id: 't-may-6',
-    date: '2026-05-20',
-    type: 'outgoing',
-    amount: 300,
-    originalAmount: 2175,
-    currency: 'RMB',
-    business: '房屋出租 🏠',
-    label: '日常維修 🛠️',
-    description: '請工人叔叔修理房屋水龍頭和燈泡',
-    paymentMethod: '現金'
   }
 ]
 
@@ -268,31 +231,204 @@ const BookkeepingPage: React.FC = () => {
   // 10歲小老闆時光範圍選擇 state
   const [overviewTimeframe, setOverviewTimeframe] = useState<TimeframeType>('all')
 
-  // 核心數據 state，綁定至本地儲存 LocalStorage
-  const [transactions, setTransactions] = useState<Transaction[]>(() => {
-    const saved = localStorage.getItem('kid_bookkeeping_transactions')
-    return saved ? JSON.parse(saved) : INITIAL_TRANSACTIONS
+  // 全局顯示幣別 state (USD | HKD | RMB)
+  const [displayCurrency, setDisplayCurrency] = useState<CurrencyType>(() => {
+    return (localStorage.getItem('kid_bookkeeping_display_currency') as CurrencyType) || 'USD'
   })
 
-  // 自訂匯率 state
-  const [customRates, setCustomRates] = useState<Record<CurrencyType, number>>(() => {
-    const saved = localStorage.getItem('kid_bookkeeping_rates')
-    return saved ? JSON.parse(saved) : EXCHANGE_RATES
-  })
+  // 核心數據 state
+  const [transactions, setTransactions] = useState<Transaction[]>([])
+  const [businesses, setBusinesses] = useState<BusinessItem[]>([])
+  const [customCategories, setCustomCategories] = useState<CategoryItem[]>([])
+  const [customRates, setCustomRates] = useState<Record<CurrencyType, number>>(EXCHANGE_RATES)
+
+  const [dbAvailable, setDbAvailable] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(true)
 
   const [showRateSettings, setShowRateSettings] = useState(false)
+  const [showBusinessManager, setShowBusinessManager] = useState(false)
 
-  // 寫入本地儲存
+  // 寫入本地儲存 (作為備份和離線支持)
   useEffect(() => {
-    localStorage.setItem('kid_bookkeeping_transactions', JSON.stringify(transactions))
+    if (transactions.length > 0) {
+      localStorage.setItem('kid_bookkeeping_transactions', JSON.stringify(transactions))
+    }
   }, [transactions])
+
+  useEffect(() => {
+    if (businesses.length > 0) {
+      localStorage.setItem('kid_bookkeeping_businesses', JSON.stringify(businesses))
+    }
+  }, [businesses])
+
+  useEffect(() => {
+    if (customCategories.length > 0) {
+      localStorage.setItem('kid_bookkeeping_categories', JSON.stringify(customCategories))
+    }
+  }, [customCategories])
 
   useEffect(() => {
     localStorage.setItem('kid_bookkeeping_rates', JSON.stringify(customRates))
   }, [customRates])
 
-  // Predefined 4 Businesses
-  const businessesList: BusinessType[] = ['包裝買賣 📦', '車位出租 🅿️', '汽車出租 🚗', '房屋出租 🏠']
+  useEffect(() => {
+    localStorage.setItem('kid_bookkeeping_display_currency', displayCurrency)
+  }, [displayCurrency])
+
+  // 從 Supabase 載入數據，並與本機進行同步 (確保數據不丟失)
+  useEffect(() => {
+    async function initData() {
+      setLoading(true)
+      let dbTransactions: Transaction[] = []
+      let dbBusinesses: BusinessItem[] = []
+      let dbCategories: CategoryItem[] = []
+      let dbOk = true
+
+      try {
+        // 1. 獲取小生意項目
+        const { data: bData, error: bErr } = await supabase
+          .from('kid_bookkeeping_businesses')
+          .select('*')
+        if (bErr) throw bErr
+        dbBusinesses = bData || []
+
+        // 2. 獲取自訂類別
+        const { data: cData, error: cErr } = await supabase
+          .from('kid_bookkeeping_categories')
+          .select('*')
+        if (cErr) throw cErr
+        dbCategories = cData || []
+
+        // 3. 獲取記帳流水帳
+        const { data: tData, error: tErr } = await supabase
+          .from('kid_bookkeeping_transactions')
+          .select('*')
+        if (tErr) throw tErr
+        
+        // 格式化 DB 數據回 Transaction 類型
+        dbTransactions = (tData || []).map((t: any) => ({
+          id: t.id,
+          date: t.date,
+          type: t.type,
+          amount: Number(t.amount),
+          originalAmount: Number(t.original_amount),
+          currency: t.currency as CurrencyType,
+          business: t.business,
+          label: t.label,
+          description: t.description,
+          paymentMethod: t.payment_method as any
+        }))
+      } catch (err: any) {
+        console.warn('Supabase not available or tables missing, using local storage:', err.message)
+        dbOk = false
+      }
+
+      setDbAvailable(dbOk)
+
+      // 載入本地 LocalStorage 作為融合基礎
+      const localTxRaw = localStorage.getItem('kid_bookkeeping_transactions')
+      const localBizRaw = localStorage.getItem('kid_bookkeeping_businesses')
+      const localCatsRaw = localStorage.getItem('kid_bookkeeping_categories')
+      const localRatesRaw = localStorage.getItem('kid_bookkeeping_rates')
+
+      const localTx: Transaction[] = localTxRaw ? JSON.parse(localTxRaw) : INITIAL_TRANSACTIONS
+      const localBiz: BusinessItem[] = localBizRaw ? JSON.parse(localBizRaw) : DEFAULT_BUSINESSES
+      const localCats: CategoryItem[] = localCatsRaw ? JSON.parse(localCatsRaw) : []
+      if (localRatesRaw) setCustomRates(JSON.parse(localRatesRaw))
+
+      if (!dbOk) {
+        setTransactions(localTx)
+        setBusinesses(localBiz)
+        setCustomCategories(localCats)
+      } else {
+        // A. 融合小生意項目 (本地 ➔ 雲端)
+        const mergedBiz = [...dbBusinesses]
+        let bizUpdated = false
+        for (const localB of localBiz) {
+          if (!mergedBiz.some(dbB => dbB.name === localB.name)) {
+            mergedBiz.push(localB)
+            bizUpdated = true
+            await supabase.from('kid_bookkeeping_businesses').insert({
+              name: localB.name,
+              emoji: localB.emoji,
+              color_idx: localB.color_idx
+            })
+          }
+        }
+        setBusinesses(mergedBiz)
+        localStorage.setItem('kid_bookkeeping_businesses', JSON.stringify(mergedBiz))
+
+        // B. 融合自訂收支項目
+        const mergedCats = [...dbCategories]
+        for (const localC of localCats) {
+          if (!mergedCats.some(dbC => dbC.business_name === localC.business_name && dbC.name === localC.name && dbC.type === localC.type)) {
+            mergedCats.push(localC)
+            await supabase.from('kid_bookkeeping_categories').insert({
+              business_name: localC.business_name,
+              name: localC.name,
+              type: localC.type
+            })
+          }
+        }
+        setCustomCategories(mergedCats)
+        localStorage.setItem('kid_bookkeeping_categories', JSON.stringify(mergedCats))
+
+        // C. 融合交易記錄
+        const mergedTx = [...dbTransactions]
+        let txUpdated = false
+        for (const localT of localTx) {
+          if (!mergedTx.some(dbT => dbT.id === localT.id)) {
+            mergedTx.push(localT)
+            txUpdated = true
+            await supabase.from('kid_bookkeeping_transactions').insert({
+              id: localT.id,
+              date: localT.date,
+              type: localT.type,
+              amount: localT.amount,
+              original_amount: localT.originalAmount,
+              currency: localT.currency,
+              business: localT.business,
+              label: localT.label,
+              description: localT.description,
+              payment_method: localT.paymentMethod
+            })
+          }
+        }
+        
+        mergedTx.sort((a, b) => b.date.localeCompare(a.date))
+        setTransactions(mergedTx)
+        localStorage.setItem('kid_bookkeeping_transactions', JSON.stringify(mergedTx))
+
+        if (bizUpdated || txUpdated) {
+          toast.success('✨ 偵測到本機新紀錄，已自動幫你同步到雲端囉！')
+        } else {
+          toast.success('✨ 記帳簿已成功連接雲端，實時同步中！')
+        }
+      }
+
+      setLoading(false)
+    }
+
+    initData()
+  }, [])
+
+  // 動態獲取生意卡片樣式
+  const getBusinessStyleByName = (name: string) => {
+    const b = businesses.find(item => item.name === name)
+    const colorIdx = b ? b.color_idx : 0
+    return BUSINESS_COLORS[colorIdx % BUSINESS_COLORS.length]
+  }
+
+  // 動態生成某個生意之下的收支子類別
+  const getCategoriesForBusiness = (businessName: string, type: 'incoming' | 'outgoing') => {
+    const defaults = type === 'incoming' 
+      ? ['收租金 💰', '商品銷售 📦', '其他收入 💵'] 
+      : ['日常維修 🛠️', '水電開銷 ⚡', '進貨成本 📦', '其他支出 💸']
+    const customs = customCategories
+      .filter(c => c.business_name === businessName && c.type === type)
+      .map(c => c.name)
+    return Array.from(new Set([...defaults, ...customs]))
+  }
 
   // 流水賬篩選器
   const [searchQuery, setSearchQuery] = useState('')
@@ -311,43 +447,60 @@ const BookkeepingPage: React.FC = () => {
   const [formType, setFormType] = useState<'incoming' | 'outgoing'>('incoming')
   const [formAmount, setFormAmount] = useState('') // 原始金額
   const [formCurrency, setFormCurrency] = useState<CurrencyType>('USD')
-  const [formBusiness, setFormBusiness] = useState<BusinessType>('包裝買賣 📦')
-  const [formLabel, setFormLabel] = useState<CategoryLabelType>('商品銷售 📦')
+  const [formBusiness, setFormBusiness] = useState<string>('')
+  const [formLabel, setFormLabel] = useState<string>('')
   const [formDescription, setFormDescription] = useState('')
   const [formPaymentMethod, setFormPaymentMethod] = useState<Transaction['paymentMethod']>('銀行轉帳')
   const [editingTransactionId, setEditingTransactionId] = useState<string | null>(null)
 
-  // 重置記賬表單
+  // 動態增加生意項目之下的收支類別 (Inline Preset)
+  const [showAddCategoryInline, setShowAddCategoryInline] = useState(false)
+  const [newCategoryName, setNewCategoryName] = useState('')
+
+  // 增加新小生意 state
+  const [newBizName, setNewBizName] = useState('')
+  const [newBizEmoji, setNewBizEmoji] = useState('📦')
+  const [editingBizId, setEditingBizId] = useState<string | null>(null)
+  const [editingBizName, setEditingBizName] = useState('')
+  const [editingBizEmoji, setEditingBizEmoji] = useState('')
+
+  // 重置記帳表單
   const resetForm = () => {
     setFormDate(new Date().toISOString().split('T')[0])
     setFormType('incoming')
     setFormAmount('')
     setFormCurrency('USD')
-    setFormBusiness('包裝買賣 📦')
-    setFormLabel('商品銷售 📦')
+    if (businesses.length > 0) {
+      setFormBusiness(businesses[0].name)
+      const cats = getCategoriesForBusiness(businesses[0].name, 'incoming')
+      setFormLabel(cats[0] || '商品銷售 📦')
+    } else {
+      setFormBusiness('')
+      setFormLabel('')
+    }
     setFormDescription('')
     setFormPaymentMethod('銀行轉帳')
     setEditingTransactionId(null)
+    setShowAddCategoryInline(false)
+    setNewCategoryName('')
   }
 
-  // 根據收支流向自動對齊類別
+  // 根據小生意列表，確保選中正確的預設生意與類別
   useEffect(() => {
-    if (formType === 'incoming') {
-      if (formBusiness === '包裝買賣 📦') {
-        setFormLabel('商品銷售 📦')
-      } else {
-        setFormLabel('收租金 💰')
-      }
-    } else {
-      if (formBusiness === '包裝買賣 📦') {
-        setFormLabel('進貨成本 📦')
-      } else if (formBusiness === '房屋出租 🏠' || formBusiness === '車位出租 🅿️') {
-        setFormLabel('水電開銷 ⚡')
-      } else {
-        setFormLabel('日常維修 🛠️')
+    if (businesses.length > 0 && (!formBusiness || !businesses.some(b => b.name === formBusiness))) {
+      setFormBusiness(businesses[0].name)
+    }
+  }, [businesses, formBusiness])
+
+  // 根據收支與生意自動對齊預設項目
+  useEffect(() => {
+    if (formBusiness) {
+      const cats = getCategoriesForBusiness(formBusiness, formType)
+      if (cats.length > 0 && !cats.includes(formLabel)) {
+        setFormLabel(cats[0])
       }
     }
-  }, [formType, formBusiness])
+  }, [formType, formBusiness, customCategories])
 
   // 實時換算基準美金
   const convertedPreviewAmount = useMemo(() => {
@@ -357,7 +510,7 @@ const BookkeepingPage: React.FC = () => {
     return amt / rate
   }, [formAmount, formCurrency, customRates])
 
-  // 實時跨幣別換算對照組 (讓10歲小朋友看到神奇的魔術換算)
+  // 實時跨幣別換算對照組
   const liveConversions = useMemo(() => {
     if (!formAmount || isNaN(Number(formAmount))) return null
     const amt = Number(formAmount)
@@ -389,7 +542,159 @@ const BookkeepingPage: React.FC = () => {
     }
   }, [formAmount, formCurrency, customRates])
 
-  // 保存交易
+  // 新增/修改小生意項目
+  const handleSaveBusiness = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!newBizName.trim()) {
+      toast.error('請輸入小生意名稱喔！')
+      return
+    }
+    const emoji = newBizEmoji.trim() || '📦'
+    const nameWithEmoji = `${newBizName.trim()} ${emoji}`.trim()
+
+    if (businesses.some(b => b.name === nameWithEmoji)) {
+      toast.error('這個小生意名字已經存在囉！')
+      return
+    }
+
+    const newB: BusinessItem = {
+      id: `b-${Date.now()}`,
+      name: nameWithEmoji,
+      emoji: emoji,
+      color_idx: businesses.length
+    }
+
+    const updated = [...businesses, newB]
+    setBusinesses(updated)
+    localStorage.setItem('kid_bookkeeping_businesses', JSON.stringify(updated))
+
+    if (dbAvailable) {
+      supabase
+        .from('kid_bookkeeping_businesses')
+        .insert({
+          name: newB.name,
+          emoji: newB.emoji,
+          color_idx: newB.color_idx
+        })
+        .then(({ error }) => {
+          if (error) console.error('Failed to sync business addition to Supabase:', error)
+        })
+    }
+
+    setNewBizName('')
+    setNewBizEmoji('📦')
+    toast.success('🎉 成功打造了一個全新小生意項目！')
+  }
+
+  // 編輯修改小生意
+  const handleUpdateBusinessName = async (id: string, oldName: string) => {
+    if (!editingBizName.trim()) return
+    const emoji = editingBizEmoji.trim() || '📦'
+    const cleanNewName = `${editingBizName.trim()} ${emoji}`.trim()
+
+    if (businesses.some(b => b.name === cleanNewName && b.id !== id)) {
+      toast.error('小生意名稱重複囉！')
+      return
+    }
+
+    // 1. 更新生意狀態
+    const updatedBiz = businesses.map(b => b.id === id ? { ...b, name: cleanNewName, emoji: emoji } : b)
+    setBusinesses(updatedBiz)
+    localStorage.setItem('kid_bookkeeping_businesses', JSON.stringify(updatedBiz))
+
+    // 2. 更新交易中對應的生意名稱
+    const updatedTx = transactions.map(t => t.business === oldName ? { ...t, business: cleanNewName } : t)
+    setTransactions(updatedTx)
+    localStorage.setItem('kid_bookkeeping_transactions', JSON.stringify(updatedTx))
+
+    // 3. 更新類別中對應的生意名稱
+    const updatedCats = customCategories.map(c => c.business_name === oldName ? { ...c, business_name: cleanNewName } : c)
+    setCustomCategories(updatedCats)
+    localStorage.setItem('kid_bookkeeping_categories', JSON.stringify(updatedCats))
+
+    if (dbAvailable) {
+      // 雲端同步更新 (Supabase Cascade 手動對齊)
+      await supabase.from('kid_bookkeeping_businesses').update({ name: cleanNewName, emoji: emoji }).eq('name', oldName)
+      await supabase.from('kid_bookkeeping_transactions').update({ business: cleanNewName }).eq('business', oldName)
+      await supabase.from('kid_bookkeeping_categories').update({ business_name: cleanNewName }).eq('business_name', oldName)
+    }
+
+    setEditingBizId(null)
+    setEditingBizName('')
+    setEditingBizEmoji('')
+    toast.success('小生意與所有歷史日記已同步修改完畢！✨')
+  }
+
+  // 刪除小生意項目
+  const handleDeleteBusiness = async (id: string, name: string) => {
+    if (window.confirm(`確定要擦掉「${name}」這個小生意嗎？所有這個生意底下的記帳日記與項目也會一併消失喔！`)) {
+      const updatedBiz = businesses.filter(b => b.id !== id)
+      setBusinesses(updatedBiz)
+      localStorage.setItem('kid_bookkeeping_businesses', JSON.stringify(updatedBiz))
+
+      const updatedTx = transactions.filter(t => t.business !== name)
+      setTransactions(updatedTx)
+      localStorage.setItem('kid_bookkeeping_transactions', JSON.stringify(updatedTx))
+
+      const updatedCats = customCategories.filter(c => c.business_name !== name)
+      setCustomCategories(updatedCats)
+      localStorage.setItem('kid_bookkeeping_categories', JSON.stringify(updatedCats))
+
+      if (dbAvailable) {
+        await supabase.from('kid_bookkeeping_businesses').delete().eq('name', name)
+        await supabase.from('kid_bookkeeping_transactions').delete().eq('business', name)
+        await supabase.from('kid_bookkeeping_categories').delete().eq('business_name', name)
+      }
+
+      toast.success('小生意以及關聯的所有日記都擦乾淨囉！🧹')
+    }
+  }
+
+  // 新增收支項目 Preset
+  const handleAddCustomCategory = async () => {
+    if (!newCategoryName.trim()) {
+      toast.error('請輸入項目類別名稱喔！')
+      return
+    }
+
+    const catName = newCategoryName.trim()
+    const existing = getCategoriesForBusiness(formBusiness, formType)
+    if (existing.includes(catName)) {
+      toast.error('這個項目類別已經存在囉！')
+      return
+    }
+
+    const newCat: CategoryItem = {
+      id: `c-${Date.now()}`,
+      business_name: formBusiness,
+      name: catName,
+      type: formType
+    }
+
+    const updated = [...customCategories, newCat]
+    setCustomCategories(updated)
+    localStorage.setItem('kid_bookkeeping_categories', JSON.stringify(updated))
+
+    if (dbAvailable) {
+      supabase
+        .from('kid_bookkeeping_categories')
+        .insert({
+          business_name: newCat.business_name,
+          name: newCat.name,
+          type: newCat.type
+        })
+        .then(({ error }) => {
+          if (error) console.error('Failed to sync category addition to Supabase:', error)
+        })
+    }
+
+    setFormLabel(catName)
+    setShowAddCategoryInline(false)
+    setNewCategoryName('')
+    toast.success('🎉 新增收支類別預設項目成功！')
+  }
+
+  // 保存日記交易 (新增或編輯)
   const handleSaveTransaction = (e: React.FormEvent) => {
     e.preventDefault()
     if (!formAmount || isNaN(Number(formAmount)) || Number(formAmount) <= 0) {
@@ -426,6 +731,29 @@ const BookkeepingPage: React.FC = () => {
       toast.success('記下一筆新收支囉！💰')
     }
 
+    if (dbAvailable) {
+      supabase
+        .from('kid_bookkeeping_transactions')
+        .upsert({
+          id: tData.id,
+          date: tData.date,
+          type: tData.type,
+          amount: tData.amount,
+          original_amount: tData.originalAmount,
+          currency: tData.currency,
+          business: tData.business,
+          label: tData.label,
+          description: tData.description,
+          payment_method: tData.paymentMethod
+        })
+        .then(({ error }) => {
+          if (error) {
+            console.error('Failed to save transaction to Supabase:', error)
+            toast.error('雲端儲存失敗，暫存於本機。')
+          }
+        })
+    }
+
     setShowAddForm(false)
     setShowCalendarAddForm(false)
     resetForm()
@@ -447,10 +775,20 @@ const BookkeepingPage: React.FC = () => {
 
   // 刪除交易
   const handleDeleteTransaction = (id: string) => {
-    if (window.confirm('確定要擦掉這一筆記賬小紀錄嗎？擦掉就找不回來囉！')) {
+    if (window.confirm('確定要擦掉這一筆記帳小紀錄嗎？擦掉就找不回來囉！')) {
       setTransactions(prev => prev.filter(t => t.id !== id))
       toast.success('已經幫你把小筆記擦乾淨囉！🧹')
       setSelectedDayDetail(null)
+
+      if (dbAvailable) {
+        supabase
+          .from('kid_bookkeeping_transactions')
+          .delete()
+          .eq('id', id)
+          .then(({ error }) => {
+            if (error) console.error('Failed to delete transaction from Supabase:', error)
+          })
+      }
     }
   }
 
@@ -525,14 +863,12 @@ const BookkeepingPage: React.FC = () => {
     }
   }, [timeframeFilteredTransactions])
 
-  // 各生意的收入與支出統計
+  // 各生意的收入與支出統計 (動態化)
   const businessStats = useMemo(() => {
-    const bMap: Record<BusinessType, { earned: number; spent: number; profit: number }> = {
-      '包裝買賣 📦': { earned: 0, spent: 0, profit: 0 },
-      '車位出租 🅿️': { earned: 0, spent: 0, profit: 0 },
-      '汽車出租 🚗': { earned: 0, spent: 0, profit: 0 },
-      '房屋出租 🏠': { earned: 0, spent: 0, profit: 0 }
-    }
+    const bMap: Record<string, { earned: number; spent: number; profit: number }> = {}
+    businesses.forEach(b => {
+      bMap[b.name] = { earned: 0, spent: 0, profit: 0 }
+    })
 
     timeframeFilteredTransactions.forEach(t => {
       if (bMap[t.business]) {
@@ -546,7 +882,7 @@ const BookkeepingPage: React.FC = () => {
     })
 
     return bMap
-  }, [timeframeFilteredTransactions])
+  }, [timeframeFilteredTransactions, businesses])
 
   // 篩選流水賬
   const filteredTransactions = useMemo(() => {
@@ -698,7 +1034,14 @@ const BookkeepingPage: React.FC = () => {
             </div>
 
             {/* 快速按鈕區 */}
-            <div className="flex items-center gap-3 self-end sm:self-center">
+            <div className="flex flex-wrap items-center gap-3 self-end sm:self-center">
+              <button
+                onClick={() => setShowBusinessManager(true)}
+                className="bg-[#FCFAF5] hover:bg-[#F5EFE0] text-[#8C6D3B] text-xs font-black px-4 py-3 rounded-2xl border-2 border-[#EADFCD] transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
+              >
+                <Settings className="w-3.5 h-3.5 stroke-[2.5]" />
+                管理小生意
+              </button>
               <button
                 onClick={() => setShowRateSettings(true)}
                 className="bg-[#FCFAF5] hover:bg-[#F5EFE0] text-[#8C6D3B] text-xs font-black px-4 py-3 rounded-2xl border-2 border-[#EADFCD] transition-all flex items-center gap-1.5 shadow-sm active:scale-95"
@@ -738,27 +1081,52 @@ const BookkeepingPage: React.FC = () => {
               <span>1 美金 (USD) = <strong>{customRates.RMB} 人民幣 (RMB)</strong></span>
             </div>
 
-            {/* 10歲小老闆時光範圍選擇器 */}
-            <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl border-2 border-[#EFE9DB] shadow-sm select-none">
-              <span className="text-base">🕒</span>
-              <span className="text-xs font-black text-[#4A3B32] whitespace-nowrap">選擇時光：</span>
-              <select
-                value={overviewTimeframe}
-                onChange={(e) => setOverviewTimeframe(e.target.value as TimeframeType)}
-                className="bg-transparent text-xs text-[#8C6D3B] font-black focus:outline-none cursor-pointer border-b-2 border-dashed border-[#F5B859] hover:text-[#2E2520] transition-colors"
-              >
-                <option value="all">📜 歷史總計 (所有記賬紀錄)</option>
-                <option value="1d">📅 最近一日 (今天/昨日)</option>
-                <option value="1w">📅 最近一個星期 (過去7天)</option>
-                <option value="1m">📅 最近一個月 (過去30天)</option>
-                <option value="3m">📅 最近三個月</option>
-                <option value="6m">📅 最近半年</option>
-                <option value="1y">📅 最近一年 (過去365天)</option>
-                <option value="2y">📅 最近兩年</option>
-                <option value="3y">📅 最近三年</option>
-                <option value="5y">📅 最近五年</option>
-                <option value="10y">📅 最近十年</option>
-              </select>
+            {/* 10歲小老闆時光範圍選擇器 & 幣別切換器 */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-2xl border-2 border-[#EFE9DB] shadow-sm select-none">
+                <span className="text-base">🕒</span>
+                <span className="text-xs font-black text-[#4A3B32] whitespace-nowrap">選擇時光：</span>
+                <select
+                  value={overviewTimeframe}
+                  onChange={(e) => setOverviewTimeframe(e.target.value as TimeframeType)}
+                  className="bg-transparent text-xs text-[#8C6D3B] font-black focus:outline-none cursor-pointer border-b-2 border-dashed border-[#F5B859] hover:text-[#2E2520] transition-colors"
+                >
+                  <option value="all">📜 歷史總計 (所有記賬紀錄)</option>
+                  <option value="1d">📅 最近一日 (今天/昨日)</option>
+                  <option value="1w">📅 最近一個星期 (過去7天)</option>
+                  <option value="1m">📅 最近一個月 (過去30天)</option>
+                  <option value="3m">📅 最近三個月</option>
+                  <option value="6m">📅 最近半年</option>
+                  <option value="1y">📅 最近一年 (過去365天)</option>
+                  <option value="2y">📅 最近兩年</option>
+                  <option value="3y">📅 最近三年</option>
+                  <option value="5y">📅 最近五年</option>
+                  <option value="10y">📅 最近十年</option>
+                </select>
+              </div>
+
+              <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-2xl border-2 border-[#EFE9DB] shadow-sm select-none">
+                <span className="text-base">🪙</span>
+                <span className="text-xs font-black text-[#4A3B32] whitespace-nowrap">顯示幣別：</span>
+                <div className="flex bg-[#FCFAF5] p-1 rounded-xl border border-[#EFE9DB]">
+                  {(['USD', 'HKD', 'RMB'] as CurrencyType[]).map((curr) => (
+                    <button
+                      key={curr}
+                      onClick={() => {
+                        setDisplayCurrency(curr)
+                        toast.success(`已將存錢罐切換至 ${curr} 顯示 ✨`)
+                      }}
+                      className={`px-3 py-1 rounded-lg text-xs font-black transition-all ${
+                        displayCurrency === curr
+                          ? 'bg-[#F5B859] text-[#2E2520] shadow-sm'
+                          : 'text-[#8E7E73] hover:text-[#4A3B32]'
+                      }`}
+                    >
+                      {curr}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -773,8 +1141,8 @@ const BookkeepingPage: React.FC = () => {
                   <span className="text-2xl">💰</span>
                 </div>
                 <p className="text-3xl font-black text-[#2E2520] mt-3 font-mono">
-                  ${stats.pocketMoney.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  <span className="text-xs text-[#388E3C] font-bold ml-1.5">USD</span>
+                  {CURRENCY_SYMBOLS[displayCurrency]}{(stats.pocketMoney * customRates[displayCurrency]).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  <span className="text-xs text-[#388E3C] font-bold ml-1.5">{displayCurrency}</span>
                 </p>
               </div>
               <p className="text-[11px] text-[#8E7E73] font-bold mt-3 bg-[#E8F5E9] px-2.5 py-1.5 rounded-xl border border-[#C8E6C9]">
@@ -790,8 +1158,8 @@ const BookkeepingPage: React.FC = () => {
                   <span className="text-2xl">📈</span>
                 </div>
                 <p className="text-3xl font-black text-[#F57C00] mt-3 font-mono">
-                  +${stats.earned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  <span className="text-xs text-[#F57C00] font-bold ml-1.5">USD</span>
+                  +{CURRENCY_SYMBOLS[displayCurrency]}{(stats.earned * customRates[displayCurrency]).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  <span className="text-xs text-[#F57C00] font-bold ml-1.5">{displayCurrency}</span>
                 </p>
               </div>
               <p className="text-[11px] text-[#8E7E73] font-bold mt-3 bg-[#FFF3E0] px-2.5 py-1.5 rounded-xl border border-[#FFE0B2]">
@@ -807,8 +1175,8 @@ const BookkeepingPage: React.FC = () => {
                   <span className="text-2xl">📉</span>
                 </div>
                 <p className="text-3xl font-black text-[#CE8078] mt-3 font-mono">
-                  -${stats.spent.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  <span className="text-xs text-[#CE8078] font-bold ml-1.5">USD</span>
+                  -{CURRENCY_SYMBOLS[displayCurrency]}{(stats.spent * customRates[displayCurrency]).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  <span className="text-xs text-[#CE8078] font-bold ml-1.5">{displayCurrency}</span>
                 </p>
               </div>
               <p className="text-[11px] text-[#8E7E73] font-bold mt-3 bg-[#FFF0F0] px-2.5 py-1.5 rounded-xl border border-[#FFE0E0]">
@@ -928,39 +1296,41 @@ const BookkeepingPage: React.FC = () => {
 
             {/* 4個小扑滿 (奶油風格) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {businessesList.map(b => {
-                const bStat = businessStats[b] || { earned: 0, spent: 0, profit: 0 }
+              {businesses.map(b => {
+                const bStat = businessStats[b.name] || { earned: 0, spent: 0, profit: 0 }
                 const isProfit = bStat.profit >= 0
-                const colors = BUSINESS_Pill_STYLES[b]
+                const colors = getBusinessStyleByName(b.name)
+                const rate = customRates[displayCurrency] || 1.0
+                const sym = CURRENCY_SYMBOLS[displayCurrency]
 
                 return (
                   <div
-                    key={b}
+                    key={b.id}
                     className="bg-white border-2 border-[#EFE9DB] rounded-3xl p-5 hover:border-[#F5B859]/60 shadow-sm transition-all flex flex-col justify-between hover:scale-[1.01]"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
                         <span className={`text-xs font-black px-3 py-1 rounded-xl border ${colors.bg} ${colors.text} ${colors.border}`}>
-                          小生意項目
+                          小生意項目 {b.emoji}
                         </span>
                         <span className="text-xl">💰</span>
                       </div>
-                      <h4 className="text-lg font-black text-[#2E2520] tracking-wide">{b}</h4>
+                      <h4 className="text-lg font-black text-[#2E2520] tracking-wide">{b.name}</h4>
                     </div>
 
                     <div className="mt-6 space-y-2.5 font-mono text-xs border-t border-[#FAF6EE] pt-4">
                       <div className="flex justify-between text-[#8E7E73] font-bold">
                         <span>賺到收支：</span>
-                        <span className="text-[#388E3C] font-black">+${bStat.earned.toFixed(0)}</span>
+                        <span className="text-[#388E3C] font-black">+{sym}{(bStat.earned * rate).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="flex justify-between text-[#8E7E73] font-bold">
                         <span>花掉成本：</span>
-                        <span className="text-[#CE8078] font-black">-${bStat.spent.toFixed(0)}</span>
+                        <span className="text-[#CE8078] font-black">-{sym}{(bStat.spent * rate).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                       </div>
                       <div className="flex justify-between pt-2.5 border-t-2 border-[#EFE9DB] text-sm">
                         <span className="font-bold text-[#4A3B32] font-sans">我的利潤：</span>
                         <span className={`font-black ${isProfit ? 'text-[#388E3C]' : 'text-[#CE8078]'}`}>
-                          {isProfit ? '+' : '-'}${Math.abs(bStat.profit).toFixed(0)}
+                          {isProfit ? '+' : '-'}{sym}{Math.abs(bStat.profit * rate).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </span>
                       </div>
                     </div>
@@ -1025,8 +1395,8 @@ const BookkeepingPage: React.FC = () => {
                     className="w-full bg-white border-2 border-[#EFE9DB] focus:border-[#F5B859] rounded-2xl px-4 py-2.5 text-sm text-[#8C6D3B] focus:outline-none transition-all font-black shadow-sm"
                   >
                     <option value="all">所有生意項目</option>
-                    {businessesList.map(b => (
-                      <option key={b} value={b}>{b}</option>
+                    {businesses.map(b => (
+                      <option key={b.id} value={b.name}>{b.name}</option>
                     ))}
                   </select>
                 </div>
@@ -1091,7 +1461,7 @@ const BookkeepingPage: React.FC = () => {
                   filteredTransactions.map(t => {
                     const isIncome = t.type === 'incoming'
                     const showConversion = t.currency !== 'USD'
-                    const colors = BUSINESS_Pill_STYLES[t.business]
+                    const colors = getBusinessStyleByName(t.business)
 
                     return (
                       <div
@@ -1259,9 +1629,9 @@ const BookkeepingPage: React.FC = () => {
 
             {/* 日曆單日詳細彈窗 */}
             {selectedDayDetail && (
-              <div className="fixed inset-0 bg-[#4A3B32]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
-                  <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD]">
+              <div className="fixed inset-0 bg-[#4A3B32]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+                <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150 max-h-[90vh] flex flex-col">
+                  <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD] shrink-0">
                     <div>
                       <h3 className="text-md sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
                         <span>📅</span> {selectedDayDetail.dayString} 記賬大詳情
@@ -1275,7 +1645,7 @@ const BookkeepingPage: React.FC = () => {
                     </button>
                   </div>
 
-                  <div className="p-5 max-h-[300px] overflow-y-auto space-y-3 bg-white">
+                  <div className="p-5 overflow-y-auto space-y-3 bg-white flex-1">
                     {selectedDayDetail.items.length === 0 ? (
                       <div className="py-12 text-center text-[#8E7E73] font-bold">
                         <p className="text-sm">這一天還空蕩蕩的喔，沒有任何小筆記。</p>
@@ -1283,7 +1653,7 @@ const BookkeepingPage: React.FC = () => {
                     ) : (
                       selectedDayDetail.items.map(t => {
                         const isIncome = t.type === 'incoming'
-                        const colors = BUSINESS_Pill_STYLES[t.business]
+                        const colors = getBusinessStyleByName(t.business)
 
                         return (
                           <div key={t.id} className="p-3.5 bg-[#FCFAF5] rounded-2xl border-2 border-[#EFE9DB] flex items-center justify-between gap-3">
@@ -1314,7 +1684,7 @@ const BookkeepingPage: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="bg-[#FCFAF5] px-5 py-4 flex justify-between items-center border-t-2 border-[#EFE9DB]">
+                  <div className="bg-[#FCFAF5] px-5 py-4 flex justify-between items-center border-t-2 border-[#EFE9DB] shrink-0">
                     <button
                       onClick={() => {
                         setSelectedDayDetail(null)
@@ -1355,13 +1725,13 @@ const BookkeepingPage: React.FC = () => {
 
               {/* 報表內容 */}
               <div className="space-y-4">
-                {businessesList.map(b => {
-                  const bStat = businessStats[b] || { earned: 0, spent: 0, profit: 0 }
+                {businesses.map(b => {
+                  const bStat = businessStats[b.name] || { earned: 0, spent: 0, profit: 0 }
                   const isProfit = bStat.profit >= 0
                   return (
-                    <div key={b} className="p-4.5 bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div key={b.id} className="p-4.5 bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <div>
-                        <h4 className="text-base sm:text-lg font-black text-[#2E2520]">{b}</h4>
+                        <h4 className="text-base sm:text-lg font-black text-[#2E2520]">{b.name}</h4>
                         <p className="text-xs text-[#8E7E73] font-bold mt-1">
                           本項生意的全部收支紀錄加總。
                         </p>
@@ -1408,10 +1778,10 @@ const BookkeepingPage: React.FC = () => {
 
       {/* ----------------- MODAL: 調整匯率設定 ----------------- */}
       {showRateSettings && (
-        <div className="fixed inset-0 bg-[#4A3B32]/45 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-md rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
+        <div className="fixed inset-0 bg-[#4A3B32]/45 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-md rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150 max-h-[90vh] flex flex-col">
             
-            <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD]">
+            <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD] shrink-0">
               <h3 className="text-sm sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
                 <RefreshCw className="w-4.5 h-4.5 text-[#8C6D3B] stroke-[2.5]" />
                 調整小老闆匯率計算機
@@ -1424,7 +1794,7 @@ const BookkeepingPage: React.FC = () => {
               </button>
             </div>
 
-            <div className="p-5 space-y-4 text-xs bg-white">
+            <div className="p-5 space-y-4 text-xs bg-white overflow-y-auto flex-1">
               <p className="text-[#8E7E73] font-bold leading-relaxed">
                 在記賬時，如果小老闆輸入了港幣 (HKD) 或人民幣 (RMB)，系統會自動以這個匯率基準，幫你變魔法換算成美金 (USD) 存進你的大撲滿喔！
               </p>
@@ -1505,10 +1875,10 @@ const BookkeepingPage: React.FC = () => {
 
       {/* ----------------- 彈窗: 記一筆 / 編輯收支交易 ----------------- */}
       {(showAddForm || showCalendarAddForm) && (
-        <div className="fixed inset-0 bg-[#4A3B32]/45 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-md rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150">
+        <div className="fixed inset-0 bg-[#4A3B32]/45 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-md rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150 max-h-[90vh] flex flex-col">
             
-            <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD]">
+            <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD] shrink-0">
               <h3 className="text-md sm:text-base font-black text-[#2E2520]">
                 {editingTransactionId ? '✏️ 修改這筆小日記' : '💰 記一筆收支日記'}
               </h3>
@@ -1524,7 +1894,7 @@ const BookkeepingPage: React.FC = () => {
               </button>
             </div>
 
-            <form onSubmit={handleSaveTransaction} className="p-5 space-y-4 text-xs bg-white">
+            <form onSubmit={handleSaveTransaction} className="p-5 space-y-4 text-xs bg-white overflow-y-auto flex-1">
               
               {/* 日期 */}
               <div>
@@ -1567,20 +1937,20 @@ const BookkeepingPage: React.FC = () => {
               <div>
                 <label className="block text-xs font-black text-[#4A3B32] mb-1.5">是屬於哪一個小生意的？</label>
                 <div className="grid grid-cols-2 gap-2">
-                  {businessesList.map(b => {
-                    const isSelected = formBusiness === b
+                  {businesses.map(b => {
+                    const isSelected = formBusiness === b.name
                     return (
                       <button
-                        key={b}
+                        key={b.id}
                         type="button"
-                        onClick={() => setFormBusiness(b)}
+                        onClick={() => setFormBusiness(b.name)}
                         className={`py-2.5 rounded-xl text-xs font-black border-2 transition-all active:scale-95 ${
                           isSelected
                             ? 'bg-[#F5B859] border-[#DE9B3E] text-[#2E2520] shadow-sm'
                             : 'bg-white border-[#EFE9DB] text-[#8E7E73] hover:border-[#EADFCD]'
                         }`}
                       >
-                        {b}
+                        {b.name}
                       </button>
                     )
                   })}
@@ -1679,27 +2049,45 @@ const BookkeepingPage: React.FC = () => {
 
               {/* 收支類別 */}
               <div>
-                <label className="block text-xs font-black text-[#4A3B32] mb-1.5">這是屬於哪一項收支呢？</label>
-                <select
-                  value={formLabel}
-                  onChange={(e) => setFormLabel(e.target.value as CategoryLabelType)}
-                  className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2.5 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold"
-                >
-                  {formType === 'incoming' ? (
-                    <>
-                      <option value="收租金 💰">收租金 💰</option>
-                      <option value="商品銷售 📦">商品銷售 📦</option>
-                      <option value="其他收入 💵">其他收入 💵</option>
-                    </>
-                  ) : (
-                    <>
-                      <option value="日常維修 🛠️">日常維修 🛠️</option>
-                      <option value="水電開銷 ⚡">水電開銷 ⚡</option>
-                      <option value="進貨成本 📦">進貨成本 📦</option>
-                      <option value="其他支出 💸">其他支出 💸</option>
-                    </>
-                  )}
-                </select>
+                <div className="flex justify-between items-center mb-1.5">
+                  <label className="text-xs font-black text-[#4A3B32]">這是屬於哪一項收支呢？</label>
+                  <button
+                    type="button"
+                    onClick={() => setShowAddCategoryInline(!showAddCategoryInline)}
+                    className="text-[10px] text-[#8C6D3B] font-black hover:text-[#2E2520] underline transition-colors"
+                  >
+                    {showAddCategoryInline ? '📖 選擇現有項目' : '➕ 新增收支項目'}
+                  </button>
+                </div>
+
+                {showAddCategoryInline ? (
+                  <div className="flex gap-2 bg-[#FCFAF5] p-2.5 rounded-2xl border-2 border-[#EADFCD] animate-in fade-in slide-in-from-top-1 duration-150">
+                    <input
+                      type="text"
+                      placeholder="例如: 買包裝紙 📄"
+                      value={newCategoryName}
+                      onChange={(e) => setNewCategoryName(e.target.value)}
+                      className="flex-1 bg-white border border-[#EFE9DB] rounded-xl px-2.5 py-1 text-xs text-[#4A3B32] focus:outline-none"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleAddCustomCategory}
+                      className="bg-[#A3B899] hover:bg-[#8EAC90] text-[#2E2520] font-black px-3 py-1 rounded-xl text-[10px]"
+                    >
+                      新增項目
+                    </button>
+                  </div>
+                ) : (
+                  <select
+                    value={formLabel}
+                    onChange={(e) => setFormLabel(e.target.value as string)}
+                    className="w-full bg-[#FCFAF5] border-2 border-[#EFE9DB] rounded-2xl px-3 py-2.5 text-sm text-[#4A3B32] focus:outline-none focus:border-[#F5B859] font-bold"
+                  >
+                    {getCategoriesForBusiness(formBusiness, formType).map(cat => (
+                      <option key={cat} value={cat}>{cat}</option>
+                    ))}
+                  </select>
+                )}
               </div>
 
               {/* 描述/備註 */}
@@ -1751,6 +2139,174 @@ const BookkeepingPage: React.FC = () => {
               </div>
 
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* ----------------- MODAL: 管理小生意項目 (動態 CRUD) ----------------- */}
+      {showBusinessManager && (
+        <div className="fixed inset-0 bg-[#4A3B32]/45 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#FCF9F2] border-2 border-[#EADFCD] w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-150 max-h-[90vh] flex flex-col">
+            
+            <div className="bg-[#FAF6EE] px-5 py-4 flex items-center justify-between border-b-2 border-[#EADFCD] shrink-0">
+              <h3 className="text-sm sm:text-base font-black text-[#2E2520] flex items-center gap-1.5">
+                <Settings className="w-4.5 h-4.5 text-[#8C6D3B] stroke-[2.5]" />
+                管理我的小生意項目
+              </h3>
+              <button
+                onClick={() => {
+                  setShowBusinessManager(false)
+                  setEditingBizId(null)
+                }}
+                className="p-1 bg-white hover:bg-[#F3ECE0] rounded-xl border border-[#EADFCD] text-[#8E7E73]"
+              >
+                <X className="w-4 h-4 stroke-[2.5]" />
+              </button>
+            </div>
+
+            <div className="p-5 space-y-5 text-xs bg-white overflow-y-auto flex-1">
+              
+              {/* 新增小生意表單 */}
+              <form onSubmit={handleSaveBusiness} className="bg-[#FCFAF5] p-4 rounded-2xl border-2 border-[#EFE9DB] space-y-3 shrink-0">
+                <p className="font-black text-[#8C6D3B]">➕ 開啟一個全新小生意</p>
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="col-span-2">
+                    <label className="block text-[10px] text-[#8E7E73] font-bold mb-1">生意名稱 (例如: 烘焙點心)</label>
+                    <input
+                      type="text"
+                      placeholder="烘焙點心"
+                      value={newBizName}
+                      onChange={(e) => setNewBizName(e.target.value)}
+                      className="w-full bg-white border border-[#EFE9DB] rounded-xl px-2.5 py-1.5 text-xs text-[#4A3B32] focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-[#8E7E73] font-bold mb-1">圖圖標 Emoji</label>
+                    <select
+                      value={newBizEmoji}
+                      onChange={(e) => setNewBizEmoji(e.target.value)}
+                      className="w-full bg-white border border-[#EFE9DB] rounded-xl px-2 py-1 text-xs text-[#4A3B32] focus:outline-none cursor-pointer"
+                    >
+                      <option value="📦">📦 包裝</option>
+                      <option value="🅿️">🅿️ 車位</option>
+                      <option value="🚗">🚗 汽車</option>
+                      <option value="🏠">🏠 房屋</option>
+                      <option value="🍰">🍰 甜點</option>
+                      <option value="🧸">🧸 玩具</option>
+                      <option value="🎨">🎨 畫作</option>
+                      <option value="🚲">🚲 單車</option>
+                      <option value="🥤">🥤 飲料</option>
+                      <option value="💻">💻 電腦</option>
+                    </select>
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#F5B859] hover:bg-[#E5A749] text-[#2E2520] font-black py-2 rounded-xl text-xs active:scale-95 transition-all shadow-sm border border-[#DE9B3E]"
+                >
+                  確認打造小生意 🚀
+                </button>
+              </form>
+
+              {/* 現有小生意列表 */}
+              <div className="space-y-2.5">
+                <p className="font-black text-[#4A3B32]">💼 正在經營中的小生意：</p>
+                <div className="space-y-2">
+                  {businesses.map((b) => {
+                    const isEditing = editingBizId === b.id
+                    const colors = getBusinessStyleByName(b.name)
+                    return (
+                      <div
+                        key={b.id}
+                        className="flex items-center justify-between p-3 bg-[#FCFAF5] rounded-xl border border-[#EFE9DB] hover:border-[#F5B859]/50 transition-all gap-3"
+                      >
+                        {isEditing ? (
+                          <div className="flex-1 flex gap-2 items-center">
+                            <input
+                              type="text"
+                              value={editingBizName}
+                              onChange={(e) => setEditingBizName(e.target.value)}
+                              className="flex-1 bg-white border border-[#EFE9DB] rounded-lg px-2 py-1 text-xs"
+                            />
+                            <select
+                              value={editingBizEmoji}
+                              onChange={(e) => setEditingBizEmoji(e.target.value)}
+                              className="bg-white border border-[#EFE9DB] rounded-lg px-1.5 py-1 text-xs"
+                            >
+                              <option value="📦">📦</option>
+                              <option value="🅿️">🅿️</option>
+                              <option value="🚗">🚗</option>
+                              <option value="🏠">🏠</option>
+                              <option value="🍰">🍰</option>
+                              <option value="🧸">🧸</option>
+                              <option value="🎨">🎨</option>
+                              <option value="🚲">🚲</option>
+                              <option value="🥤">🥤</option>
+                              <option value="💻">💻</option>
+                            </select>
+                            <button
+                              onClick={() => handleUpdateBusinessName(b.id, b.name)}
+                              className="p-1 bg-[#A3B899] text-[#2E2520] rounded hover:bg-[#8EAC90]"
+                            >
+                              <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                            </button>
+                            <button
+                              onClick={() => setEditingBizId(null)}
+                              className="p-1 bg-white text-[#CE8078] border border-[#EFE9DB] rounded"
+                            >
+                              <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                            </button>
+                          </div>
+                        ) : (
+                          <>
+                            <div className="flex items-center gap-2">
+                              <span className={`w-8 h-8 rounded-lg flex items-center justify-center border font-bold text-base ${colors.bg} ${colors.text} ${colors.border}`}>
+                                {b.emoji}
+                              </span>
+                              <span className="font-black text-sm text-[#2E2520]">{b.name}</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <button
+                                onClick={() => {
+                                  const nameParts = b.name.split(' ')
+                                  const baseName = nameParts.slice(0, -1).join(' ') || b.name
+                                  setEditingBizId(b.id)
+                                  setEditingBizName(baseName)
+                                  setEditingBizEmoji(b.emoji)
+                                }}
+                                className="p-1.5 bg-white hover:bg-[#F3ECE0] rounded-lg border border-[#EFE9DB] text-[#8E7E73]"
+                              >
+                                <Edit className="w-3.5 h-3.5 stroke-[2]" />
+                              </button>
+                              <button
+                                onClick={() => handleDeleteBusiness(b.id, b.name)}
+                                className="p-1.5 bg-white hover:bg-[#FFF0F0] rounded-lg border border-[#FFE0E0] text-[#CE8078]"
+                              >
+                                <Trash2 className="w-3.5 h-3.5 stroke-[2]" />
+                              </button>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
+            </div>
+
+            <div className="bg-[#FCFAF5] px-5 py-3 border-t-2 border-[#EFE9DB] text-right shrink-0">
+              <button
+                onClick={() => {
+                  setShowBusinessManager(false)
+                  setEditingBizId(null)
+                }}
+                className="text-xs text-[#8E7E73] hover:text-[#4A3B32] font-black py-1"
+              >
+                關閉視窗
+              </button>
+            </div>
+
           </div>
         </div>
       )}

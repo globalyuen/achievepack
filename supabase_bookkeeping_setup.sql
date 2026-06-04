@@ -43,6 +43,11 @@ CREATE TABLE IF NOT EXISTS public.kid_bookkeeping_transactions (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- Disable Row Level Security (RLS) explicitly to allow clients with the anon key to read and write records.
+ALTER TABLE public.kid_bookkeeping_businesses DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.kid_bookkeeping_categories DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.kid_bookkeeping_transactions DISABLE ROW LEVEL SECURITY;
+
 -- Ensure all tables are exposed to the API (Fix for Supabase #45329)
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.kid_bookkeeping_businesses TO anon, authenticated, service_role;
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.kid_bookkeeping_categories TO anon, authenticated, service_role;
