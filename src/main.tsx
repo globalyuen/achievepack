@@ -57,6 +57,8 @@ const PageLoader = () => (
 // P2: Route preload map for hover prefetching
 const routeImportMap: Record<string, () => Promise<any>> = {
   '/store': () => import('./pages/StorePage'),
+  '/function/smart-degassing-sticker': () => import('./pages/function/SmartDegassingStickerPage'),
+  '/pouch/smart-degassing-sticker': () => import('./pages/pouch/options/SmartDegassingStickerPage'),
   '/blog': () => import('./pages/blog/BlogPage'),
   '/dashboard': () => import('./pages/DashboardPage'),
   '/packaging/stand-up-pouches': () => import('./pages/packaging/StandUpPouchesPage'),
@@ -239,6 +241,8 @@ const MaterialBarrierPropertiesPage = lazyWithRetry(() => import('./pages/featur
 
 // Function Pages - Lazy loaded
 const MicrowaveSteamBagsPage = lazyWithRetry(() => import('./pages/function/MicrowaveSteamBagsPage'))
+const SmartDegassingStickerPageB2B = lazyWithRetry(() => import('./pages/function/SmartDegassingStickerPage'))
+const SmartDegassingStickerPageB2C = lazyWithRetry(() => import('./pages/pouch/options/SmartDegassingStickerPage'))
 const CarbonNeutralBagsPage = lazyWithRetry(() => import('./pages/function/CarbonNeutralBagsPage'))
 const SpoutPouchesJuicePage = lazyWithRetry(() => import('./pages/function/SpoutPouchesJuicePage'))
 const ChildResistantBagsPage = lazyWithRetry(() => import('./pages/function/ChildResistantBagsPage'))
@@ -682,6 +686,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/options/reclosure" element={<PouchReclosureOptionsPage />} />
                   <Route path="/options/surface-finish" element={<PouchSurfaceFinishPage />} />
                   <Route path="/options/surface-and-reclosure" element={<SurfaceAndReclosureOptionsPage />} />
+                  <Route path="/options/smart-degassing-sticker" element={<SmartDegassingStickerPageB2C />} />
                   <Route path="/barriers/overview" element={<PouchBarrierOverviewPage />} />
                   <Route path="/barriers/material-properties" element={<PouchMaterialBarrierPropertiesPage />} />
                   <Route path="/printing/digital" element={<PouchDigitalPrintingPage />} />
@@ -1121,6 +1126,7 @@ if (getDomain() === 'pouch') {
 
                         {/* Function Pages */}
                         <Route path="/function/microwave-steam-bags" element={<MicrowaveSteamBagsPage />} />
+                        <Route path="/function/smart-degassing-sticker" element={<SmartDegassingStickerPageB2B />} />
                         <Route path="/function/carbon-neutral-bags" element={<CarbonNeutralBagsPage />} />
                         <Route path="/function/spout-pouches-juice" element={<SpoutPouchesJuicePage />} />
                         <Route path="/function/child-resistant-bags" element={<ChildResistantBagsPage />} />

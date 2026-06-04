@@ -204,6 +204,11 @@
     "images": 3,
     "lastUpdated": 1780203723012
   },
+  "/options/smart-degassing-sticker": {
+    "words": 1150,
+    "images": 6,
+    "lastUpdated": 1780584555239
+  },
   "/options/surface-and-reclosure": {
     "words": 445,
     "images": 3,
@@ -778,6 +783,11 @@
     "words": 213,
     "images": 3,
     "lastUpdated": 1777996054241.3418
+  },
+  "/function/smart-degassing-sticker": {
+    "words": 1350,
+    "images": 6,
+    "lastUpdated": 1780584555239
   },
   "/function/carbon-neutral-bags": {
     "words": 220,
