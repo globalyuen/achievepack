@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T14:16:13.439Z",
+  "lastUnifiedRun": "2026-06-04T14:30:39.300Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -594,17 +594,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-printed-barrier-sachets",
       "status": "Pending Approval",
       "volume": 720,
       "keyword": "custom printed barrier sachets",
-      "difficulty": "Low",
-      "slug": "custom-printed-barrier-sachets"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "compostable pouch sizes for powders",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-pouch-sizes-for-powders"
     },
     {
       "status": "Pending",
@@ -699,9 +700,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T14:15:32.452Z",
+      "timestamp": "2026-06-04T14:30:21.502Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom printed barrier sachets\" to /blog/custom-printed-barrier-sachets (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch sizes for powders\" to /blog/compostable-pouch-sizes-for-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed barrier sachets\" to /blog/custom-printed-barrier-sachets (Pending Approval)",
+      "timestamp": "2026-06-04T14:15:32.452Z"
     },
     {
       "action": "Autopilot Generation Draft",

@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-04",
-  "total_images": 2193,
-  "total_categories": 168,
+  "total_images": 2242,
+  "total_categories": 169,
   "extensions": {
     ".webp": 1302,
-    ".png": 656,
+    ".png": 705,
     ".jpg": 232,
     ".svg": 3
   },
@@ -796,6 +796,287 @@
           "path": "/imgs/blog/geo/a_ppwr_compliant_packaging_certifications_0874427.webp",
           "extension": ".webp",
           "modified": "2025-12-20T01:53:24.000Z"
+        }
+      ]
+    },
+    "blog/heros": {
+      "count": 46,
+      "images": [
+        {
+          "filename": "freezer-safe-vacuum-packaging-hero.png",
+          "path": "/imgs/blog/heros/freezer-safe-vacuum-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:31:42.716Z"
+        },
+        {
+          "filename": "industrial-compostable-guide-hero.png",
+          "path": "/imgs/blog/heros/industrial-compostable-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:31:14.236Z"
+        },
+        {
+          "filename": "compostable-humidity-control-guide-hero.png",
+          "path": "/imgs/blog/heros/compostable-humidity-control-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:30:54.100Z"
+        },
+        {
+          "filename": "stand-up-pouch-2-oz-size-chart-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-2-oz-size-chart-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:30:44.588Z"
+        },
+        {
+          "filename": "custom-shape-pouches-for-liquids-hero.png",
+          "path": "/imgs/blog/heros/custom-shape-pouches-for-liquids-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:30:31.626Z"
+        },
+        {
+          "filename": "powder-proof-zipper-pouch-hero.png",
+          "path": "/imgs/blog/heros/powder-proof-zipper-pouch-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:30:20.867Z"
+        },
+        {
+          "filename": "eco-friendly-digital-print-bags-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-digital-print-bags-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:30:09.853Z"
+        },
+        {
+          "filename": "custom-printed-sachet-packaging-wholesale-hero.png",
+          "path": "/imgs/blog/heros/custom-printed-sachet-packaging-wholesale-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:29:57.224Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-with-spout-hero.png",
+          "path": "/imgs/blog/heros/compostable-stand-up-pouches-with-spout-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:29:41.222Z"
+        },
+        {
+          "filename": "sustainable-flat-bottom-pouch-sizes-hero.png",
+          "path": "/imgs/blog/heros/sustainable-flat-bottom-pouch-sizes-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:29:19.535Z"
+        },
+        {
+          "filename": "compostable-high-barrier-film-suppliers-hero.png",
+          "path": "/imgs/blog/heros/compostable-high-barrier-film-suppliers-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:29:07.465Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-for-6-oz-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-dimensions-for-6-oz-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:28:57.614Z"
+        },
+        {
+          "filename": "pouch-packaging-for-liquids-compostable-hero.png",
+          "path": "/imgs/blog/heros/pouch-packaging-for-liquids-compostable-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:28:46.183Z"
+        },
+        {
+          "filename": "high-barrier-compostable-films-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-compostable-films-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:28:31.620Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-bags-hero.png",
+          "path": "/imgs/blog/heros/compostable-flat-bottom-bags-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:28:23.276Z"
+        },
+        {
+          "filename": "mono-material-recyclable-pouches-hero.png",
+          "path": "/imgs/blog/heros/mono-material-recyclable-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:28:10.295Z"
+        },
+        {
+          "filename": "custom-sachet-filling-and-sealing-hero.png",
+          "path": "/imgs/blog/heros/custom-sachet-filling-and-sealing-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:27:51.712Z"
+        },
+        {
+          "filename": "custom-digital-printed-sachets-hero.png",
+          "path": "/imgs/blog/heros/custom-digital-printed-sachets-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:27:17.982Z"
+        },
+        {
+          "filename": "small-batch-custom-pouch-printing-hero.png",
+          "path": "/imgs/blog/heros/small-batch-custom-pouch-printing-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:26:57.926Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouch-with-spout-hero.png",
+          "path": "/imgs/blog/heros/recyclable-stand-up-pouch-with-spout-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:26:42.755Z"
+        },
+        {
+          "filename": "sustainable-sachet-packaging-solutions-hero.png",
+          "path": "/imgs/blog/heros/sustainable-sachet-packaging-solutions-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:26:28.255Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-sizes-chart-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-pouch-sizes-chart-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:26:06.869Z"
+        },
+        {
+          "filename": "barrier-film-flexible-packaging-wholesale-hero.png",
+          "path": "/imgs/blog/heros/barrier-film-flexible-packaging-wholesale-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:25:50.478Z"
+        },
+        {
+          "filename": "organic-compliance-support-guide-hero.png",
+          "path": "/imgs/blog/heros/organic-compliance-support-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:25:39.946Z"
+        },
+        {
+          "filename": "low-moq-packaging-guide-hero.png",
+          "path": "/imgs/blog/heros/low-moq-packaging-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:25:31.220Z"
+        },
+        {
+          "filename": "usa-compostable-packaging-guide-hero.png",
+          "path": "/imgs/blog/heros/usa-compostable-packaging-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:25:17.945Z"
+        },
+        {
+          "filename": "stamp-foil-recyclability-hero.png",
+          "path": "/imgs/blog/heros/stamp-foil-recyclability-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:24:59.595Z"
+        },
+        {
+          "filename": "low-moq-startup-packaging-guide-hero.png",
+          "path": "/imgs/blog/heros/low-moq-startup-packaging-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:24:42.072Z"
+        },
+        {
+          "filename": "custom-compostable-pouch-suppliers-guide-hero.png",
+          "path": "/imgs/blog/heros/custom-compostable-pouch-suppliers-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:24:27.515Z"
+        },
+        {
+          "filename": "eco-packaging-regulations-guide-hero.png",
+          "path": "/imgs/blog/heros/eco-packaging-regulations-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:24:09.018Z"
+        },
+        {
+          "filename": "digital-printing-eco-packaging-guide-hero.png",
+          "path": "/imgs/blog/heros/digital-printing-eco-packaging-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:23:58.330Z"
+        },
+        {
+          "filename": "dtc-sustainable-packaging-guide-hero.png",
+          "path": "/imgs/blog/heros/dtc-sustainable-packaging-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:23:44.781Z"
+        },
+        {
+          "filename": "custom-printed-materials-guide-hero.png",
+          "path": "/imgs/blog/heros/custom-printed-materials-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:23:23.068Z"
+        },
+        {
+          "filename": "tuv-backyard-compostable-packaging-hero.png",
+          "path": "/imgs/blog/heros/tuv-backyard-compostable-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:23:01.621Z"
+        },
+        {
+          "filename": "bpi-certified-guide-hero.png",
+          "path": "/imgs/blog/heros/bpi-certified-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:22:38.027Z"
+        },
+        {
+          "filename": "custom-shape-die-cut-pouch-hero.png",
+          "path": "/imgs/blog/heros/custom-shape-die-cut-pouch-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:22:30.076Z"
+        },
+        {
+          "filename": "high-barrier-retort-pouch-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-retort-pouch-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:22:20.848Z"
+        },
+        {
+          "filename": "home-compostable-guide-hero.png",
+          "path": "/imgs/blog/heros/home-compostable-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:22:12.788Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-guide-hero.png",
+          "path": "/imgs/blog/heros/compostable-stand-up-pouches-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:22:04.540Z"
+        },
+        {
+          "filename": "plastic-free-compostable-barrier-pouch-hero.png",
+          "path": "/imgs/blog/heros/plastic-free-compostable-barrier-pouch-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:21:53.466Z"
+        },
+        {
+          "filename": "test-slug-schema-hero.png",
+          "path": "/imgs/blog/heros/test-slug-schema-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:21:34.386Z"
+        },
+        {
+          "filename": "grease-proof-pet-treat-packaging-hero.png",
+          "path": "/imgs/blog/heros/grease-proof-pet-treat-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:21:19.836Z"
+        },
+        {
+          "filename": "mono-pe-vs-mono-pp-hero.png",
+          "path": "/imgs/blog/heros/mono-pe-vs-mono-pp-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:21:05.465Z"
+        },
+        {
+          "filename": "mylar-vs-compostable-packaging-hero.png",
+          "path": "/imgs/blog/heros/mylar-vs-compostable-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:20:57.525Z"
+        },
+        {
+          "filename": "stand-up-pouch-sizing-guide-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-sizing-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:20:48.102Z"
+        },
+        {
+          "filename": "custom-pouch-dieline-template-hero.png",
+          "path": "/imgs/blog/heros/custom-pouch-dieline-template-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:20:37.974Z"
         }
       ]
     },
@@ -2673,8 +2954,26 @@
       ]
     },
     "function": {
-      "count": 2,
+      "count": 5,
       "images": [
+        {
+          "filename": "square_sticker_valves.png",
+          "path": "/imgs/function/square_sticker_valves.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:28:42.714Z"
+        },
+        {
+          "filename": "jongga_kimchi_bag_seal.png",
+          "path": "/imgs/function/jongga_kimchi_bag_seal.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:28:42.713Z"
+        },
+        {
+          "filename": "stayfresh_co2_absorber.png",
+          "path": "/imgs/function/stayfresh_co2_absorber.png",
+          "extension": ".png",
+          "modified": "2026-06-04T14:28:42.711Z"
+        },
         {
           "filename": "heat-resistant-layers-tech.png",
           "path": "/imgs/function/heat-resistant-layers-tech.png",
