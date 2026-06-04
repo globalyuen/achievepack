@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T13:15:41.773Z",
+  "lastUnifiedRun": "2026-06-04T13:30:44.447Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -566,17 +566,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "kraft-paper-stand-up-pouches-custom",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "kraft paper stand up pouches custom",
-      "difficulty": "Low",
-      "slug": "kraft-paper-stand-up-pouches-custom"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "sustainable sachet filling solutions",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-sachet-filling-solutions"
     },
     {
       "status": "Pending",
@@ -695,9 +696,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T13:15:30.350Z",
+      "timestamp": "2026-06-04T13:30:25.265Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper stand up pouches custom\" to /blog/kraft-paper-stand-up-pouches-custom (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet filling solutions\" to /blog/sustainable-sachet-filling-solutions (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper stand up pouches custom\" to /blog/kraft-paper-stand-up-pouches-custom (Pending Approval)",
+      "timestamp": "2026-06-04T13:15:30.350Z"
     },
     {
       "action": "Autopilot Generation Draft",
