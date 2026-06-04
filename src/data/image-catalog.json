@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-04",
-  "total_images": 1932,
+  "total_images": 1934,
   "total_categories": 165,
   "extensions": {
     ".webp": 1299,
-    ".png": 399,
+    ".png": 401,
     ".jpg": 231,
     ".svg": 3
   },
@@ -3854,8 +3854,20 @@
       ]
     },
     "infographics": {
-      "count": 33,
+      "count": 35,
       "images": [
+        {
+          "filename": "custom-digital-printed-sachets-infographic.png",
+          "path": "/imgs/infographics/custom-digital-printed-sachets-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-04T00:43:01.559Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-for-snacks-infographic.png",
+          "path": "/imgs/infographics/compostable-stand-up-pouches-for-snacks-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-04T00:43:01.557Z"
+        },
         {
           "filename": "usa-snacks-packaging-guide-infographic.png",
           "path": "/imgs/infographics/usa-snacks-packaging-guide-infographic.png",

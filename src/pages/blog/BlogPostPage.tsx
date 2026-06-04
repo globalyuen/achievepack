@@ -97,17 +97,33 @@ export default function BlogPostPage() {
       if (sec.paragraphs && Array.isArray(sec.paragraphs)) {
         sec.paragraphs.forEach((p: any, pIdx: number) => {
           const isImageLeft = pIdx % 2 !== 0;
+          const imgPath = pIdx === 0 
+            ? `/imgs/infographics/${slug}-infographic.png` 
+            : `/imgs/infographics/${slug}-infographic-${pIdx + 1}.png`;
+
           const imageHtml = `
-            <div style="border: 4px solid black; background: #fafafa; background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 16px 16px; border-radius: 12px; padding: 20px; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); margin: 15px 0; font-family: monospace; font-size: 11px; color: black; min-height: 160px; display: flex; flex-direction: column; justify-content: space-between;">
-              <div style="background: black; color: white; padding: 4px 8px; margin: -20px -20px 15px -20px; font-weight: bold; border-bottom: 4px solid black; display: flex; justify-content: space-between; font-size: 10px;">
+            <div style="border: 4px solid black; background: #fafafa; border-radius: 12px; overflow: hidden; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); margin: 15px 0; font-family: monospace; font-size: 11px; color: black;">
+              <div style="background: black; color: white; padding: 4px 8px; font-weight: bold; border-bottom: 4px solid black; display: flex; justify-content: space-between; font-size: 10px;">
                 <span>INFOGRAPHIC SPEC v1.${pIdx + 1}</span>
                 <span>ACHIEVEPACK R&D</span>
               </div>
-              <div style="font-style: italic; color: #4b5563; line-height: 1.5; flex-grow: 1; padding: 10px 0;">
-                "${p.image_prompt}"
+              
+              <div id="img-wrapper-${slug}-${pIdx}" style="display: block;">
+                <img 
+                  src="${imgPath}" 
+                  alt="${p.image_prompt.replace(/"/g, '&quot;')}" 
+                  onerror="this.style.display='none'; document.getElementById('fallback-${slug}-${pIdx}').style.display='flex';" 
+                  style="width: 100%; height: auto; display: block; background: white;" 
+                />
               </div>
-              <div style="border-top: 1px dashed #ccc; padding-top: 6px; text-align: right; font-size: 9px; color: #9ca3af; font-weight: bold;">
-                VISUAL IDENTITY SPECIFICATION
+
+              <div id="fallback-${slug}-${pIdx}" style="display: none; padding: 20px; min-height: 160px; flex-direction: column; justify-content: space-between; background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 16px 16px;">
+                <div style="font-style: italic; color: #4b5563; line-height: 1.5; flex-grow: 1; padding: 10px 0;">
+                  "${p.image_prompt}"
+                </div>
+                <div style="border-top: 1px dashed #ccc; padding-top: 6px; text-align: right; font-size: 9px; color: #9ca3af; font-weight: bold;">
+                  VISUAL IDENTITY SPECIFICATION
+                </div>
               </div>
             </div>
           `;
@@ -151,7 +167,7 @@ export default function BlogPostPage() {
     }
 
     return html;
-  }, [override]);
+  }, [override, slug]);
 
   // Transparently override the static post object with the real-time Supabase CMS record
   const post = useMemo(() => {

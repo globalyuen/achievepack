@@ -19,14 +19,24 @@ interface BlogArticleSection {
 const InfographicCard: React.FC<{
   prompt: string
   index: number
-}> = ({ prompt, index }) => {
+  slug?: string
+}> = ({ prompt, index, slug }) => {
   const [showPrompt, setShowPrompt] = useState(false)
+  const [imgError, setImgError] = useState(false)
+
+  const imgPath = slug 
+    ? (index === 0 
+        ? `/imgs/infographics/${slug}-infographic.png` 
+        : `/imgs/infographics/${slug}-infographic-${index + 1}.png`)
+    : null
 
   return (
     <div className="border-4 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl overflow-hidden flex flex-col h-full font-['JetBrains_Mono'] relative text-black">
       {/* Card Header */}
       <div className="bg-black text-white px-4 py-2 flex items-center justify-between border-b-4 border-black">
-        <span className="text-xs uppercase tracking-wider font-bold">Infographic Blueprint v1.{index + 1}</span>
+        <span className="text-xs uppercase tracking-wider font-bold">
+          {imgPath && !imgError ? 'Visual Sourcing Infographic' : `Infographic Blueprint v1.${index + 1}`}
+        </span>
         <div className="flex gap-1">
           <span className="w-2.5 h-2.5 rounded-full bg-red-500 border border-black"></span>
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 border border-black"></span>
@@ -34,25 +44,36 @@ const InfographicCard: React.FC<{
         </div>
       </div>
 
-      {/* Blueprint Visual Drawing Area */}
-      <div className="flex-1 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-[size:16px_16px] p-6 min-h-[180px] flex flex-col justify-center items-center relative overflow-hidden bg-neutral-50 border-b-4 border-black select-none">
-        {/* Mock Technical CAD Drawing */}
-        <div className="relative w-36 h-36 flex items-center justify-center border-2 border-dashed border-neutral-300 rounded-full animate-[spin_40s_linear_infinite]">
-          <div className="absolute inset-2 border-2 border-dashed border-neutral-200 rounded-full"></div>
-          <div className="absolute inset-8 border border-neutral-200 rounded-full"></div>
+      {/* Blueprint Visual Drawing Area / Image */}
+      {imgPath && !imgError ? (
+        <div className="flex-1 bg-white border-b-4 border-black overflow-hidden min-h-[220px] flex items-center justify-center">
+          <img 
+            src={imgPath} 
+            alt={prompt} 
+            onError={() => setImgError(true)} 
+            className="w-full h-full object-contain" 
+          />
         </div>
-        
-        {/* Layer representation using CSS stack */}
-        <div className="absolute flex flex-col gap-1 w-40">
-          <div className="bg-black/10 border-2 border-black h-5 transform -skew-x-12 -rotate-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-neutral-700">PRINT LAYER (MDO-PE)</div>
-          <div className="bg-[#00FFFF] border-2 border-black h-5 transform -skew-x-12 -rotate-6 translate-x-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-black">GAS LOCK (EVOH BARRIER)</div>
-          <div className="bg-[#D4FF00] border-2 border-black h-5 transform -skew-x-12 -rotate-6 translate-x-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-black">CORE LAYER (LLDPE)</div>
-          <div className="bg-[#FF00FF]/85 border-2 border-black h-5 transform -skew-x-12 -rotate-6 translate-x-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-white">HERMETIC SEAL LAYER (PE)</div>
-        </div>
+      ) : (
+        <div className="flex-1 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-[size:16px_16px] p-6 min-h-[180px] flex flex-col justify-center items-center relative overflow-hidden bg-neutral-50 border-b-4 border-black select-none">
+          {/* Mock Technical CAD Drawing */}
+          <div className="relative w-36 h-36 flex items-center justify-center border-2 border-dashed border-neutral-300 rounded-full animate-[spin_40s_linear_infinite]">
+            <div className="absolute inset-2 border-2 border-dashed border-neutral-200 rounded-full"></div>
+            <div className="absolute inset-8 border border-neutral-200 rounded-full"></div>
+          </div>
+          
+          {/* Layer representation using CSS stack */}
+          <div className="absolute flex flex-col gap-1 w-40">
+            <div className="bg-black/10 border-2 border-black h-5 transform -skew-x-12 -rotate-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-neutral-700">PRINT LAYER (MDO-PE)</div>
+            <div className="bg-[#00FFFF] border-2 border-black h-5 transform -skew-x-12 -rotate-6 translate-x-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-black">GAS LOCK (EVOH BARRIER)</div>
+            <div className="bg-[#D4FF00] border-2 border-black h-5 transform -skew-x-12 -rotate-6 translate-x-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-black">CORE LAYER (LLDPE)</div>
+            <div className="bg-[#FF00FF]/85 border-2 border-black h-5 transform -skew-x-12 -rotate-6 translate-x-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center text-[9px] font-bold text-white">HERMETIC SEAL LAYER (PE)</div>
+          </div>
 
-        {/* Blueprint watermark */}
-        <div className="absolute bottom-2 right-3 text-[9px] text-neutral-400 font-bold tracking-widest uppercase">AchievePack CAD R&D</div>
-      </div>
+          {/* Blueprint watermark */}
+          <div className="absolute bottom-2 right-3 text-[9px] text-neutral-400 font-bold tracking-widest uppercase">AchievePack CAD R&D</div>
+        </div>
+      )}
 
       {/* Concept Summary / Description Section */}
       <div className="p-4 bg-neutral-50 relative">
@@ -155,7 +176,7 @@ export default function BlogArticleTemplate({
   showTableOfContents = true,
   relatedArticles = []
 }: BlogArticleProps) {
-  
+  const slug = canonicalUrl ? canonicalUrl.split('/').pop() || '' : ''
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
   // A curated list of default B2C articles to suggest for maximum reader retention
@@ -487,7 +508,7 @@ export default function BlogArticleTemplate({
                           <>
                             {/* Image/Infographic Column (Left) */}
                             <div className="md:col-span-5 order-2 md:order-1 flex flex-col justify-between">
-                              <InfographicCard prompt={p.image_prompt} index={pIdx} />
+                              <InfographicCard prompt={p.image_prompt} index={pIdx} slug={slug} />
                             </div>
                             {/* Content Column (Right) */}
                             <div className="md:col-span-7 order-1 md:order-2 flex items-center font-['JetBrains_Mono'] font-medium text-neutral-800 text-base md:text-lg leading-relaxed prose prose-lg max-w-none">
@@ -502,7 +523,7 @@ export default function BlogArticleTemplate({
                             </div>
                             {/* Image/Infographic Column (Right) */}
                             <div className="md:col-span-5 order-2 md:order-2 flex flex-col justify-between">
-                              <InfographicCard prompt={p.image_prompt} index={pIdx} />
+                              <InfographicCard prompt={p.image_prompt} index={pIdx} slug={slug} />
                             </div>
                           </>
                         )}
