@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T01:45:20.896Z",
+  "lastUnifiedRun": "2026-06-04T02:00:23.278Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -328,17 +328,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-pouch-size-chart-for-liquids",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "compostable pouch size chart for liquids",
-      "difficulty": "Low",
-      "slug": "compostable-pouch-size-chart-for-liquids"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "custom digital printed stand up pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-digital-printed-stand-up-pouches"
     },
     {
       "status": "Pending",
@@ -445,9 +446,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T01:45:15.802Z",
+      "timestamp": "2026-06-04T02:00:17.762Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch size chart for liquids\" to /blog/compostable-pouch-size-chart-for-liquids (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom digital printed stand up pouches\" to /blog/custom-digital-printed-stand-up-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch size chart for liquids\" to /blog/compostable-pouch-size-chart-for-liquids (Pending Approval)",
+      "timestamp": "2026-06-04T01:45:15.802Z"
     },
     {
       "action": "Autopilot Generation Draft",
