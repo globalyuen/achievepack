@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T08:30:20.937Z",
+  "lastUnifiedRun": "2026-06-04T08:45:21.459Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -440,17 +440,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "eco-friendly-pouch-printing-services",
       "status": "Pending Approval",
       "volume": 1050,
       "keyword": "eco friendly pouch printing services",
-      "difficulty": "Low",
-      "slug": "eco-friendly-pouch-printing-services"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "biodegradable flat bottom bags wholesale",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "biodegradable-flat-bottom-bags-wholesale"
     },
     {
       "status": "Pending",
@@ -569,9 +570,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T08:30:15.139Z",
+      "timestamp": "2026-06-04T08:45:15.235Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly pouch printing services\" to /blog/eco-friendly-pouch-printing-services (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable flat bottom bags wholesale\" to /blog/biodegradable-flat-bottom-bags-wholesale (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly pouch printing services\" to /blog/eco-friendly-pouch-printing-services (Pending Approval)",
+      "timestamp": "2026-06-04T08:30:15.139Z"
     },
     {
       "action": "Autopilot Generation Draft",
