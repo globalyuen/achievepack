@@ -1,11 +1,11 @@
 {
   "generated": "2026-06-04",
-  "total_images": 2001,
-  "total_categories": 166,
+  "total_images": 2007,
+  "total_categories": 168,
   "extensions": {
-    ".webp": 1299,
-    ".png": 468,
-    ".jpg": 231,
+    ".webp": 1302,
+    ".png": 470,
+    ".jpg": 232,
     ".svg": 3
   },
   "categories": {
@@ -585,8 +585,14 @@
       ]
     },
     "blog": {
-      "count": 10,
+      "count": 11,
       "images": [
+        {
+          "filename": "default.jpg",
+          "path": "/imgs/blog/default.jpg",
+          "extension": ".jpg",
+          "modified": "2026-06-04T12:18:20.434Z"
+        },
         {
           "filename": "powder_proof_zipper.jpg",
           "path": "/imgs/blog/powder_proof_zipper.jpg",
@@ -6615,8 +6621,14 @@
       ]
     },
     "seo-photos": {
-      "count": 98,
+      "count": 99,
       "images": [
+        {
+          "filename": "a_achievepack_bpi_certified_5482390.webp",
+          "path": "/imgs/seo-photos/a_achievepack_bpi_certified_5482390.webp",
+          "extension": ".webp",
+          "modified": "2026-06-04T12:15:30.550Z"
+        },
         {
           "filename": "a_packaging_cost_digital_factory_8412414.jpg",
           "path": "/imgs/seo-photos/a_packaging_cost_digital_factory_8412414.jpg",
@@ -7207,6 +7219,17 @@
         }
       ]
     },
+    "seo-photos/industries/coffee": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "a_coffee_degassing_valve_2850365.webp",
+          "path": "/imgs/seo-photos/industries/coffee/a_coffee_degassing_valve_2850365.webp",
+          "extension": ".webp",
+          "modified": "2026-06-04T12:16:19.428Z"
+        }
+      ]
+    },
     "seo-photos/organic": {
       "count": 1,
       "images": [
@@ -7215,6 +7238,17 @@
           "path": "/imgs/seo-photos/organic/organic_dried_mango_pouch.webp",
           "extension": ".webp",
           "modified": "2026-03-12T02:44:51.855Z"
+        }
+      ]
+    },
+    "seo-photos/printing/digital": {
+      "count": 1,
+      "images": [
+        {
+          "filename": "a_digital_printing_press_packaging_4857399.webp",
+          "path": "/imgs/seo-photos/printing/digital/a_digital_printing_press_packaging_4857399.webp",
+          "extension": ".webp",
+          "modified": "2026-06-04T12:17:15.903Z"
         }
       ]
     },
@@ -8953,8 +8987,20 @@
       ]
     },
     "store/products": {
-      "count": 290,
+      "count": 292,
       "images": [
+        {
+          "filename": "transparent-colorful-cellophane-candy-wrapping-paper-thumbnail-2.png",
+          "path": "/imgs/store/products/transparent-colorful-cellophane-candy-wrapping-paper-thumbnail-2.png",
+          "extension": ".png",
+          "modified": "2026-06-04T12:11:04.970Z"
+        },
+        {
+          "filename": "transparent-colorful-cellophane-candy-wrapping-paper-thumbnail-1.png",
+          "path": "/imgs/store/products/transparent-colorful-cellophane-candy-wrapping-paper-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-06-04T12:11:04.968Z"
+        },
         {
           "filename": "media__1780570697340.jpg-rollstock-thumbnail-1.png",
           "path": "/imgs/store/products/media__1780570697340.jpg-rollstock-thumbnail-1.png",
