@@ -122,6 +122,28 @@ const TABLE_CATEGORIES: TableCategory[] = [
   }
 ]
 
+const SACHET_UNPRINTED_OPTIONS = [
+  { id: 'sample-9-pack', label: 'Silk & Kraft 9 Colors Sample Pack', pcs: 9, price: 2.70 },
+  { id: 'off-white-105', label: 'Off-White Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'black-105', label: 'Black Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'pink-105', label: 'Pink Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'gold-105', label: 'Gold Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'blue-105', label: 'Blue Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'light-yellow-105', label: 'Light Yellow Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'cyan-105', label: 'Teal/Cyan Silk Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'yellow-kraft-105', label: 'Yellow Kraft Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'white-kraft-105', label: 'White Kraft Paper 100 pcs', pcs: 100, price: 2.94 },
+  { id: 'white-cotton-105', label: 'White Cotton Paper 100 pcs', pcs: 100, price: 2.94 }
+];
+
+const SACHET_MOCKUPS = [
+  '/imgs/store/products/small-sachet-conventional-thumbnail-1.png',
+  '/imgs/store/products/small-sachet-conventional-thumbnail-2.png',
+  '/imgs/store/products/small-sachet-conventional-thumbnail-3.png',
+  '/imgs/store/products/small-sachet-conventional-thumbnail-4.png',
+  '/imgs/store/products/small-sachet-conventional-thumbnail-5.png'
+];
+
 export default function PouchEcoGPTKPage() {
   const rotatingCategories = [
     'Specialty Coffee Roasters',
@@ -157,6 +179,63 @@ export default function PouchEcoGPTKPage() {
   // State for sub-options in the Custom printed cards (PE+EVOH Recyclable vs Compostable)
   const [ovalEcoOption, setOvalEcoOption] = useState<'pe-evoh' | 'compostable'>('pe-evoh')
   const [flatEcoOption, setFlatEcoOption] = useState<'pe-evoh' | 'compostable'>('pe-evoh')
+
+  // Sachet specific states
+  const [sachetUnprintedColor, setSachetUnprintedColor] = useState<string>('off-white-105')
+  const [sachetUnprintedPacks, setSachetUnprintedPacks] = useState<number>(5)
+  
+  const [sachetHotStampingQty, setSachetHotStampingQty] = useState<number>(500)
+  const [sachetHotStampingDesigns, setSachetHotStampingDesigns] = useState<number>(1)
+  const [sachetHotStampingRound, setSachetHotStampingRound] = useState<boolean>(false)
+  
+  const [sachetDigitalQty, setSachetDigitalQty] = useState<number>(1000)
+  const [sachetDigitalDesigns, setSachetDigitalDesigns] = useState<number>(1)
+  const [sachetDigitalRound, setSachetDigitalRound] = useState<boolean>(false)
+  
+  const [sachetTraditionalQty, setSachetTraditionalQty] = useState<number>(50000)
+  const [sachetTraditionalDesigns, setSachetTraditionalDesigns] = useState<number>(1)
+  const [sachetTraditionalColors, setSachetTraditionalColors] = useState<number>(4)
+  const [sachetTraditionalRound, setSachetTraditionalRound] = useState<boolean>(false)
+
+  // Active sachet image indices for each card
+  const [sachetUnprintedImgIdx, setSachetUnprintedImgIdx] = useState<number>(0)
+  const [sachetHotStampingImgIdx, setSachetHotStampingImgIdx] = useState<number>(1)
+  const [sachetDigitalImgIdx, setSachetDigitalImgIdx] = useState<number>(2)
+  const [sachetTraditionalImgIdx, setSachetTraditionalImgIdx] = useState<number>(3)
+
+  const handleSachetWhatsappCopy = (
+    cardName: string, 
+    qty: number, 
+    designs: number, 
+    round: boolean, 
+    additionalDetails: string, 
+    totalCost: number, 
+    unitPrice: number
+  ) => {
+    const text = `Achieve Pack 小包袋詢價配置 (Small Sachet RFQ Summary):
+--------------------------------------------------
+📐 規格尺寸 (Sachet Dimension): 80 × 80 mm
+🎨 印刷工藝 (Print Method): ${cardName}
+📦 單款印量 (Quantity per Design): ${qty} pcs
+🎨 規格款式 (Designs SKUs): ${designs} 款 (Designs)
+🎁 包裝總數 (Total Sachets): ${qty * designs} pcs
+🔘 圓角工藝 (Round Corners): ${round ? ' need (Yes, +$0.0336)' : ' no need (No)'}
+📝 額外備註 (Details): ${additionalDetails}
+
+估算費用 (Estimated Cost):
+- 單價 (Unit Price): $${unitPrice.toFixed(4)} USD / pc
+- 總投資 (Total Investment): $${totalCost.toLocaleString(undefined, {minimumFractionDigits: 2})} USD
+
+--------------------------------------------------
+💬 我已使用網頁版小袋預算計算器配置完成。請客服團隊為我安排專屬樣品及設計對接！
+(I have verified my sachet configuration. Please arrange sample packages and packaging layout assistance.)`
+
+    navigator.clipboard.writeText(text).then(() => {
+      setWhatsappCopied(true)
+      setTimeout(() => setWhatsappCopied(false), 3000)
+      window.open('https://api.whatsapp.com/send?phone=85269704411&text=' + encodeURIComponent('Hello Achieve Pack! I have generated my Sachet Packaging configuration: \n\n' + text), '_blank')
+    })
+  }
   
   // State for collapsible FAQs
   const [faqStates, setFaqStates] = useState<Record<number, boolean>>({
@@ -1259,129 +1338,721 @@ export default function PouchEcoGPTKPage() {
         </section>
 
         {/* SMALL SACHET CONVENTIONAL MATERIAL PRICING MATRIX */}
-        <section className="max-w-7xl mx-auto px-4 md:px-6 pt-16">
-          <div className="bg-neutral-50/50 border border-neutral-200 bg-white rounded-3xl p-6 md:p-8 shadow-sm max-w-5xl mx-auto space-y-6">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-100 pb-5">
-              <div>
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-indigo-50 border border-indigo-100 text-indigo-700">
-                  ⚡ New Custom Sachet Package
-                </span>
-                <h3 className="text-xl md:text-2xl font-extrabold text-neutral-950 font-['Outfit'] mt-1.5">
-                  Small Sachet – Conventional Material Pricing Matrix
-                </h3>
-                <p className="text-xs text-neutral-500 font-medium mt-1">
-                  Premium Silk Pure Aluminum (120um / 12丝) structure offering ultra-high moisture, oxygen, and light barriers. Dimensions: 80 × 80 mm.
-                </p>
+        {(() => {
+          // Card 1 Calculations: Unprinted Stock
+          const unprintedOpt = SACHET_UNPRINTED_OPTIONS.find(o => o.id === sachetUnprintedColor) || SACHET_UNPRINTED_OPTIONS[1];
+          const unprintedTotalPcs = sachetUnprintedPacks * unprintedOpt.pcs;
+          const unprintedTotalCost = sachetUnprintedPacks * unprintedOpt.price;
+          const unprintedUnit = unprintedOpt.price / unprintedOpt.pcs;
+
+          // Card 2 Calculations: Hot Stamping
+          let hotStampingBase = 0;
+          if (sachetHotStampingQty <= 500) hotStampingBase = 159.60;
+          else if (sachetHotStampingQty <= 1000) hotStampingBase = 210.00;
+          else hotStampingBase = 285.60;
+          
+          const hotStampingBaseTotal = hotStampingBase * sachetHotStampingDesigns;
+          const hotStampingRoundSurcharge = sachetHotStampingRound ? sachetHotStampingQty * sachetHotStampingDesigns * 0.0336 : 0;
+          const hotStampingTotalCost = hotStampingBaseTotal + hotStampingRoundSurcharge;
+          const hotStampingUnit = hotStampingTotalCost / (sachetHotStampingQty * sachetHotStampingDesigns);
+
+          // Card 3 Calculations: Digital Color
+          let digitalBase = 0;
+          if (sachetDigitalQty <= 1000) digitalBase = 231.00;
+          else if (sachetDigitalQty <= 2000) digitalBase = 336.00;
+          else if (sachetDigitalQty <= 3000) digitalBase = 441.00;
+          else if (sachetDigitalQty <= 5000) digitalBase = sachetDigitalQty * 0.1302;
+          else digitalBase = sachetDigitalQty * 0.1092;
+
+          const digitalBaseTotal = digitalBase * sachetDigitalDesigns;
+          const digitalRoundSurcharge = sachetDigitalRound ? sachetDigitalQty * sachetDigitalDesigns * 0.0336 : 0;
+          const digitalTotalCost = digitalBaseTotal + digitalRoundSurcharge;
+          const digitalUnit = digitalTotalCost / (sachetDigitalQty * sachetDigitalDesigns);
+
+          // Card 4 Calculations: Traditional Gravure
+          const traditionalBase = sachetTraditionalQty * 0.0378;
+          const traditionalCylinderSetup = sachetTraditionalColors * 126.00;
+          const traditionalBaseTotal = traditionalBase * sachetTraditionalDesigns;
+          const traditionalRoundSurcharge = sachetTraditionalRound ? sachetTraditionalQty * sachetTraditionalDesigns * 0.0336 : 0;
+          const traditionalTotalCost = traditionalBaseTotal + traditionalCylinderSetup + traditionalRoundSurcharge;
+          const traditionalUnit = traditionalTotalCost / (sachetTraditionalQty * sachetTraditionalDesigns);
+
+          return (
+            <section className="max-w-7xl mx-auto px-4 md:px-6 pt-16">
+              <div className="max-w-7xl mx-auto space-y-8">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-200 pb-5">
+                  <div>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-indigo-50 border border-indigo-100 text-indigo-700">
+                      ⚡ Premium Small Packaging
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-extrabold text-neutral-950 font-['Outfit'] mt-1.5">
+                      Small Sachet – Conventional Material Custom Estimator
+                    </h3>
+                    <p className="text-xs text-neutral-500 font-medium mt-1 font-sans">
+                      Premium Silk Pure Aluminum (120um / 12丝) structure offering ultra-high moisture, oxygen, and light barriers. Dimensions: 80 × 80 mm.
+                    </p>
+                  </div>
+                  <Link 
+                    to="/store/product/small-sachet-conventional" 
+                    className="shrink-0 inline-flex items-center justify-center gap-1.5 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold uppercase text-xs rounded-xl shadow-sm hover:shadow active:scale-95 transition-all select-none font-sans"
+                  >
+                    Configure Sachet Page <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+
+                {/* Grid of 4 Interactive Cards */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                  
+                  {/* Card 1: Ready Stock Sachet */}
+                  <div className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md transition-all duration-300">
+                    <div className="space-y-6">
+                      <div>
+                        <div className="flex justify-between items-start">
+                          <span className="inline-block bg-neutral-100 text-neutral-600 border border-neutral-200 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
+                            Ready Stock
+                          </span>
+                          <span className="text-[10px] text-neutral-400 font-semibold font-mono">MOQ: 1 Pack</span>
+                        </div>
+                        <h3 className="text-xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
+                          Plain Ready Stock
+                        </h3>
+                        <p className="text-xs text-neutral-455 mt-1 leading-relaxed font-sans font-medium">
+                          Plain unprinted sachets in beautiful stock textures. Fast 3-5 days delivery, $0 cylinder setup fee.
+                        </p>
+                      </div>
+
+                      {/* Stock Color Dropdown */}
+                      <div className="space-y-2">
+                        <div>
+                          <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 mb-1 font-mono">Sachet Color</label>
+                          <select 
+                            value={sachetUnprintedColor}
+                            onChange={(e) => setSachetUnprintedColor(e.target.value)}
+                            className="w-full text-xs font-semibold text-neutral-750 border border-neutral-200 rounded-xl px-2.5 py-2 bg-neutral-50 hover:bg-neutral-105 transition cursor-pointer outline-none"
+                          >
+                            {SACHET_UNPRINTED_OPTIONS.map(opt => (
+                              <option key={opt.id} value={opt.id}>{opt.label}</option>
+                            ))}
+                          </select>
+                        </div>
+
+                        {/* Packs Stepper */}
+                        <div>
+                          <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 mb-1 font-mono">Packs Quantity (1 Pack = {unprintedOpt.pcs} pcs)</label>
+                          <div className="flex items-center justify-between border border-neutral-200 p-1 rounded-xl bg-neutral-50">
+                            <button
+                              type="button"
+                              onClick={() => setSachetUnprintedPacks(prev => Math.max(1, prev - 1))}
+                              className="w-7 h-7 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-100 active:scale-95 text-neutral-700 font-extrabold flex items-center justify-center transition"
+                            >
+                              -
+                            </button>
+                            <span className="text-xs font-bold text-neutral-800">{sachetUnprintedPacks} Pack{sachetUnprintedPacks > 1 ? 's' : ''}</span>
+                            <button
+                              type="button"
+                              onClick={() => setSachetUnprintedPacks(prev => Math.min(50, prev + 1))}
+                              className="w-7 h-7 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-100 active:scale-95 text-neutral-700 font-extrabold flex items-center justify-center transition"
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Visual Image Gallery with Clicks */}
+                      <div className="space-y-2">
+                        <div 
+                          onClick={() => setEnlargedImage(SACHET_MOCKUPS[sachetUnprintedImgIdx])}
+                          className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
+                        >
+                          <img src={SACHET_MOCKUPS[sachetUnprintedImgIdx]} alt="Ready Stock Sachet" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103" />
+                          <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2 py-1 rounded-lg border border-neutral-200/70 shadow-md">Click to Zoom</span>
+                          </div>
+                        </div>
+                        <div className="flex gap-1 justify-center">
+                          {SACHET_MOCKUPS.map((img, idx) => (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={() => setSachetUnprintedImgIdx(idx)}
+                              className={`w-7 h-7 rounded-md border overflow-hidden transition-all ${sachetUnprintedImgIdx === idx ? 'border-emerald-600 ring-2 ring-emerald-600/10' : 'border-neutral-200 opacity-60 hover:opacity-100'}`}
+                            >
+                              <img src={img} alt="" className="w-full h-full object-cover" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Primary Price */}
+                      <div className="border-t border-b border-neutral-100 py-4 font-sans">
+                        <div className="flex items-baseline gap-0.5">
+                          <span className="text-4xl font-extrabold text-neutral-900 tracking-tight font-['Outfit']">
+                            ${unprintedUnit.toFixed(3)}
+                          </span>
+                          <span className="text-xs text-neutral-450 font-bold">/ sachet</span>
+                        </div>
+                        <div className="text-[10.5px] text-neutral-500 font-bold mt-1.5 flex items-center gap-1 leading-none">
+                          <Zap className="w-3.5 h-3.5 text-emerald-500 fill-emerald-100" />
+                          <span>
+                            Total: <span className="text-neutral-900">${unprintedTotalCost.toFixed(2)} USD</span> for {unprintedTotalPcs} pcs
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Sizing Details */}
+                      <div className="bg-neutral-50 border border-neutral-200/80 rounded-2xl p-2.5 text-center font-sans">
+                        <span className="text-[9px] text-neutral-450 uppercase font-mono tracking-wider font-bold block">Sizing details</span>
+                        <div className="text-xs font-bold text-neutral-800 mt-0.5">
+                          80 × 80 mm Sachet Size
+                        </div>
+                        <span className="text-[9px] text-neutral-500 bg-neutral-100 border border-neutral-200/50 px-2 py-0.5 rounded-full inline-block mt-1 font-bold">
+                          Ready Made Stock Roll / Bags
+                        </span>
+                      </div>
+
+                      {/* Features points */}
+                      <div className="space-y-2.5 pt-1 font-sans">
+                        <h4 className="text-[9px] font-extrabold uppercase tracking-widest text-neutral-450">Sachet features</h4>
+                        <ul className="space-y-1.5 text-xs font-semibold text-neutral-605">
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>High moisture/oxygen foil structure</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>10 premium color choices</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Ideal for stickers or stamp logos</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>$0 Cylinder plate setup fee</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="pt-6 font-sans">
+                      <button
+                        onClick={() => handleSachetWhatsappCopy('Ready Stock Sachet', unprintedTotalPcs, 1, false, `Selected Color: ${unprintedOpt.label}`, unprintedTotalCost, unprintedUnit)}
+                        className="w-full bg-neutral-900 hover:bg-neutral-850 text-white font-extrabold text-xs py-3 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm shadow-black/5"
+                      >
+                        <Phone className="w-3 h-3 fill-white stroke-none" /> RFQ Ready Stock
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Card 2: Hot Stamping Logo */}
+                  <div className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md transition-all duration-300">
+                    <div className="space-y-6">
+                      <div>
+                        <div className="flex justify-between items-start">
+                          <span className="inline-block bg-amber-50 text-amber-700 border border-amber-100 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
+                            Hot Stamping
+                          </span>
+                          <span className="text-[10px] text-neutral-400 font-semibold font-mono">MOQ: 500pcs</span>
+                        </div>
+                        <h3 className="text-xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
+                          Hot Stamping Logo
+                        </h3>
+                        <p className="text-xs text-neutral-450 mt-1 leading-relaxed font-sans font-medium">
+                          Metallic hot foil stamping on premade sachets. Free setup plates, double-sided single-color.
+                        </p>
+                      </div>
+
+                      {/* Interactive Controls */}
+                      <div className="space-y-2">
+                        {/* Qty Selector */}
+                        <div>
+                          <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 mb-1 font-mono">Quantity</label>
+                          <div className="grid grid-cols-3 gap-1 bg-neutral-100 border border-neutral-200 p-0.5 rounded-xl text-center text-[10px] font-bold">
+                            {[500, 1000, 2000].map(q => (
+                              <button
+                                key={q}
+                                type="button"
+                                onClick={() => setSachetHotStampingQty(q)}
+                                className={`py-1.5 px-1 rounded-lg transition-all ${sachetHotStampingQty === q ? 'bg-white text-neutral-900 shadow-sm font-black' : 'text-neutral-500 hover:text-neutral-900'}`}
+                              >
+                                {q} pcs
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Designs Stepper & Round corners */}
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 mb-1 font-mono">SKUs Count</label>
+                            <div className="flex items-center justify-between border border-neutral-200 p-0.5 rounded-xl bg-neutral-50">
+                              <button
+                                type="button"
+                                onClick={() => setSachetHotStampingDesigns(prev => Math.max(1, prev - 1))}
+                                className="w-6 h-6 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-105 active:scale-95 text-neutral-700 font-bold flex items-center justify-center transition"
+                              >
+                                -
+                              </button>
+                              <span className="text-[11px] font-bold text-neutral-800">{sachetHotStampingDesigns} SKU</span>
+                              <button
+                                type="button"
+                                onClick={() => setSachetHotStampingDesigns(prev => Math.min(10, prev + 1))}
+                                className="w-6 h-6 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-105 active:scale-95 text-neutral-700 font-bold flex items-center justify-center transition"
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col justify-end">
+                            <label className="flex items-center gap-1 text-[10px] font-bold text-neutral-600 select-none cursor-pointer h-7 border border-neutral-200 rounded-xl px-2 bg-neutral-50/50 hover:bg-neutral-50 active:scale-98 transition">
+                              <input 
+                                type="checkbox"
+                                checked={sachetHotStampingRound}
+                                onChange={(e) => setSachetHotStampingRound(e.target.checked)}
+                                className="rounded text-amber-600 focus:ring-amber-500 w-3 h-3"
+                              />
+                              <span>Round corners</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Visual Image Gallery */}
+                      <div className="space-y-2">
+                        <div 
+                          onClick={() => setEnlargedImage(SACHET_MOCKUPS[sachetHotStampingImgIdx])}
+                          className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
+                        >
+                          <img src={SACHET_MOCKUPS[sachetHotStampingImgIdx]} alt="Hot Stamping Sachet" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103" />
+                          <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2 py-1 rounded-lg border border-neutral-200/70 shadow-md">Click to Zoom</span>
+                          </div>
+                        </div>
+                        <div className="flex gap-1 justify-center">
+                          {SACHET_MOCKUPS.map((img, idx) => (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={() => setSachetHotStampingImgIdx(idx)}
+                              className={`w-7 h-7 rounded-md border overflow-hidden transition-all ${sachetHotStampingImgIdx === idx ? 'border-emerald-600 ring-2 ring-emerald-600/10' : 'border-neutral-200 opacity-60 hover:opacity-100'}`}
+                            >
+                              <img src={img} alt="" className="w-full h-full object-cover" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Primary Price */}
+                      <div className="border-t border-b border-neutral-100 py-4 font-sans">
+                        <div className="flex items-baseline gap-0.5">
+                          <span className="text-4xl font-extrabold text-neutral-900 tracking-tight font-['Outfit']">
+                            ${hotStampingUnit.toFixed(3)}
+                          </span>
+                          <span className="text-xs text-neutral-450 font-bold">/ sachet</span>
+                        </div>
+                        <div className="text-[10.5px] text-neutral-500 font-bold mt-1.5 flex items-center gap-1 leading-none">
+                          <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-100" />
+                          <span>
+                            Total: <span className="text-neutral-900">${hotStampingTotalCost.toFixed(2)} USD</span> for {sachetHotStampingQty * sachetHotStampingDesigns} pcs
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Sizing Details */}
+                      <div className="bg-neutral-50 border border-neutral-200/80 rounded-2xl p-2.5 text-center font-sans">
+                        <span className="text-[9px] text-neutral-450 uppercase font-mono tracking-wider font-bold block">Sizing details</span>
+                        <div className="text-xs font-bold text-neutral-800 mt-0.5">
+                          80 × 80 mm Sachet Size
+                        </div>
+                        <span className="text-[9px] text-amber-700 bg-amber-50 border border-amber-100/50 px-2 py-0.5 rounded-full inline-block mt-1 font-bold">
+                          Free Plate Setup included
+                        </span>
+                      </div>
+
+                      {/* Features points */}
+                      <div className="space-y-2.5 pt-1 font-sans">
+                        <h4 className="text-[9px] font-extrabold uppercase tracking-widest text-neutral-450">Stamping features</h4>
+                        <ul className="space-y-1.5 text-xs font-semibold text-neutral-605">
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>$0 Cylinder plates setup fee waiver</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Elegant metallic foil branding</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Double-sided single-color coverage</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>500 pcs ultra-low MOQ print run</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="pt-6 font-sans">
+                      <button
+                        onClick={() => handleSachetWhatsappCopy('Hot Stamping Sachet', sachetHotStampingQty, sachetHotStampingDesigns, sachetHotStampingRound, `Stamping Method: Single-color Hot Stamping`, hotStampingTotalCost, hotStampingUnit)}
+                        className="w-full bg-neutral-900 hover:bg-neutral-850 text-white font-extrabold text-xs py-3 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm shadow-black/5"
+                      >
+                        <Phone className="w-3 h-3 fill-white stroke-none" /> RFQ Hot Stamping
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Card 3: Digital Color Printing */}
+                  <div className="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-neutral-300 hover:shadow-md transition-all duration-300">
+                    <div className="space-y-6">
+                      <div>
+                        <div className="flex justify-between items-start">
+                          <span className="inline-block bg-indigo-50 text-indigo-700 border border-indigo-100 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
+                            Digital Printing
+                          </span>
+                          <span className="text-[10px] text-neutral-400 font-semibold font-mono">MOQ: 1000pcs</span>
+                        </div>
+                        <h3 className="text-xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
+                          Digital Full Color
+                        </h3>
+                        <p className="text-xs text-neutral-450 mt-1 leading-relaxed font-sans font-medium">
+                          High-resolution edge-to-edge CMYK custom printing. Waived cylinder plates, complex graphics.
+                        </p>
+                      </div>
+
+                      {/* Interactive Controls */}
+                      <div className="space-y-2">
+                        {/* Qty Selector */}
+                        <div>
+                          <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 mb-1 font-mono">Quantity</label>
+                          <select 
+                            value={sachetDigitalQty}
+                            onChange={(e) => setSachetDigitalQty(Number(e.target.value))}
+                            className="w-full text-xs font-semibold text-neutral-750 border border-neutral-200 rounded-xl px-2.5 py-2 bg-neutral-50 hover:bg-neutral-105 transition cursor-pointer outline-none"
+                          >
+                            <option value={1000}>1,000 pcs</option>
+                            <option value={2000}>2,000 pcs</option>
+                            <option value={3000}>3,000 pcs</option>
+                            <option value={5000}>5,000 pcs</option>
+                            <option value={10000}>10,000 pcs</option>
+                          </select>
+                        </div>
+
+                        {/* Designs Stepper & Round corners */}
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 mb-1 font-mono">SKUs Count</label>
+                            <div className="flex items-center justify-between border border-neutral-200 p-0.5 rounded-xl bg-neutral-50">
+                              <button
+                                type="button"
+                                onClick={() => setSachetDigitalDesigns(prev => Math.max(1, prev - 1))}
+                                className="w-6 h-6 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-105 active:scale-95 text-neutral-700 font-bold flex items-center justify-center transition"
+                              >
+                                -
+                              </button>
+                              <span className="text-[11px] font-bold text-neutral-800">{sachetDigitalDesigns} SKU</span>
+                              <button
+                                type="button"
+                                onClick={() => setSachetDigitalDesigns(prev => Math.min(10, prev + 1))}
+                                className="w-6 h-6 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-105 active:scale-95 text-neutral-700 font-bold flex items-center justify-center transition"
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col justify-end">
+                            <label className="flex items-center gap-1 text-[10px] font-bold text-neutral-600 select-none cursor-pointer h-7 border border-neutral-200 rounded-xl px-2 bg-neutral-50/50 hover:bg-neutral-50 active:scale-98 transition">
+                              <input 
+                                type="checkbox"
+                                checked={sachetDigitalRound}
+                                onChange={(e) => setSachetDigitalRound(e.target.checked)}
+                                className="rounded text-indigo-600 focus:ring-indigo-500 w-3 h-3"
+                              />
+                              <span>Round corners</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Visual Image Gallery */}
+                      <div className="space-y-2">
+                        <div 
+                          onClick={() => setEnlargedImage(SACHET_MOCKUPS[sachetDigitalImgIdx])}
+                          className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
+                        >
+                          <img src={SACHET_MOCKUPS[sachetDigitalImgIdx]} alt="Digital Print Sachet" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103" />
+                          <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2 py-1 rounded-lg border border-neutral-200/70 shadow-md">Click to Zoom</span>
+                          </div>
+                        </div>
+                        <div className="flex gap-1 justify-center">
+                          {SACHET_MOCKUPS.map((img, idx) => (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={() => setSachetDigitalImgIdx(idx)}
+                              className={`w-7 h-7 rounded-md border overflow-hidden transition-all ${sachetDigitalImgIdx === idx ? 'border-emerald-600 ring-2 ring-emerald-600/10' : 'border-neutral-200 opacity-60 hover:opacity-100'}`}
+                            >
+                              <img src={img} alt="" className="w-full h-full object-cover" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Primary Price */}
+                      <div className="border-t border-b border-neutral-100 py-4 font-sans">
+                        <div className="flex items-baseline gap-0.5">
+                          <span className="text-4xl font-extrabold text-neutral-900 tracking-tight font-['Outfit']">
+                            ${digitalUnit.toFixed(3)}
+                          </span>
+                          <span className="text-xs text-neutral-450 font-bold">/ sachet</span>
+                        </div>
+                        <div className="text-[10.5px] text-neutral-500 font-bold mt-1.5 flex items-center gap-1 leading-none">
+                          <Zap className="w-3.5 h-3.5 text-indigo-500 fill-indigo-100" />
+                          <span>
+                            Total: <span className="text-neutral-900">${digitalTotalCost.toFixed(2)} USD</span> for {sachetDigitalQty * sachetDigitalDesigns} pcs
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Sizing Details */}
+                      <div className="bg-neutral-50 border border-neutral-200/80 rounded-2xl p-2.5 text-center font-sans">
+                        <span className="text-[9px] text-neutral-450 uppercase font-mono tracking-wider font-bold block">Sizing details</span>
+                        <div className="text-xs font-bold text-neutral-800 mt-0.5">
+                          80 × 80 mm Sachet Size
+                        </div>
+                        <span className="text-[9px] text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-full inline-block mt-1 font-bold">
+                          Digital Setup $0 &bull; Proof: $147
+                        </span>
+                      </div>
+
+                      {/* Features points */}
+                      <div className="space-y-2.5 pt-1 font-sans">
+                        <h4 className="text-[9px] font-extrabold uppercase tracking-widest text-neutral-450">Digital features</h4>
+                        <ul className="space-y-1.5 text-xs font-semibold text-neutral-605">
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Vibrant edge-to-edge CMYK photorealism</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Waived cylinder plate fees ($0 setup)</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Support multiple graphic design SKUs</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Low 1,000 pcs MOQ to limit inventory</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="pt-6 font-sans">
+                      <button
+                        onClick={() => handleSachetWhatsappCopy('Digital Printed Sachet', sachetDigitalQty, sachetDigitalDesigns, sachetDigitalRound, `Digital CMYK Edge-to-Edge Custom Printing`, digitalTotalCost, digitalUnit)}
+                        className="w-full bg-neutral-900 hover:bg-neutral-850 text-white font-extrabold text-xs py-3 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm shadow-black/5"
+                      >
+                        <Phone className="w-3 h-3 fill-white stroke-none" /> RFQ Digital Print
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Card 4: Traditional Gravure Printing */}
+                  <div className="bg-white border rounded-3xl p-6 flex flex-col justify-between relative scale-[1.02] shadow-[0_12px_36px_rgba(0,0,0,0.06)] border-emerald-600/30 ring-4 ring-emerald-500/5">
+                    <div className="absolute top-0 right-6 -translate-y-1/2 bg-emerald-600 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+                      Commercial Bulk Run
+                    </div>
+
+                    <div className="space-y-6">
+                      <div>
+                        <div className="flex justify-between items-start">
+                          <span className="inline-block bg-emerald-50 text-emerald-700 border border-emerald-100 px-2.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider">
+                            Traditional Gravure
+                          </span>
+                          <span className="text-[10px] text-emerald-600 font-bold font-mono">MOQ: 50,000pcs</span>
+                        </div>
+                        <h3 className="text-xl font-extrabold text-neutral-900 mt-2.5 font-['Outfit']">
+                          Traditional Gravure
+                        </h3>
+                        <p className="text-xs text-neutral-455 mt-1 leading-relaxed font-sans font-medium">
+                          Highest margin rotogravure printing for large commercial scales. Exact Pantone spot matching.
+                        </p>
+                      </div>
+
+                      {/* Interactive Controls */}
+                      <div className="space-y-2">
+                        {/* Qty Selector */}
+                        <div>
+                          <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 mb-1 font-mono">Quantity</label>
+                          <select 
+                            value={sachetTraditionalQty}
+                            onChange={(e) => setSachetTraditionalQty(Number(e.target.value))}
+                            className="w-full text-xs font-semibold text-neutral-750 border border-neutral-200 rounded-xl px-2.5 py-2 bg-neutral-50 hover:bg-neutral-105 transition cursor-pointer outline-none"
+                          >
+                            <option value={50000}>50,000 pcs</option>
+                            <option value={100000}>100,000 pcs</option>
+                            <option value={200000}>200,000 pcs</option>
+                          </select>
+                        </div>
+
+                        {/* Designs & Colors Count */}
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 mb-1 font-mono">SKUs Count</label>
+                            <div className="flex items-center justify-between border border-neutral-200 p-0.5 rounded-xl bg-neutral-50">
+                              <button
+                                type="button"
+                                onClick={() => setSachetTraditionalDesigns(prev => Math.max(1, prev - 1))}
+                                className="w-6 h-6 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-105 active:scale-95 text-neutral-700 font-bold flex items-center justify-center transition"
+                              >
+                                -
+                              </button>
+                              <span className="text-[11px] font-bold text-neutral-800">{sachetTraditionalDesigns} SKU</span>
+                              <button
+                                type="button"
+                                onClick={() => setSachetTraditionalDesigns(prev => Math.min(10, prev + 1))}
+                                className="w-6 h-6 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-105 active:scale-95 text-neutral-700 font-bold flex items-center justify-center transition"
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+
+                          <div>
+                            <label className="block text-[9px] font-bold uppercase tracking-wider text-neutral-400 mb-1 font-mono">Colors Count</label>
+                            <div className="flex items-center justify-between border border-neutral-200 p-0.5 rounded-xl bg-neutral-50">
+                              <button
+                                type="button"
+                                onClick={() => setSachetTraditionalColors(prev => Math.max(1, prev - 1))}
+                                className="w-6 h-6 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-105 active:scale-95 text-neutral-700 font-bold flex items-center justify-center transition"
+                              >
+                                -
+                              </button>
+                              <span className="text-[11px] font-bold text-neutral-800">{sachetTraditionalColors} Colors</span>
+                              <button
+                                type="button"
+                                onClick={() => setSachetTraditionalColors(prev => Math.min(8, prev + 1))}
+                                className="w-6 h-6 rounded-lg bg-white border border-neutral-200 hover:bg-neutral-105 active:scale-95 text-neutral-700 font-bold flex items-center justify-center transition"
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Round Corners */}
+                        <div>
+                          <label className="flex items-center justify-center gap-1 text-[10px] font-bold text-neutral-600 select-none cursor-pointer h-7 border border-neutral-200 rounded-xl px-2 bg-neutral-50/50 hover:bg-neutral-50 active:scale-98 transition">
+                            <input 
+                              type="checkbox"
+                              checked={sachetTraditionalRound}
+                              onChange={(e) => setSachetTraditionalRound(e.target.checked)}
+                              className="rounded text-emerald-600 focus:ring-emerald-500 w-3 h-3"
+                            />
+                            <span>Include Round corner processing (圆角 +$0.0336)</span>
+                          </label>
+                        </div>
+                      </div>
+
+                      {/* Visual Image Gallery */}
+                      <div className="space-y-2">
+                        <div 
+                          onClick={() => setEnlargedImage(SACHET_MOCKUPS[sachetTraditionalImgIdx])}
+                          className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl overflow-hidden shadow-inner relative group bg-neutral-50 flex items-center justify-center cursor-zoom-in"
+                        >
+                          <img src={SACHET_MOCKUPS[sachetTraditionalImgIdx]} alt="Traditional Gravure Sachet" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103" />
+                          <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="bg-white/95 text-neutral-800 text-[10px] font-bold px-2 py-1 rounded-lg border border-neutral-200/70 shadow-md">Click to Zoom</span>
+                          </div>
+                        </div>
+                        <div className="flex gap-1 justify-center">
+                          {SACHET_MOCKUPS.map((img, idx) => (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={() => setSachetTraditionalImgIdx(idx)}
+                              className={`w-7 h-7 rounded-md border overflow-hidden transition-all ${sachetTraditionalImgIdx === idx ? 'border-emerald-600 ring-2 ring-emerald-600/10' : 'border-neutral-200 opacity-60 hover:opacity-100'}`}
+                            >
+                              <img src={img} alt="" className="w-full h-full object-cover" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Primary Price */}
+                      <div className="border-t border-b border-neutral-100 py-4 font-sans">
+                        <div className="flex items-baseline gap-0.5">
+                          <span className="text-4xl font-extrabold text-neutral-900 tracking-tight font-['Outfit']">
+                            ${traditionalUnit.toFixed(3)}
+                          </span>
+                          <span className="text-xs text-neutral-450 font-bold">/ sachet</span>
+                        </div>
+                        <div className="text-[10.5px] text-emerald-600 font-bold mt-1.5 flex items-center gap-1 leading-none">
+                          <Zap className="w-3.5 h-3.5 text-emerald-500 fill-emerald-100" />
+                          <span>
+                            Total: <span className="text-neutral-900">${traditionalTotalCost.toFixed(2)} USD</span> for {sachetTraditionalQty * sachetTraditionalDesigns} pcs
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Sizing Details */}
+                      <div className="bg-neutral-50 border border-neutral-200/80 rounded-2xl p-2.5 text-center font-sans">
+                        <span className="text-[9px] text-neutral-450 uppercase font-mono tracking-wider font-bold block">Sizing details</span>
+                        <div className="text-xs font-bold text-neutral-800 mt-0.5">
+                          80 × 80 mm Sachet Size
+                        </div>
+                        <span className="text-[9px] text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded-full inline-block mt-1 font-bold">
+                          Cylinder Fee: $126 / color (Spot match)
+                        </span>
+                      </div>
+
+                      {/* Features points */}
+                      <div className="space-y-2.5 pt-1 font-sans">
+                        <h4 className="text-[9px] font-extrabold uppercase tracking-widest text-neutral-450">Traditional features</h4>
+                        <ul className="space-y-1.5 text-xs font-semibold text-neutral-605">
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Lowest unit rate of $0.0378 per sachet</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Engraved cylinders deliver exact Pantone colors</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>High-speed commercial roll/bag production</span>
+                          </li>
+                          <li className="flex items-start gap-1.5">
+                            <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" strokeWidth={3} />
+                            <span>Lifetime plate cylinder storage for reorders</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="pt-6 font-sans">
+                      <button
+                        onClick={() => handleSachetWhatsappCopy('Traditional Gravure Sachet', sachetTraditionalQty, sachetTraditionalDesigns, sachetTraditionalRound, `Traditional Gravure Cylinder Plate Printing with ${sachetTraditionalColors} colors`, traditionalTotalCost, traditionalUnit)}
+                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-3 rounded-xl transition duration-150 active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm shadow-emerald-600/5"
+                      >
+                        <Phone className="w-3 h-3 fill-white stroke-none" /> RFQ Traditional Gravure
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
               </div>
-              <Link 
-                to="/store/product/small-sachet-conventional" 
-                className="shrink-0 inline-flex items-center justify-center gap-1.5 px-5 py-3 bg-primary-600 hover:bg-primary-750 text-white font-extrabold uppercase text-xs rounded-xl shadow-sm hover:shadow active:scale-95 transition-all"
-              >
-                Configure & Order <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Card 1: Hot Stamping */}
-              <div className="bg-white border border-neutral-200/80 rounded-2xl p-5 space-y-4 hover:border-neutral-300 transition-all hover:shadow-sm">
-                <div className="flex justify-between items-start">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-50 border border-amber-100 text-amber-700">
-                    Hot Stamping (烫金)
-                  </span>
-                  <span className="text-[10px] text-neutral-400 font-bold uppercase">Low MOQ</span>
-                </div>
-                <p className="text-xs text-neutral-500 font-medium leading-relaxed">
-                  Best for minimal logo designs on pre-made pouches. Waiver of plate cylinder setup fee. Includes double-sided single-color stamping.
-                </p>
-                <div className="border-t border-neutral-100 pt-3 space-y-2">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-500 font-semibold">500 pcs</span>
-                    <span className="text-neutral-900 font-bold">$159.60 USD <span className="text-[10px] text-neutral-400 font-normal">($0.319/pc)</span></span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-500 font-semibold">1,000 pcs</span>
-                    <span className="text-neutral-900 font-bold">$210.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.210/pc)</span></span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-500 font-semibold">2,000 pcs</span>
-                    <span className="text-neutral-900 font-bold">$285.60 USD <span className="text-[10px] text-neutral-400 font-normal">($0.143/pc)</span></span>
-                  </div>
-                </div>
-                <div className="bg-neutral-50 rounded-xl p-2.5 text-[10px] text-neutral-500 leading-normal font-semibold">
-                  ✓ Cylinder setup fee: **$0 Free**<br />
-                  ✓ Coverage: **Double-sided single-color**
-                </div>
-              </div>
-
-              {/* Card 2: Digital Print */}
-              <div className="bg-white border border-neutral-200/80 rounded-2xl p-5 space-y-4 hover:border-neutral-300 transition-all hover:shadow-sm">
-                <div className="flex justify-between items-start">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-50 border border-indigo-100 text-indigo-700">
-                    Digital Color Printing (数码彩印)
-                  </span>
-                  <span className="text-[10px] text-neutral-400 font-bold uppercase">Multi-Color</span>
-                </div>
-                <p className="text-xs text-neutral-500 font-medium leading-relaxed">
-                  Excellent for complex multi-color artworks and photorealistic graphics. Waived setup fee, edge-to-edge printing.
-                </p>
-                <div className="border-t border-neutral-100 pt-3 space-y-2">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-500 font-semibold">1,000 pcs</span>
-                    <span className="text-neutral-900 font-bold">$231.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.231/pc)</span></span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-500 font-semibold">2,000 pcs</span>
-                    <span className="text-neutral-900 font-bold">$336.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.168/pc)</span></span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-500 font-semibold">3,000 pcs</span>
-                    <span className="text-neutral-900 font-bold">$441.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.147/pc)</span></span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-500 font-semibold">5,000 pcs</span>
-                    <span className="text-neutral-900 font-bold">$651.00 USD <span className="text-[10px] text-neutral-400 font-normal">($0.130/pc)</span></span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-500 font-semibold">10,000+ pcs</span>
-                    <span className="text-neutral-900 font-bold">$0.109 USD / pc</span>
-                  </div>
-                </div>
-                <div className="bg-neutral-50 rounded-xl p-2.5 text-[10px] text-neutral-500 leading-normal font-semibold">
-                  ✓ Cylinder setup fee: **$0 Waived**<br />
-                  ✓ Sample proof fee: **$147.00 USD**
-                </div>
-              </div>
-
-              {/* Card 3: Traditional Printing */}
-              <div className="bg-white border border-neutral-200/80 rounded-2xl p-5 space-y-4 hover:border-neutral-300 transition-all hover:shadow-sm">
-                <div className="flex justify-between items-start">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 border border-emerald-100 text-emerald-700">
-                    Traditional Gravure (传统彩印)
-                  </span>
-                  <span className="text-[10px] text-neutral-400 font-bold uppercase">High Volume</span>
-                </div>
-                <p className="text-xs text-neutral-500 font-medium leading-relaxed">
-                  Best for high-volume commercial runs. Maximizes cost margins and provides exact color precision and cylinder engraving.
-                </p>
-                <div className="border-t border-neutral-100 pt-3 space-y-2">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-neutral-500 font-semibold">50,000+ pcs (MOQ)</span>
-                    <span className="text-neutral-900 font-bold">$0.0378 USD / pc</span>
-                  </div>
-                </div>
-                <div className="bg-neutral-50 rounded-xl p-2.5 text-[10px] text-neutral-500 leading-normal font-semibold">
-                  ✓ Cylinder setup fee: **$126.00 USD / color**<br />
-                  ✓ Ideal for long term commercial runs
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-amber-50/50 border border-amber-200/85 rounded-2xl p-4 text-xs text-amber-800 leading-relaxed font-semibold">
-              ⚠️ **Optional Surcharges**: Round corner (圆角) processing is available at **+$0.0336 USD / sachet** for all order tiers. Plates/cylinders are stored securely for seamless future reorders.
-            </div>
-          </div>
-        </section>
-
+            </section>
+          )
+        })()}
+        
         {/* B2B FEATURE MATRIX COMPARISON TABLE */}
         <section className="max-w-7xl mx-auto px-4 md:px-6 pt-16">
           <div className="border border-neutral-200 bg-white rounded-3xl p-6 shadow-sm overflow-hidden max-w-5xl mx-auto">
