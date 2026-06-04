@@ -451,7 +451,8 @@ const StorePage: React.FC = () => {
         lowerShape.includes('3-side-seal') || 
         lowerShape.includes('3 side seal') || 
         lowerShape === 'flat-wire-cut zipper bag' ||
-        lowerShape.includes('three side')
+        lowerShape.includes('three side') ||
+        lowerShape.includes('sachet')
       ) {
         return '3 Side Seal Pouch'
       }

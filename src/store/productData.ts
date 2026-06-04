@@ -701,7 +701,7 @@ const CONVENTIONAL_PRODUCTS: ConventionalProduct[] = [
       '/imgs/store/products/small-sachet-conventional-thumbnail-1.png?v=3',
       '/imgs/store/products/small-sachet-conventional-thumbnail-2.png?v=3',
       '/imgs/store/products/small-sachet-conventional-thumbnail-4.png?v=3',
-      '/imgs/store/products/small-sachet-conventional-thumbnail-5.png?v=3'
+      '/imgs/store/products/small-sachet-conventional-thumbnail-5.png?v=4'
     ],
     badge: '⚡ Small Sachet Custom',
     rating: 4.9,
