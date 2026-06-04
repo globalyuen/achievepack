@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-04T12:15:46.245Z",
+  "lastUnifiedRun": "2026-06-04T13:15:41.773Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -545,29 +545,32 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "recyclable-barrier-pouches-for-liquids",
       "status": "Pending Approval",
       "volume": 1000,
       "keyword": "recyclable barrier pouches for liquids",
-      "difficulty": "Low",
-      "slug": "recyclable-barrier-pouches-for-liquids"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "slug": "small-batch-printed-flexible-packaging",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "small batch printed flexible packaging",
       "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "slug": "compostable-pouch-with-spout-for-beverages",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "compostable pouch with spout for beverages",
       "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "kraft paper stand up pouches custom",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "kraft-paper-stand-up-pouches-custom"
     },
     {
       "status": "Pending",
@@ -692,9 +695,24 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-04T12:15:28.686Z",
+      "timestamp": "2026-06-04T13:15:30.350Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable barrier pouches for liquids\" to /blog/recyclable-barrier-pouches-for-liquids (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper stand up pouches custom\" to /blog/kraft-paper-stand-up-pouches-custom (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch with spout for beverages\" to /blog/compostable-pouch-with-spout-for-beverages (Pending Approval)",
+      "timestamp": "2026-06-04T13:00:16.096Z"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"small batch printed flexible packaging\" to /blog/small-batch-printed-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-04T12:45:19.731Z"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable barrier pouches for liquids\" to /blog/recyclable-barrier-pouches-for-liquids (Pending Approval)",
+      "timestamp": "2026-06-04T12:15:28.686Z"
     },
     {
       "action": "Autopilot Generation Draft",
