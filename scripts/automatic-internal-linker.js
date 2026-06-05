@@ -23,23 +23,33 @@ dotenv.config({ path: path.join(__dirname, '../.env.local') });
 dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 let supabase = null;
 if (supabaseUrl && supabaseKey) {
   supabase = createClient(supabaseUrl, supabaseKey);
 }
 
-// B2C (pouch.eco) Blog Keywords Dictionary
+// B2C (pouch.eco) Blog Keywords & Product Dictionary
 export const B2C_LINK_DICTIONARY = [
+  { term: 'compostable stand up pouches', slug: '/products/compostable-stand-up-pouches' },
+  { term: 'compostable coffee bags', slug: '/products/compostable-coffee-bags' },
+  { term: 'custom stickers', slug: '/products/custom-stickers' },
+  { term: 'custom labels', slug: '/products/custom-labels' },
+  { term: 'low MOQ packaging', slug: '/products/low-moq-packaging' },
+  { term: 'recyclable pouches', slug: '/products/recyclable-mono-material-pouches' },
+  { term: 'compostable materials', slug: '/materials/compostable' },
+  { term: 'home compostable packaging', slug: '/materials/home-compostable' },
+  { term: 'industrial compostable', slug: '/materials/industrial-compostable' },
+  
   { term: 'degassing valve', slug: '/blog/coffee-degassing-valve-guide' },
   { term: 'one-way degassing valve', slug: '/blog/coffee-degassing-valve-guide' },
   { term: 'BPI certification', slug: '/blog/bpi-certified-guide' },
   { term: 'BPI certified', slug: '/blog/bpi-certified-guide' },
   { term: 'compostable humidity control', slug: '/blog/compostable-humidity-control-guide' },
   { term: 'humidity cracking', slug: '/blog/compostable-humidity-control-guide' },
-  { term: 'industrial compostable', slug: '/blog/industrial-compostable-guide' },
-  { term: 'home compostable', slug: '/blog/home-compostable-guide' },
+  { term: 'industrial compostable guide', slug: '/blog/industrial-compostable-guide' },
+  { term: 'home compostable guide', slug: '/blog/home-compostable-guide' },
   { term: 'low MOQ', slug: '/blog/low-moq-packaging-guide' },
   { term: 'minimum order quantity', slug: '/blog/low-moq-packaging-guide' },
   { term: 'Mono-PE', slug: '/blog/mono-pe-vs-mono-pp' },
@@ -60,7 +70,7 @@ export const B2C_LINK_DICTIONARY = [
   { term: 'SB 343', slug: '/blog/usa-labeling-guide' }
 ];
 
-// B2B (achievepack.com) Store & Specs Keywords Dictionary
+// B2B (achievepack.com) Store, Specs & Quote Form Dictionary
 export const B2B_LINK_DICTIONARY = [
   { term: 'compostable pouches', slug: '/materials/compostable' },
   { term: 'certified compostable', slug: '/materials/compostable' },
@@ -74,7 +84,21 @@ export const B2B_LINK_DICTIONARY = [
   { term: 'soft-touch', slug: '/options/surface-finish' },
   { term: 'reclosure options', slug: '/options/reclosure' },
   { term: 'zippers', slug: '/options/reclosure' },
-  { term: 'Bio-Kraft VM-Cello', slug: '/spec/bio-kraft-vm-cello' }
+  
+  { term: 'Bio-Kraft VM-Cello', slug: '/spec/bio-kraft-vm-cello' },
+  { term: 'Bio Cello Duplex Clear', slug: '/spec/bio-cello-duplex-clear' },
+  { term: 'Bio Cellulose Triplex', slug: '/spec/bio-cello-triplex-highest' },
+  { term: 'Bio Kraft PBAT', slug: '/spec/bio-kraft-pbat-low' },
+  
+  { term: 'stand up pouch', slug: '/quotes/stand-up-pouch' },
+  { term: 'flat bottom pouch', slug: '/quotes/flat-bottom' },
+  { term: 'gusset pouch', slug: '/packaging/side-gusset-bags' },
+  { term: 'sachet', slug: '/quotes/three-side-seal' },
+  { term: 'spout pouch', slug: '/quotes/spouted-pouch' },
+  { term: 'spouted pouch', slug: '/quotes/spouted-pouch' },
+  { term: 'three side seal', slug: '/quotes/three-side-seal' },
+  { term: 'custom boxes', slug: '/packaging/custom-boxes' },
+  { term: 'vacuum pouches', slug: '/packaging/vacuum-pouches' }
 ];
 
 /**
@@ -151,8 +175,8 @@ export function injectInternalLinks(html, isB2C = true, maxLinks = 3, currentSlu
       processedHtml = processedHtml.replace(regex, (match) => {
         linksInjected++;
         const linkClass = isB2C 
-          ? "text-[#10b981] font-bold hover:underline" 
-          : "text-blue-600 font-bold hover:underline";
+          ? "underline text-emerald-600 hover:text-emerald-700 font-bold" 
+          : "underline text-[#10b981] hover:text-[#0d9488] font-bold";
         return `<a href="${item.slug}" class="${linkClass}">${match}</a>`;
       });
     }
@@ -193,27 +217,105 @@ export async function runGlobalDatabaseLinkerSweep() {
     
     for (const post of posts) {
       const content = post.content || {};
-      const sections = content.sections || [];
       let postInjections = 0;
+      let hasChanges = false;
+
+      // Processing function helper
+      const processVersion = (version, isB2C) => {
+        if (!version || !version.sections || !Array.isArray(version.sections)) {
+          return { version, injections: 0, changed: false };
+        }
+        
+        let injections = 0;
+        let changed = false;
+        
+        const updatedSections = version.sections.map(sec => {
+          let secChanged = false;
+          let updatedSec = { ...sec };
+          
+          // A. Process content HTML field
+          if (sec.content) {
+            const result = injectInternalLinks(sec.content, isB2C, 2, post.slug);
+            if (result.linksInjected > 0) {
+              injections += result.linksInjected;
+              updatedSec.content = result.html;
+              secChanged = true;
+            }
+          }
+          
+          // B. Process paragraphs array
+          if (sec.paragraphs && Array.isArray(sec.paragraphs)) {
+            const updatedParagraphs = sec.paragraphs.map(p => {
+              if (p.text) {
+                const result = injectInternalLinks(p.text, isB2C, 1, post.slug);
+                if (result.linksInjected > 0) {
+                  injections += result.linksInjected;
+                  secChanged = true;
+                  return {
+                    ...p,
+                    text: result.html
+                  };
+                }
+              }
+              return p;
+            });
+            
+            if (secChanged) {
+              updatedSec.paragraphs = updatedParagraphs;
+            }
+          }
+          
+          if (secChanged) {
+            changed = true;
+          }
+          return updatedSec;
+        });
+
+        if (changed) {
+          return {
+            version: {
+              ...version,
+              sections: updatedSections
+            },
+            injections,
+            changed: true
+          };
+        }
+        
+        return { version, injections: 0, changed: false };
+      };
+
+      // 1. Process root content (defaults to pouch/B2C fallback)
+      const rootResult = processVersion(content, true);
+      let updatedContent = rootResult.version;
+      if (rootResult.changed) {
+        postInjections += rootResult.injections;
+        hasChanges = true;
+      }
+
+      // 2. Process content.pouch (B2C)
+      if (content.pouch) {
+        const pouchResult = processVersion(content.pouch, true);
+        if (pouchResult.changed) {
+          postInjections += pouchResult.injections;
+          updatedContent.pouch = pouchResult.version;
+          hasChanges = true;
+        }
+      }
+
+      // 3. Process content.achievepack (B2B)
+      if (content.achievepack) {
+        const apResult = processVersion(content.achievepack, false);
+        if (apResult.changed) {
+          postInjections += apResult.injections;
+          updatedContent.achievepack = apResult.version;
+          hasChanges = true;
+        }
+      }
       
-      const updatedSections = sections.map(sec => {
-        const result = injectInternalLinks(sec.content, true, 2, post.slug);
-        postInjections += result.linksInjected;
-        return {
-          ...sec,
-          content: result.html
-        };
-      });
-      
-      if (postInjections > 0) {
+      if (hasChanges && postInjections > 0) {
         totalInjections += postInjections;
         console.log(`[LINKER] Injected ${postInjections} link(s) inside post: /blog/${post.slug}`);
-        
-        // Write back
-        const updatedContent = {
-          ...content,
-          sections: updatedSections
-        };
         
         const { error: updateErr } = await supabase
           .from('pouch_seo_blog')
