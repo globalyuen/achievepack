@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useTransition, useEffect } from 'react'
+import React, { useState, useMemo, useCallback, useTransition, useEffect, useRef } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import SEO from '../components/SEO'
@@ -345,6 +345,92 @@ const StorePage: React.FC = () => {
   const [isSortOpen, setIsSortOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
+
+  const shapeContainerRef = useRef<HTMLDivElement>(null)
+  const [isShapeHovered, setIsShapeHovered] = useState(false)
+
+  // JS auto-scroller for marquee effect that can be scrolled via trackpad or paused on hover
+  useEffect(() => {
+    const container = shapeContainerRef.current
+    if (!container) return
+
+    let animationFrameId: number
+    let pauseTimeout: NodeJS.Timeout
+    let active = true
+
+    const scrollSpeed = 0.45 // pixels per frame
+
+    // Initialize to middle so user can scroll left or right immediately
+    const initScroll = () => {
+      if (container.scrollWidth > 0) {
+        if (container.scrollLeft === 0) {
+          container.scrollLeft = container.scrollWidth / 2
+        }
+      } else {
+        animationFrameId = requestAnimationFrame(initScroll)
+      }
+    }
+    initScroll()
+
+    const scroll = () => {
+      if (active && !isShapeHovered) {
+        container.scrollLeft += scrollSpeed
+      }
+      animationFrameId = requestAnimationFrame(scroll)
+    }
+
+    const handleInteraction = () => {
+      // Pause auto-scroll on manual wheel/scroll/touch action for 4 seconds
+      active = false
+      clearTimeout(pauseTimeout)
+      pauseTimeout = setTimeout(() => {
+        active = true
+      }, 4000)
+    }
+
+    const handleScroll = () => {
+      const scrollWidth = container.scrollWidth
+      const clientWidth = container.clientWidth
+      const halfWidth = scrollWidth / 2
+      if (halfWidth <= 0) return
+
+      // Wrap near right edge
+      if (container.scrollLeft >= scrollWidth - clientWidth - 10) {
+        container.scrollLeft -= halfWidth
+      }
+      // Wrap near left edge
+      else if (container.scrollLeft <= 10) {
+        container.scrollLeft += halfWidth
+      }
+    }
+
+    container.addEventListener('wheel', handleInteraction, { passive: true })
+    container.addEventListener('touchmove', handleInteraction, { passive: true })
+    container.addEventListener('scroll', handleScroll, { passive: true })
+
+    // Start auto-scroll after a short delay to let initialization settle
+    let startTimeout = setTimeout(() => {
+      animationFrameId = requestAnimationFrame(scroll)
+    }, 100)
+
+    return () => {
+      cancelAnimationFrame(animationFrameId)
+      clearTimeout(pauseTimeout)
+      clearTimeout(startTimeout)
+      container.removeEventListener('wheel', handleInteraction)
+      container.removeEventListener('touchmove', handleInteraction)
+      container.removeEventListener('scroll', handleScroll)
+    }
+  }, [isShapeHovered])
+
+  const scrollShapesLeft = () => {
+    shapeContainerRef.current?.scrollBy({ left: -260, behavior: 'smooth' })
+  }
+
+  const scrollShapesRight = () => {
+    shapeContainerRef.current?.scrollBy({ left: 260, behavior: 'smooth' })
+  }
+
 
 
   // Dynamically compute category counts based on FEATURED_PRODUCTS
@@ -955,21 +1041,34 @@ const StorePage: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Interactive Shape Filter Grid - Replacing the Feature Carousel */}
-      <section className="hidden md:block bg-white border-b border-neutral-200 py-3 mb-2 relative overflow-hidden select-none">
+      {/* Interactive Shape Filter Grid - Desktop Carousel */}
+      <section className="hidden md:block bg-white border-b border-neutral-200 py-3.5 mb-2 select-none relative group/marquee">
         <style dangerouslySetInnerHTML={{ __html: `
-          @keyframes marquee-horizontal {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+          .no-scrollbar::-webkit-scrollbar {
+            display: none;
           }
-          .animate-marquee-slow {
-            animation: marquee-horizontal 65s linear infinite;
+          .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
           }
         `}} />
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-sm relative">
-            <div className="flex animate-marquee-slow hover:[animation-play-state:paused] whitespace-nowrap">
+        <div className="max-w-7xl mx-auto px-10 relative">
+          {/* Arrow Left Button */}
+          <button
+            onClick={scrollShapesLeft}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white border border-neutral-200 rounded-full shadow-md flex items-center justify-center hover:bg-neutral-50 active:scale-95 transition-all text-neutral-600 hover:text-black opacity-0 group-hover/marquee:opacity-100 focus:opacity-100 cursor-pointer"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
+          </button>
+
+          <div 
+            ref={shapeContainerRef}
+            onMouseEnter={() => setIsShapeHovered(true)}
+            onMouseLeave={() => setIsShapeHovered(false)}
+            className="overflow-x-auto no-scrollbar bg-white scroll-smooth relative"
+          >
+            <div className="flex whitespace-nowrap gap-3.5 py-1">
               {/* Duplicate the items for seamless infinite marquee loop */}
               {[...SHAPE_ITEMS, ...SHAPE_ITEMS].map((item, idx) => {
                 const isActive = selectedShape === item.id;
@@ -977,10 +1076,10 @@ const StorePage: React.FC = () => {
                   <button
                     key={`${item.id}-${idx}`}
                     onClick={() => handleShapeChange(item.id)}
-                    className={`flex-shrink-0 flex flex-col items-center justify-between py-3.5 px-4 w-[130px] border-r border-neutral-200 transition-all duration-200 group cursor-pointer relative overflow-hidden ${
+                    className={`flex-shrink-0 flex flex-col items-center justify-between py-3.5 px-4 w-[130px] h-[110px] border rounded-xl transition-all duration-200 group cursor-pointer relative overflow-hidden ${
                       isActive 
-                        ? 'bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 font-black shadow-inner' 
-                        : 'hover:bg-neutral-50/80 text-neutral-800 hover:text-primary-600'
+                        ? 'border-primary-500 bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 font-black shadow-sm' 
+                        : 'border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/80 text-neutral-800 hover:text-primary-600'
                     }`}
                   >
                     <span className={`text-[10px] font-black uppercase text-center tracking-tight mb-2 min-h-[28px] flex items-center justify-center transition-colors duration-150 leading-tight whitespace-normal ${isActive ? 'text-primary-700 animate-pulse' : 'text-neutral-800 group-hover:text-primary-600'}`}>
@@ -1000,6 +1099,15 @@ const StorePage: React.FC = () => {
               })}
             </div>
           </div>
+
+          {/* Arrow Right Button */}
+          <button
+            onClick={scrollShapesRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 bg-white border border-neutral-200 rounded-full shadow-md flex items-center justify-center hover:bg-neutral-50 active:scale-95 transition-all text-neutral-600 hover:text-black opacity-0 group-hover/marquee:opacity-100 focus:opacity-100 cursor-pointer"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
+          </button>
         </div>
       </section>
 
