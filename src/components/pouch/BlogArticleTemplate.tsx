@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import PouchLayout from './PouchLayout'
 import { NeoCard } from './PouchUI'
 import ClickableImage from '../ClickableImage'
+import EcoMaterialSourcingGuide from './EcoMaterialSourcingGuide'
 
 interface BlogArticleSection {
   id: string
@@ -510,6 +511,11 @@ export default function BlogArticleTemplate({
               )}
             </motion.section>
           ))}
+
+          {/* Automatically inject AchievePack Eco Material Sourcing Guide */}
+          <div className="pt-8 border-t-4 border-black border-dashed">
+            <EcoMaterialSourcingGuide />
+          </div>
         </div>
       </article>
 

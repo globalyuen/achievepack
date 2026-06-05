@@ -124,7 +124,7 @@ const EUPPWRCompliancePage: React.FC = () => {
               </div>
             </div>
             <p className="text-gray-700 leading-relaxed font-medium">
-              At **Pouch.eco**, we help e-commerce, D2C, and fast-growing brand owners audit their packaging portfolios and pivot to compliant materials ahead of schedule. Re-engineering your supply loop from laminated fossil-fuel bags to certified recyclable and compostable mono-materials is seamless and painless.
+              At **Pouch.eco**, we help e-commerce, D2C, and fast-growing brand owners audit their packaging portfolios and pivot to compliant materials ahead of schedule. Re-engineering your supply loop from laminated fossil-fuel bags to certified recyclable mono-materials and compostable structures is seamless and painless.
             </p>
           </div>
         )

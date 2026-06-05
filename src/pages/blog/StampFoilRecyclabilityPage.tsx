@@ -1,7 +1,8 @@
 import React from 'react'
-import { Scale, CheckCircle, AlertTriangle, Recycle, ArrowRight, ShieldCheck, HelpCircle } from 'lucide-react'
+import { Scale, CheckCircle, AlertTriangle, Recycle, ArrowRight, ShieldCheck, HelpCircle, Award } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide'
 
 const StampFoilRecyclabilityPage: React.FC = () => {
   const heroImage = '/imgs/seo-photos/a_compostable_vs_recyclable_packaging_4528107.jpg'
@@ -103,6 +104,12 @@ const StampFoilRecyclabilityPage: React.FC = () => {
           </div>
         </div>
       )
+    },
+    {
+      id: 'achievepack-eco-materials',
+      title: 'AchievePack Sustainable Material Specifications',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
+      content: <EcoMaterialSourcingGuide />
     }
   ]
 

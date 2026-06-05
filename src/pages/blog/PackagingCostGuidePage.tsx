@@ -1,7 +1,8 @@
 import React from 'react'
-import { DollarSign, Package, Calculator, TrendingDown, BarChart3, CheckCircle, Truck, Palette } from 'lucide-react'
+import { DollarSign, Package, Calculator, TrendingDown, BarChart3, CheckCircle, Truck, Palette, Award } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide'
 
 const PackagingCostGuidePage: React.FC = () => {
   const heroImage = '/imgs/seo-photos/a_packaging_cost_comparison_8724501.jpg'
@@ -201,6 +202,12 @@ const PackagingCostGuidePage: React.FC = () => {
           </div>
         </div>
       )
+    },
+    {
+      id: 'achievepack-eco-materials',
+      title: 'AchievePack Sustainable Material Specifications',
+      icon: <Award className="h-5 w-5 text-primary-600" />,
+      content: <EcoMaterialSourcingGuide />
     }
   ]
 

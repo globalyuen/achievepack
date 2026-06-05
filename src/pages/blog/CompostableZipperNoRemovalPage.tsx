@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { CheckCircle, AlertTriangle, ArrowRight, Shield, Zap, Leaf, XCircle } from 'lucide-react'
 import PouchLayout from '../../components/pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from '../../components/pouch/PouchUI'
+import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide'
 
 export default function CompostableZipperNoRemovalPage() {
   const floatAnim = {
@@ -116,6 +117,8 @@ export default function CompostableZipperNoRemovalPage() {
               className="w-full h-80 object-contain bg-gray-50 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
           </div>
+
+          <EcoMaterialSourcingGuide />
         </div>
       </section>
 
