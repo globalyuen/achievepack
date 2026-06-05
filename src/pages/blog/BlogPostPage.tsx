@@ -79,6 +79,72 @@ export default function BlogPostPage() {
     if (!override || !activeContent) return '';
     
     let html = '';
+    
+    // Parse specs and seeds for dashboard
+    let brandName = 'N/A';
+    let countryName = 'N/A';
+    let materialName = 'N/A';
+    let pouchShape = 'N/A';
+    let closureSystem = 'N/A';
+    
+    const titleText = activeContent.title || override.title || '';
+    const match = titleText.match(/How\s+(.*?)\s+\((.*?)\)/i) || titleText.match(/for\s+(.*?)\s+\((.*?)\)/i);
+    if (match) {
+      brandName = match[1];
+      countryName = match[2];
+    }
+    
+    if (activeContent.sections && Array.isArray(activeContent.sections)) {
+      activeContent.sections.forEach((sec: any) => {
+        if (sec.specs_table && Array.isArray(sec.specs_table)) {
+          sec.specs_table.forEach((row: any) => {
+            const spec = (row.specification || row.Spec || '').toLowerCase();
+            const val = row.value || row.Value || '';
+            const param = row.parameter || row.Param || '';
+            if (spec.includes('material')) {
+              materialName = val || param;
+            } else if (spec.includes('size') || spec.includes('dimension') || spec.includes('pouch') || spec.includes('shape')) {
+              pouchShape = param || val;
+            } else if (spec.includes('closure')) {
+              closureSystem = param || val;
+            }
+          });
+        }
+      });
+    }
+    
+    // Add custom Sourcing Parameters Blueprint Dashboard
+    html += `
+      <div style="border: 4px solid black; background: #fafafa; border-radius: 12px; overflow: hidden; box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); margin-bottom: 2.5rem; font-family: monospace; color: black;">
+        <div style="background: black; color: white; padding: 8px 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; font-size: 11px; border-bottom: 4px solid black;">
+          <span>🎯 SOURCING BLUEPRINT CONFIGURATION</span>
+          <span style="background: #D4FF00; color: black; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 900;">ACTIVE METADATA SEEDS</span>
+        </div>
+        <div style="padding: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; background: white;">
+          <div style="border: 3px solid black; padding: 10px; border-radius: 8px; box-shadow: 3px 3px 0px rgba(0,0,0,1); background: #fef08a;">
+            <div style="font-size: 9px; font-weight: 800; text-transform: uppercase; color: #4b5563; margin-bottom: 4px;">Brand Seed</div>
+            <div style="font-weight: 900; font-size: 13px;">${brandName}</div>
+          </div>
+          <div style="border: 3px solid black; padding: 10px; border-radius: 8px; box-shadow: 3px 3px 0px rgba(0,0,0,1); background: #fed7aa;">
+            <div style="font-size: 9px; font-weight: 800; text-transform: uppercase; color: #4b5563; margin-bottom: 4px;">Target Country</div>
+            <div style="font-weight: 900; font-size: 13px;">${countryName}</div>
+          </div>
+          <div style="border: 3px solid black; padding: 10px; border-radius: 8px; box-shadow: 3px 3px 0px rgba(0,0,0,1); background: #bbf7d0;">
+            <div style="font-size: 9px; font-weight: 800; text-transform: uppercase; color: #4b5563; margin-bottom: 4px;">Pouch Shape</div>
+            <div style="font-weight: 900; font-size: 13px;">${pouchShape}</div>
+          </div>
+          <div style="border: 3px solid black; padding: 10px; border-radius: 8px; box-shadow: 3px 3px 0px rgba(0,0,0,1); background: #bfdbfe;">
+            <div style="font-size: 9px; font-weight: 800; text-transform: uppercase; color: #4b5563; margin-bottom: 4px;">Closure System</div>
+            <div style="font-weight: 900; font-size: 13px;">${closureSystem}</div>
+          </div>
+          <div style="border: 3px solid black; padding: 10px; border-radius: 8px; box-shadow: 3px 3px 0px rgba(0,0,0,1); background: #fbcfe8; grid-column: span 1;">
+            <div style="font-size: 9px; font-weight: 800; text-transform: uppercase; color: #4b5563; margin-bottom: 4px;">Material Structure</div>
+            <div style="font-weight: 900; font-size: 11px; line-height: 1.2;">${materialName}</div>
+          </div>
+        </div>
+      </div>
+    `;
+    
     const sections = activeContent.sections || [];
     sections.forEach((sec: any, sIdx: number) => {
       html += `<h2 id="section-${sIdx}">${sec.title}</h2>`;
@@ -141,7 +207,7 @@ export default function BlogPostPage() {
                 <img 
                   class="blog-zoomable-img"
                   src="${imgPath}" 
-                  alt="${p.image_prompt.replace(/"/g, '&quot;')}" 
+                  alt="${(p.image_prompt || '').replace(/"/g, '&quot;')}" 
                   onerror="this.style.display='none'; document.getElementById('fallback-${slug}-${pIdx}').style.display='flex';" 
                   style="width: 100%; height: auto; display: block; background: white;" 
                 />
@@ -151,6 +217,12 @@ export default function BlogPostPage() {
                 <div style="font-weight: bold; font-size: 12px; color: #64748b; text-transform: uppercase; margin-bottom: 8px;">Technical Specification Diagram</div>
                 <div style="font-size: 10px; color: #94a3b8; font-family: monospace;">R&D BLUEPRINT REVELATION</div>
               </div>
+              
+              ${p.image_prompt ? `
+                <div style="background: #f3f4f6; color: #4b5563; padding: 8px 12px; font-family: monospace; font-size: 9px; border-top: 4px solid black; line-height: 1.4;">
+                  <strong style="color: black;">🤖 IMAGEN PROMPT:</strong> <em>"${p.image_prompt}"</em>
+                </div>
+              ` : ''}
             </div>
           `;
           const textHtml = `<div style="display: flex; align-items: center; min-height: 160px; margin: 15px 0;"><p style="margin: 0; line-height: 1.8; color: #374151; font-size: 1rem;">${p.text}</p></div>`;

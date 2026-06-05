@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-05",
-  "total_images": 2304,
+  "total_images": 2731,
   "total_categories": 169,
   "extensions": {
     ".webp": 1303,
-    ".png": 766,
+    ".png": 1193,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 94,
+      "count": 95,
       "images": [
+        {
+          "filename": "usa-coffee-packaging-hero.png",
+          "path": "/imgs/blog/heros/usa-coffee-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:43:23.214Z"
+        },
         {
           "filename": "sourcing-compostable-coffee-bags-hero.webp",
           "path": "/imgs/blog/heros/sourcing-compostable-coffee-bags-hero.webp",
@@ -4476,8 +4482,2600 @@
       ]
     },
     "infographics": {
-      "count": 282,
+      "count": 708,
       "images": [
+        {
+          "filename": "usa-coffee-packaging-infographic-6.png",
+          "path": "/imgs/infographics/usa-coffee-packaging-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:45:32.724Z"
+        },
+        {
+          "filename": "usa-coffee-packaging-infographic-5.png",
+          "path": "/imgs/infographics/usa-coffee-packaging-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:45:32.722Z"
+        },
+        {
+          "filename": "usa-coffee-packaging-infographic-4.png",
+          "path": "/imgs/infographics/usa-coffee-packaging-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:45:32.719Z"
+        },
+        {
+          "filename": "usa-coffee-packaging-infographic-3.png",
+          "path": "/imgs/infographics/usa-coffee-packaging-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:45:32.717Z"
+        },
+        {
+          "filename": "usa-coffee-packaging-infographic-2.png",
+          "path": "/imgs/infographics/usa-coffee-packaging-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:45:32.715Z"
+        },
+        {
+          "filename": "usa-coffee-packaging-infographic.png",
+          "path": "/imgs/infographics/usa-coffee-packaging-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:45:32.713Z"
+        },
+        {
+          "filename": "compostable-pouch-sizes-for-powders-infographic-6.png",
+          "path": "/imgs/infographics/compostable-pouch-sizes-for-powders-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.613Z"
+        },
+        {
+          "filename": "compostable-pouch-sizes-for-powders-infographic-5.png",
+          "path": "/imgs/infographics/compostable-pouch-sizes-for-powders-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.612Z"
+        },
+        {
+          "filename": "compostable-pouch-sizes-for-powders-infographic-4.png",
+          "path": "/imgs/infographics/compostable-pouch-sizes-for-powders-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.611Z"
+        },
+        {
+          "filename": "compostable-pouch-sizes-for-powders-infographic-3.png",
+          "path": "/imgs/infographics/compostable-pouch-sizes-for-powders-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.610Z"
+        },
+        {
+          "filename": "compostable-pouch-sizes-for-powders-infographic-2.png",
+          "path": "/imgs/infographics/compostable-pouch-sizes-for-powders-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.608Z"
+        },
+        {
+          "filename": "compostable-pouch-sizes-for-powders-infographic.png",
+          "path": "/imgs/infographics/compostable-pouch-sizes-for-powders-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.607Z"
+        },
+        {
+          "filename": "custom-printed-barrier-sachets-infographic-3.png",
+          "path": "/imgs/infographics/custom-printed-barrier-sachets-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.062Z"
+        },
+        {
+          "filename": "custom-printed-barrier-sachets-infographic-4.png",
+          "path": "/imgs/infographics/custom-printed-barrier-sachets-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.062Z"
+        },
+        {
+          "filename": "custom-printed-barrier-sachets-infographic-5.png",
+          "path": "/imgs/infographics/custom-printed-barrier-sachets-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.062Z"
+        },
+        {
+          "filename": "custom-printed-barrier-sachets-infographic-6.png",
+          "path": "/imgs/infographics/custom-printed-barrier-sachets-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.062Z"
+        },
+        {
+          "filename": "custom-printed-barrier-sachets-infographic-2.png",
+          "path": "/imgs/infographics/custom-printed-barrier-sachets-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.061Z"
+        },
+        {
+          "filename": "custom-printed-barrier-sachets-infographic.png",
+          "path": "/imgs/infographics/custom-printed-barrier-sachets-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:28.061Z"
+        },
+        {
+          "filename": "eco-friendly-stand-up-pouch-dimensions-infographic-6.png",
+          "path": "/imgs/infographics/eco-friendly-stand-up-pouch-dimensions-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:27.534Z"
+        },
+        {
+          "filename": "eco-friendly-stand-up-pouch-dimensions-infographic-2.png",
+          "path": "/imgs/infographics/eco-friendly-stand-up-pouch-dimensions-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:27.533Z"
+        },
+        {
+          "filename": "eco-friendly-stand-up-pouch-dimensions-infographic-3.png",
+          "path": "/imgs/infographics/eco-friendly-stand-up-pouch-dimensions-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:27.533Z"
+        },
+        {
+          "filename": "eco-friendly-stand-up-pouch-dimensions-infographic-4.png",
+          "path": "/imgs/infographics/eco-friendly-stand-up-pouch-dimensions-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:27.533Z"
+        },
+        {
+          "filename": "eco-friendly-stand-up-pouch-dimensions-infographic-5.png",
+          "path": "/imgs/infographics/eco-friendly-stand-up-pouch-dimensions-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:27.533Z"
+        },
+        {
+          "filename": "eco-friendly-stand-up-pouch-dimensions-infographic.png",
+          "path": "/imgs/infographics/eco-friendly-stand-up-pouch-dimensions-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:27.533Z"
+        },
+        {
+          "filename": "biodegradable-sachet-packaging-for-spices-infographic-5.png",
+          "path": "/imgs/infographics/biodegradable-sachet-packaging-for-spices-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:26.465Z"
+        },
+        {
+          "filename": "biodegradable-sachet-packaging-for-spices-infographic-6.png",
+          "path": "/imgs/infographics/biodegradable-sachet-packaging-for-spices-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:26.465Z"
+        },
+        {
+          "filename": "biodegradable-sachet-packaging-for-spices-infographic-3.png",
+          "path": "/imgs/infographics/biodegradable-sachet-packaging-for-spices-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:26.464Z"
+        },
+        {
+          "filename": "biodegradable-sachet-packaging-for-spices-infographic-4.png",
+          "path": "/imgs/infographics/biodegradable-sachet-packaging-for-spices-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:26.464Z"
+        },
+        {
+          "filename": "biodegradable-sachet-packaging-for-spices-infographic-2.png",
+          "path": "/imgs/infographics/biodegradable-sachet-packaging-for-spices-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:26.463Z"
+        },
+        {
+          "filename": "biodegradable-sachet-packaging-for-spices-infographic.png",
+          "path": "/imgs/infographics/biodegradable-sachet-packaging-for-spices-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:26.462Z"
+        },
+        {
+          "filename": "recyclable-high-barrier-film-suppliers-infographic-5.png",
+          "path": "/imgs/infographics/recyclable-high-barrier-film-suppliers-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:25.959Z"
+        },
+        {
+          "filename": "recyclable-high-barrier-film-suppliers-infographic-6.png",
+          "path": "/imgs/infographics/recyclable-high-barrier-film-suppliers-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:25.959Z"
+        },
+        {
+          "filename": "recyclable-high-barrier-film-suppliers-infographic-3.png",
+          "path": "/imgs/infographics/recyclable-high-barrier-film-suppliers-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:25.958Z"
+        },
+        {
+          "filename": "recyclable-high-barrier-film-suppliers-infographic-4.png",
+          "path": "/imgs/infographics/recyclable-high-barrier-film-suppliers-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:25.958Z"
+        },
+        {
+          "filename": "recyclable-high-barrier-film-suppliers-infographic-2.png",
+          "path": "/imgs/infographics/recyclable-high-barrier-film-suppliers-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:25.957Z"
+        },
+        {
+          "filename": "recyclable-high-barrier-film-suppliers-infographic.png",
+          "path": "/imgs/infographics/recyclable-high-barrier-film-suppliers-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:25.956Z"
+        },
+        {
+          "filename": "wholesale-prices-for-compostable-pouches-infographic-5.png",
+          "path": "/imgs/infographics/wholesale-prices-for-compostable-pouches-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.785Z"
+        },
+        {
+          "filename": "wholesale-prices-for-compostable-pouches-infographic-6.png",
+          "path": "/imgs/infographics/wholesale-prices-for-compostable-pouches-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.785Z"
+        },
+        {
+          "filename": "wholesale-prices-for-compostable-pouches-infographic-4.png",
+          "path": "/imgs/infographics/wholesale-prices-for-compostable-pouches-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.784Z"
+        },
+        {
+          "filename": "wholesale-prices-for-compostable-pouches-infographic-2.png",
+          "path": "/imgs/infographics/wholesale-prices-for-compostable-pouches-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.783Z"
+        },
+        {
+          "filename": "wholesale-prices-for-compostable-pouches-infographic-3.png",
+          "path": "/imgs/infographics/wholesale-prices-for-compostable-pouches-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.783Z"
+        },
+        {
+          "filename": "wholesale-prices-for-compostable-pouches-infographic.png",
+          "path": "/imgs/infographics/wholesale-prices-for-compostable-pouches-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.783Z"
+        },
+        {
+          "filename": "digital-printed-barrier-pouches-small-batch-infographic-4.png",
+          "path": "/imgs/infographics/digital-printed-barrier-pouches-small-batch-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.353Z"
+        },
+        {
+          "filename": "digital-printed-barrier-pouches-small-batch-infographic-5.png",
+          "path": "/imgs/infographics/digital-printed-barrier-pouches-small-batch-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.353Z"
+        },
+        {
+          "filename": "digital-printed-barrier-pouches-small-batch-infographic-6.png",
+          "path": "/imgs/infographics/digital-printed-barrier-pouches-small-batch-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.353Z"
+        },
+        {
+          "filename": "digital-printed-barrier-pouches-small-batch-infographic-2.png",
+          "path": "/imgs/infographics/digital-printed-barrier-pouches-small-batch-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.352Z"
+        },
+        {
+          "filename": "digital-printed-barrier-pouches-small-batch-infographic-3.png",
+          "path": "/imgs/infographics/digital-printed-barrier-pouches-small-batch-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.352Z"
+        },
+        {
+          "filename": "digital-printed-barrier-pouches-small-batch-infographic.png",
+          "path": "/imgs/infographics/digital-printed-barrier-pouches-small-batch-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:24.352Z"
+        },
+        {
+          "filename": "high-barrier-compostable-film-for-nuts-infographic-6.png",
+          "path": "/imgs/infographics/high-barrier-compostable-film-for-nuts-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.606Z"
+        },
+        {
+          "filename": "high-barrier-compostable-film-for-nuts-infographic-5.png",
+          "path": "/imgs/infographics/high-barrier-compostable-film-for-nuts-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.604Z"
+        },
+        {
+          "filename": "high-barrier-compostable-film-for-nuts-infographic-4.png",
+          "path": "/imgs/infographics/high-barrier-compostable-film-for-nuts-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.603Z"
+        },
+        {
+          "filename": "high-barrier-compostable-film-for-nuts-infographic-3.png",
+          "path": "/imgs/infographics/high-barrier-compostable-film-for-nuts-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.601Z"
+        },
+        {
+          "filename": "high-barrier-compostable-film-for-nuts-infographic-2.png",
+          "path": "/imgs/infographics/high-barrier-compostable-film-for-nuts-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.600Z"
+        },
+        {
+          "filename": "high-barrier-compostable-film-for-nuts-infographic.png",
+          "path": "/imgs/infographics/high-barrier-compostable-film-for-nuts-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.598Z"
+        },
+        {
+          "filename": "compostable-pouch-sourcing-for-snacks-infographic-5.png",
+          "path": "/imgs/infographics/compostable-pouch-sourcing-for-snacks-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.098Z"
+        },
+        {
+          "filename": "compostable-pouch-sourcing-for-snacks-infographic-6.png",
+          "path": "/imgs/infographics/compostable-pouch-sourcing-for-snacks-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.098Z"
+        },
+        {
+          "filename": "compostable-pouch-sourcing-for-snacks-infographic-4.png",
+          "path": "/imgs/infographics/compostable-pouch-sourcing-for-snacks-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.097Z"
+        },
+        {
+          "filename": "compostable-pouch-sourcing-for-snacks-infographic-2.png",
+          "path": "/imgs/infographics/compostable-pouch-sourcing-for-snacks-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.096Z"
+        },
+        {
+          "filename": "compostable-pouch-sourcing-for-snacks-infographic-3.png",
+          "path": "/imgs/infographics/compostable-pouch-sourcing-for-snacks-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.096Z"
+        },
+        {
+          "filename": "compostable-pouch-sourcing-for-snacks-infographic.png",
+          "path": "/imgs/infographics/compostable-pouch-sourcing-for-snacks-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:23.094Z"
+        },
+        {
+          "filename": "custom-shape-pouches-digital-printing-infographic-6.png",
+          "path": "/imgs/infographics/custom-shape-pouches-digital-printing-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:22.643Z"
+        },
+        {
+          "filename": "custom-shape-pouches-digital-printing-infographic-5.png",
+          "path": "/imgs/infographics/custom-shape-pouches-digital-printing-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:22.642Z"
+        },
+        {
+          "filename": "custom-shape-pouches-digital-printing-infographic-3.png",
+          "path": "/imgs/infographics/custom-shape-pouches-digital-printing-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:22.641Z"
+        },
+        {
+          "filename": "custom-shape-pouches-digital-printing-infographic-4.png",
+          "path": "/imgs/infographics/custom-shape-pouches-digital-printing-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:22.641Z"
+        },
+        {
+          "filename": "custom-shape-pouches-digital-printing-infographic-2.png",
+          "path": "/imgs/infographics/custom-shape-pouches-digital-printing-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:22.640Z"
+        },
+        {
+          "filename": "custom-shape-pouches-digital-printing-infographic.png",
+          "path": "/imgs/infographics/custom-shape-pouches-digital-printing-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:22.639Z"
+        },
+        {
+          "filename": "compostable-pouch-with-spout-for-beverages-infographic-6.png",
+          "path": "/imgs/infographics/compostable-pouch-with-spout-for-beverages-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:21.443Z"
+        },
+        {
+          "filename": "compostable-pouch-with-spout-for-beverages-infographic-5.png",
+          "path": "/imgs/infographics/compostable-pouch-with-spout-for-beverages-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:21.442Z"
+        },
+        {
+          "filename": "compostable-pouch-with-spout-for-beverages-infographic-4.png",
+          "path": "/imgs/infographics/compostable-pouch-with-spout-for-beverages-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:21.441Z"
+        },
+        {
+          "filename": "compostable-pouch-with-spout-for-beverages-infographic-3.png",
+          "path": "/imgs/infographics/compostable-pouch-with-spout-for-beverages-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:21.440Z"
+        },
+        {
+          "filename": "compostable-pouch-with-spout-for-beverages-infographic-2.png",
+          "path": "/imgs/infographics/compostable-pouch-with-spout-for-beverages-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:21.439Z"
+        },
+        {
+          "filename": "compostable-pouch-with-spout-for-beverages-infographic.png",
+          "path": "/imgs/infographics/compostable-pouch-with-spout-for-beverages-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:21.438Z"
+        },
+        {
+          "filename": "barrier-film-suppliers-for-flexible-packaging-infographic-6.png",
+          "path": "/imgs/infographics/barrier-film-suppliers-for-flexible-packaging-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:21.000Z"
+        },
+        {
+          "filename": "barrier-film-suppliers-for-flexible-packaging-infographic-5.png",
+          "path": "/imgs/infographics/barrier-film-suppliers-for-flexible-packaging-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.998Z"
+        },
+        {
+          "filename": "barrier-film-suppliers-for-flexible-packaging-infographic-4.png",
+          "path": "/imgs/infographics/barrier-film-suppliers-for-flexible-packaging-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.996Z"
+        },
+        {
+          "filename": "barrier-film-suppliers-for-flexible-packaging-infographic-3.png",
+          "path": "/imgs/infographics/barrier-film-suppliers-for-flexible-packaging-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.995Z"
+        },
+        {
+          "filename": "barrier-film-suppliers-for-flexible-packaging-infographic-2.png",
+          "path": "/imgs/infographics/barrier-film-suppliers-for-flexible-packaging-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.993Z"
+        },
+        {
+          "filename": "barrier-film-suppliers-for-flexible-packaging-infographic.png",
+          "path": "/imgs/infographics/barrier-film-suppliers-for-flexible-packaging-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.991Z"
+        },
+        {
+          "filename": "kraft-paper-stand-up-pouches-custom-infographic-6.png",
+          "path": "/imgs/infographics/kraft-paper-stand-up-pouches-custom-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.498Z"
+        },
+        {
+          "filename": "kraft-paper-stand-up-pouches-custom-infographic-5.png",
+          "path": "/imgs/infographics/kraft-paper-stand-up-pouches-custom-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.497Z"
+        },
+        {
+          "filename": "kraft-paper-stand-up-pouches-custom-infographic-4.png",
+          "path": "/imgs/infographics/kraft-paper-stand-up-pouches-custom-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.496Z"
+        },
+        {
+          "filename": "kraft-paper-stand-up-pouches-custom-infographic-3.png",
+          "path": "/imgs/infographics/kraft-paper-stand-up-pouches-custom-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.495Z"
+        },
+        {
+          "filename": "kraft-paper-stand-up-pouches-custom-infographic-2.png",
+          "path": "/imgs/infographics/kraft-paper-stand-up-pouches-custom-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.494Z"
+        },
+        {
+          "filename": "kraft-paper-stand-up-pouches-custom-infographic.png",
+          "path": "/imgs/infographics/kraft-paper-stand-up-pouches-custom-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.493Z"
+        },
+        {
+          "filename": "sustainable-sachet-filling-solutions-infographic-6.png",
+          "path": "/imgs/infographics/sustainable-sachet-filling-solutions-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.005Z"
+        },
+        {
+          "filename": "sustainable-sachet-filling-solutions-infographic-5.png",
+          "path": "/imgs/infographics/sustainable-sachet-filling-solutions-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.003Z"
+        },
+        {
+          "filename": "sustainable-sachet-filling-solutions-infographic-4.png",
+          "path": "/imgs/infographics/sustainable-sachet-filling-solutions-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.002Z"
+        },
+        {
+          "filename": "sustainable-sachet-filling-solutions-infographic-3.png",
+          "path": "/imgs/infographics/sustainable-sachet-filling-solutions-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:20.000Z"
+        },
+        {
+          "filename": "sustainable-sachet-filling-solutions-infographic-2.png",
+          "path": "/imgs/infographics/sustainable-sachet-filling-solutions-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:19.999Z"
+        },
+        {
+          "filename": "sustainable-sachet-filling-solutions-infographic.png",
+          "path": "/imgs/infographics/sustainable-sachet-filling-solutions-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:19.997Z"
+        },
+        {
+          "filename": "recyclable-barrier-pouches-for-liquids-infographic-6.png",
+          "path": "/imgs/infographics/recyclable-barrier-pouches-for-liquids-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:18.571Z"
+        },
+        {
+          "filename": "recyclable-barrier-pouches-for-liquids-infographic-5.png",
+          "path": "/imgs/infographics/recyclable-barrier-pouches-for-liquids-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:18.567Z"
+        },
+        {
+          "filename": "recyclable-barrier-pouches-for-liquids-infographic-4.png",
+          "path": "/imgs/infographics/recyclable-barrier-pouches-for-liquids-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:18.566Z"
+        },
+        {
+          "filename": "recyclable-barrier-pouches-for-liquids-infographic-3.png",
+          "path": "/imgs/infographics/recyclable-barrier-pouches-for-liquids-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:18.565Z"
+        },
+        {
+          "filename": "recyclable-barrier-pouches-for-liquids-infographic-2.png",
+          "path": "/imgs/infographics/recyclable-barrier-pouches-for-liquids-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:18.563Z"
+        },
+        {
+          "filename": "recyclable-barrier-pouches-for-liquids-infographic.png",
+          "path": "/imgs/infographics/recyclable-barrier-pouches-for-liquids-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:18.562Z"
+        },
+        {
+          "filename": "custom-printed-stand-up-pouches-low-minimum-infographic-6.png",
+          "path": "/imgs/infographics/custom-printed-stand-up-pouches-low-minimum-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:17.279Z"
+        },
+        {
+          "filename": "custom-printed-stand-up-pouches-low-minimum-infographic-5.png",
+          "path": "/imgs/infographics/custom-printed-stand-up-pouches-low-minimum-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:17.278Z"
+        },
+        {
+          "filename": "custom-printed-stand-up-pouches-low-minimum-infographic-4.png",
+          "path": "/imgs/infographics/custom-printed-stand-up-pouches-low-minimum-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:17.277Z"
+        },
+        {
+          "filename": "custom-printed-stand-up-pouches-low-minimum-infographic-3.png",
+          "path": "/imgs/infographics/custom-printed-stand-up-pouches-low-minimum-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:17.276Z"
+        },
+        {
+          "filename": "custom-printed-stand-up-pouches-low-minimum-infographic-2.png",
+          "path": "/imgs/infographics/custom-printed-stand-up-pouches-low-minimum-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:17.275Z"
+        },
+        {
+          "filename": "custom-printed-stand-up-pouches-low-minimum-infographic.png",
+          "path": "/imgs/infographics/custom-printed-stand-up-pouches-low-minimum-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:17.274Z"
+        },
+        {
+          "filename": "compostable-retort-pouches-for-baby-food-infographic-5.png",
+          "path": "/imgs/infographics/compostable-retort-pouches-for-baby-food-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.670Z"
+        },
+        {
+          "filename": "compostable-retort-pouches-for-baby-food-infographic-6.png",
+          "path": "/imgs/infographics/compostable-retort-pouches-for-baby-food-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.670Z"
+        },
+        {
+          "filename": "compostable-retort-pouches-for-baby-food-infographic-2.png",
+          "path": "/imgs/infographics/compostable-retort-pouches-for-baby-food-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.669Z"
+        },
+        {
+          "filename": "compostable-retort-pouches-for-baby-food-infographic-3.png",
+          "path": "/imgs/infographics/compostable-retort-pouches-for-baby-food-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.669Z"
+        },
+        {
+          "filename": "compostable-retort-pouches-for-baby-food-infographic-4.png",
+          "path": "/imgs/infographics/compostable-retort-pouches-for-baby-food-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.669Z"
+        },
+        {
+          "filename": "compostable-retort-pouches-for-baby-food-infographic.png",
+          "path": "/imgs/infographics/compostable-retort-pouches-for-baby-food-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.668Z"
+        },
+        {
+          "filename": "sustainable-packaging-sachet-sizes-infographic-6.png",
+          "path": "/imgs/infographics/sustainable-packaging-sachet-sizes-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.387Z"
+        },
+        {
+          "filename": "sustainable-packaging-sachet-sizes-infographic-5.png",
+          "path": "/imgs/infographics/sustainable-packaging-sachet-sizes-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.385Z"
+        },
+        {
+          "filename": "sustainable-packaging-sachet-sizes-infographic-4.png",
+          "path": "/imgs/infographics/sustainable-packaging-sachet-sizes-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.384Z"
+        },
+        {
+          "filename": "sustainable-packaging-sachet-sizes-infographic-3.png",
+          "path": "/imgs/infographics/sustainable-packaging-sachet-sizes-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.383Z"
+        },
+        {
+          "filename": "sustainable-packaging-sachet-sizes-infographic-2.png",
+          "path": "/imgs/infographics/sustainable-packaging-sachet-sizes-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.382Z"
+        },
+        {
+          "filename": "sustainable-packaging-sachet-sizes-infographic.png",
+          "path": "/imgs/infographics/sustainable-packaging-sachet-sizes-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.382Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouches-for-pet-food-infographic-6.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouches-for-pet-food-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.117Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouches-for-pet-food-infographic-2.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouches-for-pet-food-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.116Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouches-for-pet-food-infographic-3.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouches-for-pet-food-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.116Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouches-for-pet-food-infographic-4.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouches-for-pet-food-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.116Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouches-for-pet-food-infographic-5.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouches-for-pet-food-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.116Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouches-for-pet-food-infographic.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouches-for-pet-food-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:16.115Z"
+        },
+        {
+          "filename": "mono-material-stand-up-pouches-recyclable-infographic-5.png",
+          "path": "/imgs/infographics/mono-material-stand-up-pouches-recyclable-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.672Z"
+        },
+        {
+          "filename": "mono-material-stand-up-pouches-recyclable-infographic-6.png",
+          "path": "/imgs/infographics/mono-material-stand-up-pouches-recyclable-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.672Z"
+        },
+        {
+          "filename": "mono-material-stand-up-pouches-recyclable-infographic-4.png",
+          "path": "/imgs/infographics/mono-material-stand-up-pouches-recyclable-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.671Z"
+        },
+        {
+          "filename": "mono-material-stand-up-pouches-recyclable-infographic-2.png",
+          "path": "/imgs/infographics/mono-material-stand-up-pouches-recyclable-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.670Z"
+        },
+        {
+          "filename": "mono-material-stand-up-pouches-recyclable-infographic-3.png",
+          "path": "/imgs/infographics/mono-material-stand-up-pouches-recyclable-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.670Z"
+        },
+        {
+          "filename": "mono-material-stand-up-pouches-recyclable-infographic.png",
+          "path": "/imgs/infographics/mono-material-stand-up-pouches-recyclable-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.669Z"
+        },
+        {
+          "filename": "digital-printed-custom-pouches-wholesale-infographic-6.png",
+          "path": "/imgs/infographics/digital-printed-custom-pouches-wholesale-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.205Z"
+        },
+        {
+          "filename": "digital-printed-custom-pouches-wholesale-infographic-5.png",
+          "path": "/imgs/infographics/digital-printed-custom-pouches-wholesale-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.204Z"
+        },
+        {
+          "filename": "digital-printed-custom-pouches-wholesale-infographic-4.png",
+          "path": "/imgs/infographics/digital-printed-custom-pouches-wholesale-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.203Z"
+        },
+        {
+          "filename": "digital-printed-custom-pouches-wholesale-infographic-2.png",
+          "path": "/imgs/infographics/digital-printed-custom-pouches-wholesale-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.202Z"
+        },
+        {
+          "filename": "digital-printed-custom-pouches-wholesale-infographic-3.png",
+          "path": "/imgs/infographics/digital-printed-custom-pouches-wholesale-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.202Z"
+        },
+        {
+          "filename": "digital-printed-custom-pouches-wholesale-infographic.png",
+          "path": "/imgs/infographics/digital-printed-custom-pouches-wholesale-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:15.201Z"
+        },
+        {
+          "filename": "compostable-barrier-film-for-snacks-infographic-6.png",
+          "path": "/imgs/infographics/compostable-barrier-film-for-snacks-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.709Z"
+        },
+        {
+          "filename": "compostable-barrier-film-for-snacks-infographic-5.png",
+          "path": "/imgs/infographics/compostable-barrier-film-for-snacks-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.708Z"
+        },
+        {
+          "filename": "compostable-barrier-film-for-snacks-infographic-3.png",
+          "path": "/imgs/infographics/compostable-barrier-film-for-snacks-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.707Z"
+        },
+        {
+          "filename": "compostable-barrier-film-for-snacks-infographic-4.png",
+          "path": "/imgs/infographics/compostable-barrier-film-for-snacks-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.707Z"
+        },
+        {
+          "filename": "compostable-barrier-film-for-snacks-infographic-2.png",
+          "path": "/imgs/infographics/compostable-barrier-film-for-snacks-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.706Z"
+        },
+        {
+          "filename": "compostable-barrier-film-for-snacks-infographic.png",
+          "path": "/imgs/infographics/compostable-barrier-film-for-snacks-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.705Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-chart-for-powders-infographic-6.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-chart-for-powders-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.421Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-chart-for-powders-infographic-5.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-chart-for-powders-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.420Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-chart-for-powders-infographic-4.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-chart-for-powders-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.419Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-chart-for-powders-infographic-3.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-chart-for-powders-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.417Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-chart-for-powders-infographic-2.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-chart-for-powders-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.416Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-chart-for-powders-infographic.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-chart-for-powders-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.414Z"
+        },
+        {
+          "filename": "small-batch-digital-print-bags-infographic-6.png",
+          "path": "/imgs/infographics/small-batch-digital-print-bags-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.033Z"
+        },
+        {
+          "filename": "small-batch-digital-print-bags-infographic-5.png",
+          "path": "/imgs/infographics/small-batch-digital-print-bags-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.032Z"
+        },
+        {
+          "filename": "small-batch-digital-print-bags-infographic-4.png",
+          "path": "/imgs/infographics/small-batch-digital-print-bags-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.030Z"
+        },
+        {
+          "filename": "small-batch-digital-print-bags-infographic-3.png",
+          "path": "/imgs/infographics/small-batch-digital-print-bags-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.029Z"
+        },
+        {
+          "filename": "small-batch-digital-print-bags-infographic-2.png",
+          "path": "/imgs/infographics/small-batch-digital-print-bags-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.026Z"
+        },
+        {
+          "filename": "small-batch-digital-print-bags-infographic.png",
+          "path": "/imgs/infographics/small-batch-digital-print-bags-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:14.024Z"
+        },
+        {
+          "filename": "compostable-tea-pouch-with-zipper-infographic-5.png",
+          "path": "/imgs/infographics/compostable-tea-pouch-with-zipper-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.543Z"
+        },
+        {
+          "filename": "compostable-tea-pouch-with-zipper-infographic-6.png",
+          "path": "/imgs/infographics/compostable-tea-pouch-with-zipper-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.543Z"
+        },
+        {
+          "filename": "compostable-tea-pouch-with-zipper-infographic-3.png",
+          "path": "/imgs/infographics/compostable-tea-pouch-with-zipper-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.542Z"
+        },
+        {
+          "filename": "compostable-tea-pouch-with-zipper-infographic-4.png",
+          "path": "/imgs/infographics/compostable-tea-pouch-with-zipper-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.542Z"
+        },
+        {
+          "filename": "compostable-tea-pouch-with-zipper-infographic-2.png",
+          "path": "/imgs/infographics/compostable-tea-pouch-with-zipper-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.541Z"
+        },
+        {
+          "filename": "compostable-tea-pouch-with-zipper-infographic.png",
+          "path": "/imgs/infographics/compostable-tea-pouch-with-zipper-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.540Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-guide-compostable-infographic-6.png",
+          "path": "/imgs/infographics/stand-up-pouch-size-guide-compostable-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.032Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-guide-compostable-infographic-4.png",
+          "path": "/imgs/infographics/stand-up-pouch-size-guide-compostable-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.031Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-guide-compostable-infographic-5.png",
+          "path": "/imgs/infographics/stand-up-pouch-size-guide-compostable-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.031Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-guide-compostable-infographic-3.png",
+          "path": "/imgs/infographics/stand-up-pouch-size-guide-compostable-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.030Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-guide-compostable-infographic-2.png",
+          "path": "/imgs/infographics/stand-up-pouch-size-guide-compostable-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.029Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-guide-compostable-infographic.png",
+          "path": "/imgs/infographics/stand-up-pouch-size-guide-compostable-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:13.028Z"
+        },
+        {
+          "filename": "biodegradable-flat-bottom-bags-wholesale-infographic-6.png",
+          "path": "/imgs/infographics/biodegradable-flat-bottom-bags-wholesale-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.546Z"
+        },
+        {
+          "filename": "biodegradable-flat-bottom-bags-wholesale-infographic-5.png",
+          "path": "/imgs/infographics/biodegradable-flat-bottom-bags-wholesale-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.545Z"
+        },
+        {
+          "filename": "biodegradable-flat-bottom-bags-wholesale-infographic-3.png",
+          "path": "/imgs/infographics/biodegradable-flat-bottom-bags-wholesale-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.544Z"
+        },
+        {
+          "filename": "biodegradable-flat-bottom-bags-wholesale-infographic-4.png",
+          "path": "/imgs/infographics/biodegradable-flat-bottom-bags-wholesale-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.544Z"
+        },
+        {
+          "filename": "biodegradable-flat-bottom-bags-wholesale-infographic-2.png",
+          "path": "/imgs/infographics/biodegradable-flat-bottom-bags-wholesale-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.543Z"
+        },
+        {
+          "filename": "biodegradable-flat-bottom-bags-wholesale-infographic.png",
+          "path": "/imgs/infographics/biodegradable-flat-bottom-bags-wholesale-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.543Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-printing-services-infographic-6.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-printing-services-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.104Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-printing-services-infographic-5.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-printing-services-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.103Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-printing-services-infographic-3.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-printing-services-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.102Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-printing-services-infographic-4.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-printing-services-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.102Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-printing-services-infographic-2.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-printing-services-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.101Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-printing-services-infographic.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-printing-services-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:12.099Z"
+        },
+        {
+          "filename": "custom-shaped-compostable-stand-up-pouches-infographic-6.png",
+          "path": "/imgs/infographics/custom-shaped-compostable-stand-up-pouches-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:11.445Z"
+        },
+        {
+          "filename": "custom-shaped-compostable-stand-up-pouches-infographic-4.png",
+          "path": "/imgs/infographics/custom-shaped-compostable-stand-up-pouches-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:11.444Z"
+        },
+        {
+          "filename": "custom-shaped-compostable-stand-up-pouches-infographic-5.png",
+          "path": "/imgs/infographics/custom-shaped-compostable-stand-up-pouches-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:11.444Z"
+        },
+        {
+          "filename": "custom-shaped-compostable-stand-up-pouches-infographic-3.png",
+          "path": "/imgs/infographics/custom-shaped-compostable-stand-up-pouches-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:11.442Z"
+        },
+        {
+          "filename": "custom-shaped-compostable-stand-up-pouches-infographic-2.png",
+          "path": "/imgs/infographics/custom-shaped-compostable-stand-up-pouches-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:11.441Z"
+        },
+        {
+          "filename": "custom-shaped-compostable-stand-up-pouches-infographic.png",
+          "path": "/imgs/infographics/custom-shaped-compostable-stand-up-pouches-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:11.440Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-sizes-for-powders-infographic-6.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-sizes-for-powders-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.962Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-sizes-for-powders-infographic-5.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-sizes-for-powders-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.961Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-sizes-for-powders-infographic-3.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-sizes-for-powders-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.960Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-sizes-for-powders-infographic-4.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-sizes-for-powders-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.960Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-sizes-for-powders-infographic-2.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-sizes-for-powders-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.959Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-sizes-for-powders-infographic.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-sizes-for-powders-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.958Z"
+        },
+        {
+          "filename": "compostable-barrier-packaging-for-nuts-infographic-6.png",
+          "path": "/imgs/infographics/compostable-barrier-packaging-for-nuts-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.472Z"
+        },
+        {
+          "filename": "compostable-barrier-packaging-for-nuts-infographic-5.png",
+          "path": "/imgs/infographics/compostable-barrier-packaging-for-nuts-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.471Z"
+        },
+        {
+          "filename": "compostable-barrier-packaging-for-nuts-infographic-4.png",
+          "path": "/imgs/infographics/compostable-barrier-packaging-for-nuts-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.470Z"
+        },
+        {
+          "filename": "compostable-barrier-packaging-for-nuts-infographic-3.png",
+          "path": "/imgs/infographics/compostable-barrier-packaging-for-nuts-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.469Z"
+        },
+        {
+          "filename": "compostable-barrier-packaging-for-nuts-infographic-2.png",
+          "path": "/imgs/infographics/compostable-barrier-packaging-for-nuts-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.468Z"
+        },
+        {
+          "filename": "compostable-barrier-packaging-for-nuts-infographic.png",
+          "path": "/imgs/infographics/compostable-barrier-packaging-for-nuts-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.467Z"
+        },
+        {
+          "filename": "barrier-film-for-custom-flexible-packaging-infographic-6.png",
+          "path": "/imgs/infographics/barrier-film-for-custom-flexible-packaging-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.027Z"
+        },
+        {
+          "filename": "barrier-film-for-custom-flexible-packaging-infographic-5.png",
+          "path": "/imgs/infographics/barrier-film-for-custom-flexible-packaging-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.025Z"
+        },
+        {
+          "filename": "barrier-film-for-custom-flexible-packaging-infographic-4.png",
+          "path": "/imgs/infographics/barrier-film-for-custom-flexible-packaging-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.023Z"
+        },
+        {
+          "filename": "barrier-film-for-custom-flexible-packaging-infographic-3.png",
+          "path": "/imgs/infographics/barrier-film-for-custom-flexible-packaging-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.022Z"
+        },
+        {
+          "filename": "barrier-film-for-custom-flexible-packaging-infographic-2.png",
+          "path": "/imgs/infographics/barrier-film-for-custom-flexible-packaging-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.020Z"
+        },
+        {
+          "filename": "barrier-film-for-custom-flexible-packaging-infographic.png",
+          "path": "/imgs/infographics/barrier-film-for-custom-flexible-packaging-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:10.018Z"
+        },
+        {
+          "filename": "sustainable-stand-up-pouch-with-window-infographic-6.png",
+          "path": "/imgs/infographics/sustainable-stand-up-pouch-with-window-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:09.592Z"
+        },
+        {
+          "filename": "sustainable-stand-up-pouch-with-window-infographic-5.png",
+          "path": "/imgs/infographics/sustainable-stand-up-pouch-with-window-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:09.591Z"
+        },
+        {
+          "filename": "sustainable-stand-up-pouch-with-window-infographic-4.png",
+          "path": "/imgs/infographics/sustainable-stand-up-pouch-with-window-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:09.590Z"
+        },
+        {
+          "filename": "sustainable-stand-up-pouch-with-window-infographic-3.png",
+          "path": "/imgs/infographics/sustainable-stand-up-pouch-with-window-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:09.589Z"
+        },
+        {
+          "filename": "sustainable-stand-up-pouch-with-window-infographic-2.png",
+          "path": "/imgs/infographics/sustainable-stand-up-pouch-with-window-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:09.587Z"
+        },
+        {
+          "filename": "sustainable-stand-up-pouch-with-window-infographic.png",
+          "path": "/imgs/infographics/sustainable-stand-up-pouch-with-window-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:09.586Z"
+        },
+        {
+          "filename": "custom-sachet-packaging-for-spices-infographic-6.png",
+          "path": "/imgs/infographics/custom-sachet-packaging-for-spices-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.837Z"
+        },
+        {
+          "filename": "custom-sachet-packaging-for-spices-infographic-5.png",
+          "path": "/imgs/infographics/custom-sachet-packaging-for-spices-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.834Z"
+        },
+        {
+          "filename": "custom-sachet-packaging-for-spices-infographic-4.png",
+          "path": "/imgs/infographics/custom-sachet-packaging-for-spices-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.833Z"
+        },
+        {
+          "filename": "custom-sachet-packaging-for-spices-infographic-3.png",
+          "path": "/imgs/infographics/custom-sachet-packaging-for-spices-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.831Z"
+        },
+        {
+          "filename": "custom-sachet-packaging-for-spices-infographic-2.png",
+          "path": "/imgs/infographics/custom-sachet-packaging-for-spices-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.830Z"
+        },
+        {
+          "filename": "custom-sachet-packaging-for-spices-infographic.png",
+          "path": "/imgs/infographics/custom-sachet-packaging-for-spices-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.828Z"
+        },
+        {
+          "filename": "compostable-retort-pouch-dimensions-infographic-6.png",
+          "path": "/imgs/infographics/compostable-retort-pouch-dimensions-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.392Z"
+        },
+        {
+          "filename": "compostable-retort-pouch-dimensions-infographic-5.png",
+          "path": "/imgs/infographics/compostable-retort-pouch-dimensions-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.389Z"
+        },
+        {
+          "filename": "compostable-retort-pouch-dimensions-infographic-4.png",
+          "path": "/imgs/infographics/compostable-retort-pouch-dimensions-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.387Z"
+        },
+        {
+          "filename": "compostable-retort-pouch-dimensions-infographic-3.png",
+          "path": "/imgs/infographics/compostable-retort-pouch-dimensions-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.384Z"
+        },
+        {
+          "filename": "compostable-retort-pouch-dimensions-infographic-2.png",
+          "path": "/imgs/infographics/compostable-retort-pouch-dimensions-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.382Z"
+        },
+        {
+          "filename": "compostable-retort-pouch-dimensions-infographic.png",
+          "path": "/imgs/infographics/compostable-retort-pouch-dimensions-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:08.380Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-barrier-pouches-infographic-6.png",
+          "path": "/imgs/infographics/mono-pe-recyclable-barrier-pouches-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.930Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-barrier-pouches-infographic-5.png",
+          "path": "/imgs/infographics/mono-pe-recyclable-barrier-pouches-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.929Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-barrier-pouches-infographic-4.png",
+          "path": "/imgs/infographics/mono-pe-recyclable-barrier-pouches-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.928Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-barrier-pouches-infographic-3.png",
+          "path": "/imgs/infographics/mono-pe-recyclable-barrier-pouches-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.927Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-barrier-pouches-infographic-2.png",
+          "path": "/imgs/infographics/mono-pe-recyclable-barrier-pouches-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.926Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-barrier-pouches-infographic.png",
+          "path": "/imgs/infographics/mono-pe-recyclable-barrier-pouches-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.924Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouch-suppliers-infographic-6.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouch-suppliers-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.476Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouch-suppliers-infographic-5.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouch-suppliers-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.475Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouch-suppliers-infographic-4.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouch-suppliers-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.474Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouch-suppliers-infographic-3.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouch-suppliers-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.472Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouch-suppliers-infographic-2.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouch-suppliers-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.470Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouch-suppliers-infographic.png",
+          "path": "/imgs/infographics/eco-friendly-flat-bottom-pouch-suppliers-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:07.468Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-8-oz-infographic-6.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-8-oz-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.972Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-8-oz-infographic-2.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-8-oz-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.971Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-8-oz-infographic-3.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-8-oz-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.971Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-8-oz-infographic-4.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-8-oz-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.971Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-8-oz-infographic-5.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-8-oz-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.971Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-8-oz-infographic.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-8-oz-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.970Z"
+        },
+        {
+          "filename": "mono-pe-compostable-sachet-options-infographic-4.png",
+          "path": "/imgs/infographics/mono-pe-compostable-sachet-options-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.494Z"
+        },
+        {
+          "filename": "mono-pe-compostable-sachet-options-infographic-5.png",
+          "path": "/imgs/infographics/mono-pe-compostable-sachet-options-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.494Z"
+        },
+        {
+          "filename": "mono-pe-compostable-sachet-options-infographic-6.png",
+          "path": "/imgs/infographics/mono-pe-compostable-sachet-options-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.494Z"
+        },
+        {
+          "filename": "mono-pe-compostable-sachet-options-infographic-2.png",
+          "path": "/imgs/infographics/mono-pe-compostable-sachet-options-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.493Z"
+        },
+        {
+          "filename": "mono-pe-compostable-sachet-options-infographic-3.png",
+          "path": "/imgs/infographics/mono-pe-compostable-sachet-options-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.493Z"
+        },
+        {
+          "filename": "mono-pe-compostable-sachet-options-infographic.png",
+          "path": "/imgs/infographics/mono-pe-compostable-sachet-options-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:06.493Z"
+        },
+        {
+          "filename": "custom-digital-printed-stand-up-pouches-infographic-6.png",
+          "path": "/imgs/infographics/custom-digital-printed-stand-up-pouches-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.977Z"
+        },
+        {
+          "filename": "custom-digital-printed-stand-up-pouches-infographic-5.png",
+          "path": "/imgs/infographics/custom-digital-printed-stand-up-pouches-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.976Z"
+        },
+        {
+          "filename": "custom-digital-printed-stand-up-pouches-infographic-4.png",
+          "path": "/imgs/infographics/custom-digital-printed-stand-up-pouches-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.975Z"
+        },
+        {
+          "filename": "custom-digital-printed-stand-up-pouches-infographic-3.png",
+          "path": "/imgs/infographics/custom-digital-printed-stand-up-pouches-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.974Z"
+        },
+        {
+          "filename": "custom-digital-printed-stand-up-pouches-infographic-2.png",
+          "path": "/imgs/infographics/custom-digital-printed-stand-up-pouches-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.973Z"
+        },
+        {
+          "filename": "custom-digital-printed-stand-up-pouches-infographic.png",
+          "path": "/imgs/infographics/custom-digital-printed-stand-up-pouches-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.972Z"
+        },
+        {
+          "filename": "compostable-pouch-size-chart-for-liquids-infographic-6.png",
+          "path": "/imgs/infographics/compostable-pouch-size-chart-for-liquids-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.533Z"
+        },
+        {
+          "filename": "compostable-pouch-size-chart-for-liquids-infographic-4.png",
+          "path": "/imgs/infographics/compostable-pouch-size-chart-for-liquids-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.532Z"
+        },
+        {
+          "filename": "compostable-pouch-size-chart-for-liquids-infographic-5.png",
+          "path": "/imgs/infographics/compostable-pouch-size-chart-for-liquids-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.532Z"
+        },
+        {
+          "filename": "compostable-pouch-size-chart-for-liquids-infographic-3.png",
+          "path": "/imgs/infographics/compostable-pouch-size-chart-for-liquids-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.531Z"
+        },
+        {
+          "filename": "compostable-pouch-size-chart-for-liquids-infographic-2.png",
+          "path": "/imgs/infographics/compostable-pouch-size-chart-for-liquids-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.530Z"
+        },
+        {
+          "filename": "compostable-pouch-size-chart-for-liquids-infographic.png",
+          "path": "/imgs/infographics/compostable-pouch-size-chart-for-liquids-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:05.530Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-size-guide-infographic-6.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-size-guide-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.825Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-size-guide-infographic-5.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-size-guide-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.824Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-size-guide-infographic-4.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-size-guide-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.823Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-size-guide-infographic-2.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-size-guide-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.822Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-size-guide-infographic-3.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-size-guide-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.822Z"
+        },
+        {
+          "filename": "flexible-packaging-sachet-size-guide-infographic.png",
+          "path": "/imgs/infographics/flexible-packaging-sachet-size-guide-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.821Z"
+        },
+        {
+          "filename": "biodegradable-stand-up-pouch-suppliers-infographic-6.png",
+          "path": "/imgs/infographics/biodegradable-stand-up-pouch-suppliers-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.376Z"
+        },
+        {
+          "filename": "biodegradable-stand-up-pouch-suppliers-infographic-5.png",
+          "path": "/imgs/infographics/biodegradable-stand-up-pouch-suppliers-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.375Z"
+        },
+        {
+          "filename": "biodegradable-stand-up-pouch-suppliers-infographic-4.png",
+          "path": "/imgs/infographics/biodegradable-stand-up-pouch-suppliers-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.374Z"
+        },
+        {
+          "filename": "biodegradable-stand-up-pouch-suppliers-infographic-2.png",
+          "path": "/imgs/infographics/biodegradable-stand-up-pouch-suppliers-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.373Z"
+        },
+        {
+          "filename": "biodegradable-stand-up-pouch-suppliers-infographic-3.png",
+          "path": "/imgs/infographics/biodegradable-stand-up-pouch-suppliers-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.373Z"
+        },
+        {
+          "filename": "biodegradable-stand-up-pouch-suppliers-infographic.png",
+          "path": "/imgs/infographics/biodegradable-stand-up-pouch-suppliers-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:04.372Z"
+        },
+        {
+          "filename": "low-minimum-digital-pouch-printing-infographic-6.png",
+          "path": "/imgs/infographics/low-minimum-digital-pouch-printing-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:01.599Z"
+        },
+        {
+          "filename": "low-minimum-digital-pouch-printing-infographic-5.png",
+          "path": "/imgs/infographics/low-minimum-digital-pouch-printing-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:01.597Z"
+        },
+        {
+          "filename": "low-minimum-digital-pouch-printing-infographic-4.png",
+          "path": "/imgs/infographics/low-minimum-digital-pouch-printing-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:01.595Z"
+        },
+        {
+          "filename": "low-minimum-digital-pouch-printing-infographic-3.png",
+          "path": "/imgs/infographics/low-minimum-digital-pouch-printing-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:01.593Z"
+        },
+        {
+          "filename": "low-minimum-digital-pouch-printing-infographic-2.png",
+          "path": "/imgs/infographics/low-minimum-digital-pouch-printing-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:01.592Z"
+        },
+        {
+          "filename": "low-minimum-digital-pouch-printing-infographic.png",
+          "path": "/imgs/infographics/low-minimum-digital-pouch-printing-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:01.589Z"
+        },
+        {
+          "filename": "printed-compostable-retort-bags-infographic-6.png",
+          "path": "/imgs/infographics/printed-compostable-retort-bags-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.943Z"
+        },
+        {
+          "filename": "printed-compostable-retort-bags-infographic-5.png",
+          "path": "/imgs/infographics/printed-compostable-retort-bags-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.942Z"
+        },
+        {
+          "filename": "printed-compostable-retort-bags-infographic-4.png",
+          "path": "/imgs/infographics/printed-compostable-retort-bags-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.941Z"
+        },
+        {
+          "filename": "printed-compostable-retort-bags-infographic-3.png",
+          "path": "/imgs/infographics/printed-compostable-retort-bags-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.940Z"
+        },
+        {
+          "filename": "printed-compostable-retort-bags-infographic-2.png",
+          "path": "/imgs/infographics/printed-compostable-retort-bags-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.939Z"
+        },
+        {
+          "filename": "printed-compostable-retort-bags-infographic.png",
+          "path": "/imgs/infographics/printed-compostable-retort-bags-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.938Z"
+        },
+        {
+          "filename": "high-barrier-sustainable-flexible-films-infographic-6.png",
+          "path": "/imgs/infographics/high-barrier-sustainable-flexible-films-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.493Z"
+        },
+        {
+          "filename": "high-barrier-sustainable-flexible-films-infographic-5.png",
+          "path": "/imgs/infographics/high-barrier-sustainable-flexible-films-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.481Z"
+        },
+        {
+          "filename": "high-barrier-sustainable-flexible-films-infographic-4.png",
+          "path": "/imgs/infographics/high-barrier-sustainable-flexible-films-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.475Z"
+        },
+        {
+          "filename": "high-barrier-sustainable-flexible-films-infographic-3.png",
+          "path": "/imgs/infographics/high-barrier-sustainable-flexible-films-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.474Z"
+        },
+        {
+          "filename": "high-barrier-sustainable-flexible-films-infographic-2.png",
+          "path": "/imgs/infographics/high-barrier-sustainable-flexible-films-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.473Z"
+        },
+        {
+          "filename": "high-barrier-sustainable-flexible-films-infographic.png",
+          "path": "/imgs/infographics/high-barrier-sustainable-flexible-films-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:34:00.472Z"
+        },
+        {
+          "filename": "custom-shaped-flexible-packaging-infographic-6.png",
+          "path": "/imgs/infographics/custom-shaped-flexible-packaging-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:59.385Z"
+        },
+        {
+          "filename": "custom-shaped-flexible-packaging-infographic-5.png",
+          "path": "/imgs/infographics/custom-shaped-flexible-packaging-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:59.383Z"
+        },
+        {
+          "filename": "custom-shaped-flexible-packaging-infographic-4.png",
+          "path": "/imgs/infographics/custom-shaped-flexible-packaging-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:59.382Z"
+        },
+        {
+          "filename": "custom-shaped-flexible-packaging-infographic-3.png",
+          "path": "/imgs/infographics/custom-shaped-flexible-packaging-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:59.381Z"
+        },
+        {
+          "filename": "custom-shaped-flexible-packaging-infographic-2.png",
+          "path": "/imgs/infographics/custom-shaped-flexible-packaging-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:59.378Z"
+        },
+        {
+          "filename": "custom-shaped-flexible-packaging-infographic.png",
+          "path": "/imgs/infographics/custom-shaped-flexible-packaging-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:59.377Z"
+        },
+        {
+          "filename": "custom-sachet-dimensions-for-powders-infographic-6.png",
+          "path": "/imgs/infographics/custom-sachet-dimensions-for-powders-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:58.268Z"
+        },
+        {
+          "filename": "custom-sachet-dimensions-for-powders-infographic-5.png",
+          "path": "/imgs/infographics/custom-sachet-dimensions-for-powders-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:58.267Z"
+        },
+        {
+          "filename": "custom-sachet-dimensions-for-powders-infographic-3.png",
+          "path": "/imgs/infographics/custom-sachet-dimensions-for-powders-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:58.266Z"
+        },
+        {
+          "filename": "custom-sachet-dimensions-for-powders-infographic-4.png",
+          "path": "/imgs/infographics/custom-sachet-dimensions-for-powders-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:58.266Z"
+        },
+        {
+          "filename": "custom-sachet-dimensions-for-powders-infographic-2.png",
+          "path": "/imgs/infographics/custom-sachet-dimensions-for-powders-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:58.265Z"
+        },
+        {
+          "filename": "custom-sachet-dimensions-for-powders-infographic.png",
+          "path": "/imgs/infographics/custom-sachet-dimensions-for-powders-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:58.264Z"
+        },
+        {
+          "filename": "stand-up-pouch-4-oz-dimensions-infographic-6.png",
+          "path": "/imgs/infographics/stand-up-pouch-4-oz-dimensions-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:55.501Z"
+        },
+        {
+          "filename": "stand-up-pouch-4-oz-dimensions-infographic-5.png",
+          "path": "/imgs/infographics/stand-up-pouch-4-oz-dimensions-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:55.500Z"
+        },
+        {
+          "filename": "stand-up-pouch-4-oz-dimensions-infographic-4.png",
+          "path": "/imgs/infographics/stand-up-pouch-4-oz-dimensions-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:55.499Z"
+        },
+        {
+          "filename": "stand-up-pouch-4-oz-dimensions-infographic-2.png",
+          "path": "/imgs/infographics/stand-up-pouch-4-oz-dimensions-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:55.497Z"
+        },
+        {
+          "filename": "stand-up-pouch-4-oz-dimensions-infographic-3.png",
+          "path": "/imgs/infographics/stand-up-pouch-4-oz-dimensions-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:55.497Z"
+        },
+        {
+          "filename": "stand-up-pouch-4-oz-dimensions-infographic.png",
+          "path": "/imgs/infographics/stand-up-pouch-4-oz-dimensions-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:55.496Z"
+        },
+        {
+          "filename": "custom-shape-pouches-for-liquids-infographic-5.png",
+          "path": "/imgs/infographics/custom-shape-pouches-for-liquids-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:54.172Z"
+        },
+        {
+          "filename": "custom-shape-pouches-for-liquids-infographic-6.png",
+          "path": "/imgs/infographics/custom-shape-pouches-for-liquids-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:54.172Z"
+        },
+        {
+          "filename": "custom-shape-pouches-for-liquids-infographic-4.png",
+          "path": "/imgs/infographics/custom-shape-pouches-for-liquids-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:54.171Z"
+        },
+        {
+          "filename": "custom-shape-pouches-for-liquids-infographic-3.png",
+          "path": "/imgs/infographics/custom-shape-pouches-for-liquids-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:54.169Z"
+        },
+        {
+          "filename": "custom-shape-pouches-for-liquids-infographic-2.png",
+          "path": "/imgs/infographics/custom-shape-pouches-for-liquids-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:54.168Z"
+        },
+        {
+          "filename": "custom-shape-pouches-for-liquids-infographic.png",
+          "path": "/imgs/infographics/custom-shape-pouches-for-liquids-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:54.166Z"
+        },
+        {
+          "filename": "eco-friendly-digital-print-bags-infographic-6.png",
+          "path": "/imgs/infographics/eco-friendly-digital-print-bags-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:53.307Z"
+        },
+        {
+          "filename": "eco-friendly-digital-print-bags-infographic-4.png",
+          "path": "/imgs/infographics/eco-friendly-digital-print-bags-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:53.306Z"
+        },
+        {
+          "filename": "eco-friendly-digital-print-bags-infographic-5.png",
+          "path": "/imgs/infographics/eco-friendly-digital-print-bags-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:53.306Z"
+        },
+        {
+          "filename": "eco-friendly-digital-print-bags-infographic-2.png",
+          "path": "/imgs/infographics/eco-friendly-digital-print-bags-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:53.305Z"
+        },
+        {
+          "filename": "eco-friendly-digital-print-bags-infographic-3.png",
+          "path": "/imgs/infographics/eco-friendly-digital-print-bags-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:53.305Z"
+        },
+        {
+          "filename": "eco-friendly-digital-print-bags-infographic.png",
+          "path": "/imgs/infographics/eco-friendly-digital-print-bags-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:53.304Z"
+        },
+        {
+          "filename": "stand-up-pouch-2-oz-size-chart-infographic-6.png",
+          "path": "/imgs/infographics/stand-up-pouch-2-oz-size-chart-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:52.609Z"
+        },
+        {
+          "filename": "stand-up-pouch-2-oz-size-chart-infographic-5.png",
+          "path": "/imgs/infographics/stand-up-pouch-2-oz-size-chart-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:52.608Z"
+        },
+        {
+          "filename": "stand-up-pouch-2-oz-size-chart-infographic-4.png",
+          "path": "/imgs/infographics/stand-up-pouch-2-oz-size-chart-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:52.607Z"
+        },
+        {
+          "filename": "stand-up-pouch-2-oz-size-chart-infographic-3.png",
+          "path": "/imgs/infographics/stand-up-pouch-2-oz-size-chart-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:52.606Z"
+        },
+        {
+          "filename": "stand-up-pouch-2-oz-size-chart-infographic-2.png",
+          "path": "/imgs/infographics/stand-up-pouch-2-oz-size-chart-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:52.605Z"
+        },
+        {
+          "filename": "stand-up-pouch-2-oz-size-chart-infographic.png",
+          "path": "/imgs/infographics/stand-up-pouch-2-oz-size-chart-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:52.603Z"
+        },
+        {
+          "filename": "recyclable-barrier-sachets-for-coffee-infographic-6.png",
+          "path": "/imgs/infographics/recyclable-barrier-sachets-for-coffee-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.884Z"
+        },
+        {
+          "filename": "recyclable-barrier-sachets-for-coffee-infographic-5.png",
+          "path": "/imgs/infographics/recyclable-barrier-sachets-for-coffee-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.883Z"
+        },
+        {
+          "filename": "recyclable-barrier-sachets-for-coffee-infographic-4.png",
+          "path": "/imgs/infographics/recyclable-barrier-sachets-for-coffee-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.881Z"
+        },
+        {
+          "filename": "recyclable-barrier-sachets-for-coffee-infographic-3.png",
+          "path": "/imgs/infographics/recyclable-barrier-sachets-for-coffee-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.880Z"
+        },
+        {
+          "filename": "recyclable-barrier-sachets-for-coffee-infographic-2.png",
+          "path": "/imgs/infographics/recyclable-barrier-sachets-for-coffee-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.879Z"
+        },
+        {
+          "filename": "recyclable-barrier-sachets-for-coffee-infographic.png",
+          "path": "/imgs/infographics/recyclable-barrier-sachets-for-coffee-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.878Z"
+        },
+        {
+          "filename": "sustainable-packaging-for-pet-food-pouches-infographic-4.png",
+          "path": "/imgs/infographics/sustainable-packaging-for-pet-food-pouches-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.436Z"
+        },
+        {
+          "filename": "sustainable-packaging-for-pet-food-pouches-infographic-5.png",
+          "path": "/imgs/infographics/sustainable-packaging-for-pet-food-pouches-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.436Z"
+        },
+        {
+          "filename": "sustainable-packaging-for-pet-food-pouches-infographic-6.png",
+          "path": "/imgs/infographics/sustainable-packaging-for-pet-food-pouches-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.436Z"
+        },
+        {
+          "filename": "sustainable-packaging-for-pet-food-pouches-infographic-2.png",
+          "path": "/imgs/infographics/sustainable-packaging-for-pet-food-pouches-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.435Z"
+        },
+        {
+          "filename": "sustainable-packaging-for-pet-food-pouches-infographic-3.png",
+          "path": "/imgs/infographics/sustainable-packaging-for-pet-food-pouches-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.435Z"
+        },
+        {
+          "filename": "sustainable-packaging-for-pet-food-pouches-infographic.png",
+          "path": "/imgs/infographics/sustainable-packaging-for-pet-food-pouches-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:51.435Z"
+        },
+        {
+          "filename": "sustainable-flat-bottom-pouch-sizes-infographic-6.png",
+          "path": "/imgs/infographics/sustainable-flat-bottom-pouch-sizes-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.993Z"
+        },
+        {
+          "filename": "sustainable-flat-bottom-pouch-sizes-infographic-5.png",
+          "path": "/imgs/infographics/sustainable-flat-bottom-pouch-sizes-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.992Z"
+        },
+        {
+          "filename": "sustainable-flat-bottom-pouch-sizes-infographic-4.png",
+          "path": "/imgs/infographics/sustainable-flat-bottom-pouch-sizes-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.991Z"
+        },
+        {
+          "filename": "sustainable-flat-bottom-pouch-sizes-infographic-3.png",
+          "path": "/imgs/infographics/sustainable-flat-bottom-pouch-sizes-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.990Z"
+        },
+        {
+          "filename": "sustainable-flat-bottom-pouch-sizes-infographic-2.png",
+          "path": "/imgs/infographics/sustainable-flat-bottom-pouch-sizes-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.989Z"
+        },
+        {
+          "filename": "sustainable-flat-bottom-pouch-sizes-infographic.png",
+          "path": "/imgs/infographics/sustainable-flat-bottom-pouch-sizes-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.987Z"
+        },
+        {
+          "filename": "compostable-high-barrier-film-suppliers-infographic-6.png",
+          "path": "/imgs/infographics/compostable-high-barrier-film-suppliers-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.532Z"
+        },
+        {
+          "filename": "compostable-high-barrier-film-suppliers-infographic-4.png",
+          "path": "/imgs/infographics/compostable-high-barrier-film-suppliers-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.531Z"
+        },
+        {
+          "filename": "compostable-high-barrier-film-suppliers-infographic-5.png",
+          "path": "/imgs/infographics/compostable-high-barrier-film-suppliers-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.531Z"
+        },
+        {
+          "filename": "compostable-high-barrier-film-suppliers-infographic-3.png",
+          "path": "/imgs/infographics/compostable-high-barrier-film-suppliers-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.530Z"
+        },
+        {
+          "filename": "compostable-high-barrier-film-suppliers-infographic-2.png",
+          "path": "/imgs/infographics/compostable-high-barrier-film-suppliers-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.529Z"
+        },
+        {
+          "filename": "compostable-high-barrier-film-suppliers-infographic.png",
+          "path": "/imgs/infographics/compostable-high-barrier-film-suppliers-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.528Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-for-6-oz-infographic-6.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-for-6-oz-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.076Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-for-6-oz-infographic-5.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-for-6-oz-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.075Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-for-6-oz-infographic-4.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-for-6-oz-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.073Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-for-6-oz-infographic-3.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-for-6-oz-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.071Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-for-6-oz-infographic-2.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-for-6-oz-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.069Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-for-6-oz-infographic.png",
+          "path": "/imgs/infographics/stand-up-pouch-dimensions-for-6-oz-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:50.067Z"
+        },
+        {
+          "filename": "custom-printed-sachet-packaging-wholesale-infographic-6.png",
+          "path": "/imgs/infographics/custom-printed-sachet-packaging-wholesale-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:49.580Z"
+        },
+        {
+          "filename": "custom-printed-sachet-packaging-wholesale-infographic-5.png",
+          "path": "/imgs/infographics/custom-printed-sachet-packaging-wholesale-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:49.579Z"
+        },
+        {
+          "filename": "custom-printed-sachet-packaging-wholesale-infographic-4.png",
+          "path": "/imgs/infographics/custom-printed-sachet-packaging-wholesale-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:49.578Z"
+        },
+        {
+          "filename": "custom-printed-sachet-packaging-wholesale-infographic-3.png",
+          "path": "/imgs/infographics/custom-printed-sachet-packaging-wholesale-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:49.577Z"
+        },
+        {
+          "filename": "custom-printed-sachet-packaging-wholesale-infographic-2.png",
+          "path": "/imgs/infographics/custom-printed-sachet-packaging-wholesale-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:49.576Z"
+        },
+        {
+          "filename": "custom-printed-sachet-packaging-wholesale-infographic.png",
+          "path": "/imgs/infographics/custom-printed-sachet-packaging-wholesale-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:49.575Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-with-spout-infographic-6.png",
+          "path": "/imgs/infographics/compostable-stand-up-pouches-with-spout-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:48.524Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-with-spout-infographic-4.png",
+          "path": "/imgs/infographics/compostable-stand-up-pouches-with-spout-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:48.523Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-with-spout-infographic-5.png",
+          "path": "/imgs/infographics/compostable-stand-up-pouches-with-spout-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:48.523Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-with-spout-infographic-3.png",
+          "path": "/imgs/infographics/compostable-stand-up-pouches-with-spout-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:48.522Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-with-spout-infographic-2.png",
+          "path": "/imgs/infographics/compostable-stand-up-pouches-with-spout-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:48.521Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouches-with-spout-infographic.png",
+          "path": "/imgs/infographics/compostable-stand-up-pouches-with-spout-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:48.520Z"
+        },
+        {
+          "filename": "high-barrier-compostable-films-infographic-6.png",
+          "path": "/imgs/infographics/high-barrier-compostable-films-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:47.449Z"
+        },
+        {
+          "filename": "high-barrier-compostable-films-infographic-5.png",
+          "path": "/imgs/infographics/high-barrier-compostable-films-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:47.448Z"
+        },
+        {
+          "filename": "high-barrier-compostable-films-infographic-4.png",
+          "path": "/imgs/infographics/high-barrier-compostable-films-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:47.446Z"
+        },
+        {
+          "filename": "high-barrier-compostable-films-infographic-3.png",
+          "path": "/imgs/infographics/high-barrier-compostable-films-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:47.445Z"
+        },
+        {
+          "filename": "high-barrier-compostable-films-infographic-2.png",
+          "path": "/imgs/infographics/high-barrier-compostable-films-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:47.443Z"
+        },
+        {
+          "filename": "high-barrier-compostable-films-infographic.png",
+          "path": "/imgs/infographics/high-barrier-compostable-films-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:47.442Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-bags-infographic-6.png",
+          "path": "/imgs/infographics/compostable-flat-bottom-bags-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.718Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-bags-infographic-5.png",
+          "path": "/imgs/infographics/compostable-flat-bottom-bags-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.717Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-bags-infographic-3.png",
+          "path": "/imgs/infographics/compostable-flat-bottom-bags-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.715Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-bags-infographic-4.png",
+          "path": "/imgs/infographics/compostable-flat-bottom-bags-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.715Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-bags-infographic-2.png",
+          "path": "/imgs/infographics/compostable-flat-bottom-bags-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.714Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-bags-infographic.png",
+          "path": "/imgs/infographics/compostable-flat-bottom-bags-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.712Z"
+        },
+        {
+          "filename": "custom-sachet-filling-and-sealing-infographic-6.png",
+          "path": "/imgs/infographics/custom-sachet-filling-and-sealing-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.152Z"
+        },
+        {
+          "filename": "custom-sachet-filling-and-sealing-infographic-5.png",
+          "path": "/imgs/infographics/custom-sachet-filling-and-sealing-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.151Z"
+        },
+        {
+          "filename": "custom-sachet-filling-and-sealing-infographic-4.png",
+          "path": "/imgs/infographics/custom-sachet-filling-and-sealing-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.150Z"
+        },
+        {
+          "filename": "custom-sachet-filling-and-sealing-infographic-3.png",
+          "path": "/imgs/infographics/custom-sachet-filling-and-sealing-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.149Z"
+        },
+        {
+          "filename": "custom-sachet-filling-and-sealing-infographic-2.png",
+          "path": "/imgs/infographics/custom-sachet-filling-and-sealing-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.148Z"
+        },
+        {
+          "filename": "custom-sachet-filling-and-sealing-infographic.png",
+          "path": "/imgs/infographics/custom-sachet-filling-and-sealing-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:46.146Z"
+        },
+        {
+          "filename": "pouch-packaging-for-liquids-compostable-infographic-5.png",
+          "path": "/imgs/infographics/pouch-packaging-for-liquids-compostable-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.640Z"
+        },
+        {
+          "filename": "pouch-packaging-for-liquids-compostable-infographic-6.png",
+          "path": "/imgs/infographics/pouch-packaging-for-liquids-compostable-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.640Z"
+        },
+        {
+          "filename": "pouch-packaging-for-liquids-compostable-infographic-4.png",
+          "path": "/imgs/infographics/pouch-packaging-for-liquids-compostable-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.639Z"
+        },
+        {
+          "filename": "pouch-packaging-for-liquids-compostable-infographic-3.png",
+          "path": "/imgs/infographics/pouch-packaging-for-liquids-compostable-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.638Z"
+        },
+        {
+          "filename": "pouch-packaging-for-liquids-compostable-infographic-2.png",
+          "path": "/imgs/infographics/pouch-packaging-for-liquids-compostable-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.637Z"
+        },
+        {
+          "filename": "pouch-packaging-for-liquids-compostable-infographic.png",
+          "path": "/imgs/infographics/pouch-packaging-for-liquids-compostable-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.635Z"
+        },
+        {
+          "filename": "kraft-stand-up-pouches-with-window-infographic-5.png",
+          "path": "/imgs/infographics/kraft-stand-up-pouches-with-window-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.130Z"
+        },
+        {
+          "filename": "kraft-stand-up-pouches-with-window-infographic-6.png",
+          "path": "/imgs/infographics/kraft-stand-up-pouches-with-window-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.130Z"
+        },
+        {
+          "filename": "kraft-stand-up-pouches-with-window-infographic-4.png",
+          "path": "/imgs/infographics/kraft-stand-up-pouches-with-window-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.129Z"
+        },
+        {
+          "filename": "kraft-stand-up-pouches-with-window-infographic-2.png",
+          "path": "/imgs/infographics/kraft-stand-up-pouches-with-window-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.128Z"
+        },
+        {
+          "filename": "kraft-stand-up-pouches-with-window-infographic-3.png",
+          "path": "/imgs/infographics/kraft-stand-up-pouches-with-window-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.128Z"
+        },
+        {
+          "filename": "kraft-stand-up-pouches-with-window-infographic.png",
+          "path": "/imgs/infographics/kraft-stand-up-pouches-with-window-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:45.127Z"
+        },
+        {
+          "filename": "mono-material-recyclable-pouches-infographic-6.png",
+          "path": "/imgs/infographics/mono-material-recyclable-pouches-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:44.568Z"
+        },
+        {
+          "filename": "mono-material-recyclable-pouches-infographic-5.png",
+          "path": "/imgs/infographics/mono-material-recyclable-pouches-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:44.566Z"
+        },
+        {
+          "filename": "mono-material-recyclable-pouches-infographic-4.png",
+          "path": "/imgs/infographics/mono-material-recyclable-pouches-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:44.565Z"
+        },
+        {
+          "filename": "mono-material-recyclable-pouches-infographic-3.png",
+          "path": "/imgs/infographics/mono-material-recyclable-pouches-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:44.564Z"
+        },
+        {
+          "filename": "mono-material-recyclable-pouches-infographic-2.png",
+          "path": "/imgs/infographics/mono-material-recyclable-pouches-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:44.563Z"
+        },
+        {
+          "filename": "mono-material-recyclable-pouches-infographic.png",
+          "path": "/imgs/infographics/mono-material-recyclable-pouches-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:44.561Z"
+        },
+        {
+          "filename": "barrier-film-flexible-packaging-wholesale-infographic-6.png",
+          "path": "/imgs/infographics/barrier-film-flexible-packaging-wholesale-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:42.171Z"
+        },
+        {
+          "filename": "barrier-film-flexible-packaging-wholesale-infographic-5.png",
+          "path": "/imgs/infographics/barrier-film-flexible-packaging-wholesale-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:42.169Z"
+        },
+        {
+          "filename": "barrier-film-flexible-packaging-wholesale-infographic-4.png",
+          "path": "/imgs/infographics/barrier-film-flexible-packaging-wholesale-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:42.168Z"
+        },
+        {
+          "filename": "barrier-film-flexible-packaging-wholesale-infographic-3.png",
+          "path": "/imgs/infographics/barrier-film-flexible-packaging-wholesale-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:42.167Z"
+        },
+        {
+          "filename": "barrier-film-flexible-packaging-wholesale-infographic-2.png",
+          "path": "/imgs/infographics/barrier-film-flexible-packaging-wholesale-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:42.166Z"
+        },
+        {
+          "filename": "barrier-film-flexible-packaging-wholesale-infographic.png",
+          "path": "/imgs/infographics/barrier-film-flexible-packaging-wholesale-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:42.164Z"
+        },
+        {
+          "filename": "biodegradable-barrier-bags-for-coffee-infographic-5.png",
+          "path": "/imgs/infographics/biodegradable-barrier-bags-for-coffee-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:40.847Z"
+        },
+        {
+          "filename": "biodegradable-barrier-bags-for-coffee-infographic-6.png",
+          "path": "/imgs/infographics/biodegradable-barrier-bags-for-coffee-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:40.847Z"
+        },
+        {
+          "filename": "biodegradable-barrier-bags-for-coffee-infographic-4.png",
+          "path": "/imgs/infographics/biodegradable-barrier-bags-for-coffee-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:40.846Z"
+        },
+        {
+          "filename": "biodegradable-barrier-bags-for-coffee-infographic-2.png",
+          "path": "/imgs/infographics/biodegradable-barrier-bags-for-coffee-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:40.845Z"
+        },
+        {
+          "filename": "biodegradable-barrier-bags-for-coffee-infographic-3.png",
+          "path": "/imgs/infographics/biodegradable-barrier-bags-for-coffee-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:40.845Z"
+        },
+        {
+          "filename": "biodegradable-barrier-bags-for-coffee-infographic.png",
+          "path": "/imgs/infographics/biodegradable-barrier-bags-for-coffee-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:40.844Z"
+        },
+        {
+          "filename": "small-batch-custom-pouch-printing-infographic-6.png",
+          "path": "/imgs/infographics/small-batch-custom-pouch-printing-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.955Z"
+        },
+        {
+          "filename": "small-batch-custom-pouch-printing-infographic-5.png",
+          "path": "/imgs/infographics/small-batch-custom-pouch-printing-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.953Z"
+        },
+        {
+          "filename": "small-batch-custom-pouch-printing-infographic-4.png",
+          "path": "/imgs/infographics/small-batch-custom-pouch-printing-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.952Z"
+        },
+        {
+          "filename": "small-batch-custom-pouch-printing-infographic-3.png",
+          "path": "/imgs/infographics/small-batch-custom-pouch-printing-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.950Z"
+        },
+        {
+          "filename": "small-batch-custom-pouch-printing-infographic-2.png",
+          "path": "/imgs/infographics/small-batch-custom-pouch-printing-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.949Z"
+        },
+        {
+          "filename": "small-batch-custom-pouch-printing-infographic.png",
+          "path": "/imgs/infographics/small-batch-custom-pouch-printing-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.947Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouch-with-spout-infographic-6.png",
+          "path": "/imgs/infographics/recyclable-stand-up-pouch-with-spout-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.526Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouch-with-spout-infographic-5.png",
+          "path": "/imgs/infographics/recyclable-stand-up-pouch-with-spout-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.525Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouch-with-spout-infographic-4.png",
+          "path": "/imgs/infographics/recyclable-stand-up-pouch-with-spout-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.523Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouch-with-spout-infographic-3.png",
+          "path": "/imgs/infographics/recyclable-stand-up-pouch-with-spout-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.522Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouch-with-spout-infographic-2.png",
+          "path": "/imgs/infographics/recyclable-stand-up-pouch-with-spout-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.521Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouch-with-spout-infographic.png",
+          "path": "/imgs/infographics/recyclable-stand-up-pouch-with-spout-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.519Z"
+        },
+        {
+          "filename": "sustainable-sachet-packaging-solutions-infographic-6.png",
+          "path": "/imgs/infographics/sustainable-sachet-packaging-solutions-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.020Z"
+        },
+        {
+          "filename": "sustainable-sachet-packaging-solutions-infographic-5.png",
+          "path": "/imgs/infographics/sustainable-sachet-packaging-solutions-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.018Z"
+        },
+        {
+          "filename": "sustainable-sachet-packaging-solutions-infographic-4.png",
+          "path": "/imgs/infographics/sustainable-sachet-packaging-solutions-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.017Z"
+        },
+        {
+          "filename": "sustainable-sachet-packaging-solutions-infographic-3.png",
+          "path": "/imgs/infographics/sustainable-sachet-packaging-solutions-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.016Z"
+        },
+        {
+          "filename": "sustainable-sachet-packaging-solutions-infographic-2.png",
+          "path": "/imgs/infographics/sustainable-sachet-packaging-solutions-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.015Z"
+        },
+        {
+          "filename": "sustainable-sachet-packaging-solutions-infographic.png",
+          "path": "/imgs/infographics/sustainable-sachet-packaging-solutions-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:39.014Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-sizes-chart-infographic-6.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-sizes-chart-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:38.583Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-sizes-chart-infographic-5.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-sizes-chart-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:38.582Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-sizes-chart-infographic-4.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-sizes-chart-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:38.581Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-sizes-chart-infographic-3.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-sizes-chart-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:38.580Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-sizes-chart-infographic-2.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-sizes-chart-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:38.579Z"
+        },
+        {
+          "filename": "eco-friendly-pouch-sizes-chart-infographic.png",
+          "path": "/imgs/infographics/eco-friendly-pouch-sizes-chart-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T11:33:38.578Z"
+        },
         {
           "filename": "sourcing-compostable-coffee-bags-infographic-6.png",
           "path": "/imgs/infographics/sourcing-compostable-coffee-bags-infographic-6.png",
@@ -4741,36 +7339,6 @@
           "path": "/imgs/infographics/usa-compostable-packaging-guide-infographic-2.png",
           "extension": ".png",
           "modified": "2026-06-04T13:06:36.830Z"
-        },
-        {
-          "filename": "usa-coffee-packaging-infographic-6.png",
-          "path": "/imgs/infographics/usa-coffee-packaging-infographic-6.png",
-          "extension": ".png",
-          "modified": "2026-06-04T13:06:28.098Z"
-        },
-        {
-          "filename": "usa-coffee-packaging-infographic-5.png",
-          "path": "/imgs/infographics/usa-coffee-packaging-infographic-5.png",
-          "extension": ".png",
-          "modified": "2026-06-04T13:06:19.133Z"
-        },
-        {
-          "filename": "usa-coffee-packaging-infographic-4.png",
-          "path": "/imgs/infographics/usa-coffee-packaging-infographic-4.png",
-          "extension": ".png",
-          "modified": "2026-06-04T13:06:11.558Z"
-        },
-        {
-          "filename": "usa-coffee-packaging-infographic-3.png",
-          "path": "/imgs/infographics/usa-coffee-packaging-infographic-3.png",
-          "extension": ".png",
-          "modified": "2026-06-04T13:06:03.214Z"
-        },
-        {
-          "filename": "usa-coffee-packaging-infographic-2.png",
-          "path": "/imgs/infographics/usa-coffee-packaging-infographic-2.png",
-          "extension": ".png",
-          "modified": "2026-06-04T13:05:55.668Z"
         },
         {
           "filename": "recyclable-snack-packaging-guide-infographic-6.png",
@@ -5989,12 +8557,6 @@
           "path": "/imgs/infographics/usa-compostable-packaging-guide-infographic.png",
           "extension": ".png",
           "modified": "2026-06-03T11:53:42.892Z"
-        },
-        {
-          "filename": "usa-coffee-packaging-infographic.png",
-          "path": "/imgs/infographics/usa-coffee-packaging-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-03T11:53:23.271Z"
         },
         {
           "filename": "recyclable-snack-packaging-guide-infographic.png",
