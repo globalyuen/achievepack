@@ -1027,9 +1027,11 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       'Custom Print & Size Options: Brandable with custom black and white print to match logo designs.'
     ],
     images: [
-      '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-1.png',
       '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-2.png',
-      '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-3.png'
+      '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-1.png',
+      '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-3.png',
+      '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-4.png',
+      '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-5.png'
     ],
     badge: '🌿 Eco Cushion',
     rating: 4.9,
@@ -1041,12 +1043,12 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
     inquiryOnly: true,
     basePrice: 0,
     ecoConfig: {
-      defaultMaterial: 'Certified Compostable Biopolymers',
+      defaultMaterial: 'Certified Compostable Honeycomb Paper',
       defaultSize: 'Custom Size',
-      defaultQuantity: '1,000',
+      defaultQuantity: '1,000 sheets',
       defaultDesignCount: 1,
-      defaultBarrier: 'standard cushioning paper',
-      defaultStiffness: 'Waffle textured paper',
+      defaultBarrier: 'None',
+      defaultStiffness: '3-Layer Cushion Structure',
       defaultZipper: 'No',
       defaultShippingMethod: 'Air Freight',
     },

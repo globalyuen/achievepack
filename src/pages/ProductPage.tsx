@@ -242,6 +242,33 @@ const generateDynamicDescription = (options: {
   const nameLC = (productName || '').toLowerCase();
   const shapeLC = (shape || '').toLowerCase();
   
+  if (shapeLC === 'wrapping paper' || nameLC.includes('paper pad') || nameLC.includes('cushioning')) {
+    const compostDesc = {
+      problem: 'Conventional plastic bubble wrap and foam cushioning liners pollute the environment and cannot be composted or easily recycled.',
+      solution: 'This 100% natural, food-grade three-layer honeycomb cushioning paper pad is completely biodegradable and certified compostable.',
+      features: [
+        '100% biodegradable and compostable paper',
+        'Food-safe black and white printed designs',
+        '3-layer honeycomb shock-absorbing waffle design',
+        'Excellent moisture-proof and oil-resistant properties'
+      ],
+      certifications: '100% Compostable • Food Grade'
+    };
+    
+    return {
+      skuType: 'wrapping-paper',
+      materialType: 'compost',
+      problem: compostDesc.problem,
+      solution: compostDesc.solution,
+      features: compostDesc.features,
+      materialInfo: 'Made from certified food-grade compostable honeycomb waffle paper.',
+      sizeInfo: `${size || 'Custom Size'} — Custom cut sheet to fit chocolate and pastry boxes`,
+      closureInfo: 'N/A (Cushioning Pad Sheets)',
+      certifications: compostDesc.certifications,
+      idealFor: 'Specialty chocolate boxes, premium confectionery, luxury pastry packaging'
+    };
+  }
+  
   // Detect SKU type
   if (nameLC.includes('label') || nameLC.includes('sticker') || shapeLC.includes('label') || shapeLC.includes('sticker')) skuType = 'label';
   else if (nameLC.includes('coffee') || shapeLC.includes('coffee')) skuType = 'coffee';
