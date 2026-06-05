@@ -269,6 +269,33 @@ const generateDynamicDescription = (options: {
     };
   }
   
+  if (shapeLC === 'wrapping paper' || nameLC.includes('paper pad') || nameLC.includes('cushioning')) {
+    const compostDesc = {
+      problem: 'Conventional plastic bubble wrap and foam cushioning liners pollute the environment and cannot be composted or easily recycled.',
+      solution: 'This 100% natural, food-grade three-layer honeycomb cushioning paper pad is completely biodegradable and certified compostable.',
+      features: [
+        '100% biodegradable and compostable paper',
+        'Food-safe black and white printed designs',
+        '3-layer honeycomb shock-absorbing waffle design',
+        'Excellent moisture-proof and oil-resistant properties'
+      ],
+      certifications: '100% Compostable • Food Grade'
+    };
+    
+    return {
+      skuType: 'wrapping-paper',
+      materialType: 'compost',
+      problem: compostDesc.problem,
+      solution: compostDesc.solution,
+      features: compostDesc.features,
+      materialInfo: 'Made from certified food-grade compostable honeycomb waffle paper.',
+      sizeInfo: `${size || 'Custom Size'} — Custom cut sheet to fit chocolate and pastry boxes`,
+      closureInfo: 'N/A (Cushioning Pad Sheets)',
+      certifications: compostDesc.certifications,
+      idealFor: 'Specialty chocolate boxes, premium confectionery, luxury pastry packaging'
+    };
+  }
+  
   // Detect SKU type
   if (nameLC.includes('label') || nameLC.includes('sticker') || shapeLC.includes('label') || shapeLC.includes('sticker')) skuType = 'label';
   else if (nameLC.includes('coffee') || shapeLC.includes('coffee')) skuType = 'coffee';
@@ -3566,7 +3593,7 @@ const ProductPage: React.FC = () => {
             )}
             
             {/* Package Preview Section - Always Visible */}
-            {isEcoDigital && calculationResult && (
+            {isEcoDigital && ecoProduct?.shape !== 'Wrapping Paper' && calculationResult && (
               <div className="bg-white rounded-lg border border-neutral-200 overflow-hidden">
                 {/* Tab Headers - Always visible */}
                 <div className="flex border-b border-neutral-200">
@@ -4132,11 +4159,11 @@ const ProductPage: React.FC = () => {
                     <div className="grid grid-cols-2 gap-3 text-sm">
                       <div className="bg-white bg-opacity-60 rounded-lg p-3">
                         <div className="text-neutral-600 text-xs mb-1">Unit Price</div>
-                        <div className="font-semibold text-neutral-800">${unitPrice.toFixed(4)}/pc</div>
+                        <div className="font-semibold text-neutral-800">${unitPrice.toFixed(4)}{ecoProduct?.shape === 'Wrapping Paper' ? '/sheet' : '/pc'}</div>
                       </div>
                       <div className="bg-white bg-opacity-60 rounded-lg p-3">
                         <div className="text-neutral-600 text-xs mb-1">Quantity</div>
-                        <div className="font-semibold text-neutral-800">{calculationResult.price.quantityUnits.toLocaleString()} pcs</div>
+                        <div className="font-semibold text-neutral-800">{calculationResult.price.quantityUnits.toLocaleString()} {ecoProduct?.shape === 'Wrapping Paper' ? 'sheets' : 'pcs'}</div>
                       </div>
                       <div className="bg-white bg-opacity-60 rounded-lg p-3">
                         <div className="text-neutral-600 text-xs mb-1">Designs</div>
@@ -4289,7 +4316,7 @@ const ProductPage: React.FC = () => {
             )}
 
             {/* Options */}
-            {isEcoDigital && ecoProduct && (
+            {isEcoDigital && ecoProduct && ecoProduct.shape !== 'Wrapping Paper' && (
               <div className="space-y-4 pt-4 border-t">
                 <div>
                   <label className="block text-sm font-medium text-neutral-700 mb-2">
@@ -4734,38 +4761,178 @@ const ProductPage: React.FC = () => {
               </div>
             )}
 
+            {isEcoDigital && ecoProduct && ecoProduct.shape === 'Wrapping Paper' && (
+              <div className="space-y-4 pt-4 border-t">
+                {/* B2B Specs Card */}
+                <div className="bg-neutral-50 rounded-xl p-4 border border-neutral-200">
+                  <h4 className="text-sm font-semibold text-neutral-800 mb-3 flex items-center gap-1.5">
+                    <span>📋</span> B2B Cushioning Pad Specifications
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <div className="bg-white p-2.5 rounded-lg border border-neutral-200 shadow-sm">
+                      <div className="text-neutral-500 mb-0.5 font-medium">Material Structure</div>
+                      <div className="font-semibold text-neutral-800">100% Compostable Honeycomb Waffle Paper</div>
+                    </div>
+                    <div className="bg-white p-2.5 rounded-lg border border-neutral-200 shadow-sm">
+                      <div className="text-neutral-500 mb-0.5 font-medium">Thickness & Design</div>
+                      <div className="font-semibold text-neutral-800">3-Layer Shock-Absorbing Cushion Pad</div>
+                    </div>
+                    <div className="bg-white p-2.5 rounded-lg border border-neutral-200 shadow-sm">
+                      <div className="text-neutral-500 mb-0.5 font-medium">Eco Ink Printing</div>
+                      <div className="font-semibold text-neutral-800">Food-Safe Water-Based Ink (B&W printed / Custom logo)</div>
+                    </div>
+                    <div className="bg-white p-2.5 rounded-lg border border-neutral-200 shadow-sm">
+                      <div className="text-neutral-500 mb-0.5 font-medium">Sizing Dimensions</div>
+                      <div className="font-semibold text-neutral-800">Custom Cut-to-Size Box Cavity Liner</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quantity selector */}
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Quantity (Sheets)</label>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                      <span className="font-medium text-neutral-900">
+                        {selectedQuantity.replace(' (Digital print)', ' sheets (Digital print)').replace(' (Flexo print)', ' sheets (Flexo print)')}
+                      </span>
+                      <ChevronDown className="h-5 w-5 text-neutral-400" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                      <DropdownMenuLabel>Select Sheet Quantity</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuRadioGroup value={selectedQuantity} onValueChange={setSelectedQuantity}>
+                        <DropdownMenuRadioItem value="1,000 (Digital print)">1,000 sheets (Digital print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="2,000 (Digital print)">2,000 sheets (Digital print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="3,000 (Digital print)">3,000 sheets (Digital print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="5,000 (Flexo print)">5,000 sheets (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="10,000 (Flexo print)">10,000 sheets (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="20,000 (Flexo print)">20,000 sheets (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="30,000 (Flexo print)">30,000 sheets (Flexo print)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="50,000 (Flexo print)">50,000 sheets (Flexo print)</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+
+                {/* Design Count */}
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Design Count</label>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                      <span className="font-medium text-neutral-900">{selectedDesignCount} Design{selectedDesignCount > 1 ? 's' : ''}</span>
+                      <ChevronDown className="h-5 w-5 text-neutral-400" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                      <DropdownMenuLabel>Select Design Count</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuRadioGroup value={String(selectedDesignCount)} onValueChange={(v) => setSelectedDesignCount(Number(v))}>
+                        <DropdownMenuRadioItem value="1">1 Design</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="2">2 Designs</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="3">3 Designs</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="4">4 Designs</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+
+                {/* Shipping Method */}
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Shipping Method</label>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="w-full flex items-center justify-between p-3 border-2 border-neutral-200 rounded-lg hover:border-primary-300 transition-all bg-white">
+                      <span className="font-medium text-neutral-900">
+                        {selectedShipping === 'Air Freight' ? 'Air Freight (Faster)' :
+                         selectedShipping === 'Sea Freight' ? 'Sea Freight (Cheaper)' :
+                         'Dual Shipping (Balanced)'}
+                      </span>
+                      <ChevronDown className="h-5 w-5 text-neutral-400" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] min-w-[200px]">
+                      <DropdownMenuLabel>Select Shipping Method</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuRadioGroup value={selectedShipping} onValueChange={setSelectedShipping}>
+                        <DropdownMenuRadioItem value="Air Freight">Air Freight (Faster)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Sea Freight">Sea Freight (Cheaper)</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="Dual Shipping">Dual Shipping (Balanced)</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              </div>
+            )}
+
             {/* Add to Cart / RFQ */}
-            <div className="flex gap-2">
-              <button 
-                onClick={handleAddToCart} 
-                disabled={totalPrice <= 0} 
-                className={`flex-1 py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
-                  isCustomProduct 
-                    ? 'bg-amber-500 hover:bg-amber-600 text-white disabled:bg-neutral-400' 
-                    : 'bg-primary-600 hover:bg-primary-700 text-white disabled:bg-neutral-400'
-                }`}
-              >
-                {isCustomProduct ? (
-                  <><span className="text-lg">📋</span> Add to Quote Request</>
-                ) : (
-                  <><ShoppingCart className="h-5 w-5" /> Add {product.name} to Cart</>
-                )}
-              </button>
-              <button 
-                onClick={handleShareClick}
-                className="px-4 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
-                title="Share Configuration"
-              >
-                <Share2 className="h-5 w-5" />
-              </button>
-              <button 
-                onClick={openQuoteLightbox}
-                className="px-4 py-4 bg-primary-100 hover:bg-primary-200 text-primary-700 rounded-xl transition flex items-center justify-center gap-2 border border-primary-200"
-                title="Get Custom Quote"
-              >
-                <Sparkles className="h-5 w-5" />
-              </button>
-            </div>
+            {product?.inquiryOnly ? (
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={openQuoteLightbox}
+                  className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/10 cursor-pointer text-center border-none"
+                >
+                  <Sparkles className="h-5 w-5" />
+                  Inquire for Cost & Sample
+                </button>
+                <div className="flex gap-2">
+                  <a 
+                    href="https://calendly.com/30-min-free-packaging-consultancy" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 py-3 bg-neutral-800 hover:bg-neutral-900 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 cursor-pointer text-center text-sm"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    Book Meeting
+                  </a>
+                  <a 
+                    href={getWhatsAppLink()} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/10 cursor-pointer text-center text-sm"
+                  >
+                    <MessageSquare className="h-4 w-4" />
+                    WhatsApp Chat
+                  </a>
+                  <button 
+                    onClick={handleShareClick}
+                    className="px-4 py-3 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
+                    title="Share Configuration"
+                  >
+                    <Share2 className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex gap-2">
+                <button 
+                  onClick={handleAddToCart} 
+                  disabled={totalPrice <= 0} 
+                  className={`flex-1 py-4 font-semibold rounded-xl transition flex items-center justify-center gap-2 ${
+                    isCustomProduct 
+                      ? 'bg-amber-500 hover:bg-amber-600 text-white disabled:bg-neutral-400' 
+                      : 'bg-primary-600 hover:bg-primary-700 text-white disabled:bg-neutral-400'
+                  }`}
+                >
+                  {isCustomProduct ? (
+                    <><span className="text-lg">📋</span> Add to Quote Request</>
+                  ) : (
+                    <><ShoppingCart className="h-5 w-5" /> Add {product.name} to Cart</>
+                  )}
+                </button>
+                <button 
+                  onClick={handleShareClick}
+                  className="px-4 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 rounded-xl transition flex items-center justify-center gap-2 border border-neutral-200"
+                  title="Share Configuration"
+                >
+                  <Share2 className="h-5 w-5" />
+                </button>
+                <button 
+                  onClick={openQuoteLightbox}
+                  className="px-4 py-4 bg-primary-100 hover:bg-primary-200 text-primary-700 rounded-xl transition flex items-center justify-center gap-2 border border-primary-200"
+                  title="Get Custom Quote"
+                >
+                  <Sparkles className="h-5 w-5" />
+                </button>
+              </div>
+            )}
 
             {/* Features */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-4">
@@ -4807,11 +4974,18 @@ const ProductPage: React.FC = () => {
                 {/* Right: Price Toggle */}
                 {product?.inquiryOnly ? (
                   <div className="flex gap-2 items-center">
+                    <button
+                      onClick={openQuoteLightbox}
+                      className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 cursor-pointer shadow-sm text-center border-none"
+                    >
+                      <Sparkles className="h-4 w-4" />
+                      Inquire Cost & Sample
+                    </button>
                     <a 
                       href="https://calendly.com/30-min-free-packaging-consultancy" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 cursor-pointer shadow-sm text-center"
+                      className="px-4 py-1.5 bg-neutral-800 hover:bg-neutral-900 text-white text-xs font-semibold rounded-lg transition flex items-center gap-1.5 cursor-pointer shadow-sm text-center"
                     >
                       <Calendar className="h-4 w-4" />
                       Inquiry Meeting
@@ -4857,92 +5031,153 @@ const ProductPage: React.FC = () => {
                         <p className="text-xs font-semibold text-neutral-800 mt-1">{ecoProduct?.shape}</p>
                       </div>
                       {/* Right: All Options Grid */}
-                      <div className="flex-1 grid grid-cols-6 gap-2">
-                        {/* Material */}
-                        <div className="text-center">
-                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
-                            <img src={selectedMaterial === 'PCR or Bio Plastic' ? '/imgs/store/eco-material/pcr-or-biope.webp' : selectedMaterial === 'Mono Recyclable Plastic' ? '/imgs/store/eco-material/recycle.webp' : '/imgs/store/eco-material/compostable.webp'} alt="" className="max-h-full object-contain" />
+                      {ecoProduct?.shape === 'Wrapping Paper' ? (
+                        <div className="flex-1 grid grid-cols-4 sm:grid-cols-7 gap-2">
+                          {/* Material */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-lg">🌿</span>
+                            </div>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Honeycomb</p>
+                            <p className="text-[8px] text-neutral-500">Material</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5 truncate">Material</p>
-                        </div>
-                        {/* Size */}
-                        <div className="text-center">
-                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
-                            <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="max-h-full object-contain" />
+                          {/* Sizing */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-lg">📐</span>
+                            </div>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Custom Size</p>
+                            <p className="text-[8px] text-neutral-500">Sizing</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5">{selectedSize}</p>
-                        </div>
-                        {/* Closure */}
-                        <div className="text-center">
-                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
-                            <img src={selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' : selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' : selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' : selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' : selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' : selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' : selectedClosure === 'Spout' ? '/imgs/store/closure/spout.webp' : selectedClosure === 'Adhesive Tape' ? '/imgs/store/closure/adhesive-tap.webp' : '/imgs/store/closure/no-zipper.webp'} alt="" className="max-h-full object-contain" />
+                          {/* Structure */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-lg">🧇</span>
+                            </div>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">3-Layer Pad</p>
+                            <p className="text-[8px] text-neutral-500">Structure</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5 truncate">{selectedClosure === 'No' ? 'None' : selectedClosure.split(' ')[0]}</p>
-                        </div>
-                        {/* Surface */}
-                        <div className="text-center">
-                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
-                            <img src={getSurfaceImage(selectedSurface)} alt="" className="max-h-full object-contain" />
+                          {/* Print */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-lg">🎨</span>
+                            </div>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Eco Ink</p>
+                            <p className="text-[8px] text-neutral-500">Printing</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5">{selectedSurface}</p>
-                        </div>
-                        {/* Barrier */}
-                        <div className="text-center">
-                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
-                            <span className="text-lg">🛡️</span>
+                          {/* Quantity */}
+                          <div className="text-center">
+                            <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-xs font-bold text-primary-700">{selectedQuantity.split(' ')[0]}</span>
+                            </div>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Sheets</p>
+                            <p className="text-[8px] text-neutral-500">Qty</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5 truncate">{selectedBarrier.includes('mid') ? 'Mid' : selectedBarrier.includes('high') ? 'High' : 'Max'}</p>
-                        </div>
-                        {/* Stiffness */}
-                        <div className="text-center">
-                          <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
-                            <span className="text-lg">💪</span>
+                          {/* Designs */}
+                          <div className="text-center">
+                            <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-xs font-bold text-primary-700">{selectedDesignCount}</span>
+                            </div>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">Design{selectedDesignCount > 1 ? 's' : ''}</p>
+                            <p className="text-[8px] text-neutral-500">Count</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5">{selectedStiffness.includes('Without') ? 'Soft' : 'Stiff'}</p>
-                        </div>
-                        {/* Quantity */}
-                        <div className="text-center">
-                          <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
-                            <span className="text-xs font-bold text-primary-700">{selectedQuantity.split(' ')[0]}</span>
+                          {/* Shipping */}
+                          <div className="text-center">
+                            <div className="bg-blue-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-lg">{selectedShipping === 'Air Freight' ? '✈️' : selectedShipping === 'Sea Freight' ? '🚢' : '📦'}</span>
+                            </div>
+                            <p className="text-[10px] font-semibold mt-0.5 truncate text-neutral-800">{selectedShipping.split(' ')[0]}</p>
+                            <p className="text-[8px] text-neutral-500">Shipping</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5">Qty</p>
                         </div>
-                        {/* Designs */}
-                        <div className="text-center">
-                          <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
-                            <span className="text-xs font-bold text-primary-700">{selectedDesignCount}</span>
+                      ) : (
+                        <div className="flex-1 grid grid-cols-6 gap-2">
+                          {/* Material */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <img src={selectedMaterial === 'PCR or Bio Plastic' ? '/imgs/store/eco-material/pcr-or-biope.webp' : selectedMaterial === 'Mono Recyclable Plastic' ? '/imgs/store/eco-material/recycle.webp' : '/imgs/store/eco-material/compostable.webp'} alt="" className="max-h-full object-contain" />
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5 truncate">Material</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5">Designs</p>
-                        </div>
-                        {/* Valve */}
-                        <div className="text-center">
-                          <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedValve === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
-                            <span className="text-lg">{selectedValve === 'Yes' ? '💨' : '➖'}</span>
+                          {/* Size */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <img src={getSizeImage(selectedSize as EcoSizeType)} alt="" className="max-h-full object-contain" />
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5">{selectedSize}</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5">Valve</p>
-                        </div>
-                        {/* Laser */}
-                        <div className="text-center">
-                          <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedLaserScoring === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
-                            {selectedLaserScoring === 'Yes' ? <img src="/imgs/store/additional/laser-tear.webp" alt="" className="max-h-full object-contain" /> : <span className="text-lg">➖</span>}
+                          {/* Closure */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <img src={selectedClosure === 'No' ? '/imgs/store/closure/no-zipper.webp' : selectedClosure === 'Regular Zipper' ? '/imgs/store/closure/normal-zipper.webp' : selectedClosure === 'One-Sided Zipper' ? '/imgs/store/closure/front-zipper.webp' : selectedClosure === 'Child Resistant Zipper' ? '/imgs/store/closure/child-resistant-zipper.webp' : selectedClosure === 'Slider' ? '/imgs/store/closure/slider-zipper.webp' : selectedClosure === 'Tin Tie' ? '/imgs/store/closure/tin-tie.webp' : selectedClosure === 'Spout' ? '/imgs/store/closure/spout.webp' : selectedClosure === 'Adhesive Tape' ? '/imgs/store/closure/adhesive-tap.webp' : '/imgs/store/closure/no-zipper.webp'} alt="" className="max-h-full object-contain" />
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5 truncate">{selectedClosure === 'No' ? 'None' : selectedClosure.split(' ')[0]}</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5">Laser</p>
-                        </div>
-                        {/* Hang Hole */}
-                        <div className="text-center">
-                          <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedHangHole === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
-                            <span className="text-lg">{selectedHangHole === 'Yes' ? '🕳️' : '➖'}</span>
+                          {/* Surface */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <img src={getSurfaceImage(selectedSurface)} alt="" className="max-h-full object-contain" />
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5">{selectedSurface}</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5">Hole</p>
-                        </div>
-                        {/* Shipping */}
-                        <div className="text-center">
-                          <div className="bg-blue-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
-                            <span className="text-lg">{selectedShipping === 'Air Freight' ? '✈️' : selectedShipping === 'Sea Freight' ? '🚢' : '📦'}</span>
+                          {/* Barrier */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-lg">🛡️</span>
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5 truncate">{selectedBarrier.includes('mid') ? 'Mid' : selectedBarrier.includes('high') ? 'High' : 'Max'}</p>
                           </div>
-                          <p className="text-[10px] font-medium mt-0.5">{selectedShipping.split(' ')[0]}</p>
+                          {/* Stiffness */}
+                          <div className="text-center">
+                            <div className="bg-neutral-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-lg">💪</span>
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5">{selectedStiffness.includes('Without') ? 'Soft' : 'Stiff'}</p>
+                          </div>
+                          {/* Quantity */}
+                          <div className="text-center">
+                            <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-xs font-bold text-primary-700">{selectedQuantity.split(' ')[0]}</span>
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5">Qty</p>
+                          </div>
+                          {/* Designs */}
+                          <div className="text-center">
+                            <div className="bg-primary-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-xs font-bold text-primary-700">{selectedDesignCount}</span>
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5">Designs</p>
+                          </div>
+                          {/* Valve */}
+                          <div className="text-center">
+                            <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedValve === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
+                              <span className="text-lg">{selectedValve === 'Yes' ? '💨' : '➖'}</span>
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5">Valve</p>
+                          </div>
+                          {/* Laser */}
+                          <div className="text-center">
+                            <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedLaserScoring === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
+                              {selectedLaserScoring === 'Yes' ? <img src="/imgs/store/additional/laser-tear.webp" alt="" className="max-h-full object-contain" /> : <span className="text-lg">➖</span>}
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5">Laser</p>
+                          </div>
+                          {/* Hang Hole */}
+                          <div className="text-center">
+                            <div className={`rounded-lg p-1.5 h-12 flex items-center justify-center ${selectedHangHole === 'Yes' ? 'bg-green-50' : 'bg-neutral-50'}`}>
+                              <span className="text-lg">{selectedHangHole === 'Yes' ? '🕳️' : '➖'}</span>
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5">Hole</p>
+                          </div>
+                          {/* Shipping */}
+                          <div className="text-center">
+                            <div className="bg-blue-50 rounded-lg p-1.5 h-12 flex items-center justify-center">
+                              <span className="text-lg">{selectedShipping === 'Air Freight' ? '✈️' : selectedShipping === 'Sea Freight' ? '🚢' : '📦'}</span>
+                            </div>
+                            <p className="text-[10px] font-medium mt-0.5">{selectedShipping.split(' ')[0]}</p>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 )}
@@ -5067,25 +5302,34 @@ const ProductPage: React.FC = () => {
           {/* Bottom Tab Bar */}
           <div className="bg-white border-t border-neutral-200 shadow-lg">
             {product?.inquiryOnly ? (
-              <div className="flex gap-2 p-2.5">
-                <a 
-                  href="https://calendly.com/30-min-free-packaging-consultancy" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-600/10 cursor-pointer text-center"
+              <div className="flex flex-col gap-2 p-2.5">
+                <button
+                  onClick={openQuoteLightbox}
+                  className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-600/10 cursor-pointer text-center border-none"
                 >
-                  <Calendar className="h-4 w-4" />
-                  Inquiry Meeting
-                </a>
-                <a 
-                  href={getWhatsAppLink()} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex-1 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow-lg shadow-[#25D366]/10 cursor-pointer text-center"
-                >
-                  <MessageSquare className="h-4 w-4" />
-                  WhatsApp Chat
-                </a>
+                  <Sparkles className="h-4 w-4" />
+                  Inquire Cost & Sample
+                </button>
+                <div className="flex gap-2">
+                  <a 
+                    href="https://calendly.com/30-min-free-packaging-consultancy" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 py-2.5 bg-neutral-800 hover:bg-neutral-900 text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer text-center"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    Inquiry Meeting
+                  </a>
+                  <a 
+                    href={getWhatsAppLink()} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 py-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow-lg shadow-[#25D366]/10 cursor-pointer text-center"
+                  >
+                    <MessageSquare className="h-4 w-4" />
+                    WhatsApp Chat
+                  </a>
+                </div>
               </div>
             ) : (
               <div className="flex">

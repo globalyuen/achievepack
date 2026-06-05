@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-05",
-  "total_images": 2295,
+  "total_images": 2297,
   "total_categories": 169,
   "extensions": {
     ".webp": 1302,
-    ".png": 758,
+    ".png": 760,
     ".jpg": 232,
     ".svg": 3
   },
@@ -10702,8 +10702,20 @@
       ]
     },
     "store/products": {
-      "count": 295,
+      "count": 297,
       "images": [
+        {
+          "filename": "chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-5.png",
+          "path": "/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T07:42:54.449Z"
+        },
+        {
+          "filename": "chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-4.png",
+          "path": "/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T07:42:54.447Z"
+        },
         {
           "filename": "chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-3.png",
           "path": "/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-3.png",
