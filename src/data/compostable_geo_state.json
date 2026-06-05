@@ -1,13 +1,13 @@
 {
-  "lastRun": "2026-06-05T14:00:05.825Z",
-  "campaignScore": 96,
+  "lastRun": "2026-06-05T14:15:00.845Z",
+  "campaignScore": 98,
   "campaignTarget": "Compostable Pouches",
   "cronActive": true,
   "cronInterval": "Every 24 Hours",
   "kpiMetrics": {
     "currentBrandMentions": 8,
     "targetBrandMentions": 8,
-    "currentGeoScore": 96,
+    "currentGeoScore": 98,
     "targetGeoScore": 85,
     "currentTrafficClicks": 300,
     "targetTrafficClicks": 300,

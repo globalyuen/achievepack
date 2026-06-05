@@ -56,8 +56,9 @@ async function check() {
         console.log(`- Section ${idx + 1}:`, sec.heading);
         if (sec.paragraphs) {
           sec.paragraphs.forEach((p, pIdx) => {
-            if (p.includes('<img') || p.includes('<video') || p.includes('video') || p.includes('img')) {
-              console.log(`  Paragraph ${pIdx + 1} contains media/tags:`, p.substring(0, 100));
+            const pText = typeof p === 'string' ? p : (p.text || '');
+            if (pText.includes('<img') || pText.includes('<video') || pText.includes('video') || pText.includes('img')) {
+              console.log(`  Paragraph ${pIdx + 1} contains media/tags:`, pText.substring(0, 100));
             }
           });
         }
