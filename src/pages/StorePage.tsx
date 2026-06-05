@@ -958,35 +958,47 @@ const StorePage: React.FC = () => {
 
       {/* Interactive Shape Filter Grid - Replacing the Feature Carousel */}
       <section className="hidden md:block bg-white border-b border-neutral-200 py-3 mb-2 relative overflow-hidden select-none">
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes marquee-horizontal {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee-slow {
+            animation: marquee-horizontal 65s linear infinite;
+          }
+        `}} />
         <div className="max-w-7xl mx-auto px-4">
-          <div className="border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-sm grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 divide-x lg:divide-y-0 divide-y sm:divide-y-0 divide-neutral-200">
-            {SHAPE_ITEMS.map((item) => {
-              const isActive = selectedShape === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => handleShapeChange(item.id)}
-                  className={`flex flex-col items-center justify-between py-3.5 px-2 transition-all duration-200 group cursor-pointer relative overflow-hidden ${
-                    isActive 
-                      ? 'bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 font-black shadow-inner' 
-                      : 'hover:bg-neutral-50/80 text-neutral-800 hover:text-primary-600 hover:-translate-y-0.5 transform duration-150'
-                  }`}
-                >
-                  <span className={`text-[10px] font-black uppercase text-center tracking-tight mb-2 min-h-[28px] flex items-center justify-center transition-colors duration-150 leading-tight ${isActive ? 'text-primary-700 animate-pulse' : 'text-neutral-800 group-hover:text-primary-600'}`}>
-                    {item.label}
-                  </span>
-                  
-                  <div className={`w-12 h-9 flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${isActive ? 'text-primary-600' : 'text-neutral-500 group-hover:text-neutral-800'}`}>
-                    {item.icon}
-                  </div>
-                  
-                  {/* Premium bottom active highlight indicator */}
-                  {isActive && (
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-600 rounded-t-full" />
-                  )}
-                </button>
-              );
-            })}
+          <div className="border border-neutral-200 rounded-xl overflow-hidden bg-white shadow-sm relative">
+            <div className="flex animate-marquee-slow hover:[animation-play-state:paused] whitespace-nowrap">
+              {/* Duplicate the items for seamless infinite marquee loop */}
+              {[...SHAPE_ITEMS, ...SHAPE_ITEMS].map((item, idx) => {
+                const isActive = selectedShape === item.id;
+                return (
+                  <button
+                    key={`${item.id}-${idx}`}
+                    onClick={() => handleShapeChange(item.id)}
+                    className={`flex-shrink-0 flex flex-col items-center justify-between py-3.5 px-4 w-[130px] border-r border-neutral-200 transition-all duration-200 group cursor-pointer relative overflow-hidden ${
+                      isActive 
+                        ? 'bg-gradient-to-b from-primary-50/80 to-primary-100/40 text-primary-700 font-black shadow-inner' 
+                        : 'hover:bg-neutral-50/80 text-neutral-800 hover:text-primary-600'
+                    }`}
+                  >
+                    <span className={`text-[10px] font-black uppercase text-center tracking-tight mb-2 min-h-[28px] flex items-center justify-center transition-colors duration-150 leading-tight whitespace-normal ${isActive ? 'text-primary-700 animate-pulse' : 'text-neutral-800 group-hover:text-primary-600'}`}>
+                      {item.label}
+                    </span>
+                    
+                    <div className={`w-12 h-9 flex items-center justify-center transition-all duration-200 group-hover:scale-110 ${isActive ? 'text-primary-600' : 'text-neutral-500 group-hover:text-neutral-800'}`}>
+                      {item.icon}
+                    </div>
+                    
+                    {/* Premium bottom active highlight indicator */}
+                    {isActive && (
+                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary-600" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -1533,19 +1545,9 @@ const StorePage: React.FC = () => {
               </div>
             )}
             </div>
-
-            {/* Render Footer inside scrollable product pane for desktop only */}
-            <div className="hidden lg:block mt-16 border-t border-neutral-200 pt-8 w-full flex-shrink-0">
-              <Footer />
-            </div>
           </div>
         </div>
       </main>
-
-      {/* Footer for mobile only */}
-      <div className="lg:hidden">
-        <Footer />
-      </div>
     </div>
     </>
   )
