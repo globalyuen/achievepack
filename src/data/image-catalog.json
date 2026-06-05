@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-05",
-  "total_images": 2298,
+  "total_images": 2304,
   "total_categories": 169,
   "extensions": {
     ".webp": 1303,
-    ".png": 760,
+    ".png": 766,
     ".jpg": 232,
     ".svg": 3
   },
@@ -806,7 +806,7 @@
           "filename": "sourcing-compostable-coffee-bags-hero.webp",
           "path": "/imgs/blog/heros/sourcing-compostable-coffee-bags-hero.webp",
           "extension": ".webp",
-          "modified": "2026-06-05T08:55:50.589Z"
+          "modified": "2026-06-05T09:05:00.619Z"
         },
         {
           "filename": "compostable-pouch-sizes-for-powders-hero.png",
@@ -4476,8 +4476,44 @@
       ]
     },
     "infographics": {
-      "count": 276,
+      "count": 282,
       "images": [
+        {
+          "filename": "sourcing-compostable-coffee-bags-infographic-6.png",
+          "path": "/imgs/infographics/sourcing-compostable-coffee-bags-infographic-6.png",
+          "extension": ".png",
+          "modified": "2026-06-05T09:04:42.070Z"
+        },
+        {
+          "filename": "sourcing-compostable-coffee-bags-infographic-5.png",
+          "path": "/imgs/infographics/sourcing-compostable-coffee-bags-infographic-5.png",
+          "extension": ".png",
+          "modified": "2026-06-05T09:04:42.068Z"
+        },
+        {
+          "filename": "sourcing-compostable-coffee-bags-infographic-4.png",
+          "path": "/imgs/infographics/sourcing-compostable-coffee-bags-infographic-4.png",
+          "extension": ".png",
+          "modified": "2026-06-05T09:04:42.066Z"
+        },
+        {
+          "filename": "sourcing-compostable-coffee-bags-infographic-3.png",
+          "path": "/imgs/infographics/sourcing-compostable-coffee-bags-infographic-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T09:04:42.063Z"
+        },
+        {
+          "filename": "sourcing-compostable-coffee-bags-infographic-2.png",
+          "path": "/imgs/infographics/sourcing-compostable-coffee-bags-infographic-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T09:04:42.059Z"
+        },
+        {
+          "filename": "sourcing-compostable-coffee-bags-infographic.png",
+          "path": "/imgs/infographics/sourcing-compostable-coffee-bags-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-05T09:04:42.055Z"
+        },
         {
           "filename": "freezer-safe-vacuum-packaging-infographic-6.png",
           "path": "/imgs/infographics/freezer-safe-vacuum-packaging-infographic-6.png",

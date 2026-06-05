@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-05T08:45:19.085Z",
+  "lastUnifiedRun": "2026-06-05T09:00:22.092Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -696,25 +696,18 @@
       "volume": 760,
       "keyword": "custom shape compostable sachets",
       "difficulty": "Low"
-    },
-    {
-      "slug": "sourcing-compostable-coffee-bags",
-      "status": "Pending Approval",
-      "volume": 2200,
-      "keyword": "sourcing compostable coffee bags",
-      "difficulty": "Medium"
     }
   ],
   "logs": [
     {
-      "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sourcing compostable coffee bags\" to /blog/sourcing-compostable-coffee-bags (Pending Approval)",
-      "timestamp": "2026-06-05T08:57:13.302Z"
-    },
-    {
-      "timestamp": "2026-06-05T08:45:14.713Z",
+      "timestamp": "2026-06-05T09:00:16.174Z",
       "action": "Autopilot Error",
       "message": "Pipeline generation failed for keyword \"digital print flexible packaging options\": X.AI API error: Failed after 3 attempts."
+    },
+    {
+      "action": "Autopilot Error",
+      "message": "Pipeline generation failed for keyword \"digital print flexible packaging options\": X.AI API error: Failed after 3 attempts.",
+      "timestamp": "2026-06-05T08:45:14.713Z"
     },
     {
       "action": "Autopilot Error",

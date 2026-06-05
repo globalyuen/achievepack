@@ -105,7 +105,12 @@ export default function BlogPostPage() {
 
       // Render alternating layout paragraphs if present
       if (sec.paragraphs && Array.isArray(sec.paragraphs)) {
+        const hideMedia = !!override?.content?.hide_media || !!override?.content?.no_video_and_image;
         sec.paragraphs.forEach((p: any, pIdx: number) => {
+          if (hideMedia) {
+            html += `<div style="margin: 15px 0;"><p style="margin: 0; line-height: 1.8; color: #374151; font-size: 1rem;">${p.text}</p></div>`;
+            return;
+          }
           const isImageLeft = pIdx % 2 !== 0;
           const globalIdx = sIdx * 2 + pIdx;
           const imgPath = globalIdx === 0 
@@ -466,14 +471,32 @@ export default function BlogPostPage() {
 
               {/* Main Content */}
               <div className="flex-1 max-w-3xl" onClick={handleContentClick}>
-                {/* Featured Image */}
-                {post.featuredImage && (
-                  <div className="mb-8 rounded-xl overflow-hidden shadow-lg border border-neutral-200 bg-neutral-50 cursor-zoom-in">
-                    <img 
-                      src={post.featuredImage} 
-                      alt={post.title}
-                      className="w-full h-auto object-contain max-h-[600px] mx-auto block blog-zoomable-img"
-                    />
+                {/* Featured Image & Video Showcase */}
+                {!(override?.content?.hide_media || override?.content?.no_video_and_image) && (
+                  <div className={`grid gap-8 mb-8 ${post.featuredImage && override?.content?.video_url ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
+                    {post.featuredImage && (
+                      <div className="rounded-xl overflow-hidden shadow-lg border border-neutral-200 bg-neutral-50 cursor-zoom-in">
+                        <img 
+                          src={post.featuredImage} 
+                          alt={post.title}
+                          className="w-full h-auto object-contain max-h-[600px] mx-auto block blog-zoomable-img"
+                        />
+                      </div>
+                    )}
+
+                    {override?.content?.video_url && (
+                      <div className="rounded-xl overflow-hidden shadow-lg border border-neutral-200 bg-black flex items-center justify-center min-h-[300px]">
+                        <video 
+                          src={override.content.video_url} 
+                          className="w-full h-full object-cover rounded-xl"
+                          autoPlay 
+                          loop 
+                          muted 
+                          controls 
+                          playsInline
+                        />
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -555,6 +578,7 @@ export default function BlogPostPage() {
                     to={`/blog/${relatedPost.slug}`}
                     className="group"
                   >
+                 {relatedPost.featuredImage && !(override?.content?.hide_media || override?.content?.no_video_and_image) && (
                     <div className="aspect-video bg-neutral-100 rounded-lg mb-4 overflow-hidden">
                       <img 
                         src={relatedPost.featuredImage} 
@@ -562,6 +586,7 @@ export default function BlogPostPage() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
+                  )}
                     <span className="text-sm text-green-600 font-medium">{relatedPost.category}</span>
                     <h3 className="text-lg font-bold text-neutral-900 group-hover:text-green-600 transition-colors line-clamp-2 mt-1">
                       {relatedPost.title}

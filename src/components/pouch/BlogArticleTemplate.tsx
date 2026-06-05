@@ -97,6 +97,7 @@ interface BlogArticleProps {
   categoryTag?: string
   categoryColor?: string
   readTime?: string
+  videoUrl?: string
   
   // Content Sections
   sections: BlogArticleSection[]
@@ -118,6 +119,7 @@ interface BlogArticleProps {
     url: string
     image?: string
   }>
+  hideVideoAndImage?: boolean
 }
 
 export default function BlogArticleTemplate({
@@ -136,6 +138,7 @@ export default function BlogArticleTemplate({
   categoryTag,
   categoryColor = '#D4FF00',
   readTime = '5 min read',
+  videoUrl,
   
   sections,
   faqSections = [],
@@ -147,7 +150,8 @@ export default function BlogArticleTemplate({
   achievePackText = 'Need enterprise solutions? Visit achievepack.com',
   
   showTableOfContents = true,
-  relatedArticles = []
+  relatedArticles = [],
+  hideVideoAndImage = false
 }: BlogArticleProps) {
   const slug = canonicalUrl ? canonicalUrl.split('/').pop() || '' : ''
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
@@ -361,20 +365,43 @@ export default function BlogArticleTemplate({
             </div>
           </motion.div>
 
-          {/* Hero Image */}
-          {heroImage && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 }}
-              className="border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white"
-            >
-              <ClickableImage 
-                src={heroImage} 
-                alt={heroImageAlt || heroSubtitle}
-                className="w-full h-auto"
-              />
-            </motion.div>
+          {/* Hero Image & Video Showcase */}
+          {!hideVideoAndImage && (
+            <div className={`grid gap-8 mt-8 ${heroImage && videoUrl ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
+              {heroImage && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-white"
+                >
+                  <ClickableImage 
+                    src={heroImage} 
+                    alt={heroImageAlt || heroSubtitle}
+                    className="w-full h-auto"
+                  />
+                </motion.div>
+              )}
+
+              {videoUrl && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.45 }}
+                  className="border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden bg-black flex items-center justify-center min-h-[300px]"
+                >
+                  <video 
+                    src={videoUrl} 
+                    className="w-full h-full object-cover" 
+                    autoPlay 
+                    loop 
+                    muted 
+                    controls 
+                    playsInline
+                  />
+                </motion.div>
+              )}
+            </div>
           )}
         </div>
       </section>
@@ -473,6 +500,13 @@ export default function BlogArticleTemplate({
               {section.paragraphs ? (
                 <div className="space-y-12">
                   {section.paragraphs.map((p, pIdx) => {
+                    if (hideVideoAndImage) {
+                      return (
+                        <div key={pIdx} className="font-['JetBrains_Mono'] font-medium text-neutral-800 text-base md:text-lg leading-relaxed prose prose-lg max-w-none">
+                          <p className="m-0 text-black leading-relaxed" dangerouslySetInnerHTML={{ __html: p.text }} />
+                        </div>
+                      )
+                    }
                     const isImageLeft = pIdx % 2 !== 0
                     return (
                       <div key={pIdx} className="grid md:grid-cols-12 gap-8 items-stretch">
@@ -525,16 +559,18 @@ export default function BlogArticleTemplate({
           <div className="max-w-4xl mx-auto">
             <NeoCard className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="w-28 h-28 rounded-full border-4 border-black overflow-hidden bg-lime-100 flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <img 
-                    src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
-                    alt="Ryan Wong - Sustainable Packaging Supply Chain Expert" 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://api.dicebear.com/7.x/bottts/svg?seed=ryan"
-                    }}
-                  />
-                </div>
+                {!hideVideoAndImage && (
+                  <div className="w-28 h-28 rounded-full border-4 border-black overflow-hidden bg-lime-100 flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <img 
+                      src="/imgs/team/Ryan Wong - Packaging Specialist.png" 
+                      alt="Ryan Wong - Sustainable Packaging Supply Chain Expert" 
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = "https://api.dicebear.com/7.x/bottts/svg?seed=ryan"
+                      }}
+                    />
+                  </div>
+                )}
                 
                 <div className="space-y-4 text-center md:text-left flex-1">
                   <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
@@ -673,13 +709,13 @@ export default function BlogArticleTemplate({
               <span className="bg-[#D4FF00] px-2">Keep Reading</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              {activeRelatedArticles.map((article, idx) => (
+               {activeRelatedArticles.map((article, idx) => (
                 <a
                   key={idx}
                   href={article.url}
                   className="group bg-[#F0F0F0] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all"
                 >
-                  {article.image && (
+                  {article.image && !hideVideoAndImage && (
                     <div className="border-b-4 border-black overflow-hidden">
                       <img 
                         src={article.image} 

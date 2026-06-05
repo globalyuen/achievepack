@@ -182,6 +182,7 @@ async function run() {
     updated_at: new Date().toISOString(),
     content: {
       approved: false, // Set to false so it remains a staged draft!
+      video_url: '/video/hero/bag.mp4',
       sections: mappedSections,
       faqs,
       cta: {

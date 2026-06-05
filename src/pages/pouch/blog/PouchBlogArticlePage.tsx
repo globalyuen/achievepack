@@ -116,6 +116,8 @@ export default function PouchBlogArticlePage() {
       ctaTitle={post.content?.cta?.title}
       ctaDescription={post.content?.cta?.description}
       achievePackLink={post.source_url}
+      videoUrl={post.content?.video_url}
+      hideVideoAndImage={!!post.content?.hide_media || !!post.content?.no_video_and_image}
     />
   )
 }
