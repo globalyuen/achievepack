@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-05T01:45:20.438Z",
+  "lastUnifiedRun": "2026-06-05T02:00:23.367Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -700,9 +700,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-05T01:45:14.860Z",
+      "timestamp": "2026-06-05T02:00:15.419Z",
       "action": "Autopilot Error",
       "message": "Pipeline generation failed for keyword \"digital print flexible packaging options\": X.AI API error: Failed after 3 attempts."
+    },
+    {
+      "action": "Autopilot Error",
+      "message": "Pipeline generation failed for keyword \"digital print flexible packaging options\": X.AI API error: Failed after 3 attempts.",
+      "timestamp": "2026-06-05T01:45:14.860Z"
     },
     {
       "action": "Autopilot Error",
