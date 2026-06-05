@@ -217,12 +217,6 @@ export default function BlogPostPage() {
                 <div style="font-weight: bold; font-size: 12px; color: #64748b; text-transform: uppercase; margin-bottom: 8px;">Technical Specification Diagram</div>
                 <div style="font-size: 10px; color: #94a3b8; font-family: monospace;">R&D BLUEPRINT REVELATION</div>
               </div>
-              
-              ${p.image_prompt ? `
-                <div style="background: #f3f4f6; color: #4b5563; padding: 8px 12px; font-family: monospace; font-size: 9px; border-top: 4px solid black; line-height: 1.4;">
-                  <strong style="color: black;">🤖 IMAGEN PROMPT:</strong> <em>"${p.image_prompt}"</em>
-                </div>
-              ` : ''}
             </div>
           `;
           const textHtml = `<div style="display: flex; align-items: center; min-height: 160px; margin: 15px 0;"><p style="margin: 0; line-height: 1.8; color: #374151; font-size: 1rem;">${p.text}</p></div>`;
