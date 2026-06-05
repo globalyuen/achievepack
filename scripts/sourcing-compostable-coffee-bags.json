@@ -88,7 +88,7 @@
         }
       ]
     },
-    "approved": false,
+    "approved": true,
     "sections": [
       {
         "icon": "info",
@@ -119,7 +119,7 @@
             "image_prompt": "A close-up of a regular PLA zipper being pressed shut on a coffee bag, showing the precision micro-tracks and a small stamp certifying it compostable. Minimalist, clean photography."
           },
           {
-            "text": "The unsung hero of coffee preservation is the <a href=\"/blog/coffee-degassing-valve-guide\" class=\"text-[#10b981] font-bold hover:underline\">one-way degassing valve</a>. Newly roasted specialty beans release carbon dioxide (CO2) for up to two weeks, which would otherwise bloat and rupture the bag. The compostable degassing valve—made of PLA and natural resins—vents this pressure at approximately 0.05 psi while preventing external oxygen from entering. This ensures Roastwood Coffee's delicate, volatile aromatics stay locked in without utilizing non-degradable petroleum-based valves.",
+            "text": "The unsung hero of coffee preservation is the <a href=\"/blog/coffee-degassing-valve-guide\" class=\"text-[#10b981] font-bold hover:underline\">one-way degassing valve</a>. Newly roasted specialty beans release carbon dioxide (CO2) for up to two weeks, which would otherwise bloat and rupture the bag. The compostable <a href=\"/blog/coffee-degassing-valve-guide\" class=\"underline text-emerald-600 hover:text-emerald-700 font-bold\">degassing valve</a>—made of PLA and natural resins—vents this pressure at approximately 0.05 psi while preventing external oxygen from entering. This ensures Roastwood Coffee's delicate, volatile aromatics stay locked in without utilizing non-degradable petroleum-based valves.",
             "image_prompt": "An infographic showing the mechanism of a one-way degassing valve: CO2 escaping outward from the pouch and O2 being blocked on the outside. Clean annotations in English."
           }
         ],
@@ -161,7 +161,7 @@
             "image_prompt": "A warehouse logistics testing lab showing a coffee bag dropped from height onto a platform, with high-speed camera capture and seam-stress measurements."
           },
           {
-            "text": "Sourcing sustainable packaging is no longer restricted to large companies with massive volume commitments. AchievePack's digital printing enables Roastwood Coffee to source custom-branded compostable bags with a <a href=\"/blog/low-moq-packaging-guide\" class=\"text-[#10b981] font-bold hover:underline\">minimum order quantity</a> (MOQ) of just 100 pieces per SKU. This lets them print unique designs for seasonal single-origin roasts with zero plate setup costs, keeping inventory lean and agile as packaging regulations evolve across the EU.",
+            "text": "Sourcing sustainable packaging is no longer restricted to large companies with massive volume commitments. AchievePack's <a href=\"/blog/digital-printing-eco-packaging-guide\" class=\"underline text-emerald-600 hover:text-emerald-700 font-bold\">digital printing</a> enables Roastwood Coffee to source custom-branded compostable bags with a <a href=\"/blog/low-moq-packaging-guide\" class=\"text-[#10b981] font-bold hover:underline\">minimum order quantity</a> (MOQ) of just 100 pieces per SKU. This lets them print unique designs for seasonal single-origin roasts with zero plate setup costs, keeping inventory lean and agile as packaging regulations evolve across the EU.",
             "image_prompt": "A digital printing press feeding custom-printed stand-up pouches, showcasing high-resolution colors and clean edges."
           }
         ],
@@ -169,12 +169,15 @@
         "key_takeaways": null
       }
     ],
-    "video_url": "/video/hero/bag.mp4"
+    "image_url": null,
+    "video_url": null,
+    "hide_media": true,
+    "no_video_and_image": true
   },
   "category": "Sustainability",
-  "image_url": "/imgs/blog/heros/sourcing-compostable-coffee-bags-hero.webp",
+  "image_url": null,
   "published_at": "2026-06-05T09:05:00.619+00:00",
-  "updated_at": "2026-06-05T09:05:00.625+00:00",
+  "updated_at": "2026-06-05T16:00:20.465+00:00",
   "meta_title": "How Roastwood Coffee (Germany) Sourced Certified Compostable Coffee Bags | Certified Sustainable | POUCH.ECO",
   "meta_description": "Learn how Roastwood Coffee in Germany avoided heavy VerpackG licensing fees by sourcing high-barrier compostable coffee bags featuring Bio Cello Duplex Clear, a regular PLA zipper, and a degassing valve.",
   "source_url": "https://achievepack.com/blog/sourcing-compostable-coffee-bags"
