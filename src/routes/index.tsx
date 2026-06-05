@@ -136,7 +136,7 @@ const MonoPeDuplexClearPage = lazy(() => import('../pages/spec/MonoPeDuplexClear
 const MonoPpDuplexClearPage = lazy(() => import('../pages/spec/MonoPpDuplexClearPage'));
 const MonoPeDuplexNoWindowPage = lazy(() => import('../pages/spec/MonoPeDuplexNoWindowPage'));
 const MonoPpDuplexNoWindowPage = lazy(() => import('../pages/spec/MonoPpDuplexNoWindowPage'));
-const BioCelloDuplexClearPage = lazy(() => import('../pages/spec/BioCelloDuplexClearPage'));
+const CompostableMaterialStructurePage = lazy(() => import('../pages/spec/CompostableMaterialStructurePage'));
 const BioCelloTriplexHighestPage = lazy(() => import('../pages/spec/BioCelloTriplexHighestPage'));
 const BioCelloTriplexMetalisedPage = lazy(() => import('../pages/spec/BioCelloTriplexMetalisedPage'));
 const BioKraftVmCelloPage = lazy(() => import('../pages/spec/BioKraftVmCelloPage'));
@@ -376,7 +376,7 @@ const routes = [
   { path: "/spec/mono-pp-duplex-clear", element: <LazyRoute component={() => import('../pages/spec/MonoPpDuplexClearPage')} fallback={<LoadingFallback />} /> },
   { path: "/spec/mono-pe-duplex-nowindow", element: <LazyRoute component={() => import('../pages/spec/MonoPeDuplexNoWindowPage')} fallback={<LoadingFallback />} /> },
   { path: "/spec/mono-pp-duplex-nowindow", element: <LazyRoute component={() => import('../pages/spec/MonoPpDuplexNoWindowPage')} fallback={<LoadingFallback />} /> },
-  { path: "/spec/bio-cello-duplex-clear", element: <LazyRoute component={() => import('../pages/spec/BioCelloDuplexClearPage')} fallback={<LoadingFallback />} /> },
+  { path: "/spec/compostable-material-structure", element: <LazyRoute component={() => import('../pages/spec/CompostableMaterialStructurePage')} fallback={<LoadingFallback />} /> },
   { path: "/spec/bio-cello-triplex-highest", element: <LazyRoute component={() => import('../pages/spec/BioCelloTriplexHighestPage')} fallback={<LoadingFallback />} /> },
   { path: "/spec/bio-cello-triplex-metalised", element: <LazyRoute component={() => import('../pages/spec/BioCelloTriplexMetalisedPage')} fallback={<LoadingFallback />} /> },
   { path: "/spec/bio-kraft-vm-cello", element: <LazyRoute component={() => import('../pages/spec/BioKraftVmCelloPage')} fallback={<LoadingFallback />} /> },

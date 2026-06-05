@@ -343,7 +343,7 @@ const MonoPeDuplexClearPage = lazyWithRetry(() => import('./pages/spec/MonoPeDup
 const MonoPpDuplexClearPage = lazyWithRetry(() => import('./pages/spec/MonoPpDuplexClearPage'))
 const MonoPeDuplexNoWindowPage = lazyWithRetry(() => import('./pages/spec/MonoPeDuplexNoWindowPage'))
 const MonoPpDuplexNoWindowPage = lazyWithRetry(() => import('./pages/spec/MonoPpDuplexNoWindowPage'))
-const BioCelloDuplexClearPage = lazyWithRetry(() => import('./pages/spec/BioCelloDuplexClearPage'))
+const CompostableMaterialStructurePage = lazyWithRetry(() => import('./pages/spec/CompostableMaterialStructurePage'))
 const BioCelloTriplexHighestPage = lazyWithRetry(() => import('./pages/spec/BioCelloTriplexHighestPage'))
 const BioCelloTriplexMetalisedPage = lazyWithRetry(() => import('./pages/spec/BioCelloTriplexMetalisedPage'))
 const BioKraftVmCelloPage = lazyWithRetry(() => import('./pages/spec/BioKraftVmCelloPage'))
@@ -828,7 +828,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/spec/pcr-pp-triplex-aluminum" element={<PcrPpTriplexAluminumPage />} />
                   <Route path="/spec/biope-pp-triplex-metalised" element={<BioPePpTriplexMetalisedPage />} />
                   <Route path="/spec/pcr-pet-triplex-metalised" element={<PcrPetTriplexMetalisedPage />} />
-                  <Route path="/spec/bio-cello-duplex-clear" element={<BioCelloDuplexClearPage />} />
+                  <Route path="/spec/compostable-material-structure" element={<CompostableMaterialStructurePage />} />
                   <Route path="/spec/pcr-pp-duplex-clear" element={<PcrPpDuplexClearPage />} />
                   <Route path="/spec/pcr-pet-triplex-aluminum" element={<PcrPetTriplexAluminumPage />} />
                   <Route path="/spec/pcr-pet-kraft-triplex-clear" element={<PcrPetKraftTriplexClearPage />} />
@@ -1357,7 +1357,7 @@ if (getDomain() === 'pouch') {
                         <Route path="/spec/mono-pp-duplex-clear" element={<MonoPpDuplexClearPage />} />
                         <Route path="/spec/mono-pe-duplex-nowindow" element={<MonoPeDuplexNoWindowPage />} />
                         <Route path="/spec/mono-pp-duplex-nowindow" element={<MonoPpDuplexNoWindowPage />} />
-                        <Route path="/spec/bio-cello-duplex-clear" element={<BioCelloDuplexClearPage />} />
+                         <Route path="/spec/compostable-material-structure" element={<CompostableMaterialStructurePage />} />
                         <Route path="/spec/bio-cello-triplex-highest" element={<BioCelloTriplexHighestPage />} />
                         <Route path="/spec/bio-cello-triplex-metalised" element={<BioCelloTriplexMetalisedPage />} />
                         <Route path="/spec/bio-kraft-vm-cello" element={<BioKraftVmCelloPage />} />

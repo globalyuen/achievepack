@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 import SortableMaterialStructuresTable, { COMPOSTABLE_STRUCTURES } from '../../components/SortableMaterialStructuresTable'
 
-const BioCelloDuplexClearPage: React.FC = () => {
+const CompostableMaterialStructurePage: React.FC = () => {
   const structureName = 'High Barrier Cellulose or PLA 25gsm / PBAT60 (Cello Duplex)'
   const thickness = '85 micron or 3.3 mil'
   const otr = '<5'
@@ -212,7 +212,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
               </thead>
               <tbody>
                 <tr className="bg-green-50 font-semibold">
-                  <td className="p-2 border"><Link to="/spec/bio-cello-duplex-clear" className="text-primary-600 hover:underline">Cellulose Duplex Clear</Link></td>
+                  <td className="p-2 border"><Link to="/spec/compostable-material-structure" className="text-primary-600 hover:underline">Cellulose Duplex Clear</Link></td>
                   <td className="p-2 text-center border">&lt;5</td>
                   <td className="p-2 text-center border">&lt;10</td>
                   <td className="p-2 border">Window bags, visibility</td>
@@ -280,9 +280,9 @@ const BioCelloDuplexClearPage: React.FC = () => {
 
   return (
     <SEOPageLayout heroBgColor="#1f2937"
-      title="Bio Cellulose Duplex Clear | Compostable Window Packaging"
+      title="Compostable Material Structure | Compostable Window Packaging"
       description="Bio Cellulose Duplex: High Barrier Cellulose/PLA 25gsm / PBAT60 (85 micron). TUV/BPI certified compostable, clear window capable. OTR <5, WVTR <10. Ideal for coffee, tea, organic snacks."
-      heroTitle="Bio Cellulose Duplex Clear - Compostable"
+      heroTitle="Compostable Material Structure"
       heroSubtitle="High Barrier Cellulose / PBAT - TUV & BPI Certified"
       heroLogo="/eco-logo/white-bkg/eco-logo-compost.png"
       heroLogoAlt="TUV/BPI Compostable Certified"
@@ -297,7 +297,7 @@ const BioCelloDuplexClearPage: React.FC = () => {
         'TUV compostable',
         'clear compostable window'
       ]}
-      canonicalUrl="https://achievepack.com/spec/bio-cello-duplex-clear"
+      canonicalUrl="https://achievepack.com/spec/compostable-material-structure"
       sections={sections}
       faqs={faqs}
       relatedLinks={relatedLinks}
@@ -305,4 +305,4 @@ const BioCelloDuplexClearPage: React.FC = () => {
   )
 }
 
-export default BioCelloDuplexClearPage
+export default CompostableMaterialStructurePage

@@ -25,21 +25,7 @@ interface DynamicBlogArticleRenderProps {
     published_at?: string
     updated_at?: string
     source_url?: string
-    content?: {
-      sections?: Array<{
-        title: string
-        icon?: string
-        content: string
-      }>
-      faqs?: Array<{
-        q: string
-        a: string
-      }>
-      cta?: {
-        title?: string
-        description?: string
-      }
-    }
+    content?: any
   }
 }
 
@@ -92,40 +78,50 @@ export default function DynamicBlogArticleRender({ post }: DynamicBlogArticleRen
     }
   }
 
+  // Resolve B2C active content (either from pouch subkey or root content)
+  const activeContent = post.content?.pouch || post.content
+
   // Parse sections
-  const sections = (post.content?.sections || []).map((s, idx) => ({
+  const sections = (activeContent?.sections || []).map((s: any, idx: number) => ({
     id: `section-${idx}`,
     title: s.title,
     icon: getIcon(s.icon),
-    content: (
+    paragraphs: s.paragraphs,
+    keyTakeaways: s.key_takeaways,
+    specsTable: s.specs_table,
+    content: s.content ? (
       <div 
         className="space-y-4"
         dangerouslySetInnerHTML={{ __html: s.content }}
       />
-    )
+    ) : undefined
   }))
 
   // Parse FAQs
-  const faqSections = (post.content?.faqs || []).map((f: any) => ({
+  const faqSections = (activeContent?.faqs || []).map((f: any) => ({
     q: f.q || f.question || f.Question || '',
     a: f.a || f.answer || f.Answer || ''
   }))
 
+  const hideVideoAndImage = !!activeContent?.hide_media || !!activeContent?.no_video_and_image
+
   return (
     <BlogArticleTemplate
-      title={`${post.title} | Certified Compostable | POUCH.ECO`}
-      metaDescription={post.meta_description || post.excerpt || ''}
+      title={`${activeContent?.title || post.title} | Certified Compostable | POUCH.ECO`}
+      metaDescription={post.meta_description || activeContent?.excerpt || post.excerpt || ''}
       canonicalUrl={`https://pouch.eco/blog/${post.slug}`}
-      heroTitle={post.title}
-      heroSubtitle={post.excerpt || ''}
-      heroImage={post.image_url}
+      heroTitle={activeContent?.title || post.title}
+      heroSubtitle={activeContent?.excerpt || post.excerpt || ''}
+      heroImage={activeContent?.image_url || post.image_url}
       categoryTag={post.category}
       publishedDate={post.published_at}
       modifiedDate={post.updated_at}
+      videoUrl={activeContent?.video_url}
+      hideVideoAndImage={hideVideoAndImage}
       sections={sections}
       faqSections={faqSections}
-      ctaTitle={post.content?.cta?.title}
-      ctaDescription={post.content?.cta?.description}
+      ctaTitle={activeContent?.cta?.title}
+      ctaDescription={activeContent?.cta?.description}
       achievePackLink={post.source_url}
     />
   )

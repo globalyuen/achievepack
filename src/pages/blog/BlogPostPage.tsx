@@ -1,12 +1,14 @@
 import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogData';
-import { Calendar, Clock, Tag, Share2, List, ChevronRight, ArrowUp, ArrowLeft, Loader2, X } from 'lucide-react';
+import { Calendar, Clock, Tag, Share2, List, ChevronRight, ArrowUp, ArrowLeft, Loader2, X, Info } from 'lucide-react';
 import { useState, useMemo, useEffect, useTransition, useCallback } from 'react';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
 import { createClient } from '@supabase/supabase-js';
 import EcoMaterialSourcingGuide from '../../components/pouch/EcoMaterialSourcingGuide';
+import DynamicBlogArticleRender from '../../components/pouch/DynamicBlogArticleRender';
+import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
@@ -352,6 +354,37 @@ export default function BlogPostPage() {
 
   if (!post) {
     return <Navigate to="/blog" replace />;
+  }
+
+  const isPouchDomain = window.location.hostname.includes('pouch.eco') || window.location.hostname.includes('pouch-eco') || window.location.hostname.includes('localhost');
+
+  if (isPouchDomain) {
+    if (override) {
+      return <DynamicBlogArticleRender post={override} />;
+    } else {
+      const staticSections = [
+        {
+          id: 'content',
+          title: 'Article Content',
+          icon: <Info className="w-6 h-6" />,
+          content: <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        }
+      ];
+      return (
+        <BlogArticleTemplate
+          title={`${post.title} | Certified Compostable | POUCH.ECO`}
+          metaDescription={post.metaDescription}
+          canonicalUrl={`https://pouch.eco/blog/${post.slug}`}
+          heroTitle={post.title}
+          heroSubtitle={post.excerpt}
+          heroImage={post.featuredImage}
+          categoryTag={post.category}
+          publishedDate={post.publishDate}
+          modifiedDate={post.updatedDate || post.publishDate}
+          sections={staticSections}
+        />
+      );
+    }
   }
 
   const handleShare = async () => {
