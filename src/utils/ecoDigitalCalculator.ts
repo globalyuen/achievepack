@@ -231,18 +231,18 @@ function calculateFactors(
 export function calculateEcoPrice(selections: EcoCalculatorSelections): EcoCalculatorResult {
   const { shape, material, size, quantityOption, designCount, barrier, stiffness, zipper, laserScoring, valve, additions, surfaceTreatments, shippingMethod, seaPortion } = selections
 
-  // Get base cost and weight from SIZE_DATA
-  const sizeData = SIZE_DATA[size]
+  // Get base cost and weight from SIZE_DATA (with fallbacks for custom sizes)
+  const sizeData = SIZE_DATA[size] || { base_cost: 0.86, base_weight: 6 }
   let baseCost = sizeData.base_cost
   let baseWeight = sizeData.base_weight
 
-  // Build factors object
+  // Build factors object (with fallbacks for non-pouch shapes)
   const factors: Record<string, any> = {
-    designs: DESIGNS_FACTORS[String(designCount)],
-    packaging_shape: PACKAGING_SHAPE_FACTORS[shape],
-    material: MATERIALS_FACTORS[material],
+    designs: DESIGNS_FACTORS[String(designCount)] || { cost: 0, weight: 0 },
+    packaging_shape: PACKAGING_SHAPE_FACTORS[shape] || { cost: 0.00, weight: 0.00, multiplier: 1.00 },
+    material: MATERIALS_FACTORS[material] || { cost: 0.00, weight: 0.00, multiplier: 1.00 },
     barrier: barrier,
-    stiffness: STIFFNESS_FACTORS[stiffness],
+    stiffness: STIFFNESS_FACTORS[stiffness] || { cost: 0.00, weight: 0.00 },
     zipper: ZIPPER_FACTORS[zipper] || { cost: 0, weight: 0 },  // Apply zipper as percentage factor
     zipper_type: zipper,  // Keep original string for special handling in calculateFactors
     laser_scoring: laserScoring === 'Yes' ? { cost: 5, weight: 0 } : { cost: 0, weight: 0 },
@@ -256,10 +256,7 @@ export function calculateEcoPrice(selections: EcoCalculatorSelections): EcoCalcu
   const calculations = calculateFactors(baseCost, baseWeight, factors, material)
 
   // Apply quantity multiplier
-  const quantityFactor = QUANTITY_FACTORS[quantityOption]
-  if (!quantityFactor) {
-    throw new Error(`Invalid quantity option: ${quantityOption}`)
-  }
+  const quantityFactor = QUANTITY_FACTORS[quantityOption] || { cost: 0, weight: 0, print_method: 'digital', multiplier: 1.00 }
 
   const quantityMultiplier = quantityFactor.multiplier
   let unitCost = calculations.unit_cost * quantityMultiplier
@@ -312,7 +309,7 @@ export function calculateEcoPrice(selections: EcoCalculatorSelections): EcoCalcu
   }
 
   // Build package info
-  const sizeSpec = SIZE_SPECS[size]
+  const sizeSpec = SIZE_SPECS[size] || { label: size || 'Custom Size' }
   const barrierInfo = BARRIERS[barrier]
 
   const packageInfo: EcoPackageInfo = {
