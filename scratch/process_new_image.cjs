@@ -31,24 +31,42 @@ const destBrainPath = path.join(brainDir, `${slug}-hero.png`);
 fs.copyFileSync(tempImgPath, destBrainPath);
 console.log(`Copied image to brain: ${destBrainPath}`);
 
-// 3. Update state JSON
+// 3. Read state JSON to find out completed count
 const stateData = JSON.parse(fs.readFileSync(stateFilePath, 'utf8'));
+const completedCountBefore = stateData.filter(i => i.status === 'completed').length;
+
+// Determine Batch details
+let batchNumber = 4;
+let batchRange = '46–60';
+if (completedCountBefore >= 60 && completedCountBefore < 75) {
+  batchNumber = 5;
+  batchRange = '61–75';
+} else if (completedCountBefore >= 75 && completedCountBefore < 90) {
+  batchNumber = 6;
+  batchRange = '76–90';
+} else if (completedCountBefore >= 90) {
+  batchNumber = 7;
+  batchRange = '91–93';
+}
+
+const batchHeader = `## Batch ${batchNumber} Results (Images ${batchRange})`;
+
+// Update item status
 const item = stateData.find(i => i.slug === slug);
 if (item) {
   item.status = 'completed';
   item.processedAt = new Date().toISOString();
   fs.writeFileSync(stateFilePath, JSON.stringify(stateData, null, 2), 'utf8');
-  console.log(`Updated state file status for slug: ${slug}`);
+  console.log(`Updated state file status for slug: ${slug} (Batch ${batchNumber})`);
 } else {
   console.error(`Warning: Slug not found in state file: ${slug}`);
 }
 
 // 4. Update image_gen_results.md
 let resultsMd = fs.readFileSync(resultsMdPath, 'utf8');
-const batchHeader = '## Batch 4 Results (Images 46–60)';
 
 if (!resultsMd.includes(batchHeader)) {
-  // If the batch header doesn't exist, append it
+  // If the batch header doesn't exist, append it to the end of the file
   resultsMd += `\n\n${batchHeader}\nRandomized mix of sustainable barrier mockups, retail displays, and technical cutaways:\n\n`;
 }
 
@@ -57,7 +75,7 @@ const slugHeader = `### ${slug}`;
 if (!resultsMd.includes(slugHeader)) {
   const imageMarkdown = `\n${slugHeader}\n![${slug}](/Users/ryanmacmini/.gemini/antigravity/brain/7d78f957-11db-4b8f-9be8-5abef52a5bec/${slug}-hero.png)\n`;
   
-  // Find where Batch 4 Results header is and insert right after it or append
+  // Find where Batch header is and insert right after it
   const index = resultsMd.indexOf(batchHeader);
   if (index !== -1) {
     const splitIndex = index + batchHeader.length;
@@ -67,7 +85,7 @@ if (!resultsMd.includes(slugHeader)) {
   }
   
   fs.writeFileSync(resultsMdPath, resultsMd, 'utf8');
-  console.log(`Updated image_gen_results.md with entry for ${slug}`);
+  console.log(`Updated image_gen_results.md with entry for ${slug} under Batch ${batchNumber}`);
 } else {
   console.log(`Entry for ${slug} already exists in image_gen_results.md`);
 }
