@@ -60,7 +60,7 @@ const CATEGORY_MENU: CategoryMenuItem[] = [
     icon: '🎨',
     badge: 'RFQ',
     children: [
-      { id: 'eco-digital', label: 'Eco Digital', count: 8 },
+      { id: 'eco-digital', label: 'Eco Digital', count: 9 },
       { id: 'eco-stock-custom-print', label: 'Eco Stock Custom Print', count: 2 },
       { id: 'boxes', label: 'Custom Boxes', count: 2 },
     ]

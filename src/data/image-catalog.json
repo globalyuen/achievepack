@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-05",
-  "total_images": 2292,
+  "total_images": 2295,
   "total_categories": 169,
   "extensions": {
     ".webp": 1302,
-    ".png": 755,
+    ".png": 758,
     ".jpg": 232,
     ".svg": 3
   },
@@ -10702,8 +10702,26 @@
       ]
     },
     "store/products": {
-      "count": 292,
+      "count": 295,
       "images": [
+        {
+          "filename": "chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-3.png",
+          "path": "/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-3.png",
+          "extension": ".png",
+          "modified": "2026-06-05T04:37:33.015Z"
+        },
+        {
+          "filename": "chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-2.png",
+          "path": "/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-2.png",
+          "extension": ".png",
+          "modified": "2026-06-05T04:37:33.013Z"
+        },
+        {
+          "filename": "chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-1.png",
+          "path": "/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-1.png",
+          "extension": ".png",
+          "modified": "2026-06-05T04:37:33.011Z"
+        },
         {
           "filename": "transparent-colorful-cellophane-candy-wrapping-paper-thumbnail-2.png",
           "path": "/imgs/store/products/transparent-colorful-cellophane-candy-wrapping-paper-thumbnail-2.png",

@@ -1011,6 +1011,49 @@ const ECO_DIGITAL_PRODUCTS: EcoDigitalProduct[] = [
       defaultShippingMethod: 'Air Freight',
     }
   },
+  {
+    id: 'food-grade-three-layer-chocolate-cushioning-paper-pad',
+    name: 'Food-Grade Three-Layer Chocolate Cushioning Paper Pad, Black and White Printed, Moisture-Proof and Shock-Absorbing Honeycomb Waffle Paper Pad',
+    category: 'eco-digital',
+    productType: 'custom',
+    subCategory: 'eco-digital',
+    description: 'A premium food-grade cushioning paper pad engineered with a three-layer honeycomb waffle structure. Designed specifically for fine chocolates, confectionery, pastries, and delicate baked goods. Provides superior shock absorption, moisture resistance, and cushioning buffer to prevent cracking or crushing during transit. Made of 100% natural biodegradable and compostable paper materials with food-safe black and white printed designs.',
+    shortDesc: 'Food-grade 3-layer chocolate cushioning honeycomb waffle pad with moisture-proof shock absorption',
+    features: [
+      'Food Safe & FDA Compliant: Manufactured from 100% food-grade paper for direct confectionery contact.',
+      '3-Layer Honeycomb Waffle Cushioning: Expanded waffle pattern provides excellent shock-absorbing protection.',
+      'Moisture-Proof & Oil-Resistant: Outer layers prevent grease absorption and maintain premium presentation.',
+      '100% Biodegradable & Compostable: Plant-based alternative to plastic bubble liners.',
+      'Custom Print & Size Options: Brandable with custom black and white print to match logo designs.'
+    ],
+    images: [
+      '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-1.png',
+      '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-2.png',
+      '/imgs/store/products/chocolate-cushioning-paper-pad-wrapping-paper-thumbnail-3.png'
+    ],
+    badge: '🌿 Eco Cushion',
+    rating: 4.9,
+    reviews: 18,
+    inStock: true,
+    turnaround: '15-20 days',
+    minOrder: 1000,
+    shape: 'Wrapping Paper',
+    inquiryOnly: true,
+    basePrice: 0,
+    ecoConfig: {
+      defaultMaterial: 'Certified Compostable Biopolymers',
+      defaultSize: 'Custom Size',
+      defaultQuantity: '1,000',
+      defaultDesignCount: 1,
+      defaultBarrier: 'standard cushioning paper',
+      defaultStiffness: 'Waffle textured paper',
+      defaultZipper: 'No',
+      defaultShippingMethod: 'Air Freight',
+    },
+    taobaoLinks: [
+      'https://item.taobao.com/item.htm?id=913164297901'
+    ]
+  },
 ]
 
 // Eco Stock Products (Ready-made Compostable)
