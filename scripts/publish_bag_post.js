@@ -46,9 +46,9 @@ async function run() {
 
   const updatedContent = {
     ...post.content,
-    video_url: '/video/hero/bag.mp4',
     approved: true
   };
+  delete updatedContent.video_url;
 
   // Clean up any media hiding flags
   delete updatedContent.hide_media;
