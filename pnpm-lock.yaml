@@ -167,6 +167,9 @@ importers:
       heic2any:
         specifier: ^0.0.4
         version: 0.0.4
+      html-video-monorepo:
+        specifier: github:nexu-io/html-video
+        version: https://codeload.github.com/nexu-io/html-video/tar.gz/ad291801622dc01033a815b99373de431c819062
       html2canvas:
         specifier: ^1.4.1
         version: 1.4.1
@@ -3551,6 +3554,11 @@ packages:
 
   html-parse-stringify@3.0.1:
     resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}
+
+  html-video-monorepo@https://codeload.github.com/nexu-io/html-video/tar.gz/ad291801622dc01033a815b99373de431c819062:
+    resolution: {tarball: https://codeload.github.com/nexu-io/html-video/tar.gz/ad291801622dc01033a815b99373de431c819062}
+    version: 0.0.0
+    engines: {node: '>=20', pnpm: '>=9'}
 
   html2canvas@1.4.1:
     resolution: {integrity: sha512-fPU6BHNpsyIhr8yyMpTLLxAbkaK8ArIBcmZIRiBLiDhjeqvXolaEmDGmELFuX9I4xDcaKKcJl+TKZLqruBbmWA==}
@@ -8339,6 +8347,8 @@ snapshots:
   html-parse-stringify@3.0.1:
     dependencies:
       void-elements: 3.1.0
+
+  html-video-monorepo@https://codeload.github.com/nexu-io/html-video/tar.gz/ad291801622dc01033a815b99373de431c819062: {}
 
   html2canvas@1.4.1:
     dependencies:

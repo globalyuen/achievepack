@@ -1,9 +1,9 @@
 {
   "generated": "2026-06-05",
-  "total_images": 2297,
+  "total_images": 2298,
   "total_categories": 169,
   "extensions": {
-    ".webp": 1302,
+    ".webp": 1303,
     ".png": 760,
     ".jpg": 232,
     ".svg": 3
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 93,
+      "count": 94,
       "images": [
+        {
+          "filename": "sourcing-compostable-coffee-bags-hero.webp",
+          "path": "/imgs/blog/heros/sourcing-compostable-coffee-bags-hero.webp",
+          "extension": ".webp",
+          "modified": "2026-06-05T08:55:50.589Z"
+        },
         {
           "filename": "compostable-pouch-sizes-for-powders-hero.png",
           "path": "/imgs/blog/heros/compostable-pouch-sizes-for-powders-hero.png",

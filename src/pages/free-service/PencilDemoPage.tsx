@@ -1,27 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Check, Leaf, Recycle, ShieldCheck, Award, MapPin, Phone, Mail, Facebook, Instagram, Twitter, ExternalLink, ChevronDown, Globe, Play, Star, Pencil, Palette, Ruler } from 'lucide-react'
-import { motion, useInView, useScroll, useTransform, AnimatePresence, Variants } from 'motion/react'
+import { 
+  ShoppingCart, Menu, X, ArrowLeft, ArrowRight, Check, Leaf, Recycle, 
+  ShieldCheck, Award, MapPin, Phone, Mail, ExternalLink, ChevronDown, 
+  Globe, Play, Star, Pencil, Palette, Ruler, Cpu, Video, Layers, RefreshCw, 
+  Terminal, Sliders, Settings2, Sparkles, Download
+} from 'lucide-react'
+import { motion, AnimatePresence, Variants } from 'motion/react'
 import { ParallaxText } from '../../components/ParallaxText'
-import { ScrollTriggeredCards, CHIPS_SCROLL_CARDS } from '../../components/ScrollTriggeredCards'
+import { ScrollTriggeredCards } from '../../components/ScrollTriggeredCards'
 
-// Reuse motion variants
+// Motion variants
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
     y: 0,
     transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }
-  }
-}
-
-const fadeInScale: Variants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    transition: { duration: 0.7, ease: "easeOut" as const }
   }
 }
 
@@ -36,17 +32,6 @@ const staggerContainer: Variants = {
   }
 }
 
-const staggerCards: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2
-    }
-  }
-}
-
 const cardHover = {
   scale: 1.03,
   y: -8,
@@ -54,38 +39,9 @@ const cardHover = {
   transition: { duration: 0.3 }
 }
 
-const slideInLeft: Variants = {
-  hidden: { opacity: 0, x: -60 },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  }
-}
-
-const slideInRight: Variants = {
-  hidden: { opacity: 0, x: 60 },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  }
-}
-
-const statReveal: Variants = {
-  hidden: { opacity: 0, scale: 0.8, y: 20 },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const }
-  }
-}
-
-// Placeholder images for Pencils
 const PENCIL_IMAGES = {
   logo: {
-    src: 'https://images.unsplash.com/photo-1596443686812-2f45229eeb36?q=80&w=2670&auto=format&fit=crop', // Placeholder
+    src: 'https://images.unsplash.com/photo-1596443686812-2f45229eeb36?q=80&w=2670&auto=format&fit=crop',
     alt: 'Pencil Canvas Logo',
   },
   products: {
@@ -145,7 +101,6 @@ const PRODUCTS = [
   }
 ]
 
-// Custom scroll cards for pencils
 const PENCIL_SCROLL_CARDS = [
   {
     image: PENCIL_IMAGES.products.graphite.detail,
@@ -194,11 +149,65 @@ const PENCIL_SCROLL_CARDS = [
   }
 ]
 
+// Preset configurations matching our 3D videos
+const DESIGN_PRESETS = [
+  {
+    id: 'pouch1',
+    name: 'Matte Black Pouch',
+    description: 'Ultra-premium matte carbon black finish with zero-light transmission',
+    videoPath: '/3d/video/pouch1.mp4',
+    materials: 'High Barrier PET/VMPET/PE',
+    suggestedColor: '#121212',
+    thickness: '110 microns'
+  },
+  {
+    id: 'pouch2',
+    name: 'Frosted Bio-Cello',
+    description: 'High-transparency plant-based cellulose laminate structure',
+    videoPath: '/3d/video/pouch2.mp4',
+    materials: 'NatureFlex Cellulose / PLA Sealer',
+    suggestedColor: '#e0ecde',
+    thickness: '80 microns'
+  },
+  {
+    id: 'pouch3',
+    name: 'Eco Kraft Pouch',
+    description: 'Unbleached natural brown kraft paper surface with PLA interior liner',
+    videoPath: '/3d/video/pouch3.mp4',
+    materials: 'Kraft Paper / Bio-sealing Film',
+    suggestedColor: '#d2b48c',
+    thickness: '125 microns'
+  },
+  {
+    id: 'pouch4',
+    name: 'Mono-PE Recyclable',
+    description: 'Gloss-finish fully recyclable single-polymer packaging',
+    videoPath: '/3d/video/pouch4.mp4',
+    materials: 'Mono-PE #4 (Low Density Polyethylene)',
+    suggestedColor: '#ffffff',
+    thickness: '95 microns'
+  }
+]
+
 export default function PencilDemoPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [cartCount, setCartCount] = useState(0)
-  const [activeProduct, setActiveProduct] = useState(PRODUCTS[0])
+
+  // Interactive Mockup States
+  const [selectedPreset, setSelectedPreset] = useState(DESIGN_PRESETS[0])
+  const [videoSource, setVideoSource] = useState(DESIGN_PRESETS[0].videoPath)
+  const [width, setWidth] = useState(150)
+  const [height, setHeight] = useState(240)
+  const [gusset, setGusset] = useState(45)
+  const [isRendering, setIsRendering] = useState(false)
+  const [consoleLogs, setConsoleLogs] = useState<string[]>([
+    'System ready.',
+    'Pencil Canvas connected to antigravity local client.',
+    'Ready for export compiles.'
+  ])
+
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -206,44 +215,104 @@ export default function PencilDemoPage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Sync video source when preset changes
+  useEffect(() => {
+    setVideoSource(selectedPreset.videoPath)
+    if (videoRef.current) {
+      videoRef.current.load()
+    }
+    log(`Preset changed to: ${selectedPreset.name} (Material: ${selectedPreset.materials})`)
+  }, [selectedPreset])
+
+  const log = (message: string) => {
+    setConsoleLogs(prev => [...prev.slice(-6), `[${new Date().toLocaleTimeString()}] ${message}`])
+  }
+
+  // Simulate rendering process with html-video
+  const handleRenderVideo = () => {
+    if (isRendering) return
+    setIsRendering(true)
+    log('Initiating HTML → Video render request...')
+    
+    setTimeout(() => {
+      log('Target identified: packages/runtime/src/spawn.ts')
+    }, 500)
+
+    setTimeout(() => {
+      log('Headless Chromium loading frames [1/180]...')
+    }, 1200)
+
+    setTimeout(() => {
+      log('Compiling layout styles with Hyperframes adapter...')
+    }, 2000)
+
+    setTimeout(() => {
+      log('Injecting audio soundtrack (MiniMax ambient track)...')
+    }, 2800)
+
+    setTimeout(() => {
+      log('FFmpeg compiling frames to libx264 MP4...')
+    }, 3600)
+
+    setTimeout(() => {
+      setIsRendering(false)
+      log(`🎉 Export complete! Saved to /downloads/${selectedPreset.id}_promo.mp4`)
+    }, 4500)
+  }
+
+  const handleToggleSource = (src: string, label: string) => {
+    setVideoSource(src)
+    if (videoRef.current) {
+      videoRef.current.load()
+    }
+    log(`Source updated to: ${label}`)
+  }
+
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans">
+    <div className="min-h-screen bg-[#0d0f12] text-white font-sans selection:bg-[#00e699] selection:text-black">
       <Helmet>
-        <title>Pencil Canvas | Premium Artist Tools | Sustainable Design</title>
-        <meta name="description" content="Discover Pencil Canvas - premium sustainable pencils for artists and creators. Graphite, charcoal, and color collections." />
+        <title>Pencil Studio | Interactive 3D Mockup & Video Rendering</title>
+        <meta name="description" content="Design premium B2B custom packaging bags in 3D using Pencil, and instantly compile them to promo videos via html-video." />
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
-          .font-display { font-family: 'Playfair Display', serif; }
-          .font-sans { font-family: 'Inter', sans-serif; }
+          @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+          .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+          .font-mono { font-family: 'JetBrains Mono', monospace; }
         `}</style>
       </Helmet>
 
       {/* Achieve Pack Return Banner */}
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-black text-white py-2 px-4">
+      <div className="fixed top-0 left-0 right-0 z-[60] bg-black/80 backdrop-blur-md border-b border-white/10 py-2.5 px-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/free-service/website-upgrade" className="flex items-center gap-2 text-sm hover:text-white/80 transition">
+          <Link to="/free-service/website-upgrade" id="back-to-achievepack-btn" className="flex items-center gap-2 text-sm text-[#00e699] hover:text-[#00e699]/80 transition-colors font-medium">
             <ArrowLeft className="w-4 h-4" />
-            Back to Achieve Pack
+            Back to Upgrade Center
           </Link>
-          <span className="text-xs text-white/80 hidden sm:block">This is a demo website created by Achieve Pack</span>
-          <Link to="/store" className="text-sm font-medium hover:text-white/80 transition">
-            Browse Packaging
+          <span className="text-xs text-white/50 hidden md:block">Interactive 3D Prototyping Demo Engine powered by Achieve Pack</span>
+          <Link to="/store" id="browse-store-btn" className="text-sm font-semibold text-white hover:underline transition">
+            Browse Store
           </Link>
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed top-[40px] w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-sm py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-[45px] w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#0d0f12]/95 border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 font-display text-2xl font-bold tracking-tighter">
-              <Pencil className="h-6 w-6" />
-              PENCIL CANVAS
+            <div className="flex items-center gap-2.5 font-display text-xl font-bold tracking-tight text-white">
+              <div className="bg-[#00e699] p-1.5 rounded-lg text-black">
+                <Pencil className="h-5 w-5" />
+              </div>
+              PENCIL STUDIO
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
-              {['Collections', 'Story', 'Sustainability'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-medium tracking-wide text-gray-600 hover:text-black transition-colors">
+              {['Design Engine', 'Materials', 'Specs', 'FAQ'].map((item) => (
+                <a 
+                  key={item} 
+                  href={`#${item.toLowerCase().replace(' ', '-')}`} 
+                  id={`nav-link-${item.toLowerCase().replace(' ', '-')}`}
+                  className="text-sm text-gray-400 hover:text-[#00e699] transition-colors"
+                >
                   {item}
                 </a>
               ))}
@@ -251,12 +320,13 @@ export default function PencilDemoPage() {
 
             <div className="flex items-center gap-4">
               <button 
-                className="relative p-2"
+                id="shopping-cart-nav"
+                className="relative p-2 hover:text-[#00e699] transition-colors"
                 onClick={() => setCartCount(c => c + 1)}
               >
                 <ShoppingCart className="w-5 h-5" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-black text-white rounded-full text-[10px] font-bold flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#00e699] text-black rounded-full text-[10px] font-bold flex items-center justify-center">
                     {cartCount}
                   </span>
                 )}
@@ -269,82 +339,251 @@ export default function PencilDemoPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#f8f8f8]">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={activeProduct.heroImage} 
-            alt={activeProduct.name}
-            className="w-full h-full object-cover opacity-90 transition-opacity duration-700"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
+      {/* Hero Section - Split Layout with Video Mockup Device */}
+      <section id="design-engine" className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-[#0d0f12] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-900 via-[#0d0f12] to-[#0d0f12]">
+        
+        {/* Decorative Grid Lines */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="text-white"
-          >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 border border-white/30 rounded-full text-sm font-medium mb-6 backdrop-blur-md">
-              <Palette className="w-4 h-4" />
-              Premium Artist Tools
-            </motion.div>
-            
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-display font-light leading-tight mb-6">
-              Create with <br/>
-              <span className="font-bold italic">Intention</span>
-            </motion.h1>
-
-            <motion.p variants={fadeInUp} className="text-xl text-white/90 mb-8 max-w-lg font-light leading-relaxed">
-              Experience the perfect balance of form and function. Sustainable cedar, precision cores, timeless design.
-            </motion.p>
-
-            <motion.div variants={fadeInUp} className="flex gap-4">
-              <button className="px-8 py-4 bg-white text-black rounded-full font-medium hover:bg-gray-100 transition shadow-lg">
-                Shop Collection
-              </button>
-              <button className="px-8 py-4 border border-white text-white rounded-full font-medium hover:bg-white/10 transition backdrop-blur-sm">
-                Watch Film
-              </button>
-            </motion.div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" as const }}
-            className="hidden md:flex justify-end"
-          >
-            <div className="bg-white/10 backdrop-blur-xl p-8 rounded-2xl border border-white/20 w-80 text-white">
-               <h3 className="text-2xl font-display mb-4">Featured</h3>
-               <div className="space-y-4">
-                 {PRODUCTS.map(p => (
-                   <button
-                    key={p.id}
-                    onClick={() => setActiveProduct(p)}
-                    className={`w-full text-left p-4 rounded-xl transition-all ${activeProduct.id === p.id ? 'bg-white text-black' : 'hover:bg-white/10'}`}
-                   >
-                     <div className="font-bold">{p.name}</div>
-                     <div className={`text-sm ${activeProduct.id === p.id ? 'text-gray-600' : 'text-gray-300'}`}>{p.tagline}</div>
-                   </button>
-                 ))}
-               </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Column: Headline and Sourcing Copy */}
+          <div className="lg:col-span-5 text-left flex flex-col justify-center">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-semibold tracking-wider text-[#00e699] uppercase mb-6 w-fit backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5" />
+              Dynamic Prototyping
             </div>
-          </motion.div>
+            
+            <h1 className="text-4xl md:text-6xl font-display font-bold leading-[1.1] mb-6 tracking-tight">
+              Design in 3D.<br/>
+              Render to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00e699] to-[#00ffcc] font-extrabold italic">Video</span>.
+            </h1>
+
+            <p className="text-base md:text-lg text-gray-400 mb-8 max-w-lg leading-relaxed font-light">
+              Create and adjust premium packaging bags using **Pencil App** vector parameters, then instantly compile the files into high-definition 3D product spin videos using **html-video**.
+            </p>
+
+            {/* Quick Sourcing Attributes */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="p-3 bg-white/5 border border-white/5 rounded-xl">
+                <div className="text-xs text-gray-500 font-mono">CAD TOOL</div>
+                <div className="text-sm font-semibold mt-1 flex items-center gap-1.5">
+                  <Pencil className="w-4 h-4 text-[#00e699]" />
+                  Pencil Canvas
+                </div>
+              </div>
+              <div className="p-3 bg-white/5 border border-white/5 rounded-xl">
+                <div className="text-xs text-gray-500 font-mono">VIDEO COMPILER</div>
+                <div className="text-sm font-semibold mt-1 flex items-center gap-1.5">
+                  <Video className="w-4 h-4 text-[#00e699]" />
+                  html-video (Hyper)
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <a 
+                href="#collections" 
+                id="hero-explore-collection"
+                className="px-6 py-3 bg-[#00e699] text-black font-semibold rounded-xl hover:bg-[#00ffcc] transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#00e699]/15 flex items-center gap-2"
+              >
+                Shop Collection
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <button 
+                id="hero-render-video-btn"
+                onClick={handleRenderVideo}
+                className="px-6 py-3 border border-white/20 text-white font-medium rounded-xl hover:bg-white/5 transition flex items-center gap-2"
+              >
+                <RefreshCw className={`w-4 h-4 ${isRendering ? 'animate-spin text-[#00e699]' : ''}`} />
+                Test Export Render
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: Dynamic Interactive Device and Controller */}
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            
+            {/* Main Interactive Laptop Mockup */}
+            <div className="relative bg-[#161920]/80 rounded-2xl border border-white/10 p-5 shadow-2xl backdrop-blur-md">
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/5">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <span className="text-xs text-gray-500 font-mono ml-2">Pencil 3D Viewport — html-video renderer</span>
+                </div>
+                
+                {/* Viewport Control Badges */}
+                <div className="flex gap-2">
+                  <button 
+                    id="toggle-pouch-spin"
+                    onClick={() => handleToggleSource(selectedPreset.videoPath, 'Product Spin')}
+                    className={`px-2.5 py-1 rounded text-[10px] font-semibold tracking-wider uppercase transition ${videoSource.includes('3d') ? 'bg-[#00e699]/10 text-[#00e699] border border-[#00e699]/20' : 'bg-white/5 text-gray-400 hover:text-white'}`}
+                  >
+                    3D Spin
+                  </button>
+                  <button 
+                    id="toggle-factory-video"
+                    onClick={() => handleToggleSource('/video/factory/digital-printing.mp4', 'Factory Tour')}
+                    className={`px-2.5 py-1 rounded text-[10px] font-semibold tracking-wider uppercase transition ${videoSource.includes('factory') ? 'bg-[#00e699]/10 text-[#00e699] border border-[#00e699]/20' : 'bg-white/5 text-gray-400 hover:text-white'}`}
+                  >
+                    Factory
+                  </button>
+                </div>
+              </div>
+
+              {/* Responsive Video Canvas */}
+              <div className="relative aspect-video rounded-xl bg-black overflow-hidden border border-white/5">
+                <video 
+                  ref={videoRef}
+                  key={videoSource}
+                  className="w-full h-full object-cover" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                >
+                  <source src={videoSource} type="video/mp4" />
+                </video>
+
+                {/* Simulated Rendering Overlay */}
+                <AnimatePresence>
+                  {isRendering && (
+                    <motion.div 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="absolute inset-0 bg-black/85 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center"
+                    >
+                      <RefreshCw className="w-10 h-10 text-[#00e699] animate-spin mb-4" />
+                      <div className="text-base font-bold text-white mb-1">html-video compiler executing...</div>
+                      <div className="text-xs text-gray-400 font-mono">Headless Chromium running render task</div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Preset Selectors */}
+              <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {DESIGN_PRESETS.map((preset) => (
+                  <button
+                    key={preset.id}
+                    id={`preset-select-${preset.id}`}
+                    onClick={() => setSelectedPreset(preset)}
+                    className={`p-2.5 rounded-xl border text-left transition-all ${selectedPreset.id === preset.id ? 'bg-[#00e699]/5 border-[#00e699] text-[#00e699]' : 'bg-white/5 border-white/5 hover:border-white/10 hover:bg-white/10'}`}
+                  >
+                    <div className="text-xs font-semibold truncate">{preset.name}</div>
+                    <div className="text-[10px] text-gray-500 font-mono truncate mt-0.5">{preset.thickness}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Slider Controls Console */}
+            <div className="grid sm:grid-cols-12 gap-6">
+              
+              {/* Left Side: Mock Slider Controllers */}
+              <div className="sm:col-span-7 bg-[#161920]/80 rounded-2xl border border-white/10 p-5 flex flex-col gap-4 justify-between backdrop-blur-md">
+                <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-gray-400 uppercase border-b border-white/5 pb-2">
+                  <Sliders className="w-3.5 h-3.5 text-[#00e699]" />
+                  Mock Pouch Dimension Customization
+                </div>
+
+                <div className="space-y-3">
+                  {/* Width Slider */}
+                  <div>
+                    <div className="flex justify-between text-xs font-mono mb-1">
+                      <span className="text-gray-400">Pouch Width</span>
+                      <span className="text-white">{width} mm</span>
+                    </div>
+                    <input 
+                      type="range" 
+                      min="100" 
+                      max="250" 
+                      value={width} 
+                      onChange={(e) => { setWidth(Number(e.target.value)); log(`Width adjusted: ${e.target.value}mm`) }}
+                      className="w-full accent-[#00e699] bg-white/10 h-1.5 rounded-lg appearance-none cursor-pointer"
+                    />
+                  </div>
+
+                  {/* Height Slider */}
+                  <div>
+                    <div className="flex justify-between text-xs font-mono mb-1">
+                      <span className="text-gray-400">Pouch Height</span>
+                      <span className="text-white">{height} mm</span>
+                    </div>
+                    <input 
+                      type="range" 
+                      min="150" 
+                      max="350" 
+                      value={height} 
+                      onChange={(e) => { setHeight(Number(e.target.value)); log(`Height adjusted: ${e.target.value}mm`) }}
+                      className="w-full accent-[#00e699] bg-white/10 h-1.5 rounded-lg appearance-none cursor-pointer"
+                    />
+                  </div>
+
+                  {/* Bottom Gusset Slider */}
+                  <div>
+                    <div className="flex justify-between text-xs font-mono mb-1">
+                      <span className="text-gray-400">Bottom Gusset</span>
+                      <span className="text-white">{gusset * 2} mm (Open)</span>
+                    </div>
+                    <input 
+                      type="range" 
+                      min="25" 
+                      max="60" 
+                      value={gusset} 
+                      onChange={(e) => { setGusset(Number(e.target.value)); log(`Gusset adjusted: ${e.target.value}mm`) }}
+                      className="w-full accent-[#00e699] bg-white/10 h-1.5 rounded-lg appearance-none cursor-pointer"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side: Mock Terminal Log Output */}
+              <div className="sm:col-span-5 bg-black rounded-2xl border border-white/10 p-5 flex flex-col justify-between font-mono relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-3 text-[10px] text-white/10">CONSOLE</div>
+                
+                <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-gray-500 uppercase border-b border-white/5 pb-2">
+                  <Terminal className="w-3.5 h-3.5 text-red-400" />
+                  Build Outputs
+                </div>
+
+                <div className="text-[10px] space-y-1.5 text-gray-400 py-3 select-none">
+                  {consoleLogs.map((item, idx) => (
+                    <div key={idx} className="truncate">
+                      <span className="text-gray-600">&gt;</span> {item}
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={handleRenderVideo}
+                  id="console-render-trigger"
+                  className="w-full py-2 bg-white/5 border border-white/10 text-xs font-bold rounded-lg hover:bg-[#00e699] hover:text-black transition flex items-center justify-center gap-1.5"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  Render MP4 Video
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
       </section>
 
-      {/* Marquee */}
-      <section className="py-8 bg-black text-white">
-        <ParallaxText baseVelocity={-2} textClassName="text-4xl md:text-6xl font-display font-light italic px-4">
-          Sketch • Draw • Create • Inspire • Design • 
+      {/* Marquee - Continuous Loop */}
+      <section className="py-6 bg-black text-[#00e699] border-y border-white/5">
+        <ParallaxText baseVelocity={-2} textClassName="text-xl md:text-3xl font-display font-medium tracking-tight px-4">
+          Pencil 3D Canvas • html-video compiler • certified compostable • sustainable cedar wood • zero plate setup fees • low MOQ digital custom print • 
         </ParallaxText>
       </section>
 
       {/* Product Grid */}
-      <section id="collections" className="py-24 bg-white">
+      <section id="collections" className="py-24 bg-[#0d0f12]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial="hidden"
@@ -353,8 +592,8 @@ export default function PencilDemoPage() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-display font-bold mb-4">The Collection</h2>
-            <p className="text-gray-500">Tools for every stage of your creative process</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">The PENCIL CANVAS Shop</h2>
+            <p className="text-gray-500">Premium drawing utensils crafted from incense cedar wood and sustainable cores.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -365,17 +604,20 @@ export default function PencilDemoPage() {
                 initial="hidden"
                 whileInView="visible"
                 whileHover={cardHover}
-                className="group"
+                className="bg-[#161920]/45 border border-white/5 rounded-2xl p-5 hover:border-white/15 transition-all duration-300"
               >
-                <div className="aspect-[3/4] overflow-hidden rounded-2xl mb-6 bg-gray-100 relative">
+                <div className="aspect-[3/4] overflow-hidden rounded-xl mb-6 bg-gray-900 relative">
                   <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                  <div className="absolute inset-0 bg-black/10" />
                 </div>
-                <h3 className="text-2xl font-display font-bold mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-4 h-12">{product.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="font-bold">${product.price.toFixed(2)}</span>
-                  <button className="px-6 py-2 bg-black text-white rounded-full text-sm hover:bg-gray-800 transition">
+                <h3 className="text-xl font-display font-bold mb-2 text-white">{product.name}</h3>
+                <p className="text-gray-400 text-sm mb-4 h-12">{product.description}</p>
+                <div className="flex items-center justify-between mt-6">
+                  <span className="font-bold text-lg">${product.price.toFixed(2)}</span>
+                  <button 
+                    onClick={() => setCartCount(c => c + 1)}
+                    className="px-5 py-2 bg-white text-black font-semibold rounded-lg text-sm hover:bg-gray-100 transition"
+                  >
                     Add to Cart
                   </button>
                 </div>
@@ -385,32 +627,32 @@ export default function PencilDemoPage() {
         </div>
       </section>
 
-      {/* Features Scroll */}
-      <section className="py-24 bg-gray-50">
+      {/* Features Scroll Section */}
+      <section id="materials" className="py-24 bg-[#0b0c0f] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
-           <h2 className="text-3xl font-display font-bold">Engineered for Artists</h2>
+           <h2 className="text-3xl font-display font-bold">Engineered for Creative Precision</h2>
+           <p className="text-gray-500 mt-2">Crafted with attention to detail and sustainable materials.</p>
         </div>
         <ScrollTriggeredCards cards={PENCIL_SCROLL_CARDS} />
       </section>
 
-      {/* Stats Section */}
-      <section className="py-24 bg-black text-white relative overflow-hidden">
+      {/* Stats and Sustainability Section */}
+      <section id="specs" className="py-24 bg-black text-white relative overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Sustainable by Design</h2>
-              <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                We believe the tools we use to create beautiful things shouldn't destroy the planet. 
-                That's why every PENCIL CANVAS product is crafted from 100% FSC-certified incense cedar.
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Sustainable Incense Cedar</h2>
+              <p className="text-gray-400 text-base mb-8 leading-relaxed">
+                We believe the tools creators use shouldn't come at the cost of the environment. Every PENCIL CANVAS product is crafted from 100% FSC-certified incense cedar, sourced from renewable and responsibly managed forests.
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <div className="text-4xl font-display font-bold text-[#E63946] mb-2">100%</div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wide">FSC Certified</div>
+                  <div className="text-3xl font-display font-bold text-[#00e699] mb-1">100%</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-mono">FSC Certified Wood</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-display font-bold text-[#E63946] mb-2">0%</div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wide">Plastic Packaging</div>
+                  <div className="text-3xl font-display font-bold text-[#00e699] mb-1">0%</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider font-mono">Plastic Packaging</div>
                 </div>
               </div>
             </div>
@@ -418,7 +660,7 @@ export default function PencilDemoPage() {
               <img 
                 src={PENCIL_IMAGES.sustainability} 
                 alt="Sustainable wood" 
-                className="rounded-2xl grayscale hover:grayscale-0 transition-all duration-700"
+                className="rounded-2xl border border-white/10 opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700 max-h-[380px] w-full object-cover"
               />
             </div>
           </div>
@@ -426,41 +668,43 @@ export default function PencilDemoPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-100 pt-20 pb-10">
+      <footer id="faq" className="bg-[#08090b] border-t border-white/5 pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-2">
-              <div className="flex items-center gap-2 font-display text-2xl font-bold tracking-tighter mb-6">
-                <Pencil className="h-6 w-6" />
+              <div className="flex items-center gap-2.5 font-display text-2xl font-bold tracking-tight text-white mb-6">
+                <div className="bg-[#00e699] p-1 text-black rounded">
+                  <Pencil className="h-5 w-5" />
+                </div>
                 PENCIL CANVAS
               </div>
-              <p className="text-gray-500 max-w-sm">
-                Elevating the simple act of putting pencil to paper. 
-                Premium tools for the modern creator.
+              <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
+                Elevating the simple act of putting pencil to paper. Premium tools for the modern creator, designed with Pencil App and rendered with html-video.
               </p>
             </div>
             <div>
-              <h4 className="font-bold mb-6">Shop</h4>
-              <ul className="space-y-4 text-gray-600">
-                <li><a href="#" className="hover:text-black">Graphite</a></li>
-                <li><a href="#" className="hover:text-black">Charcoal</a></li>
-                <li><a href="#" className="hover:text-black">Color</a></li>
-                <li><a href="#" className="hover:text-black">Accessories</a></li>
+              <h4 className="font-semibold text-white mb-6 text-sm">Shop</h4>
+              <ul className="space-y-3.5 text-sm text-gray-400">
+                <li><a href="#" className="hover:text-[#00e699] transition-colors">Graphite Pencils</a></li>
+                <li><a href="#" className="hover:text-[#00e699] transition-colors">Deep Charcoal</a></li>
+                <li><a href="#" className="hover:text-[#00e699] transition-colors">Prism Colors</a></li>
+                <li><a href="#" className="hover:text-[#00e699] transition-colors">Accessories</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-6">About</h4>
-              <ul className="space-y-4 text-gray-600">
-                <li><a href="#" className="hover:text-black">Story</a></li>
-                <li><a href="#" className="hover:text-black">Sustainability</a></li>
-                <li><a href="#" className="hover:text-black">Contact</a></li>
+              <h4 className="font-semibold text-white mb-6 text-sm">Achieve Pack Demos</h4>
+              <ul className="space-y-3.5 text-sm text-gray-400">
+                <li><Link to="/free-service/achieve-chips-demo" className="hover:text-[#00e699] transition-colors">Chips Demo</Link></li>
+                <li><Link to="/free-service/achieve-chocolate-demo" className="hover:text-[#00e699] transition-colors">Chocolate Demo</Link></li>
+                <li><Link to="/free-service/achieve-tea-demo" className="hover:text-[#00e699] transition-colors">Tea Demo</Link></li>
+                <li><Link to="/free-service/achieve-pet-demo" className="hover:text-[#00e699] transition-colors">Pet Food Demo</Link></li>
               </ul>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100 text-sm text-gray-500">
+          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-xs text-gray-500">
             <p>© 2026 Pencil Canvas. All rights reserved.</p>
-            <div className="flex items-center gap-1">
-               Powered by <Link to="/" className="text-black font-semibold hover:underline">Achieve Pack</Link>
+            <div className="flex items-center gap-1.5 mt-4 md:mt-0">
+               Powered by <Link to="/" className="text-[#00e699] font-medium hover:underline">Achieve Pack</Link>
             </div>
           </div>
         </div>
