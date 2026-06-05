@@ -61,12 +61,25 @@ export default function BlogPostPage() {
     }
   }, []);
 
+  // Active domain-specific content resolver
+  const activeContent = useMemo(() => {
+    if (!override || !override.content) return null;
+    const isPouchDomain = window.location.hostname.includes('pouch.eco') || window.location.hostname.includes('pouch-eco') || window.location.hostname.includes('localhost');
+    if (isPouchDomain && override.content.pouch) {
+      return override.content.pouch;
+    }
+    if (!isPouchDomain && override.content.achievepack) {
+      return override.content.achievepack;
+    }
+    return override.content;
+  }, [override]);
+
   // Dynamically map dynamic CMS overrides into standard B2B HTML format
   const overrideHtml = useMemo(() => {
-    if (!override || !override.content) return '';
+    if (!override || !activeContent) return '';
     
     let html = '';
-    const sections = override.content.sections || [];
+    const sections = activeContent.sections || [];
     sections.forEach((sec: any, sIdx: number) => {
       html += `<h2 id="section-${sIdx}">${sec.title}</h2>`;
       
@@ -105,7 +118,7 @@ export default function BlogPostPage() {
 
       // Render alternating layout paragraphs if present
       if (sec.paragraphs && Array.isArray(sec.paragraphs)) {
-        const hideMedia = !!override?.content?.hide_media || !!override?.content?.no_video_and_image;
+        const hideMedia = !!activeContent?.hide_media || !!activeContent?.no_video_and_image;
         sec.paragraphs.forEach((p: any, pIdx: number) => {
           if (hideMedia) {
             html += `<div style="margin: 15px 0;"><p style="margin: 0; line-height: 1.8; color: #374151; font-size: 1rem;">${p.text}</p></div>`;
@@ -164,7 +177,7 @@ export default function BlogPostPage() {
       }
     });
 
-    const faqs = override.content.faqs || [];
+    const faqs = activeContent.faqs || [];
     if (faqs.length > 0) {
       html += `<h2>Frequently Asked Questions</h2>`;
       faqs.forEach((faq: any) => {
@@ -180,7 +193,7 @@ export default function BlogPostPage() {
     }
 
     return html;
-  }, [override, slug]);
+  }, [override, activeContent, slug]);
 
   // Transparently override the static post object with the real-time Supabase CMS record
   const post = useMemo(() => {
@@ -188,21 +201,21 @@ export default function BlogPostPage() {
       return {
         id: override.slug,
         slug: override.slug,
-        title: override.title,
-        excerpt: override.excerpt || staticPost?.excerpt || '',
+        title: activeContent?.title || override.title,
+        excerpt: activeContent?.excerpt || override.excerpt || staticPost?.excerpt || '',
         content: overrideHtml || staticPost?.content || '',
         author: 'Ryan Wong',
         publishDate: override.published_at?.substring(0, 10) || staticPost?.publishDate || new Date().toISOString().substring(0, 10),
         updatedDate: override.updated_at?.substring(0, 10) || staticPost?.updatedDate || staticPost?.publishDate || new Date().toISOString().substring(0, 10),
         category: override.category || staticPost?.category || 'Packaging',
         tags: staticPost?.tags || [override.category || 'packaging', 'sustainable', 'b2b'],
-        featuredImage: override.image_url || staticPost?.featuredImage || '/imgs/blog/default.jpg',
+        featuredImage: activeContent?.image_url || override.image_url || staticPost?.featuredImage || '/imgs/blog/default.jpg',
         readTime: staticPost?.readTime || 8,
-        metaDescription: override.meta_description || staticPost?.metaDescription || ''
+        metaDescription: activeContent?.meta_description || override.meta_description || staticPost?.metaDescription || ''
       };
     }
     return staticPost;
-  }, [staticPost, override, overrideHtml]);
+  }, [staticPost, override, overrideHtml, activeContent]);
 
   // Optimized navigation for INP
   const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
@@ -472,8 +485,8 @@ export default function BlogPostPage() {
               {/* Main Content */}
               <div className="flex-1 max-w-3xl" onClick={handleContentClick}>
                 {/* Featured Image & Video Showcase */}
-                {!(override?.content?.hide_media || override?.content?.no_video_and_image) && (
-                  <div className={`grid gap-8 mb-8 ${post.featuredImage && override?.content?.video_url ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
+                {!(activeContent?.hide_media || activeContent?.no_video_and_image) && (
+                  <div className={`grid gap-8 mb-8 ${post.featuredImage && activeContent?.video_url ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
                     {post.featuredImage && (
                       <div className="rounded-xl overflow-hidden shadow-lg border border-neutral-200 bg-neutral-50 cursor-zoom-in">
                         <img 
@@ -484,10 +497,10 @@ export default function BlogPostPage() {
                       </div>
                     )}
 
-                    {override?.content?.video_url && (
+                    {activeContent?.video_url && (
                       <div className="rounded-xl overflow-hidden shadow-lg border border-neutral-200 bg-black flex items-center justify-center min-h-[300px]">
                         <video 
-                          src={override.content.video_url} 
+                          src={activeContent.video_url} 
                           className="w-full h-full object-cover rounded-xl"
                           autoPlay 
                           loop 
@@ -578,7 +591,7 @@ export default function BlogPostPage() {
                     to={`/blog/${relatedPost.slug}`}
                     className="group"
                   >
-                 {relatedPost.featuredImage && !(override?.content?.hide_media || override?.content?.no_video_and_image) && (
+                 {relatedPost.featuredImage && !(activeContent?.hide_media || activeContent?.no_video_and_image) && (
                     <div className="aspect-video bg-neutral-100 rounded-lg mb-4 overflow-hidden">
                       <img 
                         src={relatedPost.featuredImage} 
