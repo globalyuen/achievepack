@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T16:45:31.870Z",
+  "lastUnifiedRun": "2026-06-06T17:00:39.816Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1050,17 +1050,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-pouch-printing-services-for-pet-food",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "sustainable pouch printing services for pet food",
-      "difficulty": "Medium",
-      "slug": "sustainable-pouch-printing-services-for-pet-food"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "high barrier mono pe film for flexible packaging",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-mono-pe-film-for-flexible-packaging"
     },
     {
       "status": "Pending",
@@ -1203,9 +1204,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T16:45:22.614Z",
+      "timestamp": "2026-06-06T17:00:27.490Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable pouch printing services for pet food\" to /blog/sustainable-pouch-printing-services-for-pet-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier mono pe film for flexible packaging\" to /blog/high-barrier-mono-pe-film-for-flexible-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable pouch printing services for pet food\" to /blog/sustainable-pouch-printing-services-for-pet-food (Pending Approval)",
+      "timestamp": "2026-06-06T16:45:22.614Z"
     },
     {
       "action": "Autopilot Generation Draft",

@@ -628,102 +628,121 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
               <FileText className="w-4 h-4 text-blue-600" />
               Document Live Preview
             </h3>
-            <span className="text-[10px] bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded-full">4-Page Layout Preview</span>
+            <span className="text-[10px] bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded-full">6-Page Layout Preview</span>
           </div>
 
           <div className="p-6 overflow-y-auto bg-gray-100/50 flex-1 space-y-6 flex flex-col items-center">
             
             {/* SCREEN PAGE 1 PREVIEW */}
-            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41]">
-              
-              {/* Header Letterhead */}
-              <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-2 mb-4">
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-1.5">
-                    <img src="/logo.png" alt="AchievePack" className="h-9 w-auto object-contain" />
-                    <span className="text-lg font-black tracking-widest text-blue-950 font-sans">achievepack</span>
+            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41] justify-between">
+              <div>
+                {/* Header Letterhead */}
+                <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-2 mb-4">
+                  <div className="flex flex-col">
+                    <div className="flex items-center gap-1.5">
+                      <img src="/logo.png" alt="AchievePack" className="h-9 w-auto object-contain" />
+                      <span className="text-lg font-black tracking-widest text-blue-950 font-sans">achievepack</span>
+                    </div>
+                    <span className="text-[8px] font-extrabold text-gray-400 uppercase tracking-wider mt-0.5">High Performance Sustainable Packaging</span>
                   </div>
-                  <span className="text-[8px] font-extrabold text-gray-400 uppercase tracking-wider mt-0.5">High Performance Sustainable Packaging</span>
+                  <div className="text-right text-[7px] leading-tight text-gray-500 max-w-[250px]">
+                    <strong className="text-[9px] text-gray-800 font-bold block">AchievePack Limited</strong>
+                    HK BRN: 41007097-000-07-14-4<br/>
+                    1 Floor, No.41 Wo Liu Hang Tsuen, Fotan, Hong Kong<br/>
+                    Hotline: +852 6970 4411 | engineering@achievepack.com
+                  </div>
                 </div>
-                <div className="text-right text-[7px] leading-tight text-gray-500 max-w-[250px]">
-                  <strong className="text-[9px] text-gray-800 font-bold block">AchievePack Limited</strong>
-                  HK BRN: 41007097-000-07-14-4<br/>
-                  1 Floor, No.41 Wo Liu Hang Tsuen, Fotan, Hong Kong<br/>
-                  Hotline: +852 6970 4411 | engineering@achievepack.com
+
+                <div className="bg-blue-900 text-white text-center font-bold text-xs uppercase py-2 tracking-widest rounded mb-4">
+                  Declaration of Compliance (Food Contact & Suitability)
+                </div>
+
+                {/* Salutation Block */}
+                <div className="grid grid-cols-2 gap-4 mb-4 pb-2 border-b border-gray-100">
+                  <div className="space-y-1 text-[9px]">
+                    <span className="font-extrabold text-gray-400 uppercase tracking-widest text-[7px] block">Customer Details</span>
+                    <div className="font-bold text-gray-900 text-xs">{data.customer || '[Customer Name]'}</div>
+                    <div className="text-gray-500 whitespace-pre-line leading-tight">{data.customerAddress || '[Customer Address]'}</div>
+                  </div>
+                  <div className="space-y-1 text-[9px] text-right">
+                    <span className="font-extrabold text-gray-400 uppercase tracking-widest text-[7px] block">Document Control</span>
+                    <div><span className="font-semibold text-gray-500">Issue Date:</span> <span className="font-bold text-gray-900">{data.issueDate}</span></div>
+                    <div><span className="font-semibold text-gray-500">Validity:</span> <span className="font-bold text-gray-900">{data.validityMonths || '18'} Months</span></div>
+                    <div><span className="font-semibold text-gray-500">Application:</span> <span className="font-bold text-gray-900">{data.storageCondition || 'Room Temp Storage'}</span></div>
+                  </div>
+                </div>
+
+                {/* Body Content Page 1 */}
+                <div className="space-y-3">
+                  <p className="leading-relaxed">
+                    AchievePack Limited hereby declares that the packaging materials supplied under the description below are in compliance with the relevant statutory requirements for food contact suitability, composition, and migration properties as specified by global regulatory authorities.
+                  </p>
+
+                  {/* Material Specification Summary Table */}
+                  <table className="w-full border-collapse my-2 text-[9px]">
+                    <thead>
+                      <tr className="bg-gray-100 border-y border-gray-300">
+                        <th className="py-1.5 px-2 text-left font-bold text-gray-700">Sales Name</th>
+                        <th className="py-1.5 px-2 text-left font-bold text-gray-700">Structure</th>
+                        <th className="py-1.5 px-2 text-center font-bold text-gray-700">Total Thickness</th>
+                        <th className="py-1.5 px-2 text-center font-bold text-gray-700">Density (g/cc)</th>
+                        <th className="py-1.5 px-2 text-center font-bold text-gray-700">Yield (g/m2)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-gray-200">
+                        <td className="py-1.5 px-2 font-semibold text-gray-900">{data.productName || 'N/A'}</td>
+                        <td className="py-1.5 px-2 font-mono text-indigo-700">{data.materialStructure || 'N/A'}</td>
+                        <td className="py-1.5 px-2 text-center font-mono">{data.totalThickness || '0'}μm</td>
+                        <td className="py-1.5 px-2 text-center font-mono">{data.density || '0'} g/cc</td>
+                        <td className="py-1.5 px-2 text-center font-mono">{data.yieldGsm || '0'} g/m²</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Fitness for Use</h4>
+                      <p className="text-gray-700 text-[8.5px]">
+                        AchievePack Limited guarantees that the packaging pouch is generally fit for the packaging of <strong>{data.productName || 'Powdered supplements'}</strong>, storage at <strong>{data.storageCondition || 'Room Temperature'}</strong>.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">US Food Law Compliance</h4>
+                      <p className="text-gray-700 text-[8.5px] leading-relaxed">
+                        AchievePack Limited guarantees that the product will be suitable for the packaging of all food types under conditions of use <strong>{data.conditionsOfUse || 'x through y'}</strong>, as defined in <strong>21 CFR 176.170(c)</strong>, Tables 1 and 2, respectively. All raw materials used in this structure shall be in full compliance with the Federal Food, Drug, and Cosmetic Act and all applicable Food Additive Regulations. Because of their suitable FDA status, the materials can be used to package food in federally inspected plants in full compliance with the laws and regulations administered by USDA.
+                      </p>
+                      <p className="text-gray-700 text-[8.5px] leading-relaxed mt-1.5">
+                        AchievePack Limited guarantees that each shipment or delivery of Product to <strong>{data.customer || '[Customer Name]'}</strong> is in full compliance with FDA regulations and manufactured under appropriate GMP's as to prevent the packaged food from becoming contaminated with a biological, chemical or physical agent that could cause injury or illness or render the packaged product adulterated within the meaning of the Federal Food, Drug, and Cosmetic Act. AchievePack Limited guarantees the packaging materials continuing compliance, with respect to all future shipments deliveries to <strong>{data.customer || '[Customer Name]'}</strong> with applicable provisions of FDA regulations. AchievePack Limited will not make raw material substitutions without prior approval from the Director of Global Product Safety and Regulatory Compliance of <strong>{data.customer || '[Customer Name]'}</strong>.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="bg-blue-900 text-white text-center font-bold text-xs uppercase py-2 tracking-widest rounded mb-4">
-                Declaration of Compliance (Food Contact & Suitability)
+              {/* Page Footer */}
+              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+                <span>Page 1 of 6</span>
               </div>
+            </div>
 
-              {/* Salutation Block */}
-              <div className="grid grid-cols-2 gap-4 mb-4 pb-2 border-b border-gray-100">
-                <div className="space-y-1 text-[9px]">
-                  <span className="font-extrabold text-gray-400 uppercase tracking-widest text-[7px] block">Customer Details</span>
-                  <div className="font-bold text-gray-900 text-xs">{data.customer || '[Customer Name]'}</div>
-                  <div className="text-gray-500 whitespace-pre-line leading-tight">{data.customerAddress || '[Customer Address]'}</div>
+            {/* SCREEN PAGE 2 PREVIEW */}
+            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41] justify-between">
+              <div>
+                {/* Header for Page 2 */}
+                <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
+                  <span className="text-[9px] font-bold text-gray-500">Declaration of Compliance</span>
+                  <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
                 </div>
-                <div className="space-y-1 text-[9px] text-right">
-                  <span className="font-extrabold text-gray-400 uppercase tracking-widest text-[7px] block">Document Control</span>
-                  <div><span className="font-semibold text-gray-500">Issue Date:</span> <span className="font-bold text-gray-900">{data.issueDate}</span></div>
-                  <div><span className="font-semibold text-gray-500">Validity:</span> <span className="font-bold text-gray-900">{data.validityMonths || '18'} Months</span></div>
-                  <div><span className="font-semibold text-gray-500">Application:</span> <span className="font-bold text-gray-900">{data.storageCondition || 'Room Temp Storage'}</span></div>
-                </div>
-              </div>
 
-              {/* Body Content Page 1 */}
-              <div className="space-y-3 flex-1">
-                <p className="leading-relaxed">
-                  AchievePack Limited hereby declares that the packaging materials supplied under the description below are in compliance with the relevant statutory requirements for food contact suitability, composition, and migration properties as specified by global regulatory authorities.
-                </p>
-
-                {/* Material Specification Summary Table */}
-                <table className="w-full border-collapse my-2 text-[9px]">
-                  <thead>
-                    <tr className="bg-gray-100 border-y border-gray-300">
-                      <th className="py-1.5 px-2 text-left font-bold text-gray-700">Sales Name</th>
-                      <th className="py-1.5 px-2 text-left font-bold text-gray-700">Structure</th>
-                      <th className="py-1.5 px-2 text-center font-bold text-gray-700">Total Thickness (micron)</th>
-                      <th className="py-1.5 px-2 text-center font-bold text-gray-700">Density (g/cc)</th>
-                      <th className="py-1.5 px-2 text-center font-bold text-gray-700">Yield (g/m2)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b border-gray-200">
-                      <td className="py-1.5 px-2 font-semibold text-gray-900">{data.productName || 'N/A'}</td>
-                      <td className="py-1.5 px-2 font-mono text-indigo-700">{data.materialStructure || 'N/A'}</td>
-                      <td className="py-1.5 px-2 text-center font-mono">{data.totalThickness || '0'}μm</td>
-                      <td className="py-1.5 px-2 text-center font-mono">{data.density || '0'} g/cc</td>
-                      <td className="py-1.5 px-2 text-center font-mono">{data.yieldGsm || '0'} g/m²</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <div className="space-y-2.5">
-                  <div>
-                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Fitness for Use</h4>
-                    <p className="text-gray-700 text-[8.5px]">
-                      AchievePack Limited guarantees that the packaging pouch is generally fit for the packaging of <strong>{data.productName || 'Powdered supplements'}</strong>, storage at <strong>{data.storageCondition || 'Room Temperature'}</strong>.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">US Food Law Compliance</h4>
-                    <p className="text-gray-700 text-[8.5px]">
-                      AchievePack Limited guarantees that the product will be suitable for the packaging of all food types under conditions of use <strong>{data.conditionsOfUse || 'x through y'}</strong>, as defined in <strong>21 CFR 176.170(c)</strong>, Tables 1 and 2, respectively. All raw materials used in this structure shall be in full compliance with the Federal Food, Drug, and Cosmetic Act and all applicable Food Additive Regulations. Because of their suitable FDA status, the materials can be used to package food in federally inspected plants in full compliance with the laws and regulations administered by USDA.
-                    </p>
-                    <p className="text-gray-700 text-[8.5px] mt-1">
-                      AchievePack Limited guarantees that each shipment or delivery of Product to <strong>{data.customer || '[Customer Name]'}</strong> is in full compliance with FDA regulations and manufactured under appropriate GMP's as to prevent the packaged food from becoming contaminated with a biological, chemical or physical agent that could cause injury or illness or render the packaged product adulterated within the meaning of the Federal Food, Drug, and Cosmetic Act. AchievePack Limited guarantees the packaging materials continuing compliance, with respect to all future shipments deliveries to <strong>{data.customer || '[Customer Name]'}</strong> with applicable provisions of FDA regulations. AchievePack Limited will not make raw material substitutions without prior approval from the Director of Global Product Safety and Regulatory Compliance of <strong>{data.customer || '[Customer Name]'}</strong>.
-                    </p>
-                  </div>
-
+                <div className="space-y-4">
                   <div>
                     <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">China GB</h4>
-                    <p className="text-gray-700 text-[8.5px]">
+                    <p className="text-gray-700 text-[8.5px] mb-1.5">
                       AchievePack Limited guarantees that the packaging pouch complies with the following legislation of China:
                     </p>
-                    <ul className="grid grid-cols-2 gap-x-4 gap-y-0.5 text-gray-700 text-[8px] mt-1 list-disc pl-4">
+                    <ul className="grid grid-cols-2 gap-x-4 gap-y-0.5 text-gray-700 text-[8px] list-disc pl-4">
                       <li><strong>GB31603-2015</strong> General hygienic standard for production of Food Contact Materials and Articles</li>
                       <li><strong>GB9685-2016</strong> Additives for Food Contact Materials and Articles</li>
                       <li><strong>GB4806.1-2016</strong> General Safety Requirements for Food Contact Materials and Articles</li>
@@ -736,185 +755,177 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                       <li><strong>GB4806.15-2024</strong> National Food Safety Standard on Food-Contact Use Adhesive</li>
                     </ul>
                   </div>
+
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">EUROPE</h4>
+                    <p className="text-gray-700 text-[8.5px] leading-relaxed mb-1.5">
+                      AchievePack Limited product complies with the relevant requirements of: Framework Regulation <strong>(EC) n.1935/2004</strong>, Plastic Regulation <strong>(EU) n.10/2011</strong> as amended, and Good Manufacturing Practice <strong>(EC) n. 2023/2006</strong>.
+                    </p>
+                    <p className="text-gray-700 text-[8.5px] leading-relaxed">
+                      All monomers, additives, colorants, coatings and adhesives used for the manufacture of the above packaging material have been pre-registered in accordance with <strong>Regulation (EC) No 1907/2006</strong> of the European Parliament and of the Council of 18 December 2006 (concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH) and there are no substances present which are on the Candidate List of SVHC – Annex XIV thereof at the date of <strong>20 September 2016</strong>.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               {/* Page Footer */}
-              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold mt-auto">
-                <span>Page 1 of 4</span>
-              </div>
-            </div>
-
-            {/* SCREEN PAGE 2 PREVIEW */}
-            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41]">
-              
-              <div className="space-y-3 flex-1">
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">EUROPE</h4>
-                  <p className="text-gray-700 text-[8.5px]">
-                    AchievePack Limited product complies with the relevant requirements of:
-                  </p>
-                  <ul className="list-disc pl-4 text-gray-700 text-[8.5px] mb-1">
-                    <li>Framework Regulation <strong>(EC) n.1935/2004</strong></li>
-                    <li>Plastic Regulation <strong>(EU) n.10/2011</strong> as amended</li>
-                    <li>Good Manufacturing Practice <strong>(EC) n. 2023/2006</strong></li>
-                  </ul>
-                  <p className="text-gray-700 text-[8.5px]">
-                    All monomers, additives, colorants, coatings and adhesives used for the manufacture of the above packaging material have been pre-registered in accordance with <strong>Regulation (EC) No 1907/2006</strong> of the European Parliament and of the Council of 18 December 2006 (concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH) and there are no substances present which are on the Candidate List of SVHC – Annex XIV thereof at the date of <strong>20 September 2016</strong>.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Japan</h4>
-                  <p className="text-gray-700 text-[8.5px]">
-                    AchievePack Limited packaging materials and components comply with the requirements of Specifications and Standards for Food, Food Additives, etc. (Ministry of Health and Welfare <strong>Notification No. 370, 1959</strong> and <strong>Notification No. 196, 2020</strong>, latest amendment on revised Positive Lists published 30th November and 25th December 2023), and Ministerial Ordinance on Milk and Milk products Concerning Compositional Standards, etc. (Ministry of Health and Welfare <strong>Ordinance No. 52, 1951</strong>), which are under the Japanese Food Sanitation Law.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Allergens</h4>
-                  <p className="text-gray-700 text-[8.5px]">
-                    AchievePack Limited guarantees that the Product is not manufactured with raw materials known to be allergenic in nature. The eight major food allergens include, peanuts, seeds, fish, shellfish, eggs, milk, wheat, soybeans, and components derived or manufactured from these raw materials.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Animal Derived Content</h4>
-                  <p className="text-gray-700 text-[8.5px]">
-                    AchievePack Limited guarantees that animal derivatives are not components of, nor intentionally added to the materials used in this product. Above product is <strong>not intentionally</strong> contains animal derived content. If yes, the animal derived content meets the requirements of <strong>EU 2011/C 73/01</strong> "Note for guidance on minimising the risk of transmitting animal spongiform encephalopathy agents via human and veterinary medicinal products".
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Material Change Control Management</h4>
-                  <p className="text-gray-700 text-[8.5px]">
-                    AchievePack Limited will not switch to any listed alternative material in the specification without prior approval from the Regional Quality Leader of <strong>{data.customer || '[Customer Name]'}</strong> through change control management process.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Heavy metals(重金属)</h4>
-                  <p className="text-gray-700 text-[8.5px]">
-                    Above product is manufactured in compliance with European Directive <strong>94/62/EC</strong> including subsequent amendments up to Directive <strong>2015/720</strong>. Consequently, the combined total amount of Lead, Cadmium, Mercury and Hexavalent Chromium does not exceed 100 ppm. In addition the following levels are not exceeded:
-                  </p>
-                  <ul className="grid grid-cols-3 gap-1 text-[8.5px] font-mono text-gray-700 pl-4 list-disc">
-                    <li>Antimony (Sb) &lt; 50 ppm</li>
-                    <li>Arsenic (As) &lt; 10 ppm</li>
-                    <li>Barium (Ba) &lt; 10 ppm</li>
-                    <li>Cadmium (Cd) &lt; 5 ppm</li>
-                    <li>Chromium (Cr) &lt; 10 ppm</li>
-                    <li>Lead (Pb) &lt; 10 ppm</li>
-                    <li>Mercury (Hg) &lt; 5 ppm</li>
-                    <li>Selenium (Se) &lt; 10 ppm</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Candidate List of substances of very high concern (SVHC) - REACH</h4>
-                  <p className="text-gray-700 text-[8.5px]">
-                    Do not contain any chemical substances at, or, above, the level of 0.1% by weight as listed in Substances of Very High Concern (SVHC), published on <strong>January 21 2025</strong> (date). (ECHA Candidate list).
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Annex II of EU Directive 2011/65/EU (RoHS)</h4>
-                  <p className="text-gray-700 text-[8.5px]">
-                    Do not contain any substances that are regulated by the RoHS 3 (EU Directive 2015/863)-Cadmium (Cd), Lead (Pb), Mercury (Hg), Hexavalent Chromium (Cr VI), Polybrominated Biphenyls (PBB), Polybrominated Diphenyl Ethers (PBDE), Bis(2-Ethylhexyl) phthalate (DEHP), Benzyl butyl phthalate (BBP), Dibutyl phthalate (DBP), Diisobutyl phthalate (DIBP). Must inform <strong>{data.customer || '[Customer Name]'}</strong> if the material does NOT comply due to the regulation update.
-                  </p>
-                </div>
-              </div>
-
-              {/* Page Footer */}
-              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold mt-auto">
-                <span>Page 2 of 4</span>
+              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+                <span>Page 2 of 6</span>
               </div>
             </div>
 
             {/* SCREEN PAGE 3 PREVIEW */}
-            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41]">
-              
-              <div className="space-y-3 flex-1">
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Solvents subject to restrictions</h4>
-                  <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded p-1.5 my-1 text-[8.5px]">
-                    <span>The packaging item:</span>
-                    <span className="flex items-center gap-1 font-bold">
-                      <span className="border border-gray-400 rounded w-3 h-3 flex items-center justify-center font-bold text-[8px] bg-white">{isPrinted ? '✓' : ''}</span> is printed (需要印刷)
-                    </span>
-                    <span className="flex items-center gap-1 font-bold">
-                      <span className="border border-gray-400 rounded w-3 h-3 flex items-center justify-center font-bold text-[8px] bg-white">{!isPrinted ? '✓' : ''}</span> is not printed (不需要印刷)
-                    </span>
-                  </div>
-                  <p className="text-gray-700 text-[8.5px]">
-                    Above product does not contain following solvents used in printing inks and adhesives.
-                  </p>
-                  
-                  {/* Prohibited Solvents Bullet List */}
-                  <ul className="grid grid-cols-3 gap-x-4 gap-y-0.5 text-gray-600 text-[8px] font-mono pl-4 list-disc my-1">
-                    <li>Toluene – CAS No. 108-88-3</li>
-                    <li>2-Methoxyethanol – CAS No. 109-86-4</li>
-                    <li>2-Ethoxyethanol – CAS No. 110-80-5</li>
-                    <li>2-Methoxyethyl acetate – CAS No. 110-49-6</li>
-                    <li>2-Ethoxyethyl acetate – CAS No. 111-15-9</li>
-                    <li>Methanol – CAS No. 67-56-1</li>
-                    <li>Monochlorobenzene – CAS No. 108-90-7</li>
-                    <li>Dichlorobenzene – CAS No. Several</li>
-                    <li>Trichloroethylene — CAS No. 79-01-6</li>
-                    <li>Perchloroethylene — CAS No. 127-18-4</li>
-                    <li>Methylene Chloride — CAS No. 75-09-2</li>
-                    <li>Volatile Flourochlorinated Hydrocarbons</li>
-                    <li>2-Nitropropane – CAS No. 79-46-9</li>
-                    <li>Benzene – CAS No. 71-43-2</li>
-                    <li>Acetyl acetone (2,4 pentanedione)</li>
-                    <li>1-methyl-2-pyrrolidone</li>
-                  </ul>
+            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41] justify-between">
+              <div>
+                {/* Header for Page 3 */}
+                <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
+                  <span className="text-[9px] font-bold text-gray-500">Declaration of Compliance</span>
+                  <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
                 </div>
 
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Residual Solvents (溶剂残留)</h4>
-                  <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded p-1.5 my-1 text-[8.5px]">
-                    <span>The levels of residual solvents:</span>
-                    <span className="flex items-center gap-1 font-bold">
-                      <span className="border border-gray-400 rounded w-3 h-3 flex items-center justify-center font-bold text-[8px] bg-white">✓</span> comply (符合要求)
-                    </span>
-                    <span className="flex items-center gap-1 font-bold text-gray-400">
-                      <span className="border border-gray-400 rounded w-3 h-3 flex items-center justify-center font-bold text-[8px] bg-white"></span> do not comply (不符合)
-                    </span>
+                <div className="space-y-3.5">
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Japan</h4>
+                    <p className="text-gray-700 text-[8.5px] leading-relaxed">
+                      AchievePack Limited packaging materials and components comply with the requirements of Specifications and Standards for Food, Food Additives, etc. (Ministry of Health and Welfare <strong>Notification No. 370, 1959</strong> and <strong>Notification No. 196, 2020</strong>, latest amendment on revised Positive Lists published 30th November and 25th December 2023), and Ministerial Ordinance on Milk and Milk products Concerning Compositional Standards, etc. (Ministry of Health and Welfare <strong>Ordinance No. 52, 1951</strong>), which are under the Japanese Food Sanitation Law.
+                    </p>
                   </div>
-                  
-                  <p className="text-gray-700 text-[8.5px]">
-                    The levels of residual solvents from printing materials and adhesives reported in the following list comply with the following limits:
-                  </p>
-                  
-                  <ul className="list-disc pl-4 text-gray-700 text-[8.5px] font-semibold my-1 space-y-0.5">
-                    <li>Total Non-alcoholic solvents &lt; 5mg/m²</li>
-                    <li>Total Solvents &lt; 5mg/m²</li>
-                  </ul>
-                  
-                  <p className="text-gray-500 text-[8px] font-mono leading-tight">
-                    Tested solvents include: Acetone, N-propyl acetate, Isopropyl acetate, Ethyl acetate, Butanone, N-propanol, Ethanol, Isopropanol, Isobutanol.
-                  </p>
-                </div>
 
-                <div className="pt-2 text-[8px] text-gray-400 font-medium">
-                  * Tris (nonylphenyl) phosphite (TNPP) is not component of, nor is it intentionally added to, the materials used in our products supplied to customer.
-                  <br />
-                  * Finally, we confirm that we will not make raw materials changes without prior notification.
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Allergens</h4>
+                    <p className="text-gray-700 text-[8.5px] leading-relaxed">
+                      AchievePack Limited guarantees that the Product is not manufactured with raw materials known to be allergenic in nature. The eight major food allergens include, peanuts, seeds, fish, shellfish, eggs, milk, wheat, soybeans, and components derived or manufactured from these raw materials.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Animal Derived Content（动物衍生成分）</h4>
+                    <p className="text-gray-700 text-[8.5px] leading-relaxed">
+                      AchievePack Limited guarantees that animal derivatives are not components of, nor intentionally added to the materials used in this product. Above product does not intentionally contain animal derived content. If yes, the animal derived content meets the requirements of <strong>EU 2011/C 73/01</strong> guidance for minimizing the risk of transmitting animal spongiform encephalopathy agents.
+                    </p>
+                    <p className="text-gray-500 text-[8px] leading-relaxed mt-1">
+                      上述产品未有意使用动物源的原料。如使用动物源的原料符合 <strong>EU 2011/C 73/01</strong> 关于通过人用和兽用药品减少传播动物海绵状脑病药物风险的指导说明的要求。
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Material Change Control Management</h4>
+                    <p className="text-gray-700 text-[8.5px] leading-relaxed">
+                      AchievePack Limited will not switch to any listed alternative material in the specification without prior approval from the Regional Quality Leader of <strong>{data.customer || '[Customer Name]'}</strong> through change control management process.
+                    </p>
+                  </div>
+
+                  <div className="pt-1.5 border-t border-gray-100 text-[8px] text-gray-500 leading-snug space-y-1">
+                    <div>• AchievePack Limited guarantees the packaging materials continuing compliance, with respect to all future shipments deliveries to <strong>{data.customer || '[Customer Name]'}</strong> with applicable provisions of FDA regulations.</div>
+                    <div>• AchievePack Limited declares that Tris (nonylphenyl) phosphite (TNPP) is not component of, nor is it intentionally added to, the materials used in our products supplied to <strong>{data.customer || '[Customer Name]'}</strong>.</div>
+                  </div>
                 </div>
               </div>
 
               {/* Page Footer */}
-              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold mt-auto">
-                <span>Page 3 of 4</span>
+              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+                <span>Page 3 of 6</span>
               </div>
             </div>
 
             {/* SCREEN PAGE 4 PREVIEW */}
-            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41]">
-              
-              <div className="space-y-3 flex-1">
-                {/* Restricted Substances Table */}
-                <div>
+            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41] justify-between">
+              <div>
+                {/* Header for Page 4 */}
+                <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
+                  <span className="text-[9px] font-bold text-gray-500">Declaration of Compliance</span>
+                  <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
+                </div>
+
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Heavy metals(重金属)</h4>
+                    <p className="text-gray-700 text-[8px] leading-relaxed">
+                      Above product complies with European Directive <strong>94/62/EC</strong> and <strong>2015/720</strong>. Combined total amount of Lead, Cadmium, Mercury and Hexavalent Chromium does not exceed 100 ppm. In addition the following levels are not exceeded:
+                    </p>
+                    <ul className="grid grid-cols-4 gap-1 text-[8px] font-mono text-gray-600 pl-4 list-disc mt-1">
+                      <li>Lead &lt; 10 ppm</li>
+                      <li>Cadmium &lt; 5 ppm</li>
+                      <li>Mercury &lt; 5 ppm</li>
+                      <li>Chromium &lt; 10 ppm</li>
+                      <li>Antimony &lt; 50 ppm</li>
+                      <li>Arsenic &lt; 10 ppm</li>
+                      <li>Barium &lt; 10 ppm</li>
+                      <li>Selenium &lt; 10 ppm</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">REACH SVHC & RoHS 3</h4>
+                    <p className="text-gray-700 text-[8px] leading-relaxed">
+                      Do not contain chemical substances above 0.1% as listed in REACH SVHC published on <strong>January 21 2025</strong>. Do not contain substances regulated by RoHS 3 (Directive 2015/863). Must inform <strong>{data.customer || '[Customer Name]'}</strong> if material does not comply.
+                    </p>
+                    <p className="text-gray-500 text-[7.5px] leading-relaxed mt-1">
+                      不含任何受 RoHS 3(欧盟指令 2015/863)监管的物质：镉(Cd)、铅(Pb)、汞(Hg)、六价铬(Cr VI)、多溴联苯(PBB)、多溴联苯醚(PBDE)、邻苯二甲酸二(2-乙基)己酯(DEHP)等。若由于法规更新而导致原料不符合要求，必须立即通知 <strong>{data.customer || '[Customer Name]'}</strong>。
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Solvents subject to restrictions</h4>
+                    <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded p-1 my-1 text-[8px]">
+                      <span>The packaging item:</span>
+                      <span className="flex items-center gap-1 font-bold">
+                        <span className="border border-gray-400 rounded w-2.5 h-2.5 flex items-center justify-center font-bold text-[7.5px] bg-white">{isPrinted ? '✓' : ''}</span> is printed (需要印刷)
+                      </span>
+                      <span className="flex items-center gap-1 font-bold">
+                        <span className="border border-gray-400 rounded w-2.5 h-2.5 flex items-center justify-center font-bold text-[7.5px] bg-white">{!isPrinted ? '✓' : ''}</span> is not printed (不需要印刷)
+                      </span>
+                    </div>
+                    
+                    <ul className="grid grid-cols-3 gap-x-2 gap-y-0.5 text-gray-600 text-[7.5px] font-mono pl-4 list-disc mb-1.5">
+                      <li>Toluene (108-88-3)</li>
+                      <li>2-Methoxyethanol</li>
+                      <li>2-Ethoxyethanol</li>
+                      <li>2-Methoxyethyl acetate</li>
+                      <li>2-Ethoxyethyl acetate</li>
+                      <li>Methanol (67-56-1)</li>
+                      <li>Monochlorobenzene</li>
+                      <li>Dichlorobenzene</li>
+                      <li>Trichloroethylene</li>
+                      <li>Perchloroethylene</li>
+                      <li>Methylene Chloride</li>
+                      <li>Volatile CFCs</li>
+                      <li>2-Nitropropane</li>
+                      <li>Benzene (71-43-2)</li>
+                      <li>Acetyl acetone</li>
+                      <li>1-methyl-2-pyrrolidone</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Residual Solvents (溶剂残留)</h4>
+                    <ul className="list-disc pl-4 text-gray-700 text-[8px] font-semibold space-y-0.5">
+                      <li>Total Non-alcoholic solvents &lt; 5mg/m²</li>
+                      <li>Total Solvents &lt; 5mg/m²</li>
+                    </ul>
+                    <p className="text-[7.5px] text-gray-500 font-mono leading-none mt-1">
+                      Tested solvents: Acetone, N-propyl acetate, Isopropyl acetate, Ethyl acetate, Butanone, N-propanol, Ethanol, Isopropanol, Isobutanol.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Page Footer */}
+              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+                <span>Page 4 of 6</span>
+              </div>
+            </div>
+
+            {/* SCREEN PAGE 5 PREVIEW */}
+            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41] justify-between">
+              <div>
+                {/* Header for Page 5 */}
+                <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
+                  <span className="text-[9px] font-bold text-gray-500">Declaration of Compliance</span>
+                  <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
+                </div>
+
+                <div className="space-y-2">
                   <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">1. Restricted substances (限制使用的物质信息)</h4>
                   <table className="w-full border-collapse my-1 text-[7.5px] leading-tight">
                     <thead>
@@ -933,68 +944,94 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                     </tbody>
                   </table>
                 </div>
-
-                {/* Formulation breakdown table */}
-                <div>
-                  <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Approved Resins for the Formulation</h4>
-                  <table className="w-full border-collapse my-1 text-[7.5px] leading-tight">
-                    <thead>
-                      <tr className="bg-gray-100 border-y border-gray-300">
-                        <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-10">Layer</th>
-                        <th className="py-1 px-1.5 text-left font-bold text-gray-600">Resin/Polymer Chemical Name</th>
-                        <th className="py-1 px-1.5 text-left font-bold text-gray-600 w-20">Supplier</th>
-                        <th className="py-1 px-1.5 text-left font-bold text-gray-600 w-24">Trade Reference</th>
-                        <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-14">Blend %</th>
-                        <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-14">Thickness</th>
-                        <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-24">FDA Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.layers.map((layer, idx) => (
-                        <tr key={idx} className="border-b border-gray-100">
-                          <td className="py-0.5 px-1.5 text-center font-mono text-gray-500">{layer.layer}</td>
-                          <td className="py-0.5 px-1.5 text-gray-700 font-semibold">{layer.chemicalName || 'N/A'}</td>
-                          <td className="py-0.5 px-1.5 text-gray-700">{layer.supplier || 'N/A'}</td>
-                          <td className="py-0.5 px-1.5 text-gray-700 font-mono text-[7px]">{layer.tradeName || 'N/A'}</td>
-                          <td className="py-0.5 px-1.5 text-center font-mono">{layer.blendPct || '100%'}</td>
-                          <td className="py-0.5 px-1.5 text-center font-mono">{layer.thickness || 'N/A'}</td>
-                          <td className="py-0.5 px-1.5 text-center text-[7px] text-gray-500 font-bold">{layer.foodContact}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Sign-off Signature block */}
-                <div className="pt-4 mt-4 border-t border-gray-200 grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <span className="text-gray-500 text-[10px] font-bold block uppercase tracking-wider">Authorized Signature</span>
-                    
-                    <div className="border border-indigo-100 rounded-xl p-3 bg-indigo-50/50 flex flex-col justify-center min-h-[50px] relative w-48 shadow-inner">
-                      <span className="font-serif italic text-base text-indigo-800 tracking-wide select-none">
-                        {data.signatoryName || 'Ryan Wong'}
-                      </span>
-                      <span className="text-[7px] text-indigo-400 font-mono tracking-widest uppercase mt-1">
-                        AchievePack Digital Sign-off
-                      </span>
-                    </div>
-
-                    <div className="text-[10px] leading-tight">
-                      <strong className="text-gray-900 block">{data.signatoryName || 'Ryan Wong'}</strong>
-                      <span className="text-gray-500 font-medium">{data.signatoryTitle || 'Packaging Development Specialist'}</span>
-                      <span className="text-gray-400 block mt-0.5">AchievePack Limited</span>
-                    </div>
-                  </div>
-                  <div className="text-right text-[9px] text-gray-500 font-semibold self-end">
-                    *This compliance document is valid for 18 months from the signing date.
-                  </div>
-                </div>
-
               </div>
 
               {/* Page Footer */}
-              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold mt-auto">
-                <span>Page 4 of 4</span>
+              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+                <span>Page 5 of 6</span>
+              </div>
+            </div>
+
+            {/* SCREEN PAGE 6 PREVIEW */}
+            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[9px] text-black leading-relaxed flex flex-col select-none aspect-[1/1.41] justify-between">
+              <div>
+                {/* Header for Page 6 */}
+                <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
+                  <span className="text-[9px] font-bold text-gray-500">Declaration of Compliance</span>
+                  <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Formulation breakdown table */}
+                  <div>
+                    <h4 className="font-extrabold text-blue-900 text-[10px] uppercase border-b border-blue-900/10 pb-0.5 mb-1">Approved Resins for the Formulation</h4>
+                    <table className="w-full border-collapse my-1 text-[7.5px] leading-tight">
+                      <thead>
+                        <tr className="bg-gray-100 border-y border-gray-300">
+                          <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-10">Layer</th>
+                          <th className="py-1 px-1.5 text-left font-bold text-gray-600">Resin/Polymer Chemical Name</th>
+                          <th className="py-1 px-1.5 text-left font-bold text-gray-600 w-20">Supplier</th>
+                          <th className="py-1 px-1.5 text-left font-bold text-gray-600 w-24">Trade Reference</th>
+                          <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-14">Blend %</th>
+                          <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-14">Thickness</th>
+                          <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-24">FDA Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {data.layers.map((layer, idx) => (
+                          <tr key={idx} className="border-b border-gray-100">
+                            <td className="py-0.5 px-1.5 text-center font-mono text-gray-500">{layer.layer}</td>
+                            <td className="py-0.5 px-1.5 text-gray-700 font-semibold">{layer.chemicalName || 'N/A'}</td>
+                            <td className="py-0.5 px-1.5 text-gray-700">{layer.supplier || 'N/A'}</td>
+                            <td className="py-0.5 px-1.5 text-gray-700 font-mono text-[7px]">{layer.tradeName || 'N/A'}</td>
+                            <td className="py-0.5 px-1.5 text-center font-mono">{layer.blendPct || '100%'}</td>
+                            <td className="py-0.5 px-1.5 text-center font-mono">{layer.thickness || 'N/A'}</td>
+                            <td className="py-0.5 px-1.5 text-center text-[7px] text-gray-500 font-bold">{layer.foodContact}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div>
+                    <p className="text-[8px] text-gray-700 font-semibold leading-relaxed">
+                      Finally, we confirm that we will not make raw materials changes without prior notification.
+                    </p>
+                    <p className="text-[7.5px] text-gray-500 leading-relaxed">
+                      最后，我们确认，在没有预先通知客户的情况下，不会随意改变原材料。
+                    </p>
+                  </div>
+
+                  {/* Sign-off Signature block */}
+                  <div className="pt-3 border-t border-gray-200 grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <span className="text-gray-500 text-[10px] font-bold block uppercase tracking-wider">Authorized Signature</span>
+                      
+                      <div className="border border-indigo-100 rounded-xl p-3 bg-indigo-50/50 flex flex-col justify-center min-h-[50px] relative w-48 shadow-inner">
+                        <span className="font-serif italic text-base text-indigo-800 tracking-wide select-none">
+                          {data.signatoryName || 'Ryan Wong'}
+                        </span>
+                        <span className="text-[7px] text-indigo-400 font-mono tracking-widest uppercase mt-1">
+                          AchievePack Digital Sign-off
+                        </span>
+                      </div>
+
+                      <div className="text-[10px] leading-tight">
+                        <strong className="text-gray-900 block">{data.signatoryName || 'Ryan Wong'}</strong>
+                        <span className="text-gray-500 font-medium">{data.signatoryTitle || 'Packaging Development Specialist'}</span>
+                        <span className="text-gray-400 block mt-0.5">AchievePack Limited</span>
+                      </div>
+                    </div>
+                    <div className="text-right text-[8.5px] text-gray-500 font-semibold self-end">
+                      *This compliance document is valid for {data.validityMonths || '18'} months from the signing date.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Page Footer */}
+              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+                <span>Page 6 of 6</span>
               </div>
             </div>
 
@@ -1018,14 +1055,28 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
               color: black;
               font-family: Arial, sans-serif;
             }
+            /* Hide global screen elements when printing */
+            nav, 
+            footer, 
+            header, 
+            aside,
+            .print\\:hidden, 
+            .print-hidden, 
+            .no-print {
+              display: none !important;
+            }
             .print-page {
               width: 210mm;
-              height: 280mm;
-              padding: 12mm 15mm 12mm 15mm;
+              height: 297mm;
+              padding: 15mm 20mm;
               position: relative;
               page-break-after: always !important;
               page-break-inside: avoid !important;
               box-sizing: border-box;
+              overflow: hidden;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
             }
             .print-page:last-child {
               page-break-after: avoid !important;
@@ -1110,7 +1161,7 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                 <tr className="bg-gray-100">
                   <th className="text-left font-bold text-gray-700">Sales Name</th>
                   <th className="text-left font-bold text-gray-700">Structure</th>
-                  <th className="text-center font-bold text-gray-700">Total Thickness (micron)</th>
+                  <th className="text-center font-bold text-gray-700">Total Thickness</th>
                   <th className="text-center font-bold text-gray-700">Density (g/cc)</th>
                   <th className="text-center font-bold text-gray-700">Yield (g/m2)</th>
                 </tr>
@@ -1143,30 +1194,11 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                   AchievePack Limited guarantees that each shipment or delivery of Product to <strong>{data.customer || '[Customer Name]'}</strong> is in full compliance with FDA regulations and manufactured under appropriate GMP's as to prevent the packaged food from becoming contaminated with a biological, chemical or physical agent that could cause injury or illness or render the packaged product adulterated within the meaning of the Federal Food, Drug, and Cosmetic Act. AchievePack Limited guarantees the packaging materials continuing compliance, with respect to all future shipments deliveries to <strong>{data.customer || '[Customer Name]'}</strong> with applicable provisions of FDA regulations. AchievePack Limited will not make raw material substitutions without prior approval from the Director of Global Product Safety and Regulatory Compliance of <strong>{data.customer || '[Customer Name]'}</strong>.
                 </p>
               </div>
-
-              <div>
-                <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">China GB</h4>
-                <p className="text-gray-700 text-[8px]">
-                  AchievePack Limited guarantees that the packaging pouch complies with the following legislation of China:
-                </p>
-                <ul className="grid grid-cols-2 gap-x-4 gap-y-0.5 text-gray-700 text-[7.5px] mt-1 list-disc pl-4">
-                  <li><strong>GB31603-2015</strong> General hygienic standard for production of Food Contact Materials and Articles</li>
-                  <li><strong>GB9685-2016</strong> Additives for Food Contact Materials and Articles</li>
-                  <li><strong>GB4806.1-2016</strong> General Safety Requirements for Food Contact Materials and Articles</li>
-                  <li><strong>GB4806.7-2023</strong> National Food Safety Standard on Food-Contact Use Plastic Materials and Articles</li>
-                  <li><strong>GB4806.8-2022</strong> Food contact paper and paperboard materials and articles</li>
-                  <li><strong>GB4806.9-2023</strong> National Food Safety Standard on Food-Contact Use Metal Materials and Articles</li>
-                  <li><strong>GB4806.10-2016</strong> Food contact coating and coating layers</li>
-                  <li><strong>GB4806.13-2023</strong> National Food Safety Standard on Food-Contact Use Composite Materials and Articles</li>
-                  <li><strong>GB4806.14-2023</strong> National Food Safety Standard on Food-Contact Use Printing Inks</li>
-                  <li><strong>GB4806.15-2024</strong> National Food Safety Standard on Food-Contact Use Adhesive</li>
-                </ul>
-              </div>
             </div>
           </div>
 
           <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
-            <span>Page 1 of 4</span>
+            <span>Page 1 of 6</span>
           </div>
         </div>
 
@@ -1179,7 +1211,26 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
               <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">China GB</h4>
+                <p className="text-gray-700 text-[8.5px] mb-2">
+                  AchievePack Limited guarantees that the packaging pouch complies with the following legislation of China:
+                </p>
+                <ul className="grid grid-cols-2 gap-x-4 gap-y-0.5 text-gray-700 text-[7.5px] list-disc pl-4">
+                  <li><strong>GB31603-2015</strong> General hygienic standard for production of Food Contact Materials and Articles</li>
+                  <li><strong>GB9685-2016</strong> Additives for Food Contact Materials and Articles</li>
+                  <li><strong>GB4806.1-2016</strong> General Safety Requirements for Food Contact Materials and Articles</li>
+                  <li><strong>GB4806.7-2023</strong> National Food Safety Standard on Food-Contact Use Plastic Materials and Articles</li>
+                  <li><strong>GB4806.8-2022</strong> Food contact paper and paperboard materials and articles</li>
+                  <li><strong>GB4806.9-2023</strong> National Food Safety Standard on Food-Contact Use Metal Materials and Articles</li>
+                  <li><strong>GB4806.10-2016</strong> Food contact coating and coating layers</li>
+                  <li><strong>GB4806.13-2023</strong> National Food Safety Standard on Food-Contact Use Composite Materials and Articles</li>
+                  <li><strong>GB4806.14-2023</strong> National Food Safety Standard on Food-Contact Use Printing Inks</li>
+                  <li><strong>GB4806.15-2024</strong> National Food Safety Standard on Food-Contact Use Adhesive</li>
+                </ul>
+              </div>
+
               <div>
                 <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">EUROPE</h4>
                 <p className="text-gray-700 text-[8.5px]">
@@ -1189,7 +1240,24 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                   All monomers, additives, colorants, coatings and adhesives used for the manufacture of the above packaging material have been pre-registered in accordance with <strong>Regulation (EC) No 1907/2006</strong> (REACH) and there are no substances present which are on the Candidate List of SVHC – Annex XIV thereof at the date of <strong>20 September 2016</strong>.
                 </p>
               </div>
+            </div>
+          </div>
 
+          <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+            <span>Page 2 of 6</span>
+          </div>
+        </div>
+
+        {/* PRINT PAGE 3 */}
+        <div className="print-page flex flex-col justify-between">
+          <div>
+            {/* Header for Page 3 */}
+            <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
+              <span className="text-[9px] font-bold text-gray-500">Declaration of Compliance</span>
+              <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
+            </div>
+
+            <div className="space-y-3.5">
               <div>
                 <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">Japan</h4>
                 <p className="text-gray-700 text-[8.5px]">
@@ -1205,9 +1273,12 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
               </div>
 
               <div>
-                <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">Animal Derived Content</h4>
+                <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">Animal Derived Content（动物衍生成分）</h4>
                 <p className="text-gray-700 text-[8.5px]">
                   AchievePack Limited guarantees that animal derivatives are not components of, nor intentionally added to the materials used in this product. Above product does not intentionally contain animal derived content. If yes, the animal derived content meets the requirements of <strong>EU 2011/C 73/01</strong> guidance for minimizing the risk of transmitting animal spongiform encephalopathy agents.
+                </p>
+                <p className="text-gray-500 text-[8px] mt-1">
+                  上述产品未有意使用动物源的原料。如使用动物源的原料符合 <strong>EU 2011/C 73/01</strong> 关于通过人用和兽用药品减少传播动物海绵状脑病药物风险的指导说明的要求。
                 </p>
               </div>
 
@@ -1218,37 +1289,55 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                 </p>
               </div>
 
-              <div>
-                <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">Heavy metals(重金属)</h4>
-                <p className="text-gray-700 text-[8.5px]">
-                  Above product complies with European Directive <strong>94/62/EC</strong> and <strong>2015/720</strong>. Combined total amount of Lead, Cadmium, Mercury and Hexavalent Chromium does not exceed 100 ppm. Additional limits: Lead &lt; 10ppm, Cadmium &lt; 5ppm, Mercury &lt; 5ppm, Chromium &lt; 10ppm, Antimony (Sb) &lt; 50 ppm, Arsenic (As) &lt; 10 ppm, Barium (Ba) &lt; 10 ppm, and Selenium (Se) &lt; 10 ppm.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">REACH SVHC & RoHS</h4>
-                <p className="text-gray-700 text-[8.5px]">
-                  Do not contain chemical substances above 0.1% as listed in REACH SVHC published on <strong>January 21 2025</strong>. Do not contain substances regulated by RoHS 3 (Directive 2015/863) (Cd, Pb, Hg, Cr VI, PBB, PBDE, DEHP, BBP, DBP, DIBP). Must inform <strong>{data.customer || '[Customer Name]'}</strong> if material does not comply due to regulation updates.
-                </p>
+              <div className="pt-2 border-t border-gray-100 text-[8px] text-gray-500 space-y-0.5">
+                <div>• AchievePack Limited guarantees the packaging materials continuing compliance, with respect to all future shipments deliveries to <strong>{data.customer || '[Customer Name]'}</strong> with applicable provisions of FDA regulations.</div>
+                <div>• AchievePack Limited declares that Tris (nonylphenyl) phosphite (TNPP) is not component of, nor is it intentionally added to, the materials used in our products supplied to <strong>{data.customer || '[Customer Name]'}</strong>.</div>
               </div>
             </div>
           </div>
 
           <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
-            <span>Page 2 of 4</span>
+            <span>Page 3 of 6</span>
           </div>
         </div>
 
-        {/* PRINT PAGE 3 */}
+        {/* PRINT PAGE 4 */}
         <div className="print-page flex flex-col justify-between">
           <div>
-            {/* Header for Page 3 */}
+            {/* Header for Page 4 */}
             <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
               <span className="text-[9px] font-bold text-gray-500">Declaration of Compliance</span>
               <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3.5">
+              <div>
+                <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">Heavy metals(重金属)</h4>
+                <p className="text-gray-700 text-[8px] leading-relaxed">
+                  Above product complies with European Directive <strong>94/62/EC</strong> and <strong>2015/720</strong>. Combined total amount of Lead, Cadmium, Mercury and Hexavalent Chromium does not exceed 100 ppm. In addition the following levels are not exceeded:
+                </p>
+                <ul className="grid grid-cols-4 gap-1 text-[7.5px] font-mono text-gray-600 pl-4 list-disc mt-1">
+                  <li>Lead &lt; 10 ppm</li>
+                  <li>Cadmium &lt; 5 ppm</li>
+                  <li>Mercury &lt; 5 ppm</li>
+                  <li>Chromium &lt; 10 ppm</li>
+                  <li>Antimony &lt; 50 ppm</li>
+                  <li>Arsenic &lt; 10 ppm</li>
+                  <li>Barium &lt; 10 ppm</li>
+                  <li>Selenium &lt; 10 ppm</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">REACH SVHC & RoHS 3</h4>
+                <p className="text-gray-700 text-[8.5px]">
+                  Do not contain chemical substances above 0.1% as listed in REACH SVHC published on <strong>January 21 2025</strong>. Do not contain substances regulated by RoHS 3 (Directive 2015/863). Must inform <strong>{data.customer || '[Customer Name]'}</strong> if material does not comply.
+                </p>
+                <p className="text-gray-500 text-[7.5px] mt-1">
+                  不含任何受 RoHS 3(欧盟指令 2015/863)监管的物质：镉(Cd)、铅(Pb)、汞(Hg)、六价铬(Cr VI)、多溴联苯(PBB)、多溴联苯醚(PBDE)、邻苯二甲酸二(2-乙基)己酯(DEHP)等。若由于法规更新而导致原料不符合要求，必须立即通知 <strong>{data.customer || '[Customer Name]'}</strong>。
+                </p>
+              </div>
+
               <div>
                 <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">Solvents subject to restrictions</h4>
                 <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded p-1.5 my-1 text-[8px]">
@@ -1260,69 +1349,49 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                     <span className="border border-gray-400 rounded w-2.5 h-2.5 flex items-center justify-center font-bold text-[7px] bg-white">{!isPrinted ? '✓' : ''}</span> is not printed (不需要印刷)
                   </span>
                 </div>
-                <p className="text-gray-700 text-[8px] mb-1">
-                  Above product does not contain following solvents used in printing inks and adhesives:
-                </p>
-                <ul className="grid grid-cols-3 gap-x-4 gap-y-0.5 text-gray-600 text-[7.5px] font-mono pl-4 list-disc">
+                
+                <ul className="grid grid-cols-3 gap-x-3 gap-y-0.5 text-gray-600 text-[7px] font-mono pl-4 list-disc mb-1.5">
                   <li>Toluene – CAS No. 108-88-3</li>
-                  <li>2-Methoxyethanol – CAS No. 109-86-4</li>
-                  <li>2-Ethoxyethanol – CAS No. 110-80-5</li>
-                  <li>2-Methoxyethyl acetate – CAS No. 110-49-6</li>
-                  <li>2-Ethoxyethyl acetate – CAS No. 111-15-9</li>
+                  <li>2-Methoxyethanol</li>
+                  <li>2-Ethoxyethanol</li>
+                  <li>2-Methoxyethyl acetate</li>
+                  <li>2-Ethoxyethyl acetate</li>
                   <li>Methanol – CAS No. 67-56-1</li>
-                  <li>Monochlorobenzene – CAS No. 108-90-7</li>
-                  <li>Dichlorobenzene – CAS No. Several</li>
-                  <li>Trichloroethylene — CAS No. 79-01-6</li>
-                  <li>Perchloroethylene — CAS No. 127-18-4</li>
-                  <li>Methylene Chloride — CAS No. 75-09-2</li>
-                  <li>Volatile Flourochlorinated Hydrocarbons</li>
-                  <li>2-Nitropropane – CAS No. 79-46-9</li>
+                  <li>Monochlorobenzene</li>
+                  <li>Dichlorobenzene</li>
+                  <li>Trichloroethylene</li>
+                  <li>Perchloroethylene</li>
+                  <li>Methylene Chloride</li>
+                  <li>Volatile CFCs</li>
+                  <li>2-Nitropropane</li>
                   <li>Benzene – CAS No. 71-43-2</li>
-                  <li>Acetyl acetone (2,4 pentanedione)</li>
+                  <li>Acetyl acetone</li>
                   <li>1-methyl-2-pyrrolidone</li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">Residual Solvents (溶剂残留)</h4>
-                <div className="flex gap-4 items-center bg-gray-50 border border-gray-200 rounded p-1.5 my-1 text-[8px]">
-                  <span>The levels of residual solvents:</span>
-                  <span className="flex items-center gap-1 font-bold">
-                    <span className="border border-gray-400 rounded w-2.5 h-2.5 flex items-center justify-center font-bold text-[7px] bg-white">✓</span> comply (符合要求)
-                  </span>
-                  <span className="flex items-center gap-1 font-bold text-gray-400">
-                    <span className="border border-gray-400 rounded w-2.5 h-2.5 flex items-center justify-center font-bold text-[7px] bg-white"></span> do not comply (不符合)
-                  </span>
-                </div>
-                <p className="text-gray-700 text-[8px] mb-1">
-                  The levels of residual solvents from printing materials and adhesives reported in the following list comply with the following limits:
-                </p>
                 <ul className="list-disc pl-4 text-gray-700 text-[8px] font-bold space-y-0.5 mb-1">
                   <li>Total Non-alcoholic solvents &lt; 5mg/m²</li>
                   <li>Total Solvents &lt; 5mg/m²</li>
                 </ul>
-                <p className="text-gray-500 text-[7.5px] font-mono leading-tight">
+                <p className="text-gray-500 text-[7px] font-mono leading-tight">
                   Tested solvents include: Acetone, N-propyl acetate, Isopropyl acetate, Ethyl acetate, Butanone, N-propanol, Ethanol, Isopropanol, Isobutanol.
                 </p>
-              </div>
-
-              <div className="pt-2 text-[7.5px] text-gray-400 font-medium">
-                * Tris (nonylphenyl) phosphite (TNPP) is not component of, nor is it intentionally added to, the materials used in our products supplied to customer.
-                <br />
-                * Finally, we confirm that we will not make raw materials changes without prior notification.
               </div>
             </div>
           </div>
 
           <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
-            <span>Page 3 of 4</span>
+            <span>Page 4 of 6</span>
           </div>
         </div>
 
-        {/* PRINT PAGE 4 */}
+        {/* PRINT PAGE 5 */}
         <div className="print-page flex flex-col justify-between">
           <div>
-            {/* Header for Page 4 */}
+            {/* Header for Page 5 */}
             <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
               <span className="text-[9px] font-bold text-gray-500">Declaration of Compliance</span>
               <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
@@ -1349,7 +1418,24 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                   </tbody>
                 </table>
               </div>
+            </div>
+          </div>
 
+          <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+            <span>Page 5 of 6</span>
+          </div>
+        </div>
+
+        {/* PRINT PAGE 6 */}
+        <div className="print-page flex flex-col justify-between">
+          <div>
+            {/* Header for Page 6 */}
+            <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
+              <span className="text-[9px] font-bold text-gray-500">Declaration of Compliance</span>
+              <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
+            </div>
+
+            <div className="space-y-4">
               {/* Formulation breakdown table */}
               <div>
                 <h4 className="font-extrabold text-blue-900 uppercase border-b border-blue-900/10 pb-0.5 mb-1">Approved Resins for the Formulation</h4>
@@ -1381,6 +1467,15 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                 </table>
               </div>
 
+              <div>
+                <p className="text-[8px] text-gray-700 font-semibold leading-snug">
+                  Finally, we confirm that we will not make raw materials changes without prior notification.
+                </p>
+                <p className="text-[7.5px] text-gray-500 leading-snug">
+                  最后，我们确认，在没有预先通知客户的情况下，不会随意改变原材料。
+                </p>
+              </div>
+
               {/* Sign-off Signature block */}
               <div className="pt-4 mt-4 border-t border-gray-200 grid grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -1402,14 +1497,14 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                   </div>
                 </div>
                 <div className="text-right text-[9px] text-gray-500 font-semibold self-end">
-                  *This compliance document is valid for 18 months from the signing date.
+                  *This compliance document is valid for {data.validityMonths || '18'} months from the signing date.
                 </div>
               </div>
             </div>
           </div>
 
           <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
-            <span>Page 4 of 4</span>
+            <span>Page 6 of 6</span>
           </div>
         </div>
       </div>
@@ -1417,3 +1512,4 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
     </div>
   );
 }
+

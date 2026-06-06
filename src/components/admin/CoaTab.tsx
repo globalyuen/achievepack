@@ -5,6 +5,7 @@ interface CoaItem {
   category: 'Appearance' | 'Dimensional deviation' | 'Physical and mechanical properties';
   name: string;
   standard: string;
+  testSpeed: string;
   result: string;
   conclusion: 'Qualified' | 'Conform to' | 'Unqualified' | 'N/A';
 }
@@ -28,24 +29,24 @@ interface CoaData {
 
 const DEFAULT_ITEMS: CoaItem[] = [
   // 1. Appearance
-  { category: 'Appearance', name: 'Printing', standard: 'Uniform, without obvious deformation or damage. Overprinting is accurate, no obvious color difference. Black layer has a glossy finish.', result: 'Conform to', conclusion: 'Qualified' },
-  { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', result: 'Conform to', conclusion: 'Qualified' },
-  { category: 'Appearance', name: 'Contamination marks', standard: 'No obvious contamination or stains.', result: 'Conform to', conclusion: 'Qualified' },
-  { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed; no severe scratches are permitted.', result: 'Conform to', conclusion: 'Qualified' },
-  { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', result: 'Conform to', conclusion: 'Qualified' },
-  { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is neat.', result: 'Conform to', conclusion: 'Qualified' },
-  { category: 'Appearance', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Appearance', name: 'Printing', standard: 'The finished products are clean, without obvious dirt, defects, knife marks, or scratches. The text printing is clear and complete, with smooth edges of the imprints. The mesh pattern is clear and uniform, without obvious deformation or damage. The overprinting is basically accurate, with almost no color difference between the same colors, and the black layer has a glossy finish.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Appearance', name: 'Contamination marks', standard: 'No foreign objects, oil stains, or other contaminants are allowed. Slight unevenness in adhesive application or marks caused by pressure rollers are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed, and no scratches are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is basically neat.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
   // 2. Dimensional deviation
-  { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-  { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-  { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Dimensional deviation', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Film > 0, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Film ±2mm, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
   // 3. Physical and mechanical properties
-  { category: 'Physical and mechanical properties', name: 'Tensile strength (N/15mm)', standard: '≥ 30', result: '101.1', conclusion: 'Qualified' },
-  { category: 'Physical and mechanical properties', name: 'Elongation at break (%)', standard: '≥ 25', result: '300', conclusion: 'Qualified' },
-  { category: 'Physical and mechanical properties', name: 'Peel strength (N/15mm)', standard: '≥ 0.2', result: 'Cannot be peeled off', conclusion: 'Qualified' },
-  { category: 'Physical and mechanical properties', name: 'Heat-seal strength (N/15mm)', standard: '≥ 7', result: '26.3', conclusion: 'Qualified' },
-  { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture. (6h)', result: 'Conform to', conclusion: 'Qualified' },
-  { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', result: 'Conform to', conclusion: 'Qualified' }
+  { category: 'Physical and mechanical properties', name: 'Tensile strength', standard: '≥30', testSpeed: '250', result: '101.1', conclusion: 'Qualified' },
+  { category: 'Physical and mechanical properties', name: 'Elongation at break', standard: '≥25', testSpeed: '250', result: '26.3', conclusion: 'Qualified' },
+  { category: 'Physical and mechanical properties', name: 'Peel strength', standard: '≥0.2', testSpeed: '250', result: 'Cannot be peeled off', conclusion: 'Qualified' },
+  { category: 'Physical and mechanical properties', name: 'Heat-seal strength', standard: '≥7', testSpeed: '300', result: '63', conclusion: 'Qualified' },
+  { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '6h', result: 'Conform to', conclusion: 'Qualified' },
+  { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' }
 ];
 
 const PRESETS: Record<string, { label: string; description: string; data: CoaData }> = {
@@ -55,34 +56,34 @@ const PRESETS: Record<string, { label: string; description: string; data: CoaDat
     data: {
       customer: 'Sega Pac Pty Ltd',
       customerAddress: 'Unit 4, 12 Technology Drive, Lane Cove NSW 2066, Australia',
-      sampleName: 'Stand Up Vacuum Pouch',
+      sampleName: 'Stand up pouch',
       materialComposition: '14μm PVdC PET / Adhesive / 70μm PE',
       productSpecifications: '160 * 230 + 40 mm',
-      testConditions: 'Temp: 23°C, RH: 50%',
+      testConditions: '25/50',
       productionDate: new Date().toISOString().split('T')[0],
       batchNumber: 'SC' + Math.floor(1000000 + Math.random() * 9000000),
-      samplingQuantity: '1,000 pcs',
+      samplingQuantity: '315 pcs',
       deliveryQuantity: '15,000 pcs',
       analystSignature: 'Lin Fang',
       directorSignature: 'Xiong Wei',
       conclusionText: 'This batch of products has passed the inspection and is approved for delivery.',
       items: [
-        { category: 'Appearance', name: 'Printing', standard: 'Uniform, without obvious deformation or damage. Overprinting is accurate, no obvious color difference. Black layer has a glossy finish.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Contamination marks', standard: 'No obvious contamination or stains.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed; no severe scratches are permitted.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is neat.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Tensile strength (N/15mm)', standard: '≥ 30', result: '98.4', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Elongation at break (%)', standard: '≥ 25', result: '290', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Peel strength (N/15mm)', standard: '≥ 0.2', result: 'Cannot be peeled off', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Heat-seal strength (N/15mm)', standard: '≥ 7', result: '24.5', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture. (6h)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', result: 'Conform to', conclusion: 'Qualified' }
+        { category: 'Appearance', name: 'Printing', standard: 'The finished products are clean, without obvious dirt, defects, knife marks, or scratches. The text printing is clear and complete, with smooth edges of the imprints. The mesh pattern is clear and uniform, without obvious deformation or damage. The overprinting is basically accurate, with almost no color difference between the same colors, and the black layer has a glossy finish.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Contamination marks', standard: 'No foreign objects, oil stains, or other contaminants are allowed. Slight unevenness in adhesive application or marks caused by pressure rollers are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed, and no scratches are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is basically neat.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Film > 0, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Film ±2mm, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Tensile strength', standard: '≥30', testSpeed: '250', result: '98.4', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Elongation at break', standard: '≥25', testSpeed: '250', result: '290', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Peel strength', standard: '≥0.2', testSpeed: '250', result: 'Cannot be peeled off', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Heat-seal strength', standard: '≥7', testSpeed: '300', result: '24.5', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '6h', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' }
       ]
     }
   },
@@ -95,31 +96,31 @@ const PRESETS: Record<string, { label: string; description: string; data: CoaDat
       sampleName: 'Compostable Kraft Pouch',
       materialComposition: '30g Kraft Paper / Bio-PBS Adhesive / 50μm PLA Sealant Film',
       productSpecifications: '150 * 210 + 35 mm',
-      testConditions: 'Temp: 23°C, RH: 50%',
+      testConditions: '25/50',
       productionDate: new Date().toISOString().split('T')[0],
       batchNumber: 'SC' + Math.floor(1000000 + Math.random() * 9000000),
-      samplingQuantity: '500 pcs',
+      samplingQuantity: '315 pcs',
       deliveryQuantity: '10,000 pcs',
       analystSignature: 'Lin Fang',
       directorSignature: 'Xiong Wei',
       conclusionText: 'This batch of products has passed the inspection and is approved for delivery.',
       items: [
-        { category: 'Appearance', name: 'Printing', standard: 'Uniform, without obvious deformation or damage. Overprinting is accurate, no obvious color difference. Black layer has a glossy finish.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Contamination marks', standard: 'No obvious contamination or stains.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed; no severe scratches are permitted.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is neat.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Tensile strength (N/15mm)', standard: '≥ 25', result: '68.2', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Elongation at break (%)', standard: '≥ 25', result: '240', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Peel strength (N/15mm)', standard: '≥ 0.15', result: 'Cannot be peeled off', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Heat-seal strength (N/15mm)', standard: '≥ 6', result: '18.1', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture. (6h)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', result: 'Conform to', conclusion: 'Qualified' }
+        { category: 'Appearance', name: 'Printing', standard: 'The finished products are clean, without obvious dirt, defects, knife marks, or scratches. The text printing is clear and complete, with smooth edges of the imprints. The mesh pattern is clear and uniform, without obvious deformation or damage. The overprinting is basically accurate, with almost no color difference between the same colors, and the black layer has a glossy finish.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Contamination marks', standard: 'No foreign objects, oil stains, or other contaminants are allowed. Slight unevenness in adhesive application or marks caused by pressure rollers are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed, and no scratches are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is basically neat.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Film > 0, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Film ±2mm, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Tensile strength', standard: '≥25', testSpeed: '250', result: '68.2', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Elongation at break', standard: '≥25', testSpeed: '250', result: '240', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Peel strength', standard: '≥0.15', testSpeed: '250', result: 'Cannot be peeled off', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Heat-seal strength', standard: '≥6', testSpeed: '300', result: '18.1', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '6h', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' }
       ]
     }
   },
@@ -132,31 +133,31 @@ const PRESETS: Record<string, { label: string; description: string; data: CoaDat
       sampleName: 'Recyclable Mono-PE Pouch',
       materialComposition: 'MDO-PE / Solventless Adhesive / High-Barrier EVOH-PE Film',
       productSpecifications: '200 * 300 + 50 mm',
-      testConditions: 'Temp: 23°C, RH: 50%',
+      testConditions: '25/50',
       productionDate: new Date().toISOString().split('T')[0],
       batchNumber: 'SC' + Math.floor(1000000 + Math.random() * 9000000),
-      samplingQuantity: '800 pcs',
+      samplingQuantity: '315 pcs',
       deliveryQuantity: '20,000 pcs',
       analystSignature: 'Lin Fang',
       directorSignature: 'Xiong Wei',
       conclusionText: 'This batch of products has passed the inspection and is approved for delivery.',
       items: [
-        { category: 'Appearance', name: 'Printing', standard: 'Uniform, without obvious deformation or damage. Overprinting is accurate, no obvious color difference. Black layer has a glossy finish.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Contamination marks', standard: 'No obvious contamination or stains.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed; no severe scratches are permitted.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is neat.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Tensile strength (N/15mm)', standard: '≥ 32', result: '88.5', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Elongation at break (%)', standard: '≥ 25', result: '310', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Peel strength (N/15mm)', standard: '≥ 0.2', result: 'Cannot be peeled off', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Heat-seal strength (N/15mm)', standard: '≥ 8', result: '29.2', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture. (6h)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', result: 'Conform to', conclusion: 'Qualified' }
+        { category: 'Appearance', name: 'Printing', standard: 'The finished products are clean, without obvious dirt, defects, knife marks, or scratches. The text printing is clear and complete, with smooth edges of the imprints. The mesh pattern is clear and uniform, without obvious deformation or damage. The overprinting is basically accurate, with almost no color difference between the same colors, and the black layer has a glossy finish.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Contamination marks', standard: 'No foreign objects, oil stains, or other contaminants are allowed. Slight unevenness in adhesive application or marks caused by pressure rollers are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed, and no scratches are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is basically neat.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Film > 0, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Film ±2mm, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Tensile strength', standard: '≥32', testSpeed: '250', result: '88.5', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Elongation at break', standard: '≥25', testSpeed: '250', result: '310', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Peel strength', standard: '≥0.2', testSpeed: '250', result: 'Cannot be peeled off', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Heat-seal strength', standard: '≥8', testSpeed: '300', result: '29.2', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '6h', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' }
       ]
     }
   },
@@ -169,31 +170,31 @@ const PRESETS: Record<string, { label: string; description: string; data: CoaDat
       sampleName: 'PCR Stand Up Pouch',
       materialComposition: '12μm PCR-PET (50% recycled) / AL-Adhesive / 80μm PE Film',
       productSpecifications: '180 * 250 + 40 mm',
-      testConditions: 'Temp: 23°C, RH: 50%',
+      testConditions: '25/50',
       productionDate: new Date().toISOString().split('T')[0],
       batchNumber: 'SC' + Math.floor(1000000 + Math.random() * 9000000),
-      samplingQuantity: '800 pcs',
+      samplingQuantity: '315 pcs',
       deliveryQuantity: '20,000 pcs',
       analystSignature: 'Lin Fang',
       directorSignature: 'Xiong Wei',
       conclusionText: 'This batch of products has passed the inspection and is approved for delivery.',
       items: [
-        { category: 'Appearance', name: 'Printing', standard: 'Uniform, without obvious deformation or damage. Overprinting is accurate, no obvious color difference. Black layer has a glossy finish.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Contamination marks', standard: 'No obvious contamination or stains.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed; no severe scratches are permitted.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is neat.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Appearance', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Bag see Q/JHX01-2018)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Tensile strength (N/15mm)', standard: '≥ 30', result: '94.1', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Elongation at break (%)', standard: '≥ 25', result: '280', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Peel strength (N/15mm)', standard: '≥ 0.2', result: 'Cannot be peeled off', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Heat-seal strength (N/15mm)', standard: '≥ 7.5', result: '25.8', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture. (6h)', result: 'Conform to', conclusion: 'Qualified' },
-        { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', result: 'Conform to', conclusion: 'Qualified' }
+        { category: 'Appearance', name: 'Printing', standard: 'The finished products are clean, without obvious dirt, defects, knife marks, or scratches. The text printing is clear and complete, with smooth edges of the imprints. The mesh pattern is clear and uniform, without obvious deformation or damage. The overprinting is basically accurate, with almost no color difference between the same colors, and the black layer has a glossy finish.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Wrinkles', standard: 'Minor wrinkles are allowed (for bags, minor wrinkles that do not penetrate the heat-sealed edges are permitted).', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Contamination marks', standard: 'No foreign objects, oil stains, or other contaminants are allowed. Slight unevenness in adhesive application or marks caused by pressure rollers are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Scratch, Scorch', standard: 'No burns or holes in single-layer films are allowed, and no scratches are permitted.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Perforation, Bubble', standard: 'No perforations or bubbles that affect usability are allowed.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Appearance', name: 'Flatness of rolled film', standard: 'The surface of the rolled film is flat, and the end face is basically neat.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Number of joints in rolled film', standard: 'No more than 2 per kilometer; the joints must be firm, accurate, and marked.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Length deviation', standard: 'As per the customer\'s needs (Film > 0, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Width deviation', standard: 'As per the customer\'s needs (Film ±2mm, Bag see Q/JHX01-2018)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Dimensional deviation', name: 'Thickness deviation', standard: 'As per the customer\'s needs (Tolerance ±10%)', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Tensile strength', standard: '≥30', testSpeed: '250', result: '94.1', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Elongation at break', standard: '≥25', testSpeed: '250', result: '280', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Peel strength', standard: '≥0.2', testSpeed: '250', result: 'Cannot be peeled off', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Heat-seal strength', standard: '≥7.5', testSpeed: '300', result: '25.8', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Pressure resistance performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '6h', result: 'Conform to', conclusion: 'Qualified' },
+        { category: 'Physical and mechanical properties', name: 'Drop performance of the bag', standard: 'No penetration, no rupture.', testSpeed: '', result: 'Conform to', conclusion: 'Qualified' }
       ]
     }
   }
@@ -214,16 +215,16 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
   const [data, setData] = useState<CoaData>({
     customer: 'Sega Pac Pty Ltd',
     customerAddress: 'Unit 4, 12 Technology Drive, Lane Cove NSW 2066, Australia',
-    sampleName: 'Stand up pouch',
-    materialComposition: 'MOPP-Double Electrification/Reinforced VMPET///Reinforced PE',
+    sampleName: 'Stand-up pouch zipper',
+    materialComposition: 'MOPP-Double Electrification/Reinforced VMPET//Reinforced PE',
     productSpecifications: '300*340+75 mm',
     testConditions: '25/50',
     productionDate: '2025-07-08',
     batchNumber: 'SC3340634',
-    samplingQuantity: '3,150 pcs',
+    samplingQuantity: '315 pcs',
     deliveryQuantity: '10,500 pcs',
     analystSignature: 'Lin Fang',
-    directorSignature: 'Xiong Wei',
+    directorSignature: 'Xiongwe',
     conclusionText: 'This batch of products has passed the inspection and is approved for delivery.',
     items: [...DEFAULT_ITEMS]
   });
@@ -304,6 +305,7 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
       category: 'Physical and mechanical properties',
       name: '',
       standard: '',
+      testSpeed: '',
       result: '',
       conclusion: 'Qualified'
     };
@@ -550,7 +552,11 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                           <label className="block text-[9px] font-bold text-gray-400 uppercase">Inspection Standard</label>
                           <textarea rows={1} value={item.standard} onChange={e => handleItemChange(idx, 'standard', e.target.value)} className="w-full border-gray-200 rounded text-xs px-2 py-1 bg-white leading-tight" />
                         </div>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-3 gap-2">
+                          <div>
+                            <label className="block text-[9px] font-bold text-gray-400 uppercase">Test Speed / Cond.</label>
+                            <input type="text" value={item.testSpeed || ''} onChange={e => handleItemChange(idx, 'testSpeed', e.target.value)} className="w-full border-gray-200 rounded text-xs px-2 py-1 bg-white" />
+                          </div>
                           <div>
                             <label className="block text-[9px] font-bold text-gray-400 uppercase">Test Result</label>
                             <input type="text" value={item.result} onChange={e => handleItemChange(idx, 'result', e.target.value)} className="w-full border-gray-200 rounded text-xs px-2 py-1 bg-white" />
@@ -680,30 +686,58 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                       <th className="py-1 px-2 text-left font-bold text-gray-600 w-24">Item Category</th>
                       <th className="py-1 px-2 text-left font-bold text-gray-600 w-32">Inspection Item</th>
                       <th className="py-1 px-2 text-left font-bold text-gray-600">Inspection Standard</th>
-                      <th className="py-1 px-2 text-center font-bold text-gray-600 w-24">Test Result</th>
+                      <th className="py-1 px-2 text-center font-bold text-gray-600 w-20">Test Speed / Cond.</th>
+                      <th className="py-1 px-2 text-center font-bold text-gray-600 w-20">Test Result</th>
                       <th className="py-1 px-2 text-center font-bold text-gray-600 w-16">Conclusion</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {data.items.map((item, idx) => (
-                      <tr key={idx} className="border-b border-gray-200">
-                        {idx === 0 && <td className="py-1 px-2 font-bold text-gray-500 align-top" rowSpan={7}>Appearance</td>}
-                        {idx === 7 && <td className="py-1 px-2 font-bold text-gray-500 align-top" rowSpan={3}>Dimensional</td>}
-                        {idx === 10 && <td className="py-1 px-2 font-bold text-gray-500 align-top" rowSpan={6}>Physical & Mech</td>}
-                        {idx >= 16 && idx % 3 === 0 && <td className="py-1 px-2 font-bold text-gray-500 align-top" rowSpan={3}>Custom</td>}
-                        
-                        <td className="py-1 px-2 font-semibold text-gray-900">{item.name}</td>
-                        <td className="py-1 px-2 text-gray-600 leading-snug text-[9px]">{item.standard}</td>
-                        <td className="py-1 px-2 text-center font-semibold text-gray-800 font-mono text-[9px]">{item.result}</td>
-                        <td className="py-1 px-2 text-center"><span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">{item.conclusion}</span></td>
-                      </tr>
-                    ))}
+                    {(() => {
+                      const rowSpans: number[] = [];
+                      let currentCategory = '';
+                      let currentSpanIndex = -1;
+                      
+                      data.items.forEach((item, idx) => {
+                        if (item.category !== currentCategory) {
+                          currentCategory = item.category;
+                          currentSpanIndex = idx;
+                          rowSpans[idx] = 1;
+                        } else {
+                          rowSpans[currentSpanIndex]++;
+                          rowSpans[idx] = 0;
+                        }
+                      });
+
+                      return data.items.map((item, idx) => (
+                        <tr key={idx} className="border-b border-gray-200 text-[8.5px]">
+                          {rowSpans[idx] > 0 && (
+                            <td 
+                              className="py-1 px-2 font-bold text-gray-500 align-top border-r border-gray-200 bg-gray-50/50" 
+                              rowSpan={rowSpans[idx]}
+                            >
+                              {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' :
+                               item.category === 'Dimensional deviation' ? 'Dimensional' :
+                               item.category}
+                            </td>
+                          )}
+                          <td className="py-1 px-2 font-semibold text-gray-900">{item.name}</td>
+                          <td className="py-1 px-2 text-gray-600 leading-snug text-[8px]">{item.standard}</td>
+                          <td className="py-1 px-2 text-center text-gray-600 font-mono text-[8px]">{item.testSpeed || '-'}</td>
+                          <td className="py-1 px-2 text-center font-semibold text-gray-800 font-mono text-[8.5px]">{item.result}</td>
+                          <td className="py-1 px-2 text-center">
+                            <span className="text-[8px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1 py-0.5 rounded">
+                              {item.conclusion}
+                            </span>
+                          </td>
+                        </tr>
+                      ));
+                    })()}
                   </tbody>
                 </table>
               </div>
 
               {/* COA Bottom Block */}
-              <div className="border-t border-gray-300 pt-3 mt-4 space-y-3">
+              <div className="border-t border-gray-300 pt-3 mt-4 space-y-3 relative">
                 <div>
                   <span className="font-extrabold text-[9px] text-gray-400 uppercase tracking-wider block mb-0.5">Overall Inspection Conclusion</span>
                   <p className="font-bold text-blue-900 text-xs">{data.conclusionText}</p>
@@ -722,6 +756,31 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                     </div>
                   </div>
                 </div>
+
+                {/* ACHIEVEPACK CORPORATE SEAL */}
+                <svg className="absolute right-[40px] bottom-[5px] opacity-85 transform rotate-[-8deg] pointer-events-none" width="85" height="85" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#ef4444" strokeWidth="2" strokeDasharray="94 1.5" />
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="#ef4444" strokeWidth="0.75" />
+                  <path id="preview-seal-path" d="M 15 50 A 35 35 0 0 1 85 50" fill="none" />
+                  <text fill="#ef4444" fontSize="5.8" fontWeight="bold" letterSpacing="0.6">
+                    <textPath href="#preview-seal-path" startOffset="50%" textAnchor="middle">
+                      ACHIEVE PACK CO., LIMITED
+                    </textPath>
+                  </text>
+                  <path id="preview-seal-zh-path" d="M 22 50 A 28 28 0 0 0 78 50" fill="none" />
+                  <text fill="#ef4444" fontSize="6.2" fontWeight="bold" letterSpacing="0.4">
+                    <textPath href="#preview-seal-zh-path" startOffset="50%" textAnchor="middle">
+                      达之包装有限公司
+                    </textPath>
+                  </text>
+                  <polygon points="50,38 53,46 62,46 55,51 58,59 50,54 42,59 45,51 38,46 47,46" fill="#ef4444" />
+                  <text x="50" y="71" fill="#ef4444" fontSize="6.8" fontWeight="bold" textAnchor="middle">
+                    专用章
+                  </text>
+                  <text x="50" y="79" fill="#ef4444" fontSize="4.2" fontFamily="monospace" textAnchor="middle" letterSpacing="0.1">
+                    79945613213015
+                  </text>
+                </svg>
               </div>
 
             </div>
@@ -748,12 +807,27 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             }
             .print-page {
               width: 210mm;
-              height: 280mm;
-              padding: 10mm 12mm 10mm 12mm;
+              height: 297mm;
+              max-height: 297mm;
+              padding: 10mm 12mm;
               position: relative;
               page-break-after: always !important;
               page-break-inside: avoid !important;
               box-sizing: border-box;
+              overflow: hidden;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+            /* Hide global screen elements when printing */
+            nav, 
+            footer, 
+            header, 
+            aside,
+            .print\\:hidden, 
+            .print-hidden, 
+            .no-print {
+              display: none !important;
             }
             table {
               border-collapse: collapse;
@@ -762,9 +836,9 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             }
             th, td {
               border: 1px solid #7f8c8d;
-              padding: 2.5px 4px !important;
-              font-size: 7.5px !important;
-              line-height: 1.2 !important;
+              padding: 1.5px 3px !important;
+              font-size: 7px !important;
+              line-height: 1.15 !important;
             }
             .bg-gray-100 {
               background-color: #f2f2f2 !important;
@@ -828,32 +902,53 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="text-left font-bold text-gray-600 w-24">Item Category</th>
-                  <th className="text-left font-bold text-gray-600 w-32">Inspection Item</th>
+                  <th className="text-left font-bold text-gray-600 w-20">Item Category</th>
+                  <th className="text-left font-bold text-gray-600 w-28">Inspection Item</th>
                   <th className="text-left font-bold text-gray-600">Inspection Standard</th>
-                  <th className="text-center font-bold text-gray-600 w-24">Test Result</th>
+                  <th className="text-center font-bold text-gray-600 w-20">Test Speed / Cond.</th>
+                  <th className="text-center font-bold text-gray-600 w-20">Test Result</th>
                   <th className="text-center font-bold text-gray-600 w-16">Conclusion</th>
                 </tr>
               </thead>
               <tbody>
-                {data.items.map((item, idx) => (
-                  <tr key={idx}>
-                    {idx === 0 && <td className="font-bold text-gray-500 align-top" rowSpan={7}>Appearance</td>}
-                    {idx === 7 && <td className="font-bold text-gray-500 align-top" rowSpan={3}>Dimensional</td>}
-                    {idx === 10 && <td className="font-bold text-gray-500 align-top" rowSpan={6}>Physical & Mech</td>}
-                    {idx >= 16 && idx % 3 === 0 && <td className="font-bold text-gray-500 align-top" rowSpan={3}>Custom</td>}
-                    
-                    <td className="font-semibold text-gray-900">{item.name}</td>
-                    <td className="text-gray-600 leading-snug">{item.standard}</td>
-                    <td className="text-center font-semibold text-gray-800 font-mono">{item.result}</td>
-                    <td className="text-center font-bold text-emerald-700">{item.conclusion}</td>
-                  </tr>
-                ))}
+                {(() => {
+                  const rowSpans: number[] = [];
+                  let currentCategory = '';
+                  let currentSpanIndex = -1;
+                  
+                  data.items.forEach((item, idx) => {
+                    if (item.category !== currentCategory) {
+                      currentCategory = item.category;
+                      currentSpanIndex = idx;
+                      rowSpans[idx] = 1;
+                    } else {
+                      rowSpans[currentSpanIndex]++;
+                      rowSpans[idx] = 0;
+                    }
+                  });
+
+                  return data.items.map((item, idx) => (
+                    <tr key={idx}>
+                      {rowSpans[idx] > 0 && (
+                        <td className="font-bold text-gray-500 align-top bg-gray-50/50" rowSpan={rowSpans[idx]}>
+                          {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' :
+                           item.category === 'Dimensional deviation' ? 'Dimensional' :
+                           item.category}
+                        </td>
+                      )}
+                      <td className="font-semibold text-gray-900">{item.name}</td>
+                      <td className="text-gray-600 leading-snug">{item.standard}</td>
+                      <td className="text-center text-gray-600 font-mono">{item.testSpeed || '-'}</td>
+                      <td className="text-center font-semibold text-gray-800 font-mono">{item.result}</td>
+                      <td className="text-center font-bold text-emerald-700">{item.conclusion}</td>
+                    </tr>
+                  ));
+                })()}
               </tbody>
             </table>
 
             {/* COA Bottom Block */}
-            <div className="border-t border-gray-300 pt-2.5 mt-3 space-y-2">
+            <div className="border-t border-gray-300 pt-2.5 mt-3 space-y-2 relative">
               <div>
                 <span className="font-extrabold text-[8px] text-gray-400 uppercase tracking-wider block mb-0.5">Overall Inspection Conclusion</span>
                 <p className="font-bold text-blue-900 text-[11px]">{data.conclusionText}</p>
@@ -872,6 +967,31 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                   </div>
                 </div>
               </div>
+
+              {/* ACHIEVEPACK CORPORATE SEAL */}
+              <svg className="absolute right-[40px] bottom-[5px] opacity-85 transform rotate-[-8deg] pointer-events-none" width="85" height="85" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#ef4444" strokeWidth="2" strokeDasharray="94 1.5" />
+                <circle cx="50" cy="50" r="44" fill="none" stroke="#ef4444" strokeWidth="0.75" />
+                <path id="print-seal-path" d="M 15 50 A 35 35 0 0 1 85 50" fill="none" />
+                <text fill="#ef4444" fontSize="5.8" fontWeight="bold" letterSpacing="0.6">
+                  <textPath href="#print-seal-path" startOffset="50%" textAnchor="middle">
+                    ACHIEVE PACK CO., LIMITED
+                  </textPath>
+                </text>
+                <path id="print-seal-zh-path" d="M 22 50 A 28 28 0 0 0 78 50" fill="none" />
+                <text fill="#ef4444" fontSize="6.2" fontWeight="bold" letterSpacing="0.4">
+                  <textPath href="#print-seal-zh-path" startOffset="50%" textAnchor="middle">
+                    达之包装有限公司
+                  </textPath>
+                </text>
+                <polygon points="50,38 53,46 62,46 55,51 58,59 50,54 42,59 45,51 38,46 47,46" fill="#ef4444" />
+                <text x="50" y="71" fill="#ef4444" fontSize="6.8" fontWeight="bold" textAnchor="middle">
+                  专用章
+                </text>
+                <text x="50" y="79" fill="#ef4444" fontSize="4.2" fontFamily="monospace" textAnchor="middle" letterSpacing="0.1">
+                  79945613213015
+                </text>
+              </svg>
             </div>
           </div>
 
