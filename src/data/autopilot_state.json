@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T03:30:40.673Z",
+  "lastUnifiedRun": "2026-06-06T03:45:50.097Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -686,10 +686,11 @@
       "slug": "eco-friendly-sachet-packaging-for-spices"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1250,
       "keyword": "stand up pouch dimensions for coffee",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "stand-up-pouch-dimensions-for-coffee"
     },
     {
       "status": "Pending",
@@ -825,6 +826,11 @@
     }
   ],
   "logs": [
+    {
+      "timestamp": "2026-06-06T03:45:44.325Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch dimensions for coffee\" to /blog/stand-up-pouch-dimensions-for-coffee (Pending Approval)"
+    },
     {
       "timestamp": "2026-06-06T03:30:31.058Z",
       "action": "Autopilot Generation Draft",
