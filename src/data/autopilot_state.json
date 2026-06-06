@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T18:30:29.991Z",
+  "lastUnifiedRun": "2026-06-06T18:45:29.694Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1099,17 +1099,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "eco-friendly-barrier-film-for-stand-up-pouches",
       "status": "Pending Approval",
       "volume": 800,
       "keyword": "eco friendly barrier film for stand up pouches",
-      "difficulty": "Low",
-      "slug": "eco-friendly-barrier-film-for-stand-up-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1500,
       "keyword": "small batch digital printed custom pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-digital-printed-custom-pouches"
     },
     {
       "status": "Pending",
@@ -1210,9 +1211,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T18:30:21.514Z",
+      "timestamp": "2026-06-06T18:45:22.167Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly barrier film for stand up pouches\" to /blog/eco-friendly-barrier-film-for-stand-up-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital printed custom pouches\" to /blog/small-batch-digital-printed-custom-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly barrier film for stand up pouches\" to /blog/eco-friendly-barrier-film-for-stand-up-pouches (Pending Approval)",
+      "timestamp": "2026-06-06T18:30:21.514Z"
     },
     {
       "action": "Autopilot Generation Draft",
