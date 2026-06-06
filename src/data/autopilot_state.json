@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T10:30:30.038Z",
+  "lastUnifiedRun": "2026-06-06T10:45:37.100Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -875,17 +875,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-recyclable-film-for-food",
       "status": "Pending Approval",
       "volume": 600,
       "keyword": "high barrier recyclable film for food",
-      "difficulty": "Low",
-      "slug": "high-barrier-recyclable-film-for-food"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "small batch digital printing on pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-digital-printing-on-pouches"
     },
     {
       "status": "Pending",
@@ -962,9 +963,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T10:30:24.689Z",
+      "timestamp": "2026-06-06T10:45:31.564Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier recyclable film for food\" to /blog/high-barrier-recyclable-film-for-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital printing on pouches\" to /blog/small-batch-digital-printing-on-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier recyclable film for food\" to /blog/high-barrier-recyclable-film-for-food (Pending Approval)",
+      "timestamp": "2026-06-06T10:30:24.689Z"
     },
     {
       "action": "Autopilot Generation Draft",
