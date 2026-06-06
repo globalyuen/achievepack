@@ -875,6 +875,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   breadcrumbs,
   materialType
 }) => {
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const [isPending, startTransition] = useTransition()
+
   const [scrollPercent, setScrollPercent] = useState(0)
   const [hero3DTilt, setHero3DTilt] = useState({ x: 0, y: 0 })
   const hero3DCardRef = useRef<HTMLDivElement>(null)
@@ -908,10 +913,6 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   const handleHero3DMouseLeave = () => {
     setHero3DTilt({ x: 0, y: 0 })
   }
-  const { t } = useTranslation()
-  const navigate = useNavigate()
-  const location = useLocation()
-  const [isPending, startTransition] = useTransition()
   
   // Generate canonical URL from current path if not provided
   const effectiveCanonicalUrl = canonicalUrl || `${getDomain() === 'pouch' ? 'https://pouch.eco' : 'https://achievepack.com'}${location.pathname}`
