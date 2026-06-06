@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T09:15:51.849Z",
+  "lastUnifiedRun": "2026-06-06T09:30:31.378Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 11,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -840,17 +840,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-printed-eco-friendly-sachets",
       "status": "Pending Approval",
       "volume": 1800,
       "keyword": "custom printed eco friendly sachets",
-      "difficulty": "Medium",
-      "slug": "custom-printed-eco-friendly-sachets"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1500,
       "keyword": "compostable barrier film roll stock",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-barrier-film-roll-stock"
     },
     {
       "status": "Pending",
@@ -957,9 +958,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T09:15:35.787Z",
+      "timestamp": "2026-06-06T09:30:25.356Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom printed eco friendly sachets\" to /blog/custom-printed-eco-friendly-sachets (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film roll stock\" to /blog/compostable-barrier-film-roll-stock (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed eco friendly sachets\" to /blog/custom-printed-eco-friendly-sachets (Pending Approval)",
+      "timestamp": "2026-06-06T09:15:35.787Z"
     },
     {
       "action": "Autopilot Generation Draft",

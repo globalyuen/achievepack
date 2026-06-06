@@ -116,6 +116,7 @@ export default function PouchHomePage() {
   const videoRef2 = useRef<HTMLVideoElement>(null)
   const videoRef3 = useRef<HTMLVideoElement>(null)
   const videoRef4 = useRef<HTMLVideoElement>(null)
+  const videoRef5 = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768)
@@ -129,21 +130,31 @@ export default function PouchHomePage() {
       if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
       if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
       if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
+      if (videoRef5.current) { videoRef5.current.pause(); videoRef5.current.currentTime = 0; }
     } else if (activeHeroIndex === 1) {
       videoRef2.current?.play().catch((err) => console.log(err))
       if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
       if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
       if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
+      if (videoRef5.current) { videoRef5.current.pause(); videoRef5.current.currentTime = 0; }
     } else if (activeHeroIndex === 2) {
       videoRef3.current?.play().catch((err) => console.log(err))
       if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
       if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
       if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
-    } else {
+      if (videoRef5.current) { videoRef5.current.pause(); videoRef5.current.currentTime = 0; }
+    } else if (activeHeroIndex === 3) {
       videoRef4.current?.play().catch((err) => console.log(err))
       if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
       if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
       if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
+      if (videoRef5.current) { videoRef5.current.pause(); videoRef5.current.currentTime = 0; }
+    } else {
+      videoRef5.current?.play().catch((err) => console.log(err))
+      if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
+      if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
+      if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
+      if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
     }
   }, [activeHeroIndex])
 
@@ -156,7 +167,7 @@ export default function PouchHomePage() {
       y: 0,
       rotate: 2,
       scale: 1,
-      zIndex: 40,
+      zIndex: 50,
       transition: { duration: 0.6, ease: "easeInOut" as const }
     },
     middle: {
@@ -164,7 +175,7 @@ export default function PouchHomePage() {
       y: offsetVal,
       rotate: 6,
       scale: 1,
-      zIndex: 30,
+      zIndex: 40,
       transition: { duration: 0.6, ease: "easeInOut" as const }
     },
     back: {
@@ -172,7 +183,7 @@ export default function PouchHomePage() {
       y: [0, -20, offsetVal],
       rotate: [2, -10, 10],
       scale: 1,
-      zIndex: [40, 10, 10],
+      zIndex: [50, 10, 10],
       transition: {
         times: [0, 0.4, 1],
         duration: 0.8,
@@ -187,7 +198,7 @@ export default function PouchHomePage() {
       y: 0,
       rotate: 2,
       scale: 1,
-      zIndex: 40,
+      zIndex: 50,
       transition: { duration: 0.6, ease: "easeInOut" as const }
     },
     middle: {
@@ -195,7 +206,7 @@ export default function PouchHomePage() {
       y: offsetVal,
       rotate: 6,
       scale: 1,
-      zIndex: 30,
+      zIndex: 40,
       transition: { duration: 0.6, ease: "easeInOut" as const }
     },
     back: {
@@ -203,7 +214,7 @@ export default function PouchHomePage() {
       y: [0, -20, offsetVal],
       rotate: [2, 10, 10],
       scale: 1,
-      zIndex: [40, 10, 10],
+      zIndex: [50, 10, 10],
       transition: {
         times: [0, 0.4, 1],
         duration: 0.8,
@@ -218,7 +229,7 @@ export default function PouchHomePage() {
       y: 0,
       rotate: 2,
       scale: 1,
-      zIndex: 40,
+      zIndex: 50,
       transition: { duration: 0.6, ease: "easeInOut" as const }
     },
     middle: {
@@ -226,7 +237,7 @@ export default function PouchHomePage() {
       y: offsetVal,
       rotate: 6,
       scale: 1,
-      zIndex: 30,
+      zIndex: 40,
       transition: { duration: 0.6, ease: "easeInOut" as const }
     },
     back: {
@@ -234,7 +245,7 @@ export default function PouchHomePage() {
       y: [0, -20, offsetVal],
       rotate: [2, -10, 10],
       scale: 1,
-      zIndex: [40, 10, 10],
+      zIndex: [50, 10, 10],
       transition: {
         times: [0, 0.4, 1],
         duration: 0.8,
@@ -249,7 +260,7 @@ export default function PouchHomePage() {
       y: 0,
       rotate: 2,
       scale: 1,
-      zIndex: 40,
+      zIndex: 50,
       transition: { duration: 0.6, ease: "easeInOut" as const }
     },
     middle: {
@@ -257,7 +268,7 @@ export default function PouchHomePage() {
       y: offsetVal,
       rotate: 6,
       scale: 1,
-      zIndex: 30,
+      zIndex: 40,
       transition: { duration: 0.6, ease: "easeInOut" as const }
     },
     back: {
@@ -265,7 +276,38 @@ export default function PouchHomePage() {
       y: [0, -20, offsetVal],
       rotate: [2, 10, 10],
       scale: 1,
-      zIndex: [40, 10, 10],
+      zIndex: [50, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
+      }
+    }
+  }
+
+  const card5Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 50,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, -slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, -10, 10],
+      scale: 1,
+      zIndex: [50, 10, 10],
       transition: {
         times: [0, 0.4, 1],
         duration: 0.8,
@@ -467,7 +509,7 @@ export default function PouchHomePage() {
               {/* Card 1: Bag Video */}
               <motion.div
                 variants={card1Variants}
-                animate={activeHeroIndex === 0 ? "front" : (activeHeroIndex === 2 ? "middle" : "back")}
+                animate={activeHeroIndex === 0 ? "front" : (activeHeroIndex === 4 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
                 <NeoCard className="bg-[#00FFFF] w-full h-full !p-0 overflow-hidden group relative">
@@ -536,7 +578,7 @@ export default function PouchHomePage() {
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
-                    onEnded={() => setActiveHeroIndex(0)}
+                    onEnded={() => setActiveHeroIndex(3)}
                     className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
                   >
                     <source src="/video/hero/industrial/industrial.mp4" type="video/mp4" />
@@ -545,6 +587,64 @@ export default function PouchHomePage() {
                   {/* Floating Tag */}
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
                     INDUSTRIAL_OK
+                  </motion.div>
+                  
+                  {/* Overlay Texture */}
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                </NeoCard>
+              </motion.div>
+
+              {/* Card 4: PCR Video */}
+              <motion.div
+                variants={card4Variants}
+                animate={activeHeroIndex === 3 ? "front" : (activeHeroIndex === 2 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white to-[#00FFFF] opacity-25 z-0 mix-blend-multiply" />
+                  <video
+                    ref={videoRef4}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(4)}
+                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/PCR/pcr.mp4" type="video/mp4" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                    PCR_BARRIER_OK
+                  </motion.div>
+                  
+                  {/* Overlay Texture */}
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                </NeoCard>
+              </motion.div>
+
+              {/* Card 5: BioPE Video */}
+              <motion.div
+                variants={card5Variants}
+                animate={activeHeroIndex === 4 ? "front" : (activeHeroIndex === 3 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <NeoCard className="bg-[#D4FF00] w-full h-full !p-0 overflow-hidden group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4FF00] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
+                  <video
+                    ref={videoRef5}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(0)}
+                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/biope/biope.mp4" type="video/mp4" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                    BIO_BASED_OK
                   </motion.div>
                   
                   {/* Overlay Texture */}
