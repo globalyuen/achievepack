@@ -318,6 +318,410 @@ const showcaseProducts = [
   }
 ]
 
+const SEO_PAGES = [
+  "/blog/compostable-stand-up-pouches-guide",
+  "/blog/coffee-packaging-guide",
+  "/blog/usa-compostable-guide",
+  "/blog/low-moq-packaging-guide",
+  "/blog/compostable-vs-recyclable",
+  "/blog/packaging-cost-guide",
+  "/materials/compostable",
+  "/materials/recyclable",
+  "/materials/bio-pe",
+  "/materials/pcr",
+  "/packaging/stand-up-pouches",
+  "/packaging/flat-bottom-bags",
+  "/packaging/spout-pouches",
+  "/packaging/custom-boxes",
+  "/topics/minimalist-d2c-packaging",
+  "/topics/home-compostable-coffee-bags",
+  "/topics/low-moq-startup-packaging",
+  "/topics/recyclable-snack-packaging",
+  "/topics/mono-material-pe-pouches"
+]
+
+const ourWorkDemos = [
+  {
+    title: "pouch.eco",
+    tag: "Eco-Friendly",
+    subtag: "Gov-Style Minimalist",
+    desc: "Clean, authority-building design for sustainable packaging. Large typography and clear impact metrics.",
+    image: "/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp",
+    badgeType: "eco"
+  },
+  {
+    title: "Achieve Coffee",
+    tag: "Beverage",
+    subtag: "Premium Branding",
+    desc: "A minimalist, aesthetic specialty coffee experience with infinite scroll marquee and bold typography.",
+    image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80",
+    badgeType: "accent"
+  },
+  {
+    title: "Maxi Foods",
+    tag: "Mexican Food",
+    subtag: "Clean Label",
+    desc: "Authentic Mexican staples redesigned with a modern health-conscious aesthetic and vibrant glassmorphism.",
+    image: "/imgs/maxi-foods-packaging.jpg",
+    badgeType: "liquid"
+  },
+  {
+    title: "Achieve Chips",
+    tag: "Snacks",
+    subtag: "Organic Chips",
+    desc: "Premium organic potato chips with bold flavors and 100% compostable packaging. Modern e-commerce design.",
+    image: "/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_hero_kv_4003688.webp",
+    badgeType: "luxury"
+  },
+  {
+    title: "Achieve Tea",
+    tag: "Beverage",
+    subtag: "Organic Tea",
+    desc: "A serene, eco-luxury tea brand experience highlighting plastic-free, compostable packaging and wellness.",
+    image: "/imgs/demo-site/tea/hero.png",
+    badgeType: "eco"
+  },
+  {
+    title: "Achieve Energy",
+    tag: "Energy",
+    subtag: "High Voltage",
+    desc: "Futuristic dark mode design with neon accents. High-energy visuals for a next-gen spouted pouch product.",
+    image: "/imgs/demo-site/energy/hero.png",
+    badgeType: "accent"
+  },
+  {
+    title: "Achieve Honey",
+    tag: "Nature",
+    subtag: "Sweetest Gift",
+    desc: "Organic honey drinks in eco-friendly bottle-shaped pouches. Experience the taste of nature.",
+    image: "/imgs/demo-site/honey/hero.png",
+    badgeType: "eco"
+  },
+  {
+    title: "Achieve Chocolate",
+    tag: "Confectionery",
+    subtag: "Luxury Experience",
+    desc: "A sustainable luxury chocolate brand showcase featuring premium rigid boxes and compostable pouches.",
+    image: "/imgs/achieve-chocolate/hero-main.png",
+    badgeType: "luxury"
+  },
+  {
+    title: "Achieve Supps",
+    tag: "Health",
+    subtag: "Nano Tech",
+    desc: "Scientific minimalist branding for stick packs. Highlighting precision dosage and clean ingredients.",
+    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=2574&auto=format&fit=crop",
+    badgeType: "accent"
+  },
+  {
+    title: "Achieve Superfood",
+    tag: "Wellness",
+    subtag: "Pure Superfoods",
+    desc: "Earthy, organic branding for premium superfoods. Highlighting compostable pouch textures and natural ingredients.",
+    image: "/imgs/demo-site/superfood/hero.png",
+    badgeType: "eco"
+  },
+  {
+    title: "Achieve Cleaning",
+    tag: "Home Care",
+    subtag: "Plastic Free",
+    desc: "Revolutionary concentrated cleaning tablets in nano banana pro packaging. Modern, clean, and zero-waste aesthetic.",
+    image: "/imgs/demo-site/cleaning/hero.png",
+    badgeType: "liquid"
+  },
+  {
+    title: "Achieve Spreads",
+    tag: "Food",
+    subtag: "Squeeze Pack",
+    desc: "Premium nut butters in compostable Nano Banana Pro squeeze pouches. Earthy, organic, and mess-free.",
+    image: "/imgs/demo-site/spreads/hero.png",
+    badgeType: "eco"
+  },
+  {
+    title: "Achieve Muesli",
+    tag: "Breakfast",
+    subtag: "Full Print Pouch",
+    desc: "Pop-art inspired muesli brand with edge-to-edge printing on biodegradable Nano Banana Pro.",
+    image: "/imgs/demo-site/muesli/hero.png",
+    badgeType: "luxury"
+  },
+  {
+    title: "Achieve Bath",
+    tag: "Personal Care",
+    subtag: "Nano Banana Pro™ Clear",
+    desc: "Minimalist luxury bath bombs in revolutionary clear compostable pouches. Experience the purity of direct print.",
+    image: "/imgs/demo-site/bath/hero.png",
+    badgeType: "eco"
+  },
+  {
+    title: "PAW.OS",
+    tag: "System",
+    subtag: "PAW.OS",
+    desc: "Neo-Brutalist pet nutrition interface. High-vis packaging for high-performance biological units.",
+    image: "/imgs/demo-site/pet/hero.png",
+    badgeType: "accent"
+  },
+  {
+    title: "Achieve Skin",
+    tag: "Liquid Refills",
+    subtag: "Fluid Animations",
+    desc: "Holographic spout pouches for premium serums. Glassmorphism UI with fluid animations.",
+    image: "/imgs/demo-site/skin/hero.png",
+    badgeType: "luxury"
+  },
+  {
+    title: "Achieve Baby",
+    tag: "NEW • Claymorphism",
+    subtag: "Safe & Gentle Nutrition",
+    desc: "A \"Soft 3D\" experience featuring puffy claymorphism, pastel aesthetics, and gentle interactions designed for parent trust.",
+    image: "/imgs/demo-site/baby/achieve_baby_hero_v2_1770342396693.png",
+    badgeType: "eco"
+  }
+]
+
+const seoKnowHowCards = [
+  {
+    title: "Compostable vs Recyclable",
+    desc: "Deciding between circular plastic recovery and organic composting paths for your packaging.",
+    link: "/blog/compostable-vs-recyclable",
+    image: "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
+    tag: "Analysis",
+    badgeType: "eco"
+  },
+  {
+    title: "Packaging Cost Guide",
+    desc: "Complete breakdown of plate charges, setup fees, material costs, and wholesale volume tiers.",
+    link: "/blog/packaging-cost-guide",
+    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    tag: "Finance",
+    badgeType: "accent"
+  },
+  {
+    title: "Eco Packaging Mistakes",
+    desc: "Avoid common design and material selection errors that disrupt commercial supply chains.",
+    link: "/blog/eco-packaging-mistakes",
+    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    tag: "Strategy",
+    badgeType: "luxury"
+  },
+  {
+    title: "EU PPWR Compliance",
+    desc: "Understanding the new European Union packaging regulations and recycling requirements.",
+    link: "/blog/eu-ppwr-compliance-guide",
+    image: "/imgs/store/products/eco-standup-premium.png",
+    tag: "Regulations",
+    badgeType: "eco"
+  },
+  {
+    title: "Compostable Zippers",
+    desc: "How biodegradable press-to-close zippers preserve freshness without polluting composting streams.",
+    link: "/blog/compostable-zipper-no-removal",
+    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    tag: "Technology",
+    badgeType: "eco"
+  },
+  {
+    title: "Foil Stamping Recyclability",
+    desc: "Assessing the impact of hot and cold foil stamping on paperboard and plastic recycling.",
+    link: "/blog/stamp-foil-recyclability",
+    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
+    tag: "Design",
+    badgeType: "luxury"
+  },
+  {
+    title: "Compostable Materials",
+    desc: "Overview of organic starch-based polymers and plant cell membranes that biodegrade safely.",
+    link: "/materials/compostable",
+    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    tag: "Materials",
+    badgeType: "eco"
+  },
+  {
+    title: "Recyclable Mono-PE",
+    desc: "Engineered single-polymer films with EVOH barrier that qualify for standard recycling streams.",
+    link: "/materials/recyclable-mono-pe",
+    image: "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
+    tag: "Materials",
+    badgeType: "accent"
+  },
+  {
+    title: "Sugarcane Bio-PE",
+    desc: "Plant-based polyethylene films derived from sugarcane that reduce carbon footprint.",
+    link: "/materials/bio-pe",
+    image: "/imgs/store/products/eco-standup-premium.png",
+    tag: "Materials",
+    badgeType: "eco"
+  },
+  {
+    title: "Post-Consumer Recycled",
+    desc: "Reusing plastic ocean waste and curbside recyclables to fabricate premium composite barrier films.",
+    link: "/materials/pcr",
+    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    tag: "Materials",
+    badgeType: "luxury"
+  },
+  {
+    title: "Stand Up Pouches",
+    desc: "The classic retail packaging format with bottom gusset and custom resealable zippers.",
+    link: "/packaging/stand-up-pouches",
+    image: "/imgs/store/products/eco-standup-premium.png",
+    tag: "Packaging",
+    badgeType: "eco"
+  },
+  {
+    title: "Flat Bottom Bags",
+    desc: "Maximum stability with five printable panels, ideal for heavy coffee beans and dry pet food.",
+    link: "/packaging/flat-bottom-bags",
+    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    tag: "Packaging",
+    badgeType: "accent"
+  },
+  {
+    title: "Spouted Liquid Pouches",
+    desc: "Flexible bottle-shaped pouches with fitment caps designed to hold cosmetics, drinks, and purees.",
+    link: "/packaging/spout-pouches",
+    image: "/imgs/store/products/spouted-foil-pouch-thumbnail-26.webp",
+    tag: "Packaging",
+    badgeType: "liquid"
+  },
+  {
+    title: "Custom Printed Boxes",
+    desc: "Sturdy corrugated cardboard boxes, mailers, and custom retail displays with custom finishes.",
+    link: "/packaging/custom-boxes",
+    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
+    tag: "Packaging",
+    badgeType: "luxury"
+  },
+  {
+    title: "Startup Founder Solutions",
+    desc: "Low MOQ, design support, and rapid prototyping workflows for launching products.",
+    link: "/solutions/startup-founder",
+    image: "/imgs/store/products/conven-3ss-clear-zip-premium.png",
+    tag: "Solutions",
+    badgeType: "accent"
+  },
+  {
+    title: "Ecommerce Brand Packaging",
+    desc: "Optimizing mailers, shipping boxes, and secondary pouches for D2C transit safety.",
+    link: "/solutions/ecommerce-brand",
+    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
+    tag: "Solutions",
+    badgeType: "luxury"
+  },
+  {
+    title: "Coffee Roaster Packaging",
+    desc: "High-barrier foil stand-up and flat bottom bags equipped with degassing valves.",
+    link: "/solutions/coffee-roaster",
+    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    tag: "Solutions",
+    badgeType: "accent"
+  },
+  {
+    title: "Snack Brand Packaging",
+    desc: "Lightproof and air-tight pouches to maintain crispness and extend retail shelf life.",
+    link: "/solutions/snack-brand-manager",
+    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    tag: "Solutions",
+    badgeType: "liquid"
+  },
+  {
+    title: "Minimalist D2C Branding",
+    desc: "Designing clean packaging layouts that reduce ink waste and capture consumer interest.",
+    link: "/topics/minimalist-d2c-packaging",
+    image: "/imgs/store/products/eco-standup-premium.png",
+    tag: "Branding",
+    badgeType: "eco"
+  },
+  {
+    title: "Low MOQ Startup Tips",
+    desc: "Strategic advice on split-shipping, template reuse, and digital runs for multi-SKU brands.",
+    link: "/topics/low-moq-startup-packaging",
+    image: "/imgs/store/products/conven-3ss-clear-zip-premium.png",
+    tag: "Strategy",
+    badgeType: "luxury"
+  },
+  {
+    title: "Home Compostable Coffee",
+    desc: "Integrating plant-based degassing valves and compostable films to create home-friendly coffee bags.",
+    link: "/topics/home-compostable-coffee-bags",
+    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    tag: "Coffee",
+    badgeType: "eco"
+  },
+  {
+    title: "Recyclable Snacks Pouch",
+    desc: "Preserving chips and granola freshness using EVOH-coated recyclable polyethylene structures.",
+    link: "/topics/recyclable-snack-packaging",
+    image: "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
+    tag: "Snacks",
+    badgeType: "liquid"
+  },
+  {
+    title: "Mono-Material PE Guide",
+    desc: "Technical deep-dive on single-polymer laminates that fulfill circular economy requirements.",
+    link: "/topics/mono-material-pe-pouches",
+    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    tag: "Technology",
+    badgeType: "accent"
+  },
+  {
+    title: "PFAS-Free Food Packaging",
+    desc: "Ensuring compliance with local environmental acts by utilizing PFAS-free barriers.",
+    link: "/topics/pfas-free-food-packaging",
+    image: "/imgs/store/products/eco-standup-premium.png",
+    tag: "Compliance",
+    badgeType: "eco"
+  },
+  {
+    title: "USA Compostable Standards",
+    desc: "Guidelines on ASTM D6400 certification, BPI labels, and local state labeling mandates.",
+    link: "/usa/compostable-packaging",
+    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    tag: "USA",
+    badgeType: "eco"
+  },
+  {
+    title: "USA Coffee Bags Market",
+    desc: "US retail trends in organic specialty coffee packaging and eco-friendly packaging rules.",
+    link: "/usa/coffee-packaging",
+    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    tag: "USA",
+    badgeType: "accent"
+  },
+  {
+    title: "Coffee Roastery Case Study",
+    desc: "How a specialty Seattle roastery shifted to 100% compostable bags without dropping speed.",
+    link: "/case-studies/coffee-roastery",
+    image: "/imgs/store/products/eco-flatbottom-premium.png",
+    tag: "Case Study",
+    badgeType: "accent"
+  },
+  {
+    title: "Tea Brand Case Study",
+    desc: "Transitioning to plastic-free kraft bags to align with clean label values.",
+    link: "/case-studies/tea-brand",
+    image: "/imgs/store/products/rice-paper-500g-standup.png",
+    tag: "Case Study",
+    badgeType: "eco"
+  },
+  {
+    title: "Pet Treats Case Study",
+    desc: "Developing high-volume pet food pouches with puncture-resistant layers and durable zippers.",
+    link: "/case-studies/pet-treats",
+    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
+    tag: "Case Study",
+    badgeType: "liquid"
+  },
+  {
+    title: "Chocolate Brand Case Study",
+    desc: "Eco-luxe chocolate brand showcases premium rigid box and compostable pouch designs.",
+    link: "/case-studies/chocolate-brand",
+    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
+    tag: "Case Study",
+    badgeType: "luxury"
+  }
+]
+
 const FreeWebsiteUpgradePage: React.FC = () => {
   const { openCalendly } = useCalendly()
   const [activeDot, setActiveDot] = useState(0)
@@ -393,6 +797,156 @@ const FreeWebsiteUpgradePage: React.FC = () => {
     })
     
     setActiveDot(index)
+  }
+
+  const [activeWorkDot, setActiveWorkDot] = useState(0)
+
+  // Drag to scroll state for Work carousel
+  const workScrollerRef = useRef<HTMLDivElement>(null)
+  const [isWorkDown, setIsWorkDown] = useState(false)
+  const [startWorkX, setStartWorkX] = useState(0)
+  const [scrollLeftWorkState, setScrollLeftWorkState] = useState(0)
+  const [isWorkDragging, setIsWorkDragging] = useState(false)
+
+  const handleWorkMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!workScrollerRef.current) return
+    setIsWorkDown(true)
+    setIsWorkDragging(false)
+    setStartWorkX(e.pageX - workScrollerRef.current.offsetLeft)
+    setScrollLeftWorkState(workScrollerRef.current.scrollLeft)
+  }
+
+  const handleWorkMouseLeave = () => {
+    setIsWorkDown(false)
+  }
+
+  const handleWorkMouseUp = () => {
+    setIsWorkDown(false)
+    setTimeout(() => setIsWorkDragging(false), 50)
+  }
+
+  const handleWorkMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isWorkDown || !workScrollerRef.current) return
+    e.preventDefault()
+    setIsWorkDragging(true)
+    const x = e.pageX - workScrollerRef.current.offsetLeft
+    const walk = (x - startWorkX) * 1.5 // Drag sensitivity
+    workScrollerRef.current.scrollLeft = scrollLeftWorkState - walk
+  }
+
+  const handleWorkScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const scroller = e.currentTarget
+    const scrollerCenter = scroller.scrollLeft + scroller.clientWidth / 2
+    const items = scroller.querySelectorAll('.work-carousel-item-node')
+    let closestIndex = 0
+    let minDistance = Infinity
+
+    items.forEach((item, index) => {
+      const itemElement = item as HTMLDivElement
+      const itemCenter = itemElement.offsetLeft + itemElement.clientWidth / 2
+      const distance = Math.abs(itemCenter - scrollerCenter)
+
+      if (distance < minDistance) {
+        minDistance = distance
+        closestIndex = index
+      }
+    })
+
+    setActiveWorkDot(closestIndex)
+  }
+
+  const scrollToWorkSlide = (index: number) => {
+    if (!workScrollerRef.current) return
+    const items = workScrollerRef.current.querySelectorAll('.work-carousel-item-node')
+    if (!items[index]) return
+
+    const targetItem = items[index] as HTMLDivElement
+    const scrollerWidth = workScrollerRef.current.clientWidth
+    const itemWidth = targetItem.offsetWidth
+    
+    const targetScrollLeft = targetItem.offsetLeft - (scrollerWidth / 2) + (itemWidth / 2)
+    
+    workScrollerRef.current.scrollTo({
+      left: targetScrollLeft,
+      behavior: 'smooth'
+    })
+    
+    setActiveWorkDot(index)
+  }
+
+  const [activeKnowHowDot, setActiveKnowHowDot] = useState(0)
+
+  // Drag to scroll state for Know How carousel
+  const knowHowScrollerRef = useRef<HTMLDivElement>(null)
+  const [isKnowHowDown, setIsKnowHowDown] = useState(false)
+  const [startKnowHowX, setStartKnowHowX] = useState(0)
+  const [scrollLeftKnowHowState, setScrollLeftKnowHowState] = useState(0)
+  const [isKnowHowDragging, setIsKnowHowDragging] = useState(false)
+
+  const handleKnowHowMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!knowHowScrollerRef.current) return
+    setIsKnowHowDown(true)
+    setIsKnowHowDragging(false)
+    setStartKnowHowX(e.pageX - knowHowScrollerRef.current.offsetLeft)
+    setScrollLeftKnowHowState(knowHowScrollerRef.current.scrollLeft)
+  }
+
+  const handleKnowHowMouseLeave = () => {
+    setIsKnowHowDown(false)
+  }
+
+  const handleKnowHowMouseUp = () => {
+    setIsKnowHowDown(false)
+    setTimeout(() => setIsKnowHowDragging(false), 50)
+  }
+
+  const handleKnowHowMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isKnowHowDown || !knowHowScrollerRef.current) return
+    e.preventDefault()
+    setIsKnowHowDragging(true)
+    const x = e.pageX - knowHowScrollerRef.current.offsetLeft
+    const walk = (x - startKnowHowX) * 1.5 // Drag sensitivity
+    knowHowScrollerRef.current.scrollLeft = scrollLeftKnowHowState - walk
+  }
+
+  const handleKnowHowScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const scroller = e.currentTarget
+    const scrollerCenter = scroller.scrollLeft + scroller.clientWidth / 2
+    const items = scroller.querySelectorAll('.knowhow-carousel-item-node')
+    let closestIndex = 0
+    let minDistance = Infinity
+
+    items.forEach((item, index) => {
+      const itemElement = item as HTMLDivElement
+      const itemCenter = itemElement.offsetLeft + itemElement.clientWidth / 2
+      const distance = Math.abs(itemCenter - scrollerCenter)
+
+      if (distance < minDistance) {
+        minDistance = distance
+        closestIndex = index
+      }
+    })
+
+    setActiveKnowHowDot(closestIndex)
+  }
+
+  const scrollToKnowHowSlide = (index: number) => {
+    if (!knowHowScrollerRef.current) return
+    const items = knowHowScrollerRef.current.querySelectorAll('.knowhow-carousel-item-node')
+    if (!items[index]) return
+
+    const targetItem = items[index] as HTMLDivElement
+    const scrollerWidth = knowHowScrollerRef.current.clientWidth
+    const itemWidth = targetItem.offsetWidth
+    
+    const targetScrollLeft = targetItem.offsetLeft - (scrollerWidth / 2) + (itemWidth / 2)
+    
+    knowHowScrollerRef.current.scrollTo({
+      left: targetScrollLeft,
+      behavior: 'smooth'
+    })
+    
+    setActiveKnowHowDot(index)
   }
 
   return (
@@ -998,577 +1552,219 @@ const FreeWebsiteUpgradePage: React.FC = () => {
         </section>
 
         {/* Live Demos Selection Section */}
-        <section id="demos" className="py-20 md:py-32 bg-white">
+        <section id="demos" className="py-20 md:py-32 bg-[#f6f6f6] border-t border-b border-neutral-200/50 overflow-hidden font-sans">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-6">Explore Our Live Demos</h2>
               <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
                 See how we transform different industries with high-performance web design.
                 Choose a demo site below to see the AchievePack difference.
               </p>
             </div>
+          </div>
 
-            <motion.div 
-              className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-              variants={staggerCards}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+          {/* Scrollable Work Track */}
+          <div className="w-full overflow-visible py-8">
+            <div 
+              ref={workScrollerRef}
+              onMouseDown={handleWorkMouseDown}
+              onMouseLeave={handleWorkMouseLeave}
+              onMouseUp={handleWorkMouseUp}
+              onMouseMove={handleWorkMouseMove}
+              onScroll={handleWorkScroll}
+              className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 px-[5%] md:px-[10%] py-4 scrollbar-none select-none cursor-grab active:cursor-grabbing"
             >
-              {/* Pouch.eco Demo Card */}
-              <motion.div 
-                className="group relative bg-[#FDFCF8] rounded-3xl overflow-hidden shadow-2xl border border-emerald-100"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden relative">
-                  <img
-                    src="/imgs/pouch-shape/ads/a_achieve_pack_structure_overview_7409393.webp"
-                    alt="Pouch.eco Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8 text-emerald-950">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-emerald-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Eco-Friendly</span>
-                    <span className="text-xs text-white/90 font-medium italic drop-shadow-md">Gov-Style Minimalist</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-lg font-serif">pouch.eco</h3>
-                  <p className="text-white/80 text-sm mb-6 max-w-sm drop-shadow-md">Clean, authority-building design for sustainable packaging. Large typography and clear impact metrics.</p>
-                  <Link
-                    to="/free-service/achieve-pouch-eco-demo"
-                    className="inline-flex items-center gap-2 bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition hover:bg-emerald-700 shadow-lg"
+              {ourWorkDemos.map((item, idx) => {
+                return (
+                  <div 
+                    key={idx} 
+                    className="work-carousel-item-node flex-none w-[76vw] md:w-[24vw] min-w-[280px] max-w-[340px] snap-center group"
                   >
-                    Enter Eco Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
+                    <div 
+                      className={`w-full h-[400px] md:h-[460px] rounded-3xl relative overflow-hidden transition-all duration-500 border ${
+                        activeWorkDot === idx
+                          ? 'border-neutral-900/10 shadow-lg scale-[1.01] z-20' 
+                          : 'border-neutral-200/50 opacity-90 z-10'
+                      }`}
+                    >
+                      {/* Image layer: full width of the block */}
+                      <div className="absolute inset-0 z-0">
+                        <img 
+                          src={item.image} 
+                          alt={item.title} 
+                          className="w-full h-full object-cover select-none pointer-events-none transition-transform duration-500 group-hover:scale-105" 
+                        />
+                      </div>
+                      
+                      {/* Subtle top overlay for the white tag */}
+                      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/20 via-transparent to-transparent z-10" />
+                      
+                      {/* Dark gradient overlay at the bottom for readability */}
+                      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-neutral-950 via-neutral-950/44 to-transparent z-10" />
+                      
+                      {/* Top Info Overlay */}
+                      <div className="absolute top-6 left-6 z-20 flex justify-between items-start right-6">
+                        <span className={`text-[9px] uppercase font-extrabold px-2.5 py-1 rounded-full border shadow-sm ${
+                          item.badgeType === 'eco' 
+                            ? 'bg-emerald-600/90 text-white border-emerald-500/10' 
+                            : item.badgeType === 'liquid'
+                            ? 'bg-blue-600/90 text-white border-blue-500/10'
+                            : item.badgeType === 'luxury'
+                            ? 'bg-purple-600/90 text-white border-purple-500/10'
+                            : 'bg-orange-600/90 text-white border-orange-500/10'
+                        }`}>
+                          {item.tag}
+                        </span>
+                        
+                        {item.subtag && (
+                          <span className="text-[10px] text-white/95 font-medium italic drop-shadow-sm bg-black/40 px-2 py-0.5 rounded-full">
+                            {item.subtag}
+                          </span>
+                        )}
+                      </div>
 
-              {/* Coffee Demo Card */}
-              <motion.div 
-                className="group relative bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80"
-                    alt="Achieve Coffee Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8 text-white">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-amber-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Beverage</span>
-                    <span className="text-xs text-white/60 font-medium italic">Premium Branding</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3">Achieve Coffee</h3>
-                  <p className="text-white/70 text-sm mb-6 max-w-sm">A minimalist, aesthetic specialty coffee experience with infinite scroll marquee and bold typography.</p>
-                  <Link
-                    to="/free-service/achieve-coffee-demo"
-                    className="inline-flex items-center gap-2 bg-white text-neutral-900 px-6 py-3 rounded-full font-bold transition hover:bg-amber-100"
-                  >
-                    Enter Coffee Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Maxi Foods Demo Card */}
-              <motion.div 
-                className="group relative bg-[#050505] rounded-3xl overflow-hidden shadow-2xl border border-white/5"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/maxi-foods-packaging.jpg"
-                    alt="Maxi Foods Mexican Food Demo"
-                    className="w-full h-full object-contain p-8 bg-[#111] transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8 text-white">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#26c6da] text-black text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Mexican Food</span>
-                    <span className="text-xs text-white/60 font-medium italic">Clean Label</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3">Maxi Foods</h3>
-                  <p className="text-white/70 text-sm mb-6 max-w-sm">Authentic Mexican staples redesigned with a modern health-conscious aesthetic and vibrant glassmorphism.</p>
-                  <Link
-                    to="/free-service/maxi-foods-demo"
-                    className="inline-flex items-center gap-2 bg-[#26c6da] text-black px-6 py-3 rounded-full font-bold transition hover:bg-white"
-                  >
-                    Enter Mexican Food Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Chips Demo Card */}
-              <motion.div 
-                className="group relative bg-[#0A0A0A] rounded-3xl overflow-hidden shadow-2xl border border-white/5"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/demo-site/chips/a_achievepack_fiery_chili_lime_hero_kv_4003688.webp"
-                    alt="Achieve Chips Organic Snacks Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8 text-white">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#C75B39] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Snacks</span>
-                    <span className="text-xs text-white/60 font-medium italic">Organic Chips</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3">Achieve Chips</h3>
-                  <p className="text-white/70 text-sm mb-6 max-w-sm">Premium organic potato chips with bold flavors and 100% compostable packaging. Modern e-commerce design.</p>
-                  <Link
-                    to="/free-service/achieve-chips-demo"
-                    className="inline-flex items-center gap-2 bg-[#C75B39] text-white px-6 py-3 rounded-full font-bold transition hover:bg-white hover:text-black"
-                  >
-                    Enter Chips Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Tea Demo Card */}
-              <motion.div 
-                className="group relative bg-[#FDFBF7] rounded-3xl overflow-hidden shadow-2xl border border-neutral-200"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/demo-site/tea/hero.png"
-                    alt="Achieve Tea Organic"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#4A7C59] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Beverage</span>
-                    <span className="text-xs text-white/90 font-medium italic">Organic Tea</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3 text-white">Achieve Tea</h3>
-                  <p className="text-white/90 text-sm mb-6 max-w-sm">A serene, eco-luxury tea brand experience highlighting plastic-free, compostable packaging and wellness.</p>
-                  <Link
-                    to="/free-service/achieve-tea-demo"
-                    className="inline-flex items-center gap-2 bg-[#4A7C59] text-white px-6 py-3 rounded-full font-bold transition hover:bg-[#2C3E50]"
-                  >
-                    Enter Tea Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Energy Demo Card */}
-              <motion.div 
-                className="group relative bg-[#000] rounded-3xl overflow-hidden shadow-2xl border border-[#D4FF00]/50"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/demo-site/energy/hero.png"
-                    alt="Achieve Energy Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8 text-white">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#D4FF00] text-black text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Energy</span>
-                    <span className="text-xs text-[#D4FF00] font-medium italic">High Voltage</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3 text-white">Achieve Energy</h3>
-                  <p className="text-white/80 text-sm mb-6 max-w-sm">Futuristic dark mode design with neon accents. High-energy visuals for a next-gen spouted pouch product.</p>
-                  <Link
-                    to="/free-service/achieve-energy-demo"
-                    className="inline-flex items-center gap-2 bg-[#D4FF00] text-black px-6 py-3 rounded-full font-bold transition hover:bg-white"
-                  >
-                    Enter Energy Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Honey Demo Card */}
-              <motion.div 
-                className="group relative bg-[#FDFBF7] rounded-3xl overflow-hidden shadow-2xl border border-amber-200"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/demo-site/honey/hero.png"
-                    alt="Achieve Honey Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#5B4839]/80 via-transparent to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8 text-white">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-amber-500 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Nature</span>
-                    <span className="text-xs text-amber-200 font-medium italic">Sweetest Gift</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3 text-white font-serif">Achieve Honey</h3>
-                  <p className="text-white/90 text-sm mb-6 max-w-sm">Organic honey drinks in eco-friendly bottle-shaped pouches. Experience the taste of nature.</p>
-                  <Link
-                    to="/free-service/achieve-honey-demo"
-                    className="inline-flex items-center gap-2 bg-amber-500 text-white px-6 py-3 rounded-full font-bold transition hover:bg-amber-600 shadow-lg"
-                  >
-                    Enter Honey Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Chocolate Demo Card */}
-              <motion.div 
-                className="group relative bg-[#2C1810] rounded-3xl overflow-hidden shadow-2xl border border-[#D4AF37]/20"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/achieve-chocolate/hero-main.png"
-                    alt="Achieve Chocolate Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8 text-white">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#D4AF37] text-[#2C1810] text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Confectionery</span>
-                    <span className="text-xs text-[#D4AF37]/80 font-medium italic">Luxury Experience</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3 text-[#D4AF37]">Achieve Chocolate</h3>
-                  <p className="text-white/80 text-sm mb-6 max-w-sm">A sustainable luxury chocolate brand showcase featuring premium rigid boxes and compostable pouches.</p>
-                  <Link
-                    to="/free-service/achieve-chocolate-demo"
-                    className="inline-flex items-center gap-2 bg-[#D4AF37] text-[#2C1810] px-6 py-3 rounded-full font-bold transition hover:bg-white"
-                  >
-                    Enter Chocolate Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Supplements Demo Card */}
-              <motion.div 
-                className="group relative bg-[#F5F5F7] rounded-3xl overflow-hidden shadow-2xl border border-white/50"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=2574&auto=format&fit=crop"
-                    alt="Achieve Supplements Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#FFE135] text-black text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Health</span>
-                    <span className="text-xs text-black/70 font-medium italic">Nano Tech</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3 text-black">Achieve Supps</h3>
-                  <p className="text-gray-600 text-sm mb-6 max-w-sm">Scientific minimalist branding for stick packs. Highlighting precision dosage and clean ingredients.</p>
-                  <Link
-                    to="/free-service/achieve-supplement-demo"
-                    className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full font-bold transition hover:bg-[#FFE135] hover:text-black"
-                  >
-                    Enter Supplement Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Superfood Demo Card */}
-              <motion.div 
-                className="group relative bg-[#FDFBF7] rounded-3xl overflow-hidden shadow-2xl border border-green-200"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/demo-site/superfood/hero.png"
-                    alt="Achieve Superfood Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 via-transparent to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-green-700 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Wellness</span>
-                    <span className="text-xs text-stone-100 font-medium italic">Pure Superfoods</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-sm">Achieve Superfood</h3>
-                  <p className="text-stone-100 text-sm mb-6 max-w-sm font-medium drop-shadow-md">Earthy, organic branding for premium superfoods. Highlighting compostable pouch textures and natural ingredients.</p>
-                  <Link
-                    to="/free-service/achieve-superfood-demo"
-                    className="inline-flex items-center gap-2 bg-green-700 text-white px-6 py-3 rounded-full font-bold transition hover:bg-green-800 shadow-lg"
-                  >
-                    Enter Superfood Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Cleaning Demo Card */}
-              <motion.div 
-                className="group relative bg-[#F0F9FF] rounded-3xl overflow-hidden shadow-2xl border border-cyan-200"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/demo-site/cleaning/hero.png"
-                    alt="Achieve Cleaning Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-cyan-600 text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Home Care</span>
-                    <span className="text-xs text-slate-100 font-medium italic">Plastic Free</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-sm">Achieve Cleaning</h3>
-                  <p className="text-slate-100 text-sm mb-6 max-w-sm font-medium drop-shadow-md">Revolutionary concentrated cleaning tablets in nano banana pro packaging. Modern, clean, and zero-waste aesthetic.</p>
-                  <Link
-                    to="/free-service/achieve-cleaning-demo"
-                    className="inline-flex items-center gap-2 bg-cyan-600 text-white px-6 py-3 rounded-full font-bold transition hover:bg-cyan-700 shadow-lg"
-                  >
-                    Enter Cleaning Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Spreads Demo Card */}
-              <motion.div 
-                className="group relative bg-[#FDFAF5] rounded-3xl overflow-hidden shadow-2xl border border-amber-900/10"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/demo-site/spreads/hero.png"
-                    alt="Achieve Spreads Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#3E2723]/60 via-transparent to-transparent" />
-                </div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#8B5A2B] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Food</span>
-                    <span className="text-xs text-[#FDFAF5] font-medium italic">Squeeze Pack</span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-3 text-white drop-shadow-sm">Achieve Spreads</h3>
-                  <p className="text-[#FDFAF5] text-sm mb-6 max-w-sm font-medium drop-shadow-md">Premium nut butters in compostable Nano Banana Pro squeeze pouches. Earthy, organic, and mess-free.</p>
-                  <Link
-                    to="/free-service/achieve-spreads-demo"
-                    className="inline-flex items-center gap-2 bg-[#8B5A2B] text-white px-6 py-3 rounded-full font-bold transition hover:bg-[#6D4C41] shadow-lg"
-                  >
-                    Enter Spreads Demo Site <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Muesli Demo Card */}
-              <motion.div 
-                className="group relative bg-[#1A1A1A] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#00FFFF]"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/demo-site/muesli/hero.png"
-                    alt="Achieve Muesli Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-transparent to-transparent" />
-                </div>
-                <div className="absolute top-0 right-0 p-4">
-                  <span className="bg-[#FF007F] text-white text-[10px] font-black uppercase px-3 py-1 rounded-sm rotate-3 shadow-[2px_2px_0px_0px_#00FFFF]">Vibrant</span>
-                </div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#00FFFF] text-[#1A1A1A] text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-widest border border-[#1A1A1A]">Breakfast</span>
-                    <span className="text-xs text-[#00FFFF] font-bold italic">Full Print Pouch</span>
-                  </div>
-                  <h3 className="text-3xl font-black mb-3 text-white drop-shadow-sm uppercase">Achieve Muesli</h3>
-                  <p className="text-gray-300 text-sm mb-6 max-w-sm font-bold">Pop-art inspired muesli brand with edge-to-edge printing on biodegradable Nano Banana Pro.</p>
-                  <Link
-                    to="/free-service/achieve-muesli-demo"
-                    className="inline-flex items-center gap-2 bg-[#FFD700] text-[#1A1A1A] px-6 py-3 rounded-full font-black transition hover:bg-white hover:scale-105 shadow-[4px_4px_0px_0px_#FF007F]"
-                  >
-                    ENTER VIBE <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Bath Demo Card */}
-              <motion.div 
-                className="group relative bg-[#FAFAFA] rounded-3xl overflow-hidden shadow-2xl border border-neutral-100"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src="/imgs/demo-site/bath/hero.png"
-                    alt="Achieve Bath Demo"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/40 via-transparent to-transparent" />
-                </div>
-                <div className="absolute top-0 right-0 p-4">
-                  <span className="bg-white text-neutral-900 text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-sm shadow-sm border border-neutral-100">Luxury</span>
-                </div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-neutral-900 text-white text-[10px] font-medium uppercase px-3 py-1 rounded-full tracking-widest">Personal Care</span>
-                    <span className="text-xs text-white/90 font-serif italic">Nano Banana Pro™ Clear</span>
-                  </div>
-                  <h3 className="text-3xl font-serif mb-3 text-white drop-shadow-md">Achieve Bath</h3>
-                  <p className="text-white/80 text-sm mb-6 max-w-sm font-light leading-relaxed drop-shadow-sm">Minimalist luxury bath bombs in revolutionary clear compostable pouches. Experience the purity of direct print.</p>
-                  <Link
-                    to="/free-service/achieve-bath-demo"
-                    className="inline-flex items-center gap-2 bg-white text-neutral-900 px-6 py-3 rounded-sm text-xs font-bold uppercase tracking-widest transition hover:bg-neutral-200 shadow-lg"
-                  >
-                    Enter Ritual <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Pet Demo Card */}
-              <motion.div 
-                className="group relative bg-[#FDFBF7] rounded-3xl overflow-hidden shadow-2xl border border-[#8B4513]/20"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden bg-[#D4FF00]">
-                  <img
-                    src="/imgs/demo-site/pet/hero.png"
-                    alt="Achieve Pet Treats Demo"
-                    className="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-105 group-hover:rotate-3"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                </div>
-                <div className="absolute top-0 right-0 p-4">
-                   <span className="bg-[#FF00FF] text-black text-[10px] font-black uppercase px-3 py-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">v2.0 Beta</span>
-                </div>
-                <div className="absolute bottom-0 left-0 p-8">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-[#00FFFF] text-black text-[10px] font-black uppercase px-3 py-1 border-2 border-black tracking-widest">System</span>
-                    <span className="text-xs text-[#D4FF00] font-mono font-bold">PAW.OS</span>
-                  </div>
-                  <h3 className="text-3xl font-black mb-3 text-white uppercase tracking-tighter drop-shadow-md">PAW.OS</h3>
-                  <p className="text-white/90 text-sm mb-6 max-w-sm font-mono font-bold drop-shadow-sm">Neo-Brutalist pet nutrition interface. High-vis packaging for high-performance biological units.</p>
-                  <Link
-                    to="/free-service/achieve-pet-demo"
-                    className="inline-flex items-center gap-2 bg-[#D4FF00] text-black border-2 border-black px-6 py-3 font-black uppercase tracking-widest transition hover:bg-white hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]"
-                  >
-                    BOOT_DEMO.EXE <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Achieve Skin Demo Card */}
-              <motion.div 
-                className="group relative bg-[#F8FAFC] rounded-3xl overflow-hidden shadow-2xl border border-white/50"
-                variants={fadeInUp}
-                whileHover={{ y: -12, transition: { duration: 0.3 } }}
-              >
-                <div className="aspect-[16/10] overflow-hidden relative">
-                  {/* Fluid Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-purple-100 to-cyan-100 animate-pulse" />
-                  <div className="absolute top-0 -left-1/4 w-full h-full bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
-                  <div className="absolute bottom-0 -right-1/4 w-full h-full bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
-                  
-                  <img
-                    src="/imgs/demo-site/skin/hero.png"
-                    alt="Achieve Skin Demo"
-                    className="w-full h-full object-contain p-8 relative z-10 transition-transform duration-700 group-hover:scale-105"
-                  />
-                  
-                  {/* Glass Overlay */}
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
-                </div>
-
-                <div className="absolute top-0 right-0 p-4 z-20">
-                   <span className="bg-white/30 backdrop-blur-md border border-white/50 text-slate-700 text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow-sm">
-                      Ethereal
-                   </span>
-                </div>
-
-                <div className="absolute bottom-0 left-0 p-8 z-20 w-full">
-                  <div className="absolute inset-0 bg-white/60 backdrop-blur-md mask-gradient-to-t" />
-                  <div className="relative">
-                     <div className="flex items-center gap-2 mb-3">
-                       <span className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-cyan-400" />
-                       <span className="text-xs text-slate-500 font-serif italic">Liquid Refills</span>
-                     </div>
-                     <h3 className="text-3xl font-serif mb-3 text-slate-800 italic">Achieve Skin</h3>
-                     <p className="text-slate-600 text-sm mb-6 max-w-sm font-sans font-light leading-relaxed">
-                        Holographic spout pouches for premium serums. Glassmorphism UI with fluid animations.
-                     </p>
-                     <Link
-                       to="/free-service/achieve-skin-demo"
-                       className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition hover:bg-slate-700 shadow-lg"
-                     >
-                       Enter Void <ArrowRight className="h-3 w-3" />
-                     </Link>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Achieve Baby Demo Card */}
-              <motion.div 
-                className="group relative bg-[#FFF5F5] rounded-3xl border-4 border-transparent hover:border-[#FFABAB]/50 overflow-hidden shadow-sm hover:shadow-[0_20px_40px_rgba(255,171,171,0.2)] transition-all duration-500"
-                variants={fadeInUp}
-                whileHover={{ y: -8 }}
-              >
-                <div className="aspect-[16/10] overflow-hidden bg-[#E3F9E5] relative">
-                  {/* Soft Blobs */}
-                  <div className="absolute top-[-50%] right-[-50%] w-[150%] h-[150%] bg-[#FFABAB] rounded-full blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity" />
-                  
-                  <img
-                    src="/imgs/demo-site/baby/achieve_baby_hero_v2_1770342396693.png"
-                    alt="Achieve Baby Demo"
-                    className="w-full h-full object-contain p-8 relative z-10 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-2"
-                  />
-                  
-                  <div className="absolute bottom-4 left-4 z-20">
-                     <span className="px-3 py-1 bg-white/80 backdrop-blur-md rounded-full text-xs font-bold text-[#FFABAB] shadow-sm">
-                       NEW • Claymorphism
-                     </span>
-                  </div>
-                </div>
-
-                <div className="p-8">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-[#2D3748] mb-1 group-hover:text-[#FFABAB] transition-colors">Achieve Baby</h3>
-                      <p className="text-[#A0AEC0] text-sm font-medium">Safe & Gentle Nutrition</p>
+                      {/* Bottom Content Overlay */}
+                      <div className="relative z-20 p-6 w-full flex flex-col items-start mt-auto h-full justify-end">
+                        <h3 className="text-white font-bold text-base md:text-lg mb-1 leading-snug">
+                          {item.title}
+                        </h3>
+                        <p className="text-neutral-200 text-xs font-light mb-4 leading-normal line-clamp-2">
+                          {item.desc}
+                        </p>
+                        
+                        <Link 
+                          to={SEO_PAGES[idx % SEO_PAGES.length]}
+                          className="px-6 py-2 bg-white hover:bg-neutral-100 text-neutral-950 font-bold rounded-full text-[11px] uppercase tracking-wider transition-all duration-300 shadow-md self-start inline-flex items-center gap-1.5"
+                        >
+                          View Demo <ArrowRight className="h-3 w-3" />
+                        </Link>
+                      </div>
                     </div>
-                    <Star className="w-6 h-6 text-[#FFABAB] fill-[#FFABAB]" />
                   </div>
-                  
-                  <p className="text-[#718096] mb-8 line-clamp-2">
-                    A "Soft 3D" experience featuring puffy claymorphism, pastel aesthetics, and gentle interactions designed for parent trust.
-                  </p>
+                )
+              })}
+            </div>
+          </div>
 
-                  <Link
-                    to="/free-service/achieve-baby-demo"
-                    className="flex w-full items-center justify-center px-6 py-4 bg-white text-[#FFABAB] font-bold rounded-xl shadow-sm border border-[#FFABAB]/20 group-hover:bg-[#FFABAB] group-hover:text-white group-hover:shadow-md transition-all duration-300"
+          {/* Pagination Dots for Work Carousel */}
+          <div className="flex justify-center gap-2 pb-6 flex-wrap px-4 max-w-lg mx-auto">
+            {ourWorkDemos.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollToWorkSlide(idx)}
+                className={`w-2 h-2 rounded-full border-none transition-all duration-300 ${
+                  activeWorkDot === idx 
+                    ? 'bg-neutral-800 scale-125 shadow-sm' 
+                    : 'bg-neutral-300 hover:bg-neutral-400'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* See Our Know How Section */}
+        <section id="know-how" className="py-20 md:py-32 bg-white overflow-hidden font-sans border-b border-neutral-200/50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-6">See Our Know How</h2>
+              <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+                Explore our comprehensive knowledge base on sustainable materials, packaging specifications, cost structures, and D2C strategies.
+              </p>
+            </div>
+          </div>
+
+          {/* Scrollable Know How Track */}
+          <div className="w-full overflow-visible py-8">
+            <div 
+              ref={knowHowScrollerRef}
+              onMouseDown={handleKnowHowMouseDown}
+              onMouseLeave={handleKnowHowMouseLeave}
+              onMouseUp={handleKnowHowMouseUp}
+              onMouseMove={handleKnowHowMouseMove}
+              onScroll={handleKnowHowScroll}
+              className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 px-[5%] md:px-[10%] py-4 scrollbar-none select-none cursor-grab active:cursor-grabbing"
+            >
+              {seoKnowHowCards.map((item, idx) => {
+                return (
+                  <div 
+                    key={idx} 
+                    className="knowhow-carousel-item-node flex-none w-[76vw] md:w-[24vw] min-w-[280px] max-w-[340px] snap-center group"
                   >
-                    View Demo
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </motion.div>
-            </motion.div>
+                    <div 
+                      className={`w-full h-[400px] md:h-[460px] rounded-3xl relative overflow-hidden transition-all duration-500 border ${
+                        activeKnowHowDot === idx
+                          ? 'border-neutral-900/10 shadow-lg scale-[1.01] z-20' 
+                          : 'border-neutral-200/50 opacity-90 z-10'
+                      }`}
+                    >
+                      {/* Image layer: full width of the block */}
+                      <div className="absolute inset-0 z-0">
+                        <img 
+                          src={item.image} 
+                          alt={item.title} 
+                          className="w-full h-full object-cover select-none pointer-events-none transition-transform duration-500 group-hover:scale-105" 
+                        />
+                      </div>
+                      
+                      {/* Subtle top overlay for the white tag */}
+                      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/20 via-transparent to-transparent z-10" />
+                      
+                      {/* Dark gradient overlay at the bottom for readability */}
+                      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-neutral-950 via-neutral-950/44 to-transparent z-10" />
+                      
+                      {/* Top Info Overlay */}
+                      <div className="absolute top-6 left-6 z-20 flex justify-between items-start right-6">
+                        <span className={`text-[9px] uppercase font-extrabold px-2.5 py-1 rounded-full border shadow-sm ${
+                          item.badgeType === 'eco' 
+                            ? 'bg-emerald-600/90 text-white border-emerald-500/10' 
+                            : item.badgeType === 'liquid'
+                            ? 'bg-blue-600/90 text-white border-blue-500/10'
+                            : item.badgeType === 'luxury'
+                            ? 'bg-purple-600/90 text-white border-purple-500/10'
+                            : 'bg-orange-600/90 text-white border-orange-500/10'
+                        }`}>
+                          {item.tag}
+                        </span>
+                      </div>
+
+                      {/* Bottom Content Overlay */}
+                      <div className="relative z-20 p-6 w-full flex flex-col items-start mt-auto h-full justify-end">
+                        <h3 className="text-white font-bold text-base md:text-lg mb-1 leading-snug">
+                          {item.title}
+                        </h3>
+                        <p className="text-neutral-200 text-xs font-light mb-4 leading-normal line-clamp-2">
+                          {item.desc}
+                        </p>
+                        
+                        <Link 
+                          to={item.link}
+                          className="px-6 py-2 bg-white hover:bg-neutral-100 text-neutral-950 font-bold rounded-full text-[11px] uppercase tracking-wider transition-all duration-300 shadow-md self-start inline-flex items-center gap-1.5"
+                        >
+                          Read Guide <ArrowRight className="h-3 w-3" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Pagination Dots for Know How Carousel */}
+          <div className="flex justify-center gap-2 pb-6 flex-wrap px-4 max-w-xl mx-auto">
+            {seoKnowHowCards.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollToKnowHowSlide(idx)}
+                className={`w-2 h-2 rounded-full border-none transition-all duration-300 ${
+                  activeKnowHowDot === idx 
+                    ? 'bg-neutral-800 scale-125 shadow-sm' 
+                    : 'bg-neutral-300 hover:bg-neutral-400'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
           </div>
         </section>
 

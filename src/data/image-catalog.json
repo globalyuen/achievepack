@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-06",
-  "total_images": 2847,
+  "total_images": 2853,
   "total_categories": 170,
   "extensions": {
     ".webp": 1303,
-    ".png": 1309,
+    ".png": 1315,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,43 +800,49 @@
       ]
     },
     "blog/heros": {
-      "count": 154,
+      "count": 155,
       "images": [
+        {
+          "filename": "stand-up-pouch-dimensions-16-oz-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-dimensions-16-oz-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.695Z"
+        },
         {
           "filename": "digital-printing-on-sustainable-pouches-hero.png",
           "path": "/imgs/blog/heros/digital-printing-on-sustainable-pouches-hero.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:45:27.518Z"
+          "modified": "2026-06-06T09:04:45.577Z"
         },
         {
           "filename": "mono-material-compostable-pouches-for-snacks-hero.png",
           "path": "/imgs/blog/heros/mono-material-compostable-pouches-for-snacks-hero.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:30:22.180Z"
+          "modified": "2026-06-06T09:04:45.558Z"
         },
         {
           "filename": "kraft-paper-sachet-dimensions-hero.png",
           "path": "/imgs/blog/heros/kraft-paper-sachet-dimensions-hero.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:15:22.081Z"
+          "modified": "2026-06-06T09:04:45.541Z"
         },
         {
           "filename": "barrier-film-for-compostable-packaging-hero.png",
           "path": "/imgs/blog/heros/barrier-film-for-compostable-packaging-hero.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:00:20.879Z"
+          "modified": "2026-06-06T09:04:45.525Z"
         },
         {
           "filename": "sustainable-stand-up-pouch-suppliers-low-moq-hero.png",
           "path": "/imgs/blog/heros/sustainable-stand-up-pouch-suppliers-low-moq-hero.png",
           "extension": ".png",
-          "modified": "2026-06-06T07:45:25.371Z"
+          "modified": "2026-06-06T09:04:45.510Z"
         },
         {
           "filename": "compostable-retort-bags-for-baby-food-hero.png",
           "path": "/imgs/blog/heros/compostable-retort-bags-for-baby-food-hero.png",
           "extension": ".png",
-          "modified": "2026-06-06T07:30:26.532Z"
+          "modified": "2026-06-06T09:04:45.495Z"
         },
         {
           "filename": "custom-digital-print-flexible-packaging-hero.png",
@@ -11468,175 +11474,205 @@
       ]
     },
     "seo-pages": {
-      "count": 28,
+      "count": 33,
       "images": [
+        {
+          "filename": "recycled-ocean-plastic-packaging-seo-infographic.png",
+          "path": "/imgs/seo-pages/recycled-ocean-plastic-packaging-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.727Z"
+        },
         {
           "filename": "pfas-free-packaging-seo-infographic.png",
           "path": "/imgs/seo-pages/pfas-free-packaging-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:51:41.281Z"
+          "modified": "2026-06-06T09:04:45.721Z"
+        },
+        {
+          "filename": "mono-pe-pouches-seo-infographic.png",
+          "path": "/imgs/seo-pages/mono-pe-pouches-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.718Z"
+        },
+        {
+          "filename": "minimalist-d2c-packaging-seo-infographic.png",
+          "path": "/imgs/seo-pages/minimalist-d2c-packaging-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.715Z"
+        },
+        {
+          "filename": "home-compostable-coffee-bags-seo-infographic.png",
+          "path": "/imgs/seo-pages/home-compostable-coffee-bags-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.710Z"
         },
         {
           "filename": "custom-vs-standard-packaging-seo-infographic.png",
           "path": "/imgs/seo-pages/custom-vs-standard-packaging-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:50:29.202Z"
-        },
-        {
-          "filename": "compostable-spouted-pouches-seo-infographic.png",
-          "path": "/imgs/seo-pages/compostable-spouted-pouches-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:49:32.257Z"
+          "modified": "2026-06-06T09:04:45.706Z"
         },
         {
           "filename": "compostable-zipper-durability-seo-infographic.png",
           "path": "/imgs/seo-pages/compostable-zipper-durability-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:48:22.704Z"
+          "modified": "2026-06-06T09:04:45.703Z"
         },
         {
-          "filename": "compostable-humidity-control-seo-infographic.png",
-          "path": "/imgs/seo-pages/compostable-humidity-control-seo-infographic.png",
+          "filename": "compostable-spouted-pouches-seo-infographic.png",
+          "path": "/imgs/seo-pages/compostable-spouted-pouches-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:47:17.187Z"
+          "modified": "2026-06-06T09:04:45.700Z"
         },
         {
-          "filename": "compostable-baby-food-bags-seo-infographic.png",
-          "path": "/imgs/seo-pages/compostable-baby-food-bags-seo-infographic.png",
+          "filename": "child-resistant-mylar-bags-seo-infographic.png",
+          "path": "/imgs/seo-pages/child-resistant-mylar-bags-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:46:13.192Z"
-        },
-        {
-          "filename": "low-moq-startup-packaging-seo-infographic.png",
-          "path": "/imgs/seo-pages/low-moq-startup-packaging-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:45:01.628Z"
-        },
-        {
-          "filename": "custom-compostable-pouch-suppliers-seo-infographic.png",
-          "path": "/imgs/seo-pages/custom-compostable-pouch-suppliers-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:44:03.679Z"
-        },
-        {
-          "filename": "eco-packaging-regulations-seo-infographic.png",
-          "path": "/imgs/seo-pages/eco-packaging-regulations-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:43:19.302Z"
-        },
-        {
-          "filename": "custom-printed-sustainable-pouches-seo-infographic.png",
-          "path": "/imgs/seo-pages/custom-printed-sustainable-pouches-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:42:20.835Z"
-        },
-        {
-          "filename": "recyclable-snack-packaging-seo-infographic.png",
-          "path": "/imgs/seo-pages/recyclable-snack-packaging-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:41:24.375Z"
-        },
-        {
-          "filename": "digital-printing-eco-packaging-seo-infographic.png",
-          "path": "/imgs/seo-pages/digital-printing-eco-packaging-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:40:19.899Z"
-        },
-        {
-          "filename": "green-coffee-materials-seo-infographic.png",
-          "path": "/imgs/seo-pages/green-coffee-materials-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:39:41.130Z"
-        },
-        {
-          "filename": "dtc-sustainable-packaging-seo-infographic.png",
-          "path": "/imgs/seo-pages/dtc-sustainable-packaging-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:38:57.307Z"
-        },
-        {
-          "filename": "eco-friendly-food-packaging-seo-infographic.png",
-          "path": "/imgs/seo-pages/eco-friendly-food-packaging-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:38:20.050Z"
-        },
-        {
-          "filename": "snack-brand-manager-seo-infographic.png",
-          "path": "/imgs/seo-pages/snack-brand-manager-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:37:43.271Z"
-        },
-        {
-          "filename": "artisan-producer-seo-infographic.png",
-          "path": "/imgs/seo-pages/artisan-producer-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:36:59.440Z"
-        },
-        {
-          "filename": "coffee-roaster-seo-infographic.png",
-          "path": "/imgs/seo-pages/coffee-roaster-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:36:23.675Z"
-        },
-        {
-          "filename": "product-developer-seo-infographic.png",
-          "path": "/imgs/seo-pages/product-developer-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:35:53.441Z"
-        },
-        {
-          "filename": "food-manufacturer-seo-infographic.png",
-          "path": "/imgs/seo-pages/food-manufacturer-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:35:24.222Z"
-        },
-        {
-          "filename": "corporate-sustainability-seo-infographic.png",
-          "path": "/imgs/seo-pages/corporate-sustainability-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:34:57.514Z"
-        },
-        {
-          "filename": "ecommerce-brand-seo-infographic.png",
-          "path": "/imgs/seo-pages/ecommerce-brand-seo-infographic.png",
-          "extension": ".png",
-          "modified": "2026-06-06T08:34:33.331Z"
+          "modified": "2026-06-06T09:04:45.697Z"
         },
         {
           "filename": "startup-founder-seo-infographic.png",
           "path": "/imgs/seo-pages/startup-founder-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:34:05.601Z"
+          "modified": "2026-06-06T09:04:45.659Z"
         },
         {
-          "filename": "low-moq-packaging-seo-infographic.png",
-          "path": "/imgs/seo-pages/low-moq-packaging-seo-infographic.png",
+          "filename": "snack-brand-manager-seo-infographic.png",
+          "path": "/imgs/seo-pages/snack-brand-manager-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:33:41.410Z"
+          "modified": "2026-06-06T09:04:45.656Z"
         },
         {
-          "filename": "coffee-bags-degassing-valve-seo-infographic.png",
-          "path": "/imgs/seo-pages/coffee-bags-degassing-valve-seo-infographic.png",
+          "filename": "recyclable-snack-packaging-seo-infographic.png",
+          "path": "/imgs/seo-pages/recyclable-snack-packaging-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:33:21.271Z"
+          "modified": "2026-06-06T09:04:45.652Z"
         },
         {
           "filename": "recyclable-mono-material-pouches-seo-infographic.png",
           "path": "/imgs/seo-pages/recyclable-mono-material-pouches-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:32:55.060Z"
+          "modified": "2026-06-06T09:04:45.649Z"
+        },
+        {
+          "filename": "product-developer-seo-infographic.png",
+          "path": "/imgs/seo-pages/product-developer-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.646Z"
+        },
+        {
+          "filename": "low-moq-startup-packaging-seo-infographic.png",
+          "path": "/imgs/seo-pages/low-moq-startup-packaging-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.643Z"
+        },
+        {
+          "filename": "low-moq-packaging-seo-infographic.png",
+          "path": "/imgs/seo-pages/low-moq-packaging-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.640Z"
+        },
+        {
+          "filename": "green-coffee-materials-seo-infographic.png",
+          "path": "/imgs/seo-pages/green-coffee-materials-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.637Z"
+        },
+        {
+          "filename": "food-manufacturer-seo-infographic.png",
+          "path": "/imgs/seo-pages/food-manufacturer-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.634Z"
+        },
+        {
+          "filename": "ecommerce-brand-seo-infographic.png",
+          "path": "/imgs/seo-pages/ecommerce-brand-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.630Z"
+        },
+        {
+          "filename": "eco-packaging-regulations-seo-infographic.png",
+          "path": "/imgs/seo-pages/eco-packaging-regulations-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.627Z"
+        },
+        {
+          "filename": "eco-friendly-food-packaging-seo-infographic.png",
+          "path": "/imgs/seo-pages/eco-friendly-food-packaging-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.622Z"
+        },
+        {
+          "filename": "dtc-sustainable-packaging-seo-infographic.png",
+          "path": "/imgs/seo-pages/dtc-sustainable-packaging-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.618Z"
+        },
+        {
+          "filename": "digital-printing-eco-packaging-seo-infographic.png",
+          "path": "/imgs/seo-pages/digital-printing-eco-packaging-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.616Z"
+        },
+        {
+          "filename": "custom-printed-sustainable-pouches-seo-infographic.png",
+          "path": "/imgs/seo-pages/custom-printed-sustainable-pouches-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.613Z"
+        },
+        {
+          "filename": "custom-compostable-pouch-suppliers-seo-infographic.png",
+          "path": "/imgs/seo-pages/custom-compostable-pouch-suppliers-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.609Z"
+        },
+        {
+          "filename": "corporate-sustainability-seo-infographic.png",
+          "path": "/imgs/seo-pages/corporate-sustainability-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.603Z"
         },
         {
           "filename": "compostable-stand-up-pouches-seo-infographic.png",
           "path": "/imgs/seo-pages/compostable-stand-up-pouches-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:32:37.422Z"
+          "modified": "2026-06-06T09:04:45.599Z"
+        },
+        {
+          "filename": "compostable-humidity-control-seo-infographic.png",
+          "path": "/imgs/seo-pages/compostable-humidity-control-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.595Z"
         },
         {
           "filename": "compostable-coffee-bags-seo-infographic.png",
           "path": "/imgs/seo-pages/compostable-coffee-bags-seo-infographic.png",
           "extension": ".png",
-          "modified": "2026-06-06T08:31:37.159Z"
+          "modified": "2026-06-06T09:04:45.591Z"
+        },
+        {
+          "filename": "compostable-baby-food-bags-seo-infographic.png",
+          "path": "/imgs/seo-pages/compostable-baby-food-bags-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.587Z"
+        },
+        {
+          "filename": "coffee-roaster-seo-infographic.png",
+          "path": "/imgs/seo-pages/coffee-roaster-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.584Z"
+        },
+        {
+          "filename": "coffee-bags-degassing-valve-seo-infographic.png",
+          "path": "/imgs/seo-pages/coffee-bags-degassing-valve-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.581Z"
+        },
+        {
+          "filename": "artisan-producer-seo-infographic.png",
+          "path": "/imgs/seo-pages/artisan-producer-seo-infographic.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:04:45.579Z"
         }
       ]
     },
