@@ -110,6 +110,170 @@ export default function PouchHomePage() {
   const navigate = useNavigate()
   const productsRef = useRef<HTMLElement>(null)
 
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+  const videoRef1 = useRef<HTMLVideoElement>(null)
+  const videoRef2 = useRef<HTMLVideoElement>(null)
+  const videoRef3 = useRef<HTMLVideoElement>(null)
+  const videoRef4 = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (activeHeroIndex === 0) {
+      videoRef1.current?.play().catch((err) => console.log(err))
+      if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
+      if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
+      if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
+    } else if (activeHeroIndex === 1) {
+      videoRef2.current?.play().catch((err) => console.log(err))
+      if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
+      if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
+      if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
+    } else if (activeHeroIndex === 2) {
+      videoRef3.current?.play().catch((err) => console.log(err))
+      if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
+      if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
+      if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
+    } else {
+      videoRef4.current?.play().catch((err) => console.log(err))
+      if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
+      if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
+      if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
+    }
+  }, [activeHeroIndex])
+
+  const offsetVal = isMobile ? 16 : 40
+  const slideVal = isMobile ? 120 : 260
+
+  const card1Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 30,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, -slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, -10, 10],
+      scale: 1,
+      zIndex: [40, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
+      }
+    }
+  }
+
+  const card2Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 30,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, 10, 10],
+      scale: 1,
+      zIndex: [40, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
+      }
+    }
+  }
+
+  const card3Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 30,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, -slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, -10, 10],
+      scale: 1,
+      zIndex: [40, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
+      }
+    }
+  }
+
+  const card4Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 30,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, 10, 10],
+      scale: 1,
+      zIndex: [40, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
+      }
+    }
+  }
+
   const [slogan, setSlogan] = useState("Your Customers Care What Their Products Are Made Of & Where They End Up. Your Packaging Should Too.");
 
   useEffect(() => {
@@ -297,35 +461,100 @@ export default function PouchHomePage() {
               </div>
             </div>
 
-            {/* Right Visual */}
-            <div className="relative flex justify-center lg:justify-end">
-              <NeoCard className="bg-[#00FFFF] relative z-10 rotate-2 !p-0 overflow-hidden group max-w-md w-full aspect-square">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00FFFF] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster="/video/hero/cover.jpg"
-                  className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
-                >
-                  <source src="/video/hero/bag.mp4" type="video/mp4" />
-                  <source src="/video/hero/bag.mov" type="video/quicktime" />
-                </video>
-                
-                {/* Floating Tag */}
-                <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
-                  COMPOSTABLE_OK
-                </motion.div>
-                
-                {/* Overlay Texture */}
-                <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
-              </NeoCard>
+            {/* Right Visual - Rotating Card Stack */}
+            <div className="relative w-full max-w-md aspect-square mx-auto lg:ml-auto lg:mr-0 mb-10 md:mb-0">
               
-              {/* Decorative Background Elements */}
-              <div className="absolute top-10 -right-4 md:-right-10 w-full h-full border-4 border-black bg-[#D4FF00] -z-0 rotate-6 translate-y-4 translate-x-4" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#FF00FF] border-4 border-black flex items-center justify-center animate-bounce z-20 hidden md:flex">
-                <span className="font-black text-xl rotate-[-15deg]">500!</span>
+              {/* Card 1: Bag Video */}
+              <motion.div
+                variants={card1Variants}
+                animate={activeHeroIndex === 0 ? "front" : (activeHeroIndex === 2 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <NeoCard className="bg-[#00FFFF] w-full h-full !p-0 overflow-hidden group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#00FFFF] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
+                  <video
+                    ref={videoRef1}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(1)}
+                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/bag.mp4" type="video/mp4" />
+                    <source src="/video/hero/bag.mov" type="video/quicktime" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                    COMPOSTABLE_OK
+                  </motion.div>
+                  
+                  {/* Overlay Texture */}
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                </NeoCard>
+              </motion.div>
+
+              {/* Card 2: Recycle Video */}
+              <motion.div
+                variants={card2Variants}
+                animate={activeHeroIndex === 1 ? "front" : (activeHeroIndex === 0 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <NeoCard className="bg-[#D4FF00] w-full h-full !p-0 overflow-hidden group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4FF00] to-[#00FFFF] opacity-20 z-0 mix-blend-multiply" />
+                  <video
+                    ref={videoRef2}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(2)}
+                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/recycle/remake_this_image_to_square_.mp4" type="video/mp4" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                    RECYCLABLE_OK
+                  </motion.div>
+                  
+                  {/* Overlay Texture */}
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                </NeoCard>
+              </motion.div>
+
+              {/* Card 3: Industrial Video */}
+              <motion.div
+                variants={card3Variants}
+                animate={activeHeroIndex === 2 ? "front" : (activeHeroIndex === 1 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <NeoCard className="bg-[#FF00FF] w-full h-full !p-0 overflow-hidden group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#FF00FF] to-[#00FFFF] opacity-20 z-0 mix-blend-multiply" />
+                  <video
+                    ref={videoRef3}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(0)}
+                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/industrial/industrial.mp4" type="video/mp4" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
+                    INDUSTRIAL_OK
+                  </motion.div>
+                  
+                  {/* Overlay Texture */}
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                </NeoCard>
+              </motion.div>
+
+              {/* Decorative Foreground Badge */}
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-32 md:h-32 bg-[#FF00FF] border-4 border-black flex items-center justify-center animate-bounce z-30">
+                <span className="font-black text-sm md:text-xl rotate-[-15deg]">500!</span>
               </div>
             </div>
           </div>

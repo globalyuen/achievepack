@@ -123,7 +123,7 @@ export default function PouchCompostablePage() {
             <img 
               src="/imgs/4-infograhic/compost.webp" 
               alt="Infographic showing the breakdown of compostable packaging in a home compost bin" 
-              className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
+              className="w-full h-auto border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
 
             <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Home Compostable vs. Industrial Compostable</h3>
