@@ -1062,7 +1062,7 @@ export default function DailyReportsPage() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 print:px-0 print:max-w-none">
         
         {/* Header */}
-        <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-6 sm:p-8 text-white shadow-2xl mb-8 relative overflow-hidden flex flex-col justify-between items-stretch">
+        <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-3xl p-6 sm:p-8 text-white shadow-2xl mb-8 relative overflow-hidden flex flex-col justify-between items-stretch print:hidden">
           <div className="flex flex-col gap-4 sm:flex-row justify-between items-start sm:items-center relative z-10 w-full">
             <div className="flex-1">
               <h1 className="text-2xl sm:text-3xl font-extrabold mb-3 flex items-center gap-3"><Activity className="h-7 w-7 sm:h-8 sm:w-8 text-blue-400" /> Control Center</h1>

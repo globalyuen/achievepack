@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T16:00:38.526Z",
+  "lastUnifiedRun": "2026-06-06T16:15:44.102Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1029,17 +1029,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "recyclable-barrier-film-suppliers-for-small-batch-pouches",
       "status": "Pending Approval",
       "volume": 1300,
       "keyword": "recyclable barrier film suppliers for small batch pouches",
-      "difficulty": "Medium",
-      "slug": "recyclable-barrier-film-suppliers-for-small-batch-pouches"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1000,
       "keyword": "biodegradable stand up pouch dimensions for coffee",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "biodegradable-stand-up-pouch-dimensions-for-coffee"
     },
     {
       "status": "Pending",
@@ -1088,13 +1089,126 @@
       "volume": 1150,
       "keyword": "barrier film roll stock for compostable packaging",
       "difficulty": "Medium"
+    },
+    {
+      "keyword": "eco friendly barrier film for stand up pouches",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch digital printed custom pouches",
+      "difficulty": "Low",
+      "volume": 1500,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable sachet packaging for liquids",
+      "difficulty": "Medium",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable pouch sizes for powders",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable flat bottom pouches wholesale",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print stand up pouches for snacks",
+      "difficulty": "Medium",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier mono material films",
+      "difficulty": "Low",
+      "volume": 500,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped compostable bags for beverages",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper pouch dimensions guide",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable retort pouches suppliers",
+      "difficulty": "Medium",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "flexible packaging solutions for pet food",
+      "difficulty": "Low",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono pe stand up pouch sizes",
+      "difficulty": "Low",
+      "volume": 550,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable digital printing on pouches",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable barrier sachets for nuts",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom sachet dimensions chart",
+      "difficulty": "Low",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable pouch with spout for drinks",
+      "difficulty": "Medium",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "low moq custom printed flexible packaging",
+      "difficulty": "Low",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch size for coffee beans",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T16:00:30.634Z",
+      "timestamp": "2026-06-06T16:15:33.435Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable barrier film suppliers for small batch pouches\" to /blog/recyclable-barrier-film-suppliers-for-small-batch-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable stand up pouch dimensions for coffee\" to /blog/biodegradable-stand-up-pouch-dimensions-for-coffee (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable barrier film suppliers for small batch pouches\" to /blog/recyclable-barrier-film-suppliers-for-small-batch-pouches (Pending Approval)",
+      "timestamp": "2026-06-06T16:00:30.634Z"
     },
     {
       "action": "Autopilot Generation Draft",
