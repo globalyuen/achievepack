@@ -13,7 +13,7 @@ interface BlogArticleSection {
   title: string
   icon: ReactNode
   content?: ReactNode
-  paragraphs?: Array<{ text: string, image_prompt: string }>
+  paragraphs?: Array<{ text: string, image_prompt: string, image_url?: string, image_path?: string }>
   keyTakeaways?: string[]
   specsTable?: Array<{ specification: string, parameter: string, value: string }>
 }
@@ -22,14 +22,15 @@ const InfographicCard: React.FC<{
   prompt: string
   index: number
   slug?: string
-}> = ({ prompt, index, slug }) => {
+  imageUrl?: string
+}> = ({ prompt, index, slug, imageUrl }) => {
   const [imgError, setImgError] = useState(false)
 
-  const imgPath = slug 
+  const imgPath = imageUrl || (slug 
     ? (index === 0 
         ? `/imgs/infographics/${slug}-infographic.png` 
         : `/imgs/infographics/${slug}-infographic-${index + 1}.png`)
-    : null
+    : null)
 
   return (
     <div className="border-4 border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] rounded-xl overflow-hidden flex flex-col h-full font-['JetBrains_Mono'] relative text-black">
@@ -514,7 +515,7 @@ export default function BlogArticleTemplate({
                           <>
                             {/* Image/Infographic Column (Left) */}
                             <div className="md:col-span-5 order-2 md:order-1 flex flex-col justify-between">
-                              <InfographicCard prompt={p.image_prompt} index={idx * 2 + pIdx} slug={slug} />
+                              <InfographicCard prompt={p.image_prompt} index={idx * 2 + pIdx} slug={slug} imageUrl={p.image_url || p.image_path} />
                             </div>
                             {/* Content Column (Right) */}
                             <div className="md:col-span-7 order-1 md:order-2 flex items-center font-['JetBrains_Mono'] font-medium text-neutral-800 text-base md:text-lg leading-relaxed prose prose-lg max-w-none">
@@ -529,7 +530,7 @@ export default function BlogArticleTemplate({
                             </div>
                             {/* Image/Infographic Column (Right) */}
                             <div className="md:col-span-5 order-2 md:order-2 flex flex-col justify-between">
-                              <InfographicCard prompt={p.image_prompt} index={idx * 2 + pIdx} slug={slug} />
+                              <InfographicCard prompt={p.image_prompt} index={idx * 2 + pIdx} slug={slug} imageUrl={p.image_url || p.image_path} />
                             </div>
                           </>
                         )}

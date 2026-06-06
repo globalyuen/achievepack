@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T08:15:29.786Z",
+  "lastUnifiedRun": "2026-06-06T08:30:34.217Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -812,17 +812,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "kraft-paper-sachet-dimensions",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "kraft paper sachet dimensions",
-      "difficulty": "Low",
-      "slug": "kraft-paper-sachet-dimensions"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1500,
       "keyword": "mono material compostable pouches for snacks",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "mono-material-compostable-pouches-for-snacks"
     },
     {
       "status": "Pending",
@@ -953,9 +954,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T08:15:23.209Z",
+      "timestamp": "2026-06-06T08:30:24.035Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper sachet dimensions\" to /blog/kraft-paper-sachet-dimensions (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono material compostable pouches for snacks\" to /blog/mono-material-compostable-pouches-for-snacks (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper sachet dimensions\" to /blog/kraft-paper-sachet-dimensions (Pending Approval)",
+      "timestamp": "2026-06-06T08:15:23.209Z"
     },
     {
       "action": "Autopilot Generation Draft",
