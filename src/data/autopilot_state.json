@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T22:15:28.029Z",
+  "lastUnifiedRun": "2026-06-06T22:30:27.635Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1204,17 +1204,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "recyclable-pouch-with-spout-for-drinks",
       "status": "Pending Approval",
       "volume": 600,
       "keyword": "recyclable pouch with spout for drinks",
-      "difficulty": "Medium",
-      "slug": "recyclable-pouch-with-spout-for-drinks"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1300,
       "keyword": "low moq custom printed flexible packaging",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "low-moq-custom-printed-flexible-packaging"
     },
     {
       "status": "Pending",
@@ -1345,9 +1346,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T22:15:19.538Z",
+      "timestamp": "2026-06-06T22:30:19.914Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable pouch with spout for drinks\" to /blog/recyclable-pouch-with-spout-for-drinks (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"low moq custom printed flexible packaging\" to /blog/low-moq-custom-printed-flexible-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable pouch with spout for drinks\" to /blog/recyclable-pouch-with-spout-for-drinks (Pending Approval)",
+      "timestamp": "2026-06-06T22:15:19.538Z"
     },
     {
       "action": "Autopilot Generation Draft",
