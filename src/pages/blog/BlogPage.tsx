@@ -1,16 +1,75 @@
-import { useState, useMemo, useTransition, useCallback } from 'react';
+import { useState, useMemo, useTransition, useCallback, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { blogPosts, blogCategories } from '../../data/blogData';
-import { Calendar, Clock, ArrowRight, Search } from 'lucide-react';
+import { blogPosts } from '../../data/blogData';
+import { Calendar, Clock, ArrowRight, Search, Loader2 } from 'lucide-react';
 import SiteHeader from '../../components/SiteHeader';
 import Footer from '../../components/Footer';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL || '',
+  import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+);
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const [, startTransition] = useTransition();
+
+  const [dynamicPosts, setDynamicPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchDynamicPosts() {
+      try {
+        const { data, error } = await supabase
+          .from('pouch_seo_blog')
+          .select('*')
+          .order('published_at', { ascending: false });
+
+        if (error) throw error;
+        const approvedPosts = (data || []).filter(p => p.content?.approved !== false);
+        setDynamicPosts(approvedPosts);
+      } catch (err) {
+        console.error('Error fetching dynamic posts:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchDynamicPosts();
+  }, []);
+
+  const posts = useMemo(() => {
+    const formattedDynamic = dynamicPosts.map(p => {
+      const apContent = p.content?.achievepack || {};
+      return {
+        id: p.slug,
+        slug: p.slug,
+        title: apContent.title || p.title,
+        excerpt: apContent.excerpt || p.excerpt || '',
+        featuredImage: apContent.image_url || p.image_url || '/imgs/blog/default.jpg',
+        publishDate: p.published_at ? p.published_at.substring(0, 10) : new Date().toISOString().substring(0, 10),
+        category: p.category || 'Packaging',
+        readTime: apContent.readTime || 8,
+        tags: apContent.tags || [p.category || 'packaging', 'sustainable', 'b2b'],
+      };
+    });
+
+    const dynamicSlugs = new Set(formattedDynamic.map(p => p.slug));
+    const filteredStatic = blogPosts.filter(p => !dynamicSlugs.has(p.slug));
+
+    return [...formattedDynamic, ...filteredStatic];
+  }, [dynamicPosts]);
+
+  const categories = useMemo(() => {
+    const cats = new Set<string>();
+    posts.forEach(post => {
+      if (post.category) cats.add(post.category);
+    });
+    return ['All', ...Array.from(cats)];
+  }, [posts]);
 
   // Optimized navigation for INP
   const handleNavigation = useCallback((to: string) => (e: React.MouseEvent) => {
@@ -21,7 +80,7 @@ export default function BlogPage() {
   }, [navigate]);
 
   const filteredPosts = useMemo(() => {
-    return blogPosts
+    return posts
       .filter(post => {
         const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
         const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -30,7 +89,7 @@ export default function BlogPage() {
         return matchesCategory && matchesSearch;
       })
       .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
-  }, [selectedCategory, searchQuery]);
+  }, [posts, selectedCategory, searchQuery]);
 
   return (
     <>
@@ -80,7 +139,7 @@ export default function BlogPage() {
 
               {/* Categories */}
               <div className="flex flex-wrap gap-2 justify-center">
-                {blogCategories.map(category => (
+                {categories.map(category => (
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
@@ -101,7 +160,12 @@ export default function BlogPage() {
         {/* Blog Grid */}
         <section className="py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {filteredPosts.length === 0 ? (
+            {loading ? (
+              <div className="flex flex-col items-center justify-center py-24 gap-4">
+                <Loader2 className="w-12 h-12 animate-spin text-green-600" />
+                <p className="text-neutral-500 text-sm">Loading insights...</p>
+              </div>
+            ) : filteredPosts.length === 0 ? (
               <div className="text-center py-12">
                 <p className="text-neutral-500 text-lg">No articles found matching your criteria.</p>
               </div>

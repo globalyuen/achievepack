@@ -102,7 +102,7 @@ export default function PouchBlogPage() {
       date: '2026-03-12',
       category: 'Legal & Compliance',
       readTime: '5 min',
-      link: '/blog/organic-compliance-support'
+      link: '/blog/organic-compliance-support-guide'
     },
 
     {
