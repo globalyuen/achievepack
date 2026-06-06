@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T05:15:41.470Z",
+  "lastUnifiedRun": "2026-06-06T05:30:34.132Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -728,17 +728,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-printed-recyclable-barrier-bags",
       "status": "Pending Approval",
       "volume": 1400,
       "keyword": "digital printed recyclable barrier bags",
-      "difficulty": "Low",
-      "slug": "digital-printed-recyclable-barrier-bags"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1700,
       "keyword": "sustainable sachet packaging for powders",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "sustainable-sachet-packaging-for-powders"
     },
     {
       "status": "Pending",
@@ -833,9 +834,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T05:15:24.978Z",
+      "timestamp": "2026-06-06T05:30:22.846Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printed recyclable barrier bags\" to /blog/digital-printed-recyclable-barrier-bags (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet packaging for powders\" to /blog/sustainable-sachet-packaging-for-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed recyclable barrier bags\" to /blog/digital-printed-recyclable-barrier-bags (Pending Approval)",
+      "timestamp": "2026-06-06T05:15:24.978Z"
     },
     {
       "action": "Autopilot Generation Draft",
