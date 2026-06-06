@@ -1110,24 +1110,31 @@ function App() {
                 </a>
               </div>
 
-              {/* Key Metrics */}
-              <div className="grid grid-cols-3 gap-4">
-                <div className="bg-neutral-50 rounded-lg p-4 shadow-sm border border-neutral-200">
-                  <div className="text-2xl md:text-3xl font-bold text-primary-500 mb-1">70%</div>
-                  <div className="text-xs md:text-sm text-neutral-600 leading-tight">{t('hero.stats.carbon')}</div>
-                </div>
-                <div className="bg-neutral-50 rounded-lg p-4 shadow-sm border border-neutral-200">
-                  <div className="text-2xl md:text-3xl font-bold text-primary-500 mb-1">70%</div>
-                  <div className="text-xs md:text-sm text-neutral-600 leading-tight">{t('hero.stats.plastic')}</div>
-                </div>
-                <div className="bg-neutral-50 rounded-lg p-4 shadow-sm border border-neutral-200">
-                  <div className="text-2xl md:text-3xl font-bold text-primary-500 mb-1">22%</div>
-                  <div className="text-xs md:text-sm text-neutral-600 leading-tight">{t('hero.stats.shipping')}</div>
-                </div>
-              </div>
             </div>
 
             <div className="hidden lg:block relative w-full max-w-md aspect-square mx-auto lg:ml-auto lg:mr-0 mb-10 md:mb-0">
+              {/* Manual Nav Arrows */}
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveHeroIndex((prev) => (prev === 0 ? 4 : prev - 1));
+                }}
+                className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm border border-neutral-200 rounded-full flex items-center justify-center shadow-lg z-[60] hover:bg-white active:scale-95 transition-all cursor-pointer"
+                aria-label="Previous video"
+              >
+                <ChevronLeft className="w-6 h-6 text-neutral-700" />
+              </button>
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveHeroIndex((prev) => (prev === 4 ? 0 : prev + 1));
+                }}
+                className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm border border-neutral-200 rounded-full flex items-center justify-center shadow-lg z-[60] hover:bg-white active:scale-95 transition-all cursor-pointer"
+                aria-label="Next video"
+              >
+                <ChevronRight className="w-6 h-6 text-neutral-700" />
+              </button>
+
               {/* Card 1: Bag Video */}
               <motion.div
                 variants={card1Variants}
@@ -1137,6 +1144,7 @@ function App() {
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
                   <video
                     ref={videoRef1}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
@@ -1163,6 +1171,7 @@ function App() {
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
                   <video
                     ref={videoRef2}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
@@ -1188,6 +1197,7 @@ function App() {
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
                   <video
                     ref={videoRef3}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
@@ -1213,6 +1223,7 @@ function App() {
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
                   <video
                     ref={videoRef4}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
@@ -1238,6 +1249,7 @@ function App() {
                 <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
                   <video
                     ref={videoRef5}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"

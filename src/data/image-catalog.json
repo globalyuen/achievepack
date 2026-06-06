@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-06",
-  "total_images": 2862,
+  "total_images": 2866,
   "total_categories": 170,
   "extensions": {
     ".webp": 1303,
-    ".png": 1324,
+    ".png": 1328,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,32 @@
       ]
     },
     "blog/heros": {
-      "count": 164,
+      "count": 168,
       "images": [
+        {
+          "filename": "barrier-film-wholesale-for-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/barrier-film-wholesale-for-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T12:15:20.463Z"
+        },
+        {
+          "filename": "sustainable-pouch-printing-for-nuts-hero.png",
+          "path": "/imgs/blog/heros/sustainable-pouch-printing-for-nuts-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T12:00:25.756Z"
+        },
+        {
+          "filename": "digital-print-compostable-bags-low-moq-hero.png",
+          "path": "/imgs/blog/heros/digital-print-compostable-bags-low-moq-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T11:45:34.223Z"
+        },
+        {
+          "filename": "mono-pe-recyclable-sachet-dimensions-hero.png",
+          "path": "/imgs/blog/heros/mono-pe-recyclable-sachet-dimensions-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T11:30:27.674Z"
+        },
         {
           "filename": "custom-shaped-barrier-pouches-for-beverages-hero.png",
           "path": "/imgs/blog/heros/custom-shaped-barrier-pouches-for-beverages-hero.png",

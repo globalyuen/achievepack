@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, type MouseEvent, type UIEvent } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star, Play, Sparkles, BookOpen, ShieldCheck, ArrowRight } from 'lucide-react'
+import { Package, Leaf, Zap, Box as BoxIcon, Flame, Star, Play, Sparkles, BookOpen, ShieldCheck, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PouchLayout from '../../components/pouch/PouchLayout'
@@ -509,7 +509,28 @@ export default function PouchHomePage() {
 
             {/* Right Visual - Rotating Card Stack */}
             <div className="relative w-full max-w-md aspect-square mx-auto lg:ml-auto lg:mr-0 mb-10 md:mb-0">
-              
+              {/* Manual Nav Arrows */}
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveHeroIndex((prev) => (prev === 0 ? 4 : prev - 1));
+                }}
+                className="absolute left-[-24px] top-1/2 -translate-y-1/2 w-12 h-12 bg-white hover:bg-[#D4FF00] border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:scale-95 transition-all z-[60] cursor-pointer"
+                aria-label="Previous video"
+              >
+                <ChevronLeft className="w-6 h-6 text-black" />
+              </button>
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveHeroIndex((prev) => (prev === 4 ? 0 : prev + 1));
+                }}
+                className="absolute right-[-24px] top-1/2 -translate-y-1/2 w-12 h-12 bg-white hover:bg-[#D4FF00] border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:scale-95 transition-all z-[60] cursor-pointer"
+                aria-label="Next video"
+              >
+                <ChevronRight className="w-6 h-6 text-black" />
+              </button>
+
               {/* Card 1: Bag Video */}
               <motion.div
                 variants={card1Variants}
@@ -520,6 +541,7 @@ export default function PouchHomePage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#00FFFF] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
                   <video
                     ref={videoRef1}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
@@ -550,6 +572,7 @@ export default function PouchHomePage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#D4FF00] to-[#00FFFF] opacity-20 z-0 mix-blend-multiply" />
                   <video
                     ref={videoRef2}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
@@ -579,6 +602,7 @@ export default function PouchHomePage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#FF00FF] to-[#00FFFF] opacity-20 z-0 mix-blend-multiply" />
                   <video
                     ref={videoRef3}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
@@ -608,6 +632,7 @@ export default function PouchHomePage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-white to-[#00FFFF] opacity-25 z-0 mix-blend-multiply" />
                   <video
                     ref={videoRef4}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
@@ -637,6 +662,7 @@ export default function PouchHomePage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#D4FF00] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
                   <video
                     ref={videoRef5}
+                    autoPlay
                     muted
                     playsInline
                     poster="/video/hero/cover.jpg"
