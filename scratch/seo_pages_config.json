@@ -1,0 +1,233 @@
+[
+  {
+    "slug": "compostable-coffee-bags",
+    "url": "/products/compostable-coffee-bags",
+    "keywords": ["compostable coffee bags", "coffee packaging", "coffee beans", "valve", "roastery"],
+    "title": "Compostable Coffee Bags",
+    "imagePrompt": "Amazon product photo quality. Certified compostable coffee bag made from kraft paper, showing a biodegradable degassing valve. Premium specialty coffee packaging. Dark green theme, nature-inspired elements (leaves, organic textures). Achievepack.com branding."
+  },
+  {
+    "slug": "compostable-stand-up-pouches",
+    "url": "/products/compostable-stand-up-pouches",
+    "keywords": ["compostable stand up pouches", "stand up bags", "doypack", "eco friendly pouches"],
+    "title": "Compostable Stand-Up Pouches",
+    "imagePrompt": "Amazon product photo quality. Certified compostable stand-up pouches shown from different angles. Doypack design. Dark green theme, nature-inspired elements (leaves, organic textures). Achievepack.com branding."
+  },
+  {
+    "slug": "recyclable-mono-material-pouches",
+    "url": "/products/recyclable-mono-material-pouches",
+    "keywords": ["recyclable mono-material", "recyclable pouches", "PE", "PP", "mono PE", "mono PP"],
+    "title": "Recyclable Mono-Material Pouches",
+    "imagePrompt": "Amazon product photo quality. Recyclable mono-PE stand-up pouch, lightweight and flexible structure. Circular economy recycling logo visible. Dark green theme, nature-inspired elements (leaves, organic textures). Achievepack.com branding."
+  },
+  {
+    "slug": "coffee-bags-degassing-valve",
+    "url": "/products/coffee-bags-degassing-valve",
+    "keywords": ["degassing valve", "degassing sticker", "one-way valve", "valve release", "fresh coffee"],
+    "title": "Coffee Bags with Degassing Valve",
+    "imagePrompt": "Amazon product photo quality. Close-up showcase of a one-way degassing valve on specialty coffee packaging releasing aroma. Dark green theme, nature-inspired elements (leaves, organic textures). Achievepack.com branding."
+  },
+  {
+    "slug": "low-moq-packaging",
+    "url": "/products/low-moq-packaging",
+    "keywords": ["low MOQ", "small run", "100 units", "startup packaging", "digital printing low minimum"],
+    "title": "Low MOQ Packaging",
+    "imagePrompt": "Amazon product photo quality. A clean layout showing small batches of custom printed flexible pouches starting from 100 pieces. Perfect for startups. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "startup-founder",
+    "url": "/solutions/startup-founder",
+    "keywords": ["startup founder", "small brand", "launch packaging", "bootstrap", "initial batch"],
+    "title": "Packaging Solutions for Startup Founders",
+    "imagePrompt": "Amazon product photo quality. A minimalist starter kit of custom printed compostable pouches laid out on a sleek workspace table. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "ecommerce-brand",
+    "url": "/solutions/ecommerce-brand",
+    "keywords": ["e-commerce brand", "DTC packaging", "shipping durability", "mailer", "unboxing experience"],
+    "title": "Packaging Solutions for E-commerce Brands",
+    "imagePrompt": "Amazon product photo quality. High-durability compostable stand-up pouches inside an open shipping box, showing a premium unboxing experience. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "corporate-sustainability",
+    "url": "/solutions/corporate-sustainability",
+    "keywords": ["corporate sustainability", "ESG", "carbon neutral", "circular economy", "waste reduction"],
+    "title": "Corporate Sustainability Solutions",
+    "imagePrompt": "Amazon product photo quality. Eco-friendly packaging stack with visible global green certification icons, showing carbon-neutral supply chain representation. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "food-manufacturer",
+    "url": "/solutions/food-manufacturer",
+    "keywords": ["food manufacturer", "bulk packaging", "high volume", "co-packer", "FDA compliance"],
+    "title": "Packaging Solutions for Food Manufacturers",
+    "imagePrompt": "Amazon product photo quality. Bulk food packaging rolls and stand-up pouches passing through clean, compliant automated facility representation. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "product-developer",
+    "url": "/solutions/product-developer",
+    "keywords": ["product developer", "custom shapes", "material specs", "prototyping", "technical blueprint"],
+    "title": "Packaging Solutions for Product Developers",
+    "imagePrompt": "Amazon product photo quality. Technical blueprint and die-lines overlaid on custom shaped compostable packaging, prototype presentation. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "coffee-roaster",
+    "url": "/solutions/coffee-roaster",
+    "keywords": ["coffee roaster", "specialty coffee", "degassing valve", "aroma protection", "fresh roast"],
+    "title": "Packaging Solutions for Coffee Roasters",
+    "imagePrompt": "Amazon product photo quality. Freshly roasted coffee beans pouring into high-barrier compostable bags with BPI certification logos. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "artisan-producer",
+    "url": "/solutions/artisan-producer",
+    "keywords": ["artisan producer", "gourmet food", "hand-made", "small batch", "premium feel"],
+    "title": "Packaging Solutions for Artisan Producers",
+    "imagePrompt": "Amazon product photo quality. Premium matte finish kraft paper stand-up pouch with window showing organic artisan tea leaves. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "snack-brand-manager",
+    "url": "/solutions/snack-brand-manager",
+    "keywords": ["snack brand manager", "snack packaging", "high barrier", "tear notch", "shelf appeal"],
+    "title": "Packaging Solutions for Snack Brand Managers",
+    "imagePrompt": "Amazon product photo quality. High-barrier compostable zipper pouches for organic nuts and dried fruits showing premium shelf appeal. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "eco-friendly-food-packaging",
+    "url": "/topics/eco-friendly-food-packaging",
+    "keywords": ["eco friendly food packaging", "sustainable food bags", "green barrier", "organic food"],
+    "title": "Eco-Friendly Food Packaging Guide",
+    "imagePrompt": "Amazon product photo quality. A clean layout of various food pouches certified compostable and FDA compliant. Dark green theme, nature-inspired elements (leaves, plants). Achievepack.com branding."
+  },
+  {
+    "slug": "dtc-sustainable-packaging",
+    "url": "/topics/dtc-sustainable-packaging",
+    "keywords": ["DTC packaging", "direct to consumer", "lightweight bags", "shipping friendly"],
+    "title": "DTC Sustainable Packaging Guide",
+    "imagePrompt": "Amazon product photo quality. Sleek lightweight compostable stand-up pouches next to a minimalist smartphone displaying a checkout page. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "green-coffee-materials",
+    "url": "/topics/green-coffee-materials",
+    "keywords": ["green coffee materials", "raw coffee packaging", "jute bag lining", "high barrier coffee"],
+    "title": "Green Coffee Packaging Materials Guide",
+    "imagePrompt": "Amazon product photo quality. High-barrier liners and paper pouches designed to protect green coffee beans from humidity and moisture. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "digital-printing-eco-packaging",
+    "url": "/topics/digital-printing-eco-packaging",
+    "keywords": ["digital printing", "HP Indigo", "plate-free printing", "custom designs", "color accuracy"],
+    "title": "Digital Printing for Eco-Friendly Packaging",
+    "imagePrompt": "Amazon product photo quality. Digital printer representation outputting rich, high-resolution full color designs on compostable film rolls. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "recyclable-snack-packaging",
+    "url": "/topics/recyclable-snack-packaging",
+    "keywords": ["recyclable snack packaging", "chips bag", "pretzel pouch", "nuts bag", "store drop-off"],
+    "title": "Recyclable Snack Packaging Guide",
+    "imagePrompt": "Amazon product photo quality. Recyclable snack doypacks with resealable zippers. Dark green theme, nature-inspired elements (leaves, organic textures). Achievepack.com branding."
+  },
+  {
+    "slug": "custom-printed-sustainable-pouches",
+    "url": "/topics/custom-printed-sustainable-pouches",
+    "keywords": ["custom printed pouches", "branded bags", "full-color printing", "custom size"],
+    "title": "Custom Printed Sustainable Pouches Guide",
+    "imagePrompt": "Amazon product photo quality. Fully printed custom stand-up pouch with vibrant botanical illustration. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "eco-packaging-regulations",
+    "url": "/topics/eco-packaging-regulations",
+    "keywords": ["eco packaging regulations", "EU PPWR", "UK Plastic Tax", "California SB 54", "labeling laws"],
+    "title": "Eco-Friendly Packaging Regulations Guide",
+    "imagePrompt": "Amazon product photo quality. Compliant eco-friendly food packaging showing clear certification badges (OK Compost, BPI). Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "custom-compostable-pouch-suppliers",
+    "url": "/topics/custom-compostable-pouch-suppliers",
+    "keywords": ["custom compostable pouch suppliers", "pouch manufacturer", "certified compostable factory"],
+    "title": "Custom Compostable Pouch Suppliers Guide",
+    "imagePrompt": "Amazon product photo quality. A clean manufacturing showcase of sustainable compostable film materials. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "low-moq-startup-packaging",
+    "url": "/topics/low-moq-startup-packaging",
+    "keywords": ["low MOQ startup packaging", "small quantity printing", "starter pack"],
+    "title": "Low MOQ Startup Packaging Guide",
+    "imagePrompt": "Amazon product photo quality. A variety of small-batch customized packaging bags in various sizes, ideal for startups. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "compostable-baby-food-bags",
+    "url": "/topics/compostable-baby-food-bags",
+    "keywords": ["baby food bags", "baby puree", "baby food spout", "organic baby snacks"],
+    "title": "Compostable Baby Food Bags Guide",
+    "imagePrompt": "Amazon product photo quality. Certified compostable baby food spouted pouches and small snack bags, BPA-free, organic design. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "compostable-humidity-control",
+    "url": "/topics/compostable-humidity-control",
+    "keywords": ["humidity control", "anti-cracking", "cellulose moisture", "brittleness protection"],
+    "title": "Compostable Packaging Humidity Control Guide",
+    "imagePrompt": "Amazon product photo quality. High-barrier cellulose-based compostable bags inside a temperature and humidity controlled chamber, showing anti-cracking protection. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "compostable-zipper-durability",
+    "url": "/topics/compostable-zipper-durability",
+    "keywords": ["compostable zipper", "zipper durability", "reclosure strength", "zip lock test"],
+    "title": "Compostable Zipper Durability Guide",
+    "imagePrompt": "Amazon product photo quality. Detail of a robust compostable press-to-close zipper on a stand-up bag, demonstrating reclosure durability. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "compostable-spouted-pouches",
+    "url": "/topics/compostable-spouted-pouches",
+    "keywords": ["compostable spouted pouches", "spouts", "liquid packaging", "spout seal"],
+    "title": "Compostable Spouted Pouches Guide",
+    "imagePrompt": "Amazon product photo quality. Compostable spouted pouch for juices and liquid foods, leak-proof design. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "custom-vs-standard-packaging",
+    "url": "/topics/custom-vs-standard-packaging",
+    "keywords": ["custom packaging vs standard packaging", "stock bags", "blank pouches", "customized dielines"],
+    "title": "Custom vs. Standard Packaging Guide",
+    "imagePrompt": "Amazon product photo quality. Side-by-side comparison of a standard blank pouch next to a custom printed shape-cut pouch. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "pfas-free-packaging",
+    "url": "/topics/pfas-free-packaging",
+    "keywords": ["PFAS free", "fluorine free", "food contact safety", "FDA compliance chemicals"],
+    "title": "PFAS-Free Eco Packaging Guide",
+    "imagePrompt": "Amazon product photo quality. Food packaging pouch displaying clean, non-toxic, PFAS-free raw material representation. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "home-compostable-coffee-bags",
+    "url": "/topics/home-compostable-coffee-bags",
+    "keywords": ["home compostable coffee", "OK Home compost", "backyard composting", "paper coffee bag"],
+    "title": "Home Compostable Coffee Bags Guide",
+    "imagePrompt": "Amazon product photo quality. Home compostable coffee bag placed in an active backyard compost bin, demonstrating OK Home certification. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "mono-pe-pouches",
+    "url": "/topics/mono-pe-pouches",
+    "keywords": ["mono-PE", "recyclable PE", "high density polyethylene", "mono-polymer"],
+    "title": "Mono-PE Recyclable Pouches Guide",
+    "imagePrompt": "Amazon product photo quality. Mono-PE stand-up pouch, 100% recyclable, showing clean glossy texture. Dark green theme, nature-inspired elements (leaves, organic textures). Achievepack.com branding."
+  },
+  {
+    "slug": "child-resistant-mylar-bags",
+    "url": "/topics/child-resistant-mylar-bags",
+    "keywords": ["child resistant", "childproof zipper", "lockable pouch", "medical grade packaging"],
+    "title": "Child-Resistant Mylar Bags Guide",
+    "imagePrompt": "Amazon product photo quality. Medical-grade child-resistant resealable mylar bag showing two-step opening mechanism. Dark green theme, nature-inspired. Achievepack.com branding."
+  },
+  {
+    "slug": "recycled-ocean-plastic-packaging",
+    "url": "/topics/recycled-ocean-plastic-packaging",
+    "keywords": ["recycled ocean plastic", "ocean bound plastic", "OBP certified", "PCR marine waste"],
+    "title": "Recycled Ocean Plastic Packaging Guide",
+    "imagePrompt": "Amazon product photo quality. Stand-up pouch made from certified ocean-bound recycled plastic, pristine clear texture. Dark green theme, nature-inspired elements. Achievepack.com branding."
+  },
+  {
+    "slug": "minimalist-d2c-packaging",
+    "url": "/topics/minimalist-d2c-packaging",
+    "keywords": ["minimalist packaging", "lightweight D2C", "plain kraft bags", "clean aesthetic branding"],
+    "title": "Minimalist D2C Packaging Guide",
+    "imagePrompt": "Amazon product photo quality. Minimalist plain kraft paper pouch with a simple printed logo, showing an elegant D2C aesthetic. Dark green theme, nature-inspired. Achievepack.com branding."
+  }
+]
