@@ -15,6 +15,8 @@ import SiteHeader from './SiteHeader'
 import { getDomain } from '../utils/domain'
 import PouchLayout from './pouch/PouchLayout'
 import { NeoButton, NeoCard, NeoBadge } from './pouch/PouchUI'
+import WorkCarousel from './WorkCarousel'
+import KnowHowCarousel from './KnowHowCarousel'
 
 // Category icons for Learn Menu
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -1151,6 +1153,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 )}
               </div>
             )}
+            <WorkCarousel theme="pouch" />
+            <KnowHowCarousel theme="pouch" />
           </div>
         </PouchLayout>
       </>
@@ -1577,6 +1581,8 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
         </div>
 
 {/* Footer */}
+        <WorkCarousel theme="achieve" />
+        <KnowHowCarousel theme="achieve" />
         <StickyFreeSampleCTA />
         <Footer />
 

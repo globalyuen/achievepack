@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-06",
-  "total_images": 2855,
+  "total_images": 2862,
   "total_categories": 170,
   "extensions": {
     ".webp": 1303,
-    ".png": 1317,
+    ".png": 1324,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,50 @@
       ]
     },
     "blog/heros": {
-      "count": 157,
+      "count": 164,
       "images": [
+        {
+          "filename": "custom-shaped-barrier-pouches-for-beverages-hero.png",
+          "path": "/imgs/blog/heros/custom-shaped-barrier-pouches-for-beverages-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T11:15:28.478Z"
+        },
+        {
+          "filename": "flexible-packaging-size-guide-for-powders-hero.png",
+          "path": "/imgs/blog/heros/flexible-packaging-size-guide-for-powders-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T11:00:22.672Z"
+        },
+        {
+          "filename": "small-batch-digital-printing-on-pouches-hero.png",
+          "path": "/imgs/blog/heros/small-batch-digital-printing-on-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T10:45:30.762Z"
+        },
+        {
+          "filename": "high-barrier-recyclable-film-for-food-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-recyclable-film-for-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T10:30:23.724Z"
+        },
+        {
+          "filename": "eco-friendly-sachet-packaging-wholesale-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-sachet-packaging-wholesale-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T10:15:26.329Z"
+        },
+        {
+          "filename": "stand-up-pouch-dimensions-for-12-oz-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-dimensions-for-12-oz-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T10:00:26.380Z"
+        },
+        {
+          "filename": "custom-printed-mono-material-pouches-hero.png",
+          "path": "/imgs/blog/heros/custom-printed-mono-material-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T09:45:23.223Z"
+        },
         {
           "filename": "compostable-barrier-film-roll-stock-hero.png",
           "path": "/imgs/blog/heros/compostable-barrier-film-roll-stock-hero.png",

@@ -1,10 +1,11 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useEffect } from 'react'
 import { Calendar, Menu, X, Building2, Instagram, Linkedin, ArrowRight, Zap, Coffee, Layout, Search, Box, Sparkles } from 'lucide-react'
 import { NeoButton, NeoBadge } from './PouchUI'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SizingFinderIcon, MaterialSpecFinderIcon } from '../AppIcons'
 import SearchModal from '../SearchModal'
+import { ALL_PAGES } from '../LearnNavigation'
 
 interface PouchLayoutProps {
   children: ReactNode
@@ -15,6 +16,14 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isAppsDropdownOpen, setIsAppsDropdownOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [randomLink, setRandomLink] = useState('/composting/composting-benefits')
+
+  useEffect(() => {
+    if (ALL_PAGES && ALL_PAGES.length > 0) {
+      const randomIndex = Math.floor(Math.random() * ALL_PAGES.length)
+      setRandomLink(ALL_PAGES[randomIndex].link)
+    }
+  }, [])
 
   const isActive = (path: string) => location.pathname === path
 
@@ -809,7 +818,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
                 </svg>
               </a>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <Link to="/quotes/three-side-seal?p=pouch2026" className="hover:underline">3 SIDE</Link>
               <Link to="/quotes/flat-bottom?p=pouch2026" className="hover:underline">FLAT BOTTOM</Link>
               <Link to="/quotes/stand-up-pouch?p=pouch2026" className="hover:underline">STAND UP</Link>
@@ -818,6 +827,7 @@ export default function PouchLayout({ children }: PouchLayoutProps) {
               <Link to="/sample?p=pouch2026" className="hover:underline font-black text-black bg-[#D4FF00] px-1">CUSTOM PRINTED SAMPLE</Link>
               <Link to="/cert?p=pouch2026" className="hover:underline">CERT</Link>
               <a href="/full-cert/BPI_Certificate-Achieve%20Pack%20Company-10529618-1_02_27_2026.pdf" target="_blank" rel="noopener noreferrer" className="hover:underline text-[#10b981]">BPI CERT</a>
+              <Link to={randomLink} className="hover:underline font-black text-black bg-[#00FFFF] px-1 animate-pulse">[RANDOM GUIDE 🎲]</Link>
               <Link to="/privacy" className="hover:underline">PRIVACY</Link>
               <Link to="/terms" className="hover:underline">TERMS</Link>
             </div>

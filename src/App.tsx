@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useTransition, useMemo, lazy, Suspense, useRef, Component, ErrorInfo, ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import { Menu, X, Leaf, Package, CheckCircle, Clock, Truck, Factory, Recycle, Globe, Calculator as CalcIcon, Calendar, Phone, Mail, MapPin, ChevronDown, Star, Users, Award, Zap, Target, TrendingUp, Shield, ShoppingCart, User, Linkedin, ArrowRight, Plus, AlertCircle, ChevronLeft, ChevronRight, Gift, Palette, Sparkles } from 'lucide-react'
 import { CardContainer, CardBody, CardItem } from './components/ui/3d-card'
@@ -88,379 +89,8 @@ const loadGA = () => {
   });
 };
 
-const ourWorkCards = [
-  {
-    title: "Compostable Coffee Stand-Up Pouch",
-    tag: "Compostable",
-    desc: "Plant-based high-barrier stand-up pouches with degassing valves.",
-    image: "/imgs/clients-sample/IMG_6311.jpg",
-    badgeType: "eco",
-    link: "/quotes/stand-up-pouch"
-  },
-  {
-    title: "Kraft Flat-Bottom Tea Pouch",
-    tag: "Kraft Paper",
-    desc: "Earthy, organic kraft outer layers with certified compostable barrier lining.",
-    image: "/imgs/clients-sample/IMG_6312.jpg",
-    badgeType: "eco",
-    link: "/quotes/flat-bottom"
-  },
-  {
-    title: "Recyclable Matte Snack Bag",
-    tag: "Recyclable",
-    desc: "100% recyclable mono-PE film with matte soft-touch finish.",
-    image: "/imgs/clients-sample/IMG_8013.jpg",
-    badgeType: "accent",
-    link: "/quotes/three-side-seal"
-  },
-  {
-    title: "Metallic Luxury Stand-Up Pouch",
-    tag: "High Barrier",
-    desc: "Premium metalized lining providing ultra-high moisture and oxygen barriers.",
-    image: "/imgs/clients-sample/IMG_8016.jpg",
-    badgeType: "luxury",
-    link: "/quotes/stand-up-pouch"
-  },
-  {
-    title: "Clear-Window Compostable Pouch",
-    tag: "Eco-Friendly",
-    desc: "Compostable kraft stand-up pouch featuring a clear plant-based window.",
-    image: "/imgs/clients-sample/IMG_8020.jpg",
-    badgeType: "eco",
-    link: "/quotes/stand-up-pouch"
-  },
-  {
-    title: "Spouted Juice & Liquid Pouch",
-    tag: "Liquids",
-    desc: "Heavy-duty laminated structures with rigid spouts for leakproof transit.",
-    image: "/imgs/clients-sample/IMG_8028.jpg",
-    badgeType: "liquid",
-    link: "/quotes/spouted-pouch"
-  },
-  {
-    title: "Custom Printed Stand-Up Pouch",
-    tag: "Digital Print",
-    desc: "High-resolution digital print sample with low minimum order quantity.",
-    image: "/imgs/clients-sample/IMG_8032.jpg",
-    badgeType: "accent",
-    link: "/quotes/stand-up-pouch"
-  },
-  {
-    title: "Premium Black Matte Coffee Bag",
-    tag: "Specialty",
-    desc: "Sleek matte black flat bottom bag with integrated pocket zipper.",
-    image: "/imgs/clients-sample/IMG_8034.jpg",
-    badgeType: "luxury",
-    link: "/quotes/flat-bottom"
-  },
-  {
-    title: "Recyclable Mono-PE Zipper Pouch",
-    tag: "Recyclable",
-    desc: "Fully circular design with recyclable press-to-close zippers.",
-    image: "/imgs/clients-sample/IMG_8042.jpg",
-    badgeType: "accent",
-    link: "/quotes/three-side-seal"
-  },
-  {
-    title: "Bio-PE SugarCane Supplement Bag",
-    tag: "Bio-PE",
-    desc: "Sugarcane-derived bioplastics helping brands reduce carbon emissions.",
-    image: "/imgs/clients-sample/IMG_8043.jpg",
-    badgeType: "eco",
-    link: "/quotes/stand-up-pouch"
-  },
-  {
-    title: "PCR Recycled Plastic Pouch",
-    tag: "PCR Plastic",
-    desc: "Incorporating post-consumer recycled plastics into structural layers.",
-    image: "/imgs/clients-sample/IMG_8048.jpg",
-    badgeType: "luxury",
-    link: "/quotes/stand-up-pouch"
-  },
-  {
-    title: "Ecosential Kraft Mailer Bag",
-    tag: "Paper Mailer",
-    desc: "Heavy-duty recycled kraft paper mailer bags with self-sealing adhesive strips.",
-    image: "/imgs/clients-sample/IMG_8053.jpg",
-    badgeType: "eco",
-    link: "/store"
-  },
-  {
-    title: "Home Compostable Nuts Pouch",
-    tag: "Home Compost",
-    desc: "TÜV OK Compost HOME certified stand-up pouch for organic snacks.",
-    image: "/all-product-photos/IMG_4362.webp",
-    badgeType: "eco",
-    link: "/quotes/stand-up-pouch"
-  },
-  {
-    title: "Gusseted Side Coffee Pouch",
-    tag: "Side Gusset",
-    desc: "Expandable side gussets with quad seal structure for stable shelf layout.",
-    image: "/all-product-photos/IMG_4372.webp",
-    badgeType: "accent",
-    link: "/quotes/flat-bottom"
-  },
-  {
-    title: "Holographic High-Luxe Box",
-    tag: "Rigid Box",
-    desc: "Corrugated shipping mailers with vibrant holographic foil designs.",
-    image: "/all-product-photos/IMG_4385.webp",
-    badgeType: "luxury",
-    link: "/store?category=boxes"
-  },
-  {
-    title: "Eco-Friendly Pet Treat Bag",
-    tag: "Pet Treats",
-    desc: "Puncture-resistant laminations designed for shelf longevity and grease-resistance.",
-    image: "/all-product-photos/IMG_4395.webp",
-    badgeType: "liquid",
-    link: "/quotes/stand-up-pouch"
-  }
-];
-
-const seoKnowHowCards = [
-  {
-    title: "Compostable vs Recyclable",
-    desc: "Deciding between circular plastic recovery and organic composting paths for your packaging.",
-    link: "/blog/compostable-vs-recyclable",
-    image: "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
-    tag: "Analysis",
-    badgeType: "eco"
-  },
-  {
-    title: "Packaging Cost Guide",
-    desc: "Complete breakdown of plate charges, setup fees, material costs, and wholesale volume tiers.",
-    link: "/blog/packaging-cost-guide",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
-    tag: "Finance",
-    badgeType: "accent"
-  },
-  {
-    title: "Eco Packaging Mistakes",
-    desc: "Avoid common design and material selection errors that disrupt commercial supply chains.",
-    link: "/blog/eco-packaging-mistakes",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
-    tag: "Strategy",
-    badgeType: "luxury"
-  },
-  {
-    title: "EU PPWR Compliance",
-    desc: "Understanding the new European Union packaging regulations and recycling requirements.",
-    link: "/blog/eu-ppwr-compliance-guide",
-    image: "/imgs/store/products/eco-standup-premium.png",
-    tag: "Regulations",
-    badgeType: "eco"
-  },
-  {
-    title: "Compostable Zippers",
-    desc: "How biodegradable press-to-close zippers preserve freshness without polluting composting streams.",
-    link: "/blog/compostable-zipper-no-removal",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
-    tag: "Technology",
-    badgeType: "eco"
-  },
-  {
-    title: "Foil Stamping Recyclability",
-    desc: "Assessing the impact of hot and cold foil stamping on paperboard and plastic recycling.",
-    link: "/blog/stamp-foil-recyclability",
-    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
-    tag: "Design",
-    badgeType: "luxury"
-  },
-  {
-    title: "Compostable Materials",
-    desc: "Overview of organic starch-based polymers and plant cell membranes that biodegrade safely.",
-    link: "/materials/compostable",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
-    tag: "Materials",
-    badgeType: "eco"
-  },
-  {
-    title: "Recyclable Mono-PE",
-    desc: "Engineered single-polymer films with EVOH barrier that qualify for standard recycling streams.",
-    link: "/materials/recyclable-mono-pe",
-    image: "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
-    tag: "Materials",
-    badgeType: "accent"
-  },
-  {
-    title: "Sugarcane Bio-PE",
-    desc: "Plant-based polyethylene films derived from sugarcane that reduce carbon footprint.",
-    link: "/materials/bio-pe",
-    image: "/imgs/store/products/eco-standup-premium.png",
-    tag: "Materials",
-    badgeType: "eco"
-  },
-  {
-    title: "Post-Consumer Recycled",
-    desc: "Reusing plastic ocean waste and curbside recyclables to fabricate premium composite barrier films.",
-    link: "/materials/pcr",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
-    tag: "Materials",
-    badgeType: "luxury"
-  },
-  {
-    title: "Stand Up Pouches",
-    desc: "The classic retail packaging format with bottom gusset and custom resealable zippers.",
-    link: "/packaging/stand-up-pouches",
-    image: "/imgs/store/products/eco-standup-premium.png",
-    tag: "Packaging",
-    badgeType: "eco"
-  },
-  {
-    title: "Flat Bottom Bags",
-    desc: "Maximum stability with five printable panels, ideal for heavy coffee beans and dry pet food.",
-    link: "/packaging/flat-bottom-bags",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
-    tag: "Packaging",
-    badgeType: "accent"
-  },
-  {
-    title: "Spouted Liquid Pouches",
-    desc: "Flexible bottle-shaped pouches with fitment caps designed to hold cosmetics, drinks, and purees.",
-    link: "/packaging/spout-pouches",
-    image: "/imgs/store/products/spouted-foil-pouch-thumbnail-26.webp",
-    tag: "Packaging",
-    badgeType: "liquid"
-  },
-  {
-    title: "Custom Printed Boxes",
-    desc: "Sturdy corrugated cardboard boxes, mailers, and custom retail displays with custom finishes.",
-    link: "/packaging/custom-boxes",
-    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
-    tag: "Packaging",
-    badgeType: "luxury"
-  },
-  {
-    title: "Startup Founder Solutions",
-    desc: "Low MOQ, design support, and rapid prototyping workflows for launching products.",
-    link: "/solutions/startup-founder",
-    image: "/imgs/store/products/conven-3ss-clear-zip-premium.png",
-    tag: "Solutions",
-    badgeType: "accent"
-  },
-  {
-    title: "Ecommerce Brand Packaging",
-    desc: "Optimizing mailers, shipping boxes, and secondary pouches for D2C transit safety.",
-    link: "/solutions/ecommerce-brand",
-    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
-    tag: "Solutions",
-    badgeType: "luxury"
-  },
-  {
-    title: "Coffee Roaster Packaging",
-    desc: "High-barrier foil stand-up and flat bottom bags equipped with degassing valves.",
-    link: "/solutions/coffee-roaster",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
-    tag: "Solutions",
-    badgeType: "accent"
-  },
-  {
-    title: "Snack Brand Packaging",
-    desc: "Lightproof and air-tight pouches to maintain crispness and extend retail shelf life.",
-    link: "/solutions/snack-brand-manager",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
-    tag: "Solutions",
-    badgeType: "liquid"
-  },
-  {
-    title: "Minimalist D2C Branding",
-    desc: "Designing clean packaging layouts that reduce ink waste and capture consumer interest.",
-    link: "/topics/minimalist-d2c-packaging",
-    image: "/imgs/store/products/eco-standup-premium.png",
-    tag: "Branding",
-    badgeType: "eco"
-  },
-  {
-    title: "Low MOQ Startup Tips",
-    desc: "Strategic advice on split-shipping, template reuse, and digital runs for multi-SKU brands.",
-    link: "/topics/low-moq-startup-packaging",
-    image: "/imgs/store/products/conven-3ss-clear-zip-premium.png",
-    tag: "Strategy",
-    badgeType: "luxury"
-  },
-  {
-    title: "Home Compostable Coffee",
-    desc: "Integrating plant-based degassing valves and compostable films to create home-friendly coffee bags.",
-    link: "/topics/home-compostable-coffee-bags",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
-    tag: "Coffee",
-    badgeType: "eco"
-  },
-  {
-    title: "Recyclable Snacks Pouch",
-    desc: "Preserving chips and granola freshness using EVOH-coated recyclable polyethylene structures.",
-    link: "/topics/recyclable-snack-packaging",
-    image: "/imgs/store/products/recyclable-3ss-evoh-pe-102x152.png",
-    tag: "Snacks",
-    badgeType: "liquid"
-  },
-  {
-    title: "Mono-Material PE Guide",
-    desc: "Technical deep-dive on single-polymer laminates that fulfill circular economy requirements.",
-    link: "/topics/mono-material-pe-pouches",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
-    tag: "Technology",
-    badgeType: "accent"
-  },
-  {
-    title: "PFAS-Free Food Packaging",
-    desc: "Ensuring compliance with local environmental acts by utilizing PFAS-free barriers.",
-    link: "/topics/pfas-free-food-packaging",
-    image: "/imgs/store/products/eco-standup-premium.png",
-    tag: "Compliance",
-    badgeType: "eco"
-  },
-  {
-    title: "USA Compostable Standards",
-    desc: "Guidelines on ASTM D6400 certification, BPI labels, and local state labeling mandates.",
-    link: "/usa/compostable-packaging",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
-    tag: "USA",
-    badgeType: "eco"
-  },
-  {
-    title: "USA Coffee Bags Market",
-    desc: "US retail trends in organic specialty coffee packaging and eco-friendly packaging rules.",
-    link: "/usa/coffee-packaging",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
-    tag: "USA",
-    badgeType: "accent"
-  },
-  {
-    title: "Coffee Roastery Case Study",
-    desc: "How a specialty Seattle roastery shifted to 100% compostable bags without dropping speed.",
-    link: "/case-studies/coffee-roastery",
-    image: "/imgs/store/products/eco-flatbottom-premium.png",
-    tag: "Case Study",
-    badgeType: "accent"
-  },
-  {
-    title: "Tea Brand Case Study",
-    desc: "Transitioning to plastic-free kraft bags to align with clean label values.",
-    link: "/case-studies/tea-brand",
-    image: "/imgs/store/products/rice-paper-500g-standup.png",
-    tag: "Case Study",
-    badgeType: "eco"
-  },
-  {
-    title: "Pet Treats Case Study",
-    desc: "Developing high-volume pet food pouches with puncture-resistant layers and durable zippers.",
-    link: "/case-studies/pet-treats",
-    image: "/imgs/store/products/conven-sup-met-zip-premium.png",
-    tag: "Case Study",
-    badgeType: "liquid"
-  },
-  {
-    title: "Chocolate Brand Case Study",
-    desc: "Eco-luxe chocolate brand showcases premium rigid box and compostable pouch designs.",
-    link: "/case-studies/chocolate-brand",
-    image: "/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp",
-    tag: "Case Study",
-    badgeType: "luxury"
-  }
-];
+import WorkCarousel from './components/WorkCarousel'
+import KnowHowCarousel from './components/KnowHowCarousel'
 
 
 function App() {
@@ -480,153 +110,218 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<PouchProduct | null>(null)
   const [isRyanProfileOpen, setIsRyanProfileOpen] = useState(false)
 
-  // See Our Work Carousel state and handlers
-  const [activeWorkDot, setActiveWorkDot] = useState(0)
-  const workScrollerRef = useRef<HTMLDivElement>(null)
-  const [isWorkDown, setIsWorkDown] = useState(false)
-  const [startWorkX, setStartWorkX] = useState(0)
-  const [scrollLeftWorkState, setScrollLeftWorkState] = useState(0)
-  const [isWorkDragging, setIsWorkDragging] = useState(false)
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+  const videoRef1 = useRef<HTMLVideoElement>(null)
+  const videoRef2 = useRef<HTMLVideoElement>(null)
+  const videoRef3 = useRef<HTMLVideoElement>(null)
+  const videoRef4 = useRef<HTMLVideoElement>(null)
+  const videoRef5 = useRef<HTMLVideoElement>(null)
 
-  const handleWorkMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!workScrollerRef.current) return
-    setIsWorkDown(true)
-    setIsWorkDragging(false)
-    setStartWorkX(e.pageX - workScrollerRef.current.offsetLeft)
-    setScrollLeftWorkState(workScrollerRef.current.scrollLeft)
-  }
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
-  const handleWorkMouseLeave = () => {
-    setIsWorkDown(false)
-  }
+  useEffect(() => {
+    if (activeHeroIndex === 0) {
+      videoRef1.current?.play().catch((err) => console.log(err))
+      if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
+      if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
+      if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
+      if (videoRef5.current) { videoRef5.current.pause(); videoRef5.current.currentTime = 0; }
+    } else if (activeHeroIndex === 1) {
+      videoRef2.current?.play().catch((err) => console.log(err))
+      if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
+      if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
+      if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
+      if (videoRef5.current) { videoRef5.current.pause(); videoRef5.current.currentTime = 0; }
+    } else if (activeHeroIndex === 2) {
+      videoRef3.current?.play().catch((err) => console.log(err))
+      if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
+      if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
+      if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
+      if (videoRef5.current) { videoRef5.current.pause(); videoRef5.current.currentTime = 0; }
+    } else if (activeHeroIndex === 3) {
+      videoRef4.current?.play().catch((err) => console.log(err))
+      if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
+      if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
+      if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
+      if (videoRef5.current) { videoRef5.current.pause(); videoRef5.current.currentTime = 0; }
+    } else {
+      videoRef5.current?.play().catch((err) => console.log(err))
+      if (videoRef1.current) { videoRef1.current.pause(); videoRef1.current.currentTime = 0; }
+      if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
+      if (videoRef3.current) { videoRef3.current.pause(); videoRef3.current.currentTime = 0; }
+      if (videoRef4.current) { videoRef4.current.pause(); videoRef4.current.currentTime = 0; }
+    }
+  }, [activeHeroIndex])
 
-  const handleWorkMouseUp = () => {
-    setIsWorkDown(false)
-    setTimeout(() => setIsWorkDragging(false), 50)
-  }
+  const offsetVal = isMobile ? 16 : 40
+  const slideVal = isMobile ? 120 : 260
 
-  const handleWorkMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isWorkDown || !workScrollerRef.current) return
-    e.preventDefault()
-    setIsWorkDragging(true)
-    const x = e.pageX - workScrollerRef.current.offsetLeft
-    const walk = (x - startWorkX) * 1.5 // Drag sensitivity
-    workScrollerRef.current.scrollLeft = scrollLeftWorkState - walk
-  }
-
-  const handleWorkScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    const scroller = e.currentTarget
-    const scrollerCenter = scroller.scrollLeft + scroller.clientWidth / 2
-    const items = scroller.querySelectorAll('.work-carousel-item-node')
-    let closestIndex = 0
-    let minDistance = Infinity
-
-    items.forEach((item, index) => {
-      const itemElement = item as HTMLDivElement
-      const itemCenter = itemElement.offsetLeft + itemElement.clientWidth / 2
-      const distance = Math.abs(itemCenter - scrollerCenter)
-
-      if (distance < minDistance) {
-        minDistance = distance
-        closestIndex = index
+  const card1Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 50,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, -slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, -10, 10],
+      scale: 1,
+      zIndex: [50, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
       }
-    })
-
-    setActiveWorkDot(closestIndex)
+    }
   }
 
-  const scrollToWorkSlide = (index: number) => {
-    if (!workScrollerRef.current) return
-    const items = workScrollerRef.current.querySelectorAll('.work-carousel-item-node')
-    if (!items[index]) return
-
-    const targetItem = items[index] as HTMLDivElement
-    const scrollerWidth = workScrollerRef.current.clientWidth
-    const itemWidth = targetItem.offsetWidth
-    
-    const targetScrollLeft = targetItem.offsetLeft - (scrollerWidth / 2) + (itemWidth / 2)
-    
-    workScrollerRef.current.scrollTo({
-      left: targetScrollLeft,
-      behavior: 'smooth'
-    })
-    
-    setActiveWorkDot(index)
-  }
-
-  // See Our Know How Carousel state and handlers
-  const [activeKnowHowDot, setActiveKnowHowDot] = useState(0)
-  const knowHowScrollerRef = useRef<HTMLDivElement>(null)
-  const [isKnowHowDown, setIsKnowHowDown] = useState(false)
-  const [startKnowHowX, setStartKnowHowX] = useState(0)
-  const [scrollLeftKnowHowState, setScrollLeftKnowHowState] = useState(0)
-  const [isKnowHowDragging, setIsKnowHowDragging] = useState(false)
-
-  const handleKnowHowMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!knowHowScrollerRef.current) return
-    setIsKnowHowDown(true)
-    setIsKnowHowDragging(false)
-    setStartKnowHowX(e.pageX - knowHowScrollerRef.current.offsetLeft)
-    setScrollLeftKnowHowState(knowHowScrollerRef.current.scrollLeft)
-  }
-
-  const handleKnowHowMouseLeave = () => {
-    setIsKnowHowDown(false)
-  }
-
-  const handleKnowHowMouseUp = () => {
-    setIsKnowHowDown(false)
-    setTimeout(() => setIsKnowHowDragging(false), 50)
-  }
-
-  const handleKnowHowMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isKnowHowDown || !knowHowScrollerRef.current) return
-    e.preventDefault()
-    setIsKnowHowDragging(true)
-    const x = e.pageX - knowHowScrollerRef.current.offsetLeft
-    const walk = (x - startKnowHowX) * 1.5 // Drag sensitivity
-    knowHowScrollerRef.current.scrollLeft = scrollLeftKnowHowState - walk
-  }
-
-  const handleKnowHowScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    const scroller = e.currentTarget
-    const scrollerCenter = scroller.scrollLeft + scroller.clientWidth / 2
-    const items = scroller.querySelectorAll('.knowhow-carousel-item-node')
-    let closestIndex = 0
-    let minDistance = Infinity
-
-    items.forEach((item, index) => {
-      const itemElement = item as HTMLDivElement
-      const itemCenter = itemElement.offsetLeft + itemElement.clientWidth / 2
-      const distance = Math.abs(itemCenter - scrollerCenter)
-
-      if (distance < minDistance) {
-        minDistance = distance
-        closestIndex = index
+  const card2Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 50,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, 10, 10],
+      scale: 1,
+      zIndex: [50, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
       }
-    })
-
-    setActiveKnowHowDot(closestIndex)
+    }
   }
 
-  const scrollToKnowHowSlide = (index: number) => {
-    if (!knowHowScrollerRef.current) return
-    const items = knowHowScrollerRef.current.querySelectorAll('.knowhow-carousel-item-node')
-    if (!items[index]) return
-
-    const targetItem = items[index] as HTMLDivElement
-    const scrollerWidth = knowHowScrollerRef.current.clientWidth
-    const itemWidth = targetItem.offsetWidth
-    
-    const targetScrollLeft = targetItem.offsetLeft - (scrollerWidth / 2) + (itemWidth / 2)
-    
-    knowHowScrollerRef.current.scrollTo({
-      left: targetScrollLeft,
-      behavior: 'smooth'
-    })
-    
-    setActiveKnowHowDot(index)
+  const card3Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 50,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, -slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, -10, 10],
+      scale: 1,
+      zIndex: [50, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
+      }
+    }
   }
+
+  const card4Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 50,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, 10, 10],
+      scale: 1,
+      zIndex: [50, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
+      }
+    }
+  }
+
+  const card5Variants = {
+    front: {
+      x: 0,
+      y: 0,
+      rotate: 2,
+      scale: 1,
+      zIndex: 50,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    middle: {
+      x: offsetVal,
+      y: offsetVal,
+      rotate: 6,
+      scale: 1,
+      zIndex: 40,
+      transition: { duration: 0.6, ease: "easeInOut" as const }
+    },
+    back: {
+      x: [0, -slideVal, offsetVal],
+      y: [0, -20, offsetVal],
+      rotate: [2, -10, 10],
+      scale: 1,
+      zIndex: [50, 10, 10],
+      transition: {
+        times: [0, 0.4, 1],
+        duration: 0.8,
+        ease: "easeInOut" as const
+      }
+    }
+  }
+
+  const floatAnim = {
+    y: [0, -10, 0],
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const }
+  }
+
+
 
   const [slogan, setSlogan] = useState({
     prefix: "Your Customers Care What Their Products Are Made Of & Where They End Up.",
@@ -1432,243 +1127,144 @@ function App() {
               </div>
             </div>
 
-            <div className="hidden lg:block relative">
-              <CardContainer containerClassName="py-0">
-                <CardBody className="relative group/card w-full">
-                  <div className="absolute inset-0 bg-primary-500 rounded-full filter blur-3xl opacity-10"></div>
-                  <CardItem translateZ="100" className="w-full">
-                    <video
-                      src="/video/hero/bag.mov"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="relative z-10 w-full rounded-2xl shadow-2xl object-cover aspect-square group-hover/card:shadow-primary-500/[0.3]"
-                      poster="/imgs/hero/pouch-eco-cover.jpg"
-                    />
-                  </CardItem>
-                </CardBody>
-              </CardContainer>
+            <div className="hidden lg:block relative w-full max-w-md aspect-square mx-auto lg:ml-auto lg:mr-0 mb-10 md:mb-0">
+              {/* Card 1: Bag Video */}
+              <motion.div
+                variants={card1Variants}
+                animate={activeHeroIndex === 0 ? "front" : (activeHeroIndex === 4 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
+                  <video
+                    ref={videoRef1}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(1)}
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/bag.mp4" type="video/mp4" />
+                    <source src="/video/hero/bag.mov" type="video/quicktime" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
+                    Compostable OK
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Card 2: Recycle Video */}
+              <motion.div
+                variants={card2Variants}
+                animate={activeHeroIndex === 1 ? "front" : (activeHeroIndex === 0 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
+                  <video
+                    ref={videoRef2}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(2)}
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/recycle/remake_this_image_to_square_.mp4" type="video/mp4" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
+                    Recyclable OK
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Card 3: Industrial Video */}
+              <motion.div
+                variants={card3Variants}
+                animate={activeHeroIndex === 2 ? "front" : (activeHeroIndex === 1 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
+                  <video
+                    ref={videoRef3}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(3)}
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/industrial/industrial.mp4" type="video/mp4" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
+                    Industrial OK
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Card 4: PCR Video */}
+              <motion.div
+                variants={card4Variants}
+                animate={activeHeroIndex === 3 ? "front" : (activeHeroIndex === 2 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
+                  <video
+                    ref={videoRef4}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(4)}
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/PCR/pcr.mp4" type="video/mp4" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
+                    PCR Barrier OK
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Card 5: BioPE Video */}
+              <motion.div
+                variants={card5Variants}
+                animate={activeHeroIndex === 4 ? "front" : (activeHeroIndex === 3 ? "middle" : "back")}
+                className="absolute inset-0 w-full h-full"
+              >
+                <div className="bg-white border border-neutral-200 rounded-3xl w-full h-full p-0 overflow-hidden group relative shadow-md">
+                  <video
+                    ref={videoRef5}
+                    muted
+                    playsInline
+                    poster="/video/hero/cover.jpg"
+                    onEnded={() => setActiveHeroIndex(0)}
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
+                  >
+                    <source src="/video/hero/biope/biope.mp4" type="video/mp4" />
+                  </video>
+                  
+                  {/* Floating Tag */}
+                  <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-neutral-200 px-3 py-1 rounded-full text-xs font-semibold text-neutral-800 shadow-sm z-20">
+                    Bio-based OK
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Decorative Foreground Badge */}
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-32 md:h-32 bg-primary-600 rounded-full flex items-center justify-center animate-bounce z-30 shadow-lg text-white font-bold">
+                <span className="font-extrabold text-sm md:text-lg rotate-[-15deg]">MOQ 500!</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* See Our Work Section (Vilgain Style) */}
-      <section id="work" className="py-20 md:py-32 bg-white overflow-hidden font-sans border-b border-neutral-200/50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm">Our Portfolio</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 leading-tight tracking-tight mt-2 mb-4">
-              See Our <span className="text-primary-500">Work</span>
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-              Browse real product photos from brands we've helped launch. Your custom packaging could be next.
-            </p>
-          </div>
-        </div>
-
-        {/* Scrollable Work Track */}
-        <div className="w-full overflow-visible py-8">
-          <div 
-            ref={workScrollerRef}
-            onMouseDown={handleWorkMouseDown}
-            onMouseLeave={handleWorkMouseLeave}
-            onMouseUp={handleWorkMouseUp}
-            onMouseMove={handleWorkMouseMove}
-            onScroll={handleWorkScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 px-[5%] md:px-[10%] py-4 scrollbar-none select-none cursor-grab active:cursor-grabbing"
-          >
-            {ourWorkCards.map((item, idx) => {
-              return (
-                <div 
-                  key={idx} 
-                  className="work-carousel-item-node flex-none w-[76vw] md:w-[24vw] min-w-[280px] max-w-[340px] snap-center group"
-                >
-                  <div 
-                    className={`w-full h-[400px] md:h-[460px] rounded-3xl relative overflow-hidden transition-all duration-500 border ${
-                      activeWorkDot === idx
-                        ? 'border-neutral-900/10 shadow-lg scale-[1.01] z-20' 
-                        : 'border-neutral-200/50 opacity-90 z-10'
-                    }`}
-                  >
-                    {/* Image layer: full width of the block */}
-                    <div className="absolute inset-0 z-0">
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
-                        className="w-full h-full object-cover select-none pointer-events-none transition-transform duration-500 group-hover:scale-105" 
-                      />
-                    </div>
-                    
-                    {/* Subtle top overlay for the white tag */}
-                    <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/20 via-transparent to-transparent z-10" />
-                    
-                    {/* Dark gradient overlay at the bottom for readability */}
-                    <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-neutral-950 via-neutral-950/44 to-transparent z-10" />
-                    
-                    {/* Top Info Overlay */}
-                    <div className="absolute top-6 left-6 z-20 flex justify-between items-start right-6">
-                      <span className={`text-[9px] uppercase font-extrabold px-2.5 py-1 rounded-full border shadow-sm ${
-                        item.badgeType === 'eco' 
-                          ? 'bg-emerald-600/90 text-white border-emerald-500/10' 
-                          : item.badgeType === 'liquid'
-                          ? 'bg-blue-600/90 text-white border-blue-500/10'
-                          : item.badgeType === 'luxury'
-                          ? 'bg-purple-600/90 text-white border-purple-500/10'
-                          : 'bg-orange-600/90 text-white border-orange-500/10'
-                      }`}>
-                        {item.tag}
-                      </span>
-                    </div>
-
-                    {/* Bottom Content Overlay */}
-                    <div className="relative z-20 p-6 w-full flex flex-col items-start mt-auto h-full justify-end">
-                      <h3 className="text-white font-bold text-base md:text-lg mb-1 leading-snug">
-                        {item.title}
-                      </h3>
-                      <p className="text-neutral-200 text-xs font-light mb-4 leading-normal line-clamp-2">
-                        {item.desc}
-                      </p>
-                      
-                      <Link 
-                        to={item.link}
-                        className="px-6 py-2 bg-white hover:bg-neutral-100 text-neutral-950 font-bold rounded-full text-[11px] uppercase tracking-wider transition-all duration-300 shadow-md self-start inline-flex items-center gap-1.5"
-                      >
-                        Get Quote <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
-        {/* Pagination Dots for Work Carousel */}
-        <div className="flex justify-center gap-2 pb-6 flex-wrap px-4 max-w-lg mx-auto">
-          {ourWorkCards.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => scrollToWorkSlide(idx)}
-              className={`w-2 h-2 rounded-full border-none transition-all duration-300 ${
-                activeWorkDot === idx 
-                  ? 'bg-neutral-800 scale-125 shadow-sm' 
-                  : 'bg-neutral-300 hover:bg-neutral-400'
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* See Our Know How Section (Vilgain Style) */}
-      <section id="know-how" className="py-20 md:py-32 bg-white overflow-hidden font-sans border-b border-neutral-200/50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm">Knowledge Base</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 leading-tight tracking-tight mt-2 mb-4">
-              See Our <span className="text-primary-500">Know How</span>
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-              Explore our comprehensive knowledge base on sustainable materials, packaging specifications, cost structures, and D2C strategies.
-            </p>
-          </div>
-        </div>
-
-        {/* Scrollable Know How Track */}
-        <div className="w-full overflow-visible py-8">
-          <div 
-            ref={knowHowScrollerRef}
-            onMouseDown={handleKnowHowMouseDown}
-            onMouseLeave={handleKnowHowMouseLeave}
-            onMouseUp={handleKnowHowMouseUp}
-            onMouseMove={handleKnowHowMouseMove}
-            onScroll={handleKnowHowScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 px-[5%] md:px-[10%] py-4 scrollbar-none select-none cursor-grab active:cursor-grabbing"
-          >
-            {seoKnowHowCards.map((item, idx) => {
-              return (
-                <div 
-                  key={idx} 
-                  className="knowhow-carousel-item-node flex-none w-[76vw] md:w-[24vw] min-w-[280px] max-w-[340px] snap-center group"
-                >
-                  <div 
-                    className={`w-full h-[400px] md:h-[460px] rounded-3xl relative overflow-hidden transition-all duration-500 border ${
-                      activeKnowHowDot === idx
-                        ? 'border-neutral-900/10 shadow-lg scale-[1.01] z-20' 
-                        : 'border-neutral-200/50 opacity-90 z-10'
-                    }`}
-                  >
-                    {/* Image layer: full width of the block */}
-                    <div className="absolute inset-0 z-0">
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
-                        className="w-full h-full object-cover select-none pointer-events-none transition-transform duration-500 group-hover:scale-105" 
-                      />
-                    </div>
-                    
-                    {/* Subtle top overlay for the white tag */}
-                    <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/20 via-transparent to-transparent z-10" />
-                    
-                    {/* Dark gradient overlay at the bottom for readability */}
-                    <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-neutral-950 via-neutral-950/44 to-transparent z-10" />
-                    
-                    {/* Top Info Overlay */}
-                    <div className="absolute top-6 left-6 z-20 flex justify-between items-start right-6">
-                      <span className={`text-[9px] uppercase font-extrabold px-2.5 py-1 rounded-full border shadow-sm ${
-                        item.badgeType === 'eco' 
-                          ? 'bg-emerald-600/90 text-white border-emerald-500/10' 
-                          : item.badgeType === 'liquid'
-                          ? 'bg-blue-600/90 text-white border-blue-500/10'
-                          : item.badgeType === 'luxury'
-                          ? 'bg-purple-600/90 text-white border-purple-500/10'
-                          : 'bg-orange-600/90 text-white border-orange-500/10'
-                      }`}>
-                        {item.tag}
-                      </span>
-                    </div>
-
-                    {/* Bottom Content Overlay */}
-                    <div className="relative z-20 p-6 w-full flex flex-col items-start mt-auto h-full justify-end">
-                      <h3 className="text-white font-bold text-base md:text-lg mb-1 leading-snug">
-                        {item.title}
-                      </h3>
-                      <p className="text-neutral-200 text-xs font-light mb-4 leading-normal line-clamp-2">
-                        {item.desc}
-                      </p>
-                      
-                      <Link 
-                        to={item.link}
-                        className="px-6 py-2 bg-white hover:bg-neutral-100 text-neutral-950 font-bold rounded-full text-[11px] uppercase tracking-wider transition-all duration-300 shadow-md self-start inline-flex items-center gap-1.5"
-                      >
-                        Read Guide <ArrowRight className="h-3 w-3" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
-        {/* Pagination Dots for Know How Carousel */}
-        <div className="flex justify-center gap-2 pb-6 flex-wrap px-4 max-w-xl mx-auto">
-          {seoKnowHowCards.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => scrollToKnowHowSlide(idx)}
-              className={`w-2 h-2 rounded-full border-none transition-all duration-300 ${
-                activeKnowHowDot === idx 
-                  ? 'bg-neutral-800 scale-125 shadow-sm' 
-                  : 'bg-neutral-300 hover:bg-neutral-400'
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
-      </section>
+      <WorkCarousel theme="achieve" />
+      <KnowHowCarousel theme="achieve" />
 
       {/* Interactive 3D Eco Pouch Showcase */}
       <section 
