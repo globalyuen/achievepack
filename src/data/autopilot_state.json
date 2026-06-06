@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T23:15:28.096Z",
+  "lastUnifiedRun": "2026-06-06T23:30:27.366Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 1,
@@ -1232,17 +1232,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-barrier-pouches-for-snacks-low-moq",
       "status": "Pending Approval",
       "volume": 720,
       "keyword": "custom barrier pouches for snacks low moq",
-      "difficulty": "Low",
-      "slug": "custom-barrier-pouches-for-snacks-low-moq"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 2100,
       "keyword": "sustainable flexible packaging suppliers",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "sustainable-flexible-packaging-suppliers"
     },
     {
       "status": "Pending",
@@ -1349,9 +1350,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T23:15:20.107Z",
+      "timestamp": "2026-06-06T23:30:19.161Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom barrier pouches for snacks low moq\" to /blog/custom-barrier-pouches-for-snacks-low-moq (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable flexible packaging suppliers\" to /blog/sustainable-flexible-packaging-suppliers (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom barrier pouches for snacks low moq\" to /blog/custom-barrier-pouches-for-snacks-low-moq (Pending Approval)",
+      "timestamp": "2026-06-06T23:15:20.107Z"
     },
     {
       "action": "Autopilot Generation Draft",
