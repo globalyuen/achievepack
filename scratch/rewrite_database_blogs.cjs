@@ -126,51 +126,63 @@ async function processPost(post) {
   
   // Let's copy sections for rewriting
   let sections = achieveContent.sections || [];
-  let updatedSections = [];
   
-  for (let sIdx = 0; sIdx < sections.length; sIdx++) {
-    const sec = sections[sIdx];
-    console.log(`  Section ${sIdx + 1}: "${sec.title}"`);
-    let updatedSec = { ...sec };
-    
-    // Rewrite paragraphs if present
+  // We will collect all rewrite tasks
+  const rewriteTasks = [];
+  
+  sections.forEach((sec, sIdx) => {
     if (sec.paragraphs && Array.isArray(sec.paragraphs)) {
-      let updatedParagraphs = [];
-      for (let pIdx = 0; pIdx < sec.paragraphs.length; pIdx++) {
-        const p = sec.paragraphs[pIdx];
+      sec.paragraphs.forEach((p, pIdx) => {
         if (p.text && p.text.trim()) {
-          console.log(`    Rewriting Paragraph ${pIdx + 1}...`);
-          try {
-            const rewritten = await callGrok(paragraphPrompt, p.text);
-            updatedParagraphs.push({ ...p, text: rewritten });
-            await sleep(1500); // Throttling
-          } catch (e) {
-            console.error(`    Error rewriting Paragraph ${pIdx + 1}:`, e.message);
-            updatedParagraphs.push(p); // Fallback to original
-          }
-        } else {
-          updatedParagraphs.push(p);
+          rewriteTasks.push({
+            type: 'paragraph',
+            sectionIndex: sIdx,
+            paragraphIndex: pIdx,
+            originalText: p.text
+          });
         }
-      }
-      updatedSec.paragraphs = updatedParagraphs;
+      });
     }
-    
-    // Rewrite content HTML if present
     if (sec.content && sec.content.trim()) {
-      console.log(`    Rewriting Content HTML...`);
-      try {
-        const rewritten = await callGrok(htmlPrompt, sec.content);
-        updatedSec.content = rewritten;
-        await sleep(1500); // Throttling
-      } catch (e) {
-        console.error(`    Error rewriting Content HTML:`, e.message);
-      }
+      rewriteTasks.push({
+        type: 'content',
+        sectionIndex: sIdx,
+        originalText: sec.content
+      });
     }
-    
-    updatedSections.push(updatedSec);
-  }
+  });
   
-  achieveContent.sections = updatedSections;
+  if (rewriteTasks.length > 0) {
+    console.log(`  Found ${rewriteTasks.length} text blocks. Rewriting in parallel...`);
+    
+    // Execute all rewrites in parallel
+    const results = await Promise.all(
+      rewriteTasks.map(async (task) => {
+        try {
+          const prompt = task.type === 'paragraph' ? paragraphPrompt : htmlPrompt;
+          const rewritten = await callGrok(prompt, task.originalText);
+          return { ...task, rewritten, success: true };
+        } catch (e) {
+          console.error(`  Error rewriting block (${task.type} in section ${task.sectionIndex + 1}):`, e.message);
+          return { ...task, rewritten: task.originalText, success: false };
+        }
+      })
+    );
+    
+    // Apply the results back to the sections
+    let updatedSections = JSON.parse(JSON.stringify(sections));
+    results.forEach(res => {
+      if (res.type === 'paragraph') {
+        updatedSections[res.sectionIndex].paragraphs[res.paragraphIndex].text = res.rewritten;
+      } else if (res.type === 'content') {
+        updatedSections[res.sectionIndex].content = res.rewritten;
+      }
+    });
+    
+    achieveContent.sections = updatedSections;
+  } else {
+    console.log("  No text blocks to rewrite.");
+  }
   
   // Package back to database content structure
   const updatedContent = {
@@ -245,7 +257,7 @@ async function main() {
       const post = batch[i];
       console.log(`\n[${i + 1}/${batch.length}] Processing...`);
       await processPost(post);
-      await sleep(2000); // Gap between posts
+      await sleep(1000); // Gap between posts
     }
     
     console.log("\nFinished processing batch!");
