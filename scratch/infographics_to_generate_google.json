@@ -1,0 +1,734 @@
+[
+  {
+    "slug": "test-slug-schema",
+    "filename": "test-slug-schema-infographic.png",
+    "originalPrompt": "Minimalist clean infographic illustrating Test Slug Schema sourcing challenge for NurturePure in France. Show a package outline, shipping container route from factory, and local compliance certification icons. Nature green and black color palette.",
+    "imageName": "test_slug_schema_infographic"
+  },
+  {
+    "slug": "test-slug-schema",
+    "filename": "test-slug-schema-infographic-2.png",
+    "originalPrompt": "Diagram illustrating material barrier layers. Clean annotations in English: 'Oxygen Barrier', 'Moisture Guard', 'NurturePure Logo'.",
+    "imageName": "test_slug_schema_infographic_2"
+  },
+  {
+    "slug": "test-slug-schema",
+    "filename": "test-slug-schema-infographic-3.png",
+    "originalPrompt": "Layer structure infographic showing a 3D cutaway of the multi-layer pouch structure with annotations of each layer and polymer type.",
+    "imageName": "test_slug_schema_infographic_3"
+  },
+  {
+    "slug": "test-slug-schema",
+    "filename": "test-slug-schema-infographic-4.png",
+    "originalPrompt": "Machinery run diagram showing VFFS roll stock feeding into a form-fill-seal line with annotations of seal jaw temperatures and line speeds.",
+    "imageName": "test_slug_schema_infographic_4"
+  },
+  {
+    "slug": "test-slug-schema",
+    "filename": "test-slug-schema-infographic-5.png",
+    "originalPrompt": "Certificate compliance map showing the validation steps from raw material supplier testing to final BPI or TÜV certificate issuance.",
+    "imageName": "test_slug_schema_infographic_5"
+  },
+  {
+    "slug": "test-slug-schema",
+    "filename": "test-slug-schema-infographic-6.png",
+    "originalPrompt": "A step-by-step roadmap timeline illustrating the transition phases from design blueprints to retail shelf launch.",
+    "imageName": "test_slug_schema_infographic_6"
+  },
+  {
+    "slug": "test-slug-schema",
+    "filename": "test-slug-schema-infographic-7.png",
+    "originalPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product.",
+    "imageName": "test_slug_schema_infographic_7"
+  },
+  {
+    "slug": "mono-pe-vs-mono-pp",
+    "filename": "mono-pe-vs-mono-pp-infographic.png",
+    "originalPrompt": "Clean studio product photography of a custom compostable Sachet for TerraSnacks showing natural texture and design, off-white background.",
+    "imageName": "mono_pe_vs_mono_pp_infographic"
+  },
+  {
+    "slug": "mono-pe-vs-mono-pp",
+    "filename": "mono-pe-vs-mono-pp-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "mono_pe_vs_mono_pp_infographic_3"
+  },
+  {
+    "slug": "mono-pe-vs-mono-pp",
+    "filename": "mono-pe-vs-mono-pp-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "mono_pe_vs_mono_pp_infographic_5"
+  },
+  {
+    "slug": "grease-proof-pet-treat-packaging",
+    "filename": "grease-proof-pet-treat-packaging-infographic.png",
+    "originalPrompt": "Clean studio product photography of a custom compostable Gusset pouch for GreenLeaf Tea showing natural texture and design, off-white background.",
+    "imageName": "grease_proof_pet_treat_packaging_infographic"
+  },
+  {
+    "slug": "grease-proof-pet-treat-packaging",
+    "filename": "grease-proof-pet-treat-packaging-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft PBAT Low Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "grease_proof_pet_treat_packaging_infographic_3"
+  },
+  {
+    "slug": "grease-proof-pet-treat-packaging",
+    "filename": "grease-proof-pet-treat-packaging-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "grease_proof_pet_treat_packaging_infographic_5"
+  },
+  {
+    "slug": "stand-up-pouch-sizing-guide",
+    "filename": "stand-up-pouch-sizing-guide-infographic.png",
+    "originalPrompt": "Clean studio product photography of a custom compostable Quad seal pouch for OrchardNectar showing natural texture and design, off-white background.",
+    "imageName": "stand_up_pouch_sizing_guide_infographic"
+  },
+  {
+    "slug": "stand-up-pouch-sizing-guide",
+    "filename": "stand-up-pouch-sizing-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft VM Cello showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "stand_up_pouch_sizing_guide_infographic_3"
+  },
+  {
+    "slug": "stand-up-pouch-sizing-guide",
+    "filename": "stand-up-pouch-sizing-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "stand_up_pouch_sizing_guide_infographic_5"
+  },
+  {
+    "slug": "mylar-vs-compostable-packaging",
+    "filename": "mylar-vs-compostable-packaging-infographic.png",
+    "originalPrompt": "Clean studio product photography of a custom compostable Stand up pouch for PureProtein showing natural texture and design, off-white background.",
+    "imageName": "mylar_vs_compostable_packaging_infographic"
+  },
+  {
+    "slug": "mylar-vs-compostable-packaging",
+    "filename": "mylar-vs-compostable-packaging-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "mylar_vs_compostable_packaging_infographic_3"
+  },
+  {
+    "slug": "mylar-vs-compostable-packaging",
+    "filename": "mylar-vs-compostable-packaging-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "mylar_vs_compostable_packaging_infographic_5"
+  },
+  {
+    "slug": "recyclable-high-barrier-nuts-pouch",
+    "filename": "recyclable-high-barrier-nuts-pouch-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft PBAT Low Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "recyclable_high_barrier_nuts_pouch_infographic_3"
+  },
+  {
+    "slug": "recyclable-high-barrier-nuts-pouch",
+    "filename": "recyclable-high-barrier-nuts-pouch-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "recyclable_high_barrier_nuts_pouch_infographic_5"
+  },
+  {
+    "slug": "high-barrier-retort-pouch",
+    "filename": "high-barrier-retort-pouch-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "high_barrier_retort_pouch_infographic_3"
+  },
+  {
+    "slug": "high-barrier-retort-pouch",
+    "filename": "high-barrier-retort-pouch-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "high_barrier_retort_pouch_infographic_5"
+  },
+  {
+    "slug": "curbside-recyclable-coffee-bag",
+    "filename": "curbside-recyclable-coffee-bag-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "curbside_recyclable_coffee_bag_infographic_3"
+  },
+  {
+    "slug": "curbside-recyclable-coffee-bag",
+    "filename": "curbside-recyclable-coffee-bag-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "curbside_recyclable_coffee_bag_infographic_5"
+  },
+  {
+    "slug": "compostable-stand-up-pouches-guide",
+    "filename": "compostable-stand-up-pouches-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Highest Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "compostable_stand_up_pouches_guide_infographic_3"
+  },
+  {
+    "slug": "compostable-stand-up-pouches-guide",
+    "filename": "compostable-stand-up-pouches-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "compostable_stand_up_pouches_guide_infographic_5"
+  },
+  {
+    "slug": "home-compostable-guide",
+    "filename": "home-compostable-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "home_compostable_guide_infographic_3"
+  },
+  {
+    "slug": "home-compostable-guide",
+    "filename": "home-compostable-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "home_compostable_guide_infographic_5"
+  },
+  {
+    "slug": "coffee-degassing-valve-guide",
+    "filename": "coffee-degassing-valve-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft PBAT Low Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "coffee_degassing_valve_guide_infographic_3"
+  },
+  {
+    "slug": "coffee-degassing-valve-guide",
+    "filename": "coffee-degassing-valve-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "coffee_degassing_valve_guide_infographic_5"
+  },
+  {
+    "slug": "bpi-certified-guide",
+    "filename": "bpi-certified-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft VM Cello showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "bpi_certified_guide_infographic_3"
+  },
+  {
+    "slug": "bpi-certified-guide",
+    "filename": "bpi-certified-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "bpi_certified_guide_infographic_5"
+  },
+  {
+    "slug": "mono-pe-recyclable-food-packaging",
+    "filename": "mono-pe-recyclable-food-packaging-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "mono_pe_recyclable_food_packaging_infographic_3"
+  },
+  {
+    "slug": "mono-pe-recyclable-food-packaging",
+    "filename": "mono-pe-recyclable-food-packaging-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "mono_pe_recyclable_food_packaging_infographic_5"
+  },
+  {
+    "slug": "coffee-packaging-guide",
+    "filename": "coffee-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft VM Cello showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "coffee_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "coffee-packaging-guide",
+    "filename": "coffee-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "coffee_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "compostable-baby-food-packaging-guide",
+    "filename": "compostable-baby-food-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "compostable_baby_food_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "compostable-baby-food-packaging-guide",
+    "filename": "compostable-baby-food-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "compostable_baby_food_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "custom-shape-die-cut-pouch",
+    "filename": "custom-shape-die-cut-pouch-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft PBAT Low Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "custom_shape_die_cut_pouch_infographic_3"
+  },
+  {
+    "slug": "custom-shape-die-cut-pouch",
+    "filename": "custom-shape-die-cut-pouch-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "custom_shape_die_cut_pouch_infographic_5"
+  },
+  {
+    "slug": "eco-friendly-food-packaging-guide",
+    "filename": "eco-friendly-food-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "eco_friendly_food_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "eco-friendly-food-packaging-guide",
+    "filename": "eco-friendly-food-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "eco_friendly_food_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "custom-printed-materials-guide",
+    "filename": "custom-printed-materials-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "custom_printed_materials_guide_infographic_3"
+  },
+  {
+    "slug": "custom-printed-materials-guide",
+    "filename": "custom-printed-materials-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "custom_printed_materials_guide_infographic_5"
+  },
+  {
+    "slug": "dtc-sustainable-packaging-guide",
+    "filename": "dtc-sustainable-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Highest Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "dtc_sustainable_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "dtc-sustainable-packaging-guide",
+    "filename": "dtc-sustainable-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "dtc_sustainable_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "usa-snacks-packaging-guide",
+    "filename": "usa-snacks-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "usa_snacks_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "usa-snacks-packaging-guide",
+    "filename": "usa-snacks-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "usa_snacks_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "eco-packaging-regulations-guide",
+    "filename": "eco-packaging-regulations-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft PBAT Low Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "eco_packaging_regulations_guide_infographic_3"
+  },
+  {
+    "slug": "eco-packaging-regulations-guide",
+    "filename": "eco-packaging-regulations-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "eco_packaging_regulations_guide_infographic_5"
+  },
+  {
+    "slug": "green-coffee-materials-guide",
+    "filename": "green-coffee-materials-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Highest Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "green_coffee_materials_guide_infographic_3"
+  },
+  {
+    "slug": "green-coffee-materials-guide",
+    "filename": "green-coffee-materials-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "green_coffee_materials_guide_infographic_5"
+  },
+  {
+    "slug": "low-moq-startup-packaging-guide",
+    "filename": "low-moq-startup-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft VM Cello showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "low_moq_startup_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "low-moq-startup-packaging-guide",
+    "filename": "low-moq-startup-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "low_moq_startup_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "usa-compostable-packaging-guide",
+    "filename": "usa-compostable-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft VM Cello showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "usa_compostable_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "usa-compostable-packaging-guide",
+    "filename": "usa-compostable-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "usa_compostable_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "recyclable-snack-packaging-guide",
+    "filename": "recyclable-snack-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "recyclable_snack_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "recyclable-snack-packaging-guide",
+    "filename": "recyclable-snack-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "recyclable_snack_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "usa-coffee-packaging",
+    "filename": "usa-coffee-packaging-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Highest Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "usa_coffee_packaging_infographic_3"
+  },
+  {
+    "slug": "usa-coffee-packaging",
+    "filename": "usa-coffee-packaging-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "usa_coffee_packaging_infographic_5"
+  },
+  {
+    "slug": "organic-compliance-support-guide",
+    "filename": "organic-compliance-support-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "organic_compliance_support_guide_infographic_3"
+  },
+  {
+    "slug": "organic-compliance-support-guide",
+    "filename": "organic-compliance-support-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "organic_compliance_support_guide_infographic_5"
+  },
+  {
+    "slug": "low-moq-packaging-guide",
+    "filename": "low-moq-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft VM Cello showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "low_moq_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "low-moq-packaging-guide",
+    "filename": "low-moq-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "low_moq_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "stamp-foil-recyclability",
+    "filename": "stamp-foil-recyclability-infographic-2.png",
+    "originalPrompt": "Diagram illustrating material barrier layers. Clean annotations in English: 'Oxygen Barrier', 'Moisture Guard', 'ZenPowder Logo'.",
+    "imageName": "stamp_foil_recyclability_infographic_2"
+  },
+  {
+    "slug": "stamp-foil-recyclability",
+    "filename": "stamp-foil-recyclability-infographic-3.png",
+    "originalPrompt": "Layer structure infographic showing a 3D cutaway of the multi-layer pouch structure with annotations of each layer and polymer type.",
+    "imageName": "stamp_foil_recyclability_infographic_3"
+  },
+  {
+    "slug": "stamp-foil-recyclability",
+    "filename": "stamp-foil-recyclability-infographic-4.png",
+    "originalPrompt": "Machinery run diagram showing VFFS roll stock feeding into a form-fill-seal line with annotations of seal jaw temperatures and line speeds.",
+    "imageName": "stamp_foil_recyclability_infographic_4"
+  },
+  {
+    "slug": "stamp-foil-recyclability",
+    "filename": "stamp-foil-recyclability-infographic-5.png",
+    "originalPrompt": "Certificate compliance map showing the validation steps from raw material supplier testing to final BPI or TÜV certificate issuance.",
+    "imageName": "stamp_foil_recyclability_infographic_5"
+  },
+  {
+    "slug": "stamp-foil-recyclability",
+    "filename": "stamp-foil-recyclability-infographic-6.png",
+    "originalPrompt": "A step-by-step roadmap timeline illustrating the transition phases from design blueprints to retail shelf launch.",
+    "imageName": "stamp_foil_recyclability_infographic_6"
+  },
+  {
+    "slug": "stamp-foil-recyclability",
+    "filename": "stamp-foil-recyclability-infographic-7.png",
+    "originalPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product.",
+    "imageName": "stamp_foil_recyclability_infographic_7"
+  },
+  {
+    "slug": "usa-labeling-guide",
+    "filename": "usa-labeling-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Highest Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "usa_labeling_guide_infographic_3"
+  },
+  {
+    "slug": "usa-labeling-guide",
+    "filename": "usa-labeling-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "usa_labeling_guide_infographic_5"
+  },
+  {
+    "slug": "custom-digital-printed-sachets",
+    "filename": "custom-digital-printed-sachets-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "custom_digital_printed_sachets_infographic_3"
+  },
+  {
+    "slug": "custom-digital-printed-sachets",
+    "filename": "custom-digital-printed-sachets-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "custom_digital_printed_sachets_infographic_5"
+  },
+  {
+    "slug": "digital-printing-eco-packaging-guide",
+    "filename": "digital-printing-eco-packaging-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "digital_printing_eco_packaging_guide_infographic_3"
+  },
+  {
+    "slug": "digital-printing-eco-packaging-guide",
+    "filename": "digital-printing-eco-packaging-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "digital_printing_eco_packaging_guide_infographic_5"
+  },
+  {
+    "slug": "coffee-degassing-valve-packaging",
+    "filename": "coffee-degassing-valve-packaging-infographic.png",
+    "originalPrompt": "Clean studio product photography of a custom compostable Gusset pouch for BloomBrews showing natural texture and design, off-white background.",
+    "imageName": "coffee_degassing_valve_packaging_infographic"
+  },
+  {
+    "slug": "coffee-degassing-valve-packaging",
+    "filename": "coffee-degassing-valve-packaging-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft VM Cello showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "coffee_degassing_valve_packaging_infographic_3"
+  },
+  {
+    "slug": "coffee-degassing-valve-packaging",
+    "filename": "coffee-degassing-valve-packaging-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "coffee_degassing_valve_packaging_infographic_5"
+  },
+  {
+    "slug": "powder-proof-zipper-pouch",
+    "filename": "powder-proof-zipper-pouch-infographic.png",
+    "originalPrompt": "Clean studio product photography of a custom compostable Center sealed bag for BarkBites showing natural texture and design, off-white background.",
+    "imageName": "powder_proof_zipper_pouch_infographic"
+  },
+  {
+    "slug": "powder-proof-zipper-pouch",
+    "filename": "powder-proof-zipper-pouch-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "powder_proof_zipper_pouch_infographic_3"
+  },
+  {
+    "slug": "powder-proof-zipper-pouch",
+    "filename": "powder-proof-zipper-pouch-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "powder_proof_zipper_pouch_infographic_5"
+  },
+  {
+    "slug": "digital-printing-on-flexible-packaging",
+    "filename": "digital-printing-on-flexible-packaging-infographic-7.png",
+    "originalPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product.",
+    "imageName": "digital_printing_on_flexible_packaging_infographic_7"
+  },
+  {
+    "slug": "compostable-humidity-control-guide",
+    "filename": "compostable-humidity-control-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft VM Cello showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "compostable_humidity_control_guide_infographic_3"
+  },
+  {
+    "slug": "compostable-humidity-control-guide",
+    "filename": "compostable-humidity-control-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "compostable_humidity_control_guide_infographic_5"
+  },
+  {
+    "slug": "compostable-stand-up-pouches-for-snacks",
+    "filename": "compostable-stand-up-pouches-for-snacks-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft VM Cello showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "compostable_stand_up_pouches_for_snacks_infographic_3"
+  },
+  {
+    "slug": "compostable-stand-up-pouches-for-snacks",
+    "filename": "compostable-stand-up-pouches-for-snacks-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "compostable_stand_up_pouches_for_snacks_infographic_5"
+  },
+  {
+    "slug": "freezer-safe-vacuum-packaging",
+    "filename": "freezer-safe-vacuum-packaging-infographic.png",
+    "originalPrompt": "Minimalist clean infographic illustrating Freezer Safe Vacuum Packaging sourcing challenge for CleanCycle Cosmetics in United Kingdom. Show a package outline, shipping container route from factory, and local compliance certification icons. Nature green and black color palette.",
+    "imageName": "freezer_safe_vacuum_packaging_infographic"
+  },
+  {
+    "slug": "freezer-safe-vacuum-packaging",
+    "filename": "freezer-safe-vacuum-packaging-infographic-2.png",
+    "originalPrompt": "Diagram illustrating material barrier layers. Clean annotations in English: 'Oxygen Barrier', 'Moisture Guard', 'CleanCycle Cosmetics Logo'.",
+    "imageName": "freezer_safe_vacuum_packaging_infographic_2"
+  },
+  {
+    "slug": "freezer-safe-vacuum-packaging",
+    "filename": "freezer-safe-vacuum-packaging-infographic-3.png",
+    "originalPrompt": "Layer structure infographic showing a 3D cutaway of the multi-layer pouch structure with annotations of each layer and polymer type.",
+    "imageName": "freezer_safe_vacuum_packaging_infographic_3"
+  },
+  {
+    "slug": "freezer-safe-vacuum-packaging",
+    "filename": "freezer-safe-vacuum-packaging-infographic-4.png",
+    "originalPrompt": "Machinery run diagram showing VFFS roll stock feeding into a form-fill-seal line with annotations of seal jaw temperatures and line speeds.",
+    "imageName": "freezer_safe_vacuum_packaging_infographic_4"
+  },
+  {
+    "slug": "freezer-safe-vacuum-packaging",
+    "filename": "freezer-safe-vacuum-packaging-infographic-5.png",
+    "originalPrompt": "Certificate compliance map showing the validation steps from raw material supplier testing to final BPI or TÜV certificate issuance.",
+    "imageName": "freezer_safe_vacuum_packaging_infographic_5"
+  },
+  {
+    "slug": "freezer-safe-vacuum-packaging",
+    "filename": "freezer-safe-vacuum-packaging-infographic-6.png",
+    "originalPrompt": "A step-by-step roadmap timeline illustrating the transition phases from design blueprints to retail shelf launch.",
+    "imageName": "freezer_safe_vacuum_packaging_infographic_6"
+  },
+  {
+    "slug": "freezer-safe-vacuum-packaging",
+    "filename": "freezer-safe-vacuum-packaging-infographic-7.png",
+    "originalPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product.",
+    "imageName": "freezer_safe_vacuum_packaging_infographic_7"
+  },
+  {
+    "slug": "industrial-compostable-guide",
+    "filename": "industrial-compostable-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "industrial_compostable_guide_infographic_3"
+  },
+  {
+    "slug": "industrial-compostable-guide",
+    "filename": "industrial-compostable-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "industrial_compostable_guide_infographic_5"
+  },
+  {
+    "slug": "digital-printing-flexible-packaging-small-runs",
+    "filename": "digital-printing-flexible-packaging-small-runs-infographic-7.png",
+    "originalPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product.",
+    "imageName": "digital_printing_flexible_packaging_small_runs_infographic_7"
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "filename": "small-batch-printed-flexible-packaging-infographic.png",
+    "originalPrompt": "Minimalist clean infographic illustrating small batch printed flexible packaging sourcing challenge for GreenLife Organics in Belgium. Show a package outline, shipping container route from factory, and local compliance certification icons. Nature green and black color palette.",
+    "imageName": "small_batch_printed_flexible_packaging_infographic"
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "filename": "small-batch-printed-flexible-packaging-infographic-2.png",
+    "originalPrompt": "Diagram illustrating material barrier layers. Clean annotations in English: 'Oxygen Barrier', 'Moisture Guard', 'GreenLife Organics Logo'.",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_2"
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "filename": "small-batch-printed-flexible-packaging-infographic-3.png",
+    "originalPrompt": "Layer structure infographic showing a 3D cutaway of the multi-layer pouch structure with annotations of each layer and polymer type.",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_3"
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "filename": "small-batch-printed-flexible-packaging-infographic-4.png",
+    "originalPrompt": "Machinery run diagram showing VFFS roll stock feeding into a form-fill-seal line with annotations of seal jaw temperatures and line speeds.",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_4"
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "filename": "small-batch-printed-flexible-packaging-infographic-5.png",
+    "originalPrompt": "Certificate compliance map showing the validation steps from raw material supplier testing to final BPI or TÜV certificate issuance.",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_5"
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "filename": "small-batch-printed-flexible-packaging-infographic-6.png",
+    "originalPrompt": "A step-by-step roadmap timeline illustrating the transition phases from design blueprints to retail shelf launch.",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_6"
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "filename": "small-batch-printed-flexible-packaging-infographic-7.png",
+    "originalPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product.",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_7"
+  },
+  {
+    "slug": "hot-fill-spout-pouches",
+    "filename": "hot-fill-spout-pouches-infographic.png",
+    "originalPrompt": "Clean studio product photography of a custom compostable Gusset pouch for BotanicaBlend showing natural texture and design, off-white background.",
+    "imageName": "hot_fill_spout_pouches_infographic"
+  },
+  {
+    "slug": "hot-fill-spout-pouches",
+    "filename": "hot-fill-spout-pouches-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "hot_fill_spout_pouches_infographic_3"
+  },
+  {
+    "slug": "hot-fill-spout-pouches",
+    "filename": "hot-fill-spout-pouches-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "hot_fill_spout_pouches_infographic_5"
+  },
+  {
+    "slug": "compostable-packaging-regulations-usa",
+    "filename": "compostable-packaging-regulations-usa-infographic.png",
+    "originalPrompt": "Clean studio product photography of a custom compostable Stand up pouch for CleanCycle Cosmetics showing natural texture and design, off-white background.",
+    "imageName": "compostable_packaging_regulations_usa_infographic"
+  },
+  {
+    "slug": "compostable-packaging-regulations-usa",
+    "filename": "compostable-packaging-regulations-usa-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "compostable_packaging_regulations_usa_infographic_3"
+  },
+  {
+    "slug": "compostable-packaging-regulations-usa",
+    "filename": "compostable-packaging-regulations-usa-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "compostable_packaging_regulations_usa_infographic_5"
+  },
+  {
+    "slug": "tuv-backyard-compostable-packaging",
+    "filename": "tuv-backyard-compostable-packaging-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Metalised showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "tuv_backyard_compostable_packaging_infographic_3"
+  },
+  {
+    "slug": "tuv-backyard-compostable-packaging",
+    "filename": "tuv-backyard-compostable-packaging-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "tuv_backyard_compostable_packaging_infographic_5"
+  },
+  {
+    "slug": "plastic-free-compostable-barrier-pouch",
+    "filename": "plastic-free-compostable-barrier-pouch-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft PBAT Low Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "plastic_free_compostable_barrier_pouch_infographic_3"
+  },
+  {
+    "slug": "plastic-free-compostable-barrier-pouch",
+    "filename": "plastic-free-compostable-barrier-pouch-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "plastic_free_compostable_barrier_pouch_infographic_5"
+  },
+  {
+    "slug": "custom-pouch-dieline-template",
+    "filename": "custom-pouch-dieline-template-infographic.png",
+    "originalPrompt": "Clean studio product photography of a custom compostable Center sealed bag for BarkBites showing natural texture and design, off-white background.",
+    "imageName": "custom_pouch_dieline_template_infographic"
+  },
+  {
+    "slug": "custom-pouch-dieline-template",
+    "filename": "custom-pouch-dieline-template-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cello Duplex Clear showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "custom_pouch_dieline_template_infographic_3"
+  },
+  {
+    "slug": "custom-pouch-dieline-template",
+    "filename": "custom-pouch-dieline-template-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "custom_pouch_dieline_template_infographic_5"
+  },
+  {
+    "slug": "compostable-spouted-baby-puree-bag",
+    "filename": "compostable-spouted-baby-puree-bag-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Kraft PBAT Low Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "compostable_spouted_baby_puree_bag_infographic_3"
+  },
+  {
+    "slug": "compostable-spouted-baby-puree-bag",
+    "filename": "compostable-spouted-baby-puree-bag-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "compostable_spouted_baby_puree_bag_infographic_5"
+  },
+  {
+    "slug": "custom-compostable-pouch-suppliers-guide",
+    "filename": "custom-compostable-pouch-suppliers-guide-infographic-3.png",
+    "originalPrompt": "Infographic illustrating the multi-layer film barrier structure of Bio Cellulose Triplex Highest Barrier showing layers: Cellulose, PLA, PBAT.",
+    "imageName": "custom_compostable_pouch_suppliers_guide_infographic_3"
+  },
+  {
+    "slug": "custom-compostable-pouch-suppliers-guide",
+    "filename": "custom-compostable-pouch-suppliers-guide-infographic-5.png",
+    "originalPrompt": "Diagram displaying the certification flow from raw material to TÜV Austria OK Compost and BPI ASTM D6400 approvals.",
+    "imageName": "custom_compostable_pouch_suppliers_guide_infographic_5"
+  }
+]
