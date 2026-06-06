@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T17:30:33.256Z",
+  "lastUnifiedRun": "2026-06-06T17:45:28.348Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1071,17 +1071,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-flat-bottom-pouch-dimensions-for-nuts",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "compostable flat bottom pouch dimensions for nuts",
-      "difficulty": "Medium",
-      "slug": "compostable-flat-bottom-pouch-dimensions-for-nuts"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1050,
       "keyword": "eco friendly sachet size guide for powders",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-sachet-size-guide-for-powders"
     },
     {
       "status": "Pending",
@@ -1206,9 +1207,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T17:30:25.703Z",
+      "timestamp": "2026-06-06T17:45:21.304Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable flat bottom pouch dimensions for nuts\" to /blog/compostable-flat-bottom-pouch-dimensions-for-nuts (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly sachet size guide for powders\" to /blog/eco-friendly-sachet-size-guide-for-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable flat bottom pouch dimensions for nuts\" to /blog/compostable-flat-bottom-pouch-dimensions-for-nuts (Pending Approval)",
+      "timestamp": "2026-06-06T17:30:25.703Z"
     },
     {
       "action": "Autopilot Generation Draft",
