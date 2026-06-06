@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "test-slug-schema",
+    "imgIndex": 6,
+    "filename": "test-slug-schema-infographic-7.png",
+    "relPath": "/imgs/infographics/test-slug-schema-infographic-7.png",
+    "imageName": "test_slug_schema_infographic_7",
+    "enhancedPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product."
+  },
+  {
+    "slug": "stamp-foil-recyclability",
+    "imgIndex": 6,
+    "filename": "stamp-foil-recyclability-infographic-7.png",
+    "relPath": "/imgs/infographics/stamp-foil-recyclability-infographic-7.png",
+    "imageName": "stamp_foil_recyclability_infographic_7",
+    "enhancedPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product."
+  },
+  {
+    "slug": "digital-printing-on-flexible-packaging",
+    "imgIndex": 6,
+    "filename": "digital-printing-on-flexible-packaging-infographic-7.png",
+    "relPath": "/imgs/infographics/digital-printing-on-flexible-packaging-infographic-7.png",
+    "imageName": "digital_printing_on_flexible_packaging_infographic_7",
+    "enhancedPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product."
+  },
+  {
+    "slug": "freezer-safe-vacuum-packaging",
+    "imgIndex": 6,
+    "filename": "freezer-safe-vacuum-packaging-infographic-7.png",
+    "relPath": "/imgs/infographics/freezer-safe-vacuum-packaging-infographic-7.png",
+    "imageName": "freezer_safe_vacuum_packaging_infographic_7",
+    "enhancedPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product."
+  },
+  {
+    "slug": "digital-printing-flexible-packaging-small-runs",
+    "imgIndex": 6,
+    "filename": "digital-printing-flexible-packaging-small-runs-infographic-7.png",
+    "relPath": "/imgs/infographics/digital-printing-flexible-packaging-small-runs-infographic-7.png",
+    "imageName": "digital_printing_flexible_packaging_small_runs_infographic_7",
+    "enhancedPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product."
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "imgIndex": 0,
+    "filename": "small-batch-printed-flexible-packaging-infographic.png",
+    "relPath": "/imgs/infographics/small-batch-printed-flexible-packaging-infographic.png",
+    "imageName": "small_batch_printed_flexible_packaging_infographic",
+    "enhancedPrompt": "Minimalist clean infographic illustrating small batch printed flexible packaging sourcing challenge for GreenLife Organics in Belgium. Show a package outline, shipping container route from factory, and local compliance certification icons. Nature green and black color palette."
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "imgIndex": 1,
+    "filename": "small-batch-printed-flexible-packaging-infographic-2.png",
+    "relPath": "/imgs/infographics/small-batch-printed-flexible-packaging-infographic-2.png",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_2",
+    "enhancedPrompt": "Diagram illustrating material barrier layers. Clean annotations in English: 'Oxygen Barrier', 'Moisture Guard', 'GreenLife Organics Logo'."
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "imgIndex": 2,
+    "filename": "small-batch-printed-flexible-packaging-infographic-3.png",
+    "relPath": "/imgs/infographics/small-batch-printed-flexible-packaging-infographic-3.png",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_3",
+    "enhancedPrompt": "Layer structure infographic showing a 3D cutaway of the multi-layer pouch structure with annotations of each layer and polymer type."
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "imgIndex": 3,
+    "filename": "small-batch-printed-flexible-packaging-infographic-4.png",
+    "relPath": "/imgs/infographics/small-batch-printed-flexible-packaging-infographic-4.png",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_4",
+    "enhancedPrompt": "Machinery run diagram showing VFFS roll stock feeding into a form-fill-seal line with annotations of seal jaw temperatures and line speeds."
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "imgIndex": 4,
+    "filename": "small-batch-printed-flexible-packaging-infographic-5.png",
+    "relPath": "/imgs/infographics/small-batch-printed-flexible-packaging-infographic-5.png",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_5",
+    "enhancedPrompt": "Certificate compliance map showing the validation steps from raw material supplier testing to final BPI or TÜV certificate issuance."
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "imgIndex": 5,
+    "filename": "small-batch-printed-flexible-packaging-infographic-6.png",
+    "relPath": "/imgs/infographics/small-batch-printed-flexible-packaging-infographic-6.png",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_6",
+    "enhancedPrompt": "A step-by-step roadmap timeline illustrating the transition phases from design blueprints to retail shelf launch."
+  },
+  {
+    "slug": "small-batch-printed-flexible-packaging",
+    "imgIndex": 6,
+    "filename": "small-batch-printed-flexible-packaging-infographic-7.png",
+    "relPath": "/imgs/infographics/small-batch-printed-flexible-packaging-infographic-7.png",
+    "imageName": "small_batch_printed_flexible_packaging_infographic_7",
+    "enhancedPrompt": "A professional product showcase layout displaying a biodegradable sample kit, a roll of custom eco film, and a cellophane wrapped product."
+  }
+]
