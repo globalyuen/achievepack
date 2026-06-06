@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T05:01:02.701Z",
+  "lastUnifiedRun": "2026-06-06T05:15:41.470Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -721,17 +721,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "stand-up-pouch-size-for-10-oz-coffee",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "stand up pouch size for 10 oz coffee",
-      "difficulty": "Low",
-      "slug": "stand-up-pouch-size-for-10-oz-coffee"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "digital printed recyclable barrier bags",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-printed-recyclable-barrier-bags"
     },
     {
       "status": "Pending",
@@ -832,9 +833,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T05:00:36.465Z",
+      "timestamp": "2026-06-06T05:15:24.978Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch size for 10 oz coffee\" to /blog/stand-up-pouch-size-for-10-oz-coffee (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed recyclable barrier bags\" to /blog/digital-printed-recyclable-barrier-bags (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch size for 10 oz coffee\" to /blog/stand-up-pouch-size-for-10-oz-coffee (Pending Approval)",
+      "timestamp": "2026-06-06T05:00:36.465Z"
     },
     {
       "action": "Autopilot Generation Draft",
