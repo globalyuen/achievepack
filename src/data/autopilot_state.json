@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T07:00:36.930Z",
+  "lastUnifiedRun": "2026-06-06T07:15:59.704Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 3,
+  "totalLinkedAnchors": 7,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -777,17 +777,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "recyclable-pouch-sizes-chart-for-liquids",
       "status": "Pending Approval",
       "volume": 750,
       "keyword": "recyclable pouch sizes chart for liquids",
-      "difficulty": "Low",
-      "slug": "recyclable-pouch-sizes-chart-for-liquids"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1900,
       "keyword": "custom digital print flexible packaging",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "custom-digital-print-flexible-packaging"
     },
     {
       "status": "Pending",
@@ -836,13 +837,126 @@
       "volume": 1800,
       "keyword": "custom printed eco friendly sachets",
       "difficulty": "Medium"
+    },
+    {
+      "keyword": "compostable barrier film roll stock",
+      "difficulty": "Low",
+      "volume": 1500,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed mono material pouches",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch dimensions for 12 oz",
+      "difficulty": "Medium",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly sachet packaging wholesale",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier recyclable film for food",
+      "difficulty": "Low",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch digital printing on pouches",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "flexible packaging size guide for powders",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped barrier pouches for beverages",
+      "difficulty": "Medium",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono pe recyclable sachet dimensions",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print compostable bags low moq",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable pouch printing for nuts",
+      "difficulty": "Low",
+      "volume": 550,
+      "status": "Pending"
+    },
+    {
+      "keyword": "barrier film wholesale for stand up pouches",
+      "difficulty": "Medium",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort packaging dimensions",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom sachet sizes for baby food",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable stand up pouch chart",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly digital printed flexible packaging",
+      "difficulty": "Medium",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier sustainable sachet options",
+      "difficulty": "Low",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small run custom pouch sizes",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T07:00:28.252Z",
+      "timestamp": "2026-06-06T07:15:49.571Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable pouch sizes chart for liquids\" to /blog/recyclable-pouch-sizes-chart-for-liquids (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom digital print flexible packaging\" to /blog/custom-digital-print-flexible-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable pouch sizes chart for liquids\" to /blog/recyclable-pouch-sizes-chart-for-liquids (Pending Approval)",
+      "timestamp": "2026-06-06T07:00:28.252Z"
     },
     {
       "action": "Autopilot Generation Draft",
