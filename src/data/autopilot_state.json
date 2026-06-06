@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T22:00:28.365Z",
+  "lastUnifiedRun": "2026-06-06T22:15:28.029Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1197,17 +1197,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-sachet-dimensions-chart",
       "status": "Pending Approval",
       "volume": 1000,
       "keyword": "custom sachet dimensions chart",
-      "difficulty": "Low",
-      "slug": "custom-sachet-dimensions-chart"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 600,
       "keyword": "recyclable pouch with spout for drinks",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "recyclable-pouch-with-spout-for-drinks"
     },
     {
       "status": "Pending",
@@ -1344,9 +1345,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T22:00:20.917Z",
+      "timestamp": "2026-06-06T22:15:19.538Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom sachet dimensions chart\" to /blog/custom-sachet-dimensions-chart (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable pouch with spout for drinks\" to /blog/recyclable-pouch-with-spout-for-drinks (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom sachet dimensions chart\" to /blog/custom-sachet-dimensions-chart (Pending Approval)",
+      "timestamp": "2026-06-06T22:00:20.917Z"
     },
     {
       "action": "Autopilot Generation Draft",
