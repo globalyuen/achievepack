@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T14:45:32.249Z",
+  "lastUnifiedRun": "2026-06-06T15:00:32.622Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -994,17 +994,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "sustainable-high-barrier-film-for-stand-up-pouches",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "sustainable high barrier film for stand up pouches",
-      "difficulty": "Low",
-      "slug": "sustainable-high-barrier-film-for-stand-up-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "eco friendly flat bottom pouch sizes for snacks",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-flat-bottom-pouch-sizes-for-snacks"
     },
     {
       "status": "Pending",
@@ -1087,9 +1088,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T14:45:24.071Z",
+      "timestamp": "2026-06-06T15:00:24.494Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable high barrier film for stand up pouches\" to /blog/sustainable-high-barrier-film-for-stand-up-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly flat bottom pouch sizes for snacks\" to /blog/eco-friendly-flat-bottom-pouch-sizes-for-snacks (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable high barrier film for stand up pouches\" to /blog/sustainable-high-barrier-film-for-stand-up-pouches (Pending Approval)",
+      "timestamp": "2026-06-06T14:45:24.071Z"
     },
     {
       "action": "Autopilot Generation Draft",
