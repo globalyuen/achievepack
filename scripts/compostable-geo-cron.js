@@ -20,9 +20,13 @@ import http from 'http';
 import https from 'https';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import dotenv from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, '../.env.local') });
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const STATE_FILE_PATH = path.join(__dirname, '..', 'src', 'data', 'compostable_geo_state.json');
 const ROUTE_MAPPING_PATH = path.join(__dirname, '..', 'src', 'data', 'route-mapping.json');
@@ -281,6 +285,12 @@ async function runCron() {
   `;
 
   // Dispatch POST request to local/live Brevo API wrapper
+  if (process.env.DISABLE_SORO_EMAILS === 'true') {
+    logMessage('Email report dispatch skipped (disabled globally).');
+    process.exit(0);
+    return;
+  }
+
   const emailPayload = JSON.stringify({
     subject: `[GEO Campaign Update] Compostable Pouch Score ${state.campaignScore}% - ${kpisMet ? 'KPI Met' : 'Strategy Revised'}`,
     htmlContent: emailHtml,

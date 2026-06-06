@@ -23,9 +23,13 @@ import path from 'path';
 import https from 'https';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, '../.env.local') });
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const BLOG_DIR = path.join(__dirname, '..', 'src', 'pages', 'pouch', 'blog');
 const ADMIN_EMAIL = 'ryan@achievepack.com';
@@ -308,6 +312,13 @@ async function main() {
   `;
 
   // D. Dispatch the Email Payload via standard Brevo endpoint
+  if (process.env.DISABLE_SORO_EMAILS === 'true') {
+    logMessage('Email dispatch skipped (disabled globally).');
+    logMessage('Deployment cron run complete!');
+    process.exit(0);
+    return;
+  }
+
   const emailPayload = JSON.stringify({
     subject: `🚀 [SEO Push Report] Daily Vercel Deploy & Pouch.eco Status - ${optimizedList.length} Optimized`,
     htmlContent: emailHtml,
