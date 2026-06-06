@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T09:30:31.378Z",
+  "lastUnifiedRun": "2026-06-06T09:45:30.485Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -847,17 +847,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "compostable-barrier-film-roll-stock",
       "status": "Pending Approval",
       "volume": 1500,
       "keyword": "compostable barrier film roll stock",
-      "difficulty": "Low",
-      "slug": "compostable-barrier-film-roll-stock"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "custom printed mono material pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-printed-mono-material-pouches"
     },
     {
       "status": "Pending",
@@ -958,9 +959,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T09:30:25.356Z",
+      "timestamp": "2026-06-06T09:45:24.342Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film roll stock\" to /blog/compostable-barrier-film-roll-stock (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom printed mono material pouches\" to /blog/custom-printed-mono-material-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film roll stock\" to /blog/compostable-barrier-film-roll-stock (Pending Approval)",
+      "timestamp": "2026-06-06T09:30:25.356Z"
     },
     {
       "action": "Autopilot Generation Draft",
