@@ -1,6 +1,6 @@
 {
   "autopilotMode": "A",
-  "lastUnifiedRun": "2026-06-06T00:45:21.721Z",
+  "lastUnifiedRun": "2026-06-06T01:00:28.846Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -608,10 +608,11 @@
       "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "digital print flexible packaging options",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "digital-print-flexible-packaging-options"
     },
     {
       "status": "Pending",
@@ -700,9 +701,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T00:45:14.410Z",
+      "timestamp": "2026-06-06T01:00:21.588Z",
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital print flexible packaging options\" to /blog/digital-print-flexible-packaging-options (Pending Approval)"
+    },
+    {
       "action": "Autopilot Error",
-      "message": "Pipeline generation failed for keyword \"digital print flexible packaging options\": X.AI API error: Failed after 3 attempts."
+      "message": "Pipeline generation failed for keyword \"digital print flexible packaging options\": X.AI API error: Failed after 3 attempts.",
+      "timestamp": "2026-06-06T00:45:14.410Z"
     },
     {
       "action": "Autopilot Error",
