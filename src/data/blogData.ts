@@ -1003,11 +1003,6 @@ export const blogPosts: BlogPost[] = [
     title: "Sustainable Pet Food Packaging Materials: Complete Supplier Evaluation Guide",
     excerpt: "In-depth comparison of sustainable packaging materials for pet food manufacturers. Evaluate compostable, recyclable, and bio-based options with certification requirements and cost analysis.",
     content: `
-      <figure class="my-8">
-        <img src="/imgs/blog/Sustainable-pet/a_sustainable_pet_food_packaging_hero_2601845.webp" alt="Sustainable pet food packaging materials comparison" class="w-full rounded-xl" />
-        <figcaption class="text-center text-sm text-neutral-500 mt-3">Complete guide to sustainable materials for pet food packaging</figcaption>
-      </figure>
-
       <h2>Executive Summary</h2>
       <p>Selecting the right sustainable packaging material for pet food requires balancing product protection, environmental impact, cost, and consumer expectations. This comprehensive guide evaluates the three main sustainable material categories—<strong>compostable</strong>, <strong>recyclable</strong>, and <strong>bio-based</strong>—with specific considerations for pet food applications including barrier requirements, shelf life, and regulatory compliance.</p>
 
