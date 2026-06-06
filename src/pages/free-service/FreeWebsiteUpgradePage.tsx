@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import {
   Leaf, CheckCircle, Calendar, Target, Shield, Clock, X, Package,
   ChevronDown, HelpCircle, Globe, Star, ArrowRight, Gift, Sparkles,
   MessageCircle, Users, Lightbulb, Rocket, Code, Layout, Zap, Mail,
-  FileText, Building, Award
+  FileText, Building, Award, Search, User, ShoppingBag, Truck
 } from 'lucide-react'
 import { motion, Variants, AnimatePresence } from 'motion/react'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -102,6 +102,11 @@ const statReveal: Variants = {
 // Image paths - using imgs/free/website folder
 const IMAGES = {
   hero: '/imgs/free/website/hero.webp',
+  heroBg: '/imgs/free/website/hero_bg.png',
+  packFlatBottom: '/imgs/free/website/pack_flat_bottom.png',
+  packStandUp: '/imgs/free/website/pack_stand_up.png',
+  packSpout: '/imgs/free/website/pack_spout.png',
+  packBox: '/imgs/free/website/pack_box.png',
   processFlow: '/imgs/free/website/a_process_flow_four_steps_1909686.webp',
   beforeAfter: '/imgs/free/website/a_showcase_before_after_progression_8963580.webp',
   servicesGrid: '/imgs/free/website/a_showcase_services_cards_grid_8393800.webp',
@@ -258,8 +263,137 @@ const faqs = [
   }
 ]
 
+const showcaseProducts = [
+  {
+    sku: "SKU #8291-FB",
+    badge: "Best Seller",
+    badgeType: "accent",
+    title: "Flat Bottom Coffee Bag",
+    image: IMAGES.packFlatBottom,
+    description: "Maximum shelf stability with four gussets and a completely flat base. Ideal for premium coffee beans, specialty teas, and dry pet food.",
+    specs: [
+      { label: "Barrier", value: "Metalized PET/AL foil" },
+      { label: "Valve", value: "Degassing valve option" },
+      { label: "Sizes", value: "250g, 500g, 1kg" }
+    ]
+  },
+  {
+    sku: "SKU #7402-SU",
+    badge: "Eco-Friendly",
+    badgeType: "eco",
+    title: "Eco Kraft Stand-Up Bag",
+    image: IMAGES.packStandUp,
+    description: "Sustainable paper outer layer with a high-barrier bio-polymer inner lining. Offers an earthy, organic look with excellent aroma preservation.",
+    specs: [
+      { label: "Barrier", value: "Biodegradable PLA" },
+      { label: "Zipper", value: "Press-to-close zipper" },
+      { label: "Window", value: "Optional clear stripe" }
+    ]
+  },
+  {
+    sku: "SKU #4819-SP",
+    badge: "Liquid Safe",
+    badgeType: "liquid",
+    title: "Liquid Spout Pouch",
+    image: IMAGES.packSpout,
+    description: "Ergonomically designed flexible packaging with fitment caps. Replaces rigid bottles for beverages, oil refills, cosmetics, and purees.",
+    specs: [
+      { label: "Cap size", value: "8.6mm, 15mm, 22mm" },
+      { label: "Structure", value: "Nylon/PET/LLDPE (reinforced)" },
+      { label: "Leak Test", value: "100% burst-pressure tested" }
+    ]
+  },
+  {
+    sku: "SKU #9011-HB",
+    badge: "Luxury Design",
+    badgeType: "luxury",
+    title: "Aura Holographic Box",
+    image: IMAGES.packBox,
+    description: "Premium corrugated paperboard with holographic foil stamping. Perfect for high-end skincare, cosmetics, jewelry, and luxury retail products.",
+    specs: [
+      { label: "Material", value: "350gsm SBS Ivory board" },
+      { label: "Finish", value: "Matte soft-touch + spot UV" },
+      { label: "Closure", value: "Magnetic flap close" }
+    ]
+  }
+]
+
 const FreeWebsiteUpgradePage: React.FC = () => {
   const { openCalendly } = useCalendly()
+  const [activeDot, setActiveDot] = useState(0)
+
+  // Drag to scroll state
+  const scrollerRef = useRef<HTMLDivElement>(null)
+  const [isDown, setIsDown] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeftState, setScrollLeftState] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!scrollerRef.current) return
+    setIsDown(true)
+    setIsDragging(false)
+    setStartX(e.pageX - scrollerRef.current.offsetLeft)
+    setScrollLeftState(scrollerRef.current.scrollLeft)
+  }
+
+  const handleMouseLeave = () => {
+    setIsDown(false)
+  }
+
+  const handleMouseUp = () => {
+    setIsDown(false)
+    setTimeout(() => setIsDragging(false), 50)
+  }
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDown || !scrollerRef.current) return
+    e.preventDefault()
+    setIsDragging(true)
+    const x = e.pageX - scrollerRef.current.offsetLeft
+    const walk = (x - startX) * 1.5 // Drag sensitivity
+    scrollerRef.current.scrollLeft = scrollLeftState - walk
+  }
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const scroller = e.currentTarget
+    const scrollerCenter = scroller.scrollLeft + scroller.clientWidth / 2
+    const items = scroller.querySelectorAll('.carousel-item-node')
+    let closestIndex = 0
+    let minDistance = Infinity
+
+    items.forEach((item, index) => {
+      const itemElement = item as HTMLDivElement
+      const itemCenter = itemElement.offsetLeft + itemElement.clientWidth / 2
+      const distance = Math.abs(itemCenter - scrollerCenter)
+
+      if (distance < minDistance) {
+        minDistance = distance
+        closestIndex = index
+      }
+    })
+
+    setActiveDot(closestIndex)
+  }
+
+  const scrollToSlide = (index: number) => {
+    if (!scrollerRef.current) return
+    const items = scrollerRef.current.querySelectorAll('.carousel-item-node')
+    if (!items[index]) return
+
+    const targetItem = items[index] as HTMLDivElement
+    const scrollerWidth = scrollerRef.current.clientWidth
+    const itemWidth = targetItem.offsetWidth
+    
+    const targetScrollLeft = targetItem.offsetLeft - (scrollerWidth / 2) + (itemWidth / 2)
+    
+    scrollerRef.current.scrollTo({
+      left: targetScrollLeft,
+      behavior: 'smooth'
+    })
+    
+    setActiveDot(index)
+  }
 
   return (
     <>
@@ -348,86 +482,269 @@ const FreeWebsiteUpgradePage: React.FC = () => {
 
       <main className="min-h-screen bg-gradient-to-b from-primary-50 via-white to-neutral-50">
 
-        {/* Hero Section */}
-        <section className="relative py-16 md:py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-100/50 via-transparent to-green-100/30" />
-          <div className="max-w-7xl mx-auto px-4 relative">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                animate="visible"
-              >
-                <motion.div 
-                  variants={fadeInUp}
-                  className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-6"
-                >
-                  <Gift className="h-4 w-4" />
-                  100% FREE — No Hidden Fees
-                </motion.div>
-
-                <motion.h1 
-                  variants={fadeInUp}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight"
-                >
-                  Your Packaging Upgraded.<br />
-                  <span className="text-primary-600">Now It's Your Website's Turn.</span>
-                </motion.h1>
-
-                <motion.p 
-                  variants={fadeInUp}
-                  className="text-xl text-neutral-600 mb-8 leading-relaxed"
-                >
-                  Get AchievePack's <strong className="text-green-600">FREE</strong> website upgrade:
-                  a 20-minute strategy call + high-conversion homepage concept.
-                  <span className="text-green-700 font-semibold"> Zero pitch. Zero cost.</span> Just helping turn great design into real sales.
-                </motion.p>
-
-                <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
-                  {/* Primary CTA */}
-                  <motion.button
-                    onClick={openCalendly}
-                    className="flex items-center justify-center gap-2 bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-700 transition shadow-lg hover:shadow-xl"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Calendar className="h-5 w-5" />
-                    Book Your FREE Upgrade Now
-                  </motion.button>
-
-                  {/* Secondary CTA */}
-                  <motion.button
-                    onClick={() => document.getElementById('demos')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex items-center justify-center gap-2 border-2 border-neutral-300 text-neutral-700 px-6 py-4 rounded-xl font-semibold hover:border-primary-600 hover:text-primary-600 transition"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ArrowRight className="h-5 w-5" />
-                    See Demos
-                  </motion.button>
-                </motion.div>
-
-                <motion.p 
-                  variants={fadeInUp}
-                  className="text-sm text-neutral-500 mt-4"
-                >
-                  Typical response time: 24 hours. Calls available Mon–Fri.
-                </motion.p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, x: 60 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" as const, delay: 0.3 }}
-              >
-                <ClickableImage
-                  src={IMAGES.hero}
-                  alt="Free Website Upgrade Service - Transform your sustainable packaging brand online"
-                  className="w-full rounded-2xl shadow-2xl"
-                />
-              </motion.div>
+        {/* Vilgain-Style Header and Carousel Container */}
+        <section className="bg-[#f6f6f6] border-b border-neutral-200/50 overflow-hidden font-sans">
+          
+          {/* 1. Top Announcement Bar */}
+          <div className="w-full bg-white text-neutral-600 text-[11px] font-medium py-2.5 px-6 md:px-12 border-b border-neutral-200/60 hidden md:block">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
+              <div className="flex items-center gap-1.5">
+                <Truck className="h-3.5 w-3.5 text-neutral-400" />
+                <span>Free shipping from £60</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-3.5 h-3.5 rounded-full overflow-hidden inline-flex items-center justify-center border border-neutral-200">
+                  <svg className="w-full h-full" viewBox="0 0 60 30">
+                    <clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+                    <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+                    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" clipPath="url(#s)"/>
+                    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" strokeWidth="4" clipPath="url(#s)"/>
+                    <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
+                    <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6"/>
+                  </svg>
+                </span>
+                <span>Shipped directly from the UK</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Shield className="h-3.5 w-3.5 text-amber-500 fill-amber-500/10" />
+                <span>100% Money-Back Guarantee</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Star className="h-3.5 w-3.5 text-orange-400 fill-orange-400" />
+                <span>Over 493 reviews & ratings 4.5/5</span>
+              </div>
+              <a href="mailto:support@achievepack.com" className="flex items-center gap-1.5 hover:text-black transition">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Contact Us</span>
+              </a>
             </div>
           </div>
+
+          {/* 2. Main Header Bar */}
+          <div className="w-full bg-white py-4 px-6 md:px-12 border-b border-neutral-100">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
+              
+              {/* Logo */}
+              <div className="flex-shrink-0">
+                <Link to="/" className="text-xl md:text-2xl font-black text-black tracking-tight select-none">
+                  achievepack
+                </Link>
+              </div>
+
+              {/* Search bar */}
+              <div className="relative w-full max-w-xl mx-6 hidden md:block">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 h-4 w-4" />
+                <input
+                  type="text"
+                  placeholder="Search"
+                  disabled
+                  className="w-full bg-[#f2f2f2] text-neutral-800 placeholder-neutral-500 text-xs md:text-sm pl-10 pr-4 py-2.5 rounded-full border-none focus:outline-none focus:ring-0 select-none cursor-not-allowed"
+                />
+              </div>
+
+              {/* Icons */}
+              <div className="flex items-center gap-5 text-neutral-800">
+                <button aria-label="Language" className="p-1 hover:text-black transition hidden sm:block">
+                  <span className="w-5 h-5 rounded-full overflow-hidden inline-flex items-center justify-center border border-neutral-200">
+                    <svg className="w-full h-full" viewBox="0 0 60 30">
+                      <clipPath id="s2"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+                      <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+                      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" clipPath="url(#s2)"/>
+                      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" strokeWidth="4" clipPath="url(#s2)"/>
+                      <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10"/>
+                      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6"/>
+                    </svg>
+                  </span>
+                </button>
+                <button aria-label="Profile" className="p-1 hover:text-black transition">
+                  <User className="h-5 w-5" />
+                </button>
+                <button aria-label="Shopping Bag" className="p-1 hover:text-black transition">
+                  <ShoppingBag className="h-5 w-5" />
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          {/* 3. Sub Navigation Bar */}
+          <div className="w-full bg-white py-3 px-6 md:px-12 border-b border-neutral-200 text-xs font-semibold text-neutral-700 select-none">
+            <div className="max-w-7xl mx-auto flex items-center justify-between overflow-x-auto scrollbar-none whitespace-nowrap gap-6">
+              <div className="flex items-center gap-6">
+                <span className="text-red-500 font-bold hover:text-red-600 cursor-pointer transition">Sale</span>
+                <span className="hover:text-black cursor-pointer transition">Compostable</span>
+                <span className="hover:text-black cursor-pointer transition">Kraft Bags</span>
+                <span className="hover:text-black cursor-pointer transition">Stand-Up Pouches</span>
+                <span className="hover:text-black cursor-pointer transition">Flat Bottom</span>
+                <span className="hover:text-black cursor-pointer transition">Spout Pouches</span>
+                <span className="hover:text-black cursor-pointer transition">Boxes</span>
+                <span className="text-neutral-900 font-bold hover:text-black cursor-pointer transition">New</span>
+                <span className="hover:text-black cursor-pointer transition flex items-center gap-1">Goals 📦</span>
+                <span className="hover:text-black cursor-pointer transition">Value Packs</span>
+              </div>
+              <span className="text-neutral-900 font-bold hover:text-black cursor-pointer transition hidden lg:inline">
+                Join AchievePack!
+              </span>
+            </div>
+          </div>
+
+          {/* 4. Scrollable Unified Track */}
+          <div className="w-full overflow-visible py-8">
+            <div 
+              ref={scrollerRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onScroll={handleScroll}
+              className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 px-[5%] md:px-[10%] py-4 scrollbar-none select-none cursor-grab active:cursor-grabbing"
+            >
+              
+              {/* Card 0: Big Hero Card */}
+              <div className="carousel-item-node flex-none w-[88vw] md:w-[65vw] max-w-[850px] snap-center">
+                <div 
+                  className="w-full h-[400px] md:h-[460px] rounded-3xl relative overflow-hidden bg-[#fafafa] border border-neutral-200/80 shadow-sm flex flex-col justify-between p-8 md:p-12 bg-cover bg-no-repeat bg-right"
+                  style={{ backgroundImage: `url(${IMAGES.heroBg})` }}
+                >
+                  {/* Subtle light overlay to ensure text contrast while maintaining the light theme */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#fafafa] via-[#fafafa]/85 to-transparent z-0" />
+                  
+                  <div className="relative z-10 max-w-md h-full flex flex-col justify-between items-start">
+                    <div>
+                      {/* Rating stars matching screenshot style (orange stars, bold, blue verified badge) */}
+                      <div className="flex flex-wrap items-center gap-1.5 text-xs text-neutral-600 font-medium mb-5">
+                        <span className="text-orange-500 text-sm">★★★★★</span>
+                        <span className="text-neutral-900 font-extrabold ml-0.5">4.9 / 5</span>
+                        <span className="text-neutral-300 font-light">•</span>
+                        <svg className="w-3.5 h-3.5 text-blue-500 fill-current" viewBox="0 0 24 24">
+                          <path d="M23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-13 5l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+                        </svg>
+                        <span className="text-neutral-500 font-normal">Over 500+ verified reviews</span>
+                      </div>
+                      
+                      <h1 className="text-2xl md:text-[38px] font-extrabold text-neutral-900 leading-tight tracking-tight mb-4 font-heading">
+                        Premium packaging without compromise
+                      </h1>
+                      
+                      <p className="text-xs md:text-sm text-neutral-600 font-normal font-body leading-relaxed max-w-[90%]">
+                        Designed by industry professionals to maximize shelf barrier and appeal, optimizing your brand's retail presence.
+                      </p>
+                    </div>
+                    
+                    <button
+                      onClick={openCalendly}
+                      className="mt-6 px-6 py-3 bg-[#242427] hover:bg-neutral-800 text-white font-bold rounded-full text-xs md:text-sm transition-all duration-300 shadow-md"
+                    >
+                      Request Free Prototype
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Cards 1-4: Small Vertical Cards */}
+              {showcaseProducts.map((item, idx) => {
+                // Determine a nice background color gradient for each product card
+                const gradientClass = idx === 0 
+                  ? 'from-[#f5ebe6] to-[#e8ded8] hover:from-[#e8ded8] hover:to-[#dbd0ca]'
+                  : idx === 1
+                  ? 'from-[#f1f6ed] to-[#e4edd9] hover:from-[#e4edd9] hover:to-[#d6e2c8]'
+                  : idx === 2
+                  ? 'from-[#e9f4f8] to-[#d8eaf2] hover:from-[#d8eaf2] hover:to-[#c7dee9]'
+                  : 'from-[#f6eff7] to-[#edddeb] hover:from-[#edddeb] hover:to-[#e1cae0]'
+
+                // Determine discount percentage tag
+                const discountText = idx === 0 ? "-20" : idx === 1 ? "-15" : idx === 2 ? "-10" : "-25"
+
+                return (
+                  <div 
+                    key={idx} 
+                    className="carousel-item-node flex-none w-[72vw] md:w-[24vw] min-w-[280px] max-w-[340px] snap-center group"
+                  >
+                    <div 
+                      className={`w-full h-[400px] md:h-[460px] rounded-3xl relative overflow-hidden bg-gradient-to-br ${gradientClass} border transition-all duration-500 ${
+                        activeDot === (idx + 1)
+                          ? 'border-neutral-900/10 shadow-lg scale-[1.01] z-20' 
+                          : 'border-neutral-200/50 opacity-90 z-10'
+                      }`}
+                    >
+                      {/* Image layer centered and floating */}
+                      <div className="absolute inset-0 flex items-center justify-center p-8 z-0">
+                        <img 
+                          src={item.image} 
+                          alt={item.title} 
+                          className="max-w-[80%] max-h-[80%] object-contain select-none pointer-events-none transition-transform duration-500 group-hover:scale-105" 
+                        />
+                      </div>
+                      
+                      {/* Subtle top overlay for the white tag */}
+                      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/20 via-transparent to-transparent z-10" />
+                      
+                      {/* Dark gradient overlay at the bottom for readability */}
+                      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-neutral-950 via-neutral-950/44 to-transparent z-10" />
+                      
+                      {/* Top Info Overlay: stacked vertical big text tag */}
+                      <div className="absolute top-6 left-6 z-20 flex justify-between items-start right-6">
+                        <div className="text-white font-extrabold flex flex-col leading-none">
+                          <span className="text-[11px] font-medium tracking-wide uppercase opacity-85">up to</span>
+                          <span className="text-4xl md:text-5xl font-black mt-0.5">
+                            {discountText}
+                            <span className="text-2xl md:text-3xl font-bold ml-0.5">%</span>
+                          </span>
+                        </div>
+                        
+                        <span className={`text-[9px] uppercase font-extrabold px-2 py-0.5 rounded border shadow-sm ${
+                          item.badgeType === 'eco' 
+                            ? 'bg-emerald-600/90 text-white border-emerald-500/10' 
+                            : item.badgeType === 'liquid'
+                            ? 'bg-blue-600/90 text-white border-blue-500/10'
+                            : item.badgeType === 'luxury'
+                            ? 'bg-purple-600/90 text-white border-purple-500/10'
+                            : 'bg-orange-600/90 text-white border-orange-500/10'
+                        }`}>
+                          {item.badge}
+                        </span>
+                      </div>
+
+                      {/* Bottom Content Overlay (titles, desc and Buy button all left-aligned) */}
+                      <div className="relative z-20 p-6 w-full flex flex-col items-start mt-auto h-full justify-end">
+                        <h3 className="text-white font-bold text-base md:text-lg mb-1 leading-snug">
+                          {item.title}
+                        </h3>
+                        <p className="text-neutral-200 text-xs font-light mb-4 leading-normal line-clamp-2">
+                          {item.description}
+                        </p>
+                        
+                        <button 
+                          onClick={openCalendly}
+                          className="px-6 py-2 bg-white hover:bg-neutral-100 text-neutral-950 font-bold rounded-full text-[11px] uppercase tracking-wider transition-all duration-300 shadow-md self-start"
+                        >
+                          Buy
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+
+            </div>
+          </div>
+
+          {/* Pagination Dots (styled for light background) */}
+          <div className="flex justify-center gap-2 pb-6">
+            {Array.from({ length: 5 }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollToSlide(idx)}
+                className={`w-2 h-2 rounded-full border-none transition-all duration-300 ${
+                  activeDot === idx 
+                    ? 'bg-neutral-800 scale-125 shadow-sm' 
+                    : 'bg-neutral-300 hover:bg-neutral-400'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
         </section>
 
         {/* E-E-A-T Trust Signals */}
