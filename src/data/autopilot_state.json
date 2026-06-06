@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T11:30:34.088Z",
+  "lastUnifiedRun": "2026-06-06T11:45:40.651Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -903,17 +903,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "mono-pe-recyclable-sachet-dimensions",
       "status": "Pending Approval",
       "volume": 750,
       "keyword": "mono pe recyclable sachet dimensions",
-      "difficulty": "Low",
-      "slug": "mono-pe-recyclable-sachet-dimensions"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "digital print compostable bags low moq",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-print-compostable-bags-low-moq"
     },
     {
       "status": "Pending",
@@ -962,13 +963,126 @@
       "volume": 750,
       "keyword": "small run custom pouch sizes",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "compostable stand up pouch size chart for powders",
+      "difficulty": "Low",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom digital printed barrier sachets low moq",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material recyclable pouch dimensions guide",
+      "difficulty": "Medium",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable high barrier film for stand up pouches",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly flat bottom pouch sizes for snacks",
+      "difficulty": "Low",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable retort pouch size chart for baby food",
+      "difficulty": "Medium",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printing on mono pe flexible packaging",
+      "difficulty": "Low",
+      "volume": 1600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper custom sachet dimensions for spices",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable barrier film suppliers for small batch pouches",
+      "difficulty": "Medium",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable stand up pouch dimensions for coffee",
+      "difficulty": "Low",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped compostable sachets for liquids",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable pouch printing services for pet food",
+      "difficulty": "Medium",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier mono pe film for flexible packaging",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch digital print stand up pouches wholesale",
+      "difficulty": "Low",
+      "volume": 1250,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable flat bottom pouch dimensions for nuts",
+      "difficulty": "Medium",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly sachet size guide for powders",
+      "difficulty": "Low",
+      "volume": 1050,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable custom shaped pouches for beverages",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "barrier film roll stock for compostable packaging",
+      "difficulty": "Medium",
+      "volume": 1150,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T11:30:28.481Z",
+      "timestamp": "2026-06-06T11:45:35.426Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono pe recyclable sachet dimensions\" to /blog/mono-pe-recyclable-sachet-dimensions (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital print compostable bags low moq\" to /blog/digital-print-compostable-bags-low-moq (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe recyclable sachet dimensions\" to /blog/mono-pe-recyclable-sachet-dimensions (Pending Approval)",
+      "timestamp": "2026-06-06T11:30:28.481Z"
     },
     {
       "action": "Autopilot Generation Draft",
