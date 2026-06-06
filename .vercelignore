@@ -1,12 +1,17 @@
 node_modules/
+**/node_modules/
 dist/
+**/dist/
 .git/
 .vercel/
 scratch/
+**/scratch/
 .cursor/
 CRM/
+**/CRM/
 *.log
 *.pptx
 *.zip
 *.tar.gz
 .DS_Store
+**/.DS_Store
