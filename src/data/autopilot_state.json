@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T15:15:27.183Z",
+  "lastUnifiedRun": "2026-06-06T15:30:28.431Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 2,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1008,17 +1008,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-retort-pouch-size-chart-for-baby-food",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "compostable retort pouch size chart for baby food",
-      "difficulty": "Medium",
-      "slug": "compostable-retort-pouch-size-chart-for-baby-food"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1600,
       "keyword": "digital printing on mono pe flexible packaging",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-printing-on-mono-pe-flexible-packaging"
     },
     {
       "status": "Pending",
@@ -1089,9 +1090,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T15:15:19.390Z",
+      "timestamp": "2026-06-06T15:30:20.069Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouch size chart for baby food\" to /blog/compostable-retort-pouch-size-chart-for-baby-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital printing on mono pe flexible packaging\" to /blog/digital-printing-on-mono-pe-flexible-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort pouch size chart for baby food\" to /blog/compostable-retort-pouch-size-chart-for-baby-food (Pending Approval)",
+      "timestamp": "2026-06-06T15:15:19.390Z"
     },
     {
       "action": "Autopilot Generation Draft",
