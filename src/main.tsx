@@ -640,7 +640,7 @@ if (getDomain() === 'pouch') {
                   <Route path="/blog" element={<PouchBlogPage />} />
                   <Route path="/blog/:slug" element={<PouchBlogArticlePage />} />
                   {/* Static B2C blog routes commented out to enable dynamic database rendering */}
-                  {/* <Route path="/blog/eu-ppwr-compliance-guide" element={<EUPPWRCompliancePage />} /> */}
+                  <Route path="/blog/eu-ppwr-compliance-guide" element={<EUPPWRCompliancePage />} />
                   {/* <Route path="/blog/usa-compostable-packaging-guide" element={<USACompostableGuide />} /> */}
                   {/* <Route path="/blog/coffee-packaging-guide" element={<CoffeePackagingGuide />} /> */}
                   {/* <Route path="/blog/usa-coffee-packaging" element={<USACoffeePackaging />} /> */}

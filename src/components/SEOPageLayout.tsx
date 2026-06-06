@@ -1,6 +1,6 @@
 import React, { useState, useTransition, useEffect, useRef, useMemo } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart, Gift, Menu, DollarSign } from 'lucide-react'
+import { ArrowLeft, Leaf, Mail, Phone, Calendar, X, BookOpen, FileText, ChevronDown, ChevronRight, Search, Package, Factory, ShoppingBag, Users, Award, HelpCircle, Zap, Beaker, Globe, Layers, ArrowRight, ShoppingCart, Gift, Menu, DollarSign, Play, Check } from 'lucide-react'
 import SEO from './SEO'
 import { useTranslation } from 'react-i18next'
 import { organizationEntity, getAuthorByContentType, generateBreadcrumb } from '../data/schemaEntities'
@@ -469,6 +469,303 @@ const SEOPageHeader: React.FC = () => {
   )
 }
 
+// ============================================================================
+// MATERIAL AUTO-DETECTION & ENGAGING VIDEO SHOWCASE BLOCK
+// ============================================================================
+
+function detectMaterialType(title: string, description: string, pathname: string): 'compostable' | 'pcr' | 'biope' | 'recyclable' | 'unknown' {
+  const content = `${title} ${description} ${pathname}`.toLowerCase();
+  
+  // PCR check first (as PCR pages might mention recyclable PE)
+  if (content.includes('pcr') || content.includes('post-consumer') || content.includes('post consumer')) {
+    return 'pcr';
+  }
+  // Bio-PE check
+  if (content.includes('biope') || content.includes('bio-pe') || content.includes('plant-based pe') || content.includes('plant based pe') || content.includes('im green') || content.includes("i'm green") || content.includes('sugarcane')) {
+    return 'biope';
+  }
+  // Compostable check
+  if (content.includes('compostable') || content.includes('compost') || content.includes('biodegradable') || content.includes('home-compostable') || content.includes('industrial-compostable')) {
+    return 'compostable';
+  }
+  // Recyclable check
+  if (content.includes('recyclable') || content.includes('recycle') || content.includes('mono-pe') || content.includes('mono-pp') || content.includes('mono material') || content.includes('mono-material')) {
+    return 'recyclable';
+  }
+  
+  return 'unknown';
+}
+
+const VIDEO_DATA = {
+  compostable: {
+    videoSrc: '/video/hero/bag.mp4',
+    title: 'Compostable Solution',
+    badge: '100% Compostable',
+    desc: 'Fully compostable flexible packaging certified under ASTM D6400 and EN 13432. Engineered to break down completely in industrial or home composting environments within 180 days, returning to the soil with zero toxic residues.',
+    bullets: [
+      'ASTM D6400 & EN 13432 Certified',
+      'Breaks down within 180 days in soil',
+      'High gas & moisture barrier options',
+      'Food-contact safe (FDA compliant)'
+    ],
+    accentColor: '#10b981' // Green
+  },
+  pcr: {
+    videoSrc: '/video/hero/PCR/pcr.mp4',
+    title: 'Post-Consumer Recycled (PCR)',
+    badge: 'Up to 100% Recycled Content',
+    desc: 'Made from high-quality post-consumer recycled plastic waste. Our PCR structures reduce carbon footprint and keep plastic out of landfills and oceans, while maintaining premium barrier strength.',
+    bullets: [
+      'Saves post-consumer waste from landfills',
+      'Lowers carbon footprint substantially',
+      'Meets consumer demand for recycled packaging',
+      'Excellent tear resistance & print quality'
+    ],
+    accentColor: '#1f2937' // Dark gray/black
+  },
+  biope: {
+    videoSrc: '/video/hero/biope/biope.mp4',
+    title: 'Plant-Based Bio-PE',
+    badge: '100% Sugarcane Ethanol',
+    desc: 'Derived from sustainably-farmed Brazilian sugarcane. It captures atmospheric CO2 during growth and is a direct drop-in replacement for traditional PE, meaning it fits perfectly in current recycling streams.',
+    bullets: [
+      'Captures CO2 during plant growth',
+      '100% recyclable in regular PE stream (#4)',
+      'Identical physical properties to fossil-fuel PE',
+      'Reduces dependence on fossil resources'
+    ],
+    accentColor: '#00FFFF' // Cyan
+  },
+  recyclable: {
+    videoSrc: '/video/hero/recycle/remake_this_image_to_square_.mp4',
+    title: 'Recyclable Mono-Material',
+    badge: '100% Mono-Material',
+    desc: 'Engineered using Mono-PE or Mono-PP structures to enable simple, circular sorting and recycling. Combined with specialized high-barrier coatings to preserve freshness without compromising recyclability.',
+    bullets: [
+      '100% recyclable mono-polymer structure',
+      'Meets EU Circular Economy directives',
+      'EVOH barrier layer for oxygen protection',
+      'Highly customizable surface finishes'
+    ],
+    accentColor: '#D4FF00' // Yellow-green
+  }
+};
+
+interface MaterialVideoBlockProps {
+  material: 'compostable' | 'pcr' | 'biope' | 'recyclable' | 'unknown'
+  isPouch: boolean
+}
+
+const MaterialVideoBlock: React.FC<MaterialVideoBlockProps> = ({ material, isPouch }) => {
+  const { t } = useTranslation()
+
+  if (material === 'unknown') {
+    // Render 4-video showcase grid
+    return (
+      <section className="my-12">
+        {isPouch ? (
+          <div className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <div className="inline-block bg-[#00FFFF] border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] mb-4 font-mono">
+              ECO_MATERIALS_VERIFICATION
+            </div>
+            <h2 className="font-black text-2xl md:text-4xl uppercase tracking-tighter leading-none mb-6">
+              EXPLORE OUR SUSTAINABLE PACKAGING STACKS
+            </h2>
+            <p className="font-['Space_Grotesk'] text-lg font-bold text-neutral-800 mb-8 max-w-2xl leading-snug">
+              We engineer high-performance barrier pouches across four distinct sustainable categories. Play the videos below to witness each material in action.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {Object.entries(VIDEO_DATA).map(([key, data]) => (
+                <div 
+                  key={key} 
+                  className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="aspect-video bg-black border-2 border-black overflow-hidden relative mb-4">
+                      <video
+                        src={data.videoSrc}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="inline-block bg-black text-white text-[10px] font-black uppercase px-2 py-0.5 mb-2 font-mono">
+                      {data.badge}
+                    </div>
+                    <h3 className="font-black text-lg uppercase tracking-tight mb-2">{data.title}</h3>
+                    <p className="text-xs text-neutral-700 font-medium leading-relaxed font-['Space_Grotesk']">
+                      {data.desc.slice(0, 120)}...
+                    </p>
+                  </div>
+                  <div className="mt-4 border-t-2 border-black pt-3">
+                    <ul className="space-y-1">
+                      {data.bullets.slice(0, 2).map((b, i) => (
+                        <li key={i} className="text-[10px] font-bold font-mono text-black flex items-start gap-1">
+                          <span>▶</span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="bg-white border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm">
+            <div className="max-w-3xl mb-8">
+              <span className="text-xs font-bold text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                Materials Technology
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mt-3 mb-4">
+                Explore Our Sustainable Packaging Stacks
+              </h2>
+              <p className="text-neutral-600 text-base leading-relaxed">
+                We design and manufacture high-performance barrier bags in four sustainable categories. View our technology stacks below to find the perfect match for your product and brand.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {Object.entries(VIDEO_DATA).map(([key, data]) => (
+                <div 
+                  key={key} 
+                  className="bg-neutral-50 border border-neutral-200 rounded-xl p-4 hover:shadow-md transition flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="aspect-video bg-black rounded-lg overflow-hidden relative mb-4 shadow-inner">
+                      <video
+                        src={data.videoSrc}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <span className="text-[10px] font-bold text-primary-700 bg-primary-50 px-2 py-0.5 rounded uppercase tracking-wider block w-fit mb-2">
+                      {data.badge}
+                    </span>
+                    <h3 className="font-bold text-base text-neutral-950 mb-2">{data.title}</h3>
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      {data.desc.slice(0, 100)}...
+                    </p>
+                  </div>
+                  <div className="mt-4 border-t border-neutral-200 pt-3">
+                    <ul className="space-y-1">
+                      {data.bullets.slice(0, 2).map((b, i) => (
+                        <li key={i} className="text-[10px] font-semibold text-neutral-700 flex items-start gap-1">
+                          <Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+    );
+  }
+
+  const data = VIDEO_DATA[material];
+  if (!data) return null;
+
+  return (
+    <section className="my-10">
+      {isPouch ? (
+        <div className="border-4 border-black bg-white p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            {/* Video Player Box */}
+            <div className="w-full md:w-1/2 aspect-video bg-black border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden group">
+              <video
+                src={data.videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute top-3 left-3 bg-white border-2 border-black px-2 py-0.5 font-['JetBrains_Mono'] text-[10px] font-black uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] z-20">
+                ACTIVE_MATERIAL_DEMO
+              </div>
+            </div>
+            
+            {/* Content Box */}
+            <div className="w-full md:w-1/2 space-y-4 text-left">
+              <div className="inline-block bg-[#D4FF00] border-2 border-black px-3 py-1 text-xs font-black uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-mono">
+                {data.badge}
+              </div>
+              <h2 className="font-black text-2xl md:text-3xl uppercase tracking-tighter leading-none text-black">
+                {data.title}
+              </h2>
+              <p className="font-['Space_Grotesk'] text-base font-bold text-neutral-800 leading-relaxed">
+                {data.desc}
+              </p>
+              <div className="border-t-2 border-black pt-4">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {data.bullets.map((b, i) => (
+                    <li key={i} className="text-xs font-bold font-mono text-black flex items-center gap-1.5">
+                      <span>▶</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="bg-white border border-neutral-200 rounded-2xl p-6 md:p-8 shadow-sm">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            {/* Video Player Box */}
+            <div className="w-full md:w-1/2 aspect-video bg-black rounded-xl overflow-hidden relative shadow-md group">
+              <video
+                src={data.videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+              <span className="absolute top-3 left-3 bg-neutral-900/80 backdrop-blur-sm text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider z-20">
+                Material Demonstration
+              </span>
+            </div>
+            
+            {/* Content Box */}
+            <div className="w-full md:w-1/2 space-y-4 text-left">
+              <span className="text-xs font-bold text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                {data.badge}
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 leading-snug">
+                Verified: {data.title}
+              </h2>
+              <p className="text-neutral-600 text-base leading-relaxed">
+                {data.desc}
+              </p>
+              <div className="border-t border-neutral-200 pt-4">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {data.bullets.map((b, i) => (
+                    <li key={i} className="text-xs font-semibold text-neutral-700 flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
 interface FAQ {
   question: string
   answer: string
@@ -543,6 +840,9 @@ interface SEOPageLayoutProps {
     label: string
     url: string
   }[]
+
+  // Material type override
+  materialType?: 'compostable' | 'pcr' | 'biope' | 'recyclable' | 'unknown'
 }
 
 const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
@@ -572,11 +872,17 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
   heroStyle = 'split',
   heroBgColor,
   aboveTitle,
-  breadcrumbs
+  breadcrumbs,
+  materialType
 }) => {
   const [scrollPercent, setScrollPercent] = useState(0)
   const [hero3DTilt, setHero3DTilt] = useState({ x: 0, y: 0 })
   const hero3DCardRef = useRef<HTMLDivElement>(null)
+  
+  const detectedType = useMemo(() => {
+    if (materialType) return materialType;
+    return detectMaterialType(title, description, location.pathname);
+  }, [materialType, title, description, location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -953,6 +1259,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
                 </div>
               </NeoCard>
             </section>
+
+            {/* Video Showcase Block */}
+            <div className="max-w-7xl mx-auto px-4 md:px-6 pb-6">
+              <MaterialVideoBlock material={detectedType} isPouch={true} />
+            </div>
 
             {/* Main Content Layout */}
             <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -1360,6 +1671,11 @@ const SEOPageLayout: React.FC<SEOPageLayoutProps> = ({
             </div>
           </div>
         </section>
+
+        {/* Video Showcase Block */}
+        <div className="max-w-7xl mx-auto px-4 pt-8">
+          <MaterialVideoBlock material={detectedType} isPouch={false} />
+        </div>
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 py-12">
