@@ -667,12 +667,12 @@ const FreeWebsiteUpgradePage: React.FC = () => {
                           : 'border-neutral-200/50 opacity-90 z-10'
                       }`}
                     >
-                      {/* Image layer centered and floating */}
-                      <div className="absolute inset-0 flex items-center justify-center p-8 z-0">
+                      {/* Image layer: full width of the block */}
+                      <div className="absolute inset-0 z-0">
                         <img 
                           src={item.image} 
                           alt={item.title} 
-                          className="max-w-[80%] max-h-[80%] object-contain select-none pointer-events-none transition-transform duration-500 group-hover:scale-105" 
+                          className="w-full h-full object-cover select-none pointer-events-none transition-transform duration-500 group-hover:scale-105" 
                         />
                       </div>
                       
