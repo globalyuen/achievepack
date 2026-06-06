@@ -1059,6 +1059,34 @@ export default function DailyReportsPage() {
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-12 font-sans print:pt-0 print:pb-0 print:bg-white">
       <Helmet><title>Control Center | Achieve Pack</title></Helmet>
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media print {
+          /* Hide all screen dashboard elements completely */
+          .print\\:hidden,
+          .print-hidden,
+          header,
+          nav,
+          aside,
+          footer,
+          .bg-gradient-to-r.from-gray-900.to-blue-900,
+          .bg-gradient-to-r.from-indigo-50.to-purple-50,
+          .flex.gap-1\\.5.sm\\:gap-4.mb-6.border-b {
+            display: none !important;
+          }
+          
+          /* Remove page wrapper padding/margins for printing */
+          body, html, #root {
+            margin: 0 !important;
+            padding: 0 !important;
+            background: white !important;
+          }
+          .min-h-screen.bg-gray-50 {
+            background: white !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+          }
+        }
+      `}} />
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 print:px-0 print:max-w-none">
         
         {/* Header */}

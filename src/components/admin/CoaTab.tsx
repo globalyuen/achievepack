@@ -241,6 +241,22 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
     }
   }, [globalCustomer]);
 
+  // Dynamically set page title when printing so the exported PDF file has a professional name
+  useEffect(() => {
+    const handleBeforePrint = () => {
+      document.title = `${data.customer || 'Customer'} - COA - Batch ${data.batchNumber || 'Inspection'}`;
+    };
+    const handleAfterPrint = () => {
+      document.title = "Control Center | Achieve Pack";
+    };
+    window.addEventListener('beforeprint', handleBeforePrint);
+    window.addEventListener('afterprint', handleAfterPrint);
+    return () => {
+      window.removeEventListener('beforeprint', handleBeforePrint);
+      window.removeEventListener('afterprint', handleAfterPrint);
+    };
+  }, [data.customer, data.batchNumber]);
+
   // Load saved COAs from localStorage
   useEffect(() => {
     try {

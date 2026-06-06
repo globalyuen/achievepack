@@ -4,6 +4,7 @@ import { Download, Plus, Trash2, Loader2, FileText, Check, Printer, FileCheck, L
 interface LayerFormulation {
   layer: number;
   chemicalName: string;
+  supplier: string;
   tradeName: string;
   blendPct: string;
   thickness: string;
@@ -70,9 +71,9 @@ const PRESETS: Record<string, { label: string; description: string; data: Compli
       signatoryName: 'Ryan Wong',
       signatoryTitle: 'Packaging Development Specialist',
       layers: [
-        { layer: 1, chemicalName: 'PVdC coated Polyester (PET) film', tradeName: 'AP-PET-PVDC', blendPct: '100%', thickness: '14μm', foodContact: 'Non-Direct Contact' },
-        { layer: 2, chemicalName: 'Polyurethane Laminating Adhesive', tradeName: 'AP-ADH-200', blendPct: '100%', thickness: '3μm', foodContact: 'Indirect Contact' },
-        { layer: 3, chemicalName: 'Polyethylene (PE) sealant film', tradeName: 'AP-PE-70', blendPct: '100%', thickness: '70μm', foodContact: 'Direct Contact' }
+        { layer: 1, chemicalName: 'PVdC coated Polyester (PET) film', supplier: 'Toray Plastics', tradeName: 'AP-PET-PVDC', blendPct: '100%', thickness: '14μm', foodContact: 'Non-Direct Contact' },
+        { layer: 2, chemicalName: 'Polyurethane Laminating Adhesive', supplier: 'Henkel', tradeName: 'AP-ADH-200', blendPct: '100%', thickness: '3μm', foodContact: 'Indirect Contact' },
+        { layer: 3, chemicalName: 'Polyethylene (PE) sealant film', supplier: 'Dow Chemical', tradeName: 'AP-PE-70', blendPct: '100%', thickness: '70μm', foodContact: 'Direct Contact' }
       ],
       restrictedSubstances: [...FULL_RESTRICTED_SUBSTANCES]
     }
@@ -95,9 +96,9 @@ const PRESETS: Record<string, { label: string; description: string; data: Compli
       signatoryName: 'Ryan Wong',
       signatoryTitle: 'Packaging Development Specialist',
       layers: [
-        { layer: 1, chemicalName: 'FSC Certified Kraft Paper', tradeName: 'AP-KRAFT-30G', blendPct: '100%', thickness: '45μm', foodContact: 'Non-Direct Contact' },
-        { layer: 2, chemicalName: 'Biodegradable PBS Adhesive', tradeName: 'AP-BIO-PBS-ADH', blendPct: '100%', thickness: '4μm', foodContact: 'Indirect Contact' },
-        { layer: 3, chemicalName: 'PLA Sealant Film', tradeName: 'AP-PLA-50', blendPct: '100%', thickness: '50μm', foodContact: 'Direct Contact' }
+        { layer: 1, chemicalName: 'FSC Certified Kraft Paper', supplier: 'Moorim Paper', tradeName: 'AP-KRAFT-30G', blendPct: '100%', thickness: '45μm', foodContact: 'Non-Direct Contact' },
+        { layer: 2, chemicalName: 'Biodegradable PBS Adhesive', supplier: 'BASF', tradeName: 'AP-BIO-PBS-ADH', blendPct: '100%', thickness: '4μm', foodContact: 'Indirect Contact' },
+        { layer: 3, chemicalName: 'PLA Sealant Film', supplier: 'NatureWorks', tradeName: 'AP-PLA-50', blendPct: '100%', thickness: '50μm', foodContact: 'Direct Contact' }
       ],
       restrictedSubstances: [...FULL_RESTRICTED_SUBSTANCES]
     }
@@ -120,9 +121,9 @@ const PRESETS: Record<string, { label: string; description: string; data: Compli
       signatoryName: 'Ryan Wong',
       signatoryTitle: 'Packaging Development Specialist',
       layers: [
-        { layer: 1, chemicalName: 'Machine Direction Oriented Polyethylene (MDO-PE)', tradeName: 'AP-MDO-PE-25', blendPct: '100%', thickness: '25μm', foodContact: 'Non-Direct Contact' },
-        { layer: 2, chemicalName: 'Solventless Polyurethane Adhesive', tradeName: 'AP-ADH-SL10', blendPct: '100%', thickness: '3μm', foodContact: 'Indirect Contact' },
-        { layer: 3, chemicalName: 'Coextruded High-Barrier EVOH-PE Sealant film', tradeName: 'AP-EVOH-PE-77', blendPct: '100%', thickness: '77μm', foodContact: 'Direct Contact' }
+        { layer: 1, chemicalName: 'Machine Direction Oriented Polyethylene (MDO-PE)', supplier: 'ExxonMobil', tradeName: 'AP-MDO-PE-25', blendPct: '100%', thickness: '25μm', foodContact: 'Non-Direct Contact' },
+        { layer: 2, chemicalName: 'Solventless Polyurethane Adhesive', supplier: 'Mitsui Chemicals', tradeName: 'AP-ADH-SL10', blendPct: '100%', thickness: '3μm', foodContact: 'Indirect Contact' },
+        { layer: 3, chemicalName: 'Coextruded High-Barrier EVOH-PE Sealant film', supplier: 'Dow Chemical', tradeName: 'AP-EVOH-PE-77', blendPct: '100%', thickness: '77μm', foodContact: 'Direct Contact' }
       ],
       restrictedSubstances: [...FULL_RESTRICTED_SUBSTANCES]
     }
@@ -145,9 +146,9 @@ const PRESETS: Record<string, { label: string; description: string; data: Compli
       signatoryName: 'Ryan Wong',
       signatoryTitle: 'Packaging Development Specialist',
       layers: [
-        { layer: 1, chemicalName: '50% Post-Consumer Recycled PET film', tradeName: 'AP-PCR-PET12', blendPct: '100%', thickness: '12μm', foodContact: 'Non-Direct Contact' },
-        { layer: 2, chemicalName: 'Laminating Polyurethane Adhesive', tradeName: 'AP-ADH-PU88', blendPct: '100%', thickness: '3μm', foodContact: 'Indirect Contact' },
-        { layer: 3, chemicalName: 'Polyethylene (PE) sealant film', tradeName: 'AP-PE-80', blendPct: '100%', thickness: '80μm', foodContact: 'Direct Contact' }
+        { layer: 1, chemicalName: '50% Post-Consumer Recycled PET film', supplier: 'Far Eastern New Century', tradeName: 'AP-PCR-PET12', blendPct: '100%', thickness: '12μm', foodContact: 'Non-Direct Contact' },
+        { layer: 2, chemicalName: 'Laminating Polyurethane Adhesive', supplier: 'Henkel', tradeName: 'AP-ADH-PU88', blendPct: '100%', thickness: '3μm', foodContact: 'Indirect Contact' },
+        { layer: 3, chemicalName: 'Polyethylene (PE) sealant film', supplier: 'Dow Chemical', tradeName: 'AP-PE-80', blendPct: '100%', thickness: '80μm', foodContact: 'Direct Contact' }
       ],
       restrictedSubstances: [...FULL_RESTRICTED_SUBSTANCES]
     }
@@ -181,6 +182,22 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
       }));
     }
   }, [globalCustomer]);
+
+  // Dynamically set page title when printing so the exported PDF file has a professional name
+  useEffect(() => {
+    const handleBeforePrint = () => {
+      document.title = `${data.customer || 'Customer'} - Declaration of Compliance`;
+    };
+    const handleAfterPrint = () => {
+      document.title = "Control Center | Achieve Pack";
+    };
+    window.addEventListener('beforeprint', handleBeforePrint);
+    window.addEventListener('afterprint', handleAfterPrint);
+    return () => {
+      window.removeEventListener('beforeprint', handleBeforePrint);
+      window.removeEventListener('afterprint', handleAfterPrint);
+    };
+  }, [data.customer]);
 
   // Load saved letters from localStorage
   useEffect(() => {
@@ -229,6 +246,7 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
     const newLayer: LayerFormulation = {
       layer: nextLayerNum,
       chemicalName: '',
+      supplier: '',
       tradeName: '',
       blendPct: '100%',
       thickness: '10μm',
@@ -479,13 +497,17 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
                         <span className="text-[10px] bg-indigo-100 text-indigo-700 font-extrabold px-2 py-0.5 rounded-md">Layer {layer.layer}</span>
-                        <div className="grid grid-cols-2 gap-2 mt-1">
+                        <div className="grid grid-cols-3 gap-2 mt-1">
                           <div>
                             <label className="block text-[9px] font-bold text-gray-400 uppercase">Chemical/Resin Name</label>
                             <input type="text" value={layer.chemicalName} onChange={e => handleLayerChange(idx, 'chemicalName', e.target.value)} className="w-full border-gray-200 rounded text-xs px-2 py-1 bg-white" placeholder="e.g. Polyester film" />
                           </div>
                           <div>
-                            <label className="block text-[9px] font-bold text-gray-400 uppercase">Trade Name / Supplier Ref</label>
+                            <label className="block text-[9px] font-bold text-gray-400 uppercase">Supplier</label>
+                            <input type="text" value={layer.supplier} onChange={e => handleLayerChange(idx, 'supplier', e.target.value)} className="w-full border-gray-200 rounded text-xs px-2 py-1 bg-white" placeholder="e.g. Toray" />
+                          </div>
+                          <div>
+                            <label className="block text-[9px] font-bold text-gray-400 uppercase">Trade Name / Ref</label>
                             <input type="text" value={layer.tradeName} onChange={e => handleLayerChange(idx, 'tradeName', e.target.value)} className="w-full border-gray-200 rounded text-xs px-2 py-1 bg-white" placeholder="e.g. AP-PET-12" />
                           </div>
                         </div>
@@ -660,10 +682,11 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                 <table className="w-full border-collapse my-2 text-[9px]">
                   <thead>
                     <tr className="bg-gray-100 border-y border-gray-300">
-                      <th className="py-1.5 px-2 text-left font-bold text-gray-700 w-1/3">Sales Name</th>
-                      <th className="py-1.5 px-2 text-left font-bold text-gray-700 w-1/3">Structure Specs</th>
-                      <th className="py-1.5 px-2 text-center font-bold text-gray-700">Thickness</th>
-                      <th className="py-1.5 px-2 text-center font-bold text-gray-700">Yield</th>
+                      <th className="py-1.5 px-2 text-left font-bold text-gray-700">Sales Name</th>
+                      <th className="py-1.5 px-2 text-left font-bold text-gray-700">Structure</th>
+                      <th className="py-1.5 px-2 text-center font-bold text-gray-700">Total Thickness (micron)</th>
+                      <th className="py-1.5 px-2 text-center font-bold text-gray-700">Density (g/cc)</th>
+                      <th className="py-1.5 px-2 text-center font-bold text-gray-700">Yield (g/m2)</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -671,7 +694,8 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                       <td className="py-1.5 px-2 font-semibold text-gray-900">{data.productName || 'N/A'}</td>
                       <td className="py-1.5 px-2 font-mono text-indigo-700">{data.materialStructure || 'N/A'}</td>
                       <td className="py-1.5 px-2 text-center font-mono">{data.totalThickness || '0'}μm</td>
-                      <td className="py-1.5 px-2 text-center font-mono">{data.yieldGsm || '0'} gsm</td>
+                      <td className="py-1.5 px-2 text-center font-mono">{data.density || '0'} g/cc</td>
+                      <td className="py-1.5 px-2 text-center font-mono">{data.yieldGsm || '0'} g/m²</td>
                     </tr>
                   </tbody>
                 </table>
@@ -918,6 +942,7 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                       <tr className="bg-gray-100 border-y border-gray-300">
                         <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-10">Layer</th>
                         <th className="py-1 px-1.5 text-left font-bold text-gray-600">Resin/Polymer Chemical Name</th>
+                        <th className="py-1 px-1.5 text-left font-bold text-gray-600 w-20">Supplier</th>
                         <th className="py-1 px-1.5 text-left font-bold text-gray-600 w-24">Trade Reference</th>
                         <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-14">Blend %</th>
                         <th className="py-1 px-1.5 text-center font-bold text-gray-600 w-14">Thickness</th>
@@ -929,6 +954,7 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                         <tr key={idx} className="border-b border-gray-100">
                           <td className="py-0.5 px-1.5 text-center font-mono text-gray-500">{layer.layer}</td>
                           <td className="py-0.5 px-1.5 text-gray-700 font-semibold">{layer.chemicalName || 'N/A'}</td>
+                          <td className="py-0.5 px-1.5 text-gray-700">{layer.supplier || 'N/A'}</td>
                           <td className="py-0.5 px-1.5 text-gray-700 font-mono text-[7px]">{layer.tradeName || 'N/A'}</td>
                           <td className="py-0.5 px-1.5 text-center font-mono">{layer.blendPct || '100%'}</td>
                           <td className="py-0.5 px-1.5 text-center font-mono">{layer.thickness || 'N/A'}</td>
@@ -1082,10 +1108,11 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
             <table className="w-full mb-4">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="text-left font-bold text-gray-700 w-1/3">Sales Name</th>
-                  <th className="text-left font-bold text-gray-700 w-1/3">Structure Specs</th>
-                  <th className="text-center font-bold text-gray-700">Thickness</th>
-                  <th className="text-center font-bold text-gray-700">Yield</th>
+                  <th className="text-left font-bold text-gray-700">Sales Name</th>
+                  <th className="text-left font-bold text-gray-700">Structure</th>
+                  <th className="text-center font-bold text-gray-700">Total Thickness (micron)</th>
+                  <th className="text-center font-bold text-gray-700">Density (g/cc)</th>
+                  <th className="text-center font-bold text-gray-700">Yield (g/m2)</th>
                 </tr>
               </thead>
               <tbody>
@@ -1093,7 +1120,8 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                   <td className="font-semibold text-gray-900">{data.productName || 'N/A'}</td>
                   <td className="font-mono text-indigo-700">{data.materialStructure || 'N/A'}</td>
                   <td className="text-center font-mono">{data.totalThickness || '0'}μm</td>
-                  <td className="text-center font-mono">{data.yieldGsm || '0'} gsm</td>
+                  <td className="text-center font-mono">{data.density || '0'} g/cc</td>
+                  <td className="text-center font-mono">{data.yieldGsm || '0'} g/m²</td>
                 </tr>
               </tbody>
             </table>
@@ -1330,6 +1358,7 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                     <tr className="bg-gray-100">
                       <th className="py-1 px-1 text-center font-bold text-gray-600 w-10">Layer</th>
                       <th className="py-1 px-1 text-left font-bold text-gray-600 font-bold">Resin/Polymer Chemical Name</th>
+                      <th className="py-1 px-1 text-left font-bold text-gray-600 w-20">Supplier</th>
                       <th className="py-1 px-1 text-left font-bold text-gray-600 w-24">Trade Reference</th>
                       <th className="py-1 px-1 text-center font-bold text-gray-600 w-12">Blend %</th>
                       <th className="py-1 px-1 text-center font-bold text-gray-600 w-12">Thickness</th>
@@ -1341,6 +1370,7 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
                       <tr key={idx} className="border-b border-gray-200">
                         <td className="py-0.5 px-1 text-center font-mono text-gray-500">{layer.layer}</td>
                         <td className="py-0.5 px-1 text-gray-700 font-semibold">{layer.chemicalName || 'N/A'}</td>
+                        <td className="py-0.5 px-1 text-gray-700">{layer.supplier || 'N/A'}</td>
                         <td className="py-0.5 px-1 text-gray-700 font-mono text-[7px]">{layer.tradeName || 'N/A'}</td>
                         <td className="py-0.5 px-1 text-center font-mono">{layer.blendPct || '100%'}</td>
                         <td className="py-0.5 px-1 text-center font-mono">{layer.thickness || 'N/A'}</td>

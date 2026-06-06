@@ -349,6 +349,22 @@ export default function SpecSheetTab() {
     }
   }, []);
 
+  // Dynamically set page title when printing so the exported PDF file has a professional name
+  useEffect(() => {
+    const handleBeforePrint = () => {
+      document.title = `${data.customer || 'Customer'} - Packaging Specification Sheet`;
+    };
+    const handleAfterPrint = () => {
+      document.title = "Control Center | Achieve Pack";
+    };
+    window.addEventListener('beforeprint', handleBeforePrint);
+    window.addEventListener('afterprint', handleAfterPrint);
+    return () => {
+      window.removeEventListener('beforeprint', handleBeforePrint);
+      window.removeEventListener('afterprint', handleAfterPrint);
+    };
+  }, [data.customer]);
+
   const loadPreset = (key: string) => {
     if (PRESETS[key]) {
       setData(PRESETS[key].data);
