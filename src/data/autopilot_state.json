@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T06:00:27.254Z",
+  "lastUnifiedRun": "2026-06-06T06:15:32.084Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -749,17 +749,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "mono-pe-stand-up-pouches-suppliers",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "mono pe stand up pouches suppliers",
-      "difficulty": "Low",
-      "slug": "mono-pe-stand-up-pouches-suppliers"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "small batch custom shaped pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-custom-shaped-pouches"
     },
     {
       "status": "Pending",
@@ -836,9 +837,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T06:00:21.538Z",
+      "timestamp": "2026-06-06T06:15:20.194Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono pe stand up pouches suppliers\" to /blog/mono-pe-stand-up-pouches-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch custom shaped pouches\" to /blog/small-batch-custom-shaped-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe stand up pouches suppliers\" to /blog/mono-pe-stand-up-pouches-suppliers (Pending Approval)",
+      "timestamp": "2026-06-06T06:00:21.538Z"
     },
     {
       "action": "Autopilot Generation Draft",
