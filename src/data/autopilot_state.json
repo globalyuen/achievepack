@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T20:30:28.201Z",
+  "lastUnifiedRun": "2026-06-06T20:45:31.877Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1155,17 +1155,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-pouch-dimensions-guide",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "kraft paper pouch dimensions guide",
-      "difficulty": "Low",
-      "slug": "kraft-paper-pouch-dimensions-guide"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "biodegradable retort pouches suppliers",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "biodegradable-retort-pouches-suppliers"
     },
     {
       "status": "Pending",
@@ -1214,13 +1215,138 @@
       "volume": 1100,
       "keyword": "stand up pouch size for coffee beans",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "compostable pouch manufacturers for coffee",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom barrier pouches for snacks low moq",
+      "difficulty": "Low",
+      "volume": 720,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable flexible packaging suppliers",
+      "difficulty": "Medium",
+      "volume": 2100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed stand up bags wholesale",
+      "difficulty": "Low",
+      "volume": 950,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sachet packaging dimensions guide",
+      "difficulty": "Low",
+      "volume": 680,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier films for retort packaging",
+      "difficulty": "Medium",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly custom pouch printing",
+      "difficulty": "Low",
+      "volume": 790,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material packaging solutions",
+      "difficulty": "Low",
+      "volume": 1300,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable bags with spout for beverages",
+      "difficulty": "Low",
+      "volume": 620,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small run flexible packaging printing",
+      "difficulty": "Low",
+      "volume": 880,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable pouch suppliers for pet food",
+      "difficulty": "Medium",
+      "volume": 1050,
+      "status": "Pending"
+    },
+    {
+      "keyword": "barrier film roll stock suppliers",
+      "difficulty": "Low",
+      "volume": 760,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped sachets for spices",
+      "difficulty": "Low",
+      "volume": 540,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable packaging sizes for powders",
+      "difficulty": "Low",
+      "volume": 910,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital print compostable pouches",
+      "difficulty": "Low",
+      "volume": 1150,
+      "status": "Pending"
+    },
+    {
+      "keyword": "flat bottom pouch suppliers eco friendly",
+      "difficulty": "Medium",
+      "volume": 670,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier recyclable films",
+      "difficulty": "Low",
+      "volume": 820,
+      "status": "Pending"
+    },
+    {
+      "keyword": "stand up pouch filling equipment",
+      "difficulty": "Medium",
+      "volume": 1400,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom printed flexible bags small batch",
+      "difficulty": "Low",
+      "volume": 730,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable film for food packaging",
+      "difficulty": "Low",
+      "volume": 1600,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T20:30:20.831Z",
+      "timestamp": "2026-06-06T20:45:24.911Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper pouch dimensions guide\" to /blog/kraft-paper-pouch-dimensions-guide (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable retort pouches suppliers\" to /blog/biodegradable-retort-pouches-suppliers (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper pouch dimensions guide\" to /blog/kraft-paper-pouch-dimensions-guide (Pending Approval)",
+      "timestamp": "2026-06-06T20:30:20.831Z"
     },
     {
       "action": "Autopilot Generation Draft",
