@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T11:45:40.651Z",
+  "lastUnifiedRun": "2026-06-06T12:00:32.118Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -910,17 +910,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-print-compostable-bags-low-moq",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "digital print compostable bags low moq",
-      "difficulty": "Low",
-      "slug": "digital-print-compostable-bags-low-moq"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 550,
       "keyword": "sustainable pouch printing for nuts",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-pouch-printing-for-nuts"
     },
     {
       "status": "Pending",
@@ -965,119 +966,124 @@
       "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 1100,
       "keyword": "compostable stand up pouch size chart for powders",
-      "difficulty": "Low",
-      "volume": 1100,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 850,
       "keyword": "custom digital printed barrier sachets low moq",
-      "difficulty": "Low",
-      "volume": 850,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono material recyclable pouch dimensions guide",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1400,
-      "status": "Pending"
+      "keyword": "mono material recyclable pouch dimensions guide",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "sustainable high barrier film for stand up pouches",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "sustainable high barrier film for stand up pouches",
+      "difficulty": "Low"
     },
     {
-      "keyword": "eco friendly flat bottom pouch sizes for snacks",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1200,
-      "status": "Pending"
+      "keyword": "eco friendly flat bottom pouch sizes for snacks",
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 700,
       "keyword": "compostable retort pouch size chart for baby food",
-      "difficulty": "Medium",
-      "volume": 700,
-      "status": "Pending"
+      "difficulty": "Medium"
     },
     {
-      "keyword": "digital printing on mono pe flexible packaging",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1600,
-      "status": "Pending"
+      "keyword": "digital printing on mono pe flexible packaging",
+      "difficulty": "Low"
     },
     {
-      "keyword": "kraft paper custom sachet dimensions for spices",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 800,
-      "status": "Pending"
+      "keyword": "kraft paper custom sachet dimensions for spices",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable barrier film suppliers for small batch pouches",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1300,
-      "status": "Pending"
+      "keyword": "recyclable barrier film suppliers for small batch pouches",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "biodegradable stand up pouch dimensions for coffee",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1000,
-      "status": "Pending"
+      "keyword": "biodegradable stand up pouch dimensions for coffee",
+      "difficulty": "Low"
     },
     {
-      "keyword": "custom shaped compostable sachets for liquids",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 750,
-      "status": "Pending"
+      "keyword": "custom shaped compostable sachets for liquids",
+      "difficulty": "Low"
     },
     {
-      "keyword": "sustainable pouch printing services for pet food",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1100,
-      "status": "Pending"
+      "keyword": "sustainable pouch printing services for pet food",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "high barrier mono pe film for flexible packaging",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 900,
-      "status": "Pending"
+      "keyword": "high barrier mono pe film for flexible packaging",
+      "difficulty": "Low"
     },
     {
-      "keyword": "small batch digital print stand up pouches wholesale",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1250,
-      "status": "Pending"
+      "keyword": "small batch digital print stand up pouches wholesale",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable flat bottom pouch dimensions for nuts",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "compostable flat bottom pouch dimensions for nuts",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "eco friendly sachet size guide for powders",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1050,
-      "status": "Pending"
+      "keyword": "eco friendly sachet size guide for powders",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable custom shaped pouches for beverages",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 700,
-      "status": "Pending"
+      "keyword": "recyclable custom shaped pouches for beverages",
+      "difficulty": "Low"
     },
     {
-      "keyword": "barrier film roll stock for compostable packaging",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1150,
-      "status": "Pending"
+      "keyword": "barrier film roll stock for compostable packaging",
+      "difficulty": "Medium"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T11:45:35.426Z",
+      "timestamp": "2026-06-06T12:00:26.758Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital print compostable bags low moq\" to /blog/digital-print-compostable-bags-low-moq (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable pouch printing for nuts\" to /blog/sustainable-pouch-printing-for-nuts (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital print compostable bags low moq\" to /blog/digital-print-compostable-bags-low-moq (Pending Approval)",
+      "timestamp": "2026-06-06T11:45:35.426Z"
     },
     {
       "action": "Autopilot Generation Draft",
