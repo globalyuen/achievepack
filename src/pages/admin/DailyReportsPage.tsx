@@ -6,11 +6,12 @@ import {
   Edit3, Trash2, Check, X, Sparkles, Save, CheckCircle,
   FileText, ImageIcon, UploadCloud, Link as LinkIcon, FileIcon, FileCheck,
   ClipboardList, Hash, History, ScrollText, RotateCcw,
-  ChevronUp, ChevronDown, ArrowRight, Share, Download
+  ChevronUp, ChevronDown, ArrowRight, Share, Download, ShieldCheck
 } from 'lucide-react';
 import { supabase, DailyReport, WebhookLog } from '../../lib/supabase';
 import PackingListTab from '../../components/admin/PackingListTab';
 import SpecSheetTab from '../../components/admin/SpecSheetTab';
+import ComplianceLetterTab from '../../components/admin/ComplianceLetterTab';
 import SeoMigrationDashboard from '../../components/admin/SeoMigrationDashboard';
 import SeoRankingDashboard from '../../components/admin/SeoRankingDashboard';
 import SearchDirectoryModal from '../../components/admin/SearchDirectoryModal';
@@ -100,7 +101,7 @@ export default function DailyReportsPage() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   
-  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'>('reports');
+  const [activeTab, setActiveTab] = useState<'reports'|'logs'|'rfq'|'quote'|'packing'|'spec'|'seo'|'compliance'>('reports');
   const [seoSubTab, setSeoSubTab] = useState<'migration' | 'ranking'>('migration');
 
   const [reports, setReports] = useState<DailyReport[]>([]);
@@ -1297,6 +1298,11 @@ export default function DailyReportsPage() {
             <span className="hidden xs:inline">Spec Maker</span>
             <span className="xs:hidden">Spec</span>
           </button>
+          <button onClick={() => setActiveTab('compliance')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'compliance' ? 'border-b-4 border-indigo-600 text-indigo-700' : 'text-gray-500 hover:text-gray-900'}`}>
+            <ShieldCheck className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+            <span className="hidden xs:inline">Compliance Doc</span>
+            <span className="xs:hidden">Compliance</span>
+          </button>
           <button onClick={() => setActiveTab('seo')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'seo' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
             <Activity className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
             <span className="hidden xs:inline">SEO/GEO Monitor</span>
@@ -1312,6 +1318,11 @@ export default function DailyReportsPage() {
         {/* Tab Content: Spec Sheet Generator */}
         {activeTab === 'spec' && (
           <SpecSheetTab />
+        )}
+
+        {/* Tab Content: Compliance Letter Generator */}
+        {activeTab === 'compliance' && (
+          <ComplianceLetterTab globalCustomer={selectedCustomer} />
         )}
 
         {/* Tab Content: SEO/GEO Monitor */}

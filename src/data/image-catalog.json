@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-06",
-  "total_images": 2867,
+  "total_images": 2880,
   "total_categories": 170,
   "extensions": {
     ".webp": 1303,
-    ".png": 1329,
+    ".png": 1342,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,86 @@
       ]
     },
     "blog/heros": {
-      "count": 169,
+      "count": 182,
       "images": [
+        {
+          "filename": "kraft-paper-custom-sachet-dimensions-for-spices-hero.png",
+          "path": "/imgs/blog/heros/kraft-paper-custom-sachet-dimensions-for-spices-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T15:45:30.516Z"
+        },
+        {
+          "filename": "digital-printing-on-mono-pe-flexible-packaging-hero.png",
+          "path": "/imgs/blog/heros/digital-printing-on-mono-pe-flexible-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T15:30:18.607Z"
+        },
+        {
+          "filename": "compostable-retort-pouch-size-chart-for-baby-food-hero.png",
+          "path": "/imgs/blog/heros/compostable-retort-pouch-size-chart-for-baby-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T15:15:17.927Z"
+        },
+        {
+          "filename": "eco-friendly-flat-bottom-pouch-sizes-for-snacks-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-flat-bottom-pouch-sizes-for-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T15:00:22.399Z"
+        },
+        {
+          "filename": "sustainable-high-barrier-film-for-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/sustainable-high-barrier-film-for-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T14:45:22.656Z"
+        },
+        {
+          "filename": "mono-material-recyclable-pouch-dimensions-guide-hero.png",
+          "path": "/imgs/blog/heros/mono-material-recyclable-pouch-dimensions-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T14:30:28.501Z"
+        },
+        {
+          "filename": "custom-digital-printed-barrier-sachets-low-moq-hero.png",
+          "path": "/imgs/blog/heros/custom-digital-printed-barrier-sachets-low-moq-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T14:15:22.612Z"
+        },
+        {
+          "filename": "compostable-stand-up-pouch-size-chart-for-powders-hero.png",
+          "path": "/imgs/blog/heros/compostable-stand-up-pouch-size-chart-for-powders-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T14:00:26.025Z"
+        },
+        {
+          "filename": "small-run-custom-pouch-sizes-hero.png",
+          "path": "/imgs/blog/heros/small-run-custom-pouch-sizes-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T13:45:19.976Z"
+        },
+        {
+          "filename": "high-barrier-sustainable-sachet-options-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-sustainable-sachet-options-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T13:30:25.774Z"
+        },
+        {
+          "filename": "eco-friendly-digital-printed-flexible-packaging-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-digital-printed-flexible-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T13:15:27.583Z"
+        },
+        {
+          "filename": "recyclable-stand-up-pouch-chart-hero.png",
+          "path": "/imgs/blog/heros/recyclable-stand-up-pouch-chart-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T13:00:22.348Z"
+        },
+        {
+          "filename": "custom-sachet-sizes-for-baby-food-hero.png",
+          "path": "/imgs/blog/heros/custom-sachet-sizes-for-baby-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T12:45:28.350Z"
+        },
         {
           "filename": "compostable-retort-packaging-dimensions-hero.png",
           "path": "/imgs/blog/heros/compostable-retort-packaging-dimensions-hero.png",
