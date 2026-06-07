@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2918,
+  "total_images": 2922,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1380,
+    ".png": 1384,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,32 @@
       ]
     },
     "blog/heros": {
-      "count": 216,
+      "count": 220,
       "images": [
+        {
+          "filename": "small-run-flexible-packaging-printing-hero.png",
+          "path": "/imgs/blog/heros/small-run-flexible-packaging-printing-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T01:15:18.424Z"
+        },
+        {
+          "filename": "compostable-bags-with-spout-for-beverages-hero.png",
+          "path": "/imgs/blog/heros/compostable-bags-with-spout-for-beverages-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T01:00:19.422Z"
+        },
+        {
+          "filename": "mono-material-packaging-solutions-hero.png",
+          "path": "/imgs/blog/heros/mono-material-packaging-solutions-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T00:45:20.711Z"
+        },
+        {
+          "filename": "eco-friendly-custom-pouch-printing-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-custom-pouch-printing-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T00:30:21.118Z"
+        },
         {
           "filename": "high-barrier-films-for-retort-packaging-hero.png",
           "path": "/imgs/blog/heros/high-barrier-films-for-retort-packaging-hero.png",

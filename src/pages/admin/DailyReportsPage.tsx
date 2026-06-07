@@ -1295,50 +1295,50 @@ export default function DailyReportsPage() {
           )}
         </div>
 
-        {/* Tab Switcher - Mobile Optimized */}
-        <div className="flex gap-1.5 sm:gap-4 mb-6 border-b border-gray-200 pb-2 overflow-x-auto scrollbar-hide -mx-2 px-2 print:hidden">
-          <button onClick={() => setActiveTab('reports')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'reports' ? 'border-b-4 border-blue-600 text-blue-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <ClipboardList className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+        {/* Tab Switcher - Responsive Pill Layout */}
+        <div className="flex flex-wrap gap-2 mb-6 p-1.5 bg-gray-100/80 rounded-2xl print:hidden">
+          <button onClick={() => setActiveTab('reports')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'reports' ? 'bg-blue-600 text-white shadow-md shadow-blue-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <ClipboardList className="w-4 h-4"/>
             <span className="hidden xs:inline">Daily Reports</span>
             <span className="xs:hidden">Reports</span>
           </button>
-          <button onClick={() => setActiveTab('logs')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'logs' ? 'border-b-4 border-purple-600 text-purple-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <History className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+          <button onClick={() => setActiveTab('logs')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'logs' ? 'bg-purple-600 text-white shadow-md shadow-purple-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <History className="w-4 h-4"/>
             <span className="hidden xs:inline">Audit Logs</span>
             <span className="xs:hidden">Logs</span>
           </button>
-          <button onClick={() => setActiveTab('rfq')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'rfq' ? 'border-b-4 border-indigo-600 text-indigo-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <FileText className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+          <button onClick={() => setActiveTab('rfq')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'rfq' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <FileText className="w-4 h-4"/>
             <span className="hidden xs:inline">RFQ Maker</span>
             <span className="xs:hidden">RFQ</span>
           </button>
-          <button onClick={() => setActiveTab('quote')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'quote' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <FileText className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+          <button onClick={() => setActiveTab('quote')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'quote' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <FileText className="w-4 h-4"/>
             <span className="hidden xs:inline">Quote Gen</span>
             <span className="xs:hidden">Quote</span>
           </button>
-          <button onClick={() => setActiveTab('packing')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'packing' ? 'border-b-4 border-amber-600 text-amber-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <Package className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+          <button onClick={() => setActiveTab('packing')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'packing' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <Package className="w-4 h-4"/>
             <span className="hidden xs:inline">Packing List</span>
             <span className="xs:hidden">Packing</span>
           </button>
-          <button onClick={() => setActiveTab('spec')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'spec' ? 'border-b-4 border-blue-600 text-blue-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <FileCheck className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+          <button onClick={() => setActiveTab('spec')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'spec' ? 'bg-sky-600 text-white shadow-md shadow-sky-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <FileCheck className="w-4 h-4"/>
             <span className="hidden xs:inline">Spec Maker</span>
             <span className="xs:hidden">Spec</span>
           </button>
-          <button onClick={() => setActiveTab('compliance')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'compliance' ? 'border-b-4 border-indigo-600 text-indigo-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <ShieldCheck className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+          <button onClick={() => setActiveTab('compliance')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'compliance' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <ShieldCheck className="w-4 h-4"/>
             <span className="hidden xs:inline">Compliance Doc</span>
             <span className="xs:hidden">Compliance</span>
           </button>
-          <button onClick={() => setActiveTab('coa')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'coa' ? 'border-b-4 border-indigo-600 text-indigo-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <ScrollText className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+          <button onClick={() => setActiveTab('coa')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'coa' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <ScrollText className="w-4 h-4"/>
             <span className="hidden xs:inline">COA Gen</span>
             <span className="xs:hidden">COA</span>
           </button>
-          <button onClick={() => setActiveTab('seo')} className={`pb-2 px-2 sm:px-4 font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-lg whitespace-nowrap flex-shrink-0 ${activeTab === 'seo' ? 'border-b-4 border-emerald-600 text-emerald-700' : 'text-gray-500 hover:text-gray-900'}`}>
-            <Activity className="w-3.5 h-3.5 sm:w-5 sm:h-5"/>
+          <button onClick={() => setActiveTab('seo')} className={`py-2 px-3 sm:px-4 rounded-xl font-bold flex gap-1.5 sm:gap-2 items-center text-[11px] sm:text-sm transition-all duration-200 whitespace-nowrap ${activeTab === 'seo' ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'}`}>
+            <Activity className="w-4 h-4"/>
             <span className="hidden xs:inline">SEO/GEO Monitor</span>
             <span className="xs:hidden">SEO</span>
           </button>
