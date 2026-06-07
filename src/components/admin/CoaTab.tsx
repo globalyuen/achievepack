@@ -366,10 +366,10 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
   };
 
   const page1Items = data.items.filter(
-    item => item.category === 'Appearance' || item.category === 'Dimensional deviation'
+    item => item.category === 'Appearance'
   );
   const page2Items = data.items.filter(
-    item => item.category !== 'Appearance' && item.category !== 'Dimensional deviation'
+    item => item.category !== 'Appearance'
   );
 
   const getRowSpans = (items: CoaItem[]) => {
@@ -855,8 +855,9 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             }
             .print-page {
               width: 297mm;
-              height: 210mm;
-              padding: 6mm 10mm;
+              height: 200mm;
+              max-height: 200mm;
+              padding: 4mm 8mm;
               position: relative;
               page-break-after: always !important;
               page-break-inside: avoid !important;
