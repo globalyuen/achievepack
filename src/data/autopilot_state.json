@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T02:45:50.800Z",
+  "lastUnifiedRun": "2026-06-07T03:00:42.727Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1330,17 +1330,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "flat-bottom-pouch-suppliers-eco-friendly",
       "status": "Pending Approval",
       "volume": 670,
       "keyword": "flat bottom pouch suppliers eco friendly",
-      "difficulty": "Medium",
-      "slug": "flat-bottom-pouch-suppliers-eco-friendly"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 820,
       "keyword": "high barrier recyclable films",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-recyclable-films"
     },
     {
       "status": "Pending",
@@ -1471,9 +1472,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T02:45:43.099Z",
+      "timestamp": "2026-06-07T03:00:34.053Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"flat bottom pouch suppliers eco friendly\" to /blog/flat-bottom-pouch-suppliers-eco-friendly (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier recyclable films\" to /blog/high-barrier-recyclable-films (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"flat bottom pouch suppliers eco friendly\" to /blog/flat-bottom-pouch-suppliers-eco-friendly (Pending Approval)",
+      "timestamp": "2026-06-07T02:45:43.099Z"
     },
     {
       "action": "Autopilot Generation Draft",
