@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Package, Shield, Layers, Eye, Award, Users, Globe, FileCheck, Building2, Sparkles, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Info, Table, HelpCircle, ArrowRight } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
@@ -15,6 +16,8 @@ const heavyBagGallery = [
 ]
 
 const LargeFormatKraftHeavyBagPage: React.FC = () => {
+  const { t } = useTranslation()
+
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   

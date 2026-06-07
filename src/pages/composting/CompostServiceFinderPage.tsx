@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Search, MapPin, ExternalLink, Leaf, ChevronDown, Calendar, Package, CheckCircle, AlertTriangle, Globe, Building2, Phone, Mail, HelpCircle, ChevronRight, Users, X } from 'lucide-react'
@@ -27,7 +28,7 @@ const ClickableImage: React.FC<{
         {caption && (
           <figcaption className="text-xs text-neutral-500 mt-2 text-center">{caption}</figcaption>
         )}
-        <div className="text-xs text-primary-600 text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to enlarge</div>
+        <div className="text-xs text-primary-600 text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity">{t('seoPages.pages.compostServiceFinder.clickToEnlarge')}</div>
       </figure>
 
       {isOpen && (
@@ -162,6 +163,8 @@ const COMPOST_SERVICES: CompostService[] = [
 const STATES = [...new Set(COMPOST_SERVICES.map(s => s.state))].sort()
 
 const CompostServiceFinderPage: React.FC = () => {
+  const { t } = useTranslation()
+
   const { openCalendly } = useCalendly()
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedState, setSelectedState] = useState<string>('')

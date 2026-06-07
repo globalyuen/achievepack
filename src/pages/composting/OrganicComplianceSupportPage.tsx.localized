@@ -65,7 +65,7 @@ const OrganicComplianceSupportPage: React.FC = () => {
         <title>{t('seoPages.pages.organicComplianceSupport.metaTitle')}</title>
         <meta name="description" content={t('seoPages.pages.organicComplianceSupport.metaDescription')} />
         <link rel="canonical" href="https://achievepack.com/composting/organic-compliance-support" />
-        <meta name="keywords" content={t('seoPages.pages.organicComplianceSupport.metaKeywords')} />
+        <meta name="keywords" content="organic compliance support, Non-GMO packaging, organic certification packaging, USDA Organic packaging, compostable stand-up pouches, Achieve Pack organic support" />
       </Helmet>
 
       <div className="min-h-screen bg-neutral-50">

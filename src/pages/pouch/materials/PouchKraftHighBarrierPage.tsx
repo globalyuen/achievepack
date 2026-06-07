@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'
 import { Shield, Zap, Package, ArrowRight, CheckCircle, Award, BarChart3, Droplets, Sun, Wind } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -6,6 +7,9 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import { getBaseUrl } from '../../../utils/domain'
 
 const PouchKraftHighBarrierPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchKraftHighBarrier'
+
   const baseUrl = getBaseUrl()
   
   const BARRIER_LEVELS = [

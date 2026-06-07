@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Leaf, AlertTriangle, CheckCircle, Award, Calendar, Target, Shield, Recycle, Droplets, TreeDeciduous, Factory, Package, X, ChevronRight, Mail, Phone, Sprout, Globe, Building2, ChevronDown } from 'lucide-react'
@@ -38,7 +39,7 @@ const ClickableImage: React.FC<{
         {caption && (
           <figcaption className="text-xs text-neutral-500 mt-2 text-center">{caption}</figcaption>
         )}
-        <div className="text-xs text-primary-600 text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Click to enlarge</div>
+        <div className="text-xs text-primary-600 text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity">{t('seoPages.pages.compostingBenefits.clickToEnlarge')}</div>
       </figure>
 
       {isOpen && (
@@ -104,6 +105,8 @@ const ImageTextRow: React.FC<{
 }
 
 const CompostingBenefitsPage: React.FC = () => {
+  const { t } = useTranslation()
+
   const { openCalendly } = useCalendly()
 
   return (

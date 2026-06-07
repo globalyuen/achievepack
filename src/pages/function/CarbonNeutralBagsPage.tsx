@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Leaf, Recycle, Target, BarChart3, Package, Users, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Award, Globe, FileCheck, Building2, Shield, Sparkles } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
@@ -21,6 +22,8 @@ const carbonGallery = [
 ]
 
 const CarbonNeutralBagsPage: React.FC = () => {
+  const { t } = useTranslation()
+
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   

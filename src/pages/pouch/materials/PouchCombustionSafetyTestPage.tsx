@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { 
@@ -23,31 +24,22 @@ import ClickableImage from '../../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 
 export default function PouchCombustionSafetyTestPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchCombustionSafetyTest'
+
   const floatAnim = {
     y: [0, -6, 0],
     transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const }
   }
 
-  const title = "Combustion Safety Test: PLA vs. PET Plastic | POUCH.ECO"
-  const description = "Verify authentic biopolymer packaging using the Combustion Safety Test. Compare plant-based PLA (clean grass-ash scent, stable ash) vs. standard PET plastic (toxic dripping, acrid chemical smell)."
+  const title = t(`${p}.title`)
+  const description = t(`${p}.description`)
 
   const faqs = [
-    {
-      q: 'Is burning PLA toxic to inhale?',
-      a: 'Unlike synthetic plastics like PET or PVC which release toxic, highly carcinogenic vapors (such as benzene and acid gases), burning pure PLA primarily yields carbon dioxide (CO₂) and water vapour. It releases a mild, non-offensive plant/wood ash scent. However, as with all combustion events, we recommend performing tests in a well-ventilated space.'
-    },
-    {
-      q: 'Why does PLA form carbon ash while PET melts into plastic beads?',
-      a: 'PLA is synthesized from plant carbohydrates. When it burns, the carbon-oxygen-hydrogen structures convert directly into ash, resembling burning paper or grass. PET is an engineered petroleum derivative designed for crystalline durability; upon heating, it undergoes a rapid thermal transition back into its liquid polymer form, dropping molten flame beads.'
-    },
-    {
-      q: 'Is the adhesive on your PLA stickers compostable as well?',
-      a: 'Yes, absolutely. A sticker is only as compostable as its weakest link. AchievePack / Pouch.eco clear stickers use a certified, custom-formulated bio-adhesive. It decomposes in <=14 weeks, leaves zero microplastics, and meets all strict international composting protocols (EN 13432 and ASTM D6400).'
-    },
-    {
-      q: 'Will PLA sealing stickers melt on my package in hot cargo shipping?',
-      a: 'No. While PLA has a lower melting point than PET, it remains fully stable up to 55°C (131°F). Standard cargo containers rarely exceed 45°C. Pouch.eco stickers are engineered with excellent heat resistance, holding strong integrity in transit while maintaining rapid breakdown when exposed to industrial compost facilities.'
-    }
+    { q: t(`${p}.faq.q1`), a: t(`${p}.faq.a1`) },
+    { q: t(`${p}.faq.q2`), a: t(`${p}.faq.a2`) },
+    { q: t(`${p}.faq.q3`), a: t(`${p}.faq.a3`) },
+    { q: t(`${p}.faq.q4`), a: t(`${p}.faq.a4`) }
   ]
 
   return (
@@ -64,22 +56,20 @@ export default function PouchCombustionSafetyTestPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 z-10">
               <div className="inline-block bg-[#14532d] text-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                <span className="font-['JetBrains_Mono'] font-bold text-sm">LAB_PROTOCOL: TEST_COMBUST_01</span>
+                <span className="font-['JetBrains_Mono'] font-bold text-sm">{t(`${p}.heroBadge`)}</span>
               </div>
               
               <h1 className="font-black text-4xl md:text-6xl leading-[0.95] tracking-tighter uppercase">
-                COMBUSTION<br/>
-                SAFETY TEST:<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#D4FF00] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">PLA vs. PET</span>
+                {t(`${p}.heroTitle1`)}<br/>{t(`${p}.heroTitle2`)}<br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#D4FF00] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t(`${p}.heroTitleHighlight`)}</span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-base md:text-lg max-w-xl bg-[#f8fafc] border-4 border-black p-5 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black leading-relaxed">
-                Protect your brand's environmental claims from greenwashing. A simple combustion safety test immediately distinguishes plant-based Compostable PLA (which burns cleanly with a mild grass-wood scent) from Conventional PET Plastic (which melts rapidly with severe toxic dripping and hazardous chemical fumes).
+                {t(`${p}.heroDescription`)}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">Book Free Consultation</NeoButton>
-                <NeoButton variant="secondary" href="#guide">View Lab Guide</NeoButton>
+                <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy">{t(`${p}.heroCta1`)}</NeoButton>
+                <NeoButton variant="secondary" href="#guide">{t(`${p}.heroCta2`)}</NeoButton>
               </div>
             </div>
 
@@ -88,11 +78,11 @@ export default function PouchCombustionSafetyTestPage() {
                 <div className="aspect-[4/3] relative overflow-hidden bg-emerald-950">
                   <img 
                     src="/imgs/materials/combustion-safety-test.jpg" 
-                    alt="Combustion Safety Test" 
+                    alt={t(`${p}.heroImageAlt`)} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20">
-                    PLA_BURN_VERIFIED
+                    {t(`${p}.burnVerifiedBadge`)}
                   </motion.div>
                 </div>
               </NeoCard>
@@ -106,42 +96,42 @@ export default function PouchCombustionSafetyTestPage() {
       <section className="py-20 border-b-4 border-black bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex items-center gap-3 mb-10">
-            <NeoBadge color="magenta">AUDIENCE_ALERT</NeoBadge>
-            <h2 className="font-black text-3xl md:text-4xl uppercase">Is This Test For You?</h2>
+            <NeoBadge color="magenta">{t(`${p}.audienceBadge`)}</NeoBadge>
+            <h2 className="font-black text-3xl md:text-4xl uppercase">{t(`${p}.audienceTitle`)}</h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             <NeoCard color="bg-neutral-50" className="flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-10 h-10 bg-[#FF00FF] border-2 border-black flex items-center justify-center font-bold text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">QA</div>
-                <h3 className="font-black text-xl uppercase">Procurement & QA</h3>
+                <h3 className="font-black text-xl uppercase">{t(`${p}.audienceCard1Title`)}</h3>
                 <p className="font-['Space_Grotesk'] text-sm text-neutral-600 leading-relaxed">
-                  Verify supplier claims in-house. Protect your brand's integrity and eco-claims before mass-producing custom printed labels or bags.
+                  {t(`${p}.audienceCard1Desc`)}
                 </p>
               </div>
-              <NeoBadge color="lime" className="mt-6 self-start">Supplier Audit</NeoBadge>
+              <NeoBadge color="lime" className="mt-6 self-start">{t(`${p}.audienceCard1Badge`)}</NeoBadge>
             </NeoCard>
 
             <NeoCard color="bg-[#10b981]/10" className="flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-10 h-10 bg-[#00FFFF] border-2 border-black flex items-center justify-center font-bold text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">DTC</div>
-                <h3 className="font-black text-xl uppercase">DTC Ecom Brands</h3>
+                <h3 className="font-black text-xl uppercase">{t(`${p}.audienceCard2Title`)}</h3>
                 <p className="font-['Space_Grotesk'] text-sm text-neutral-600 leading-relaxed">
-                  Ensure zero microplastics. Guarantee your shipping labels and product box stickers break down naturally in standard industrial compost piles.
+                  {t(`${p}.audienceCard2Desc`)}
                 </p>
               </div>
-              <NeoBadge color="cyan" className="mt-6 self-start">Zero Microplastics</NeoBadge>
+              <NeoBadge color="cyan" className="mt-6 self-start">{t(`${p}.audienceCard2Badge`)}</NeoBadge>
             </NeoCard>
 
             <NeoCard color="bg-[#D4FF00]/10" className="flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-10 h-10 bg-[#D4FF00] border-2 border-black flex items-center justify-center font-bold text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">CSR</div>
-                <h3 className="font-black text-xl uppercase">Sustainability Officers</h3>
+                <h3 className="font-black text-xl uppercase">{t(`${p}.audienceCard3Title`)}</h3>
                 <p className="font-['Space_Grotesk'] text-sm text-neutral-600 leading-relaxed">
-                  Enforce strict compliance. Certify that materials satisfy international composting benchmarks (EN 13432 & ASTM D6400).
+                  {t(`${p}.audienceCard3Desc`)}
                 </p>
               </div>
-              <NeoBadge color="magenta" className="mt-6 self-start">14-Week Composting</NeoBadge>
+              <NeoBadge color="magenta" className="mt-6 self-start">{t(`${p}.audienceCard3Badge`)}</NeoBadge>
             </NeoCard>
           </div>
         </div>
@@ -153,14 +143,14 @@ export default function PouchCombustionSafetyTestPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <NeoBadge color="cyan">SCIENCE_LAB</NeoBadge>
-                <h2 className="font-black text-3xl md:text-5xl uppercase leading-none">The Science of<br/>Combustion</h2>
+                <NeoBadge color="cyan">{t(`${p}.scienceBadge`)}</NeoBadge>
+                <h2 className="font-black text-3xl md:text-5xl uppercase leading-none">{t(`${p}.scienceTitle1`)}<br/>{t(`${p}.scienceTitle2`)}</h2>
               </div>
               <p className="font-['Space_Grotesk'] text-base md:text-lg leading-relaxed text-neutral-700">
-                Plastics and plant-based biopolymers have radically different molecular architectures. Fossil fuel-based plastics are structured from long carbon chains with heavy chemical additives, while Polylactic Acid (PLA) is synthesized from fermented plant starch (primarily corn dextrose).
+                {t(`${p}.scienceDesc1`)}
               </p>
               <p className="font-['Space_Grotesk'] text-base md:text-lg leading-relaxed text-neutral-700">
-                When exposed to an open flame, these distinct molecular structures react in highly specific, unforgeable ways. A standard combustion test evaluates three primary metrics:
+                {t(`${p}.scienceDesc2`)}
               </p>
             </div>
             
@@ -170,9 +160,9 @@ export default function PouchCombustionSafetyTestPage() {
                   <Wind className="w-5 h-5 text-emerald-700" />
                 </div>
                 <div>
-                  <h4 className="font-black uppercase text-lg mb-1">1. Combustion Aroma</h4>
+                  <h4 className="font-black uppercase text-lg mb-1">{t(`${p}.metric1Title`)}</h4>
                   <p className="font-['Space_Grotesk'] text-sm text-neutral-600 leading-relaxed">
-                    Plants burn like wood or leaves. Synthetic conventional plastics emit vaporized petroleum, producing a toxic, highly offensive chemical signature.
+                    {t(`${p}.metric1Desc`)}
                   </p>
                 </div>
               </div>
@@ -182,9 +172,9 @@ export default function PouchCombustionSafetyTestPage() {
                   <Flame className="w-5 h-5 text-emerald-700" />
                 </div>
                 <div>
-                  <h4 className="font-black uppercase text-lg mb-1">2. Flame Behavior</h4>
+                  <h4 className="font-black uppercase text-lg mb-1">{t(`${p}.metric2Title`)}</h4>
                   <p className="font-['Space_Grotesk'] text-sm text-neutral-600 leading-relaxed">
-                    PLA burns with a clean, light yellow flame and steady combustion. PET curls back, melts instantly, and drips dangerous flaming droplets.
+                    {t(`${p}.metric2Desc`)}
                   </p>
                 </div>
               </div>
@@ -194,9 +184,9 @@ export default function PouchCombustionSafetyTestPage() {
                   <Shield className="w-5 h-5 text-[#D4FF00]" />
                 </div>
                 <div>
-                  <h4 className="font-black uppercase text-lg mb-1">3. Post-Burn Residual</h4>
+                  <h4 className="font-black uppercase text-lg mb-1">{t(`${p}.metric3Title`)}</h4>
                   <p className="font-['Space_Grotesk'] text-sm text-neutral-900 leading-relaxed">
-                    PLA leaves a structurally solid, dry, and brittle ash edge that crushes to fine charcoal powder. Conventional PET hardens into a dense, solid, and glassy plastic bead.
+                    {t(`${p}.metric3Desc`)}
                   </p>
                 </div>
               </div>

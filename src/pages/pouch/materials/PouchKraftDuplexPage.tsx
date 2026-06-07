@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Leaf, Shield, Coffee, ShoppingBag, CheckCircle, AlertCircle, Calendar, DollarSign } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
@@ -10,6 +11,9 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 // ============================================
 
 export default function PouchKraftDuplexPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pouchKraftDuplex'
+
   const FEATURES = [
     {
       icon: Leaf,
