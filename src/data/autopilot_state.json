@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T13:30:36.442Z",
+  "lastUnifiedRun": "2026-06-07T13:45:34.910Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1631,17 +1631,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "eco-friendly-barrier-film-roll-stock-suppliers",
       "status": "Pending Approval",
       "volume": 720,
       "keyword": "eco friendly barrier film roll stock suppliers",
-      "difficulty": "Medium",
-      "slug": "eco-friendly-barrier-film-roll-stock-suppliers"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 950,
       "keyword": "stand up pouch dimensions for baby food",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "stand-up-pouch-dimensions-for-baby-food"
     },
     {
       "status": "Pending",
@@ -1730,9 +1731,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T13:30:27.603Z",
+      "timestamp": "2026-06-07T13:45:25.241Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly barrier film roll stock suppliers\" to /blog/eco-friendly-barrier-film-roll-stock-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch dimensions for baby food\" to /blog/stand-up-pouch-dimensions-for-baby-food (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly barrier film roll stock suppliers\" to /blog/eco-friendly-barrier-film-roll-stock-suppliers (Pending Approval)",
+      "timestamp": "2026-06-07T13:30:27.603Z"
     },
     {
       "action": "Autopilot Generation Draft",
