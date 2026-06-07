@@ -2,41 +2,44 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Coffee, Leaf, Award, CheckCircle, Package, Shield, Clock, Recycle, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, ChevronDown } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const CompostableCoffeeBagsPage: React.FC = () => {
   const { openCalendly } = useCalendly()
+  const { t } = useTranslation()
 
   const sections = [
     {
       id: 'overview',
-      title: 'Certified Compostable Coffee Bags',
+      title: t('seoPages.pages.compostableCoffeeBags.sections.overview.title'),
       icon: <Coffee className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            <strong>Achieve Pack's compostable coffee bags</strong> are designed specifically for specialty coffee roasters who want to align their packaging with their sustainability values. Our bags meet <strong>ASTM D6400</strong> (US) and <strong>EN 13432</strong> (EU) standards, giving your brand genuine eco-credentials.
+            <strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.descStrong')}</strong>{' '}
+            {t('seoPages.pages.compostableCoffeeBags.sections.overview.descText')}
           </p>
           
           <div className="bg-primary-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold text-primary-800 mb-2">Why Roasters Choose Our Compostable Coffee Bags:</h4>
+            <h4 className="font-semibold text-primary-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.overview.whyTitle')}</h4>
             <ul className="space-y-1 text-sm">
-              <li>• <strong>Degassing valve compatible</strong> – Fresh roasted coffee stays fresh</li>
-              <li>• <strong>High barrier protection</strong> – Up to 12 months shelf life</li>
-              <li>• <strong>Low MOQ from 100 pieces</strong> – Perfect for small batch roasters</li>
-              <li>• <strong>Full custom printing</strong> – Digital or plate printing available</li>
-              <li>• <strong>Multiple sizes</strong> – From 100g sample bags to 1kg retail sizes</li>
+              <li>• <strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why1Strong')}</strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why1Text')}</li>
+              <li>• <strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why2Strong')}</strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why2Text')}</li>
+              <li>• <strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why3Strong')}</strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why3Text')}</li>
+              <li>• <strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why4Strong')}</strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why4Text')}</li>
+              <li>• <strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why5Strong')}</strong>{t('seoPages.pages.compostableCoffeeBags.sections.overview.why5Text')}</li>
             </ul>
           </div>
           
           <div className="mt-6">
             <ClickableImage 
               src="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp" 
-              alt="Compostable coffee bags with degassing valve for specialty roasters" 
+              alt={t('seoPages.pages.compostableCoffeeBags.seo.heroImageAlt')} 
               className="w-full rounded-lg shadow-md"
-              caption="Premium compostable coffee bags with degassing valve"
+              caption={t('seoPages.pages.compostableCoffeeBags.sections.overview.imgCaption')}
             />
           </div>
         </div>
@@ -44,86 +47,86 @@ const CompostableCoffeeBagsPage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'Compostable Materials for Coffee Packaging',
+      title: t('seoPages.pages.compostableCoffeeBags.sections.materials.title'),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>We offer several compostable material options specifically designed for coffee:</p>
+          <p>{t('seoPages.pages.compostableCoffeeBags.sections.materials.intro')}</p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="border border-amber-200 rounded-lg p-4 bg-amber-50/50">
-              <h4 className="font-semibold text-amber-800 mb-2">Kraft Paper + PLA/PBAT</h4>
-              <p className="text-sm mb-2">Natural kraft exterior with compostable lining. Classic artisan aesthetic.</p>
+              <h4 className="font-semibold text-amber-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.materials.struct1Title')}</h4>
+              <p className="text-sm mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.materials.struct1Desc')}</p>
               <ul className="text-xs space-y-1 text-amber-700">
-                <li>• Medium barrier (3-6 months)</li>
-                <li>• Matte natural finish</li>
-                <li>• Best for: Fresh roast, direct-to-consumer</li>
-                <li>• Industrial compostable certified</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct1Bullet1')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct1Bullet2')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct1Bullet3')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct1Bullet4')}</li>
               </ul>
             </div>
             <div className="border border-emerald-200 rounded-lg p-4 bg-emerald-50/50">
-              <h4 className="font-semibold text-emerald-800 mb-2">NatureFlex™ High Barrier</h4>
-              <p className="text-sm mb-2">Transparent or metalised cellulose film for maximum protection.</p>
+              <h4 className="font-semibold text-emerald-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.materials.struct2Title')}</h4>
+              <p className="text-sm mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.materials.struct2Desc')}</p>
               <ul className="text-xs space-y-1 text-emerald-700">
-                <li>• High barrier (6-12 months)</li>
-                <li>• Clear window options</li>
-                <li>• Best for: Premium coffee, retail</li>
-                <li>• Home compostable certified</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct2Bullet1')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct2Bullet2')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct2Bullet3')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct2Bullet4')}</li>
               </ul>
             </div>
             <div className="border border-blue-200 rounded-lg p-4 bg-blue-50/50">
-              <h4 className="font-semibold text-blue-800 mb-2">White Kraft + MetPLA</h4>
-              <p className="text-sm mb-2">Clean white exterior with metalised compostable barrier.</p>
+              <h4 className="font-semibold text-blue-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.materials.struct3Title')}</h4>
+              <p className="text-sm mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.materials.struct3Desc')}</p>
               <ul className="text-xs space-y-1 text-blue-700">
-                <li>• Highest barrier option</li>
-                <li>• Premium shelf presence</li>
-                <li>• Best for: Grocery retail, longer shelf life</li>
-                <li>• ASTM D6400 certified</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct3Bullet1')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct3Bullet2')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct3Bullet3')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct3Bullet4')}</li>
               </ul>
             </div>
             <div className="border border-primary-200 rounded-lg p-4 bg-primary-50/50">
-              <h4 className="font-semibold text-primary-800 mb-2">Matte Black Compostable</h4>
-              <p className="text-sm mb-2">Sleek matte black finish with full compostable structure.</p>
+              <h4 className="font-semibold text-primary-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.materials.struct4Title')}</h4>
+              <p className="text-sm mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.materials.struct4Desc')}</p>
               <ul className="text-xs space-y-1 text-primary-700">
-                <li>• Premium aesthetics</li>
-                <li>• High-end brand positioning</li>
-                <li>• Best for: Specialty, single-origin</li>
-                <li>• BPI certified eligible</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct4Bullet1')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct4Bullet2')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct4Bullet3')}</li>
+                <li>• {t('seoPages.pages.compostableCoffeeBags.sections.materials.struct4Bullet4')}</li>
               </ul>
             </div>
           </div>
           
           <p className="text-sm mt-4">
-            <strong>Not sure which material?</strong> <Link to="/materials/compostable" className="text-primary-600 hover:underline">Compare all compostable options →</Link>
+            <strong>{t('seoPages.pages.compostableCoffeeBags.sections.materials.compareText')}</strong> <Link to="/materials/compostable" className="text-primary-600 hover:underline">{t('seoPages.pages.compostableCoffeeBags.sections.materials.compareLink')}</Link>
           </p>
 
           {/* Compostable Materials Image Gallery */}
           <div className="mt-6">
-            <h4 className="font-semibold text-neutral-800 mb-3">Our Compostable Coffee Packaging Materials</h4>
+            <h4 className="font-semibold text-neutral-800 mb-3">{t('seoPages.pages.compostableCoffeeBags.sections.materials.galleryTitle')}</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ClickableImage 
                 src="/imgs/4-infograhic/compost.webp" 
                 alt="Industrial compostable packaging certification infographic" 
                 className="w-full h-32 object-cover rounded-lg"
-                caption="Industrial Compostable"
+                caption={t('seoPages.pages.compostableCoffeeBags.sections.materials.gallery1')}
               />
               <ClickableImage 
                 src="/imgs/4-infograhic/home-compost.webp" 
                 alt="Home compostable packaging - breaks down in backyard compost" 
                 className="w-full h-32 object-cover rounded-lg"
-                caption="Home Compostable"
+                caption={t('seoPages.pages.compostableCoffeeBags.sections.materials.gallery2')}
               />
               <ClickableImage 
                 src="/imgs/seo-photos/a_compostable_packaging_pouch_achieve_pack_2674607.webp" 
                 alt="Achieve Pack compostable coffee bag with eco-friendly materials" 
                 className="w-full h-32 object-cover rounded-lg"
-                caption="Compostable Pouch"
+                caption={t('seoPages.pages.compostableCoffeeBags.sections.materials.gallery3')}
               />
               <ClickableImage 
                 src="/imgs/seo-photos/a_composting_timeline_5months_9414148.webp" 
                 alt="Composting timeline showing 5 months breakdown process" 
                 className="w-full h-32 object-cover rounded-lg"
-                caption="Composting Timeline"
+                caption={t('seoPages.pages.compostableCoffeeBags.sections.materials.gallery4')}
               />
             </div>
           </div>
@@ -132,11 +135,11 @@ const CompostableCoffeeBagsPage: React.FC = () => {
     },
     {
       id: 'features',
-      title: 'Coffee-Specific Features',
+      title: t('seoPages.pages.compostableCoffeeBags.sections.features.title'),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Our compostable coffee bags include all the features specialty roasters need:</p>
+          <p>{t('seoPages.pages.compostableCoffeeBags.sections.features.intro')}</p>
           
           <div className="space-y-4 mt-4">
             <div className="flex items-start gap-4 bg-neutral-50 p-4 rounded-lg">
@@ -144,8 +147,8 @@ const CompostableCoffeeBagsPage: React.FC = () => {
                 <span className="text-2xl">💨</span>
               </div>
               <div>
-                <h4 className="font-semibold text-neutral-900">Compostable Degassing Valve</h4>
-                <p className="text-sm">One-way valve releases CO₂ from freshly roasted beans while preventing oxygen ingress. Made from compostable materials to maintain certification.</p>
+                <h4 className="font-semibold text-neutral-900">{t('seoPages.pages.compostableCoffeeBags.sections.features.feat1Title')}</h4>
+                <p className="text-sm">{t('seoPages.pages.compostableCoffeeBags.sections.features.feat1Desc')}</p>
               </div>
             </div>
             
@@ -154,8 +157,8 @@ const CompostableCoffeeBagsPage: React.FC = () => {
                 <span className="text-2xl">🔒</span>
               </div>
               <div>
-                <h4 className="font-semibold text-neutral-900">Resealable Zipper Closure</h4>
-                <p className="text-sm">Press-to-close zipper keeps coffee fresh after opening. Available in compostable materials for full end-of-life composting.</p>
+                <h4 className="font-semibold text-neutral-900">{t('seoPages.pages.compostableCoffeeBags.sections.features.feat2Title')}</h4>
+                <p className="text-sm">{t('seoPages.pages.compostableCoffeeBags.sections.features.feat2Desc')}</p>
               </div>
             </div>
             
@@ -164,8 +167,8 @@ const CompostableCoffeeBagsPage: React.FC = () => {
                 <span className="text-2xl">🪟</span>
               </div>
               <div>
-                <h4 className="font-semibold text-neutral-900">Clear Window Option</h4>
-                <p className="text-sm">Showcase your beans with a NatureFlex cellulose window. Fully home compostable unlike conventional plastic windows.</p>
+                <h4 className="font-semibold text-neutral-900">{t('seoPages.pages.compostableCoffeeBags.sections.features.feat3Title')}</h4>
+                <p className="text-sm">{t('seoPages.pages.compostableCoffeeBags.sections.features.feat3Desc')}</p>
               </div>
             </div>
             
@@ -174,25 +177,25 @@ const CompostableCoffeeBagsPage: React.FC = () => {
                 <span className="text-2xl">📐</span>
               </div>
               <div>
-                <h4 className="font-semibold text-neutral-900">Multiple Bag Styles</h4>
-                <p className="text-sm">Stand-up pouches, flat bottom bags, side gusset bags – all available in compostable materials.</p>
+                <h4 className="font-semibold text-neutral-900">{t('seoPages.pages.compostableCoffeeBags.sections.features.feat4Title')}</h4>
+                <p className="text-sm">{t('seoPages.pages.compostableCoffeeBags.sections.features.feat4Desc')}</p>
               </div>
             </div>
           </div>
           
           <p className="text-sm mt-4">
-            <Link to="/features/reclosure-options" className="text-primary-600 hover:underline">View all closure options →</Link>
+            <Link to="/features/reclosure-options" className="text-primary-600 hover:underline">{t('seoPages.pages.compostableCoffeeBags.sections.features.linkText')}</Link>
           </p>
         </div>
       )
     },
     {
       id: 'certifications',
-      title: 'Coffee Bag Certifications',
+      title: t('seoPages.pages.compostableCoffeeBags.sections.certifications.title'),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Our compostable coffee bags carry multiple certifications for different markets:</p>
+          <p>{t('seoPages.pages.compostableCoffeeBags.sections.certifications.intro')}</p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
             <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center text-center">
@@ -200,45 +203,45 @@ const CompostableCoffeeBagsPage: React.FC = () => {
                 src="/imgs/cert/logo-compostable-seed.png" 
                 alt="Seedling Logo - EN 13432 Certified" 
                 className="h-16 w-auto mb-2"
-                caption="EU Seedling Logo"
+                caption={t('seoPages.pages.compostableCoffeeBags.sections.certifications.cert1')}
               />
-              <span className="text-xs text-neutral-600">EU EN 13432</span>
+              <span className="text-xs text-neutral-600">{t('seoPages.pages.compostableCoffeeBags.sections.certifications.cert1')}</span>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center text-center">
               <ClickableImage 
                 src="/imgs/cert/logo-achievepack-BPI.jpg" 
                 alt="BPI Certified Compostable" 
                 className="h-16 w-auto mb-2"
-                caption="BPI Certified"
+                caption={t('seoPages.pages.compostableCoffeeBags.sections.certifications.cert2')}
               />
-              <span className="text-xs text-neutral-600">US BPI / ASTM D6400</span>
+              <span className="text-xs text-neutral-600">{t('seoPages.pages.compostableCoffeeBags.sections.certifications.cert2')}</span>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center text-center">
               <ClickableImage 
                 src="/imgs/cert/cert-din-home-compost.png" 
                 alt="DIN CERTCO Home Compostable" 
                 className="h-16 w-auto mb-2"
-                caption="Home Compostable"
+                caption={t('seoPages.pages.compostableCoffeeBags.sections.certifications.cert3')}
               />
-              <span className="text-xs text-neutral-600">Home Compost</span>
+              <span className="text-xs text-neutral-600">{t('seoPages.pages.compostableCoffeeBags.sections.certifications.cert3')}</span>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 flex flex-col items-center text-center">
               <ClickableImage 
                 src="/imgs/cert/cert-ABA-as5810.png" 
                 alt="ABA AS5810 Australian Certified" 
                 className="h-16 w-auto mb-2"
-                caption="AS5810 Australia"
+                caption={t('seoPages.pages.compostableCoffeeBags.sections.certifications.cert4')}
               />
-              <span className="text-xs text-neutral-600">AU AS5810</span>
+              <span className="text-xs text-neutral-600">{t('seoPages.pages.compostableCoffeeBags.sections.certifications.cert4')}</span>
             </div>
           </div>
           
           <div className="bg-blue-50 p-4 rounded-lg mt-4 border border-blue-200">
-            <h4 className="font-semibold text-blue-800 mb-2">Food Safety Certifications</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.certifications.foodSafetyTitle')}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• <strong>FDA compliant</strong> – Safe for direct food contact</li>
-              <li>• <strong>EU 10/2011 compliant</strong> – European food contact regulations</li>
-              <li>• <strong>BRC certified facility</strong> – Global food safety standard</li>
+              <li>• {t('seoPages.pages.compostableCoffeeBags.sections.certifications.foodSafety1')}</li>
+              <li>• {t('seoPages.pages.compostableCoffeeBags.sections.certifications.foodSafety2')}</li>
+              <li>• {t('seoPages.pages.compostableCoffeeBags.sections.certifications.foodSafety3')}</li>
             </ul>
           </div>
         </div>
@@ -246,184 +249,184 @@ const CompostableCoffeeBagsPage: React.FC = () => {
     },
     {
       id: 'sizes',
-      title: 'Coffee Bag Sizes & Specifications',
+      title: t('seoPages.pages.compostableCoffeeBags.sections.sizes.title'),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Standard sizes for coffee packaging – custom sizes also available:</p>
+          <p>{t('seoPages.pages.compostableCoffeeBags.sections.sizes.intro')}</p>
           
           <div className="overflow-x-auto mt-4">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-primary-600 text-white">
-                  <th className="p-3 text-left">Size</th>
-                  <th className="p-3 text-left">Dimensions (W×H+G)</th>
-                  <th className="p-3 text-left">Capacity</th>
-                  <th className="p-3 text-left">Best For</th>
+                  <th className="p-3 text-left">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.thSize')}</th>
+                  <th className="p-3 text-left">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.thDim')}</th>
+                  <th className="p-3 text-left">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.thCap')}</th>
+                  <th className="p-3 text-left">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.thBest')}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">Sample</td>
-                  <td className="p-3">80×130+50mm</td>
-                  <td className="p-3">50-100g</td>
-                  <td className="p-3">Coffee samples, gift sets</td>
+                  <td className="p-3 font-medium">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size1Name')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size1Dim')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size1Cap')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size1Best')}</td>
                 </tr>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">Small</td>
-                  <td className="p-3">100×180+60mm</td>
-                  <td className="p-3">150-250g</td>
-                  <td className="p-3">Single origin, small batch</td>
+                  <td className="p-3 font-medium">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size2Name')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size2Dim')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size2Cap')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size2Best')}</td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">Medium</td>
-                  <td className="p-3">120×200+80mm</td>
-                  <td className="p-3">250-340g</td>
-                  <td className="p-3">Standard retail (12oz)</td>
+                  <td className="p-3 font-medium">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size3Name')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size3Dim')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size3Cap')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size3Best')}</td>
                 </tr>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
-                  <td className="p-3 font-medium">Large</td>
-                  <td className="p-3">140×230+90mm</td>
-                  <td className="p-3">400-500g</td>
-                  <td className="p-3">1lb bags, bulk retail</td>
+                  <td className="p-3 font-medium">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size4Name')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size4Dim')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size4Cap')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size4Best')}</td>
                 </tr>
                 <tr className="border-b border-neutral-200">
-                  <td className="p-3 font-medium">Bulk</td>
-                  <td className="p-3">160×280+100mm</td>
-                  <td className="p-3">1kg</td>
-                  <td className="p-3">Wholesale, food service</td>
+                  <td className="p-3 font-medium">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size5Name')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size5Dim')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size5Cap')}</td>
+                  <td className="p-3">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.size5Best')}</td>
                 </tr>
               </tbody>
             </table>
           </div>
           
           <p className="text-sm mt-4">
-            <strong>Need a custom size?</strong> <button onClick={openCalendly} className="text-primary-600 hover:underline">Contact us for bespoke dimensions →</button>
+            <strong>{t('seoPages.pages.compostableCoffeeBags.sections.sizes.customText')}</strong> <button onClick={openCalendly} className="text-primary-600 hover:underline">{t('seoPages.pages.compostableCoffeeBags.sections.sizes.customLink')}</button>
           </p>
         </div>
       )
     },
     {
       id: 'moq',
-      title: 'Minimum Order & Lead Times',
+      title: t('seoPages.pages.compostableCoffeeBags.sections.moq.title'),
       icon: <Clock className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-green-50 p-4 rounded-lg border border-green-200 text-center">
-              <div className="text-3xl font-bold text-green-700 mb-1">100</div>
-              <div className="text-sm text-green-600">Minimum Order</div>
-              <p className="text-xs mt-2 text-neutral-600">For digital printed bags</p>
+              <div className="text-3xl font-bold text-green-700 mb-1">{t('seoPages.pages.compostableCoffeeBags.sections.moq.moqVal')}</div>
+              <div className="text-sm text-green-600">{t('seoPages.pages.compostableCoffeeBags.sections.moq.moqLabel')}</div>
+              <p className="text-xs mt-2 text-neutral-600">{t('seoPages.pages.compostableCoffeeBags.sections.moq.moqDesc')}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center">
-              <div className="text-3xl font-bold text-blue-700 mb-1">7-10</div>
-              <div className="text-sm text-blue-600">Days Production</div>
-              <p className="text-xs mt-2 text-neutral-600">After artwork approval</p>
+              <div className="text-3xl font-bold text-blue-700 mb-1">{t('seoPages.pages.compostableCoffeeBags.sections.moq.leadVal')}</div>
+              <div className="text-sm text-blue-600">{t('seoPages.pages.compostableCoffeeBags.sections.moq.leadLabel')}</div>
+              <p className="text-xs mt-2 text-neutral-600">{t('seoPages.pages.compostableCoffeeBags.sections.moq.leadDesc')}</p>
             </div>
             <div className="bg-purple-50 p-4 rounded-lg border border-purple-200 text-center">
-              <div className="text-3xl font-bold text-purple-700 mb-1">15-20</div>
-              <div className="text-sm text-purple-600">Days to USA</div>
-              <p className="text-xs mt-2 text-neutral-600">Door-to-door shipping</p>
+              <div className="text-3xl font-bold text-purple-700 mb-1">{t('seoPages.pages.compostableCoffeeBags.sections.moq.shipVal')}</div>
+              <div className="text-sm text-purple-600">{t('seoPages.pages.compostableCoffeeBags.sections.moq.shipLabel')}</div>
+              <p className="text-xs mt-2 text-neutral-600">{t('seoPages.pages.compostableCoffeeBags.sections.moq.shipDesc')}</p>
             </div>
           </div>
           
           <div className="bg-amber-50 p-4 rounded-lg mt-4 border border-amber-200">
-            <h4 className="font-semibold text-amber-800 mb-2">Volume Pricing</h4>
+            <h4 className="font-semibold text-amber-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.moq.pricingTitle')}</h4>
             <ul className="text-sm text-amber-700 space-y-1">
-              <li>• <strong>100-499 pieces:</strong> Starting from $1.20/bag</li>
-              <li>• <strong>500-999 pieces:</strong> Starting from $0.85/bag</li>
-              <li>• <strong>1,000-4,999 pieces:</strong> Starting from $0.55/bag</li>
-              <li>• <strong>5,000+ pieces:</strong> Contact for custom pricing</li>
+              <li>• {t('seoPages.pages.compostableCoffeeBags.sections.moq.pricing1')}</li>
+              <li>• {t('seoPages.pages.compostableCoffeeBags.sections.moq.pricing2')}</li>
+              <li>• {t('seoPages.pages.compostableCoffeeBags.sections.moq.pricing3')}</li>
+              <li>• {t('seoPages.pages.compostableCoffeeBags.sections.moq.pricing4')}</li>
             </ul>
-            <p className="text-xs mt-2 text-neutral-600">*Prices vary by size, material, and printing requirements</p>
+            <p className="text-xs mt-2 text-neutral-600">{t('seoPages.pages.compostableCoffeeBags.sections.moq.pricingNote')}</p>
           </div>
         </div>
       )
     },
     {
       id: 'use-cases',
-      title: 'Who Uses Our Compostable Coffee Bags',
+      title: t('seoPages.pages.compostableCoffeeBags.sections.useCases.title'),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-4 rounded-lg border border-amber-200">
-              <h4 className="font-semibold text-amber-800 mb-2">☕ Specialty Roasters</h4>
-              <p className="text-sm">Small batch roasters wanting packaging that matches their sustainability story. Low MOQ lets you order exactly what you need.</p>
+              <h4 className="font-semibold text-amber-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.useCases.case1Title')}</h4>
+              <p className="text-sm">{t('seoPages.pages.compostableCoffeeBags.sections.useCases.case1Desc')}</p>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-lg border border-green-200">
-              <h4 className="font-semibold text-green-800 mb-2">🌱 Organic Coffee Brands</h4>
-              <p className="text-sm">Certified organic roasters need packaging that reflects their commitment. Compostable bags complete the sustainable value chain.</p>
+              <h4 className="font-semibold text-green-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.useCases.case2Title')}</h4>
+              <p className="text-sm">{t('seoPages.pages.compostableCoffeeBags.sections.useCases.case2Desc')}</p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">🏪 DTC Coffee Startups</h4>
-              <p className="text-sm">E-commerce coffee brands differentiating through sustainability. Stand out in the crowded online market.</p>
+              <h4 className="font-semibold text-blue-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.useCases.case3Title')}</h4>
+              <p className="text-sm">{t('seoPages.pages.compostableCoffeeBags.sections.useCases.case3Desc')}</p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-lg border border-purple-200">
-              <h4 className="font-semibold text-purple-800 mb-2">🛒 Farmers Market Sellers</h4>
-              <p className="text-sm">Local roasters selling at markets where eco-conscious consumers shop. Compostable packaging is expected.</p>
+              <h4 className="font-semibold text-purple-800 mb-2">{t('seoPages.pages.compostableCoffeeBags.sections.useCases.case4Title')}</h4>
+              <p className="text-sm">{t('seoPages.pages.compostableCoffeeBags.sections.useCases.case4Desc')}</p>
             </div>
           </div>
           
           <p className="text-sm mt-4">
-            <Link to="/case-studies/coffee-roastery" className="text-primary-600 hover:underline">Read case study: How a UK roaster switched to compostable bags →</Link>
+            <Link to="/case-studies/coffee-roastery" className="text-primary-600 hover:underline">{t('seoPages.pages.compostableCoffeeBags.sections.useCases.caseStudyLink')}</Link>
           </p>
         </div>
       )
     },
     {
       id: 'faq',
-      title: 'Frequently Asked Questions',
+      title: t('seoPages.pages.compostableCoffeeBags.sections.faq.title'),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4">
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">Are compostable coffee bags really compostable?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.compostableCoffeeBags.sections.faq.q1')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Yes, our compostable coffee bags are certified to ASTM D6400 (US) and EN 13432 (EU) standards. This means they will fully break down in industrial composting facilities within 180 days. Some of our materials are also home compostable certified.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.compostableCoffeeBags.sections.faq.a1')}</div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">Will compostable bags keep my coffee fresh?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.compostableCoffeeBags.sections.faq.q2')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Yes! Our compostable coffee bags offer multiple barrier options. Kraft + PLA/PBAT provides 3-6 months freshness, while high-barrier options like MetPLA Triplex can provide 12+ months shelf life. We also offer compostable degassing valves and resealable zippers.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.compostableCoffeeBags.sections.faq.a2')}</div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">What is the minimum order for compostable coffee bags?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.compostableCoffeeBags.sections.faq.q3')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Our minimum order is just 100 pieces for digital printed compostable coffee bags. This is perfect for specialty roasters, testing new products, or seasonal limited editions.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.compostableCoffeeBags.sections.faq.a3')}</div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">Can I get a clear window on compostable bags?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.compostableCoffeeBags.sections.faq.q4')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Yes! We use NatureFlex cellulose windows which are fully home compostable. Unlike conventional plastic windows, these won't compromise your bag's compostability certification. They provide excellent clarity to showcase your beans.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.compostableCoffeeBags.sections.faq.a4')}</div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">How do customers dispose of compostable coffee bags?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.compostableCoffeeBags.sections.faq.q5')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Customers should dispose of compostable bags through industrial composting facilities or municipal organic waste collection. Home compostable certified bags can go in backyard compost bins. We can help you add clear disposal instructions to your packaging.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.compostableCoffeeBags.sections.faq.a5')}</div>
           </details>
         </div>
       )
     },
     {
       id: 'cta',
-      title: 'Get Started with Compostable Coffee Bags',
+      title: t('seoPages.pages.compostableCoffeeBags.sections.cta.title'),
       icon: <Coffee className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-lg border border-primary-200">
-          <h4 className="text-xl font-bold text-neutral-900 mb-4">Ready to switch to compostable?</h4>
+          <h4 className="text-xl font-bold text-neutral-900 mb-4">{t('seoPages.pages.compostableCoffeeBags.sections.cta.title')}</h4>
           <p className="text-neutral-700 mb-6">
-            Get a custom quote for your compostable coffee bags. Share your requirements and we'll provide options within 24 hours.
+            {t('seoPages.pages.compostableCoffeeBags.sections.cta.desc')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
@@ -432,23 +435,23 @@ const CompostableCoffeeBagsPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition"
             >
               <Calendar className="h-5 w-5" />
-              Book Free Consultation
+              {t('seoPages.pages.compostableCoffeeBags.sections.cta.btnConsult')}
             </button>
             <Link
               to="/store"
               className="flex items-center justify-center gap-2 bg-white border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition"
             >
               <ShoppingCart className="h-5 w-5" />
-              Browse Shop
+              {t('seoPages.pages.compostableCoffeeBags.sections.cta.btnShop')}
             </Link>
           </div>
           
           <div className="mt-6 pt-4 border-t border-primary-200">
             <p className="text-sm text-neutral-600">
-              <strong>Quick links:</strong>{' '}
-              <Link to="/materials/compostable" className="text-primary-600 hover:underline">Compostable Materials</Link> |{' '}
-              <Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">Coffee & Tea Industry</Link> |{' '}
-              <Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">Stand-Up Pouches</Link>
+              <strong>{t('seoPages.pages.compostableCoffeeBags.sections.cta.quickLinks')}</strong>{' '}
+              <Link to="/materials/compostable" className="text-primary-600 hover:underline">{t('seoPages.pages.compostableCoffeeBags.sections.cta.linkMaterials')}</Link> |{' '}
+              <Link to="/industry/coffee-tea" className="text-primary-600 hover:underline">{t('seoPages.pages.compostableCoffeeBags.sections.cta.linkCoffee')}</Link> |{' '}
+              <Link to="/packaging/stand-up-pouches" className="text-primary-600 hover:underline">{t('seoPages.pages.compostableCoffeeBags.sections.cta.linkStandUp')}</Link>
             </p>
           </div>
         </div>
@@ -459,22 +462,21 @@ const CompostableCoffeeBagsPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Compostable Coffee Bags | ASTM D6400 Certified | Low MOQ 100 pcs | Achieve Pack</title>
-        <meta name="description" content="Premium compostable coffee bags with degassing valves. ASTM D6400 & EN 13432 certified. Low MOQ from 100 pieces. Perfect for specialty roasters. Fast shipping to USA." />
+        <title>{t('seoPages.pages.compostableCoffeeBags.seo.title')}</title>
+        <meta name="description" content={t('seoPages.pages.compostableCoffeeBags.seo.description')} />
         <link rel="canonical" href="https://achievepack.com/products/compostable-coffee-bags" />
-        <meta property="og:title" content="Compostable Coffee Bags | Certified | Low MOQ | Achieve Pack" />
-        <meta property="og:description" content="Premium compostable coffee bags with degassing valves. ASTM D6400 certified. Low MOQ from 100 pieces for specialty roasters." />
+        <meta property="og:title" content={t('seoPages.pages.compostableCoffeeBags.seo.title')} />
+        <meta property="og:description" content={t('seoPages.pages.compostableCoffeeBags.seo.description')} />
         <meta property="og:url" content="https://achievepack.com/products/compostable-coffee-bags" />
         <meta property="og:type" content="product" />
-        <meta name="keywords" content="compostable coffee bags, certified compostable pouches, coffee bags with degassing valve, ASTM D6400 coffee packaging, biodegradable coffee bags, eco-friendly coffee packaging, low MOQ coffee bags, specialty roaster packaging" />
         
         {/* Product Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            "name": "Compostable Coffee Bags with Degassing Valve",
-            "description": "Certified compostable coffee bags with one-way degassing valves. ASTM D6400 and EN 13432 certified for industrial composting. Available in kraft, matte, and clear options.",
+            "name": t('seoPages.pages.compostableCoffeeBags.sections.overview.title'),
+            "description": t('seoPages.pages.compostableCoffeeBags.seo.description'),
             "brand": {
               "@type": "Brand",
               "name": "Achieve Pack"
@@ -515,12 +517,12 @@ const CompostableCoffeeBagsPage: React.FC = () => {
       </Helmet>
 
       <SEOPageLayout heroBgColor="#14532d"
-        title="Compostable Coffee Bags | ASTM D6400 Certified | Achieve Pack"
-        description="Premium compostable coffee bags with degassing valves. ASTM D6400 & EN 13432 certified. Low MOQ from 100 pieces. Perfect for specialty roasters."
-        keywords={['compostable coffee bags', 'certified compostable pouches', 'coffee bags with degassing valve', 'ASTM D6400 coffee packaging', 'biodegradable coffee bags', 'eco-friendly coffee packaging']}
-        heroTitle="Compostable Coffee Bags"
-        heroSubtitle="ASTM D6400 & EN 13432 Certified | Degassing Valve | Low MOQ from 100"
-        introSummary="Premium compostable coffee bags designed for specialty roasters. Our ASTM D6400 and EN 13432 certified packaging features integrated degassing valves, resealable closures, and is available from just 100 pieces minimum order."
+        title={t('seoPages.pages.compostableCoffeeBags.seo.title')}
+        description={t('seoPages.pages.compostableCoffeeBags.seo.description')}
+        keywords={t('seoPages.pages.compostableCoffeeBags.seo.keywords', { returnObjects: true }) as string[]}
+        heroTitle={t('seoPages.pages.compostableCoffeeBags.seo.heroTitle')}
+        heroSubtitle={t('seoPages.pages.compostableCoffeeBags.seo.heroSubtitle')}
+        introSummary={t('seoPages.pages.compostableCoffeeBags.seo.introSummary')}
         sections={sections}
         heroImage="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp"
       />
