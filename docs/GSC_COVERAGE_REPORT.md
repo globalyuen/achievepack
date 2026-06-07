@@ -1,7 +1,7 @@
 # Google Search Console Unified Coverage Report
 
 **Last Audited:** 2026-06-07 07:00 HKT
-**Total Monitored Sitemapped URLs:** 614
+**Total Monitored Sitemapped URLs:** 2464
 
 ## Indexing Strategy Checklist
 - [x] Sitemap mapped routes parsed completely
@@ -10,18 +10,18 @@
 
 ## Sitemapped URLs Catalog
 - https://pouch.eco
+- https://pouch.eco/fr
+- https://pouch.eco/es
+- https://pouch.eco/zh-tw
 - https://pouch.eco/3d-showcase
+- https://pouch.eco/fr/3d-showcase
+- https://pouch.eco/es/3d-showcase
+- https://pouch.eco/zh-tw/3d-showcase
 - https://pouch.eco/auth/callback
+- https://pouch.eco/fr/auth/callback
+- https://pouch.eco/es/auth/callback
+- https://pouch.eco/zh-tw/auth/callback
 - https://pouch.eco/barriers/material-properties
-- https://pouch.eco/barriers/overview
-- https://pouch.eco/biope/bio-pe-epr-regulations
-- https://pouch.eco/biope/bio-pe-vs-compostable
-- https://pouch.eco/biope/inside-im-green-bio-pe
-- https://pouch.eco/biope/what-is-bio-pe
-- https://pouch.eco/blog
-- https://pouch.eco/blog/bpi-certified-guide
-- https://pouch.eco/blog/coffee-degassing-valve-guide
-- https://pouch.eco/blog/coffee-packaging-guide
-- https://pouch.eco/blog/compostable-baby-food-packaging-guide
-- https://pouch.eco/blog/compostable-humidity-control-guide
-- ... and 599 additional URLs.
+- https://pouch.eco/fr/barriers/material-properties
+- https://pouch.eco/es/barriers/material-properties
+- ... and 2449 additional URLs.

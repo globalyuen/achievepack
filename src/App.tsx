@@ -1145,7 +1145,7 @@ function App() {
                 activeHeroIndex === 0 || activeHeroIndex === 2 ? "z-[58]" : "z-[55]"
               }`}>
                 <img 
-                  src="/imgs/floating-pouches/pouch_compostable.png" 
+                  src="/imgs/floating-pouches/pouch_compostable.png?v=2" 
                   alt="Compostable Pouch" 
                   className={`w-[300px] h-[300px] transition-all duration-500 ${
                     activeHeroIndex === 0 || activeHeroIndex === 2
@@ -1159,7 +1159,7 @@ function App() {
                 activeHeroIndex === 1 ? "z-[58]" : "z-[55]"
               }`}>
                 <img 
-                  src="/imgs/floating-pouches/pouch_recyclable.png" 
+                  src="/imgs/floating-pouches/pouch_recyclable.png?v=2" 
                   alt="Recyclable Pouch" 
                   className={`w-[300px] h-[300px] transition-all duration-500 ${
                     activeHeroIndex === 1
@@ -1173,7 +1173,7 @@ function App() {
                 activeHeroIndex === 3 ? "z-[58]" : "z-[55]"
               }`}>
                 <img 
-                  src="/imgs/floating-pouches/pouch_pcr.png" 
+                  src="/imgs/floating-pouches/pouch_pcr.png?v=2" 
                   alt="PCR Pouch" 
                   className={`w-[300px] h-[300px] transition-all duration-500 ${
                     activeHeroIndex === 3
@@ -1187,7 +1187,7 @@ function App() {
                 activeHeroIndex === 4 ? "z-[58]" : "z-[55]"
               }`}>
                 <img 
-                  src="/imgs/floating-pouches/pouch_biope.png" 
+                  src="/imgs/floating-pouches/pouch_biope.png?v=2" 
                   alt="Bio-PE Pouch" 
                   className={`w-[300px] h-[300px] transition-all duration-500 ${
                     activeHeroIndex === 4
