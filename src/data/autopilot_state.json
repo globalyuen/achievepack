@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T09:00:40.527Z",
+  "lastUnifiedRun": "2026-06-07T09:15:40.981Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1505,17 +1505,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "small-batch-sachet-packaging-solutions",
       "status": "Pending Approval",
       "volume": 1400,
       "keyword": "small batch sachet packaging solutions",
-      "difficulty": "Low",
-      "slug": "small-batch-sachet-packaging-solutions"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "eco friendly pouch suppliers for powders",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "eco-friendly-pouch-suppliers-for-powders"
     },
     {
       "status": "Pending",
@@ -1604,9 +1605,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T09:00:32.743Z",
+      "timestamp": "2026-06-07T09:15:32.811Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"small batch sachet packaging solutions\" to /blog/small-batch-sachet-packaging-solutions (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly pouch suppliers for powders\" to /blog/eco-friendly-pouch-suppliers-for-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"small batch sachet packaging solutions\" to /blog/small-batch-sachet-packaging-solutions (Pending Approval)",
+      "timestamp": "2026-06-07T09:00:32.743Z"
     },
     {
       "action": "Autopilot Generation Draft",

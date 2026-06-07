@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2953,
+  "total_images": 2954,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1415,
+    ".png": 1416,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 251,
+      "count": 252,
       "images": [
+        {
+          "filename": "eco-friendly-pouch-suppliers-for-powders-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-pouch-suppliers-for-powders-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T09:15:31.198Z"
+        },
         {
           "filename": "small-batch-sachet-packaging-solutions-hero.png",
           "path": "/imgs/blog/heros/small-batch-sachet-packaging-solutions-hero.png",
