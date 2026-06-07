@@ -51,14 +51,35 @@ export default function DualDomainSEOHead({
   const brand = getBrandConfig()
   const baseUrl = getBaseUrl()
   
+  const pathname = useMemo(() => {
+    if (typeof window === 'undefined') return '/'
+    return window.location.pathname
+  }, [])
+
+  const cleanPath = useMemo(() => {
+    const parts = pathname.split('/').filter(Boolean)
+    if (parts.length > 0 && ['fr', 'es', 'zh-tw'].includes(parts[0].toLowerCase())) {
+      return '/' + parts.slice(1).join('/')
+    }
+    return pathname
+  }, [pathname])
+
+  const currentLang = useMemo(() => {
+    const parts = pathname.split('/').filter(Boolean)
+    const possibleLang = parts[0]?.toLowerCase()
+    if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
+      return possibleLang
+    }
+    return 'en'
+  }, [pathname])
+
   // Generate canonical URL based on current domain
   // CRITICAL: This ensures each domain points to itself, NOT to the other domain
   const canonicalUrl = useMemo(() => {
     if (customCanonical) return customCanonical
     if (typeof window === 'undefined') return baseUrl
-    const pathname = window.location.pathname
     return `${baseUrl}${pathname}`
-  }, [baseUrl, customCanonical])
+  }, [baseUrl, customCanonical, pathname])
   
   // Domain-specific full title
   const fullTitle = `${title} | ${brand.name}`
@@ -124,6 +145,7 @@ export default function DualDomainSEOHead({
   
   return (
     <Helmet>
+      <html lang={currentLang === 'zh-tw' ? 'zh-TW' : currentLang} />
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
@@ -134,6 +156,13 @@ export default function DualDomainSEOHead({
       {/* CRITICAL: Independent Canonical URL - NEVER cross-reference domains */}
       <link rel="canonical" href={canonicalUrl} />
       
+      {/* Dynamic hreflang tags for different languages on the same domain */}
+      <link rel="alternate" hrefLang="x-default" href={`${baseUrl}${cleanPath === '/' ? '' : cleanPath}`} />
+      <link rel="alternate" hrefLang="en" href={`${baseUrl}${cleanPath === '/' ? '' : cleanPath}`} />
+      <link rel="alternate" hrefLang="fr" href={`${baseUrl}/fr${cleanPath === '/' ? '' : cleanPath}`} />
+      <link rel="alternate" hrefLang="es" href={`${baseUrl}/es${cleanPath === '/' ? '' : cleanPath}`} />
+      <link rel="alternate" hrefLang="zh-TW" href={`${baseUrl}/zh-tw${cleanPath === '/' ? '' : cleanPath}`} />
+
       {/* DO NOT add alternate hreflang tags between pouch.eco and achievepack.com */}
       {/* This would signal to Google that they are the same content in different languages */}
       
@@ -144,7 +173,7 @@ export default function DualDomainSEOHead({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={brand.name} />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content={currentLang === 'fr' ? 'fr_FR' : currentLang === 'es' ? 'es_ES' : currentLang === 'zh-tw' ? 'zh_TW' : 'en_US'} />
       
       {/* Twitter Card Tags */}
       <meta name="twitter:card" content="summary_large_image" />

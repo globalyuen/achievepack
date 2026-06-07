@@ -465,7 +465,7 @@ export default function BlogPostPage() {
 
       <div className="min-h-screen bg-neutral-50">
         {/* Unified Site Header */}
-        <SiteHeader showLanguageSelector={false} />
+        <SiteHeader showLanguageSelector={true} />
 
         {/* Breadcrumb Navigation */}
         <div className="bg-white border-b border-neutral-200">

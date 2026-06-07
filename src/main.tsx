@@ -1,6 +1,6 @@
-import { StrictMode, Suspense, lazy, ComponentType } from 'react'
+import React, { StrictMode, Suspense, lazy, ComponentType, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
@@ -9,8 +9,69 @@ import { StoreProvider } from './store/StoreContext'
 import { CalendlyProvider } from './contexts/CalendlyContext'
 import { CustomQuoteProvider } from './contexts/CustomQuoteContext'
 import './index.css'
-import './i18n'
+import i18n from './i18n'
 import { getDomain } from './utils/domain'
+
+// Dynamic language and basename utility
+export const getLanguageFromPath = () => {
+  if (typeof window === 'undefined') return 'en';
+  const pathname = window.location.pathname;
+  const parts = pathname.split('/').filter(Boolean);
+  const possibleLang = parts[0]?.toLowerCase();
+  if (possibleLang && ['fr', 'es', 'zh-tw'].includes(possibleLang)) {
+    return possibleLang;
+  }
+  return 'en';
+};
+
+// Layout component to switch i18n active language dynamically
+const LanguageWrapper = ({ lang }: { lang: string }) => {
+  useEffect(() => {
+    if (i18n.language !== lang) {
+      i18n.changeLanguage(lang);
+    }
+  }, [lang]);
+
+  return <Outlet />;
+};
+
+// Custom MultilingualRoutes component that dynamically wraps nested routes
+export const MultilingualRoutes = ({ children }: { children: React.ReactNode }) => {
+  const languages = ['fr', 'es', 'zh-tw'];
+
+  return (
+    <Routes>
+      {/* English / Default route group */}
+      <Route path="/" element={<LanguageWrapper lang="en" />}>
+        {children}
+      </Route>
+
+      {/* Translated route groups */}
+      {languages.map(lang => (
+        <Route key={lang} path={`/${lang}`} element={<LanguageWrapper lang={lang} />}>
+          {React.Children.map(children, child => {
+            if (React.isValidElement(child) && child.type === Route) {
+              const routeChild = child as React.ReactElement<{ path?: string; [key: string]: any }>;
+              const originalPath = routeChild.props.path;
+              if (!originalPath || originalPath === '*') {
+                return child; // Keep wildcard as-is
+              }
+              // Strip leading slash for nested routes
+              const relativePath = originalPath.startsWith('/') 
+                ? originalPath.substring(1) 
+                : originalPath;
+              
+              return React.cloneElement(routeChild, {
+                path: relativePath
+              });
+            }
+            return child;
+          })}
+        </Route>
+      ))}
+    </Routes>
+  );
+};
 
 // Critical components loaded immediately
 import App from './App.tsx'
@@ -617,19 +678,23 @@ import CookieConsent from './components/CookieConsent'
 
 const root = createRoot(document.getElementById('root')!)
 
+const initialLang = getLanguageFromPath()
+const routerBasename = initialLang === 'en' ? '/' : `/${initialLang}`
+i18n.changeLanguage(initialLang)
+
 if (getDomain() === 'pouch') {
   root.render(
     <StrictMode>
       <HelmetProvider>
         <ErrorBoundary>
           <GeoBlocker>
-            <BrowserRouter>
+            <BrowserRouter basename={routerBasename}>
               <StoreProvider>
                 <CalendlyProvider>
                   <CustomQuoteProvider>
                     <CartSidebar />
                     <Suspense fallback={<PageLoader />}>
-                      <Routes>
+                      <MultilingualRoutes>
                         <Route path="/" element={<PouchHomePage />} />
                         <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                   <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
@@ -995,7 +1060,7 @@ if (getDomain() === 'pouch') {
 
                   {/* Fallback for other routes back to Home or 404, or keep as Home for now */}
                   <Route path="*" element={<PouchHomePage />} />
-                </Routes>
+                </MultilingualRoutes>
               </Suspense>
             </CustomQuoteProvider>
           </CalendlyProvider>
@@ -1012,13 +1077,13 @@ if (getDomain() === 'pouch') {
       <HelmetProvider>
         <ErrorBoundary>
           <GeoBlocker>
-            <BrowserRouter>
+            <BrowserRouter basename={routerBasename}>
               <StoreProvider>
                 <CalendlyProvider>
                   <CustomQuoteProvider>
                     <CartSidebar />
                     <Suspense fallback={<PageLoader />}>
-                      <Routes>
+                      <MultilingualRoutes>
                         <Route path="/" element={<App />} />
                         <Route path="/pricing" element={<PouchEcoGPTKPage />} />
                         <Route path="/dieline-finder" element={<PouchDielineFinderPage />} />
@@ -1391,7 +1456,7 @@ if (getDomain() === 'pouch') {
 
                         {/* 404 - Catch All Route */}
                         <Route path="*" element={<NotFoundPage />} />
-                      </Routes>
+                      </MultilingualRoutes>
                     </Suspense>
                     {/* Global Floating Buttons - WhatsApp & Meeting */}
                     <FloatingButtons />

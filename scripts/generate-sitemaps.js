@@ -47,11 +47,24 @@ function getSitemapParams(route) {
   return { changefreq: 'monthly', priority: '0.6' };
 }
 
+// Helper to get alternate language links for a route
+function getAlternateLinks(domain, route) {
+  const cleanRoute = route === '/' ? '' : route;
+  return [
+    { lang: 'x-default', href: `${domain}${cleanRoute}` },
+    { lang: 'en', href: `${domain}${cleanRoute}` },
+    { lang: 'fr', href: `${domain}/fr${cleanRoute}` },
+    { lang: 'es', href: `${domain}/es${cleanRoute}` },
+    { lang: 'zh-TW', href: `${domain}/zh-tw${cleanRoute}` }
+  ];
+}
+
 // Generate single sitemap content
 function buildSitemapXml(domain, routes) {
   const today = getTodayDateString();
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n`;
+  xml += `        xmlns:xhtml="http://www.w3.org/1999/xhtml"\n`;
   xml += `        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n`;
   xml += `        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9\n`;
   xml += `        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n\n`;
@@ -76,16 +89,33 @@ function buildSitemapXml(domain, routes) {
     if (route.includes('ctrl-x9k7m') || route.includes('dashboard')) {
       return;
     }
-    // Avoid double slashes in URL
-    const url = `${domain}${route}`;
-    const { changefreq, priority } = getSitemapParams(route);
     
-    xml += `  <url>\n`;
-    xml += `    <loc>${url}</loc>\n`;
-    xml += `    <lastmod>${today}</lastmod>\n`;
-    xml += `    <changefreq>${changefreq}</changefreq>\n`;
-    xml += `    <priority>${priority}</priority>\n`;
-    xml += `  </url>\n`;
+    const cleanRoute = route === '/' ? '' : route;
+    const { changefreq, priority } = getSitemapParams(route);
+
+    // Languages to output
+    const langs = [
+      { code: 'en', prefix: '' },
+      { code: 'fr', prefix: '/fr' },
+      { code: 'es', prefix: '/es' },
+      { code: 'zh-tw', prefix: '/zh-tw' }
+    ];
+
+    const alternates = getAlternateLinks(domain, route);
+
+    langs.forEach(lang => {
+      const url = `${domain}${lang.prefix}${cleanRoute}`;
+      
+      xml += `  <url>\n`;
+      xml += `    <loc>${url}</loc>\n`;
+      alternates.forEach(alt => {
+        xml += `    <xhtml:link rel="alternate" hreflang="${alt.lang}" href="${alt.href}" />\n`;
+      });
+      xml += `    <lastmod>${today}</lastmod>\n`;
+      xml += `    <changefreq>${changefreq}</changefreq>\n`;
+      xml += `    <priority>${priority}</priority>\n`;
+      xml += `  </url>\n`;
+    });
   });
 
   xml += `</urlset>\n`;
@@ -141,6 +171,7 @@ function generate() {
   const today = getTodayDateString();
   let combinedXml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   combinedXml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n`;
+  combinedXml += `        xmlns:xhtml="http://www.w3.org/1999/xhtml"\n`;
   combinedXml += `        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n`;
   combinedXml += `        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9\n`;
   combinedXml += `        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n\n`;
@@ -151,14 +182,29 @@ function generate() {
       return; // Skip admin/dashboard routes entirely
     }
     const cleanRoute = route === '/' ? '' : route;
-    const url = `https://pouch.eco${cleanRoute}`;
     const { changefreq, priority } = getSitemapParams(route);
-    combinedXml += `  <url>\n`;
-    combinedXml += `    <loc>${url}</loc>\n`;
-    combinedXml += `    <lastmod>${today}</lastmod>\n`;
-    combinedXml += `    <changefreq>${changefreq}</changefreq>\n`;
-    combinedXml += `    <priority>${priority}</priority>\n`;
-    combinedXml += `  </url>\n`;
+
+    const langs = [
+      { code: 'en', prefix: '' },
+      { code: 'fr', prefix: '/fr' },
+      { code: 'es', prefix: '/es' },
+      { code: 'zh-tw', prefix: '/zh-tw' }
+    ];
+
+    const alternates = getAlternateLinks('https://pouch.eco', route);
+
+    langs.forEach(lang => {
+      const url = `https://pouch.eco${lang.prefix}${cleanRoute}`;
+      combinedXml += `  <url>\n`;
+      combinedXml += `    <loc>${url}</loc>\n`;
+      alternates.forEach(alt => {
+        combinedXml += `    <xhtml:link rel="alternate" hreflang="${alt.lang}" href="${alt.href}" />\n`;
+      });
+      combinedXml += `    <lastmod>${today}</lastmod>\n`;
+      combinedXml += `    <changefreq>${changefreq}</changefreq>\n`;
+      combinedXml += `    <priority>${priority}</priority>\n`;
+      combinedXml += `  </url>\n`;
+    });
   });
 
   // Add Achieve routes
@@ -167,14 +213,29 @@ function generate() {
       return; // Skip admin/dashboard routes entirely
     }
     const cleanRoute = route === '/' ? '' : route;
-    const url = `https://achievepack.com${cleanRoute}`;
     const { changefreq, priority } = getSitemapParams(route);
-    combinedXml += `  <url>\n`;
-    combinedXml += `    <loc>${url}</loc>\n`;
-    combinedXml += `    <lastmod>${today}</lastmod>\n`;
-    combinedXml += `    <changefreq>${changefreq}</changefreq>\n`;
-    combinedXml += `    <priority>${priority}</priority>\n`;
-    combinedXml += `  </url>\n`;
+
+    const langs = [
+      { code: 'en', prefix: '' },
+      { code: 'fr', prefix: '/fr' },
+      { code: 'es', prefix: '/es' },
+      { code: 'zh-tw', prefix: '/zh-tw' }
+    ];
+
+    const alternates = getAlternateLinks('https://achievepack.com', route);
+
+    langs.forEach(lang => {
+      const url = `https://achievepack.com${lang.prefix}${cleanRoute}`;
+      combinedXml += `  <url>\n`;
+      combinedXml += `    <loc>${url}</loc>\n`;
+      alternates.forEach(alt => {
+        combinedXml += `    <xhtml:link rel="alternate" hreflang="${alt.lang}" href="${alt.href}" />\n`;
+      });
+      combinedXml += `    <lastmod>${today}</lastmod>\n`;
+      combinedXml += `    <changefreq>${changefreq}</changefreq>\n`;
+      combinedXml += `    <priority>${priority}</priority>\n`;
+      combinedXml += `  </url>\n`;
+    });
   });
 
   combinedXml += `</urlset>\n`;
