@@ -365,6 +365,34 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
     window.print();
   };
 
+  const page1Items = data.items.filter(
+    item => item.category === 'Appearance' || item.category === 'Dimensional deviation'
+  );
+  const page2Items = data.items.filter(
+    item => item.category !== 'Appearance' && item.category !== 'Dimensional deviation'
+  );
+
+  const getRowSpans = (items: CoaItem[]) => {
+    const spans: number[] = [];
+    let currentCategory = '';
+    let currentSpanIndex = -1;
+
+    items.forEach((item, idx) => {
+      if (item.category !== currentCategory) {
+        currentCategory = item.category;
+        currentSpanIndex = idx;
+        spans[idx] = 1;
+      } else {
+        spans[currentSpanIndex]++;
+        spans[idx] = 0;
+      }
+    });
+    return spans;
+  };
+
+  const page1Spans = getRowSpans(page1Items);
+  const page2Spans = getRowSpans(page2Items);
+
   return (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500 relative">
       
@@ -627,100 +655,84 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
               <ScrollText className="w-4 h-4 text-blue-600" />
               Document Live Preview
             </h3>
-            <span className="text-[10px] bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded-full">A4 Document Preview</span>
+            <span className="text-[10px] bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded-full">2-Page Layout Preview</span>
           </div>
 
           <div className="p-6 overflow-y-auto bg-gray-100/50 flex-1 space-y-6 flex flex-col items-center">
             
             {/* SCREEN PAGE 1 PREVIEW */}
-            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[297mm] min-h-[210mm] relative text-[10px] text-black leading-normal flex flex-col select-none aspect-[1.41/1]">
-              
-              {/* Header Letterhead */}
-              <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-2 mb-4">
-                <div className="flex flex-col">
-                  <div className="flex items-center gap-1.5">
-                    <img src="/logo.png" alt="AchievePack" className="h-9 w-auto object-contain" />
-                    <span className="text-lg font-black tracking-widest text-blue-950 font-sans">achievepack</span>
+            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[297mm] min-h-[210mm] relative text-[10px] text-black leading-normal flex flex-col justify-between select-none aspect-[1.41/1] flex-shrink-0">
+              <div>
+                {/* Header Letterhead */}
+                <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-2 mb-4">
+                  <div className="flex flex-col">
+                    <div className="flex items-center gap-1.5">
+                      <img src="/logo.png" alt="AchievePack" className="h-9 w-auto object-contain" />
+                      <span className="text-lg font-black tracking-widest text-blue-950 font-sans">achievepack</span>
+                    </div>
+                    <span className="text-[8px] font-extrabold text-gray-400 uppercase tracking-wider mt-0.5">High Performance Sustainable Packaging</span>
                   </div>
-                  <span className="text-[8px] font-extrabold text-gray-400 uppercase tracking-wider mt-0.5">High Performance Sustainable Packaging</span>
-                </div>
-                <div className="text-right text-[7px] leading-tight text-gray-500 max-w-[250px]">
-                  <strong className="text-[9px] text-gray-800 font-bold block">AchievePack Limited</strong>
-                  HK BRN: 41007097-000-07-14-4<br/>
-                  1 Floor, No.41 Wo Liu Hang Tsuen, Fotan, Hong Kong<br/>
-                  Hotline: +852 6970 4411 | engineering@achievepack.com
-                </div>
-              </div>
-
-              <div className="bg-blue-900 text-white text-center font-bold text-xs uppercase py-2 tracking-widest rounded mb-4" style={{ color: 'white' }}>
-                Factory Inspection Report / Certificate of Analysis
-              </div>
-
-              {/* COA Metadata block */}
-              <div className="grid grid-cols-2 gap-4 mb-4 border border-gray-300 rounded-lg p-3 bg-gray-50/50">
-                <div className="space-y-1">
-                  <div><span className="font-bold text-gray-500">Sample Name:</span> <span className="font-bold text-gray-900">{data.sampleName}</span></div>
-                  <div><span className="font-bold text-gray-500">Customer Name:</span> <span className="font-bold text-gray-900">{data.customer}</span></div>
-                  <div><span className="font-bold text-gray-500">Customer Address:</span> <span className="text-gray-700 text-[9px] block whitespace-pre-line leading-tight">{data.customerAddress}</span></div>
-                  <div><span className="font-bold text-gray-500">Material Composition:</span> <span className="font-mono text-indigo-700 text-[9px] block font-bold">{data.materialComposition}</span></div>
-                </div>
-                <div className="space-y-1 border-l border-gray-300 pl-4">
-                  <div><span className="font-bold text-gray-500">Product Specs:</span> <span className="font-bold text-gray-900">{data.productSpecifications}</span></div>
-                  <div><span className="font-bold text-gray-500">Test Conditions:</span> <span className="font-bold text-gray-900">{data.testConditions}</span></div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div><span className="font-bold text-gray-500">Prod Date:</span> <span className="font-bold text-gray-900 block">{data.productionDate}</span></div>
-                    <div><span className="font-bold text-gray-500">Batch No:</span> <span className="font-mono font-bold text-gray-900 block">{data.batchNumber}</span></div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div><span className="font-bold text-gray-500">Sampling Qty:</span> <span className="font-bold text-gray-900 block">{data.samplingQuantity}</span></div>
-                    <div><span className="font-bold text-gray-500">Delivery Qty:</span> <span className="font-bold text-gray-900 block">{data.deliveryQuantity}</span></div>
+                  <div className="text-right text-[7px] leading-tight text-gray-500 max-w-[250px]">
+                    <strong className="text-[9px] text-gray-800 font-bold block">AchievePack Limited</strong>
+                    HK BRN: 41007097-000-07-14-4<br/>
+                    1 Floor, No.41 Wo Liu Hang Tsuen, Fotan, Hong Kong<br/>
+                    Hotline: +852 6970 4411 | engineering@achievepack.com
                   </div>
                 </div>
-              </div>
 
-              {/* COA Parameters Table */}
-              <div className="flex-1 overflow-x-auto my-2">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="bg-gray-100 border-y border-gray-300">
-                      <th className="py-1 px-2 text-left font-bold text-gray-600 w-24">Item Category</th>
-                      <th className="py-1 px-2 text-left font-bold text-gray-600 w-32">Inspection Item</th>
-                      <th className="py-1 px-2 text-left font-bold text-gray-600">Inspection Standard</th>
-                      <th className="py-1 px-2 text-center font-bold text-gray-600 w-20">Test Speed / Cond.</th>
-                      <th className="py-1 px-2 text-center font-bold text-gray-600 w-20">Test Result</th>
-                      <th className="py-1 px-2 text-center font-bold text-gray-600 w-16">Conclusion</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {(() => {
-                      const rowSpans: number[] = [];
-                      let currentCategory = '';
-                      let currentSpanIndex = -1;
-                      
-                      data.items.forEach((item, idx) => {
-                        if (item.category !== currentCategory) {
-                          currentCategory = item.category;
-                          currentSpanIndex = idx;
-                          rowSpans[idx] = 1;
-                        } else {
-                          rowSpans[currentSpanIndex]++;
-                          rowSpans[idx] = 0;
-                        }
-                      });
+                <div className="bg-blue-900 text-white text-center font-bold text-xs uppercase py-2 tracking-widest rounded mb-4" style={{ color: 'white' }}>
+                  Factory Inspection Report / Certificate of Analysis
+                </div>
 
-                      return data.items.map((item, idx) => (
+                {/* COA Metadata block */}
+                <div className="grid grid-cols-2 gap-4 mb-4 border border-gray-300 rounded-lg p-3 bg-gray-50/50">
+                  <div className="space-y-1">
+                    <div><span className="font-bold text-gray-500">Sample Name:</span> <span className="font-bold text-gray-900">{data.sampleName}</span></div>
+                    <div><span className="font-bold text-gray-500">Customer Name:</span> <span className="font-bold text-gray-900">{data.customer}</span></div>
+                    <div><span className="font-bold text-gray-500">Customer Address:</span> <span className="text-gray-700 text-[9px] block whitespace-pre-line leading-tight">{data.customerAddress}</span></div>
+                    <div><span className="font-bold text-gray-500">Material Composition:</span> <span className="font-mono text-indigo-700 text-[9px] block font-bold">{data.materialComposition}</span></div>
+                  </div>
+                  <div className="space-y-1 border-l border-gray-300 pl-4">
+                    <div><span className="font-bold text-gray-500">Product Specs:</span> <span className="font-bold text-gray-900">{data.productSpecifications}</span></div>
+                    <div><span className="font-bold text-gray-500">Test Conditions:</span> <span className="font-bold text-gray-900">{data.testConditions}</span></div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div><span className="font-bold text-gray-500">Prod Date:</span> <span className="font-bold text-gray-900 block">{data.productionDate}</span></div>
+                      <div><span className="font-bold text-gray-500">Batch No:</span> <span className="font-mono font-bold text-gray-900 block">{data.batchNumber}</span></div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div><span className="font-bold text-gray-500">Sampling Qty:</span> <span className="font-bold text-gray-900 block">{data.samplingQuantity}</span></div>
+                      <div><span className="font-bold text-gray-500">Delivery Qty:</span> <span className="font-bold text-gray-900 block">{data.deliveryQuantity}</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* COA Parameters Table */}
+                <div className="my-2 text-[9px]">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="bg-gray-100 border-y border-gray-300">
+                        <th className="py-1 px-2 text-left font-bold text-gray-600 w-24">Item Category</th>
+                        <th className="py-1 px-2 text-left font-bold text-gray-600 w-32">Inspection Item</th>
+                        <th className="py-1 px-2 text-left font-bold text-gray-600">Inspection Standard</th>
+                        <th className="py-1 px-2 text-center font-bold text-gray-600 w-20">Test Speed / Cond.</th>
+                        <th className="py-1 px-2 text-center font-bold text-gray-600 w-20">Test Result</th>
+                        <th className="py-1 px-2 text-center font-bold text-gray-600 w-16">Conclusion</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {page1Items.map((item, idx) => (
                         <tr key={idx} className="border-b border-gray-200 text-[8.5px]">
-                          {rowSpans[idx] > 0 && (
+                          {page1Spans[idx] > 0 && (
                             <td 
-                              className="py-1 px-2 font-bold text-gray-500 align-top border-r border-gray-200 bg-gray-50/50" 
-                              rowSpan={rowSpans[idx]}
+                              className="py-1 px-2 font-bold text-gray-500 align-top border-r border-gray-200 bg-gray-50/50 text-[8.5px]" 
+                              rowSpan={page1Spans[idx]}
                             >
                               {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' :
                                item.category === 'Dimensional deviation' ? 'Dimensional' :
                                item.category}
                             </td>
                           )}
-                          <td className="py-1 px-2 font-semibold text-gray-900">{item.name}</td>
+                          <td className="py-1 px-2 font-semibold text-gray-900 text-[8.5px]">{item.name}</td>
                           <td className="py-1 px-2 text-gray-600 leading-snug text-[8px]">{item.standard}</td>
                           <td className="py-1 px-2 text-center text-gray-600 font-mono text-[8px]">{item.testSpeed || '-'}</td>
                           <td className="py-1 px-2 text-center font-semibold text-gray-800 font-mono text-[8.5px]">{item.result}</td>
@@ -730,59 +742,95 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                             </span>
                           </td>
                         </tr>
-                      ));
-                    })()}
-                  </tbody>
-                </table>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
 
-              {/* COA Bottom Block */}
-              <div className="border-t border-gray-300 pt-3 mt-4 space-y-3 relative">
-                <div>
-                  <span className="font-extrabold text-[9px] text-gray-400 uppercase tracking-wider block mb-0.5">Overall Inspection Conclusion</span>
-                  <p className="font-bold text-blue-900 text-xs">{data.conclusionText}</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4 pt-2">
-                  <div className="space-y-1">
-                    <span className="text-gray-400 font-bold block text-[8px] uppercase tracking-wider">Signature of Analyst</span>
-                    <div className="border border-indigo-100 rounded p-2 bg-indigo-50/30 flex items-center justify-center min-h-[30px] w-36">
-                      <span className="font-serif italic text-xs text-indigo-800">{data.analystSignature}</span>
-                    </div>
-                  </div>
-                  <div className="space-y-1 text-right">
-                    <span className="text-gray-400 font-bold block text-[8px] uppercase tracking-wider">Signature of Factory Director</span>
-                    <div className="border border-indigo-100 rounded p-2 bg-indigo-50/30 flex items-center justify-center min-h-[30px] w-36 ml-auto">
-                      <span className="font-serif italic text-xs text-indigo-800">{data.directorSignature}</span>
-                    </div>
-                  </div>
+              {/* Page Footer */}
+              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+                <span>Page 1 of 2</span>
+              </div>
+            </div>
+
+            {/* SCREEN PAGE 2 PREVIEW */}
+            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[297mm] min-h-[210mm] relative text-[10px] text-black leading-normal flex flex-col justify-between select-none aspect-[1.41/1] flex-shrink-0">
+              <div>
+                {/* Header for Page 2 */}
+                <div className="flex justify-between items-start border-b border-gray-200 pb-2 mb-4">
+                  <span className="text-[9px] font-bold text-gray-500">Factory Inspection Report / Certificate of Analysis</span>
+                  <span className="text-[8px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
                 </div>
 
-                {/* ACHIEVEPACK CORPORATE SEAL */}
-                <svg className="absolute right-[40px] bottom-[5px] opacity-85 transform rotate-[-8deg] pointer-events-none" width="85" height="85" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="#ef4444" strokeWidth="2" strokeDasharray="94 1.5" />
-                  <circle cx="50" cy="50" r="44" fill="none" stroke="#ef4444" strokeWidth="0.75" />
-                  <path id="preview-seal-path" d="M 15 50 A 35 35 0 0 1 85 50" fill="none" />
-                  <text fill="#ef4444" fontSize="5.8" fontWeight="bold" letterSpacing="0.6">
-                    <textPath href="#preview-seal-path" startOffset="50%" textAnchor="middle">
-                      ACHIEVE PACK CO., LIMITED
-                    </textPath>
-                  </text>
-                  <path id="preview-seal-zh-path" d="M 22 50 A 28 28 0 0 0 78 50" fill="none" />
-                  <text fill="#ef4444" fontSize="6.2" fontWeight="bold" letterSpacing="0.4">
-                    <textPath href="#preview-seal-zh-path" startOffset="50%" textAnchor="middle">
-                      达之包装有限公司
-                    </textPath>
-                  </text>
-                  <polygon points="50,38 53,46 62,46 55,51 58,59 50,54 42,59 45,51 38,46 47,46" fill="#ef4444" />
-                  <text x="50" y="71" fill="#ef4444" fontSize="6.8" fontWeight="bold" textAnchor="middle">
-                    专用章
-                  </text>
-                  <text x="50" y="79" fill="#ef4444" fontSize="4.2" fontFamily="monospace" textAnchor="middle" letterSpacing="0.1">
-                    79945613213015
-                  </text>
-                </svg>
+                {/* COA Parameters Table */}
+                <div className="my-2 text-[9px]">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="bg-gray-100 border-y border-gray-300">
+                        <th className="py-1 px-2 text-left font-bold text-gray-600 w-24">Item Category</th>
+                        <th className="py-1 px-2 text-left font-bold text-gray-600 w-32">Inspection Item</th>
+                        <th className="py-1 px-2 text-left font-bold text-gray-600">Inspection Standard</th>
+                        <th className="py-1 px-2 text-center font-bold text-gray-600 w-20">Test Speed / Cond.</th>
+                        <th className="py-1 px-2 text-center font-bold text-gray-600 w-20">Test Result</th>
+                        <th className="py-1 px-2 text-center font-bold text-gray-600 w-16">Conclusion</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {page2Items.map((item, idx) => (
+                        <tr key={idx} className="border-b border-gray-200 text-[8.5px]">
+                          {page2Spans[idx] > 0 && (
+                            <td 
+                              className="py-1 px-2 font-bold text-gray-500 align-top border-r border-gray-200 bg-gray-50/50 text-[8.5px]" 
+                              rowSpan={page2Spans[idx]}
+                            >
+                              {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' :
+                               item.category === 'Dimensional deviation' ? 'Dimensional' :
+                               item.category}
+                            </td>
+                          )}
+                          <td className="py-1 px-2 font-semibold text-gray-900 text-[8.5px]">{item.name}</td>
+                          <td className="py-1 px-2 text-gray-600 leading-snug text-[8px]">{item.standard}</td>
+                          <td className="py-1 px-2 text-center text-gray-600 font-mono text-[8px]">{item.testSpeed || '-'}</td>
+                          <td className="py-1 px-2 text-center font-semibold text-gray-800 font-mono text-[8.5px]">{item.result}</td>
+                          <td className="py-1 px-2 text-center">
+                            <span className="text-[8px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1 py-0.5 rounded">
+                              {item.conclusion}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* COA Bottom Block */}
+                <div className="border-t border-gray-300 pt-3 mt-4 space-y-3 relative">
+                  <div>
+                    <span className="font-extrabold text-[9px] text-gray-400 uppercase tracking-wider block mb-0.5">Overall Inspection Conclusion</span>
+                    <p className="font-bold text-blue-900 text-xs">{data.conclusionText}</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    <div className="space-y-1">
+                      <span className="text-gray-400 font-bold block text-[8px] uppercase tracking-wider">Signature of Analyst</span>
+                      <div className="border border-indigo-100 rounded p-2 bg-indigo-50/30 flex items-center justify-center min-h-[30px] w-36">
+                        <span className="font-serif italic text-xs text-indigo-800">{data.analystSignature}</span>
+                      </div>
+                    </div>
+                    <div className="space-y-1 text-right">
+                      <span className="text-gray-400 font-bold block text-[8px] uppercase tracking-wider">Signature of Factory Director</span>
+                      <div className="border border-indigo-100 rounded p-2 bg-indigo-50/30 flex items-center justify-center min-h-[30px] w-36 ml-auto">
+                        <span className="font-serif italic text-xs text-indigo-800">{data.directorSignature}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
+              {/* Page Footer */}
+              <div className="border-t border-gray-200 pt-2 text-right text-[8px] text-gray-400 font-semibold">
+                <span>Page 2 of 2</span>
+              </div>
             </div>
 
           </div>
@@ -805,19 +853,21 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
               color: black;
               font-family: Arial, sans-serif;
             }
-          .print-page {
+            .print-page {
               width: 297mm;
-              height: 200mm;
-              max-height: 200mm;
-              padding: 4mm 6mm;
+              height: 210mm;
+              padding: 6mm 10mm;
               position: relative;
-              page-break-after: avoid !important;
+              page-break-after: always !important;
               page-break-inside: avoid !important;
               box-sizing: border-box;
               overflow: hidden;
               display: flex;
               flex-direction: column;
               justify-content: space-between;
+            }
+            .print-page:last-child {
+              page-break-after: avoid !important;
             }
             .print-page tr {
               page-break-inside: avoid !important;
@@ -906,7 +956,7 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             {/* COA Parameters Table */}
             <table className="w-full">
               <thead>
-                <tr className="bg-gray-100">
+                <tr className="bg-gray-100 border-y border-gray-300">
                   <th className="text-left font-bold text-gray-600 w-18 text-[5.8px] p-0.5">Item Category</th>
                   <th className="text-left font-bold text-gray-600 w-24 text-[5.8px] p-0.5">Inspection Item</th>
                   <th className="text-left font-bold text-gray-600 text-[5.8px] p-0.5">Inspection Standard</th>
@@ -916,49 +966,79 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                 </tr>
               </thead>
               <tbody>
-                {(() => {
-                  const rowSpans: number[] = [];
-                  let currentCategory = '';
-                  let currentSpanIndex = -1;
-                  
-                  data.items.forEach((item, idx) => {
-                    if (item.category !== currentCategory) {
-                      currentCategory = item.category;
-                      currentSpanIndex = idx;
-                      rowSpans[idx] = 1;
-                    } else {
-                      rowSpans[currentSpanIndex]++;
-                      rowSpans[idx] = 0;
-                    }
-                  });
+                {page1Items.map((item, idx) => (
+                  <tr key={idx}>
+                    {page1Spans[idx] > 0 && (
+                      <td className="font-bold text-gray-500 align-middle bg-gray-50/50 text-[5.8px] p-0.5" rowSpan={page1Spans[idx]}>
+                        {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' :
+                         item.category === 'Dimensional deviation' ? 'Dimensional' :
+                         item.category}
+                      </td>
+                    )}
+                    <td className="font-semibold text-gray-900 text-[5.8px] p-0.5">{item.name}</td>
+                    <td className="text-gray-600 text-[5.8px] p-0.5 leading-tight">{item.standard}</td>
+                    <td className="text-center text-gray-600 font-mono text-[5.8px] p-0.5">{item.testSpeed || '-'}</td>
+                    <td className="text-center font-semibold text-gray-800 font-mono text-[5.8px] p-0.5">{item.result}</td>
+                    <td className="text-center font-bold text-emerald-700 text-[5.8px] p-0.5">{item.conclusion}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-                  return data.items.map((item, idx) => (
-                    <tr key={idx}>
-                      {rowSpans[idx] > 0 && (
-                        <td className="font-bold text-gray-500 align-middle bg-gray-50/50 text-[5.8px] p-0.5" rowSpan={rowSpans[idx]}>
-                          {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' :
-                           item.category === 'Dimensional deviation' ? 'Dimensional' :
-                           item.category}
-                        </td>
-                      )}
-                      <td className="font-semibold text-gray-900 text-[5.8px] p-0.5">{item.name}</td>
-                      <td className="text-gray-600 text-[5.8px] p-0.5 leading-tight">{item.standard}</td>
-                      <td className="text-center text-gray-600 font-mono text-[5.8px] p-0.5">{item.testSpeed || '-'}</td>
-                      <td className="text-center font-semibold text-gray-800 font-mono text-[5.8px] p-0.5">{item.result}</td>
-                      <td className="text-center font-bold text-emerald-700 text-[5.8px] p-0.5">{item.conclusion}</td>
-                    </tr>
-                  ));
-                })()}
+          <div className="border-t border-gray-200 pt-1 text-right text-[7px] text-gray-400 font-semibold">
+            <span>Page 1 of 2</span>
+          </div>
+        </div>
+
+        {/* PRINT PAGE 2 */}
+        <div className="print-page flex flex-col justify-between">
+          <div>
+            {/* Header for Page 2 */}
+            <div className="flex justify-between items-start border-b border-gray-200 pb-1 mb-2">
+              <span className="text-[7px] font-bold text-gray-500">Factory Inspection Report / Certificate of Analysis</span>
+              <span className="text-[6.5px] text-gray-400">AchievePack Limited • HK BRN: 41007097-000</span>
+            </div>
+
+            {/* COA Parameters Table */}
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gray-100 border-y border-gray-300">
+                  <th className="text-left font-bold text-gray-600 w-18 text-[5.8px] p-0.5">Item Category</th>
+                  <th className="text-left font-bold text-gray-600 w-24 text-[5.8px] p-0.5">Inspection Item</th>
+                  <th className="text-left font-bold text-gray-600 text-[5.8px] p-0.5">Inspection Standard</th>
+                  <th className="text-center font-bold text-gray-600 w-16 text-[5.8px] p-0.5">Test Speed</th>
+                  <th className="text-center font-bold text-gray-600 w-18 text-[5.8px] p-0.5">Inspection Result</th>
+                  <th className="text-center font-bold text-gray-600 w-14 text-[5.8px] p-0.5">Conclusion</th>
+                </tr>
+              </thead>
+              <tbody>
+                {page2Items.map((item, idx) => (
+                  <tr key={idx}>
+                    {page2Spans[idx] > 0 && (
+                      <td className="font-bold text-gray-500 align-middle bg-gray-50/50 text-[5.8px] p-0.5" rowSpan={page2Spans[idx]}>
+                        {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' :
+                         item.category === 'Dimensional deviation' ? 'Dimensional' :
+                         item.category}
+                      </td>
+                    )}
+                    <td className="font-semibold text-gray-900 text-[5.8px] p-0.5">{item.name}</td>
+                    <td className="text-gray-600 text-[5.8px] p-0.5 leading-tight">{item.standard}</td>
+                    <td className="text-center text-gray-600 font-mono text-[5.8px] p-0.5">{item.testSpeed || '-'}</td>
+                    <td className="text-center font-semibold text-gray-800 font-mono text-[5.8px] p-0.5">{item.result}</td>
+                    <td className="text-center font-bold text-emerald-700 text-[5.8px] p-0.5">{item.conclusion}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
 
             {/* COA Bottom Block */}
-            <div className="border-t border-gray-300 pt-1 mt-1 space-y-1 relative">
+            <div className="border-t border-gray-300 pt-1 mt-2 space-y-1 relative">
               <div>
                 <span className="font-extrabold text-[6.5px] text-gray-400 uppercase tracking-wider block mb-0.5">Overall Inspection Conclusion</span>
                 <p className="font-bold text-blue-900 text-[8.5px]">{data.conclusionText}</p>
               </div>
-              <div className="grid grid-cols-2 gap-4 pt-0.5">
+              <div className="grid grid-cols-2 gap-4 pt-1">
                 <div className="space-y-0.5">
                   <span className="text-gray-400 font-bold block text-[6px] uppercase tracking-wider">Signature of Analyst</span>
                   <div className="border border-indigo-100 rounded p-0.5 bg-indigo-50/30 flex items-center justify-center min-h-[16px] w-24">
@@ -972,36 +1052,11 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                   </div>
                 </div>
               </div>
-
-              {/* ACHIEVEPACK CORPORATE SEAL */}
-              <svg className="absolute right-[15px] bottom-[-5px] opacity-85 transform rotate-[-8deg] pointer-events-none" width="60" height="60" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#ef4444" strokeWidth="2" strokeDasharray="94 1.5" />
-                <circle cx="50" cy="50" r="44" fill="none" stroke="#ef4444" strokeWidth="0.75" />
-                <path id="print-seal-path" d="M 15 50 A 35 35 0 0 1 85 50" fill="none" />
-                <text fill="#ef4444" fontSize="5.8" fontWeight="bold" letterSpacing="0.6">
-                  <textPath href="#print-seal-path" startOffset="50%" textAnchor="middle">
-                    ACHIEVE PACK CO., LIMITED
-                  </textPath>
-                </text>
-                <path id="print-seal-zh-path" d="M 22 50 A 28 28 0 0 0 78 50" fill="none" />
-                <text fill="#ef4444" fontSize="6.2" fontWeight="bold" letterSpacing="0.4">
-                  <textPath href="#print-seal-zh-path" startOffset="50%" textAnchor="middle">
-                    达之包装有限公司
-                  </textPath>
-                </text>
-                <polygon points="50,38 53,46 62,46 55,51 58,59 50,54 42,59 45,51 38,46 47,46" fill="#ef4444" />
-                <text x="50" y="71" fill="#ef4444" fontSize="6.8" fontWeight="bold" textAnchor="middle">
-                  专用章
-                </text>
-                <text x="50" y="79" fill="#ef4444" fontSize="4.2" fontFamily="monospace" textAnchor="middle" letterSpacing="0.1">
-                  79945613213015
-                </text>
-              </svg>
             </div>
           </div>
 
           <div className="border-t border-gray-200 pt-1 text-right text-[7px] text-gray-400 font-semibold">
-            <span>Page 1 of 1</span>
+            <span>Page 2 of 2</span>
           </div>
         </div>
       </div>
