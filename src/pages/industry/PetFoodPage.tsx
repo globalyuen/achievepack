@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { 
@@ -9,10 +10,12 @@ import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 
 const PetFoodPage: React.FC = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.petFood';
   const sections = [
     {
       id: 'grease-challenge',
-      title: 'The Pet Food Challenge: Strong Odors, Grease Permeation & Puncture Resistance',
+      title: t(`${p}.title_thePetFoodChallengeStrong`),
       icon: <Beaker className="h-5 w-5 text-slate-700" />,
       content: (
         <div className="space-y-4 text-neutral-700 leading-relaxed">
@@ -25,9 +28,9 @@ const PetFoodPage: React.FC = () => {
                 <AlertTriangle className="h-4 w-4 text-amber-600" /> Key Material Risks
               </h4>
               <ul className="text-sm text-neutral-700 space-y-2">
-                <li>• <strong>Grease Migration:</strong> Animal fats permeate through low-density PE, creating sticky, stained bags.</li>
-                <li>• <strong>Odor Leakage:</strong> Highly aromatic fish or beef treat odors leak out, ruining kitchen pantries.</li>
-                <li>• <strong>Puncture Tears:</strong> Hard, dehydrated treats tear thin film cores, causing wholesale leaks.</li>
+                <li>• <strong>{t(`${p}.greaseMigration`)}</strong> {t(`${p}.animalFatsPermeateThroughLowdensity`)}</li>
+                <li>• <strong>{t(`${p}.odorLeakage`)}</strong> {t(`${p}.highlyAromaticFishOrBeef`)}</li>
+                <li>• <strong>{t(`${p}.punctureTears`)}</strong> {t(`${p}.hardDehydratedTreatsTearThin`)}</li>
               </ul>
             </div>
             <div>
@@ -35,9 +38,9 @@ const PetFoodPage: React.FC = () => {
                 <Shield className="h-4 w-4 text-green-600" /> Engineering Requirements
               </h4>
               <ul className="text-sm text-neutral-700 space-y-2">
-                <li>• <strong>Grease-Proof Barrier Liners:</strong> Co-extruded inner layers designed to withstand raw oil migration.</li>
-                <li>• <strong>Aroma Defense Cores:</strong> Solid EVOH coatings or thick metallic layers to keep odors inside.</li>
-                <li>• <strong>Heavy-Duty Puncture Defense:</strong> Co-polymer laminates tested against sharp treat drops.</li>
+                <li>• <strong>{t(`${p}.greaseproofBarrierLiners`)}</strong> {t(`${p}.coextrudedInnerLayersDesignedTo`)}</li>
+                <li>• <strong>{t(`${p}.aromaDefenseCores`)}</strong> {t(`${p}.solidEvohCoatingsOrThick`)}</li>
+                <li>• <strong>{t(`${p}.heavydutyPunctureDefense`)}</strong> {t(`${p}.copolymerLaminatesTestedAgainstSharp`)}</li>
               </ul>
             </div>
           </div>
@@ -46,7 +49,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       id: 'packaging-options',
-      title: '5 Packaging Options Compared: Low-Cost MVP to Sustainable Premium',
+      title: t(`${p}.title_5PackagingOptionsComparedLowcost`),
       icon: <Package className="h-5 w-5 text-slate-700" />,
       content: (
         <div className="space-y-6">
@@ -59,17 +62,17 @@ const PetFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 1</span>
-                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded">Low Cost MVP</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option1`)}</span>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.lowCostMvp`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Stand-Up Zipper Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.standupZipperPouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   The ideal retail choice for small-batch dog treats or organic pet supplements. High vertical display, strong pre-installed ziplock, and high-barrier grease resistance.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• Glossy or premium matte finishes</li>
-                  <li>• Press-to-close airtight zipper</li>
-                  <li>• Moderate cost, highly startup-friendly</li>
+                  <li>{t(`${p}.glossyOrPremiumMatteFinishes`)}</li>
+                  <li>{t(`${p}.presstocloseAirtightZipper`)}</li>
+                  <li>{t(`${p}.moderateCostHighlyStartupfriendly`)}</li>
                 </ul>
               </div>
               <Link to="/store/product/eco-standup" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
@@ -81,17 +84,17 @@ const PetFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 2</span>
-                  <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-2 py-0.5 rounded">Premium Bulk Style</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option2`)}</span>
+                  <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.premiumBulkStyle`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Flat Bottom Box Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.flatBottomBoxPouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Perfect for large-format pet food, raw kibble, or bulk cat treats. Stands completely upright with five fully printable panels for extreme brand presentation.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• Exceptional structural box profile</li>
-                  <li>• Perfect for thick zippers and side handles</li>
-                  <li>• Holds 1kg to 10kg loads easily</li>
+                  <li>{t(`${p}.exceptionalStructuralBoxProfile`)}</li>
+                  <li>{t(`${p}.perfectForThickZippersAnd`)}</li>
+                  <li>{t(`${p}.holds1kgTo10kgLoads`)}</li>
                 </ul>
               </div>
               <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
@@ -103,17 +106,17 @@ const PetFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 3</span>
-                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Curbside Recyclable</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option3`)}</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.curbsideRecyclable`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Recyclable Mono-PE Gusset Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.recyclableMonopeGussetPouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Engineered using a single polymer PE laminate containing EVOH coatings. Highly accepted in standard store recycling bins, delivering a premium carbon-reduced footprint.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• Curbside and drop-off recyclable claim</li>
-                  <li>• Extreme puncture and impact defense</li>
-                  <li>• Custom clear windows to view kibble</li>
+                  <li>{t(`${p}.curbsideAndDropoffRecyclableClaim`)}</li>
+                  <li>{t(`${p}.extremePunctureAndImpactDefense`)}</li>
+                  <li>{t(`${p}.customClearWindowsToView`)}</li>
                 </ul>
               </div>
               <Link to="/store/product/eco-standup" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
@@ -125,17 +128,17 @@ const PetFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 4</span>
-                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Zero-Waste Loop</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option4`)}</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.zerowasteLoop`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Compostable Kraft treats bag</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.compostableKraftTreatsBag`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Organic unbleached kraft paper paired with high-barrier plant-derived inner layers. 100% biodegradable in commercial composting, creating a perfect circular ecosystem.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• Earthy unbleached organic appearance</li>
-                  <li>• BPI & EN 13432 compostability certified</li>
-                  <li>• Outstanding animal fat defense</li>
+                  <li>{t(`${p}.earthyUnbleachedOrganicAppearance`)}</li>
+                  <li>{t(`${p}.bpiEn13432CompostabilityCertified`)}</li>
+                  <li>{t(`${p}.outstandingAnimalFatDefense`)}</li>
                 </ul>
               </div>
               <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
@@ -147,17 +150,17 @@ const PetFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 5</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2 py-0.5 rounded">Pet Supplement MVP</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option5`)}</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.petSupplementMvp`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">FSC Custom Carton Box</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.fscCustomCartonBox`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Elevate your pet supplements, single-use jerky packs, or chew bars with customized FSC certified retail display cartons. Matte textures and spot varnish highlights.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• FSC Recycled Solid Cardboard</li>
-                  <li>• Precise custom die-cut inner dividers</li>
-                  <li>• Ships flat to minimize inventory storage</li>
+                  <li>{t(`${p}.fscRecycledSolidCardboard`)}</li>
+                  <li>{t(`${p}.preciseCustomDiecutInnerDividers`)}</li>
+                  <li>{t(`${p}.shipsFlatToMinimizeInventory`)}</li>
                 </ul>
               </div>
               <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-700 hover:text-slate-800 flex items-center gap-1 mt-2">
@@ -170,7 +173,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       id: 'interactive-showcase',
-      title: 'Premium Visual Mockups & Product Showcase',
+      title: t(`${p}.title_premiumVisualMockupsProductShowcase`),
       icon: <Sparkles className="h-5 w-5 text-slate-700" />,
       content: (
         <div className="space-y-6">
@@ -186,8 +189,8 @@ const PetFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Premium Pet Treats Pouches</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">High barrier, oil-proof internal films, airtight ziplocks.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.premiumPetTreatsPouches`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.highBarrierOilproofInternalFilms`)}</p>
               </div>
             </div>
 
@@ -198,8 +201,8 @@ const PetFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Organic Kraft Treat Pouches</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Earthy textures, plant-based compostable barrier cores.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.organicKraftTreatPouches`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.earthyTexturesPlantbasedCompostableBarrier`)}</p>
               </div>
             </div>
 
@@ -210,8 +213,8 @@ const PetFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Heavy-Duty Treat Pouches</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Extra thick co-polymer films, robust puncture defense.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.heavydutyTreatPouches`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.extraThickCopolymerFilmsRobust`)}</p>
               </div>
             </div>
 
@@ -222,8 +225,8 @@ const PetFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Treat Bags in Pantry Scene</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Zero odor leakage, hermetically sealed for total security.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.treatBagsInPantryScene`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.zeroOdorLeakageHermeticallySealed`)}</p>
               </div>
             </div>
           </div>
@@ -240,9 +243,9 @@ const PetFoodPage: React.FC = () => {
               <span className="bg-[#D4FF00] text-black text-[10px] font-black px-2.5 py-1 uppercase rounded-full border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
                 Highlighted Pet Solution
               </span>
-              <h4 className="font-bold text-neutral-900 text-lg">Featured Eco Solution: Certified Compostable Kraft Pet Treats Bag</h4>
+              <h4 className="font-bold text-neutral-900 text-lg">{t(`${p}.featuredEcoSolutionCertifiedCompostable`)}</h4>
               <p className="text-sm text-neutral-700">
-                Align your pet brand with zero-waste initiatives using our <strong>Certified Compostable Kraft Treats Bags</strong>. These pouches use organic, unbleached kraft papers and specialized plant-derived barrier liners. Certified compostable under EN 13432 standards, they deliver excellent fat and grease protection without leaking greasy oils.
+                Align your pet brand with zero-waste initiatives using our <strong>{t(`${p}.certifiedCompostableKraftTreatsBags`)}</strong>. These pouches use organic, unbleached kraft papers and specialized plant-derived barrier liners. Certified compostable under EN 13432 standards, they deliver excellent fat and grease protection without leaking greasy oils.
               </p>
               <div className="flex gap-4">
                 <Link to="/products/compostable-coffee-bags" className="bg-slate-700 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
@@ -259,7 +262,7 @@ const PetFoodPage: React.FC = () => {
     },
     {
       id: 'expert-checklist',
-      title: 'Active Compliance & Testing Protocol Checklist',
+      title: t(`${p}.title_activeComplianceTestingProtocolChecklist`),
       icon: <Award className="h-5 w-5 text-slate-700" />,
       content: (
         <div className="space-y-4 text-neutral-700 text-sm">
@@ -268,19 +271,19 @@ const PetFoodPage: React.FC = () => {
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
-              <h5 className="font-bold text-neutral-900 mb-2">🧪 Phase 1: Material Verification</h5>
+              <h5 className="font-bold text-neutral-900 mb-2">{t(`${p}.phase1MaterialVerification`)}</h5>
               <ul className="space-y-2 text-neutral-600 text-xs">
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Measure grease/oil concentration in treats to adjust sealant thickness layers.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Assess volatile protein aromas to verify OTR barrier specifications.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Verify raw material thickness to secure total puncture resilience.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.measureGreaseoilConcentrationInTreats`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.assessVolatileProteinAromasTo`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.verifyRawMaterialThicknessTo`)}</li>
               </ul>
             </div>
             <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
-              <h5 className="font-bold text-neutral-900 mb-2">⚖ Phase 2: Integrity Testing</h5>
+              <h5 className="font-bold text-neutral-900 mb-2">{t(`${p}.phase2IntegrityTesting`)}</h5>
               <ul className="space-y-2 text-neutral-600 text-xs">
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Run a 30-day grease migration test at 38°C to ensure zero outer stains.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Subject pouches to vibration testing to check seam stability during transport.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Confirm zipper reseal durability over 50 simulated open/close usages.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.runA30dayGreaseMigration`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.subjectPouchesToVibrationTesting`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.confirmZipperResealDurabilityOver`)}</li>
               </ul>
             </div>
           </div>
@@ -291,34 +294,34 @@ const PetFoodPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "How do you prevent raw animal oils from seeping through compostable paper?",
-      answer: "We use an advanced, multi-layer co-polymer structure that integrates a highly grease-resistant inner film core. This compostable sealant core stops natural fats and oils from seeping through, ensuring the outer unbleached kraft paper remains completely stain-free and dry."
+      question: t(`${p}.question_howDoYouPreventRaw`),
+      answer: t(`${p}.answer_weUseAnAdvancedMultilayer`)
     },
     {
-      question: "Will strong pet treat odors escape from recyclable mono-PE pouches?",
-      answer: "No. Our curbside-recyclable mono-PE pouches are co-extruded with high-performance EVOH barrier coatings. This compound blocks up to 99.7% of volatile organic odors, keeping highly aromatic treats hermetically locked inside without smelling up pantries."
+      question: t(`${p}.question_willStrongPetTreatOdors`),
+      answer: t(`${p}.answer_noOurCurbsiderecyclableMonopePouches`)
     },
     {
-      question: "Can these bags support heavy pet food weights (e.g., 5kg to 10kg)?",
-      answer: "Yes! For large-format and heavy pet food weights, we recommend our Flat Bottom Gusset Pouches with reinforced quad-seal corners, thick polymer laminates, and built-in side handles. These are drop-tested to withstand up to 1.5-meter drops without seams bursting."
+      question: t(`${p}.question_canTheseBagsSupportHeavy`),
+      answer: t(`${p}.answer_yesForLargeformatAndHeavy`)
     },
     {
-      question: "What is the MOQ for custom-printed pet food packaging bags?",
-      answer: "We accommodate small business startups by offering custom printed stand-up treats pouches and bulk pet food bags starting from a low MOQ of just 500 pieces. Full-color digital customization means zero plate setup fees."
+      question: t(`${p}.question_whatIsTheMoqFor`),
+      answer: t(`${p}.answer_weAccommodateSmallBusinessStartups`)
     }
   ]
 
   const tables = [
     {
-      title: "Technical Comparison: Pet Food & Treats Packaging Options",
+      title: t(`${p}.title_technicalComparisonPetFoodTreats`),
       data: {
-        headers: ["Format", "Oxygen Barrier (OTR)", "Water Vapor (WVTR)", "Grease/Fat Resistance", "MOQ", "Relative Cost"],
+        headers: [t(`${p}.table_format`),t(`${p}.table_oxygenBarrierOtr`),t(`${p}.table_waterVaporWvtr`),t(`${p}.table_greasefatResistance`),t(`${p}.table_moq`),t(`${p}.table_relativeCost`)],
         rows: [
-          ["Stand-Up Zipper Pouch", "0.25 ml/m²/day", "0.22 g/m²/day", "★★★★☆ (Protected PE)", "100 pcs", "Low ($)"],
-          ["Flat Bottom Box Pouch", "0.12 ml/m²/day", "0.15 g/m²/day", "★★★★★ (Thick Copolymer)", "500 pcs", "Medium ($$)"],
-          ["Recyclable Mono-PE Bag", "0.32 ml/m²/day", "0.26 g/m²/day", "★★★★☆ (EVOH/PE Film)", "500 pcs", "Medium ($$)"],
-          ["Compostable Kraft Pouch", "0.45 ml/m²/day", "0.39 g/m²/day", "★★★★★ (Grease Liner)", "500 pcs", "Medium ($$)"],
-          ["FSC Custom Display Box", "N/A (Outer Protection)", "N/A", "N/A", "200 pcs", "Premium ($$$$)"]
+          [t(`${p}.table_standupZipperPouch`),t(`${p}.table_025Mlmday`),t(`${p}.table_022Gmday`),t(`${p}.table_protectedPe`),t(`${p}.table_100Pcs`),t(`${p}.table_low`)],
+          [t(`${p}.table_flatBottomBoxPouch`),t(`${p}.table_012Mlmday`),t(`${p}.table_015Gmday`),t(`${p}.table_thickCopolymer`),t(`${p}.table_500Pcs`),t(`${p}.table_medium`)],
+          [t(`${p}.table_recyclableMonopeBag`),t(`${p}.table_032Mlmday`),t(`${p}.table_026Gmday`),t(`${p}.table_evohpeFilm`),t(`${p}.table_500Pcs`),t(`${p}.table_medium`)],
+          [t(`${p}.table_compostableKraftPouch`),t(`${p}.table_045Mlmday`),t(`${p}.table_039Gmday`),t(`${p}.table_greaseLiner`),t(`${p}.table_500Pcs`),t(`${p}.table_medium`)],
+          [t(`${p}.table_fscCustomDisplayBox`),t(`${p}.table_naOuterProtection`),t(`${p}.table_na`),t(`${p}.table_na`),t(`${p}.table_200Pcs`),t(`${p}.table_premium`)]
         ]
       }
     }
@@ -326,44 +329,44 @@ const PetFoodPage: React.FC = () => {
 
   const relatedLinks = [
     {
-      title: "Recyclable Mono-Material Pouches",
+      title: t(`${p}.title_recyclableMonomaterialPouches`),
       url: "/store/product/eco-standup",
-      description: "Explore our curbside-recyclable stand-up pouches with EVOH barrier coatings."
+      description: t(`${p}.description_exploreOurCurbsiderecyclableStandupPouches`)
     },
     {
-      title: "Compostable Stand Up Pouches",
+      title: t(`${p}.title_compostableStandUpPouches`),
       url: "/products/compostable-coffee-bags",
-      description: "Buy premium certified compostable flexible kraft paper treat bags."
+      description: t(`${p}.description_buyPremiumCertifiedCompostableFlexible`)
     },
     {
-      title: "Custom Printed Box Cartons",
+      title: t(`${p}.title_customPrintedBoxCartons`),
       url: "/store?category=boxes",
-      description: "Browse premium FSC certified solid display folding cartons for retail packs."
+      description: t(`${p}.description_browsePremiumFscCertifiedSolid`)
     },
     {
-      title: "Low MOQ Packaging Ecosystem",
+      title: t(`${p}.title_lowMoqPackagingEcosystem`),
       url: "/products/low-moq-packaging",
-      description: "Check our flexible startup-friendly small batch solutions."
+      description: t(`${p}.description_checkOurFlexibleStartupfriendlySmall`)
     }
   ]
 
   return (
     <>
       <Helmet>
-        <title>Sustainable Pet Food & Treats Packaging: Heavy Duty Bags | Achieve Pack</title>
-        <meta name="description" content="Compare certified compostable and curbside recyclable pet food packaging. High-strength puncture resistance and grease-proof barrier bags with low MOQs." />
+        <title>{t(`${p}.metaTitle`)}</title>
+        <meta name="description" content={t(`${p}.metaDescription`)} />
         <link rel="canonical" href="https://achievepack.com/industry/pet-food" />
         <meta property="og:title" content="Sustainable Pet Food & Treats Packaging Solutions" />
-        <meta property="og:description" content="Heavy-duty, grease-proof flexible pouches for organic pet treats, kibble, and supplements. Certified compostable and recyclable options." />
+        <meta property="og:description" content={t(`${p}.metaDescription`)} />
         <meta property="og:url" content="https://achievepack.com/industry/pet-food" />
-        <meta name="keywords" content="pet food packaging, dog treats packaging, compostable pet treats bag, recyclable pet food bag, mono-PE pet treats pouch, kibble packaging, cat treats bag, FSC pet box, low MOQ packaging" />
+        <meta name="keywords" content={t(`${p}.metaKeywords`)} />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Pet Food & Treats Packaging Ecosystem",
-            "description": "Heavy-duty flexible pet treats packaging solutions comparing recyclable mono-polymer pouches, compostable unbleached kraft pouches, and custom FSC display gift boxes.",
+            "description": t(`${p}.schemaDescription`),
             "brand": {
               "@type": "Brand",
               "name": "Achieve Pack"
@@ -396,12 +399,12 @@ const PetFoodPage: React.FC = () => {
 
       <SEOPageLayout 
         heroBgColor="#0f172a"
-        title="Sustainable Pet Food & Treats Packaging: Heavy Duty Bags"
-        description="Premium material engineering guide for packaging organic dog treats, kibble, cat jerks, and pet supplements. Discover certified compostable, recyclable and puncture-proof selections."
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
         keywords={['pet food packaging', 'dog treat bag', 'compostable pet treat bag', 'recyclable kibble bag']}
-        heroTitle="Pet Food & Treats Packaging Solutions"
-        heroSubtitle="Grease-Proof Barriers | Compostable jerks Bags | Curbside Recyclable Mono-PE Refills & Custom Display Boxes"
-        introSummary="Startup pet treats brands and organic kibble manufacturers require packaging that blocks grease migration, locks in heavy animal odors, and handles high physical stress. Compare our five high-strength packaging formats."
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
+        introSummary={t(`${p}.introSummary`)}
         sections={sections}
         tables={tables}
         faqs={faqs}

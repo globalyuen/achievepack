@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Beaker, Shield, AlertTriangle, ArrowRight, Sparkles, CheckCircle, Package } from 'lucide-react'
 import PouchLayout from '../../../components/pouch/PouchLayout'
@@ -6,22 +7,24 @@ import ClickableImage from '../../../components/ClickableImage'
 import { getBaseUrl } from '../../../utils/domain'
 
 export default function PouchCitrusOilPackagingPage() {
+  const { t } = useTranslation()
+
   const baseUrl = getBaseUrl()
 
   const OPTION_CARDS = [
     {
       id: 'bottle-sachet',
       title: 'BOTTLE_FOIL_SACHET',
-      badge: '★ Best Value MVP',
+      badge: t('seoPages.pages.pouchCitrusOilPackaging.bestValueMvp'),
       badgeColor: 'cyan',
-      description: 'An eye-catching, specialty bottle-shaped aluminum foil sachet. Absolute light/aroma barrier at the lowest possible cost.',
+      description: t('seoPages.pages.pouchCitrusOilPackaging.anEyecatchingSpecialtyBottleshaped'),
       features: [
         'Holds ~5g to 35g product',
         'Foil core blocks all terpenes',
         'Tear notch for easy unboxing',
         'MOQ from just 100 units!'
       ],
-      ctaText: 'Shop Sachets (From $0.06)',
+      ctaText: t('seoPages.pages.pouchCitrusOilPackaging.shopSachetsFrom006'),
       ctaUrl: '/store/product/bottle-shape-sachet-bag',
       image: '/taobao/bottle-shape-sachet-bag/O1CN01q5cziX1wI7uDjUFyO_--1816946284-jpg_.webp',
       color: 'bg-white'
@@ -29,15 +32,15 @@ export default function PouchCitrusOilPackagingPage() {
     {
       id: 'foil-capsule',
       title: 'FOIL_CAPSULE_MVP',
-      badge: '★ Premium Gifting',
+      badge: t('seoPages.pages.pouchCitrusOilPackaging.premiumGifting'),
       badgeColor: 'amber',
-      description: 'Plastic-free pure aluminum capsules with custom heat-sealed lids. Perfect for trial launches, serums, or high-end cosmetic kits.',
+      description: t('seoPages.pages.pouchCitrusOilPackaging.plasticfreePureAluminumCapsules'),
       features: [
         'Compact 40ml custom dosage',
         'Skincare-grade metallic look',
         'Pairs with custom boxes'
       ],
-      ctaText: 'Custom Capsule RFQ',
+      ctaText: t('seoPages.pages.pouchCitrusOilPackaging.customCapsuleRfq'),
       ctaUrl: '/store',
       image: '/imgs/materials/citrus_foil_capsule.png',
       color: 'bg-white'
@@ -45,15 +48,15 @@ export default function PouchCitrusOilPackagingPage() {
     {
       id: 'recyclable-spout',
       title: 'RECYCLABLE_SPOUT_POUCH',
-      badge: '★ Eco Refill Hub',
+      badge: t('seoPages.pages.pouchCitrusOilPackaging.ecoRefillHub'),
       badgeColor: 'lime',
-      description: 'A transparent mono-PE standing pouch designed for sustainable direct-to-consumer refills. Let your golden formula shine.',
+      description: t('seoPages.pages.pouchCitrusOilPackaging.aTransparentMonopeStanding'),
       features: [
         'High-density EVOH terpene barrier',
         'Single-material recyclable stream',
         'Lightweight, eco-conscious story'
       ],
-      ctaText: 'Shop Recyclable (MOQ 500)',
+      ctaText: t('seoPages.pages.pouchCitrusOilPackaging.shopRecyclableMoq500'),
       ctaUrl: '/store/product/eco-standup',
       image: '/imgs/materials/citrus_clear_spout_pouch.png',
       color: 'bg-white'
@@ -61,15 +64,15 @@ export default function PouchCitrusOilPackagingPage() {
     {
       id: 'biope-spout',
       title: 'BIO_PE_FOIL_POUCH',
-      badge: '★ Sugarcane Shield',
+      badge: t('seoPages.pages.pouchCitrusOilPackaging.sugarcaneShield'),
       badgeColor: 'magenta',
-      description: 'Organic sugarcane-derived polyethylene paired with full foil protection. Highest chemical resistance for aggressive formulas.',
+      description: t('seoPages.pages.pouchCitrusOilPackaging.organicSugarcanederivedPolyethylenePaired'),
       features: [
         ' sugarcane bio-materials',
         'Ultimate shelf life protection',
         'Reinforced puncture defense'
       ],
-      ctaText: 'Buy High-Barrier Spouts',
+      ctaText: t('seoPages.pages.pouchCitrusOilPackaging.buyHighbarrierSpouts'),
       ctaUrl: '/store/product/spouted-foil-pouch',
       image: '/imgs/materials/citrus_biope_spout_pouch.png',
       color: 'bg-white'
@@ -110,7 +113,7 @@ export default function PouchCitrusOilPackagingPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>Citrus Oil Packaging | Low MOQ Eco Spout Pouches & Sachets | Pouch.eco</title>
+        <title>{t('seoPages.pages.pouchCitrusOilPackaging.citrusOilPackagingLow')}</title>
         <meta name="description" content="Launch your liquid citrus oil or beauty brand with premium eco-friendly spouted pouches, foil capsules, and bottle-shaped sachets from just 100 pieces. Leak-proof and certified." />
         <link rel="canonical" href={`${baseUrl}/solutions/citrus-oil-packaging`} />
         <meta property="og:title" content="Citrus Oil & Cosmetics Packaging | Low MOQ | Pouch.eco" />
@@ -127,28 +130,28 @@ export default function PouchCitrusOilPackagingPage() {
           </div>
 
           <h1 className="font-black text-5xl md:text-8xl leading-[0.9] tracking-tighter uppercase">
-            Citrus Oil<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500 drop-shadow-[3px_3px_0px_rgba(0,0,0,1)]">Packaging</span>
+            {t('seoPages.pages.pouchCitrusOilPackaging.citrusOil')}<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500 drop-shadow-[3px_3px_0px_rgba(0,0,0,1)]">{t('seoPages.pages.pouchCitrusOilPackaging.packaging')}</span>
           </h1>
 
           <div className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] max-w-3xl mx-auto text-left font-['JetBrains_Mono'] space-y-2">
             <p className="font-bold text-base md:text-lg">
-              &gt; PROBLEM: Active d-limonene & terpenes chemically stress low-quality plastics.
+              {t('seoPages.pages.pouchCitrusOilPackaging.gtProblemActiveDlimonene')}
             </p>
             <p className="font-bold text-base md:text-lg">
-              &gt; RESPONSE: 5 engineered layers protecting aroma, seals, and leak resistance.
+              {t('seoPages.pages.pouchCitrusOilPackaging.gtResponse5Engineered')}
             </p>
             <p className="font-bold text-base md:text-lg">
-              &gt; ACCESSIBILITY: Launch with low MOQs (from 100 pcs) today.
+              {t('seoPages.pages.pouchCitrusOilPackaging.gtAccessibilityLaunchWith')}
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="primary">
-              Book Tech Consult
+              {t('seoPages.pages.pouchCitrusOilPackaging.bookTechConsult')}
             </NeoButton>
             <NeoButton to="/products" variant="secondary">
-              Browse Store
+              {t('seoPages.pages.pouchCitrusOilPackaging.browseStore')}
             </NeoButton>
           </div>
         </div>
@@ -158,15 +161,15 @@ export default function PouchCitrusOilPackagingPage() {
       <section className="py-16 px-4 md:px-6 max-w-4xl mx-auto">
         <NeoCard color="bg-amber-100" className="border-4 border-black">
           <h2 className="font-black text-2xl md:text-3xl uppercase flex items-center gap-2 mb-4">
-            <AlertTriangle className="h-6 w-6 text-amber-600" /> Technical Warning: Terpene Permeation
+            <AlertTriangle className="h-6 w-6 text-amber-600" /> {t('seoPages.pages.pouchCitrusOilPackaging.technicalWarningTerpenePermeation')}
           </h2>
           <p className="font-['Space_Grotesk'] text-base md:text-lg leading-relaxed mb-4">
-            Citrus oils contain high levels of active terpenes (like d-limonene) which act as organic solvents. In ordinary thin plastic sachets, these compounds swell the polymer matrix, leading to rapid aroma leakage, packaging deflation, and eventual stress-cracking.
+            {t('seoPages.pages.pouchCitrusOilPackaging.citrusOilsContainHigh')}
           </p>
           <div className="border-t-2 border-dashed border-black pt-4 font-['JetBrains_Mono'] text-xs font-bold space-y-1">
-            <div>&gt; Recommended WVTR (Water Vapor Transmission): &lt; 0.1 g/m²/day</div>
-            <div>&gt; Recommended OTR (Oxygen Transmission): &lt; 0.1 ml/m²/day</div>
-            <div>&gt; Approved barrier material core: Metallized Foil / Molded Aluminum / EVOH Copolymer</div>
+            <div>{t('seoPages.pages.pouchCitrusOilPackaging.gtRecommendedWvtrWater')}</div>
+            <div>{t('seoPages.pages.pouchCitrusOilPackaging.gtRecommendedOtrOxygen')}</div>
+            <div>{t('seoPages.pages.pouchCitrusOilPackaging.gtApprovedBarrierMaterial')}</div>
           </div>
         </NeoCard>
       </section>
@@ -175,7 +178,7 @@ export default function PouchCitrusOilPackagingPage() {
       <section className="py-16 px-4 md:px-6 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <h2 className="font-black text-4xl md:text-6xl uppercase leading-none">
-            Packaging<br/>Directions
+            {t('seoPages.pages.pouchCitrusOilPackaging.packaging')}<br/>{t('seoPages.pages.pouchCitrusOilPackaging.directions')}
           </h2>
           <div className="font-['JetBrains_Mono'] text-sm font-bold bg-[#00FFFF] border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             FROM_LOW_COST_TO_PREMIUM
@@ -229,7 +232,7 @@ export default function PouchCitrusOilPackagingPage() {
             <div className="w-full md:w-2/5 border-4 border-black overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
               <ClickableImage 
                 src="/imgs/materials/citrus_capsule_display_box.png" 
-                alt="FSC retail display box design for premium foil capsules" 
+                alt={t('seoPages.pages.pouchCitrusOilPackaging.alt_fscRetailDisplayBox')} 
                 className="w-full h-64 object-cover"
               />
             </div>
@@ -238,14 +241,14 @@ export default function PouchCitrusOilPackagingPage() {
                 UNBOXING_DESIGN_ECOSYSTEM
               </span>
               <h3 className="font-black text-3xl md:text-5xl uppercase leading-none text-black">
-                FSC Capsule Display Box Concept
+                {t('seoPages.pages.pouchCitrusOilPackaging.fscCapsuleDisplayBox')}
               </h3>
               <p className="font-['Space_Grotesk'] text-lg text-black leading-relaxed">
-                Elevate your foil capsules with custom printed cardboard display boxes. Ideal for retail shelves or e-commerce subscription boxes, featuring organic sugarcane-based inserts, precision die-cut capsule trays, and premium gold foil stamping. Zero waste, fully biodegradable.
+                {t('seoPages.pages.pouchCitrusOilPackaging.elevateYourFoilCapsules')}
               </p>
               <div className="flex gap-4">
                 <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="dark">
-                  Request Free 3D Mockup
+                  {t('seoPages.pages.pouchCitrusOilPackaging.requestFree3dMockup')}
                 </NeoButton>
               </div>
             </div>
@@ -257,16 +260,16 @@ export default function PouchCitrusOilPackagingPage() {
       <section className="py-16 px-4 md:px-6 max-w-7xl mx-auto">
         <NeoCard className="overflow-x-auto">
           <h3 className="font-black text-2xl uppercase mb-6 flex items-center gap-2">
-            <Beaker className="h-6 w-6" /> Material Performance Grid
+            <Beaker className="h-6 w-6" /> {t('seoPages.pages.pouchCitrusOilPackaging.materialPerformanceGrid')}
           </h3>
           <table className="w-full text-left font-['JetBrains_Mono'] text-xs md:text-sm border-collapse">
             <thead>
               <tr className="border-b-4 border-black">
-                <th className="pb-3 uppercase">Property</th>
-                <th className="pb-3 uppercase">Bottle Sachet</th>
-                <th className="pb-3 uppercase">Foil Capsule</th>
-                <th className="pb-3 uppercase">Recyclable Mono-PE</th>
-                <th className="pb-3 uppercase">Bio-PE Sugarcane</th>
+                <th className="pb-3 uppercase">{t('seoPages.pages.pouchCitrusOilPackaging.property')}</th>
+                <th className="pb-3 uppercase">{t('seoPages.pages.pouchCitrusOilPackaging.bottleSachet')}</th>
+                <th className="pb-3 uppercase">{t('seoPages.pages.pouchCitrusOilPackaging.foilCapsule')}</th>
+                <th className="pb-3 uppercase">{t('seoPages.pages.pouchCitrusOilPackaging.recyclableMonope')}</th>
+                <th className="pb-3 uppercase">{t('seoPages.pages.pouchCitrusOilPackaging.biopeSugarcane')}</th>
               </tr>
             </thead>
             <tbody>
@@ -287,16 +290,16 @@ export default function PouchCitrusOilPackagingPage() {
       {/* Seal sticker & PLA accessories */}
       <section className="py-16 px-4 md:px-6 max-w-4xl mx-auto">
         <NeoCard color="bg-[#00FFFF]" className="text-center space-y-6">
-          <h3 className="font-black text-3xl md:text-4xl uppercase">Seal Your Package Safely</h3>
+          <h3 className="font-black text-3xl md:text-4xl uppercase">{t('seoPages.pages.pouchCitrusOilPackaging.sealYourPackageSafely')}</h3>
           <p className="font-['Space_Grotesk'] text-lg">
-            Ensure tamper-evident security with our certified biodegradable <strong>Premium PLA Sealing Stickers</strong>. Perfect for sealing foil capsules or securing paper outer wraps.
+            {t('seoPages.pages.pouchCitrusOilPackaging.ensureTamperevidentSecurityWith')} <strong>{t('seoPages.pages.pouchCitrusOilPackaging.premiumPlaSealingStickers')}</strong>{t('seoPages.pages.pouchCitrusOilPackaging.perfectForSealingFoil')}
           </p>
           <div className="flex gap-4 justify-center">
             <NeoButton href="/store/product/eco-pla-sealing-sticker" variant="dark">
-              Order PLA Stickers
+              {t('seoPages.pages.pouchCitrusOilPackaging.orderPlaStickers')}
             </NeoButton>
             <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="secondary">
-              Request Samples
+              {t('seoPages.pages.pouchCitrusOilPackaging.requestSamples')}
             </NeoButton>
           </div>
         </NeoCard>

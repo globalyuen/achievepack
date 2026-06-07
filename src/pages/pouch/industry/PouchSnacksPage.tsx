@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
@@ -7,6 +8,8 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
 export default function PouchSnacksPage() {
+  const { t } = useTranslation()
+
   // Scroll detection
   useEffect(() => {
     let scrollTimer: NodeJS.Timeout
@@ -25,13 +28,13 @@ export default function PouchSnacksPage() {
   }, [])
 
   const canonicalUrl = 'https://pouch.eco/industry/snacks'
-  const title = 'Compostable Snack Pouches | Eco-Friendly Chip & Snack Bags'
-  const metaDescription = 'Home compostable snack pouches with grease-resistant barrier. For chips, nuts, granola. 500 MOQ, digital printing. TUV certified, breaks down in 180 days. Resealable closures available.'
+  const title = t('seoPages.pages.pouchSnacks.metaTitle')
+  const metaDescription = t('seoPages.pages.pouchSnacks.metaDescription')
 
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Compostable Snack Pouches",
+    name: t('seoPages.pages.pouchSnacks.compostableSnackPouches'),
     "description": metaDescription,
     "brand": {
       "@type": "Brand",
@@ -57,34 +60,34 @@ export default function PouchSnacksPage() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Can compostable pouches handle greasy snacks like chips?",
+        name: t('seoPages.pages.pouchSnacks.canCompostablePouchesHandle'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Our pouches have grease-resistant inner layers that protect against oil migration. Perfect for chips, nuts, and oil-containing snacks. Maintains crunch and freshness."
+          text: t('seoPages.pages.pouchSnacks.yesOurPouchesHave')
         }
       },
       {
         "@type": "Question",
-        "name": "Do compostable snack bags have resealable closures?",
+        name: t('seoPages.pages.pouchSnacks.doCompostableSnackBags'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. Choose from compostable zippers, press-to-close seals, or tin ties. All options are TUV certified home compostable and keep your snacks fresh after opening."
+          text: t('seoPages.pages.pouchSnacks.absolutelyChooseFromCompostable')
         }
       },
       {
         "@type": "Question",
-        "name": "What's the minimum order for custom printed snack pouches?",
+        name: t('seoPages.pages.pouchSnacks.whatsTheMinimumOrder'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Just 500 pieces with digital printing. Perfect for indie snack brands, farmers market products, or new flavor launches. Get full-color custom designs."
+          text: t('seoPages.pages.pouchSnacks.just500PiecesWith')
         }
       },
       {
         "@type": "Question",
-        "name": "How long do snacks stay fresh in compostable pouches?",
+        name: t('seoPages.pages.pouchSnacks.howLongDoSnacks'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our high-barrier compostable pouches maintain freshness for 6-12 months depending on product. Moisture and oxygen protection comparable to traditional packaging."
+          text: t('seoPages.pages.pouchSnacks.ourHighbarrierCompostablePouches')
         }
       }
     ]
@@ -145,18 +148,18 @@ export default function PouchSnacksPage() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4FF00] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6"
             >
               <Cookie className="w-5 h-5" />
-              <span className="font-['JetBrains_Mono'] font-bold uppercase">Snack Packaging</span>
+              <span className="font-['JetBrains_Mono'] font-bold uppercase">{t('seoPages.pages.pouchSnacks.snackPackaging')}</span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-['Space_Grotesk'] font-black uppercase mb-6 leading-tight">
-              Compostable Snack <span className="text-[#D4FF00]">Pouches</span>
+              {t('seoPages.pages.pouchSnacks.compostableSnack')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchSnacks.pouches')}</span>
             </h1>
             
             <p className="text-xl md:text-2xl font-['JetBrains_Mono'] mb-4 max-w-3xl mx-auto">
-              Grease-resistant. Keeps crunch. Home compostable.
+              {t('seoPages.pages.pouchSnacks.greaseresistantKeepsCrunchHome')}
             </p>
             <p className="text-lg font-['JetBrains_Mono'] mb-8 max-w-2xl mx-auto">
-              For chips, nuts, granola. Start with 500 pieces.
+              {t('seoPages.pages.pouchSnacks.forChipsNutsGranola')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -165,7 +168,7 @@ export default function PouchSnacksPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D4FF00] text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Calendar className="w-6 h-6" />
-                Get Your Quote
+                {t('seoPages.pages.pouchSnacks.getYourQuote')}
                 <ArrowRight className="w-6 h-6" />
               </a>
               <a
@@ -173,7 +176,7 @@ export default function PouchSnacksPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Package className="w-6 h-6" />
-                See Options
+                {t('seoPages.pages.pouchSnacks.seeOptions')}
               </a>
             </div>
           </motion.div>
@@ -185,10 +188,10 @@ export default function PouchSnacksPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: 'Minimum Order', value: '500', unit: 'pieces', icon: Package },
-              { label: 'Shelf Life', value: '6-12', unit: 'months', icon: Shield },
-              { label: 'Compost Time', value: '180', unit: 'days', icon: Leaf },
-              { label: 'Custom Colors', value: '10', unit: 'colors', icon: Sparkles }
+              { label: t('seoPages.pages.pouchSnacks.minimumOrder'), value: '500', unit: 'pieces', icon: Package },
+              { label: t('seoPages.pages.pouchSnacks.shelfLife'), value: '6-12', unit: 'months', icon: Shield },
+              { label: t('seoPages.pages.pouchSnacks.compostTime'), value: '180', unit: 'days', icon: Leaf },
+              { label: t('seoPages.pages.pouchSnacks.customColors'), value: '10', unit: 'colors', icon: Sparkles }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -218,31 +221,31 @@ export default function PouchSnacksPage() {
       <section className="py-24 bg-lime-50 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Snack Brand<br/>Gallery</h2>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">{t('seoPages.pages.pouchSnacks.snackBrand')}<br/>{t('seoPages.pages.pouchSnacks.gallery')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 
               src="/imgs/artifacts/compostable_snack_pouch_window.jpg" 
-              alt="Compostable snack pouch with window" 
+              alt={t('seoPages.pages.pouchSnacks.alt_compostableSnackPouchWith')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Window Pouches"
+              caption={t('seoPages.pages.pouchSnacks.caption_windowPouches')}
             />
             <ClickableImage 
               src="/imgs/store/pouch shape/stand-up.webp" 
-              alt="Granola stand up pouch" 
+              alt={t('seoPages.pages.pouchSnacks.alt_granolaStandUpPouch')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Stand Up Pouches"
+              caption={t('seoPages.pages.pouchSnacks.caption_standUpPouches')}
             />
             <ClickableImage 
               src="/imgs/store/pouch shape/3-side.webp" 
-              alt="Small snack flat pouch" 
+              alt={t('seoPages.pages.pouchSnacks.alt_smallSnackFlatPouch')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Single Serve Packs"
+              caption={t('seoPages.pages.pouchSnacks.caption_singleServePacks')}
             />
             <ClickableImage 
               src="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp" 
-              alt="Sustainable snack packaging range" 
+              alt={t('seoPages.pages.pouchSnacks.alt_sustainableSnackPackagingRange')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Full Range"
+              caption={t('seoPages.pages.pouchSnacks.caption_fullRange')}
             />
           </div>
         </div>
@@ -252,29 +255,29 @@ export default function PouchSnacksPage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Perfect For <span className="text-[#D4FF00]">Snack Brands</span>
+            {t('seoPages.pages.pouchSnacks.perfectFor')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchSnacks.snackBrands')}</span>
           </h2>
 
           <div className="bg-gradient-to-br from-[#D4FF00]/20 to-[#10b981]/10 p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <p className="text-xl font-['Space_Grotesk'] font-semibold mb-6 text-center">
-              Whether you're launching organic chips or scaling your granola brand.
+              {t('seoPages.pages.pouchSnacks.whetherYoureLaunchingOrganic')}
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
-                  title: 'Chips & Snacks',
-                  desc: 'Grease-resistant barrier for crunchy products. Resealable zippers keep freshness.',
+                  title: t('seoPages.pages.pouchSnacks.chipsSnacks'),
+                  desc: t('seoPages.pages.pouchSnacks.greaseresistantBarrierForCrunchy'),
                   icon: Cookie
                 },
                 {
-                  title: 'Granola & Cereal',
-                  desc: 'Clear windows show premium product. Stand-up pouches for retail display.',
+                  title: t('seoPages.pages.pouchSnacks.granolaCereal'),
+                  desc: t('seoPages.pages.pouchSnacks.clearWindowsShowPremium'),
                   icon: Sparkles
                 },
                 {
-                  title: 'Dried Fruits & Nuts',
-                  desc: 'High-barrier protection against moisture and oxidation. 6-12 month shelf life.',
+                  title: t('seoPages.pages.pouchSnacks.driedFruitsNuts'),
+                  desc: t('seoPages.pages.pouchSnacks.highbarrierProtectionAgainstMoisture'),
                   icon: Star
                 }
               ].map((item, idx) => (
@@ -304,39 +307,39 @@ export default function PouchSnacksPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Why Snack Brands <span className="text-[#10b981]">Choose These</span>
+            {t('seoPages.pages.pouchSnacks.whySnackBrands')} <span className="text-[#10b981]">{t('seoPages.pages.pouchSnacks.chooseThese')}</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: 'Grease-Resistant Barrier',
-                desc: 'Inner layers stop oil migration. Perfect for chips, nuts, and fried snacks.',
+                title: t('seoPages.pages.pouchSnacks.greaseresistantBarrier'),
+                desc: t('seoPages.pages.pouchSnacks.innerLayersStopOil'),
                 icon: Shield
               },
               {
-                title: 'Keeps Crunch Fresh',
-                desc: 'Moisture and oxygen barrier maintains texture for 6-12 months.',
+                title: t('seoPages.pages.pouchSnacks.keepsCrunchFresh'),
+                desc: t('seoPages.pages.pouchSnacks.moistureAndOxygenBarrier'),
                 icon: Star
               },
               {
-                title: 'Resealable Closures',
-                desc: 'Compostable zippers or press-to-close seals. Daily use friendly.',
+                title: t('seoPages.pages.pouchSnacks.resealableClosures'),
+                desc: t('seoPages.pages.pouchSnacks.compostableZippersOrPresstoclose'),
                 icon: Zap
               },
               {
-                title: 'Vibrant Printing',
-                desc: 'Up to 10-color digital printing. Eye-catching shelf presence.',
+                title: t('seoPages.pages.pouchSnacks.vibrantPrinting'),
+                desc: t('seoPages.pages.pouchSnacks.upTo10colorDigital'),
                 icon: Sparkles
               },
               {
-                title: 'Clear Windows Available',
-                desc: 'Show product inside. Perfect for granola, trail mix, and dried fruits.',
+                title: t('seoPages.pages.pouchSnacks.clearWindowsAvailable'),
+                desc: t('seoPages.pages.pouchSnacks.showProductInsidePerfect'),
                 icon: Package
               },
               {
-                title: 'Home Compostable',
-                desc: 'TUV certified - breaks down in 180 days. Plant-based, zero plastic guilt.',
+                title: t('seoPages.pages.pouchSnacks.homeCompostable'),
+                desc: t('seoPages.pages.pouchSnacks.tuvCertifiedBreaksDown'),
                 icon: Leaf
               }
             ].map((feature, idx) => (
@@ -371,7 +374,7 @@ export default function PouchSnacksPage() {
       <section className="py-24 bg-gray-50 border-t-4 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            What Can You <span className="text-[#10b981]">Package?</span>
+            {t('seoPages.pages.pouchSnacks.whatCanYou')} <span className="text-[#10b981]">{t('seoPages.pages.pouchSnacks.package')}</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -430,19 +433,19 @@ export default function PouchSnacksPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Customization <span className="text-[#D4FF00]">Options</span>
+            {t('seoPages.pages.pouchSnacks.customization')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchSnacks.options')}</span>
           </h2>
 
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { name: 'Resealable Zipper', desc: 'Keep snacks fresh' },
-              { name: 'Tear Notch', desc: 'Easy opening' },
-              { name: 'Hang Hole', desc: 'Retail display' },
-              { name: 'Clear Window', desc: 'Show product' },
-              { name: 'Matte Finish', desc: 'Premium feel' },
-              { name: 'Spot UV', desc: 'Highlight logo' },
-              { name: 'Embossing', desc: 'Tactile brand' },
-              { name: 'QR Code', desc: 'Digital link' }
+              { name: t('seoPages.pages.pouchSnacks.resealableZipper'), desc: t('seoPages.pages.pouchSnacks.keepSnacksFresh') },
+              { name: t('seoPages.pages.pouchSnacks.tearNotch'), desc: t('seoPages.pages.pouchSnacks.easyOpening') },
+              { name: t('seoPages.pages.pouchSnacks.hangHole'), desc: t('seoPages.pages.pouchSnacks.retailDisplay') },
+              { name: t('seoPages.pages.pouchSnacks.clearWindow'), desc: t('seoPages.pages.pouchSnacks.showProduct') },
+              { name: t('seoPages.pages.pouchSnacks.matteFinish'), desc: t('seoPages.pages.pouchSnacks.premiumFeel') },
+              { name: t('seoPages.pages.pouchSnacks.spotUv'), desc: t('seoPages.pages.pouchSnacks.highlightLogo') },
+              { name: t('seoPages.pages.pouchSnacks.embossing'), desc: t('seoPages.pages.pouchSnacks.tactileBrand') },
+              { name: t('seoPages.pages.pouchSnacks.qrCode'), desc: t('seoPages.pages.pouchSnacks.digitalLink') }
             ].map((feature, idx) => (
               <motion.div
                 key={idx}
@@ -469,43 +472,43 @@ export default function PouchSnacksPage() {
       <section className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
-            The Ultimate Guide to <span className="text-[#10b981]">Sustainable Snack Packaging</span>
+            {t('seoPages.pages.pouchSnacks.theUltimateGuideTo')} <span className="text-[#10b981]">{t('seoPages.pages.pouchSnacks.sustainableSnackPackaging')}</span>
           </h2>
           
           <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
             <p>
-              The global snack food market is booming, driven by consumer demand for convenient, healthy, and on-the-go options. However, this convenience often comes at a high environmental cost. Traditional snack packaging, especially potato chip bags and granola pouches, relies heavily on multi-layer plastics and aluminum foils that are notoriously difficult to recycle. At POUCH.ECO, we provide an innovative alternative: high-barrier, home-compostable snack pouches that protect your product and the planet.
+              {t('seoPages.pages.pouchSnacks.theGlobalSnackFood')}
             </p>
             
             <ClickableImage 
               src="/imgs/artifacts/compostable_snack_pouch_window.jpg" 
-              alt="Sustainable snack packaging with transparent window" 
+              alt={t('seoPages.pages.pouchSnacks.alt_sustainableSnackPackagingWith')} 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
-              caption="Showcase your product's freshness with a home-compostable window."
+              caption={t('seoPages.pages.pouchSnacks.caption_showcaseYourProductsFreshness')}
             />
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">The Challenge of Grease Resistance</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchSnacks.theChallengeOfGrease')}</h3>
             <p>
-              Snacks, by their nature, often contain oils and fats—whether it's the natural oils in roasted almonds or the cooking oils in organic potato chips. When packaging these items, grease resistance is paramount. If a package lacks a proper grease barrier, the oils will migrate through the film, causing unsightly stains on the outside of the bag and compromising the seal integrity.
+              {t('seoPages.pages.pouchSnacks.snacksByTheirNature')}
             </p>
             <p>
-              Our compostable snack pouches utilize advanced, plant-based barrier coatings that act as an impenetrable shield against oil migration. This ensures your packaging remains pristine on the retail shelf while keeping the product inside perfectly fresh and crunchy.
-            </p>
-
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Maintaining the Crunch: Moisture Barriers</h3>
-            <p>
-              Nothing ruins a snacking experience faster than a stale, chewy chip or a soggy piece of granola. Moisture is the enemy of crunch. Traditional packaging uses thick layers of fossil-fuel-based plastics (like PE or BOPP) to keep moisture out.
-            </p>
-            <p>
-              We achieve the same level of moisture protection using certified compostable materials. Our multi-layer laminations feature an ultra-low Water Vapor Transmission Rate (WVTR), effectively locking ambient humidity out of the bag. Whether your customer opens your product in the dry heat of Arizona or the humid summers of Florida, your snack will taste as fresh as the day it was baked.
+              {t('seoPages.pages.pouchSnacks.ourCompostableSnackPouches')}
             </p>
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Designing for the Modern Snack Consumer</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchSnacks.maintainingTheCrunchMoisture')}</h3>
             <p>
-              Today's consumers want transparency—literally and figuratively. They want to know what's in their food, and they want to see it before they buy it. This is why our compostable snack pouches can be engineered with clear, high-clarity windows made from PLA (Polylactic Acid), a biodegradable plastic derived from corn starch. 
+              {t('seoPages.pages.pouchSnacks.nothingRuinsASnacking')}
             </p>
             <p>
-              Coupled with our high-definition digital printing capabilities (available with a low Minimum Order Quantity of just 500 units), you can create vibrant, eye-catching designs that tell your brand's sustainability story while showcasing the mouth-watering quality of your snacks. Stand out on the shelf, reduce your carbon footprint, and give your customers a guilt-free snacking experience.
+              {t('seoPages.pages.pouchSnacks.weAchieveTheSame')}
+            </p>
+
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchSnacks.designingForTheModern')}</h3>
+            <p>
+              {t('seoPages.pages.pouchSnacks.todaysConsumersWantTransparencyliterally')} 
+            </p>
+            <p>
+              {t('seoPages.pages.pouchSnacks.coupledWithOurHighdefinition')}
             </p>
           </div>
         </div>
@@ -515,30 +518,30 @@ export default function PouchSnacksPage() {
       <section className="py-24 bg-gray-50 border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Common <span className="text-[#D4FF00]">Questions</span>
+            {t('seoPages.pages.pouchSnacks.common')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchSnacks.questions')}</span>
           </h2>
 
           <div className="space-y-6">
             {[
               {
-                q: 'Can compostable pouches handle greasy snacks like chips?',
-                a: 'Yes! Our pouches have grease-resistant inner layers that protect against oil migration. Perfect for chips, nuts, and fried snacks. Maintains crunch and freshness for 6-12 months.'
+                q: t('seoPages.pages.pouchSnacks.canCompostablePouchesHandle'),
+                a: t('seoPages.pages.pouchSnacks.yesOurPouchesHave1')
               },
               {
-                q: 'Do compostable snack bags have resealable closures?',
-                a: 'Absolutely. Choose from compostable zippers, press-to-close seals, or tin ties. All options are TUV certified home compostable and keep your snacks fresh after opening.'
+                q: t('seoPages.pages.pouchSnacks.doCompostableSnackBags'),
+                a: t('seoPages.pages.pouchSnacks.absolutelyChooseFromCompostable')
               },
               {
-                q: "What's the minimum order for custom printed snack pouches?",
-                a: 'Just 500 pieces with digital printing. Perfect for indie snack brands, farmers market products, or new flavor launches. Get full-color custom designs with your logo and branding.'
+                q: t('seoPages.pages.pouchSnacks.whatsTheMinimumOrder'),
+                a: t('seoPages.pages.pouchSnacks.just500PiecesWith1')
               },
               {
-                q: 'How long do snacks stay fresh in compostable pouches?',
-                a: 'Our high-barrier compostable pouches maintain freshness for 6-12 months depending on product type. Moisture and oxygen protection is comparable to traditional packaging.'
+                q: t('seoPages.pages.pouchSnacks.howLongDoSnacks'),
+                a: t('seoPages.pages.pouchSnacks.ourHighbarrierCompostablePouches1')
               },
               {
-                q: 'Can I get clear windows to show my product?',
-                a: 'Yes! Clear PLA (plant-based plastic) windows are TUV certified home compostable. Perfect for granola, trail mix, and products where visibility sells. The window breaks down with the rest of the pouch.'
+                q: t('seoPages.pages.pouchSnacks.canIGetClear'),
+                a: t('seoPages.pages.pouchSnacks.yesClearPlaPlantbased')
               }
             ].map((faq, idx) => (
               <motion.div
@@ -572,10 +575,10 @@ export default function PouchSnacksPage() {
           >
             <Cookie className="w-16 h-16 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-6">
-              Your Snacks Deserve Better Packaging
+              {t('seoPages.pages.pouchSnacks.yourSnacksDeserveBetter')}
             </h2>
             <p className="text-xl font-['JetBrains_Mono'] mb-8 max-w-2xl mx-auto">
-              Grease-resistant. Keeps crunch. Home compostable. Start with 500 pieces.
+              {t('seoPages.pages.pouchSnacks.greaseresistantKeepsCrunchHome1')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -583,7 +586,7 @@ export default function PouchSnacksPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-[#D4FF00] font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Calendar className="w-6 h-6" />
-                Book Your Call Now
+                {t('seoPages.pages.pouchSnacks.bookYourCallNow')}
                 <ArrowRight className="w-6 h-6" />
               </a>
               <a
@@ -591,7 +594,7 @@ export default function PouchSnacksPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Package className="w-6 h-6" />
-                See Material Options
+                {t('seoPages.pages.pouchSnacks.seeMaterialOptions')}
               </a>
             </div>
           </motion.div>
@@ -602,7 +605,7 @@ export default function PouchSnacksPage() {
       <section className="py-16 px-4 bg-white border-t-4 border-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-['Space_Grotesk'] font-black text-3xl md:text-4xl uppercase mb-8">
-            <span className="bg-[#D4FF00] px-2">Keep Reading</span>
+            <span className="bg-[#D4FF00] px-2">{t('seoPages.pages.pouchSnacks.keepReading')}</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <a
@@ -612,19 +615,19 @@ export default function PouchSnacksPage() {
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
                   src="/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg"
-                  alt="Compostable Coffee Pouches"
+                  alt={t('seoPages.pages.pouchSnacks.alt_compostableCoffeePouches')}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="p-4">
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  Coffee & Tea Pouches
+                  {t('seoPages.pages.pouchSnacks.coffeeTeaPouches')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Degassing valves. High-barrier. Home compostable.
+                  {t('seoPages.pages.pouchSnacks.degassingValvesHighbarrierHome')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
+                  {t('seoPages.pages.pouchSnacks.readMore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -637,19 +640,19 @@ export default function PouchSnacksPage() {
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
                   src="/imgs/artifacts/pet_food_pouch.jpg"
-                  alt="Compostable Pet Food Pouches"
+                  alt={t('seoPages.pages.pouchSnacks.alt_compostablePetFoodPouches')}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="p-4">
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  Pet Food Pouches
+                  {t('seoPages.pages.pouchSnacks.petFoodPouches')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Heavy-duty. Pet-safe. Home compostable.
+                  {t('seoPages.pages.pouchSnacks.heavydutyPetsafeHomeCompostable')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
+                  {t('seoPages.pages.pouchSnacks.readMore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -662,19 +665,19 @@ export default function PouchSnacksPage() {
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
                   src="/imgs/seo-photos/usa/snack/a_sustainable_snacks_packaging_hero_7099678.webp"
-                  alt="USA Snacks Packaging Guide"
+                  alt={t('seoPages.pages.pouchSnacks.alt_usaSnacksPackagingGuide')}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="p-4">
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  USA Snacks Guide
+                  {t('seoPages.pages.pouchSnacks.usaSnacksGuide')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Complete guide for US snack brands.
+                  {t('seoPages.pages.pouchSnacks.completeGuideForUs')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
+                  {t('seoPages.pages.pouchSnacks.readMore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

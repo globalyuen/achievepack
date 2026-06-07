@@ -24,7 +24,7 @@ export default function PouchPlasticFreeKraftPage() {
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href="https://pouch.eco/materials/plastic-free-kraft" />
-        <meta name="keywords" content="kraft paper bag plastic free, compostable kraft pouches, PLA lining kraft, sustainable packaging facts, Pouch.eco" />
+        <meta name="keywords" content={t(`${p}.keywords`)} />
       </Helmet>
 
       {/* Hero Section */}
@@ -89,11 +89,11 @@ export default function PouchPlasticFreeKraftPage() {
             <h3 className="font-black text-3xl uppercase mb-8 text-[#D4FF00]">{t(`${p}.factsTitle`)}</h3>
             <div className="space-y-6">
               {[
-                { title: 'Strength First', desc: 'Kraft = "Strength" in German. Engineered for durability, not just eco-looks.' },
-                { title: 'Recycling Fail', desc: 'Plastic-lined paper is nearly impossible to recycle. It\'s a hybrid monster.' },
-                { title: 'PLA is King', desc: 'Truly plastic-free bags use PLA lining made from plant starch.' },
-                { title: 'Brown vs White', desc: 'Brown kraft is unbleached; white is bleached for high-impact print.' },
-                { title: 'New Laws', desc: 'California SB 54 is banning non-compostable hybrid materials.' }
+                { title: t(`${p}.facts.fact1.title`), desc: t(`${p}.facts.fact1.desc`) },
+                { title: t(`${p}.facts.fact2.title`), desc: t(`${p}.facts.fact2.desc`) },
+                { title: t(`${p}.facts.fact3.title`), desc: t(`${p}.facts.fact3.desc`) },
+                { title: t(`${p}.facts.fact4.title`), desc: t(`${p}.facts.fact4.desc`) },
+                { title: t(`${p}.facts.fact5.title`), desc: t(`${p}.facts.fact5.desc`) }
               ].map((fact, idx) => (
                 <div key={idx} className="flex gap-4 items-start border-l-2 border-[#D4FF00] pl-4">
                   <div>
@@ -156,7 +156,7 @@ export default function PouchPlasticFreeKraftPage() {
             </h3>
             <p className="font-['JetBrains_Mono'] font-bold mb-4">{t(`${p}.aiIntro`)}</p>
             <div className="space-y-4">
-              (t(`${p}.aiQueries`, { returnObjects: true }) as string[]).map((query, idx) => (
+              {(t(`${p}.aiQueries`, { returnObjects: true }) as string[]).map((query, idx) => (
                 <div key={idx} className="bg-neutral-100 border-2 border-black p-3 text-sm italic font-['JetBrains_Mono']">
                    "{query}"
                 </div>

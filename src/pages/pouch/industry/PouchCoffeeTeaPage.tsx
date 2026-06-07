@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
@@ -7,6 +8,8 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
 export default function PouchCoffeeTeaPage() {
+  const { t } = useTranslation()
+
   // Scroll detection for animations
   useEffect(() => {
     let scrollTimer: NodeJS.Timeout
@@ -25,14 +28,14 @@ export default function PouchCoffeeTeaPage() {
   }, [])
 
   const canonicalUrl = 'https://pouch.eco/industry/coffee-tea'
-  const title = 'Compostable Coffee & Tea Pouches | Certified Home Compostable'
-  const metaDescription = 'Compostable coffee pouches with degassing valves. TUV certified, breaks down in 180 days. Low 500 MOQ, fast digital printing. Perfect for specialty roasters and tea brands.'
+  const title = t('seoPages.pages.pouchCoffeeTea.metaTitle')
+  const metaDescription = t('seoPages.pages.pouchCoffeeTea.metaDescription')
 
   // Schema.org structured data
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Compostable Coffee & Tea Pouches",
+    name: t('seoPages.pages.pouchCoffeeTea.compostableCoffeeTeaPouches'),
     "description": metaDescription,
     "brand": {
       "@type": "Brand",
@@ -58,34 +61,34 @@ export default function PouchCoffeeTeaPage() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Are compostable coffee pouches suitable for freshly roasted beans?",
+        name: t('seoPages.pages.pouchCoffeeTea.areCompostableCoffeePouches'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Our compostable coffee pouches come with one-way degassing valves that release CO2 from freshly roasted beans while preventing oxygen from entering. The high-barrier plant-based materials protect aroma and flavor for 12-18 months."
+          text: t('seoPages.pages.pouchCoffeeTea.yesOurCompostableCoffee')
         }
       },
       {
         "@type": "Question",
-        "name": "What's the minimum order quantity for custom printed coffee pouches?",
+        name: t('seoPages.pages.pouchCoffeeTea.whatsTheMinimumOrder'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Just 500 pieces with digital printing, or 5,000 pieces for rotogravure printing. Perfect for specialty roasters and small tea brands starting out."
+          text: t('seoPages.pages.pouchCoffeeTea.just500PiecesWith')
         }
       },
       {
         "@type": "Question",
-        "name": "How long do compostable coffee bags take to break down?",
+        name: t('seoPages.pages.pouchCoffeeTea.howLongDoCompostable'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our TUV OK Home certified pouches break down completely in 180 days in home composting conditions. Industrial composting takes 90 days. Zero plastic residue."
+          text: t('seoPages.pages.pouchCoffeeTea.ourTuvOkHome')
         }
       },
       {
         "@type": "Question",
-        "name": "Can I add a resealable zipper to compostable coffee bags?",
+        name: t('seoPages.pages.pouchCoffeeTea.canIAddA'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! We offer compostable zipper closures, tin ties, and label seals. All options are certified home compostable and maintain product freshness after opening."
+          text: t('seoPages.pages.pouchCoffeeTea.yesWeOfferCompostable')
         }
       }
     ]
@@ -153,18 +156,18 @@ export default function PouchCoffeeTeaPage() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4FF00] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6"
             >
               <Coffee className="w-5 h-5" />
-              <span className="font-['JetBrains_Mono'] font-bold uppercase">Coffee & Tea Packaging</span>
+              <span className="font-['JetBrains_Mono'] font-bold uppercase">{t('seoPages.pages.pouchCoffeeTea.coffeeTeaPackaging')}</span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-['Space_Grotesk'] font-black uppercase mb-6 leading-tight">
-              Compostable Pouches for <span className="text-[#D4FF00]">Coffee & Tea</span>
+              {t('seoPages.pages.pouchCoffeeTea.compostablePouchesFor')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchCoffeeTea.coffeeTea')}</span>
             </h1>
             
             <p className="text-xl md:text-2xl font-['JetBrains_Mono'] mb-4 max-w-3xl mx-auto">
-              Degassing valves. High-barrier protection. Home compostable. 
+              {t('seoPages.pages.pouchCoffeeTea.degassingValvesHighbarrierProtection')} 
             </p>
             <p className="text-lg font-['JetBrains_Mono'] mb-8 max-w-2xl mx-auto">
-              Perfect for specialty roasters and tea brands. Start with 500 pieces.
+              {t('seoPages.pages.pouchCoffeeTea.perfectForSpecialtyRoasters')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -173,7 +176,7 @@ export default function PouchCoffeeTeaPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D4FF00] text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Calendar className="w-6 h-6" />
-                Get Your Quote
+                {t('seoPages.pages.pouchCoffeeTea.getYourQuote')}
                 <ArrowRight className="w-6 h-6" />
               </a>
               <a
@@ -181,7 +184,7 @@ export default function PouchCoffeeTeaPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Package className="w-6 h-6" />
-                View Materials
+                {t('seoPages.pages.pouchCoffeeTea.viewMaterials')}
               </a>
             </div>
           </motion.div>
@@ -193,10 +196,10 @@ export default function PouchCoffeeTeaPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: 'Minimum Order', value: '500', unit: 'pieces', icon: Package },
-              { label: 'Breakdown Time', value: '180', unit: 'days', icon: Leaf },
-              { label: 'Shelf Life', value: '18', unit: 'months', icon: Shield },
-              { label: 'Turnaround', value: '2-3', unit: 'weeks', icon: Clock }
+              { label: t('seoPages.pages.pouchCoffeeTea.minimumOrder'), value: '500', unit: 'pieces', icon: Package },
+              { label: t('seoPages.pages.pouchCoffeeTea.breakdownTime'), value: '180', unit: 'days', icon: Leaf },
+              { label: t('seoPages.pages.pouchCoffeeTea.shelfLife'), value: '18', unit: 'months', icon: Shield },
+              { label: t('seoPages.pages.pouchCoffeeTea.turnaround'), value: '2-3', unit: 'weeks', icon: Clock }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -226,31 +229,31 @@ export default function PouchCoffeeTeaPage() {
       <section className="py-24 bg-orange-50 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <NeoBadge color="cyan">VISUAL_SHOWCASE</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Specialty Coffee<br/>Showcase</h2>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">{t('seoPages.pages.pouchCoffeeTea.specialtyCoffee')}<br/>{t('seoPages.pages.pouchCoffeeTea.showcase')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 
               src="/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg" 
-              alt="Compostable coffee stand up pouch" 
+              alt={t('seoPages.pages.pouchCoffeeTea.alt_compostableCoffeeStandUp')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Compostable Stand Up"
+              caption={t('seoPages.pages.pouchCoffeeTea.caption_compostableStandUp')}
             />
             <ClickableImage 
               src="/imgs/artifacts/flat_bottom_coffee_bags.jpg" 
-              alt="Compostable flat bottom coffee bag" 
+              alt={t('seoPages.pages.pouchCoffeeTea.alt_compostableFlatBottomCoffee')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Flat Bottom Bags"
+              caption={t('seoPages.pages.pouchCoffeeTea.caption_flatBottomBags')}
             />
             <ClickableImage 
               src="/imgs/artifacts/side_gusset_coffee_bag.jpg" 
-              alt="Traditional side gusset coffee bag" 
+              alt={t('seoPages.pages.pouchCoffeeTea.alt_traditionalSideGussetCoffee')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Side Gusset Bags"
+              caption={t('seoPages.pages.pouchCoffeeTea.caption_sideGussetBags')}
             />
             <ClickableImage 
               src="/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp" 
-              alt="Coffee beans in compostable packaging" 
+              alt={t('seoPages.pages.pouchCoffeeTea.alt_coffeeBeansInCompostable')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Bean Protection"
+              caption={t('seoPages.pages.pouchCoffeeTea.caption_beanProtection')}
             />
           </div>
         </div>
@@ -265,29 +268,29 @@ export default function PouchCoffeeTeaPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-              Is This <span className="text-[#D4FF00]">For You?</span>
+              {t('seoPages.pages.pouchCoffeeTea.isThis')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchCoffeeTea.forYou')}</span>
             </h2>
 
             <div className="bg-gradient-to-br from-[#D4FF00]/20 to-[#10b981]/10 p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <p className="text-xl font-['Space_Grotesk'] font-semibold mb-6 text-center">
-                Perfect for specialty coffee roasters, tea brands, and cafes who want eco-packaging without compromise.
+                {t('seoPages.pages.pouchCoffeeTea.perfectForSpecialtyCoffee')}
               </p>
 
               <div className="grid md:grid-cols-3 gap-6">
                 {[
                   {
-                    title: 'Specialty Roasters',
-                    desc: 'Degassing valves + premium branding from 500 pcs',
+                    title: t('seoPages.pages.pouchCoffeeTea.specialtyRoasters'),
+                    desc: t('seoPages.pages.pouchCoffeeTea.degassingValvesPremiumBranding'),
                     icon: Coffee
                   },
                   {
-                    title: 'Tea Brands',
-                    desc: 'Resealable pouches for loose-leaf and sachets',
+                    title: t('seoPages.pages.pouchCoffeeTea.teaBrands'),
+                    desc: t('seoPages.pages.pouchCoffeeTea.resealablePouchesForLooseleaf'),
                     icon: Leaf
                   },
                   {
-                    title: 'Cafes & Startups',
-                    desc: 'Low MOQ lets you test before committing big',
+                    title: t('seoPages.pages.pouchCoffeeTea.cafesStartups'),
+                    desc: t('seoPages.pages.pouchCoffeeTea.lowMoqLetsYou'),
                     icon: Sparkles
                   }
                 ].map((item, idx) => (
@@ -318,39 +321,39 @@ export default function PouchCoffeeTeaPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            What Makes Our Coffee Pouches <span className="text-[#10b981]">Different?</span>
+            {t('seoPages.pages.pouchCoffeeTea.whatMakesOurCoffee')} <span className="text-[#10b981]">{t('seoPages.pages.pouchCoffeeTea.different')}</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: 'One-Way Degassing Valves',
-                desc: 'Release CO2 from freshly roasted beans without letting oxygen in. Keeps coffee fresh for 12-18 months.',
+                title: t('seoPages.pages.pouchCoffeeTea.onewayDegassingValves'),
+                desc: t('seoPages.pages.pouchCoffeeTea.releaseCo2FromFreshly'),
                 icon: Coffee
               },
               {
-                title: 'High-Barrier Protection',
-                desc: 'Plant-based materials block oxygen, moisture, and light. Protects aroma and flavor naturally.',
+                title: t('seoPages.pages.pouchCoffeeTea.highbarrierProtection'),
+                desc: t('seoPages.pages.pouchCoffeeTea.plantbasedMaterialsBlockOxygen'),
                 icon: Shield
               },
               {
-                title: 'Resealable Closures',
-                desc: 'Compostable zippers, tin ties, or label seals. All certified home compostable.',
+                title: t('seoPages.pages.pouchCoffeeTea.resealableClosures'),
+                desc: t('seoPages.pages.pouchCoffeeTea.compostableZippersTinTies'),
                 icon: Package
               },
               {
-                title: 'Custom Digital Printing',
-                desc: 'Full-color printing from 500 pieces. Your brand, your way. Fast turnaround.',
+                title: t('seoPages.pages.pouchCoffeeTea.customDigitalPrinting'),
+                desc: t('seoPages.pages.pouchCoffeeTea.fullcolorPrintingFrom500'),
                 icon: Sparkles
               },
               {
-                title: 'Multiple Formats',
-                desc: 'Stand-up pouches, flat bottom bags, side gusset. All with premium finish options.',
+                title: t('seoPages.pages.pouchCoffeeTea.multipleFormats'),
+                desc: t('seoPages.pages.pouchCoffeeTea.standupPouchesFlatBottom'),
                 icon: TrendingUp
               },
               {
-                title: 'TUV Certified Compostable',
-                desc: 'Breaks down in 180 days at home. ASTM D6400 and EN 13432 certified. Zero plastic guilt.',
+                title: t('seoPages.pages.pouchCoffeeTea.tuvCertifiedCompostable'),
+                desc: t('seoPages.pages.pouchCoffeeTea.breaksDownIn180'),
                 icon: Leaf
               }
             ].map((feature, idx) => (
@@ -385,7 +388,7 @@ export default function PouchCoffeeTeaPage() {
       <section className="py-24 bg-gray-50 border-t-4 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Choose Your <span className="text-[#10b981]">Material</span>
+            {t('seoPages.pages.pouchCoffeeTea.chooseYour')} <span className="text-[#10b981]">{t('seoPages.pages.pouchCoffeeTea.material')}</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -396,31 +399,31 @@ export default function PouchCoffeeTeaPage() {
               className="bg-[#D4FF00] p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all"
             >
               <h3 className="font-['Space_Grotesk'] font-black text-2xl uppercase mb-4">
-                Home Compostable
+                {t('seoPages.pages.pouchCoffeeTea.homeCompostable')}
               </h3>
               <ul className="space-y-3 font-['JetBrains_Mono'] text-sm">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
-                  <span>Kraft paper + PLA film (plant-based)</span>
+                  <span>{t('seoPages.pages.pouchCoffeeTea.kraftPaperPlaFilm')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
-                  <span>TUV OK Home certified - breaks down in 180 days</span>
+                  <span>{t('seoPages.pages.pouchCoffeeTea.tuvOkHomeCertified')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
-                  <span>Perfect for premium specialty coffee brands</span>
+                  <span>{t('seoPages.pages.pouchCoffeeTea.perfectForPremiumSpecialty')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
-                  <span>Natural kraft look or white matte finish</span>
+                  <span>{t('seoPages.pages.pouchCoffeeTea.naturalKraftLookOr')}</span>
                 </li>
               </ul>
               <a 
                 href="/materials/cello-kraft-triplex"
                 className="inline-block mt-6 px-6 py-3 bg-black text-[#D4FF00] font-black uppercase border-4 border-black hover:translate-x-1 transition-all"
               >
-                Learn More →
+                {t('seoPages.pages.pouchCoffeeTea.learnMore')}
               </a>
             </motion.div>
 
@@ -432,31 +435,31 @@ export default function PouchCoffeeTeaPage() {
               className="bg-white p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all"
             >
               <h3 className="font-['Space_Grotesk'] font-black text-2xl uppercase mb-4">
-                Industrial Compostable
+                {t('seoPages.pages.pouchCoffeeTea.industrialCompostable')}
               </h3>
               <ul className="space-y-3 font-['JetBrains_Mono'] text-sm text-gray-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
-                  <span>PBAT + PLA multilayer structure</span>
+                  <span>{t('seoPages.pages.pouchCoffeeTea.pbatPlaMultilayerStructure')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
-                  <span>ASTM D6400 & EN 13432 certified - 90 days</span>
+                  <span>{t('seoPages.pages.pouchCoffeeTea.astmD6400En13432')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
-                  <span>Higher barrier for extended shelf life</span>
+                  <span>{t('seoPages.pages.pouchCoffeeTea.higherBarrierForExtended')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
-                  <span>Premium white or transparent window options</span>
+                  <span>{t('seoPages.pages.pouchCoffeeTea.premiumWhiteOrTransparent')}</span>
                 </li>
               </ul>
               <a 
                 href="/materials/catalog"
                 className="inline-block mt-6 px-6 py-3 bg-[#10b981] text-white font-black uppercase border-4 border-black hover:translate-x-1 transition-all"
               >
-                View Catalog →
+                {t('seoPages.pages.pouchCoffeeTea.viewCatalog')}
               </a>
             </motion.div>
           </div>
@@ -467,7 +470,7 @@ export default function PouchCoffeeTeaPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            What Can You <span className="text-[#D4FF00]">Package?</span>
+            {t('seoPages.pages.pouchCoffeeTea.whatCanYou')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchCoffeeTea.package')}</span>
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -505,27 +508,27 @@ export default function PouchCoffeeTeaPage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Technical <span className="text-[#10b981]">Specs</span>
+            {t('seoPages.pages.pouchCoffeeTea.technical')} <span className="text-[#10b981]">{t('seoPages.pages.pouchCoffeeTea.specs')}</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="bg-white p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <h3 className="font-['Space_Grotesk'] font-black text-2xl uppercase mb-6 flex items-center gap-3">
                 <Shield className="w-8 h-8 text-[#10b981]" />
-                Barrier Performance
+                {t('seoPages.pages.pouchCoffeeTea.barrierPerformance')}
               </h3>
               <div className="space-y-4 font-['JetBrains_Mono'] text-sm">
                 <div>
-                  <div className="font-bold text-[#10b981] mb-1">Oxygen Transmission Rate (OTR)</div>
-                  <div className="text-gray-700">{'<'} 1.0 cc/m²/24hr</div>
+                  <div className="font-bold text-[#10b981] mb-1">{t('seoPages.pages.pouchCoffeeTea.oxygenTransmissionRateOtr')}</div>
+                  <div className="text-gray-700">{'<'} {t('seoPages.pages.pouchCoffeeTea.10Ccm24hr')}</div>
                 </div>
                 <div>
-                  <div className="font-bold text-[#10b981] mb-1">Moisture Vapor Transmission (MVTR)</div>
-                  <div className="text-gray-700">{'<'} 2.0 g/m²/24hr</div>
+                  <div className="font-bold text-[#10b981] mb-1">{t('seoPages.pages.pouchCoffeeTea.moistureVaporTransmissionMvtr')}</div>
+                  <div className="text-gray-700">{'<'} {t('seoPages.pages.pouchCoffeeTea.20Gm24hr')}</div>
                 </div>
                 <div>
-                  <div className="font-bold text-[#10b981] mb-1">Shelf Life Extension</div>
-                  <div className="text-gray-700">12-18 months for sealed products</div>
+                  <div className="font-bold text-[#10b981] mb-1">{t('seoPages.pages.pouchCoffeeTea.shelfLifeExtension')}</div>
+                  <div className="text-gray-700">{t('seoPages.pages.pouchCoffeeTea.1218MonthsForSealed')}</div>
                 </div>
               </div>
             </div>
@@ -533,28 +536,28 @@ export default function PouchCoffeeTeaPage() {
             <div className="bg-white p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <h3 className="font-['Space_Grotesk'] font-black text-2xl uppercase mb-6 flex items-center gap-3">
                 <CheckCircle className="w-8 h-8 text-[#10b981]" />
-                Certifications
+                {t('seoPages.pages.pouchCoffeeTea.certifications')}
               </h3>
               <ul className="space-y-3 font-['JetBrains_Mono'] text-sm">
                 <li className="flex items-start gap-2">
                   <span className="text-[#10b981] font-bold">✓</span>
-                  <span className="text-gray-700">TUV OK Home (Home Compostable)</span>
+                  <span className="text-gray-700">{t('seoPages.pages.pouchCoffeeTea.tuvOkHomeHome')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#10b981] font-bold">✓</span>
-                  <span className="text-gray-700">ASTM D6400 (US Standard)</span>
+                  <span className="text-gray-700">{t('seoPages.pages.pouchCoffeeTea.astmD6400UsStandard')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#10b981] font-bold">✓</span>
-                  <span className="text-gray-700">EN 13432 (European Standard)</span>
+                  <span className="text-gray-700">{t('seoPages.pages.pouchCoffeeTea.en13432EuropeanStandard')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#10b981] font-bold">✓</span>
-                  <span className="text-gray-700">FDA Food Contact Approved</span>
+                  <span className="text-gray-700">{t('seoPages.pages.pouchCoffeeTea.fdaFoodContactApproved')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#10b981] font-bold">✓</span>
-                  <span className="text-gray-700">BRC Certified Factory</span>
+                  <span className="text-gray-700">{t('seoPages.pages.pouchCoffeeTea.brcCertifiedFactory')}</span>
                 </li>
               </ul>
             </div>
@@ -566,49 +569,49 @@ export default function PouchCoffeeTeaPage() {
       <section className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
-            The Ultimate Guide to <span className="text-[#FF00FF]">Sustainable Coffee Packaging</span>
+            {t('seoPages.pages.pouchCoffeeTea.theUltimateGuideTo')} <span className="text-[#FF00FF]">{t('seoPages.pages.pouchCoffeeTea.sustainableCoffeePackaging')}</span>
           </h2>
           
           <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
             <p>
-              The specialty coffee industry thrives on freshness, aroma, and meticulous attention to detail. However, for decades, the packaging required to preserve these delicate characteristics has relied on unrecyclable, multi-layer plastic and aluminum foil laminates. At POUCH.ECO, we are revolutionizing coffee and tea packaging by offering high-barrier, sustainable solutions that protect your beans while protecting the planet.
+              {t('seoPages.pages.pouchCoffeeTea.theSpecialtyCoffeeIndustry')}
             </p>
             
             <img 
               src="/imgs/artifacts/flat_bottom_coffee_bags.jpg" 
-              alt="Freshly roasted coffee beans in a compostable flat bottom bag with degassing valve" 
+              alt={t('seoPages.pages.pouchCoffeeTea.alt_freshlyRoastedCoffeeBeans')} 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">The Importance of the Degassing Valve</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchCoffeeTea.theImportanceOfThe')}</h3>
             <p>
-              Freshly roasted coffee beans release a significant amount of carbon dioxide (CO2) in the days immediately following the roasting process. If packaged in completely sealed, airtight bags, this trapped gas will cause the bag to inflate and eventually burst. Conversely, if the bag is not sealed airtight, oxygen will enter, leading to rapid staling and loss of the volatile compounds that give specialty coffee its complex flavor profile.
+              {t('seoPages.pages.pouchCoffeeTea.freshlyRoastedCoffeeBeans')}
             </p>
             <p>
-              The solution is the one-way degassing valve. This crucial component allows the built-up CO2 to escape from the inside of the pouch while preventing ambient oxygen from entering. Traditionally, these valves have been made of rigid plastics. We are proud to offer fully compostable degassing valves integrated seamlessly into our home compostable coffee bags. This ensures that every single component of your packaging, from the zipper to the valve, can return to nature.
+              {t('seoPages.pages.pouchCoffeeTea.theSolutionIsThe')}
             </p>
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">High-Barrier Materials for Specialty Coffee</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchCoffeeTea.highbarrierMaterialsForSpecialty')}</h3>
             <p>
-              Coffee's three greatest enemies are oxygen, moisture, and UV light. To combat these, conventional packaging uses an inner layer of aluminum foil. While effective, foil makes the bag impossible to recycle or compost. 
+              {t('seoPages.pages.pouchCoffeeTea.coffeesThreeGreatestEnemies')} 
             </p>
             
             <img 
               src="/imgs/artifacts/stacked_coffee_bags.jpg" 
-              alt="High barrier compostable coffee bags stacked" 
+              alt={t('seoPages.pages.pouchCoffeeTea.alt_highBarrierCompostableCoffee')} 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
             />
 
             <p>
-              Our sustainable coffee bags utilize advanced, plant-based metallized cellulose to achieve high-barrier protection. This innovative material mimics the barrier properties of aluminum, boasting an ultra-low Oxygen Transmission Rate (OTR) and Water Vapor Transmission Rate (WVTR). This guarantees that your meticulously roasted single-origin Ethiopian Yirgacheffe or robust espresso blend tastes just as vibrant when the consumer opens the bag as it did on roast day.
+              {t('seoPages.pages.pouchCoffeeTea.ourSustainableCoffeeBags')}
             </p>
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Packaging Formats for Coffee Roasters</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchCoffeeTea.packagingFormatsForCoffee')}</h3>
             <p>
-              Different roasters have different needs, which is why we offer our sustainable coffee packaging in various formats. The industry favorite is the <strong>Flat Bottom Bag (Box Pouch)</strong>. Its box-like structure offers maximum stability on cafe shelves and provides five printable panels for extensive brand storytelling. 
+              {t('seoPages.pages.pouchCoffeeTea.differentRoastersHaveDifferent')} <strong>{t('seoPages.pages.pouchCoffeeTea.flatBottomBagBox')}</strong>{t('seoPages.pages.pouchCoffeeTea.itsBoxlikeStructureOffers')} 
             </p>
             <p>
-              For smaller sizes, sample packs, or limited edition micro-lots, the classic <strong>Stand-Up Pouch</strong> is an excellent, cost-effective choice. We also offer side-gusset bags commonly used for wholesale accounts or 1kg/5lb bulk offerings. By maintaining a low Minimum Order Quantity (MOQ) of just 500 units, independent roasters can confidently order custom-printed, eco-friendly packaging for specific lots without the burden of massive inventory.
+              {t('seoPages.pages.pouchCoffeeTea.forSmallerSizesSample')} <strong>{t('seoPages.pages.pouchCoffeeTea.standupPouch')}</strong> {t('seoPages.pages.pouchCoffeeTea.isAnExcellentCosteffective')}
             </p>
           </div>
         </div>
@@ -618,30 +621,30 @@ export default function PouchCoffeeTeaPage() {
       <section className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Common <span className="text-[#D4FF00]">Questions</span>
+            {t('seoPages.pages.pouchCoffeeTea.common')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchCoffeeTea.questions')}</span>
           </h2>
 
           <div className="space-y-6">
             {[
               {
-                q: 'Are compostable coffee pouches suitable for freshly roasted beans?',
-                a: 'Yes! Our compostable coffee pouches come with one-way degassing valves that release CO2 from freshly roasted beans while preventing oxygen from entering. The high-barrier plant-based materials protect aroma and flavor for 12-18 months.'
+                q: t('seoPages.pages.pouchCoffeeTea.areCompostableCoffeePouches'),
+                a: t('seoPages.pages.pouchCoffeeTea.yesOurCompostableCoffee')
               },
               {
-                q: "What's the minimum order quantity for custom printed coffee pouches?",
-                a: 'Just 500 pieces with digital printing, or 5,000 pieces for rotogravure printing. Perfect for specialty roasters and small tea brands starting out.'
+                q: t('seoPages.pages.pouchCoffeeTea.whatsTheMinimumOrder'),
+                a: t('seoPages.pages.pouchCoffeeTea.just500PiecesWith')
               },
               {
-                q: 'How long do compostable coffee bags take to break down?',
-                a: 'Our TUV OK Home certified pouches break down completely in 180 days in home composting conditions. Industrial composting takes 90 days. Zero plastic residue.'
+                q: t('seoPages.pages.pouchCoffeeTea.howLongDoCompostable'),
+                a: t('seoPages.pages.pouchCoffeeTea.ourTuvOkHome')
               },
               {
-                q: 'Can I add a resealable zipper to compostable coffee bags?',
-                a: 'Yes! We offer compostable zipper closures, tin ties, and label seals. All options are certified home compostable and maintain product freshness after opening.'
+                q: t('seoPages.pages.pouchCoffeeTea.canIAddA'),
+                a: t('seoPages.pages.pouchCoffeeTea.yesWeOfferCompostable')
               },
               {
-                q: 'What sizes are available for coffee and tea pouches?',
-                a: 'Common sizes: 100g, 250g, 500g, 1kg, and 2kg. Custom sizes available from 500 pieces. Use our size guide calculator to find the perfect fit for your product.'
+                q: t('seoPages.pages.pouchCoffeeTea.whatSizesAreAvailable'),
+                a: t('seoPages.pages.pouchCoffeeTea.commonSizes100g250g')
               }
             ].map((faq, idx) => (
               <motion.div
@@ -675,10 +678,10 @@ export default function PouchCoffeeTeaPage() {
           >
             <Heart className="w-16 h-16 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-6">
-              Ready to Go Compostable?
+              {t('seoPages.pages.pouchCoffeeTea.readyToGoCompostable')}
             </h2>
             <p className="text-xl font-['JetBrains_Mono'] mb-8 max-w-2xl mx-auto">
-              Start with 500 pieces. Fast digital printing. Premium degassing valves. Zero plastic guilt.
+              {t('seoPages.pages.pouchCoffeeTea.startWith500Pieces')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -686,7 +689,7 @@ export default function PouchCoffeeTeaPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-[#D4FF00] font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Calendar className="w-6 h-6" />
-                Book Your Call Now
+                {t('seoPages.pages.pouchCoffeeTea.bookYourCallNow')}
                 <ArrowRight className="w-6 h-6" />
               </a>
               <a
@@ -694,7 +697,7 @@ export default function PouchCoffeeTeaPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Package className="w-6 h-6" />
-                Calculate Your Size
+                {t('seoPages.pages.pouchCoffeeTea.calculateYourSize')}
               </a>
             </div>
           </motion.div>
@@ -705,7 +708,7 @@ export default function PouchCoffeeTeaPage() {
       <section className="py-16 px-4 bg-white border-t-4 border-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-['Space_Grotesk'] font-black text-3xl md:text-4xl uppercase mb-8">
-            <span className="bg-[#D4FF00] px-2">Keep Reading</span>
+            <span className="bg-[#D4FF00] px-2">{t('seoPages.pages.pouchCoffeeTea.keepReading')}</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <a
@@ -715,19 +718,19 @@ export default function PouchCoffeeTeaPage() {
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
                   src="/imgs/artifacts/compostable_snack_pouch_window.jpg"
-                  alt="Compostable Snack Pouches"
+                  alt={t('seoPages.pages.pouchCoffeeTea.alt_compostableSnackPouches')}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="p-4">
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  Snack Pouches
+                  {t('seoPages.pages.pouchCoffeeTea.snackPouches')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Grease-resistant. Keeps crunch. Compostable.
+                  {t('seoPages.pages.pouchCoffeeTea.greaseresistantKeepsCrunchCompostable')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
+                  {t('seoPages.pages.pouchCoffeeTea.readMore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -740,19 +743,19 @@ export default function PouchCoffeeTeaPage() {
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
                   src="/imgs/artifacts/pet_food_pouch.jpg"
-                  alt="Compostable Pet Food Pouches"
+                  alt={t('seoPages.pages.pouchCoffeeTea.alt_compostablePetFoodPouches')}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="p-4">
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  Pet Food Pouches
+                  {t('seoPages.pages.pouchCoffeeTea.petFoodPouches')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Heavy-duty. Pet-safe. Home compostable.
+                  {t('seoPages.pages.pouchCoffeeTea.heavydutyPetsafeHomeCompostable')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
+                  {t('seoPages.pages.pouchCoffeeTea.readMore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -765,19 +768,19 @@ export default function PouchCoffeeTeaPage() {
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
                   src="/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp"
-                  alt="Coffee Packaging Guide"
+                  alt={t('seoPages.pages.pouchCoffeeTea.alt_coffeePackagingGuide')}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="p-4">
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  Coffee Packaging Guide
+                  {t('seoPages.pages.pouchCoffeeTea.coffeePackagingGuide')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Complete guide for specialty roasters.
+                  {t('seoPages.pages.pouchCoffeeTea.completeGuideForSpecialty')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
+                  {t('seoPages.pages.pouchCoffeeTea.readMore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

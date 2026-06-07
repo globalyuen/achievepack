@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
@@ -7,6 +8,8 @@ import { NeoButton, NeoCard, NeoBadge } from '../../../components/pouch/PouchUI'
 import ClickableImage from '../../../components/ClickableImage'
 
 export default function PouchPetFoodPage() {
+  const { t } = useTranslation()
+
   // Scroll detection
   useEffect(() => {
     let scrollTimer: NodeJS.Timeout
@@ -25,13 +28,13 @@ export default function PouchPetFoodPage() {
   }, [])
 
   const canonicalUrl = 'https://pouch.eco/industry/pet-food'
-  const title = 'Compostable Pet Food Pouches | Eco-Friendly Dog & Cat Treat Bags'
-  const metaDescription = 'Home compostable pet food pouches for kibble, treats & supplements. Heavy-duty, pet-safe materials. 500 MOQ with custom printing. TUV certified, breaks down in 180 days.'
+  const title = t('seoPages.pages.pouchPetFood.metaTitle')
+  const metaDescription = t('seoPages.pages.pouchPetFood.metaDescription')
 
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Compostable Pet Food Pouches",
+    name: t('seoPages.pages.pouchPetFood.compostablePetFoodPouches'),
     "description": metaDescription,
     "brand": {
       "@type": "Brand",
@@ -57,34 +60,34 @@ export default function PouchPetFoodPage() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Are compostable pet food bags safe for pets?",
+        name: t('seoPages.pages.pouchPetFood.areCompostablePetFood'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Our pouches use FDA-approved, pet-safe materials. No BPA, no harmful chemicals. TUV certified home compostable. Perfect for natural pet brands who care about pet health and the planet."
+          text: t('seoPages.pages.pouchPetFood.yesOurPouchesUse')
         }
       },
       {
         "@type": "Question",
-        "name": "Can compostable pouches handle heavy kibble and treats?",
+        name: t('seoPages.pages.pouchPetFood.canCompostablePouchesHandle'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. Our heavy-duty construction uses reinforced seals and thick films. Tested with dense kibble, freeze-dried treats, and bone broth powder. Moisture barrier protects against fat oxidation."
+          text: t('seoPages.pages.pouchPetFood.absolutelyOurHeavydutyConstruction')
         }
       },
       {
         "@type": "Question",
-        "name": "What's the minimum order for custom pet food pouches?",
+        name: t('seoPages.pages.pouchPetFood.whatsTheMinimumOrder'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Just 500 pieces with digital printing. Perfect for indie pet brands, new product launches, or testing the market. Get custom colors, logos, and designs."
+          text: t('seoPages.pages.pouchPetFood.just500PiecesWith')
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer resealable closures for pet treat bags?",
+        name: t('seoPages.pages.pouchPetFood.doYouOfferResealable'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Choose from compostable zippers, tin ties, or press-to-close seals. All options keep treats fresh and are certified home compostable."
+          text: t('seoPages.pages.pouchPetFood.yesChooseFromCompostable')
         }
       }
     ]
@@ -145,18 +148,18 @@ export default function PouchPetFoodPage() {
               className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4FF00] border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-6"
             >
               <PawPrint className="w-5 h-5" />
-              <span className="font-['JetBrains_Mono'] font-bold uppercase">Pet Food Packaging</span>
+              <span className="font-['JetBrains_Mono'] font-bold uppercase">{t('seoPages.pages.pouchPetFood.petFoodPackaging')}</span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-['Space_Grotesk'] font-black uppercase mb-6 leading-tight">
-              Compostable Pet Food <span className="text-[#D4FF00]">Pouches</span>
+              {t('seoPages.pages.pouchPetFood.compostablePetFood')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchPetFood.pouches')}</span>
             </h1>
             
             <p className="text-xl md:text-2xl font-['JetBrains_Mono'] mb-4 max-w-3xl mx-auto">
-              Heavy-duty. Pet-safe. Home compostable.
+              {t('seoPages.pages.pouchPetFood.heavydutyPetsafeHomeCompostable')}
             </p>
             <p className="text-lg font-['JetBrains_Mono'] mb-8 max-w-2xl mx-auto">
-              For kibble, treats, supplements. Start with 500 pieces.
+              {t('seoPages.pages.pouchPetFood.forKibbleTreatsSupplements')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -165,7 +168,7 @@ export default function PouchPetFoodPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D4FF00] text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Calendar className="w-6 h-6" />
-                Get Your Quote
+                {t('seoPages.pages.pouchPetFood.getYourQuote')}
                 <ArrowRight className="w-6 h-6" />
               </a>
               <a
@@ -173,7 +176,7 @@ export default function PouchPetFoodPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all"
               >
                 <Package className="w-6 h-6" />
-                See Options
+                {t('seoPages.pages.pouchPetFood.seeOptions')}
               </a>
             </div>
           </motion.div>
@@ -185,10 +188,10 @@ export default function PouchPetFoodPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: 'Minimum Order', value: '500', unit: 'pieces', icon: Package },
-              { label: 'Pet-Safe', value: 'FDA', unit: 'approved', icon: Shield },
-              { label: 'Compost Time', value: '180', unit: 'days', icon: Leaf },
-              { label: 'Seal Strength', value: '10+', unit: 'kg', icon: Star }
+              { label: t('seoPages.pages.pouchPetFood.minimumOrder'), value: '500', unit: 'pieces', icon: Package },
+              { label: t('seoPages.pages.pouchPetFood.petsafe'), value: 'FDA', unit: 'approved', icon: Shield },
+              { label: t('seoPages.pages.pouchPetFood.compostTime'), value: '180', unit: 'days', icon: Leaf },
+              { label: t('seoPages.pages.pouchPetFood.sealStrength'), value: '10+', unit: 'kg', icon: Star }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -218,31 +221,31 @@ export default function PouchPetFoodPage() {
       <section className="py-24 bg-yellow-50 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
-          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">Pet Packaging<br/>In Action</h2>
+          <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">{t('seoPages.pages.pouchPetFood.petPackaging')}<br/>{t('seoPages.pages.pouchPetFood.inAction')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 
               src="/imgs/illustrated/a_pet_treats_v2_seal_7677464.webp" 
-              alt="Compostable dog treat bag" 
+              alt={t('seoPages.pages.pouchPetFood.alt_compostableDogTreatBag')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Dog Treat Pouches"
+              caption={t('seoPages.pages.pouchPetFood.caption_dogTreatPouches')}
             />
             <ClickableImage 
               src="/imgs/store/pouch shape/stand-up.webp" 
-              alt="Cat food stand up pouch" 
+              alt={t('seoPages.pages.pouchPetFood.alt_catFoodStandUp')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Kibble Pouches"
+              caption={t('seoPages.pages.pouchPetFood.caption_kibblePouches')}
             />
             <ClickableImage 
               src="/imgs/store/pouch shape/flat-bottom.webp" 
-              alt="Bulk pet food flat bottom bag" 
+              alt={t('seoPages.pages.pouchPetFood.alt_bulkPetFoodFlat')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="Bulk Food Bags"
+              caption={t('seoPages.pages.pouchPetFood.caption_bulkFoodBags')}
             />
             <ClickableImage 
               src="/imgs/topics/dtc_packaging_1778212333445.png" 
-              alt="Pet food DTC packaging" 
+              alt={t('seoPages.pages.pouchPetFood.alt_petFoodDtcPackaging')} 
               className="w-full h-48 object-cover rounded-none border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-              caption="DTC Solutions"
+              caption={t('seoPages.pages.pouchPetFood.caption_dtcSolutions')}
             />
           </div>
         </div>
@@ -252,29 +255,29 @@ export default function PouchPetFoodPage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Perfect For <span className="text-[#D4FF00]">Pet Brands</span>
+            {t('seoPages.pages.pouchPetFood.perfectFor')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchPetFood.petBrands')}</span>
           </h2>
 
           <div className="bg-gradient-to-br from-[#D4FF00]/20 to-[#10b981]/10 p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <p className="text-xl font-['Space_Grotesk'] font-semibold mb-6 text-center">
-              Whether you're launching a new treat line or scaling your natural pet food brand.
+              {t('seoPages.pages.pouchPetFood.whetherYoureLaunchingA')}
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
-                  title: 'Indie Pet Brands',
-                  desc: 'Low 500 MOQ for testing new products. Perfect for Kickstarter launches.',
+                  title: t('seoPages.pages.pouchPetFood.indiePetBrands'),
+                  desc: t('seoPages.pages.pouchPetFood.low500MoqFor'),
                   icon: Sparkles
                 },
                 {
-                  title: 'Premium Pet Food',
-                  desc: 'Heavy-duty construction for dense kibble and freeze-dried raw.',
+                  title: t('seoPages.pages.pouchPetFood.premiumPetFood'),
+                  desc: t('seoPages.pages.pouchPetFood.heavydutyConstructionForDense'),
                   icon: Star
                 },
                 {
-                  title: 'E-commerce Sellers',
-                  desc: 'Resealable closures + clear windows for beautiful product photos.',
+                  title: t('seoPages.pages.pouchPetFood.ecommerceSellers'),
+                  desc: t('seoPages.pages.pouchPetFood.resealableClosuresClearWindows'),
                   icon: Heart
                 }
               ].map((item, idx) => (
@@ -304,39 +307,39 @@ export default function PouchPetFoodPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Why Pet Parents <span className="text-[#10b981]">Love These</span>
+            {t('seoPages.pages.pouchPetFood.whyPetParents')} <span className="text-[#10b981]">{t('seoPages.pages.pouchPetFood.loveThese')}</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: 'Heavy-Duty Construction',
-                desc: 'Thick films + reinforced seals handle sharp kibble and dense treats. No tears, no leaks.',
+                title: t('seoPages.pages.pouchPetFood.heavydutyConstruction'),
+                desc: t('seoPages.pages.pouchPetFood.thickFilmsReinforcedSeals'),
                 icon: Shield
               },
               {
-                title: 'Moisture Barrier',
-                desc: 'Locks in freshness, prevents fat oxidation. Keeps treats crunchy for months.',
+                title: t('seoPages.pages.pouchPetFood.moistureBarrier'),
+                desc: t('seoPages.pages.pouchPetFood.locksInFreshnessPrevents'),
                 icon: Star
               },
               {
-                title: 'Resealable Closures',
-                desc: 'Compostable zippers, tin ties, or press-to-close. Daily use friendly.',
+                title: t('seoPages.pages.pouchPetFood.resealableClosures'),
+                desc: t('seoPages.pages.pouchPetFood.compostableZippersTinTies'),
                 icon: Package
               },
               {
-                title: 'Pet-Safe Materials',
-                desc: 'FDA approved, BPA-free, low-migration inks. Safe for furry friends.',
+                title: t('seoPages.pages.pouchPetFood.petsafeMaterials'),
+                desc: t('seoPages.pages.pouchPetFood.fdaApprovedBpafreeLowmigration'),
                 icon: Heart
               },
               {
-                title: 'Large Format Options',
-                desc: 'From single-serve treats to 10kg bulk bags. All sizes available.',
+                title: t('seoPages.pages.pouchPetFood.largeFormatOptions'),
+                desc: t('seoPages.pages.pouchPetFood.fromSingleserveTreatsTo'),
                 icon: PawPrint
               },
               {
-                title: 'Home Compostable',
-                desc: 'TUV certified - breaks down in 180 days. Plant-based, zero plastic guilt.',
+                title: t('seoPages.pages.pouchPetFood.homeCompostable'),
+                desc: t('seoPages.pages.pouchPetFood.tuvCertifiedBreaksDown'),
                 icon: Leaf
               }
             ].map((feature, idx) => (
@@ -371,7 +374,7 @@ export default function PouchPetFoodPage() {
       <section className="py-24 bg-gray-50 border-t-4 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            What Can You <span className="text-[#10b981]">Package?</span>
+            {t('seoPages.pages.pouchPetFood.whatCanYou')} <span className="text-[#10b981]">{t('seoPages.pages.pouchPetFood.package')}</span>
           </h2>
 
           <div className="grid md:grid-cols-4 gap-6">
@@ -422,21 +425,21 @@ export default function PouchPetFoodPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Pet <span className="text-[#D4FF00]">Safety First</span>
+            {t('seoPages.pages.pouchPetFood.pet')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchPetFood.safetyFirst')}</span>
           </h2>
 
           <div className="max-w-3xl mx-auto bg-gray-50 p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <p className="text-lg font-['Space_Grotesk'] font-semibold mb-6 text-center">
-              All materials meet pet food safety standards:
+              {t('seoPages.pages.pouchPetFood.allMaterialsMeetPet')}
             </p>
 
             <ul className="space-y-4 font-['JetBrains_Mono'] text-sm">
               {[
-                { text: 'FDA 21 CFR Compliant - Food contact approved', icon: CheckCircle },
-                { text: 'AAFCO Guidelines - Pet food packaging requirements', icon: CheckCircle },
-                { text: 'Heavy Metal Testing - Below detection limits', icon: CheckCircle },
-                { text: 'BPA-Free Materials - No harmful chemicals', icon: CheckCircle },
-                { text: 'Low-Migration Inks - Pet-safe printing only', icon: CheckCircle }
+                { text: t('seoPages.pages.pouchPetFood.fda21CfrCompliant'), icon: CheckCircle },
+                { text: t('seoPages.pages.pouchPetFood.aafcoGuidelinesPetFood'), icon: CheckCircle },
+                { text: t('seoPages.pages.pouchPetFood.heavyMetalTestingBelow'), icon: CheckCircle },
+                { text: t('seoPages.pages.pouchPetFood.bpafreeMaterialsNoHarmful'), icon: CheckCircle },
+                { text: t('seoPages.pages.pouchPetFood.lowmigrationInksPetsafePrinting'), icon: CheckCircle }
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <item.icon className="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5" />
@@ -446,7 +449,7 @@ export default function PouchPetFoodPage() {
             </ul>
 
             <p className="text-sm text-gray-600 mt-6 text-center">
-              Full documentation: COA (Certificate of Analysis) + SDS (Safety Data Sheets)
+              {t('seoPages.pages.pouchPetFood.fullDocumentationCoaCertificate')}
             </p>
           </div>
         </div>
@@ -456,51 +459,51 @@ export default function PouchPetFoodPage() {
       <section className="py-24 bg-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-8">
-            The Ultimate Guide to <span className="text-[#10b981]">Sustainable Pet Food Packaging</span>
+            {t('seoPages.pages.pouchPetFood.theUltimateGuideTo')} <span className="text-[#10b981]">{t('seoPages.pages.pouchPetFood.sustainablePetFoodPackaging')}</span>
           </h2>
           
           <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
             <p>
-              The pet food industry is undergoing a massive transformation. As pet parents become increasingly conscious of their environmental footprint, the demand for sustainable pet food packaging has skyrocketed. Traditional multi-layer plastic pet food bags are notoriously difficult to recycle, often ending up in landfills where they can take centuries to break down. At POUCH.ECO, we are addressing this crisis head-on with our revolutionary compostable pet food pouches.
+              {t('seoPages.pages.pouchPetFood.thePetFoodIndustry')}
             </p>
             
             <ClickableImage 
               src="/imgs/store/pouch shape/stand-up.webp" 
-              alt="Sustainable dog treat packaging breaking down in compost" 
+              alt={t('seoPages.pages.pouchPetFood.alt_sustainableDogTreatPackaging')} 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
-              caption="Our compostable materials return to the earth, not the landfill."
+              caption={t('seoPages.pages.pouchPetFood.caption_ourCompostableMaterialsReturn')}
             />
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Why Switch to Home Compostable Materials?</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchPetFood.whySwitchToHome')}</h3>
             <p>
-              When you choose home compostable materials for your pet food brand, you are making a commitment to a circular economy. Unlike traditional plastics, our TUV-certified home compostable pouches are designed to break down in a backyard compost bin within 180 days. This means that after a customer finishes a bag of your premium dog treats or cat kibble, they can simply remove the compostable zipper and toss the bag into their compost pile. The packaging naturally degrades into nutrient-rich soil, completely eliminating plastic waste.
+              {t('seoPages.pages.pouchPetFood.whenYouChooseHome')}
             </p>
             <p>
-              Furthermore, utilizing compostable packaging significantly boosts your brand's appeal to millennial and Gen-Z pet owners, who consistently rank sustainability as a top purchasing factor. It's not just about doing what's right for the planet; it's a strategic business move that enhances brand loyalty and justifies premium pricing for high-quality pet nutrition.
+              {t('seoPages.pages.pouchPetFood.furthermoreUtilizingCompostablePackaging')}
             </p>
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Navigating Barrier Requirements for Pet Nutrition</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchPetFood.navigatingBarrierRequirementsFor')}</h3>
             <p>
-              One of the biggest challenges in pet food packaging is maintaining the integrity of the product. Pet foods, especially high-protein kibble and fat-rich treats, are highly susceptible to oxidation and moisture. Traditional packaging relies on aluminum foil and nylon layers to achieve these barriers.
+              {t('seoPages.pages.pouchPetFood.oneOfTheBiggest')}
             </p>
             
             <ClickableImage 
               src="/imgs/blog/Sustainable-pet/a_pet_food_material_comparison_4636150.webp" 
-              alt="High barrier compostable film structure for pet treats" 
+              alt={t('seoPages.pages.pouchPetFood.alt_highBarrierCompostableFilm')} 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
-              caption="High-barrier protection without the permanent plastic."
+              caption={t('seoPages.pages.pouchPetFood.caption_highbarrierProtectionWithoutThe')}
             />
 
             <p>
-              Our advanced compostable films utilize metallized cellulose and proprietary plant-based barrier coatings to achieve an Oxygen Transmission Rate (OTR) and Water Vapor Transmission Rate (WVTR) that rivals conventional plastics. This ensures that the essential fatty acids in your pet food do not go rancid, the vitamins remain potent, and the treats maintain their intended texture—whether that's a soft, chewy training treat or a hard, crunchy dental stick.
+              {t('seoPages.pages.pouchPetFood.ourAdvancedCompostableFilms')}
             </p>
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">Understanding the AI Search Landscape for Pet Brands</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchPetFood.understandingTheAiSearch')}</h3>
             <p>
-              As search engines evolve into AI-driven answer engines (like ChatGPT and Perplexity), having detailed, authoritative content on your packaging is crucial. AI models look for "Entity Relationships"—meaning they connect the concept of "Premium Dog Treats" with "Sustainable Packaging" and "Low MOQ Suppliers."
+              {t('seoPages.pages.pouchPetFood.asSearchEnginesEvolve')}
             </p>
             <p>
-              By offering low minimum order quantities (MOQ) of just 500 pieces, we empower indie pet brands to launch quickly and sustainably. When customers ask AI, "What is the most sustainable packaging for my new organic dog treat brand?", our extensive documentation, FDA-approved material safety data, and clear commitment to compostability ensure that POUCH.ECO is recognized as the leading solution. We provide the structural integrity your product needs with the environmental responsibility your customers demand.
+              {t('seoPages.pages.pouchPetFood.byOfferingLowMinimum')}
             </p>
           </div>
         </div>
@@ -510,30 +513,30 @@ export default function PouchPetFoodPage() {
       <section className="py-24 bg-gray-50 border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-12 text-center">
-            Common <span className="text-[#D4FF00]">Questions</span>
+            {t('seoPages.pages.pouchPetFood.common')} <span className="text-[#D4FF00]">{t('seoPages.pages.pouchPetFood.questions')}</span>
           </h2>
 
           <div className="space-y-6">
             {[
               {
-                q: 'Are compostable pet food bags safe for pets?',
-                a: 'Yes! Our pouches use FDA-approved, pet-safe materials. No BPA, no harmful chemicals. TUV certified home compostable. Perfect for natural pet brands who care about pet health and the planet.'
+                q: t('seoPages.pages.pouchPetFood.areCompostablePetFood'),
+                a: t('seoPages.pages.pouchPetFood.yesOurPouchesUse')
               },
               {
-                q: 'Can compostable pouches handle heavy kibble and treats?',
-                a: 'Absolutely. Our heavy-duty construction uses reinforced seals and thick films. Tested with dense kibble, freeze-dried treats, and bone broth powder. Moisture barrier protects against fat oxidation.'
+                q: t('seoPages.pages.pouchPetFood.canCompostablePouchesHandle'),
+                a: t('seoPages.pages.pouchPetFood.absolutelyOurHeavydutyConstruction')
               },
               {
-                q: "What's the minimum order for custom pet food pouches?",
-                a: 'Just 500 pieces with digital printing. Perfect for indie pet brands, new product launches, or testing the market. Get custom colors, logos, and designs.'
+                q: t('seoPages.pages.pouchPetFood.whatsTheMinimumOrder'),
+                a: t('seoPages.pages.pouchPetFood.just500PiecesWith')
               },
               {
-                q: 'Do you offer resealable closures for pet treat bags?',
-                a: 'Yes! Choose from compostable zippers, tin ties, or press-to-close seals. All options keep treats fresh and are certified home compostable.'
+                q: t('seoPages.pages.pouchPetFood.doYouOfferResealable'),
+                a: t('seoPages.pages.pouchPetFood.yesChooseFromCompostable')
               },
               {
-                q: 'How long do compostable pet food bags take to break down?',
-                a: 'TUV OK Home certified pouches break down in 180 days at home. Industrial composting takes 90 days. Zero plastic residue. Your packaging returns to nature, not landfills.'
+                q: t('seoPages.pages.pouchPetFood.howLongDoCompostable'),
+                a: t('seoPages.pages.pouchPetFood.tuvOkHomeCertified')
               }
             ].map((faq, idx) => (
               <motion.div
@@ -567,10 +570,10 @@ export default function PouchPetFoodPage() {
           >
             <PawPrint className="w-16 h-16 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mb-6">
-              Your Pets Deserve Better Packaging
+              {t('seoPages.pages.pouchPetFood.yourPetsDeserveBetter')}
             </h2>
             <p className="text-xl font-['JetBrains_Mono'] mb-8 max-w-2xl mx-auto">
-              Heavy-duty. Pet-safe. Home compostable. Start with 500 pieces.
+              {t('seoPages.pages.pouchPetFood.heavydutyPetsafeHomeCompostable1')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -578,7 +581,7 @@ export default function PouchPetFoodPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-[#D4FF00] font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Calendar className="w-6 h-6" />
-                Book Your Call Now
+                {t('seoPages.pages.pouchPetFood.bookYourCallNow')}
                 <ArrowRight className="w-6 h-6" />
               </a>
               <a
@@ -586,7 +589,7 @@ export default function PouchPetFoodPage() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-black uppercase border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 <Package className="w-6 h-6" />
-                See Material Options
+                {t('seoPages.pages.pouchPetFood.seeMaterialOptions')}
               </a>
             </div>
           </motion.div>
@@ -597,7 +600,7 @@ export default function PouchPetFoodPage() {
       <section className="py-16 px-4 bg-white border-t-4 border-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-['Space_Grotesk'] font-black text-3xl md:text-4xl uppercase mb-8">
-            <span className="bg-[#D4FF00] px-2">Keep Reading</span>
+            <span className="bg-[#D4FF00] px-2">{t('seoPages.pages.pouchPetFood.keepReading')}</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <a
@@ -607,19 +610,19 @@ export default function PouchPetFoodPage() {
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
                   src="/imgs/artifacts/compostable_coffee_stand_up_pouch.jpg"
-                  alt="Compostable Coffee Pouches"
+                  alt={t('seoPages.pages.pouchPetFood.alt_compostableCoffeePouches')}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="p-4">
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  Coffee & Tea Pouches
+                  {t('seoPages.pages.pouchPetFood.coffeeTeaPouches')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Degassing valves. High-barrier. Home compostable.
+                  {t('seoPages.pages.pouchPetFood.degassingValvesHighbarrierHome')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
+                  {t('seoPages.pages.pouchPetFood.readMore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -632,19 +635,19 @@ export default function PouchPetFoodPage() {
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
                   src="/imgs/artifacts/compostable_snack_pouch_window.jpg"
-                  alt="Compostable Snack Pouches"
+                  alt={t('seoPages.pages.pouchPetFood.alt_compostableSnackPouches')}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="p-4">
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  Snack Pouches
+                  {t('seoPages.pages.pouchPetFood.snackPouches')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Grease-resistant. Keeps crunch. Compostable.
+                  {t('seoPages.pages.pouchPetFood.greaseresistantKeepsCrunchCompostable')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
+                  {t('seoPages.pages.pouchPetFood.readMore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -657,19 +660,19 @@ export default function PouchPetFoodPage() {
               <div className="border-b-4 border-black overflow-hidden">
                 <ClickableImage 
                   src="/imgs/4-infograhic/compost.webp"
-                  alt="Home Composting Guide"
+                  alt={t('seoPages.pages.pouchPetFood.alt_homeCompostingGuide')}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                 />
               </div>
               <div className="p-4">
                 <h3 className="font-['Space_Grotesk'] font-black text-lg uppercase group-hover:text-[#10b981] transition-colors">
-                  Home Composting Guide
+                  {t('seoPages.pages.pouchPetFood.homeCompostingGuide')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  Complete guide to home composting.
+                  {t('seoPages.pages.pouchPetFood.completeGuideToHome')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
-                  Read More
+                  {t('seoPages.pages.pouchPetFood.readMore')}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

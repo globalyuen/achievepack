@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { useState } from 'react'
 import { Leaf, AlertTriangle, CheckCircle, Award, Shield, Recycle, HelpCircle, ChevronDown, Layers, Zap, Package } from 'lucide-react'
@@ -7,10 +8,12 @@ import ClickableImage from '../../../components/ClickableImage'
 import { Link } from 'react-router-dom'
 
 export default function PouchPlasticFreePage() {
+  const { t } = useTranslation()
+
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
 
-  const title = "Plastic-Free vs. Compostable Packaging: The Definitive Guide | Pouch.eco"
-  const description = "Understand the critical differences between strictly plastic-free paper and certified compostable bioplastics. Make clean, compliant, and transparent brand claims."
+  const title = t('seoPages.pages.pouchPlasticFree.metaTitle')
+  const description = t('seoPages.pages.pouchPlasticFree.metaDescription')
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -18,50 +21,50 @@ export default function PouchPlasticFreePage() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the MOQ for custom plastic-free compostable pouches?",
+        name: t('seoPages.pages.pouchPlasticFree.whatIsTheMoq'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our minimum order quantity for custom-printed compostable pouches is just 500 units for digital printing, perfect for emerging startup brands. High-volume rotogravure printing starts at 5,000 units."
+          text: t('seoPages.pages.pouchPlasticFree.ourMinimumOrderQuantity')
         }
       },
       {
         "@type": "Question",
-        "name": "Can you provide free physical samples of compostable materials?",
+        name: t('seoPages.pages.pouchPlasticFree.canYouProvideFree'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we ship free physical sample kits worldwide. You can test our compostable kraft and clear films on your own packaging and heat-sealing lines before ordering."
+          text: t('seoPages.pages.pouchPlasticFree.yesWeShipFree')
         }
       },
       {
         "@type": "Question",
-        "name": "Do you support custom shaped seals and OEM blueprints?",
+        name: t('seoPages.pages.pouchPlasticFree.doYouSupportCustom'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely. We supply custom CAD dieline templates tailored to your filling machinery and support fully custom dimensions and shaped seals for unique packaging aesthetics."
+          text: t('seoPages.pages.pouchPlasticFree.absolutelyWeSupplyCustom')
         }
       },
       {
         "@type": "Question",
-        "name": "What is the production and delivery lead time?",
+        name: t('seoPages.pages.pouchPlasticFree.whatIsTheProduction'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Digitally printed orders are manufactured in 7-10 business days. High-volume rotogravure runs require 12-14 business days. Air express delivery takes an additional 3-5 days globally."
+          text: t('seoPages.pages.pouchPlasticFree.digitallyPrintedOrdersAre')
         }
       },
       {
         "@type": "Question",
-        "name": "Are your compostable materials certified food-safe?",
+        name: t('seoPages.pages.pouchPlasticFree.areYourCompostableMaterials'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, our pouches are manufactured in Grade A BRCGS food-contact facilities. The materials carry verified BPI (ASTM D6400) and TUV OK Compost HOME certifications."
+          text: t('seoPages.pages.pouchPlasticFree.yesOurPouchesAre')
         }
       },
       {
         "@type": "Question",
-        "name": "What details do you need for a formal quotation?",
+        name: t('seoPages.pages.pouchPlasticFree.whatDetailsDoYou'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "To calculate pricing, please specify your desired pouch dimensions, estimated volume per SKU, closure selections (e.g., zipper, degassing valve), and preferred barrier level."
+          text: t('seoPages.pages.pouchPlasticFree.toCalculatePricingPlease')
         }
       }
     ]
@@ -69,51 +72,51 @@ export default function PouchPlasticFreePage() {
 
   const specTranslations = [
     {
-      label: "Barrier Coating",
+      label: t('seoPages.pages.pouchPlasticFree.barrierCoating'),
       val: "Aluminum-Free Metallization",
-      desc: "An ultra-thin vapor-deposited mineral layer that preserves freshness (<1.5 cc/m²/24hr OTR) without leaving microplastics or toxic residues in municipal compost."
+      desc: t('seoPages.pages.pouchPlasticFree.anUltrathinVapordepositedMineral')
     },
     {
-      label: "Material Stack",
+      label: t('seoPages.pages.pouchPlasticFree.materialStack'),
       val: "Kraft Paper + NKME + PLA/PBAT",
-      desc: "A fully certified three-layer plant-based structure designed to biodegrade entirely in 90-180 days in an industrial composting facility."
+      desc: t('seoPages.pages.pouchPlasticFree.aFullyCertifiedThreelayer')
     },
     {
-      label: "Seal Chemistry",
+      label: t('seoPages.pages.pouchPlasticFree.sealChemistry'),
       val: "Starch-Based Heat Seal Resin",
-      desc: "Low-temperature activation layer ensures airtight food-grade hermetic seals on standard automatic packaging lines, preventing air leaks."
+      desc: t('seoPages.pages.pouchPlasticFree.lowtemperatureActivationLayerEnsures')
     },
     {
-      label: "Print Compliance",
+      label: t('seoPages.pages.pouchPlasticFree.printCompliance'),
       val: "Water-Based Eco Inks",
-      desc: "Premium high-resolution printing using non-toxic water-based inks that disintegrate safely without chemical contamination of finished organic compost."
+      desc: t('seoPages.pages.pouchPlasticFree.premiumHighresolutionPrintingUsing')
     }
   ]
 
   const faqs = [
     {
-      q: "What is the MOQ for custom plastic-free compostable pouches?",
-      a: "Our digital printing technology allows an industry-leading MOQ of just 500 units per custom design, meaning zero plate setup cylinders or expensive starting costs. For bulk supply runs, our high-speed rotogravure presses start at 5,000 units."
+      q: t('seoPages.pages.pouchPlasticFree.whatIsTheMoq'),
+      a: t('seoPages.pages.pouchPlasticFree.ourDigitalPrintingTechnology')
     },
     {
-      q: "Are free physical samples available for testing?",
-      a: "Yes. We offer free tactile sample kits containing our different compostable structures, bio-PE laminates, and closures so you can verify heat sealing strength and physical barrier properties on your own lines. We ship globally via express."
+      q: t('seoPages.pages.pouchPlasticFree.areFreePhysicalSamples'),
+      a: t('seoPages.pages.pouchPlasticFree.yesWeOfferFree')
     },
     {
-      q: "Do you support custom sizes and OEM drawings?",
-      a: "Yes, we do not restrict you to generic sizes. We provide custom CAD dielines designed to fit your exact filling volume requirements and vertial form-fill-seal (VFFS) machinery blueprints perfectly."
+      q: t('seoPages.pages.pouchPlasticFree.doYouSupportCustom1'),
+      a: t('seoPages.pages.pouchPlasticFree.yesWeDoNot')
     },
     {
-      q: "What is the standard lead time for custom runs?",
-      a: "Digital print runs are processed in 7-10 business days from graphic sign-off. Plate-based rotogravure orders require 12-14 business days. Standard air express delivers anywhere in the world within 3-5 days."
+      q: t('seoPages.pages.pouchPlasticFree.whatIsTheStandard'),
+      a: t('seoPages.pages.pouchPlasticFree.digitalPrintRunsAre')
     },
     {
-      q: "What composting and food safety certifications do you hold?",
-      a: "All our packaging is produced in certified BRCGS Grade A facilities for clean food-safe contact. The materials hold fully verified certifications including BPI (ASTM D6400), TUV OK Compost HOME, GRS recycled content, and FSC-certified kraft paper."
+      q: t('seoPages.pages.pouchPlasticFree.whatCompostingAndFood'),
+      a: t('seoPages.pages.pouchPlasticFree.allOurPackagingIs')
     },
     {
-      q: "What information is needed to request a formal quotation?",
-      a: "Simply specify your bag dimensions, desired quantity per design, preferred material layer (e.g. kraft compostable or bio-recyclable PE), and custom additions like zippers or degassing valves. We return price sheets in under 24 hours."
+      q: t('seoPages.pages.pouchPlasticFree.whatInformationIsNeeded'),
+      a: t('seoPages.pages.pouchPlasticFree.simplySpecifyYourBag')
     }
   ]
 
@@ -133,11 +136,11 @@ export default function PouchPlasticFreePage() {
           
           {/* Breadcrumb Bar */}
           <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black mb-8">
-            <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+            <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">{t('seoPages.pages.pouchPlasticFree.home')}</Link>
             <span>/</span>
-            <Link to="/learn" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Academy</Link>
+            <Link to="/learn" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">{t('seoPages.pages.pouchPlasticFree.ecoacademy')}</Link>
             <span>/</span>
-            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">Plastic Free vs Compostable</span>
+            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">{t('seoPages.pages.pouchPlasticFree.plasticFreeVsCompostable')}</span>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -147,29 +150,29 @@ export default function PouchPlasticFreePage() {
                   ACADEMY_DEBUNK_01
                 </span>
                 <span className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
-                  100% TRANSPARENT
+                  {t('seoPages.pages.pouchPlasticFree.100Transparent')}
                 </span>
               </div>
 
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                Plastic Free.<br/>
-                Compostable.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Demystified.</span>
+                {t('seoPages.pages.pouchPlasticFree.plasticFree')}<br/>
+                {t('seoPages.pages.pouchPlasticFree.compostable')}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t('seoPages.pages.pouchPlasticFree.demystified')}</span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                &gt; Bioplastics vs. Fossil Polymers.<br/>
-                &gt; Plant-based barrier mechanics.<br/>
-                &gt; Curbside composting compliance.<br/>
-                &gt; Verified BPI & TUV certifications.
+                {t('seoPages.pages.pouchPlasticFree.gtBioplasticsVsFossil')}<br/>
+                {t('seoPages.pages.pouchPlasticFree.gtPlantbasedBarrierMechanics')}<br/>
+                {t('seoPages.pages.pouchPlasticFree.gtCurbsideCompostingCompliance')}<br/>
+                {t('seoPages.pages.pouchPlasticFree.gtVerifiedBpiTuv')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="primary">
-                  Book Free Consultation
+                  {t('seoPages.pages.pouchPlasticFree.bookFreeConsultation')}
                 </NeoButton>
                 <NeoButton variant="secondary" href="#definitions">
-                  Explore Definitions
+                  {t('seoPages.pages.pouchPlasticFree.exploreDefinitions')}
                 </NeoButton>
               </div>
             </div>
@@ -179,7 +182,7 @@ export default function PouchPlasticFreePage() {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/composting/plastic-free/hero.webp" 
-                alt="Plastic-free vs compostable stand-up packaging comparison" 
+                alt={t('seoPages.pages.pouchPlasticFree.alt_plasticfreeVsCompostableStandup')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -191,29 +194,29 @@ export default function PouchPlasticFreePage() {
       <section id="definitions" className="py-24 px-4 md:px-6 max-w-7xl mx-auto text-left">
         <div className="mb-16">
           <NeoBadge color="magenta">THE_DIFFERENCE</NeoBadge>
-          <h2 className="font-black text-4xl md:text-6xl uppercase mt-4">Understanding the Terms</h2>
+          <h2 className="font-black text-4xl md:text-6xl uppercase mt-4">{t('seoPages.pages.pouchPlasticFree.understandingTheTerms')}</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           <NeoCard color="bg-white">
             <Leaf className="w-12 h-12 mb-4 text-[#10b981]" />
-            <h3 className="font-black text-3xl mb-4 uppercase">What is Compostable?</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase">{t('seoPages.pages.pouchPlasticFree.whatIsCompostable')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
-              A material is certified compostable if it breaks down entirely into water, CO2, and nutrient-rich biomass under specified composting conditions, leaving zero toxic chemical residues or microplastics behind.
+              {t('seoPages.pages.pouchPlasticFree.aMaterialIsCertified')}
             </p>
             <div className="bg-neutral-50 border-2 border-black p-4 font-['JetBrains_Mono'] text-xs text-neutral-600">
-              <strong>Note:</strong> Many certified compostable structures (like PLA or PBAT) are technically bioplastics (polymers). Thus, "compostable" does not automatically mean "zero polymers."
+              <strong>{t('seoPages.pages.pouchPlasticFree.note')}</strong> {t('seoPages.pages.pouchPlasticFree.manyCertifiedCompostableStructures')}
             </div>
           </NeoCard>
 
           <NeoCard color="bg-[#FF00FF]" className="text-white">
             <Recycle className="w-12 h-12 mb-4 text-white" />
-            <h3 className="font-black text-3xl mb-4 uppercase text-white">What is Plastic-Free?</h3>
+            <h3 className="font-black text-3xl mb-4 uppercase text-white">{t('seoPages.pages.pouchPlasticFree.whatIsPlasticfree')}</h3>
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6 text-white">
-              In the strictest legislative sense, "plastic-free" refers to materials containing absolutely zero synthetic or bio-derived polymers. This restricts choices strictly to raw papers, cardboards, and natural bamboo fibers.
+              {t('seoPages.pages.pouchPlasticFree.inTheStrictestLegislative')}
             </p>
             <div className="bg-black/20 border-2 border-white/20 p-4 font-['JetBrains_Mono'] text-xs text-white/90">
-              <strong>Definition Check:</strong> Conventional-plastic-free allows compostable bioplastics (like corn-derived PLA) that act as replacements for traditional petroleum-based plastics (PE/PP).
+              <strong>{t('seoPages.pages.pouchPlasticFree.definitionCheck')}</strong> {t('seoPages.pages.pouchPlasticFree.conventionalplasticfreeAllowsCompostableBioplastics')}
             </div>
           </NeoCard>
         </div>
@@ -225,39 +228,39 @@ export default function PouchPlasticFreePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <NeoBadge color="cyan">MATERIAL_ANATOMY</NeoBadge>
-              <h2 className="font-black text-4xl md:text-6xl uppercase">Our Certified Multi-Layer Structure</h2>
+              <h2 className="font-black text-4xl md:text-6xl uppercase">{t('seoPages.pages.pouchPlasticFree.ourCertifiedMultilayerStructure')}</h2>
               <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 leading-relaxed">
-                Rather than using deceptive greenwashing slogans, we lay out exactly what goes into our high-performance sustainable barriers:
+                {t('seoPages.pages.pouchPlasticFree.ratherThanUsingDeceptive')}
               </p>
 
               <div className="space-y-4">
                 <div className="border-4 border-black p-4 bg-amber-50">
                   <h4 className="font-black text-lg uppercase flex items-center gap-2">
                     <span className="bg-black text-white px-2 py-0.5 text-xs font-['JetBrains_Mono']">01</span>
-                    Outer Layer: FSC Certified Kraft Paper
+                    {t('seoPages.pages.pouchPlasticFree.outerLayerFscCertified')}
                   </h4>
                   <p className="text-xs font-['JetBrains_Mono'] text-neutral-600 mt-1">
-                    Provides structural rigidity, a natural organic tactile aesthetic, and is 100% bio-based.
+                    {t('seoPages.pages.pouchPlasticFree.providesStructuralRigidityA')}
                   </p>
                 </div>
 
                 <div className="border-4 border-black p-4 bg-purple-50">
                   <h4 className="font-black text-lg uppercase flex items-center gap-2">
                     <span className="bg-black text-white px-2 py-0.5 text-xs font-['JetBrains_Mono']">02</span>
-                    Middle Layer: Metallized Cellulose (NKME)
+                    {t('seoPages.pages.pouchPlasticFree.middleLayerMetallizedCellulose')}
                   </h4>
                   <p className="text-xs font-['JetBrains_Mono'] text-neutral-600 mt-1">
-                    An ultra-thin vapor-deposited mineral barrier layer that matches standard PET foil freshness (&lt;1.0 cc/m²/24hr OTR/WVTR) without microplastics.
+                    {t('seoPages.pages.pouchPlasticFree.anUltrathinVapordepositedMineral1')}
                   </p>
                 </div>
 
                 <div className="border-4 border-black p-4 bg-green-50">
                   <h4 className="font-black text-lg uppercase flex items-center gap-2">
                     <span className="bg-black text-white px-2 py-0.5 text-xs font-['JetBrains_Mono']">03</span>
-                    Inner Layer: PLA + PBAT Sealant
+                    {t('seoPages.pages.pouchPlasticFree.innerLayerPlaPbat')}
                   </h4>
                   <p className="text-xs font-['JetBrains_Mono'] text-neutral-600 mt-1">
-                    Corn-starch derived polylactic acid (PLA) blended with biodegradable adipic acid polyester (PBAT) for flexible heat-sealing.
+                    {t('seoPages.pages.pouchPlasticFree.cornstarchDerivedPolylacticAcid')}
                   </p>
                 </div>
               </div>
@@ -267,7 +270,7 @@ export default function PouchPlasticFreePage() {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/composting/plastic-free/a_three_layer_bag_cutaway_0455201.webp" 
-                alt="Three-layer compostable bag cutaway diagram" 
+                alt={t('seoPages.pages.pouchPlasticFree.alt_threelayerCompostableBagCutaway')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -282,7 +285,7 @@ export default function PouchPlasticFreePage() {
             <div>
               <NeoBadge color="magenta">PROCUREMENT_UTILITY</NeoBadge>
               <h2 className="font-black text-5xl md:text-7xl uppercase mt-4">
-                Value Specs Matrix
+                {t('seoPages.pages.pouchPlasticFree.valueSpecsMatrix')}
               </h2>
             </div>
             <div className="font-['JetBrains_Mono'] text-sm font-bold bg-[#D4FF00] border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
@@ -310,39 +313,39 @@ export default function PouchPlasticFreePage() {
       <section className="py-24 bg-white text-left">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <h2 className="text-4xl md:text-5xl font-black uppercase mb-8">
-            How Brands Navigate the <span className="text-[#FF00FF]">Eco-Packaging Spectrum</span>
+            {t('seoPages.pages.pouchPlasticFree.howBrandsNavigateThe')} <span className="text-[#FF00FF]">{t('seoPages.pages.pouchPlasticFree.ecopackagingSpectrum')}</span>
           </h2>
 
           <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
             <p>
-              Many retail food and consumer brands face regulatory pressure and customer demand to reduce single-use plastic waste. However, standard raw papers lack the barrier properties needed to block oxygen, light, and humidity. Without high barriers, product shelf life collapses, leading to spoilages and packaging rupture.
+              {t('seoPages.pages.pouchPlasticFree.manyRetailFoodAnd')}
             </p>
             <p>
-              To solve this, advanced bio-polymer stacks have emerged. These structures (such as PLA and PBAT) behave like standard plastic films during production and sealing, but disintegrate entirely into organic biomass inside industrial composting environments.
+              {t('seoPages.pages.pouchPlasticFree.toSolveThisAdvanced')}
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-8">
               <ClickableImage
                 src="/imgs/composting/plastic-free/a_plastic_free_vs_compostable_split_2649647.webp"
-                alt="Split view comparing strictly plastic free paper to certified compostable barrier films"
+                alt={t('seoPages.pages.pouchPlasticFree.alt_splitViewComparingStrictly')}
                 className="w-full h-80 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               />
               <ClickableImage
                 src="/imgs/composting/plastic-free/a_conventional_vs_compostable_2073987.webp"
-                alt="Comparison chart between conventional and compostable plastics"
+                alt={t('seoPages.pages.pouchPlasticFree.alt_comparisonChartBetweenConventional')}
                 className="w-full h-80 object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
               />
             </div>
 
-            <h3 className="text-2xl font-black uppercase text-black mt-12 mb-4">Drafting Compliance Claims</h3>
+            <h3 className="text-2xl font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchPlasticFree.draftingComplianceClaims')}</h3>
             <p>
-              We highly recommend brands maintain complete honesty in their marketing to build long-term trust. Rather than using sweeping "100% plastic-free" labels that can get flagged by advertising standard authorities due to the starch-polymer layers, we suggest using transparent phrasing such as:
+              {t('seoPages.pages.pouchPlasticFree.weHighlyRecommendBrands')}
             </p>
             <div className="bg-neutral-50 border-4 border-black p-6 font-bold text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-6">
-              "Fully compostable packaging made from plant-based materials and certified biodegradable starches. 100% free of conventional fossil plastics (PE, PP, PET). Suitable for industrial composting systems."
+              {t('seoPages.pages.pouchPlasticFree.fullyCompostablePackagingMade')}
             </div>
             <p>
-              This builds absolute credibility with conscious consumers and aligns directly with regulatory guidance.
+              {t('seoPages.pages.pouchPlasticFree.thisBuildsAbsoluteCredibility')}
             </p>
           </div>
         </div>
@@ -354,10 +357,10 @@ export default function PouchPlasticFreePage() {
           <div className="text-center mb-16">
             <NeoBadge color="magenta">EXPERT_FAQ</NeoBadge>
             <h2 className="text-4xl md:text-5xl font-black uppercase mt-6 text-center">
-              Procurement & Compliance FAQ
+              {t('seoPages.pages.pouchPlasticFree.procurementComplianceFaq')}
             </h2>
             <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 mt-2 text-center">
-              Clear answers to your technical compliance and ordering questions.
+              {t('seoPages.pages.pouchPlasticFree.clearAnswersToYour')}
             </p>
           </div>
 
@@ -396,31 +399,31 @@ export default function PouchPlasticFreePage() {
         <div className="max-w-4xl mx-auto px-4 space-y-8">
           <NeoBadge color="bg-black text-white">ELEVATE_YOUR_BRAND</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-            Begin Your Custom Run
+            {t('seoPages.pages.pouchPlasticFree.beginYourCustomRun')}
           </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl text-black">
-            High-performance certified compostable packaging starting at 500 units.
+            {t('seoPages.pages.pouchPlasticFree.highperformanceCertifiedCompostablePackaging')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <NeoButton href="/sample" variant="dark">
-              Request Free Eco Sample Kit
+              {t('seoPages.pages.pouchPlasticFree.requestFreeEcoSample')}
             </NeoButton>
             <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="secondary" className="!bg-white !text-black border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              Consult Packaging Engineer
+              {t('seoPages.pages.pouchPlasticFree.consultPackagingEngineer')}
             </NeoButton>
           </div>
 
           <div className="pt-8 border-t border-black/20 text-xs font-['JetBrains_Mono'] text-black/70 max-w-xl mx-auto leading-relaxed">
-            <strong>Seeking high-volume commercial wholesale runs?</strong><br/>
-            For high-volume retail supply runs (10,000+ units), custom rotogravure cylinder contracts, or enterprise pricing structures, please visit our enterprise portal:{" "}
+            <strong>{t('seoPages.pages.pouchPlasticFree.seekingHighvolumeCommercialWholesale')}</strong><br/>
+            {t('seoPages.pages.pouchPlasticFree.forHighvolumeRetailSupply')}{" "}
             <a 
               href="https://achievepack.com/composting/plastic-free" 
               className="underline font-bold hover:text-black transition"
               target="_blank" 
               rel="noopener noreferrer"
             >
-              achievepack.com/composting/plastic-free →
+              {t('seoPages.pages.pouchPlasticFree.achievepackcomcompostingplasticfree')}
             </a>
           </div>
         </div>

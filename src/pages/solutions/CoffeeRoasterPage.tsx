@@ -1,42 +1,49 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Coffee, Wind, Shield, Clock, CheckCircle, Calendar, MessageCircle, Award, Target, Package, Sparkles, Store, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag } from 'lucide-react'
+import { 
+  Coffee, Wind, Shield, Clock, CheckCircle, Calendar, MessageCircle, 
+  Award, Target, Package, Sparkles, Store, Factory, BarChart3, 
+  ArrowLeftRight, TrendingUp, ShoppingBag 
+} from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const CoffeeRoasterPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.coffeeRoaster'
   const { openCalendly } = useCalendly()
 
   const sections = [
     {
       id: 'hero-problem',
-      title: 'The Coffee Packaging Challenge',
+      title: t(`${p}.sections.hero-problem.title`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              As an <strong>established specialty coffee roaster</strong>, you've perfected your craft. Now customers and regulations are pushing you to reduce plastic waste—without compromising the freshness and shelf presence that drive sales.
+              {t(`${p}.sections.hero-problem.intro`, {
+                interpolation: { escapeValue: false }
+              })}
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-semibold text-red-800">Current Concerns</h4>
+                <h4 className="font-semibold text-red-800">{t(`${p}.sections.hero-problem.concernsTitle`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Traditional bags use multi-layer plastics</li>
-                  <li>• Customer demand for sustainable options</li>
-                  <li>• Fear of compromising freshness/shelf life</li>
-                  <li>• Premium appearance drives retail sales</li>
+                  {(t(`${p}.sections.hero-problem.concerns`, { returnObjects: true }) as string[]).map((c, i) => (
+                    <li key={i}>• {c}</li>
+                  ))}
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-semibold text-green-800">What You Need</h4>
+                <h4 className="font-semibold text-green-800">{t(`${p}.sections.hero-problem.needsTitle`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Degassing valve compatibility</li>
-                  <li>• Proven freshness performance</li>
-                  <li>• Premium retail shelf appeal</li>
-                  <li>• Sustainable credentials</li>
+                  {(t(`${p}.sections.hero-problem.needs`, { returnObjects: true }) as string[]).map((n, i) => (
+                    <li key={i}>• {n}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -46,59 +53,61 @@ const CoffeeRoasterPage: React.FC = () => {
     },
     {
       id: 'degassing',
-      title: 'Degassing Valves & Freshness',
+      title: t(`${p}.sections.degassing.title`),
       icon: <Wind className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Freshly roasted coffee releases CO2 for days. <strong>Our pouches include one-way degassing valves</strong> that let gas escape while preventing oxygen ingress—maintaining peak freshness.
+            {t(`${p}.sections.degassing.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-amber-50 p-5 rounded-lg border border-amber-200 text-center">
               <Wind className="h-8 w-8 text-amber-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-amber-800">One-Way Valve</h4>
-              <p className="text-xs text-amber-700 mt-2">CO2 out, oxygen blocked</p>
+              <h4 className="font-semibold text-amber-800">{t(`${p}.sections.degassing.card1Title`)}</h4>
+              <p className="text-xs text-amber-700 mt-2">{t(`${p}.sections.degassing.card1Desc`)}</p>
             </div>
             <div className="bg-green-50 p-5 rounded-lg border border-green-200 text-center">
               <Shield className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-green-800">High Barrier</h4>
-              <p className="text-xs text-green-700 mt-2">12+ month shelf life</p>
+              <h4 className="font-semibold text-green-800">{t(`${p}.sections.degassing.card2Title`)}</h4>
+              <p className="text-xs text-green-700 mt-2">{t(`${p}.sections.degassing.card2Desc`)}</p>
             </div>
             <div className="bg-blue-50 p-5 rounded-lg border border-blue-200 text-center">
               <Clock className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-blue-800">Same-Day Pack</h4>
-              <p className="text-xs text-blue-700 mt-2">No degassing wait</p>
+              <h4 className="font-semibold text-blue-800">{t(`${p}.sections.degassing.card3Title`)}</h4>
+              <p className="text-xs text-blue-700 mt-2">{t(`${p}.sections.degassing.card3Desc`)}</p>
             </div>
           </div>
           
           {/* Image Gallery */}
           <div className="mt-6">
-            <h4 className="font-semibold text-neutral-800 mb-3">Coffee Packaging Options</h4>
+            <h4 className="font-semibold text-neutral-800 mb-3">{t(`${p}.sections.degassing.galleryTitle`)}</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ClickableImage 
                 src="/imgs/seo-photos/usa/coffee/a_specialty_coffee_packaging_hero_4333484.webp" 
                 alt="Specialty coffee packaging with valve" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Coffee Pouch"
+                caption={t(`${p}.sections.degassing.img1Caption`)}
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_flat_bottom_pouch_isolated_7901973.webp" 
                 alt="Flat bottom coffee bag" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Flat Bottom"
+                caption={t(`${p}.sections.degassing.img2Caption`)}
               />
               <ClickableImage 
                 src="/imgs/pouch-shape/a_side_gusset_pouch_isolated_2545871.webp" 
                 alt="Side gusset coffee bag" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Side Gusset"
+                caption={t(`${p}.sections.degassing.img3Caption`)}
               />
               <ClickableImage 
                 src="/imgs/store/closure/tin-tie.webp" 
                 alt="Tin tie closure for coffee" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Tin Tie"
+                caption={t(`${p}.sections.degassing.img4Caption`)}
               />
             </div>
           </div>
@@ -107,70 +116,71 @@ const CoffeeRoasterPage: React.FC = () => {
     },
     {
       id: 'sustainable',
-      title: 'Sustainable Alternatives',
+      title: t(`${p}.sections.sustainable.title`),
       icon: <Coffee className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Move away from conventional plastic without sacrificing performance. <strong>Choose from proven sustainable materials</strong> that work with your existing equipment.
+            {t(`${p}.sections.sustainable.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <Link to="/materials/compostable" className="block bg-green-50 p-5 rounded-lg border border-green-200 hover:shadow-md transition">
-              <h4 className="font-semibold text-green-800 mb-2">Certified Compostable</h4>
-              <p className="text-sm text-green-700">Kraft paper + PLA barrier. Breaks down in industrial composting. ASTM D6400 certified.</p>
-              <span className="text-xs text-primary-600 mt-2 inline-block">Learn more →</span>
+              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.sustainable.card1Title`)}</h4>
+              <p className="text-sm text-green-700">{t(`${p}.sections.sustainable.card1Desc`)}</p>
+              <span className="text-xs text-primary-600 mt-2 inline-block">{t(`${p}.sections.sustainable.card1Link`)}</span>
             </Link>
             <Link to="/materials/recyclable-mono-pe" className="block bg-blue-50 p-5 rounded-lg border border-blue-200 hover:shadow-md transition">
-              <h4 className="font-semibold text-blue-800 mb-2">Store Drop-Off Recyclable</h4>
-              <p className="text-sm text-blue-700">Mono-PE structure accepted at PE recycling points. High barrier, lower cost.</p>
-              <span className="text-xs text-primary-600 mt-2 inline-block">Learn more →</span>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.sustainable.card2Title`)}</h4>
+              <p className="text-sm text-blue-700">{t(`${p}.sections.sustainable.card2Desc`)}</p>
+              <span className="text-xs text-primary-600 mt-2 inline-block">{t(`${p}.sections.sustainable.card2Link`)}</span>
             </Link>
           </div>
           
           <div className="bg-amber-50 p-4 rounded-lg border border-amber-200 mt-4">
-            <h4 className="font-semibold text-amber-800 mb-2">Valve Compatibility</h4>
-            <p className="text-sm text-amber-700">All our sustainable materials are compatible with standard one-way degassing valves. No equipment changes needed.</p>
+            <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.sustainable.noteTitle`)}</h4>
+            <p className="text-sm text-amber-700">{t(`${p}.sections.sustainable.noteDesc`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'retail-presence',
-      title: 'Premium Retail Presence',
+      title: t(`${p}.sections.retail-presence.title`),
       icon: <Store className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Shelf appeal drives impulse purchases. <strong>Our premium finishes create standout packaging</strong> that commands attention in crowded retail environments.
+            {t(`${p}.sections.retail-presence.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-800 mb-2">Pouch Styles</h4>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.retail-presence.col1Title`)}</h4>
               <ul className="text-sm text-neutral-600 space-y-1">
-                <li>• Flat bottom (box pouch)</li>
-                <li>• Stand-up pouch</li>
-                <li>• Side gusset</li>
-                <li>• Quad seal</li>
+                {(t(`${p}.sections.retail-presence.col1Items`, { returnObjects: true }) as string[]).map((item, i) => (
+                  <li key={i}>• {item}</li>
+                ))}
               </ul>
             </div>
             <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-800 mb-2">Premium Finishes</h4>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.retail-presence.col2Title`)}</h4>
               <ul className="text-sm text-neutral-600 space-y-1">
-                <li>• Matte/soft-touch</li>
-                <li>• Spot UV gloss</li>
-                <li>• Foil stamping</li>
-                <li>• Embossing</li>
+                {(t(`${p}.sections.retail-presence.col2Items`, { returnObjects: true }) as string[]).map((item, i) => (
+                  <li key={i}>• {item}</li>
+                ))}
               </ul>
             </div>
             <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-800 mb-2">Closure Options</h4>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.retail-presence.col3Title`)}</h4>
               <ul className="text-sm text-neutral-600 space-y-1">
-                <li>• Press-to-close zipper</li>
-                <li>• Tin tie + zipper</li>
-                <li>• Slider zipper</li>
-                <li>• Heat seal</li>
+                {(t(`${p}.sections.retail-presence.col3Items`, { returnObjects: true }) as string[]).map((item, i) => (
+                  <li key={i}>• {item}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -179,27 +189,29 @@ const CoffeeRoasterPage: React.FC = () => {
     },
     {
       id: 'consistent-supply',
-      title: 'Reliable Supply Chain',
+      title: t(`${p}.sections.consistent-supply.title`),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Production runs can't wait for packaging delays. <strong>We maintain consistent supply</strong> with reliable lead times and inventory management options.
+            {t(`${p}.sections.consistent-supply.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
             <div className="grid md:grid-cols-3 gap-4 text-center">
               <div>
-                <div className="text-2xl font-bold text-neutral-700">2-3 weeks</div>
-                <p className="text-xs text-neutral-600 mt-1">Standard production</p>
+                <div className="text-2xl font-bold text-neutral-700">{t(`${p}.sections.consistent-supply.stat1Val`)}</div>
+                <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.consistent-supply.stat1Label`)}</p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-neutral-700">Blanket orders</div>
-                <p className="text-xs text-neutral-600 mt-1">Scheduled releases</p>
+                <div className="text-2xl font-bold text-neutral-700">{t(`${p}.sections.consistent-supply.stat2Val`)}</div>
+                <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.consistent-supply.stat2Label`)}</p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-neutral-700">Priority</div>
-                <p className="text-xs text-neutral-600 mt-1">Repeat customer status</p>
+                <div className="text-2xl font-bold text-neutral-700">{t(`${p}.sections.consistent-supply.stat3Val`)}</div>
+                <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.consistent-supply.stat3Label`)}</p>
               </div>
             </div>
           </div>
@@ -208,13 +220,13 @@ const CoffeeRoasterPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Upgrade Your Coffee Packaging',
+      title: t(`${p}.sections.cta.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-amber-600 to-orange-600 p-8 rounded-xl text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Request Coffee Packaging Samples</h3>
+          <h3 className="text-2xl font-bold mb-4">{t(`${p}.sections.cta.title`)}</h3>
           <p className="text-lg mb-6 opacity-90">
-            See and feel sustainable coffee bags before committing. We'll send samples with your preferred valve and closure options.
+            {t(`${p}.sections.cta.desc`)}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -223,14 +235,14 @@ const CoffeeRoasterPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-amber-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition"
             >
               <Calendar className="h-5 w-5" />
-              Book Consultation
+              {t(`${p}.sections.cta.btn1`)}
             </button>
             <Link
               to="/products/coffee-bags-degassing-valve"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
             >
               <Package className="h-5 w-5" />
-              View Coffee Bags
+              {t(`${p}.sections.cta.btn2`)}
             </Link>
           </div>
         </div>
@@ -238,138 +250,136 @@ const CoffeeRoasterPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: t(`${p}.sections.industry-scenarios.title`),
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">DifferentSizeCoffee RoastersforPackaginghaveDifferentRequirements，choosechooseright solutionisBrandSuccesskey。</p>
+          <p className="text-neutral-700">{t(`${p}.sections.industry-scenarios.intro`)}</p>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <Coffee className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-amber-800">SpecialtyproductsCoffee Roasters</h4>
+                <h4 className="font-semibold text-amber-800">{t(`${p}.sections.industry-scenarios.card1Title`)}</h4>
               </div>
-              <p className="text-sm text-amber-700 mb-3">Single origin coffee、specialty blendscoffee、CompetitionPremiumQualityrequirements。</p>
-              <div className="text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded inline-block">Share:: 40%</div>
+              <p className="text-sm text-amber-700 mb-3">{t(`${p}.sections.industry-scenarios.card1Desc`)}</p>
+              <div className="text-xs text-amber-600 bg-amber-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industry-scenarios.card1Share`)}</div>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-green-800">OrganiccoffeeBrand</h4>
+                <h4 className="font-semibold text-green-800">{t(`${p}.sections.industry-scenarios.card2Title`)}</h4>
               </div>
-              <p className="text-sm text-green-700 mb-3">CertificationOrganic、Fair trade、Rainforest Allianceetc.。</p>
-              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">Share:: 35%</div>
+              <p className="text-sm text-green-700 mb-3">{t(`${p}.sections.industry-scenarios.card2Desc`)}</p>
+              <div className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industry-scenarios.card2Share`)}</div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <Store className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">e-commercemerchantcoffeeBrand</h4>
+                <h4 className="font-semibold text-blue-800">{t(`${p}.sections.industry-scenarios.card3Title`)}</h4>
               </div>
-              <p className="text-sm text-blue-700 mb-3">Onlinesales、subscription model、DTCBrandetc.。</p>
-              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">Share:: 25%</div>
+              <p className="text-sm text-blue-700 mb-3">{t(`${p}.sections.industry-scenarios.card3Desc`)}</p>
+              <div className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industry-scenarios.card3Share`)}</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg mt-4">
-            <h5 className="font-semibold text-neutral-800 mb-2">Customer Success Story</h5>
-            <p className="text-sm text-neutral-600">「conversiontocanCompostablePackagingAfter，Ourcoffeesubscriptionusedcustomergrowth30%，veryMultipleCustomersaid thisistheychoosechooseOurkey reason。」— SpecialtyproductsCoffee RoastingfactoryFounder</p>
+            <h5 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.industry-scenarios.storyTitle`)}</h5>
+            <p className="text-sm text-neutral-600">{t(`${p}.sections.industry-scenarios.storyDesc`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: 'Market Data & Intelligence',
+      title: t(`${p}.sections.market-data.title`),
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">coffeePackagingMarketcontinuedgrowth，ConsumersforSustainablePackagingRequirementsincreasinglyHigh。</p>
+          <p className="text-neutral-700">{t(`${p}.sections.market-data.intro`)}</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold text-primary-600 mb-1">$65B</div>
-              <div className="text-xs text-neutral-500">GlobalcoffeeMarketSize</div>
+              <div className="text-3xl font-bold text-primary-600 mb-1">{t(`${p}.sections.market-data.stat1Val`)}</div>
+              <div className="text-xs text-neutral-500">{t(`${p}.sections.market-data.stat1Label`)}</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>yeargrowth 5.5%</span>
+                <span>{t(`${p}.sections.market-data.stat1Trend`)}</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold text-amber-600 mb-1">72%</div>
-              <div className="text-xs text-neutral-500">preferenceEco-friendlyPackaging</div>
+              <div className="text-3xl font-bold text-amber-600 mb-1">{t(`${p}.sections.market-data.stat2Val`)}</div>
+              <div className="text-xs text-neutral-500">{t(`${p}.sections.market-data.stat2Label`)}</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>growthMedium</span>
+                <span>{t(`${p}.sections.market-data.stat2Trend`)}</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold text-green-600 mb-1">12+</div>
-              <div className="text-xs text-neutral-500">monthshelf lifeProtectCertificate</div>
+              <div className="text-3xl font-bold text-green-600 mb-1">{t(`${p}.sections.market-data.stat3Val`)}</div>
+              <div className="text-xs text-neutral-500">{t(`${p}.sections.market-data.stat3Label`)}</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>freshness</span>
+                <span>{t(`${p}.sections.market-data.stat3Trend`)}</span>
               </div>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-1">500</div>
-              <div className="text-xs text-neutral-500">maximumlowOrdervolume</div>
+              <div className="text-3xl font-bold text-blue-600 mb-1">{t(`${p}.sections.market-data.stat4Val`)}</div>
+              <div className="text-xs text-neutral-500">{t(`${p}.sections.market-data.stat4Label`)}</div>
               <div className="flex items-center justify-center gap-1 mt-2 text-green-600 text-xs">
                 <TrendingUp className="h-3 w-3" />
-                <span>Flexible</span>
+                <span>{t(`${p}.sections.market-data.stat4Trend`)}</span>
               </div>
             </div>
           </div>
           <div className="bg-blue-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-blue-800 mb-2">Market Trend Insights</h5>
-            <p className="text-sm text-blue-700">Specialty coffeeMarketcontinuedexpand，Consumersincreasinglyfocused oncoffeefreshnessandPackagingEco-Friendly。canCompostableandRecyclablePackagingbecomingMarketfavorite。</p>
+            <h5 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.market-data.insightTitle`)}</h5>
+            <p className="text-sm text-blue-700">{t(`${p}.sections.market-data.insightDesc`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: t(`${p}.sections.material-comparison.title`),
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">DifferentcoffeePackagingMaterialFeaturesContrast，to help you choose the best solution。</p>
+          <p className="text-neutral-700">{t(`${p}.sections.material-comparison.intro`)}</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="text-left p-3 border font-semibold">Packaging Type</th>
-                  <th className="text-left p-3 border font-semibold">shelf life</th>
-                  <th className="text-left p-3 border font-semibold">RowGas ValvecomparedCapacity</th>
-                  <th className="text-left p-3 border font-semibold">Eco-friendlyCertification</th>
-                  <th className="text-left p-3 border font-semibold">Cost</th>
+                  {(t(`${p}.sections.material-comparison.headers`, { returnObjects: true }) as string[]).map((h, idx) => (
+                    <th key={idx} className="text-left p-3 border font-semibold">{h}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
-                <tr className="hover:bg-green-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">canCompostablePaperboard</span></td>
-                  <td className="p-3 border">6-9 months</td>
-                  <td className="p-3 border">✓ CompletecomparedCapacity</td>
-                  <td className="p-3 border">ASTM D6400</td>
-                  <td className="p-3 border text-green-600 font-medium">$$</td>
-                </tr>
-                <tr className="hover:bg-blue-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-medium">Recyclable Mono-PE</span></td>
-                  <td className="p-3 border">12+ months</td>
-                  <td className="p-3 border">✓ CompletecomparedCapacity</td>
-                  <td className="p-3 border">How2Recycle</td>
-                  <td className="p-3 border text-blue-600 font-medium">$</td>
-                </tr>
-                <tr className="hover:bg-amber-50">
-                  <td className="p-3 border"><span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-medium">HighbarrierPaperboard</span></td>
-                  <td className="p-3 border">12+ months</td>
-                  <td className="p-3 border">✓ CompletecomparedCapacity</td>
-                  <td className="p-3 border">Recyclable</td>
-                  <td className="p-3 border text-amber-600 font-medium">$$</td>
-                </tr>
+                {(t(`${p}.sections.material-comparison.rows`, { returnObjects: true }) as string[][]).map((row, rowIdx) => (
+                  <tr key={rowIdx} className="hover:bg-neutral-50">
+                    <td className="p-3 border">
+                      <span className={`px-2 py-1 rounded text-xs font-medium ${
+                        rowIdx === 0 ? 'bg-green-100 text-green-700' :
+                        rowIdx === 1 ? 'bg-blue-100 text-blue-700' :
+                        'bg-amber-100 text-amber-700'
+                      }`}>
+                        {row[0]}
+                      </span>
+                    </td>
+                    <td className="p-3 border">{row[1]}</td>
+                    <td className="p-3 border">{row[2]}</td>
+                    <td className="p-3 border">{row[3]}</td>
+                    <td className={`p-3 border font-medium ${
+                      rowIdx === 0 ? 'text-green-600' :
+                      rowIdx === 1 ? 'text-blue-600' :
+                      'text-amber-600'
+                    }`}>{row[4]}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg">
-            <h5 className="font-semibold text-amber-800 mb-2">Material Selection Guide</h5>
-            <p className="text-sm text-amber-700">forinCoffee Roasters，RecommendationAccording ToProductpositioningandtargetCustomerchoosechoose。HighpremiumSpecialty coffeesuitableSuitablecanCompostablePaperboard，volumeSellcoffeechoosechooseRecyclableMoreToolCostEffectBenefit。</p>
+            <h5 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.material-comparison.guideTitle`)}</h5>
+            <p className="text-sm text-amber-700">{t(`${p}.sections.material-comparison.guideDesc`)}</p>
           </div>
         </div>
       )
@@ -378,39 +388,39 @@ const CoffeeRoasterPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "Do compostable bags work with degassing valves?",
-      answer: "Yes. Our compostable coffee bags are fully compatible with one-way degassing valves. The valves are applied after pouch fabrication using standard heat-seal equipment—no changes to your packing process."
+      question: t(`${p}.faqs.q1`),
+      answer: t(`${p}.faqs.a1`)
     },
     {
-      question: "What's the shelf life of compostable coffee bags?",
-      answer: "With high-barrier compostable materials and a degassing valve, expect 6-9 months shelf life for roasted whole bean coffee. For 12+ months, we recommend our recyclable mono-PE option."
+      question: t(`${p}.faqs.q2`),
+      answer: t(`${p}.faqs.a2`)
     },
     {
-      question: "Can I get the same premium look with sustainable materials?",
-      answer: "Absolutely. Our kraft paper compostable bags have a natural, premium appearance. We also offer matte finishes, spot UV, and foil stamping on sustainable materials for maximum shelf presence."
+      question: t(`${p}.faqs.q3`),
+      answer: t(`${p}.faqs.a3`)
     },
     {
-      question: "What minimum orders do you require for coffee bags?",
-      answer: "MOQ is 500 pieces for standard coffee bag sizes with degassing valve. For market testing or new blends, we can accommodate smaller runs of 100-200 pieces through our digital print line."
+      question: t(`${p}.faqs.q4`),
+      answer: t(`${p}.faqs.a4`)
     }
   ]
 
   return (
     <>
       <Helmet>
-        <title>Coffee Roaster Packaging | Degassing Valve Bags | Sustainable | Achieve Pack</title>
-        <meta name="description" content="Sustainable coffee packaging for specialty roasters. Degassing valve compatible, high barrier for freshness, compostable and recyclable options. Premium retail presence." />
+        <title>{t(`${p}.title`)}</title>
+        <meta name="description" content={t(`${p}.description`)} />
         <link rel="canonical" href="https://achievepack.com/solutions/coffee-roaster" />
         <meta name="keywords" content="coffee roaster packaging, degassing valve bags, sustainable coffee bags, compostable coffee packaging, specialty coffee packaging, coffee bag supplier" />
       </Helmet>
 
       <SEOPageLayout heroBgColor="#451a03"
-        title="Coffee Roaster Packaging | Degassing Valve Compatible"
-        description="Sustainable coffee packaging for specialty roasters. Degassing valve compatible with proven freshness performance."
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
         keywords={['coffee roaster packaging', 'degassing valve bags', 'sustainable coffee bags', 'specialty coffee packaging']}
-        heroTitle="Coffee Roaster Packaging"
-        heroSubtitle="Degassing Valve Compatible | High Barrier | Sustainable Options"
-        introSummary="Transition to sustainable coffee packaging without compromising freshness. Degassing valve compatible, 12+ month shelf life, premium retail presence—in compostable or recyclable materials."
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
+        introSummary={t(`${p}.introSummary`)}
         sections={sections}
         faqs={faqs}
         schemaType="Product"

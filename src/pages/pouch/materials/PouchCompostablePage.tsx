@@ -89,7 +89,7 @@ export default function PouchCompostablePage() {
           <NeoCard color="bg-black" className="text-white">
             <h3 className="font-black text-3xl uppercase mb-8 text-[#D4FF00]">{t(`${p}.certifiedBadge`)}</h3>
             <div className="space-y-6">
-              [
+              {[
                 { name: 'EN 13432', desc: t(`${p}.cert1Desc`) },
                 { name: 'ASTM D6400', desc: t(`${p}.cert2Desc`) },
                 { name: 'BPI CERTIFIED', desc: t(`${p}.cert3Desc`) },
@@ -165,7 +165,7 @@ export default function PouchCompostablePage() {
           </h2>
 
           <div className="space-y-6">
-            [
+            {[
               { q: t(`${p}.faq.q1`), a: t(`${p}.faq.a1`) },
               { q: t(`${p}.faq.q2`), a: t(`${p}.faq.a2`) },
               { q: t(`${p}.faq.q3`), a: t(`${p}.faq.a3`) },

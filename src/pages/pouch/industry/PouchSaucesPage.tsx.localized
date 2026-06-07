@@ -28,13 +28,13 @@ export default function PouchSaucesPage() {
   }, [])
 
   const canonicalUrl = 'https://pouch.eco/industry/sauces-condiments'
-  const title = t('seoPages.pages.pouchSauces.metaTitle')
-  const metaDescription = t('seoPages.pages.pouchSauces.metaDescription')
+  const title = 'Spouted Pouches for Sauces & Condiments | Eco-Friendly Packaging'
+  const metaDescription = 'Leak-proof, spouted pouches for sauces, condiments, and liquids. High-barrier protection. 500 MOQ, custom digital printing. Safe, durable, and sustainable.'
 
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: t('seoPages.pages.pouchSauces.spoutedPouchesForSauces'),
+    "name": "Spouted Pouches for Sauces",
     "description": metaDescription,
     "brand": {
       "@type": "Brand",
@@ -60,34 +60,34 @@ export default function PouchSaucesPage() {
     "mainEntity": [
       {
         "@type": "Question",
-        name: t('seoPages.pages.pouchSauces.areYourSaucePouches'),
+        "name": "Are your sauce pouches leak-proof?",
         "acceptedAnswer": {
           "@type": "Answer",
-          text: t('seoPages.pages.pouchSauces.yesOurSpoutedPouches')
+          "text": "Yes, our spouted pouches are engineered with reinforced welded seals and high-strength films to guarantee 100% leak-proof performance during transit and daily use."
         }
       },
       {
         "@type": "Question",
-        name: t('seoPages.pages.pouchSauces.canThesePouchesBe'),
+        "name": "Can these pouches be used for hot-filling sauces?",
         "acceptedAnswer": {
           "@type": "Answer",
-          text: t('seoPages.pages.pouchSauces.absolutelyWeOfferSpecialized')
+          "text": "Absolutely. We offer specialized heat-stable film structures that can withstand hot-fill processes up to 95°C (203°F) without warping or delaminating."
         }
       },
       {
         "@type": "Question",
-        name: t('seoPages.pages.pouchSauces.whatSizesDoSpouted'),
+        "name": "What sizes do spouted pouches come in?",
         "acceptedAnswer": {
           "@type": "Answer",
-          text: t('seoPages.pages.pouchSauces.weOfferSizesRanging')
+          "text": "We offer sizes ranging from small 50ml sample pouches up to 5-liter bulk catering bags. Our most popular retail sizes are 250ml, 500ml, and 1 liter."
         }
       },
       {
         "@type": "Question",
-        name: t('seoPages.pages.pouchSauces.areCompostableSpoutedPouches'),
+        "name": "Are compostable spouted pouches available?",
         "acceptedAnswer": {
           "@type": "Answer",
-          text: t('seoPages.pages.pouchSauces.weAreActivelyDeveloping')
+          "text": "We are actively developing fully compostable spouted pouches. Currently, we offer highly recyclable Mono-PE spouted pouches as our primary sustainable solution for liquids."
         }
       }
     ]
@@ -96,7 +96,7 @@ export default function PouchSaucesPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>{title}</title>
+        <title>{t('seoPages.pages.pouchSauces.metaTitle')}</title>
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonicalUrl} />
         
@@ -148,7 +148,7 @@ export default function PouchSaucesPage() {
               {t('seoPages.pages.pouchSauces.leakproofHotfillReadySpacesaving')}
             </p>
             <p className="text-lg font-['JetBrains_Mono'] mb-8 max-w-2xl mx-auto">
-              {t('seoPages.pages.pouchSauces.forSaucesMarinadesAnd')}
+              {t('seoPages.pages.pouchSauces.forSaucesMarinadesAndCondiments')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -177,10 +177,10 @@ export default function PouchSaucesPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: t('seoPages.pages.pouchSauces.minimumOrder'), value: '500', unit: 'pieces', icon: Package },
-              { label: t('seoPages.pages.pouchSauces.spoutSizes'), value: '8.5-33', unit: 'mm', icon: Droplets },
-              { label: t('seoPages.pages.pouchSauces.hotFill'), value: '95', unit: '°C max', icon: Zap },
-              { label: t('seoPages.pages.pouchSauces.leakRate'), value: '0.01', unit: '%', icon: Shield }
+              { label: 'Minimum Order', value: '500', unit: 'pieces', icon: Package },
+              { label: 'Spout Sizes', value: '8.5-33', unit: 'mm', icon: Droplets },
+              { label: 'Hot Fill', value: '95', unit: '°C max', icon: Zap },
+              { label: 'Leak Rate', value: '0.01', unit: '%', icon: Shield }
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -209,48 +209,48 @@ export default function PouchSaucesPage() {
       {/* Deep Dive SEO Content */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="red">INDUSTRY_DEEP_DIVE</NeoBadge>
+          <NeoBadge color="red">{t('seoPages.pages.pouchSauces.industrydeepdive')}</NeoBadge>
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-8 italic">
             {t('seoPages.pages.pouchSauces.theLiquidRevolutionIn')} <span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.saucePackaging')}</span>
           </h2>
           
           <div className="prose prose-lg max-w-none font-['JetBrains_Mono'] text-gray-700 space-y-6">
             <p>
-              {t('seoPages.pages.pouchSauces.forDecadesTheSauce')}
+              {t('seoPages.pages.pouchSauces.forDecadesTheSauceAnd')}
             </p>
             <p>
-              {t('seoPages.pages.pouchSauces.atPouchecoWeEngineer')} 
+              {t('seoPages.pages.pouchSauces.atPouchecoWeEngineerHighperformance')} 
             </p>
             
             <ClickableImage 
               src="/imgs/seo-photos/a_achievepack_barrier_range_comparison_2896222.webp" 
-              alt={t('seoPages.pages.pouchSauces.alt_spoutedPouchForLiquid')} 
+              alt={t('seoPages.pages.pouchSauces.alt_spoutedPouchForLiquidSauces')} 
               className="w-full h-80 object-cover border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] my-8"
-              caption={t('seoPages.pages.pouchSauces.caption_engineeredForLiquidsRobust')}
+              caption={t('seoPages.pages.pouchSauces.caption_engineeredForLiquidsRobustSeals')}
             />
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchSauces.theEngineeringOfA')}</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchSauces.theEngineeringOfALeakproof')}</h3>
             <p>
-              {t('seoPages.pages.pouchSauces.packagingLiquidsIsFundamentally')} 
+              {t('seoPages.pages.pouchSauces.packagingLiquidsIsFundamentallyDifferent')} 
             </p>
             <p>
-              {t('seoPages.pages.pouchSauces.ourSpoutedPouchesAre')}
+              {t('seoPages.pages.pouchSauces.ourSpoutedPouchesAreConstructed')}
             </p>
 
-            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchSauces.hotfillProcessingAndBarrier')}</h3>
+            <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchSauces.hotfillProcessingAndBarrierTech')}</h3>
             <p>
-              {t('seoPages.pages.pouchSauces.manySaucesBrothsAnd')}
+              {t('seoPages.pages.pouchSauces.manySaucesBrothsAndCondiments')}
             </p>
             <p>
-              {t('seoPages.pages.pouchSauces.weSolveThisBy')}
+              {t('seoPages.pages.pouchSauces.weSolveThisByLaminating')}
             </p>
 
             <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t('seoPages.pages.pouchSauces.unmatchedLogisticalEfficiency')}</h3>
             <p>
-              {t('seoPages.pages.pouchSauces.theEnvironmentalAndEconomic')} 
+              {t('seoPages.pages.pouchSauces.theEnvironmentalAndEconomicBenefits')} 
             </p>
             <p>
-              {t('seoPages.pages.pouchSauces.aSinglePalletOf')} 
+              {t('seoPages.pages.pouchSauces.aSinglePalletOfOur')} 
             </p>
           </div>
         </div>
@@ -259,26 +259,26 @@ export default function PouchSaucesPage() {
       {/* FAQ Section */}
       <section className="py-24 bg-gray-50 border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <NeoBadge color="blue">{t('seoPages.pages.pouchSauces.knowledgebase')}</NeoBadge>
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-12 italic">
             {t('seoPages.pages.pouchSauces.common')} <span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.questions')}</span>
           </h2>
           <div className="space-y-6">
             <NeoCard color="bg-white">
-              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">Q:</span> {t('seoPages.pages.pouchSauces.areYourSaucePouches')}</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">A:</span> {t('seoPages.pages.pouchSauces.yesOurSpoutedPouches')}</p>
+              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.q')}</span> {t('seoPages.pages.pouchSauces.areYourSaucePouchesLeakproof')}</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">{t('seoPages.pages.pouchSauces.a')}</span> {t('seoPages.pages.pouchSauces.yesOurSpoutedPouchesAre')}</p>
             </NeoCard>
             <NeoCard color="bg-white">
-              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">Q:</span> {t('seoPages.pages.pouchSauces.canThesePouchesBe')}</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">A:</span> {t('seoPages.pages.pouchSauces.absolutelyWeOfferSpecialized')}</p>
+              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.q')}</span> {t('seoPages.pages.pouchSauces.canThesePouchesBeUsed')}</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">{t('seoPages.pages.pouchSauces.a')}</span> {t('seoPages.pages.pouchSauces.absolutelyWeOfferSpecializedHeatstable')}</p>
             </NeoCard>
             <NeoCard color="bg-white">
-              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">Q:</span> {t('seoPages.pages.pouchSauces.whatSpoutSizesAre')}</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">A:</span> {t('seoPages.pages.pouchSauces.weOfferVariousSpout')}</p>
+              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.q')}</span> {t('seoPages.pages.pouchSauces.whatSpoutSizesAreAvailable')}</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">{t('seoPages.pages.pouchSauces.a')}</span> {t('seoPages.pages.pouchSauces.weOfferVariousSpoutDiameters')}</p>
             </NeoCard>
             <NeoCard color="bg-white">
-              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">Q:</span> {t('seoPages.pages.pouchSauces.doYouOfferRecyclable')}</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">A:</span> {t('seoPages.pages.pouchSauces.yesWeManufactureMonope')}</p>
+              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.q')}</span> {t('seoPages.pages.pouchSauces.doYouOfferRecyclableOptions')}</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">{t('seoPages.pages.pouchSauces.a')}</span> {t('seoPages.pages.pouchSauces.yesWeManufactureMonopeSpouted')}</p>
             </NeoCard>
           </div>
         </div>
@@ -287,10 +287,10 @@ export default function PouchSaucesPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#FF0000] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <NeoBadge color="white">POUR_WITH_PRECISION</NeoBadge>
+          <NeoBadge color="white">{t('seoPages.pages.pouchSauces.pourwithprecision')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-8xl uppercase leading-none italic">{t('seoPages.pages.pouchSauces.ditchTheGlass')}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl max-w-2xl mx-auto">
-            {t('seoPages.pages.pouchSauces.switchToLightweightShatterproof')}
+            {t('seoPages.pages.pouchSauces.switchToLightweightShatterproofHighbarrier')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <NeoButton variant="primary" to="/sample" className="!bg-white !text-[#FF0000]">{t('seoPages.pages.pouchSauces.getLiquidSamples')}</NeoButton>
@@ -321,7 +321,7 @@ export default function PouchSaucesPage() {
                   {t('seoPages.pages.pouchSauces.spoutPouches')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  {t('seoPages.pages.pouchSauces.technicalSpecsForLiquid')}
+                  {t('seoPages.pages.pouchSauces.technicalSpecsForLiquidFood')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
                   {t('seoPages.pages.pouchSauces.readMore')}
@@ -346,7 +346,7 @@ export default function PouchSaucesPage() {
                   {t('seoPages.pages.pouchSauces.babyFoodPouches')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  {t('seoPages.pages.pouchSauces.safetyfirstPackagingForLiquid')}
+                  {t('seoPages.pages.pouchSauces.safetyfirstPackagingForLiquidBaby')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
                   {t('seoPages.pages.pouchSauces.readMore')}
@@ -371,7 +371,7 @@ export default function PouchSaucesPage() {
                   {t('seoPages.pages.pouchSauces.complianceGuide')}
                 </h3>
                 <p className="text-sm font-['JetBrains_Mono'] text-gray-600 mt-2 mb-3">
-                  {t('seoPages.pages.pouchSauces.fdaInternationalLiquidFood')}
+                  {t('seoPages.pages.pouchSauces.fdaInternationalLiquidFoodRegulations')}
                 </p>
                 <div className="flex items-center gap-2 text-sm font-['JetBrains_Mono'] font-bold">
                   {t('seoPages.pages.pouchSauces.readMore')}

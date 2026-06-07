@@ -1,42 +1,49 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Lightbulb, Beaker, Rocket, Zap, Clock, CheckCircle, Calendar, MessageCircle, Package, Target, Sparkles, Repeat, Factory, BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag } from 'lucide-react'
+import { 
+  Lightbulb, Beaker, Rocket, Zap, Clock, CheckCircle, Calendar, 
+  MessageCircle, Package, Target, Sparkles, Repeat, Factory, 
+  BarChart3, ArrowLeftRight, TrendingUp, ShoppingBag
+} from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const ProductDeveloperPage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.productDeveloper'
   const { openCalendly } = useCalendly()
 
   const sections = [
     {
       id: 'hero-problem',
-      title: 'Packaging for Product Innovation',
+      title: t(`${p}.sections.hero-problem.title`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              As an <strong>innovation-focused product developer</strong>, you bring novel products to market quickly. You need packaging partners who can match your pace and contribute creative solutions.
+              {t(`${p}.sections.hero-problem.intro`, {
+                interpolation: { escapeValue: false }
+              })}
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-semibold text-red-800">Innovation Challenges</h4>
+                <h4 className="font-semibold text-red-800">{t(`${p}.sections.hero-problem.concernsTitle`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Long lead times slow product launches</li>
-                  <li>• Suppliers don't understand novel products</li>
-                  <li>• Rigid packaging options limit creativity</li>
-                  <li>• High MOQs prevent market testing</li>
+                  {(t(`${p}.sections.hero-problem.concerns`, { returnObjects: true }) as string[]).map((c, i) => (
+                    <li key={i}>• {c}</li>
+                  ))}
                 </ul>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h4 className="font-semibold text-green-800">What You Need</h4>
+                <h4 className="font-semibold text-green-800">{t(`${p}.sections.hero-problem.needsTitle`)}</h4>
                 <ul className="text-sm text-neutral-600 mt-2 space-y-1">
-                  <li>• Rapid prototyping capabilities</li>
-                  <li>• Cutting-edge material options</li>
-                  <li>• Flexible iteration cycles</li>
-                  <li>• Collaborative design partnership</li>
+                  {(t(`${p}.sections.hero-problem.needs`, { returnObjects: true }) as string[]).map((n, i) => (
+                    <li key={i}>• {n}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -46,29 +53,31 @@ const ProductDeveloperPage: React.FC = () => {
     },
     {
       id: 'rapid-prototyping',
-      title: 'Rapid Prototyping & Testing',
+      title: t(`${p}.sections.rapid-prototyping.title`),
       icon: <Beaker className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Don't wait months for packaging samples. <strong>Our digital printing enables rapid prototyping</strong> so you can test, iterate, and launch faster than competitors.
+            {t(`${p}.sections.rapid-prototyping.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-purple-50 p-5 rounded-lg border border-purple-200 text-center">
-              <div className="text-3xl font-bold text-purple-700 mb-2">48hrs</div>
-              <div className="text-sm text-purple-600 font-medium">Sample Turnaround</div>
-              <p className="text-xs mt-2 text-neutral-600">Printed samples for evaluation</p>
+              <div className="text-3xl font-bold text-purple-700 mb-2">{t(`${p}.sections.rapid-prototyping.stat1Val`)}</div>
+              <div className="text-sm text-purple-600 font-medium">{t(`${p}.sections.rapid-prototyping.stat1Label`)}</div>
+              <p className="text-xs mt-2 text-neutral-600">{t(`${p}.sections.rapid-prototyping.stat1Desc`)}</p>
             </div>
             <div className="bg-blue-50 p-5 rounded-lg border border-blue-200 text-center">
-              <div className="text-3xl font-bold text-blue-700 mb-2">100</div>
-              <div className="text-sm text-blue-600 font-medium">Piece MOQ</div>
-              <p className="text-xs mt-2 text-neutral-600">For market testing runs</p>
+              <div className="text-3xl font-bold text-blue-700 mb-2">{t(`${p}.sections.rapid-prototyping.stat2Val`)}</div>
+              <div className="text-sm text-blue-600 font-medium">{t(`${p}.sections.rapid-prototyping.stat2Label`)}</div>
+              <p className="text-xs mt-2 text-neutral-600">{t(`${p}.sections.rapid-prototyping.stat2Desc`)}</p>
             </div>
             <div className="bg-pink-50 p-5 rounded-lg border border-pink-200 text-center">
-              <div className="text-3xl font-bold text-pink-700 mb-2">∞</div>
-              <div className="text-sm text-pink-600 font-medium">Design Variations</div>
-              <p className="text-xs mt-2 text-neutral-600">No plate costs for changes</p>
+              <div className="text-3xl font-bold text-pink-700 mb-2">{t(`${p}.sections.rapid-prototyping.stat3Val`)}</div>
+              <div className="text-sm text-pink-600 font-medium">{t(`${p}.sections.rapid-prototyping.stat3Label`)}</div>
+              <p className="text-xs mt-2 text-neutral-600">{t(`${p}.sections.rapid-prototyping.stat3Desc`)}</p>
             </div>
           </div>
         </div>
@@ -76,55 +85,37 @@ const ProductDeveloperPage: React.FC = () => {
     },
     {
       id: 'cutting-edge',
-      title: 'Cutting-Edge Materials & Technologies',
+      title: t(`${p}.sections.cutting-edge.title`),
       icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Stay ahead with <strong>the latest sustainable packaging innovations</strong>—materials and features that differentiate your products and appeal to early adopters.
+            {t(`${p}.sections.cutting-edge.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-800 mb-3">Innovative Materials</h4>
+              <h4 className="font-semibold text-neutral-800 mb-3">{t(`${p}.sections.cutting-edge.card1Title`)}</h4>
               <ul className="text-sm text-neutral-600 space-y-2">
-                <li className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-purple-600" />
-                  <span>PLA/PBAT Compostable Films</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-purple-600" />
-                  <span>Bio-PE (Sugarcane-based)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-purple-600" />
-                  <span>Mono-PE Recyclable</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-purple-600" />
-                  <span>PCR Content Films</span>
-                </li>
+                {(t(`${p}.sections.cutting-edge.card1Items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-purple-600" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="border border-neutral-200 rounded-lg p-4">
-              <h4 className="font-semibold text-neutral-800 mb-3">Advanced Features</h4>
+              <h4 className="font-semibold text-neutral-800 mb-3">{t(`${p}.sections.cutting-edge.card2Title`)}</h4>
               <ul className="text-sm text-neutral-600 space-y-2">
-                <li className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-amber-600" />
-                  <span>NFC/QR Smart Packaging</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-amber-600" />
-                  <span>Augmented Reality Ready</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-amber-600" />
-                  <span>Child-Resistant Closures</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-amber-600" />
-                  <span>Tamper-Evident Seals</span>
-                </li>
+                {(t(`${p}.sections.cutting-edge.card2Items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-2">
+                    <Zap className="h-4 w-4 text-amber-600" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -136,25 +127,25 @@ const ProductDeveloperPage: React.FC = () => {
                 src="/imgs/store/surface/metalic.webp" 
                 alt="Metallic finish innovative packaging" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Metallic Finish"
+                caption={t(`${p}.sections.cutting-edge.img1Caption`)}
               />
               <ClickableImage 
                 src="/imgs/store/surface/stamp-foil.webp" 
                 alt="Stamp foil premium finish" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Stamp Foil"
+                caption={t(`${p}.sections.cutting-edge.img2Caption`)}
               />
               <ClickableImage 
                 src="/imgs/store/closure/slider-zipper.webp" 
                 alt="Slider zipper innovation" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Slider Zipper"
+                caption={t(`${p}.sections.cutting-edge.img3Caption`)}
               />
               <ClickableImage 
                 src="/imgs/4-infograhic/compost.webp" 
                 alt="Compostable innovation" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Compostable"
+                caption={t(`${p}.sections.cutting-edge.img4Caption`)}
               />
             </div>
           </div>
@@ -163,32 +154,34 @@ const ProductDeveloperPage: React.FC = () => {
     },
     {
       id: 'iteration',
-      title: 'Flexible Iteration Cycles',
+      title: t(`${p}.sections.iteration.title`),
       icon: <Repeat className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Product development is iterative. <strong>Our digital-first approach means no plate costs</strong>—change designs between runs without penalties.
+            {t(`${p}.sections.iteration.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-5 rounded-lg border border-purple-200">
-            <h4 className="font-semibold text-purple-800 mb-3">Version Control Without Penalties</h4>
+            <h4 className="font-semibold text-purple-800 mb-3">{t(`${p}.sections.iteration.cardTitle`)}</h4>
             <div className="grid md:grid-cols-3 gap-4 text-center">
               <div>
-                <div className="text-2xl font-bold text-purple-700">V1</div>
-                <p className="text-xs text-neutral-600 mt-1">Initial market test</p>
+                <div className="text-2xl font-bold text-purple-700">{t(`${p}.sections.iteration.v1Title`)}</div>
+                <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.iteration.v1Desc`)}</p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-purple-700">V2</div>
-                <p className="text-xs text-neutral-600 mt-1">Refined messaging</p>
+                <div className="text-2xl font-bold text-purple-700">{t(`${p}.sections.iteration.v2Title`)}</div>
+                <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.iteration.v2Desc`)}</p>
               </div>
               <div>
-                <div className="text-2xl font-bold text-purple-700">V3</div>
-                <p className="text-xs text-neutral-600 mt-1">Final production</p>
+                <div className="text-2xl font-bold text-purple-700">{t(`${p}.sections.iteration.v3Title`)}</div>
+                <p className="text-xs text-neutral-600 mt-1">{t(`${p}.sections.iteration.v3Desc`)}</p>
               </div>
             </div>
             <p className="text-sm text-purple-700 mt-4 text-center">
-              Same price per unit across all versions—no tooling or plate changeover fees
+              {t(`${p}.sections.iteration.footerText`)}
             </p>
           </div>
         </div>
@@ -196,31 +189,31 @@ const ProductDeveloperPage: React.FC = () => {
     },
     {
       id: 'collaboration',
-      title: 'Collaborative Design Partnership',
+      title: t(`${p}.sections.collaboration.title`),
       icon: <Lightbulb className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            We're not just suppliers—we're <strong>packaging innovation partners</strong>. Our team contributes ideas and solves technical challenges alongside you.
+            {t(`${p}.sections.collaboration.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="grid md:grid-cols-2 gap-4">
             <div className="bg-neutral-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-neutral-800 mb-2">What We Bring</h4>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.collaboration.col1Title`)}</h4>
               <ul className="text-sm text-neutral-600 space-y-1">
-                <li>• Material science expertise</li>
-                <li>• Structural design creativity</li>
-                <li>• Manufacturing feasibility guidance</li>
-                <li>• Trend and consumer insights</li>
+                {(t(`${p}.sections.collaboration.col1Items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx}>• {item}</li>
+                ))}
               </ul>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-neutral-800 mb-2">How We Work</h4>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.collaboration.col2Title`)}</h4>
               <ul className="text-sm text-neutral-600 space-y-1">
-                <li>• Brainstorming sessions</li>
-                <li>• Rapid prototyping cycles</li>
-                <li>• Technical problem-solving</li>
-                <li>• Market testing support</li>
+                {(t(`${p}.sections.collaboration.col2Items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                  <li key={idx}>• {item}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -229,13 +222,13 @@ const ProductDeveloperPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Let\'s Innovate Together',
+      title: t(`${p}.sections.cta.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-8 rounded-xl text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Schedule an Innovation Session</h3>
+          <h3 className="text-2xl font-bold mb-4">{t(`${p}.sections.cta.title`)}</h3>
           <p className="text-lg mb-6 opacity-90">
-            Share your product concept. We'll explore packaging possibilities and create rapid prototypes for testing.
+            {t(`${p}.sections.cta.desc`)}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -244,14 +237,14 @@ const ProductDeveloperPage: React.FC = () => {
               className="flex items-center justify-center gap-2 bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition"
             >
               <Calendar className="h-5 w-5" />
-              Book Innovation Session
+              {t(`${p}.sections.cta.btn1`)}
             </button>
             <Link
               to="/materials"
               className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
             >
               <Package className="h-5 w-5" />
-              Explore Materials
+              {t(`${p}.sections.cta.btn2`)}
             </Link>
           </div>
         </div>
@@ -259,49 +252,51 @@ const ProductDeveloperPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: t(`${p}.sections.industry-scenarios.title`),
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg">
-            Our rapid prototyping and innovation-friendly approach serves <strong>product developers across multiple industries</strong> bringing novel products to market.
+            {t(`${p}.sections.industry-scenarios.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <Beaker className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">R&D Teams</h4>
+                <h4 className="font-semibold text-purple-800">{t(`${p}.sections.industry-scenarios.card1Title`)}</h4>
               </div>
-              <p className="text-sm text-purple-700">Rapid iteration cycles with no plate costs for testing multiple packaging concepts simultaneously.</p>
+              <p className="text-sm text-purple-700">{t(`${p}.sections.industry-scenarios.card1Desc`)}</p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
               <div className="flex items-center gap-2 mb-3">
                 <Rocket className="h-5 w-5 text-blue-600" />
-                <h4 className="font-semibold text-blue-800">Innovation Labs</h4>
+                <h4 className="font-semibold text-blue-800">{t(`${p}.sections.industry-scenarios.card2Title`)}</h4>
               </div>
-              <p className="text-sm text-blue-700">Cutting-edge materials and technologies for breakthrough product presentations.</p>
+              <p className="text-sm text-blue-700">{t(`${p}.sections.industry-scenarios.card2Desc`)}</p>
             </div>
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <Lightbulb className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-amber-800">Consumer Goods Companies</h4>
+                <h4 className="font-semibold text-amber-800">{t(`${p}.sections.industry-scenarios.card3Title`)}</h4>
               </div>
-              <p className="text-sm text-amber-700">Market testing support with low MOQ and fast turnaround for concept validation.</p>
+              <p className="text-sm text-amber-700">{t(`${p}.sections.industry-scenarios.card3Desc`)}</p>
             </div>
           </div>
 
           <div className="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
             <h4 className="font-semibold text-neutral-800 mb-3 flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-primary-600" />
-              Customer Success: Beverage Innovation Team
+              {t(`${p}.sections.industry-scenarios.storyTitle`)}
             </h4>
             <p className="text-sm text-neutral-600 mb-3">
-              A beverage company's innovation team tested 8 packaging concepts in 3 weeks using our digital printing. They identified the winning design through consumer research before committing to full production tooling.
+              {t(`${p}.sections.industry-scenarios.storyDesc`)}
             </p>
             <div className="flex gap-4 text-xs">
-              <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full">8 Concepts Tested</span>
-              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">3 Week Timeline</span>
+              <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full">{t(`${p}.sections.industry-scenarios.badge1`)}</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">{t(`${p}.sections.industry-scenarios.badge2`)}</span>
             </div>
           </div>
         </div>
@@ -309,53 +304,55 @@ const ProductDeveloperPage: React.FC = () => {
     },
     {
       id: 'market-data',
-      title: 'Market Data & Intelligence',
+      title: t(`${p}.sections.market-data.title`),
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg">
-            Stay ahead with <strong>latest product innovation and packaging market data</strong> to inform your development decisions.
+            {t(`${p}.sections.market-data.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-primary-600 mb-1">67%</div>
-              <div className="text-sm text-neutral-600">Products fail due to poor packaging first impression</div>
+              <div className="text-3xl font-bold text-primary-600 mb-1">{t(`${p}.sections.market-data.stat1Val`)}</div>
+              <div className="text-sm text-neutral-600">{t(`${p}.sections.market-data.stat1Label`)}</div>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-1">4.2x</div>
-              <div className="text-sm text-neutral-600">Faster time-to-market with digital prototyping</div>
+              <div className="text-3xl font-bold text-purple-600 mb-1">{t(`${p}.sections.market-data.stat2Val`)}</div>
+              <div className="text-sm text-neutral-600">{t(`${p}.sections.market-data.stat2Label`)}</div>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-1">82%</div>
-              <div className="text-sm text-neutral-600">Consumers prefer sustainable innovation</div>
+              <div className="text-3xl font-bold text-blue-600 mb-1">{t(`${p}.sections.market-data.stat3Val`)}</div>
+              <div className="text-sm text-neutral-600">{t(`${p}.sections.market-data.stat3Label`)}</div>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-200 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-1">$48B</div>
-              <div className="text-sm text-neutral-600">Global smart packaging market by 2026</div>
+              <div className="text-3xl font-bold text-green-600 mb-1">{t(`${p}.sections.market-data.stat4Val`)}</div>
+              <div className="text-sm text-neutral-600">{t(`${p}.sections.market-data.stat4Label`)}</div>
             </div>
           </div>
 
           <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-200">
             <h4 className="font-semibold text-purple-800 mb-3 flex items-center gap-2">
               <TrendingUp className="h-5 w-5" />
-              Innovation Trends 2024-2026
+              {t(`${p}.sections.market-data.trendTitle`)}
             </h4>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
-                <h5 className="font-medium text-purple-700 mb-2">Emerging Technologies</h5>
+                <h5 className="font-medium text-purple-700 mb-2">{t(`${p}.sections.market-data.col1Title`)}</h5>
                 <ul className="text-purple-600 space-y-1">
-                  <li>• NFC/RFID smart packaging integration</li>
-                  <li>• AR-enabled consumer experiences</li>
-                  <li>• Active packaging for freshness extension</li>
+                  {(t(`${p}.sections.market-data.col1Items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
                 </ul>
               </div>
               <div>
-                <h5 className="font-medium text-purple-700 mb-2">Material Innovation</h5>
+                <h5 className="font-medium text-purple-700 mb-2">{t(`${p}.sections.market-data.col2Title`)}</h5>
                 <ul className="text-purple-600 space-y-1">
-                  <li>• Seaweed and algae-based films</li>
-                  <li>• Mushroom mycelium packaging</li>
-                  <li>• Edible and dissolvable packaging</li>
+                  {(t(`${p}.sections.market-data.col2Items`, { returnObjects: true }) as string[]).map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -365,59 +362,42 @@ const ProductDeveloperPage: React.FC = () => {
     },
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: t(`${p}.sections.material-comparison.title`),
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg">
-            Compare <strong>innovative packaging materials</strong> to select the right option for your product development needs.
+            {t(`${p}.sections.material-comparison.intro`, {
+              interpolation: { escapeValue: false }
+            })}
           </p>
           
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-primary-600 text-white">
-                  <th className="p-3 text-left rounded-tl-lg">Material</th>
-                  <th className="p-3 text-left">Innovation Level</th>
-                  <th className="p-3 text-left">Prototype Speed</th>
-                  <th className="p-3 text-left">Sustainability</th>
-                  <th className="p-3 text-left">Best Use Case</th>
-                  <th className="p-3 text-left rounded-tr-lg">Cost Level</th>
+                  {(t(`${p}.sections.material-comparison.headers`, { returnObjects: true }) as string[]).map((h, idx) => (
+                    <th key={idx} className={`p-3 text-left ${idx === 0 ? 'rounded-tl-lg' : idx === 5 ? 'rounded-tr-lg' : ''}`}>{h}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
-                  <td className="p-3 font-medium">PLA/PBAT Compostable</td>
-                  <td className="p-3"><span className="text-purple-600">★★★★★</span></td>
-                  <td className="p-3"><span className="text-green-600">48hrs</span></td>
-                  <td className="p-3"><span className="text-green-600">✓ Excellent</span></td>
-                  <td className="p-3">Eco-conscious launches</td>
-                  <td className="p-3">$$$</td>
-                </tr>
-                <tr className="border-b border-neutral-200 bg-neutral-50 hover:bg-neutral-100">
-                  <td className="p-3 font-medium">Metallic/Holographic Films</td>
-                  <td className="p-3"><span className="text-purple-600">★★★★</span></td>
-                  <td className="p-3"><span className="text-green-600">48hrs</span></td>
-                  <td className="p-3"><span className="text-yellow-600">~ Moderate</span></td>
-                  <td className="p-3">Premium positioning</td>
-                  <td className="p-3">$$$</td>
-                </tr>
-                <tr className="border-b border-neutral-200 hover:bg-neutral-50">
-                  <td className="p-3 font-medium">Bio-PE (Sugarcane)</td>
-                  <td className="p-3"><span className="text-purple-600">★★★★</span></td>
-                  <td className="p-3"><span className="text-green-600">48hrs</span></td>
-                  <td className="p-3"><span className="text-green-600">✓ Good</span></td>
-                  <td className="p-3">Drop-in sustainable</td>
-                  <td className="p-3">$$</td>
-                </tr>
-                <tr className="hover:bg-neutral-50">
-                  <td className="p-3 font-medium">Smart/NFC Enabled</td>
-                  <td className="p-3"><span className="text-purple-600">★★★★★</span></td>
-                  <td className="p-3"><span className="text-amber-600">1-2 weeks</span></td>
-                  <td className="p-3"><span className="text-yellow-600">~ Variable</span></td>
-                  <td className="p-3">Consumer engagement</td>
-                  <td className="p-3">$$$$</td>
-                </tr>
+                {(t(`${p}.sections.material-comparison.rows`, { returnObjects: true }) as string[][]).map((row, rowIdx) => (
+                  <tr key={rowIdx} className={`border-b border-neutral-200 hover:bg-neutral-50 ${rowIdx % 2 === 1 ? 'bg-neutral-50 hover:bg-neutral-100' : ''}`}>
+                    <td className="p-3 font-medium">{row[0]}</td>
+                    <td className="p-3">
+                      <span className="text-purple-600">{row[1]}</span>
+                    </td>
+                    <td className="p-3">
+                      <span className="text-green-600">{row[2]}</span>
+                    </td>
+                    <td className="p-3">
+                      <span className={row[3].includes('✓') ? 'text-green-600' : 'text-yellow-600'}>{row[3]}</span>
+                    </td>
+                    <td className="p-3">{row[4]}</td>
+                    <td className="p-3">{row[5]}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -425,10 +405,12 @@ const ProductDeveloperPage: React.FC = () => {
           <div className="bg-purple-50 p-5 rounded-xl border border-purple-200">
             <h4 className="font-semibold text-purple-800 mb-2 flex items-center gap-2">
               <ShoppingBag className="h-5 w-5" />
-              Expert Selection Advice
+              {t(`${p}.sections.material-comparison.adviceTitle`)}
             </h4>
             <p className="text-sm text-purple-700">
-              For rapid concept testing: Start with <strong>standard sustainable materials</strong> to validate the concept, then upgrade to premium or smart materials for production. Our digital printing allows easy material switches between prototype iterations.
+              {t(`${p}.sections.material-comparison.adviceDesc`, {
+                interpolation: { escapeValue: false }
+              })}
             </p>
           </div>
         </div>
@@ -438,44 +420,44 @@ const ProductDeveloperPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "How quickly can I get packaging prototypes?",
-      answer: "We offer 48-hour turnaround on printed samples for rapid concept evaluation. Full production runs start at 2-3 weeks, but we can expedite to 7-10 days for urgent launches."
+      question: t(`${p}.faqs.q1`),
+      answer: t(`${p}.faqs.a1`)
     },
     {
-      question: "Can I test multiple design variations?",
-      answer: "Absolutely. Digital printing means no plate costs—you can produce 5, 10, or more design variations in the same run for A/B testing without extra setup fees."
+      question: t(`${p}.faqs.q2`),
+      answer: t(`${p}.faqs.a2`)
     },
     {
-      question: "What's the minimum order for market testing?",
-      answer: "Just 100 pieces minimum. This allows you to test packaging concepts at trade shows, focus groups, or limited retail pilots without large inventory commitments."
+      question: t(`${p}.faqs.q3`),
+      answer: t(`${p}.faqs.a3`)
     },
     {
-      question: "Do you support novel product formats?",
-      answer: "Yes. We've developed packaging for unconventional products across food, beverage, supplements, and consumer goods. Our team loves solving new technical challenges."
+      question: t(`${p}.faqs.q4`),
+      answer: t(`${p}.faqs.a4`)
     }
   ]
 
   return (
     <>
       <Helmet>
-        <title>Innovation Packaging | Rapid Prototyping | Product Development | Achieve Pack</title>
-        <meta name="description" content="Packaging for product innovators. Rapid prototyping in 48 hours, cutting-edge materials, flexible iteration with no plate costs. 100 piece MOQ for market testing." />
+        <title>{t(`${p}.title`)}</title>
+        <meta name="description" content={t(`${p}.description`)} />
         <link rel="canonical" href="https://achievepack.com/solutions/product-developer" />
         <meta name="keywords" content="innovation packaging, rapid prototyping, product development packaging, low MOQ testing, flexible packaging design, cutting-edge materials" />
       </Helmet>
 
       <SEOPageLayout heroBgColor="#1f2937"
-        title="Innovation Packaging | Rapid Prototyping | Product Development"
-        description="Packaging for product innovators. Rapid prototyping in 48 hours, cutting-edge materials, flexible iteration with no plate costs."
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
         keywords={['innovation packaging', 'rapid prototyping', 'product development packaging', 'low MOQ testing']}
-        heroTitle="Packaging for Product Innovators"
-        heroSubtitle="48hr Prototypes | Cutting-Edge Materials | No Plate Costs"
-        introSummary="Bring innovative products to market faster with packaging that matches your pace. Rapid prototyping, cutting-edge sustainable materials, and flexible iteration cycles."
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
+        introSummary={t(`${p}.introSummary`)}
         sections={sections}
         faqs={faqs}
         schemaType="Product"
         heroImage="/imgs/seo-photos/a_digital_printing_customization_2717640.webp"
-                heroImageAlt="Digital printing customization for product innovation"
+        heroImageAlt="Digital printing customization for product innovation"
       />
     </>
   )

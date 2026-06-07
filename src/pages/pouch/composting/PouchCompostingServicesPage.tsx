@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { useState, useMemo } from 'react'
 import { Leaf, Search, MapPin, ExternalLink, HelpCircle, ChevronDown, CheckCircle, Award, Target, Zap, Clock, Globe, AlertTriangle } from 'lucide-react'
@@ -13,111 +14,115 @@ interface CompostService {
   url: string
 }
 
-const COMPOST_SERVICES: CompostService[] = [
-  { state: "Alabama", city: "Birmingham", name: "Mountain Brook Public Works", url: "https://www.mtnbrook.org/publicworks/page/compost" },
-  { state: "Alaska", city: "Anchorage", name: "Alaska Waste Commercial Composting Program", url: "https://www.alaskawaste.net/" },
-  { state: "Alaska", city: "Anchorage", name: "Green Earth Landworks", url: "http://www.greenearthalaska.com/" },
-  { state: "Alaska", city: "Anchorage", name: "Community Compost", url: "https://www.muni.org/Departments/SWS/Recycling/Pages/CommunityCompost.aspx" },
-  { state: "Alaska", city: "Juneau", name: "Juneau Composts", url: "https://juneaucomposts.com/" },
-  { state: "Alaska", city: "Kodiak", name: "Kodiak Composting", url: "https://www.city.kodiak.ak.us/publicworks/page/future-biosolids-composting-facility-information" },
-  { state: "Arizona", city: "Flagstaff", name: "Corbin Composting", url: "https://www.corbincompost.com/" },
-  { state: "Arizona", city: "Phoenix", name: "Recycled City", url: "https://www.recycledcity.com/" },
-  { state: "Arizona", city: "Phoenix", name: "We Care Compost", url: "http://www.wecarecompost.com/wecare-products/locations/phoenix-az/" },
-  { state: "Arizona", city: "Tempe", name: "Tempe's Compost Yard", url: "https://www.tempe.gov/government/municipal-utilities/solid-waste-and-recycling/curbside-green-organics-program" },
-  { state: "Arizona", city: "Tucson", name: "FoodCycle", url: "https://www.tucsonaz.gov/Departments/Environmental-Services/FoodCycle-At-Home" },
-  { state: "Arizona", city: "Tucson", name: "Desert Compostables", url: "https://www.desertcompostables.com/" },
-  { state: "Arkansas", city: "Bentonville", name: "Bentonville Compost Facility", url: "http://www.bentonvillear.com/170/Compost-Facility" },
-  { state: "Arkansas", city: "Fayetteville", name: "City Compost Program", url: "https://www.fayetteville-ar.gov/3421/Composting-and-Mulch" },
-  { state: "Arkansas", city: "Hot Springs", name: "Hot Springs Compost Facility", url: "https://www.cityhs.net/240/Compost" },
-  { state: "California", city: "Alameda", name: "Alameda County Sustainability", url: "https://www.acgov.org/sustain/what/recycling/public.htm" },
-  { state: "California", city: "Berkeley", name: "City of Berkeley Public Works", url: "https://www.cityofberkeley.info/ContentDisplay.aspx?id=5606" },
-  { state: "California", city: "Lake Tahoe", name: "Slow Food", url: "https://www.slowfoodlaketahoe.org/compost" },
-  { state: "California", city: "Long Beach", name: "Long Beach Community Compost", url: "https://lbcommunitycompost.org/" },
-  { state: "California", city: "Los Angeles", name: "LA Compost", url: "https://www.lacompost.org/" },
-  { state: "California", city: "Los Angeles", name: "Compostable LA", url: "https://www.compostablela.com/" },
-  { state: "California", city: "San Diego", name: "Inika", url: "https://www.inika.org/" },
-  { state: "California", city: "San Francisco", name: "Recology San Francisco", url: "https://www.recology.com/recology-san-francisco/your-three-carts/" },
-  { state: "California", city: "San Francisco", name: "SF Environment", url: "https://sfenvironment.org/es/zero-waste/recycling-and-composting" },
-  { state: "California", city: "Oakland", name: "Oakland Recycles", url: "https://www.oaklandrecycles.com/" },
-  { state: "Colorado", city: "Denver", name: "Denver Composts", url: "https://www.denvergov.org/content/denvergov/en/trash-and-recycling/composting/compost-collection-program.html" },
-  { state: "Colorado", city: "Denver", name: "Scraps Mile High", url: "https://scrapsmilehigh.com/" },
-  { state: "Colorado", city: "Boulder", name: "University of Colorado Environmental Center", url: "https://www.colorado.edu/ecenter/zero-waste/compost" },
-  { state: "Colorado", city: "Fort Collins", name: "Common Good Compost", url: "https://www.commongoodcompost.org/" },
-  { state: "Connecticut", city: "Hartford", name: "Blue Earth Compost", url: "https://www.blueearthcompost.com/" },
-  { state: "Connecticut", city: "New Haven", name: "Peels & Wheels", url: "https://www.pwcomposting.com/" },
-  { state: "District of Columbia", city: "Washington", name: "Compost Crew", url: "https://compostcrew.com/" },
-  { state: "District of Columbia", city: "Washington", name: "Compost Cab", url: "https://compostcab.com/" },
-  { state: "Florida", city: "Orlando", name: "O-Town Compost", url: "https://o-towncompost.com/" },
-  { state: "Florida", city: "Miami", name: "Back2Earth", url: "https://www.back2earth.org/" },
-  { state: "Florida", city: "Tampa", name: "Suncoast Compost", url: "https://www.suncoastcompost.com/" },
-  { state: "Georgia", city: "Atlanta", name: "CompostNow", url: "https://compostnow.org/" },
-  { state: "Georgia", city: "Athens", name: "Awesome Possum", url: "https://www.awesomepossumcomposting.com/" },
-  { state: "Hawaii", city: "Kaua'i County", name: "County Composting", url: "https://www.kauai.gov/Composting" },
-  { state: "Idaho", city: "Boise", name: "Curb It", url: "https://www.cityofboise.org/departments/public-works/curb-it/compost/" },
-  { state: "Illinois", city: "Chicago", name: "Collective Resource", url: "https://www.collectiveresource.us/" },
-  { state: "Illinois", city: "Chicago", name: "WasteNot Compost", url: "https://www.wastenotcompost.com/" },
-  { state: "Indiana", city: "Indianapolis", name: "Earth Mama", url: "http://earthmamacompost.com/" },
-  { state: "Iowa", city: "Iowa City", name: "Iowa City Public Works", url: "https://www.icgov.org/foodwaste" },
-  { state: "Kansas", city: "Kansas City", name: "KC Can Compost", url: "https://kccancompost.com/" },
-  { state: "Kentucky", city: "Lexington", name: "Seedleaf", url: "https://www.seedleaf.org/" },
-  { state: "Louisiana", city: "New Orleans", name: "The Composting Network", url: "https://compostingnetwork.com/" },
-  { state: "Maine", city: "Portland", name: "Garbage to Garden", url: "https://garbagetogarden.org/" },
-  { state: "Maryland", city: "Baltimore", name: "Compost Cab", url: "https://compostcab.com/" },
-  { state: "Massachusetts", city: "Boston Area", name: "Black Earth Compost", url: "https://blackearthcompost.com/" },
-  { state: "Massachusetts", city: "Boston Area", name: "Bootstrap Compost", url: "https://bootstrapcompost.com/" },
-  { state: "Massachusetts", city: "Cambridge", name: "Cambridge Curbside Composting", url: "https://www.cambridgema.gov/Services/curbsidecomposting" },
-  { state: "Michigan", city: "Detroit", name: "Midtown Composting", url: "https://midtowncomposting.com/product/weekly-residential-compost-collection-monthly/" },
-  { state: "Michigan", city: "Ann Arbor", name: "City Composting", url: "https://www.a2gov.org/departments/trash-recycling/Pages/Compost.aspx" },
-  { state: "Minnesota", city: "Minneapolis", name: "City of Minneapolis Organics", url: "http://www2.minneapolismn.gov/solid-waste/organics/index.htm" },
-  { state: "Missouri", city: "St. Louis", name: "St. Louis Composting", url: "https://www.stlcompost.com/" },
-  { state: "Montana", city: "Bozeman", name: "YES Compost", url: "https://www.yescompost.com/services" },
-  { state: "Nebraska", city: "Omaha", name: "Hillside Solutions", url: "https://www.hillside.solutions/" },
-  { state: "Nevada", city: "Reno", name: "Down to Earth Composting", url: "https://www.downtoearthcomposting.com/" },
-  { state: "New Hampshire", city: "Manchester", name: "City Compost", url: "https://www.citycompost.com/" },
-  { state: "New Jersey", city: "Hoboken", name: "Community Compost Company", url: "https://www.communitycompostco.com/" },
-  { state: "New Mexico", city: "Albuquerque", name: "Soilutions", url: "https://www.soilutions.net/" },
-  { state: "New York", city: "New York City", name: "Grow NYC", url: "https://www.grownyc.org/compost" },
-  { state: "New York", city: "New York City", name: "Earth Matter", url: "https://earthmatter.org/" },
-  { state: "New York", city: "Brooklyn", name: "BK ROT", url: "https://www.bkrot.org/" },
-  { state: "New York", city: "Buffalo", name: "Farmer Pirates", url: "https://www.farmerpirates.com/" },
-  { state: "North Carolina", city: "Charlotte", name: "Crown Town Compost", url: "https://www.crowntowncompost.com/" },
-  { state: "North Carolina", city: "Asheville", name: "CompostAVL", url: "https://compostavl.com/" },
-  { state: "Ohio", city: "Cleveland", name: "Rust Belt Riders", url: "https://www.rustbeltriders.com/" },
-  { state: "Ohio", city: "Cincinnati", name: "Queen City Commons", url: "https://www.queencitycommons.com/" },
-  { state: "Ohio", city: "Columbus", name: "The Compost Exchange", url: "https://www.thecompostexchange.com/" },
-  { state: "Oklahoma", city: "Tulsa", name: "Full Sun Composting", url: "https://www.fullsuncomposting.com/" },
-  { state: "Oregon", city: "Portland", name: "City Compost", url: "https://www.portland.gov/bps/garbage-recycling/residential-compost-tips" },
-  { state: "Oregon", city: "Portland", name: "Recology Portland", url: "https://www.recology.com/recology-portland/" },
-  { state: "Pennsylvania", city: "Philadelphia", name: "Bennett Compost", url: "https://www.bennettcompost.com/" },
-  { state: "Pennsylvania", city: "Pittsburgh", name: "Shadyside Worms", url: "https://shadysideworms.com/compost-exchange/" },
-  { state: "Rhode Island", city: "Providence", name: "Bootstrap Compost", url: "https://bootstrapcompost.com/" },
-  { state: "South Carolina", city: "Charleston", name: "CompostNow", url: "https://compostnow.org/" },
-  { state: "Tennessee", city: "Nashville", name: "Compost Nashville", url: "https://compostnashville.org/" },
-  { state: "Tennessee", city: "Memphis", name: "The Compost Fairy", url: "https://compostfairy.com/" },
-  { state: "Texas", city: "Austin", name: "Texas Disposal Systems", url: "https://www.texasdisposal.com/processing/composting/" },
-  { state: "Texas", city: "Dallas-Fort Worth", name: "Turn Compost", url: "https://www.turncompost.com/" },
-  { state: "Texas", city: "Houston", name: "From Curb to Compost", url: "https://curbtocompost.com/" },
-  { state: "Texas", city: "San Antonio", name: "Compost Queens", url: "https://www.compostqueenstx.com/" },
-  { state: "Utah", city: "Salt Lake City", name: "City Compost Program", url: "https://www.slc.gov/sustainability/waste-management/curbside/compost-can/" },
-  { state: "Vermont", city: "Burlington", name: "Earthgirl Composting", url: "https://www.earthgirlcomposting.com/" },
-  { state: "Virginia", city: "Northern Virginia", name: "Compost Crew", url: "https://compostcrew.com/" },
-  { state: "Virginia", city: "Richmond", name: "Enrich Compost", url: "https://enrichcompost.com/" },
-  { state: "Washington", city: "Seattle", name: "Cedar Grove", url: "https://cedar-grove.com/" },
-  { state: "Washington", city: "Seattle", name: "Recology Seattle", url: "https://www.recology.com/recology-cleanscapes/seattle/" },
-  { state: "Wisconsin", city: "Madison", name: "Earth Stew Compost Services", url: "https://www.earthstew.com/" },
-  { state: "Wisconsin", city: "Milwaukee", name: "Compost Crusader", url: "https://www.compostcrusader.com/" },
-  { state: "Wyoming", city: "Jackson Hole", name: "WyoFarm Composting", url: "https://wyocompost.com/" }
-]
 
-const STATES = [...new Set(COMPOST_SERVICES.map(s => s.state))].sort()
 
 export default function PouchCompostingServicesPage() {
+  const { t } = useTranslation()
+  const COMPOST_SERVICES: CompostService[] = useMemo(() => [
+    { state: "Alabama", city: "Birmingham", name: t('seoPages.pages.pouchCompostingServices.mountainBrookPublicWorks'), url: "https://www.mtnbrook.org/publicworks/page/compost" },
+  { state: "Alaska", city: "Anchorage", name: t('seoPages.pages.pouchCompostingServices.alaskaWasteCommercialComposting'), url: "https://www.alaskawaste.net/" },
+  { state: "Alaska", city: "Anchorage", name: t('seoPages.pages.pouchCompostingServices.greenEarthLandworks'), url: "http://www.greenearthalaska.com/" },
+  { state: "Alaska", city: "Anchorage", name: t('seoPages.pages.pouchCompostingServices.communityCompost'), url: "https://www.muni.org/Departments/SWS/Recycling/Pages/CommunityCompost.aspx" },
+  { state: "Alaska", city: "Juneau", name: t('seoPages.pages.pouchCompostingServices.juneauComposts'), url: "https://juneaucomposts.com/" },
+  { state: "Alaska", city: "Kodiak", name: t('seoPages.pages.pouchCompostingServices.kodiakComposting'), url: "https://www.city.kodiak.ak.us/publicworks/page/future-biosolids-composting-facility-information" },
+  { state: "Arizona", city: "Flagstaff", name: t('seoPages.pages.pouchCompostingServices.corbinComposting'), url: "https://www.corbincompost.com/" },
+  { state: "Arizona", city: "Phoenix", name: t('seoPages.pages.pouchCompostingServices.recycledCity'), url: "https://www.recycledcity.com/" },
+  { state: "Arizona", city: "Phoenix", name: t('seoPages.pages.pouchCompostingServices.weCareCompost'), url: "http://www.wecarecompost.com/wecare-products/locations/phoenix-az/" },
+  { state: "Arizona", city: "Tempe", name: t('seoPages.pages.pouchCompostingServices.tempesCompostYard'), url: "https://www.tempe.gov/government/municipal-utilities/solid-waste-and-recycling/curbside-green-organics-program" },
+  { state: "Arizona", city: "Tucson", name: t('seoPages.pages.pouchCompostingServices.foodcycle'), url: "https://www.tucsonaz.gov/Departments/Environmental-Services/FoodCycle-At-Home" },
+  { state: "Arizona", city: "Tucson", name: t('seoPages.pages.pouchCompostingServices.desertCompostables'), url: "https://www.desertcompostables.com/" },
+  { state: "Arkansas", city: "Bentonville", name: t('seoPages.pages.pouchCompostingServices.bentonvilleCompostFacility'), url: "http://www.bentonvillear.com/170/Compost-Facility" },
+  { state: "Arkansas", city: "Fayetteville", name: t('seoPages.pages.pouchCompostingServices.cityCompostProgram'), url: "https://www.fayetteville-ar.gov/3421/Composting-and-Mulch" },
+  { state: "Arkansas", city: "Hot Springs", name: t('seoPages.pages.pouchCompostingServices.hotSpringsCompostFacility'), url: "https://www.cityhs.net/240/Compost" },
+  { state: "California", city: "Alameda", name: t('seoPages.pages.pouchCompostingServices.alamedaCountySustainability'), url: "https://www.acgov.org/sustain/what/recycling/public.htm" },
+  { state: "California", city: "Berkeley", name: t('seoPages.pages.pouchCompostingServices.cityOfBerkeleyPublic'), url: "https://www.cityofberkeley.info/ContentDisplay.aspx?id=5606" },
+  { state: "California", city: "Lake Tahoe", name: t('seoPages.pages.pouchCompostingServices.slowFood'), url: "https://www.slowfoodlaketahoe.org/compost" },
+  { state: "California", city: "Long Beach", name: t('seoPages.pages.pouchCompostingServices.longBeachCommunityCompost'), url: "https://lbcommunitycompost.org/" },
+  { state: "California", city: "Los Angeles", name: t('seoPages.pages.pouchCompostingServices.laCompost'), url: "https://www.lacompost.org/" },
+  { state: "California", city: "Los Angeles", name: t('seoPages.pages.pouchCompostingServices.compostableLa'), url: "https://www.compostablela.com/" },
+  { state: "California", city: "San Diego", name: t('seoPages.pages.pouchCompostingServices.inika'), url: "https://www.inika.org/" },
+  { state: "California", city: "San Francisco", name: t('seoPages.pages.pouchCompostingServices.recologySanFrancisco'), url: "https://www.recology.com/recology-san-francisco/your-three-carts/" },
+  { state: "California", city: "San Francisco", name: t('seoPages.pages.pouchCompostingServices.sfEnvironment'), url: "https://sfenvironment.org/es/zero-waste/recycling-and-composting" },
+  { state: "California", city: "Oakland", name: t('seoPages.pages.pouchCompostingServices.oaklandRecycles'), url: "https://www.oaklandrecycles.com/" },
+  { state: "Colorado", city: "Denver", name: t('seoPages.pages.pouchCompostingServices.denverComposts'), url: "https://www.denvergov.org/content/denvergov/en/trash-and-recycling/composting/compost-collection-program.html" },
+  { state: "Colorado", city: "Denver", name: t('seoPages.pages.pouchCompostingServices.scrapsMileHigh'), url: "https://scrapsmilehigh.com/" },
+  { state: "Colorado", city: "Boulder", name: t('seoPages.pages.pouchCompostingServices.universityOfColoradoEnvironmental'), url: "https://www.colorado.edu/ecenter/zero-waste/compost" },
+  { state: "Colorado", city: "Fort Collins", name: t('seoPages.pages.pouchCompostingServices.commonGoodCompost'), url: "https://www.commongoodcompost.org/" },
+  { state: "Connecticut", city: "Hartford", name: t('seoPages.pages.pouchCompostingServices.blueEarthCompost'), url: "https://www.blueearthcompost.com/" },
+  { state: "Connecticut", city: "New Haven", name: t('seoPages.pages.pouchCompostingServices.peelsWheels'), url: "https://www.pwcomposting.com/" },
+  { state: "District of Columbia", city: "Washington", name: t('seoPages.pages.pouchCompostingServices.compostCrew'), url: "https://compostcrew.com/" },
+  { state: "District of Columbia", city: "Washington", name: t('seoPages.pages.pouchCompostingServices.compostCab'), url: "https://compostcab.com/" },
+  { state: "Florida", city: "Orlando", name: t('seoPages.pages.pouchCompostingServices.otownCompost'), url: "https://o-towncompost.com/" },
+  { state: "Florida", city: "Miami", name: t('seoPages.pages.pouchCompostingServices.back2earth'), url: "https://www.back2earth.org/" },
+  { state: "Florida", city: "Tampa", name: t('seoPages.pages.pouchCompostingServices.suncoastCompost'), url: "https://www.suncoastcompost.com/" },
+  { state: "Georgia", city: "Atlanta", name: t('seoPages.pages.pouchCompostingServices.compostnow'), url: "https://compostnow.org/" },
+  { state: "Georgia", city: "Athens", name: t('seoPages.pages.pouchCompostingServices.awesomePossum'), url: "https://www.awesomepossumcomposting.com/" },
+  { state: "Hawaii", city: "Kaua'i County", name: t('seoPages.pages.pouchCompostingServices.countyComposting'), url: "https://www.kauai.gov/Composting" },
+  { state: "Idaho", city: "Boise", name: t('seoPages.pages.pouchCompostingServices.curbIt'), url: "https://www.cityofboise.org/departments/public-works/curb-it/compost/" },
+  { state: "Illinois", city: "Chicago", name: t('seoPages.pages.pouchCompostingServices.collectiveResource'), url: "https://www.collectiveresource.us/" },
+  { state: "Illinois", city: "Chicago", name: t('seoPages.pages.pouchCompostingServices.wastenotCompost'), url: "https://www.wastenotcompost.com/" },
+  { state: "Indiana", city: "Indianapolis", name: t('seoPages.pages.pouchCompostingServices.earthMama'), url: "http://earthmamacompost.com/" },
+  { state: "Iowa", city: "Iowa City", name: t('seoPages.pages.pouchCompostingServices.iowaCityPublicWorks'), url: "https://www.icgov.org/foodwaste" },
+  { state: "Kansas", city: "Kansas City", name: t('seoPages.pages.pouchCompostingServices.kcCanCompost'), url: "https://kccancompost.com/" },
+  { state: "Kentucky", city: "Lexington", name: t('seoPages.pages.pouchCompostingServices.seedleaf'), url: "https://www.seedleaf.org/" },
+  { state: "Louisiana", city: "New Orleans", name: t('seoPages.pages.pouchCompostingServices.theCompostingNetwork'), url: "https://compostingnetwork.com/" },
+  { state: "Maine", city: "Portland", name: t('seoPages.pages.pouchCompostingServices.garbageToGarden'), url: "https://garbagetogarden.org/" },
+  { state: "Maryland", city: "Baltimore", name: t('seoPages.pages.pouchCompostingServices.compostCab'), url: "https://compostcab.com/" },
+  { state: "Massachusetts", city: "Boston Area", name: t('seoPages.pages.pouchCompostingServices.blackEarthCompost'), url: "https://blackearthcompost.com/" },
+  { state: "Massachusetts", city: "Boston Area", name: t('seoPages.pages.pouchCompostingServices.bootstrapCompost'), url: "https://bootstrapcompost.com/" },
+  { state: "Massachusetts", city: "Cambridge", name: t('seoPages.pages.pouchCompostingServices.cambridgeCurbsideComposting'), url: "https://www.cambridgema.gov/Services/curbsidecomposting" },
+  { state: "Michigan", city: "Detroit", name: t('seoPages.pages.pouchCompostingServices.midtownComposting'), url: "https://midtowncomposting.com/product/weekly-residential-compost-collection-monthly/" },
+  { state: "Michigan", city: "Ann Arbor", name: t('seoPages.pages.pouchCompostingServices.cityComposting'), url: "https://www.a2gov.org/departments/trash-recycling/Pages/Compost.aspx" },
+  { state: "Minnesota", city: "Minneapolis", name: t('seoPages.pages.pouchCompostingServices.cityOfMinneapolisOrganics'), url: "http://www2.minneapolismn.gov/solid-waste/organics/index.htm" },
+  { state: "Missouri", city: "St. Louis", name: t('seoPages.pages.pouchCompostingServices.stLouisComposting'), url: "https://www.stlcompost.com/" },
+  { state: "Montana", city: "Bozeman", name: t('seoPages.pages.pouchCompostingServices.yesCompost'), url: "https://www.yescompost.com/services" },
+  { state: "Nebraska", city: "Omaha", name: t('seoPages.pages.pouchCompostingServices.hillsideSolutions'), url: "https://www.hillside.solutions/" },
+  { state: "Nevada", city: "Reno", name: t('seoPages.pages.pouchCompostingServices.downToEarthComposting'), url: "https://www.downtoearthcomposting.com/" },
+  { state: "New Hampshire", city: "Manchester", name: t('seoPages.pages.pouchCompostingServices.cityCompost'), url: "https://www.citycompost.com/" },
+  { state: "New Jersey", city: "Hoboken", name: t('seoPages.pages.pouchCompostingServices.communityCompostCompany'), url: "https://www.communitycompostco.com/" },
+  { state: "New Mexico", city: "Albuquerque", name: t('seoPages.pages.pouchCompostingServices.soilutions'), url: "https://www.soilutions.net/" },
+  { state: "New York", city: "New York City", name: t('seoPages.pages.pouchCompostingServices.growNyc'), url: "https://www.grownyc.org/compost" },
+  { state: "New York", city: "New York City", name: t('seoPages.pages.pouchCompostingServices.earthMatter'), url: "https://earthmatter.org/" },
+  { state: "New York", city: "Brooklyn", name: t('seoPages.pages.pouchCompostingServices.bkRot'), url: "https://www.bkrot.org/" },
+  { state: "New York", city: "Buffalo", name: t('seoPages.pages.pouchCompostingServices.farmerPirates'), url: "https://www.farmerpirates.com/" },
+  { state: "North Carolina", city: "Charlotte", name: t('seoPages.pages.pouchCompostingServices.crownTownCompost'), url: "https://www.crowntowncompost.com/" },
+  { state: "North Carolina", city: "Asheville", name: t('seoPages.pages.pouchCompostingServices.compostavl'), url: "https://compostavl.com/" },
+  { state: "Ohio", city: "Cleveland", name: t('seoPages.pages.pouchCompostingServices.rustBeltRiders'), url: "https://www.rustbeltriders.com/" },
+  { state: "Ohio", city: "Cincinnati", name: t('seoPages.pages.pouchCompostingServices.queenCityCommons'), url: "https://www.queencitycommons.com/" },
+  { state: "Ohio", city: "Columbus", name: t('seoPages.pages.pouchCompostingServices.theCompostExchange'), url: "https://www.thecompostexchange.com/" },
+  { state: "Oklahoma", city: "Tulsa", name: t('seoPages.pages.pouchCompostingServices.fullSunComposting'), url: "https://www.fullsuncomposting.com/" },
+  { state: "Oregon", city: "Portland", name: t('seoPages.pages.pouchCompostingServices.cityCompost'), url: "https://www.portland.gov/bps/garbage-recycling/residential-compost-tips" },
+  { state: "Oregon", city: "Portland", name: t('seoPages.pages.pouchCompostingServices.recologyPortland'), url: "https://www.recology.com/recology-portland/" },
+  { state: "Pennsylvania", city: "Philadelphia", name: t('seoPages.pages.pouchCompostingServices.bennettCompost'), url: "https://www.bennettcompost.com/" },
+  { state: "Pennsylvania", city: "Pittsburgh", name: t('seoPages.pages.pouchCompostingServices.shadysideWorms'), url: "https://shadysideworms.com/compost-exchange/" },
+  { state: "Rhode Island", city: "Providence", name: t('seoPages.pages.pouchCompostingServices.bootstrapCompost'), url: "https://bootstrapcompost.com/" },
+  { state: "South Carolina", city: "Charleston", name: t('seoPages.pages.pouchCompostingServices.compostnow'), url: "https://compostnow.org/" },
+  { state: "Tennessee", city: "Nashville", name: t('seoPages.pages.pouchCompostingServices.compostNashville'), url: "https://compostnashville.org/" },
+  { state: "Tennessee", city: "Memphis", name: t('seoPages.pages.pouchCompostingServices.theCompostFairy'), url: "https://compostfairy.com/" },
+  { state: "Texas", city: "Austin", name: t('seoPages.pages.pouchCompostingServices.texasDisposalSystems'), url: "https://www.texasdisposal.com/processing/composting/" },
+  { state: "Texas", city: "Dallas-Fort Worth", name: t('seoPages.pages.pouchCompostingServices.turnCompost'), url: "https://www.turncompost.com/" },
+  { state: "Texas", city: "Houston", name: t('seoPages.pages.pouchCompostingServices.fromCurbToCompost'), url: "https://curbtocompost.com/" },
+  { state: "Texas", city: "San Antonio", name: t('seoPages.pages.pouchCompostingServices.compostQueens'), url: "https://www.compostqueenstx.com/" },
+  { state: "Utah", city: "Salt Lake City", name: t('seoPages.pages.pouchCompostingServices.cityCompostProgram'), url: "https://www.slc.gov/sustainability/waste-management/curbside/compost-can/" },
+  { state: "Vermont", city: "Burlington", name: t('seoPages.pages.pouchCompostingServices.earthgirlComposting'), url: "https://www.earthgirlcomposting.com/" },
+  { state: "Virginia", city: "Northern Virginia", name: t('seoPages.pages.pouchCompostingServices.compostCrew'), url: "https://compostcrew.com/" },
+  { state: "Virginia", city: "Richmond", name: t('seoPages.pages.pouchCompostingServices.enrichCompost'), url: "https://enrichcompost.com/" },
+  { state: "Washington", city: "Seattle", name: t('seoPages.pages.pouchCompostingServices.cedarGrove'), url: "https://cedar-grove.com/" },
+  { state: "Washington", city: "Seattle", name: t('seoPages.pages.pouchCompostingServices.recologySeattle'), url: "https://www.recology.com/recology-cleanscapes/seattle/" },
+  { state: "Wisconsin", city: "Madison", name: t('seoPages.pages.pouchCompostingServices.earthStewCompostServices'), url: "https://www.earthstew.com/" },
+  { state: "Wisconsin", city: "Milwaukee", name: t('seoPages.pages.pouchCompostingServices.compostCrusader'), url: "https://www.compostcrusader.com/" },
+  { state: "Wyoming", city: "Jackson Hole", name: t('seoPages.pages.pouchCompostingServices.wyofarmComposting'), url: "https://wyocompost.com/" }
+  ], [t])
+
+  const STATES = useMemo(() => [...new Set(COMPOST_SERVICES.map(s => s.state))].sort(), [COMPOST_SERVICES])
+
+
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedState, setSelectedState] = useState<string>('')
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
 
-  const title = "Global Composting Services & Facility Finder | Pouch.eco"
-  const description = "Find commercial composting services worldwide. Locate 100+ municipal and private FOGO facilities accepting certified ASTM D6400 / EN 13432 compostable packaging."
+  const title = t('seoPages.pages.pouchCompostingServices.metaTitle')
+  const description = t('seoPages.pages.pouchCompostingServices.metaDescription')
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -125,50 +130,50 @@ export default function PouchCompostingServicesPage() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the MOQ for certified compostable stand-up pouches?",
+        name: t('seoPages.pages.pouchCompostingServices.whatIsTheMoq'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our minimum order quantity is just 500 units per design for custom digital printing (with zero cylinder plate setup fees) and 5,000 units for rotogravure volume printing."
+          text: t('seoPages.pages.pouchCompostingServices.ourMinimumOrderQuantity')
         }
       },
       {
         "@type": "Question",
-        "name": "Can we order free physical samples for our testing lines?",
+        name: t('seoPages.pages.pouchCompostingServices.canWeOrderFree'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we ship physical eco-sample packs containing a variety of our compostable materials and barrier thicknesses worldwide via express."
+          text: t('seoPages.pages.pouchCompostingServices.yesWeShipPhysical')
         }
       },
       {
         "@type": "Question",
-        "name": "Do you support custom sizes and custom shaped seals?",
+        name: t('seoPages.pages.pouchCompostingServices.doYouSupportCustom'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Our engineers supply custom CAD dieline templates designed for your specific vertical form-fill-seal (VFFS) machinery and custom shaped seals."
+          text: t('seoPages.pages.pouchCompostingServices.yesOurEngineersSupply')
         }
       },
       {
         "@type": "Question",
-        "name": "What is the average lead time for custom runs?",
+        name: t('seoPages.pages.pouchCompostingServices.whatIsTheAverage'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Custom digital runs require 7-10 business days from artwork sign-off. Plate-printed runs take 12-14 business days. Air express shipping takes 3-5 days."
+          text: t('seoPages.pages.pouchCompostingServices.customDigitalRunsRequire')
         }
       },
       {
         "@type": "Question",
-        "name": "What certifications do your compostable bags hold?",
+        name: t('seoPages.pages.pouchCompostingServices.whatCertificationsDoYour'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "All our packaging is produced in certified BRCGS Grade A facilities. The materials carry verified BPI (ASTM D6400) and TUV OK Compost HOME certifications."
+          text: t('seoPages.pages.pouchCompostingServices.allOurPackagingIs')
         }
       },
       {
         "@type": "Question",
-        "name": "What details do you need for a formal quotation?",
+        name: t('seoPages.pages.pouchCompostingServices.whatDetailsDoYou'),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Simply let us know your required dimensions, estimated run volume per SKU, material stack (e.g. kraft or clear compostable), and zip/valve features. We reply in 24 hours."
+          text: t('seoPages.pages.pouchCompostingServices.simplyLetUsKnow')
         }
       }
     ]
@@ -176,51 +181,51 @@ export default function PouchCompostingServicesPage() {
 
   const specTranslations = [
     {
-      label: "FOGO Collection Compatibility",
+      label: t('seoPages.pages.pouchCompostingServices.fogoCollectionCompatibility'),
       val: "BPI / CMA Approved",
-      desc: "Pre-validated under Compost Manufacturing Alliance (CMA) guidelines to ensure seamless acceptance across regional FOGO industrial windrows."
+      desc: t('seoPages.pages.pouchCompostingServices.prevalidatedUnderCompostManufacturing')
     },
     {
-      label: "Disintegration Window",
+      label: t('seoPages.pages.pouchCompostingServices.disintegrationWindow'),
       val: "90-180 Days Industrial",
-      desc: "Maintains structural seal integrity on retail shelves, yet degrades entirely within municipal windrows under standard high-temperature (140°F) conditions."
+      desc: t('seoPages.pages.pouchCompostingServices.maintainsStructuralSealIntegrity')
     },
     {
-      label: "Toxicity Compliance",
+      label: t('seoPages.pages.pouchCompostingServices.toxicityCompliance'),
       val: "Fluorine-Free Barrier",
-      desc: "Manufactured without PFAS, raw fluorine, or harmful chemical coatings, guaranteeing non-toxic residues in finished agricultural topsoils."
+      desc: t('seoPages.pages.pouchCompostingServices.manufacturedWithoutPfasRaw')
     },
     {
-      label: "Lamination Quality",
+      label: t('seoPages.pages.pouchCompostingServices.laminationQuality'),
       val: "Grade A BRCGS Cleanroom",
-      desc: "Co-extruded and laminated inside certified cleanrooms, preventing heavy metal or foreign particulate contamination in organic collections."
+      desc: t('seoPages.pages.pouchCompostingServices.coextrudedAndLaminatedInside')
     }
   ]
 
   const faqs = [
     {
-      q: "What is the MOQ for certified compostable stand-up pouches?",
-      a: "We offer an ultra-low MOQ of just 500 units for digitally printed bags. This lets startup brands test new flavors or roasts without expensive plate setup cylinder fees. For high-volume rotogravure runs, the MOQ is 5,000 units."
+      q: t('seoPages.pages.pouchCompostingServices.whatIsTheMoq'),
+      a: t('seoPages.pages.pouchCompostingServices.weOfferAnUltralow')
     },
     {
-      q: "Are free physical samples available?",
-      a: "Yes, we ship physical eco-sample kits containing our different compostable films, bio-PE materials, and various zipper/degassing valve layouts worldwide via express courier."
+      q: t('seoPages.pages.pouchCompostingServices.areFreePhysicalSamples'),
+      a: t('seoPages.pages.pouchCompostingServices.yesWeShipPhysical1')
     },
     {
-      q: "Do you support custom sizes and OEM blueprints?",
-      a: "Absolutely. Our packaging engineers supply bespoke CAD dielines designed to fit your exact filling volume and automatically calibrated to your horizontal or vertical packaging machinery requirements."
+      q: t('seoPages.pages.pouchCompostingServices.doYouSupportCustom1'),
+      a: t('seoPages.pages.pouchCompostingServices.absolutelyOurPackagingEngineers')
     },
     {
-      q: "What is the average manufacturing and delivery lead time?",
-      a: "Digitally printed bags are produced in 7-10 business days. Cylinder plate printed runs take 12-14 business days. Standard international air express takes 3-5 business days."
+      q: t('seoPages.pages.pouchCompostingServices.whatIsTheAverage1'),
+      a: t('seoPages.pages.pouchCompostingServices.digitallyPrintedBagsAre')
     },
     {
-      q: "What certifications do your compostable bags hold?",
-      a: "All our packaging is produced in certified Grade A BRCGS food-contact facilities. Our structures carry verified BPI (ASTM D6400) and TUV OK Compost HOME certificates, alongside GRS and FSC compliance."
+      q: t('seoPages.pages.pouchCompostingServices.whatCertificationsDoYour'),
+      a: t('seoPages.pages.pouchCompostingServices.allOurPackagingIs1')
     },
     {
-      q: "What details do you need for a formal pricing quote?",
-      a: "Simply specify your bag dimensions, desired quantity per design, material stack (e.g. compostable kraft or bio-recyclable PE), and any options like valves or tear notches. We provide detailed pricing within 24 hours."
+      q: t('seoPages.pages.pouchCompostingServices.whatDetailsDoYou1'),
+      a: t('seoPages.pages.pouchCompostingServices.simplySpecifyYourBag')
     }
   ]
 
@@ -265,11 +270,11 @@ export default function PouchCompostingServicesPage() {
           
           {/* Breadcrumb Bar */}
           <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black mb-8">
-            <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+            <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">{t('seoPages.pages.pouchCompostingServices.home')}</Link>
             <span>/</span>
-            <Link to="/learn" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Academy</Link>
+            <Link to="/learn" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">{t('seoPages.pages.pouchCompostingServices.ecoacademy')}</Link>
             <span>/</span>
-            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">Composting Finder</span>
+            <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">{t('seoPages.pages.pouchCompostingServices.compostingFinder')}</span>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -279,21 +284,21 @@ export default function PouchCompostingServicesPage() {
                   FACILITY_LOCATOR
                 </span>
                 <span className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
-                  100+ SERVICES LISTED
+                  {t('seoPages.pages.pouchCompostingServices.100ServicesListed')}
                 </span>
               </div>
 
               <h1 className="font-black text-5xl md:text-7xl leading-[0.9] tracking-tighter uppercase">
-                Find Your.<br/>
-                Composting.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">Facility.</span>
+                {t('seoPages.pages.pouchCompostingServices.findYour')}<br/>
+                {t('seoPages.pages.pouchCompostingServices.composting')}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF00] to-[#FF00FF] drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">{t('seoPages.pages.pouchCompostingServices.facility')}</span>
               </h1>
 
               <p className="font-['JetBrains_Mono'] font-bold text-lg md:text-xl max-w-md bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] text-black">
-                &gt; USA, Canada, Australia, Europe.<br/>
-                &gt; Curbside FOGO validation.<br/>
-                &gt; BPI / ASTM D6400 compliance.<br/>
-                &gt; Direct collection networks.
+                {t('seoPages.pages.pouchCompostingServices.gtUsaCanadaAustralia')}<br/>
+                {t('seoPages.pages.pouchCompostingServices.gtCurbsideFogoValidation')}<br/>
+                {t('seoPages.pages.pouchCompostingServices.gtBpiAstmD6400')}<br/>
+                {t('seoPages.pages.pouchCompostingServices.gtDirectCollectionNetworks')}
               </p>
 
               {/* Search Utility Header */}
@@ -315,7 +320,7 @@ export default function PouchCompostingServicesPage() {
                       onChange={(e) => setSelectedState(e.target.value)}
                       className="w-full sm:w-44 px-3 py-3 border-2 border-black font-['JetBrains_Mono'] text-sm bg-white focus:outline-none cursor-pointer appearance-none pr-8"
                     >
-                      <option value="">All States</option>
+                      <option value="">{t('seoPages.pages.pouchCompostingServices.allStates')}</option>
                       {STATES.map(state => (
                         <option key={state} value={state}>{state}</option>
                       ))}
@@ -331,7 +336,7 @@ export default function PouchCompostingServicesPage() {
               <div className="absolute inset-0 bg-neutral-400 translate-x-4 translate-y-4 border-4 border-black" />
               <ClickableImage 
                 src="/imgs/composting/vs/a_lifecycle_compostable_infographic_2163778.webp" 
-                alt="Compostable packaging circular lifecycle infographic" 
+                alt={t('seoPages.pages.pouchCompostingServices.alt_compostablePackagingCircularLifecycle')} 
                 className="relative z-10 border-4 border-black w-full shadow-2xl"
               />
             </div>
@@ -344,7 +349,7 @@ export default function PouchCompostingServicesPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-start gap-4 font-['JetBrains_Mono'] text-sm text-black">
           <AlertTriangle className="h-6 w-6 flex-shrink-0 mt-0.5 text-black" />
           <div>
-            <strong>MUNICIPAL DISCLAIMER:</strong> While all our packaging is certified compostable to BPI and ASTM D6400 standards, not all local composting facilities accept certified packaging due to sorting infrastructure. Please check directly with your local operator before FOGO disposal.
+            <strong>{t('seoPages.pages.pouchCompostingServices.municipalDisclaimer')}</strong> {t('seoPages.pages.pouchCompostingServices.whileAllOurPackaging')}
           </div>
         </div>
       </section>
@@ -357,7 +362,7 @@ export default function PouchCompostingServicesPage() {
               USA_COMPLIANT_SERVICES_DATABASE
             </span>
             <p className="font-['JetBrains_Mono'] text-xs text-neutral-500">
-              Found <strong>{filteredServices.length}</strong> matching facilities.
+              {t('seoPages.pages.pouchCompostingServices.found')} <strong>{filteredServices.length}</strong> {t('seoPages.pages.pouchCompostingServices.matchingFacilities')}
             </p>
           </div>
 
@@ -412,7 +417,7 @@ export default function PouchCompostingServicesPage() {
             <div>
               <NeoBadge color="magenta">STANDARDS_VALIDATION</NeoBadge>
               <h2 className="font-black text-5xl md:text-7xl uppercase mt-4">
-                FOGO Specs Matrix
+                {t('seoPages.pages.pouchCompostingServices.fogoSpecsMatrix')}
               </h2>
             </div>
             <div className="font-['JetBrains_Mono'] text-sm font-bold bg-[#D4FF00] border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
@@ -442,10 +447,10 @@ export default function PouchCompostingServicesPage() {
           <div className="text-center mb-16">
             <NeoBadge color="magenta">EXPERT_FAQ</NeoBadge>
             <h2 className="text-4xl md:text-5xl font-black uppercase mt-6 text-center">
-              Municipal & Ordering FAQ
+              {t('seoPages.pages.pouchCompostingServices.municipalOrderingFaq')}
             </h2>
             <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 mt-2 text-center">
-              Clear, honest answers to help your procurement managers make informed decisions.
+              {t('seoPages.pages.pouchCompostingServices.clearHonestAnswersTo')}
             </p>
           </div>
 
@@ -484,31 +489,31 @@ export default function PouchCompostingServicesPage() {
         <div className="max-w-4xl mx-auto px-4 space-y-8">
           <NeoBadge color="bg-black text-white">CIRCULAR_ECONOMY</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-            Begin Your Custom Run
+            {t('seoPages.pages.pouchCompostingServices.beginYourCustomRun')}
           </h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl text-black">
-            Certified compostable packaging with startup-friendly MOQ starting from 500 units.
+            {t('seoPages.pages.pouchCompostingServices.certifiedCompostablePackagingWith')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <NeoButton href="/sample" variant="dark">
-              Request Free Eco Sample Kit
+              {t('seoPages.pages.pouchCompostingServices.requestFreeEcoSample')}
             </NeoButton>
             <NeoButton href="https://calendly.com/30-min-free-packaging-consultancy" variant="secondary" className="!bg-white !text-black border-black border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              Consult Packaging Engineer
+              {t('seoPages.pages.pouchCompostingServices.consultPackagingEngineer')}
             </NeoButton>
           </div>
 
           <div className="pt-8 border-t border-black/20 text-xs font-['JetBrains_Mono'] text-black/70 max-w-xl mx-auto leading-relaxed">
-            <strong>Seeking high-volume commercial wholesale runs?</strong><br/>
-            For high-volume retail supply contracts (10,000+ units), custom rotogravure cylinder sets, or enterprise corporate quotes, please visit our enterprise portal:{" "}
+            <strong>{t('seoPages.pages.pouchCompostingServices.seekingHighvolumeCommercialWholesale')}</strong><br/>
+            {t('seoPages.pages.pouchCompostingServices.forHighvolumeRetailSupply')}{" "}
             <a 
               href="https://achievepack.com/composting/composting-services" 
               className="underline font-bold hover:text-black transition"
               target="_blank" 
               rel="noopener noreferrer"
             >
-              achievepack.com/composting/composting-services →
+              {t('seoPages.pages.pouchCompostingServices.achievepackcomcompostingcompostingservices')}
             </a>
           </div>
         </div>

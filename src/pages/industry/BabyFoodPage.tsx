@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { 
@@ -9,10 +10,12 @@ import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 
 const BabyFoodPage: React.FC = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.babyFood';
   const sections = [
     {
       id: 'safety-challenge',
-      title: 'The Baby Food Challenge: Toxicity-Free Safety, Hot-Fill Sterilization & Leak-Proof Seals',
+      title: t(`${p}.title_theBabyFoodChallengeToxicityfree`),
       icon: <Beaker className="h-5 w-5 text-sky-700" />,
       content: (
         <div className="space-y-4 text-neutral-700 leading-relaxed">
@@ -25,9 +28,9 @@ const BabyFoodPage: React.FC = () => {
                 <AlertTriangle className="h-4 w-4 text-amber-600" /> Key Material Risks
               </h4>
               <ul className="text-sm text-neutral-700 space-y-2">
-                <li>• <strong>Chemical Leaching:</strong> Trace elements from standard plastics can migrate into infant food during hot-filling.</li>
-                <li>• <strong>Seal Rupture:</strong> Thermal pasteurization weakens standard low-temperature seals, risking leaks.</li>
-                <li>• <strong>Choking Hazards:</strong> Traditional small caps can be accidentally swallowed by infants.</li>
+                <li>• <strong>{t(`${p}.chemicalLeaching`)}</strong> {t(`${p}.traceElementsFromStandardPlastics`)}</li>
+                <li>• <strong>{t(`${p}.sealRupture`)}</strong> {t(`${p}.thermalPasteurizationWeakensStandardLowtemperature`)}</li>
+                <li>• <strong>{t(`${p}.chokingHazards`)}</strong> {t(`${p}.traditionalSmallCapsCanBe`)}</li>
               </ul>
             </div>
             <div>
@@ -35,9 +38,9 @@ const BabyFoodPage: React.FC = () => {
                 <Shield className="h-4 w-4 text-green-600" /> Engineering Requirements
               </h4>
               <ul className="text-sm text-neutral-700 space-y-2">
-                <li>• <strong>100% Toxicity-Free:</strong> Certified FDA & EU food contact safety polymers (BPA, BPS, and phthalate-free).</li>
-                <li>• <strong>Hot-Fill Sealants:</strong> Specialty high-temperature co-polymers stable up to 95°C.</li>
-                <li>• <strong>Choke-Proof Caps:</strong> Large-diameter safety caps designed with anti-choking venting structures.</li>
+                <li>• <strong>{t(`${p}.100Toxicityfree`)}</strong> {t(`${p}.certifiedFdaEuFoodContact`)}</li>
+                <li>• <strong>{t(`${p}.hotfillSealants`)}</strong> {t(`${p}.specialtyHightemperatureCopolymersStableUp`)}</li>
+                <li>• <strong>{t(`${p}.chokeproofCaps`)}</strong> {t(`${p}.largediameterSafetyCapsDesignedWith`)}</li>
               </ul>
             </div>
           </div>
@@ -46,7 +49,7 @@ const BabyFoodPage: React.FC = () => {
     },
     {
       id: 'packaging-options',
-      title: '5 Packaging Options Compared: Low-Cost MVP to Sustainable Premium',
+      title: t(`${p}.title_5PackagingOptionsComparedLowcost`),
       icon: <Package className="h-5 w-5 text-sky-700" />,
       content: (
         <div className="space-y-6">
@@ -59,17 +62,17 @@ const BabyFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 1</span>
-                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded">Retail Puree MVP</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option1`)}</span>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.retailPureeMvp`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Choke-Proof Spout Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.chokeproofSpoutPouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   The standard for organic purees. A premium spouted stand-up pouch featuring a pre-installed choke-proof safety cap. Engineered for absolute leak resistance and easy squeezing.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• High-Barrier metallized aluminum core</li>
-                  <li>• Large anti-choke safety cap</li>
-                  <li>• BPA & phthalate-free food-safe lining</li>
+                  <li>{t(`${p}.highbarrierMetallizedAluminumCore`)}</li>
+                  <li>{t(`${p}.largeAntichokeSafetyCap`)}</li>
+                  <li>{t(`${p}.bpaPhthalatefreeFoodsafeLining`)}</li>
                 </ul>
               </div>
               <Link to="/store/product/spouted-foil-pouch" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -81,17 +84,17 @@ const BabyFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 2</span>
-                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Curbside Recyclable</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option2`)}</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.curbsideRecyclable`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Recyclable Mono-PE Spout Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.recyclableMonopeSpoutPouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Fully recyclable single-polymer PE structure with EVOH barrier coatings. Approved for store drop-off flexible packaging collection streams, combining sustainability and safety.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• 100% recyclable mono-material structure</li>
-                  <li>• High clarity transparent window options</li>
-                  <li>• Toxicity-free co-extruded barrier</li>
+                  <li>{t(`${p}.100RecyclableMonomaterialStructure`)}</li>
+                  <li>{t(`${p}.highClarityTransparentWindowOptions`)}</li>
+                  <li>{t(`${p}.toxicityfreeCoextrudedBarrier`)}</li>
                 </ul>
               </div>
               <Link to="/store/product/eco-standup" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -103,17 +106,17 @@ const BabyFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 3</span>
-                  <span className="bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-0.5 rounded">Sugarcane Bio-PE</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option3`)}</span>
+                  <span className="bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.sugarcaneBiope`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Sugarcane Bio-PE Spout Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.sugarcaneBiopeSpoutPouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Crafted using plant-based organic polyethylene derived from sustainable sugarcane. The ultimate option for absolute long-term seal strength and hot-fill resilience.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• Bio-based polymer structure</li>
-                  <li>• Exceptional resistance against acidic purees</li>
-                  <li>• High temperature stable up to 95°C</li>
+                  <li>{t(`${p}.biobasedPolymerStructure`)}</li>
+                  <li>{t(`${p}.exceptionalResistanceAgainstAcidicPurees`)}</li>
+                  <li>{t(`${p}.highTemperatureStableUpTo`)}</li>
                 </ul>
               </div>
               <Link to="/store/product/spouted-foil-pouch" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -125,17 +128,17 @@ const BabyFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 4</span>
-                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Zero-Waste Snacks</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option4`)}</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.zerowasteSnacks`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Compostable Baby Snacks Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.compostableBabySnacksPouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Earthy organic unbleached kraft paper on the outside combined with certified biodegradable inner layers. Ideal for baby puffs, organic teething wafers, and dry snacks.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• Earthy organic kraft paper look</li>
-                  <li>• EN 13432 & ASTM D6400 certified</li>
-                  <li>• Airtight zip closure to stop moisture</li>
+                  <li>{t(`${p}.earthyOrganicKraftPaperLook`)}</li>
+                  <li>{t(`${p}.en13432AstmD6400Certified`)}</li>
+                  <li>{t(`${p}.airtightZipClosureToStop`)}</li>
                 </ul>
               </div>
               <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -147,17 +150,17 @@ const BabyFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 5</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2 py-0.5 rounded">Subscription Box</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option5`)}</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.subscriptionBox`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">FSC Custom Multi-Pack Box</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.fscCustomMultipackBox`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Package individual puree pouches or dry wafer packs in customized FSC certified multi-pack folding boxes. Perfect for retail sets or subscription box services.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• FSC Recycled Solid Cardboard</li>
-                  <li>• Anti-scratch matte texture coating</li>
-                  <li>• Ships flat to minimize inventory storage</li>
+                  <li>{t(`${p}.fscRecycledSolidCardboard`)}</li>
+                  <li>{t(`${p}.antiscratchMatteTextureCoating`)}</li>
+                  <li>{t(`${p}.shipsFlatToMinimizeInventory`)}</li>
                 </ul>
               </div>
               <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -170,7 +173,7 @@ const BabyFoodPage: React.FC = () => {
     },
     {
       id: 'interactive-showcase',
-      title: 'Premium Visual Mockups & Product Showcase',
+      title: t(`${p}.title_premiumVisualMockupsProductShowcase`),
       icon: <Sparkles className="h-5 w-5 text-sky-700" />,
       content: (
         <div className="space-y-6">
@@ -186,8 +189,8 @@ const BabyFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Premium Puree Spout Pouches</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Leak-proof thermal seals, anti-choke safety caps.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.premiumPureeSpoutPouches`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.leakproofThermalSealsAntichokeSafety`)}</p>
               </div>
             </div>
 
@@ -198,8 +201,8 @@ const BabyFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Organic Pea Puree Pouches</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Sugarcane-based Bio-PE, toxicity-free co-polymers.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.organicPeaPureePouches`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.sugarcanebasedBiopeToxicityfreeCopolymers`)}</p>
               </div>
             </div>
 
@@ -210,8 +213,8 @@ const BabyFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Sweet Carrot Puree Pouches</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Clear high-barrier window, store-collection recyclable PE.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.sweetCarrotPureePouches`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.clearHighbarrierWindowStorecollectionRecyclable`)}</p>
               </div>
             </div>
 
@@ -222,8 +225,8 @@ const BabyFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Baby Snacks Compostable Bags</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">EN 13432 certified paper, airtight reseal zippers.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.babySnacksCompostableBags`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.en13432CertifiedPaperAirtight`)}</p>
               </div>
             </div>
           </div>
@@ -240,9 +243,9 @@ const BabyFoodPage: React.FC = () => {
               <span className="bg-[#D4FF00] text-black text-[10px] font-black px-2.5 py-1 uppercase rounded-full border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
                 Highlighted Baby Solution
               </span>
-              <h4 className="font-bold text-neutral-900 text-lg">Featured Eco Solution: Sugarcane Bio-PE Spout Pouch</h4>
+              <h4 className="font-bold text-neutral-900 text-lg">{t(`${p}.featuredEcoSolutionSugarcaneBiope`)}</h4>
               <p className="text-sm text-neutral-700">
-                Pioneer absolute safety and carbon neutrality in infant nutrition using our <strong>Sugarcane Bio-PE Spout Pouches</strong>. Extruded entirely from sugarcane-derived organic polyethylene, these pouches are 100% free of BPA, phthalates, and trace chemicals. Fitted with a large anti-choke safety cap, they are drop-tested to withstand up to 1.5-meter drops without seams bursting during hot-fill pasteurization.
+                Pioneer absolute safety and carbon neutrality in infant nutrition using our <strong>{t(`${p}.sugarcaneBiopeSpoutPouches`)}</strong>. Extruded entirely from sugarcane-derived organic polyethylene, these pouches are 100% free of BPA, phthalates, and trace chemicals. Fitted with a large anti-choke safety cap, they are drop-tested to withstand up to 1.5-meter drops without seams bursting during hot-fill pasteurization.
               </p>
               <div className="flex gap-4">
                 <Link to="/store/product/spouted-foil-pouch" className="bg-sky-700 hover:bg-sky-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
@@ -259,7 +262,7 @@ const BabyFoodPage: React.FC = () => {
     },
     {
       id: 'expert-checklist',
-      title: 'Active Compliance & Testing Protocol Checklist',
+      title: t(`${p}.title_activeComplianceTestingProtocolChecklist`),
       icon: <Award className="h-5 w-5 text-sky-700" />,
       content: (
         <div className="space-y-4 text-neutral-700 text-sm">
@@ -268,19 +271,19 @@ const BabyFoodPage: React.FC = () => {
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
-              <h5 className="font-bold text-neutral-900 mb-2">🧪 Phase 1: Material Verification</h5>
+              <h5 className="font-bold text-neutral-900 mb-2">{t(`${p}.phase1MaterialVerification`)}</h5>
               <ul className="space-y-2 text-neutral-600 text-xs">
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Perform chemical leaching test to verify zero micro-plastic migration at 95°C.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Confirm direct food contact safety via FDA and EU compliance certification sheets.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Match pouch thickness to puree viscosity to ensure perfect squeeze control.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.performChemicalLeachingTestTo`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.confirmDirectFoodContactSafety`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.matchPouchThicknessToPuree`)}</li>
               </ul>
             </div>
             <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
-              <h5 className="font-bold text-neutral-900 mb-2">⚖ Phase 2: Integrity Testing</h5>
+              <h5 className="font-bold text-neutral-900 mb-2">{t(`${p}.phase2IntegrityTesting`)}</h5>
               <ul className="space-y-2 text-neutral-600 text-xs">
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Run a 30-day thermal aging test under ambient moisture to ensure seam stability.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Subject hot-filled spout pouches to drops test to verify zero seam splitting.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Verify anti-choking cap size to confirm absolute pediatric compliance.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.runA30dayThermalAging`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.subjectHotfilledSpoutPouchesTo`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.verifyAntichokingCapSizeTo`)}</li>
               </ul>
             </div>
           </div>
@@ -291,34 +294,34 @@ const BabyFoodPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "Are these baby food spout pouches 100% BPA and toxicity free?",
-      answer: "Yes! Every baby food packaging pouch we manufacture is certified 100% free from Bisphenol A (BPA), Bisphenol S (BPS), phthalates, and heavy metals. We strictly use food-grade FDA and EU compliant co-polymers, ensuring zero chemical migration during hot-fill processing."
+      question: t(`${p}.question_areTheseBabyFoodSpout`),
+      answer: t(`${p}.answer_yesEveryBabyFoodPackaging`)
     },
     {
-      question: "Can these spout pouches withstand hot-fill sterilization at 90°C?",
-      answer: "Yes, absolutely. Our baby food spout pouches are engineered using high-performance co-polymers that are thermally stable up to 95°C. This allows roasters and food brands to hot-fill or pasteurize organic purees directly inside the pouch without seal leakage."
+      question: t(`${p}.question_canTheseSpoutPouchesWithstand`),
+      answer: t(`${p}.answer_yesAbsolutelyOurBabyFood`)
     },
     {
-      question: "What makes the pre-installed caps 'choke-proof'?",
-      answer: "We use pediatric-approved, large-diameter safety caps. Unlike standard small bottle caps, choke-proof caps feature wide structural profiles and built-in airflow vents. If an infant accidentally places the cap in their mouth, the vents allow air to flow through freely, complying with strict global child safety guidelines."
+      question: t(`${p}.question_whatMakesThePreinstalledCaps`),
+      answer: t(`${p}.answer_weUsePediatricapprovedLargediameterSafety`)
     },
     {
-      question: "What is the MOQ for custom-printed baby food pouches?",
-      answer: "We accommodate small batch testing by offering custom printed spouted pouches starting from an MOQ of only 500 pieces. Digital customization allows startup brands to run multiple purees without spending on plate setup."
+      question: t(`${p}.question_whatIsTheMoqFor`),
+      answer: t(`${p}.answer_weAccommodateSmallBatchTesting`)
     }
   ]
 
   const tables = [
     {
-      title: "Technical Comparison: Baby Food Packaging Options",
+      title: t(`${p}.title_technicalComparisonBabyFoodPackaging`),
       data: {
-        headers: ["Format", "Oxygen Barrier (OTR)", "Water Vapor (WVTR)", "Hot-Fill Sterile (95°C)", "MOQ", "Relative Cost"],
+        headers: [t(`${p}.table_format`),t(`${p}.table_oxygenBarrierOtr`),t(`${p}.table_waterVaporWvtr`),t(`${p}.table_hotfillSterile95c`),t(`${p}.table_moq`),t(`${p}.table_relativeCost`)],
         rows: [
-          ["Choke-Proof Spout Pouch", "0.05 ml/m²/day", "0.08 g/m²/day", "★★★★★ (Specialty Foil Core)", "100 pcs", "Low ($)"],
-          ["Recyclable Mono-PE Spout", "0.32 ml/m²/day", "0.26 g/m²/day", "★★★★☆ (EVOH/PE Layer)", "500 pcs", "Medium ($$)"],
-          ["Sugarcane Bio-PE Spout", "0.08 ml/m²/day", "0.10 g/m²/day", "★★★★★ (Sugarcane Foil Core)", "500 pcs", "Medium ($$)"],
-          ["Compostable Kraft Bag", "0.45 ml/m²/day", "0.39 g/m²/day", "★☆☆☆☆ (Dry Snacks Only)", "500 pcs", "Medium ($$)"],
-          ["FSC Custom Display Box", "N/A (Outer Protection)", "N/A", "N/A", "200 pcs", "Premium ($$$$)"]
+          [t(`${p}.table_chokeproofSpoutPouch`),t(`${p}.table_005Mlmday`),t(`${p}.table_008Gmday`),t(`${p}.table_specialtyFoilCore`),t(`${p}.table_100Pcs`),t(`${p}.table_low`)],
+          [t(`${p}.table_recyclableMonopeSpout`),t(`${p}.table_032Mlmday`),t(`${p}.table_026Gmday`),t(`${p}.table_evohpeLayer`),t(`${p}.table_500Pcs`),t(`${p}.table_medium`)],
+          [t(`${p}.table_sugarcaneBiopeSpout`),t(`${p}.table_008Mlmday`),t(`${p}.table_010Gmday`),t(`${p}.table_sugarcaneFoilCore`),t(`${p}.table_500Pcs`),t(`${p}.table_medium`)],
+          [t(`${p}.table_compostableKraftBag`),t(`${p}.table_045Mlmday`),t(`${p}.table_039Gmday`),t(`${p}.table_drySnacksOnly`),t(`${p}.table_500Pcs`),t(`${p}.table_medium`)],
+          [t(`${p}.table_fscCustomDisplayBox`),t(`${p}.table_naOuterProtection`),t(`${p}.table_na`),t(`${p}.table_na`),t(`${p}.table_200Pcs`),t(`${p}.table_premium`)]
         ]
       }
     }
@@ -326,44 +329,44 @@ const BabyFoodPage: React.FC = () => {
 
   const relatedLinks = [
     {
-      title: "Spouted Foil Stand Up Pouches",
+      title: t(`${p}.title_spoutedFoilStandUpPouches`),
       url: "/store/product/spouted-foil-pouch",
-      description: "Explore our certified food-grade spouted stand-up pouches with anti-choke safety caps."
+      description: t(`${p}.description_exploreOurCertifiedFoodgradeSpouted`)
     },
     {
-      title: "Recyclable Mono-Material Pouches",
+      title: t(`${p}.title_recyclableMonomaterialPouches`),
       url: "/store/product/eco-standup",
-      description: "Buy curbside-recyclable stand-up pouches with EVOH barrier coatings."
+      description: t(`${p}.description_buyCurbsiderecyclableStandupPouchesWith`)
     },
     {
-      title: "Compostable Stand Up Pouches",
+      title: t(`${p}.title_compostableStandUpPouches`),
       url: "/products/compostable-coffee-bags",
-      description: "Order premium certified compostable flexible kraft paper puff wafer bags."
+      description: t(`${p}.description_orderPremiumCertifiedCompostableFlexible`)
     },
     {
-      title: "Custom Printed Box Packaging",
+      title: t(`${p}.title_customPrintedBoxPackaging`),
       url: "/store?category=boxes",
-      description: "Browse premium FSC certified solid display folding cartons for retail packs."
+      description: t(`${p}.description_browsePremiumFscCertifiedSolid`)
     }
   ]
 
   return (
     <>
       <Helmet>
-        <title>Sustainable Baby Food Packaging: Spout Pouches | Achieve Pack</title>
-        <meta name="description" content="Compare certified compostable and recyclable baby food pouches. High safety standards, leak-proof spout pouches, and choke-proof caps with low MOQs." />
+        <title>{t(`${p}.metaTitle`)}</title>
+        <meta name="description" content={t(`${p}.metaDescription`)} />
         <link rel="canonical" href="https://achievepack.com/industry/baby-food" />
         <meta property="og:title" content="Sustainable Baby Food & Purees Packaging Solutions" />
-        <meta property="og:description" content="Toxicity-free, leak-proof spouted pouches for organic baby purees and dry infant snacks. Certified compostable and recyclable designs." />
+        <meta property="og:description" content={t(`${p}.metaDescription`)} />
         <meta property="og:url" content="https://achievepack.com/industry/baby-food" />
-        <meta name="keywords" content="baby food packaging, spout pouch baby food, compostable baby food bag, recyclable baby food bag, mono-PE baby puree pouch, baby puffs packaging, safety caps baby food, FSC baby box, low MOQ packaging" />
+        <meta name="keywords" content={t(`${p}.metaKeywords`)} />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Baby Food & Purees Packaging Ecosystem",
-            "description": "Certified non-toxic flexible baby purees packaging solutions comparing recyclable mono-polymer pouches, compostable unbleached kraft pouches, and custom FSC display gift boxes.",
+            "description": t(`${p}.schemaDescription`),
             "brand": {
               "@type": "Brand",
               "name": "Achieve Pack"
@@ -396,12 +399,12 @@ const BabyFoodPage: React.FC = () => {
 
       <SEOPageLayout 
         heroBgColor="#0369a1"
-        title="Sustainable Baby Food Packaging: Spout Pouches"
-        description="Premium material engineering guide for packaging organic baby purees, dry baby puffs, and infant formula. Discover certified compostable, recyclable and non-toxic selections."
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
         keywords={['baby food packaging', 'spout pouch', 'compostable baby snack bag', 'choke proof cap']}
-        heroTitle="Baby Food & Snacks Packaging Solutions"
-        heroSubtitle="Toxicity-Free Materials | Compostable Puffs Bags | Curbside Recyclable Mono-PE Refills & Custom Display Boxes"
-        introSummary="Startup baby food brands and organic infant puree manufacturers require packaging that guarantees 100% non-toxicity compliance, resists hot-fill sterilization heat, and prevents leaks. Compare our five high-performance packaging formats."
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
+        introSummary={t(`${p}.introSummary`)}
         sections={sections}
         tables={tables}
         faqs={faqs}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { 
@@ -9,10 +10,12 @@ import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 
 const FrozenFoodPage: React.FC = () => {
+  const { t } = useTranslation();
+  const p = 'seoPages.pages.frozenFood';
   const sections = [
     {
       id: 'cold-challenge',
-      title: 'The Deep Freeze Challenge: Sub-Zero Brittleness, Freezer Burn & Seal Stability',
+      title: t(`${p}.title_theDeepFreezeChallengeSubzero`),
       icon: <Beaker className="h-5 w-5 text-sky-700" />,
       content: (
         <div className="space-y-4 text-neutral-700 leading-relaxed">
@@ -25,9 +28,9 @@ const FrozenFoodPage: React.FC = () => {
                 <AlertTriangle className="h-4 w-4 text-amber-600" /> Key Material Risks
               </h4>
               <ul className="text-sm text-neutral-700 space-y-2">
-                <li>• <strong>Sub-Zero Brittleness:</strong> Plastics lose flexibility and crack or puncture under basic handling loads.</li>
-                <li>• <strong>Freezer Burn:</strong> High moisture vapor transmission (WVTR) dehydrates frozen food, ruining texture.</li>
-                <li>• <strong>Seam Splitting:</strong> Low-temperature seals easily peel or fracture during expansion or transit drops.</li>
+                <li>• <strong>{t(`${p}.subzeroBrittleness`)}</strong> {t(`${p}.plasticsLoseFlexibilityAndCrack`)}</li>
+                <li>• <strong>{t(`${p}.freezerBurn`)}</strong> {t(`${p}.highMoistureVaporTransmissionWvtr`)}</li>
+                <li>• <strong>{t(`${p}.seamSplitting`)}</strong> {t(`${p}.lowtemperatureSealsEasilyPeelOr`)}</li>
               </ul>
             </div>
             <div>
@@ -35,9 +38,9 @@ const FrozenFoodPage: React.FC = () => {
                 <Shield className="h-4 w-4 text-green-600" /> Engineering Requirements
               </h4>
               <ul className="text-sm text-neutral-700 space-y-2">
-                <li>• <strong>Cold-Resistant Polymers:</strong> Specialty co-polymers designed to stay highly flexible down to -30°C.</li>
-                <li>• <strong>Ultra-Low WVTR Barrier:</strong> Solid metallic cores or specialized barrier films to eliminate dehydration.</li>
-                <li>• <strong>High Tensile Seam Strength:</strong> Heavy-gauge heat-seal layers optimized for heavy frozen goods.</li>
+                <li>• <strong>{t(`${p}.coldresistantPolymers`)}</strong> {t(`${p}.specialtyCopolymersDesignedToStay`)}</li>
+                <li>• <strong>{t(`${p}.ultralowWvtrBarrier`)}</strong> {t(`${p}.solidMetallicCoresOrSpecialized`)}</li>
+                <li>• <strong>{t(`${p}.highTensileSeamStrength`)}</strong> {t(`${p}.heavygaugeHeatsealLayersOptimizedFor`)}</li>
               </ul>
             </div>
           </div>
@@ -46,7 +49,7 @@ const FrozenFoodPage: React.FC = () => {
     },
     {
       id: 'packaging-options',
-      title: '5 Packaging Options Compared: Low-Cost MVP to Sustainable Premium',
+      title: t(`${p}.title_5PackagingOptionsComparedLowcost`),
       icon: <Package className="h-5 w-5 text-sky-700" />,
       content: (
         <div className="space-y-6">
@@ -59,17 +62,17 @@ const FrozenFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 1</span>
-                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded">Low Cost MVP</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option1`)}</span>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.lowCostMvp`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Cold-Resistant Zipper Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.coldresistantZipperPouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   The ideal retail shelf choice for organic berries, frozen vegetables, and ready-meals. Features a thick, flexible cold-resistant sealant layer and a secure zip closure.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• High gloss or premium matte finishes</li>
-                  <li>• Airtight press-to-close zipper</li>
-                  <li>• Outstanding water vapor defense (WVTR)</li>
+                  <li>{t(`${p}.highGlossOrPremiumMatte`)}</li>
+                  <li>{t(`${p}.airtightPresstocloseZipper`)}</li>
+                  <li>{t(`${p}.outstandingWaterVaporDefenseWvtr`)}</li>
                 </ul>
               </div>
               <Link to="/store/product/eco-standup" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -81,17 +84,17 @@ const FrozenFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 2</span>
-                  <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-2 py-0.5 rounded">Premium Cold Lock</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option2`)}</span>
+                  <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.premiumColdLock`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Heavy-Duty Vacuum Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.heavydutyVacuumPouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   The gold standard for frozen seafood, meats, or vacuum-packed ready dinners. Made using thick, puncture-resistant multi-layer co-polymers designed for absolute air extraction.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• Absolute oxygen and moisture barrier</li>
-                  <li>• Prevents any frost crystal formulation</li>
-                  <li>• High puncture defense against sharp bones</li>
+                  <li>{t(`${p}.absoluteOxygenAndMoistureBarrier`)}</li>
+                  <li>{t(`${p}.preventsAnyFrostCrystalFormulation`)}</li>
+                  <li>{t(`${p}.highPunctureDefenseAgainstSharp`)}</li>
                 </ul>
               </div>
               <Link to="/store/product/spouted-foil-pouch" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -103,17 +106,17 @@ const FrozenFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 3</span>
-                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Curbside Recyclable</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option3`)}</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.curbsideRecyclable`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Recyclable Mono-PE Pouch</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.recyclableMonopePouch`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Engineered using a single polymer PE structure with EVOH coating. Approved for store drop-off flexible recycling streams, providing carbon-reduced, eco-friendly retail display.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• 100% recyclable mono-material structure</li>
-                  <li>• Highly flexible in temperatures down to -25°C</li>
-                  <li>• Clean clear window options to show food</li>
+                  <li>{t(`${p}.100RecyclableMonomaterialStructure`)}</li>
+                  <li>{t(`${p}.highlyFlexibleInTemperaturesDown`)}</li>
+                  <li>{t(`${p}.cleanClearWindowOptionsTo`)}</li>
                 </ul>
               </div>
               <Link to="/store/product/eco-standup" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -125,17 +128,17 @@ const FrozenFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 4</span>
-                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">Zero-Waste Packaging</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option4`)}</span>
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.zerowastePackaging`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">Compostable Freezer Bag</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.compostableFreezerBag`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Certified EN 13432 compostable paper and plant-based inner films specially engineered for sub-zero thermal stability. Breaks down in commercial composting in 90-180 days.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• Earthy unbleached organic paper look</li>
-                  <li>• Cellulose barrier core stays flexible</li>
-                  <li>• Highly resistant to frozen condensation</li>
+                  <li>{t(`${p}.earthyUnbleachedOrganicPaperLook`)}</li>
+                  <li>{t(`${p}.celluloseBarrierCoreStaysFlexible`)}</li>
+                  <li>{t(`${p}.highlyResistantToFrozenCondensation`)}</li>
                 </ul>
               </div>
               <Link to="/products/compostable-coffee-bags" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -147,17 +150,17 @@ const FrozenFoodPage: React.FC = () => {
             <div className="bg-white border border-neutral-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-start mb-3">
-                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">Option 5</span>
-                  <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2 py-0.5 rounded">Luxury Display</span>
+                  <span className="bg-neutral-100 text-neutral-800 text-xs font-bold px-2.5 py-1 rounded">{t(`${p}.option5`)}</span>
+                  <span className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2 py-0.5 rounded">{t(`${p}.luxuryDisplay`)}</span>
                 </div>
-                <h4 className="font-bold text-neutral-900 text-lg mb-2">FSC Custom Freezer Box</h4>
+                <h4 className="font-bold text-neutral-900 text-lg mb-2">{t(`${p}.fscCustomFreezerBox`)}</h4>
                 <p className="text-sm text-neutral-600 mb-4">
                   Add premium retail presence to your frozen line with customized FSC certified moisture-resistant folding cartons. Feature anti-condensation varnishes and die-cut windows.
                 </p>
                 <ul className="text-xs text-neutral-500 space-y-1 mb-4">
-                  <li>• FSC Recycled Solid Cardboard</li>
-                  <li>• Water-resistant barrier coating option</li>
-                  <li>• Ships flat to minimize inventory storage</li>
+                  <li>{t(`${p}.fscRecycledSolidCardboard`)}</li>
+                  <li>{t(`${p}.waterresistantBarrierCoatingOption`)}</li>
+                  <li>{t(`${p}.shipsFlatToMinimizeInventory`)}</li>
                 </ul>
               </div>
               <a href="https://calendly.com/30-min-free-packaging-consultancy" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 mt-2">
@@ -170,7 +173,7 @@ const FrozenFoodPage: React.FC = () => {
     },
     {
       id: 'interactive-showcase',
-      title: 'Premium Visual Mockups & Product Showcase',
+      title: t(`${p}.title_premiumVisualMockupsProductShowcase`),
       icon: <Sparkles className="h-5 w-5 text-sky-700" />,
       content: (
         <div className="space-y-6">
@@ -186,8 +189,8 @@ const FrozenFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Premium Frozen Food Pouches</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Leak-proof thermal seals, anti-condensation coatings.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.premiumFrozenFoodPouches`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.leakproofThermalSealsAnticondensationCoatings`)}</p>
               </div>
             </div>
 
@@ -198,8 +201,8 @@ const FrozenFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Heavy-Duty Vacuum Pouches</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Extra thick co-polymers, high puncture defense.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.heavydutyVacuumPouches`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.extraThickCopolymersHighPuncture`)}</p>
               </div>
             </div>
 
@@ -210,8 +213,8 @@ const FrozenFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Organic Freezer Bags</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Earthy unbleached paper, cellulose barrier cores.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.organicFreezerBags`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.earthyUnbleachedPaperCelluloseBarrier`)}</p>
               </div>
             </div>
 
@@ -222,8 +225,8 @@ const FrozenFoodPage: React.FC = () => {
                 className="w-full h-40 object-cover rounded-md mb-2 shadow-sm"
               />
               <div>
-                <h5 className="font-semibold text-xs text-neutral-900">Standard Opaque SUP Bags</h5>
-                <p className="text-[10px] text-neutral-500 mt-1">Zero light transmission, hermetically sealed for security.</p>
+                <h5 className="font-semibold text-xs text-neutral-900">{t(`${p}.standardOpaqueSupBags`)}</h5>
+                <p className="text-[10px] text-neutral-500 mt-1">{t(`${p}.zeroLightTransmissionHermeticallySealed`)}</p>
               </div>
             </div>
           </div>
@@ -240,9 +243,9 @@ const FrozenFoodPage: React.FC = () => {
               <span className="bg-[#D4FF00] text-black text-[10px] font-black px-2.5 py-1 uppercase rounded-full border border-black shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
                 Highlighted Frozen Solution
               </span>
-              <h4 className="font-bold text-neutral-900 text-lg">Featured Eco Solution: Curbside Recyclable Mono-PE Frozen Food Bag</h4>
+              <h4 className="font-bold text-neutral-900 text-lg">{t(`${p}.featuredEcoSolutionCurbsideRecyclable`)}</h4>
               <p className="text-sm text-neutral-700">
-                Pioneer maximum circularity and cold chain reliability in frozen nutrition using our <strong>Curbside Recyclable Mono-PE Pouches</strong>. Extruded entirely from a single-polymer polyethylene profile, these pouches are 100% compliant with standard store drop-off bins. Co-extruded with an ultra-low WVTR EVOH core, they eliminate freezer burn and remain highly flexible down to -30°C without cracking.
+                Pioneer maximum circularity and cold chain reliability in frozen nutrition using our <strong>{t(`${p}.curbsideRecyclableMonopePouches`)}</strong>. Extruded entirely from a single-polymer polyethylene profile, these pouches are 100% compliant with standard store drop-off bins. Co-extruded with an ultra-low WVTR EVOH core, they eliminate freezer burn and remain highly flexible down to -30°C without cracking.
               </p>
               <div className="flex gap-4">
                 <Link to="/store/product/eco-standup" className="bg-sky-700 hover:bg-sky-800 text-white text-xs font-semibold px-4 py-2.5 rounded transition">
@@ -259,7 +262,7 @@ const FrozenFoodPage: React.FC = () => {
     },
     {
       id: 'expert-checklist',
-      title: 'Active Compliance & Testing Protocol Checklist',
+      title: t(`${p}.title_activeComplianceTestingProtocolChecklist`),
       icon: <Award className="h-5 w-5 text-sky-700" />,
       content: (
         <div className="space-y-4 text-neutral-700 text-sm">
@@ -268,19 +271,19 @@ const FrozenFoodPage: React.FC = () => {
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
-              <h5 className="font-bold text-neutral-900 mb-2">🧪 Phase 1: Material Verification</h5>
+              <h5 className="font-bold text-neutral-900 mb-2">{t(`${p}.phase1MaterialVerification`)}</h5>
               <ul className="space-y-2 text-neutral-600 text-xs">
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Confirm minimum storage temperature requirements (e.g., -10°C vs -30°C).</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Verify water vapor transmission rate (WVTR) required to stop freezer dehydration.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Assess direct food contact safety via FDA food safety compliance certificates.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.confirmMinimumStorageTemperatureRequirements`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.verifyWaterVaporTransmissionRate`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.assessDirectFoodContactSafety`)}</li>
               </ul>
             </div>
             <div className="border border-neutral-200 rounded-lg p-4 bg-neutral-50">
-              <h5 className="font-bold text-neutral-900 mb-2">⚖ Phase 2: Integrity Testing</h5>
+              <h5 className="font-bold text-neutral-900 mb-2">{t(`${p}.phase2IntegrityTesting`)}</h5>
               <ul className="space-y-2 text-neutral-600 text-xs">
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Submerge test bags in -25°C liquid nitrogen simulated chambers for flex check.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Perform standard drop test (1.2m drop at -18°C) to verify zero seam splits.</li>
-                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> Run automated sealing track tests to confirm thick film weld stability.</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.submergeTestBagsIn25c`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.performStandardDropTest12m`)}</li>
+                <li className="flex gap-2"><span className="text-green-600 font-bold">✔</span> {t(`${p}.runAutomatedSealingTrackTests`)}</li>
               </ul>
             </div>
           </div>
@@ -291,34 +294,34 @@ const FrozenFoodPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "Why do standard plastics crack or puncture in the freezer?",
-      answer: "Standard plastics like standard low-density polyethylene (LDPE) experience glass transition at sub-zero temperatures, causing the molecular structure to become rigid, glass-like, and highly brittle. To prevent cracking, we incorporate specialized high-flex copolymers that retain molecular elasticity down to -30°C."
+      question: t(`${p}.question_whyDoStandardPlasticsCrack`),
+      answer: t(`${p}.answer_standardPlasticsLikeStandardLowdensity`)
     },
     {
-      question: "How do you prevent freezer burn and frost crystallization?",
-      answer: "Freezer burn is caused by frozen dehydration—where water vapor escapes from the food into the air. We eliminate this by using multi-layer barriers that offer extremely low moisture vapor transmission rates (WVTR). This locks 100% of moisture inside, preventing frost buildup and keeping food fresh."
+      question: t(`${p}.question_howDoYouPreventFreezer`),
+      answer: t(`${p}.answer_freezerBurnIsCausedBy`)
     },
     {
-      question: "Can compostable packaging stand up to moist freezer condensation?",
-      answer: "Yes, when engineered correctly. Our certified compostable freezer bags utilize a specific, moisture-resistant plant-based lining. While they will degrade naturally in commercial composting sites under active microbial conditions, they remain completely stable and robust during sub-zero storage."
+      question: t(`${p}.question_canCompostablePackagingStandUp`),
+      answer: t(`${p}.answer_yesWhenEngineeredCorrectlyOur`)
     },
     {
-      question: "What is the minimum order quantity for custom printed frozen food bags?",
-      answer: "We support startup cold chain brands by offering custom printed vacuum pouches and stand-up frozen food bags starting from a low MOQ of just 500 units. Digital customization ensures zero plate setup fees."
+      question: t(`${p}.question_whatIsTheMinimumOrder`),
+      answer: t(`${p}.answer_weSupportStartupColdChain`)
     }
   ]
 
   const tables = [
     {
-      title: "Technical Comparison: Frozen Food Packaging Options",
+      title: t(`${p}.title_technicalComparisonFrozenFoodPackaging`),
       data: {
-        headers: ["Format", "Oxygen Barrier (OTR)", "Water Vapor (WVTR)", "Cold Crack Resistance Limit", "MOQ", "Relative Cost"],
+        headers: [t(`${p}.table_format`),t(`${p}.table_oxygenBarrierOtr`),t(`${p}.table_waterVaporWvtr`),t(`${p}.table_coldCrackResistanceLimit`),t(`${p}.table_moq`),t(`${p}.table_relativeCost`)],
         rows: [
-          ["Cold-Resistant Zipper Pouch", "0.20 ml/m²/day", "0.25 g/m²/day", "Stable down to -25°C", "100 pcs", "Low ($)"],
-          ["Heavy-Duty Vacuum Pouch", "0.02 ml/m²/day", "0.04 g/m²/day", "Stable down to -30°C", "500 pcs", "Medium ($$)"],
-          ["Recyclable Mono-PE Pouch", "0.32 ml/m²/day", "0.26 g/m²/day", "Stable down to -25°C", "500 pcs", "Medium ($$)"],
-          ["Compostable Freezer Pouch", "0.45 ml/m²/day", "0.39 g/m²/day", "Stable down to -18°C", "500 pcs", "Medium ($$)"],
-          ["FSC Custom Display Box", "N/A (Outer Protection)", "N/A", "N/A", "200 pcs", "Premium ($$$$)"]
+          [t(`${p}.table_coldresistantZipperPouch`),t(`${p}.table_020Mlmday`),t(`${p}.table_025Gmday`),t(`${p}.table_stableDownTo25c`),t(`${p}.table_100Pcs`),t(`${p}.table_low`)],
+          [t(`${p}.table_heavydutyVacuumPouch`),t(`${p}.table_002Mlmday`),t(`${p}.table_004Gmday`),t(`${p}.table_stableDownTo30c`),t(`${p}.table_500Pcs`),t(`${p}.table_medium`)],
+          [t(`${p}.table_recyclableMonopePouch`),t(`${p}.table_032Mlmday`),t(`${p}.table_026Gmday`),t(`${p}.table_stableDownTo25c`),t(`${p}.table_500Pcs`),t(`${p}.table_medium`)],
+          [t(`${p}.table_compostableFreezerPouch`),t(`${p}.table_045Mlmday`),t(`${p}.table_039Gmday`),t(`${p}.table_stableDownTo18c`),t(`${p}.table_500Pcs`),t(`${p}.table_medium`)],
+          [t(`${p}.table_fscCustomDisplayBox`),t(`${p}.table_naOuterProtection`),t(`${p}.table_na`),t(`${p}.table_na`),t(`${p}.table_200Pcs`),t(`${p}.table_premium`)]
         ]
       }
     }
@@ -326,44 +329,44 @@ const FrozenFoodPage: React.FC = () => {
 
   const relatedLinks = [
     {
-      title: "Recyclable Mono-Material Pouches",
+      title: t(`${p}.title_recyclableMonomaterialPouches`),
       url: "/store/product/eco-standup",
-      description: "Explore our curbside-recyclable stand-up pouches with EVOH barrier coatings."
+      description: t(`${p}.description_exploreOurCurbsiderecyclableStandupPouches`)
     },
     {
-      title: "Compostable Stand Up Pouches",
+      title: t(`${p}.title_compostableStandUpPouches`),
       url: "/products/compostable-coffee-bags",
-      description: "Order premium certified compostable flexible unbleached kraft freezer bags."
+      description: t(`${p}.description_orderPremiumCertifiedCompostableFlexible`)
     },
     {
-      title: "Custom Printed Box Packaging",
+      title: t(`${p}.title_customPrintedBoxPackaging`),
       url: "/store?category=boxes",
-      description: "Browse premium FSC certified solid display folding cartons for retail packs."
+      description: t(`${p}.description_browsePremiumFscCertifiedSolid`)
     },
     {
-      title: "Low MOQ Packaging Ecosystem",
+      title: t(`${p}.title_lowMoqPackagingEcosystem`),
       url: "/products/low-moq-packaging",
-      description: "Discover our flexible startup-friendly small batch solutions."
+      description: t(`${p}.description_discoverOurFlexibleStartupfriendlySmall`)
     }
   ]
 
   return (
     <>
       <Helmet>
-        <title>Sustainable Frozen Food Packaging: Cold-Resistant Pouches | Achieve Pack</title>
-        <meta name="description" content="Compare certified compostable and recyclable frozen food pouches. High cold resistance down to -30C, leak-proof seals, and freezer-burn protection." />
+        <title>{t(`${p}.metaTitle`)}</title>
+        <meta name="description" content={t(`${p}.metaDescription`)} />
         <link rel="canonical" href="https://achievepack.com/industry/frozen-food" />
         <meta property="og:title" content="Sustainable Frozen Food & Cold Chain Packaging Solutions" />
-        <meta property="og:description" content="Puncture-resistant, cold-flexible stand-up pouches and vacuum bags for frozen foods and seafood. Certified compostable and recyclable designs." />
+        <meta property="og:description" content={t(`${p}.metaDescription`)} />
         <meta property="og:url" content="https://achievepack.com/industry/frozen-food" />
-        <meta name="keywords" content="frozen food packaging, frozen food bags, compostable freezer bag, recyclable frozen food bag, mono-PE frozen food pouch, vacuum pouch frozen, seafood packaging, FSC freezer box, low MOQ packaging" />
+        <meta name="keywords" content={t(`${p}.metaKeywords`)} />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Frozen Food & Cold Chain Packaging Ecosystem",
-            "description": "Certified cold-flexible frozen food packaging solutions comparing recyclable mono-polymer pouches, compostable unbleached kraft pouches, and custom FSC display gift boxes.",
+            "description": t(`${p}.schemaDescription`),
             "brand": {
               "@type": "Brand",
               "name": "Achieve Pack"
@@ -396,12 +399,12 @@ const FrozenFoodPage: React.FC = () => {
 
       <SEOPageLayout 
         heroBgColor="#0c4a6e"
-        title="Sustainable Frozen Food Packaging: Cold-Resistant Pouches"
-        description="Premium material engineering guide for packaging organic frozen vegetables, berries, seafood, and ready-meals. Discover certified compostable, recyclable and cold-flexible selections."
+        title={t(`${p}.title`)}
+        description={t(`${p}.description`)}
         keywords={['frozen food packaging', 'vacuum bag', 'compostable freezer bag', 'cold resistant pouch']}
-        heroTitle="Frozen Food & Cold Chain Packaging Solutions"
-        heroSubtitle="Sub-Zero Flex Sealants | Compostable Freezer Bags | Curbside Recyclable Mono-PE Refills & Custom Display Boxes"
-        introSummary="Startup frozen food brands and premium cold chain manufacturers require packaging that remains highly flexible down to -30°C, eliminates freezer burn dehydration, and resists drops. Compare our five high-performance packaging formats."
+        heroTitle={t(`${p}.heroTitle`)}
+        heroSubtitle={t(`${p}.heroSubtitle`)}
+        introSummary={t(`${p}.introSummary`)}
         sections={sections}
         tables={tables}
         faqs={faqs}

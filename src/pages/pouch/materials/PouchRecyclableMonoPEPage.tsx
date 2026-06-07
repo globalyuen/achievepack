@@ -96,28 +96,28 @@ export default function PouchRecyclableMonoPEPage() {
 
   const faqs = [
     {
-      q: 'What is a mono-PE recyclable pouch?',
-      a: 'Traditional flexible pouches laminate multiple incompatible plastics (like PET, Nylon, and Aluminum) together, making recycling impossible. Mono-PE pouches use single-material Polyethylene throughout all laminated layers, allowing them to be fully melted down and recycled into new PE products.'
+      q: t(`${p}.faq1Question`),
+      a: t(`${p}.faq1Answer`)
     },
     {
-      q: 'What is the MOQ for custom printed mono-PE pouches?',
-      a: 'We offer an ultra-low startup MOQ of just 500 units for digitally printed recyclable stand-up pouches. This is perfect for small businesses testing flavor SKUs without plate setup fees.'
+      q: t(`${p}.faq2Question`),
+      a: t(`${p}.faq2Answer`)
     },
     {
-      q: 'How do you maintain product freshness without aluminum?',
-      a: 'We co-extrude a micro-thin layer of EVOH (Ethylene Vinyl Alcohol) between our PE film layers. This delivers outstanding oxygen and moisture protection (WVTR & OTR < 1.5), preserving coffee, pet treats, and food freshness for 9-12 months while keeping the film 100% recyclable.'
+      q: t(`${p}.faq3Question`),
+      a: t(`${p}.faq3Answer`)
     },
     {
-      q: 'What are the production and delivery lead times?',
-      a: 'Our typical digital print production time is 7-10 business days from blueprint sign-off. Plate production takes 12-14 days. We ship worldwide via express courier (3-5 days) or sea freight (40-60 days).'
+      q: t(`${p}.faq4Question`),
+      a: t(`${p}.faq4Answer`)
     },
     {
-      q: 'Are these pouches food-grade certified?',
-      a: 'Yes, all our recyclable mono-PE materials are manufactured in BRCGS Grade A certified facilities. They are 100% food-grade compliant with FDA and EU food contact safety regulations, featuring solvent-free lamination.'
+      q: t(`${p}.faq5Question`),
+      a: t(`${p}.faq5Answer`)
     },
     {
-      q: 'What details are needed for a precise quotation?',
-      a: 'Simply tell us your pouch style (e.g., Stand-Up, Flat Pouch), external dimensions in millimeters, whether you require standard zippers or degassing valves, and your quantities. We provide pricing sheets in under 24 hours.'
+      q: t(`${p}.faq6Question`),
+      a: t(`${p}.faq6Answer`)
     }
   ]
 
@@ -126,7 +126,7 @@ export default function PouchRecyclableMonoPEPage() {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="mono-PE pouch, recyclable pouch, single material packaging, PE recyclable, sustainable flexible packaging, mono material pouch, recyclable stand up pouch, polyethylene pouch" />
+        <meta name="keywords" content={t(`${p}.keywords`)} />
         <link rel="canonical" href="https://pouch.eco/materials/recyclable-mono-pe" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />

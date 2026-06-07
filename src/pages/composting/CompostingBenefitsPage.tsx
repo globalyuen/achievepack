@@ -25,6 +25,7 @@ const ClickableImage: React.FC<{
   className?: string
   caption?: string
 }> = ({ src, alt, className = '', caption }) => {
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
   return (

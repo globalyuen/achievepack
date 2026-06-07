@@ -150,7 +150,7 @@ const PouchBioPEPage: React.FC = () => {
 
             <h3 className="text-2xl font-['Space_Grotesk'] font-black uppercase text-black mt-12 mb-4">{t(`${p}.guideSection1Title`)}</h3>
             <p>
-              The most compelling argument for Bio-PE is its origin story. Traditional polyethylene is synthesized from crude oil, a finite resource that releases massive amounts of CO2 during extraction and refinement. In stark contrast, the sugarcane used to produce Bio-PE actually absorbs CO2 from the atmosphere as it grows. This remarkable process means that the production of Bio-PE resin can have a negative carbon footprint from cradle to gate, actively contributing to the fight against climate change.
+              {t(`${p}.guideSection1Paragraph1`)}
             </p>
             <p>
               {t(`${p}.guideSection1Paragraph2`)}
@@ -183,7 +183,7 @@ const PouchBioPEPage: React.FC = () => {
           </h2>
 
           <div className="space-y-6">
-            [
+            {[
               { q: t(`${p}.faq.q1`), a: t(`${p}.faq.a1`) },
               { q: t(`${p}.faq.q2`), a: t(`${p}.faq.a2`) },
               { q: t(`${p}.faq.q3`), a: t(`${p}.faq.a3`) },

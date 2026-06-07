@@ -186,7 +186,7 @@ const PouchPCRPage: React.FC = () => {
           </h2>
 
           <div className="space-y-6">
-            [
+            {[
               { q: t(`${p}.faq.q1`), a: t(`${p}.faq.a1`) },
               { q: t(`${p}.faq.q2`), a: t(`${p}.faq.a2`) },
               { q: t(`${p}.faq.q3`), a: t(`${p}.faq.a3`) },
