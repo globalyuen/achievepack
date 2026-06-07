@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T12:15:43.510Z",
+  "lastUnifiedRun": "2026-06-07T12:30:36.917Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1596,17 +1596,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-barrier-pouches-custom",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "kraft paper barrier pouches custom",
-      "difficulty": "Low",
-      "slug": "kraft-paper-barrier-pouches-custom"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "flexible sachet sourcing for powders",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "flexible-sachet-sourcing-for-powders"
     },
     {
       "status": "Pending",
@@ -1725,9 +1726,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T12:15:35.130Z",
+      "timestamp": "2026-06-07T12:30:29.109Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper barrier pouches custom\" to /blog/kraft-paper-barrier-pouches-custom (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"flexible sachet sourcing for powders\" to /blog/flexible-sachet-sourcing-for-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper barrier pouches custom\" to /blog/kraft-paper-barrier-pouches-custom (Pending Approval)",
+      "timestamp": "2026-06-07T12:15:35.130Z"
     },
     {
       "action": "Autopilot Generation Draft",
