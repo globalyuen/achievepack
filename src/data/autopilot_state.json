@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T19:45:37.562Z",
+  "lastUnifiedRun": "2026-06-07T20:00:33.609Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1806,17 +1806,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "small-batch-digital-printing-flexible-bags",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "small batch digital printing flexible bags",
-      "difficulty": "Low",
-      "slug": "small-batch-digital-printing-flexible-bags"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "eco friendly retort pouch sizes chart",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-retort-pouch-sizes-chart"
     },
     {
       "status": "Pending",
@@ -1861,125 +1862,130 @@
       "difficulty": "Medium"
     },
     {
+      "status": "Pending",
+      "volume": 1100,
       "keyword": "compostable pouch manufacturers low moq",
-      "difficulty": "Low",
-      "volume": 1100,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "stand up pouch size chart for snacks",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1400,
-      "status": "Pending"
+      "keyword": "stand up pouch size chart for snacks",
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 900,
       "keyword": "custom digital print barrier pouches",
-      "difficulty": "Low",
-      "volume": 900,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono material film for flexible packaging",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1600,
-      "status": "Pending"
+      "keyword": "mono material film for flexible packaging",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "eco friendly retort bags for baby food",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 700,
-      "status": "Pending"
+      "keyword": "eco friendly retort bags for baby food",
+      "difficulty": "Low"
     },
     {
+      "status": "Pending",
+      "volume": 1200,
       "keyword": "recyclable flat bottom pouch suppliers",
-      "difficulty": "Low",
-      "volume": 1200,
-      "status": "Pending"
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier sustainable films for pouches",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 800,
-      "status": "Pending"
+      "keyword": "high barrier sustainable films for pouches",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "small batch compostable sachet printing",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "small batch compostable sachet printing",
+      "difficulty": "Low"
     },
     {
-      "keyword": "kraft paper pouch with zipper custom",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1300,
-      "status": "Pending"
+      "keyword": "kraft paper pouch with zipper custom",
+      "difficulty": "Low"
     },
     {
-      "keyword": "barrier film roll stock for food packaging",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1700,
-      "status": "Pending"
+      "keyword": "barrier film roll stock for food packaging",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "digital printing on sustainable flexible packaging",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1000,
-      "status": "Pending"
+      "keyword": "digital printing on sustainable flexible packaging",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable stand up pouches for pet food low moq",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "compostable stand up pouches for pet food low moq",
+      "difficulty": "Low"
     },
     {
-      "keyword": "sachet packaging for spices wholesale",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1100,
-      "status": "Pending"
+      "keyword": "sachet packaging for spices wholesale",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "custom shaped pouches for beverages",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 750,
-      "status": "Pending"
+      "keyword": "custom shaped pouches for beverages",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable high barrier film for snacks",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 900,
-      "status": "Pending"
+      "keyword": "recyclable high barrier film for snacks",
+      "difficulty": "Low"
     },
     {
-      "keyword": "stand up pouch dimensions for 10 oz",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1500,
-      "status": "Pending"
+      "keyword": "stand up pouch dimensions for 10 oz",
+      "difficulty": "Low"
     },
     {
-      "keyword": "biodegradable flat bottom pouches for nuts",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 650,
-      "status": "Pending"
+      "keyword": "biodegradable flat bottom pouches for nuts",
+      "difficulty": "Low"
     },
     {
-      "keyword": "eco friendly barrier film suppliers",
-      "difficulty": "Medium",
+      "status": "Pending",
       "volume": 1200,
-      "status": "Pending"
+      "keyword": "eco friendly barrier film suppliers",
+      "difficulty": "Medium"
     },
     {
-      "keyword": "mono pe stand up pouch dimensions",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1050,
-      "status": "Pending"
+      "keyword": "mono pe stand up pouch dimensions",
+      "difficulty": "Low"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T19:45:29.882Z",
+      "timestamp": "2026-06-07T20:00:23.982Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"small batch digital printing flexible bags\" to /blog/small-batch-digital-printing-flexible-bags (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly retort pouch sizes chart\" to /blog/eco-friendly-retort-pouch-sizes-chart (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital printing flexible bags\" to /blog/small-batch-digital-printing-flexible-bags (Pending Approval)",
+      "timestamp": "2026-06-07T19:45:29.882Z"
     },
     {
       "action": "Autopilot Generation Draft",
