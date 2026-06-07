@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T21:00:27.965Z",
+  "lastUnifiedRun": "2026-06-07T21:15:28.963Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1841,17 +1841,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-standup-pouch-for-pet-food",
       "status": "Pending Approval",
       "volume": 1300,
       "keyword": "compostable standup pouch for pet food",
-      "difficulty": "Medium",
-      "slug": "compostable-standup-pouch-for-pet-food"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 750,
       "keyword": "digital print low moq barrier bags",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-print-low-moq-barrier-bags"
     },
     {
       "status": "Pending",
@@ -1982,9 +1983,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T21:00:20.286Z",
+      "timestamp": "2026-06-07T21:15:21.152Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable standup pouch for pet food\" to /blog/compostable-standup-pouch-for-pet-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital print low moq barrier bags\" to /blog/digital-print-low-moq-barrier-bags (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable standup pouch for pet food\" to /blog/compostable-standup-pouch-for-pet-food (Pending Approval)",
+      "timestamp": "2026-06-07T21:00:20.286Z"
     },
     {
       "action": "Autopilot Generation Draft",
