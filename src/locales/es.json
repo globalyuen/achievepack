@@ -2024,38 +2024,38 @@
                         {
                             "title": "Matriz de tamaños volumétricos comerciales",
                             "data": {
-                                "headers": {
-                                    "0": "Dimensiones (An x Al + G)",
-                                    "1": "Peso volumétrico",
-                                    "2": "Escenarios de aplicación recomendados"
-                                },
-                                "rows": {
-                                    "0": {
+                                "headers": [
+                                    "Dimensiones (An x Al + G)",
+                                    "Peso volumétrico",
+                                    "Escenarios de aplicación recomendados"
+                                ],
+                                "rows": [
+                                    {
                                         "0": "70x110 + 40mm",
                                         "1": "20g - 50g",
                                         "2": "Sobres de muestra de producto, especias gourmet, extractos botánicos secos"
                                     },
-                                    "1": {
+                                    {
                                         "0": "100x150 + 60mm",
                                         "1": "50g - 100g",
                                         "2": "Bolsas de polvos para el cuidado de la piel, hojas de té de origen único, cajas de golosinas para mascotas"
                                     },
-                                    "2": {
+                                    {
                                         "0": "120 x 200 + 80 mm",
                                         "1": "100g - 250g",
                                         "2": "Café de especialidad en grano (con válvula), granolas orgánicas, chips proteicos"
                                     },
-                                    "3": {
+                                    {
                                         "0": "150 x 230 + 90 mm",
                                         "1": "250g - 500g",
                                         "2": "Avena orgánica comercial, SKU de refrigerios grandes, botes de sal de baño"
                                     },
-                                    "4": {
+                                    {
                                         "0": "180 x 280 + 100 mm",
                                         "1": "500g - 1kg",
                                         "2": "Bolsas de croquetas para comida para mascotas, granos a granel, granos de café al por mayor"
                                     }
-                                }
+                                ]
                             }
                         }
                     ],
@@ -2332,38 +2332,38 @@
                     {
                         "title": "Guía de tamaños de bolsas de fondo plano",
                         "data": {
-                            "headers": {
-                                "0": "Capacidad",
-                                "1": "Dimensiones (Ancho×Alto×Pr)",
-                                "2": "Recomendado para"
-                            },
-                            "rows": {
-                                "0": {
+                            "headers": [
+                                "Capacidad",
+                                "Dimensiones (Ancho×Alto×Pr)",
+                                "Recomendado para"
+                            ],
+                            "rows": [
+                                {
                                     "0": "250g",
                                     "1": "120 × 200 × 80 mm",
                                     "2": "Té premium, café especial."
                                 },
-                                "1": {
+                                {
                                     "0": "500g",
                                     "1": "140 × 240 × 90 mm",
                                     "2": "Granos de café, granola"
                                 },
-                                "2": {
+                                {
                                     "0": "1kg",
                                     "1": "160 × 280 × 100 mm",
                                     "2": "Alimento para mascotas, proteína en polvo"
                                 },
-                                "3": {
+                                {
                                     "0": "2 kilos",
                                     "1": "200 × 350 × 120 mm",
                                     "2": "Comida para mascotas a granel, arroz"
                                 },
-                                "4": {
+                                {
                                     "0": "5 kilos",
                                     "1": "280 × 450 × 150 mm",
                                     "2": "Comida para mascotas de gran formato"
                                 }
-                            }
+                            ]
                         }
                     }
                 ],
@@ -2704,43 +2704,43 @@
                     {
                         "title": "Guía de tamaños de bolsa con boquilla",
                         "data": {
-                            "headers": {
-                                "0": "Capacidad",
-                                "1": "Dimensiones",
-                                "2": "Uso típico"
-                            },
-                            "rows": {
-                                "0": {
+                            "headers": [
+                                "Capacidad",
+                                "Dimensiones",
+                                "Uso típico"
+                            ],
+                            "rows": [
+                                {
                                     "0": "90-100ml",
                                     "1": "100 × 150 mm",
                                     "2": "Comida para bebes monodosis"
                                 },
-                                "1": {
+                                {
                                     "0": "150ml",
                                     "1": "110 × 170 mm",
                                     "2": "Comida para bebé, batido"
                                 },
-                                "2": {
+                                {
                                     "0": "250ml",
                                     "1": "130 × 200 mm",
                                     "2": "Salsas, bebidas"
                                 },
-                                "3": {
+                                {
                                     "0": "500ml",
                                     "1": "160 × 250 mm",
                                     "2": "Aceite de cocina, recargas"
                                 },
-                                "4": {
+                                {
                                     "0": "1L",
                                     "1": "200 × 300 mm",
                                     "2": "Recargas de gran formato"
                                 },
-                                "5": {
+                                {
                                     "0": "2L",
                                     "1": "250 × 350 mm",
                                     "2": "Recargas a granel, servicio de alimentos"
                                 }
-                            }
+                            ]
                         }
                     }
                 ],
@@ -3172,44 +3172,44 @@
                     {
                         "title": "Guía de tamaños de bolsas planas",
                         "data": {
-                            "headers": {
-                                "0": "Tamaño",
-                                "1": "Dimensiones",
-                                "2": "Capacidad típica",
-                                "3": "Uso común"
-                            },
-                            "rows": {
-                                "0": {
+                            "headers": [
+                                "Tamaño",
+                                "Dimensiones",
+                                "Capacidad típica",
+                                "Uso común"
+                            ],
+                            "rows": [
+                                {
                                     "0": "Bolsita pequeña",
                                     "1": "50 × 70 mm",
                                     "2": "5-10g / 5-10ml",
                                     "3": "Paquetes de azúcar, muestras."
                                 },
-                                "1": {
+                                {
                                     "0": "Bolsita mediana",
                                     "1": "70 × 100 mm",
                                     "2": "10-30g",
                                     "3": "Especias, bolsitas de salsa."
                                 },
-                                "2": {
+                                {
                                     "0": "Bolsita grande",
                                     "1": "100 × 150 mm",
                                     "2": "30-100g",
                                     "3": "Té exterior, paquetes de semillas."
                                 },
-                                "3": {
+                                {
                                     "0": "Bolsa de muestra",
                                     "1": "80 × 120 mm",
                                     "2": "20-50g",
                                     "3": "Muestras de productos"
                                 },
-                                "4": {
+                                {
                                     "0": "promocional",
                                     "1": "120 × 180 mm",
                                     "2": "50-100g",
                                     "3": "Artículos promocionales"
                                 }
-                            }
+                            ]
                         }
                     }
                 ],
@@ -3391,38 +3391,38 @@
                     {
                         "title": "Guía de tallas de bolsas con fuelle lateral",
                         "data": {
-                            "headers": {
-                                "0": "Capacidad",
-                                "1": "Dimensiones (Ancho×Alto×Pr)",
-                                "2": "Uso común"
-                            },
-                            "rows": {
-                                "0": {
+                            "headers": [
+                                "Capacidad",
+                                "Dimensiones (Ancho×Alto×Pr)",
+                                "Uso común"
+                            ],
+                            "rows": [
+                                {
                                     "0": "250g",
                                     "1": "100 × 280 × 60 mm",
                                     "2": "Café al por menor, té"
                                 },
-                                "1": {
+                                {
                                     "0": "500g",
                                     "1": "120 × 320 × 70 mm",
                                     "2": "Granos de café, frutos secos."
                                 },
-                                "2": {
+                                {
                                     "0": "1kg",
                                     "1": "140 × 380 × 80 mm",
                                     "2": "comida para mascotas, arroz"
                                 },
-                                "3": {
+                                {
                                     "0": "2,5 kilos",
                                     "1": "180 × 450 × 100 mm",
                                     "2": "Productos a granel"
                                 },
-                                "4": {
+                                {
                                     "0": "5 kilos",
                                     "1": "220 × 550 × 120 mm",
                                     "2": "Comida para mascotas de gran formato"
                                 }
-                            }
+                            ]
                         }
                     }
                 ],
@@ -7437,27 +7437,27 @@
                                 "Costo"
                             ],
                             "rows": [
-                                {
-                                    "0": "Kraft compostable",
-                                    "1": "100 unidades",
-                                    "2": "★★★★★",
-                                    "3": "Mercados de agricultores, Tiendas orgánicas",
-                                    "4": "$$"
-                                },
-                                {
-                                    "0": "Reciclable Transparente",
-                                    "1": "100 unidades",
-                                    "2": "★★★★",
-                                    "3": "Tiendas de alimentos especializados, Venta al por menor",
-                                    "4": "$"
-                                },
-                                {
-                                    "0": "Kraft con ventana",
-                                    "1": "100 unidades",
-                                    "2": "★★★★",
-                                    "3": "Merchandising de display, embalaje de escaparates",
-                                    "4": "$$"
-                                }
+                                [
+                                    "Kraft compostable",
+                                    "100 unidades",
+                                    "★★★★★",
+                                    "Mercados de agricultores, Tiendas orgánicas",
+                                    "$$"
+                                ],
+                                [
+                                    "Reciclable Transparente",
+                                    "100 unidades",
+                                    "★★★★",
+                                    "Tiendas de alimentos especializados, Venta al por menor",
+                                    "$"
+                                ],
+                                [
+                                    "Kraft con ventana",
+                                    "100 unidades",
+                                    "★★★★",
+                                    "Merchandising de display, embalaje de escaparates",
+                                    "$$"
+                                ]
                             ]
                         },
                         "guide": {
@@ -7635,46 +7635,46 @@
                         "Costo relativo"
                     ],
                     "rows": [
-                        {
-                            "0": "Bolsita de aluminio para botella",
-                            "1": "0,01 ml/m²/día",
-                            "2": "0,02 g/m²/día",
-                            "3": "★★★★★ (Núcleo de aluminio)",
-                            "4": "100 piezas",
-                            "5": "Bajo ($)"
-                        },
-                        {
-                            "0": "MVP de la cápsula de aluminio",
-                            "1": "0,02 ml/m²/día",
-                            "2": "0,03 g/m²/día",
-                            "3": "★★★★☆ (Alumno protegido)",
-                            "4": "500 piezas",
-                            "5": "Mediano ($$)"
-                        },
-                        {
-                            "0": "Bolsa transparente de mono-PE",
-                            "1": "0,45 ml/m²/día",
-                            "2": "0,35 g/m²/día",
-                            "3": "★★★☆☆ (Co-PE EVOH)",
-                            "4": "500 piezas",
-                            "5": "Mediano ($$)"
-                        },
-                        {
-                            "0": "Bolsa de Bio-PE de caña de azúcar",
-                            "1": "0,05 ml/m²/día",
-                            "2": "0,08 g/m²/día",
-                            "3": "★★★★★ (Hoja de caña de azúcar)",
-                            "4": "500 piezas",
-                            "5": "Alto ($$$)"
-                        },
-                        {
-                            "0": "Caja de presentación personalizada FSC",
-                            "1": "N/A (Protección exterior)",
-                            "2": "N / A",
-                            "3": "N / A",
-                            "4": "200 piezas",
-                            "5": "Prima ($$$$)"
-                        }
+                        [
+                            "Bolsita de aluminio para botella",
+                            "0,01 ml/m²/día",
+                            "0,02 g/m²/día",
+                            "★★★★★ (Núcleo de aluminio)",
+                            "100 piezas",
+                            "Bajo ($)"
+                        ],
+                        [
+                            "MVP de la cápsula de aluminio",
+                            "0,02 ml/m²/día",
+                            "0,03 g/m²/día",
+                            "★★★★☆ (Alumno protegido)",
+                            "500 piezas",
+                            "Mediano ($$)"
+                        ],
+                        [
+                            "Bolsa transparente de mono-PE",
+                            "0,45 ml/m²/día",
+                            "0,35 g/m²/día",
+                            "★★★☆☆ (Co-PE EVOH)",
+                            "500 piezas",
+                            "Mediano ($$)"
+                        ],
+                        [
+                            "Bolsa de Bio-PE de caña de azúcar",
+                            "0,05 ml/m²/día",
+                            "0,08 g/m²/día",
+                            "★★★★★ (Hoja de caña de azúcar)",
+                            "500 piezas",
+                            "Alto ($$$)"
+                        ],
+                        [
+                            "Caja de presentación personalizada FSC",
+                            "N/A (Protección exterior)",
+                            "N / A",
+                            "N / A",
+                            "200 piezas",
+                            "Prima ($$$$)"
+                        ]
                     ]
                 },
                 "relatedLinks": [
@@ -7833,27 +7833,27 @@
                             "Costo"
                         ],
                         "rows": [
-                            {
-                                "0": "Papel Kraft compostable",
-                                "1": "6-9 meses",
-                                "2": "✓ Totalmente compatible",
-                                "3": "Norma ASTM D6400",
-                                "4": "$$"
-                            },
-                            {
-                                "0": "Mono-PE reciclable",
-                                "1": "12+ meses",
-                                "2": "✓ Totalmente compatible",
-                                "3": "Cómo2reciclar",
-                                "4": "$"
-                            },
-                            {
-                                "0": "Papel de alta barrera",
-                                "1": "12+ meses",
-                                "2": "✓ Totalmente compatibles",
-                                "3": "Reciclable",
-                                "4": "$$"
-                            }
+                            [
+                                "Papel Kraft compostable",
+                                "6-9 meses",
+                                "✓ Totalmente compatible",
+                                "Norma ASTM D6400",
+                                "$$"
+                            ],
+                            [
+                                "Mono-PE reciclable",
+                                "12+ meses",
+                                "✓ Totalmente compatible",
+                                "Cómo2reciclar",
+                                "$"
+                            ],
+                            [
+                                "Papel de alta barrera",
+                                "12+ meses",
+                                "✓ Totalmente compatibles",
+                                "Reciclable",
+                                "$$"
+                            ]
                         ],
                         "guideTitle": "Guía de selección de materiales",
                         "guideDesc": "Para los tostadores de café, recomendamos elegir materiales en función del posicionamiento de su producto y de sus clientes objetivo. Los cafés especiales premium de alta gama son más adecuados para el papel kraft compostable, mientras que los cafés de gran volumen se benefician de la rentabilidad del mono-PE reciclable."
@@ -8012,34 +8012,34 @@
                             "Nivel de recomendación"
                         ],
                         "rows": [
-                            {
-                                "0": "Materiales compostables",
-                                "1": "-60%",
-                                "2": "ASTM/EN13432",
-                                "3": "★★★★★",
-                                "4": "muy alto"
-                            },
-                            {
-                                "0": "Material reciclado por PCR",
-                                "1": "-30% a 50%",
-                                "2": "Certificación PCR",
-                                "3": "★★★★",
-                                "4": "Alta"
-                            },
-                            {
-                                "0": "Bio-PE/de base biológica",
-                                "1": "-50%",
-                                "2": "ISCC Plus",
-                                "3": "★★★★★",
-                                "4": "muy alto"
-                            },
-                            {
-                                "0": "Mono-PE reciclable",
-                                "1": "-20%",
-                                "2": "Cómo2reciclar",
-                                "3": "★★★",
-                                "4": "Medio"
-                            }
+                            [
+                                "Materiales compostables",
+                                "-60%",
+                                "ASTM/EN13432",
+                                "★★★★★",
+                                "muy alto"
+                            ],
+                            [
+                                "Material reciclado por PCR",
+                                "-30% a 50%",
+                                "Certificación PCR",
+                                "★★★★",
+                                "Alta"
+                            ],
+                            [
+                                "Bio-PE/de base biológica",
+                                "-50%",
+                                "ISCC Plus",
+                                "★★★★★",
+                                "muy alto"
+                            ],
+                            [
+                                "Mono-PE reciclable",
+                                "-20%",
+                                "Cómo2reciclar",
+                                "★★★",
+                                "Medio"
+                            ]
                         ],
                         "guideTitle": "Guía de selección de materiales",
                         "guideDesc": "Para envases corporativos sostenibles, recomendamos elegir en función de sus objetivos ESG y los requisitos de la cadena de suministro. Proporcionamos documentos de certificación completos y datos de huella de carbono para respaldar sus informes ESG."
@@ -8204,34 +8204,34 @@
                             "Impacto en los costos de envío"
                         ],
                         "rows": [
-                            {
-                                "0": "Bolsas flexibles de tacto suave",
-                                "1": "-75%",
-                                "2": "★★★★★",
-                                "3": "★★★★★",
-                                "4": "-60%"
-                            },
-                            {
-                                "0": "Bolsas con acabado mate",
-                                "1": "-75%",
-                                "2": "★★★★",
-                                "3": "★★★★",
-                                "4": "-55%"
-                            },
-                            {
-                                "0": "Bolsas de papel kraft",
-                                "1": "-70%",
-                                "2": "★★★★",
-                                "3": "★★★★",
-                                "4": "-50%"
-                            },
-                            {
-                                "0": "Cajas Rígidas Tradicionales",
-                                "1": "Estándar básico",
-                                "2": "★★★",
-                                "3": "★★★",
-                                "4": "Estándar básico"
-                            }
+                            [
+                                "Bolsas flexibles de tacto suave",
+                                "-75%",
+                                "★★★★★",
+                                "★★★★★",
+                                "-60%"
+                            ],
+                            [
+                                "Bolsas con acabado mate",
+                                "-75%",
+                                "★★★★",
+                                "★★★★",
+                                "-55%"
+                            ],
+                            [
+                                "Bolsas de papel kraft",
+                                "-70%",
+                                "★★★★",
+                                "★★★★",
+                                "-50%"
+                            ],
+                            [
+                                "Cajas Rígidas Tradicionales",
+                                "Estándar básico",
+                                "★★★",
+                                "★★★",
+                                "Estándar básico"
+                            ]
                         ],
                         "guideTitle": "Guía de selección de materiales",
                         "guideDesc": "Para las marcas de comercio electrónico de DTC, las bolsas flexibles de tacto suave son la mejor opción. Ahorran significativamente en costos de envío y al mismo tiempo brindan una experiencia de desembalaje superior. Múltiples acabados de superficie pueden mejorar las tasas de participación social."
@@ -8400,38 +8400,38 @@
                             "Nivel de costo"
                         ],
                         "rows": [
-                            {
-                                "0": "Kraft + PLA Compostables",
-                                "1": "✓ Completa",
-                                "2": "✓EN13432/ASTM",
-                                "3": "✓ Excelente",
-                                "4": "UE, EE. UU., UA",
-                                "5": "$$$"
-                            },
-                            {
-                                "0": "Mono-PE reciclable",
-                                "1": "✓ Completa",
-                                "2": "- N / A",
-                                "3": "✓ Buena",
-                                "4": "EE.UU., Reino Unido, Australia",
-                                "5": "$$"
-                            },
-                            {
-                                "0": "Película de contenido PCR",
-                                "1": "✓ Completa",
-                                "2": "- N / A",
-                                "3": "✓ Excelente",
-                                "4": "Reino Unido, UE",
-                                "5": "$$"
-                            },
-                            {
-                                "0": "Película de bio-PE",
-                                "1": "✓ Completa",
-                                "2": "- N / A",
-                                "3": "~ Parcial",
-                                "4": "Global",
-                                "5": "$$$"
-                            }
+                            [
+                                "Kraft + PLA Compostables",
+                                "✓ Completa",
+                                "✓EN13432/ASTM",
+                                "✓ Excelente",
+                                "UE, EE. UU., UA",
+                                "$$$"
+                            ],
+                            [
+                                "Mono-PE reciclable",
+                                "✓ Completa",
+                                "- N / A",
+                                "✓ Buena",
+                                "EE.UU., Reino Unido, Australia",
+                                "$$"
+                            ],
+                            [
+                                "Película de contenido PCR",
+                                "✓ Completa",
+                                "- N / A",
+                                "✓ Excelente",
+                                "Reino Unido, UE",
+                                "$$"
+                            ],
+                            [
+                                "Película de bio-PE",
+                                "✓ Completa",
+                                "- N / A",
+                                "~ Parcial",
+                                "Global",
+                                "$$$"
+                            ]
                         ],
                         "adviceTitle": "Consejos de selección de expertos",
                         "adviceDesc": "Para exportación a múltiples mercados: elija Kraft + PLA Compostable para los mercados de la UE y AU con estrictos requisitos de compostabilidad, o PCR Content para el cumplimiento del impuesto sobre envases de plástico del Reino Unido. Nuestro equipo puede ayudarle a navegar por los requisitos específicos del mercado."
@@ -8595,38 +8595,38 @@
                             "Nivel de costo"
                         ],
                         "rows": [
-                            {
-                                "0": "PLA/PBAT compostables",
-                                "1": "★★★★★",
-                                "2": "48 horas",
-                                "3": "✓ Excelente",
-                                "4": "Lanzamientos ecológicos",
-                                "5": "$$$"
-                            },
-                            {
-                                "0": "Películas metálicas/holográficas",
-                                "1": "★★★★",
-                                "2": "48 horas",
-                                "3": "~ Moderada",
-                                "4": "Posicionamiento premium",
-                                "5": "$$$"
-                            },
-                            {
-                                "0": "Bio-PE (Caña de Azúcar)",
-                                "1": "★★★★",
-                                "2": "48 horas",
-                                "3": "✓ Buena",
-                                "4": "Directamente sostenible",
-                                "5": "$$"
-                            },
-                            {
-                                "0": "Inteligente / NFC habilitada",
-                                "1": "★★★★★",
-                                "2": "1-2 semanas",
-                                "3": "~ Variables",
-                                "4": "Compromiso del consumidor",
-                                "5": "$$$$"
-                            }
+                            [
+                                "PLA/PBAT compostables",
+                                "★★★★★",
+                                "48 horas",
+                                "✓ Excelente",
+                                "Lanzamientos ecológicos",
+                                "$$$"
+                            ],
+                            [
+                                "Películas metálicas/holográficas",
+                                "★★★★",
+                                "48 horas",
+                                "~ Moderada",
+                                "Posicionamiento premium",
+                                "$$$"
+                            ],
+                            [
+                                "Bio-PE (Caña de Azúcar)",
+                                "★★★★",
+                                "48 horas",
+                                "✓ Buena",
+                                "Directamente sostenible",
+                                "$$"
+                            ],
+                            [
+                                "Inteligente / NFC habilitada",
+                                "★★★★★",
+                                "1-2 semanas",
+                                "~ Variables",
+                                "Compromiso del consumidor",
+                                "$$$$"
+                            ]
                         ],
                         "adviceTitle": "Consejos de selección de expertos",
                         "adviceDesc": "Para realizar pruebas de concepto rápidas: comience con materiales sostenibles estándar para validar el concepto y luego actualice a materiales premium o inteligentes para la producción. Nuestra impresión digital permite cambios fáciles de material entre iteraciones de prototipos."
@@ -8711,24 +8711,24 @@
                             "La mejor para"
                         ],
                         "rows": [
-                            {
-                                "0": "Compostable certificado",
-                                "1": "★★★★★",
-                                "2": "De primera calidad",
-                                "3": "Líneas orgánicas emblemáticas"
-                            },
-                            {
-                                "0": "Mono-PE reciclable",
-                                "1": "★★★★",
-                                "2": "gama media",
-                                "3": "Productos convencionales"
-                            },
-                            {
-                                "0": "Contenido de la PCR",
-                                "1": "★★★",
-                                "2": "Competitiva",
-                                "3": "Líneas conscientes del presupuesto"
-                            }
+                            [
+                                "Compostable certificado",
+                                "★★★★★",
+                                "De primera calidad",
+                                "Líneas orgánicas emblemáticas"
+                            ],
+                            [
+                                "Mono-PE reciclable",
+                                "★★★★",
+                                "gama media",
+                                "Productos convencionales"
+                            ],
+                            [
+                                "Contenido de la PCR",
+                                "★★★",
+                                "Competitiva",
+                                "Líneas conscientes del presupuesto"
+                            ]
                         ]
                     },
                     "retail-ready": {
@@ -8825,38 +8825,38 @@
                             "Nivel de costo"
                         ],
                         "rows": [
-                            {
-                                "0": "Kraft + PLA Compostables",
-                                "1": "★★★★★",
-                                "2": "Medio-Alto",
-                                "3": "Granola, frutos secos",
-                                "4": "Alimentos Integrales, Brotes",
-                                "5": "$$$"
-                            },
-                            {
-                                "0": "Mono-PE reciclable",
-                                "1": "★★★★",
-                                "2": "Alta",
-                                "3": "patatas fritas, patatas fritas",
-                                "4": "Objetivo, Kroger",
-                                "5": "$$"
-                            },
-                            {
-                                "0": "Película de contenido PCR",
-                                "1": "★★★",
-                                "2": "Alta",
-                                "3": "nueces, semillas",
-                                "4": "Comercio minorista convencional",
-                                "5": "$$"
-                            },
-                            {
-                                "0": "Película de bio-PE",
-                                "1": "★★★★",
-                                "2": "Alta",
-                                "3": "Barras de proteínas",
-                                "4": "tenderos naturales",
-                                "5": "$$$"
-                            }
+                            [
+                                "Kraft + PLA Compostables",
+                                "★★★★★",
+                                "Medio-Alto",
+                                "Granola, frutos secos",
+                                "Alimentos Integrales, Brotes",
+                                "$$$"
+                            ],
+                            [
+                                "Mono-PE reciclable",
+                                "★★★★",
+                                "Alta",
+                                "patatas fritas, patatas fritas",
+                                "Objetivo, Kroger",
+                                "$$"
+                            ],
+                            [
+                                "Película de contenido PCR",
+                                "★★★",
+                                "Alta",
+                                "nueces, semillas",
+                                "Comercio minorista convencional",
+                                "$$"
+                            ],
+                            [
+                                "Película de bio-PE",
+                                "★★★★",
+                                "Alta",
+                                "Barras de proteínas",
+                                "tenderos naturales",
+                                "$$$"
+                            ]
                         ],
                         "adviceTitle": "Consejos de selección de expertos",
                         "adviceDesc": "Para carteras de múltiples productos: use Kraft + PLA compostable para líneas orgánicas emblemáticas, Mono-PE reciclable para productos convencionales que requieren una alta barrera. Podemos ayudarle a crear una estrategia de sostenibilidad escalonada que equilibre los costos y las credenciales ambientales."
@@ -11394,24 +11394,24 @@
                                 "La mejor para"
                             ],
                             "rows": [
-                                {
-                                    "0": "Anuncio publicitario corrugado",
-                                    "1": "500g",
-                                    "2": "130 × 85 × 35 mm",
-                                    "3": "Pequeñas bolsas de café, cajas de té."
-                                },
-                                {
-                                    "0": "Anuncio publicitario corrugado",
-                                    "1": "1kg",
-                                    "2": "270 × 85 × 35 mm",
-                                    "3": "Bolsas de café grandes, juegos de regalo."
-                                },
-                                {
-                                    "0": "Caja plegable",
-                                    "1": "100g",
-                                    "2": "81 × 162 × 15 mm",
-                                    "3": "Barras de chocolate, bolsitas de té."
-                                }
+                                [
+                                    "Anuncio publicitario corrugado",
+                                    "500g",
+                                    "130 × 85 × 35 mm",
+                                    "Pequeñas bolsas de café, cajas de té."
+                                ],
+                                [
+                                    "Anuncio publicitario corrugado",
+                                    "1kg",
+                                    "270 × 85 × 35 mm",
+                                    "Bolsas de café grandes, juegos de regalo."
+                                ],
+                                [
+                                    "Caja plegable",
+                                    "100g",
+                                    "81 × 162 × 15 mm",
+                                    "Barras de chocolate, bolsitas de té."
+                                ]
                             ]
                         }
                     }
@@ -11443,6 +11443,30 @@
                         "description": "Opciones de embalaje flexible ecológico"
                     }
                 ]
+            },
+            "usaCoffee": {
+                "metaTitle": "Envases de café compostables para tostadores de EE. UU. | Norma ASTM D6400 | Paquete de logros",
+                "metaDescription": "Bolsas de café compostables con certificación ASTM D6400 con válvulas desgasificadoras para tostadores especiales de EE. UU. Bolsas de papel kraft, MOQ bajo de 100 piezas, se envían a EE. UU. en 15-20 días.",
+                "isThisPageFor": "¿Es esta página para usted?",
+                "compostableCoffeePackagingFor": "Envases de café compostables para tostadores de EE. UU.",
+                "compostableMaterialsForCoffee": "Materiales compostables para café",
+                "coffeespecificFeatures": "Características específicas del café",
+                "usRoasterSuccessStory": "Historia de éxito de un tostador en EE. UU.",
+                "usRegulatoryCompliance": "Cumplimiento normativo de EE. UU.",
+                "orderingForUsCoffee": "Realizar pedidos de marcas de café de EE. UU.",
+                "isCompostableCoffeePackaging": "¿Los envases de café compostables son adecuados para usted?",
+                "readyToTakeThe": "¿Listo para dar el siguiente paso?",
+                "findingTheRightCoffee": "Encontrar el proveedor de envases de café adecuado",
+                "shopCompostablePouches": "Comprar bolsas compostables",
+                "browseCoffeePackagingOptions": "Explore las opciones de empaque de café: MOQ desde 100 piezas",
+                "usaCompostableHub": "Centro compostable de EE. UU.",
+                "completeGuideToCompostable": "Guía completa de envases compostables para marcas estadounidenses",
+                "coffeeTeaIndustrySolutions": "Soluciones para la industria del café y el té",
+                "allPackagingOptionsFor": "Todas las opciones de embalaje para tostadores de café.",
+                "coffeeRoasteryCaseStudy": "Estudio de caso de tostaduría de café",
+                "seeHowAUs": "Vea cómo un tostador estadounidense cambió a envases sostenibles",
+                "standupPouches": "Bolsas de pie",
+                "mostPopularFormatFor": "Formato más popular para café minorista"
             }
         }
     },

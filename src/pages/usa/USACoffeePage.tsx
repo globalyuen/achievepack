@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Coffee, Leaf, Shield, CheckCircle, Clock, TrendingUp, MessageCircle, Award, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
@@ -6,11 +7,13 @@ import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const USACoffeePage: React.FC = () => {
+  const { t } = useTranslation()
+
   const { openCalendly } = useCalendly()
   const sections = [
     {
       id: 'scenario-trigger',
-      title: 'Is This Page For You?',
+      title: t('seoPages.pages.usaCoffee.isThisPageFor'),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-amber-50 to-green-50 p-6 rounded-lg border border-amber-200">
@@ -36,7 +39,7 @@ const USACoffeePage: React.FC = () => {
     },
     {
       id: 'overview',
-      title: 'Compostable Coffee Packaging for US Roasters',
+      title: t('seoPages.pages.usaCoffee.compostableCoffeePackagingFor'),
       icon: <Coffee className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -72,7 +75,7 @@ const USACoffeePage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'Compostable Materials for Coffee',
+      title: t('seoPages.pages.usaCoffee.compostableMaterialsForCoffee'),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -121,7 +124,7 @@ const USACoffeePage: React.FC = () => {
     },
     {
       id: 'features',
-      title: 'Coffee-Specific Features',
+      title: t('seoPages.pages.usaCoffee.coffeespecificFeatures'),
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -156,7 +159,7 @@ const USACoffeePage: React.FC = () => {
     },
     {
       id: 'case-study',
-      title: 'US Roaster Success Story',
+      title: t('seoPages.pages.usaCoffee.usRoasterSuccessStory'),
       icon: <TrendingUp className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -200,7 +203,7 @@ const USACoffeePage: React.FC = () => {
     },
     {
       id: 'compliance',
-      title: 'US Regulatory Compliance',
+      title: t('seoPages.pages.usaCoffee.usRegulatoryCompliance'),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -238,7 +241,7 @@ const USACoffeePage: React.FC = () => {
     },
     {
       id: 'ordering',
-      title: 'Ordering for US Coffee Brands',
+      title: t('seoPages.pages.usaCoffee.orderingForUsCoffee'),
       icon: <Clock className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -269,7 +272,7 @@ const USACoffeePage: React.FC = () => {
     },
     {
       id: 'risk-hedging',
-      title: 'Is Compostable Coffee Packaging Right for You?',
+      title: t('seoPages.pages.usaCoffee.isCompostableCoffeePackaging'),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="grid md:grid-cols-3 gap-4">
@@ -305,7 +308,7 @@ const USACoffeePage: React.FC = () => {
     },
     {
       id: 'decision-cta',
-      title: 'Ready to Take the Next Step?',
+      title: t('seoPages.pages.usaCoffee.readyToTakeThe'),
       icon: <Calendar className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="grid md:grid-cols-3 gap-4 mt-4">
@@ -332,7 +335,7 @@ const USACoffeePage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding the Right Coffee Packaging Supplier',
+      title: t('seoPages.pages.usaCoffee.findingTheRightCoffee'),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -367,17 +370,17 @@ const USACoffeePage: React.FC = () => {
   ]
 
   const relatedLinks = [
-    { title: "Shop Compostable Pouches", url: "/store", description: "Browse coffee packaging options – MOQ from 100 pieces" },
-    { title: "USA Compostable Hub", url: "/usa/compostable-packaging", description: "Complete guide to compostable packaging for US brands" },
-    { title: "Coffee & Tea Industry Solutions", url: "/industry/coffee-tea", description: "All packaging options for coffee roasters" },
-    { title: "Coffee Roastery Case Study", url: "/case-studies/coffee-roastery", description: "See how a US roaster switched to sustainable packaging" },
-    { title: "Stand-Up Pouches", url: "/packaging/stand-up-pouches", description: "Most popular format for retail coffee" }
+    { title: t('seoPages.pages.usaCoffee.shopCompostablePouches'), url: "/store", description: t('seoPages.pages.usaCoffee.browseCoffeePackagingOptions') },
+    { title: t('seoPages.pages.usaCoffee.usaCompostableHub'), url: "/usa/compostable-packaging", description: t('seoPages.pages.usaCoffee.completeGuideToCompostable') },
+    { title: t('seoPages.pages.usaCoffee.coffeeTeaIndustrySolutions'), url: "/industry/coffee-tea", description: t('seoPages.pages.usaCoffee.allPackagingOptionsFor') },
+    { title: t('seoPages.pages.usaCoffee.coffeeRoasteryCaseStudy'), url: "/case-studies/coffee-roastery", description: t('seoPages.pages.usaCoffee.seeHowAUs') },
+    { title: t('seoPages.pages.usaCoffee.standupPouches'), url: "/packaging/stand-up-pouches", description: t('seoPages.pages.usaCoffee.mostPopularFormatFor') }
   ]
 
   return (
     <SEOPageLayout heroBgColor="#451a03"
-      title="Compostable Coffee Packaging for US Roasters | ASTM D6400 | Achieve Pack"
-      description="ASTM D6400 certified compostable coffee bags with degassing valves for US specialty roasters. Kraft paper pouches, low MOQ from 100 pieces, ships to USA in 15-20 days."
+      title={t('seoPages.pages.usaCoffee.metaTitle')}
+      description={t('seoPages.pages.usaCoffee.metaDescription')}
       keywords={['compostable coffee bags USA', 'compostable coffee packaging', 'ASTM D6400 coffee pouches', 'kraft paper coffee bags', 'sustainable coffee packaging', 'eco-friendly coffee bags', 'degassing valve compostable', 'specialty roaster packaging', 'low MOQ coffee bags', 'California compliant coffee packaging']}
       canonicalUrl="https://achievepack.com/usa/coffee-packaging"
       heroTitle="Compostable Coffee Packaging for US Roasters"
