@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T14:15:28.967Z",
+  "lastUnifiedRun": "2026-06-07T14:30:35.474Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1652,17 +1652,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "recyclable-flat-bottom-pouch-for-spices",
       "status": "Pending Approval",
       "volume": 790,
       "keyword": "recyclable flat bottom pouch for spices",
-      "difficulty": "Medium",
-      "slug": "recyclable-flat-bottom-pouch-for-spices"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1050,
       "keyword": "sustainable high barrier sachet for snacks",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-high-barrier-sachet-for-snacks"
     },
     {
       "status": "Pending",
@@ -1733,9 +1734,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T14:15:20.207Z",
+      "timestamp": "2026-06-07T14:30:23.637Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable flat bottom pouch for spices\" to /blog/recyclable-flat-bottom-pouch-for-spices (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable high barrier sachet for snacks\" to /blog/sustainable-high-barrier-sachet-for-snacks (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable flat bottom pouch for spices\" to /blog/recyclable-flat-bottom-pouch-for-spices (Pending Approval)",
+      "timestamp": "2026-06-07T14:15:20.207Z"
     },
     {
       "action": "Autopilot Generation Draft",

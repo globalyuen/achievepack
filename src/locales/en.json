@@ -1972,29 +1972,936 @@
                     "title": "Let's Design Yours",
                     "description": "Tell us what you're packing and we'll recommend the right setup.",
                     "button": "Get Free Samples"
+                },
+                "gallery": {
+                    "item1Title": "Premium Printed Stand-Up Pouch', desc: 'Custom printed stand-up pouch showcasing beautiful digital printing with high contrast and vibrant eco-inks.",
+                    "item1Desc": "Premium Printed Stand-Up Pouch', desc: 'Custom printed stand-up pouch showcasing beautiful digital printing with high contrast and vibrant eco-inks.",
+                    "item2Title": "Stand-Up Pouch Lifestyle Use', desc: 'Sustainable stand-up pouch presented in a modern, organic B2B food branding scene.",
+                    "item2Desc": "Stand-Up Pouch Lifestyle Use', desc: 'Sustainable stand-up pouch presented in a modern, organic B2B food branding scene.",
+                    "item3Title": "Heavy-Duty K-Seal Pouch Base', desc: 'diagonal K-seal bottom structure engineered to carry heavier items (up to 5kg) with extreme base stability.",
+                    "item3Desc": "Heavy-Duty K-Seal Pouch Base', desc: 'diagonal K-seal bottom structure engineered to carry heavier items (up to 5kg) with extreme base stability.",
+                    "item4Title": "Zero Waste Compostable Kraft SUP', desc: 'Official FSC-certified natural kraft paper stand-up pouch supporting high moisture protection and resealable zippers.",
+                    "item4Desc": "Zero Waste Compostable Kraft SUP', desc: 'Official FSC-certified natural kraft paper stand-up pouch supporting high moisture protection and resealable zippers."
+                },
+                "b2c": {
+                    "metaTitle": "Custom Stand-Up Pouches | Eco-Friendly Stand Up Bags | Pouch.eco",
+                    "metaDescription": "Certified compostable & recyclable custom printed stand-up pouches. Low MOQ 500 pcs, organic ink, plant PLA or recyclable Mono-PE barriers. Free design mockups.",
+                    "hero": {
+                        "badge": "Shelf-Standing Eco Packaging",
+                        "titlePart1": "STAND-UP",
+                        "desc": "Certified compostable PLA plant-stars & recyclable Mono-PE structures. Outstanding barrier preservation, durable zippers, and custom sizes.",
+                        "btn1": "Book Free Call",
+                        "btn2": "WhatsApp Specialist",
+                        "imgBadge": "LOW MOQ: 500!",
+                        "titlePart2": "POUCHES"
+                    },
+                    "bento": {
+                        "titlePre": "ADVANCED <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span> PERFORMANCE",
+                        "titleHighlight": "ADVANCED <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span> PERFORMANCE",
+                        "titlePost": "ADVANCED <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span> PERFORMANCE",
+                        "card1Title": "Compostable & Recyclable",
+                        "card1Desc": "Choose 100% home/industrial compostable films or curbside recyclable mono-material structures. Help customers easily recycle.",
+                        "card2Title": "OTR/WVTR Gas Locks",
+                        "card2Desc": "High-performance inner barriers protect against oxygen and moisture transmission (&lt;1.0 cc/m²/24hr). Extend product shelf life up to 12 months.",
+                        "card3Title": "Stable Gusset Base",
+                        "card3Desc": "Precision-folded oval or heavy-duty diagonal K-seal bottom options. Allows perfect shelf standing and maximizes internal volume.",
+                        "card4Title": "Bespoke Closures",
+                        "card4Desc": "Add resealable press-to-close zippers, tin-ties, sliders, one-way degassing coffee valves, or custom-shaped windows."
+                    },
+                    "showcase": {
+                        "badge": "Visual Showcase",
+                        "title": "REAL-WORLD PRODUCTION RUNS",
+                        "desc": "Click any real-world print run sample to inspect our high-definition print clarity, gusset seals, and premium finishes:"
+                    },
+                    "specs": {
+                        "titlePre": "SPECIFICATIONS & <span className=\"bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1\">PRICING",
+                        "titleHighlight": "SPECIFICATIONS & <span className=\"bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1\">PRICING",
+                        "header1": "Size (W x H + G)",
+                        "header2": "Volumetric Capacity",
+                        "header3": "Barrier Performance",
+                        "header4": "Best Application",
+                        "row1App": "DTC single-serve samples, gourmet spice pods, cosmetic powder sachets",
+                        "row2App": "Organic tea leaf bundles, visual candy displays, premium pet treats",
+                        "row3App": "Specialty coffee beans with degassing valve, loose granola, protein chips",
+                        "row4App": "Bulk snack bags, raw superfoods, powdered ingredients, supplement pouches",
+                        "row5App": "Professional wholesale kibble pet food, premium retail bath salts, bulk seeds",
+                        "card1Val": "500 units",
+                        "card1Label": "Ultra-low custom MOQ",
+                        "card1Desc": "Perfect for startup scaling, limited seasonal runs, and SKU testing",
+                        "card2Val": "24 Hours",
+                        "card2Label": "complimentary dielines",
+                        "card2Desc": "Get precise vector drawings adjusted for your exact volumetric specifications",
+                        "card3Val": "100% Free",
+                        "card3Label": "compostable sample kit",
+                        "card3Desc": "Receive a kit containing 10 physical pouches to test barrier properties"
+                    },
+                    "faq": {
+                        "titlePre": "FREQUENTLY ASKED <span className=\"text-[#10b981]\">QUESTIONS",
+                        "titleHighlight": "FREQUENTLY ASKED <span className=\"text-[#10b981]\">QUESTIONS"
+                    },
+                    "metaKeywords": [
+                        "custom stand up pouches",
+                        "eco stand up bags",
+                        "compostable stand up pouches",
+                        "recyclable coffee bags",
+                        "pouch.eco",
+                        "sustainable flexible packaging"
+                    ]
+                },
+                "seoPages": {
+                    "breadcrumbs": {
+                        "home": "Home",
+                        "packagingShapes": "Packaging Shapes"
+                    }
+                },
+                "b2b": {
+                    "breadcrumbs": {
+                        "currentPage": "Custom Stand-Up Pouches"
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Custom Stand-Up Pouches Wholesale & Supply",
+                            "intro": "<strong>Custom Stand-Up Pouches (SUP)</strong> represent the gold standard in premium commercial flexible packaging. Derived from BRCGS-certified factory production lines, our pouches deliver maximum shelf presence, lightweight material savings, and robust barrier protection specifically calibrated for global DTC startups and scaling wholesale food brands.",
+                            "listTitle": "Key B2B Commercial Performance Indicators:",
+                            "listItems": [
+                                "<strong>75% Lighter Footprint</strong> – Drastically reduces warehousing storage space and long-haul shipping emissions vs glass jars or metal tins.",
+                                "<strong>360° Branding Real Estate</strong> – Full-width digital layout coverage printed with certified soy-based plant inks.",
+                                "<strong>Resealable Integration</strong> – Durable zip locks and sliders that prevent product shelf degradation.",
+                                "<strong>Automatic Line Compatibility</strong> – Engineered roll width tolerance allowing seamless integration on auto VFFS/HFFS lines."
+                            ]
+                        },
+                        "specifications": {
+                            "title": "Technical Parameter Translation & Buying Guide",
+                            "intro": "Professional procurement requires strict verification of material data. Here is how our raw technical metrics translate directly into B2B buying benefits:",
+                            "th1": "Technical Dimension",
+                            "th2": "Raw Specs & Materials",
+                            "th3": "B2B Purchasing Utility & Value",
+                            "row1Col1": "Barrier Layer",
+                            "row1Col2": "NatureFlex™ MetCellulose or Recyclable EVOH (OTR &lt; 1.0, WVTR &lt; 1.0)",
+                            "row1Col3": "Creates an absolute gas and water lock, preserving coffee aroma, snack crispness, and powder integrity for 12+ months.",
+                            "row2Col1": "Dimensions & Base",
+                            "row2Col2": "Bespoke Millimeter Dielines (70-300mm width, plow/oval/K-seal gusset bases)",
+                            "row2Col3": "Calibrated to volumetric density blueprint, preventing bottom seal rupture and ensuring flawless standing structure.",
+                            "row3Col1": "Sealing Strength",
+                            "row3Col2": "Seal strength &gt; 35 N/15mm (engineered low-temp PBAT/Mono-PE seal resins)",
+                            "row3Col3": ">Guarantees zero burst leakage under high-pressure automated packing lines operating up to **65 bags per minute**.</td",
+                            "row4Col1": "Export Packaging",
+                            "row4Col2": "Triple-layer double-wall export carton containing secondary moisture barriers",
+                            "row4Col3": "Protects rollstock and finished bags against ocean-humidity degradation and high-stack shipping box damage."
+                        },
+                        "applications": {
+                            "title": "Target B2B Application Scenarios",
+                            "intro": "Our custom printed stand-up bags are engineered to meet specific regulatory and chemical barrier criteria across professional use cases:",
+                            "card1Title": "☕ Specialty Coffee Roasters",
+                            "card1Desc": "High OTR locks combined with one-way degassing valves to vent gas while locking out oxygen ingress. Perfect for retaining roasted bean integrity.",
+                            "card2Title": "🌱 Organic Foods & Snacks",
+                            "card2Desc": "Compostable kraft paper and PLA starch bio-films certified under European EN 13432. Meets rising retail and consumer eco-expectations.",
+                            "card3Title": "🐾 Pet Food & Treats",
+                            "card3Desc": "Heavy-duty diagonal K-seal bottoms that prevent grease migration and support bulk volumetric weight (from 1kg up to 5kg) without bursting.",
+                            "spotlightTitle": "Heavier Volume stability: K-Seal Bottom Spotlight",
+                            "spotlightDesc": "h4 className=\"font-bold text-neutral-900 mb-2\">Heavier Volume stability: K-Seal Bottom Spotlight</h4",
+                            "spotlightLink": "Learn how K-seal increases volume capacity →",
+                            "card1Badge": "12-Month Roasted Freshness",
+                            "card2Badge": "TÜV Home Compostable",
+                            "card3Badge": "Diagonal Gusset Stability"
+                        },
+                        "gallery": {
+                            "title": "Real Production Runs & Materials Verification",
+                            "intro": "We operate 4 high-speed digital lines supporting multiple SKUs. Review our actual production runs of BRC compliant, certified compostable and recyclable stand-up pouches:"
+                        }
+                    },
+                    "metaTitle": "Custom Stand-Up Pouches Wholesale | Direct Manufacturer | Achieve Pack",
+                    "metaDescription": "BRCGS & ISO-9001 certified stand-up pouches. Custom printed SUP bags using compostable PLA or recyclable Mono-PE films. Low MOQ 500 pcs, global shipping.",
+                    "heroTitle": "Custom Stand-Up Pouches Wholesale",
+                    "heroSubtitle": "BRCGS Certified Factory-Direct • Low MOQ 500 Units • 100% Certified Eco-Films",
+                    "introSummary": "Direct supplier of certified compostable and curbside recyclable stand-up pouches. Calibrated with high-performance OTR/WVTR oxygen barriers and diagnostic bottom gussets to prevent seal burst, ensuring 12+ months shelf life.",
+                    "faqs": [
+                        {
+                            "question": "1. What is the Minimum Order Quantity (MOQ) for custom stand-up pouches?",
+                            "answer": "We support startups with an industry-low digital printing MOQ of just 500 units per design. For larger wholesale volumes, we operate rotogravure plate printing from 5,000 units, providing the ultimate wholesale cost efficiency."
+                        },
+                        {
+                            "question": "2. Do you provide physical pre-production samples?",
+                            "answer": "Yes, we ship a free sustainable sample kit with 10 physical pouches to test barrier properties. For custom orders, we generate a 24-hour PDF soft proof and can construct exact custom digital mockups before bulk manufacture."
+                        },
+                        {
+                            "question": "3. Can you manufacture stand-up pouches according to custom volumetric CAD drawings?",
+                            "answer": "Yes. Our material engineers analyze your product volumetric density and customize bottom gussets and dimensions down to the millimeter scale. We provide a custom dieline layout PDF within 24 hours."
+                        },
+                        {
+                            "question": "4. What is the production and transit lead time for commercial runs?",
+                            "answer": "Digital runs finish in 7-10 business days; rotogravure plate orders take 12-14 days. Express DHL/FedEx air delivery to USA/EU takes 5-7 business days, and economical ocean freight is available in 20-30 days."
+                        },
+                        {
+                            "question": "5. What certifications are available to verify eco-friendly compliance?",
+                            "answer": "Our biopolymers carry official certificate numbers from BPI (Biodegradable Products Institute #10529618) and TÜV Austria (OK Compost HOME). Stacks comply with ASTM D6400 (US) and EN 13432 (EU) compostability guidelines."
+                        },
+                        {
+                            "question": "6. What details must be submitted to receive a wholesale quotation?",
+                            "answer": "Please provide estimated volumetric capacity (or exact dimensions), material preference (compostable kraft, mono-PE recyclable, high barrier), zip/degassing valve requirements, number of SKUs, and vector artwork."
+                        }
+                    ],
+                    "tables": [
+                        {
+                            "title": "Commercial Volumetric Size Matrix",
+                            "data": {
+                                "headers": [
+                                    "Dimensions (W x H + G)",
+                                    "Volumetric Weight",
+                                    "Recommended Application Scenarios"
+                                ],
+                                "rows": [
+                                    [
+                                        "70 x 110 + 40mm",
+                                        "20g - 50g",
+                                        "Product sample sachets, gourmet spices, dry botanical extracts"
+                                    ],
+                                    [
+                                        "100 x 150 + 60mm",
+                                        "50g - 100g",
+                                        "Skincare powder bags, single-origin tea leaf, pet treat boxes"
+                                    ],
+                                    [
+                                        "120 x 200 + 80mm",
+                                        "100g - 250g",
+                                        "Specialty coffee beans (with valve), organic granolas, protein crisps"
+                                    ],
+                                    [
+                                        "150 x 230 + 90mm",
+                                        "250g - 500g",
+                                        "Commercial organic oats, large snack SKUs, bath salt canisters"
+                                    ],
+                                    [
+                                        "180 x 280 + 100mm",
+                                        "500g - 1kg",
+                                        "Pet food kibble bags, bulk grains, wholesale coffee beans"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "relatedLinks": [
+                        {
+                            "title": "Flat Bottom Bags",
+                            "url": "/packaging/flat-bottom-bags",
+                            "description": "Stable 5-panel box-gusset alternative"
+                        },
+                        {
+                            "title": "Coffee & Tea Solutions",
+                            "url": "/industry/coffee-tea",
+                            "description": "Bags with degassing valves and tin-ties"
+                        },
+                        {
+                            "title": "Compostable Material Spec",
+                            "url": "/materials/compostable",
+                            "description": "Compare OK Compost biopolymer specs"
+                        }
+                    ],
+                    "metaKeywords": [
+                        "custom stand up pouches",
+                        "wholesale stand up bags",
+                        "compostable stand up pouches",
+                        "BRC certified flexible packaging",
+                        "achieve pack stand up pouch"
+                    ]
                 }
             },
             "flatBottomBags": {
                 "title": "Flat Bottom Bags | Box Pouch Packaging",
-                "heroTitle": "The Premium Box Look, Without the Box",
-                "heroSubtitle": "Five sides of branding real estate. Stands like a champ. The go-to for specialty coffee and premium products.",
-                "introSummary": "Flat bottom bags look expensive without the expensive price tag. Stable rectangular base, 5 printable panels, and serious shelf presence. Perfect for coffee, pet food, anything premium.",
+                "heroTitle": "seoPages.pages.flatBottomBags.heroTitle",
+                "heroSubtitle": "seoPages.pages.flatBottomBags.heroSubtitle",
+                "introSummary": "seoPages.pages.flatBottomBags.introSummary",
                 "cta": {
                     "title": "Elevate Your Packaging",
                     "description": "See why premium brands choose flat bottom bags.",
                     "button": "Get Free Samples"
-                }
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Is This Page For You?",
+                        "intro": "If you are a <strong>specialty coffee roaster</strong>, <strong>premium pet food brand</strong>, or <strong>artisan food producer</strong> looking for packaging that stands out on retail shelves with maximum branding real estate—flat bottom bags deliver premium presence.",
+                        "col1Title": "Coffee Roasters",
+                        "col1Desc": "5-panel branding + degassing valve",
+                        "col2Title": "Pet Food Brands",
+                        "col2Desc": "Stable base for heavy products",
+                        "col3Title": "Premium Products",
+                        "col3Desc": "Box-like appearance for gift-worthy packaging"
+                    },
+                    "overview": {
+                        "title": "What is a Flat Bottom Bag?",
+                        "intro": "A flat bottom bag (also called box bottom pouch or block bottom bag) features a rectangular base that allows it to stand upright with maximum stability.</strong> This premium format offers superior shelf presence and capacity compared to standard stand-up pouches.",
+                        "desc": "A flat bottom bag (also called box bottom pouch or block bottom bag) features a rectangular base that allows it to stand upright with maximum stability.</strong> This premium format offers superior shelf presence and capacity compared to standard stand-up pouches.",
+                        "characteristicsTitle": "Key Benefits:",
+                        "char1": "5-panel construction for maximum branding surface",
+                        "char2": "Stable, box-like shelf presence",
+                        "char3": "Higher capacity than standard pouches",
+                        "char4": "Premium appearance for specialty products",
+                        "char5": "Available in compostable and recyclable materials"
+                    },
+                    "construction": {
+                        "title": "How Are Flat Bottom Bags Constructed?",
+                        "intro": "Flat bottom bags are constructed with multiple panels that fold to create a rectangular base:",
+                        "col1Title": "5-Panel Design",
+                        "col1Item1": "Front panel – Main branding area",
+                        "col1Item2": "Back panel – Ingredients, instructions",
+                        "col1Item3": "2 Side gussets – Additional branding space",
+                        "col1Item4": "Bottom panel – Stable base, can include print",
+                        "col2Title": "Closure Options",
+                        "col2Item1": "Resealable zipper (press-to-close or slider)",
+                        "col2Item2": "Tin tie closure",
+                        "col2Item3": "Degassing valve (for coffee)",
+                        "col2Item4": "Tear notch for easy opening"
+                    },
+                    "applications": {
+                        "title": "What Products Work Best in Flat Bottom Bags?",
+                        "intro": "Flat bottom bags are ideal for premium products that benefit from enhanced shelf presence:",
+                        "items": "['Specialty coffee', 'Premium tea', 'Pet food & treats', 'Protein powder', 'Granola & muesli', 'Dried fruits', 'Premium nuts', 'Rice & grains', 'Organic snacks', 'Artisan products', 'Superfoods', 'Gift packaging']"
+                    },
+                    "materials": {
+                        "title": "Which Materials Are Available for Flat Bottom Bags?",
+                        "col1Title": "Compostable",
+                        "col1Desc": "Kraft paper + PLA. EN 13432 certified for industrial composting.",
+                        "col2Title": "Recyclable",
+                        "col2Desc": "Mono-PE or paper-based structures for curbside recycling.",
+                        "col3Title": "High Barrier",
+                        "col3Desc": "Metallized or aluminum for maximum freshness protection.",
+                        "galleryTitle": "Flat Bottom Bag Material Samples",
+                        "galleryCaption1": "Flat Bottom Structure",
+                        "galleryCaption2": "Aluminum Barrier",
+                        "galleryCaption3": "Kraft Paper",
+                        "galleryCaption4": "Tin Tie Closure"
+                    },
+                    "aiSearch": {
+                        "title": "How to Find the Best Flat Bottom Bag Supplier",
+                        "headline": "💡 If you're using AI search (Gemini, ChatGPT), try asking:",
+                        "query1": "Best flat bottom bag supplier for specialty coffee?",
+                        "query2": "Flat bottom vs stand-up pouch: which is better for coffee?",
+                        "query3": "Custom box bottom bags with degassing valve low MOQ?",
+                        "query4": "Compostable flat bottom coffee bags with 5-panel printing?"
+                    },
+                    "riskHedging": {
+                        "title": "When Should You Choose Flat Bottom vs Stand-Up Pouches?",
+                        "col1Title": "✅ Best Fit For...",
+                        "col1Item1": "Premium products with retail presence",
+                        "col1Item2": "Brands needing maximum shelf impact",
+                        "col1Item3": "Coffee with degassing requirements",
+                        "col1Item4": "Heavy products needing stable base",
+                        "col2Title": "⚠️ Also Works For...",
+                        "col2Item1": "Gift packaging and seasonal products",
+                        "col2Item2": "Products transitioning from rigid packaging",
+                        "col2Item3": "Brands willing to invest in premium appearance",
+                        "col3Title": "❌ Not Recommended If...",
+                        "col3Item1": "Cost is the primary concern (15-25% premium)",
+                        "col3Item2": "Product doesn't benefit from shelf presence",
+                        "col3Link": "Consider stand-up pouches for budget-friendly option →"
+                    },
+                    "decisionCta": {
+                        "title": "Ready to Upgrade to Flat Bottom Bags?",
+                        "col1Title": "Ready to Move Fast?",
+                        "col1Desc": "Book a call to discuss your exact specs",
+                        "col1Btn": "Book a Call",
+                        "col2Title": "Want to Test First?",
+                        "col2Desc": "Order flat bottom bag samples",
+                        "col2Btn": "Get Samples",
+                        "col3Title": "Still Exploring?",
+                        "col3Desc": "Compare with stand-up pouches",
+                        "col3Btn": "Compare Options"
+                    },
+                    "industryScenarios": {
+                        "title": "Industry Applications",
+                        "segment1Title": "Specialty Coffee Roasters",
+                        "segment1Desc": "Premium flat bottom bags with 5-panel branding and degassing valves.",
+                        "segment1Item1": "Single-origin coffees",
+                        "segment1Item2": "Artisan roasters",
+                        "segment1Item3": "Gift box packaging",
+                        "segment2Title": "Premium Pet Food Brands",
+                        "segment2Desc": "Heavy-duty flat bottom bags with stable base for larger kibble bags.",
+                        "segment2Item1": "Premium dog food",
+                        "segment2Item2": "Natural cat food",
+                        "segment2Item3": "Grain-free formulas",
+                        "segment3Title": "Superfood & Protein Brands",
+                        "segment3Desc": "High-barrier flat bottom bags for powder supplements with maximum shelf presence.",
+                        "segment3Item1": "Protein powders",
+                        "segment3Item2": "Superfood blends",
+                        "segment3Item3": "Collagen peptides",
+                        "successTitle": "🏆 Customer Success: Mountain Peak Coffee Co.",
+                        "successStory": "Upgraded from stand-up pouches to flat bottom bags, increasing retail sell-through by 40% and premium price positioning with 5-panel branding.",
+                        "successMetric1": "40% Sales Increase",
+                        "successMetric2": "Premium Positioning",
+                        "successMetric3": "5-Panel Branding"
+                    },
+                    "marketData": {
+                        "title": "Market Data & Intelligence",
+                        "stat1Val": "$12B",
+                        "stat1Label": "Coffee Packaging 2027",
+                        "stat2Val": "25%",
+                        "stat2Label": "Premium Price Lift",
+                        "stat3Val": "5",
+                        "stat3Label": "Printable Panels",
+                        "stat4Val": "20%",
+                        "stat4Label": "More Volume vs SUP",
+                        "trendsTitle": "Flat Bottom vs Stand-Up Pouch Comparison",
+                        "headers": {
+                            "feature": "Feature",
+                            "flatBottom": "Flat Bottom",
+                            "sup": "Stand-Up Pouch"
+                        },
+                        "row1": {
+                            "feature": "Printable Panels",
+                            "flatBottom": "5 panels",
+                            "sup": "2-3 panels"
+                        },
+                        "row2": {
+                            "feature": "Shelf Stability",
+                            "flatBottom": "⭐⭐⭐⭐⭐",
+                            "sup": "⭐⭐⭐⭐"
+                        },
+                        "row3": {
+                            "feature": "Volume for Footprint",
+                            "flatBottom": "+15-20%",
+                            "sup": "Baseline"
+                        },
+                        "row4": {
+                            "feature": "Price Premium",
+                            "flatBottom": "+15-25%",
+                            "sup": "Baseline"
+                        },
+                        "ecoTitle": "🌍 Environmental Impact",
+                        "ecoDesc": "Flat bottom bags use 60% less material than rigid containers while providing premium presentation. Compostable options available for eco-conscious brands."
+                    },
+                    "materialComparison": {
+                        "title": "Material Comparison",
+                        "headers": {
+                            "feature": "Feature",
+                            "col1": "Kraft Compostable",
+                            "col2": "Paper-Based",
+                            "col3": "High-Barrier"
+                        },
+                        "row1": {
+                            "feature": "Best For",
+                            "col1": "✅ Premium coffee",
+                            "col2": "✅ Dry goods, rice",
+                            "col3": "✅ Max freshness"
+                        },
+                        "row2": {
+                            "feature": "Barrier Level",
+                            "col1": "Medium-High",
+                            "col2": "Medium",
+                            "col3": "Very High"
+                        },
+                        "row3": {
+                            "feature": "Shelf Life",
+                            "col1": "6-12 months",
+                            "col2": "6-9 months",
+                            "col3": "18-24 months"
+                        },
+                        "row4": {
+                            "feature": "Premium Look",
+                            "col1": "⭐⭐⭐⭐⭐",
+                            "col2": "⭐⭐⭐⭐",
+                            "col3": "⭐⭐⭐⭐"
+                        },
+                        "row5": {
+                            "feature": "End-of-Life",
+                            "col1": "🌱 Compostable",
+                            "col2": "♻️ Recyclable",
+                            "col3": "🗑️ Landfill"
+                        },
+                        "row6": {
+                            "feature": "Price Point",
+                            "col1": "💰💰💰",
+                            "col2": "💰💰",
+                            "col3": "💰💰💰"
+                        },
+                        "guideTitle": "💡 Decision Guide for Flat Bottom Bags",
+                        "col1Title": "Choose Kraft Compostable if:",
+                        "col1Item1": "Premium coffee brand",
+                        "col1Item2": "Eco-conscious market",
+                        "col1Item3": "Natural look desired",
+                        "col2Title": "Choose Paper-Based if:",
+                        "col2Item1": "Dry goods, grains",
+                        "col2Item2": "Cost optimization",
+                        "col2Item3": "Recyclable preference",
+                        "col3Title": "Choose High-Barrier if:",
+                        "col3Item1": "Maximum shelf life",
+                        "col3Item2": "Sensitive products",
+                        "col3Item3": "Long distribution chains"
+                    }
+                },
+                "metaTitle": "Flat Bottom Bags | Box Bottom Pouches | Block Bottom Packaging",
+                "metaDescription": "title=\"Flat Bottom Bags | Box Bottom Pouches | Block Bottom Packaging",
+                "heroImageAlt": "Flat bottom bag box pouch packaging",
+                "faqs": [
+                    {
+                        "question": "What is the difference between flat bottom and stand-up pouches?",
+                        "answer": "Flat bottom bags have a rectangular base with 5 printable panels, offering more stability and capacity. Stand-up pouches have an oval gusset with 2-3 panels. Flat bottom bags provide approximately 15-20% more volume for the same footprint."
+                    },
+                    {
+                        "question": "Are flat bottom bags more expensive?",
+                        "answer": "Yes, flat bottom bags typically cost 15-25% more than stand-up pouches due to more complex construction. However, they offer premium shelf presence and additional branding real estate that often justifies the investment for specialty products."
+                    },
+                    {
+                        "question": "What sizes are available for flat bottom bags?",
+                        "answer": "We offer flat bottom bags from 100g capacity up to 5kg. Common sizes include 250g, 500g, 1kg, and 2kg. Custom sizes are available for orders over 5,000 units."
+                    },
+                    {
+                        "question": "Can flat bottom bags have a degassing valve?",
+                        "answer": "Yes, we offer one-way degassing valves for coffee and other products that release CO2. The valve can be placed on any panel but is typically on the back for aesthetic reasons."
+                    }
+                ],
+                "tables": [
+                    {
+                        "title": "Flat Bottom Bag Size Guide",
+                        "data": {
+                            "headers": [
+                                "Capacity",
+                                "Dimensions (W×H×G)",
+                                "Recommended For"
+                            ],
+                            "rows": [
+                                [
+                                    "250g",
+                                    "120 × 200 × 80mm",
+                                    "Premium tea, specialty coffee"
+                                ],
+                                [
+                                    "500g",
+                                    "140 × 240 × 90mm",
+                                    "Coffee beans, granola"
+                                ],
+                                [
+                                    "1kg",
+                                    "160 × 280 × 100mm",
+                                    "Pet food, protein powder"
+                                ],
+                                [
+                                    "2kg",
+                                    "200 × 350 × 120mm",
+                                    "Bulk pet food, rice"
+                                ],
+                                [
+                                    "5kg",
+                                    "280 × 450 × 150mm",
+                                    "Large format pet food"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Stand-Up Pouches",
+                        "url": "/packaging/stand-up-pouches",
+                        "description": "More economical alternative"
+                    },
+                    {
+                        "title": "Coffee & Tea Packaging",
+                        "url": "/industry/coffee-tea",
+                        "description": "Specialty coffee solutions"
+                    },
+                    {
+                        "title": "Compostable Materials",
+                        "url": "/materials/compostable",
+                        "description": "Eco-friendly options"
+                    }
+                ],
+                "metaKeywords": [
+                    "flat bottom bag",
+                    "box bottom pouch",
+                    "block bottom bag",
+                    "coffee bag flat bottom",
+                    "premium pouch packaging",
+                    "flat bottom coffee bag",
+                    "box pouch",
+                    "5 panel pouch"
+                ]
             },
             "spoutPouches": {
                 "title": "Spout Pouches | Liquid Packaging Solutions",
-                "heroTitle": "Bottles, But Better",
-                "heroSubtitle": "Pour spouts for liquids, purées, sauces, drinks. 70% less plastic than bottles. Reclosable, convenient, sustainable.",
-                "introSummary": "All the functionality of bottles with a fraction of the waste. Easy dispensing, reclosable, and your customers can squeeze out every last drop. Baby food, sauces, beverages, refills.",
+                "heroTitle": "seoPages.pages.spoutPouches.heroTitle",
+                "heroSubtitle": "seoPages.pages.spoutPouches.heroSubtitle",
+                "introSummary": "heroImageAlt=\"Spout pouch packaging for liquids",
                 "cta": {
                     "title": "Pour Into Sustainability",
                     "description": "See our spout options and find your fit.",
                     "button": "Get Free Samples"
-                }
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Is This Page For You?",
+                        "intro": "If you are a <strong>baby food brand</strong>, <strong>sauce manufacturer</strong>, or <strong>beverage company</strong> looking for packaging that pours like a bottle but costs less and ships lighter—spout pouches are your solution.",
+                        "col1Title": "Baby Food Brands",
+                        "col1Desc": "Safe, portable, easy dispensing for infants",
+                        "col2Title": "Sauce & Condiment Makers",
+                        "col2Desc": "Hot-fill capable, mess-free pouring",
+                        "col3Title": "Beverage Companies",
+                        "col3Desc": "70% less plastic than rigid bottles"
+                    },
+                    "overview": {
+                        "title": "What is a Spout Pouch?",
+                        "intro": "A spout pouch is a flexible stand-up pouch with a built-in pour spout and cap, designed for liquids, semi-liquids, and viscous products.</strong> This format combines the cost efficiency of flexible packaging with the functionality of rigid containers.",
+                        "desc": "A spout pouch is a flexible stand-up pouch with a built-in pour spout and cap, designed for liquids, semi-liquids, and viscous products.</strong> This format combines the cost efficiency of flexible packaging with the functionality of rigid containers.",
+                        "advantagesTitle": "Key Advantages:",
+                        "adv1": "Easy dispensing with reclosable cap",
+                        "adv2": "Uses 70% less plastic than rigid bottles",
+                        "adv3": "Self-standing for retail display",
+                        "adv4": "Lightweight, reduced shipping costs",
+                        "adv5": "High-barrier options available"
+                    },
+                    "applications": {
+                        "title": "What Products Work Best in Spout Pouches?",
+                        "intro": "Spout pouches are ideal for pourable products across many industries:",
+                        "col1Title": "Baby Food",
+                        "col1Item1": "Fruit purées",
+                        "col1Item2": "Vegetable blends",
+                        "col1Item3": "Yogurt smoothies",
+                        "col2Title": "Sauces & Condiments",
+                        "col2Item1": "Ketchup & mayo",
+                        "col2Item2": "Hot sauce",
+                        "col2Item3": "Dressings",
+                        "col3Title": "Beverages",
+                        "col3Item1": "Smoothie packs",
+                        "col3Item2": "Cold brew coffee",
+                        "col3Item3": "Cocktail mixes",
+                        "col4Title": "Oils & Spreads",
+                        "col4Item1": "Cooking oils",
+                        "col4Item2": "Honey & syrups",
+                        "col4Item3": "Ghee",
+                        "col5Title": "Pet Food",
+                        "col5Item1": "Wet food toppers",
+                        "col5Item2": "Gravy & broths",
+                        "col5Item3": "Pet supplements",
+                        "col6Title": "Non-Food",
+                        "col6Item1": "Laundry detergent",
+                        "col6Item2": "Hand soap refills",
+                        "col6Item3": "Cleaning products"
+                    },
+                    "spoutOptions": {
+                        "title": "What Spout & Cap Options Are Available?",
+                        "col1Title": "Spout Sizes",
+                        "col1Item1": "Standard for liquids",
+                        "col1Item2": "Thicker liquids, purees",
+                        "col1Item3": "Viscous products",
+                        "col1Item4": "High viscosity, pastes",
+                        "col2Title": "Cap Features",
+                        "col2Item1": "Standard screw cap",
+                        "col2Item2": "Flip-top dispensing cap",
+                        "col2Item3": "Child-resistant (baby food)",
+                        "col2Item4": "Tamper-evident bands",
+                        "galleryTitle": "Spout Pouch Options",
+                        "galleryCaption1": "Spout Cap",
+                        "galleryCaption2": "Spout Pouch",
+                        "galleryCaption3": "High Barrier",
+                        "galleryCaption4": "Glossy Finish"
+                    },
+                    "ecoMaterials": {
+                        "title": "Which Eco-Friendly Materials Work for Liquid Packaging?",
+                        "intro": "Spout pouches can be produced with sustainable materials</strong> that reduce environmental impact without compromising on liquid barrier performance.",
+                        "kraftTitle": "🌾 What is \"Kraft-Look\"?",
+                        "kraftIntro": "Kraft-look is a digital printed kraft pattern with matte coating</strong> applied to the pouch surface. It gives you the natural, premium appearance and tactile feel of kraft paper, while being <strong>100% waterproof</strong> — essential for liquid products.",
+                        "kraftDesc": "Kraft-look is a digital printed kraft pattern with matte coating</strong> applied to the pouch surface. It gives you the natural, premium appearance and tactile feel of kraft paper, while being <strong>100% waterproof</strong> — essential for liquid products.",
+                        "kraftFootnote": "Real kraft paper would absorb moisture, but our kraft-look finish delivers the aesthetic without compromising liquid barrier performance.",
+                        "clarificationTitle": "ℹ️ Important: Understanding \"Eco\" Materials",
+                        "clarificationIntro": "Bio-PE and PCR pouches are NOT biodegradable or compostable.</strong> They are traditional plastic at end-of-life. However, they are eco-friendly at the <strong>START</strong> of their lifecycle:",
+                        "biopeTitle": "Bio-PE (30-50% Bio-Based)",
+                        "biopeItem1": "Made from sugarcane polyethylene",
+                        "biopeItem2": "Renewable, sustainable source",
+                        "biopeItem3": "Reduces fossil fuel dependency",
+                        "biopeItem4": "Fully recyclable in PE streams",
+                        "learnMore": "Learn more →",
+                        "pcrTitle": "PCR (30% Recycled Content)",
+                        "pcrItem1": "Contains post-consumer recycled plastic",
+                        "pcrItem2": "Reduces virgin plastic demand",
+                        "pcrItem3": "GRS certified available",
+                        "pcrItem4": "Fully recyclable in PE streams",
+                        "compostableIntro": "Need truly compostable?</strong> <Link to=\"/materials/compostable\" className=\"underline\">See our compostable options →</Link> (note: compostable spout pouches have limited availability)",
+                        "compostableLink": "Need truly compostable?</strong> <Link to=\"/materials/compostable\" className=\"underline\">See our compostable options →</Link> (note: compostable spout pouches have limited availability)",
+                        "compostableOutro": "Need truly compostable?</strong> <Link to=\"/materials/compostable\" className=\"underline\">See our compostable options →</Link> (note: compostable spout pouches have limited availability)"
+                    },
+                    "specifications": {
+                        "title": "Technical Specifications",
+                        "label1": "Material:</strong> PET/AL/PE, PET/PE, or specialized structures",
+                        "val1": "Material:</strong> PET/AL/PE, PET/PE, or specialized structures",
+                        "label2": "Capacity range:</strong> 50ml to 2L",
+                        "val2": "Capacity range:</strong> 50ml to 2L",
+                        "label3": "Spout position:</strong> Top center, corner, or side",
+                        "val3": "Spout position:</strong> Top center, corner, or side",
+                        "label4": "Hot-fill capable:</strong> Up to 85°C",
+                        "val4": "Hot-fill capable:</strong> Up to 85°C",
+                        "label5": "Retort capable:</strong> Special structures for 121°C",
+                        "val5": "Retort capable:</strong> Special structures for 121°C",
+                        "label6": "FDA/EU compliant</strong> for food contact",
+                        "val6": "FDA/EU compliant</strong> for food contact"
+                    },
+                    "aiSearch": {
+                        "title": "Finding the Right Spout Pouch Supplier",
+                        "intro": "Key considerations for spout pouch packaging:",
+                        "bullet1Title": "Spout size</strong> – Match to your product viscosity",
+                        "bullet1Text": "Spout size</strong> – Match to your product viscosity",
+                        "bullet2Title": "Cap type</strong> – Child-safe, flip-top, or standard",
+                        "bullet2Text": "Cap type</strong> – Child-safe, flip-top, or standard",
+                        "bullet3Title": "Custom options</strong> – <Link to=\"/store\" className=\"text-primary-600 hover:underline\">Browse our spout pouches",
+                        "bullet3Link": "Custom options</strong> – <Link to=\"/store\" className=\"text-primary-600 hover:underline\">Browse our spout pouches",
+                        "bullet4Title": "Hot-fill capability</strong> – <Link to=\"/industry/sauces-condiments\" className=\"text-primary-600 hover:underline\">See sauce packaging options",
+                        "bullet4Link": "Hot-fill capability</strong> – <Link to=\"/industry/sauces-condiments\" className=\"text-primary-600 hover:underline\">See sauce packaging options",
+                        "headline": "💡 If you're using AI search (Gemini, ChatGPT), try asking:",
+                        "query1": "What is the best spout pouch supplier for baby food?",
+                        "query2": "Which company offers eco-friendly liquid pouches with low MOQ?",
+                        "query3": "Best packaging for sauces and condiments?",
+                        "query4": "Spout pouch vs bottle: which is more sustainable?",
+                        "query5": "Retort-capable spout pouches for shelf-stable products?"
+                    },
+                    "riskHedging": {
+                        "title": "Is a Spout Pouch Right for You?",
+                        "col1Title": "✅ Best Fit For...",
+                        "col1Item1": "Liquids and semi-liquids that need pouring",
+                        "col1Item2": "Products replacing rigid bottles",
+                        "col1Item3": "On-the-go consumption (baby food, smoothies)",
+                        "col1Item4": "Refill products reducing packaging waste",
+                        "col2Title": "⚠️ Also Works For...",
+                        "col2Item1": "Viscous products with larger spout sizes",
+                        "col2Item2": "Hot-fill products (up to 85°C)",
+                        "col2Item3": "Retail and foodservice applications",
+                        "col3Title": "❌ Not Recommended If...",
+                        "col3Item1": "Product is dry (use stand-up pouch)",
+                        "col3Item2": "You need full recyclability in all markets",
+                        "col3Link": "Consider stand-up pouches for dry products →"
+                    },
+                    "decisionCta": {
+                        "title": "Ready to Launch with Spout Pouches?",
+                        "col1Title": "Ready to Move Fast?",
+                        "col1Desc": "Book a call to discuss spout sizes and caps",
+                        "col1Btn": "Book a Call",
+                        "col2Title": "Want to Test First?",
+                        "col2Desc": "Order spout pouch samples (MOQ 500)",
+                        "col2Btn": "Get Samples",
+                        "col3Title": "Still Exploring?",
+                        "col3Desc": "See baby food or sauce packaging guides",
+                        "col3Btn": "View Industry Pages"
+                    },
+                    "industryScenarios": {
+                        "title": "Industry Applications",
+                        "segment1Title": "Baby Food Brands",
+                        "segment1Desc": "Safe, portable spout pouches with child-safe caps for infant nutrition.",
+                        "segment1Item1": "Fruit & vegetable purées",
+                        "segment1Item2": "Yogurt smoothies",
+                        "segment1Item3": "Toddler meals",
+                        "segment2Title": "Sauce & Condiment Makers",
+                        "segment2Desc": "Hot-fill capable spout pouches for sauces, dressings, and condiments.",
+                        "segment2Item1": "Ketchup & mayonnaise",
+                        "segment2Item2": "Hot sauces",
+                        "segment2Item3": "Salad dressings",
+                        "segment3Title": "Eco-Conscious Brands",
+                        "segment3Desc": "Refill pouches using 70% less plastic than rigid bottles.",
+                        "segment3Item1": "Bottle refill systems",
+                        "segment3Item2": "Cleaning products",
+                        "segment3Item3": "Personal care refills",
+                        "successTitle": "🏆 Customer Success: Little Sprouts Baby Food",
+                        "successStory": "Launched organic baby food line with our BPA-free spout pouches, achieving Clean Label certification and 200% growth in first year.",
+                        "successMetric1": "Clean Label Certified",
+                        "successMetric2": "200% YoY Growth",
+                        "successMetric3": "70% Less Plastic"
+                    },
+                    "marketData": {
+                        "title": "Market Data & Intelligence",
+                        "stat1Val": "$3.8B",
+                        "stat1Label": "Spout Pouch Market 2027",
+                        "stat2Val": "8.5%",
+                        "stat2Label": "CAGR 2024-2027",
+                        "stat3Val": "70%",
+                        "stat3Label": "Less Plastic vs Bottles",
+                        "stat4Val": "60%",
+                        "stat4Label": "Shipping Cost Savings",
+                        "trendsTitle": "Spout Pouch vs Rigid Bottle Comparison",
+                        "headers": {
+                            "feature": "Feature",
+                            "spout": "Spout Pouch",
+                            "bottle": "Rigid Bottle"
+                        },
+                        "row1": {
+                            "feature": "Plastic Usage",
+                            "spout": "70% less",
+                            "bottle": "Baseline"
+                        },
+                        "row2": {
+                            "feature": "Shipping Weight",
+                            "spout": "60% lighter",
+                            "bottle": "Baseline"
+                        },
+                        "row3": {
+                            "feature": "Storage Efficiency",
+                            "spout": "Flat before fill",
+                            "bottle": "Same volume"
+                        },
+                        "row4": {
+                            "feature": "Carbon Footprint",
+                            "spout": "50% lower",
+                            "bottle": "Baseline"
+                        },
+                        "ecoTitle": "🌍 Environmental Impact",
+                        "ecoDesc": "Spout pouches use 70% less plastic than rigid bottles, ship flat to reduce transportation emissions, and can be produced with Bio-PE or PCR content for enhanced sustainability."
+                    },
+                    "materialComparison": {
+                        "title": "Material Comparison",
+                        "headers": {
+                            "feature": "Feature",
+                            "col1": "Standard",
+                            "col2": "Bio-PE",
+                            "col3": "PCR Content"
+                        },
+                        "row1": {
+                            "feature": "Best For",
+                            "col1": "✅ All liquids",
+                            "col2": "✅ Eco-conscious",
+                            "col3": "✅ ESG goals"
+                        },
+                        "row2": {
+                            "feature": "Hot-Fill Capable",
+                            "col1": "✅ Up to 85°C",
+                            "col2": "✅ Up to 85°C",
+                            "col3": "✅ Up to 85°C"
+                        },
+                        "row3": {
+                            "feature": "Retort Capable",
+                            "col1": "✅ 121°C option",
+                            "col2": "❌ Not available",
+                            "col3": "✅ 121°C option"
+                        },
+                        "row4": {
+                            "feature": "Bio-Content",
+                            "col1": "0%",
+                            "col2": "30-50%",
+                            "col3": "0% (recycled)"
+                        },
+                        "row5": {
+                            "feature": "Recyclability",
+                            "col1": "⚠️ Limited",
+                            "col2": "♻️ PE streams",
+                            "col3": "♻️ PE streams"
+                        },
+                        "row6": {
+                            "feature": "Price Point",
+                            "col1": "💰💰",
+                            "col2": "💰💰💰",
+                            "col3": "💰💰"
+                        },
+                        "guideTitle": "💡 Decision Guide for Spout Pouches",
+                        "col1Title": "Choose Standard if:",
+                        "col1Item1": "Cost optimization",
+                        "col1Item2": "Retort processing",
+                        "col1Item3": "Maximum barrier",
+                        "col2Title": "Choose Bio-PE if:",
+                        "col2Item1": "Eco-conscious brand",
+                        "col2Item2": "Renewable sourcing",
+                        "col2Item3": "Premium positioning",
+                        "col3Title": "Choose PCR if:",
+                        "col3Item1": "Corporate ESG",
+                        "col3Item2": "Circular economy",
+                        "col3Item3": "Cost-effective eco"
+                    }
+                },
+                "metaTitle": "Spout Pouches | Liquid Packaging | Pour Spout Bags",
+                "metaDescription": "title=\"Spout Pouches | Liquid Packaging | Pour Spout Bags",
+                "heroImageAlt": "Spout pouch packaging for liquids",
+                "faqs": [
+                    {
+                        "question": "What products are spout pouches used for?",
+                        "answer": "Spout pouches are ideal for liquids, semi-liquids, and viscous products including baby food purées, sauces, condiments, beverages, smoothie packs, cooking oils, honey, soups, and pet food toppers. They're also popular for non-food applications like detergent refills."
+                    },
+                    {
+                        "question": "Are spout pouches recyclable?",
+                        "answer": "Standard multi-material spout pouches are challenging to recycle in most municipal systems. However, we offer mono-PE spout pouches that are recyclable in PE recycling streams. The cap should be removed before recycling."
+                    },
+                    {
+                        "question": "Can spout pouches be used for hot products?",
+                        "answer": "Yes, we offer hot-fill spout pouches suitable for filling at up to 85°C. For sterilized, shelf-stable products, we provide retort-capable pouches that withstand 121°C processing."
+                    },
+                    {
+                        "question": "What is the minimum order for spout pouches?",
+                        "answer": "Our minimum order for custom printed spout pouches is 1,000 units. For plain pouches with standard caps, we can offer smaller quantities of 500 units."
+                    }
+                ],
+                "tables": [
+                    {
+                        "title": "Spout Pouch Size Guide",
+                        "data": {
+                            "headers": [
+                                "Capacity",
+                                "Dimensions",
+                                "Typical Use"
+                            ],
+                            "rows": [
+                                [
+                                    "90-100ml",
+                                    "100 × 150mm",
+                                    "Baby food single serve"
+                                ],
+                                [
+                                    "150ml",
+                                    "110 × 170mm",
+                                    "Baby food, smoothie"
+                                ],
+                                [
+                                    "250ml",
+                                    "130 × 200mm",
+                                    "Sauces, beverages"
+                                ],
+                                [
+                                    "500ml",
+                                    "160 × 250mm",
+                                    "Cooking oil, refills"
+                                ],
+                                [
+                                    "1L",
+                                    "200 × 300mm",
+                                    "Large format refills"
+                                ],
+                                [
+                                    "2L",
+                                    "250 × 350mm",
+                                    "Bulk refills, foodservice"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Shop Spout Pouches",
+                        "url": "/store",
+                        "description": "Browse liquid packaging - MOQ from 500 pieces"
+                    },
+                    {
+                        "title": "Baby Food Packaging",
+                        "url": "/industry/baby-food",
+                        "description": "Safe packaging for infant nutrition"
+                    },
+                    {
+                        "title": "Sauces & Condiments",
+                        "url": "/industry/sauces-condiments",
+                        "description": "Liquid food packaging solutions"
+                    },
+                    {
+                        "title": "Stand-Up Pouches",
+                        "url": "/packaging/stand-up-pouches",
+                        "description": "Alternative for dry products"
+                    },
+                    {
+                        "title": "Sustainable Packaging Guide",
+                        "url": "/blog/sustainable-packaging-supplier-analysis",
+                        "description": "Compare eco-friendly suppliers"
+                    }
+                ],
+                "metaKeywords": [
+                    "spout pouch",
+                    "liquid pouch",
+                    "pour spout bag",
+                    "baby food pouch",
+                    "sauce pouch",
+                    "beverage pouch",
+                    "spouted pouch",
+                    "liquid packaging bag"
+                ]
             },
             "vacuumPouches": {
                 "title": "Vacuum Pouches | Extended Shelf Life Packaging",
@@ -2005,29 +2912,667 @@
                     "title": "Lock In Freshness",
                     "description": "Tell us what you're packing and we'll match you to the right vacuum solution.",
                     "button": "Get Free Samples"
-                }
+                },
+                "sections": {
+                    "overview": {
+                        "title": "What is a Vacuum Pouch?",
+                        "descStrong": "A vacuum pouch is designed for vacuum packaging, where air is removed before sealing to extend product shelf life.</strong> These high-barrier pouches protect against oxygen, moisture, and contaminants.",
+                        "descText": "A vacuum pouch is designed for vacuum packaging, where air is removed before sealing to extend product shelf life.</strong> These high-barrier pouches protect against oxygen, moisture, and contaminants.",
+                        "benefitsTitle": "Key Benefits:",
+                        "benefit1": "Extended shelf life (3-5x longer than standard)",
+                        "benefit2": "Prevents oxidation and freezer burn",
+                        "benefit3": "Maintains product freshness and quality",
+                        "benefit4": "Reduces food waste",
+                        "benefit5": "Sous vide cooking compatible"
+                    },
+                    "applications": {
+                        "title": "Common Applications",
+                        "card1Title": "Meat & Poultry",
+                        "card1Item1": "Fresh cuts",
+                        "card1Item2": "Cured meats",
+                        "card1Item3": "Processed meats",
+                        "card1Item4": "Deli products",
+                        "card2Title": "Seafood",
+                        "card2Item1": "Fresh fish",
+                        "card2Item2": "Smoked salmon",
+                        "card2Item3": "Shellfish",
+                        "card2Item4": "Frozen seafood",
+                        "card3Title": "Cheese & Dairy",
+                        "card3Item1": "Block cheese",
+                        "card3Item2": "Sliced cheese",
+                        "card3Item3": "Specialty cheese",
+                        "card3Item4": "Butter",
+                        "card4Title": "Ready Meals",
+                        "card4Item1": "Sous vide meals",
+                        "card4Item2": "Meal kits",
+                        "card4Item3": "Pre-cooked proteins",
+                        "card4Item4": "Marinated items",
+                        "card5Title": "Coffee",
+                        "card5Item1": "Roasted beans",
+                        "card5Item2": "Ground coffee",
+                        "card5Item3": "Single origins",
+                        "card5Item4": "Specialty blends",
+                        "card6Title": "Non-Food",
+                        "card6Item1": "Electronics",
+                        "card6Item2": "Medical devices",
+                        "card6Item3": "Pharmaceuticals",
+                        "card6Item4": "Archival storage"
+                    },
+                    "types": {
+                        "title": "Vacuum Pouch Types",
+                        "card1Title": "Chamber Vacuum Pouches",
+                        "card1Desc": "Smooth surface for chamber vacuum machines. Lower cost, works with liquids.",
+                        "card2Title": "External Vacuum Pouches",
+                        "card2Desc": "Embossed/channeled surface for external sealers. More widely compatible.",
+                        "card3Title": "Retort Vacuum Pouches",
+                        "card3Desc": "Heat-resistant for pasteurization/sterilization. Shelf-stable products.",
+                        "card4Title": "Sous Vide Pouches",
+                        "card4Desc": "Cook-in pouches rated for immersion cooking up to 100°C."
+                    },
+                    "specifications": {
+                        "title": "Technical Specifications",
+                        "item1Title": "Material:</strong> PA/PE (Nylon/Polyethylene) multi-layer",
+                        "item1Desc": "Material:</strong> PA/PE (Nylon/Polyethylene) multi-layer",
+                        "item2Title": "Thickness:</strong> 70-150 microns",
+                        "item2Desc": "Thickness:</strong> 70-150 microns",
+                        "item3Title": "OTR:</strong> &lt;1.0 cc/m²/24hr (oxygen transmission)",
+                        "item3Desc": "OTR:</strong> &lt;1.0 cc/m²/24hr (oxygen transmission)",
+                        "item4Title": "MVTR:</strong> &lt;2.0 g/m²/24hr (moisture transmission)",
+                        "item4Desc": "MVTR:</strong> &lt;2.0 g/m²/24hr (moisture transmission)",
+                        "item5Title": "Seal strength:</strong> &gt;25 N/15mm",
+                        "item5Desc": "Seal strength:</strong> &gt;25 N/15mm",
+                        "item6Title": "Puncture resistance:</strong> High (for bone-in products)",
+                        "item6Desc": "Puncture resistance:</strong> High (for bone-in products)"
+                    },
+                    "industryScenarios": {
+                        "title": "Industry Applications",
+                        "card1Title": "Meat Processing Meat Processing",
+                        "card1Desc": "Fresh meat、Processed meat、Deli meats、Frozen meats",
+                        "card1Share": "Share: 40%",
+                        "card2Title": "SeafoodAquaculture Seafood",
+                        "card2Desc": "Fresh fish、Smoked salmon、Shellfish、FrozenSeafood",
+                        "card2Share": "30% market share",
+                        "card3Title": "Dairy products Dairy Products",
+                        "card3Desc": "Cheese blocks、Sliced cheese、Butter、Cream cheese",
+                        "card3Share": "30% market share",
+                        "storyTitle": "Customer Success Story",
+                        "storyQuote": "「OurMeat ProcessingfactoryadoptionvacuumbagsAfter，ProductShelf Lifefrom5days extendedto21days，meeting cross-regional distributionRequirements，Productwasteratealsoreduce80%。」",
+                        "storyAuthor": "— HighpremiumMeat Processingmerchant，monthshipment 100,000units"
+                    },
+                    "marketData": {
+                        "title": "Market Data & Intelligence",
+                        "card1Value": "$12.5B",
+                        "card1Desc": "GlobalvacuumbagsMarket",
+                        "card1Sub": "2024yearSize",
+                        "card2Value": "6.3%",
+                        "card2Desc": "CAGR",
+                        "card2Sub": "2024-2030",
+                        "card3Value": "3-5x",
+                        "card3Desc": "extendedShelf Life",
+                        "card3Sub": "comparedforstandardPackaging",
+                        "card4Value": "45%",
+                        "card4Desc": "muscle careMarketShare:",
+                        "card4Sub": "largestApplicationssector",
+                        "trendTitle": "Market Trend Insights",
+                        "trend1": "><strong>Sous Vide Freshness Market</strong>：Cookable vacuum bags requirements yearly growth 18%</span",
+                        "trend2": "><strong>Recyclablevacuumbags</strong>：Mono PEvacuumbagsmeetEco-friendlyrequirements</span"
+                    },
+                    "materialComparison": {
+                        "title": "Material Comparison",
+                        "th1": "Material Type",
+                        "th2": "Barrier",
+                        "th3": "Heat Resistant",
+                        "th4": "Eco-Friendly",
+                        "th5": "Recommended Use",
+                        "row1Col1": "PA/PE Nylon",
+                        "row1Col4": "Hard to recycle",
+                        "row1Col5": "Fresh meatCategory、Seafood",
+                        "row2Col1": "PA/PE Cookable",
+                        "row2Col4": "Hard to recycle",
+                        "row2Col5": "Sous Vide Cooking",
+                        "row3Col1": "Sterilization Retort Bags",
+                        "row3Col4": "Hard to recycle",
+                        "row3Col5": "Ready-to-Eat Food",
+                        "row4Col1": "Mono PE Recyclable",
+                        "row4Col4": "♥️ Recyclable",
+                        "row4Col5": "Eco-friendlyPriorityProduct",
+                        "guideTitle": "Material Selection Guide",
+                        "guideDesc": "Vacuum bags require high barrier materials。Fresh meatCategorychoosePA/PENylonMaterials；For Sous Vide choose cookable type；IfEco-friendlyPrioritycanchooseMono PERecyclableEditionBook。"
+                    }
+                },
+                "seo": {
+                    "title": "Vacuum Pouches | Vacuum Seal Bags | Sous Vide Bags",
+                    "description": "title=\"Vacuum Pouches | Vacuum Seal Bags | Sous Vide Bags",
+                    "heroTitle": "seoPages.pages.vacuumPouches.heroTitle",
+                    "heroSubtitle": "seoPages.pages.vacuumPouches.heroSubtitle",
+                    "heroImageAlt": "Vacuum seal packaging pouches",
+                    "introSummary": "seoPages.pages.vacuumPouches.introSummary",
+                    "keywords": [
+                        "vacuum pouch",
+                        "vacuum seal bag",
+                        "sous vide bag",
+                        "vacuum packaging",
+                        "food saver bags",
+                        "chamber vacuum pouch",
+                        "meat vacuum bag",
+                        "coffee vacuum pack"
+                    ]
+                },
+                "faqs": [
+                    {
+                        "question": "How much longer does vacuum packaging extend shelf life?",
+                        "answer": "Vacuum packaging typically extends shelf life 3-5 times compared to standard packaging. For example, fresh meat may last 3-5 days in regular packaging but 2-3 weeks vacuum sealed under refrigeration."
+                    },
+                    {
+                        "question": "Can vacuum pouches be used for sous vide cooking?",
+                        "answer": "Yes, we offer sous vide-rated vacuum pouches that are safe for immersion cooking at temperatures up to 100°C (212°F). These pouches maintain seal integrity during extended cooking times."
+                    },
+                    {
+                        "question": "What's the difference between chamber and external vacuum pouches?",
+                        "answer": "Chamber pouches are smooth and work with chamber vacuum machines (common in commercial settings). External pouches have an embossed/channeled texture for air evacuation and work with handheld and external sealers."
+                    },
+                    {
+                        "question": "Are vacuum pouches recyclable?",
+                        "answer": "Standard PA/PE vacuum pouches are challenging to recycle due to their multi-layer structure. We offer recyclable mono-PE vacuum pouches for applications where recycling is prioritized, though they have slightly lower barrier properties."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Frozen Food Packaging",
+                        "url": "/industry/frozen-food",
+                        "description": "Solutions for frozen products"
+                    },
+                    {
+                        "title": "Pet Food Packaging",
+                        "url": "/industry/pet-food",
+                        "description": "Fresh pet food solutions"
+                    },
+                    {
+                        "title": "Recyclable Mono-PE",
+                        "url": "/materials/recyclable-mono-pe",
+                        "description": "Sustainable vacuum options"
+                    }
+                ]
             },
             "flatPouches": {
                 "title": "Flat Pouches | Three-Side Sealed Bags",
-                "heroTitle": "Simple, But Don't Sleep on It",
-                "heroSubtitle": "The OG of flexible packaging. Three-side sealed sachets for samples, single-serve, and products that don't need to stand.",
-                "introSummary": "Flat pouches are the most cost-effective flexible option. Perfect for sample packs, sachets, and lightweight products. Low waste, lower cost, surprisingly versatile.",
+                "heroTitle": "seoPages.pages.flatPouches.heroTitle",
+                "heroSubtitle": "seoPages.pages.flatPouches.heroSubtitle",
+                "introSummary": "seoPages.pages.flatPouches.introSummary",
                 "cta": {
                     "title": "Start Simple",
                     "description": "Samples, sachets, or something else—tell us what you need.",
                     "button": "Get Free Samples"
-                }
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Is This Page For You?",
+                        "intro": "If you need <strong>economical single-serve packaging, samples, or sachets</strong>—you're in the right place.",
+                        "col1Title": "Sample Producers",
+                        "col1Desc": "Product samples, trial sizes",
+                        "col2Title": "Food Service",
+                        "col2Desc": "Sauce sachets, sugar packets",
+                        "col3Title": "Tea & Spice Brands",
+                        "col3Desc": "Single-serve portions"
+                    },
+                    "overview": {
+                        "title": "What is a 3-Side Seal Pouch?",
+                        "intro": "A 3-side seal pouch (also called flat pouch or sachet) is sealed on three sides with an open top for filling.</strong> This is the most economical flexible packaging format, ideal for samples, single-serve products, and lightweight items.",
+                        "desc": "A 3-side seal pouch (also called flat pouch or sachet) is sealed on three sides with an open top for filling.</strong> This is the most economical flexible packaging format, ideal for samples, single-serve products, and lightweight items.",
+                        "characteristicsTitle": "Key Advantages:",
+                        "char1": "Most cost-effective pouch format",
+                        "char2": "Efficient material usage (less waste)",
+                        "char3": "Compact shipping and storage",
+                        "char4": "Quick to fill and seal",
+                        "char5": "Easy tear-open access"
+                    },
+                    "types": {
+                        "title": "3-Side vs 4-Side Seal",
+                        "col1Title": "3-Side Seal",
+                        "col1Intro": "Made from folded film, sealed on 3 sides:",
+                        "col1Item1": "One folded edge (no seal)",
+                        "col1Item2": "Two side seals",
+                        "col1Item3": "Bottom or top seal after filling",
+                        "col1Item4": "Most economical option",
+                        "col2Title": "4-Side Seal",
+                        "col2Intro": "Made from two separate sheets:",
+                        "col2Item1": "Sealed on all 4 edges",
+                        "col2Item2": "Slightly more surface area",
+                        "col2Item3": "Different front/back materials possible",
+                        "col2Item4": "Slightly higher cost"
+                    },
+                    "applications": {
+                        "title": "Common Applications",
+                        "items": [
+                            "Product samples",
+                            "Single-serve portions",
+                            "Spice sachets",
+                            "Sugar & sweetener packets",
+                            "Sauce sachets",
+                            "Tea bags (outer)",
+                            "Seed packets",
+                            "Promotional items",
+                            "Pharmaceutical sachets",
+                            "Cosmetic samples",
+                            "Hotel amenities",
+                            "Wet wipes"
+                        ]
+                    },
+                    "features": {
+                        "title": "Available Features",
+                        "col1Title": "Opening Features",
+                        "col1Item1": "Tear notch (V-notch or laser scored)",
+                        "col1Item2": "Easy-peel seal",
+                        "col1Item3": "Perforated line",
+                        "col1Item4": "Die-cut shapes",
+                        "col2Title": "Additional Options",
+                        "col2Item1": "Hang hole for display",
+                        "col2Item2": "Clear window",
+                        "col2Item3": "Matte/gloss finish",
+                        "col2Item4": "Foil stamping",
+                        "galleryTitle": "3-Side Seal Pouch Options",
+                        "galleryCaption1": "3-Side Seal",
+                        "galleryCaption2": "Clear Film",
+                        "galleryCaption3": "Kraft Paper",
+                        "galleryCaption4": "Compostable"
+                    },
+                    "riskHedge": {
+                        "title": "Still Not Sure? We Have Answers",
+                        "q1": "Are sachets eco-friendly?",
+                        "a1": "Yes, PLA and paper/PLA options available",
+                        "q2": "What's the minimum order?",
+                        "a2": "500 plain, 1,000 custom printed",
+                        "q3": "Can they have zippers?",
+                        "a3": "Yes, or consider stand-up pouches for resealable",
+                        "q4": "Can I get samples?",
+                        "a4": "Free sachet samples for evaluation"
+                    },
+                    "decisionCta": {
+                        "title": "Ready to Get Started?",
+                        "headline": "Choose How You'd Like to Connect",
+                        "col1Title": "Book a Call",
+                        "col1Desc": "30-min free consultation",
+                        "col1Btn": "Schedule Now",
+                        "col2Title": "Email Quote",
+                        "col2Desc": "Get response within 24hrs",
+                        "col2Btn": "Send Email",
+                        "col3Title": "Free Samples",
+                        "col3Desc": "Test sachets first",
+                        "col3Btn": "Request Samples"
+                    },
+                    "industryScenarios": {
+                        "title": "Industry Applications",
+                        "segment1Title": "Food & Condiments",
+                        "segment1Desc": "Sauce packets, sugar packets, seasoning sachets, spice packs",
+                        "segment1Share": "45% market share",
+                        "segment2Title": "Cosmetic Samples",
+                        "segment2Desc": "Face mask serums, lotion samples, skincare trials",
+                        "segment2Share": "30% market share",
+                        "segment3Title": "Pharmaceutical & Health",
+                        "segment3Desc": "Pharmaceutical portions, supplement trials, nutrition packs",
+                        "segment3Share": "25% market share",
+                        "successTitle": "Customer Success Story",
+                        "successStory": "After switching to 3-side seal sachets, our condiment brand reduced unit costs by 35% while perfectly meeting food service single-use needs, significantly expanding market coverage.",
+                        "successAuthor": "— Condiment manufacturer, 2M+ units/month"
+                    },
+                    "marketData": {
+                        "title": "Market Data & Intelligence",
+                        "stat1Val": "$8.2B",
+                        "stat1Label": "global sachet market size",
+                        "stat1Sub": "2024 value",
+                        "stat2Val": "6.8%",
+                        "stat2Label": "CAGR",
+                        "stat2Sub": "2024-2030",
+                        "stat3Val": "35%",
+                        "stat3Label": "food service market share",
+                        "stat3Sub": "largest end-use sector",
+                        "stat4Val": "150billion",
+                        "stat4Label": "Asia-Pacific annual consumption",
+                        "stat4Sub": "world's largest market",
+                        "trendsTitle": "Market Trend Insights",
+                        "trend1Bold": "Single-serve market</strong>：Convenience demand drives continued sachet growth",
+                        "trend1Text": "Single-serve market</strong>：Convenience demand drives continued sachet growth",
+                        "trend2Bold": "Compostable materials</strong>：Demand for PLA and eco-materials growing 25% annually",
+                        "trend2Text": "Compostable materials</strong>：Demand for PLA and eco-materials growing 25% annually"
+                    },
+                    "materialComparison": {
+                        "title": "Material Comparison",
+                        "headers": {
+                            "type": "Material Type",
+                            "barrier": "Barrier",
+                            "cost": "Cost",
+                            "eco": "Eco-Friendly",
+                            "use": "Recommended Use"
+                        },
+                        "row1": {
+                            "type": "PET/PE Clear",
+                            "eco": "Recyclable",
+                            "use": "Sugar packets, dry foods"
+                        },
+                        "row2": {
+                            "type": "Aluminum Foil Laminate",
+                            "eco": "Hard to recycle",
+                            "use": "Sauces, pharmaceuticals"
+                        },
+                        "row3": {
+                            "type": "Kraft Paper Laminate",
+                            "eco": "Natural look",
+                            "use": "Tea bags, spices"
+                        },
+                        "row4": {
+                            "type": "PLA Compostable",
+                            "eco": "🌱 Compostable",
+                            "use": "Organic foods, samples"
+                        },
+                        "guideTitle": "Material Selection Guide",
+                        "guideText": "3-side seal sachets are ideal forCostcost-sensitive single-useScenario。For liquid packagingPackagingchoose aluminum foil laminate；ForEco-friendlyrequirementschoosePLACompostable materials。"
+                    }
+                },
+                "metaTitle": "3-Side Seal Pouches | Flat Pouches | Sachets | Sample Packaging",
+                "metaDescription": "title=\"3-Side Seal Pouches | Flat Pouches | Sachets | Sample Packaging",
+                "heroImageAlt": "3-side seal flat pouch sachet packaging",
+                "faqs": [
+                    {
+                        "question": "What is the difference between 3-side seal and 4-side seal?",
+                        "answer": "3-side seal pouches are made from folded film (sealed on 3 sides), while 4-side seal pouches use two separate sheets (sealed on all 4 sides). 3-side seal is more economical, while 4-side seal offers slightly more surface area and allows different materials on front and back."
+                    },
+                    {
+                        "question": "What is the minimum order for sachets?",
+                        "answer": "Our MOQ for custom printed sachets is 1,000 units. For plain sachets, we can offer 500 units. The lower price point per unit makes sachets economical even at smaller quantities."
+                    },
+                    {
+                        "question": "Can flat pouches have a resealable zipper?",
+                        "answer": "Traditional flat pouches are single-use, but we can add a zipper to create a resealable flat pouch. However, for resealable applications, stand-up pouches typically offer better functionality and value."
+                    },
+                    {
+                        "question": "Are flat pouches available in compostable materials?",
+                        "answer": "Yes, we offer compostable flat pouches made from PLA, paper/PLA, or cellulose-based films. These are certified to EN 13432 for industrial composting."
+                    }
+                ],
+                "tables": [
+                    {
+                        "title": "Flat Pouch Size Guide",
+                        "data": {
+                            "headers": [
+                                "Size",
+                                "Dimensions",
+                                "Typical Capacity",
+                                "Common Use"
+                            ],
+                            "rows": [
+                                [
+                                    "Small sachet",
+                                    "50 × 70mm",
+                                    "5-10g / 5-10ml",
+                                    "Sugar packets, samples"
+                                ],
+                                [
+                                    "Medium sachet",
+                                    "70 × 100mm",
+                                    "10-30g",
+                                    "Spices, sauce sachets"
+                                ],
+                                [
+                                    "Large sachet",
+                                    "100 × 150mm",
+                                    "30-100g",
+                                    "Tea outer, seed packets"
+                                ],
+                                [
+                                    "Sample pouch",
+                                    "80 × 120mm",
+                                    "20-50g",
+                                    "Product samples"
+                                ],
+                                [
+                                    "Promotional",
+                                    "120 × 180mm",
+                                    "50-100g",
+                                    "Promotional items"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Stand-Up Pouches",
+                        "url": "/packaging/stand-up-pouches",
+                        "description": "Self-standing alternative"
+                    },
+                    {
+                        "title": "Compostable Materials",
+                        "url": "/materials/compostable",
+                        "description": "Eco-friendly sachet options"
+                    },
+                    {
+                        "title": "Coffee & Tea",
+                        "url": "/industry/coffee-tea",
+                        "description": "Tea sachet solutions"
+                    }
+                ],
+                "metaKeywords": [
+                    "3 side seal pouch",
+                    "flat pouch",
+                    "sachet packaging",
+                    "sample pouches",
+                    "single serve packets",
+                    "sachet bags",
+                    "flat bag packaging",
+                    "4 side seal pouch"
+                ]
             },
             "sideGussetBags": {
                 "title": "Side Gusset Bags | High-Volume Packaging",
-                "heroTitle": "The Coffee Shop Classic",
-                "heroSubtitle": "Expandable sides for maximum capacity. The traditional choice for coffee, tea, and bulk products. Tin-ties, zippers, and valves available.",
-                "introSummary": "Side gusset bags expand to fit more product while staying compact on shelves. The go-to format for coffee roasters and bulk producers worldwide.",
+                "heroTitle": "seoPages.pages.sideGussetBags.heroTitle",
+                "heroSubtitle": "seoPages.pages.sideGussetBags.heroSubtitle",
+                "introSummary": "seoPages.pages.sideGussetBags.introSummary",
                 "cta": {
                     "title": "Go Big",
                     "description": "Tell us about your bulk product and we'll find the right gusset bag.",
                     "button": "Get Free Samples"
-                }
+                },
+                "sections": {
+                    "overview": {
+                        "title": "What is a Side Gusset Bag?",
+                        "intro": "A side gusset bag (also called quad seal bag) features expandable side panels that provide high capacity while maintaining a compact footprint.</strong> This traditional bag format is popular for coffee, tea, and bulk products.",
+                        "desc": "A side gusset bag (also called quad seal bag) features expandable side panels that provide high capacity while maintaining a compact footprint.</strong> This traditional bag format is popular for coffee, tea, and bulk products.",
+                        "characteristicsTitle": "Key Characteristics:",
+                        "char1": "Expandable side gussets for high volume",
+                        "char2": "Quad seal construction (4 seams)",
+                        "char3": "Compact when empty, expands when filled",
+                        "char4": "Traditional coffee bag appearance",
+                        "char5": "Multiple closure options available"
+                    },
+                    "construction": {
+                        "title": "Bag Construction",
+                        "panelTitle": "Panel Structure",
+                        "panel1": "Front panel – Main branding",
+                        "panel2": "Back panel – Information",
+                        "panel3": "2 Side gussets – Expand for volume",
+                        "panel4": "Top/bottom seals",
+                        "closureTitle": "Closure Options",
+                        "closure1": "Tin tie (fold-over with wire)",
+                        "closure2": "Heat seal (permanent)",
+                        "closure3": "Resealable zipper",
+                        "closure4": "Fold-over with label"
+                    },
+                    "applications": {
+                        "title": "Common Applications",
+                        "items": [
+                            "Coffee beans",
+                            "Ground coffee",
+                            "Loose leaf tea",
+                            "Rice & grains",
+                            "Flour & baking",
+                            "Pet food",
+                            "Bird seed",
+                            "Dried pasta",
+                            "Nuts & seeds",
+                            "Dried fruit",
+                            "Cookies & biscuits",
+                            "Bulk spices"
+                        ]
+                    },
+                    "features": {
+                        "title": "Additional Features",
+                        "feature1Title": "Degassing Valve",
+                        "feature1Desc": "One-way valve for freshly roasted coffee. Releases CO2 without letting oxygen in.",
+                        "feature2Title": "Clear Window",
+                        "feature2Desc": "Show product contents. Available in various shapes and positions.",
+                        "feature3Title": "Hang Hole",
+                        "feature3Desc": "Euro slot or round hole for retail display hanging."
+                    },
+                    "industryScenarios": {
+                        "title": "Industry Applications",
+                        "segment1Title": "Coffee Roasting Coffee Roasters",
+                        "segment1Desc": "Specialty coffee beans、Single origin beans、ClassicCoffee BagsFormat",
+                        "segment1Share": "Share: 55%",
+                        "segment2Title": "TeaBrand Tea Brands",
+                        "segment2Desc": "BulkTea、HighCamellia tea、Traditional teaPackaging",
+                        "segment2Share": "25% market share",
+                        "segment3Title": "Cerealsfood Grains & Rice",
+                        "segment3Desc": "Rice、Cereals、Hemp、Legumes bulkPackaging",
+                        "segment3Share": "Share: 20%",
+                        "successTitle": "Customer Success Story",
+                        "successStory": "「OurSpecialty coffeeBrandadoptionSide gusset bag with degassing valveAfter，Freshly roasted coffeeCO2can release normally，whilewhenmaintainingPackagingaesthetics，Customersatisfactionimprove40%。」",
+                        "successAuthor": "— SpecialtyproductsCoffee Roasters，monthsales 5000bags"
+                    },
+                    "marketData": {
+                        "title": "Market Data & Intelligence",
+                        "stat1Val": "$4.8B",
+                        "stat1Label": "GlobalSide gussetbagsMarket",
+                        "stat1Sub": "2024yearSize",
+                        "stat2Val": "5.2%",
+                        "stat2Label": "CAGR",
+                        "stat2Sub": "2024-2030",
+                        "stat3Val": "65%",
+                        "stat3Label": "coffeeApplicationsShare:",
+                        "stat3Sub": "largestApplicationssector",
+                        "stat4Val": "32%",
+                        "stat4Label": "Specialty coffeeMarketgrowth rate",
+                        "stat4Sub": "drivingPackagingincreasedPremium",
+                        "trendsTitle": "Market Trend Insights",
+                        "trend1Bold": "traditionalFormatreturn</strong>：Specialty coffeeBrandpreferenceClassicSide gussetbagsappearance",
+                        "trend1Text": "traditionalFormatreturn</strong>：Specialty coffeeBrandpreferenceClassicSide gussetbagsappearance",
+                        "trend2Bold": "degassing valve standard</strong>：85%Coffee Bagsequipped with one-way degassing valve",
+                        "trend2Text": "degassing valve standard</strong>：85%Coffee Bagsequipped with one-way degassing valve"
+                    },
+                    "materialComparison": {
+                        "title": "Material Comparison",
+                        "headers": {
+                            "type": "Material Type",
+                            "barrier": "Barrier",
+                            "cost": "Cost",
+                            "eco": "Eco-Friendly",
+                            "use": "Recommended Use"
+                        },
+                        "row1": {
+                            "type": "Kraft paper/aluminum foil",
+                            "eco": "Paper Appearance",
+                            "use": "Specialty coffee、HighpremiumTea"
+                        },
+                        "row2": {
+                            "type": "PET/Al/PE",
+                            "eco": "Hard to recycle",
+                            "use": "Extended Freshness Period Coffee"
+                        },
+                        "row3": {
+                            "type": "Mono PE Recyclable",
+                            "eco": "♥️ Recyclable",
+                            "use": "Eco-friendlycoffeeBrand"
+                        },
+                        "row4": {
+                            "type": "PLA Compostable",
+                            "eco": "🌱 Compostable",
+                            "use": "OrganicCoffee & Tea"
+                        },
+                        "guideTitle": "Material Selection Guide",
+                        "guideText": "Side gusset bags are the classic coffee packaging format。RequiremaximumBestFreshnesseffectchooseAluminum Foil Laminate；PursueEco-friendlyimagecanchooseMono PERecyclableMaterials。"
+                    }
+                },
+                "metaTitle": "Side Gusset Bags | Quad Seal Bags | Coffee Bags",
+                "metaDescription": "title=\"Side Gusset Bags | Quad Seal Bags | Coffee Bags",
+                "heroImageAlt": "Side gusset coffee bag packaging",
+                "faqs": [
+                    {
+                        "question": "What is the difference between side gusset and flat bottom bags?",
+                        "answer": "Side gusset bags have expandable side panels and lay relatively flat, while flat bottom bags have a rigid rectangular base for superior standing stability. Flat bottom bags offer more shelf presence but cost more. Side gusset bags are more traditional for coffee and offer good capacity."
+                    },
+                    {
+                        "question": "Are side gusset bags suitable for automatic filling?",
+                        "answer": "Yes, side gusset bags work well with VFFS (vertical form fill seal) machines. We can supply bags pre-made or as roll stock film for automatic packaging lines."
+                    },
+                    {
+                        "question": "What sizes are available?",
+                        "answer": "Side gusset bags are available from 100g to 5kg capacity. Common sizes are 250g, 500g, 1kg, and 2.5kg. Custom sizes available for orders over 5,000 units."
+                    }
+                ],
+                "tables": [
+                    {
+                        "title": "Side Gusset Bag Size Guide",
+                        "data": {
+                            "headers": [
+                                "Capacity",
+                                "Dimensions (W×H×G)",
+                                "Common Use"
+                            ],
+                            "rows": [
+                                [
+                                    "250g",
+                                    "100 × 280 × 60mm",
+                                    "Retail coffee, tea"
+                                ],
+                                [
+                                    "500g",
+                                    "120 × 320 × 70mm",
+                                    "Coffee beans, dried fruit"
+                                ],
+                                [
+                                    "1kg",
+                                    "140 × 380 × 80mm",
+                                    "Pet food, rice"
+                                ],
+                                [
+                                    "2.5kg",
+                                    "180 × 450 × 100mm",
+                                    "Bulk products"
+                                ],
+                                [
+                                    "5kg",
+                                    "220 × 550 × 120mm",
+                                    "Large format pet food"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Flat Bottom Bags",
+                        "url": "/packaging/flat-bottom-bags",
+                        "description": "Premium alternative with better stability"
+                    },
+                    {
+                        "title": "Stand-Up Pouches",
+                        "url": "/packaging/stand-up-pouches",
+                        "description": "Popular modern format"
+                    },
+                    {
+                        "title": "Coffee & Tea",
+                        "url": "/industry/coffee-tea",
+                        "description": "Specialty coffee solutions"
+                    }
+                ],
+                "metaKeywords": [
+                    "side gusset bag",
+                    "quad seal bag",
+                    "coffee bag gusset",
+                    "gusseted pouch",
+                    "side fold bag",
+                    "tin tie coffee bag",
+                    "bulk food bag"
+                ]
             },
             "coffeeTea": {
                 "title": "Sustainable Coffee & Tea Packaging: Bags with Valve & Resealable Pouches",
@@ -9672,6 +11217,353 @@
                 "heroTitle": "Eco-Friendly Spout Pouches for Juice",
                 "introSummary": "Custom spout pouches designed for adult beverages. From juices to cold brew, enjoy food-safe, recyclable packaging with convenient spout design.",
                 "ctaButtonText": "Get a Quote"
+            },
+            "customBoxes": {
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Is This Page For You?",
+                        "intro": "If you need <strong>premium rigid packaging for artisan products</strong>—chocolate, tea, coffee, or luxury gifts—you're in the right place.",
+                        "card1Title": "Chocolate & Confectionery",
+                        "card1Desc": "Premium presentation with gold foil & embossing",
+                        "card2Title": "Coffee & Tea Brands",
+                        "card2Desc": "Rigid mailer boxes for premium blends",
+                        "card3Title": "Artisan Food Producers",
+                        "card3Desc": "FSC certified sustainable packaging"
+                    },
+                    "overview": {
+                        "title": "What Custom Boxes Do We Offer?",
+                        "intro": "strong>Achieve Pack offers premium custom printed rigid boxes</strong> designed for artisan food products, specialty coffee, luxury gifts, and high-end retail. Our boxes feature FSC certified materials, matte lamination, and optional premium finishes including gold foil stamping and embossing.",
+                        "card1Title": "Corrugated Mailer Boxes",
+                        "card1Desc": "Perfect for coffee, tea, and artisan foods requiring sturdy shipping protection.",
+                        "card1Feat1": "✓ 500g size: 130 × 85 × 35mm",
+                        "card1Feat2": "✓ 1kg size: 270 × 85 × 35mm",
+                        "card1Feat3": "✓ CMYK custom printing",
+                        "card1Feat4": "✓ Matte finish standard",
+                        "card1Feat5": "✓ Gold foil available",
+                        "card1Feat6": "✓ FSC certified paper",
+                        "cardLinkText": "View Pricing & Order →",
+                        "card2Title": "Tuck Boxes (Cartons)",
+                        "card2Desc": "Elegant folding cartons for chocolate bars, tea sachets, and premium confectionery.",
+                        "card2Feat1": "✓ 100g size: 81 × 162 × 15mm",
+                        "card2Feat2": "✓ 250g white card",
+                        "card2Feat3": "✓ Gold foil stamping",
+                        "card2Feat4": "✓ Embossed details",
+                        "card2Feat5": "✓ Matte finish",
+                        "card2Feat6": "✓ FSC certified"
+                    },
+                    "features": {
+                        "title": "Premium Features & Finishes",
+                        "card1Title": "✨ Gold Foil Stamping",
+                        "card1Desc": "Hot-stamped metallic gold accents for luxury branding",
+                        "card2Title": "🎨 Embossed Details",
+                        "card2Desc": "Raised texture for tactile premium experience",
+                        "card3Title": "📦 Matte Lamination",
+                        "card3Desc": "Sophisticated matte finish standard on all boxes",
+                        "card4Title": "🌱 FSC Certified",
+                        "card4Desc": "Sustainably sourced recycled paper materials",
+                        "card5Title": "🖨️ CMYK Printing",
+                        "card5Desc": "Full-color custom printing for vibrant branding",
+                        "card6Title": "💪 Rigid Construction",
+                        "card6Desc": "2.0mm grayboard for premium structural integrity",
+                        "galleryTitle": "Box Types & Styles",
+                        "galleryCap1": "Corrugated Mailer",
+                        "galleryCap2": "Tuck Box Carton",
+                        "galleryCap3": "Gold Foil Finish",
+                        "galleryCap4": "Embossed Texture"
+                    },
+                    "applications": {
+                        "title": "Perfect For These Products",
+                        "card1Title": "Chocolate",
+                        "card1Desc": "Bars, truffles, pralines",
+                        "card2Title": "Tea",
+                        "card2Desc": "Loose leaf, sachets, gift sets",
+                        "card3Title": "Coffee",
+                        "card3Desc": "Specialty beans, gift boxes",
+                        "card4Title": "Confectionery",
+                        "card4Desc": "Candies, sweets, macarons",
+                        "card5Title": "Bakery",
+                        "card5Desc": "Cookies, biscuits, pastries",
+                        "card6Title": "Gift Sets",
+                        "card6Desc": "Luxury gift packaging",
+                        "card7Title": "Artisan Foods",
+                        "card7Desc": "Honey, jams, specialty",
+                        "card8Title": "Premium Retail",
+                        "card8Desc": "High-end shelf display"
+                    },
+                    "sustainability": {
+                        "title": "Eco-Friendly & Sustainable",
+                        "cardTitle": "🌱 Our Sustainability Commitment",
+                        "card1Title": "FSC Certified Materials",
+                        "card1Item1": "Recycled paper and cardboard",
+                        "card1Item2": "Responsibly sourced fibers",
+                        "card1Item3": "Supports sustainable forestry",
+                        "card2Title": "Recyclable Packaging",
+                        "card2Item1": "Curbside recyclable",
+                        "card2Item2": "Minimal material waste",
+                        "card2Item3": "Eco-conscious production",
+                        "exploreTextPre": "Looking for flexible eco packaging? Explore our <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">compostable pouches</Link> and <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">recyclable mono-PE options</Link>.",
+                        "exploreLink1": "Looking for flexible eco packaging? Explore our <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">compostable pouches</Link> and <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">recyclable mono-PE options</Link>.",
+                        "exploreTextMid": "Looking for flexible eco packaging? Explore our <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">compostable pouches</Link> and <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">recyclable mono-PE options</Link>.",
+                        "exploreLink2": "Looking for flexible eco packaging? Explore our <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">compostable pouches</Link> and <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">recyclable mono-PE options</Link>.",
+                        "exploreTextPost": "Looking for flexible eco packaging? Explore our <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">compostable pouches</Link> and <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">recyclable mono-PE options</Link>."
+                    },
+                    "pricing": {
+                        "title": "Pricing & MOQ",
+                        "card1Title": "📦 Corrugated Mailer Box Pricing",
+                        "card1Th1": "Quantity",
+                        "card1Th2": "500g Box",
+                        "card1Th3": "1kg Box",
+                        "card1Row1Col1": "200 pcs",
+                        "card1Row1Col2": "$514.50 ($2.57/pc)",
+                        "card1Row1Col3": "$1,285.50 ($6.43/pc)",
+                        "card1Row2Col1": "1,000 pcs",
+                        "card1Row2Col2": "$771.75 ($0.77/pc)",
+                        "card1Row2Col3": "$1,714.50 ($1.71/pc)",
+                        "card1Row3Col1": "5,000 pcs",
+                        "card1Row3Col2": "$2,054.25 ($0.41/pc)",
+                        "card1Row3Col3": "$3,859.50 ($0.77/pc)",
+                        "card1Row4Col1": "10,000 pcs",
+                        "card1Row4Col2": "$3,657.38 ($0.37/pc)",
+                        "card1Row4Col3": "$5,040.75 ($0.50/pc)",
+                        "card2Title": "🎁 Tuck Box Pricing (100g)",
+                        "card2Th1": "Quantity",
+                        "card2Th2": "Total Price",
+                        "card2Th3": "Unit Price",
+                        "card2Row1Col1": "200 pcs",
+                        "card2Row1Col2": "$1,105.50",
+                        "card2Row1Col3": "$5.53/pc",
+                        "card2Row2Col1": "1,000 pcs",
+                        "card2Row2Col2": "$1,381.50",
+                        "card2Row2Col3": "$1.38/pc",
+                        "card2Row3Col1": "5,000 pcs",
+                        "card2Row3Col2": "$2,761.50",
+                        "card2Row3Col3": "$0.55/pc",
+                        "card2Row4Col1": "10,000 pcs",
+                        "card2Row4Col2": "$4,486.50",
+                        "card2Row4Col3": "$0.45/pc",
+                        "shippingTitle": "🚢 Shipping included:</strong> All prices include sea freight delivery (40-60 days). Production time is approximately 30 days. For larger quantities or custom sizes, <button onClick={openCalendly} className=\"underline cursor-pointer\">contact us for a custom quote</button>.",
+                        "shippingDescPre": "🚢 Shipping included:</strong> All prices include sea freight delivery (40-60 days). Production time is approximately 30 days. For larger quantities or custom sizes, <button onClick={openCalendly} className=\"underline cursor-pointer\">contact us for a custom quote</button>.",
+                        "shippingLinkText": "🚢 Shipping included:</strong> All prices include sea freight delivery (40-60 days). Production time is approximately 30 days. For larger quantities or custom sizes, <button onClick={openCalendly} className=\"underline cursor-pointer\">contact us for a custom quote</button>.",
+                        "shippingDescPost": "🚢 Shipping included:</strong> All prices include sea freight delivery (40-60 days). Production time is approximately 30 days. For larger quantities or custom sizes, <button onClick={openCalendly} className=\"underline cursor-pointer\">contact us for a custom quote</button>."
+                    },
+                    "aiSearch": {
+                        "title": "Finding the Right Box Packaging",
+                        "intro": "Key considerations for custom box packaging:",
+                        "listItem1": "><strong>Product protection</strong> – Corrugated for shipping, tuck boxes for retail display</li",
+                        "listItem2": "><strong>Branding impact</strong> – Gold foil and embossing for premium positioning</li",
+                        "listItem3": "><strong>Sustainability</strong> – FSC certified for eco-conscious brands</li",
+                        "listItem4Title": "Custom sizes</strong> – <button onClick={openCalendly} className=\"text-primary-600 hover:underline cursor-pointer\">Contact us for bespoke dimensions",
+                        "listItem4Button": "Custom sizes</strong> – <button onClick={openCalendly} className=\"text-primary-600 hover:underline cursor-pointer\">Contact us for bespoke dimensions",
+                        "boxTitle": "💡 If you're using AI search (Gemini, ChatGPT), try asking:",
+                        "query1": "Best custom box supplier for chocolate packaging?",
+                        "query2": "Low MOQ rigid boxes with gold foil stamping?",
+                        "query3": "FSC certified gift boxes for artisan food products?",
+                        "query4": "Custom printed mailer boxes for coffee beans?",
+                        "query5": "Premium tuck boxes with embossing for tea brand?"
+                    },
+                    "riskHedging": {
+                        "title": "Is a Custom Box Right for You?",
+                        "card1Title": "✅ Best Fit For...",
+                        "card1Item1": "Premium/luxury products",
+                        "card1Item2": "Retail shelf presentation",
+                        "card1Item3": "Gift packaging needs",
+                        "card1Item4": "Brands requiring premium finishes",
+                        "card2Title": "⚠️ Also Works For...",
+                        "card2Item1": "E-commerce subscription boxes",
+                        "card2Item2": "Artisan food sampling",
+                        "card2Item3": "Corporate gift packs",
+                        "card3Title": "❌ Consider Alternatives If...",
+                        "card3Item1": "You need flexible packaging",
+                        "card3Item2": "Moisture barrier is critical",
+                        "card3Link": "Pouches may be better →"
+                    },
+                    "decisionCta": {
+                        "title": "Ready to Order Custom Boxes?",
+                        "card1Title": "Ready to Move Fast?",
+                        "card1Desc": "Book a call to discuss custom sizes and finishes",
+                        "card1Button": "Book a Call",
+                        "card2Title": "Order Now",
+                        "card2Desc": "Browse boxes and order online",
+                        "card2Button": "Shop Boxes",
+                        "card3Title": "Still Exploring?",
+                        "card3Desc": "Compare with flexible pouches",
+                        "card3Button": "View Pouches"
+                    },
+                    "industryScenarios": {
+                        "title": "Industry Applications",
+                        "card1Title": "Chocolate & Confectionery Chocolate & Confectionery",
+                        "card1Desc": "Premium chocolates、Artisan candies、HolidayGift Boxes",
+                        "card1Share": "Share: 40%",
+                        "card2Title": "Coffee & Tea Coffee & Tea",
+                        "card2Desc": "Specialty coffeeGift Boxes、HighpremiumTeaPackaging、Subscription boxes",
+                        "card2Share": "Share: 35%",
+                        "card3Title": "Premium gifts Premium Gifts",
+                        "card3Desc": "Corporate gifts、Wedding favors、HolidaySets",
+                        "card3Share": "25% market share",
+                        "storyTitle": "Customer Success Story",
+                        "storyQuote": "「OurPremium chocolatesBrandadoptionGold foil stamping+EmbossingPackagingboxesAfter，Productretail priceimprove30%，Customerconversion rateincrease45%，PackagingbecomingOurBranddifferentiation advantage。」",
+                        "storyAuthor": "— Artisan chocolatesBrand，yearsalesgrowth 60%"
+                    },
+                    "marketData": {
+                        "title": "Market Data & Intelligence",
+                        "card1Value": "$28B",
+                        "card1Desc": "GlobalPackagingboxesMarket",
+                        "card1Sub": "2024yearSize",
+                        "card2Value": "4.8%",
+                        "card2Desc": "CAGR",
+                        "card2Sub": "2024-2030",
+                        "card3Value": "68%",
+                        "card3Desc": "ConsumersvaluePackaging",
+                        "card3Sub": "Cost Impactpurchase decisions",
+                        "card4Value": "52%",
+                        "card4Desc": "willingtoFSCpay premium",
+                        "card4Sub": "Eco-friendlyawarenessimprove",
+                        "trendTitle": "Market Trend Insights",
+                        "trend1": "><strong>unboxing experienceincreasedPremium</strong>：SpecialtyproductsBrandfocused onPackagingfirst impression</span",
+                        "trend2": "><strong>FSCCertificationstandard</strong>：85%HighPremium brandschoosechooseEco-friendlyPackaging</span"
+                    },
+                    "materialComparison": {
+                        "title": "Material Comparison",
+                        "th1": "boxestypetypes",
+                        "th2": "structural strength",
+                        "th3": "Cost",
+                        "th4": "suitableusedScenario",
+                        "th5": "Recommended Use",
+                        "row1Col1": "Corrugated Mailer Boxes",
+                        "row1Col4": "Shipping Protection",
+                        "row1Col5": "coffee、Tea、Subscription boxes",
+                        "row2Col1": "Cardboard Folding Boxes",
+                        "row2Col4": "retailDisplay",
+                        "row2Col5": "Chocolate Bars, Tea Units",
+                        "row3Col1": "rigidPaper Boxes + Gold Foil",
+                        "row3Col4": "LuxuriousHighpremium",
+                        "row3Col5": "Premium Chocolates, Gift Products",
+                        "row4Col1": "FSCCertificationMaterials",
+                        "row4Col4": "🌱 Eco-friendlyPriority",
+                        "row4Col5": "Organicfood、greenBrand",
+                        "guideTitle": "Material Selection Guide",
+                        "guideDesc": "Paper BoxesPackagingsuitableSuitableHighpremiumLuxuriouspositioningProduct。RequireShipping ProtectionchooseCorrugatedPaper；PursueultraUltimateLuxuriousFeelchooseGold FoilEmbossing；Eco-friendlyPrioritychooseFSCCertificationMaterials。"
+                    }
+                },
+                "seo": {
+                    "title": "Custom Boxes | Rigid Mailer Boxes | Tuck Boxes | Gift Packaging",
+                    "description": "title=\"Custom Boxes | Rigid Mailer Boxes | Tuck Boxes | Gift Packaging",
+                    "heroTitle": "Custom Printed Boxes",
+                    "heroSubtitle": "Premium rigid packaging for chocolate, tea, coffee & artisan foods",
+                    "heroImageAlt": "Custom printed rigid boxes with gold foil and embossing for premium food packaging",
+                    "introSummary": "Achieve Pack offers premium custom printed boxes with FSC certified materials, gold foil stamping, and embossing. Perfect for chocolate, tea, coffee, and artisan food brands seeking luxury presentation. MOQ 200 pieces with sea freight included. Production 30 days + 40-60 days shipping.",
+                    "ctaTitle": "Ready to Order Custom Boxes?",
+                    "ctaDescription": "Create premium packaging for your artisan products with our custom printed boxes. MOQ 200 pieces.",
+                    "ctaButtonText": "Shop Custom Boxes",
+                    "keywords": [
+                        "custom boxes",
+                        "rigid boxes",
+                        "mailer boxes",
+                        "tuck boxes",
+                        "gift boxes",
+                        "chocolate packaging",
+                        "tea box packaging",
+                        "coffee box packaging",
+                        "gold foil boxes",
+                        "FSC certified boxes",
+                        "embossed packaging",
+                        "custom printed boxes"
+                    ]
+                },
+                "faqs": [
+                    {
+                        "question": "What types of custom boxes do you offer?",
+                        "answer": "We offer two main types: Corrugated Mailer Boxes (ideal for coffee, tea, and shipping-protected products in 500g and 1kg sizes) and Tuck Boxes/Cartons (perfect for chocolate bars, tea sachets, and premium confectionery). Both feature custom CMYK printing, matte lamination, and optional gold foil stamping with embossing."
+                    },
+                    {
+                        "question": "What is the minimum order quantity for custom boxes?",
+                        "answer": "Our minimum order quantity is 200 pieces for both corrugated mailer boxes and tuck boxes. This low MOQ makes custom printed boxes accessible for small artisan brands, startups, and businesses testing new packaging designs."
+                    },
+                    {
+                        "question": "Are your boxes eco-friendly?",
+                        "answer": "Yes, all our boxes are made from FSC certified recycled paper and cardboard. They are fully recyclable in standard curbside recycling programs. We prioritize sustainable materials to support eco-conscious brands."
+                    },
+                    {
+                        "question": "What premium finishes are available?",
+                        "answer": "We offer gold foil hot stamping, embossed details, and matte lamination as standard. These premium finishes create a luxury unboxing experience perfect for chocolate, tea, coffee, and gift packaging applications."
+                    },
+                    {
+                        "question": "What are the available sizes?",
+                        "answer": "Corrugated Mailer Boxes come in 500g (130 × 85 × 35mm) and 1kg (270 × 85 × 35mm) sizes. Tuck Boxes are available in 100g size (81 × 162 × 15mm). For custom dimensions, please contact our team for a bespoke quote."
+                    },
+                    {
+                        "question": "How long does production and shipping take?",
+                        "answer": "Production takes approximately 30 days. Shipping via sea freight is included in all prices and takes 40-60 days. Total lead time is approximately 70-90 days from order confirmation. For urgent orders, please inquire about air freight options."
+                    },
+                    {
+                        "question": "Do you offer samples before ordering?",
+                        "answer": "Yes, we can provide samples for evaluation before placing a full order. Please contact us to arrange sample boxes. For standard orders, we recommend starting with our minimum 200 piece order to test with your products and customers."
+                    },
+                    {
+                        "question": "Can I get custom sizes for my products?",
+                        "answer": "Absolutely! We offer bespoke sizing for larger quantity orders. Contact our team with your product dimensions and we'll provide a custom quote. Custom tooling may be required for non-standard sizes."
+                    }
+                ],
+                "tables": {
+                    "0": {
+                        "title": "Box Sizes Overview",
+                        "data": {
+                            "headers": [
+                                "Box Type",
+                                "Size Label",
+                                "Dimensions (L×W×H)",
+                                "Best For"
+                            ],
+                            "rows": [
+                                [
+                                    "Corrugated Mailer",
+                                    "500g",
+                                    "130 × 85 × 35mm",
+                                    "Small coffee bags, tea boxes"
+                                ],
+                                [
+                                    "Corrugated Mailer",
+                                    "1kg",
+                                    "270 × 85 × 35mm",
+                                    "Large coffee bags, gift sets"
+                                ],
+                                [
+                                    "Tuck Box",
+                                    "100g",
+                                    "81 × 162 × 15mm",
+                                    "Chocolate bars, tea sachets"
+                                ]
+                            ]
+                        }
+                    }
+                },
+                "relatedLinks": [
+                    {
+                        "title": "Shop Corrugated Boxes",
+                        "url": "/store/product/box-corrugated-custom",
+                        "description": "Order custom printed mailer boxes - MOQ 200 pieces"
+                    },
+                    {
+                        "title": "Shop Tuck Boxes",
+                        "url": "/store/product/box-tuck-custom",
+                        "description": "Premium cartons with gold foil & embossing"
+                    },
+                    {
+                        "title": "Stand-Up Pouches",
+                        "url": "/packaging/stand-up-pouches",
+                        "description": "Flexible alternative for food packaging"
+                    },
+                    {
+                        "title": "Flat Bottom Bags",
+                        "url": "/packaging/flat-bottom-bags",
+                        "description": "Premium pouches for coffee and tea"
+                    },
+                    {
+                        "title": "Compostable Materials",
+                        "url": "/materials/compostable",
+                        "description": "Eco-friendly flexible packaging options"
+                    }
+                ]
             }
         }
     },

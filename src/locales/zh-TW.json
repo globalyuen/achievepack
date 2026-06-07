@@ -1851,6 +1851,238 @@
                     "title": "Order Custom Stand-Up Pouches",
                     "description": "Request a free sample and quote for your custom stand-up pouch project.",
                     "button": "Request Free Sample"
+                },
+                "gallery": {
+                    "item1Title": "優質印刷自立袋”，描述：“定製印刷自立袋展示了採用高對比度和充滿活力的生態墨水的精美數位印刷。",
+                    "item1Desc": "優質印刷自立袋”，描述：“定製印刷自立袋展示了採用高對比度和充滿活力的生態墨水的精美數位印刷。",
+                    "item2Title": "自立袋生活方式用途”，描述：“在現代有機 B2B 食品品牌場景中呈現可持續的自立袋。",
+                    "item2Desc": "自立袋生活方式用途”，描述：“在現代有機 B2B 食品品牌場景中呈現可持續的自立袋。",
+                    "item3Title": "重型 K-Seal 袋底座”，描述：“對角 K-seal 底部結構設計用於攜帶較重的物品（最多 5 公斤），並且具有極高的底座穩定性。",
+                    "item3Desc": "重型 K-Seal 袋底座”，描述：“對角 K-seal 底部結構設計用於攜帶較重的物品（最多 5 公斤），並且具有極高的底座穩定性。",
+                    "item4Title": "零廢物可堆肥牛皮紙 SUP”，描述：“經 FSC 官方認證的天然牛皮紙立式袋，可支持高防潮性和可重新密封的拉鍊。",
+                    "item4Desc": "零廢物可堆肥牛皮紙 SUP”，描述：“經 FSC 官方認證的天然牛皮紙立式袋，可支持高防潮性和可重新密封的拉鍊。"
+                },
+                "b2c": {
+                    "metaTitle": "客製化自立袋 |環保自立袋 |袋生態",
+                    "metaDescription": "經過認證的可堆肥和可回收客製化印刷自立袋。 低起訂量 500 件、有機油墨、植株 PLA 或可回收 Mono-PE 屏障。 免費設計模型。",
+                    "hero": {
+                        "badge": "貨架生態包裝",
+                        "titlePart1": "起來",
+                        "desc": "經過認證的可堆肥 PLA 植物明星和可回收 Mono-PE 結構。 出色的屏障保護、耐用的拉鍊和定制尺寸。",
+                        "btn1": "免費電話預訂",
+                        "btn2": "WhatsApp 專家",
+                        "imgBadge": "低最小起訂量：500！",
+                        "titlePart2": "袋子"
+                    },
+                    "bento": {
+                        "titlePre": "高級 <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">靈活</span> 效能",
+                        "titleHighlight": "高級 <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">靈活</span> 效能",
+                        "titlePost": "高級 <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">靈活</span> 效能",
+                        "card1Title": "可堆肥和可回收",
+                        "card1Desc": "選擇 100% 家用/工業可堆肥薄膜或路邊可回收單一材料結構。 幫助客戶輕鬆回收。",
+                        "card2Title": "OTR/WVTR 氣閘",
+                        "card2Desc": "高性能內部屏障可防止氧氣和濕氣透過（<1.0 cc/m²/24 小時）。 將產品保質期延長至 12 個月。",
+                        "card3Title": "穩定的角撐板底座",
+                        "card3Desc": "精密摺疊橢圓形或重型對角線 K 形密封底部選項。 允許完美的架子站立並最大化內部容積。",
+                        "card4Title": "訂製瓶蓋",
+                        "card4Desc": "添加可重新密封的按壓閉合拉鍊、錫帶、滑塊、單向脫氣咖啡閥或客製化形狀的窗口。"
+                    },
+                    "showcase": {
+                        "badge": "視覺展示",
+                        "title": "真實世界的生產運行",
+                        "desc": "點擊任何真實的印刷樣本來檢查我們的高清印刷清晰度、角板密封和優質飾面："
+                    },
+                    "specs": {
+                        "titlePre": "規格和 <span className=\"bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1\">定價",
+                        "titleHighlight": "規格和 <span className=\"bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1\">定價",
+                        "header1": "尺寸（寬 x 高 + 厚）",
+                        "header2": "體積容量",
+                        "header3": "屏障性能",
+                        "header4": "最佳應用",
+                        "row1App": "DTC 單份樣品、美食香料盒、化妝粉袋",
+                        "row2App": "有機茶葉束、視覺糖果展示、優質寵物零食",
+                        "row3App": "附排氣閥的特色咖啡豆、散裝格蘭諾拉麥片、蛋白質片",
+                        "row4App": "散裝零食袋、生超級食物、粉狀配料、補充袋",
+                        "row5App": "專業批發粗磨寵物食品、優質零售浴鹽、散裝種子",
+                        "card1Val": "500 單位",
+                        "card1Label": "超低客製化最小起訂量",
+                        "card1Desc": "非常適合新創企業擴展、有限季節性運行和 SKU 測試",
+                        "card2Val": "24小時",
+                        "card2Label": "互補的對線",
+                        "card2Desc": "取得根據您的精確體積規格調整的精確向量圖形",
+                        "card3Val": "100% 免費",
+                        "card3Label": "可堆肥樣品套件",
+                        "card3Desc": "收到包含 10 個實體袋的套件，用於測試阻隔性能"
+                    },
+                    "faq": {
+                        "titlePre": "常見問題<span className=\"text-[#10b981]\">問題",
+                        "titleHighlight": "常見問題<span className=\"text-[#10b981]\">問題"
+                    },
+                    "metaKeywords": {
+                        "0": "客製化自立袋",
+                        "1": "生態自立袋",
+                        "2": "可堆肥自立袋",
+                        "3": "可回收咖啡袋",
+                        "4": "pouch.eco",
+                        "5": "永續軟包裝"
+                    }
+                },
+                "seoPages": {
+                    "breadcrumbs": {
+                        "home": "家",
+                        "packagingShapes": "包裝形狀"
+                    }
+                },
+                "b2b": {
+                    "breadcrumbs": {
+                        "currentPage": "客製化自立袋"
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "客製化自立袋批發和供應",
+                            "intro": "<strong>客製化自立袋 (SUP)</strong> 代表了優質商業軟包裝的黃金標準。 我們的包裝袋源自 BRCGS 認證的工廠生產線，可提供最大限度的貨架展示、輕質材料節省和強大的屏障保護，專為全球 DTC 新創公司和擴大批發食品品牌而量身定制。",
+                            "listTitle": "主要 B2B 商業績效指標：",
+                            "listItems": {
+                                "0": "<strong>佔地減少 75%</strong> – 與玻璃罐或金屬罐相比，大大減少了倉儲空間和長途運輸排放。",
+                                "1": "<strong>360° 品牌房地產</strong> – 使用經過認證的大豆植物油墨印刷的全寬數位佈局覆蓋。",
+                                "2": "<strong>可重新密封的整合</strong> – 耐用的拉鍊鎖和滑塊可防止產品貨架退化。",
+                                "3": "<strong>自動生產線相容性</strong> – 設計的捲寬公差允許在自動 VFFS/HFFS 生產線上無縫整合。"
+                            }
+                        },
+                        "specifications": {
+                            "title": "技術參數翻譯及購買指南",
+                            "intro": "專業採購需要嚴格驗證物料資料。 以下是我們的原始技術指標如何直接轉化為 B2B 購買優勢的方式：",
+                            "th1": "技術尺寸",
+                            "th2": "原始規格和材料",
+                            "th3": "B2B 採購效用與價值",
+                            "row1Col1": "阻隔層",
+                            "row1Col2": "NatureFlex™ MetCellulose 或可回收 EVOH（OTR < 1.0，WVTR < 1.0）",
+                            "row1Col3": "形成絕對的氣鎖和水鎖，將咖啡香氣、零食脆度和粉末完整性保留 12 個月以上。",
+                            "row2Col1": "尺寸和底座",
+                            "row2Col2": "客製化毫米模切線（70-300 毫米寬，犁形/橢圓形/K 形密封角撐板底座）",
+                            "row2Col3": "根據體積密度藍圖進行校準，防止底部密封破裂並確保完美的站立結構。",
+                            "row3Col1": "密封強度",
+                            "row3Col2": "密封強度> 35 N/15mm（工程低溫 PBAT/Mono-PE 密封樹脂）",
+                            "row3Col3": ">確保高壓自動包裝線運轉速度達到**每分鐘 65 袋**時的零爆裂洩漏。 </td",
+                            "row4Col1": "出口包裝",
+                            "row4Col2": "含有二級防潮層的三層雙壁出口紙箱",
+                            "row4Col3": "保護捲材和成品袋免受海洋濕度退化和高堆裝運輸箱損壞。"
+                        },
+                        "applications": {
+                            "title": "針對B2B應用場景",
+                            "intro": "我們的客製化印刷立式袋經過精心設計，可滿足專業用例中的特定監管和化學屏障標準：",
+                            "card1Title": "☕ 精品咖啡烘焙機",
+                            "card1Desc": "高 OTR 鎖與單向排氣閥結合，可排出氣體，同時阻止氧氣進入。 非常適合保持烘焙豆的完整性。",
+                            "card2Title": "🌱 有機食品和零食",
+                            "card2Desc": "可堆肥牛皮紙和 PLA 澱粉生物膜經過歐洲 EN 13432 認證。滿足零售和消費者不斷增長的生態期望。",
+                            "card3Title": "🐾 寵物食品和零食",
+                            "card3Desc": "重型對角線 K 型密封底部，可防止油脂遷移並支援散裝體積重量（從 1 公斤到 5 公斤）而不會破裂。",
+                            "spotlightTitle": "更重的體積穩定性：K-Seal 底部聚光燈",
+                            "spotlightDesc": "h4 className=\"font-bold text-neutral-900 mb-2\">更重的音量穩定性：K-Seal 底部聚光燈</h4",
+                            "spotlightLink": "了解 K-seal 如何增加容積 →",
+                            "card1Badge": "12 個月的烘焙新鮮度",
+                            "card2Badge": "TÜV 家用可堆肥",
+                            "card3Badge": "對角角板穩定性"
+                        },
+                        "gallery": {
+                            "title": "實際生產運作和材料驗證",
+                            "intro": "我們營運 4 條支援多種 SKU 的高速數位線路。 查看我們符合 BRC 標準、經過認證的可堆肥和可回收自立袋的實際生產情況："
+                        }
+                    },
+                    "metaTitle": "客製自立袋批發|廠商直銷|成就包",
+                    "metaDescription": "經過 BRCGS 和 ISO-9001 認證的自立袋。 使用可堆肥 PLA 或可回收 Mono-PE 薄膜定製印刷 SUP 袋。 低起訂量 500 件，全球出貨。",
+                    "heroTitle": "客製化自立袋批發",
+                    "heroSubtitle": "BRCGS 認證工廠直銷 • 低起訂量 500 件 • 100% 認證生態薄膜",
+                    "introSummary": "經過認證的可堆肥和路邊可回收立式袋的直接供應商。 使用高性能 OTR/WVTR 氧氣屏障和診斷底部角撐板進行校準，以防止密封爆裂，確保 12 個月以上的保質期。",
+                    "faqs": {
+                        "0": {
+                            "question": "1. 客製化自立袋的最小訂購量 (MOQ) 是多少？",
+                            "answer": "我們以業界最低的數位印刷最小起訂量（每個設計僅 500 份）為新創公司提供支援。 對於較大的批發量，我們可以從 5,000 台起進行凹版印刷，從而提供最終的批發成本效率。"
+                        },
+                        "1": {
+                            "question": "2.你們提供實體預生產樣品嗎？",
+                            "answer": "是的，我們免費提供永續樣品套件，其中包含 10 個實體袋，用於測試阻隔性能。 對於客製化訂單，我們會產生 24 小時 PDF 軟校樣，並可以在大量生產之前建立精確的客製化數位模型。"
+                        },
+                        "2": {
+                            "question": "3.你們能根據客製化體積CAD圖製造自立袋嗎？",
+                            "answer": "是的。 我們的材料工程師分析您的產品體積密度並客製化底部角板和尺寸（精確到毫米）。 我們在 24 小時內提供客製化模切線佈局 PDF。"
+                        },
+                        "3": {
+                            "question": "4. 商業運作的生產和運輸提前期是多少？",
+                            "answer": "數位運行在 7-10 個工作天內完成；凹印版訂單需要 12-14 天。 DHL/FedEx 快遞空運至美國/歐盟需要 5-7 個工作天，經濟的海運則需要 20-30 天。"
+                        },
+                        "4": {
+                            "question": "5. 有哪些認證可用於驗證環保合規性？",
+                            "answer": "我們的生物聚合物具有 BPI（生物降解產品研究所 #10529618）和 TÜV Austria (OK Compost HOME) 的官方證書編號。 堆疊符合 ASTM D6400（美國）和 EN 13432（歐盟）可堆肥性指南。"
+                        },
+                        "5": {
+                            "question": "6. 必須提交哪些詳細資料才能收到批發報價？",
+                            "answer": "請提供估計的體積容量（或確切的尺寸）、材料偏好（可堆肥牛皮紙、單 PE 可回收、高阻隔）、拉鍊/排氣閥要求、SKU 數量和向量圖。"
+                        }
+                    },
+                    "tables": {
+                        "0": {
+                            "title": "Commercial Volumetric Size Matrix",
+                            "data": {
+                                "headers": {
+                                    "0": "尺寸（寬x高+高）",
+                                    "1": "Volumetric Weight",
+                                    "2": "推薦應用程式場景"
+                                },
+                                "rows": {
+                                    "0": {
+                                        "0": "70×110+40毫米",
+                                        "1": "20g - 50g",
+                                        "2": "產品樣品袋、美食香料、乾燥植物萃取物"
+                                    },
+                                    "1": {
+                                        "0": "100 x 150 + 60mm",
+                                        "1": "50克 - 100克",
+                                        "2": "護膚粉袋、單產茶葉、寵物零食盒"
+                                    },
+                                    "2": {
+                                        "0": "120×200+80毫米",
+                                        "1": "100克 - 250克",
+                                        "2": "特色咖啡豆（附閥門）、有機格蘭諾拉麥片、蛋白薯片"
+                                    },
+                                    "3": {
+                                        "0": "150×230+90毫米",
+                                        "1": "250g - 500g",
+                                        "2": "商業有機燕麥、大型零食 SKU、浴鹽罐"
+                                    },
+                                    "4": {
+                                        "0": "180 x 280 + 100mm",
+                                        "1": "500克-1公斤",
+                                        "2": "寵物食品粗磨袋、散裝穀物、批發咖啡豆"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "relatedLinks": {
+                        "0": {
+                            "title": "平底袋",
+                            "url": "/packaging/flat-bottom-bags",
+                            "description": "穩定的 5 面板盒角撐板替代品"
+                        },
+                        "1": {
+                            "title": "咖啡和茶解決方案",
+                            "url": "/行業/咖啡茶",
+                            "description": "帶排氣閥和錫紮帶的袋子"
+                        },
+                        "2": {
+                            "title": "可堆肥材料規格",
+                            "url": "/材料/可堆肥",
+                            "description": "比較 OK Compost 生物聚合物規格"
+                        }
+                    },
+                    "metaKeywords": {
+                        "0": "客製化自立袋",
+                        "1": "wholesale stand up bags",
+                        "2": "可堆肥自立袋",
+                        "3": "BRC認證的軟包裝",
+                        "4": "實現包裝自立袋"
+                    }
                 }
             },
             "flatBottomBags": {
@@ -1862,6 +2094,305 @@
                     "title": "Get Custom Flat Bottom Bags",
                     "description": "Request a free sample and quote for your premium products.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "此頁面適合您嗎？",
+                        "intro": "如果您是<strong>專業咖啡烘焙商</strong>、<strong>優質寵物食品品牌</strong>或<strong>手工食品生產商</strong>，正在尋找能夠在零售貨架上脫穎而出並具有最大品牌空間的包裝，平底袋可提供高端外觀。",
+                        "col1Title": "咖啡烘焙機",
+                        "col1Desc": "5面板品牌+排氣閥",
+                        "col2Title": "寵物食品品牌",
+                        "col2Desc": "重型產品的穩定底座",
+                        "col3Title": "優質產品",
+                        "col3Desc": "盒子般的外觀，適合送禮的包裝"
+                    },
+                    "overview": {
+                        "title": "什麼是平底袋？",
+                        "intro": "平底袋（也稱為盒底袋或塊底袋）具有矩形底座，使其能夠以最大的穩定性直立。 </strong>與標準自立袋相比，這種優質格式提供了卓越的貨架展示和容量。",
+                        "desc": "平底袋（也稱為盒底袋或塊底袋）具有矩形底座，使其能夠以最大的穩定性直立。 </strong>與標準自立袋相比，這種優質格式提供了卓越的貨架展示和容量。",
+                        "characteristicsTitle": "主要優點：",
+                        "char1": "5 面板結構可實現最大的品牌表面",
+                        "char2": "穩定的盒狀貨架",
+                        "char3": "比標準袋容量更高",
+                        "char4": "專業產品的優質外觀",
+                        "char5": "提供可堆肥和可回收材料"
+                    },
+                    "construction": {
+                        "title": "平底袋是如何構造的？",
+                        "intro": "平底袋由多個面板構成，這些面板可折疊以形成矩形底部：",
+                        "col1Title": "5面板設計",
+                        "col1Item1": "前面板 – 主要品牌區域",
+                        "col1Item2": "後面板 – 成分、說明",
+                        "col1Item3": "2 個側角撐板 – 額外的品牌空間",
+                        "col1Item4": "底部面板 - 穩定的底座，可包括印刷品",
+                        "col2Title": "關閉選項",
+                        "col2Item1": "可重新密封的拉鍊（按壓閉合或滑塊）",
+                        "col2Item2": "錫紮帶封口",
+                        "col2Item3": "排氣閥（咖啡用）",
+                        "col2Item4": "撕裂口，方便打開"
+                    },
+                    "applications": {
+                        "title": "哪些產品最適合平底袋？",
+                        "intro": "平底袋非常適合受益於增強貨架展示的優質產品：",
+                        "items": "[「精品咖啡」、「優質茶」、「寵物食品和零食」、「蛋白粉」、「格蘭諾拉麥片和麥片」、「乾果」、「優質堅果」、「米和穀物」、「有機零食」、「工匠產品」、「超級食物」、「禮品包裝」]"
+                    },
+                    "materials": {
+                        "title": "平底袋有哪些材質可供選擇？",
+                        "col1Title": "可堆肥",
+                        "col1Desc": "牛皮紙+PLA。 經過 EN 13432 工業堆肥認證。",
+                        "col2Title": "可回收",
+                        "col2Desc": "用於路邊回收的 Mono-PE 或紙基結構。",
+                        "col3Title": "高門檻",
+                        "col3Desc": "金屬化或鋁製，可提供最大程度的新鮮保護。",
+                        "galleryTitle": "平底袋材料樣品",
+                        "galleryCaption1": "平底結構",
+                        "galleryCaption2": "鋁護欄",
+                        "galleryCaption3": "牛皮紙",
+                        "galleryCaption4": "錫領帶閉合"
+                    },
+                    "aiSearch": {
+                        "title": "如何找到最好的平底袋供應商",
+                        "headline": "💡如果您使用人工智慧搜尋（Gemini、ChatGPT），請嘗試詢問：",
+                        "query1": "最好的精品咖啡平底袋供應商？",
+                        "query2": "平底袋與自立袋：哪個比較適合裝咖啡？",
+                        "query3": "帶排氣閥的訂製盒底袋起訂量低？",
+                        "query4": "帶有 5 面板印刷的可堆肥平底咖啡袋？"
+                    },
+                    "riskHedging": {
+                        "title": "什麼時候該選擇平底袋和自立袋？",
+                        "col1Title": "✅ 最適合...",
+                        "col1Item1": "具有零售業務的優質產品",
+                        "col1Item2": "需要最大貨架影響力的品牌",
+                        "col1Item3": "有脫氣要求的咖啡",
+                        "col1Item4": "需要穩定底座的重型產品",
+                        "col2Title": "⚠️ 也適用於...",
+                        "col2Item1": "禮品包裝和季節性產品",
+                        "col2Item2": "產品從硬包裝過渡",
+                        "col2Item3": "願意投資優質外觀的品牌",
+                        "col3Title": "❌ 不推薦如果...",
+                        "col3Item1": "成本是首要考慮因素（15-25% 的溢價）",
+                        "col3Item2": "產品不會從貨架上獲益",
+                        "col3Link": "考慮使用自立袋作為經濟實惠的選擇 →"
+                    },
+                    "decisionCta": {
+                        "title": "準備好升級為平底袋了嗎？",
+                        "col1Title": "準備好快速行動了嗎？",
+                        "col1Desc": "預約電話討論您的確切規格",
+                        "col1Btn": "來電預約",
+                        "col2Title": "想先測試一下嗎？",
+                        "col2Desc": "訂購平底袋樣品",
+                        "col2Btn": "取得樣品",
+                        "col3Title": "還在探索嗎？",
+                        "col3Desc": "與自立袋比較",
+                        "col3Btn": "比較選項"
+                    },
+                    "industryScenarios": {
+                        "title": "產業應用",
+                        "segment1Title": "精品咖啡烘焙機",
+                        "segment1Desc": "優質平底袋，帶有 5 片品牌標誌和排氣閥。",
+                        "segment1Item1": "單一產地咖啡",
+                        "segment1Item2": "工匠烘焙機",
+                        "segment1Item3": "禮盒包裝",
+                        "segment2Title": "優質寵物食品品牌",
+                        "segment2Desc": "重型平底袋，帶有穩定的底座，適用於較大的粗磨袋。",
+                        "segment2Item1": "優質狗糧",
+                        "segment2Item2": "天然貓糧",
+                        "segment2Item3": "無穀物配方",
+                        "segment3Title": "超級食物和蛋白質品牌",
+                        "segment3Desc": "用於粉末補充劑的高阻隔平底袋，具有最大的貨架存在度。",
+                        "segment3Item1": "蛋白粉",
+                        "segment3Item2": "超級食物混合物",
+                        "segment3Item3": "膠原蛋白勝肽",
+                        "successTitle": "🏆 客戶成功案例：Mountain Peak Coffee Co.",
+                        "successStory": "從自立袋升級為平底袋，零售銷量提高了 40%，並透過 5 片品牌定位實現了溢價定位。",
+                        "successMetric1": "銷售額增加 40%",
+                        "successMetric2": "高端定位",
+                        "successMetric3": "5 面板品牌"
+                    },
+                    "marketData": {
+                        "title": "市場數據與情報",
+                        "stat1Val": "$12B",
+                        "stat1Label": "咖啡包裝 2027",
+                        "stat2Val": "25%",
+                        "stat2Label": "保費漲價",
+                        "stat3Val": "5",
+                        "stat3Label": "可列印面板",
+                        "stat4Val": "20%",
+                        "stat4Label": "與 SUP 相比，運動量更大",
+                        "trendsTitle": "平底袋與自立袋比較",
+                        "headers": {
+                            "feature": "特徵",
+                            "flatBottom": "平底",
+                            "sup": "自立袋"
+                        },
+                        "row1": {
+                            "feature": "可列印面板",
+                            "flatBottom": "5 塊面板",
+                            "sup": "2-3塊面板"
+                        },
+                        "row2": {
+                            "feature": "貨架穩定性",
+                            "flatBottom": "⭐⭐⭐⭐⭐",
+                            "sup": "⭐⭐⭐⭐"
+                        },
+                        "row3": {
+                            "feature": "佔地面積體積",
+                            "flatBottom": "+15-20%",
+                            "sup": "基線"
+                        },
+                        "row4": {
+                            "feature": "溢價",
+                            "flatBottom": "+15-25%",
+                            "sup": "基線"
+                        },
+                        "ecoTitle": "🌍環境影響",
+                        "ecoDesc": "平底袋比硬質容器使用的材料少 60%，同時提供優質的外觀。 具有生態意識的品牌可以選擇可堆肥。"
+                    },
+                    "materialComparison": {
+                        "title": "材質比較",
+                        "headers": {
+                            "feature": "特徵",
+                            "col1": "牛皮紙可堆肥",
+                            "col2": "紙本",
+                            "col3": "高門檻"
+                        },
+                        "row1": {
+                            "feature": "最適合",
+                            "col1": "✅ 優質咖啡",
+                            "col2": "✅ 乾貨、米飯",
+                            "col3": "✅ 最大新鮮度"
+                        },
+                        "row2": {
+                            "feature": "障礙水平",
+                            "col1": "中高",
+                            "col2": "中等的",
+                            "col3": "非常高"
+                        },
+                        "row3": {
+                            "feature": "保存期限",
+                            "col1": "6-12個月",
+                            "col2": "6-9個月",
+                            "col3": "18-24個月"
+                        },
+                        "row4": {
+                            "feature": "高級外觀",
+                            "col1": "⭐⭐⭐⭐⭐",
+                            "col2": "⭐⭐⭐⭐",
+                            "col3": "⭐⭐⭐⭐"
+                        },
+                        "row5": {
+                            "feature": "生命終點",
+                            "col1": "🌱可堆肥",
+                            "col2": "♻️可回收",
+                            "col3": "🗑️垃圾掩埋場"
+                        },
+                        "row6": {
+                            "feature": "價格點",
+                            "col1": "💰💰💰",
+                            "col2": "💰💰",
+                            "col3": "💰💰💰"
+                        },
+                        "guideTitle": "💡 Decision Guide for Flat Bottom Bags",
+                        "col1Title": "若符合以下條件，請選擇牛皮紙可堆肥：",
+                        "col1Item1": "優質咖啡品牌",
+                        "col1Item2": "具有生態意識的市場",
+                        "col1Item3": "想要自然的外觀",
+                        "col2Title": "若符合以下條件，請選擇紙本：",
+                        "col2Item1": "乾貨、穀物",
+                        "col2Item2": "成本最佳化",
+                        "col2Item3": "可回收偏好",
+                        "col3Title": "若符合以下條件，請選擇高門檻：",
+                        "col3Item1": "最長保存期限",
+                        "col3Item2": "敏感產品",
+                        "col3Item3": "長分銷鏈"
+                    }
+                },
+                "metaTitle": "平底袋 |盒底袋|塊底包裝",
+                "metaDescription": "title=\"Flat Bottom Bags | Box Bottom Pouches | Block Bottom Packaging",
+                "heroImageAlt": "平底袋盒袋包裝",
+                "faqs": {
+                    "0": {
+                        "question": "What is the difference between flat bottom and stand-up pouches?",
+                        "answer": "平底袋有一個矩形底座，帶有 5 個可列印面板，提供更大的穩定性和容量。 立式袋有一個帶有 2-3 個面板的橢圓形角撐板。 平底袋在相同佔地面積的情況下可增加約 15-20% 的體積。"
+                    },
+                    "1": {
+                        "question": "平底袋比較貴嗎？",
+                        "answer": "是的，由於結構更複雜，平底袋的成本通常比直立袋高 15-25%。 然而，它們提供優質的貨架展示和額外的品牌空間，這通常證明對特色產品的投資是合理的。"
+                    },
+                    "2": {
+                        "question": "平底袋有哪些尺寸可供選擇？",
+                        "answer": "我們提供容量從 100 克到 5 公斤的平底袋。 常見規格有250公克、500公克、1公斤、2公斤。 超過 5,000 件的訂單可提供客製化尺寸。"
+                    },
+                    "3": {
+                        "question": "平底袋可以有排氣閥嗎？",
+                        "answer": "是的，我們為咖啡和其他釋放二氧化碳的產品提供單向脫氣閥。 此閥門可以放置在任何面板上，但出於美觀原因通常放置在背面。"
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "平底袋尺寸指南",
+                        "data": {
+                            "headers": {
+                                "0": "容量",
+                                "1": "尺寸（寬×高×高）",
+                                "2": "推薦用於"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "250克",
+                                    "1": "120×200×80毫米",
+                                    "2": "優質茶、精品咖啡"
+                                },
+                                "1": {
+                                    "0": "500克",
+                                    "1": "140×240×90毫米",
+                                    "2": "Coffee beans, granola"
+                                },
+                                "2": {
+                                    "0": "1公斤",
+                                    "1": "160×280×100毫米",
+                                    "2": "寵物食品、蛋白粉"
+                                },
+                                "3": {
+                                    "0": "2公斤",
+                                    "1": "200×350×120毫米",
+                                    "2": "Bulk pet food, rice"
+                                },
+                                "4": {
+                                    "0": "5公斤",
+                                    "1": "280×450×150毫米",
+                                    "2": "大規格寵物食品"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "自立袋",
+                        "url": "/包裝/自立袋",
+                        "description": "更經濟的選擇"
+                    },
+                    "1": {
+                        "title": "咖啡和茶包裝",
+                        "url": "/行業/咖啡茶",
+                        "description": "精品咖啡解決方案"
+                    },
+                    "2": {
+                        "title": "可堆肥材料",
+                        "url": "/材料/可堆肥",
+                        "description": "環保選擇"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "平底袋",
+                    "1": "盒底袋",
+                    "2": "塊底袋",
+                    "3": "咖啡袋平底",
+                    "4": "優質袋包裝",
+                    "5": "平底咖啡袋",
+                    "6": "盒袋",
+                    "7": "5面板袋"
                 }
             },
             "spoutPouches": {
@@ -1873,6 +2404,382 @@
                     "title": "Get Custom Spout Pouches",
                     "description": "Request a free sample and quote for your liquid products.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "此頁面適合您嗎？",
+                        "intro": "如果您是<strong>嬰兒食品品牌</strong>、<strong>醬料製造商</strong>或<strong>飲料公司</strong>，正在尋找像瓶子一樣傾倒但成本更低且運輸更輕的包裝，吸嘴袋就是您的解決方案。",
+                        "col1Title": "嬰兒食品品牌",
+                        "col1Desc": "安全、便攜、方便嬰兒分配",
+                        "col2Title": "醬料和調味品製造商",
+                        "col2Desc": "熱灌裝能力，無混亂傾倒",
+                        "col3Title": "飲料公司",
+                        "col3Desc": "比硬質瓶子少 70% 的塑料"
+                    },
+                    "overview": {
+                        "title": "什麼是吸嘴袋？",
+                        "intro": "吸嘴袋是一種靈活的自立袋，帶有內置傾倒嘴和蓋子，專為液體、半液體和粘性產品而設計。 </strong>這種​​格式結合了軟包裝的成本效益和硬質容器的功能。",
+                        "desc": "吸嘴袋是一種靈活的自立袋，帶有內置傾倒嘴和蓋子，專為液體、半液體和粘性產品而設計。 </strong>這種​​格式結合了軟包裝的成本效益和硬質容器的功能。",
+                        "advantagesTitle": "主要優點：",
+                        "adv1": "使用可重新封閉的蓋子輕鬆分配",
+                        "adv2": "比硬質瓶子少使用 70% 的塑料",
+                        "adv3": "自立式零售展示",
+                        "adv4": "重量輕，降低運輸成本",
+                        "adv5": "提供高門檻選項"
+                    },
+                    "applications": {
+                        "title": "哪些產品在吸嘴袋中效果最佳？",
+                        "intro": "帶嘴袋是許多行業可傾倒產品的理想選擇：",
+                        "col1Title": "嬰兒食品",
+                        "col1Item1": "水果泥",
+                        "col1Item2": "混合蔬菜",
+                        "col1Item3": "優格冰沙",
+                        "col2Title": "醬料和調味品",
+                        "col2Item1": "番茄醬和蛋黃醬",
+                        "col2Item2": "辣醬",
+                        "col2Item3": "敷料",
+                        "col3Title": "飲料",
+                        "col3Item1": "冰沙包",
+                        "col3Item2": "冷萃咖啡",
+                        "col3Item3": "混合雞尾酒",
+                        "col4Title": "油類和塗抹醬",
+                        "col4Item1": "食用油",
+                        "col4Item2": "蜂蜜和糖漿",
+                        "col4Item3": "酥油",
+                        "col5Title": "寵物食品",
+                        "col5Item1": "濕食品配料",
+                        "col5Item2": "肉汁和肉湯",
+                        "col5Item3": "寵物補充劑",
+                        "col6Title": "非食品",
+                        "col6Item1": "洗衣液",
+                        "col6Item2": "洗手液補充裝",
+                        "col6Item3": "清潔產品"
+                    },
+                    "spoutOptions": {
+                        "title": "有哪些噴嘴和蓋子可供選擇？",
+                        "col1Title": "噴嘴尺寸",
+                        "col1Item1": "液體標準",
+                        "col1Item2": "濃稠液體、果泥",
+                        "col1Item3": "黏稠產品",
+                        "col1Item4": "高黏度、糊狀",
+                        "col2Title": "瓶蓋特點",
+                        "col2Item1": "標準螺帽",
+                        "col2Item2": "翻蓋分配蓋",
+                        "col2Item3": "兒童安全（嬰兒食品）",
+                        "col2Item4": "防竄改帶",
+                        "galleryTitle": "帶嘴袋選項",
+                        "galleryCaption1": "噴嘴蓋",
+                        "galleryCaption2": "吸嘴袋",
+                        "galleryCaption3": "高門檻",
+                        "galleryCaption4": "光澤飾面"
+                    },
+                    "ecoMaterials": {
+                        "title": "哪些環保材質適用於液體包裝？",
+                        "intro": "帶嘴袋可以採用永續材料生產，從而減少對環境的影響，同時又不影響液體阻隔性能。",
+                        "kraftTitle": "🌾 什麼是「牛皮紙外觀」？",
+                        "kraftIntro": "牛皮紙外觀是一種數位印刷的牛皮紙圖案，在袋子表面塗有啞光塗層。 它為您提供牛皮紙自然、優質的外觀和觸感，同時<strong>100% 防水</strong>——這對於液體產品至關重要。",
+                        "kraftDesc": "牛皮紙外觀是一種數位印刷的牛皮紙圖案，在袋子表面塗有啞光塗層。 它為您提供牛皮紙自然、優質的外觀和觸感，同時<strong>100% 防水</strong>——這對於液體產品至關重要。",
+                        "kraftFootnote": "真正的牛皮紙會吸收水分，但我們的牛皮紙外觀表面可在不影響液體阻隔性能的情況下提供美觀性。",
+                        "clarificationTitle": "ℹ️重要：了解「生態」材料",
+                        "clarificationIntro": "Bio-PE 和 PCR 袋不可生物降解或可堆肥。 </strong>它們是報廢的傳統塑膠。 然而，它們在生命週期的<strong>開始</strong>階段是環保的：",
+                        "biopeTitle": "生物 PE（30-50% 生物基）",
+                        "biopeItem1": "由甘蔗聚乙烯製成",
+                        "biopeItem2": "可再生、可持續的來源",
+                        "biopeItem3": "減少對化石燃料的依賴",
+                        "biopeItem4": "可在 PE 流中完全回收",
+                        "learnMore": "了解更多→",
+                        "pcrTitle": "PCR（30% 回收成分）",
+                        "pcrItem1": "含有消費後再生塑料",
+                        "pcrItem2": "減少原生塑膠需求",
+                        "pcrItem3": "提供GRS認證",
+                        "pcrItem4": "可在 PE 流中完全回收",
+                        "compostableIntro": "需要真正可堆肥嗎？ </strong> <Link to=\"/materials/compostable\" className=\"underline\">查看我們的可堆肥選項 →</Link>（注意：可堆肥的吸嘴袋供應有限）",
+                        "compostableLink": "需要真正可堆肥嗎？ </strong> <Link to=\"/materials/compostable\" className=\"underline\">查看我們的可堆肥選項 →</Link>（注意：可堆肥的吸嘴袋供應有限）",
+                        "compostableOutro": "需要真正可堆肥嗎？ </strong> <Link to=\"/materials/compostable\" className=\"underline\">查看我們的可堆肥選項 →</Link>（注意：可堆肥的吸嘴袋供應有限）"
+                    },
+                    "specifications": {
+                        "title": "技術規格",
+                        "label1": "材質：PET/AL/PE、PET/PE或特殊結構",
+                        "val1": "材質：PET/AL/PE、PET/PE或特殊結構",
+                        "label2": "容量範圍：50ml至2L",
+                        "val2": "容量範圍：50ml至2L",
+                        "label3": "噴嘴位置：頂部中心、角落或側面",
+                        "val3": "噴嘴位置：頂部中心、角落或側面",
+                        "label4": "熱灌裝能力：高達 85°C",
+                        "val4": "熱灌裝能力：高達 85°C",
+                        "label5": "耐蒸煮：</strong> 121°C 的特殊結構",
+                        "val5": "耐蒸煮：</strong> 121°C 的特殊結構",
+                        "label6": "符合 FDA/EU 食品接觸標準</strong>",
+                        "val6": "符合 FDA/EU 食品接觸標準</strong>"
+                    },
+                    "aiSearch": {
+                        "title": "尋找合適的吸嘴袋供應商",
+                        "intro": "帶嘴袋包裝的關鍵考慮因素：",
+                        "bullet1Title": "噴嘴尺寸</strong> – 與您的產品黏度相匹配",
+                        "bullet1Text": "噴嘴尺寸</strong> – 與您的產品黏度相匹配",
+                        "bullet2Title": "帽子類型</strong> – 兒童安全、翻蓋或標準",
+                        "bullet2Text": "帽子類型</strong> – 兒童安全、翻蓋或標準",
+                        "bullet3Title": "自訂選項</strong> – <Link to=\"/store\" className=\"text-primary-600 hide:underline\">瀏覽我們的吸嘴袋",
+                        "bullet3Link": "自訂選項</strong> – <Link to=\"/store\" className=\"text-primary-600 hide:underline\">瀏覽我們的吸嘴袋",
+                        "bullet4Title": "熱灌裝能力</strong> – <Link to=\"/industry/sauces-condiments\" className=\"text-primary-600 hide:underline\">查看醬料包裝選項",
+                        "bullet4Link": "熱灌裝能力</strong> – <Link to=\"/industry/sauces-condiments\" className=\"text-primary-600 hide:underline\">查看醬料包裝選項",
+                        "headline": "💡如果您使用人工智慧搜尋（Gemini、ChatGPT），請嘗試詢問：",
+                        "query1": "最好的嬰兒食品吸嘴袋供應商是哪家？",
+                        "query2": "哪家公司提供低訂購量的環保液體袋？",
+                        "query3": "醬汁和調味品的最佳包裝？",
+                        "query4": "帶嘴袋與瓶子：哪個更永續？",
+                        "query5": "Retort-capable spout pouches for shelf-stable products?"
+                    },
+                    "riskHedging": {
+                        "title": "帶嘴袋適合您嗎？",
+                        "col1Title": "✅ 最適合...",
+                        "col1Item1": "需要傾倒的液體和半液體",
+                        "col1Item2": "替代硬質瓶子的產品",
+                        "col1Item3": "On-the-go consumption (baby food, smoothies)",
+                        "col1Item4": "補充產品減少包裝浪費",
+                        "col2Title": "⚠️ 也適用於...",
+                        "col2Item1": "具有較大噴嘴尺寸的黏性產品",
+                        "col2Item2": "熱灌裝產品（最高 85°C）",
+                        "col2Item3": "零售和餐飲服務應用",
+                        "col3Title": "❌ 不推薦如果...",
+                        "col3Item1": "產品乾燥（使用自立袋）",
+                        "col3Item2": "您需要在所有市場中實現完全可回收性",
+                        "col3Link": "考慮使用立式袋存放乾燥產品 →"
+                    },
+                    "decisionCta": {
+                        "title": "準備好推出吸嘴袋了嗎？",
+                        "col1Title": "準備好快速行動了嗎？",
+                        "col1Desc": "預約電話討論噴嘴尺寸和蓋子",
+                        "col1Btn": "來電預約",
+                        "col2Title": "想先測試一下嗎？",
+                        "col2Desc": "訂購吸嘴袋樣品（MOQ 500）",
+                        "col2Btn": "取得樣品",
+                        "col3Title": "還在探索嗎？",
+                        "col3Desc": "請參閱嬰兒食品或醬料包裝指南",
+                        "col3Btn": "查看行業頁面"
+                    },
+                    "industryScenarios": {
+                        "title": "產業應用",
+                        "segment1Title": "嬰兒食品品牌",
+                        "segment1Desc": "安全、可攜式吸嘴袋，配有兒童安全蓋，用於嬰兒營養。",
+                        "segment1Item1": "水果和蔬菜泥",
+                        "segment1Item2": "優格冰沙",
+                        "segment1Item3": "幼兒餐",
+                        "segment2Title": "醬料和調味品製造商",
+                        "segment2Desc": "適用於醬料、調味料和調味品的熱灌裝吸嘴袋。",
+                        "segment2Item1": "番茄醬和蛋黃醬",
+                        "segment2Item2": "辣醬",
+                        "segment2Item3": "沙拉醬",
+                        "segment3Title": "生態意識品牌",
+                        "segment3Desc": "補充袋使用的塑膠比硬瓶少 70%。",
+                        "segment3Item1": "瓶子再灌裝系統",
+                        "segment3Item2": "清潔產品",
+                        "segment3Item3": "個人護理補充裝",
+                        "successTitle": "🏆 客戶成功案例：小豆芽嬰兒食品",
+                        "successStory": "推出有機嬰兒食品系列，採用不含 BPA 的吸嘴袋，獲得清潔標籤認證，第一年達到 200% 的成長。",
+                        "successMetric1": "清潔標籤認證",
+                        "successMetric2": "年增 200%",
+                        "successMetric3": "塑膠用量減少 70%"
+                    },
+                    "marketData": {
+                        "title": "市場數據與情報",
+                        "stat1Val": "$3.8B",
+                        "stat1Label": "2027 年吸嘴袋市場",
+                        "stat2Val": "8.5%",
+                        "stat2Label": "2024-2027年複合年增長率",
+                        "stat3Val": "70%",
+                        "stat3Label": "與瓶子相比，塑膠更少",
+                        "stat4Val": "60%",
+                        "stat4Label": "節省運輸成本",
+                        "trendsTitle": "帶嘴袋與硬質瓶比較",
+                        "headers": {
+                            "feature": "特徵",
+                            "spout": "吸嘴袋",
+                            "bottle": "硬質瓶"
+                        },
+                        "row1": {
+                            "feature": "塑膠用途",
+                            "spout": "減少 70%",
+                            "bottle": "基線"
+                        },
+                        "row2": {
+                            "feature": "運輸重量",
+                            "spout": "輕 60%",
+                            "bottle": "基線"
+                        },
+                        "row3": {
+                            "feature": "儲存效率",
+                            "spout": "填充前平整",
+                            "bottle": "相同體積"
+                        },
+                        "row4": {
+                            "feature": "碳足跡",
+                            "spout": "降低 50%",
+                            "bottle": "基線"
+                        },
+                        "ecoTitle": "🌍環境影響",
+                        "ecoDesc": "帶嘴袋的塑膠用量比硬瓶少 70%，平裝運輸可減少運輸排放，並且可以使用 Bio-PE 或 PCR 成分進行生產，以增強可持續性。"
+                    },
+                    "materialComparison": {
+                        "title": "材質比較",
+                        "headers": {
+                            "feature": "特徵",
+                            "col1": "標準",
+                            "col2": "生物聚乙烯",
+                            "col3": "PCR內容"
+                        },
+                        "row1": {
+                            "feature": "最適合",
+                            "col1": "✅ 所有液體",
+                            "col2": "✅ 具有環保意識",
+                            "col3": "✅ ESG 目標"
+                        },
+                        "row2": {
+                            "feature": "熱灌裝能力",
+                            "col1": "✅ 高達 85°C",
+                            "col2": "✅ 高達 85°C",
+                            "col3": "✅ 高達 85°C"
+                        },
+                        "row3": {
+                            "feature": "耐蒸煮",
+                            "col1": "✅ 121°C 選項",
+                            "col2": "❌ 不可用",
+                            "col3": "✅ 121°C 選項"
+                        },
+                        "row4": {
+                            "feature": "生物內容",
+                            "col1": "0%",
+                            "col2": "30-50%",
+                            "col3": "0%（回收）"
+                        },
+                        "row5": {
+                            "feature": "可回收性",
+                            "col1": "⚠️有限",
+                            "col2": "♻️ PE 流",
+                            "col3": "♻️ PE 流"
+                        },
+                        "row6": {
+                            "feature": "價格點",
+                            "col1": "💰💰",
+                            "col2": "💰💰💰",
+                            "col3": "💰💰"
+                        },
+                        "guideTitle": "💡 吸嘴袋決策指南",
+                        "col1Title": "若符合以下條件，請選擇標準：",
+                        "col1Item1": "成本最佳化",
+                        "col1Item2": "蒸煮處理",
+                        "col1Item3": "最大屏障",
+                        "col2Title": "若符合以下條件，請選擇 Bio-PE：",
+                        "col2Item1": "環保品牌",
+                        "col2Item2": "再生能源採購",
+                        "col2Item3": "高端定位",
+                        "col3Title": "若符合以下條件，請選擇 PCR：",
+                        "col3Item1": "企業環境、社會及管治",
+                        "col3Item2": "循環經濟",
+                        "col3Item3": "高性價比生態"
+                    }
+                },
+                "metaTitle": "吸嘴袋 |液體包裝|倒嘴袋",
+                "metaDescription": "title=\"吸嘴袋 | 液體包裝 | 倒吸嘴袋",
+                "heroImageAlt": "液體吸嘴袋包裝",
+                "faqs": {
+                    "0": {
+                        "question": "吸嘴袋用於哪些產品？",
+                        "answer": "吸嘴袋非常適合液體、半液體和黏性產品，包括嬰兒食品泥、醬汁、調味品、飲料、冰沙包、食用油、蜂蜜、湯和寵物食品配料。 它們在洗滌劑補充裝等非食品應用中也很受歡迎。"
+                    },
+                    "1": {
+                        "question": "吸嘴袋可以回收嗎？",
+                        "answer": "在大多數市政系統中，標準多材料吸嘴袋的回收具有挑戰性。 不過，我們提供可在 PE 回收流中回收的單 PE 吸嘴袋。 回收前應將蓋子取下。"
+                    },
+                    "2": {
+                        "question": "吸嘴袋可以用於熱產品嗎？",
+                        "answer": "是的，我們提供適合在高達 85°C 的溫度下填充的熱灌裝吸嘴袋。 對於已滅菌、耐儲存的產品，我們提供可承受 121°C 加工的耐蒸煮袋。"
+                    },
+                    "3": {
+                        "question": "吸嘴袋的最小訂單量是多少？",
+                        "answer": "我們客製化印刷吸嘴袋的最低訂單量為 1,000 個。 對於帶有標準蓋的普通袋，我們可以提供 500 個的小批量。"
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "帶嘴袋尺寸指南",
+                        "data": {
+                            "headers": {
+                                "0": "容量",
+                                "1": "方面",
+                                "2": "Typical Use"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "90-100毫升",
+                                    "1": "100 × 150mm",
+                                    "2": "嬰兒食品單份"
+                                },
+                                "1": {
+                                    "0": "150毫升",
+                                    "1": "110×170毫米",
+                                    "2": "嬰兒食品、冰沙"
+                                },
+                                "2": {
+                                    "0": "250毫升",
+                                    "1": "130 × 200mm",
+                                    "2": "醬料、飲料"
+                                },
+                                "3": {
+                                    "0": "500毫升",
+                                    "1": "160×250毫米",
+                                    "2": "食用油、補充裝"
+                                },
+                                "4": {
+                                    "0": "1公升",
+                                    "1": "200×300毫米",
+                                    "2": "大規格筆芯"
+                                },
+                                "5": {
+                                    "0": "2公升",
+                                    "1": "250×350毫米",
+                                    "2": "批量補充、餐飲服務"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "選購吸嘴袋",
+                        "url": "/store",
+                        "description": "瀏覽液體包裝 - 起訂量 500 件起"
+                    },
+                    "1": {
+                        "title": "嬰兒食品包裝",
+                        "url": "/industry/baby-food",
+                        "description": "嬰兒營養品的安全包裝"
+                    },
+                    "2": {
+                        "title": "醬料和調味品",
+                        "url": "/工業/醬料-調味品",
+                        "description": "液體食品包裝解決方案"
+                    },
+                    "3": {
+                        "title": "自立袋",
+                        "url": "/包裝/自立袋",
+                        "description": "乾產品的替代品"
+                    },
+                    "4": {
+                        "title": "永續包裝指南",
+                        "url": "/部落格/永續包裝供應商分析",
+                        "description": "比較環保供應商"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "吸嘴袋",
+                    "1": "liquid pouch",
+                    "2": "倒嘴袋",
+                    "3": "嬰兒食品袋",
+                    "4": "醬袋",
+                    "5": "飲料袋",
+                    "6": "帶嘴袋",
+                    "7": "液體包裝袋"
                 }
             },
             "vacuumPouches": {
@@ -1884,6 +2791,186 @@
                     "title": "Get Custom Vacuum Pouches",
                     "description": "Request a free sample and quote for your vacuum packaging needs.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "什麼是真空袋？",
+                        "descStrong": "真空袋專為真空包裝而設計，在密封前除去空氣，以延長產品保質期。 </strong>這些高阻隔袋可防止氧氣、濕氣和污染物。",
+                        "descText": "真空袋專為真空包裝而設計，在密封前除去空氣，以延長產品保質期。 </strong>這些高阻隔袋可防止氧氣、濕氣和污染物。",
+                        "benefitsTitle": "主要優點：",
+                        "benefit1": "延長保存期限（比標準長 3-5 倍）",
+                        "benefit2": "防止氧化和冷凍灼傷",
+                        "benefit3": "保持產品的新鮮度和品質",
+                        "benefit4": "減少食物浪費",
+                        "benefit5": "相容真空低溫烹飪"
+                    },
+                    "applications": {
+                        "title": "常見應用",
+                        "card1Title": "肉類和家禽",
+                        "card1Item1": "新鮮切塊",
+                        "card1Item2": "醃肉類",
+                        "card1Item3": "加工肉類",
+                        "card1Item4": "熟食產品",
+                        "card2Title": "海鮮",
+                        "card2Item1": "新鮮的魚",
+                        "card2Item2": "煙燻鮭魚",
+                        "card2Item3": "貝類",
+                        "card2Item4": "冷凍海鮮",
+                        "card3Title": "乳酪和乳製品",
+                        "card3Item1": "塊狀乳酪",
+                        "card3Item2": "切片起司",
+                        "card3Item3": "特色乳酪",
+                        "card3Item4": "奶油",
+                        "card4Title": "即食食品",
+                        "card4Item1": "真空低溫烹調法餐點",
+                        "card4Item2": "餐包",
+                        "card4Item3": "預煮蛋白質",
+                        "card4Item4": "醃漬食品",
+                        "card5Title": "咖啡",
+                        "card5Item1": "烤豆",
+                        "card5Item2": "研磨咖啡",
+                        "card5Item3": "單一來源",
+                        "card5Item4": "特種混合物",
+                        "card6Title": "非食品",
+                        "card6Item1": "電子產品",
+                        "card6Item2": "醫療器材",
+                        "card6Item3": "藥品",
+                        "card6Item4": "檔案存儲"
+                    },
+                    "types": {
+                        "title": "真空袋類型",
+                        "card1Title": "室真空袋",
+                        "card1Desc": "用於室式真空機的光滑表面。 成本較低，適用於液體。",
+                        "card2Title": "外部真空袋",
+                        "card2Desc": "用於外部密封劑的壓花/溝槽表面。 相容更廣泛。",
+                        "card3Title": "蒸煮真空袋",
+                        "card3Desc": "耐熱用於巴氏殺菌/滅菌。 貨架穩定的產品。",
+                        "card4Title": "真空低溫烹調袋",
+                        "card4Desc": "蒸煮袋的額定浸泡烹飪溫度可達 100°C。"
+                    },
+                    "specifications": {
+                        "title": "技術規格",
+                        "item1Title": "材質：PA/PE（尼龍/聚乙烯）多層",
+                        "item1Desc": "材質：PA/PE（尼龍/聚乙烯）多層",
+                        "item2Title": "厚度：70-150微米",
+                        "item2Desc": "厚度：70-150微米",
+                        "item3Title": "OTR：</strong> <1.0 cc/m²/24hr（氧氣傳輸）",
+                        "item3Desc": "OTR：</strong> <1.0 cc/m²/24hr（氧氣傳輸）",
+                        "item4Title": "MVTR：</strong> <2.0 g/m²/24hr（透濕率）",
+                        "item4Desc": "MVTR：</strong> <2.0 g/m²/24hr（透濕率）",
+                        "item5Title": "密封強度：</strong>>25 N/15mm",
+                        "item5Desc": "密封強度：</strong>>25 N/15mm",
+                        "item6Title": "耐穿刺性：</strong>高（針對帶骨產品）",
+                        "item6Desc": "耐穿刺性：</strong>高（針對帶骨產品）"
+                    },
+                    "industryScenarios": {
+                        "title": "產業應用",
+                        "card1Title": "肉類加工 肉類加工",
+                        "card1Desc": "生鮮肉、加工肉、熟食肉、冷凍肉",
+                        "card1Share": "份額：40%",
+                        "card2Title": "海鮮水產養殖海鮮",
+                        "card2Desc": "鮮魚、煙燻鮭魚、貝類、冷凍海鮮",
+                        "card2Share": "30%市場佔有率",
+                        "card3Title": "乳製品 乳製品",
+                        "card3Desc": "起司塊、起司片、奶油、奶油起司",
+                        "card3Share": "30%市場佔有率",
+                        "storyTitle": "客戶成功案例",
+                        "storyQuote": "「我們的肉類加工工廠採用真空袋後，產品保質期從5天延長到21天，滿足跨區域配送要求，產品浪費率也減少80%。」",
+                        "storyAuthor": "— 高品質肉品加工商，月出貨量10萬台"
+                    },
+                    "marketData": {
+                        "title": "市場數據與情報",
+                        "card1Value": "$12.5B",
+                        "card1Desc": "全球真空袋市場",
+                        "card1Sub": "2024年尺寸",
+                        "card2Value": "6.3%",
+                        "card2Desc": "複合年增長率",
+                        "card2Sub": "2024-2030",
+                        "card3Value": "3-5倍",
+                        "card3Desc": "延長保存期限",
+                        "card3Sub": "與標準包裝相比",
+                        "card4Value": "45%",
+                        "card4Desc": "肌肉護理市場佔有率：",
+                        "card4Sub": "最大的應用領域",
+                        "trendTitle": "市場趨勢洞察",
+                        "trend1": "><strong>Sous Vide Freshness Market</strong>：Cookable vacuum bags requirements yearly growth 18%</span",
+                        "trend2": "><strong>可回收真空袋</strong>：單色PE真空袋符合環保要求</span"
+                    },
+                    "materialComparison": {
+                        "title": "材質比較",
+                        "th1": "材料類型",
+                        "th2": "障礙",
+                        "th3": "耐熱",
+                        "th4": "環保",
+                        "th5": "推薦用途",
+                        "row1Col1": "PA/PE尼龍",
+                        "row1Col4": "難以回收",
+                        "row1Col5": "生鮮肉類類、海鮮類",
+                        "row2Col1": "PA/PE 可煮",
+                        "row2Col4": "難以回收",
+                        "row2Col5": "真空低溫烹調法",
+                        "row3Col1": "滅菌蒸煮袋",
+                        "row3Col4": "難以回收",
+                        "row3Col5": "即食食品",
+                        "row4Col1": "單PE可回收",
+                        "row4Col4": "♥️可回收",
+                        "row4Col5": "環保優先商品",
+                        "guideTitle": "材料選擇指南",
+                        "guideDesc": "真空袋需要高阻隔材料。生鮮肉品選擇PA/PEN尼龍材質；如需真空低溫烹調則選擇可煮型；如果環保優先可以選擇Mono PERecyclable EditionBook。"
+                    }
+                },
+                "seo": {
+                    "title": "真空袋|真空密封袋|真空低溫烹調袋",
+                    "description": "title=\"真空袋 | 真空密封袋 | 真空低溫烹調袋",
+                    "heroTitle": "seoPages.pages.vacuumPouches.heroTitle",
+                    "heroSubtitle": "seoPages.pages.vacuumPouches.heroSubtitle",
+                    "heroImageAlt": "真空密封包裝袋",
+                    "introSummary": "seoPages.pages.vacuumPouches.introSummary",
+                    "keywords": {
+                        "0": "真空袋",
+                        "1": "真空密封袋",
+                        "2": "真空低溫烹調袋",
+                        "3": "真空包裝",
+                        "4": "食物保存袋",
+                        "5": "腔室真空袋",
+                        "6": "肉類真空袋",
+                        "7": "咖啡真空包裝"
+                    }
+                },
+                "faqs": {
+                    "0": {
+                        "question": "How much longer does vacuum packaging extend shelf life?",
+                        "answer": "與標準包裝相比，真空包裝通常可將保質期延長 3-5 倍。 例如，新鮮肉類在常規包裝下可保存 3-5 天，但在真空密封冷藏下可保存 2-3 週。"
+                    },
+                    "1": {
+                        "question": "真空袋可以用於真空低溫烹調嗎？",
+                        "answer": "是的，我們提供真空低溫烹調真空袋，可在高達 100°C (212°F) 的溫度下安全地進行浸泡烹飪。 這些袋子在長時間的烹飪過程中保持密封完整性。"
+                    },
+                    "2": {
+                        "question": "內室真空袋和外置真空袋有什麼不同？",
+                        "answer": "室袋光滑，可與室式真空機（商業環境中常見）配合使用。 外部袋子具有壓花/通道紋理，用於排空空氣，並可與手持式和外部密封機配合使用。"
+                    },
+                    "3": {
+                        "question": "真空袋可以回收嗎？",
+                        "answer": "標準 PA/PE 真空袋由於其多層結構而難以回收。 我們為優先考慮回收的應用提供可回收的單 PE 真空袋，儘管它們的阻隔性能稍低。"
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "冷凍食品包裝",
+                        "url": "/業/冷凍食品",
+                        "description": "冷凍產品解決方案"
+                    },
+                    "1": {
+                        "title": "寵物食品包裝",
+                        "url": "/業/寵物食品",
+                        "description": "Fresh pet food solutions"
+                    },
+                    "2": {
+                        "title": "可回收的單PE",
+                        "url": "/材料/可回收-mono-pe",
+                        "description": "永續真空選項"
+                    }
                 }
             },
             "flatPouches": {
@@ -1895,6 +2982,263 @@
                     "title": "Get Custom Sachets",
                     "description": "Request a free sample and quote for your sachet packaging needs.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "此頁面適合您嗎？",
+                        "intro": "如果您需要<strong>經濟的單份包裝、樣品或小袋</strong>，那麼您來對地方了。",
+                        "col1Title": "樣品生產者",
+                        "col1Desc": "產品樣品、試用尺寸",
+                        "col2Title": "餐飲服務",
+                        "col2Desc": "醬料包、糖包",
+                        "col3Title": "茶和香料品牌",
+                        "col3Desc": "單份份量"
+                    },
+                    "overview": {
+                        "title": "什麼是三邊封袋？",
+                        "intro": "三邊密封袋（也稱為平袋或小袋）在三個側面進行密封，頂部開口用於填充。 </strong>這是最經濟的軟包裝形式，非常適合樣品、單份產品和輕質物品。",
+                        "desc": "三邊密封袋（也稱為平袋或小袋）在三個側面進行密封，頂部開口用於填充。 </strong>這是最經濟的軟包裝形式，非常適合樣品、單份產品和輕質物品。",
+                        "characteristicsTitle": "主要優點：",
+                        "char1": "Most cost-effective pouch format",
+                        "char2": "有效利用材料（減少浪費）",
+                        "char3": "緊湊的運輸和存儲",
+                        "char4": "快速填充和密封",
+                        "char5": "輕鬆撕開訪問"
+                    },
+                    "types": {
+                        "title": "3 側密封與 4 側密封",
+                        "col1Title": "三邊密封",
+                        "col1Intro": "由折疊薄膜製成，三面密封：",
+                        "col1Item1": "一折邊（無密封）",
+                        "col1Item2": "兩側密封",
+                        "col1Item3": "填充後底部或頂部密封",
+                        "col1Item4": "最經濟的選擇",
+                        "col2Title": "四邊密封",
+                        "col2Intro": "由兩張單獨的板材製成：",
+                        "col2Item1": "4 個邊緣全部密封",
+                        "col2Item2": "表面積稍微大一點",
+                        "col2Item3": "可以使用不同的正面/背面材料",
+                        "col2Item4": "成本稍高"
+                    },
+                    "applications": {
+                        "title": "常見應用",
+                        "items": {
+                            "0": "產品樣品",
+                            "1": "單份份量",
+                            "2": "香料香袋",
+                            "3": "糖和甜味劑包",
+                            "4": "醬料袋",
+                            "5": "茶包（外）",
+                            "6": "種子包",
+                            "7": "促銷品",
+                            "8": "藥袋",
+                            "9": "化妝品樣品",
+                            "10": "飯店設施",
+                            "11": "濕紙巾"
+                        }
+                    },
+                    "features": {
+                        "title": "可用功能",
+                        "col1Title": "開放特色",
+                        "col1Item1": "撕裂切口（V 型切口或雷射刻痕）",
+                        "col1Item2": "易剝離密封",
+                        "col1Item3": "穿孔線",
+                        "col1Item4": "模切形狀",
+                        "col2Title": "附加選項",
+                        "col2Item1": "掛孔展示",
+                        "col2Item2": "清除視窗",
+                        "col2Item3": "霧面/亮光飾面",
+                        "col2Item4": "燙金",
+                        "galleryTitle": "三面密封袋選項",
+                        "galleryCaption1": "三邊密封",
+                        "galleryCaption2": "透明薄膜",
+                        "galleryCaption3": "牛皮紙",
+                        "galleryCaption4": "可堆肥"
+                    },
+                    "riskHedge": {
+                        "title": "還不確定嗎？ 我們有答案",
+                        "q1": "小袋環保嗎？",
+                        "a1": "是的，提供 PLA 和紙/PLA 選項",
+                        "q2": "最小起訂量是多少？",
+                        "a2": "500 張普通紙，1,000 張客製化印刷紙",
+                        "q3": "他們可以有拉鍊嗎？",
+                        "a3": "是的，或考慮使用可重新密封的自立袋",
+                        "q4": "我可以獲得樣品嗎？",
+                        "a4": "免費小袋樣品用於評估"
+                    },
+                    "decisionCta": {
+                        "title": "準備好開始了嗎？",
+                        "headline": "選擇您想要的連線方式",
+                        "col1Title": "來電預約",
+                        "col1Desc": "30分鐘免費諮詢",
+                        "col1Btn": "立即安排",
+                        "col2Title": "電子郵件報價",
+                        "col2Desc": "24 小時內得到回覆",
+                        "col2Btn": "傳送電子郵件",
+                        "col3Title": "免費樣品",
+                        "col3Desc": "先測試小袋",
+                        "col3Btn": "索取樣品"
+                    },
+                    "industryScenarios": {
+                        "title": "產業應用",
+                        "segment1Title": "食品及調味品",
+                        "segment1Desc": "醬料包、糖包、調味包、調味包",
+                        "segment1Share": "45%市場佔有率",
+                        "segment2Title": "化妝品樣品",
+                        "segment2Desc": "面膜精華液、乳液樣品、保養品試用",
+                        "segment2Share": "30%市場佔有率",
+                        "segment3Title": "醫藥與健康",
+                        "segment3Desc": "藥品部分、補充試驗、營養包",
+                        "segment3Share": "25%市場佔有率",
+                        "successTitle": "客戶成功案例",
+                        "successStory": "改用三邊封小包後，我們的調味品品牌單位成本降低了35%，同時完美滿足餐飲服務一次性需求，顯著擴大了市場覆蓋範圍。",
+                        "successAuthor": "— 調味品製造商，200萬台以上/月"
+                    },
+                    "marketData": {
+                        "title": "市場數據與情報",
+                        "stat1Val": "$8.2B",
+                        "stat1Label": "全球香袋市場規模",
+                        "stat1Sub": "2024年價值",
+                        "stat2Val": "6.8%",
+                        "stat2Label": "複合年增長率",
+                        "stat2Sub": "2024-2030",
+                        "stat3Val": "35%",
+                        "stat3Label": "餐飲服務市佔率",
+                        "stat3Sub": "最大的最終用途部門",
+                        "stat4Val": "1500億",
+                        "stat4Label": "亞太地區年消費量",
+                        "stat4Sub": "全球最大的市場",
+                        "trendsTitle": "市場趨勢洞察",
+                        "trend1Bold": "單份市場：便利需求推動小袋裝持續成長",
+                        "trend1Text": "單份市場：便利需求推動小袋裝持續成長",
+                        "trend2Bold": "可堆肥材料</strong>：PLA和生態材料的需求每年增長25%",
+                        "trend2Text": "可堆肥材料</strong>：PLA和生態材料的需求每年增長25%"
+                    },
+                    "materialComparison": {
+                        "title": "材質比較",
+                        "headers": {
+                            "type": "材料類型",
+                            "barrier": "障礙",
+                            "cost": "成本",
+                            "eco": "環保",
+                            "use": "推薦用途"
+                        },
+                        "row1": {
+                            "type": "PET/PE 透明",
+                            "eco": "可回收",
+                            "use": "糖包、乾食品"
+                        },
+                        "row2": {
+                            "type": "鋁箔層壓板",
+                            "eco": "難以回收",
+                            "use": "醬料、藥品"
+                        },
+                        "row3": {
+                            "type": "牛皮紙層壓板",
+                            "eco": "自然外觀",
+                            "use": "茶包、香料"
+                        },
+                        "row4": {
+                            "type": "PLA 可堆肥",
+                            "eco": "🌱可堆肥",
+                            "use": "有機食品、樣品"
+                        },
+                        "guideTitle": "材料選擇指南",
+                        "guideText": "三邊封小袋非常適合成本敏感的一次性場景。對於液體包裝選擇鋁箔層壓板；對於環保要求選擇PLA可降解材料。"
+                    }
+                },
+                "metaTitle": "三邊封袋 |平袋|香袋|樣品包裝",
+                "metaDescription": "title=\"三面封袋 | 平袋 | 小袋 | 樣品包裝",
+                "heroImageAlt": "三邊封平袋小袋包裝",
+                "faqs": {
+                    "0": {
+                        "question": "三邊封和四邊封有什麼差別？",
+                        "answer": "三邊封袋由折疊薄膜製成（三邊密封），而四邊封袋則使用兩張單獨的片材（四邊全部密封）。 三邊密封更經濟，而四邊密封提供稍大的表面積，並允許正面和背面使用不同的材料。"
+                    },
+                    "1": {
+                        "question": "What is the minimum order for sachets?",
+                        "answer": "我們的客製化印刷小袋起訂量為 1,000 個單位。 對於普通小袋，我們可以提供 500 單位。 每單位的價格較低，使得小袋裝即使數量較少也很經濟。"
+                    },
+                    "2": {
+                        "question": "平口袋可以有可重新密封的拉鍊嗎？",
+                        "answer": "傳統的平口袋是一次性的，但我們可以添加拉鍊來創建可重新密封的平口袋。 然而，對於可重新密封的應用，自立袋通常提供更好的功能和價值。"
+                    },
+                    "3": {
+                        "question": "平口袋是否有可堆肥材料製成？",
+                        "answer": "是的，我們提供由 PLA、紙/PLA 或纖維素基薄膜製成的可堆肥扁平袋。 這些產品已通過工業堆肥 EN 13432 認證。"
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "平袋尺寸指南",
+                        "data": {
+                            "headers": {
+                                "0": "尺寸",
+                                "1": "方面",
+                                "2": "典型容量",
+                                "3": "常用"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "小香袋",
+                                    "1": "50×70毫米",
+                                    "2": "5-10克 / 5-10毫升",
+                                    "3": "糖包、樣品"
+                                },
+                                "1": {
+                                    "0": "中型小袋",
+                                    "1": "70×100毫米",
+                                    "2": "10-30克",
+                                    "3": "香料、醬料袋"
+                                },
+                                "2": {
+                                    "0": "大香袋",
+                                    "1": "100×150毫米",
+                                    "2": "30-100克",
+                                    "3": "茶葉外包裝、種子包裝"
+                                },
+                                "3": {
+                                    "0": "樣品袋",
+                                    "1": "80×120毫米",
+                                    "2": "20-50克",
+                                    "3": "產品樣品"
+                                },
+                                "4": {
+                                    "0": "促銷",
+                                    "1": "120×180毫米",
+                                    "2": "50-100克",
+                                    "3": "促銷品"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "自立袋",
+                        "url": "/包裝/自立袋",
+                        "description": "自立式替代方案"
+                    },
+                    "1": {
+                        "title": "可堆肥材料",
+                        "url": "/材料/可堆肥",
+                        "description": "環保袋選擇"
+                    },
+                    "2": {
+                        "title": "咖啡和茶",
+                        "url": "/行業/咖啡茶",
+                        "description": "袋泡茶解決方案"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "3邊封袋",
+                    "1": "扁袋",
+                    "2": "小袋包裝",
+                    "3": "樣品袋",
+                    "4": "單份服務包",
+                    "5": "香袋",
+                    "6": "平袋包裝",
+                    "7": "4邊封袋"
                 }
             },
             "sideGussetBags": {
@@ -1906,6 +3250,207 @@
                     "title": "Get Custom Side Gusset Bags",
                     "description": "Request a free sample and quote for your bulk products.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "什麼是側角袋？",
+                        "intro": "側角撐板袋（也稱為四邊密封袋）具有可擴展的側板，可提供高容量，同時保持緊湊的佔地面積。 </strong>這種​​傳統的袋子格式在咖啡、茶和散裝產品中很受歡迎。",
+                        "desc": "側角撐板袋（也稱為四邊密封袋）具有可擴展的側板，可提供高容量，同時保持緊湊的佔地面積。 </strong>這種​​傳統的袋子格式在咖啡、茶和散裝產品中很受歡迎。",
+                        "characteristicsTitle": "主要特點：",
+                        "char1": "可擴展的側角撐板可實現大容量",
+                        "char2": "四邊密封結構（4 條接縫）",
+                        "char3": "空時緊湊，充滿時膨脹",
+                        "char4": "傳統咖啡袋外觀",
+                        "char5": "多種閉合方式可供選擇"
+                    },
+                    "construction": {
+                        "title": "袋子結構",
+                        "panelTitle": "面板結構",
+                        "panel1": "前面板 – 主要品牌",
+                        "panel2": "後面板 – 訊息",
+                        "panel3": "2 個側角撐板 – 擴大體積",
+                        "panel4": "頂部/底部密封",
+                        "closureTitle": "關閉選項",
+                        "closure1": "錫紮帶（用鐵絲折疊）",
+                        "closure2": "熱封（永久）",
+                        "closure3": "可重新密封的拉鍊",
+                        "closure4": "帶標籤折疊"
+                    },
+                    "applications": {
+                        "title": "常見應用",
+                        "items": {
+                            "0": "咖啡豆",
+                            "1": "研磨咖啡",
+                            "2": "散葉茶",
+                            "3": "米和穀物",
+                            "4": "麵粉和烘焙",
+                            "5": "寵物食品",
+                            "6": "鳥種子",
+                            "7": "乾麵食",
+                            "8": "堅果和種子",
+                            "9": "乾果",
+                            "10": "餅乾和餅乾",
+                            "11": "散裝香料"
+                        }
+                    },
+                    "features": {
+                        "title": "附加功能",
+                        "feature1Title": "排氣閥",
+                        "feature1Desc": "用於新鮮烘焙咖啡的單向閥。 釋放二氧化碳而不讓氧氣進入。",
+                        "feature2Title": "清除視窗",
+                        "feature2Desc": "顯示產品內容。 有多種形狀和位置可供選擇。",
+                        "feature3Title": "掛孔",
+                        "feature3Desc": "用於零售展示懸掛的歐元槽或圓孔。"
+                    },
+                    "industryScenarios": {
+                        "title": "產業應用",
+                        "segment1Title": "咖啡烘焙 咖啡烘焙機",
+                        "segment1Desc": "精品咖啡豆、單一產地咖啡豆、經典咖啡袋格式",
+                        "segment1Share": "份額：55%",
+                        "segment2Title": "TeaBrand 茶葉品牌",
+                        "segment2Desc": "散裝茶、高山茶、傳統茶包裝",
+                        "segment2Share": "25%市場佔有率",
+                        "segment3Title": "穀物食品 穀物和大米",
+                        "segment3Desc": "米、雜糧、大麻、豆類散裝包裝",
+                        "segment3Share": "份額：20%",
+                        "successTitle": "客戶成功案例",
+                        "successStory": "「我們的精品咖啡品牌採用帶有排氣閥的側角插袋後，新鮮烘焙的咖啡CO2可以正常釋放，同時保持包裝美觀度的同時，客戶滿意度提高40%。」",
+                        "successAuthor": "— 特色產品咖啡烘焙機，每月銷售5000袋"
+                    },
+                    "marketData": {
+                        "title": "市場數據與情報",
+                        "stat1Val": "$4.8B",
+                        "stat1Label": "GlobalSide 角撐袋市場",
+                        "stat1Sub": "2024年尺寸",
+                        "stat2Val": "5.2%",
+                        "stat2Label": "複合年增長率",
+                        "stat2Sub": "2024-2030",
+                        "stat3Val": "65%",
+                        "stat3Label": "咖啡應用分享：",
+                        "stat3Sub": "最大的應用領域",
+                        "stat4Val": "32%",
+                        "stat4Label": "精品咖啡市場成長率",
+                        "stat4Sub": "駕駛包裝增加溢價",
+                        "trendsTitle": "市場趨勢洞察",
+                        "trend1Bold": "傳統格式回傳：精品咖啡品牌偏好經典側角袋外觀",
+                        "trend1Text": "傳統格式回傳：精品咖啡品牌偏好經典側角袋外觀",
+                        "trend2Bold": "排氣閥標準：85%咖啡袋配備單向排氣閥",
+                        "trend2Text": "排氣閥標準：85%咖啡袋配備單向排氣閥"
+                    },
+                    "materialComparison": {
+                        "title": "材質比較",
+                        "headers": {
+                            "type": "材料類型",
+                            "barrier": "障礙",
+                            "cost": "成本",
+                            "eco": "環保",
+                            "use": "推薦用途"
+                        },
+                        "row1": {
+                            "type": "牛皮紙/鋁箔",
+                            "eco": "紙張外觀",
+                            "use": "精品咖啡、高級茶"
+                        },
+                        "row2": {
+                            "type": "PET/鋁/PE",
+                            "eco": "難以回收",
+                            "use": "延長保鮮期咖啡"
+                        },
+                        "row3": {
+                            "type": "單PE可回收",
+                            "eco": "♥️可回收",
+                            "use": "環保咖啡品牌"
+                        },
+                        "row4": {
+                            "type": "PLA 可堆肥",
+                            "eco": "🌱可堆肥",
+                            "use": "有機咖啡和茶"
+                        },
+                        "guideTitle": "材料選擇指南",
+                        "guideText": "側邊折邊袋是經典的咖啡包裝格式。要求最大最佳新鲜效果选择铝箔层压板；追求环保形象可以选择Mono PE可回收材料。"
+                    }
+                },
+                "metaTitle": "側邊插角袋 |四密封袋|咖啡袋",
+                "metaDescription": "title=\"側角袋 | 四面封袋 | 咖啡袋",
+                "heroImageAlt": "側角咖啡袋包裝",
+                "faqs": {
+                    "0": {
+                        "question": "側插袋和平底袋有什麼差別？",
+                        "answer": "Side gusset bags have expandable side panels and lay relatively flat, while flat bottom bags have a rigid rectangular base for superior standing stability. Flat bottom bags offer more shelf presence but cost more. Side gusset bags are more traditional for coffee and offer good capacity."
+                    },
+                    "1": {
+                        "question": "側插袋適合自動填充嗎？",
+                        "answer": "是的，側面角撐板袋與 VFFS（垂直成型填充密封）機器配合良好。 我們可以為自動包裝線提供預製袋或捲材薄膜。"
+                    },
+                    "2": {
+                        "question": "有哪些尺寸可供選擇？",
+                        "answer": "側邊插角袋的容量範圍為 100 克至 5 公斤。 常見規格有250公克、500公克、1公斤和2.5公斤。 超過 5,000 件的訂單可客製尺寸。"
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "側角撐板袋尺寸指南",
+                        "data": {
+                            "headers": {
+                                "0": "容量",
+                                "1": "尺寸（寬×高×高）",
+                                "2": "常用"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "250克",
+                                    "1": "100×280×60毫米",
+                                    "2": "零售咖啡、茶"
+                                },
+                                "1": {
+                                    "0": "500克",
+                                    "1": "120×320×70毫米",
+                                    "2": "咖啡豆、乾果"
+                                },
+                                "2": {
+                                    "0": "1公斤",
+                                    "1": "140×380×80毫米",
+                                    "2": "寵物食品、米"
+                                },
+                                "3": {
+                                    "0": "2.5公斤",
+                                    "1": "180×450×100毫米",
+                                    "2": "散裝產品"
+                                },
+                                "4": {
+                                    "0": "5公斤",
+                                    "1": "220×550×120毫米",
+                                    "2": "大規格寵物食品"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "平底袋",
+                        "url": "/包裝/平底袋",
+                        "description": "具有更好穩定性的優質替代品"
+                    },
+                    "1": {
+                        "title": "自立袋",
+                        "url": "/包裝/自立袋",
+                        "description": "流行的現代格式"
+                    },
+                    "2": {
+                        "title": "咖啡和茶",
+                        "url": "/行業/咖啡茶",
+                        "description": "精品咖啡解決方案"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "側邊插角袋",
+                    "1": "四邊密封袋",
+                    "2": "咖啡袋角撐板",
+                    "3": "角板袋",
+                    "4": "側折袋",
+                    "5": "錫領帶咖啡袋",
+                    "6": "散裝食品袋"
                 }
             },
             "coffeeTea": {
@@ -9551,6 +11096,353 @@
                 "ctaBtn2": "諮詢包裝工程師",
                 "wholesaleTitle": "正在尋求大批量 B2B 批發單 PE 層壓卷材？",
                 "wholesaleDesc": "有關高速成型-填充-密封 (VFFS/HFFS) 生產線、結構共擠和批量報價，請查看我們的批發門戶："
+            },
+            "customBoxes": {
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "此頁面適合您嗎？",
+                        "intro": "如果您需要<strong>手工產品的優質硬包裝</strong>（巧克力、茶、咖啡或豪華禮品），那麼您來對地方了。",
+                        "card1Title": "巧克力和糖果",
+                        "card1Desc": "金箔和壓花的高級展示",
+                        "card2Title": "咖啡和茶品牌",
+                        "card2Desc": "用於優質混合物的硬質郵遞盒",
+                        "card3Title": "工匠食品生產商",
+                        "card3Desc": "FSC 認證的可持續包裝"
+                    },
+                    "overview": {
+                        "title": "我們提供哪些客製化盒子？",
+                        "intro": "strong>Achieve Pack offers premium custom printed rigid boxes</strong> designed for artisan food products, specialty coffee, luxury gifts, and high-end retail. Our boxes feature FSC certified materials, matte lamination, and optional premium finishes including gold foil stamping and embossing.",
+                        "card1Title": "瓦楞郵寄箱",
+                        "card1Desc": "非常適合需要堅固運輸保護的咖啡、茶和手工食品。",
+                        "card1Feat1": "✓ 500g尺寸：130×85×35mm",
+                        "card1Feat2": "✓ 1kg尺寸：270×85×35mm",
+                        "card1Feat3": "✓ CMYK 自訂列印",
+                        "card1Feat4": "✓ 霧面表面標準",
+                        "card1Feat5": "✓ 提供金箔",
+                        "card1Feat6": "✓ FSC 認證紙張",
+                        "cardLinkText": "查看定價與訂單 →",
+                        "card2Title": "紙箱（紙箱）",
+                        "card2Desc": "Elegant folding cartons for chocolate bars, tea sachets, and premium confectionery.",
+                        "card2Feat1": "✓ 100g尺寸：81×162×15mm",
+                        "card2Feat2": "✓ 250公克白卡",
+                        "card2Feat3": "✓ 燙金",
+                        "card2Feat4": "✓ 壓花細節",
+                        "card2Feat5": "✓ 霧面飾面",
+                        "card2Feat6": "✓ FSC 認證"
+                    },
+                    "features": {
+                        "title": "高級功能和飾面",
+                        "card1Title": "✨ 金箔燙金",
+                        "card1Desc": "燙印金屬金色點綴奢華品牌",
+                        "card2Title": "🎨 浮雕細節",
+                        "card2Desc": "凸起紋理帶來優質觸覺體驗",
+                        "card3Title": "📦 霧面層壓",
+                        "card3Desc": "所有盒子均採用精緻的霧面飾面標準",
+                        "card4Title": "🌱 FSC 認證",
+                        "card4Desc": "可持續來源的再生紙材料",
+                        "card5Title": "🖨️ CMYK 印刷",
+                        "card5Desc": "全彩客製化印刷打造充滿活力的品牌",
+                        "card6Title": "💪 剛性結構",
+                        "card6Desc": "2.0 毫米灰板可實現卓越的結構完整性",
+                        "galleryTitle": "盒子類型和样式",
+                        "galleryCap1": "瓦楞紙郵寄袋",
+                        "galleryCap2": "塔盒紙箱",
+                        "galleryCap3": "金箔飾面",
+                        "galleryCap4": "浮雕紋理"
+                    },
+                    "applications": {
+                        "title": "非常適合這些產品",
+                        "card1Title": "朱古力",
+                        "card1Desc": "巧克力棒、松露、果仁糖",
+                        "card2Title": "茶",
+                        "card2Desc": "活頁、香袋、禮品套裝",
+                        "card3Title": "咖啡",
+                        "card3Desc": "特產豆、禮盒",
+                        "card4Title": "糖果點心",
+                        "card4Desc": "糖果、甜點、馬卡龍",
+                        "card5Title": "麵包店",
+                        "card5Desc": "餅乾、餅乾、糕點",
+                        "card6Title": "禮品套裝",
+                        "card6Desc": "豪華禮品包裝",
+                        "card7Title": "工匠食品",
+                        "card7Desc": "蜂蜜、果醬、特產",
+                        "card8Title": "優質零售",
+                        "card8Desc": "高端貨架展示"
+                    },
+                    "sustainability": {
+                        "title": "環保且永續",
+                        "cardTitle": "🌱我們的永續發展承諾",
+                        "card1Title": "FSC 認證材料",
+                        "card1Item1": "再生紙和紙板",
+                        "card1Item2": "負責任採購的纖維",
+                        "card1Item3": "支持永續林業",
+                        "card2Title": "可回收包裝",
+                        "card2Item1": "路邊可回收",
+                        "card2Item2": "材料浪費最少",
+                        "card2Item3": "環保生產",
+                        "exploreTextPre": "正在尋找彈性的生態包裝？ 探索我們的<Link to=\"/materials/compostable\" className=\"text-primary-600 hoover:underline\">可堆肥袋</Link>和<Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hide:underline\">可回收單PE選項</Link>。",
+                        "exploreLink1": "正在尋找彈性的生態包裝？ 探索我們的<Link to=\"/materials/compostable\" className=\"text-primary-600 hoover:underline\">可堆肥袋</Link>和<Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hide:underline\">可回收單PE選項</Link>。",
+                        "exploreTextMid": "正在尋找彈性的生態包裝？ 探索我們的<Link to=\"/materials/compostable\" className=\"text-primary-600 hoover:underline\">可堆肥袋</Link>和<Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hide:underline\">可回收單PE選項</Link>。",
+                        "exploreLink2": "正在尋找彈性的生態包裝？ 探索我們的<Link to=\"/materials/compostable\" className=\"text-primary-600 hoover:underline\">可堆肥袋</Link>和<Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hide:underline\">可回收單PE選項</Link>。",
+                        "exploreTextPost": "正在尋找彈性的生態包裝？ 探索我們的<Link to=\"/materials/compostable\" className=\"text-primary-600 hoover:underline\">可堆肥袋</Link>和<Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hide:underline\">可回收單PE選項</Link>。"
+                    },
+                    "pricing": {
+                        "title": "定價和最小起訂量",
+                        "card1Title": "📦 瓦楞郵寄箱定價",
+                        "card1Th1": "數量",
+                        "card1Th2": "500克盒裝",
+                        "card1Th3": "1公斤盒裝",
+                        "card1Row1Col1": "200 件",
+                        "card1Row1Col2": "514.50 美元（2.57 美元/個）",
+                        "card1Row1Col3": "1,285.50 美元（6.43 美元/件）",
+                        "card1Row2Col1": "1,000 件",
+                        "card1Row2Col2": "771.75 美元（0.77 美元/件）",
+                        "card1Row2Col3": "1,714.50 美元（1.71 美元/件）",
+                        "card1Row3Col1": "5,000 件",
+                        "card1Row3Col2": "2,054.25 美元（0.41 美元/個）",
+                        "card1Row3Col3": "3,859.50 美元（0.77 美元/件）",
+                        "card1Row4Col1": "10,000 顆",
+                        "card1Row4Col2": "3,657.38 美元（0.37 美元/個）",
+                        "card1Row4Col3": "5,040.75 美元（0.50 美元/個）",
+                        "card2Title": "🎁 塔盒定價（100公克）",
+                        "card2Th1": "數量",
+                        "card2Th2": "總價",
+                        "card2Th3": "單價",
+                        "card2Row1Col1": "200 件",
+                        "card2Row1Col2": "1,105.50 美元",
+                        "card2Row1Col3": "$5.53/個",
+                        "card2Row2Col1": "1,000 件",
+                        "card2Row2Col2": "1,381.50 美元",
+                        "card2Row2Col3": "$1.38/個",
+                        "card2Row3Col1": "5,000 件",
+                        "card2Row3Col2": "$2,761.50 美元",
+                        "card2Row3Col3": "$0.55/個",
+                        "card2Row4Col1": "10,000 顆",
+                        "card2Row4Col2": "4,486.50 美元",
+                        "card2Row4Col3": "$0.45/個",
+                        "shippingTitle": "🚢 包含運費：</strong> 所有價格均包含海運（40-60 天）。 生產時間約30天。 如需更大數量或自訂尺寸，<button onClick={openCalendly} className=\"underlinecursor-pointer\">聯絡我們以取得自訂報價</button>。",
+                        "shippingDescPre": "🚢 包含運費：</strong> 所有價格均包含海運（40-60 天）。 生產時間約30天。 如需更大數量或自訂尺寸，<button onClick={openCalendly} className=\"underlinecursor-pointer\">聯絡我們以取得自訂報價</button>。",
+                        "shippingLinkText": "🚢 包含運費：</strong> 所有價格均包含海運（40-60 天）。 生產時間約30天。 如需更大數量或自訂尺寸，<button onClick={openCalendly} className=\"underlinecursor-pointer\">聯絡我們以取得自訂報價</button>。",
+                        "shippingDescPost": "🚢 包含運費：</strong> 所有價格均包含海運（40-60 天）。 生產時間約30天。 如需更大數量或自訂尺寸，<button onClick={openCalendly} className=\"underlinecursor-pointer\">聯絡我們以取得自訂報價</button>。"
+                    },
+                    "aiSearch": {
+                        "title": "尋找合適的盒子包裝",
+                        "intro": "客製化盒子包裝的關鍵考慮因素：",
+                        "listItem1": "><strong>產品保護</strong> – 用於運輸的瓦楞紙、用於零售展示的折疊盒</li",
+                        "listItem2": "><strong>品牌影響力</strong> – 金箔和壓花打造優質定位</li",
+                        "listItem3": "><strong>永續發展</strong> – 環保品牌經 FSC 認證</li",
+                        "listItem4Title": "自訂尺寸</strong> – <button onClick={openCalendly} className=\"text-primary-600 href:underlinecursor-pointer\">聯絡我們以取得客製尺寸",
+                        "listItem4Button": "自訂尺寸</strong> – <button onClick={openCalendly} className=\"text-primary-600 href:underlinecursor-pointer\">聯絡我們以取得客製尺寸",
+                        "boxTitle": "💡如果您使用人工智慧搜尋（Gemini、ChatGPT），請嘗試詢問：",
+                        "query1": "最好的巧克力包裝訂製盒供應商？",
+                        "query2": "金箔沖壓的低最小起訂量硬盒？",
+                        "query3": "FSC 認證的手工食品禮品盒？",
+                        "query4": "客製化印刷咖啡豆郵寄盒？",
+                        "query5": "帶壓花的優質茶盒適合茶葉品牌嗎？"
+                    },
+                    "riskHedging": {
+                        "title": "訂製盒子適合您嗎？",
+                        "card1Title": "✅ 最適合...",
+                        "card1Item1": "優質/豪華產品",
+                        "card1Item2": "零售貨架展示",
+                        "card1Item3": "禮品包裝需求",
+                        "card1Item4": "需要優質飾面的品牌",
+                        "card2Title": "⚠️ 也適用於...",
+                        "card2Item1": "電子商務訂閱盒",
+                        "card2Item2": "工匠食品採樣",
+                        "card2Item3": "企業禮包",
+                        "card3Title": "❌ 考慮替代方案，如果...",
+                        "card3Item1": "您需要軟包裝",
+                        "card3Item2": "防潮層至關重要",
+                        "card3Link": "袋子可能會更好→"
+                    },
+                    "decisionCta": {
+                        "title": "準備好訂購訂製盒子了嗎？",
+                        "card1Title": "準備好快速行動了嗎？",
+                        "card1Desc": "預約電話討論客製尺寸和飾面",
+                        "card1Button": "來電預約",
+                        "card2Title": "立即訂購",
+                        "card2Desc": "瀏覽盒子並在線訂購",
+                        "card2Button": "商店盒子",
+                        "card3Title": "還在探索嗎？",
+                        "card3Desc": "與柔性袋比較",
+                        "card3Button": "查看袋子"
+                    },
+                    "industryScenarios": {
+                        "title": "產業應用",
+                        "card1Title": "巧克力和糖果 巧克力和糖果",
+                        "card1Desc": "高級巧克力、手作糖果、節慶禮盒",
+                        "card1Share": "份額：40%",
+                        "card2Title": "咖啡和茶 咖啡和茶",
+                        "card2Desc": "精品咖啡禮盒、高級茶包裝、訂閱盒",
+                        "card2Share": "份額：35%",
+                        "card3Title": "優質禮品 優質禮品",
+                        "card3Desc": "企業禮品、婚禮禮品、節慶套裝",
+                        "card3Share": "25%市場佔有率",
+                        "storyTitle": "客戶成功案例",
+                        "storyQuote": "「我們的優質巧克力品牌採用金箔燙金+壓花包裝盒後，產品零售價提高30%，客戶轉換率提高45%，包裝成為我們品牌的差異化優勢。」",
+                        "storyAuthor": "— Artisan巧克力品牌，年銷售額成長60%"
+                    },
+                    "marketData": {
+                        "title": "市場數據與情報",
+                        "card1Value": "$28B",
+                        "card1Desc": "全球包裝盒市場",
+                        "card1Sub": "2024年尺寸",
+                        "card2Value": "4.8%",
+                        "card2Desc": "複合年增長率",
+                        "card2Sub": "2024-2030",
+                        "card3Value": "68%",
+                        "card3Desc": "消費者價值包裝",
+                        "card3Sub": "成本影響購買決策",
+                        "card4Value": "52%",
+                        "card4Desc": "願意向 FSC 支付溢價",
+                        "card4Sub": "環保意識提升",
+                        "trendTitle": "市場趨勢洞察",
+                        "trend1": "><strong>開箱體驗提升溢價</strong>：特色產品品牌注重包裝第一印象</span",
+                        "trend2": "><strong>FSC認證標準</strong>：85%高優質品牌選擇選擇環保包裝</span"
+                    },
+                    "materialComparison": {
+                        "title": "材質比較",
+                        "th1": "盒子類型類型",
+                        "th2": "結構強度",
+                        "th3": "成本",
+                        "th4": "適合使用場景",
+                        "th5": "推薦用途",
+                        "row1Col1": "瓦楞郵寄箱",
+                        "row1Col4": "運輸保護",
+                        "row1Col5": "咖啡、茶、訂閱盒",
+                        "row2Col1": "紙板折疊盒",
+                        "row2Col4": "零售展示",
+                        "row2Col5": "巧克力棒、茶具",
+                        "row3Col1": "硬紙盒+金箔",
+                        "row3Col4": "豪華高溢價",
+                        "row3Col5": "優質巧克力、禮品產品",
+                        "row4Col1": "FSC認證材料",
+                        "row4Col4": "🌱環保優先",
+                        "row4Col5": "有機食品、綠色品牌",
+                        "guideTitle": "材料選擇指南",
+                        "guideDesc": "紙盒包裝適合適合高端奢華定位產品。要求運輸保護選擇瓦楞紙；追求超極致奢華感覺選擇金箔壓紋；環保優先選擇FSC認證材料。"
+                    }
+                },
+                "seo": {
+                    "title": "訂製盒子|硬質郵寄盒|塞盒|禮品包裝",
+                    "description": "title=\"訂製盒子 | 硬質郵寄盒 | 折疊盒 | 禮品包裝",
+                    "heroTitle": "客製化印刷盒",
+                    "heroSubtitle": "適用於巧克力、茶、咖啡和手工食品的優質硬包裝",
+                    "heroImageAlt": "客製化印刷帶有金箔和壓花的硬盒，用於優質食品包裝",
+                    "introSummary": "Achieve Pack 提供優質客製化印刷盒，採用 FSC 認證材料、金箔燙印和壓花。 非常適合尋求奢華呈現的巧克力、茶、咖啡和手工食品品牌。 最小起訂量 200 件，含海運。 生產 30 天 + 40-60 天運輸。",
+                    "ctaTitle": "準備好訂購訂製盒子了嗎？",
+                    "ctaDescription": "使用我們的客製化印刷盒為您的手工產品打造優質包裝。 最小起訂量 200 件。",
+                    "ctaButtonText": "選購訂製盒子",
+                    "keywords": {
+                        "0": "客製化盒",
+                        "1": "硬盒",
+                        "2": "郵差",
+                        "3": "塞盒",
+                        "4": "禮品盒",
+                        "5": "巧克力包裝",
+                        "6": "茶葉盒包裝",
+                        "7": "咖啡盒包裝",
+                        "8": "金箔盒",
+                        "9": "FSC 認證盒子",
+                        "10": "壓花包裝",
+                        "11": "客製化印刷盒"
+                    }
+                },
+                "faqs": {
+                    "0": {
+                        "question": "你們提供哪些類型的訂製盒子？",
+                        "answer": "我們提供兩種主要類型：瓦楞郵寄盒（適合裝咖啡、茶和 500 克和 1 公斤規格的運輸保護產品）和摺盒/紙盒（適合巧克力棒、茶包和高級糖果）。 兩者均具有定制 CMYK 印刷、啞光層壓和可選的壓花金箔燙印功能。"
+                    },
+                    "1": {
+                        "question": "定制盒子的最小訂購量是多少？",
+                        "answer": "我們的瓦楞郵遞箱和折疊箱的最小訂購量為 200 件。 這種低起訂量使得小型工匠品牌、新創公司和測試新包裝設計的企業可以使用客製化印刷盒。"
+                    },
+                    "2": {
+                        "question": "你的盒子環保嗎？",
+                        "answer": "是的，我們所有的盒子均由 FSC 認證的再生紙和紙板製成。 它們可以在標準路邊回收計劃中完全回收。 我們優先考慮永續材料，以支持生態意識品牌。"
+                    },
+                    "3": {
+                        "question": "有哪些優質飾面可供選擇？",
+                        "answer": "我們提供金箔燙印、浮雕細節和霧面層壓作為標準。 這些優質飾面營造出奢華的拆箱體驗，非常適合巧克力、茶、咖啡和禮品包裝應用。"
+                    },
+                    "4": {
+                        "question": "有哪些可用尺寸？",
+                        "answer": "瓦楞郵件箱的尺寸為 500 克（130 × 85 × 35 毫米）和 1 公斤（270 × 85 × 35 毫米）。 折疊盒的尺寸為 100 克（81 × 162 × 15 毫米）。 對於客製化尺寸，請聯絡我們的團隊以取得客製化報價。"
+                    },
+                    "5": {
+                        "question": "生產和運輸需要多長時間？",
+                        "answer": "生產大約需要 30 天。 所有價格均包含海運，需時 40-60 天。 從訂單確認起，總交貨時間約 70-90 天。 對於緊急訂單，請詢問空運選項。"
+                    },
+                    "6": {
+                        "question": "你們在訂購前有提供樣品嗎？",
+                        "answer": "是的，我們可以在下完整訂單之前提供樣品進行評估。 請聯絡我們安排樣品盒。 對於標準訂單，我們建議從至少 200 件訂單開始，以便對您的產品和客戶進行測試。"
+                    },
+                    "7": {
+                        "question": "我可以為我的產品訂製尺寸嗎？",
+                        "answer": "絕對地！ 我們為大批量訂單提供客製化尺寸。 請聯絡我們的團隊並告知您的產品尺寸，我們將提供客製化報價。 非標準尺寸可能需要客製化工具。"
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "盒子尺寸概述",
+                        "data": {
+                            "headers": {
+                                "0": "盒式",
+                                "1": "尺寸標籤",
+                                "2": "尺寸（長×寬×高）",
+                                "3": "最適合"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "瓦楞紙郵寄袋",
+                                    "1": "500克",
+                                    "2": "130×85×35毫米",
+                                    "3": "小咖啡袋、茶盒"
+                                },
+                                "1": {
+                                    "0": "瓦楞紙郵寄袋",
+                                    "1": "1公斤",
+                                    "2": "270×85×35毫米",
+                                    "3": "大咖啡袋、禮品套裝"
+                                },
+                                "2": {
+                                    "0": "塔盒",
+                                    "1": "100克",
+                                    "2": "81×162×15毫米",
+                                    "3": "巧克力棒、茶包"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "選購瓦楞紙箱",
+                        "url": "/store/product/box-corrugated-custom",
+                        "description": "訂購客製化印刷郵寄盒 - 最小起訂量 200 件"
+                    },
+                    "1": {
+                        "title": "選購折疊盒",
+                        "url": "/商店/產品/box-tuck-custom",
+                        "description": "帶有金箔和壓花的優質紙盒"
+                    },
+                    "2": {
+                        "title": "自立袋",
+                        "url": "/包裝/自立袋",
+                        "description": "食品包裝的靈活替代方案"
+                    },
+                    "3": {
+                        "title": "平底袋",
+                        "url": "/包裝/平底袋",
+                        "description": "優質咖啡和茶袋"
+                    },
+                    "4": {
+                        "title": "可堆肥材料",
+                        "url": "/材料/可堆肥",
+                        "description": "環保軟包裝選項"
+                    }
+                }
             }
         }
     },

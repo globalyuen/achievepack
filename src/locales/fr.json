@@ -1851,6 +1851,238 @@
                     "title": "Commandez des pochettes stand-up personnalisées",
                     "description": "Demandez un échantillon gratuit et un devis pour votre projet de pochette stand-up personnalisée.",
                     "button": "Demander un échantillon gratuit"
+                },
+                "gallery": {
+                    "item1Title": "Pochette stand-up imprimée de qualité supérieure', desc: 'Pochette stand-up imprimée personnalisée présentant une belle impression numérique avec des encres écologiques à contraste élevé et vibrantes.",
+                    "item1Desc": "Pochette stand-up imprimée de qualité supérieure', desc: 'Pochette stand-up imprimée personnalisée présentant une belle impression numérique avec des encres écologiques à contraste élevé et vibrantes.",
+                    "item2Title": "Stand-Up Pouch Lifestyle Use', desc : 'Pochette debout durable présentée dans une scène de marque alimentaire B2B moderne et biologique.",
+                    "item2Desc": "Stand-Up Pouch Lifestyle Use', desc : 'Pochette debout durable présentée dans une scène de marque alimentaire B2B moderne et biologique.",
+                    "item3Title": "Base de pochette K-Seal robuste', desc : 'structure inférieure diagonale K-seal conçue pour transporter des objets plus lourds (jusqu'à 5 kg) avec une stabilité de base extrême.",
+                    "item3Desc": "Base de pochette K-Seal robuste', desc : 'structure inférieure diagonale K-seal conçue pour transporter des objets plus lourds (jusqu'à 5 kg) avec une stabilité de base extrême.",
+                    "item4Title": "SUP Kraft compostable zéro déchet', desc : 'Pochette stand-up officielle en papier kraft naturel certifié FSC offrant une protection élevée contre l'humidité et des fermetures éclair refermables.",
+                    "item4Desc": "SUP Kraft compostable zéro déchet', desc : 'Pochette stand-up officielle en papier kraft naturel certifié FSC offrant une protection élevée contre l'humidité et des fermetures éclair refermables."
+                },
+                "b2c": {
+                    "metaTitle": "Pochettes stand-up personnalisées | Sacs debout respectueux de l'environnement | Pochette.eco",
+                    "metaDescription": "Sachets debout imprimés personnalisés certifiés compostables et recyclables. Faible MOQ 500 pièces, encre biologique, PLA végétal ou barrières Mono-PE recyclables. Maquettes de conception gratuites.",
+                    "hero": {
+                        "badge": "Emballage écologique sur étagère",
+                        "titlePart1": "SE LEVER",
+                        "desc": "Étoiles végétales PLA compostables certifiées et structures Mono-PE recyclables. Préservation exceptionnelle des barrières, fermetures éclair durables et tailles personnalisées.",
+                        "btn1": "Réserver un appel gratuit",
+                        "btn2": "Spécialiste WhatsApp",
+                        "imgBadge": "FAIBLE MOQ : 500 !",
+                        "titlePart2": "POCHETTES"
+                    },
+                    "bento": {
+                        "titlePre": "PERFORMANCES AVANCÉES <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span>",
+                        "titleHighlight": "PERFORMANCES AVANCÉES <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span>",
+                        "titlePost": "PERFORMANCES AVANCÉES <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span>",
+                        "card1Title": "Compostables et recyclables",
+                        "card1Desc": "Choisissez des films compostables 100% domestiques/industriels ou des structures mono-matériaux recyclables en bordure de rue. Aidez les clients à recycler facilement.",
+                        "card2Title": "Serrures à gaz OTR/WVTR",
+                        "card2Desc": "Des barrières intérieures haute performance protègent contre la transmission de l'oxygène et de l'humidité (&lt;1,0 cc/m²/24 heures). Prolongez la durée de conservation du produit jusqu'à 12 mois.",
+                        "card3Title": "Base à gousset stable",
+                        "card3Desc": "Options de fond K-seal ovale plié avec précision ou en diagonale robuste. Permet une parfaite tenue en étagère et maximise le volume interne.",
+                        "card4Title": "Fermetures sur mesure",
+                        "card4Desc": "Ajoutez des fermetures éclair refermables à pression, des attaches métalliques, des curseurs, des valves à café de dégazage unidirectionnelles ou des fenêtres de forme personnalisée."
+                    },
+                    "showcase": {
+                        "badge": "Vitrine visuelle",
+                        "title": "SORTIES DE PRODUCTION DANS LE MONDE RÉEL",
+                        "desc": "Cliquez sur n’importe quel échantillon d’impression réel pour inspecter notre clarté d’impression haute définition, nos joints à gousset et nos finitions haut de gamme :"
+                    },
+                    "specs": {
+                        "titlePre": "SPÉCIFICATIONS & <span className=\"bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1\">TARIF",
+                        "titleHighlight": "SPÉCIFICATIONS & <span className=\"bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1\">TARIF",
+                        "header1": "Taille (L x H + G)",
+                        "header2": "Capacité volumétrique",
+                        "header3": "Performance de la barrière",
+                        "header4": "Meilleure application",
+                        "row1App": "Échantillons individuels DTC, dosettes d'épices gourmandes, sachets de poudre cosmétique",
+                        "row2App": "Faisceaux de feuilles de thé biologiques, présentoirs visuels de bonbons, friandises haut de gamme pour animaux de compagnie",
+                        "row3App": "Café en grains de spécialité avec valve de dégazage, granola en vrac, chips protéinées",
+                        "row4App": "Sacs de collations en vrac, superaliments crus, ingrédients en poudre, sachets de suppléments",
+                        "row5App": "Croquettes professionnelles en gros pour animaux de compagnie, sels de bain de qualité supérieure, graines en vrac",
+                        "card1Val": "500 unités",
+                        "card1Label": "MOQ personnalisé ultra-faible",
+                        "card1Desc": "Parfait pour la mise à l'échelle des startups, les exécutions saisonnières limitées et les tests SKU",
+                        "card2Val": "24 heures",
+                        "card2Label": "lignes horaires gratuites",
+                        "card2Desc": "Obtenez des dessins vectoriels précis ajustés à vos spécifications volumétriques exactes",
+                        "card3Val": "100% Gratuit",
+                        "card3Label": "kit d'échantillons compostables",
+                        "card3Desc": "Recevez un kit contenant 10 pochettes physiques pour tester les propriétés barrières"
+                    },
+                    "faq": {
+                        "titlePre": "<span className=\"text-[#10b981]\">QUESTIONS FRÉQUEMMENT POSÉES",
+                        "titleHighlight": "<span className=\"text-[#10b981]\">QUESTIONS FRÉQUEMMENT POSÉES"
+                    },
+                    "metaKeywords": {
+                        "0": "pochettes personnalisées",
+                        "1": "sacs écologiques",
+                        "2": "sachets compostables",
+                        "3": "sacs de café recyclables",
+                        "4": "pouch.eco",
+                        "5": "emballage flexible durable"
+                    }
+                },
+                "seoPages": {
+                    "breadcrumbs": {
+                        "home": "Maison",
+                        "packagingShapes": "Formes d'emballage"
+                    }
+                },
+                "b2b": {
+                    "breadcrumbs": {
+                        "currentPage": "Pochettes stand-up personnalisées"
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Pochettes stand-up personnalisées en gros et approvisionnement",
+                            "intro": "Les <strong>Pochettes Stand-Up Personnalisées (SUP)</strong> représentent la référence en matière d'emballages flexibles commerciaux haut de gamme. Dérivés de lignes de production en usine certifiées BRCGS, nos sachets offrent une présence maximale en rayon, des économies de matériaux légers et une barrière de protection robuste spécialement calibrée pour les startups DTC mondiales et les marques alimentaires de gros à grande échelle.",
+                            "listTitle": "Indicateurs clés de performance commerciale B2B :",
+                            "listItems": {
+                                "0": "<strong>75 % d'empreinte plus légère</strong> – Réduit considérablement l'espace de stockage et les émissions d'expédition sur de longues distances par rapport aux bocaux en verre ou aux boîtes métalliques.",
+                                "1": "<strong>Branding Real Estate à 360°</strong> – Couverture de mise en page numérique pleine largeur imprimée avec des encres végétales certifiées à base de soja.",
+                                "2": "<strong>Intégration refermable</strong> – Fermetures à glissière et curseurs durables qui empêchent la dégradation du produit en rayon.",
+                                "3": "<strong>Compatibilité automatique des lignes</strong> – Tolérance de largeur de rouleau conçue pour permettre une intégration transparente sur les lignes automatiques VFFS/HFFS."
+                            }
+                        },
+                        "specifications": {
+                            "title": "Guide de traduction et d’achat des paramètres techniques",
+                            "intro": "Les achats professionnels nécessitent une vérification stricte des données matérielles. Voici comment nos mesures techniques brutes se traduisent directement en avantages d’achat B2B :",
+                            "th1": "Dimension technique",
+                            "th2": "Spécifications et matériaux bruts",
+                            "th3": "Utilité et valeur des achats B2B",
+                            "row1Col1": "Couche barrière",
+                            "row1Col2": "NatureFlex™ MetCellulose ou EVOH recyclable (OTR &lt; 1,0, WVTR &lt; 1,0)",
+                            "row1Col3": "Crée un blocage absolu du gaz et de l'eau, préservant l'arôme du café, le croustillant des collations et l'intégrité de la poudre pendant plus de 12 mois.",
+                            "row2Col1": "Dimensions et socle",
+                            "row2Col2": "Lignes de découpe millimétriques sur mesure (largeur 70-300 mm, bases de gousset charrue/ovale/joint K)",
+                            "row2Col3": "Calibré selon le plan de densité volumétrique, empêchant la rupture du joint inférieur et garantissant une structure debout impeccable.",
+                            "row3Col1": "Force d'étanchéité",
+                            "row3Col2": "Résistance du joint &gt; 35 N/15 mm (résines d'étanchéité PBAT/Mono-PE à basse température)",
+                            "row3Col3": ">Garantit l'absence de fuite par éclatement sous les lignes d'emballage automatisées à haute pression fonctionnant jusqu'à **65 sacs par minute**.</td",
+                            "row4Col1": "Emballage d'exportation",
+                            "row4Col2": "Carton d'exportation triple couche à double paroi contenant des barrières secondaires contre l'humidité",
+                            "row4Col3": "Protège les rouleaux et les sacs finis contre la dégradation due à l'humidité de l'océan et contre les dommages causés par les cartons d'expédition en hauteur."
+                        },
+                        "applications": {
+                            "title": "Cibler les scénarios d'application B2B",
+                            "intro": "Nos sacs stand-up imprimés personnalisés sont conçus pour répondre à des critères réglementaires et de barrière chimique spécifiques dans des cas d'utilisation professionnelle :",
+                            "card1Title": "☕ Torréfacteurs de spécialités",
+                            "card1Desc": "Verrous OTR élevés combinés à des vannes de dégazage unidirectionnelles pour évacuer le gaz tout en bloquant la pénétration d'oxygène. Parfait pour conserver l’intégrité des grains torréfiés.",
+                            "card2Title": "🌱 Aliments et collations biologiques",
+                            "card2Desc": "Papier kraft compostable et biofilms d'amidon PLA certifiés selon la norme européenne EN 13432. Répond aux attentes écologiques croissantes des détaillants et des consommateurs.",
+                            "card3Title": "🐾 Aliments et friandises pour animaux",
+                            "card3Desc": "Fond K-seal diagonal robuste qui empêche la migration de la graisse et supporte un poids volumétrique en vrac (de 1 kg à 5 kg) sans éclater.",
+                            "spotlightTitle": "Stabilité du volume plus lourd : projecteur inférieur K-Seal",
+                            "spotlightDesc": "h4 className=\"font-bold text-neutral-900 mb-2\">Stabilité du volume plus lourde : projecteur inférieur K-Seal</h4",
+                            "spotlightLink": "Découvrez comment K-seal augmente la capacité de volume →",
+                            "card1Badge": "Fraîcheur torréfiée pendant 12 mois",
+                            "card2Badge": "TÜV compostable à domicile",
+                            "card3Badge": "Stabilité du gousset diagonal"
+                        },
+                        "gallery": {
+                            "title": "Séries de production réelles et vérification des matériaux",
+                            "intro": "Nous exploitons 4 lignes numériques à haut débit prenant en charge plusieurs SKU. Consultez nos séries de production actuelles de sachets debout conformes aux normes BRC, certifiés compostables et recyclables :"
+                        }
+                    },
+                    "metaTitle": "Pochettes stand-up personnalisées en gros | Fabricant direct | Réaliser le pack",
+                    "metaDescription": "Pochettes stand-up certifiées BRCGS et ISO-9001. Sacs SUP imprimés sur mesure à l’aide de films PLA compostables ou de films Mono-PE recyclables. Faible MOQ 500 pièces, expédition mondiale.",
+                    "heroTitle": "Pochettes stand-up personnalisées en gros",
+                    "heroSubtitle": "Certifié BRCGS directement en usine • Faible MOQ 500 unités • Eco-Films certifiés à 100 %",
+                    "introSummary": "Fournisseur direct de sachets debout certifiés compostables et recyclables en bordure de rue. Calibré avec des barrières à oxygène OTR/WVTR hautes performances et des goussets inférieurs de diagnostic pour éviter l'éclatement du joint, garantissant une durée de conservation de plus de 12 mois.",
+                    "faqs": {
+                        "0": {
+                            "question": "1. Quelle est la quantité minimum de commande (MOQ) pour les sachets stand-up personnalisés ?",
+                            "answer": "Nous soutenons les startups avec un MOQ d’impression numérique le plus bas du secteur, de seulement 500 unités par conception. Pour les volumes de vente en gros plus importants, nous effectuons l’impression sur plaque héliogravure à partir de 5 000 unités, offrant ainsi une rentabilité de gros optimale."
+                        },
+                        "1": {
+                            "question": "2. Fournissez-vous des échantillons physiques de pré-production ?",
+                            "answer": "Oui, nous expédions gratuitement un kit d’échantillons durables contenant 10 sachets physiques pour tester les propriétés barrières. Pour les commandes personnalisées, nous générons une épreuve électronique PDF 24 heures sur 24 et pouvons construire des maquettes numériques personnalisées exactes avant la fabrication en masse."
+                        },
+                        "2": {
+                            "question": "3. Pouvez-vous fabriquer des sachets debout selon des dessins CAO volumétriques personnalisés ?",
+                            "answer": "Oui. Nos ingénieurs matériaux analysent la densité volumétrique de votre produit et personnalisent les goussets inférieurs et les dimensions jusqu'à l'échelle millimétrique. Nous fournissons une mise en page PDF personnalisée dans les 24 heures."
+                        },
+                        "3": {
+                            "question": "4. Quels sont les délais de production et de transit pour les séries commerciales ?",
+                            "answer": "Les exécutions numériques se terminent dans 7 à 10 jours ouvrables ; Les commandes de plaques d’héliogravure prennent 12 à 14 jours. La livraison aérienne express DHL/FedEx vers les États-Unis/l’UE prend 5 à 7 jours ouvrables, et le fret maritime économique est disponible en 20 à 30 jours."
+                        },
+                        "4": {
+                            "question": "5. Quelles certifications sont disponibles pour vérifier la conformité écologique ?",
+                            "answer": "Nos biopolymères portent des numéros de certificat officiels du BPI (Biodegradable Products Institute #10529618) et du TÜV Autriche (OK Compost HOME). Les piles sont conformes aux directives de compostabilité ASTM D6400 (États-Unis) et EN 13432 (UE)."
+                        },
+                        "5": {
+                            "question": "6. Quels détails doivent être soumis pour recevoir un devis de gros ?",
+                            "answer": "Veuillez fournir une estimation de la capacité volumétrique (ou des dimensions exactes), des préférences en matière de matériau (kraft compostable, mono-PE recyclable, haute barrière), des exigences en matière de fermeture éclair/de dégazage, du nombre de SKU et des illustrations vectorielles."
+                        }
+                    },
+                    "tables": {
+                        "0": {
+                            "title": "Matrice de taille volumétrique commerciale",
+                            "data": {
+                                "headers": {
+                                    "0": "Dimensions (L x H + G)",
+                                    "1": "Poids volumétrique",
+                                    "2": "Scénarios d'application recommandés"
+                                },
+                                "rows": {
+                                    "0": {
+                                        "0": "70x110 + 40mm",
+                                        "1": "20g - 50g",
+                                        "2": "Sachets d'échantillons de produits, épices gourmandes, extraits botaniques secs"
+                                    },
+                                    "1": {
+                                        "0": "100x150 + 60mm",
+                                        "1": "50g - 100g",
+                                        "2": "Sachets de poudre de soin, feuilles de thé d'origine unique, boîtes de friandises pour animaux de compagnie"
+                                    },
+                                    "2": {
+                                        "0": "120x200 + 80mm",
+                                        "1": "100g - 250g",
+                                        "2": "Cafés de spécialité en grains (avec valve), granolas bio, chips protéinées"
+                                    },
+                                    "3": {
+                                        "0": "150x230 + 90mm",
+                                        "1": "250g - 500g",
+                                        "2": "Avoine biologique commerciale, grandes références de collations, bidons de sel de bain"
+                                    },
+                                    "4": {
+                                        "0": "180 x 280 + 100 mm",
+                                        "1": "500g - 1kg",
+                                        "2": "Sacs de croquettes pour animaux de compagnie, céréales en vrac, grains de café en gros"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "relatedLinks": {
+                        "0": {
+                            "title": "Sacs à fond plat",
+                            "url": "/emballage/sacs-à-fond-plat",
+                            "description": "Alternative stable au gousset en caisson à 5 panneaux"
+                        },
+                        "1": {
+                            "title": "Solutions café et thé",
+                            "url": "/industrie/café-thé",
+                            "description": "Sacs avec valves de dégazage et attaches en fer blanc"
+                        },
+                        "2": {
+                            "title": "Spécifications des matériaux compostables",
+                            "url": "/matériaux/compostables",
+                            "description": "Comparez les spécifications des biopolymères OK Compost"
+                        }
+                    },
+                    "metaKeywords": {
+                        "0": "pochettes personnalisées",
+                        "1": "Vente en gros sacs debout",
+                        "2": "sachets compostables",
+                        "3": "Emballage flexible certifié BRC",
+                        "4": "réaliser une pochette debout"
+                    }
                 }
             },
             "flatBottomBags": {
@@ -1862,6 +2094,305 @@
                     "title": "Obtenez des sacs à fond plat personnalisés",
                     "description": "Demandez un échantillon gratuit et un devis pour vos produits haut de gamme.",
                     "button": "Demander un échantillon gratuit"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Cette page est-elle pour vous ?",
+                        "intro": "Si vous êtes un <strong>torréfacteur de café de spécialité</strong>, une <strong>marque d'aliments haut de gamme pour animaux de compagnie</strong> ou un <strong>producteur d'aliments artisanaux</strong> à la recherche d'un emballage qui se démarque sur les étagères des magasins de détail avec un maximum d'espace de marque, les sacs à fond plat offrent une présence haut de gamme.",
+                        "col1Title": "Torréfacteurs à café",
+                        "col1Desc": "Marquage 5 panneaux + valve de dégazage",
+                        "col2Title": "Marques d'aliments pour animaux de compagnie",
+                        "col2Desc": "Base stable pour produits lourds",
+                        "col3Title": "Produits haut de gamme",
+                        "col3Desc": "Aspect semblable à une boîte pour un emballage digne d'un cadeau"
+                    },
+                    "overview": {
+                        "title": "Qu'est-ce qu'un sac à fond plat ?",
+                        "intro": "Un sac à fond plat (également appelé sac à fond de boîte ou sac à fond bloc) comporte une base rectangulaire qui lui permet de tenir debout avec une stabilité maximale.</strong> Ce format haut de gamme offre une présence en étagère et une capacité supérieures par rapport aux sachets à fond plat standard.",
+                        "desc": "Un sac à fond plat (également appelé sac à fond de boîte ou sac à fond bloc) comporte une base rectangulaire qui lui permet de tenir debout avec une stabilité maximale.</strong> Ce format haut de gamme offre une présence en étagère et une capacité supérieures par rapport aux sachets à fond plat standard.",
+                        "characteristicsTitle": "Avantages clés :",
+                        "char1": "Construction à 5 panneaux pour une surface de marque maximale",
+                        "char2": "Présence stable sur les étagères, semblable à une boîte",
+                        "char3": "Capacité supérieure aux pochettes standards",
+                        "char4": "Aspect haut de gamme pour produits spécialisés",
+                        "char5": "Disponible en matériaux compostables et recyclables"
+                    },
+                    "construction": {
+                        "title": "Comment sont fabriqués les sacs à fond plat ?",
+                        "intro": "Les sacs à fond plat sont construits avec plusieurs panneaux qui se plient pour créer une base rectangulaire :",
+                        "col1Title": "Conception à 5 panneaux",
+                        "col1Item1": "Panneau avant – Zone de marque principale",
+                        "col1Item2": "Panneau arrière – Ingrédients, instructions",
+                        "col1Item3": "2 soufflets latéraux – Espace de marque supplémentaire",
+                        "col1Item4": "Panneau inférieur – Base stable, peut inclure une impression",
+                        "col2Title": "Options de fermeture",
+                        "col2Item1": "Fermeture éclair refermable (pression pour fermer ou curseur)",
+                        "col2Item2": "Fermeture par lien en étain",
+                        "col2Item3": "Vanne de dégazage (pour le café)",
+                        "col2Item4": "Encoche de déchirure pour une ouverture facile"
+                    },
+                    "applications": {
+                        "title": "Quels produits fonctionnent le mieux dans les sacs à fond plat ?",
+                        "intro": "Les sacs à fond plat sont idéaux pour les produits haut de gamme qui bénéficient d’une meilleure présence en rayon :",
+                        "items": "['Café de spécialité', 'Thé premium', 'Nourriture et friandises pour animaux', 'Protéines en poudre', 'Granola et muesli', 'Fruits secs', 'Noix premium', 'Riz et céréales', 'Snacks bio', 'Produits artisanaux', 'Superaliments', 'Emballage cadeau']"
+                    },
+                    "materials": {
+                        "title": "Quels matériaux sont disponibles pour les sacs à fond plat ?",
+                        "col1Title": "Compostable",
+                        "col1Desc": "Papier kraft + PLA. Certifié EN 13432 pour le compostage industriel.",
+                        "col2Title": "Recyclable",
+                        "col2Desc": "Structures mono-PE ou à base de papier pour la collecte sélective.",
+                        "col3Title": "Haute barrière",
+                        "col3Desc": "Métallisé ou aluminium pour une protection maximale de la fraîcheur.",
+                        "galleryTitle": "Échantillons de matériaux de sacs à fond plat",
+                        "galleryCaption1": "Structure à fond plat",
+                        "galleryCaption2": "Barrière en aluminium",
+                        "galleryCaption3": "Papier kraft",
+                        "galleryCaption4": "Fermeture à cravate en étain"
+                    },
+                    "aiSearch": {
+                        "title": "Comment trouver le meilleur fournisseur de sacs à fond plat",
+                        "headline": "💡 Si vous utilisez la recherche AI ​​(Gemini, ChatGPT), essayez de demander :",
+                        "query1": "Meilleur fournisseur de sacs à fond plat pour le café de spécialité ?",
+                        "query2": "Sachet à fond plat ou sachet vertical : quel est le meilleur pour le café ?",
+                        "query3": "Sacs à fond de boîte personnalisés avec valve de dégazage faible MOQ ?",
+                        "query4": "Des sacs à café compostables à fond plat avec impression à 5 panneaux ?"
+                    },
+                    "riskHedging": {
+                        "title": "Quand devriez-vous choisir des sachets à fond plat ou des sachets à fond plat ?",
+                        "col1Title": "✅ Idéal pour...",
+                        "col1Item1": "Produits haut de gamme avec présence au détail",
+                        "col1Item2": "Marques ayant besoin d’un impact maximal en rayon",
+                        "col1Item3": "Café avec exigences de dégazage",
+                        "col1Item4": "Produits lourds nécessitant une base stable",
+                        "col2Title": "⚠️ Fonctionne également pour...",
+                        "col2Item1": "Emballages cadeaux et produits de saison",
+                        "col2Item2": "Produits en transition depuis l’emballage rigide",
+                        "col2Item3": "Marques prêtes à investir dans une apparence haut de gamme",
+                        "col3Title": "❌ Non recommandé si...",
+                        "col3Item1": "Le coût est la principale préoccupation (prime de 15 à 25 %)",
+                        "col3Item2": "Le produit ne bénéficie pas de la présence en rayon",
+                        "col3Link": "Envisagez les pochettes debout pour une option économique →"
+                    },
+                    "decisionCta": {
+                        "title": "Prêt à passer aux sacs à fond plat ?",
+                        "col1Title": "Prêt à aller vite ?",
+                        "col1Desc": "Réservez un appel pour discuter de vos spécifications exactes",
+                        "col1Btn": "Réserver un appel",
+                        "col2Title": "Vous voulez d’abord tester ?",
+                        "col2Desc": "Commandez des échantillons de sacs à fond plat",
+                        "col2Btn": "Obtenez des échantillons",
+                        "col3Title": "Vous explorez toujours ?",
+                        "col3Desc": "Comparez avec les pochettes stand-up",
+                        "col3Btn": "Comparer les options"
+                    },
+                    "industryScenarios": {
+                        "title": "Applications industrielles",
+                        "segment1Title": "Torréfacteurs de café de spécialité",
+                        "segment1Desc": "Sacs à fond plat haut de gamme avec marquage à 5 panneaux et valves de dégazage.",
+                        "segment1Item1": "Cafés d'origine unique",
+                        "segment1Item2": "Artisans torréfacteurs",
+                        "segment1Item3": "Emballage de boîte cadeau",
+                        "segment2Title": "Marques d’aliments haut de gamme pour animaux de compagnie",
+                        "segment2Desc": "Sacs à fond plat robustes avec base stable pour les sacs à croquettes plus grands.",
+                        "segment2Item1": "Nourriture pour chiens de qualité supérieure",
+                        "segment2Item2": "Nourriture naturelle pour chat",
+                        "segment2Item3": "Formules sans céréales",
+                        "segment3Title": "Marques de superaliments et de protéines",
+                        "segment3Desc": "Sacs à fond plat à haute barrière pour suppléments en poudre avec une présence maximale en rayon.",
+                        "segment3Item1": "Poudres de protéines",
+                        "segment3Item2": "Mélanges de superaliments",
+                        "segment3Item3": "Peptides de collagène",
+                        "successTitle": "🏆 Succès client : Mountain Peak Coffee Co.",
+                        "successStory": "Passé des pochettes verticales aux sacs à fond plat, augmentant les ventes au détail de 40 % et un positionnement de prix haut de gamme avec une marque à 5 panneaux.",
+                        "successMetric1": "Augmentation des ventes de 40 %",
+                        "successMetric2": "Positionnement haut de gamme",
+                        "successMetric3": "Image de marque à 5 panneaux"
+                    },
+                    "marketData": {
+                        "title": "Données et renseignements sur le marché",
+                        "stat1Val": "12 milliards de dollars",
+                        "stat1Label": "Emballage de café 2027",
+                        "stat2Val": "25%",
+                        "stat2Label": "Augmentation du prix premium",
+                        "stat3Val": "5",
+                        "stat3Label": "Panneaux imprimables",
+                        "stat4Val": "20%",
+                        "stat4Label": "Plus de volume par rapport au SUP",
+                        "trendsTitle": "Comparaison des pochettes à fond plat et à fond plat",
+                        "headers": {
+                            "feature": "Fonctionnalité",
+                            "flatBottom": "Fond plat",
+                            "sup": "Pochette verticale"
+                        },
+                        "row1": {
+                            "feature": "Panneaux imprimables",
+                            "flatBottom": "5 panneaux",
+                            "sup": "2-3 panneaux"
+                        },
+                        "row2": {
+                            "feature": "Stabilité de conservation",
+                            "flatBottom": "⭐⭐⭐⭐⭐",
+                            "sup": "⭐⭐⭐⭐"
+                        },
+                        "row3": {
+                            "feature": "Volume pour l'empreinte",
+                            "flatBottom": "+15-20%",
+                            "sup": "Référence"
+                        },
+                        "row4": {
+                            "feature": "Prix ​​majoré",
+                            "flatBottom": "+15-25%",
+                            "sup": "Référence"
+                        },
+                        "ecoTitle": "🌍Impact environnemental",
+                        "ecoDesc": "Les sacs à fond plat utilisent 60 % moins de matériau que les contenants rigides tout en offrant une présentation haut de gamme. Options compostables disponibles pour les marques soucieuses de l'environnement."
+                    },
+                    "materialComparison": {
+                        "title": "Comparaison des matériaux",
+                        "headers": {
+                            "feature": "Fonctionnalité",
+                            "col1": "Papier kraft compostable",
+                            "col2": "Sur papier",
+                            "col3": "Haute barrière"
+                        },
+                        "row1": {
+                            "feature": "Idéal pour",
+                            "col1": "✅ Café de qualité supérieure",
+                            "col2": "✅ Produits secs, riz",
+                            "col3": "✅ Fraîcheur maximale"
+                        },
+                        "row2": {
+                            "feature": "Niveau de barrière",
+                            "col1": "Moyen-élevé",
+                            "col2": "Moyen",
+                            "col3": "Très élevé"
+                        },
+                        "row3": {
+                            "feature": "Durée de conservation",
+                            "col1": "6-12 mois",
+                            "col2": "6-9 mois",
+                            "col3": "18-24 mois"
+                        },
+                        "row4": {
+                            "feature": "Aspect haut de gamme",
+                            "col1": "⭐⭐⭐⭐⭐",
+                            "col2": "⭐⭐⭐⭐",
+                            "col3": "⭐⭐⭐⭐"
+                        },
+                        "row5": {
+                            "feature": "Fin de vie",
+                            "col1": "🌱 Compostable",
+                            "col2": "♻️ Recyclable",
+                            "col3": "🗑️ Décharge"
+                        },
+                        "row6": {
+                            "feature": "Niveau de prix",
+                            "col1": "💰💰💰",
+                            "col2": "💰💰",
+                            "col3": "💰💰💰"
+                        },
+                        "guideTitle": "💡 Guide de décision pour les sacs à fond plat",
+                        "col1Title": "Choisissez Kraft Compostable si :",
+                        "col1Item1": "Marque de café haut de gamme",
+                        "col1Item2": "Un marché éco-responsable",
+                        "col1Item3": "Aspect naturel souhaité",
+                        "col2Title": "Choisissez sur papier si :",
+                        "col2Item1": "Produits secs, céréales",
+                        "col2Item2": "Optimisation des coûts",
+                        "col2Item3": "Préférence recyclable",
+                        "col3Title": "Choisissez la barrière élevée si :",
+                        "col3Item1": "Durée de conservation maximale",
+                        "col3Item2": "Produits sensibles",
+                        "col3Item3": "Longues chaînes de distribution"
+                    }
+                },
+                "metaTitle": "Sacs à fond plat | Pochettes inférieures de boîte | Emballage à fond bloc",
+                "metaDescription": "title=\"Sacs à fond plat | Sachets à fond de boîte | Emballage à fond bloc",
+                "heroImageAlt": "Emballage de pochette de boîte de sac à fond plat",
+                "faqs": {
+                    "0": {
+                        "question": "Quelle est la différence entre les sachets à fond plat et les sachets à fond plat ?",
+                        "answer": "Les sacs à fond plat ont une base rectangulaire avec 5 panneaux imprimables, offrant plus de stabilité et de capacité. Les pochettes verticales ont un soufflet ovale avec 2-3 panneaux. Les sacs à fond plat offrent environ 15 à 20 % de volume en plus pour le même encombrement."
+                    },
+                    "1": {
+                        "question": "Les sacs à fond plat sont-ils plus chers ?",
+                        "answer": "Oui, les sacs à fond plat coûtent généralement 15 à 25 % de plus que les sachets à fond plat en raison de leur construction plus complexe. Cependant, ils offrent une présence haut de gamme en rayon et un espace de marque supplémentaire qui justifie souvent l'investissement dans des produits spécialisés."
+                    },
+                    "2": {
+                        "question": "Quelles tailles sont disponibles pour les sacs à fond plat ?",
+                        "answer": "Nous proposons des sacs à fond plat d'une capacité de 100 g jusqu'à 5 kg. Les tailles courantes incluent 250 g, 500 g, 1 kg et 2 kg. Des tailles personnalisées sont disponibles pour les commandes de plus de 5 000 unités."
+                    },
+                    "3": {
+                        "question": "Les sacs à fond plat peuvent-ils avoir une valve de dégazage ?",
+                        "answer": "Oui, nous proposons des vannes de dégazage unidirectionnelles pour le café et autres produits dégageant du CO2. La valve peut être placée sur n'importe quel panneau mais elle est généralement située à l'arrière pour des raisons esthétiques."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Guide des tailles des sacs à fond plat",
+                        "data": {
+                            "headers": {
+                                "0": "Capacité",
+                                "1": "Dimensions (L×H×G)",
+                                "2": "Recommandé pour"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "250g",
+                                    "1": "120 × 200 × 80 mm",
+                                    "2": "Thé haut de gamme, café de spécialité"
+                                },
+                                "1": {
+                                    "0": "500g",
+                                    "1": "140 × 240 × 90 mm",
+                                    "2": "Grains de café, granola"
+                                },
+                                "2": {
+                                    "0": "1 kg",
+                                    "1": "160 × 280 × 100 mm",
+                                    "2": "Aliments pour animaux, poudre de protéines"
+                                },
+                                "3": {
+                                    "0": "2kg",
+                                    "1": "200 × 350 × 120 mm",
+                                    "2": "Nourriture pour animaux en vrac, riz"
+                                },
+                                "4": {
+                                    "0": "5 kg",
+                                    "1": "280 × 450 × 150 mm",
+                                    "2": "Aliments pour animaux de grande taille"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Pochettes verticales",
+                        "url": "/emballage/sachet-stand-up",
+                        "description": "Alternative plus économique"
+                    },
+                    "1": {
+                        "title": "Emballage de café et de thé",
+                        "url": "/industrie/café-thé",
+                        "description": "Solutions de café de spécialité"
+                    },
+                    "2": {
+                        "title": "Matériaux compostables",
+                        "url": "/matériaux/compostables",
+                        "description": "Options écologiques"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "sac à fond plat",
+                    "1": "pochette de fond de boîte",
+                    "2": "sac à fond bloc",
+                    "3": "sac à café fond plat",
+                    "4": "emballage en sachet haut de gamme",
+                    "5": "sac à café à fond plat",
+                    "6": "pochette de boîte",
+                    "7": "pochette 5 panneaux"
                 }
             },
             "spoutPouches": {
@@ -1873,6 +2404,382 @@
                     "title": "Obtenez des pochettes de bec personnalisées",
                     "description": "Demandez un échantillon et un devis gratuits pour vos produits liquides.",
                     "button": "Demander un échantillon gratuit"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Cette page est-elle pour vous ?",
+                        "intro": "Si vous êtes une <strong>marque d'aliments pour bébés</strong>, un <strong>fabricant de sauce</strong> ou une <strong>entreprise de boissons</strong> à la recherche d'un emballage qui se verse comme une bouteille mais coûte moins cher et est expédié plus léger, les sachets à bec verseur sont votre solution.",
+                        "col1Title": "Marques d'aliments pour bébés",
+                        "col1Desc": "Distribution sûre, portable et facile pour les nourrissons",
+                        "col2Title": "Machines à sauces et condiments",
+                        "col2Desc": "Remplissage à chaud et versement sans gâchis",
+                        "col3Title": "Entreprises de boissons",
+                        "col3Desc": "70% moins de plastique que les bouteilles rigides"
+                    },
+                    "overview": {
+                        "title": "Qu'est-ce qu'une pochette à bec verseur ?",
+                        "intro": "Un sachet à bec verseur est un sachet flexible debout avec un bec verseur et un bouchon intégrés, conçu pour les liquides, semi-liquides et les produits visqueux.</strong> Ce format combine la rentabilité d'un emballage flexible avec la fonctionnalité des conteneurs rigides.",
+                        "desc": "Un sachet à bec verseur est un sachet flexible debout avec un bec verseur et un bouchon intégrés, conçu pour les liquides, semi-liquides et les produits visqueux.</strong> Ce format combine la rentabilité d'un emballage flexible avec la fonctionnalité des conteneurs rigides.",
+                        "advantagesTitle": "Avantages clés :",
+                        "adv1": "Distribution facile avec bouchon refermable",
+                        "adv2": "Utilise 70 % moins de plastique que les bouteilles rigides",
+                        "adv3": "Autonome pour l'affichage au détail",
+                        "adv4": "Léger et frais de port réduits",
+                        "adv5": "Options à haute barrière disponibles"
+                    },
+                    "applications": {
+                        "title": "Quels produits fonctionnent le mieux dans les pochettes à bec verseur ?",
+                        "intro": "Les sachets à bec verseur sont idéaux pour les produits versables dans de nombreux secteurs :",
+                        "col1Title": "Nourriture pour bébés",
+                        "col1Item1": "Fruit purées",
+                        "col1Item2": "Mélanges de légumes",
+                        "col1Item3": "Smoothies au yaourt",
+                        "col2Title": "Sauces et condiments",
+                        "col2Item1": "Ketchup et mayonnaise",
+                        "col2Item2": "Sauce piquante",
+                        "col2Item3": "Pansements",
+                        "col3Title": "Boissons",
+                        "col3Item1": "Packs de smoothies",
+                        "col3Item2": "Café infusé à froid",
+                        "col3Item3": "Mélanges à cocktails",
+                        "col4Title": "Huiles et pâtes à tartiner",
+                        "col4Item1": "Huiles de cuisson",
+                        "col4Item2": "Miel & sirops",
+                        "col4Item3": "Ghee",
+                        "col5Title": "Nourriture pour animaux",
+                        "col5Item1": "Garnitures de nourriture humide",
+                        "col5Item2": "Sauces et bouillons",
+                        "col5Item3": "Suppléments pour animaux de compagnie",
+                        "col6Title": "Non alimentaire",
+                        "col6Item1": "Lessive",
+                        "col6Item2": "Recharges de savon pour les mains",
+                        "col6Item3": "Produits de nettoyage"
+                    },
+                    "spoutOptions": {
+                        "title": "Quelles options de bec et de bouchon sont disponibles ?",
+                        "col1Title": "Tailles de bec",
+                        "col1Item1": "Norme pour les liquides",
+                        "col1Item2": "Liquides plus épais, purées",
+                        "col1Item3": "Produits visqueux",
+                        "col1Item4": "Haute viscosité, pâtes",
+                        "col2Title": "Caractéristiques du capuchon",
+                        "col2Item1": "Bouchon à vis standard",
+                        "col2Item2": "Bouchon distributeur rabattable",
+                        "col2Item3": "Sécurité-enfants (aliments pour bébés)",
+                        "col2Item4": "Bandes inviolables",
+                        "galleryTitle": "Options de pochette à bec",
+                        "galleryCaption1": "Bouchon de bec",
+                        "galleryCaption2": "Pochette à bec",
+                        "galleryCaption3": "Haute barrière",
+                        "galleryCaption4": "Finition brillante"
+                    },
+                    "ecoMaterials": {
+                        "title": "Quels matériaux écologiques conviennent aux emballages de liquides ?",
+                        "intro": "Les sachets à bec verseur peuvent être produits avec des matériaux durables</strong> qui réduisent l'impact environnemental sans compromettre les performances de barrière aux liquides.",
+                        "kraftTitle": "🌾 Qu'est-ce que le \"Kraft-Look\" ?",
+                        "kraftIntro": "L'aspect kraft est un motif kraft imprimé numériquement avec un revêtement mat</strong> appliqué sur la surface de la pochette. Il vous offre l'aspect naturel et haut de gamme et la sensation tactile du papier kraft, tout en étant <strong>100 % imperméable</strong> – essentiel pour les produits liquides.",
+                        "kraftDesc": "L'aspect kraft est un motif kraft imprimé numériquement avec un revêtement mat</strong> appliqué sur la surface de la pochette. Il vous offre l'aspect naturel et haut de gamme et la sensation tactile du papier kraft, tout en étant <strong>100 % imperméable</strong> – essentiel pour les produits liquides.",
+                        "kraftFootnote": "Le vrai papier kraft absorbe l'humidité, mais notre finition d'aspect kraft offre une esthétique sans compromettre la performance de la barrière contre les liquides.",
+                        "clarificationTitle": "ℹ️ Important : Comprendre les matériaux « Eco »",
+                        "clarificationIntro": "Les sachets Bio-PE et PCR ne sont PAS biodégradables ni compostables.</strong> Ils sont en plastique traditionnel en fin de vie. Cependant, ils sont respectueux de l’environnement dès le <strong>DÉBUT</strong> de leur cycle de vie :",
+                        "biopeTitle": "Bio-PE (30-50 % d'origine biologique)",
+                        "biopeItem1": "Fabriqué à partir de polyéthylène de canne à sucre",
+                        "biopeItem2": "Source renouvelable et durable",
+                        "biopeItem3": "Réduit la dépendance aux combustibles fossiles",
+                        "biopeItem4": "Entièrement recyclable dans les flux PE",
+                        "learnMore": "En savoir plus →",
+                        "pcrTitle": "PCR (30 % de contenu recyclé)",
+                        "pcrItem1": "Contient du plastique recyclé post-consommation",
+                        "pcrItem2": "Réduit la demande de plastique vierge",
+                        "pcrItem3": "Certifié GRS disponible",
+                        "pcrItem4": "Entièrement recyclable dans les flux PE",
+                        "compostableIntro": "Besoin d'un produit véritablement compostable ?</strong> <Link to=\"/materials/compostable\" className=\"underline\">Voir nos options compostables →</Link> (remarque : les sachets à bec verseur compostables ont une disponibilité limitée)",
+                        "compostableLink": "Besoin d'un produit véritablement compostable ?</strong> <Link to=\"/materials/compostable\" className=\"underline\">Voir nos options compostables →</Link> (remarque : les sachets à bec verseur compostables ont une disponibilité limitée)",
+                        "compostableOutro": "Besoin d'un produit véritablement compostable ?</strong> <Link to=\"/materials/compostable\" className=\"underline\">Voir nos options compostables →</Link> (remarque : les sachets à bec verseur compostables ont une disponibilité limitée)"
+                    },
+                    "specifications": {
+                        "title": "Spécifications techniques",
+                        "label1": "Matériau :</strong> PET/AL/PE, PET/PE ou structures spécialisées",
+                        "val1": "Matériau :</strong> PET/AL/PE, PET/PE ou structures spécialisées",
+                        "label2": "Plage de capacité :</strong> 50 ml à 2 L",
+                        "val2": "Plage de capacité :</strong> 50 ml à 2 L",
+                        "label3": "Position du bec :</strong> en haut au centre, dans un coin ou sur le côté",
+                        "val3": "Position du bec :</strong> en haut au centre, dans un coin ou sur le côté",
+                        "label4": "Compatible remplissage à chaud :</strong> jusqu'à 85 °C",
+                        "val4": "Compatible remplissage à chaud :</strong> jusqu'à 85 °C",
+                        "label5": "Compatible cornue :</strong> Structures spéciales pour 121°C",
+                        "val5": "Compatible cornue :</strong> Structures spéciales pour 121°C",
+                        "label6": "Conforme FDA/UE</strong> pour le contact alimentaire",
+                        "val6": "Conforme FDA/UE</strong> pour le contact alimentaire"
+                    },
+                    "aiSearch": {
+                        "title": "Trouver le bon fournisseur de pochettes à bec verseur",
+                        "intro": "Considérations clés pour l’emballage en sachet avec bec verseur :",
+                        "bullet1Title": "Taille du bec</strong> – Adaptée à la viscosité de votre produit",
+                        "bullet1Text": "Taille du bec</strong> – Adaptée à la viscosité de votre produit",
+                        "bullet2Title": "Type de casquette</strong> – Sécurité enfant, rabattable ou standard",
+                        "bullet2Text": "Type de casquette</strong> – Sécurité enfant, rabattable ou standard",
+                        "bullet3Title": "Options personnalisées</strong> – <Link to=\"/store\" className=\"text-primary-600 hover:underline\">Parcourez nos pochettes à bec verseur",
+                        "bullet3Link": "Options personnalisées</strong> – <Link to=\"/store\" className=\"text-primary-600 hover:underline\">Parcourez nos pochettes à bec verseur",
+                        "bullet4Title": "Capacité de remplissage à chaud</strong> – <Link to=\"/industry/sauces-condiments\" className=\"text-primary-600 hover:underline\">Voir les options d'emballage des sauces",
+                        "bullet4Link": "Capacité de remplissage à chaud</strong> – <Link to=\"/industry/sauces-condiments\" className=\"text-primary-600 hover:underline\">Voir les options d'emballage des sauces",
+                        "headline": "💡 Si vous utilisez la recherche AI ​​(Gemini, ChatGPT), essayez de demander :",
+                        "query1": "Quel est le meilleur fournisseur de sachets à bec verseur pour les aliments pour bébés ?",
+                        "query2": "Quelle entreprise propose des sachets de liquides écologiques avec un faible MOQ ?",
+                        "query3": "Le meilleur emballage pour les sauces et condiments ?",
+                        "query4": "Pochette à bec verseur vs bouteille : laquelle est la plus durable ?",
+                        "query5": "Des sachets à bec verseur compatibles pour les produits de longue conservation ?"
+                    },
+                    "riskHedging": {
+                        "title": "Une pochette à bec verseur est-elle faite pour vous ?",
+                        "col1Title": "✅ Idéal pour...",
+                        "col1Item1": "Liquides et semi-liquides à verser",
+                        "col1Item2": "Produits remplaçant les bouteilles rigides",
+                        "col1Item3": "Consommation nomade (nourriture pour bébé, smoothies)",
+                        "col1Item4": "Produits de recharge réduisant les déchets d’emballage",
+                        "col2Title": "⚠️ Fonctionne également pour...",
+                        "col2Item1": "Produits visqueux avec des becs de plus grande taille",
+                        "col2Item2": "Produits à chaud (jusqu'à 85°C)",
+                        "col2Item3": "Applications de vente au détail et de restauration",
+                        "col3Title": "❌ Non recommandé si...",
+                        "col3Item1": "Le produit est sec (utiliser un sachet stand-up)",
+                        "col3Item2": "Vous avez besoin d’une recyclabilité totale sur tous les marchés",
+                        "col3Link": "Pensez aux sachets stand-up pour produits secs →"
+                    },
+                    "decisionCta": {
+                        "title": "Prêt à lancer avec des pochettes à bec verseur ?",
+                        "col1Title": "Prêt à aller vite ?",
+                        "col1Desc": "Réservez un appel pour discuter des tailles de becs et des bouchons",
+                        "col1Btn": "Réserver un appel",
+                        "col2Title": "Vous voulez d’abord tester ?",
+                        "col2Desc": "Commandez des échantillons de sachets de bec (MOQ 500)",
+                        "col2Btn": "Obtenez des échantillons",
+                        "col3Title": "Vous explorez toujours ?",
+                        "col3Desc": "Voir les guides d'emballage des aliments ou des sauces pour bébés",
+                        "col3Btn": "Voir les pages de l'industrie"
+                    },
+                    "industryScenarios": {
+                        "title": "Applications industrielles",
+                        "segment1Title": "Marques d'aliments pour bébés",
+                        "segment1Desc": "Sachets à bec sûrs et portables avec bouchons sans danger pour les enfants pour l'alimentation des nourrissons.",
+                        "segment1Item1": "Fruit & vegetable purées",
+                        "segment1Item2": "Smoothies au yaourt",
+                        "segment1Item3": "Repas pour tout-petits",
+                        "segment2Title": "Machines à sauces et condiments",
+                        "segment2Desc": "Sachets à bec verseur remplissables à chaud pour les sauces, les vinaigrettes et les condiments.",
+                        "segment2Item1": "Ketchup et mayonnaise",
+                        "segment2Item2": "Sauces piquantes",
+                        "segment2Item3": "Vinaigrettes",
+                        "segment3Title": "Marques éco-responsables",
+                        "segment3Desc": "Rechargez les sachets en utilisant 70 % moins de plastique que les bouteilles rigides.",
+                        "segment3Item1": "Systèmes de recharge de bouteilles",
+                        "segment3Item2": "Produits de nettoyage",
+                        "segment3Item3": "Recharges de soins personnels",
+                        "successTitle": "🏆 Succès client : nourriture pour bébé Little Sprouts",
+                        "successStory": "Lancement d'une gamme d'aliments biologiques pour bébés avec nos sachets à bec verseur sans BPA, obtenant la certification Clean Label et une croissance de 200 % la première année.",
+                        "successMetric1": "Certifié Clean Label",
+                        "successMetric2": "Croissance de 200 % sur un an",
+                        "successMetric3": "70 % de plastique en moins"
+                    },
+                    "marketData": {
+                        "title": "Données et renseignements sur le marché",
+                        "stat1Val": "3,8 milliards de dollars",
+                        "stat1Label": "Marché des pochettes à bec verseur 2027",
+                        "stat2Val": "8,5%",
+                        "stat2Label": "TCAC 2024-2027",
+                        "stat3Val": "70%",
+                        "stat3Label": "Moins de plastique par rapport aux bouteilles",
+                        "stat4Val": "60%",
+                        "stat4Label": "Économies sur les frais d'expédition",
+                        "trendsTitle": "Comparaison des pochettes à bec et des bouteilles rigides",
+                        "headers": {
+                            "feature": "Fonctionnalité",
+                            "spout": "Pochette à bec",
+                            "bottle": "Bouteille rigide"
+                        },
+                        "row1": {
+                            "feature": "Utilisation du plastique",
+                            "spout": "70% de moins",
+                            "bottle": "Référence"
+                        },
+                        "row2": {
+                            "feature": "Poids d'expédition",
+                            "spout": "60% plus léger",
+                            "bottle": "Référence"
+                        },
+                        "row3": {
+                            "feature": "Efficacité du stockage",
+                            "spout": "A plat avant remplissage",
+                            "bottle": "Même volume"
+                        },
+                        "row4": {
+                            "feature": "Empreinte carbone",
+                            "spout": "50% inférieur",
+                            "bottle": "Référence"
+                        },
+                        "ecoTitle": "🌍Impact environnemental",
+                        "ecoDesc": "Les sachets à bec verseur utilisent 70 % moins de plastique que les bouteilles rigides, sont expédiés à plat pour réduire les émissions liées au transport et peuvent être produits avec du Bio-PE ou du PCR pour une durabilité accrue."
+                    },
+                    "materialComparison": {
+                        "title": "Comparaison des matériaux",
+                        "headers": {
+                            "feature": "Fonctionnalité",
+                            "col1": "Standard",
+                            "col2": "Bio-PE",
+                            "col3": "Contenu du RAP"
+                        },
+                        "row1": {
+                            "feature": "Idéal pour",
+                            "col1": "✅ Tous les liquides",
+                            "col2": "✅ Eco-responsable",
+                            "col3": "✅ Objectifs ESG"
+                        },
+                        "row2": {
+                            "feature": "Compatible avec le remplissage à chaud",
+                            "col1": "✅ Jusqu'à 85°C",
+                            "col2": "✅ Jusqu'à 85°C",
+                            "col3": "✅ Jusqu'à 85°C"
+                        },
+                        "row3": {
+                            "feature": "Capable de cornue",
+                            "col1": "✅Option 121°C",
+                            "col2": "❌ Non disponible",
+                            "col3": "✅Option 121°C"
+                        },
+                        "row4": {
+                            "feature": "Bio-Contenu",
+                            "col1": "0%",
+                            "col2": "30-50%",
+                            "col3": "0% (recyclé)"
+                        },
+                        "row5": {
+                            "feature": "Recyclabilité",
+                            "col1": "⚠️ Limité",
+                            "col2": "♻️ Flux PE",
+                            "col3": "♻️ Flux PE"
+                        },
+                        "row6": {
+                            "feature": "Niveau de prix",
+                            "col1": "💰💰",
+                            "col2": "💰💰💰",
+                            "col3": "💰💰"
+                        },
+                        "guideTitle": "💡 Guide de décision pour les sachets à bec verseur",
+                        "col1Title": "Choisissez Standard si :",
+                        "col1Item1": "Optimisation des coûts",
+                        "col1Item2": "Traitement des cornues",
+                        "col1Item3": "Barrière maximale",
+                        "col2Title": "Choisissez Bio-PE si :",
+                        "col2Item1": "Marque éco-responsable",
+                        "col2Item2": "Approvisionnement renouvelable",
+                        "col2Item3": "Un positionnement premium",
+                        "col3Title": "Choisissez PCR si :",
+                        "col3Item1": "ESG d’entreprise",
+                        "col3Item2": "Économie circulaire",
+                        "col3Item3": "Écologique et rentable"
+                    }
+                },
+                "metaTitle": "Pochettes à bec | Emballage liquide | Sacs à bec verseur",
+                "metaDescription": "title=\"Pochettes à bec verseur | Emballages liquides | Sacs à bec verseur",
+                "heroImageAlt": "Emballage en pochette à bec verseur pour liquides",
+                "faqs": {
+                    "0": {
+                        "question": "Pour quels produits les pochettes à bec verseur sont-elles utilisées ?",
+                        "answer": "Les sachets à bec verseur sont idéaux pour les liquides, semi-liquides et les produits visqueux, notamment les purées d'aliments pour bébés, les sauces, les condiments, les boissons, les packs de smoothies, les huiles de cuisson, le miel, les soupes et les garnitures d'aliments pour animaux de compagnie. Ils sont également populaires pour les applications non alimentaires comme les recharges de détergent."
+                    },
+                    "1": {
+                        "question": "Les pochettes à bec verseur sont-elles recyclables ?",
+                        "answer": "Les sachets à bec verseur multi-matériaux standard sont difficiles à recycler dans la plupart des systèmes municipaux. Nous proposons cependant des pochettes à bec mono-PE recyclables dans les filières de recyclage PE. Le capuchon doit être retiré avant le recyclage."
+                    },
+                    "2": {
+                        "question": "Les sachets à bec verseur peuvent-ils être utilisés pour des produits chauds ?",
+                        "answer": "Oui, nous proposons des sachets avec bec verseur à remplissage à chaud pouvant être remplis jusqu'à 85°C. Pour les produits stérilisés de longue conservation, nous proposons des sachets autoclaves qui résistent à un traitement à 121°C."
+                    },
+                    "3": {
+                        "question": "Quelle est la commande minimum de sachets à bec verseur ?",
+                        "answer": "Notre commande minimum de sachets à bec verseur imprimés personnalisés est de 1 000 unités. Pour les sachets unis avec bouchons standards, nous pouvons proposer de plus petites quantités de 500 unités."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Guide des tailles de pochette à bec verseur",
+                        "data": {
+                            "headers": {
+                                "0": "Capacité",
+                                "1": "Dimensions",
+                                "2": "Utilisation typique"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "90-100ml",
+                                    "1": "100 × 150 mm",
+                                    "2": "Nourriture pour bébé en portion individuelle"
+                                },
+                                "1": {
+                                    "0": "150 ml",
+                                    "1": "110 × 170mm",
+                                    "2": "Nourriture pour bébé, smoothie"
+                                },
+                                "2": {
+                                    "0": "250 ml",
+                                    "1": "130 × 200 mm",
+                                    "2": "Sauces, boissons"
+                                },
+                                "3": {
+                                    "0": "500 ml",
+                                    "1": "160 × 250 mm",
+                                    "2": "Huile de cuisson, recharges"
+                                },
+                                "4": {
+                                    "0": "1L",
+                                    "1": "200 × 300 mm",
+                                    "2": "Recharges grand format"
+                                },
+                                "5": {
+                                    "0": "2L",
+                                    "1": "250 × 350 mm",
+                                    "2": "Recharges en vrac, restauration"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Magasiner les pochettes pour bec verseur",
+                        "url": "/magasin",
+                        "description": "Parcourir les emballages liquides - MOQ à partir de 500 pièces"
+                    },
+                    "1": {
+                        "title": "Emballages alimentaires pour bébés",
+                        "url": "/industrie/aliments pour bébés",
+                        "description": "Emballage sûr pour la nutrition infantile"
+                    },
+                    "2": {
+                        "title": "Sauces et condiments",
+                        "url": "/industrie/sauces-condiments",
+                        "description": "Solutions d'emballage alimentaire liquide"
+                    },
+                    "3": {
+                        "title": "Pochettes verticales",
+                        "url": "/emballage/sachet-stand-up",
+                        "description": "Alternative aux produits secs"
+                    },
+                    "4": {
+                        "title": "Guide d'emballage durable",
+                        "url": "/blog/analyse-des-fournisseurs-d'emballages-durables",
+                        "description": "Comparez les fournisseurs éco-responsables"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "pochette à bec",
+                    "1": "pochette à liquide",
+                    "2": "sac à bec verseur",
+                    "3": "pochette de nourriture pour bébé",
+                    "4": "pochette à sauce",
+                    "5": "pochette à boisson",
+                    "6": "pochette à bec",
+                    "7": "sac d'emballage liquide"
                 }
             },
             "vacuumPouches": {
@@ -1884,6 +2791,186 @@
                     "title": "Obtenez des pochettes sous vide personnalisées",
                     "description": "Demandez un échantillon gratuit et un devis pour vos besoins d’emballage sous vide.",
                     "button": "Demander un échantillon gratuit"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "Qu'est-ce qu'une pochette sous vide ?",
+                        "descStrong": "Un sachet sous vide est conçu pour l'emballage sous vide, où l'air est retiré avant d'être scellé pour prolonger la durée de conservation du produit.</strong> Ces sachets à haute barrière protègent contre l'oxygène, l'humidité et les contaminants.",
+                        "descText": "Un sachet sous vide est conçu pour l'emballage sous vide, où l'air est retiré avant d'être scellé pour prolonger la durée de conservation du produit.</strong> Ces sachets à haute barrière protègent contre l'oxygène, l'humidité et les contaminants.",
+                        "benefitsTitle": "Avantages clés :",
+                        "benefit1": "Durée de conservation prolongée (3 à 5 fois plus longue que la norme)",
+                        "benefit2": "Empêche l'oxydation et les brûlures de congélation",
+                        "benefit3": "Maintient la fraîcheur et la qualité du produit",
+                        "benefit4": "Réduit le gaspillage alimentaire",
+                        "benefit5": "Compatible cuisson sous vide"
+                    },
+                    "applications": {
+                        "title": "Applications courantes",
+                        "card1Title": "Viande et volaille",
+                        "card1Item1": "Coupes fraîches",
+                        "card1Item2": "Charcuteries",
+                        "card1Item3": "Viandes transformées",
+                        "card1Item4": "Produits de charcuterie",
+                        "card2Title": "Fruit de mer",
+                        "card2Item1": "Poisson frais",
+                        "card2Item2": "Saumon fumé",
+                        "card2Item3": "Fruits de mer",
+                        "card2Item4": "Fruits de mer surgelés",
+                        "card3Title": "Fromage et produits laitiers",
+                        "card3Item1": "Fromage en bloc",
+                        "card3Item2": "Fromage en tranches",
+                        "card3Item3": "Fromage de spécialité",
+                        "card3Item4": "Beurre",
+                        "card4Title": "Plats cuisinés",
+                        "card4Item1": "Repas sous vide",
+                        "card4Item2": "Kits repas",
+                        "card4Item3": "Protéines précuites",
+                        "card4Item4": "Articles marinés",
+                        "card5Title": "Café",
+                        "card5Item1": "Haricots grillés",
+                        "card5Item2": "Café moulu",
+                        "card5Item3": "Origines uniques",
+                        "card5Item4": "Mélanges spécialisés",
+                        "card6Title": "Non alimentaire",
+                        "card6Item1": "Électronique",
+                        "card6Item2": "Dispositifs médicaux",
+                        "card6Item3": "Médicaments",
+                        "card6Item4": "Stockage d'archives"
+                    },
+                    "types": {
+                        "title": "Types de pochettes sous vide",
+                        "card1Title": "Pochettes sous vide à chambre",
+                        "card1Desc": "Surface lisse pour machines sous vide à cloche. Moins cher, fonctionne avec des liquides.",
+                        "card2Title": "Pochettes sous vide externes",
+                        "card2Desc": "Surface gaufrée/cannelée pour scellants externes. Plus largement compatible.",
+                        "card3Title": "Pochettes sous vide cornue",
+                        "card3Desc": "Résistant à la chaleur pour la pasteurisation/stérilisation. Produits de longue conservation.",
+                        "card4Title": "Pochettes sous vide",
+                        "card4Desc": "Sachets de cuisson conçus pour une cuisson par immersion jusqu'à 100°C."
+                    },
+                    "specifications": {
+                        "title": "Spécifications techniques",
+                        "item1Title": "Matériau :</strong> PA/PE (Nylon/Polyéthylène) multicouche",
+                        "item1Desc": "Matériau :</strong> PA/PE (Nylon/Polyéthylène) multicouche",
+                        "item2Title": "Épaisseur :</strong> 70-150 microns",
+                        "item2Desc": "Épaisseur :</strong> 70-150 microns",
+                        "item3Title": "OTR :</strong> &lt;1,0 cc/m²/24h (transmission d'oxygène)",
+                        "item3Desc": "OTR :</strong> &lt;1,0 cc/m²/24h (transmission d'oxygène)",
+                        "item4Title": "MVTR :</strong> &lt;2,0 g/m²/24h (transmission d'humidité)",
+                        "item4Desc": "MVTR :</strong> &lt;2,0 g/m²/24h (transmission d'humidité)",
+                        "item5Title": "Résistance du joint :</strong> > 25 N/15 mm",
+                        "item5Desc": "Résistance du joint :</strong> > 25 N/15 mm",
+                        "item6Title": "Résistance à la perforation :</strong> élevée (pour les produits avec os)",
+                        "item6Desc": "Résistance à la perforation :</strong> élevée (pour les produits avec os)"
+                    },
+                    "industryScenarios": {
+                        "title": "Applications industrielles",
+                        "card1Title": "Transformation de la viande Transformation de la viande",
+                        "card1Desc": "Viande fraîche、Viande transformée、Charcuterie、Viande surgelée",
+                        "card1Share": "Part : 40%",
+                        "card2Title": "Fruits de merAquaculture Fruits de mer",
+                        "card2Desc": "Poisson frais, saumon fumé, crustacés, fruits de mer surgelés",
+                        "card2Share": "30% de part de marché",
+                        "card3Title": "Produits laitiers Produits laitiers",
+                        "card3Desc": "Blocs de fromage, fromage en tranches, beurre, fromage à la crème",
+                        "card3Share": "30% de part de marché",
+                        "storyTitle": "Témoignage de réussite client",
+                        "storyQuote": "\"Notre usine de traitement de la viande adopte des sacs sous vide après la durée de conservation du produit de 5 jours à 21 jours, répondant aux exigences de distribution interrégionales, les déchets du produit sont également réduits de 80 %. \"",
+                        "storyAuthor": "— Marchand de transformation de viande haut de gamme, expédition mensuelle de 100 000 unités"
+                    },
+                    "marketData": {
+                        "title": "Données et renseignements sur le marché",
+                        "card1Value": "12,5 milliards de dollars",
+                        "card1Desc": "Marché mondial des sacs sous vide",
+                        "card1Sub": "2024annéeTaille",
+                        "card2Value": "6,3%",
+                        "card2Desc": "TCAC",
+                        "card2Sub": "2024-2030",
+                        "card3Value": "3-5x",
+                        "card3Desc": "Durée de conservation prolongée",
+                        "card3Sub": "comparépourunemballagestandard",
+                        "card4Value": "45%",
+                        "card4Desc": "part de marché des soins musculaires :",
+                        "card4Sub": "le plus grand secteur d'applications",
+                        "trendTitle": "Aperçu des tendances du marché",
+                        "trend1": "><strong>Marché de la fraîcheur sous vide</strong>：Croissance annuelle des besoins en sacs sous vide de 18 %</span",
+                        "trend2": "><strong>Sacs d'aspirateur recyclables</strong> : sacs d'aspirateur mono PE répondant aux exigences écologiques</span"
+                    },
+                    "materialComparison": {
+                        "title": "Comparaison des matériaux",
+                        "th1": "Type de matériau",
+                        "th2": "Barrière",
+                        "th3": "Résistant à la chaleur",
+                        "th4": "Respectueux de l'environnement",
+                        "th5": "Utilisation recommandée",
+                        "row1Col1": "PA/PE-Nylon",
+                        "row1Col4": "Difficile de recycler",
+                        "row1Col5": "Viande fraîcheCatégorie、Fruits de mer",
+                        "row2Col1": "PA/PE cuisinable",
+                        "row2Col4": "Difficile de recycler",
+                        "row2Col5": "Cuisson sous vide",
+                        "row3Col1": "Sacs de cornue de stérilisation",
+                        "row3Col4": "Difficile de recycler",
+                        "row3Col5": "Aliments prêts à manger",
+                        "row4Col1": "MonoPE Recyclable",
+                        "row4Col4": "♥️ Recyclable",
+                        "row4Col5": "Eco-responsableProduit prioritaire",
+                        "guideTitle": "Guide de sélection des matériaux",
+                        "guideDesc": "Les sacs sous vide nécessitent des matériaux à haute barrière. Catégorie de viande fraîche, choisissez les matériaux PA/PENylon ;"
+                    }
+                },
+                "seo": {
+                    "title": "Pochettes sous vide | Sacs sous vide | Sacs sous vide",
+                    "description": "title=\"Pochettes sous vide | Sacs sous vide | Sacs sous vide",
+                    "heroTitle": "seoPages.pages.vacuumPouches.heroTitle",
+                    "heroSubtitle": "seoPages.pages.vacuumPouches.heroSubtitle",
+                    "heroImageAlt": "Sachets d'emballage sous vide",
+                    "introSummary": "seoPages.pages.vacuumPouches.introRésumé",
+                    "keywords": {
+                        "0": "pochette sous vide",
+                        "1": "sac sous vide",
+                        "2": "sac sous vide",
+                        "3": "emballage sous vide",
+                        "4": "sacs économiseurs de nourriture",
+                        "5": "pochette sous vide à chambre",
+                        "6": "sac sous vide pour viande",
+                        "7": "café sous vide"
+                    }
+                },
+                "faqs": {
+                    "0": {
+                        "question": "De combien de temps l’emballage sous vide prolonge-t-il la durée de conservation ?",
+                        "answer": "L'emballage sous vide prolonge généralement la durée de conservation de 3 à 5 fois par rapport à l'emballage standard. Par exemple, la viande fraîche peut se conserver 3 à 5 jours dans un emballage ordinaire, mais 2 à 3 semaines sous vide et au réfrigérateur."
+                    },
+                    "1": {
+                        "question": "Les sachets sous vide peuvent-ils être utilisés pour la cuisson sous vide ?",
+                        "answer": "Oui, nous proposons des sachets sous vide sous vide qui conviennent sans danger pour la cuisson par immersion à des températures allant jusqu'à 100°C (212°F). Ces sachets maintiennent l'intégrité du joint pendant les temps de cuisson prolongés."
+                    },
+                    "2": {
+                        "question": "Quelle est la différence entre les poches sous vide à chambre et externes ?",
+                        "answer": "Les sachets à chambre sont lisses et fonctionnent avec des machines à vide à chambre (courantes dans les environnements commerciaux). Les pochettes externes ont une texture gaufrée/canalisée pour l'évacuation de l'air et fonctionnent avec des scelleuses portables et externes."
+                    },
+                    "3": {
+                        "question": "Les pochettes sous vide sont-elles recyclables ?",
+                        "answer": "Les sachets sous vide PA/PE standards sont difficiles à recycler en raison de leur structure multicouche. Nous proposons des pochettes sous vide mono-PE recyclables pour les applications où le recyclage est prioritaire, même si elles ont des propriétés barrières légèrement inférieures."
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Emballage d'aliments surgelés",
+                        "url": "/industrie/aliments-surgelés",
+                        "description": "Solutions pour produits surgelés"
+                    },
+                    "1": {
+                        "title": "Emballage d'aliments pour animaux de compagnie",
+                        "url": "/industrie/aliments pour animaux de compagnie",
+                        "description": "Solutions d'aliments frais pour animaux de compagnie"
+                    },
+                    "2": {
+                        "title": "Mono-PE recyclable",
+                        "url": "/matériaux/mono-pe-recyclable",
+                        "description": "Options d'aspirateur durables"
+                    }
                 }
             },
             "flatPouches": {
@@ -1895,6 +2982,263 @@
                     "title": "Obtenez des sachets personnalisés",
                     "description": "Demandez un échantillon gratuit et un devis pour vos besoins en emballage de sachets.",
                     "button": "Demander un échantillon gratuit"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Cette page est-elle pour vous ?",
+                        "intro": "Si vous avez besoin d'<strong>emballages individuels, d'échantillons ou de sachets économiques</strong>, vous êtes au bon endroit.",
+                        "col1Title": "Exemples de producteurs",
+                        "col1Desc": "Échantillons de produits, tailles d'essai",
+                        "col2Title": "Service alimentaire",
+                        "col2Desc": "Sachets de sauce, sachets de sucre",
+                        "col3Title": "Marques de thé et d'épices",
+                        "col3Desc": "Portions individuelles"
+                    },
+                    "overview": {
+                        "title": "Qu'est-ce qu'une pochette scellée à 3 côtés ?",
+                        "intro": "Un sachet scellé sur 3 côtés (également appelé sachet plat ou sachet) est scellé sur trois côtés avec un dessus ouvert pour le remplissage.</strong> Il s'agit du format d'emballage flexible le plus économique, idéal pour les échantillons, les produits en portion individuelle et les articles légers.",
+                        "desc": "Un sachet scellé sur 3 côtés (également appelé sachet plat ou sachet) est scellé sur trois côtés avec un dessus ouvert pour le remplissage.</strong> Il s'agit du format d'emballage flexible le plus économique, idéal pour les échantillons, les produits en portion individuelle et les articles légers.",
+                        "characteristicsTitle": "Avantages clés :",
+                        "char1": "Format de pochette le plus économique",
+                        "char2": "Utilisation efficace des matériaux (moins de déchets)",
+                        "char3": "Expédition et stockage compacts",
+                        "char4": "Rapide à remplir et à sceller",
+                        "char5": "Accès facile à déchirer"
+                    },
+                    "types": {
+                        "title": "Joint à 3 côtés ou à 4 côtés",
+                        "col1Title": "Joint à 3 côtés",
+                        "col1Intro": "Réalisé à partir d'un film plié, scellé sur 3 faces :",
+                        "col1Item1": "Un bord plié (pas de sceau)",
+                        "col1Item2": "Deux joints latéraux",
+                        "col1Item3": "Joint inférieur ou supérieur après remplissage",
+                        "col1Item4": "Option la plus économique",
+                        "col2Title": "Joint à 4 côtés",
+                        "col2Intro": "Réalisé à partir de deux feuilles distinctes :",
+                        "col2Item1": "Scellé sur les 4 bords",
+                        "col2Item2": "Un peu plus de surface",
+                        "col2Item3": "Différents matériaux recto/verso possibles",
+                        "col2Item4": "Coût légèrement plus élevé"
+                    },
+                    "applications": {
+                        "title": "Applications courantes",
+                        "items": {
+                            "0": "Échantillons de produits",
+                            "1": "Portions individuelles",
+                            "2": "Sachets d'épices",
+                            "3": "Sachets de sucre et édulcorants",
+                            "4": "Sauce sachets",
+                            "5": "Sachets de thé (extérieurs)",
+                            "6": "Sachets de graines",
+                            "7": "Articles promotionnels",
+                            "8": "Sachets pharmaceutiques",
+                            "9": "Échantillons cosmétiques",
+                            "10": "Commodités de l'hôtel",
+                            "11": "Lingettes humides"
+                        }
+                    },
+                    "features": {
+                        "title": "Fonctionnalités disponibles",
+                        "col1Title": "Fonctionnalités d'ouverture",
+                        "col1Item1": "Encoche de déchirure (encoche en V ou marquage laser)",
+                        "col1Item2": "Joint facile à décoller",
+                        "col1Item3": "Ligne perforée",
+                        "col1Item4": "Formes découpées",
+                        "col2Title": "Options supplémentaires",
+                        "col2Item1": "Trou de suspension pour l'affichage",
+                        "col2Item2": "Effacer la fenêtre",
+                        "col2Item3": "Finition mate/brillante",
+                        "col2Item4": "Estampage à la feuille",
+                        "galleryTitle": "Options de pochettes scellées sur 3 côtés",
+                        "galleryCaption1": "Joint à 3 côtés",
+                        "galleryCaption2": "Film transparent",
+                        "galleryCaption3": "Papier kraft",
+                        "galleryCaption4": "Compostable"
+                    },
+                    "riskHedge": {
+                        "title": "Vous n'êtes toujours pas sûr ? Nous avons des réponses",
+                        "q1": "Les sachets sont-ils écologiques ?",
+                        "a1": "Oui, options PLA et papier/PLA disponibles",
+                        "q2": "Quel est le minimum de commande ?",
+                        "a2": "500 exemplaires ordinaires, 1 000 imprimés personnalisés",
+                        "q3": "Peuvent-ils avoir des fermetures éclair ?",
+                        "a3": "Oui, ou envisagez des pochettes verticales refermables",
+                        "q4": "Puis-je obtenir des échantillons ?",
+                        "a4": "Échantillons de sachets gratuits pour évaluation"
+                    },
+                    "decisionCta": {
+                        "title": "Prêt à commencer ?",
+                        "headline": "Choisissez comment vous souhaitez vous connecter",
+                        "col1Title": "Réserver un appel",
+                        "col1Desc": "Consultation gratuite de 30 minutes",
+                        "col1Btn": "Planifiez maintenant",
+                        "col2Title": "Devis par e-mail",
+                        "col2Desc": "Obtenez une réponse dans les 24 heures",
+                        "col2Btn": "Envoyer un e-mail",
+                        "col3Title": "Échantillons gratuits",
+                        "col3Desc": "Testez d'abord les sachets",
+                        "col3Btn": "Demander des échantillons"
+                    },
+                    "industryScenarios": {
+                        "title": "Applications industrielles",
+                        "segment1Title": "Nourriture et condiments",
+                        "segment1Desc": "Sachets de sauce, sachets de sucre, sachets d'assaisonnement, sachets d'épices",
+                        "segment1Share": "45% de part de marché",
+                        "segment2Title": "Échantillons cosmétiques",
+                        "segment2Desc": "Sérums pour masques faciaux, échantillons de lotions, essais de soins de la peau",
+                        "segment2Share": "30% de part de marché",
+                        "segment3Title": "Pharmaceutique et santé",
+                        "segment3Desc": "Portions pharmaceutiques, essais de suppléments, packs nutritionnels",
+                        "segment3Share": "25% de part de marché",
+                        "successTitle": "Témoignage de réussite client",
+                        "successStory": "Après être passée aux sachets à fermeture sur 3 côtés, notre marque de condiments a réduit ses coûts unitaires de 35 % tout en répondant parfaitement aux besoins à usage unique de la restauration, élargissant ainsi considérablement sa couverture de marché.",
+                        "successAuthor": "— Fabricant de condiments, plus de 2 millions d'unités/mois"
+                    },
+                    "marketData": {
+                        "title": "Données et renseignements sur le marché",
+                        "stat1Val": "8,2 milliards de dollars",
+                        "stat1Label": "Taille du marché mondial des sachets",
+                        "stat1Sub": "Valeur 2024",
+                        "stat2Val": "6,8%",
+                        "stat2Label": "TCAC",
+                        "stat2Sub": "2024-2030",
+                        "stat3Val": "35%",
+                        "stat3Label": "part de marché de la restauration",
+                        "stat3Sub": "le plus grand secteur d’utilisation finale",
+                        "stat4Val": "150 milliards",
+                        "stat4Label": "Consommation annuelle Asie-Pacifique",
+                        "stat4Sub": "le plus grand marché du monde",
+                        "trendsTitle": "Aperçu des tendances du marché",
+                        "trend1Bold": "Marché des portions individuelles</strong> : la demande de produits de commodité stimule la croissance continue des sachets",
+                        "trend1Text": "Marché des portions individuelles</strong> : la demande de produits de commodité stimule la croissance continue des sachets",
+                        "trend2Bold": "Matériaux compostables ： La demande de PLA et d'éco-matériaux augmente de 25 % par an",
+                        "trend2Text": "Matériaux compostables ： La demande de PLA et d'éco-matériaux augmente de 25 % par an"
+                    },
+                    "materialComparison": {
+                        "title": "Comparaison des matériaux",
+                        "headers": {
+                            "type": "Type de matériau",
+                            "barrier": "Barrière",
+                            "cost": "Coût",
+                            "eco": "Respectueux de l'environnement",
+                            "use": "Utilisation recommandée"
+                        },
+                        "row1": {
+                            "type": "PET/PE Clair",
+                            "eco": "Recyclable",
+                            "use": "Sachets de sucre, aliments secs"
+                        },
+                        "row2": {
+                            "type": "Stratifié de papier d'aluminium",
+                            "eco": "Difficile de recycler",
+                            "use": "Sauces, produits pharmaceutiques"
+                        },
+                        "row3": {
+                            "type": "Stratifié de papier kraft",
+                            "eco": "Aspect naturel",
+                            "use": "Sachets de thé, épices"
+                        },
+                        "row4": {
+                            "type": "PLA Compostable",
+                            "eco": "🌱 Compostable",
+                            "use": "Aliments biologiques, échantillons"
+                        },
+                        "guideTitle": "Guide de sélection des matériaux",
+                        "guideText": "Les sachets scellés sur 3 côtés sont idéaux pour un scénario à usage unique sensible au coût. Pour l'emballage de liquides, choisissez le stratifié en feuille d'aluminium ; pour les exigences respectueuses de l'environnement, choisissez des matériaux PLA compostables."
+                    }
+                },
+                "metaTitle": "Pochettes scellées à 3 côtés | Pochettes plates | Sachets | Emballage d'échantillon",
+                "metaDescription": "title=\"Pochettes scellées sur 3 côtés | Sachets plats | Sachets | Emballage d'échantillons",
+                "heroImageAlt": "Emballage en sachet plat à fermeture sur 3 côtés",
+                "faqs": {
+                    "0": {
+                        "question": "Quelle est la différence entre un joint à 3 côtés et un joint à 4 côtés ?",
+                        "answer": "Les sachets scellés sur 3 côtés sont fabriqués à partir d'un film plié (scellés sur 3 côtés), tandis que les sachets scellés sur 4 côtés utilisent deux feuilles séparées (scellées sur les 4 côtés). Le joint sur 3 côtés est plus économique, tandis que le joint sur 4 côtés offre une surface légèrement plus grande et permet différents matériaux à l'avant et à l'arrière."
+                    },
+                    "1": {
+                        "question": "Quelle est la commande minimum de sachets ?",
+                        "answer": "Notre MOQ pour les sachets imprimés personnalisés est de 1 000 unités. Pour les sachets nature, nous pouvons proposer 500 unités. Le prix unitaire plus bas rend les sachets économiques même en petites quantités."
+                    },
+                    "2": {
+                        "question": "Les pochettes plates peuvent-elles avoir une fermeture éclair refermable ?",
+                        "answer": "Les pochettes plates traditionnelles sont à usage unique, mais nous pouvons ajouter une fermeture éclair pour créer une pochette plate refermable. Cependant, pour les applications refermables, les sachets stand-up offrent généralement une meilleure fonctionnalité et une meilleure valeur."
+                    },
+                    "3": {
+                        "question": "Les sachets plats sont-ils disponibles en matériaux compostables ?",
+                        "answer": "Oui, nous proposons des sachets plats compostables à base de PLA, de papier/PLA ou de films à base de cellulose. Ceux-ci sont certifiés EN 13432 pour le compostage industriel."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Guide des tailles des pochettes plates",
+                        "data": {
+                            "headers": {
+                                "0": "Taille",
+                                "1": "Dimensions",
+                                "2": "Capacité typique",
+                                "3": "Utilisation courante"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "Petit sachet",
+                                    "1": "50 × 70mm",
+                                    "2": "5-10g / 5-10ml",
+                                    "3": "Sachets de sucre, échantillons"
+                                },
+                                "1": {
+                                    "0": "Sachet moyen",
+                                    "1": "70 × 100mm",
+                                    "2": "10-30g",
+                                    "3": "Épices, sachets de sauce"
+                                },
+                                "2": {
+                                    "0": "Grand sachet",
+                                    "1": "100 × 150 mm",
+                                    "2": "30-100g",
+                                    "3": "Thé extérieur, sachets de graines"
+                                },
+                                "3": {
+                                    "0": "Pochette d'échantillon",
+                                    "1": "80 × 120 mm",
+                                    "2": "20-50g",
+                                    "3": "Échantillons de produits"
+                                },
+                                "4": {
+                                    "0": "Promotionnelle",
+                                    "1": "120 × 180mm",
+                                    "2": "50-100g",
+                                    "3": "Articles promotionnels"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Pochettes verticales",
+                        "url": "/emballage/sachet-stand-up",
+                        "description": "Alternative autonome"
+                    },
+                    "1": {
+                        "title": "Matériaux compostables",
+                        "url": "/matériaux/compostables",
+                        "description": "Options de sachets écologiques"
+                    },
+                    "2": {
+                        "title": "Café et thé",
+                        "url": "/industrie/café-thé",
+                        "description": "Solutions en sachets de thé"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "Pochette à 3 joints latéraux",
+                    "1": "pochette plate",
+                    "2": "emballage en sachet",
+                    "3": "pochettes d'échantillons",
+                    "4": "paquets individuels",
+                    "5": "sacs en sachet",
+                    "6": "emballage en sac plat",
+                    "7": "Pochette à 4 joints latéraux"
                 }
             },
             "sideGussetBags": {
@@ -1906,6 +3250,207 @@
                     "title": "Obtenez des sacs à soufflet latéraux personnalisés",
                     "description": "Demandez un échantillon gratuit et un devis pour vos produits en vrac.",
                     "button": "Demander un échantillon gratuit"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "Qu'est-ce qu'un sac à soufflet latéral ?",
+                        "intro": "Un sac à soufflet latéral (également appelé sac à quatre joints) comporte des panneaux latéraux extensibles qui offrent une grande capacité tout en conservant un encombrement compact.</strong> Ce format de sac traditionnel est populaire pour le café, le thé et les produits en vrac.",
+                        "desc": "Un sac à soufflet latéral (également appelé sac à quatre joints) comporte des panneaux latéraux extensibles qui offrent une grande capacité tout en conservant un encombrement compact.</strong> Ce format de sac traditionnel est populaire pour le café, le thé et les produits en vrac.",
+                        "characteristicsTitle": "Caractéristiques clés :",
+                        "char1": "Soufflets latéraux extensibles pour un volume élevé",
+                        "char2": "Construction à quatre joints (4 coutures)",
+                        "char3": "Compact lorsqu'il est vide, se dilate une fois rempli",
+                        "char4": "Aspect traditionnel du sac de café",
+                        "char5": "Plusieurs options de fermeture disponibles"
+                    },
+                    "construction": {
+                        "title": "Construction du sac",
+                        "panelTitle": "Structure du panneau",
+                        "panel1": "Panneau avant – Marquage principal",
+                        "panel2": "Panneau arrière – Informations",
+                        "panel3": "2 soufflets latéraux – Développez pour le volume",
+                        "panel4": "Joints haut/bas",
+                        "closureTitle": "Options de fermeture",
+                        "closure1": "Attache en étain (repliée avec du fil)",
+                        "closure2": "Thermoscellage (permanent)",
+                        "closure3": "Fermeture éclair refermable",
+                        "closure4": "Rabattable avec étiquette"
+                    },
+                    "applications": {
+                        "title": "Applications courantes",
+                        "items": {
+                            "0": "Café en grains",
+                            "1": "Café moulu",
+                            "2": "Thé en feuilles",
+                            "3": "Riz et céréales",
+                            "4": "Farine et pâtisserie",
+                            "5": "Nourriture pour animaux",
+                            "6": "Graine pour oiseaux",
+                            "7": "Pâtes séchées",
+                            "8": "Noix et graines",
+                            "9": "Fruits secs",
+                            "10": "Biscuits et biscuits",
+                            "11": "Épices en vrac"
+                        }
+                    },
+                    "features": {
+                        "title": "Fonctionnalités supplémentaires",
+                        "feature1Title": "Vanne de dégazage",
+                        "feature1Desc": "Valve anti-retour pour café fraîchement torréfié. Libère du CO2 sans laisser entrer l’oxygène.",
+                        "feature2Title": "Effacer la fenêtre",
+                        "feature2Desc": "Afficher le contenu du produit. Disponible en différentes formes et positions.",
+                        "feature3Title": "Trou de suspension",
+                        "feature3Desc": "Fente européenne ou trou rond pour suspendre un présentoir au détail."
+                    },
+                    "industryScenarios": {
+                        "title": "Applications industrielles",
+                        "segment1Title": "Torréfaction du café Torréfacteurs",
+                        "segment1Desc": "Grains de café de spécialité、Grains d'origine unique、ClassicCoffee BagsFormat",
+                        "segment1Share": "Part : 55%",
+                        "segment2Title": "Marques de thé TeaBrand",
+                        "segment2Desc": "Thé en vrac, thé HighCamellia, thé traditionnelEmballage",
+                        "segment2Share": "25% de part de marché",
+                        "segment3Title": "CéréalesCéréales et riz",
+                        "segment3Desc": "Riz, céréales, chanvre, légumineuses, emballage en vrac",
+                        "segment3Share": "Partage : 20 %",
+                        "successTitle": "Témoignage de réussite client",
+                        "successStory": "「Notre spécialité caféBrandadoptionSac à soufflet latéral avec valve de dégazageAprès, le café fraîchement torréfiéCO2 peut se libérer normalement, tout en maintenant l'esthétique de l'emballage, la satisfaction des clients s'améliore de 40 %.」",
+                        "successAuthor": "— Produits spécialisésRôtissoires à café, ventes mensuelles 5000 sacs"
+                    },
+                    "marketData": {
+                        "title": "Données et renseignements sur le marché",
+                        "stat1Val": "4,8 milliards de dollars",
+                        "stat1Label": "Marché mondial des sacs à soufflet latéraux",
+                        "stat1Sub": "2024annéeTaille",
+                        "stat2Val": "5,2%",
+                        "stat2Label": "TCAC",
+                        "stat2Sub": "2024-2030",
+                        "stat3Val": "65%",
+                        "stat3Label": "caféApplicationsPartager :",
+                        "stat3Sub": "le plus grand secteur d'applications",
+                        "stat4Val": "32%",
+                        "stat4Label": "Café de spécialitéTaux de croissance du marché",
+                        "stat4Sub": "conduiteEmballageaugmentéPremium",
+                        "trendsTitle": "Aperçu des tendances du marché",
+                        "trend1Bold": "traditionnelFormatretour</strong>：Café de spécialitéMarquepréférenceClassiqueSacs à soufflet latérauxapparence",
+                        "trend1Text": "traditionnelFormatretour</strong>：Café de spécialitéMarquepréférenceClassiqueSacs à soufflet latérauxapparence",
+                        "trend2Bold": "norme de valve de dégazage : 85 % de sacs de café équipés d'une valve de dégazage unidirectionnelle",
+                        "trend2Text": "norme de valve de dégazage : 85 % de sacs de café équipés d'une valve de dégazage unidirectionnelle"
+                    },
+                    "materialComparison": {
+                        "title": "Comparaison des matériaux",
+                        "headers": {
+                            "type": "Type de matériau",
+                            "barrier": "Barrière",
+                            "cost": "Coût",
+                            "eco": "Respectueux de l'environnement",
+                            "use": "Utilisation recommandée"
+                        },
+                        "row1": {
+                            "type": "Papier kraft/feuille d'aluminium",
+                            "eco": "Aspect du papier",
+                            "use": "Café de spécialité、HighpremiumTea"
+                        },
+                        "row2": {
+                            "type": "PET/Al/PE",
+                            "eco": "Difficile de recycler",
+                            "use": "Café à période de fraîcheur prolongée"
+                        },
+                        "row3": {
+                            "type": "MonoPE Recyclable",
+                            "eco": "♥️ Recyclable",
+                            "use": "Café écologiqueMarque"
+                        },
+                        "row4": {
+                            "type": "PLA Compostable",
+                            "eco": "🌱 Compostable",
+                            "use": "Café & Thé Bio"
+                        },
+                        "guideTitle": "Guide de sélection des matériaux",
+                        "guideText": "Les sacs à soufflet latéraux sont le format classique d'emballage de café. Exigez un maximum d'effet de fraîcheur, choisissez du stratifié en feuille d'aluminium ;"
+                    }
+                },
+                "metaTitle": "Sacs à soufflet latéraux | Sacs à quatre joints | Sacs à café",
+                "metaDescription": "title=\"Sacs à soufflet latéraux | Sacs à quatre joints | Sacs à café",
+                "heroImageAlt": "Emballage de sac de café à soufflet latéral",
+                "faqs": {
+                    "0": {
+                        "question": "Quelle est la différence entre les sacs à soufflet latéral et les sacs à fond plat ?",
+                        "answer": "Les sacs à soufflet latéraux ont des panneaux latéraux extensibles et sont relativement plats, tandis que les sacs à fond plat ont une base rectangulaire rigide pour une stabilité supérieure. Les sacs à fond plat offrent plus de présence en rayon mais coûtent plus cher. Les sacs à soufflets latéraux sont plus traditionnels pour le café et offrent une bonne capacité."
+                    },
+                    "1": {
+                        "question": "Les sacs à soufflets latéraux sont-ils adaptés au remplissage automatique ?",
+                        "answer": "Oui, les sacs à soufflet latéraux fonctionnent bien avec les machines VFFS (vertical form fill seal). Nous pouvons fournir des sacs préfabriqués ou sous forme de film en rouleau pour les lignes d'emballage automatiques."
+                    },
+                    "2": {
+                        "question": "Quelles tailles sont disponibles ?",
+                        "answer": "Les sacs à soufflets latéraux sont disponibles d'une capacité de 100 g à 5 kg. Les tailles courantes sont 250 g, 500 g, 1 kg et 2,5 kg. Tailles personnalisées disponibles pour les commandes de plus de 5 000 unités."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Guide des tailles des sacs à soufflet latéral",
+                        "data": {
+                            "headers": {
+                                "0": "Capacité",
+                                "1": "Dimensions (L×H×G)",
+                                "2": "Utilisation courante"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "250g",
+                                    "1": "100 × 280 × 60 mm",
+                                    "2": "Café, thé au détail"
+                                },
+                                "1": {
+                                    "0": "500g",
+                                    "1": "120 × 320 × 70mm",
+                                    "2": "Grains de café, fruits secs"
+                                },
+                                "2": {
+                                    "0": "1 kg",
+                                    "1": "140 × 380 × 80 mm",
+                                    "2": "Nourriture pour animaux, riz"
+                                },
+                                "3": {
+                                    "0": "2,5kg",
+                                    "1": "180 × 450 × 100 mm",
+                                    "2": "Produits en vrac"
+                                },
+                                "4": {
+                                    "0": "5 kg",
+                                    "1": "220 × 550 × 120 mm",
+                                    "2": "Aliments pour animaux de grande taille"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Sacs à fond plat",
+                        "url": "/emballage/sacs-à-fond-plat",
+                        "description": "Alternative premium avec une meilleure stabilité"
+                    },
+                    "1": {
+                        "title": "Pochettes verticales",
+                        "url": "/emballage/sachet-stand-up",
+                        "description": "Format moderne populaire"
+                    },
+                    "2": {
+                        "title": "Café et thé",
+                        "url": "/industrie/café-thé",
+                        "description": "Solutions de café de spécialité"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "sac à soufflet latéral",
+                    "1": "sac à quatre joints",
+                    "2": "gousset pour sac à café",
+                    "3": "pochette à soufflet",
+                    "4": "sac pliable sur le côté",
+                    "5": "sac à café avec lien en étain",
+                    "6": "sac de nourriture en vrac"
                 }
             },
             "coffeeTea": {
@@ -9551,6 +11096,353 @@
                 "heroTitle": "Sachets à bec écologiques pour jus",
                 "introSummary": "Sachets à bec verseur personnalisés conçus pour les boissons pour adultes. Des jus aux infusions froides, profitez d'un emballage recyclable et sans danger pour les aliments avec un bec verseur pratique.",
                 "ctaButtonText": "Obtenez un devis"
+            },
+            "customBoxes": {
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Cette page est-elle pour vous ?",
+                        "intro": "Si vous avez besoin d'un <strong>emballage rigide haut de gamme pour des produits artisanaux</strong> (chocolat, thé, café ou cadeaux de luxe), vous êtes au bon endroit.",
+                        "card1Title": "Chocolat & Confiserie",
+                        "card1Desc": "Présentation haut de gamme avec feuille d'or et gaufrage",
+                        "card2Title": "Marques de café et de thé",
+                        "card2Desc": "Boîtes postales rigides pour mélanges haut de gamme",
+                        "card3Title": "Producteurs de produits alimentaires artisanaux",
+                        "card3Desc": "Emballage durable certifié FSC"
+                    },
+                    "overview": {
+                        "title": "Quelles boîtes personnalisées proposons-nous ?",
+                        "intro": "strong>Achieve Pack propose des boîtes rigides imprimées personnalisées haut de gamme</strong> conçues pour les produits alimentaires artisanaux, les cafés de spécialité, les cadeaux de luxe et la vente au détail haut de gamme. Nos boîtes sont dotées de matériaux certifiés FSC, d'un laminage mat et de finitions haut de gamme en option, notamment l'estampage et le gaufrage à la feuille d'or.",
+                        "card1Title": "Boîtes postales en carton ondulé",
+                        "card1Desc": "Parfait pour le café, le thé et les aliments artisanaux nécessitant une protection d'expédition robuste.",
+                        "card1Feat1": "✓ Format 500 g : 130 × 85 × 35 mm",
+                        "card1Feat2": "✓ Taille 1 kg : 270 × 85 × 35 mm",
+                        "card1Feat3": "✓ Impression personnalisée CMJN",
+                        "card1Feat4": "✓ Norme de finition mate",
+                        "card1Feat5": "✓ Feuille d'or disponible",
+                        "card1Feat6": "✓ Papier certifié FSC",
+                        "cardLinkText": "Voir les prix et la commande →",
+                        "card2Title": "Boîtes repliables (cartons)",
+                        "card2Desc": "Boîtes pliantes élégantes pour barres chocolatées, sachets de thé et confiseries haut de gamme.",
+                        "card2Feat1": "✓ Format 100 g : 81 × 162 × 15 mm",
+                        "card2Feat2": "✓ Carte blanche de 250g",
+                        "card2Feat3": "✓ Estampage à la feuille d'or",
+                        "card2Feat4": "✓ Détails en relief",
+                        "card2Feat5": "✓ Finition mate",
+                        "card2Feat6": "✓ Certifié FSC"
+                    },
+                    "features": {
+                        "title": "Caractéristiques et finitions haut de gamme",
+                        "card1Title": "✨ Estampage à la feuille d'or",
+                        "card1Desc": "Accents dorés métalliques estampés à chaud pour une marque de luxe",
+                        "card2Title": "🎨 Détails en relief",
+                        "card2Desc": "Texture surélevée pour une expérience tactile premium",
+                        "card3Title": "📦 Stratification mate",
+                        "card3Desc": "Finition mate sophistiquée standard sur toutes les boîtes",
+                        "card4Title": "🌱 Certifié FSC",
+                        "card4Desc": "Matériaux en papier recyclé provenant de sources durables",
+                        "card5Title": "🖨️ Impression CMJN",
+                        "card5Desc": "Impression personnalisée en couleur pour une image de marque dynamique",
+                        "card6Title": "💪 Construction rigide",
+                        "card6Desc": "Tableau gris de 2,0 mm pour une intégrité structurelle de première qualité",
+                        "galleryTitle": "Types et styles de boîtes",
+                        "galleryCap1": "Enveloppe en carton ondulé",
+                        "galleryCap2": "Carton de boîte de rangement",
+                        "galleryCap3": "Finition feuille d'or",
+                        "galleryCap4": "Texture en relief"
+                    },
+                    "applications": {
+                        "title": "Parfait pour ces produits",
+                        "card1Title": "Chocolat",
+                        "card1Desc": "Barres, truffes, pralines",
+                        "card2Title": "Thé",
+                        "card2Desc": "Feuilles mobiles, sachets, coffrets cadeaux",
+                        "card3Title": "Café",
+                        "card3Desc": "Haricots spéciaux, coffrets cadeaux",
+                        "card4Title": "Confiserie",
+                        "card4Desc": "Bonbons, confiseries, macarons",
+                        "card5Title": "Boulangerie",
+                        "card5Desc": "Biscuits, biscuits, pâtisseries",
+                        "card6Title": "Coffrets cadeaux",
+                        "card6Desc": "Emballage cadeau de luxe",
+                        "card7Title": "Aliments artisanaux",
+                        "card7Desc": "Miel, confitures, spécialité",
+                        "card8Title": "Vente au détail haut de gamme",
+                        "card8Desc": "Présentoir d'étagère haut de gamme"
+                    },
+                    "sustainability": {
+                        "title": "Écologique et durable",
+                        "cardTitle": "🌱 Notre engagement en matière de développement durable",
+                        "card1Title": "Matériaux certifiés FSC",
+                        "card1Item1": "Papier et carton recyclés",
+                        "card1Item2": "Fibres d'origine responsable",
+                        "card1Item3": "Soutient la foresterie durable",
+                        "card2Title": "Emballage recyclable",
+                        "card2Item1": "Recyclable en bordure de rue",
+                        "card2Item2": "Déchets de matériaux minimes",
+                        "card2Item3": "Une production éco-responsable",
+                        "exploreTextPre": "Vous recherchez un emballage écologique flexible ? Découvrez nos <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">pochettes compostables</Link> et nos <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">options mono-PE recyclables</Link>.",
+                        "exploreLink1": "Vous recherchez un emballage écologique flexible ? Découvrez nos <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">pochettes compostables</Link> et nos <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">options mono-PE recyclables</Link>.",
+                        "exploreTextMid": "Vous recherchez un emballage écologique flexible ? Découvrez nos <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">pochettes compostables</Link> et nos <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">options mono-PE recyclables</Link>.",
+                        "exploreLink2": "Vous recherchez un emballage écologique flexible ? Découvrez nos <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">pochettes compostables</Link> et nos <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">options mono-PE recyclables</Link>.",
+                        "exploreTextPost": "Vous recherchez un emballage écologique flexible ? Découvrez nos <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">pochettes compostables</Link> et nos <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">options mono-PE recyclables</Link>."
+                    },
+                    "pricing": {
+                        "title": "Prix ​​et quantité minimale de commande",
+                        "card1Title": "📦 Prix des boîtes postales en carton ondulé",
+                        "card1Th1": "Quantité",
+                        "card1Th2": "Boîte de 500g",
+                        "card1Th3": "Boîte de 1kg",
+                        "card1Row1Col1": "200 pièces",
+                        "card1Row1Col2": "514,50 $ (2,57 $/pièce)",
+                        "card1Row1Col3": "1 285,50 $ (6,43 $/pièce)",
+                        "card1Row2Col1": "1 000 pièces",
+                        "card1Row2Col2": "771,75 $ (0,77 $/pièce)",
+                        "card1Row2Col3": "1 714,50 $ (1,71 $/pièce)",
+                        "card1Row3Col1": "5 000 pièces",
+                        "card1Row3Col2": "2 054,25 $ (0,41 $/pièce)",
+                        "card1Row3Col3": "3 859,50 $ (0,77 $/pièce)",
+                        "card1Row4Col1": "10 000 pièces",
+                        "card1Row4Col2": "3 657,38 $ (0,37 $/pièce)",
+                        "card1Row4Col3": "5 040,75 $ (0,50 $/pièce)",
+                        "card2Title": "🎁 Prix de la boîte Tuck (100g)",
+                        "card2Th1": "Quantité",
+                        "card2Th2": "Prix ​​total",
+                        "card2Th3": "Prix ​​unitaire",
+                        "card2Row1Col1": "200 pièces",
+                        "card2Row1Col2": "1 105,50 $",
+                        "card2Row1Col3": "5,53 $/pièce",
+                        "card2Row2Col1": "1 000 pièces",
+                        "card2Row2Col2": "1 381,50 $",
+                        "card2Row2Col3": "1,38 $/pièce",
+                        "card2Row3Col1": "5 000 pièces",
+                        "card2Row3Col2": "2 761,50 $",
+                        "card2Row3Col3": "0,55 $/pièce",
+                        "card2Row4Col1": "10 000 pièces",
+                        "card2Row4Col2": "4 486,50 $",
+                        "card2Row4Col3": "0,45 $/pièce",
+                        "shippingTitle": "🚢 Frais de port inclus :</strong> Tous les prix incluent la livraison par fret maritime (40-60 jours). Le délai de production est d'environ 30 jours. Pour des quantités plus importantes ou des tailles personnalisées, <button onClick={openCalendly} className=\"underline curseur-pointer\">contactez-nous pour un devis personnalisé</button>.",
+                        "shippingDescPre": "🚢 Frais de port inclus :</strong> Tous les prix incluent la livraison par fret maritime (40-60 jours). Le délai de production est d'environ 30 jours. Pour des quantités plus importantes ou des tailles personnalisées, <button onClick={openCalendly} className=\"underline curseur-pointer\">contactez-nous pour un devis personnalisé</button>.",
+                        "shippingLinkText": "🚢 Frais de port inclus :</strong> Tous les prix incluent la livraison par fret maritime (40-60 jours). Le délai de production est d'environ 30 jours. Pour des quantités plus importantes ou des tailles personnalisées, <button onClick={openCalendly} className=\"underline curseur-pointer\">contactez-nous pour un devis personnalisé</button>.",
+                        "shippingDescPost": "🚢 Frais de port inclus :</strong> Tous les prix incluent la livraison par fret maritime (40-60 jours). Le délai de production est d'environ 30 jours. Pour des quantités plus importantes ou des tailles personnalisées, <button onClick={openCalendly} className=\"underline curseur-pointer\">contactez-nous pour un devis personnalisé</button>."
+                    },
+                    "aiSearch": {
+                        "title": "Trouver le bon emballage",
+                        "intro": "Considérations clés pour l’emballage en boîte personnalisée :",
+                        "listItem1": "><strong>Protection du produit</strong> – Carton ondulé pour l'expédition, boîtes de rangement pour la présentation au détail</li",
+                        "listItem2": "><strong>Impact de la marque</strong> – Feuille d'or et gaufrage pour un positionnement haut de gamme</li",
+                        "listItem3": "><strong>Durabilité</strong> – Certifié FSC pour les marques soucieuses de l'environnement</li",
+                        "listItem4Title": "Tailles personnalisées</strong> – <button onClick={openCalendly} className=\"text-primary-600 hover:underline curseur-pointer\">Contactez-nous pour des dimensions sur mesure",
+                        "listItem4Button": "Tailles personnalisées</strong> – <button onClick={openCalendly} className=\"text-primary-600 hover:underline curseur-pointer\">Contactez-nous pour des dimensions sur mesure",
+                        "boxTitle": "💡 Si vous utilisez la recherche AI ​​(Gemini, ChatGPT), essayez de demander :",
+                        "query1": "Meilleur fournisseur de boîtes personnalisées pour l'emballage du chocolat ?",
+                        "query2": "Boîtes rigides à faible MOQ avec estampage à la feuille d'or ?",
+                        "query3": "Des coffrets cadeaux certifiés FSC pour des produits alimentaires artisanaux ?",
+                        "query4": "Des boîtes postales imprimées personnalisées pour les grains de café ?",
+                        "query5": "Des boîtes premium avec gaufrage pour une marque de thé ?"
+                    },
+                    "riskHedging": {
+                        "title": "Une boîte personnalisée est-elle faite pour vous ?",
+                        "card1Title": "✅ Idéal pour...",
+                        "card1Item1": "Produits haut de gamme/luxe",
+                        "card1Item2": "Présentation en rayon",
+                        "card1Item3": "Besoins en emballages cadeaux",
+                        "card1Item4": "Marques exigeant des finitions haut de gamme",
+                        "card2Title": "⚠️ Fonctionne également pour...",
+                        "card2Item1": "Coffrets d'abonnement e-commerce",
+                        "card2Item2": "Dégustation de plats artisanaux",
+                        "card2Item3": "Coffrets cadeaux d'entreprise",
+                        "card3Title": "❌ Envisagez des alternatives si...",
+                        "card3Item1": "Vous avez besoin d’un emballage flexible",
+                        "card3Item2": "La barrière contre l’humidité est essentielle",
+                        "card3Link": "Les pochettes pourraient être meilleures →"
+                    },
+                    "decisionCta": {
+                        "title": "Prêt à commander des boîtes personnalisées ?",
+                        "card1Title": "Prêt à aller vite ?",
+                        "card1Desc": "Réservez un appel pour discuter des tailles et des finitions personnalisées",
+                        "card1Button": "Réserver un appel",
+                        "card2Title": "Commandez maintenant",
+                        "card2Desc": "Parcourez les coffrets et commandez en ligne",
+                        "card2Button": "Boîtes de magasinage",
+                        "card3Title": "Vous explorez toujours ?",
+                        "card3Desc": "Comparez avec les pochettes souples",
+                        "card3Button": "Voir les pochettes"
+                    },
+                    "industryScenarios": {
+                        "title": "Applications industrielles",
+                        "card1Title": "Chocolat & Confiserie Chocolat & Confiserie",
+                        "card1Desc": "Chocolats haut de gamme, bonbons artisanaux, coffrets cadeaux de vacances",
+                        "card1Share": "Part : 40%",
+                        "card2Title": "Café et thé Café et thé",
+                        "card2Desc": "Cafés de spécialitéCoffrets cadeaux、HighpremiumTeaPackaging、Boîtes d'abonnement",
+                        "card2Share": "Part : 35%",
+                        "card3Title": "Cadeaux premium Cadeaux premium",
+                        "card3Desc": "Cadeaux d'entreprise, cadeaux de mariage, coffrets de vacances",
+                        "card3Share": "25% de part de marché",
+                        "storyTitle": "Témoignage de réussite client",
+                        "storyQuote": "\"Nos chocolats haut de gamme adoption de la marque estampage en feuille d'or + gaufrage boîtes d'emballage après, le prix de détail du produit s'améliore de 30 %, le taux de conversion des clients augmente de 45 %, l'emballage devient notre avantage de différenciation de marque. \"",
+                        "storyAuthor": "— Chocolats artisanauxMarque，années de croissance des ventes 60 %"
+                    },
+                    "marketData": {
+                        "title": "Données et renseignements sur le marché",
+                        "card1Value": "28 milliards de dollars",
+                        "card1Desc": "Marché mondial des boîtes d’emballage",
+                        "card1Sub": "2024annéeTaille",
+                        "card2Value": "4,8%",
+                        "card2Desc": "TCAC",
+                        "card2Sub": "2024-2030",
+                        "card3Value": "68%",
+                        "card3Desc": "Valeur pour les consommateursEmballage",
+                        "card3Sub": "Décisions d'achat sur l'impact des coûts",
+                        "card4Value": "52%",
+                        "card4Desc": "disposé à payer une prime au FSC",
+                        "card4Sub": "Sensibilisation à l'environnementaméliorer",
+                        "trendTitle": "Aperçu des tendances du marché",
+                        "trend1": "><strong>Expérience de déballage augmentéePremium</strong> : Produits spécialisésMarque axée sur l'emballagepremière impression</span",
+                        "trend2": "><strong>Norme de certification FSCCertification</strong> : 85 % des marques HighPremiumchoisissezchoisissezEmballage respectueux de l'environnement</span"
+                    },
+                    "materialComparison": {
+                        "title": "Comparaison des matériaux",
+                        "th1": "types de boîtes",
+                        "th2": "résistance structurelle",
+                        "th3": "Coût",
+                        "th4": "appropriéutiliséScénario",
+                        "th5": "Utilisation recommandée",
+                        "row1Col1": "Boîtes postales en carton ondulé",
+                        "row1Col4": "Protection d'expédition",
+                        "row1Col5": "café、Thé、Coffrets d'abonnement",
+                        "row2Col1": "Boîtes pliantes en carton",
+                        "row2Col4": "affichage au détail",
+                        "row2Col5": "Barres de chocolat, unités à thé",
+                        "row3Col1": "Boîtes en papier rigide + feuille d'or",
+                        "row3Col4": "LuxueuxHighpremium",
+                        "row3Col5": "Chocolats haut de gamme, produits cadeaux",
+                        "row4Col1": "FSCCertificationMatériaux",
+                        "row4Col4": "🌱Priorité Eco-responsable",
+                        "row4Col5": "Alimentation biologique, marque verte",
+                        "guideTitle": "Guide de sélection des matériaux",
+                        "guideDesc": "Boîtes en papierEmballageappropriéAdaptéHaute qualitéLuxueuxPositionnementProduit。Nécessite une protection d'expédition, choisissez du papier ondulé ；PoursuivezultraUltimateLuxuriousFeelchoisissez le gaufrage en feuille d'or；Priorité respectueuse de l'environnementchoisissez les matériaux de certificationFSCCertification。"
+                    }
+                },
+                "seo": {
+                    "title": "Boîtes personnalisées | Boîtes postales rigides | Boîtes à replier | Emballage cadeau",
+                    "description": "title=\"Boîtes personnalisées | Boîtes postales rigides | Boîtes pliables | Emballage cadeau",
+                    "heroTitle": "Boîtes imprimées personnalisées",
+                    "heroSubtitle": "Emballage rigide haut de gamme pour chocolat, thé, café et produits artisanaux",
+                    "heroImageAlt": "Boîtes rigides imprimées sur mesure avec feuille d'or et gaufrage pour emballage alimentaire haut de gamme",
+                    "introSummary": "Achieve Pack propose des boîtes imprimées personnalisées haut de gamme avec des matériaux certifiés FSC, un estampage à la feuille d'or et un gaufrage. Parfait pour les marques de chocolat, de thé, de café et de produits alimentaires artisanaux recherchant une présentation luxueuse. MOQ 200 pièces avec fret maritime inclus. Production 30 jours + 40-60 jours d'expédition.",
+                    "ctaTitle": "Prêt à commander des boîtes personnalisées ?",
+                    "ctaDescription": "Créez des emballages haut de gamme pour vos produits artisanaux avec nos boîtes imprimées personnalisées. MOQ 200 pièces.",
+                    "ctaButtonText": "Achetez des boîtes personnalisées",
+                    "keywords": {
+                        "0": "boîtes personnalisées",
+                        "1": "boîtes rigides",
+                        "2": "boîtes aux lettres",
+                        "3": "boîtes de rangement",
+                        "4": "coffrets cadeaux",
+                        "5": "emballage de chocolat",
+                        "6": "emballage de boîte à thé",
+                        "7": "emballage de boîte à café",
+                        "8": "boîtes de feuille d'or",
+                        "9": "Boîtes certifiées FSC",
+                        "10": "emballage en relief",
+                        "11": "boîtes imprimées personnalisées"
+                    }
+                },
+                "faqs": {
+                    "0": {
+                        "question": "Quels types de coffrets personnalisés proposez-vous ?",
+                        "answer": "Nous proposons deux types principaux : les boîtes postales en carton ondulé (idéales pour le café, le thé et les produits protégés lors de l'expédition en formats 500 g et 1 kg) et les boîtes/cartons Tuck (parfaites pour les barres de chocolat, les sachets de thé et les confiseries haut de gamme). Les deux disposent d'une impression CMJN personnalisée, d'un laminage mat et d'un estampage à la feuille d'or en option avec gaufrage."
+                    },
+                    "1": {
+                        "question": "Quelle est la quantité minimum de commande pour les boîtes personnalisées ?",
+                        "answer": "Notre quantité minimum de commande est de 200 pièces pour les boîtes postales en carton ondulé et les boîtes de rangement. Ce faible MOQ rend les boîtes imprimées personnalisées accessibles aux petites marques artisanales, aux startups et aux entreprises testant de nouveaux modèles d'emballage."
+                    },
+                    "2": {
+                        "question": "Vos cartons sont-ils écologiques ?",
+                        "answer": "Oui, toutes nos boîtes sont fabriquées à partir de papier et carton recyclés certifiés FSC. Ils sont entièrement recyclables dans les programmes standards de collecte sélective. Nous donnons la priorité aux matériaux durables pour soutenir les marques soucieuses de l'environnement."
+                    },
+                    "3": {
+                        "question": "Quelles finitions haut de gamme sont disponibles ?",
+                        "answer": "Nous proposons en standard un marquage à chaud à la feuille d'or, des détails en relief et un laminage mat. Ces finitions haut de gamme créent une expérience de déballage luxueuse, parfaite pour les applications d'emballage de chocolat, de thé, de café et de cadeaux."
+                    },
+                    "4": {
+                        "question": "Quelles sont les tailles disponibles ?",
+                        "answer": "Les boîtes postales en carton ondulé sont disponibles en formats de 500 g (130 × 85 × 35 mm) et 1 kg (270 × 85 × 35 mm). Les Tuck Box sont disponibles en format 100 g (81 × 162 × 15 mm). Pour des dimensions personnalisées, veuillez contacter notre équipe pour un devis sur mesure."
+                    },
+                    "5": {
+                        "question": "Combien de temps prennent la production et l’expédition ?",
+                        "answer": "La production prend environ 30 jours. L'expédition par fret maritime est incluse dans tous les prix et prend 40 à 60 jours. Le délai de livraison total est d'environ 70 à 90 jours à compter de la confirmation de la commande. Pour les commandes urgentes, veuillez vous renseigner sur les options de fret aérien."
+                    },
+                    "6": {
+                        "question": "Proposez-vous des échantillons avant de commander ?",
+                        "answer": "Oui, nous pouvons fournir des échantillons pour évaluation avant de passer une commande complète. Veuillez nous contacter pour organiser des boîtes d'échantillons. Pour les commandes standards, nous vous recommandons de commencer par notre commande minimum de 200 pièces pour tester avec vos produits et vos clients."
+                    },
+                    "7": {
+                        "question": "Puis-je obtenir des tailles personnalisées pour mes produits ?",
+                        "answer": "Absolument! Nous proposons des tailles sur mesure pour les commandes de plus grandes quantités. Contactez notre équipe avec les dimensions de votre produit et nous vous fournirons un devis personnalisé. Un outillage personnalisé peut être requis pour les tailles non standard."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Aperçu des tailles de boîtes",
+                        "data": {
+                            "headers": {
+                                "0": "Type de boîte",
+                                "1": "Étiquette de taille",
+                                "2": "Dimensions (L×L×H)",
+                                "3": "Idéal pour"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "Enveloppe en carton ondulé",
+                                    "1": "500g",
+                                    "2": "130 × 85 × 35 mm",
+                                    "3": "Petits sachets de café, boîtes à thé"
+                                },
+                                "1": {
+                                    "0": "Enveloppe en carton ondulé",
+                                    "1": "1 kg",
+                                    "2": "270 × 85 × 35 mm",
+                                    "3": "Grands sachets de café, coffrets cadeaux"
+                                },
+                                "2": {
+                                    "0": "Boîte de rangement",
+                                    "1": "100g",
+                                    "2": "81 × 162 × 15 mm",
+                                    "3": "Barres de chocolat, sachets de thé"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Magasiner les boîtes en carton ondulé",
+                        "url": "/store/product/box-ondulé-custom",
+                        "description": "Commandez des boîtes postales imprimées personnalisées - MOQ 200 pièces"
+                    },
+                    "1": {
+                        "title": "Magasiner les boîtes de rangement",
+                        "url": "/store/product/box-tuck-custom",
+                        "description": "Cartons haut de gamme avec feuille d'or et gaufrage"
+                    },
+                    "2": {
+                        "title": "Pochettes verticales",
+                        "url": "/emballage/sachet-stand-up",
+                        "description": "Alternative flexible pour l'emballage alimentaire"
+                    },
+                    "3": {
+                        "title": "Sacs à fond plat",
+                        "url": "/emballage/sacs-à-fond-plat",
+                        "description": "Sachets premium pour café et thé"
+                    },
+                    "4": {
+                        "title": "Matériaux compostables",
+                        "url": "/matériaux/compostables",
+                        "description": "Options d'emballage flexibles et respectueuses de l'environnement"
+                    }
+                }
             }
         }
     },

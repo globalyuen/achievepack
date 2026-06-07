@@ -14,25 +14,23 @@ const CustomBoxesPage: React.FC = () => {
   const sections = [
     {
       id: 'scenario-trigger',
-      title: 'Is This Page For You?',
+      title: t(`${p}.sections.scenarioTrigger.title`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
-          <p className="text-lg font-medium text-neutral-900 mb-4">
-            If you need <strong>premium rigid packaging for artisan products</strong>—chocolate, tea, coffee, or luxury gifts—you're in the right place.
-          </p>
+          <p className="text-lg font-medium text-neutral-900 mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.sections.scenarioTrigger.intro`) }} />
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Chocolate & Confectionery</h4>
-              <p className="text-sm text-neutral-600 mt-1">Premium presentation with gold foil & embossing</p>
+              <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.scenarioTrigger.card1Title`)}</h4>
+              <p className="text-sm text-neutral-600 mt-1">{t(`${p}.sections.scenarioTrigger.card1Desc`)}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Coffee & Tea Brands</h4>
-              <p className="text-sm text-neutral-600 mt-1">Rigid mailer boxes for premium blends</p>
+              <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.scenarioTrigger.card2Title`)}</h4>
+              <p className="text-sm text-neutral-600 mt-1">{t(`${p}.sections.scenarioTrigger.card2Desc`)}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Artisan Food Producers</h4>
-              <p className="text-sm text-neutral-600 mt-1">FSC certified sustainable packaging</p>
+              <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.scenarioTrigger.card3Title`)}</h4>
+              <p className="text-sm text-neutral-600 mt-1">{t(`${p}.sections.scenarioTrigger.card3Desc`)}</p>
             </div>
           </div>
         </div>
@@ -40,13 +38,11 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'overview',
-      title: 'What Custom Boxes Do We Offer?',
+      title: t(`${p}.sections.overview.title`),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
-          <p>
-            <strong>Achieve Pack offers premium custom printed rigid boxes</strong> designed for artisan food products, specialty coffee, luxury gifts, and high-end retail. Our boxes feature FSC certified materials, matte lamination, and optional premium finishes including gold foil stamping and embossing.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t(`${p}.sections.overview.intro`) }} />
           
           {/* Box Type 1: Corrugated Mailer */}
           <div className="bg-white p-6 rounded-xl border border-neutral-200 shadow-sm">
@@ -59,19 +55,19 @@ const CustomBoxesPage: React.FC = () => {
                 />
               </div>
               <div className="md:w-2/3">
-                <h4 className="text-xl font-bold text-neutral-900 mb-2">Corrugated Mailer Boxes</h4>
-                <p className="text-sm text-neutral-600 mb-3">Perfect for coffee, tea, and artisan foods requiring sturdy shipping protection.</p>
+                <h4 className="text-xl font-bold text-neutral-900 mb-2">{t(`${p}.sections.overview.card1Title`)}</h4>
+                <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.overview.card1Desc`)}</p>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div>✓ 500g size: 130 × 85 × 35mm</div>
-                  <div>✓ 1kg size: 270 × 85 × 35mm</div>
-                  <div>✓ CMYK custom printing</div>
-                  <div>✓ Matte finish standard</div>
-                  <div>✓ Gold foil available</div>
-                  <div>✓ FSC certified paper</div>
+                  <div>{t(`${p}.sections.overview.card1Feat1`)}</div>
+                  <div>{t(`${p}.sections.overview.card1Feat2`)}</div>
+                  <div>{t(`${p}.sections.overview.card1Feat3`)}</div>
+                  <div>{t(`${p}.sections.overview.card1Feat4`)}</div>
+                  <div>{t(`${p}.sections.overview.card1Feat5`)}</div>
+                  <div>{t(`${p}.sections.overview.card1Feat6`)}</div>
                 </div>
                 <div className="mt-4">
                   <Link to="/store/product/box-corrugated-custom" className="inline-flex items-center text-primary-600 font-semibold hover:underline">
-                    View Pricing & Order →
+                    {t(`${p}.sections.overview.cardLinkText`)}
                   </Link>
                 </div>
               </div>
@@ -89,19 +85,19 @@ const CustomBoxesPage: React.FC = () => {
                 />
               </div>
               <div className="md:w-2/3">
-                <h4 className="text-xl font-bold text-neutral-900 mb-2">Tuck Boxes (Cartons)</h4>
-                <p className="text-sm text-neutral-600 mb-3">Elegant folding cartons for chocolate bars, tea sachets, and premium confectionery.</p>
+                <h4 className="text-xl font-bold text-neutral-900 mb-2">{t(`${p}.sections.overview.card2Title`)}</h4>
+                <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.overview.card2Desc`)}</p>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div>✓ 100g size: 81 × 162 × 15mm</div>
-                  <div>✓ 250g white card</div>
-                  <div>✓ Gold foil stamping</div>
-                  <div>✓ Embossed details</div>
-                  <div>✓ Matte finish</div>
-                  <div>✓ FSC certified</div>
+                  <div>{t(`${p}.sections.overview.card2Feat1`)}</div>
+                  <div>{t(`${p}.sections.overview.card2Feat2`)}</div>
+                  <div>{t(`${p}.sections.overview.card2Feat3`)}</div>
+                  <div>{t(`${p}.sections.overview.card2Feat4`)}</div>
+                  <div>{t(`${p}.sections.overview.card2Feat5`)}</div>
+                  <div>{t(`${p}.sections.overview.card2Feat6`)}</div>
                 </div>
                 <div className="mt-4">
                   <Link to="/store/product/box-tuck-custom" className="inline-flex items-center text-primary-600 font-semibold hover:underline">
-                    View Pricing & Order →
+                    {t(`${p}.sections.overview.cardLinkText`)}
                   </Link>
                 </div>
               </div>
@@ -112,64 +108,64 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'features',
-      title: 'Premium Features & Finishes',
+      title: t(`${p}.sections.features.title`),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-              <h4 className="font-semibold text-amber-800 mb-2">✨ Gold Foil Stamping</h4>
-              <p className="text-sm text-amber-700">Hot-stamped metallic gold accents for luxury branding</p>
+              <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.features.card1Title`)}</h4>
+              <p className="text-sm text-amber-700">{t(`${p}.sections.features.card1Desc`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">🎨 Embossed Details</h4>
-              <p className="text-sm text-blue-700">Raised texture for tactile premium experience</p>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.features.card2Title`)}</h4>
+              <p className="text-sm text-blue-700">{t(`${p}.sections.features.card2Desc`)}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
-              <h4 className="font-semibold text-neutral-800 mb-2">📦 Matte Lamination</h4>
-              <p className="text-sm text-neutral-700">Sophisticated matte finish standard on all boxes</p>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.features.card3Title`)}</h4>
+              <p className="text-sm text-neutral-700">{t(`${p}.sections.features.card3Desc`)}</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h4 className="font-semibold text-green-800 mb-2">🌱 FSC Certified</h4>
-              <p className="text-sm text-green-700">Sustainably sourced recycled paper materials</p>
+              <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.features.card4Title`)}</h4>
+              <p className="text-sm text-green-700">{t(`${p}.sections.features.card4Desc`)}</p>
             </div>
             <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <h4 className="font-semibold text-purple-800 mb-2">🖨️ CMYK Printing</h4>
-              <p className="text-sm text-purple-700">Full-color custom printing for vibrant branding</p>
+              <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.features.card5Title`)}</h4>
+              <p className="text-sm text-purple-700">{t(`${p}.sections.features.card5Desc`)}</p>
             </div>
             <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-              <h4 className="font-semibold text-red-800 mb-2">💪 Rigid Construction</h4>
-              <p className="text-sm text-red-700">2.0mm grayboard for premium structural integrity</p>
+              <h4 className="font-semibold text-red-800 mb-2">{t(`${p}.sections.features.card6Title`)}</h4>
+              <p className="text-sm text-red-700">{t(`${p}.sections.features.card6Desc`)}</p>
             </div>
           </div>
           
           {/* Box Types Gallery */}
           <div className="mt-6">
-            <h4 className="font-semibold text-neutral-800 mb-3">Box Types & Styles</h4>
+            <h4 className="font-semibold text-neutral-800 mb-3">{t(`${p}.sections.features.galleryTitle`)}</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ClickableImage 
                 src="/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp" 
                 alt="Corrugated mailer box for shipping and e-commerce" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Corrugated Mailer"
+                caption={t(`${p}.sections.features.galleryCap1`)}
               />
               <ClickableImage 
                 src="/imgs/store/box/tuck-box/8a2918bb-a48c-44a3-875d-6e766e5f305f.webp" 
                 alt="Tuck box carton for chocolate and confectionery" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Tuck Box Carton"
+                caption={t(`${p}.sections.features.galleryCap2`)}
               />
               <ClickableImage 
                 src="/imgs/store/surface/stamp-foil.webp" 
                 alt="Gold foil stamping for luxury box packaging" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Gold Foil Finish"
+                caption={t(`${p}.sections.features.galleryCap3`)}
               />
               <ClickableImage 
                 src="/imgs/store/surface/emboss.webp" 
                 alt="Embossed texture for premium box packaging" 
                 className="w-full h-28 object-cover rounded-lg"
-                caption="Embossed Texture"
+                caption={t(`${p}.sections.features.galleryCap4`)}
               />
             </div>
           </div>
@@ -178,50 +174,50 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Perfect For These Products',
+      title: t(`${p}.sections.applications.title`),
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-amber-50 p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🍫</div>
-              <h4 className="font-semibold text-amber-800">Chocolate</h4>
-              <p className="text-xs text-amber-700 mt-1">Bars, truffles, pralines</p>
+              <h4 className="font-semibold text-amber-800">{t(`${p}.sections.applications.card1Title`)}</h4>
+              <p className="text-xs text-amber-700 mt-1">{t(`${p}.sections.applications.card1Desc`)}</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🍵</div>
-              <h4 className="font-semibold text-green-800">Tea</h4>
-              <p className="text-xs text-green-700 mt-1">Loose leaf, sachets, gift sets</p>
+              <h4 className="font-semibold text-green-800">{t(`${p}.sections.applications.card2Title`)}</h4>
+              <p className="text-xs text-green-700 mt-1">{t(`${p}.sections.applications.card2Desc`)}</p>
             </div>
             <div className="bg-amber-100 p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">☕</div>
-              <h4 className="font-semibold text-amber-900">Coffee</h4>
-              <p className="text-xs text-amber-800 mt-1">Specialty beans, gift boxes</p>
+              <h4 className="font-semibold text-amber-900">{t(`${p}.sections.applications.card3Title`)}</h4>
+              <p className="text-xs text-amber-800 mt-1">{t(`${p}.sections.applications.card3Desc`)}</p>
             </div>
             <div className="bg-pink-50 p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🍬</div>
-              <h4 className="font-semibold text-pink-800">Confectionery</h4>
-              <p className="text-xs text-pink-700 mt-1">Candies, sweets, macarons</p>
+              <h4 className="font-semibold text-pink-800">{t(`${p}.sections.applications.card4Title`)}</h4>
+              <p className="text-xs text-pink-700 mt-1">{t(`${p}.sections.applications.card4Desc`)}</p>
             </div>
             <div className="bg-orange-50 p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🍪</div>
-              <h4 className="font-semibold text-orange-800">Bakery</h4>
-              <p className="text-xs text-orange-700 mt-1">Cookies, biscuits, pastries</p>
+              <h4 className="font-semibold text-orange-800">{t(`${p}.sections.applications.card5Title`)}</h4>
+              <p className="text-xs text-orange-700 mt-1">{t(`${p}.sections.applications.card5Desc`)}</p>
             </div>
             <div className="bg-purple-50 p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🎁</div>
-              <h4 className="font-semibold text-purple-800">Gift Sets</h4>
-              <p className="text-xs text-purple-700 mt-1">Luxury gift packaging</p>
+              <h4 className="font-semibold text-purple-800">{t(`${p}.sections.applications.card6Title`)}</h4>
+              <p className="text-xs text-purple-700 mt-1">{t(`${p}.sections.applications.card6Desc`)}</p>
             </div>
             <div className="bg-yellow-50 p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">🧈</div>
-              <h4 className="font-semibold text-yellow-800">Artisan Foods</h4>
-              <p className="text-xs text-yellow-700 mt-1">Honey, jams, specialty</p>
+              <h4 className="font-semibold text-yellow-800">{t(`${p}.sections.applications.card7Title`)}</h4>
+              <p className="text-xs text-yellow-700 mt-1">{t(`${p}.sections.applications.card7Desc`)}</p>
             </div>
             <div className="bg-indigo-50 p-4 rounded-lg text-center">
               <div className="text-3xl mb-2">💎</div>
-              <h4 className="font-semibold text-indigo-800">Premium Retail</h4>
-              <p className="text-xs text-indigo-700 mt-1">High-end shelf display</p>
+              <h4 className="font-semibold text-indigo-800">{t(`${p}.sections.applications.card8Title`)}</h4>
+              <p className="text-xs text-indigo-700 mt-1">{t(`${p}.sections.applications.card8Desc`)}</p>
             </div>
           </div>
         </div>
@@ -229,74 +225,74 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'sustainability',
-      title: 'Eco-Friendly & Sustainable',
+      title: t(`${p}.sections.sustainability.title`),
       icon: <Leaf className="h-5 w-5 text-green-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h4 className="font-semibold text-green-800 mb-3">🌱 Our Sustainability Commitment</h4>
+            <h4 className="font-semibold text-green-800 mb-3">{t(`${p}.sections.sustainability.cardTitle`)}</h4>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <h5 className="font-medium text-green-700 mb-2">FSC Certified Materials</h5>
+                <h5 className="font-medium text-green-700 mb-2">{t(`${p}.sections.sustainability.card1Title`)}</h5>
                 <ul className="text-sm space-y-1 text-green-700">
-                  <li>✓ Recycled paper and cardboard</li>
-                  <li>✓ Responsibly sourced fibers</li>
-                  <li>✓ Supports sustainable forestry</li>
+                  <li>✓ {t(`${p}.sections.sustainability.card1Item1`)}</li>
+                  <li>✓ {t(`${p}.sections.sustainability.card1Item2`)}</li>
+                  <li>✓ {t(`${p}.sections.sustainability.card1Item3`)}</li>
                 </ul>
               </div>
               <div>
-                <h5 className="font-medium text-green-700 mb-2">Recyclable Packaging</h5>
+                <h5 className="font-medium text-green-700 mb-2">{t(`${p}.sections.sustainability.card2Title`)}</h5>
                 <ul className="text-sm space-y-1 text-green-700">
-                  <li>✓ Curbside recyclable</li>
-                  <li>✓ Minimal material waste</li>
-                  <li>✓ Eco-conscious production</li>
+                  <li>✓ {t(`${p}.sections.sustainability.card2Item1`)}</li>
+                  <li>✓ {t(`${p}.sections.sustainability.card2Item2`)}</li>
+                  <li>✓ {t(`${p}.sections.sustainability.card2Item3`)}</li>
                 </ul>
               </div>
             </div>
           </div>
           <p className="text-sm text-neutral-600">
-            Looking for flexible eco packaging? Explore our <Link to="/materials/compostable" className="text-primary-600 hover:underline">compostable pouches</Link> and <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">recyclable mono-PE options</Link>.
+            {t(`${p}.sections.sustainability.exploreTextPre`)} <Link to="/materials/compostable" className="text-primary-600 hover:underline">{t(`${p}.sections.sustainability.exploreLink1`)}</Link> {t(`${p}.sections.sustainability.exploreTextMid`)} <Link to="/materials/recyclable-mono-pe" className="text-primary-600 hover:underline">{t(`${p}.sections.sustainability.exploreLink2`)}</Link>{t(`${p}.sections.sustainability.exploreTextPost`)}
           </p>
         </div>
       )
     },
     {
       id: 'pricing',
-      title: 'Pricing & MOQ',
+      title: t(`${p}.sections.pricing.title`),
       icon: <TrendingUp className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200">
-            <h4 className="font-semibold text-neutral-800 mb-3">📦 Corrugated Mailer Box Pricing</h4>
+            <h4 className="font-semibold text-neutral-800 mb-3">{t(`${p}.sections.pricing.card1Title`)}</h4>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-neutral-100">
-                    <th className="px-3 py-2 text-left">Quantity</th>
-                    <th className="px-3 py-2 text-left">500g Box</th>
-                    <th className="px-3 py-2 text-left">1kg Box</th>
+                    <th className="px-3 py-2 text-left">{t(`${p}.sections.pricing.card1Th1`)}</th>
+                    <th className="px-3 py-2 text-left">{t(`${p}.sections.pricing.card1Th2`)}</th>
+                    <th className="px-3 py-2 text-left">{t(`${p}.sections.pricing.card1Th3`)}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b">
-                    <td className="px-3 py-2">200 pcs</td>
-                    <td className="px-3 py-2">$514.50 ($2.57/pc)</td>
-                    <td className="px-3 py-2">$1,285.50 ($6.43/pc)</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row1Col1`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row1Col2`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row1Col3`)}</td>
                   </tr>
                   <tr className="border-b">
-                    <td className="px-3 py-2">1,000 pcs</td>
-                    <td className="px-3 py-2">$771.75 ($0.77/pc)</td>
-                    <td className="px-3 py-2">$1,714.50 ($1.71/pc)</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row2Col1`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row2Col2`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row2Col3`)}</td>
                   </tr>
                   <tr className="border-b">
-                    <td className="px-3 py-2">5,000 pcs</td>
-                    <td className="px-3 py-2">$2,054.25 ($0.41/pc)</td>
-                    <td className="px-3 py-2">$3,859.50 ($0.77/pc)</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row3Col1`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row3Col2`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row3Col3`)}</td>
                   </tr>
                   <tr>
-                    <td className="px-3 py-2">10,000 pcs</td>
-                    <td className="px-3 py-2">$3,657.38 ($0.37/pc)</td>
-                    <td className="px-3 py-2">$5,040.75 ($0.50/pc)</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row4Col1`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row4Col2`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card1Row4Col3`)}</td>
                   </tr>
                 </tbody>
               </table>
@@ -304,36 +300,36 @@ const CustomBoxesPage: React.FC = () => {
           </div>
           
           <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-            <h4 className="font-semibold text-amber-800 mb-3">🎁 Tuck Box Pricing (100g)</h4>
+            <h4 className="font-semibold text-amber-800 mb-3">{t(`${p}.sections.pricing.card2Title`)}</h4>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-amber-100">
-                    <th className="px-3 py-2 text-left">Quantity</th>
-                    <th className="px-3 py-2 text-left">Total Price</th>
-                    <th className="px-3 py-2 text-left">Unit Price</th>
+                    <th className="px-3 py-2 text-left">{t(`${p}.sections.pricing.card2Th1`)}</th>
+                    <th className="px-3 py-2 text-left">{t(`${p}.sections.pricing.card2Th2`)}</th>
+                    <th className="px-3 py-2 text-left">{t(`${p}.sections.pricing.card2Th3`)}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-amber-200">
-                    <td className="px-3 py-2">200 pcs</td>
-                    <td className="px-3 py-2">$1,105.50</td>
-                    <td className="px-3 py-2">$5.53/pc</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row1Col1`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row1Col2`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row1Col3`)}</td>
                   </tr>
                   <tr className="border-b border-amber-200">
-                    <td className="px-3 py-2">1,000 pcs</td>
-                    <td className="px-3 py-2">$1,381.50</td>
-                    <td className="px-3 py-2">$1.38/pc</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row2Col1`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row2Col2`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row2Col3`)}</td>
                   </tr>
                   <tr className="border-b border-amber-200">
-                    <td className="px-3 py-2">5,000 pcs</td>
-                    <td className="px-3 py-2">$2,761.50</td>
-                    <td className="px-3 py-2">$0.55/pc</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row3Col1`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row3Col2`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row3Col3`)}</td>
                   </tr>
                   <tr>
-                    <td className="px-3 py-2">10,000 pcs</td>
-                    <td className="px-3 py-2">$4,486.50</td>
-                    <td className="px-3 py-2">$0.45/pc</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row4Col1`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row4Col2`)}</td>
+                    <td className="px-3 py-2">{t(`${p}.sections.pricing.card2Row4Col3`)}</td>
                   </tr>
                 </tbody>
               </table>
@@ -342,7 +338,7 @@ const CustomBoxesPage: React.FC = () => {
           
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
             <p className="text-sm text-blue-800">
-              <strong>🚢 Shipping included:</strong> All prices include sea freight delivery (40-60 days). Production time is approximately 30 days. For larger quantities or custom sizes, <button onClick={openCalendly} className="underline cursor-pointer">contact us for a custom quote</button>.
+              <strong>{t(`${p}.sections.pricing.shippingTitle`)}</strong> {t(`${p}.sections.pricing.shippingDescPre`)} <button onClick={openCalendly} className="underline cursor-pointer">{t(`${p}.sections.pricing.shippingLinkText`)}</button>{t(`${p}.sections.pricing.shippingDescPost`)}
             </p>
           </div>
         </div>
@@ -350,25 +346,25 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding the Right Box Packaging',
+      title: t(`${p}.sections.aiSearch.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Key considerations for custom box packaging:</p>
+          <p>{t(`${p}.sections.aiSearch.intro`)}</p>
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Product protection</strong> – Corrugated for shipping, tuck boxes for retail display</li>
-            <li><strong>Branding impact</strong> – Gold foil and embossing for premium positioning</li>
-            <li><strong>Sustainability</strong> – FSC certified for eco-conscious brands</li>
-            <li><strong>Custom sizes</strong> – <button onClick={openCalendly} className="text-primary-600 hover:underline cursor-pointer">Contact us for bespoke dimensions</button></li>
+            <li dangerouslySetInnerHTML={{ __html: t(`${p}.sections.aiSearch.listItem1`) }} />
+            <li dangerouslySetInnerHTML={{ __html: t(`${p}.sections.aiSearch.listItem2`) }} />
+            <li dangerouslySetInnerHTML={{ __html: t(`${p}.sections.aiSearch.listItem3`) }} />
+            <li><strong>{t(`${p}.sections.aiSearch.listItem4Title`)}</strong> – <button onClick={openCalendly} className="text-primary-600 hover:underline cursor-pointer">{t(`${p}.sections.aiSearch.listItem4Button`)}</button></li>
           </ul>
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.aiSearch.boxTitle`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "Best custom box supplier for chocolate packaging?"</li>
-              <li>• "Low MOQ rigid boxes with gold foil stamping?"</li>
-              <li>• "FSC certified gift boxes for artisan food products?"</li>
-              <li>• "Custom printed mailer boxes for coffee beans?"</li>
-              <li>• "Premium tuck boxes with embossing for tea brand?"</li>
+              <li>• {t(`${p}.sections.aiSearch.query1`)}</li>
+              <li>• {t(`${p}.sections.aiSearch.query2`)}</li>
+              <li>• {t(`${p}.sections.aiSearch.query3`)}</li>
+              <li>• {t(`${p}.sections.aiSearch.query4`)}</li>
+              <li>• {t(`${p}.sections.aiSearch.query5`)}</li>
             </ul>
           </div>
         </div>
@@ -376,34 +372,34 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'risk-hedging',
-      title: 'Is a Custom Box Right for You?',
+      title: t(`${p}.sections.riskHedging.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-green-50 p-4 rounded-lg border-2 border-green-300">
-              <h4 className="font-bold text-green-800 mb-2">✅ Best Fit For...</h4>
+              <h4 className="font-bold text-green-800 mb-2">{t(`${p}.sections.riskHedging.card1Title`)}</h4>
               <ul className="text-sm text-green-700 space-y-1">
-                <li>• Premium/luxury products</li>
-                <li>• Retail shelf presentation</li>
-                <li>• Gift packaging needs</li>
-                <li>• Brands requiring premium finishes</li>
+                <li>• {t(`${p}.sections.riskHedging.card1Item1`)}</li>
+                <li>• {t(`${p}.sections.riskHedging.card1Item2`)}</li>
+                <li>• {t(`${p}.sections.riskHedging.card1Item3`)}</li>
+                <li>• {t(`${p}.sections.riskHedging.card1Item4`)}</li>
               </ul>
             </div>
             <div className="bg-amber-50 p-4 rounded-lg border-2 border-amber-300">
-              <h4 className="font-bold text-amber-800 mb-2">⚠️ Also Works For...</h4>
+              <h4 className="font-bold text-amber-800 mb-2">{t(`${p}.sections.riskHedging.card2Title`)}</h4>
               <ul className="text-sm text-amber-700 space-y-1">
-                <li>• E-commerce subscription boxes</li>
-                <li>• Artisan food sampling</li>
-                <li>• Corporate gift packs</li>
+                <li>• {t(`${p}.sections.riskHedging.card2Item1`)}</li>
+                <li>• {t(`${p}.sections.riskHedging.card2Item2`)}</li>
+                <li>• {t(`${p}.sections.riskHedging.card2Item3`)}</li>
               </ul>
             </div>
             <div className="bg-red-50 p-4 rounded-lg border-2 border-red-300">
-              <h4 className="font-bold text-red-800 mb-2">❌ Consider Alternatives If...</h4>
+              <h4 className="font-bold text-red-800 mb-2">{t(`${p}.sections.riskHedging.card3Title`)}</h4>
               <ul className="text-sm text-red-700 space-y-1">
-                <li>• You need flexible packaging</li>
-                <li>• Moisture barrier is critical</li>
-                <li>• <Link to="/packaging/stand-up-pouches" className="underline">Pouches may be better →</Link></li>
+                <li>• {t(`${p}.sections.riskHedging.card3Item1`)}</li>
+                <li>• {t(`${p}.sections.riskHedging.card3Item2`)}</li>
+                <li>• <Link to="/packaging/stand-up-pouches" className="underline">{t(`${p}.sections.riskHedging.card3Link`)}</Link></li>
               </ul>
             </div>
           </div>
@@ -412,33 +408,33 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'decision-cta',
-      title: 'Ready to Order Custom Boxes?',
+      title: t(`${p}.sections.decisionCta.title`),
       icon: <Calendar className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-primary-600 text-white p-6 rounded-lg text-center">
               <Phone className="h-8 w-8 mx-auto mb-2" />
-              <h4 className="font-bold text-lg mb-2">Ready to Move Fast?</h4>
-              <p className="text-sm opacity-90 mb-4">Book a call to discuss custom sizes and finishes</p>
+              <h4 className="font-bold text-lg mb-2">{t(`${p}.sections.decisionCta.card1Title`)}</h4>
+              <p className="text-sm opacity-90 mb-4">{t(`${p}.sections.decisionCta.card1Desc`)}</p>
               <button onClick={openCalendly} className="inline-block bg-white text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition cursor-pointer">
-                Book a Call
+                {t(`${p}.sections.decisionCta.card1Button`)}
               </button>
             </div>
             <div className="bg-neutral-100 p-6 rounded-lg text-center border-2 border-neutral-300">
               <Download className="h-8 w-8 mx-auto mb-2 text-neutral-700" />
-              <h4 className="font-bold text-lg mb-2 text-neutral-900">Order Now</h4>
-              <p className="text-sm text-neutral-600 mb-4">Browse boxes and order online</p>
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">{t(`${p}.sections.decisionCta.card2Title`)}</h4>
+              <p className="text-sm text-neutral-600 mb-4">{t(`${p}.sections.decisionCta.card2Desc`)}</p>
               <Link to="/store?category=boxes" className="inline-block bg-neutral-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-neutral-700 transition">
-                Shop Boxes
+                {t(`${p}.sections.decisionCta.card2Button`)}
               </Link>
             </div>
             <div className="bg-white p-6 rounded-lg text-center border-2 border-neutral-200">
               <Mail className="h-8 w-8 mx-auto mb-2 text-neutral-500" />
-              <h4 className="font-bold text-lg mb-2 text-neutral-900">Still Exploring?</h4>
-              <p className="text-sm text-neutral-600 mb-4">Compare with flexible pouches</p>
+              <h4 className="font-bold text-lg mb-2 text-neutral-900">{t(`${p}.sections.decisionCta.card3Title`)}</h4>
+              <p className="text-sm text-neutral-600 mb-4">{t(`${p}.sections.decisionCta.card3Desc`)}</p>
               <Link to="/packaging/stand-up-pouches" className="inline-block border-2 border-neutral-300 text-neutral-700 px-4 py-2 rounded-lg font-semibold hover:border-primary-300 transition">
-                View Pouches
+                {t(`${p}.sections.decisionCta.card3Button`)}
               </Link>
             </div>
           </div>
@@ -447,7 +443,7 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'industry-scenarios',
-      title: 'Industry Applications',
+      title: t(`${p}.sections.industryScenarios.title`),
       icon: <Factory className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -455,74 +451,74 @@ const CustomBoxesPage: React.FC = () => {
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-5 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 mb-3">
                 <ShoppingBag className="h-5 w-5 text-amber-600" />
-                <h4 className="font-semibold text-neutral-900">Chocolate & Confectionery Chocolate & Confectionery</h4>
+                <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.industryScenarios.card1Title`)}</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">Premium chocolates、Artisan candies、HolidayGift Boxes</p>
-              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">Share: 40%</div>
+              <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.industryScenarios.card1Desc`)}</p>
+              <div className="text-xs text-amber-700 bg-amber-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industryScenarios.card1Share`)}</div>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-200">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles className="h-5 w-5 text-green-600" />
-                <h4 className="font-semibold text-neutral-900">Coffee & Tea Coffee & Tea</h4>
+                <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.industryScenarios.card2Title`)}</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">Specialty coffeeGift Boxes、HighpremiumTeaPackaging、Subscription boxes</p>
-              <div className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded inline-block">Share: 35%</div>
+              <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.industryScenarios.card2Desc`)}</p>
+              <div className="text-xs text-green-700 bg-green-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industryScenarios.card2Share`)}</div>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-5 rounded-xl border border-purple-200">
               <div className="flex items-center gap-2 mb-3">
                 <TrendingUp className="h-5 w-5 text-purple-600" />
-                <h4 className="font-semibold text-neutral-900">Premium gifts Premium Gifts</h4>
+                <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.industryScenarios.card3Title`)}</h4>
               </div>
-              <p className="text-sm text-neutral-600 mb-3">Corporate gifts、Wedding favors、HolidaySets</p>
-              <div className="text-xs text-purple-700 bg-purple-100 px-2 py-1 rounded inline-block">25% market share</div>
+              <p className="text-sm text-neutral-600 mb-3">{t(`${p}.sections.industryScenarios.card3Desc`)}</p>
+              <div className="text-xs text-purple-700 bg-purple-100 px-2 py-1 rounded inline-block">{t(`${p}.sections.industryScenarios.card3Share`)}</div>
             </div>
           </div>
           <div className="bg-white p-4 rounded-lg border border-neutral-200">
-            <h4 className="font-semibold text-neutral-900 mb-3">Customer Success Story</h4>
-            <p className="text-sm text-neutral-600">「OurPremium chocolatesBrandadoptionGold foil stamping+EmbossingPackagingboxesAfter，Productretail priceimprove30%，Customerconversion rateincrease45%，PackagingbecomingOurBranddifferentiation advantage。」</p>
-            <p className="text-xs text-neutral-500 mt-2">— Artisan chocolatesBrand，yearsalesgrowth 60%</p>
+            <h4 className="font-semibold text-neutral-900 mb-3">{t(`${p}.sections.industryScenarios.storyTitle`)}</h4>
+            <p className="text-sm text-neutral-600">{t(`${p}.sections.industryScenarios.storyQuote`)}</p>
+            <p className="text-xs text-neutral-500 mt-2">{t(`${p}.sections.industryScenarios.storyAuthor`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'market-data',
-      title: 'Market Data & Intelligence',
+      title: t(`${p}.sections.marketData.title`),
       icon: <BarChart3 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-gradient-to-br from-primary-500 to-primary-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">$28B</div>
-              <div className="text-sm opacity-90">GlobalPackagingboxesMarket</div>
-              <div className="text-xs opacity-75 mt-1">2024yearSize</div>
+              <div className="text-3xl font-bold">{t(`${p}.sections.marketData.card1Value`)}</div>
+              <div className="text-sm opacity-90">{t(`${p}.sections.marketData.card1Desc`)}</div>
+              <div className="text-xs opacity-75 mt-1">{t(`${p}.sections.marketData.card1Sub`)}</div>
             </div>
             <div className="bg-gradient-to-br from-green-500 to-green-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">4.8%</div>
-              <div className="text-sm opacity-90">CAGR</div>
-              <div className="text-xs opacity-75 mt-1">2024-2030</div>
+              <div className="text-3xl font-bold">{t(`${p}.sections.marketData.card2Value`)}</div>
+              <div className="text-sm opacity-90">{t(`${p}.sections.marketData.card2Desc`)}</div>
+              <div className="text-xs opacity-75 mt-1">{t(`${p}.sections.marketData.card2Sub`)}</div>
             </div>
             <div className="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">68%</div>
-              <div className="text-sm opacity-90">ConsumersvaluePackaging</div>
-              <div className="text-xs opacity-75 mt-1">Cost Impactpurchase decisions</div>
+              <div className="text-3xl font-bold">{t(`${p}.sections.marketData.card3Value`)}</div>
+              <div className="text-sm opacity-90">{t(`${p}.sections.marketData.card3Desc`)}</div>
+              <div className="text-xs opacity-75 mt-1">{t(`${p}.sections.marketData.card3Sub`)}</div>
             </div>
             <div className="bg-gradient-to-br from-purple-500 to-purple-600 text-white p-4 rounded-xl text-center">
-              <div className="text-3xl font-bold">52%</div>
-              <div className="text-sm opacity-90">willingtoFSCpay premium</div>
-              <div className="text-xs opacity-75 mt-1">Eco-friendlyawarenessimprove</div>
+              <div className="text-3xl font-bold">{t(`${p}.sections.marketData.card4Value`)}</div>
+              <div className="text-sm opacity-90">{t(`${p}.sections.marketData.card4Desc`)}</div>
+              <div className="text-xs opacity-75 mt-1">{t(`${p}.sections.marketData.card4Sub`)}</div>
             </div>
           </div>
           <div className="bg-neutral-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-neutral-900 mb-3">Market Trend Insights</h4>
+            <h4 className="font-semibold text-neutral-900 mb-3">{t(`${p}.sections.marketData.trendTitle`)}</h4>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-2">
                 <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span><strong>unboxing experienceincreasedPremium</strong>：SpecialtyproductsBrandfocused onPackagingfirst impression</span>
+                <span dangerouslySetInnerHTML={{ __html: t(`${p}.sections.marketData.trend1`) }} />
               </div>
               <div className="flex items-start gap-2">
                 <TrendingUp className="h-4 w-4 text-green-500 mt-0.5" />
-                <span><strong>FSCCertificationstandard</strong>：85%HighPremium brandschoosechooseEco-friendlyPackaging</span>
+                <span dangerouslySetInnerHTML={{ __html: t(`${p}.sections.marketData.trend2`) }} />
               </div>
             </div>
           </div>
@@ -531,7 +527,7 @@ const CustomBoxesPage: React.FC = () => {
     },
     {
       id: 'material-comparison',
-      title: 'Material Comparison',
+      title: t(`${p}.sections.materialComparison.title`),
       icon: <ArrowLeftRight className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -539,163 +535,113 @@ const CustomBoxesPage: React.FC = () => {
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-neutral-100">
-                  <th className="border border-neutral-200 px-4 py-2 text-left">boxestypetypes</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">structural strength</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">Cost</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-center">suitableusedScenario</th>
-                  <th className="border border-neutral-200 px-4 py-2 text-left">Recommended Use</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">{t(`${p}.sections.materialComparison.th1`)}</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.th2`)}</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.th3`)}</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.th4`)}</th>
+                  <th className="border border-neutral-200 px-4 py-2 text-left">{t(`${p}.sections.materialComparison.th5`)}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">Corrugated Mailer Boxes</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">{t(`${p}.sections.materialComparison.row1Col1`)}</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">Shipping Protection</td>
-                  <td className="border border-neutral-200 px-4 py-2">coffee、Tea、Subscription boxes</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.row1Col4`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2">{t(`${p}.sections.materialComparison.row1Col5`)}</td>
                 </tr>
                 <tr className="bg-neutral-50">
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">Cardboard Folding Boxes</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">{t(`${p}.sections.materialComparison.row2Col1`)}</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">retailDisplay</td>
-                  <td className="border border-neutral-200 px-4 py-2">Chocolate Bars, Tea Units</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.row2Col4`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2">{t(`${p}.sections.materialComparison.row2Col5`)}</td>
                 </tr>
                 <tr>
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">rigidPaper Boxes + Gold Foil</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">{t(`${p}.sections.materialComparison.row3Col1`)}</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">LuxuriousHighpremium</td>
-                  <td className="border border-neutral-200 px-4 py-2">Premium Chocolates, Gift Products</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.row3Col4`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2">{t(`${p}.sections.materialComparison.row3Col5`)}</td>
                 </tr>
                 <tr className="bg-green-50">
-                  <td className="border border-neutral-200 px-4 py-2 font-medium">FSCCertificationMaterials</td>
+                  <td className="border border-neutral-200 px-4 py-2 font-medium">{t(`${p}.sections.materialComparison.row4Col1`)}</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">⭐⭐⭐⭐</td>
                   <td className="border border-neutral-200 px-4 py-2 text-center">💰💰</td>
-                  <td className="border border-neutral-200 px-4 py-2 text-center">🌱 Eco-friendlyPriority</td>
-                  <td className="border border-neutral-200 px-4 py-2">Organicfood、greenBrand</td>
+                  <td className="border border-neutral-200 px-4 py-2 text-center">{t(`${p}.sections.materialComparison.row4Col4`)}</td>
+                  <td className="border border-neutral-200 px-4 py-2">{t(`${p}.sections.materialComparison.row4Col5`)}</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="bg-primary-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-primary-800 mb-2">Material Selection Guide</h4>
-            <p className="text-sm text-primary-700">Paper BoxesPackagingsuitableSuitableHighpremiumLuxuriouspositioningProduct。RequireShipping ProtectionchooseCorrugatedPaper；PursueultraUltimateLuxuriousFeelchooseGold FoilEmbossing；Eco-friendlyPrioritychooseFSCCertificationMaterials。</p>
+            <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.materialComparison.guideTitle`)}</h4>
+            <p className="text-sm text-primary-700">{t(`${p}.sections.materialComparison.guideDesc`)}</p>
           </div>
         </div>
       )
     }
   ]
 
-  const faqs = [
-    {
-      question: "What types of custom boxes do you offer?",
-      answer: "We offer two main types: Corrugated Mailer Boxes (ideal for coffee, tea, and shipping-protected products in 500g and 1kg sizes) and Tuck Boxes/Cartons (perfect for chocolate bars, tea sachets, and premium confectionery). Both feature custom CMYK printing, matte lamination, and optional gold foil stamping with embossing."
-    },
-    {
-      question: "What is the minimum order quantity for custom boxes?",
-      answer: "Our minimum order quantity is 200 pieces for both corrugated mailer boxes and tuck boxes. This low MOQ makes custom printed boxes accessible for small artisan brands, startups, and businesses testing new packaging designs."
-    },
-    {
-      question: "Are your boxes eco-friendly?",
-      answer: "Yes, all our boxes are made from FSC certified recycled paper and cardboard. They are fully recyclable in standard curbside recycling programs. We prioritize sustainable materials to support eco-conscious brands."
-    },
-    {
-      question: "What premium finishes are available?",
-      answer: "We offer gold foil hot stamping, embossed details, and matte lamination as standard. These premium finishes create a luxury unboxing experience perfect for chocolate, tea, coffee, and gift packaging applications."
-    },
-    {
-      question: "What are the available sizes?",
-      answer: "Corrugated Mailer Boxes come in 500g (130 × 85 × 35mm) and 1kg (270 × 85 × 35mm) sizes. Tuck Boxes are available in 100g size (81 × 162 × 15mm). For custom dimensions, please contact our team for a bespoke quote."
-    },
-    {
-      question: "How long does production and shipping take?",
-      answer: "Production takes approximately 30 days. Shipping via sea freight is included in all prices and takes 40-60 days. Total lead time is approximately 70-90 days from order confirmation. For urgent orders, please inquire about air freight options."
-    },
-    {
-      question: "Do you offer samples before ordering?",
-      answer: "Yes, we can provide samples for evaluation before placing a full order. Please contact us to arrange sample boxes. For standard orders, we recommend starting with our minimum 200 piece order to test with your products and customers."
-    },
-    {
-      question: "Can I get custom sizes for my products?",
-      answer: "Absolutely! We offer bespoke sizing for larger quantity orders. Contact our team with your product dimensions and we'll provide a custom quote. Custom tooling may be required for non-standard sizes."
-    }
-  ]
+  const faqs = t(`${p}.faqs`, { returnObjects: true }) as { question: string; answer: string }[]
 
   const tables = [
     {
-      title: "Box Sizes Overview",
+      title: t(`${p}.tables.0.title`),
       data: {
-        headers: ["Box Type", "Size Label", "Dimensions (L×W×H)", "Best For"],
-        rows: [
-          ["Corrugated Mailer", "500g", "130 × 85 × 35mm", "Small coffee bags, tea boxes"],
-          ["Corrugated Mailer", "1kg", "270 × 85 × 35mm", "Large coffee bags, gift sets"],
-          ["Tuck Box", "100g", "81 × 162 × 15mm", "Chocolate bars, tea sachets"]
-        ]
+        headers: t(`${p}.tables.0.data.headers`, { returnObjects: true }) as string[],
+        rows: t(`${p}.tables.0.data.rows`, { returnObjects: true }) as string[][]
       }
     }
   ]
 
   const relatedLinks = [
     {
-      title: "Shop Corrugated Boxes",
+      title: t(`${p}.relatedLinks.0.title`),
       url: "/store/product/box-corrugated-custom",
-      description: "Order custom printed mailer boxes - MOQ 200 pieces"
+      description: t(`${p}.relatedLinks.0.description`)
     },
     {
-      title: "Shop Tuck Boxes",
+      title: t(`${p}.relatedLinks.1.title`),
       url: "/store/product/box-tuck-custom",
-      description: "Premium cartons with gold foil & embossing"
+      description: t(`${p}.relatedLinks.1.description`)
     },
     {
-      title: "Stand-Up Pouches",
+      title: t(`${p}.relatedLinks.2.title`),
       url: "/packaging/stand-up-pouches",
-      description: "Flexible alternative for food packaging"
+      description: t(`${p}.relatedLinks.2.description`)
     },
     {
-      title: "Flat Bottom Bags",
+      title: t(`${p}.relatedLinks.3.title`),
       url: "/packaging/flat-bottom-bags",
-      description: "Premium pouches for coffee and tea"
+      description: t(`${p}.relatedLinks.3.description`)
     },
     {
-      title: "Compostable Materials",
+      title: t(`${p}.relatedLinks.4.title`),
       url: "/materials/compostable",
-      description: "Eco-friendly flexible packaging options"
+      description: t(`${p}.relatedLinks.4.description`)
     }
   ]
 
   return (
     <SEOPageLayout heroBgColor="#1f2937"
-      title="Custom Boxes | Rigid Mailer Boxes | Tuck Boxes | Gift Packaging"
-      description="Custom printed rigid boxes for chocolate, tea, coffee, and artisan foods. Premium finishes including gold foil, embossing, matte lamination. FSC certified. MOQ 200 pieces. Sea freight included."
-      keywords={[
-        'custom boxes',
-        'rigid boxes',
-        'mailer boxes',
-        'tuck boxes',
-        'gift boxes',
-        'chocolate packaging',
-        'tea box packaging',
-        'coffee box packaging',
-        'gold foil boxes',
-        'FSC certified boxes',
-        'embossed packaging',
-        'custom printed boxes'
-      ]}
+      title={t(`${p}.seo.title`)}
+      description={t(`${p}.seo.description`)}
+      keywords={t(`${p}.seo.keywords`, { returnObjects: true }) as string[]}
       canonicalUrl="https://achievepack.com/packaging/custom-boxes"
-      heroTitle="Custom Printed Boxes"
-      heroSubtitle="Premium rigid packaging for chocolate, tea, coffee & artisan foods"
+      heroTitle={t(`${p}.seo.heroTitle`)}
+      heroSubtitle={t(`${p}.seo.heroSubtitle`)}
       heroImage="/imgs/store/box/corrugated-box/a_half_open_box_3d_perspective_7357116.webp"
-      heroImageAlt="Custom printed rigid boxes with gold foil and embossing for premium food packaging"
-      introSummary="Achieve Pack offers premium custom printed boxes with FSC certified materials, gold foil stamping, and embossing. Perfect for chocolate, tea, coffee, and artisan food brands seeking luxury presentation. MOQ 200 pieces with sea freight included. Production 30 days + 40-60 days shipping."
+      heroImageAlt={t(`${p}.seo.heroImageAlt`)}
+      introSummary={t(`${p}.seo.introSummary`)}
       sections={sections}
       faqs={faqs}
       tables={tables}
       schemaType="Product"
       relatedLinks={relatedLinks}
-      ctaTitle="Ready to Order Custom Boxes?"
-      ctaDescription="Create premium packaging for your artisan products with our custom printed boxes. MOQ 200 pieces."
-      ctaButtonText="Shop Custom Boxes"
+      ctaTitle={t(`${p}.seo.ctaTitle`)}
+      ctaDescription={t(`${p}.seo.ctaDescription`)}
+      ctaButtonText={t(`${p}.seo.ctaButtonText`)}
       ctaButtonUrl="/store?category=boxes"
     />
   )

@@ -1851,6 +1851,238 @@
                     "title": "Order Custom Stand-Up Pouches",
                     "description": "Request a free sample and quote for your custom stand-up pouch project.",
                     "button": "Request Free Sample"
+                },
+                "gallery": {
+                    "item1Title": "Bolsa vertical impresa de primera calidad', desc: 'Bolsa vertical impresa personalizada que muestra una hermosa impresión digital con alto contraste y tintas ecológicas vibrantes.",
+                    "item1Desc": "Bolsa vertical impresa de primera calidad', desc: 'Bolsa vertical impresa personalizada que muestra una hermosa impresión digital con alto contraste y tintas ecológicas vibrantes.",
+                    "item2Title": "Uso en el estilo de vida de la bolsa stand-up', desc: 'Bolsa stand-up sostenible presentada en una escena de marca de alimentos B2B moderna y orgánica.",
+                    "item2Desc": "Uso en el estilo de vida de la bolsa stand-up', desc: 'Bolsa stand-up sostenible presentada en una escena de marca de alimentos B2B moderna y orgánica.",
+                    "item3Title": "Base de bolsa K-Seal de alta resistencia', desc: 'estructura inferior diagonal K-seal diseñada para transportar artículos más pesados ​​(hasta 5 kg) con una estabilidad de base extrema.",
+                    "item3Desc": "Base de bolsa K-Seal de alta resistencia', desc: 'estructura inferior diagonal K-seal diseñada para transportar artículos más pesados ​​(hasta 5 kg) con una estabilidad de base extrema.",
+                    "item4Title": "Zero Waste Compostable Kraft SUP', desc: 'Bolsa vertical oficial de papel kraft natural con certificación FSC que brinda alta protección contra la humedad y cremalleras resellables.",
+                    "item4Desc": "Zero Waste Compostable Kraft SUP', desc: 'Bolsa vertical oficial de papel kraft natural con certificación FSC que brinda alta protección contra la humedad y cremalleras resellables."
+                },
+                "b2c": {
+                    "metaTitle": "Bolsas verticales personalizadas | Bolsas de pie ecológicas | Bolsa.eco",
+                    "metaDescription": "Bolsas verticales impresas personalizadas, compostables y reciclables certificadas. MOQ bajo 500 unidades, tinta orgánica, PLA vegetal o barreras Mono-PE reciclables. Maquetas de diseño gratuitas.",
+                    "hero": {
+                        "badge": "Embalaje ecológico de estantería",
+                        "titlePart1": "PONERSE DE PIE",
+                        "desc": "Plantas-estrellas de PLA compostables certificadas y estructuras de Mono-PE reciclables. Excelente preservación de la barrera, cremalleras duraderas y tamaños personalizados.",
+                        "btn1": "Reservar Llamada Gratuita",
+                        "btn2": "Especialista en WhatsApp",
+                        "imgBadge": "MOQ BAJO: 500!",
+                        "titlePart2": "BOLSAS"
+                    },
+                    "bento": {
+                        "titlePre": "RENDIMIENTO AVANZADO <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span>",
+                        "titleHighlight": "RENDIMIENTO AVANZADO <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span>",
+                        "titlePost": "RENDIMIENTO AVANZADO <span className=\"bg-black text-[#D4FF00] border-2 border-black px-2.5 py-1 inline-block -rotate-1\">FLEXIBLE</span>",
+                        "card1Title": "Compostable y reciclable",
+                        "card1Desc": "Elija películas compostables 100% domésticas/industriales o estructuras monomateriales reciclables en la acera. Ayude a los clientes a reciclar fácilmente.",
+                        "card2Title": "Cerraduras de gas OTR/WVTR",
+                        "card2Desc": "Barreras internas de alto rendimiento protegen contra la transmisión de oxígeno y humedad (<1,0 cc/m²/24 h). Prolonga la vida útil del producto hasta 12 meses.",
+                        "card3Title": "Base de refuerzo estable",
+                        "card3Desc": "Opciones de fondo con sello K diagonal doblado con precisión o ovalado de alta resistencia. Permite una perfecta colocación en los estantes y maximiza el volumen interno.",
+                        "card4Title": "Cierres a medida",
+                        "card4Desc": "Agregue cremalleras resellables de presionar para cerrar, bridas, controles deslizantes, válvulas de café desgasificadoras unidireccionales o ventanas con formas personalizadas."
+                    },
+                    "showcase": {
+                        "badge": "escaparate visual",
+                        "title": "EJECUCIONES DE PRODUCCIÓN EN EL MUNDO REAL",
+                        "desc": "Haga clic en cualquier muestra de tirada de impresión real para inspeccionar nuestra claridad de impresión de alta definición, sellos de refuerzo y acabados premium:"
+                    },
+                    "specs": {
+                        "titlePre": "ESPECIFICACIONES Y <span className=\"bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1\">PRECIO",
+                        "titleHighlight": "ESPECIFICACIONES Y <span className=\"bg-[#D4FF00] text-black border-2 border-black px-2.5 py-1 inline-block -rotate-1\">PRECIO",
+                        "header1": "Tamaño (An x Al + G)",
+                        "header2": "Capacidad Volumétrica",
+                        "header3": "Rendimiento de barrera",
+                        "header4": "Mejor aplicación",
+                        "row1App": "Muestras individuales de DTC, vainas de especias gourmet, sobres de polvos cosméticos",
+                        "row2App": "Paquetes de hojas de té orgánico, exhibidores visuales de dulces, golosinas premium para mascotas",
+                        "row3App": "Café especial en grano con válvula desgasificadora, granola suelta, chips de proteína",
+                        "row4App": "Bolsas de refrigerios a granel, superalimentos crudos, ingredientes en polvo, bolsas de suplementos",
+                        "row5App": "Alimento croquetas profesional para mascotas al por mayor, sales de baño premium al por menor, semillas a granel",
+                        "card1Val": "500 unidades",
+                        "card1Label": "MOQ personalizado ultra bajo",
+                        "card1Desc": "Perfecto para escalamiento de startups, ejecuciones estacionales limitadas y pruebas de SKU",
+                        "card2Val": "24 Horas",
+                        "card2Label": "dielines de cortesía",
+                        "card2Desc": "Obtenga dibujos vectoriales precisos ajustados a sus especificaciones volumétricas exactas",
+                        "card3Val": "100% gratis",
+                        "card3Label": "kit de muestra compostable",
+                        "card3Desc": "Reciba un kit que contiene 10 bolsas físicas para probar las propiedades de barrera"
+                    },
+                    "faq": {
+                        "titlePre": "PREGUNTAS FRECUENTES <span className=\"text-[#10b981]\">",
+                        "titleHighlight": "PREGUNTAS FRECUENTES <span className=\"text-[#10b981]\">"
+                    },
+                    "metaKeywords": {
+                        "0": "bolsas de pie personalizadas",
+                        "1": "bolsas ecológicas de pie",
+                        "2": "bolsas de pie compostables",
+                        "3": "bolsas de café reciclables",
+                        "4": "pouch.eco",
+                        "5": "envases flexibles sostenibles"
+                    }
+                },
+                "seoPages": {
+                    "breadcrumbs": {
+                        "home": "Hogar",
+                        "packagingShapes": "Formas de embalaje"
+                    }
+                },
+                "b2b": {
+                    "breadcrumbs": {
+                        "currentPage": "Bolsas verticales personalizadas"
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Bolsas de pie personalizadas al por mayor y suministro",
+                            "intro": "Las <strong>bolsas stand-up personalizadas (SUP)</strong> representan el estándar de oro en envases flexibles comerciales de primera calidad. Derivadas de líneas de producción de fábrica certificadas por BRCGS, nuestras bolsas ofrecen máxima presencia en los estantes, ahorro de material liviano y una barrera de protección sólida específicamente calibrada para nuevas empresas globales de DTC y marcas de alimentos mayoristas en expansión.",
+                            "listTitle": "Indicadores clave de desempeño comercial B2B:",
+                            "listItems": {
+                                "0": "<strong>Huella un 75 % más ligera</strong>: reduce drásticamente el espacio de almacenamiento y las emisiones de envío de larga distancia en comparación con los frascos de vidrio o las latas de metal.",
+                                "1": "<strong>Marca inmobiliaria de 360°</strong>: cobertura de diseño digital de ancho completo impreso con tintas vegetales certificadas a base de soja.",
+                                "2": "<strong>Integración resellable</strong>: cierres de cremallera duraderos y controles deslizantes que evitan la degradación del producto en los estantes.",
+                                "3": "<strong>Compatibilidad de líneas automáticas</strong>: tolerancia de ancho de rollo diseñada que permite una integración perfecta en líneas automáticas VFFS/HFFS."
+                            }
+                        },
+                        "specifications": {
+                            "title": "Guía de compra y traducción de parámetros técnicos",
+                            "intro": "La adquisición profesional requiere una verificación estricta de los datos del material. Así es como nuestras métricas técnicas en bruto se traducen directamente en beneficios de compra B2B:",
+                            "th1": "Dimensión técnica",
+                            "th2": "Especificaciones y materiales en bruto",
+                            "th3": "Utilidad y valor de las compras B2B",
+                            "row1Col1": "Capa barrera",
+                            "row1Col2": "MetCelulosa NatureFlex™ o EVOH reciclable (OTR &lt; 1,0, WVTR &lt; 1,0)",
+                            "row1Col3": "Crea un bloqueo absoluto de gas y agua, preservando el aroma del café, la textura crujiente de los refrigerios y la integridad del polvo durante más de 12 meses.",
+                            "row2Col1": "Dimensiones y base",
+                            "row2Col2": "Dielines milimétricos personalizados (70-300 mm de ancho, bases de refuerzo de arado/ovalado/con sello K)",
+                            "row2Col3": "Calibrado según el modelo de densidad volumétrica, lo que evita la ruptura del sello inferior y garantiza una estructura estable impecable.",
+                            "row3Col1": "Fuerza de sellado",
+                            "row3Col2": "Fuerza del sello &gt; 35 N/15 mm (resinas de sellado PBAT/Mono-PE diseñadas para baja temperatura)",
+                            "row3Col3": ">Garantiza cero fugas por explosión en líneas de envasado automatizadas de alta presión que funcionan hasta **65 bolsas por minuto**.</td",
+                            "row4Col1": "Embalaje de exportación",
+                            "row4Col2": "Cartón de exportación de triple capa y doble pared que contiene barreras secundarias contra la humedad.",
+                            "row4Col3": "Protege el material en rollo y las bolsas terminadas contra la degradación por la humedad del océano y los daños en las cajas de envío de apilamiento alto."
+                        },
+                        "applications": {
+                            "title": "Apunte a escenarios de aplicaciones B2B",
+                            "intro": "Nuestras bolsas verticales impresas personalizadas están diseñadas para cumplir con criterios regulatorios y de barrera química específicos en casos de uso profesional:",
+                            "card1Title": "☕ Tostadores de Café Especial",
+                            "card1Desc": "Cerraduras de alto OTR combinadas con válvulas de desgasificación unidireccionales para ventilar el gas y bloquear el ingreso de oxígeno. Perfecto para conservar la integridad de los granos tostados.",
+                            "card2Title": "🌱 Alimentos y refrigerios orgánicos",
+                            "card2Desc": "Papel kraft compostable y biopelículas de almidón PLA certificadas según la norma europea EN 13432. Cumple con las crecientes expectativas ecológicas del comercio minorista y de los consumidores.",
+                            "card3Title": "🐾 Alimentos y golosinas para mascotas",
+                            "card3Desc": "Fondos con sello K diagonal de alta resistencia que evitan la migración de grasa y soportan peso volumétrico a granel (de 1 kg a 5 kg) sin reventar.",
+                            "spotlightTitle": "Mayor estabilidad de volumen: K-Seal Bottom Spotlight",
+                            "spotlightDesc": "h4 className=\"font-bold text-neutral-900 mb-2\">Estabilidad de volumen más pesado: K-Seal Bottom Spotlight</h4",
+                            "spotlightLink": "Descubra cómo K-seal aumenta la capacidad de volumen →",
+                            "card1Badge": "Frescura tostada de 12 meses",
+                            "card2Badge": "TÜV compostable en el hogar",
+                            "card3Badge": "Estabilidad del refuerzo diagonal"
+                        },
+                        "gallery": {
+                            "title": "Ejecuciones de producción reales y verificación de materiales",
+                            "intro": "Operamos 4 líneas digitales de alta velocidad que admiten múltiples SKU. Revise nuestras series de producción reales de bolsas verticales certificadas, compostables y reciclables que cumplen con BRC:"
+                        }
+                    },
+                    "metaTitle": "Bolsas de pie personalizadas al por mayor | Fabricante directo | Paquete de logros",
+                    "metaDescription": "Bolsas verticales con certificación BRCGS e ISO-9001. Bolsas de SUP impresas a medida utilizando PLA compostable o películas Mono-PE reciclables. MOQ bajo 500 unidades, envío global.",
+                    "heroTitle": "Bolsas de pie personalizadas al por mayor",
+                    "heroSubtitle": "Certificado BRCGS directo de fábrica • MOQ bajo 500 unidades • Películas ecológicas 100 % certificadas",
+                    "introSummary": "Proveedor directo de bolsas verticales certificadas, compostables y reciclables en la acera. Calibrado con barreras de oxígeno OTR/WVTR de alto rendimiento y refuerzos inferiores de diagnóstico para evitar la rotura del sello, lo que garantiza una vida útil de más de 12 meses.",
+                    "faqs": {
+                        "0": {
+                            "question": "1. ¿Cuál es la cantidad mínima de pedido (MOQ) para bolsas verticales personalizadas?",
+                            "answer": "Apoyamos a las empresas emergentes con un MOQ de impresión digital, el más bajo del sector, de solo 500 unidades por diseño. Para volúmenes mayoristas más grandes, operamos la impresión de planchas de huecograbado a partir de 5000 unidades, lo que brinda la máxima rentabilidad al por mayor."
+                        },
+                        "1": {
+                            "question": "2. ¿Proporcionan muestras físicas de preproducción?",
+                            "answer": "Sí, enviamos un kit de muestra sostenible gratuito con 10 bolsas físicas para probar las propiedades de barrera. Para pedidos personalizados, generamos una prueba en formato PDF las 24 horas y podemos construir maquetas digitales personalizadas exactas antes de la fabricación en masa."
+                        },
+                        "2": {
+                            "question": "3. ¿Pueden fabricar bolsas verticales según dibujos CAD volumétricos personalizados?",
+                            "answer": "Sí. Nuestros ingenieros de materiales analizan la densidad volumétrica de su producto y personalizan los refuerzos inferiores y las dimensiones hasta la escala milimétrica. Proporcionamos un PDF de diseño de línea personalizado en un plazo de 24 horas."
+                        },
+                        "3": {
+                            "question": "4. ¿Cuál es el tiempo de producción y tránsito para tiradas comerciales?",
+                            "answer": "Las tiradas digitales finalizan en 7 a 10 días hábiles; Los pedidos de placas de huecograbado tardan entre 12 y 14 días. La entrega aérea exprés por DHL/FedEx a EE. UU./UE tarda de 5 a 7 días hábiles, y el transporte marítimo económico está disponible en 20 a 30 días."
+                        },
+                        "4": {
+                            "question": "5. ¿Qué certificaciones están disponibles para verificar el cumplimiento ecológico?",
+                            "answer": "Nuestros biopolímeros llevan números de certificado oficiales de BPI (Instituto de Productos Biodegradables #10529618) y TÜV Austria (OK Compost HOME). Las pilas cumplen con las pautas de compostabilidad ASTM D6400 (EE. UU.) y EN 13432 (UE)."
+                        },
+                        "5": {
+                            "question": "6. ¿Qué detalles se deben enviar para recibir una cotización mayorista?",
+                            "answer": "Proporcione la capacidad volumétrica estimada (o dimensiones exactas), la preferencia de material (kraft compostable, mono-PE reciclable, barrera alta), los requisitos de la válvula zip/desgasificadora, la cantidad de SKU y el diseño vectorial."
+                        }
+                    },
+                    "tables": {
+                        "0": {
+                            "title": "Matriz de tamaños volumétricos comerciales",
+                            "data": {
+                                "headers": {
+                                    "0": "Dimensiones (An x Al + G)",
+                                    "1": "Peso volumétrico",
+                                    "2": "Escenarios de aplicación recomendados"
+                                },
+                                "rows": {
+                                    "0": {
+                                        "0": "70x110 + 40mm",
+                                        "1": "20g - 50g",
+                                        "2": "Sobres de muestra de producto, especias gourmet, extractos botánicos secos"
+                                    },
+                                    "1": {
+                                        "0": "100x150 + 60mm",
+                                        "1": "50g - 100g",
+                                        "2": "Bolsas de polvos para el cuidado de la piel, hojas de té de origen único, cajas de golosinas para mascotas"
+                                    },
+                                    "2": {
+                                        "0": "120 x 200 + 80 mm",
+                                        "1": "100g - 250g",
+                                        "2": "Café de especialidad en grano (con válvula), granolas orgánicas, chips proteicos"
+                                    },
+                                    "3": {
+                                        "0": "150 x 230 + 90 mm",
+                                        "1": "250g - 500g",
+                                        "2": "Avena orgánica comercial, SKU de refrigerios grandes, botes de sal de baño"
+                                    },
+                                    "4": {
+                                        "0": "180 x 280 + 100 mm",
+                                        "1": "500g - 1kg",
+                                        "2": "Bolsas de croquetas para comida para mascotas, granos a granel, granos de café al por mayor"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "relatedLinks": {
+                        "0": {
+                            "title": "Bolsas de fondo plano",
+                            "url": "/embalaje/bolsas-de-fondo-plano",
+                            "description": "Alternativa estable de refuerzo de caja de 5 paneles"
+                        },
+                        "1": {
+                            "title": "Soluciones de café y té",
+                            "url": "/industria/cafe-te",
+                            "description": "Bolsas con válvulas desgasificadoras y bridas."
+                        },
+                        "2": {
+                            "title": "Especificaciones del material compostable",
+                            "url": "/materiales/compostables",
+                            "description": "Compara las especificaciones del biopolímero OK Compost"
+                        }
+                    },
+                    "metaKeywords": {
+                        "0": "bolsas de pie personalizadas",
+                        "1": "venta al por major bolsas de pie",
+                        "2": "bolsas de pie compostables",
+                        "3": "Embalajes flexibles certificados BRC",
+                        "4": "lograr una bolsa de pie"
+                    }
                 }
             },
             "flatBottomBags": {
@@ -1862,6 +2094,305 @@
                     "title": "Get Custom Flat Bottom Bags",
                     "description": "Request a free sample and quote for your premium products.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "¿Es esta página para usted?",
+                        "intro": "Si usted es un <strong>tostador de café especial</strong>, una <strong>marca premium de alimentos para mascotas</strong> o un <strong>productor de alimentos artesanales</strong> que busca un empaque que se destaque en los estantes de las tiendas minoristas con el máximo espacio de marca, las bolsas de fondo plano ofrecen una presencia premium.",
+                        "col1Title": "Tostadores de café",
+                        "col1Desc": "Marca de 5 paneles + válvula desgasificadora.",
+                        "col2Title": "Marcas de alimentos para mascotas",
+                        "col2Desc": "Base estable para productos pesados",
+                        "col3Title": "Productos de primera calidad",
+                        "col3Desc": "Aspecto similar a una caja para un embalaje digno de regalo"
+                    },
+                    "overview": {
+                        "title": "¿Qué es una bolsa de fondo plano?",
+                        "intro": "Una bolsa de fondo plano (también llamada bolsa de fondo de caja o bolsa de fondo de bloque) presenta una base rectangular que le permite mantenerse en posición vertical con máxima estabilidad.</strong> Este formato premium ofrece una presencia y capacidad superiores en los estantes en comparación con las bolsas de pie estándar.",
+                        "desc": "Una bolsa de fondo plano (también llamada bolsa de fondo de caja o bolsa de fondo de bloque) presenta una base rectangular que le permite mantenerse en posición vertical con máxima estabilidad.</strong> Este formato premium ofrece una presencia y capacidad superiores en los estantes en comparación con las bolsas de pie estándar.",
+                        "characteristicsTitle": "Beneficios clave:",
+                        "char1": "Construcción de 5 paneles para máxima superficie de marca.",
+                        "char2": "Presencia estable en los estantes, similar a una caja",
+                        "char3": "Mayor capacidad que las bolsas estándar",
+                        "char4": "Aspecto premium para productos especiales",
+                        "char5": "Disponible en materiales compostables y reciclables."
+                    },
+                    "construction": {
+                        "title": "¿Cómo se construyen las bolsas de fondo plano?",
+                        "intro": "Las bolsas de fondo plano se construyen con múltiples paneles que se pliegan para crear una base rectangular:",
+                        "col1Title": "Diseño de 5 paneles",
+                        "col1Item1": "Panel frontal: área principal de marca",
+                        "col1Item2": "Panel trasero – Ingredientes, instrucciones",
+                        "col1Item3": "2 refuerzos laterales: espacio adicional para la marca",
+                        "col1Item4": "Panel inferior: base estable, puede incluir impresión",
+                        "col2Title": "Opciones de cierre",
+                        "col2Item1": "Cremallera resellable (presionar para cerrar o deslizar)",
+                        "col2Item2": "Cierre de lazo de estaño",
+                        "col2Item3": "Válvula desgasificadora (para café)",
+                        "col2Item4": "Muesca para facilitar la apertura"
+                    },
+                    "applications": {
+                        "title": "¿Qué productos funcionan mejor en bolsas de fondo plano?",
+                        "intro": "Las bolsas de fondo plano son ideales para productos premium que se benefician de una mayor presencia en los estantes:",
+                        "items": "['Café de especialidad', 'Té premium', 'Comida y golosinas para mascotas', 'Proteína en polvo', 'Granola y muesli', 'Frutas secas', 'Frutos secos premium', 'Arroz y cereales', 'Snacks orgánicos', 'Productos artesanales', 'Superalimentos', 'Envases de regalo']"
+                    },
+                    "materials": {
+                        "title": "¿Qué materiales están disponibles para las bolsas de fondo plano?",
+                        "col1Title": "Compostable",
+                        "col1Desc": "Papel kraft + PLA. Certificado EN 13432 para compostaje industrial.",
+                        "col2Title": "Reciclable",
+                        "col2Desc": "Estructuras mono-PE o a base de papel para reciclaje en la acera.",
+                        "col3Title": "Barrera alta",
+                        "col3Desc": "Metalizado o aluminio para máxima protección de frescura.",
+                        "galleryTitle": "Muestras de material de bolsa de fondo plano",
+                        "galleryCaption1": "Estructura de fondo plano",
+                        "galleryCaption2": "Barrera de aluminio",
+                        "galleryCaption3": "Papel kraft",
+                        "galleryCaption4": "Cierre de lazo de estaño."
+                    },
+                    "aiSearch": {
+                        "title": "Cómo encontrar el mejor proveedor de bolsas de fondo plano",
+                        "headline": "💡 Si utilizas la búsqueda por IA (Gemini, ChatGPT), intenta preguntar:",
+                        "query1": "¿El mejor proveedor de bolsas de fondo plano para café especial?",
+                        "query2": "Bolsa de fondo plano o de pie: ¿cuál es mejor para el café?",
+                        "query3": "¿Bolsas con fondo de caja personalizadas con válvula de desgasificación, MOQ bajo?",
+                        "query4": "¿Bolsas de café compostables de fondo plano con impresión de 5 paneles?"
+                    },
+                    "riskHedging": {
+                        "title": "¿Cuándo debería elegir bolsas de fondo plano o de pie?",
+                        "col1Title": "✅ Mejor opción para...",
+                        "col1Item1": "Productos premium con presencia minorista",
+                        "col1Item2": "Marcas que necesitan el máximo impacto en las estanterías",
+                        "col1Item3": "Café con requisitos de desgasificación",
+                        "col1Item4": "Productos pesados ​​que necesitan una base estable",
+                        "col2Title": "⚠️ También funciona para...",
+                        "col2Item1": "Embalajes de regalo y productos de temporada.",
+                        "col2Item2": "Productos que pasan del embalaje rígido",
+                        "col2Item3": "Marcas dispuestas a invertir en una apariencia premium",
+                        "col3Title": "❌ No recomendada si ...",
+                        "col3Item1": "El costo es la principal preocupación (prima del 15 al 25 %)",
+                        "col3Item2": "El producto no se beneficia de la presencia en los estantes.",
+                        "col3Link": "Considere las bolsas de pie como una opción económica →"
+                    },
+                    "decisionCta": {
+                        "title": "¿Listo para actualizar a bolsas de fondo plano?",
+                        "col1Title": "¿Listo para actuar rápido?",
+                        "col1Desc": "Reserve una llamada para analizar sus especificaciones exactas",
+                        "col1Btn": "Reservar una llamada",
+                        "col2Title": "¿Quieres probar primero?",
+                        "col2Desc": "Solicite muestras de bolsas de fondo plano",
+                        "col2Btn": "Obtener muestras",
+                        "col3Title": "¿Sigues explorando?",
+                        "col3Desc": "Comparar con bolsas de pie",
+                        "col3Btn": "Comparar opciones"
+                    },
+                    "industryScenarios": {
+                        "title": "Aplicaciones industriales",
+                        "segment1Title": "Tostadores de Café Especial",
+                        "segment1Desc": "Bolsas premium de fondo plano con marca de 5 paneles y válvulas desgasificadoras.",
+                        "segment1Item1": "Cafés de origen único",
+                        "segment1Item2": "Tostadores artesanales",
+                        "segment1Item3": "Embalaje de caja de regalo",
+                        "segment2Title": "Marcas premium de alimentos para mascotas",
+                        "segment2Desc": "Bolsas de fondo plano resistentes con base estable para bolsas de croquetas más grandes.",
+                        "segment2Item1": "Comida premium para perros",
+                        "segment2Item2": "Comida natural para gatos",
+                        "segment2Item3": "Fórmulas sin cereales",
+                        "segment3Title": "Marcas de superalimentos y proteínas",
+                        "segment3Desc": "Bolsas de fondo plano de alta barrera para suplementos en polvo con máxima presencia en los estantes.",
+                        "segment3Item1": "Polvos de proteína",
+                        "segment3Item2": "Mezclas de superalimentos",
+                        "segment3Item3": "Péptidos de colágeno",
+                        "successTitle": "🏆 Éxito del cliente: Mountain Peak Coffee Co.",
+                        "successStory": "Se actualizó de bolsas de pie a bolsas de fondo plano, lo que aumentó las ventas minoristas en un 40 % y el posicionamiento de precios premium con marca de 5 paneles.",
+                        "successMetric1": "40% de aumento de ventas",
+                        "successMetric2": "Posicionamiento premium",
+                        "successMetric3": "Marca de 5 paneles"
+                    },
+                    "marketData": {
+                        "title": "Datos e inteligencia de mercado",
+                        "stat1Val": "12 mil millones de dólares",
+                        "stat1Label": "Envasado de café 2027",
+                        "stat2Val": "25%",
+                        "stat2Label": "Aumento de precio premium",
+                        "stat3Val": "5",
+                        "stat3Label": "Paneles imprimibles",
+                        "stat4Val": "20%",
+                        "stat4Label": "Más volumen frente a SUP",
+                        "trendsTitle": "Comparación de bolsa de fondo plano y de pie",
+                        "headers": {
+                            "feature": "Característica",
+                            "flatBottom": "Fondo plano",
+                            "sup": "Bolsa de pie"
+                        },
+                        "row1": {
+                            "feature": "Paneles imprimibles",
+                            "flatBottom": "5 paneles",
+                            "sup": "2-3 paneles"
+                        },
+                        "row2": {
+                            "feature": "Estabilidad de almacenamiento",
+                            "flatBottom": "⭐⭐⭐⭐⭐",
+                            "sup": "⭐⭐⭐⭐"
+                        },
+                        "row3": {
+                            "feature": "Volumen por huella",
+                            "flatBottom": "+15-20%",
+                            "sup": "Base"
+                        },
+                        "row4": {
+                            "feature": "Precio Premium",
+                            "flatBottom": "+15-25%",
+                            "sup": "Base"
+                        },
+                        "ecoTitle": "🌍 Impacto ambiental",
+                        "ecoDesc": "Las bolsas de fondo plano utilizan un 60% menos de material que los contenedores rígidos y, al mismo tiempo, brindan una presentación superior. Opciones compostables disponibles para marcas ecológicas."
+                    },
+                    "materialComparison": {
+                        "title": "Comparación de materiales",
+                        "headers": {
+                            "feature": "Característica",
+                            "col1": "Papel kraft compostable",
+                            "col2": "En papel",
+                            "col3": "Alta barrera"
+                        },
+                        "row1": {
+                            "feature": "La mejor para",
+                            "col1": "✅ Café premium",
+                            "col2": "✅ Productos secos, arroz",
+                            "col3": "✅ Máxima frescura"
+                        },
+                        "row2": {
+                            "feature": "Nivel de barrera",
+                            "col1": "Medio-Alto",
+                            "col2": "Medio",
+                            "col3": "muy alto"
+                        },
+                        "row3": {
+                            "feature": "Duración",
+                            "col1": "6-12 meses",
+                            "col2": "6-9 meses",
+                            "col3": "18-24 meses"
+                        },
+                        "row4": {
+                            "feature": "Aspecto premium",
+                            "col1": "⭐⭐⭐⭐⭐",
+                            "col2": "⭐⭐⭐⭐",
+                            "col3": "⭐⭐⭐⭐"
+                        },
+                        "row5": {
+                            "feature": "Fin de vida",
+                            "col1": "🌱 Compostable",
+                            "col2": "♻️ Reciclable",
+                            "col3": "🗑️ Vertedero"
+                        },
+                        "row6": {
+                            "feature": "Punto de precio",
+                            "col1": "💰💰💰",
+                            "col2": "💰💰",
+                            "col3": "💰💰💰"
+                        },
+                        "guideTitle": "💡 Guía de decisión para bolsas de fondo plano",
+                        "col1Title": "Elija Kraft Compostable si:",
+                        "col1Item1": "Marca de café premium",
+                        "col1Item2": "Mercado con conciencia ecológica",
+                        "col1Item3": "Aspecto natural deseado",
+                        "col2Title": "Elija en papel si:",
+                        "col2Item1": "Productos secos, cereales.",
+                        "col2Item2": "Optimización de costos",
+                        "col2Item3": "Preferencia reciclable",
+                        "col3Title": "Elija Barrera alta si:",
+                        "col3Item1": "Vida útil máxima",
+                        "col3Item2": "Productos sensibles",
+                        "col3Item3": "Largas cadenas de distribución"
+                    }
+                },
+                "metaTitle": "Bolsas de fondo plano | Bolsas con fondo de caja | Embalaje con fondo de bloque",
+                "metaDescription": "title=\"Bolsas de fondo plano | Bolsas de fondo de caja | Embalaje de fondo de bloque",
+                "heroImageAlt": "Embalaje de bolsa de caja de bolsa de fondo plano",
+                "faqs": {
+                    "0": {
+                        "question": "¿Cuál es la diferencia entre las bolsas de fondo plano y las de pie?",
+                        "answer": "Las bolsas de fondo plano tienen una base rectangular con 5 paneles imprimibles, ofreciendo más estabilidad y capacidad. Las bolsas verticales tienen un refuerzo ovalado con 2-3 paneles. Las bolsas de fondo plano proporcionan aproximadamente entre un 15 y un 20 % más de volumen para el mismo espacio."
+                    },
+                    "1": {
+                        "question": "¿Son más caras las bolsas de fondo plano?",
+                        "answer": "Sí, las bolsas de fondo plano suelen costar entre un 15 y un 25 % más que las bolsas verticales debido a su construcción más compleja. Sin embargo, ofrecen una presencia premium en los lineales y un espacio adicional para la marca que a menudo justifica la inversión en productos especiales."
+                    },
+                    "2": {
+                        "question": "¿Qué tamaños están disponibles para bolsas de fondo plano?",
+                        "answer": "Ofrecemos bolsas de fondo plano desde 100 g de capacidad hasta 5 kg. Los tamaños comunes incluyen 250 g, 500 g, 1 kg y 2 kg. Hay tamaños personalizados disponibles para pedidos superiores a 5000 unidades."
+                    },
+                    "3": {
+                        "question": "¿Las bolsas de fondo plano pueden tener válvula desgasificadora?",
+                        "answer": "Sí, ofrecemos válvulas desgasificadoras unidireccionales para café y otros productos que liberan CO2. La válvula se puede colocar en cualquier panel, pero normalmente está en la parte posterior por razones estéticas."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Guía de tamaños de bolsas de fondo plano",
+                        "data": {
+                            "headers": {
+                                "0": "Capacidad",
+                                "1": "Dimensiones (Ancho×Alto×Pr)",
+                                "2": "Recomendado para"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "250g",
+                                    "1": "120 × 200 × 80 mm",
+                                    "2": "Té premium, café especial."
+                                },
+                                "1": {
+                                    "0": "500g",
+                                    "1": "140 × 240 × 90 mm",
+                                    "2": "Granos de café, granola"
+                                },
+                                "2": {
+                                    "0": "1kg",
+                                    "1": "160 × 280 × 100 mm",
+                                    "2": "Alimento para mascotas, proteína en polvo"
+                                },
+                                "3": {
+                                    "0": "2 kilos",
+                                    "1": "200 × 350 × 120 mm",
+                                    "2": "Comida para mascotas a granel, arroz"
+                                },
+                                "4": {
+                                    "0": "5 kilos",
+                                    "1": "280 × 450 × 150 mm",
+                                    "2": "Comida para mascotas de gran formato"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Bolsas de pie",
+                        "url": "/embalaje/bolsas-stand-up",
+                        "description": "Alternativa más económica"
+                    },
+                    "1": {
+                        "title": "Envasado de café y té",
+                        "url": "/industria/cafe-te",
+                        "description": "Soluciones para cafés especiales"
+                    },
+                    "2": {
+                        "title": "Materiales compostables",
+                        "url": "/materiales/compostables",
+                        "description": "Opciones ecológicas"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "bolsa de fondo plano",
+                    "1": "bolsa inferior de la caja",
+                    "2": "bolsa con fondo de bloque",
+                    "3": "bolsa de café de fondo plano",
+                    "4": "embalaje de bolsa premium",
+                    "5": "bolsa de café de fondo plano",
+                    "6": "bolsa de caja",
+                    "7": "bolsa de 5 paneles"
                 }
             },
             "spoutPouches": {
@@ -1873,6 +2404,382 @@
                     "title": "Get Custom Spout Pouches",
                     "description": "Request a free sample and quote for your liquid products.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "¿Es esta página para usted?",
+                        "intro": "Si es una <strong>marca de alimentos para bebés</strong>, un <strong>fabricante de salsas</strong> o una <strong>empresa de bebidas</strong> que busca un envase que se vierta como un biberón pero que cueste menos y se envíe más liviano, las bolsas con boquilla son su solución.",
+                        "col1Title": "Marcas de comida para bebés",
+                        "col1Desc": "Dispensación segura, portátil y fácil para bebés",
+                        "col2Title": "Fabricantes de salsas y condimentos",
+                        "col2Desc": "Capacidad de llenado en caliente y vertido sin complicaciones.",
+                        "col3Title": "Empresas de bebidas",
+                        "col3Desc": "70% menos plástico que las botellas rígidas"
+                    },
+                    "overview": {
+                        "title": "¿Qué es una bolsa con boquilla?",
+                        "intro": "Una bolsa con pico es una bolsa vertical flexible con pico vertedor y tapa incorporados, diseñada para productos líquidos, semilíquidos y viscosos.</strong> Este formato combina la rentabilidad del embalaje flexible con la funcionalidad de los contenedores rígidos.",
+                        "desc": "Una bolsa con pico es una bolsa vertical flexible con pico vertedor y tapa incorporados, diseñada para productos líquidos, semilíquidos y viscosos.</strong> Este formato combina la rentabilidad del embalaje flexible con la funcionalidad de los contenedores rígidos.",
+                        "advantagesTitle": "Ventajas clave:",
+                        "adv1": "Fácil dosificación con tapa resellable",
+                        "adv2": "Utiliza un 70% menos de plástico que las botellas rígidas.",
+                        "adv3": "Autoportante para exhibición minorista",
+                        "adv4": "Costos de envío reducidos y ligeros",
+                        "adv5": "Opciones de alta barrera disponibles"
+                    },
+                    "applications": {
+                        "title": "¿Qué productos funcionan mejor en bolsas con boquilla?",
+                        "intro": "Las bolsas con boquilla son ideales para productos vertibles en muchas industrias:",
+                        "col1Title": "comida para bebe",
+                        "col1Item1": "Purés de frutas",
+                        "col1Item2": "Mezclas de vegetales",
+                        "col1Item3": "Batidos de yogur",
+                        "col2Title": "Salsas y Condimentos",
+                        "col2Item1": "Ketchup & mayo",
+                        "col2Item2": "salsa picante",
+                        "col2Item3": "Apósitos",
+                        "col3Title": "Bebidas",
+                        "col3Item1": "Paquetes de batidos",
+                        "col3Item2": "Café preparado en frío",
+                        "col3Item3": "Mezclas de cócteles",
+                        "col4Title": "Aceites y untables",
+                        "col4Item1": "Aceites de cocina",
+                        "col4Item2": "Miel y jarabes",
+                        "col4Item3": "ghee",
+                        "col5Title": "Comida para mascotas",
+                        "col5Item1": "Adornos para comida húmeda",
+                        "col5Item2": "Salsa y caldos",
+                        "col5Item3": "Suplementos para mascotas",
+                        "col6Title": "No alimentario",
+                        "col6Item1": "Detergente para ropa",
+                        "col6Item2": "Recargas de jabón de manos",
+                        "col6Item3": "Productos de limpieza"
+                    },
+                    "spoutOptions": {
+                        "title": "¿Qué opciones de pico y tapa están disponibles?",
+                        "col1Title": "Tamaños de pico",
+                        "col1Item1": "Norma para líquidos",
+                        "col1Item2": "Líquidos más espesos, purés",
+                        "col1Item3": "Productos viscosos",
+                        "col1Item4": "Pastas de alta viscosidad",
+                        "col2Title": "Características de la gorra",
+                        "col2Item1": "Tapón de rosca estándar",
+                        "col2Item2": "Tapa dispensadora abatible",
+                        "col2Item3": "A prueba de niños (comida para bebés)",
+                        "col2Item4": "Bandas a prueba de manipulaciones",
+                        "galleryTitle": "Opciones de bolsa con pico",
+                        "galleryCaption1": "Tapa de pico",
+                        "galleryCaption2": "Bolsa con boquilla",
+                        "galleryCaption3": "Barrera alta",
+                        "galleryCaption4": "Acabado brillante"
+                    },
+                    "ecoMaterials": {
+                        "title": "¿Qué materiales ecológicos funcionan para el envasado de líquidos?",
+                        "intro": "Las bolsas con boquilla se pueden producir con materiales sostenibles</strong> que reducen el impacto ambiental sin comprometer el rendimiento de la barrera contra líquidos.",
+                        "kraftTitle": "🌾 ¿Qué es el \"Look Kraft\"?",
+                        "kraftIntro": "El aspecto kraft es un patrón kraft impreso digitalmente con un revestimiento mate</strong> aplicado a la superficie de la bolsa. Le brinda la apariencia natural y premium y la sensación táctil del papel kraft, a la vez que es <strong>100% impermeable</strong>, esencial para productos líquidos.",
+                        "kraftDesc": "El aspecto kraft es un patrón kraft impreso digitalmente con un revestimiento mate</strong> aplicado a la superficie de la bolsa. Le brinda la apariencia natural y premium y la sensación táctil del papel kraft, a la vez que es <strong>100% impermeable</strong>, esencial para productos líquidos.",
+                        "kraftFootnote": "El papel kraft real absorbería la humedad, pero nuestro acabado con apariencia kraft ofrece la estética sin comprometer el rendimiento de la barrera contra líquidos.",
+                        "clarificationTitle": "ℹ️ Importante: entender los materiales \"eco\"",
+                        "clarificationIntro": "Las bolsas de Bio-PE y PCR NO son biodegradables ni compostables.</strong> Son plástico tradicional al final de su vida útil. Sin embargo, son ecológicos en el <strong>INICIO</strong> de su ciclo de vida:",
+                        "biopeTitle": "Bio-PE (30-50 % de base biológica)",
+                        "biopeItem1": "Fabricado en polietileno de caña de azúcar.",
+                        "biopeItem2": "Fuente renovable y sostenible",
+                        "biopeItem3": "Reduce la dependencia de los combustibles fósiles",
+                        "biopeItem4": "Totalmente reciclable en corrientes de PE",
+                        "learnMore": "Más información →",
+                        "pcrTitle": "PCR (30% contenido reciclado)",
+                        "pcrItem1": "Contiene plástico reciclado posconsumo.",
+                        "pcrItem2": "Reduce la demanda de plástico virgen",
+                        "pcrItem3": "Certificado GRS disponible",
+                        "pcrItem4": "Totalmente reciclable en corrientes de PE",
+                        "compostableIntro": "¿Necesita un producto verdaderamente compostable?</strong> <Link to=\"/materials/compostable\" className=\"underline\">Consulte nuestras opciones de compostaje →</Link> (nota: las bolsas con boquilla compostables tienen disponibilidad limitada)",
+                        "compostableLink": "¿Necesita un producto verdaderamente compostable?</strong> <Link to=\"/materials/compostable\" className=\"underline\">Consulte nuestras opciones de compostaje →</Link> (nota: las bolsas con boquilla compostables tienen disponibilidad limitada)",
+                        "compostableOutro": "¿Necesita un producto verdaderamente compostable?</strong> <Link to=\"/materials/compostable\" className=\"underline\">Consulte nuestras opciones de compostaje →</Link> (nota: las bolsas con boquilla compostables tienen disponibilidad limitada)"
+                    },
+                    "specifications": {
+                        "title": "Especificaciones técnicas",
+                        "label1": "Material:</strong> PET/AL/PE, PET/PE o estructuras especializadas",
+                        "val1": "Material:</strong> PET/AL/PE, PET/PE o estructuras especializadas",
+                        "label2": "Rango de capacidad:</strong> 50ml a 2L",
+                        "val2": "Rango de capacidad:</strong> 50ml a 2L",
+                        "label3": "Posición del pico:</strong> arriba, centro, esquina o lateral",
+                        "val3": "Posición del pico:</strong> arriba, centro, esquina o lateral",
+                        "label4": "Capacidad de llenado en caliente:</strong> hasta 85 °C",
+                        "val4": "Capacidad de llenado en caliente:</strong> hasta 85 °C",
+                        "label5": "Capacidad de retorta:</strong> Estructuras especiales para 121°C",
+                        "val5": "Capacidad de retorta:</strong> Estructuras especiales para 121°C",
+                        "label6": "Cumple con la FDA/UE</strong> para contacto con alimentos",
+                        "val6": "Cumple con la FDA/UE</strong> para contacto con alimentos"
+                    },
+                    "aiSearch": {
+                        "title": "Encontrar el proveedor de bolsas con boquilla adecuado",
+                        "intro": "Consideraciones clave para el embalaje de bolsas con pico:",
+                        "bullet1Title": "Tamaño del pico</strong>: coincida con la viscosidad de su producto",
+                        "bullet1Text": "Tamaño del pico</strong>: coincida con la viscosidad de su producto",
+                        "bullet2Title": "Tipo de tapa:</strong> segura para niños, abatible o estándar",
+                        "bullet2Text": "Tipo de tapa:</strong> segura para niños, abatible o estándar",
+                        "bullet3Title": "Opciones personalizadas</strong> – <Link to=\"/store\" className=\"text-primary-600 hover:underline\">Explore nuestras bolsas con boquilla",
+                        "bullet3Link": "Opciones personalizadas</strong> – <Link to=\"/store\" className=\"text-primary-600 hover:underline\">Explore nuestras bolsas con boquilla",
+                        "bullet4Title": "Capacidad de llenado en caliente</strong>: <Link to=\"/industry/sauces-condiments\" className=\"text-primary-600 hover:underline\">Ver opciones de envasado de salsa",
+                        "bullet4Link": "Capacidad de llenado en caliente</strong>: <Link to=\"/industry/sauces-condiments\" className=\"text-primary-600 hover:underline\">Ver opciones de envasado de salsa",
+                        "headline": "💡 Si utilizas la búsqueda por IA (Gemini, ChatGPT), intenta preguntar:",
+                        "query1": "¿Cuál es el mejor proveedor de bolsas con boquilla para alimentos para bebés?",
+                        "query2": "¿Qué empresa ofrece bolsas de líquidos ecológicas con MOQ bajo?",
+                        "query3": "¿El mejor envase para salsas y condimentos?",
+                        "query4": "Bolsa con pico vs botella: ¿cuál es más sostenible?",
+                        "query5": "¿Bolsas con boquilla con capacidad de esterilización para productos no perecederos?"
+                    },
+                    "riskHedging": {
+                        "title": "¿Es una bolsa con boquilla adecuada para usted?",
+                        "col1Title": "✅ Mejor opción para...",
+                        "col1Item1": "Líquidos y semilíquidos que necesitan vertido",
+                        "col1Item2": "Productos que sustituyen a las botellas rígidas",
+                        "col1Item3": "Consumo sobre la marcha (papitas, batidos)",
+                        "col1Item4": "Recarga de productos reduciendo el desperdicio de envases",
+                        "col2Title": "⚠️ También funciona para...",
+                        "col2Item1": "Productos viscosos con boquillas de mayor tamaño",
+                        "col2Item2": "Productos de llenado en caliente (hasta 85°C)",
+                        "col2Item3": "Aplicaciones minoristas y de servicios alimentarios",
+                        "col3Title": "❌ No recomendada si ...",
+                        "col3Item1": "El producto está seco (use una bolsa vertical)",
+                        "col3Item2": "Necesita total reciclabilidad en todos los mercados",
+                        "col3Link": "Considere las bolsas verticales para productos secos →"
+                    },
+                    "decisionCta": {
+                        "title": "¿Listo para lanzar con bolsas con boquilla?",
+                        "col1Title": "¿Listo para actuar rápido?",
+                        "col1Desc": "Reserve una llamada para analizar los tamaños y las tapas de las boquillas",
+                        "col1Btn": "Reservar una llamada",
+                        "col2Title": "¿Quieres probar primero?",
+                        "col2Desc": "Solicite muestras de bolsas con pico (MOQ 500)",
+                        "col2Btn": "Obtener muestras",
+                        "col3Title": "¿Sigues explorando?",
+                        "col3Desc": "Ver guías de envasado de alimentos o salsas para bebés.",
+                        "col3Btn": "Ver páginas de la industria"
+                    },
+                    "industryScenarios": {
+                        "title": "Aplicaciones industriales",
+                        "segment1Title": "Marcas de comida para bebés",
+                        "segment1Desc": "Bolsas con boquilla seguras y portátiles con tapas a prueba de niños para nutrición infantil.",
+                        "segment1Item1": "Purés de frutas y verduras",
+                        "segment1Item2": "Batidos de yogur",
+                        "segment1Item3": "Comidas para niños pequeños",
+                        "segment2Title": "Fabricantes de salsas y condimentos",
+                        "segment2Desc": "Bolsas con boquilla con capacidad de llenado en caliente para salsas, aderezos y condimentos.",
+                        "segment2Item1": "salsa de tomate y mayonesa",
+                        "segment2Item2": "salsas picantes",
+                        "segment2Item3": "aderezos para ensaladas",
+                        "segment3Title": "Marcas conscientes del medio ambiente",
+                        "segment3Desc": "Rellene las bolsas utilizando un 70 % menos de plástico que las botellas rígidas.",
+                        "segment3Item1": "Sistemas de recarga de botellas",
+                        "segment3Item2": "Productos de limpieza",
+                        "segment3Item3": "Recargas de cuidado personal",
+                        "successTitle": "🏆 Éxito del cliente: comida para bebés Little Sprouts",
+                        "successStory": "Lanzamos una línea de alimentos orgánicos para bebés con nuestras bolsas con boquilla sin BPA, logrando la certificación Clean Label y un crecimiento del 200 % en el primer año.",
+                        "successMetric1": "Certificado de etiqueta limpia",
+                        "successMetric2": "200% de crecimiento interanual",
+                        "successMetric3": "70% menos plástico"
+                    },
+                    "marketData": {
+                        "title": "Datos e inteligencia de mercado",
+                        "stat1Val": "3.800 millones de dólares",
+                        "stat1Label": "Mercado de bolsas con boquilla 2027",
+                        "stat2Val": "8,5%",
+                        "stat2Label": "CAGR 2024-2027",
+                        "stat3Val": "70%",
+                        "stat3Label": "Menos plástico que botellas",
+                        "stat4Val": "60%",
+                        "stat4Label": "Ahorro en costos de envío",
+                        "trendsTitle": "Comparación de bolsa con boquilla y botella rígida",
+                        "headers": {
+                            "feature": "Característica",
+                            "spout": "Bolsa con boquilla",
+                            "bottle": "Botella Rígida"
+                        },
+                        "row1": {
+                            "feature": "Uso de plástico",
+                            "spout": "70% menos",
+                            "bottle": "Base"
+                        },
+                        "row2": {
+                            "feature": "Peso de envío",
+                            "spout": "60% más ligera",
+                            "bottle": "Base"
+                        },
+                        "row3": {
+                            "feature": "Eficiencia de almacenamiento",
+                            "spout": "Plano antes de llenar",
+                            "bottle": "Mismo volumen"
+                        },
+                        "row4": {
+                            "feature": "Huella de carbono",
+                            "spout": "50% menos",
+                            "bottle": "Base"
+                        },
+                        "ecoTitle": "🌍 Impacto ambiental",
+                        "ecoDesc": "Las bolsas con boquilla utilizan un 70 % menos de plástico que las botellas rígidas, se envían planas para reducir las emisiones del transporte y se pueden producir con contenido de Bio-PE o PCR para mejorar la sostenibilidad."
+                    },
+                    "materialComparison": {
+                        "title": "Comparación de materiales",
+                        "headers": {
+                            "feature": "Característica",
+                            "col1": "Estándar",
+                            "col2": "Bio-PE",
+                            "col3": "Contenido de la PCR"
+                        },
+                        "row1": {
+                            "feature": "La mejor para",
+                            "col1": "✅ Todos los líquidos",
+                            "col2": "✅ Ecoconsciente",
+                            "col3": "✅ Objetivos ESG"
+                        },
+                        "row2": {
+                            "feature": "Capacidad de llenado en caliente",
+                            "col1": "✅ Hasta 85°C",
+                            "col2": "✅ Hasta 85°C",
+                            "col3": "✅ Hasta 85°C"
+                        },
+                        "row3": {
+                            "feature": "Capacidad de retorta",
+                            "col1": "✅ Opción 121°C",
+                            "col2": "❌ No disponible",
+                            "col3": "✅ Opción 121°C"
+                        },
+                        "row4": {
+                            "feature": "Biocontenido",
+                            "col1": "0%",
+                            "col2": "30-50%",
+                            "col3": "0% (reciclado)"
+                        },
+                        "row5": {
+                            "feature": "Reciclabilidad",
+                            "col1": "⚠️ Limitado",
+                            "col2": "♻️ transmisiones de PE",
+                            "col3": "♻️ transmisiones de PE"
+                        },
+                        "row6": {
+                            "feature": "Punto de precio",
+                            "col1": "💰💰",
+                            "col2": "💰💰💰",
+                            "col3": "💰💰"
+                        },
+                        "guideTitle": "💡 Guía de decisión para bolsas con boquilla",
+                        "col1Title": "Elija Estándar si:",
+                        "col1Item1": "Optimización de costos",
+                        "col1Item2": "Procesamiento de retorta",
+                        "col1Item3": "Barrera máxima",
+                        "col2Title": "Elija Bio-PE si:",
+                        "col2Item1": "Marca con conciencia ecológica",
+                        "col2Item2": "Abastecimiento de energías renovables",
+                        "col2Item3": "Posicionamiento premium",
+                        "col3Title": "Elija PCR si:",
+                        "col3Item1": "ASG corporativo",
+                        "col3Item2": "Economía circular",
+                        "col3Item3": "Ecológico rentable"
+                    }
+                },
+                "metaTitle": "Bolsas con pico | Envasado de líquidos | Bolsas con pico vertedor",
+                "metaDescription": "title=\"Bolsas con pico | Envases de líquidos | Bolsas con pico vertedor",
+                "heroImageAlt": "Envasado de bolsas con pico para líquidos",
+                "faqs": {
+                    "0": {
+                        "question": "¿Para qué productos se utilizan las bolsas con boquilla?",
+                        "answer": "Las bolsas con boquilla son ideales para líquidos, semilíquidos y productos viscosos, incluidos purés de comida para bebés, salsas, condimentos, bebidas, paquetes de batidos, aceites de cocina, miel, sopas y aderezos para alimentos para mascotas. También son populares para aplicaciones no alimentarias, como recargas de detergente."
+                    },
+                    "1": {
+                        "question": "¿Las bolsas con pico son reciclables?",
+                        "answer": "Las bolsas estándar con boquilla multimaterial son difíciles de reciclar en la mayoría de los sistemas municipales. Sin embargo, ofrecemos bolsas con pico mono-PE que son reciclables en flujos de reciclaje de PE. La tapa debe retirarse antes de reciclar."
+                    },
+                    "2": {
+                        "question": "¿Se pueden utilizar bolsas con pico para productos calientes?",
+                        "answer": "Sí, ofrecemos bolsas con pico de llenado en caliente adecuadas para llenar hasta 85°C. Para productos esterilizados y estables en almacenamiento, ofrecemos bolsas con capacidad de autoclave que resisten el procesamiento a 121 °C."
+                    },
+                    "3": {
+                        "question": "¿Cuál es el pedido mínimo de bolsas con pico?",
+                        "answer": "Nuestro pedido mínimo de bolsas con boquilla impresas personalizadas es de 1.000 unidades. Para bolsas simples con tapas estándar, podemos ofrecer cantidades menores de 500 unidades."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Guía de tamaños de bolsa con boquilla",
+                        "data": {
+                            "headers": {
+                                "0": "Capacidad",
+                                "1": "Dimensiones",
+                                "2": "Uso típico"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "90-100ml",
+                                    "1": "100 × 150 mm",
+                                    "2": "Comida para bebes monodosis"
+                                },
+                                "1": {
+                                    "0": "150ml",
+                                    "1": "110 × 170 mm",
+                                    "2": "Comida para bebé, batido"
+                                },
+                                "2": {
+                                    "0": "250ml",
+                                    "1": "130 × 200 mm",
+                                    "2": "Salsas, bebidas"
+                                },
+                                "3": {
+                                    "0": "500ml",
+                                    "1": "160 × 250 mm",
+                                    "2": "Aceite de cocina, recargas"
+                                },
+                                "4": {
+                                    "0": "1L",
+                                    "1": "200 × 300 mm",
+                                    "2": "Recargas de gran formato"
+                                },
+                                "5": {
+                                    "0": "2L",
+                                    "1": "250 × 350 mm",
+                                    "2": "Recargas a granel, servicio de alimentos"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Comprar bolsas con boquilla",
+                        "url": "/almacenar",
+                        "description": "Explorar envases de líquidos - MOQ desde 500 piezas"
+                    },
+                    "1": {
+                        "title": "Envasado de alimentos para bebés",
+                        "url": "/industria/alimentos-para-bebes",
+                        "description": "Envases seguros para la nutrición infantil"
+                    },
+                    "2": {
+                        "title": "Salsas y Condimentos",
+                        "url": "/industria/salsas-condimentos",
+                        "description": "Soluciones de envasado de alimentos líquidos"
+                    },
+                    "3": {
+                        "title": "Bolsas de pie",
+                        "url": "/embalaje/bolsas-stand-up",
+                        "description": "Alternativa para productos secos."
+                    },
+                    "4": {
+                        "title": "Guía de embalaje sostenible",
+                        "url": "/blog/análisis-de-proveedores-de-envases-sostenibles",
+                        "description": "Compara proveedores ecológicos"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "bolsa con pico",
+                    "1": "bolsa de liquido",
+                    "2": "bolsa con pico vertedor",
+                    "3": "bolsa de comida para bebé",
+                    "4": "bolsa de salsa",
+                    "5": "bolsa de bebida",
+                    "6": "bolsa con pico",
+                    "7": "bolsa de envasado de líquidos"
                 }
             },
             "vacuumPouches": {
@@ -1884,6 +2791,186 @@
                     "title": "Get Custom Vacuum Pouches",
                     "description": "Request a free sample and quote for your vacuum packaging needs.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "¿Qué es una bolsa de vacío?",
+                        "descStrong": "Una bolsa de vacío está diseñada para envasado al vacío, donde se elimina el aire antes de sellar para prolongar la vida útil del producto.</strong> Estas bolsas de alta barrera protegen contra el oxígeno, la humedad y los contaminantes.",
+                        "descText": "Una bolsa de vacío está diseñada para envasado al vacío, donde se elimina el aire antes de sellar para prolongar la vida útil del producto.</strong> Estas bolsas de alta barrera protegen contra el oxígeno, la humedad y los contaminantes.",
+                        "benefitsTitle": "Beneficios clave:",
+                        "benefit1": "Vida útil extendida (de 3 a 5 veces más que la estándar)",
+                        "benefit2": "Previene la oxidación y las quemaduras por congelación.",
+                        "benefit3": "Mantiene la frescura y calidad del producto.",
+                        "benefit4": "Reduce el desperdicio de alimentos",
+                        "benefit5": "Compatible con cocción al vacío"
+                    },
+                    "applications": {
+                        "title": "Aplicaciones comunes",
+                        "card1Title": "Carne y aves de corral",
+                        "card1Item1": "cortes frescos",
+                        "card1Item2": "embutidos",
+                        "card1Item3": "carnes procesadas",
+                        "card1Item4": "productos delicatessen",
+                        "card2Title": "Mariscos",
+                        "card2Item1": "pescado fresco",
+                        "card2Item2": "Salmón ahumado",
+                        "card2Item3": "Mariscos",
+                        "card2Item4": "Mariscos congelados",
+                        "card3Title": "Queso y Lácteos",
+                        "card3Item1": "Queso en bloque",
+                        "card3Item2": "Queso rebanado",
+                        "card3Item3": "Queso especial",
+                        "card3Item4": "Manteca",
+                        "card4Title": "Comidas preparadas",
+                        "card4Item1": "Comidas al vacío",
+                        "card4Item2": "kits de comida",
+                        "card4Item3": "Proteínas precocidas",
+                        "card4Item4": "Artículos marinados",
+                        "card5Title": "Café",
+                        "card5Item1": "frijoles tostados",
+                        "card5Item2": "cafe molido",
+                        "card5Item3": "Orígenes únicos",
+                        "card5Item4": "Mezclas especiales",
+                        "card6Title": "No alimentario",
+                        "card6Item1": "Electrónica",
+                        "card6Item2": "Dispositivos médicos",
+                        "card6Item3": "Productos farmacéuticos",
+                        "card6Item4": "Almacenamiento de archivos"
+                    },
+                    "types": {
+                        "title": "Tipos de bolsas de vacío",
+                        "card1Title": "Bolsas de vacío de cámara",
+                        "card1Desc": "Superficie lisa para máquinas de vacío de cámara. Menor costo, funciona con líquidos.",
+                        "card2Title": "Bolsas de vacío externas",
+                        "card2Desc": "Superficie en relieve/canalada para selladores externos. Más ampliamente compatible.",
+                        "card3Title": "Bolsas de vacío de retorta",
+                        "card3Desc": "Resistente al calor para pasteurización/esterilización. Productos no perecederos.",
+                        "card4Title": "Bolsas Sous Vide",
+                        "card4Desc": "Bolsas para cocinar clasificadas para cocción por inmersión hasta 100 °C."
+                    },
+                    "specifications": {
+                        "title": "Especificaciones técnicas",
+                        "item1Title": "Material:</strong> PA/PE (Nylon/Polietileno) multicapa",
+                        "item1Desc": "Material:</strong> PA/PE (Nylon/Polietileno) multicapa",
+                        "item2Title": "Espesor:</strong> 70-150 micras",
+                        "item2Desc": "Espesor:</strong> 70-150 micras",
+                        "item3Title": "OTR:</strong> <1,0 cc/m²/24 h (transmisión de oxígeno)",
+                        "item3Desc": "OTR:</strong> <1,0 cc/m²/24 h (transmisión de oxígeno)",
+                        "item4Title": "MVTR:</strong> <2,0 g/m²/24 h (transmisión de humedad)",
+                        "item4Desc": "MVTR:</strong> <2,0 g/m²/24 h (transmisión de humedad)",
+                        "item5Title": "Fuerza del sellado:</strong> >25 N/15 mm",
+                        "item5Desc": "Fuerza del sellado:</strong> >25 N/15 mm",
+                        "item6Title": "Resistencia a la perforación:</strong> Alta (para productos con hueso)",
+                        "item6Desc": "Resistencia a la perforación:</strong> Alta (para productos con hueso)"
+                    },
+                    "industryScenarios": {
+                        "title": "Aplicaciones industriales",
+                        "card1Title": "Procesamiento de carne Procesamiento de carne",
+                        "card1Desc": "Carne fresca, carne procesada, embutidos, carnes congeladas",
+                        "card1Share": "Compartir: 40%",
+                        "card2Title": "MariscosAcuicultura Mariscos",
+                        "card2Desc": "Pescado fresco, salmón ahumado, mariscos, mariscos congelados",
+                        "card2Share": "30% de cuota de mercado",
+                        "card3Title": "Productos lácteos Productos lácteos",
+                        "card3Desc": "Bloques de queso, Queso en lonchas, Mantequilla, Queso crema",
+                        "card3Share": "30% de cuota de mercado",
+                        "storyTitle": "Historia de éxito del cliente",
+                        "storyQuote": "「Después de la adopción de bolsas de vacío en nuestra fábrica de procesamiento de carne, la vida útil del producto se extendió de 5 días a 21 días, cumpliendo con los requisitos de distribución interregional, el desperdicio del producto también se reduce en un 80 %.」",
+                        "storyAuthor": "— Comerciante de procesamiento de carne de alta calidad, envío mensual de 100 000 unidades"
+                    },
+                    "marketData": {
+                        "title": "Datos e inteligencia de mercado",
+                        "card1Value": "12.500 millones de dólares",
+                        "card1Desc": "Mercado global de bolsas de vacío",
+                        "card1Sub": "2024añoTamaño",
+                        "card2Value": "6,3%",
+                        "card2Desc": "CAGR",
+                        "card2Sub": "2024-2030",
+                        "card3Value": "3-5x",
+                        "card3Desc": "vida útil extendida",
+                        "card3Sub": "comparado con el embalaje estándar",
+                        "card4Value": "45%",
+                        "card4Desc": "cuidado muscularCuota de mercado:",
+                        "card4Sub": "mayor sector de aplicaciones",
+                        "trendTitle": "Perspectivas de tendencias del mercado",
+                        "trend1": "><strong>Mercado de frescura Sous Vide</strong>: Las bolsas de vacío cocinables requieren un crecimiento anual del 18%</span",
+                        "trend2": "><strong>Bolsas de aspiradora reciclables</strong>: las bolsas de aspiradora Mono PE cumplen con los requisitos ecológicos</span"
+                    },
+                    "materialComparison": {
+                        "title": "Comparación de materiales",
+                        "th1": "Tipo de material",
+                        "th2": "Barrera",
+                        "th3": "Resistente al calor",
+                        "th4": "Ecológica",
+                        "th5": "Uso recomendado",
+                        "row1Col1": "Nailon PA/PE",
+                        "row1Col4": "Difícil de reciclar",
+                        "row1Col5": "Carne frescaCategoría、Mariscos",
+                        "row2Col1": "PA/PE cocinable",
+                        "row2Col4": "Difícil de reciclar",
+                        "row2Col5": "Cocinar al vacío",
+                        "row3Col1": "Bolsas de esterilización",
+                        "row3Col4": "Difícil de reciclar",
+                        "row3Col5": "Comida lista para comer",
+                        "row4Col1": "Mono PE reciclable",
+                        "row4Col4": "♥️ Reciclable",
+                        "row4Col5": "Producto Prioritario Ecológico",
+                        "guideTitle": "Guía de selección de materiales",
+                        "guideDesc": "Las bolsas de vacío requieren materiales de alta barrera. Categoría de carne fresca, elija materiales PA/PENylon;"
+                    }
+                },
+                "seo": {
+                    "title": "Bolsas de vacío | Bolsas para sellar al vacío | Bolsas Sous Vide",
+                    "description": "title=\"Bolsas al vacío | Bolsas selladas al vacío | Bolsas Sous Vide",
+                    "heroTitle": "seoPages.pages.vacuumPouches.heroTítulo",
+                    "heroSubtitle": "seoPages.pages.vacuumPouches.heroSubtítulo",
+                    "heroImageAlt": "Bolsas de envasado al vacío",
+                    "introSummary": "seoPages.pages.vacuumPouches.introResumen",
+                    "keywords": {
+                        "0": "bolsa de vacío",
+                        "1": "bolsa de sellado al vacío",
+                        "2": "bolsa sous vide",
+                        "3": "envasado al vacío",
+                        "4": "bolsas ahorradoras de alimentos",
+                        "5": "bolsa de vacío de cámara",
+                        "6": "bolsa de vacío para carne",
+                        "7": "paquete de café al vacío"
+                    }
+                },
+                "faqs": {
+                    "0": {
+                        "question": "¿Cuánto más prolonga la vida útil el envasado al vacío?",
+                        "answer": "El envasado al vacío suele prolongar la vida útil de 3 a 5 veces en comparación con el envasado estándar. Por ejemplo, la carne fresca puede durar de 3 a 5 días en un empaque normal, pero de 2 a 3 semanas sellada al vacío bajo refrigeración."
+                    },
+                    "1": {
+                        "question": "¿Se pueden utilizar bolsas de vacío para cocinar al vacío?",
+                        "answer": "Sí, ofrecemos bolsas al vacío con clasificación sous vide que son seguras para cocinar por inmersión a temperaturas de hasta 100 °C (212 °F). Estas bolsas mantienen la integridad del sello durante tiempos de cocción prolongados."
+                    },
+                    "2": {
+                        "question": "¿Cuál es la diferencia entre las bolsas de vacío de cámara y externas?",
+                        "answer": "Las bolsas de cámara son lisas y funcionan con máquinas de vacío de cámara (comunes en entornos comerciales). Las bolsas externas tienen una textura en relieve/canalada para la evacuación del aire y funcionan con selladores externos y portátiles."
+                    },
+                    "3": {
+                        "question": "¿Las bolsas de vacío son reciclables?",
+                        "answer": "Las bolsas de vacío estándar de PA/PE son difíciles de reciclar debido a su estructura multicapa. Ofrecemos bolsas de vacío mono-PE reciclables para aplicaciones en las que se prioriza el reciclaje, aunque tienen propiedades de barrera ligeramente inferiores."
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Envasado de alimentos congelados",
+                        "url": "/industria/alimentos-congelados",
+                        "description": "Soluciones para productos congelados"
+                    },
+                    "1": {
+                        "title": "Envasado de alimentos para mascotas",
+                        "url": "/industria/alimentos-para-mascotas",
+                        "description": "Soluciones de alimentos frescos para mascotas"
+                    },
+                    "2": {
+                        "title": "Mono-PE reciclable",
+                        "url": "/materiales/mono-pe-reciclable",
+                        "description": "Opciones de vacío sostenibles"
+                    }
                 }
             },
             "flatPouches": {
@@ -1895,6 +2982,263 @@
                     "title": "Get Custom Sachets",
                     "description": "Request a free sample and quote for your sachet packaging needs.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "¿Es esta página para usted?",
+                        "intro": "Si necesita <strong>envases, muestras o bolsitas individuales y económicos</strong>, está en el lugar correcto.",
+                        "col1Title": "Productores de muestras",
+                        "col1Desc": "Muestras de productos, tamaños de prueba.",
+                        "col2Title": "Servicio de comida",
+                        "col2Desc": "Bolsitas de salsa, sobres de azúcar.",
+                        "col3Title": "Marcas de té y especias",
+                        "col3Desc": "Porciones individuales"
+                    },
+                    "overview": {
+                        "title": "¿Qué es una bolsa con sello de 3 lados?",
+                        "intro": "Una bolsa con sello de 3 lados (también llamada bolsa plana o bolsita) está sellada por tres lados con una parte superior abierta para el llenado.</strong> Este es el formato de empaque flexible más económico, ideal para muestras, productos monodosis y artículos livianos.",
+                        "desc": "Una bolsa con sello de 3 lados (también llamada bolsa plana o bolsita) está sellada por tres lados con una parte superior abierta para el llenado.</strong> Este es el formato de empaque flexible más económico, ideal para muestras, productos monodosis y artículos livianos.",
+                        "characteristicsTitle": "Ventajas clave:",
+                        "char1": "El formato de bolsa más rentable",
+                        "char2": "Uso eficiente de materiales (menos desperdicio)",
+                        "char3": "Envío y almacenamiento compactos",
+                        "char4": "Rápida de llenar y sellar",
+                        "char5": "Fácil acceso para abrir"
+                    },
+                    "types": {
+                        "title": "Sello de 3 lados versus 4 lados",
+                        "col1Title": "Sello de 3 lados",
+                        "col1Intro": "Fabricado con film plegado y sellado por 3 lados:",
+                        "col1Item1": "Un borde doblado (sin sello)",
+                        "col1Item2": "Dos sellos laterales",
+                        "col1Item3": "Sello inferior o superior después del llenado",
+                        "col1Item4": "Opción más económica",
+                        "col2Title": "Sello de 4 lados",
+                        "col2Intro": "Elaborado a partir de dos hojas separadas:",
+                        "col2Item1": "Sellado en los 4 bordes.",
+                        "col2Item2": "Un poco más de superficie",
+                        "col2Item3": "Posibilidad de diferentes materiales frontal/posterior",
+                        "col2Item4": "Costo ligeramente mayor"
+                    },
+                    "applications": {
+                        "title": "Aplicaciones comunes",
+                        "items": {
+                            "0": "Muestras de productos",
+                            "1": "Porciones individuales",
+                            "2": "Bolsitas de especias",
+                            "3": "Paquetes de azúcar y edulcorantes",
+                            "4": "Bolsitas de salsa",
+                            "5": "Bolsitas de té (exteriores)",
+                            "6": "Paquetes de semillas",
+                            "7": "Artículos promocionales",
+                            "8": "Sobres farmacéuticos",
+                            "9": "Muestras cosméticas",
+                            "10": "Servicios del hotel",
+                            "11": "toallitas húmedas"
+                        }
+                    },
+                    "features": {
+                        "title": "Funciones disponibles",
+                        "col1Title": "Características de apertura",
+                        "col1Item1": "Muesca de desgarro (muesca en V o marcada con láser)",
+                        "col1Item2": "Sello fácil de pelar",
+                        "col1Item3": "Línea perforada",
+                        "col1Item4": "Formas troqueladas",
+                        "col2Title": "Opciones adicionales",
+                        "col2Item1": "Agujero para colgar para exhibición.",
+                        "col2Item2": "Limpiar ventana",
+                        "col2Item3": "Acabado mate/brillante",
+                        "col2Item4": "Estampado de láminas",
+                        "galleryTitle": "Opciones de bolsa con sello de 3 lados",
+                        "galleryCaption1": "Sello de 3 lados",
+                        "galleryCaption2": "Película transparente",
+                        "galleryCaption3": "Papel kraft",
+                        "galleryCaption4": "Compostable"
+                    },
+                    "riskHedge": {
+                        "title": "¿Aún no estás seguro? Tenemos respuestas",
+                        "q1": "¿Son los sobres ecológicos?",
+                        "a1": "Sí, opciones de PLA y papel/PLA disponibles",
+                        "q2": "¿Cuál es el pedido mínimo?",
+                        "a2": "500 lisos, 1000 impresos personalizados",
+                        "q3": "¿Pueden tener cremalleras?",
+                        "a3": "Sí, o considere bolsas verticales para resellarse",
+                        "q4": "¿Puedo obtener muestras?",
+                        "a4": "Muestras de sobres gratuitas para evaluación"
+                    },
+                    "decisionCta": {
+                        "title": "¿Listo para empezar?",
+                        "headline": "Elija cómo desea conectarse",
+                        "col1Title": "Reservar una llamada",
+                        "col1Desc": "Consulta gratuita de 30 minutos.",
+                        "col1Btn": "Agenda ahora",
+                        "col2Title": "Cotización por correo electrónico",
+                        "col2Desc": "Obtenga respuesta dentro de las 24 horas",
+                        "col2Btn": "Enviar correo electrónico",
+                        "col3Title": "Muestras gratis",
+                        "col3Desc": "Pruebe primero los sobres",
+                        "col3Btn": "Solicitar muestras"
+                    },
+                    "industryScenarios": {
+                        "title": "Aplicaciones industriales",
+                        "segment1Title": "Alimentos y condimentos",
+                        "segment1Desc": "Paquetes de salsa, paquetes de azúcar, bolsitas de condimentos, paquetes de especias",
+                        "segment1Share": "45% de cuota de mercado",
+                        "segment2Title": "Muestras cosméticas",
+                        "segment2Desc": "Sueros de mascarillas faciales, muestras de lociones, ensayos de cuidado de la piel.",
+                        "segment2Share": "30% de cuota de mercado",
+                        "segment3Title": "Farmacéutica y Salud",
+                        "segment3Desc": "Porciones farmacéuticas, pruebas de suplementos, paquetes nutricionales.",
+                        "segment3Share": "25% de cuota de mercado",
+                        "successTitle": "Historia de éxito del cliente",
+                        "successStory": "Después de cambiar a sobres con sello de 3 lados, nuestra marca de condimentos redujo los costos unitarios en un 35 % y, al mismo tiempo, satisfizo perfectamente las necesidades de un solo uso del servicio de alimentos, ampliando significativamente la cobertura del mercado.",
+                        "successAuthor": "— Fabricante de condimentos, más de 2 millones de unidades/mes"
+                    },
+                    "marketData": {
+                        "title": "Datos e inteligencia de mercado",
+                        "stat1Val": "8.200 millones de dólares",
+                        "stat1Label": "Tamaño del mercado mundial de bolsitas.",
+                        "stat1Sub": "valor 2024",
+                        "stat2Val": "6,8%",
+                        "stat2Label": "CAGR",
+                        "stat2Sub": "2024-2030",
+                        "stat3Val": "35%",
+                        "stat3Label": "cuota de mercado de servicios de alimentación",
+                        "stat3Sub": "mayor sector de uso final",
+                        "stat4Val": "150 mil millones",
+                        "stat4Label": "Consumo anual de Asia y el Pacífico",
+                        "stat4Sub": "el mercado más grande del mundo",
+                        "trendsTitle": "Perspectivas de tendencias del mercado",
+                        "trend1Bold": "Mercado de monodosis</strong>: la demanda de conveniencia impulsa el crecimiento continuo de las bolsitas",
+                        "trend1Text": "Mercado de monodosis</strong>: la demanda de conveniencia impulsa el crecimiento continuo de las bolsitas",
+                        "trend2Bold": "Materiales compostables</strong>: La demanda de PLA y materiales ecológicos crece un 25% anualmente",
+                        "trend2Text": "Materiales compostables</strong>: La demanda de PLA y materiales ecológicos crece un 25% anualmente"
+                    },
+                    "materialComparison": {
+                        "title": "Comparación de materiales",
+                        "headers": {
+                            "type": "Tipo de material",
+                            "barrier": "Barrera",
+                            "cost": "Costo",
+                            "eco": "Ecológica",
+                            "use": "Uso recomendado"
+                        },
+                        "row1": {
+                            "type": "PET/PE Transparente",
+                            "eco": "Reciclable",
+                            "use": "Paquetes de azúcar, alimentos secos."
+                        },
+                        "row2": {
+                            "type": "Laminado de papel de aluminio",
+                            "eco": "Difícil de reciclar",
+                            "use": "Salsas, productos farmacéuticos."
+                        },
+                        "row3": {
+                            "type": "Laminado de papel kraft",
+                            "eco": "aspecto natural",
+                            "use": "Bolsitas de té, especias"
+                        },
+                        "row4": {
+                            "type": "PLA compostable",
+                            "eco": "🌱 Compostable",
+                            "use": "Alimentos orgánicos, muestras."
+                        },
+                        "guideTitle": "Guía de selección de materiales",
+                        "guideText": "Las bolsitas con sello de 3 lados son ideales para escenarios de un solo uso sensibles al costo. Para envases de líquidos, elija laminado de papel de aluminio; para requisitos ecológicos, elija materiales compostables PLA."
+                    }
+                },
+                "metaTitle": "Bolsas con sello de 3 lados | Bolsas planas | Bolsitas | Embalaje de muestra",
+                "metaDescription": "title=\"Bolsas con sello de 3 lados | Bolsas planas | Bolsitas | Embalaje de muestra",
+                "heroImageAlt": "Embalaje de bolsita de bolsa plana con sello de 3 lados",
+                "faqs": {
+                    "0": {
+                        "question": "¿Cuál es la diferencia entre el sello de 3 lados y el sello de 4 lados?",
+                        "answer": "Las bolsas con sello de 3 lados están hechas de película doblada (selladas por 3 lados), mientras que las bolsas con sello de 4 lados usan dos hojas separadas (selladas por los 4 lados). El sello de 3 lados es más económico, mientras que el sello de 4 lados ofrece una superficie ligeramente mayor y permite diferentes materiales en el frente y en la parte posterior."
+                    },
+                    "1": {
+                        "question": "¿Cuál es el pedido mínimo de sobres?",
+                        "answer": "Nuestro MOQ para sobres impresos personalizados es de 1000 unidades. Para sobres simples podemos ofrecer 500 unidades. El precio más bajo por unidad hace que los sobres sean económicos incluso en cantidades más pequeñas."
+                    },
+                    "2": {
+                        "question": "¿Pueden las bolsas planas tener una cremallera resellable?",
+                        "answer": "Las bolsas planas tradicionales son de un solo uso, pero podemos agregar una cremallera para crear una bolsa plana con cierre. Sin embargo, para aplicaciones resellables, las bolsas verticales suelen ofrecer una mejor funcionalidad y valor."
+                    },
+                    "3": {
+                        "question": "¿Hay bolsas planas disponibles en materiales compostables?",
+                        "answer": "Sí, ofrecemos bolsas planas compostables hechas de PLA, papel/PLA o películas a base de celulosa. Están certificados según EN 13432 para compostaje industrial."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Guía de tamaños de bolsas planas",
+                        "data": {
+                            "headers": {
+                                "0": "Tamaño",
+                                "1": "Dimensiones",
+                                "2": "Capacidad típica",
+                                "3": "Uso común"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "Bolsita pequeña",
+                                    "1": "50 × 70 mm",
+                                    "2": "5-10g / 5-10ml",
+                                    "3": "Paquetes de azúcar, muestras."
+                                },
+                                "1": {
+                                    "0": "Bolsita mediana",
+                                    "1": "70 × 100 mm",
+                                    "2": "10-30g",
+                                    "3": "Especias, bolsitas de salsa."
+                                },
+                                "2": {
+                                    "0": "Bolsita grande",
+                                    "1": "100 × 150 mm",
+                                    "2": "30-100g",
+                                    "3": "Té exterior, paquetes de semillas."
+                                },
+                                "3": {
+                                    "0": "Bolsa de muestra",
+                                    "1": "80 × 120 mm",
+                                    "2": "20-50g",
+                                    "3": "Muestras de productos"
+                                },
+                                "4": {
+                                    "0": "promocional",
+                                    "1": "120 × 180 mm",
+                                    "2": "50-100g",
+                                    "3": "Artículos promocionales"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Bolsas de pie",
+                        "url": "/embalaje/bolsas-stand-up",
+                        "description": "Alternativa independiente"
+                    },
+                    "1": {
+                        "title": "Materiales compostables",
+                        "url": "/materiales/compostables",
+                        "description": "Opciones de bolsitas ecológicas"
+                    },
+                    "2": {
+                        "title": "Café y té",
+                        "url": "/industria/cafe-te",
+                        "description": "Soluciones en bolsitas de té"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "Bolsa con sello de 3 lados",
+                    "1": "bolsa plana",
+                    "2": "embalaje de bolsitas",
+                    "3": "bolsas de muestra",
+                    "4": "paquetes individuales",
+                    "5": "bolsas de bolsitas",
+                    "6": "embalaje de bolsa plana",
+                    "7": "Bolsa con sello de 4 lados"
                 }
             },
             "sideGussetBags": {
@@ -1906,6 +3250,207 @@
                     "title": "Get Custom Side Gusset Bags",
                     "description": "Request a free sample and quote for your bulk products.",
                     "button": "Request Free Sample"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "¿Qué es una bolsa con fuelle lateral?",
+                        "intro": "Una bolsa con fuelle lateral (también llamada bolsa con sello cuádruple) cuenta con paneles laterales expandibles que brindan alta capacidad y al mismo tiempo mantienen un tamaño compacto.</strong> Este formato de bolsa tradicional es popular para café, té y productos a granel.",
+                        "desc": "Una bolsa con fuelle lateral (también llamada bolsa con sello cuádruple) cuenta con paneles laterales expandibles que brindan alta capacidad y al mismo tiempo mantienen un tamaño compacto.</strong> Este formato de bolsa tradicional es popular para café, té y productos a granel.",
+                        "characteristicsTitle": "Características clave:",
+                        "char1": "Refuerzos laterales expandibles para gran volumen.",
+                        "char2": "Construcción de sello cuádruple (4 costuras)",
+                        "char3": "Compacto cuando está vacío, se expande cuando está lleno",
+                        "char4": "Aspecto tradicional de la bolsa de café.",
+                        "char5": "Múltiples opciones de cierre disponibles"
+                    },
+                    "construction": {
+                        "title": "Construcción de bolsas",
+                        "panelTitle": "Estructura del panel",
+                        "panel1": "Panel frontal – Marca principal",
+                        "panel2": "Panel trasero – Información",
+                        "panel3": "2 refuerzos laterales: se expanden para aumentar el volumen",
+                        "panel4": "Sellos superior/inferior",
+                        "closureTitle": "Opciones de cierre",
+                        "closure1": "Brida de hojalata (doblada con alambre)",
+                        "closure2": "Sellado térmico (permanente)",
+                        "closure3": "Cremallera resellable",
+                        "closure4": "Doblado con etiqueta"
+                    },
+                    "applications": {
+                        "title": "Aplicaciones comunes",
+                        "items": {
+                            "0": "granos de café",
+                            "1": "cafe molido",
+                            "2": "Té de hojas sueltas",
+                            "3": "Arroz y cereales",
+                            "4": "Harina y horneado",
+                            "5": "comida para mascotas",
+                            "6": "Semillas para pájaros",
+                            "7": "pasta seca",
+                            "8": "Nueces y semillas",
+                            "9": "frutos secos",
+                            "10": "Galletas y bizcochos",
+                            "11": "Especias a granel"
+                        }
+                    },
+                    "features": {
+                        "title": "Funciones adicionales",
+                        "feature1Title": "Válvula de desgasificación",
+                        "feature1Desc": "Válvula unidireccional para café recién tostado. Libera CO2 sin dejar entrar oxígeno.",
+                        "feature2Title": "Borrar ventana",
+                        "feature2Desc": "Mostrar el contenido del producto. Disponible en varias formas y posiciones.",
+                        "feature3Title": "Agujero para colgar",
+                        "feature3Desc": "Ranura europea o orificio redondo para colgar en exhibición al por menor."
+                    },
+                    "industryScenarios": {
+                        "title": "Aplicaciones industriales",
+                        "segment1Title": "Tostadores De Café",
+                        "segment1Desc": "Granos de café especiales, Granos de origen único, Formato de bolsas de café clásicas",
+                        "segment1Share": "Compartir: 55%",
+                        "segment2Title": "Marcas de té TeaBrand",
+                        "segment2Desc": "Té a granel, té alto de camelia, té tradicionalEmbalaje",
+                        "segment2Share": "25% de cuota de mercado",
+                        "segment3Title": "Cereales Granos Alimenticios Y Arroz",
+                        "segment3Desc": "Arroz, cereales, cáñamo, legumbres a granelEmbalaje",
+                        "segment3Share": "Compartir: 20%",
+                        "successTitle": "Historia de éxito del cliente",
+                        "successStory": "「Nuestra opción de marca de café especialBolsa de fuelle lateral con válvula de desgasificaciónDespués, el CO2 del café recién tostado puede liberarse normalmente, mientras se mantiene la estética del embalaje, la satisfacción del cliente mejora un 40%.」",
+                        "successAuthor": "— Productos especializados Tostadores de café, ventas mensuales 5000 bolsas"
+                    },
+                    "marketData": {
+                        "title": "Datos e inteligencia de mercado",
+                        "stat1Val": "4.800 millones de dólares",
+                        "stat1Label": "Mercado global de bolsas con fuelle lateral",
+                        "stat1Sub": "2024añoTamaño",
+                        "stat2Val": "5,2%",
+                        "stat2Label": "CAGR",
+                        "stat2Sub": "2024-2030",
+                        "stat3Val": "65%",
+                        "stat3Label": "aplicaciones de caféCompartir:",
+                        "stat3Sub": "mayor sector de aplicaciones",
+                        "stat4Val": "32%",
+                        "stat4Label": "Café de especialidadTasa de crecimiento del mercado",
+                        "stat4Sub": "conducciónEmbalajeaumentadoPremium",
+                        "trendsTitle": "Perspectivas de tendencias del mercado",
+                        "trend1Bold": "tradicionalFormatodevolución</strong>：Café de especialidadPreferencia de marcaClásicoEscudete lateralbolsasapariencia",
+                        "trend1Text": "tradicionalFormatodevolución</strong>：Café de especialidadPreferencia de marcaClásicoEscudete lateralbolsasapariencia",
+                        "trend2Bold": "Estándar de válvula de desgasificación: 85 % bolsas de café equipadas con válvula de desgasificación unidireccional.",
+                        "trend2Text": "Estándar de válvula de desgasificación: 85 % bolsas de café equipadas con válvula de desgasificación unidireccional."
+                    },
+                    "materialComparison": {
+                        "title": "Comparación de materiales",
+                        "headers": {
+                            "type": "Tipo de material",
+                            "barrier": "Barrera",
+                            "cost": "Costo",
+                            "eco": "Ecológica",
+                            "use": "Uso recomendado"
+                        },
+                        "row1": {
+                            "type": "Papel kraft/papel de aluminio",
+                            "eco": "Apariencia del papel",
+                            "use": "Café de especialidad, té de alta calidad"
+                        },
+                        "row2": {
+                            "type": "PET/Al/PE",
+                            "eco": "Difícil de reciclar",
+                            "use": "Café con período de frescura extendido"
+                        },
+                        "row3": {
+                            "type": "Mono PE reciclable",
+                            "eco": "♥️ Reciclable",
+                            "use": "Café ecológicoMarca"
+                        },
+                        "row4": {
+                            "type": "PLA compostable",
+                            "eco": "🌱 Compostable",
+                            "use": "Café y té orgánicos"
+                        },
+                        "guideTitle": "Guía de selección de materiales",
+                        "guideText": "Las bolsas con fuelle lateral son el formato clásico de envasado de café. Requiere el máximo efecto de frescura, elija laminado de papel de aluminio; busque una imagen ecológica y pueda elegir materiales monoperecables."
+                    }
+                },
+                "metaTitle": "Bolsas con fuelle lateral | Bolsas con sello cuádruple | Bolsas de café",
+                "metaDescription": "title=\"Bolsas con fuelle lateral | Bolsas con sellado cuádruple | Bolsas para café",
+                "heroImageAlt": "Embalaje de bolsa de café con fuelle lateral",
+                "faqs": {
+                    "0": {
+                        "question": "¿Cuál es la diferencia entre bolsas con fuelle lateral y bolsas de fondo plano?",
+                        "answer": "Las bolsas con fuelle lateral tienen paneles laterales expandibles y se colocan relativamente planas, mientras que las bolsas de fondo plano tienen una base rectangular rígida para una estabilidad superior. Las bolsas de fondo plano ofrecen más presencia en los estantes pero cuestan más. Las bolsas con fuelle lateral son más tradicionales para el café y ofrecen buena capacidad."
+                    },
+                    "1": {
+                        "question": "¿Las bolsas con fuelle lateral son adecuadas para el llenado automático?",
+                        "answer": "Sí, las bolsas con fuelle lateral funcionan bien con máquinas VFFS (formado, llenado y sellado vertical). Podemos suministrar bolsas prefabricadas o en rollos de película para líneas de envasado automático."
+                    },
+                    "2": {
+                        "question": "¿Qué tallas hay disponibles?",
+                        "answer": "Las bolsas con fuelle lateral están disponibles con una capacidad de 100 ga 5 kg. Los tamaños habituales son 250 g, 500 g, 1 kg y 2,5 kg. Tamaños personalizados disponibles para pedidos superiores a 5.000 unidades."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Guía de tallas de bolsas con fuelle lateral",
+                        "data": {
+                            "headers": {
+                                "0": "Capacidad",
+                                "1": "Dimensiones (Ancho×Alto×Pr)",
+                                "2": "Uso común"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "250g",
+                                    "1": "100 × 280 × 60 mm",
+                                    "2": "Café al por menor, té"
+                                },
+                                "1": {
+                                    "0": "500g",
+                                    "1": "120 × 320 × 70 mm",
+                                    "2": "Granos de café, frutos secos."
+                                },
+                                "2": {
+                                    "0": "1kg",
+                                    "1": "140 × 380 × 80 mm",
+                                    "2": "comida para mascotas, arroz"
+                                },
+                                "3": {
+                                    "0": "2,5 kilos",
+                                    "1": "180 × 450 × 100 mm",
+                                    "2": "Productos a granel"
+                                },
+                                "4": {
+                                    "0": "5 kilos",
+                                    "1": "220 × 550 × 120 mm",
+                                    "2": "Comida para mascotas de gran formato"
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Bolsas de fondo plano",
+                        "url": "/embalaje/bolsas-de-fondo-plano",
+                        "description": "Alternativa premium con mejor estabilidad"
+                    },
+                    "1": {
+                        "title": "Bolsas de pie",
+                        "url": "/embalaje/bolsas-stand-up",
+                        "description": "Formato moderno popular"
+                    },
+                    "2": {
+                        "title": "Café y té",
+                        "url": "/industria/cafe-te",
+                        "description": "Soluciones para cafés especiales"
+                    }
+                },
+                "metaKeywords": {
+                    "0": "bolsa con fuelle lateral",
+                    "1": "bolsa con sello cuádruple",
+                    "2": "refuerzo de bolsa de café",
+                    "3": "bolsa con fuelle",
+                    "4": "bolso plegable lateral",
+                    "5": "bolsa de café con lazo de hojalata",
+                    "6": "bolsa de comida a granel"
                 }
             },
             "coffeeTea": {
@@ -9551,6 +11096,353 @@
                 "heroTitle": "Bolsas con boquilla ecológicas para jugo",
                 "introSummary": "Bolsas con pico personalizadas diseñadas para bebidas para adultos. Desde jugos hasta cerveza fría, disfrute de envases reciclables y aptos para alimentos con un práctico diseño de pico.",
                 "ctaButtonText": "Obtenga una cotización"
+            },
+            "customBoxes": {
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "¿Es esta página para usted?",
+                        "intro": "Si necesitas <strong>envases rígidos de primera calidad para productos artesanales</strong> (chocolate, té, café o regalos de lujo), estás en el lugar correcto.",
+                        "card1Title": "Chocolate y Confitería",
+                        "card1Desc": "Presentación premium con lámina dorada y relieve.",
+                        "card2Title": "Marcas de café y té",
+                        "card2Desc": "Cajas de envío rígidas para mezclas premium",
+                        "card3Title": "Productores de alimentos artesanales",
+                        "card3Desc": "Embalaje sostenible certificado FSC"
+                    },
+                    "overview": {
+                        "title": "¿Qué cajas personalizadas ofrecemos?",
+                        "intro": "strong>Achieve Pack ofrece cajas rígidas impresas personalizadas de primera calidad</strong> diseñadas para productos alimenticios artesanales, cafés especiales, regalos de lujo y venta minorista de alta gama. Nuestras cajas cuentan con materiales certificados FSC, laminación mate y acabados premium opcionales que incluyen estampado y relieve en lámina dorada.",
+                        "card1Title": "Cajas de correo corrugado",
+                        "card1Desc": "Perfecto para café, té y alimentos artesanales que requieren una protección de envío resistente.",
+                        "card1Feat1": "✓ Tamaño de 500 g: 130 × 85 × 35 mm",
+                        "card1Feat2": "✓ Tamaño de 1 kg: 270 × 85 × 35 mm",
+                        "card1Feat3": "✓ Impresión personalizada CMYK",
+                        "card1Feat4": "✓ Acabado mate estándar",
+                        "card1Feat5": "✓ Lámina dorada disponible",
+                        "card1Feat6": "✓ Papel certificado FSC",
+                        "cardLinkText": "Ver precios y realizar pedidos →",
+                        "card2Title": "Cajas plegables (cartones)",
+                        "card2Desc": "Elegantes estuches plegables para barras de chocolate, bolsitas de té y dulces de primera calidad.",
+                        "card2Feat1": "✓ Tamaño de 100 g: 81 × 162 × 15 mm",
+                        "card2Feat2": "✓ Cartulina blanca de 250g",
+                        "card2Feat3": "✓ Estampado en lámina dorada",
+                        "card2Feat4": "✓ Detalles en relieve",
+                        "card2Feat5": "✓ Acabado mate",
+                        "card2Feat6": "✓ Certificado FSC"
+                    },
+                    "features": {
+                        "title": "Características y acabados premium",
+                        "card1Title": "✨ Estampado en lámina dorada",
+                        "card1Desc": "Detalles dorados metálicos estampados en caliente para una marca de lujo",
+                        "card2Title": "🎨 Detalles en relieve",
+                        "card2Desc": "Textura elevada para una experiencia táctil premium",
+                        "card3Title": "📦 Laminación Mate",
+                        "card3Desc": "Sofisticado acabado mate estándar en todas las cajas",
+                        "card4Title": "🌱 Certificado FSC",
+                        "card4Desc": "Materiales de papel reciclado de origen sostenible",
+                        "card5Title": "🖨️ Impresión CMYK",
+                        "card5Desc": "Impresión personalizada a todo color para una marca vibrante",
+                        "card6Title": "💪 Construcción rígida",
+                        "card6Desc": "Pizarra gris de 2,0 mm para una integridad estructural superior",
+                        "galleryTitle": "Tipos y estilos de cajas",
+                        "galleryCap1": "Anuncio publicitario corrugado",
+                        "galleryCap2": "Caja de cartón",
+                        "galleryCap3": "Acabado en lámina dorada.",
+                        "galleryCap4": "Textura en relieve"
+                    },
+                    "applications": {
+                        "title": "Perfecto para estos productos",
+                        "card1Title": "Chocolate",
+                        "card1Desc": "Barritas, trufas, bombones",
+                        "card2Title": "Té",
+                        "card2Desc": "Hojas sueltas, sobres, sets de regalo.",
+                        "card3Title": "Café",
+                        "card3Desc": "Frijoles especiales, cajas de regalo.",
+                        "card4Title": "Confitería",
+                        "card4Desc": "Caramelos, dulces, macarons.",
+                        "card5Title": "Panadería",
+                        "card5Desc": "Galletas, bizcochos, pasteles",
+                        "card6Title": "Juegos de regalo",
+                        "card6Desc": "Embalaje de regalo de lujo",
+                        "card7Title": "Alimentos Artesanales",
+                        "card7Desc": "Miel, mermeladas, especialidades.",
+                        "card8Title": "Venta minorista premium",
+                        "card8Desc": "Expositor de estantería de alta gama"
+                    },
+                    "sustainability": {
+                        "title": "Ecológico y sostenible",
+                        "cardTitle": "🌱 Nuestro Compromiso de Sostenibilidad",
+                        "card1Title": "Materiales certificados FSC",
+                        "card1Item1": "Papel y cartón reciclado",
+                        "card1Item2": "Fibras de origen responsable",
+                        "card1Item3": "Apoya la silvicultura sostenible",
+                        "card2Title": "Embalaje reciclable",
+                        "card2Item1": "Reciclable en la acera",
+                        "card2Item2": "Mínimo desperdicio de material",
+                        "card2Item3": "Producción eco-consciente",
+                        "exploreTextPre": "¿Buscas envases ecológicos flexibles? Explore nuestras <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">bolsas compostables</Link> y <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">opciones de mono-PE reciclable</Link>.",
+                        "exploreLink1": "¿Buscas envases ecológicos flexibles? Explore nuestras <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">bolsas compostables</Link> y <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">opciones de mono-PE reciclable</Link>.",
+                        "exploreTextMid": "¿Buscas envases ecológicos flexibles? Explore nuestras <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">bolsas compostables</Link> y <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">opciones de mono-PE reciclable</Link>.",
+                        "exploreLink2": "¿Buscas envases ecológicos flexibles? Explore nuestras <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">bolsas compostables</Link> y <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">opciones de mono-PE reciclable</Link>.",
+                        "exploreTextPost": "¿Buscas envases ecológicos flexibles? Explore nuestras <Link to=\"/materials/compostable\" className=\"text-primary-600 hover:underline\">bolsas compostables</Link> y <Link to=\"/materials/recyclable-mono-pe\" className=\"text-primary-600 hover:underline\">opciones de mono-PE reciclable</Link>."
+                    },
+                    "pricing": {
+                        "title": "Precios y cantidad mínima de pedido",
+                        "card1Title": "📦 Precios de cajas de cartón corrugado",
+                        "card1Th1": "Cantidad",
+                        "card1Th2": "Caja de 500g",
+                        "card1Th3": "Caja de 1kg",
+                        "card1Row1Col1": "200 piezas",
+                        "card1Row1Col2": "$514,50 ($2,57/pieza)",
+                        "card1Row1Col3": "$1,285.50 ($6.43/pieza)",
+                        "card1Row2Col1": "1.000 piezas",
+                        "card1Row2Col2": "$771,75 ($0,77/pieza)",
+                        "card1Row2Col3": "$1,714.50 ($1.71/pieza)",
+                        "card1Row3Col1": "5.000 piezas",
+                        "card1Row3Col2": "$2,054.25 ($0.41/pieza)",
+                        "card1Row3Col3": "$3,859.50 ($0.77/pieza)",
+                        "card1Row4Col1": "10.000 piezas",
+                        "card1Row4Col2": "$3,657.38 ($0.37/pieza)",
+                        "card1Row4Col3": "$5,040.75 ($0.50/pieza)",
+                        "card2Title": "🎁 Precio de la caja Tuck (100 g)",
+                        "card2Th1": "Cantidad",
+                        "card2Th2": "Precio Total",
+                        "card2Th3": "Precio unitario",
+                        "card2Row1Col1": "200 piezas",
+                        "card2Row1Col2": "$1,105.50",
+                        "card2Row1Col3": "$5.53/pieza",
+                        "card2Row2Col1": "1.000 piezas",
+                        "card2Row2Col2": "$1,381.50",
+                        "card2Row2Col3": "$1.38/pieza",
+                        "card2Row3Col1": "5.000 piezas",
+                        "card2Row3Col2": "$2,761.50",
+                        "card2Row3Col3": "$0.55/pieza",
+                        "card2Row4Col1": "10.000 piezas",
+                        "card2Row4Col2": "$4,486.50",
+                        "card2Row4Col3": "$0.45/pieza",
+                        "shippingTitle": "🚢 Envío incluido:</strong> Todos los precios incluyen el transporte marítimo (40-60 días). El tiempo de producción es de aproximadamente 30 días. Para cantidades mayores o tamaños personalizados, <button onClick={openCalendly} className=\"underline cursor-pointer\">contáctenos para una cotización personalizada</button>.",
+                        "shippingDescPre": "🚢 Envío incluido:</strong> Todos los precios incluyen el transporte marítimo (40-60 días). El tiempo de producción es de aproximadamente 30 días. Para cantidades mayores o tamaños personalizados, <button onClick={openCalendly} className=\"underline cursor-pointer\">contáctenos para una cotización personalizada</button>.",
+                        "shippingLinkText": "🚢 Envío incluido:</strong> Todos los precios incluyen el transporte marítimo (40-60 días). El tiempo de producción es de aproximadamente 30 días. Para cantidades mayores o tamaños personalizados, <button onClick={openCalendly} className=\"underline cursor-pointer\">contáctenos para una cotización personalizada</button>.",
+                        "shippingDescPost": "🚢 Envío incluido:</strong> Todos los precios incluyen el transporte marítimo (40-60 días). El tiempo de producción es de aproximadamente 30 días. Para cantidades mayores o tamaños personalizados, <button onClick={openCalendly} className=\"underline cursor-pointer\">contáctenos para una cotización personalizada</button>."
+                    },
+                    "aiSearch": {
+                        "title": "Encontrar el embalaje de caja adecuado",
+                        "intro": "Consideraciones clave para el embalaje de cajas personalizadas:",
+                        "listItem1": "><strong>Protección del producto</strong>: cartón corrugado para envíos, cajas plegables para exhibición al por menor</li",
+                        "listItem2": "><strong>Impacto de marca</strong>: lámina dorada y relieve para un posicionamiento premium</li",
+                        "listItem3": "><strong>Sostenibilidad</strong>: certificación FSC para marcas con conciencia ecológica</li",
+                        "listItem4Title": "Tamaños personalizados</strong> – <button onClick={openCalendly} className=\"text-primary-600 hover:underline cursor-pointer\">Contáctenos para dimensiones personalizadas",
+                        "listItem4Button": "Tamaños personalizados</strong> – <button onClick={openCalendly} className=\"text-primary-600 hover:underline cursor-pointer\">Contáctenos para dimensiones personalizadas",
+                        "boxTitle": "💡 Si utilizas la búsqueda por IA (Gemini, ChatGPT), intenta preguntar:",
+                        "query1": "¿El mejor proveedor de cajas personalizadas para envases de chocolate?",
+                        "query2": "¿Cajas rígidas de bajo MOQ con estampado en lámina dorada?",
+                        "query3": "¿Cajas de regalo certificadas FSC para productos alimentarios artesanales?",
+                        "query4": "¿Cajas postales impresas personalizadas para granos de café?",
+                        "query5": "¿Cajones premium con relieve para marca de té?"
+                    },
+                    "riskHedging": {
+                        "title": "¿Es una caja personalizada adecuada para usted?",
+                        "card1Title": "✅ Mejor opción para...",
+                        "card1Item1": "Productos premium/de lujo",
+                        "card1Item2": "Presentación en estanterías de venta al por menor",
+                        "card1Item3": "Necesidades de embalaje de regalo.",
+                        "card1Item4": "Marcas que requieren acabados premium",
+                        "card2Title": "⚠️ También funciona para...",
+                        "card2Item1": "Cajas de suscripción de comercio electrónico",
+                        "card2Item2": "Degustación de comida artesanal.",
+                        "card2Item3": "Packs regalo corporativos",
+                        "card3Title": "❌ Considere alternativas si...",
+                        "card3Item1": "Necesitas envases flexibles",
+                        "card3Item2": "La barrera contra la humedad es fundamental",
+                        "card3Link": "Las bolsas pueden ser mejores →"
+                    },
+                    "decisionCta": {
+                        "title": "¿Listo para pedir cajas personalizadas?",
+                        "card1Title": "¿Listo para actuar rápido?",
+                        "card1Desc": "Reserve una llamada para analizar tamaños y acabados personalizados",
+                        "card1Button": "Reservar una llamada",
+                        "card2Title": "Ordene ahora",
+                        "card2Desc": "Busque cajas y haga su pedido en línea",
+                        "card2Button": "Cajas de tienda",
+                        "card3Title": "¿Sigues explorando?",
+                        "card3Desc": "Comparar con bolsas flexibles",
+                        "card3Button": "Ver bolsas"
+                    },
+                    "industryScenarios": {
+                        "title": "Aplicaciones industriales",
+                        "card1Title": "Chocolate y Confitería Chocolate y Confitería",
+                        "card1Desc": "Chocolates premium, dulces artesanales, cajas de regalo navideñas",
+                        "card1Share": "Compartir: 40%",
+                        "card2Title": "Café y té Café y té",
+                        "card2Desc": "Café de especialidadCajas de regalo、Embalaje de té Highpremium、Cajas de suscripción",
+                        "card2Share": "Participación: 35%",
+                        "card3Title": "Regalos premium Regalos premium",
+                        "card3Desc": "Regalos corporativos, obsequios de boda, HolidaySets",
+                        "card3Share": "25% de cuota de mercado",
+                        "storyTitle": "Historia de éxito del cliente",
+                        "storyQuote": "「Nuestra opción de marca de chocolates premiumEstampado en lámina dorada + estampado en relieveCajas de embalajeDespués, el precio de venta al por menor del producto mejora un 30%, la tasa de conversión del cliente aumenta un 45%, el embalaje se convierte en nuestra ventaja de diferenciación de marca。」",
+                        "storyAuthor": "— Marca de chocolates artesanales, crecimiento de ventas anual del 60%"
+                    },
+                    "marketData": {
+                        "title": "Datos e inteligencia de mercado",
+                        "card1Value": "28 mil millones de dólares",
+                        "card1Desc": "Mercado global de cajas de embalaje",
+                        "card1Sub": "2024añoTamaño",
+                        "card2Value": "4,8%",
+                        "card2Desc": "CAGR",
+                        "card2Sub": "2024-2030",
+                        "card3Value": "68%",
+                        "card3Desc": "ConsumidoresvalorEmbalaje",
+                        "card3Sub": "Decisiones de compra de impacto en los costos",
+                        "card4Value": "52%",
+                        "card4Desc": "dispuesto a pagar la prima por el FSC",
+                        "card4Sub": "Conciencia ecológicamejorar",
+                        "trendTitle": "Perspectivas de tendencias del mercado",
+                        "trend1": "><strong>experiencia de unboxing aumentadaPremium</strong>：Productos especializadosMarca centrada enEmbalajeprimera impresión</span",
+                        "trend2": "><strong>Estándar de certificación FSC</strong>: 85%AltoMarcas premiumelegirelegirEmbalaje ecológico</span"
+                    },
+                    "materialComparison": {
+                        "title": "Comparación de materiales",
+                        "th1": "tipos de cajas",
+                        "th2": "resistencia estructural",
+                        "th3": "Costo",
+                        "th4": "adecuadousadoEscenario",
+                        "th5": "Uso recomendado",
+                        "row1Col1": "Cajas de correo corrugado",
+                        "row1Col4": "Protección de envío",
+                        "row1Col5": "café, té, cajas de suscripción",
+                        "row2Col1": "Cajas plegables de cartón",
+                        "row2Col4": "venta al por menorPantalla",
+                        "row2Col5": "Barras de chocolate, Unidades de té",
+                        "row3Col1": "Cajas de papel rígido + lámina dorada.",
+                        "row3Col4": "LujosoAltopremium",
+                        "row3Col5": "Chocolates Premium, Productos de Regalo",
+                        "row4Col1": "Materiales de certificación FSC",
+                        "row4Col4": "🌱 Prioridad ecológica",
+                        "row4Col5": "Alimentos orgánicos, marca verde",
+                        "guideTitle": "Guía de selección de materiales",
+                        "guideDesc": "Cajas de papelEmbalajeadecuadoAdecuadoAltoPremiumLujosoposicionamientoProducto。Requiere protección de envío, elija papel corrugado;"
+                    }
+                },
+                "seo": {
+                    "title": "Cajas personalizadas | Cajas de envío rígidas | Cajas plegables | Embalaje de regalo",
+                    "description": "title=\"Cajas personalizadas | Cajas de correo rígidas | Cajas plegables | Embalaje de regalo",
+                    "heroTitle": "Cajas impresas personalizadas",
+                    "heroSubtitle": "Envases rígidos premium para chocolate, té, café y alimentos artesanales",
+                    "heroImageAlt": "Cajas rígidas impresas personalizadas con lámina dorada y relieve para embalaje de alimentos premium",
+                    "introSummary": "Achieve Pack ofrece cajas impresas personalizadas de primera calidad con materiales certificados FSC, estampado en lámina dorada y relieve. Perfecto para marcas de chocolate, té, café y comida artesanal que buscan una presentación de lujo. MOQ 200 piezas con flete marítimo incluido. Producción 30 días + envío 40-60 días.",
+                    "ctaTitle": "¿Listo para pedir cajas personalizadas?",
+                    "ctaDescription": "Crea embalajes premium para tus productos artesanales con nuestras cajas impresas personalizadas. Cantidad mínima de pedido 200 piezas.",
+                    "ctaButtonText": "Comprar cajas personalizadas",
+                    "keywords": {
+                        "0": "cajas personalizadas",
+                        "1": "cajas rígidas",
+                        "2": "cajas de correo",
+                        "3": "cajas de regalo",
+                        "4": "cajas de regalo",
+                        "5": "embalaje de chocolate",
+                        "6": "embalaje de caja de té",
+                        "7": "embalaje de caja de café",
+                        "8": "cajas de papel de oro",
+                        "9": "Cajas certificadas FSC",
+                        "10": "embalaje en relieve",
+                        "11": "cajas impresas personalizadas"
+                    }
+                },
+                "faqs": {
+                    "0": {
+                        "question": "¿Qué tipos de cajas personalizadas ofrecéis?",
+                        "answer": "Ofrecemos dos tipos principales: cajas de cartón corrugado (ideales para café, té y productos protegidos para envío en tamaños de 500 gy 1 kg) y cajas/cartones plegables (perfectas para barras de chocolate, bolsitas de té y dulces de primera calidad). Ambos cuentan con impresión CMYK personalizada, laminación mate y estampado en lámina dorada opcional con relieve."
+                    },
+                    "1": {
+                        "question": "¿Cuál es la cantidad mínima de pedido para cajas personalizadas?",
+                        "answer": "Nuestra cantidad mínima de pedido es de 200 piezas tanto para cajas de cartón corrugado como para cajas plegables. Este MOQ bajo hace que las cajas impresas personalizadas sean accesibles para pequeñas marcas artesanales, nuevas empresas y empresas que prueban nuevos diseños de empaque."
+                    },
+                    "2": {
+                        "question": "¿Tus cajas son ecológicas?",
+                        "answer": "Sí, todas nuestras cajas están fabricadas con papel y cartón reciclado certificado FSC. Son totalmente reciclables en programas estándar de reciclaje en la acera. Priorizamos los materiales sostenibles para apoyar las marcas con conciencia ecológica."
+                    },
+                    "3": {
+                        "question": "¿Qué acabados premium están disponibles?",
+                        "answer": "Ofrecemos estampado en caliente con lámina dorada, detalles en relieve y laminación mate como estándar. Estos acabados premium crean una experiencia de lujo al abrir la caja, perfecta para aplicaciones de embalaje de chocolate, té, café y regalos."
+                    },
+                    "4": {
+                        "question": "¿Cuáles son los tamaños disponibles?",
+                        "answer": "Las cajas de cartón corrugado vienen en tamaños de 500 g (130 × 85 × 35 mm) y 1 kg (270 × 85 × 35 mm). Las cajas Tuck están disponibles en tamaños de 100 g (81 × 162 × 15 mm). Para dimensiones personalizadas, comuníquese con nuestro equipo para obtener un presupuesto personalizado."
+                    },
+                    "5": {
+                        "question": "¿Cuánto tiempo lleva la producción y el envío?",
+                        "answer": "La producción demora aproximadamente 30 días. El envío por transporte marítimo está incluido en todos los precios y tarda entre 40 y 60 días. El plazo total de entrega es de aproximadamente 70 a 90 días desde la confirmación del pedido. Para pedidos urgentes, consulte sobre las opciones de transporte aéreo."
+                    },
+                    "6": {
+                        "question": "¿Ofrecen muestras antes de realizar el pedido?",
+                        "answer": "Sí, podemos proporcionar muestras para su evaluación antes de realizar un pedido completo. Por favor contáctenos para organizar cajas de muestra. Para pedidos estándar, recomendamos comenzar con nuestro pedido mínimo de 200 piezas para probar con sus productos y clientes."
+                    },
+                    "7": {
+                        "question": "¿Puedo obtener tamaños personalizados para mis productos?",
+                        "answer": "¡Absolutamente! Ofrecemos tamaños personalizados para pedidos de cantidades mayores. Póngase en contacto con nuestro equipo con las dimensiones de su producto y le proporcionaremos un presupuesto personalizado. Es posible que se requieran herramientas personalizadas para tamaños no estándar."
+                    }
+                },
+                "tables": {
+                    "0": {
+                        "title": "Descripción general de los tamaños de cajas",
+                        "data": {
+                            "headers": {
+                                "0": "Tipo de caja",
+                                "1": "Etiqueta de tamaño",
+                                "2": "Dimensiones (largo x ancho x alto)",
+                                "3": "La mejor para"
+                            },
+                            "rows": {
+                                "0": {
+                                    "0": "Anuncio publicitario corrugado",
+                                    "1": "500g",
+                                    "2": "130 × 85 × 35 mm",
+                                    "3": "Pequeñas bolsas de café, cajas de té."
+                                },
+                                "1": {
+                                    "0": "Anuncio publicitario corrugado",
+                                    "1": "1kg",
+                                    "2": "270 × 85 × 35 mm",
+                                    "3": "Bolsas de café grandes, juegos de regalo."
+                                },
+                                "2": {
+                                    "0": "Caja plegable",
+                                    "1": "100g",
+                                    "2": "81 × 162 × 15 mm",
+                                    "3": "Barras de chocolate, bolsitas de té."
+                                }
+                            }
+                        }
+                    }
+                },
+                "relatedLinks": {
+                    "0": {
+                        "title": "Comprar cajas de cartón corrugado",
+                        "url": "/tienda/producto/caja-corrugada-personalizada",
+                        "description": "Solicite cajas postales impresas personalizadas - MOQ 200 piezas"
+                    },
+                    "1": {
+                        "title": "Comprar cajas plegables",
+                        "url": "/tienda/producto/box-tuck-personalizado",
+                        "description": "Cartones premium con lámina dorada y relieve."
+                    },
+                    "2": {
+                        "title": "Bolsas de pie",
+                        "url": "/embalaje/bolsas-stand-up",
+                        "description": "Alternativa flexible para el envasado de alimentos"
+                    },
+                    "3": {
+                        "title": "Bolsas de fondo plano",
+                        "url": "/embalaje/bolsas-de-fondo-plano",
+                        "description": "Bolsitas premium para café y té"
+                    },
+                    "4": {
+                        "title": "Materiales compostables",
+                        "url": "/materiales/compostables",
+                        "description": "Opciones de embalaje flexible ecológico"
+                    }
+                }
             }
         }
     },

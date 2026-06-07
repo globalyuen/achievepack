@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2973,
+  "total_images": 2975,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1435,
+    ".png": 1437,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,20 @@
       ]
     },
     "blog/heros": {
-      "count": 271,
+      "count": 273,
       "images": [
+        {
+          "filename": "sustainable-high-barrier-sachet-for-snacks-hero.png",
+          "path": "/imgs/blog/heros/sustainable-high-barrier-sachet-for-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T14:30:22.395Z"
+        },
+        {
+          "filename": "recyclable-flat-bottom-pouch-for-spices-hero.png",
+          "path": "/imgs/blog/heros/recyclable-flat-bottom-pouch-for-spices-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T14:15:18.545Z"
+        },
         {
           "filename": "digital-printed-kraft-paper-pouches-wholesale-hero.png",
           "path": "/imgs/blog/heros/digital-printed-kraft-paper-pouches-wholesale-hero.png",
