@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T20:15:30.506Z",
+  "lastUnifiedRun": "2026-06-07T20:30:27.101Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1820,17 +1820,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "biodegradable-pouch-suppliers-for-snacks",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "biodegradable pouch suppliers for snacks",
-      "difficulty": "Medium",
-      "slug": "biodegradable-pouch-suppliers-for-snacks"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 550,
       "keyword": "sustainable sachet dimensions for baby food",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-sachet-dimensions-for-baby-food"
     },
     {
       "status": "Pending",
@@ -1979,9 +1980,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T20:15:22.842Z",
+      "timestamp": "2026-06-07T20:30:19.971Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"biodegradable pouch suppliers for snacks\" to /blog/biodegradable-pouch-suppliers-for-snacks (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet dimensions for baby food\" to /blog/sustainable-sachet-dimensions-for-baby-food (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable pouch suppliers for snacks\" to /blog/biodegradable-pouch-suppliers-for-snacks (Pending Approval)",
+      "timestamp": "2026-06-07T20:15:22.842Z"
     },
     {
       "action": "Autopilot Generation Draft",
