@@ -535,55 +535,7 @@ export default function PouchHomePage() {
                 <ChevronRight className="w-6 h-6 text-black" />
               </button>
 
-              {/* Floating Material Pouches */}
-              {/* 1. Compostable Pouch */}
-              <div className="absolute left-[-50px] top-[-50px] z-[55] pointer-events-none animate-float-slow">
-                <img 
-                  src="/imgs/floating-pouches/pouch_compostable.png" 
-                  alt="Compostable Pouch" 
-                  className={`w-24 h-24 md:w-32 md:h-32 transition-all duration-500 ${
-                    activeHeroIndex === 0 || activeHeroIndex === 2
-                      ? "scale-125 rotate-[5deg] opacity-100 drop-shadow-[0_0_20px_rgba(16,185,129,0.8)]"
-                      : "scale-90 rotate-[-15deg] opacity-40"
-                  }`}
-                />
-              </div>
-              {/* 2. Recyclable Pouch */}
-              <div className="absolute right-[-50px] top-[-40px] z-[55] pointer-events-none animate-float-medium">
-                <img 
-                  src="/imgs/floating-pouches/pouch_recyclable.png" 
-                  alt="Recyclable Pouch" 
-                  className={`w-24 h-24 md:w-32 md:h-32 transition-all duration-500 ${
-                    activeHeroIndex === 1
-                      ? "scale-125 rotate-[-5deg] opacity-100 drop-shadow-[0_0_20px_rgba(59,130,246,0.8)]"
-                      : "scale-90 rotate-[12deg] opacity-40"
-                  }`}
-                />
-              </div>
-              {/* 3. PCR Pouch */}
-              <div className="absolute left-[-50px] bottom-[-20px] z-[55] pointer-events-none animate-float-fast">
-                <img 
-                  src="/imgs/floating-pouches/pouch_pcr.png" 
-                  alt="PCR Pouch" 
-                  className={`w-24 h-24 md:w-32 md:h-32 transition-all duration-500 ${
-                    activeHeroIndex === 3
-                      ? "scale-125 rotate-[8deg] opacity-100 drop-shadow-[0_0_20px_rgba(75,85,99,0.8)]"
-                      : "scale-90 rotate-[-8deg] opacity-40"
-                  }`}
-                />
-              </div>
-              {/* 4. BioPE Pouch */}
-              <div className="absolute right-[-50px] bottom-[-30px] z-[55] pointer-events-none animate-float-slow">
-                <img 
-                  src="/imgs/floating-pouches/pouch_biope.png" 
-                  alt="Bio-PE Pouch" 
-                  className={`w-24 h-24 md:w-32 md:h-32 transition-all duration-500 ${
-                    activeHeroIndex === 4
-                      ? "scale-125 rotate-[-8deg] opacity-100 drop-shadow-[0_0_20px_rgba(6,182,212,0.8)]"
-                      : "scale-90 rotate-[15deg] opacity-40"
-                  }`}
-                />
-              </div>
+
 
               {/* Card 1: Bag Video */}
               <motion.div
