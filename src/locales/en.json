@@ -12501,6 +12501,159 @@
                         "description": "All compostable material options"
                     }
                 ]
+            },
+            "compostableSideGusset": {
+                "pouch": {
+                    "seo": {
+                        "title": "Compostable Side Gusset Pouches Guide 2026: Materials & Sizing | POUCH.ECO",
+                        "metaDescription": "Certified compostable side gusset coffee bags. ASTM D6400 & EN 13432 home compostable. Low MOQ from 100 pieces. Beautiful rustic organic Kraft.",
+                        "keywords": [
+                            "compostable side gusset bags",
+                            "certified side gusset coffee bag",
+                            "Kraft coffee bags",
+                            "BPI certified side gussets",
+                            "EN 13432 coffee pouch"
+                        ],
+                        "author": "POUCH.ECO Editorial Team",
+                        "heroSubtitle": "ASTM D6400 & EN 13432 Certified | Organic Kraft Fibers | Low MOQ from 100 pieces.",
+                        "heroImageAlt": "POUCH.ECO premium compostable Kraft paper side gusset pouch collection",
+                        "ctaTitle": "Ready to Transition to Eco Gusset Packaging?",
+                        "ctaDescription": "Book a free 30-minute consultation with our expert team to review your material stack, custom sizing, and volume pricing.",
+                        "achievePackText": "Need enterprise-level bulk orders or advanced B2B material engineering?",
+                        "relArticle1Title": "Compostable Stand-Up Pouches Guide: Materials & Pricing",
+                        "relArticle2Title": "USA Compostable Packaging Guide: ASTM D6400 & State Laws",
+                        "relArticle3Title": "Coffee Packaging Guide: Compostable vs Recyclable"
+                    }
+                },
+                "achievePack": {
+                    "seo": {
+                        "title": "Compostable Side Gusset Pouches | ASTM D6400 Certified | Achieve Pack",
+                        "metaDescription": "Premium certified compostable side gusset coffee bags. ASTM D6400 & EN 13432 home compostable. Low MOQ 500 pcs, $0 plate setup fee. Perfect for specialty roasters.",
+                        "ogTitle": "Compostable Side Gusset Pouches | Certified Organic | Achieve Pack",
+                        "ogDescription": "Premium certified compostable side gusset coffee bags. ASTM D6400 & EN 13432 certified. Low MOQ from 500 pieces for specialty roasters.",
+                        "keywords": [
+                            "compostable side gusset bags",
+                            "certified side gusset coffee bag",
+                            "Kraft coffee bags",
+                            "BPI certified side gussets",
+                            "EN 13432 coffee pouch",
+                            "degassing valve side gussets",
+                            "home compostable coffee bags",
+                            "low MOQ gusset pouches"
+                        ],
+                        "keywordsLayout": [
+                            "compostable side gusset bags",
+                            "certified side gusset coffee bag",
+                            "Kraft coffee bags",
+                            "BPI certified side gussets",
+                            "EN 13432 coffee pouch",
+                            "degassing valve side gussets"
+                        ],
+                        "graph": {
+                            "name": "Compostable Side Gusset Coffee Pouches",
+                            "description": "Premium certified compostable side gusset bags with one-way degassing valves. Certified home and industrial compostable.",
+                            "brandName": "Achieve Pack",
+                            "certName": "Certification",
+                            "certValue": "ASTM D6400, EN 13432, AS 5810, BPI",
+                            "moqName": "Minimum Order",
+                            "moqValue": "500 pieces"
+                        },
+                        "heroTitle": "Compostable Side Gusset Pouches",
+                        "heroSubtitle": "ASTM D6400 & EN 13432 Certified | Organic Kraft Fibers | Low MOQ from 500",
+                        "introSummary": "Premium compostable side gusset pouches engineered specifically for specialty coffee roasters. Combining the classic artisanal quad-fold look with certified BPI home-compostable barrier technologies, expandable gussets, and optional degassing valves.",
+                        "heroImageAlt": "Achieve Pack premium compostable Kraft paper side gusset pouch collection"
+                    }
+                },
+                "common": {
+                    "breadcrumbs": {
+                        "home": "Home",
+                        "ecoMaterials": "Eco-Friendly Materials",
+                        "sideGussetBags": "Side Gusset Bags",
+                        "compostableSideGusset": "Compostable Side Gusset"
+                    },
+                    "badges": {
+                        "pouchEco": "🌱 Certified Eco Friendly",
+                        "achievePack": "🌱 Certified Eco Material",
+                        "conventional": "🔄 Conventional Stock Size Gusset Bags →"
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Compostable Side Gusset Pouches",
+                            "brandPouch": "POUCH.ECO",
+                            "brandAP": "Achieve Pack's",
+                            "descSuffix": " compostable side gusset pouches represent the perfect marriage of traditional artisan aesthetics and cutting-edge ecological engineering. Commonly referred to as quad-seal or fold-over coffee bags, these pouches feature expandable side gussets that maximize storage volume while maintaining a remarkably compact retail shelf footprint.",
+                            "desc2": "Certified under strict global standards including EN 13432, ASTM D6400, and AS 5810, our compostable side gusset bags are designed to completely return to nature as organic compost, leaving zero microplastics or toxins behind.",
+                            "advantagesTitle": "Technical Advantages of Side Gusset Pouches:",
+                            "bullet1Strong": "Maximised Storage Volume",
+                            "bullet1Text": " – Side gussets expand fully to accommodate 24% more bulk volume than standard flat pouches.",
+                            "bullet2Strong": "Premium Tactile Kraft",
+                            "bullet2Text": " – Raw organic outer texture holds custom date/batch stamps and feels premium to touch.",
+                            "bullet3Strong": "Triplex High-Barrier",
+                            "bullet3Text": " – Protects delicate coffee oils and aromas from oxygen, moisture, and UV light for up to 12 months.",
+                            "bullet4Strong": "Automatic Line Compatible",
+                            "bullet4Text": " – Formed with precise mechanical tolerances for high-speed automatic filling lines.",
+                            "imgAlt": "Natural brown Kraft paper side gusset pouch collection for specialty coffee",
+                            "imgCaptionPouch": "POUCH.ECO's premium compostable Kraft side gusset bag collection",
+                            "imgCaptionAP": "Achieve Pack's premium compostable Kraft side gusset bag collection"
+                        },
+                        "materials": {
+                            "title": "High-Barrier Sustainable Materials",
+                            "intro": "To achieve high-barrier coffee protection without using standard aluminum foils or fossil-fuel plastics, we engineer a premium Triplex lamination structure composed entirely of plant-based materials:",
+                            "layer1Title": "1. Outer Layer: Kraft Paper",
+                            "layer1Desc": "Sustainably sourced FSC-certified Kraft paper (White or Brown). Provides structural stiffness, direct ink stamp-holding properties, and raw tactile organic aesthetics.",
+                            "layer2Title": "2. Middle Barrier: NatureFlex™",
+                            "layer2Desc": "Renewable wood-pulp cellulose film. Provides an exceptional barrier against moisture, oxygen, and mineral oils, guaranteeing standard 12-month coffee shelf stability.",
+                            "layer3Title": "3. Inner Sealant: PLA / PBAT",
+                            "layer3Desc": "Certified plant-starch copolymer (Polyacetic Acid & PBAT). Creates high-strength airtight hermetic seals at standard sealing bar temperatures.",
+                            "startupTipStrong": "💡 Startup Packaging Tip:",
+                            "b2bNoteStrong": "🚀 B2B Packaging Note:",
+                            "tipText": " Unlike cheap compostable bags that suffer from static electricity or tear easily, our proprietary PLA/PBAT blend features dynamic slip agents that slide easily on vertical form-fill-seal (VFFS) machinery pipelines."
+                        },
+                        "features": {
+                            "title": "Closure & Valve Configurations",
+                            "intro": "Customize your side gusset bags with fully compostable functional closure features tailored to your B2B/B2C fulfillment parameters:",
+                            "feat1Title": "One-Way Compostable Degassing Valve",
+                            "feat1Desc": "Crucial for freshly roasted coffee beans. Releases carbon dioxide gas build-up while locking out ambient oxygen. Our valves are certified compostable, ensuring the whole pouch degrades cleanly as one single unit.",
+                            "feat2Title": "Premium Reusable Tin-Tie Closures",
+                            "feat2Desc": "The classic roaster look. Allows customers to roll down the top header of the bag and seal it tightly with side metal ties. Tin-ties are easily peelable prior to backyard disposal.",
+                            "feat3Title": "Premium PLA Biodegradable Sealing Stickers",
+                            "feat3Desc": "Due to the structural folds of expandable side gusset bags, standard internal press-to-close zippers are not feasible. Instead, we highly recommend using our certified 100% plant-based Premium PLA Sealing Stickers or Custom Compostable Labels to secure and seal rolled-down headers post-fill."
+                        },
+                        "composting": {
+                            "title": "Certified Biodegradation Timeline",
+                            "intro": "Our side gusset bags are engineered to decompose cleanly back into organic soil humus without leaving microplastics or volatile chemical traces:",
+                            "homeBadge": "Home Compostable (AS 5810)",
+                            "homeTitle": "Backyard Compost Bin",
+                            "homeDesc": "Decomposes fully within 180 days at ambient backyard temperatures (approx. 20-30°C). Our bio-barrier is certified safe for garden soil and worm farms.",
+                            "homeStandards": "Standards: AS 5810, NF T51-800",
+                            "industrialBadge": "Industrial Compostable (EN 13432)",
+                            "industrialTitle": "Municipal Organics Run",
+                            "industrialDesc": "Decomposes fully within 90 days under active industrial composting facilities (elevated heat 55-60°C and managed moisture).",
+                            "industrialStandards": "Standards: EN 13432, ASTM D6400, BPI",
+                            "imgAlt": "Premium natural Kraft coffee pouch seated inside a black retail box on a green mossy background",
+                            "imgCaptionPouch": "POUCH.ECO's premium B2B pouch-in-box retail presentation",
+                            "imgCaptionAP": "Achieve Pack's B2B premium pouch-in-box retail presentation"
+                        }
+                    },
+                    "faqs": {
+                        "q1": {
+                            "question": "Are compostable side gusset bags home compostable?",
+                            "answer": "Yes, we offer certified home compostable configurations (AS 5810 & OK Compost HOME) using a high-barrier compostable Kraft paper cellulose structure. They decompose fully in backyard compost bins within 180 days."
+                        },
+                        "q2": {
+                            "question": "What is the difference between side gusset and flat bottom box pouches?",
+                            "answer": "A side gusset pouch is sealed at the top and bottom with expandable sides. A flat bottom pouch has a distinct flat box-like bottom. Side gusset bags provide a classic rustic artisanal coffee roastery look and cost slightly less in volume production."
+                        },
+                        "q3": {
+                            "question": "Can these bags be used on automatic filling machinery?",
+                            "answer": "Yes. Our side gusset pouches are engineered with precise mechanical seals and premium slip-agent plant copolymer liners (PLA/PBAT) to guarantee high speed, static-free sliding on vertical form-fill-seal (VFFS) systems."
+                        },
+                        "q4": {
+                            "question": "Do compostable side gusset bags provide a high oxygen barrier?",
+                            "answer": "Yes. We laminate with NatureFlex™ (regenerated wood pulp cellulose) which offers barrier ratings of OTR < 1.0 cc/m²/day and WVTR < 1.5 g/m²/day, equivalent to traditional plastic foils, keeping roasted beans fresh up to 12 months."
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

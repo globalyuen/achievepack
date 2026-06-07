@@ -2,6 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { Leaf, Award, CheckCircle, Package, Shield, Clock, Recycle, MessageCircle, Target, Calendar, ArrowRight, ShoppingCart, ChevronDown, Compass, Cpu, Layers } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
@@ -10,38 +11,53 @@ import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 const CompostableSideGussetPage: React.FC = () => {
   const { openCalendly } = useCalendly()
+  const { t } = useTranslation()
   const isPouchDomain = getDomain() === 'pouch'
+
+  // Keywords casting to string[] to satisfy tsc
+  const pouchKeywords = t('seoPages.pages.compostableSideGusset.pouch.seo.keywords', { returnObjects: true }) as string[]
+  const apKeywords = t('seoPages.pages.compostableSideGusset.achievePack.seo.keywords', { returnObjects: true }) as string[]
+  const apKeywordsLayout = t('seoPages.pages.compostableSideGusset.achievePack.seo.keywordsLayout', { returnObjects: true }) as string[]
 
   const sections = [
     {
       id: 'overview',
-      title: 'Compostable Side Gusset Pouches',
+      title: t('seoPages.pages.compostableSideGusset.common.sections.overview.title'),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            <strong>{isPouchDomain ? 'POUCH.ECO' : "Achieve Pack's"} compostable side gusset pouches</strong> represent the perfect marriage of traditional artisan aesthetics and cutting-edge ecological engineering. Commonly referred to as quad-seal or fold-over coffee bags, these pouches feature expandable side gussets that maximize storage volume while maintaining a remarkably compact retail shelf footprint.
+            <strong>
+              {isPouchDomain 
+                ? t('seoPages.pages.compostableSideGusset.common.sections.overview.brandPouch') 
+                : t('seoPages.pages.compostableSideGusset.common.sections.overview.brandAP')}
+            </strong>
+            {t('seoPages.pages.compostableSideGusset.common.sections.overview.descSuffix')}
           </p>
           <p>
-            Certified under strict global standards including <strong>EN 13432</strong>, <strong>ASTM D6400</strong>, and <strong>AS 5810</strong>, our compostable side gusset bags are designed to completely return to nature as organic compost, leaving zero microplastics or toxins behind.
+            {t('seoPages.pages.compostableSideGusset.common.sections.overview.desc2')}
           </p>
           
           <div className="bg-primary-50 p-4 rounded-xl border border-primary-100 mt-4">
-            <h4 className="font-semibold text-primary-800 mb-2">Technical Advantages of Side Gusset Pouches:</h4>
+            <h4 className="font-semibold text-primary-800 mb-2">
+              {t('seoPages.pages.compostableSideGusset.common.sections.overview.advantagesTitle')}
+            </h4>
             <ul className="space-y-1.5 text-sm">
-              <li>• <strong>Maximised Storage Volume</strong> – Side gussets expand fully to accommodate 24% more bulk volume than standard flat pouches.</li>
-              <li>• <strong>Premium Tactile Kraft</strong> – Raw organic outer texture holds custom date/batch stamps and feels premium to touch.</li>
-              <li>• <strong>Triplex High-Barrier</strong> – Protects delicate coffee oils and aromas from oxygen, moisture, and UV light for up to 12 months.</li>
-              <li>• <strong>Automatic Line Compatible</strong> – Formed with precise mechanical tolerances for high-speed automatic filling lines.</li>
+              <li>• <strong>{t('seoPages.pages.compostableSideGusset.common.sections.overview.bullet1Strong')}</strong>{t('seoPages.pages.compostableSideGusset.common.sections.overview.bullet1Text')}</li>
+              <li>• <strong>{t('seoPages.pages.compostableSideGusset.common.sections.overview.bullet2Strong')}</strong>{t('seoPages.pages.compostableSideGusset.common.sections.overview.bullet2Text')}</li>
+              <li>• <strong>{t('seoPages.pages.compostableSideGusset.common.sections.overview.bullet3Strong')}</strong>{t('seoPages.pages.compostableSideGusset.common.sections.overview.bullet3Text')}</li>
+              <li>• <strong>{t('seoPages.pages.compostableSideGusset.common.sections.overview.bullet4Strong')}</strong>{t('seoPages.pages.compostableSideGusset.common.sections.overview.bullet4Text')}</li>
             </ul>
           </div>
           
           <div className="mt-6">
             <ClickableImage 
               src="/imgs/store/products/compostable-side-gusset-collection.png?v=2" 
-              alt="Natural brown Kraft paper side gusset pouch collection for specialty coffee" 
+              alt={t('seoPages.pages.compostableSideGusset.common.sections.overview.imgAlt')} 
               className="w-full rounded-2xl shadow-md border border-neutral-200"
-              caption={isPouchDomain ? "POUCH.ECO's premium compostable Kraft side gusset bag collection" : "Achieve Pack's premium compostable Kraft side gusset bag collection"}
+              caption={isPouchDomain 
+                ? t('seoPages.pages.compostableSideGusset.common.sections.overview.imgCaptionPouch') 
+                : t('seoPages.pages.compostableSideGusset.common.sections.overview.imgCaptionAP')}
             />
           </div>
         </div>
@@ -49,52 +65,63 @@ const CompostableSideGussetPage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'High-Barrier Sustainable Materials',
+      title: t('seoPages.pages.compostableSideGusset.common.sections.materials.title'),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            To achieve high-barrier coffee protection without using standard aluminum foils or fossil-fuel plastics, we engineer a premium <strong>Triplex lamination structure</strong> composed entirely of plant-based materials:
+            {t('seoPages.pages.compostableSideGusset.common.sections.materials.intro')}
           </p>
           
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="border border-neutral-200 rounded-xl p-4 bg-white shadow-sm">
               <span className="text-2xl block mb-2">🪵</span>
-              <h4 className="font-bold text-neutral-900 mb-1 text-sm">1. Outer Layer: Kraft Paper</h4>
+              <h4 className="font-bold text-neutral-900 mb-1 text-sm">
+                {t('seoPages.pages.compostableSideGusset.common.sections.materials.layer1Title')}
+              </h4>
               <p className="text-xs text-neutral-500 leading-relaxed">
-                Sustainably sourced FSC-certified Kraft paper (White or Brown). Provides structural stiffness, direct ink stamp-holding properties, and raw tactile organic aesthetics.
+                {t('seoPages.pages.compostableSideGusset.common.sections.materials.layer1Desc')}
               </p>
             </div>
             <div className="border border-neutral-200 rounded-xl p-4 bg-white shadow-sm">
               <span className="text-2xl block mb-2">🌽</span>
-              <h4 className="font-bold text-neutral-900 mb-1 text-sm">2. Middle Barrier: NatureFlex™</h4>
+              <h4 className="font-bold text-neutral-900 mb-1 text-sm">
+                {t('seoPages.pages.compostableSideGusset.common.sections.materials.layer2Title')}
+              </h4>
               <p className="text-xs text-neutral-500 leading-relaxed">
-                Renewable wood-pulp cellulose film. Provides an exceptional barrier against moisture, oxygen, and mineral oils, guaranteeing standard 12-month coffee shelf stability.
+                {t('seoPages.pages.compostableSideGusset.common.sections.materials.layer2Desc')}
               </p>
             </div>
             <div className="border border-neutral-200 rounded-xl p-4 bg-white shadow-sm">
               <span className="text-2xl block mb-2">🌱</span>
-              <h4 className="font-bold text-neutral-900 mb-1 text-sm">3. Inner Sealant: PLA / PBAT</h4>
+              <h4 className="font-bold text-neutral-900 mb-1 text-sm">
+                {t('seoPages.pages.compostableSideGusset.common.sections.materials.layer3Title')}
+              </h4>
               <p className="text-xs text-neutral-500 leading-relaxed">
-                Certified plant-starch copolymer (Polyacetic Acid & PBAT). Creates high-strength airtight hermetic seals at standard sealing bar temperatures.
+                {t('seoPages.pages.compostableSideGusset.common.sections.materials.layer3Desc')}
               </p>
             </div>
           </div>
 
           <div className="bg-amber-50/50 p-4 rounded-xl border border-amber-100 mt-4 text-xs leading-relaxed text-amber-900">
-            <strong>{isPouchDomain ? '💡 Startup Packaging Tip:' : '🚀 B2B Packaging Note:'}</strong> Unlike cheap compostable bags that suffer from static electricity or tear easily, our proprietary PLA/PBAT blend features dynamic slip agents that slide easily on vertical form-fill-seal (VFFS) machinery pipelines.
+            <strong>
+              {isPouchDomain 
+                ? t('seoPages.pages.compostableSideGusset.common.sections.materials.startupTipStrong') 
+                : t('seoPages.pages.compostableSideGusset.common.sections.materials.b2bNoteStrong')}
+            </strong>
+            {t('seoPages.pages.compostableSideGusset.common.sections.materials.tipText')}
           </div>
         </div>
       )
     },
     {
       id: 'features',
-      title: 'Closure & Valve Configurations',
+      title: t('seoPages.pages.compostableSideGusset.common.sections.features.title'),
       icon: <Cpu className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Customize your side gusset bags with fully compostable functional closure features tailored to your B2B/B2C fulfillment parameters:
+            {t('seoPages.pages.compostableSideGusset.common.sections.features.intro')}
           </p>
           
           <div className="space-y-3 mt-4">
@@ -103,9 +130,11 @@ const CompostableSideGussetPage: React.FC = () => {
                 💨
               </div>
               <div>
-                <h4 className="font-bold text-neutral-900 text-sm">One-Way Compostable Degassing Valve</h4>
+                <h4 className="font-bold text-neutral-900 text-sm">
+                  {t('seoPages.pages.compostableSideGusset.common.sections.features.feat1Title')}
+                </h4>
                 <p className="text-xs text-neutral-500 mt-0.5 leading-relaxed">
-                  Crucial for freshly roasted coffee beans. Releases carbon dioxide gas build-up while locking out ambient oxygen. Our valves are certified compostable, ensuring the whole pouch degrades cleanly as one single unit.
+                  {t('seoPages.pages.compostableSideGusset.common.sections.features.feat1Desc')}
                 </p>
               </div>
             </div>
@@ -115,9 +144,11 @@ const CompostableSideGussetPage: React.FC = () => {
                 🔗
               </div>
               <div>
-                <h4 className="font-bold text-neutral-900 text-sm">Premium Reusable Tin-Tie Closures</h4>
+                <h4 className="font-bold text-neutral-900 text-sm">
+                  {t('seoPages.pages.compostableSideGusset.common.sections.features.feat2Title')}
+                </h4>
                 <p className="text-xs text-neutral-500 mt-0.5 leading-relaxed">
-                  The classic roaster look. Allows customers to roll down the top header of the bag and seal it tightly with side metal ties. Tin-ties are easily peelable prior to backyard disposal.
+                  {t('seoPages.pages.compostableSideGusset.common.sections.features.feat2Desc')}
                 </p>
               </div>
             </div>
@@ -127,9 +158,11 @@ const CompostableSideGussetPage: React.FC = () => {
                 🏷️
               </div>
               <div>
-                <h4 className="font-bold text-neutral-900 text-sm">Premium PLA Biodegradable Sealing Stickers</h4>
+                <h4 className="font-bold text-neutral-950 text-sm">
+                  {t('seoPages.pages.compostableSideGusset.common.sections.features.feat3Title')}
+                </h4>
                 <p className="text-xs text-neutral-500 mt-0.5 leading-relaxed">
-                  Due to the structural folds of expandable side gusset bags, standard internal press-to-close zippers are not feasible. Instead, we highly recommend using our certified 100% plant-based <Link to="/store/product/eco-pla-sealing-sticker" className="text-primary-600 font-semibold underline hover:text-primary-800">Premium PLA Sealing Stickers</Link> or <Link to="/products/custom-compostable-labels" className="text-primary-600 font-semibold underline hover:text-primary-800">Custom Compostable Labels</Link> to secure and seal rolled-down headers post-fill.
+                  {t('seoPages.pages.compostableSideGusset.common.sections.features.feat3Desc')}
                 </p>
               </div>
             </div>
@@ -139,38 +172,42 @@ const CompostableSideGussetPage: React.FC = () => {
     },
     {
       id: 'composting',
-      title: 'Certified Biodegradation Timeline',
+      title: t('seoPages.pages.compostableSideGusset.common.sections.composting.title'),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            Our side gusset bags are engineered to decompose cleanly back into organic soil humus without leaving microplastics or volatile chemical traces:
+            {t('seoPages.pages.compostableSideGusset.common.sections.composting.intro')}
           </p>
           
           <div className="grid md:grid-cols-2 gap-6 mt-4">
             <div className="bg-white border border-neutral-200 p-5 rounded-2xl shadow-sm space-y-3">
               <span className="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-green-50 text-green-700 border border-green-100 rounded-md uppercase tracking-wider">
-                Home Compostable (AS 5810)
+                {t('seoPages.pages.compostableSideGusset.common.sections.composting.homeBadge')}
               </span>
-              <h4 className="font-bold text-neutral-900 text-base">Backyard Compost Bin</h4>
+              <h4 className="font-bold text-neutral-900 text-base">
+                {t('seoPages.pages.compostableSideGusset.common.sections.composting.homeTitle')}
+              </h4>
               <p className="text-xs text-neutral-500 leading-relaxed">
-                Decomposes fully within <strong>180 days</strong> at ambient backyard temperatures (approx. 20-30°C). Our bio-barrier is certified safe for garden soil and worm farms.
+                {t('seoPages.pages.compostableSideGusset.common.sections.composting.homeDesc')}
               </p>
               <div className="text-[10px] font-mono text-neutral-400 mt-2">
-                Standards: AS 5810, NF T51-800
+                {t('seoPages.pages.compostableSideGusset.common.sections.composting.homeStandards')}
               </div>
             </div>
             
             <div className="bg-white border border-neutral-200 p-5 rounded-2xl shadow-sm space-y-3">
               <span className="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-md uppercase tracking-wider">
-                Industrial Compostable (EN 13432)
+                {t('seoPages.pages.compostableSideGusset.common.sections.composting.industrialBadge')}
               </span>
-              <h4 className="font-bold text-neutral-900 text-base">Municipal Organics Run</h4>
+              <h4 className="font-bold text-neutral-900 text-base">
+                {t('seoPages.pages.compostableSideGusset.common.sections.composting.industrialTitle')}
+              </h4>
               <p className="text-xs text-neutral-500 leading-relaxed">
-                Decomposes fully within <strong>90 days</strong> under active industrial composting facilities (elevated heat 55-60°C and managed moisture). 
+                {t('seoPages.pages.compostableSideGusset.common.sections.composting.industrialDesc')}
               </p>
               <div className="text-[10px] font-mono text-neutral-400 mt-2">
-                Standards: EN 13432, ASTM D6400, BPI
+                {t('seoPages.pages.compostableSideGusset.common.sections.composting.industrialStandards')}
               </div>
             </div>
           </div>
@@ -178,9 +215,11 @@ const CompostableSideGussetPage: React.FC = () => {
           <div className="mt-6">
             <ClickableImage 
               src="/imgs/store/products/compostable-side-gusset-retail-box.png?v=2" 
-              alt="Premium natural Kraft coffee pouch seated inside a black retail box on a green mossy background" 
+              alt={t('seoPages.pages.compostableSideGusset.common.sections.composting.imgAlt')} 
               className="w-full rounded-2xl shadow-md border border-neutral-200"
-              caption={isPouchDomain ? "POUCH.ECO's premium B2B pouch-in-box retail presentation" : "Achieve Pack's B2B premium pouch-in-box retail presentation"}
+              caption={isPouchDomain 
+                ? t('seoPages.pages.compostableSideGusset.common.sections.composting.imgCaptionPouch') 
+                : t('seoPages.pages.compostableSideGusset.common.sections.composting.imgCaptionAP')}
             />
           </div>
         </div>
@@ -190,20 +229,20 @@ const CompostableSideGussetPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "Are compostable side gusset bags home compostable?",
-      answer: "Yes, we offer certified home compostable configurations (AS 5810 & OK Compost HOME) using a high-barrier compostable Kraft paper cellulose structure. They decompose fully in backyard compost bins within 180 days."
+      question: t('seoPages.pages.compostableSideGusset.common.faqs.q1.question'),
+      answer: t('seoPages.pages.compostableSideGusset.common.faqs.q1.answer')
     },
     {
-      question: "What is the difference between side gusset and flat bottom box pouches?",
-      answer: "A side gusset pouch is sealed at the top and bottom with expandable sides. A flat bottom pouch has a distinct flat box-like bottom. Side gusset bags provide a classic rustic artisanal coffee roastery look and cost slightly less in volume production."
+      question: t('seoPages.pages.compostableSideGusset.common.faqs.q2.question'),
+      answer: t('seoPages.pages.compostableSideGusset.common.faqs.q2.answer')
     },
     {
-      question: "Can these bags be used on automatic filling machinery?",
-      answer: "Yes. Our side gusset pouches are engineered with precise mechanical seals and premium slip-agent plant copolymer liners (PLA/PBAT) to guarantee high speed, static-free sliding on vertical form-fill-seal (VFFS) systems."
+      question: t('seoPages.pages.compostableSideGusset.common.faqs.q3.question'),
+      answer: t('seoPages.pages.compostableSideGusset.common.faqs.q3.answer')
     },
     {
-      question: "Do compostable side gusset bags provide a high oxygen barrier?",
-      answer: "Yes. We laminate with NatureFlex™ (regenerated wood pulp cellulose) which offers barrier ratings of OTR < 1.0 cc/m²/day and WVTR < 1.5 g/m²/day, equivalent to traditional plastic foils, keeping roasted beans fresh up to 12 months."
+      question: t('seoPages.pages.compostableSideGusset.common.faqs.q4.question'),
+      answer: t('seoPages.pages.compostableSideGusset.common.faqs.q4.answer')
     }
   ]
 
@@ -212,25 +251,33 @@ const CompostableSideGussetPage: React.FC = () => {
     <div className="space-y-3">
       {/* Visual Breadcrumb Navigation */}
       <div className="flex flex-wrap items-center gap-1.5 text-[10px] sm:text-xs font-semibold text-neutral-300/90 uppercase tracking-wider">
-        <Link to="/" className="hover:text-white transition">Home</Link>
+        <Link to="/" className="hover:text-white transition">
+          {t('seoPages.pages.compostableSideGusset.common.breadcrumbs.home')}
+        </Link>
         <span className="text-neutral-400">/</span>
-        <Link to="/store?category=eco-digital" className="hover:text-white transition">Eco-Friendly Materials</Link>
+        <Link to="/store?category=eco-digital" className="hover:text-white transition">
+          {t('seoPages.pages.compostableSideGusset.common.breadcrumbs.ecoMaterials')}
+        </Link>
         <span className="text-neutral-400">/</span>
-        <Link to="/store?shape=side-gusset" className="hover:text-white transition">Side Gusset Bags</Link>
+        <Link to="/store?shape=side-gusset" className="hover:text-white transition">
+          {t('seoPages.pages.compostableSideGusset.common.breadcrumbs.sideGussetBags')}
+        </Link>
         <span className="text-neutral-400">/</span>
-        <span className="text-[#10b981] font-bold">Compostable Side Gusset</span>
+        <span className="text-[#10b981] font-bold">
+          {t('seoPages.pages.compostableSideGusset.common.breadcrumbs.compostableSideGusset')}
+        </span>
       </div>
 
       {/* Visual Badges & Conventional Switch Link */}
       <div className="flex flex-wrap items-center gap-2">
         <span className="inline-flex items-center gap-1 px-2.5 py-0.5 text-[10px] font-bold bg-[#10b981] text-white rounded-full uppercase tracking-wider shadow-sm">
-          🌱 Certified Eco Material
+          {t('seoPages.pages.compostableSideGusset.common.badges.achievePack')}
         </span>
         <Link 
           to="/packaging/side-gusset-bags" 
           className="inline-flex items-center gap-1 px-2.5 py-0.5 text-[10px] font-bold bg-white/10 hover:bg-white/20 text-white rounded-full transition border border-white/20 uppercase tracking-wider"
         >
-          🔄 Conventional Stock Size Gusset Bags →
+          {t('seoPages.pages.compostableSideGusset.common.badges.conventional')}
         </Link>
       </div>
     </div>
@@ -239,37 +286,45 @@ const CompostableSideGussetPage: React.FC = () => {
   if (isPouchDomain) {
     return (
       <BlogArticleTemplate
-        title="Compostable Side Gusset Pouches Guide 2026: Materials & Sizing | POUCH.ECO"
-        metaDescription="Certified compostable side gusset coffee bags. ASTM D6400 & EN 13432 home compostable. Low MOQ from 100 pieces. Beautiful rustic organic Kraft."
+        title={t('seoPages.pages.compostableSideGusset.pouch.seo.title')}
+        metaDescription={t('seoPages.pages.compostableSideGusset.pouch.seo.metaDescription')}
         canonicalUrl="https://pouch.eco/products/compostable-side-gusset-bags"
-        keywords={['compostable side gusset bags', 'certified side gusset coffee bag', 'Kraft coffee bags', 'BPI certified side gussets', 'EN 13432 coffee pouch']}
+        keywords={pouchKeywords}
         publishedDate="2026-05-26"
         modifiedDate="2026-05-26"
-        author="POUCH.ECO Editorial Team"
+        author={t('seoPages.pages.compostableSideGusset.pouch.seo.author')}
         
         heroTitle={
           <div className="space-y-4">
             {/* Neo-brutalist Breadcrumb Navigation */}
             <div className="flex flex-wrap items-center gap-2 font-['JetBrains_Mono'] text-xs font-black uppercase text-black">
-              <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Home</Link>
+              <Link to="/" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">
+                {t('seoPages.pages.compostableSideGusset.common.breadcrumbs.home')}
+              </Link>
               <span>/</span>
-              <Link to="/store?category=eco-digital" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Eco-Friendly Materials</Link>
+              <Link to="/store?category=eco-digital" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">
+                {t('seoPages.pages.compostableSideGusset.common.breadcrumbs.ecoMaterials')}
+              </Link>
               <span>/</span>
-              <Link to="/store?shape=side-gusset" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">Side Gusset Bags</Link>
+              <Link to="/store?shape=side-gusset" className="hover:bg-[#D4FF00] px-1 py-0.5 border border-black transition">
+                {t('seoPages.pages.compostableSideGusset.common.breadcrumbs.sideGussetBags')}
+              </Link>
               <span>/</span>
-              <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">Compostable Side Gusset</span>
+              <span className="bg-[#10b981] text-white px-1.5 py-0.5 border border-black">
+                {t('seoPages.pages.compostableSideGusset.common.breadcrumbs.compostableSideGusset')}
+              </span>
             </div>
 
             {/* Badges / Cross Links */}
             <div className="flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#10b981] text-white border-2 border-black uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                🌱 Certified Eco Friendly
+                {t('seoPages.pages.compostableSideGusset.common.badges.pouchEco')}
               </span>
               <Link 
                 to="/packaging/side-gusset-bags" 
                 className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-black bg-[#00FFFF] text-black border-2 border-black hover:bg-[#D4FF00] transition-colors uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
               >
-                🔄 Conventional Stock Size Gusset Bags →
+                {t('seoPages.pages.compostableSideGusset.common.badges.conventional')}
               </Link>
             </div>
 
@@ -280,32 +335,32 @@ const CompostableSideGussetPage: React.FC = () => {
             </h1>
           </div>
         }
-        heroSubtitle="ASTM D6400 & EN 13432 Certified | Organic Kraft Fibers | Low MOQ from 100 pieces."
+        heroSubtitle={t('seoPages.pages.compostableSideGusset.pouch.seo.heroSubtitle')}
         heroImage="/imgs/store/products/compostable-side-gusset-collection.png?v=2"
-        heroImageAlt="POUCH.ECO premium compostable Kraft paper side gusset pouch collection"
+        heroImageAlt={t('seoPages.pages.compostableSideGusset.pouch.seo.heroImageAlt')}
         categoryTag="ECO_PRODUCTS"
         categoryColor="#10b981"
         readTime="12 min read"
         sections={sections}
-        ctaTitle="Ready to Transition to Eco Gusset Packaging?"
-        ctaDescription="Book a free 30-minute consultation with our expert team to review your material stack, custom sizing, and volume pricing."
+        ctaTitle={t('seoPages.pages.compostableSideGusset.pouch.seo.ctaTitle')}
+        ctaDescription={t('seoPages.pages.compostableSideGusset.pouch.seo.ctaDescription')}
         calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
         achievePackLink="https://achievepack.com/products/compostable-side-gusset-bags"
-        achievePackText="Need enterprise-level bulk orders or advanced B2B material engineering?"
+        achievePackText={t('seoPages.pages.compostableSideGusset.pouch.seo.achievePackText')}
         showTableOfContents={true}
         relatedArticles={[
           {
-            title: 'Compostable Stand-Up Pouches Guide: Materials & Pricing',
+            title: t('seoPages.pages.compostableSideGusset.pouch.seo.relArticle1Title'),
             url: '/products/compostable-stand-up-pouches',
             image: '/imgs/illustrated/a_compostable_v3_9254998.webp'
           },
           {
-            title: 'USA Compostable Packaging Guide: ASTM D6400 & State Laws',
+            title: t('seoPages.pages.compostableSideGusset.pouch.seo.relArticle2Title'),
             url: '/blog/usa-compostable-packaging-guide',
             image: '/imgs/seo-photos/usa/hub/a_labeling_compliance_showcase_8587664.webp'
           },
           {
-            title: 'Coffee Packaging Guide: Compostable vs Recyclable',
+            title: t('seoPages.pages.compostableSideGusset.pouch.seo.relArticle3Title'),
             url: '/blog/coffee-packaging-guide',
             image: '/imgs/seo-photos/a_bean_bole_coffee_roastery_8131919.webp'
           }
@@ -317,15 +372,15 @@ const CompostableSideGussetPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Compostable Side Gusset Pouches | ASTM D6400 Certified | Achieve Pack</title>
-        <meta name="description" content="Premium certified compostable side gusset coffee bags. ASTM D6400 & EN 13432 home compostable. Low MOQ 500 pcs, $0 plate setup fee. Perfect for specialty roasters." />
+        <title>{t('seoPages.pages.compostableSideGusset.achievePack.seo.title')}</title>
+        <meta name="description" content={t('seoPages.pages.compostableSideGusset.achievePack.seo.metaDescription')} />
         <link rel="canonical" href="https://achievepack.com/products/compostable-side-gusset-bags" />
-        <meta property="og:title" content="Compostable Side Gusset Pouches | Certified Organic | Achieve Pack" />
-        <meta property="og:description" content="Premium certified compostable side gusset coffee bags. ASTM D6400 & EN 13432 certified. Low MOQ from 500 pieces for specialty roasters." />
+        <meta property="og:title" content={t('seoPages.pages.compostableSideGusset.achievePack.seo.ogTitle')} />
+        <meta property="og:description" content={t('seoPages.pages.compostableSideGusset.achievePack.seo.ogDescription')} />
         <meta property="og:url" content="https://achievepack.com/products/compostable-side-gusset-bags" />
         <meta property="og:image" content="https://achievepack.com/imgs/store/products/compostable-side-gusset-collection.png" />
         <meta property="og:type" content="product" />
-        <meta name="keywords" content="compostable side gusset bags, certified side gusset coffee bag, Kraft coffee bags, BPI certified side gussets, EN 13432 coffee pouch, degassing valve side gussets, home compostable coffee bags, low MOQ gusset pouches" />
+        <meta name="keywords" content={apKeywords.join(', ')} />
         
         {/* Product Graph Schema */}
         <script type="application/ld+json">
@@ -335,11 +390,11 @@ const CompostableSideGussetPage: React.FC = () => {
               {
                 "@type": "Product",
                 "@id": "https://achievepack.com/products/compostable-side-gusset-bags#product",
-                "name": "Compostable Side Gusset Coffee Pouches",
-                "description": "Premium certified compostable side gusset bags with one-way degassing valves. Certified home and industrial compostable.",
+                "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.name'),
+                "description": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.description'),
                 "brand": {
                   "@type": "Brand",
-                  "name": "Achieve Pack"
+                  "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.brandName')
                 },
                 "offers": {
                   "@type": "AggregateOffer",
@@ -352,13 +407,13 @@ const CompostableSideGussetPage: React.FC = () => {
                 "additionalProperty": [
                   {
                     "@type": "PropertyValue",
-                    "name": "Certification",
-                    "value": "ASTM D6400, EN 13432, AS 5810, BPI"
+                    "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.certName'),
+                    "value": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.certValue')
                   },
                   {
                     "@type": "PropertyValue",
-                    "name": "Minimum Order",
-                    "value": "500 pieces"
+                    "name": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.moqName'),
+                    "value": t('seoPages.pages.compostableSideGusset.achievePack.seo.graph.moqValue')
                   }
                 ]
               }
@@ -369,17 +424,17 @@ const CompostableSideGussetPage: React.FC = () => {
 
       <SEOPageLayout 
         heroBgColor="#1c1917"
-        title="Compostable Side Gusset Pouches | ASTM D6400 Certified | Achieve Pack"
-        description="Premium certified compostable side gusset coffee bags. ASTM D6400 & EN 13432 home compostable. Low MOQ 500 pcs, $0 plate setup fee. Perfect for specialty roasters."
-        keywords={['compostable side gusset bags', 'certified side gusset coffee bag', 'Kraft coffee bags', 'BPI certified side gussets', 'EN 13432 coffee pouch', 'degassing valve side gussets']}
-        heroTitle="Compostable Side Gusset Pouches"
-        heroSubtitle="ASTM D6400 & EN 13432 Certified | Organic Kraft Fibers | Low MOQ from 500"
+        title={t('seoPages.pages.compostableSideGusset.achievePack.seo.title')}
+        description={t('seoPages.pages.compostableSideGusset.achievePack.seo.metaDescription')}
+        keywords={apKeywordsLayout}
+        heroTitle={t('seoPages.pages.compostableSideGusset.achievePack.seo.heroTitle')}
+        heroSubtitle={t('seoPages.pages.compostableSideGusset.achievePack.seo.heroSubtitle')}
         aboveTitle={visualBreadcrumbsAndLabels}
-        introSummary="Premium compostable side gusset pouches engineered specifically for specialty coffee roasters. Combining the classic artisanal quad-fold look with certified BPI home-compostable barrier technologies, expandable gussets, and optional degassing valves."
+        introSummary={t('seoPages.pages.compostableSideGusset.achievePack.seo.introSummary')}
         sections={sections}
         faqs={faqs}
         heroImage="/imgs/store/products/compostable-side-gusset-collection.png?v=2"
-        heroImageAlt="Achieve Pack premium compostable Kraft paper side gusset pouch collection"
+        heroImageAlt={t('seoPages.pages.compostableSideGusset.achievePack.seo.heroImageAlt')}
       />
 
       {/* Visually Hidden Semantic AIEO Crawling Section */}

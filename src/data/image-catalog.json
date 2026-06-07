@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2979,
+  "total_images": 2980,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1441,
+    ".png": 1442,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 277,
+      "count": 278,
       "images": [
+        {
+          "filename": "kraft-paper-sachet-with-window-for-coffee-hero.png",
+          "path": "/imgs/blog/heros/kraft-paper-sachet-with-window-for-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T15:45:31.595Z"
+        },
         {
           "filename": "custom-shaped-recyclable-barrier-bags-for-beverages-hero.png",
           "path": "/imgs/blog/heros/custom-shaped-recyclable-barrier-bags-for-beverages-hero.png",
