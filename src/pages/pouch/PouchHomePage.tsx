@@ -116,6 +116,7 @@ export default function PouchHomePage() {
 
   const [activeHeroIndex, setActiveHeroIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+  const [isLaptop, setIsLaptop] = useState(window.innerWidth >= 1024)
   const videoRef1 = useRef<HTMLVideoElement>(null)
   const videoRef2 = useRef<HTMLVideoElement>(null)
   const videoRef3 = useRef<HTMLVideoElement>(null)
@@ -123,7 +124,10 @@ export default function PouchHomePage() {
   const videoRef5 = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+      setIsLaptop(window.innerWidth >= 1024)
+    }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
@@ -162,8 +166,8 @@ export default function PouchHomePage() {
     }
   }, [activeHeroIndex])
 
-  const offsetVal = isMobile ? 16 : 40
-  const slideVal = isMobile ? 120 : 260
+  const offsetVal = isMobile ? 16 : (isLaptop ? 48 : 40)
+  const slideVal = isMobile ? 120 : (isLaptop ? 312 : 260)
 
   const card1Variants = {
     front: {
@@ -508,7 +512,7 @@ export default function PouchHomePage() {
             </div>
 
             {/* Right Visual - Rotating Card Stack */}
-            <div className="relative w-full max-w-md aspect-square mx-auto lg:ml-auto lg:mr-0 mb-10 md:mb-0">
+            <div className="relative w-full max-w-md lg:max-w-[540px] aspect-square mx-auto lg:ml-auto lg:mr-0 mb-10 md:mb-0">
               {/* Manual Nav Arrows */}
               <button 
                 onClick={(e) => {
@@ -531,14 +535,63 @@ export default function PouchHomePage() {
                 <ChevronRight className="w-6 h-6 text-black" />
               </button>
 
+              {/* Floating Material Pouches */}
+              {/* 1. Compostable Pouch */}
+              <div className="absolute left-[-50px] top-[-50px] z-[55] pointer-events-none animate-float-slow">
+                <img 
+                  src="/imgs/floating-pouches/pouch_compostable.png" 
+                  alt="Compostable Pouch" 
+                  className={`w-24 h-24 md:w-32 md:h-32 transition-all duration-500 ${
+                    activeHeroIndex === 0 || activeHeroIndex === 2
+                      ? "scale-125 rotate-[5deg] opacity-100 drop-shadow-[0_0_20px_rgba(16,185,129,0.8)]"
+                      : "scale-90 rotate-[-15deg] opacity-40"
+                  }`}
+                />
+              </div>
+              {/* 2. Recyclable Pouch */}
+              <div className="absolute right-[-50px] top-[-40px] z-[55] pointer-events-none animate-float-medium">
+                <img 
+                  src="/imgs/floating-pouches/pouch_recyclable.png" 
+                  alt="Recyclable Pouch" 
+                  className={`w-24 h-24 md:w-32 md:h-32 transition-all duration-500 ${
+                    activeHeroIndex === 1
+                      ? "scale-125 rotate-[-5deg] opacity-100 drop-shadow-[0_0_20px_rgba(59,130,246,0.8)]"
+                      : "scale-90 rotate-[12deg] opacity-40"
+                  }`}
+                />
+              </div>
+              {/* 3. PCR Pouch */}
+              <div className="absolute left-[-50px] bottom-[-20px] z-[55] pointer-events-none animate-float-fast">
+                <img 
+                  src="/imgs/floating-pouches/pouch_pcr.png" 
+                  alt="PCR Pouch" 
+                  className={`w-24 h-24 md:w-32 md:h-32 transition-all duration-500 ${
+                    activeHeroIndex === 3
+                      ? "scale-125 rotate-[8deg] opacity-100 drop-shadow-[0_0_20px_rgba(75,85,99,0.8)]"
+                      : "scale-90 rotate-[-8deg] opacity-40"
+                  }`}
+                />
+              </div>
+              {/* 4. BioPE Pouch */}
+              <div className="absolute right-[-50px] bottom-[-30px] z-[55] pointer-events-none animate-float-slow">
+                <img 
+                  src="/imgs/floating-pouches/pouch_biope.png" 
+                  alt="Bio-PE Pouch" 
+                  className={`w-24 h-24 md:w-32 md:h-32 transition-all duration-500 ${
+                    activeHeroIndex === 4
+                      ? "scale-125 rotate-[-8deg] opacity-100 drop-shadow-[0_0_20px_rgba(6,182,212,0.8)]"
+                      : "scale-90 rotate-[15deg] opacity-40"
+                  }`}
+                />
+              </div>
+
               {/* Card 1: Bag Video */}
               <motion.div
                 variants={card1Variants}
                 animate={activeHeroIndex === 0 ? "front" : (activeHeroIndex === 4 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
-                <NeoCard className="bg-[#00FFFF] w-full h-full !p-0 overflow-hidden group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#00FFFF] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
+                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
                   <video
                     ref={videoRef1}
                     autoPlay
@@ -546,7 +599,7 @@ export default function PouchHomePage() {
                     playsInline
                     poster="/video/hero/cover.jpg"
                     onEnded={() => setActiveHeroIndex(1)}
-                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
                   >
                     <source src="/video/hero/bag.mp4" type="video/mp4" />
                     <source src="/video/hero/bag.mov" type="video/quicktime" />
@@ -558,7 +611,7 @@ export default function PouchHomePage() {
                   </motion.div>
                   
                   {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
                 </NeoCard>
               </motion.div>
 
@@ -568,16 +621,15 @@ export default function PouchHomePage() {
                 animate={activeHeroIndex === 1 ? "front" : (activeHeroIndex === 0 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
-                <NeoCard className="bg-[#D4FF00] w-full h-full !p-0 overflow-hidden group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4FF00] to-[#00FFFF] opacity-20 z-0 mix-blend-multiply" />
+                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
                   <video
                     ref={videoRef2}
                     autoPlay
                     muted
                     playsInline
-                    poster="/video/hero/cover.jpg"
+                    poster="/video/hero/recycle/recyclable cover.png"
                     onEnded={() => setActiveHeroIndex(2)}
-                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
                   >
                     <source src="/video/hero/recycle/remake_this_image_to_square_.mp4" type="video/mp4" />
                   </video>
@@ -588,7 +640,7 @@ export default function PouchHomePage() {
                   </motion.div>
                   
                   {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
                 </NeoCard>
               </motion.div>
 
@@ -598,16 +650,15 @@ export default function PouchHomePage() {
                 animate={activeHeroIndex === 2 ? "front" : (activeHeroIndex === 1 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
-                <NeoCard className="bg-[#FF00FF] w-full h-full !p-0 overflow-hidden group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#FF00FF] to-[#00FFFF] opacity-20 z-0 mix-blend-multiply" />
+                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
                   <video
                     ref={videoRef3}
                     autoPlay
                     muted
                     playsInline
-                    poster="/video/hero/cover.jpg"
+                    poster="/video/hero/industrial/industrial cover.png"
                     onEnded={() => setActiveHeroIndex(3)}
-                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
                   >
                     <source src="/video/hero/industrial/industrial.mp4" type="video/mp4" />
                   </video>
@@ -618,7 +669,7 @@ export default function PouchHomePage() {
                   </motion.div>
                   
                   {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
                 </NeoCard>
               </motion.div>
 
@@ -629,15 +680,14 @@ export default function PouchHomePage() {
                 className="absolute inset-0 w-full h-full"
               >
                 <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white to-[#00FFFF] opacity-25 z-0 mix-blend-multiply" />
                   <video
                     ref={videoRef4}
                     autoPlay
                     muted
                     playsInline
-                    poster="/video/hero/cover.jpg"
+                    poster="/video/hero/PCR/prc cover.png"
                     onEnded={() => setActiveHeroIndex(4)}
-                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
                   >
                     <source src="/video/hero/PCR/pcr.mp4" type="video/mp4" />
                   </video>
@@ -648,7 +698,7 @@ export default function PouchHomePage() {
                   </motion.div>
                   
                   {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
                 </NeoCard>
               </motion.div>
 
@@ -658,16 +708,15 @@ export default function PouchHomePage() {
                 animate={activeHeroIndex === 4 ? "front" : (activeHeroIndex === 3 ? "middle" : "back")}
                 className="absolute inset-0 w-full h-full"
               >
-                <NeoCard className="bg-[#D4FF00] w-full h-full !p-0 overflow-hidden group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4FF00] to-[#FF00FF] opacity-20 z-0 mix-blend-multiply" />
+                <NeoCard className="bg-white w-full h-full !p-0 overflow-hidden group relative">
                   <video
                     ref={videoRef5}
                     autoPlay
                     muted
                     playsInline
-                    poster="/video/hero/cover.jpg"
+                    poster="/video/hero/biope/biope cover.png"
                     onEnded={() => setActiveHeroIndex(0)}
-                    className="w-full h-full object-cover relative z-10 mix-blend-multiply opacity-90 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
                   >
                     <source src="/video/hero/biope/biope.mp4" type="video/mp4" />
                   </video>
@@ -678,7 +727,7 @@ export default function PouchHomePage() {
                   </motion.div>
                   
                   {/* Overlay Texture */}
-                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-20 mix-blend-overlay z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[url('https://achievepack.com/imgs/paper-texture.png')] opacity-10 mix-blend-overlay z-10 pointer-events-none" />
                 </NeoCard>
               </motion.div>
 

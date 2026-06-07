@@ -1,10 +1,10 @@
 {
-  "generated": "2026-06-06",
-  "total_images": 2885,
-  "total_categories": 170,
+  "generated": "2026-06-07",
+  "total_images": 2918,
+  "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1347,
+    ".png": 1380,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,182 @@
       ]
     },
     "blog/heros": {
-      "count": 187,
+      "count": 216,
       "images": [
+        {
+          "filename": "high-barrier-films-for-retort-packaging-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-films-for-retort-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T00:15:22.119Z"
+        },
+        {
+          "filename": "sachet-packaging-dimensions-guide-hero.png",
+          "path": "/imgs/blog/heros/sachet-packaging-dimensions-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T00:00:20.968Z"
+        },
+        {
+          "filename": "digital-printed-stand-up-bags-wholesale-hero.png",
+          "path": "/imgs/blog/heros/digital-printed-stand-up-bags-wholesale-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T23:45:16.642Z"
+        },
+        {
+          "filename": "sustainable-flexible-packaging-suppliers-hero.png",
+          "path": "/imgs/blog/heros/sustainable-flexible-packaging-suppliers-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T23:30:17.921Z"
+        },
+        {
+          "filename": "custom-barrier-pouches-for-snacks-low-moq-hero.png",
+          "path": "/imgs/blog/heros/custom-barrier-pouches-for-snacks-low-moq-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T23:15:18.390Z"
+        },
+        {
+          "filename": "compostable-pouch-manufacturers-for-coffee-hero.png",
+          "path": "/imgs/blog/heros/compostable-pouch-manufacturers-for-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T23:00:20.351Z"
+        },
+        {
+          "filename": "stand-up-pouch-size-for-coffee-beans-hero.png",
+          "path": "/imgs/blog/heros/stand-up-pouch-size-for-coffee-beans-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T22:45:20.017Z"
+        },
+        {
+          "filename": "low-moq-custom-printed-flexible-packaging-hero.png",
+          "path": "/imgs/blog/heros/low-moq-custom-printed-flexible-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T22:30:18.372Z"
+        },
+        {
+          "filename": "recyclable-pouch-with-spout-for-drinks-hero.png",
+          "path": "/imgs/blog/heros/recyclable-pouch-with-spout-for-drinks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T22:15:18.212Z"
+        },
+        {
+          "filename": "custom-sachet-dimensions-chart-hero.png",
+          "path": "/imgs/blog/heros/custom-sachet-dimensions-chart-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T22:00:19.479Z"
+        },
+        {
+          "filename": "compostable-barrier-sachets-for-nuts-hero.png",
+          "path": "/imgs/blog/heros/compostable-barrier-sachets-for-nuts-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T21:45:18.004Z"
+        },
+        {
+          "filename": "sustainable-digital-printing-on-pouches-hero.png",
+          "path": "/imgs/blog/heros/sustainable-digital-printing-on-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T21:30:18.261Z"
+        },
+        {
+          "filename": "mono-pe-stand-up-pouch-sizes-hero.png",
+          "path": "/imgs/blog/heros/mono-pe-stand-up-pouch-sizes-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T21:15:19.006Z"
+        },
+        {
+          "filename": "flexible-packaging-solutions-for-pet-food-hero.png",
+          "path": "/imgs/blog/heros/flexible-packaging-solutions-for-pet-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T21:00:19.618Z"
+        },
+        {
+          "filename": "biodegradable-retort-pouches-suppliers-hero.png",
+          "path": "/imgs/blog/heros/biodegradable-retort-pouches-suppliers-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T20:45:23.692Z"
+        },
+        {
+          "filename": "kraft-paper-pouch-dimensions-guide-hero.png",
+          "path": "/imgs/blog/heros/kraft-paper-pouch-dimensions-guide-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T20:30:19.143Z"
+        },
+        {
+          "filename": "custom-shaped-compostable-bags-for-beverages-hero.png",
+          "path": "/imgs/blog/heros/custom-shaped-compostable-bags-for-beverages-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T20:15:21.976Z"
+        },
+        {
+          "filename": "high-barrier-mono-material-films-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-mono-material-films-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T20:00:17.298Z"
+        },
+        {
+          "filename": "digital-print-stand-up-pouches-for-snacks-hero.png",
+          "path": "/imgs/blog/heros/digital-print-stand-up-pouches-for-snacks-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T19:45:18.974Z"
+        },
+        {
+          "filename": "recyclable-flat-bottom-pouches-wholesale-hero.png",
+          "path": "/imgs/blog/heros/recyclable-flat-bottom-pouches-wholesale-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T19:30:19.163Z"
+        },
+        {
+          "filename": "sustainable-pouch-sizes-for-powders-hero.png",
+          "path": "/imgs/blog/heros/sustainable-pouch-sizes-for-powders-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T19:15:19.375Z"
+        },
+        {
+          "filename": "compostable-sachet-packaging-for-liquids-hero.png",
+          "path": "/imgs/blog/heros/compostable-sachet-packaging-for-liquids-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T19:00:19.524Z"
+        },
+        {
+          "filename": "small-batch-digital-printed-custom-pouches-hero.png",
+          "path": "/imgs/blog/heros/small-batch-digital-printed-custom-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T18:45:20.183Z"
+        },
+        {
+          "filename": "eco-friendly-barrier-film-for-stand-up-pouches-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-barrier-film-for-stand-up-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T18:30:19.975Z"
+        },
+        {
+          "filename": "barrier-film-roll-stock-for-compostable-packaging-hero.png",
+          "path": "/imgs/blog/heros/barrier-film-roll-stock-for-compostable-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T18:15:19.653Z"
+        },
+        {
+          "filename": "recyclable-custom-shaped-pouches-for-beverages-hero.png",
+          "path": "/imgs/blog/heros/recyclable-custom-shaped-pouches-for-beverages-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T18:00:19.146Z"
+        },
+        {
+          "filename": "eco-friendly-sachet-size-guide-for-powders-hero.png",
+          "path": "/imgs/blog/heros/eco-friendly-sachet-size-guide-for-powders-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T17:45:20.056Z"
+        },
+        {
+          "filename": "compostable-flat-bottom-pouch-dimensions-for-nuts-hero.png",
+          "path": "/imgs/blog/heros/compostable-flat-bottom-pouch-dimensions-for-nuts-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T17:30:24.181Z"
+        },
+        {
+          "filename": "small-batch-digital-print-stand-up-pouches-wholesale-hero.png",
+          "path": "/imgs/blog/heros/small-batch-digital-print-stand-up-pouches-wholesale-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-06T17:15:19.900Z"
+        },
         {
           "filename": "high-barrier-mono-pe-film-for-flexible-packaging-hero.png",
           "path": "/imgs/blog/heros/high-barrier-mono-pe-film-for-flexible-packaging-hero.png",
@@ -3567,6 +3741,35 @@
           "path": "/imgs/emails/outreach_header_2026.png",
           "extension": ".png",
           "modified": "2026-05-06T09:14:44.490Z"
+        }
+      ]
+    },
+    "floating-pouches": {
+      "count": 4,
+      "images": [
+        {
+          "filename": "pouch_recyclable.png",
+          "path": "/imgs/floating-pouches/pouch_recyclable.png",
+          "extension": ".png",
+          "modified": "2026-06-07T00:25:24.936Z"
+        },
+        {
+          "filename": "pouch_biope.png",
+          "path": "/imgs/floating-pouches/pouch_biope.png",
+          "extension": ".png",
+          "modified": "2026-06-07T00:25:24.751Z"
+        },
+        {
+          "filename": "pouch_pcr.png",
+          "path": "/imgs/floating-pouches/pouch_pcr.png",
+          "extension": ".png",
+          "modified": "2026-06-07T00:25:24.567Z"
+        },
+        {
+          "filename": "pouch_compostable.png",
+          "path": "/imgs/floating-pouches/pouch_compostable.png",
+          "extension": ".png",
+          "modified": "2026-06-07T00:25:24.387Z"
         }
       ]
     },
