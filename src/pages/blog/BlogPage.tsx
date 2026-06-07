@@ -105,7 +105,7 @@ export default function BlogPage() {
 
       <div className="min-h-screen bg-neutral-50">
         {/* Unified Site Header */}
-        <SiteHeader showLanguageSelector={false} />
+        <SiteHeader showLanguageSelector={true} />
 
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16 md:py-24">

@@ -166,7 +166,7 @@ function MobileLearnSection({ setIsMenuOpen }: { setIsMenuOpen: (open: boolean) 
   )
 }
 
-export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog = false }: SiteHeaderProps) {
+export default function SiteHeader({ showLanguageSelector = true, hideLearnBlog = false }: SiteHeaderProps) {
   const { t, i18n } = useTranslation()
   const { cartCount, setIsCartOpen } = useStore()
   const navigate = useNavigate()
@@ -187,10 +187,26 @@ export default function SiteHeader({ showLanguageSelector = false, hideLearnBlog
     }
   }, [isMenuOpen])
 
-  const changeLanguage = useCallback((lng: string) => {
-    i18n.changeLanguage(lng)
-    setIsLangMenuOpen(false)
-  }, [i18n])
+  const getCleanPath = (pathname: string): string => {
+    const parts = pathname.split('/').filter(Boolean);
+    if (parts.length > 0 && ['fr', 'es', 'zh-tw'].includes(parts[0].toLowerCase())) {
+      return '/' + parts.slice(1).join('/');
+    }
+    return pathname;
+  };
+
+  const changeLanguage = useCallback((targetLang: string) => {
+    const rawTarget = targetLang.toLowerCase(); // fr, es, zh-tw
+    const pathname = window.location.pathname;
+    const cleanPath = getCleanPath(pathname);
+    
+    const newPath = rawTarget === 'en'
+      ? cleanPath
+      : `/${rawTarget}${cleanPath === '/' ? '' : cleanPath}`;
+      
+    setIsLangMenuOpen(false);
+    window.location.href = window.location.origin + newPath;
+  }, []);
 
   return (
     <>
