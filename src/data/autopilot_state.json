@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T12:00:45.579Z",
+  "lastUnifiedRun": "2026-06-07T12:15:43.510Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1589,17 +1589,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "compostable-retort-packaging-for-sauces",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "compostable retort packaging for sauces",
-      "difficulty": "Low",
-      "slug": "compostable-retort-packaging-for-sauces"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "kraft paper barrier pouches custom",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "kraft-paper-barrier-pouches-custom"
     },
     {
       "status": "Pending",
@@ -1724,9 +1725,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T12:00:37.642Z",
+      "timestamp": "2026-06-07T12:15:35.130Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable retort packaging for sauces\" to /blog/compostable-retort-packaging-for-sauces (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper barrier pouches custom\" to /blog/kraft-paper-barrier-pouches-custom (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort packaging for sauces\" to /blog/compostable-retort-packaging-for-sauces (Pending Approval)",
+      "timestamp": "2026-06-07T12:00:37.642Z"
     },
     {
       "action": "Autopilot Generation Draft",
