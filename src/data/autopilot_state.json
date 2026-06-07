@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T06:30:32.865Z",
+  "lastUnifiedRun": "2026-06-07T06:45:58.646Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1435,17 +1435,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-film-for-digital-printing",
       "status": "Pending Approval",
       "volume": 630,
       "keyword": "high barrier film for digital printing",
-      "difficulty": "Low",
-      "slug": "high-barrier-film-for-digital-printing"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 920,
       "keyword": "compostable pouch suppliers for pet food",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-pouch-suppliers-for-pet-food"
     },
     {
       "status": "Pending",
@@ -1594,9 +1595,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T06:30:24.794Z",
+      "timestamp": "2026-06-07T06:45:37.375Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier film for digital printing\" to /blog/high-barrier-film-for-digital-printing (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch suppliers for pet food\" to /blog/compostable-pouch-suppliers-for-pet-food (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier film for digital printing\" to /blog/high-barrier-film-for-digital-printing (Pending Approval)",
+      "timestamp": "2026-06-07T06:30:24.794Z"
     },
     {
       "action": "Autopilot Generation Draft",

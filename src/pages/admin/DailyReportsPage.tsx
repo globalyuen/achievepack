@@ -1057,7 +1057,7 @@ export default function DailyReportsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12 font-sans print:pt-0 print:pb-0 print:bg-white">
+    <div className="min-h-screen print:min-h-0 bg-gray-50 pt-24 pb-12 font-sans print:pt-0 print:pb-0 print:bg-white">
       <Helmet><title>Control Center | Achieve Pack</title></Helmet>
       <style dangerouslySetInnerHTML={{ __html: `
         @media print {
