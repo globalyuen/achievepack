@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T19:15:34.360Z",
+  "lastUnifiedRun": "2026-06-07T19:30:32.516Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1792,17 +1792,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-pouch-with-window-sizes",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "kraft paper pouch with window sizes",
-      "difficulty": "Medium",
-      "slug": "kraft-paper-pouch-with-window-sizes"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 950,
       "keyword": "recyclable barrier film for stand up pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-barrier-film-for-stand-up-pouches"
     },
     {
       "status": "Pending",
@@ -1861,9 +1862,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T19:15:26.387Z",
+      "timestamp": "2026-06-07T19:30:23.681Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper pouch with window sizes\" to /blog/kraft-paper-pouch-with-window-sizes (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable barrier film for stand up pouches\" to /blog/recyclable-barrier-film-for-stand-up-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper pouch with window sizes\" to /blog/kraft-paper-pouch-with-window-sizes (Pending Approval)",
+      "timestamp": "2026-06-07T19:15:26.387Z"
     },
     {
       "action": "Autopilot Generation Draft",
