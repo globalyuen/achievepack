@@ -633,7 +633,7 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
           <div className="p-6 overflow-y-auto bg-gray-100/50 flex-1 space-y-6 flex flex-col items-center">
             
             {/* SCREEN PAGE 1 PREVIEW */}
-            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[210mm] min-h-[297mm] relative text-[10px] text-black leading-normal flex flex-col select-none aspect-[1/1.41]">
+            <div className="bg-white shadow-lg border border-gray-300 rounded p-10 w-full max-w-[297mm] min-h-[210mm] relative text-[10px] text-black leading-normal flex flex-col select-none aspect-[1.41/1]">
               
               {/* Header Letterhead */}
               <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-2 mb-4">
@@ -794,7 +794,7 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
       <div className="hidden print:block bg-white text-black min-h-screen text-xs leading-normal">
         <style>{`
           @page {
-            size: A4 portrait;
+            size: A4 landscape;
             margin: 0;
           }
           @media print {
@@ -806,9 +806,9 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
               font-family: Arial, sans-serif;
             }
           .print-page {
-              width: 210mm;
-              height: 280mm;
-              max-height: 280mm;
+              width: 297mm;
+              height: 200mm;
+              max-height: 200mm;
               padding: 4mm 6mm;
               position: relative;
               page-break-after: avoid !important;

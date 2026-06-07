@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T06:45:58.646Z",
+  "lastUnifiedRun": "2026-06-07T07:01:17.604Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1442,17 +1442,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-pouch-suppliers-for-pet-food",
       "status": "Pending Approval",
       "volume": 920,
       "keyword": "compostable pouch suppliers for pet food",
-      "difficulty": "Low",
-      "slug": "compostable-pouch-suppliers-for-pet-food"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1500,
       "keyword": "stand up pouch filling and sealing equipment",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "stand-up-pouch-filling-and-sealing-equipment"
     },
     {
       "status": "Pending",
@@ -1595,9 +1596,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T06:45:37.375Z",
+      "timestamp": "2026-06-07T07:00:59.418Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch suppliers for pet food\" to /blog/compostable-pouch-suppliers-for-pet-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch filling and sealing equipment\" to /blog/stand-up-pouch-filling-and-sealing-equipment (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch suppliers for pet food\" to /blog/compostable-pouch-suppliers-for-pet-food (Pending Approval)",
+      "timestamp": "2026-06-07T06:45:37.375Z"
     },
     {
       "action": "Autopilot Generation Draft",
