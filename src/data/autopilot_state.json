@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T17:45:29.509Z",
+  "lastUnifiedRun": "2026-06-07T18:00:31.535Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 1,
@@ -1750,17 +1750,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-printed-custom-sachet-sizes",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "digital printed custom sachet sizes",
-      "difficulty": "Low",
-      "slug": "digital-printed-custom-sachet-sizes"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "sustainable flexible packaging for powders",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "sustainable-flexible-packaging-for-powders"
     },
     {
       "status": "Pending",
@@ -1855,9 +1856,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T17:45:21.376Z",
+      "timestamp": "2026-06-07T18:00:21.536Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printed custom sachet sizes\" to /blog/digital-printed-custom-sachet-sizes (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable flexible packaging for powders\" to /blog/sustainable-flexible-packaging-for-powders (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed custom sachet sizes\" to /blog/digital-printed-custom-sachet-sizes (Pending Approval)",
+      "timestamp": "2026-06-07T17:45:21.376Z"
     },
     {
       "action": "Autopilot Generation Draft",
