@@ -13638,6 +13638,283 @@
                         }
                     }
                 }
+            },
+            "labelsAndStickers": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Custom Labels & Stickers | Sheet Labels, Roll Stickers, Die-Cut | Achieve Pack",
+                        "description": "Professional custom labels and stickers with premium materials, eco-friendly options, and expert finishes. Sheet labels, roll stickers, die-cut, and kiss-cut types. No minimum order.",
+                        "heroTitle": "Custom Labels & Stickers",
+                        "heroSubtitle": "Sheet Labels • Roll Stickers • Die-Cut • Eco-Friendly Options",
+                        "introSummary": "Complete labeling and sticker solutions with premium materials, custom shapes, and professional finishes for every brand.",
+                        "keywords": [
+                            "custom labels",
+                            "custom stickers",
+                            "sheet labels",
+                            "roll stickers",
+                            "die-cut stickers",
+                            "kiss cut stickers",
+                            "eco-friendly labels",
+                            "product labels",
+                            "branded stickers"
+                        ]
+                    },
+                    "clickToEnlarge": "Click to enlarge Click to enlarge",
+                    "gallery": {
+                        "item1": {
+                            "title": "Custom Sheet Labels",
+                            "desc": "CustomPaperNotAdhesiveLabel"
+                        },
+                        "item2": {
+                            "title": "Brand Label Overview",
+                            "desc": "BrandLabelOverview"
+                        },
+                        "item3": {
+                            "title": "Labels on Pouches",
+                            "desc": "LabelApplicationAtStand-Up Pouches"
+                        },
+                        "item4": {
+                            "title": "Multi-Material Labels",
+                            "desc": "MultipleMaterialLabel"
+                        },
+                        "item5": {
+                            "title": "Custom Stickers",
+                            "desc": "CustomSticker"
+                        },
+                        "item6": {
+                            "title": "Four Sticker Types",
+                            "desc": "Four TypesStickerCategoryType"
+                        },
+                        "item7": {
+                            "title": "Custom Shapes",
+                            "desc": "Custom Shape"
+                        },
+                        "item8": {
+                            "title": "Eco-Friendly Materials",
+                            "desc": "Eco-Friendly Materials"
+                        },
+                        "item9": {
+                            "title": "Surface Finishes",
+                            "desc": "Surface Finish"
+                        },
+                        "item10": {
+                            "title": "Brand Applications",
+                            "desc": "BrandApplicationScenario"
+                        }
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Custom Labels & Stickers Overview",
+                            "summaryStrong": "Complete labeling and sticker solutions for every brand",
+                            "summaryText": " — From professional sheet labels to factory-grade roll stickers, we provide full customization with premium materials, eco-friendly options, and expert printing capabilities.",
+                            "summaryStrongCn": "ForEachUnitBrandProvideCompleteOfLabelAndStickerSolveSolution",
+                            "summaryTextCn": " — FromProfessionalIndustryPaperNotAdhesiveLabelToFactory GradeRoll FormSticker，WeProvidePremiumMaterial、Eco-FriendlyOptionsAndProfessionalIndustryPrintingCanPowerOfFullFaceCustomService。",
+                            "badgeSheet": "Sheet Labels",
+                            "badgeRoll": "Roll Stickers",
+                            "badgeDieCut": "Die-Cut Stickers",
+                            "badgeKissCut": "Kiss Cut",
+                            "badgeEcoFriendly": "Eco-Friendly",
+                            "cardLabels": {
+                                "title": "Custom Sheet Labels",
+                                "titleCn": "CustomPaperNotAdhesiveLabel",
+                                "desc": "Professional sheet labels with no minimum order, print-ready in 2-3 business days. Perfect for products, events, and small batch customization."
+                            },
+                            "cardStickers": {
+                                "title": "Custom Stickers",
+                                "titleCn": "Factory GradeCustomSticker",
+                                "desc": "Factory-grade custom stickers with multiple types, shapes, materials, and finishes. Cut-to-size, roll, sheet, and kiss-cut options."
+                            }
+                        },
+                        "labels": {
+                            "title": "Custom Sheet Labels",
+                            "section1": {
+                                "title": "Professional Sheet Labels for Any Product",
+                                "titleCn": "Suitable forAnyProductOfProfessionalIndustryPaperLabel",
+                                "content": "High-quality sheet labels designed for products, events, personal use, and small batch customization. Multiple material options including white matte, glossy, kraft, and clear films. Strong permanent adhesive ensures your labels stay perfectly applied.",
+                                "contentCn": "High Quality Paper Adhesive Labels，Suitable forProductLabel、ActivityLabel...[truncated]"
+                            },
+                            "section2": {
+                                "title": "Perfect Pairing with Flexible Packaging",
+                                "titleCn": "AndFlexiblePackagingCompleteBeautyMatchWith",
+                                "content": "Our custom labels are designed to complement our stand-up pouches and flexible packaging. Whether you need branded labels for your pouches or separate product labeling, we ensure consistent quality across your entire packaging system.",
+                                "contentCn": "OurCustomLabelPurposeInAndStand-Up PouchesAndFlexiblePackagingCompleteBeautyWithSuitable。NoTheoryYouRequireNeedBagChildBrandLabelAlsoIsIndependentProductLabeling...[truncated]"
+                            },
+                            "benefits": {
+                                "noMinimum": {
+                                    "title": "No Minimum",
+                                    "desc": "Order any quantity",
+                                    "sub": "NoMostLowMinimum OrderVolume"
+                                },
+                                "days": {
+                                    "title": "2-3 Days",
+                                    "desc": "Print-ready turnaround",
+                                    "sub": "FastOutGoods"
+                                },
+                                "multiDesign": {
+                                    "title": "Multi-Design",
+                                    "desc": "Discounts available",
+                                    "sub": "Multi-Design Discounts"
+                                },
+                                "strongAdhesive": {
+                                    "title": "Strong Adhesive",
+                                    "desc": "Permanent hold",
+                                    "sub": "StrongPowerGlueStick"
+                                }
+                            }
+                        },
+                        "stickers": {
+                            "title": "Custom Stickers",
+                            "section1": {
+                                "title": "Four Sticker Types for Every Need",
+                                "titleCn": "Four TypesStickerCategoryTypeMeetVariousRequireDemand",
+                                "content": "Choose from Cut to Size (individual die-cut stickers), Roll (continuous roll for high-volume application), Sheet (multiple stickers per sheet), and Kiss Cut (stickers on backing sheet for easy peeling). Each type is optimized for specific use cases.",
+                                "contentCn": "CanChooseDie-Cut Sheets、Roll Form、Paper StyleAndDie Cut。Each TypeCategoryTypeAllNeedleForSpecificUseScenarioOptimizeization。"
+                            },
+                            "section2": {
+                                "title": "Unlimited Shape & Size Options",
+                                "titleCn": "NoLimitShapeAndDimensionsChoose",
+                                "content": "Go beyond standard shapes with our custom die-cutting capabilities. Square, circle, oval, rounded rectangle, heart, hexagon, starburst, or completely custom shapes — we can produce any design you need with precision cutting.",
+                                "contentCn": "Break ThroughStandardShapeLimit，WeProvideCustomDie CutCanPower。Square、Round、Oval、Rounded RectangleForm、HeartForm、SixEdgeForm，OrCompleteCustom Shape。"
+                            },
+                            "benefits": {
+                                "roll": {
+                                    "title": "Roll Stickers",
+                                    "desc": "High-volume ready",
+                                    "sub": "Roll FormSticker"
+                                },
+                                "dieCut": {
+                                    "title": "Die-Cut",
+                                    "desc": "Custom shapes",
+                                    "sub": "Die CutFormType"
+                                },
+                                "sheet": {
+                                    "title": "Sheet Stickers",
+                                    "desc": "Multi per sheet",
+                                    "sub": "Paper Style"
+                                },
+                                "kissCut": {
+                                    "title": "Kiss Cut",
+                                    "desc": "Easy peeling",
+                                    "sub": "Die Cut"
+                                }
+                            }
+                        },
+                        "materials": {
+                            "title": "Materials & Finishes",
+                            "section1": {
+                                "title": "Eco-Friendly & Sustainable Options",
+                                "titleCn": "Eco-FriendlyCanContinuousChoose",
+                                "content": "Choose environmentally responsible materials including PLA-based biodegradable films, FSC-certified paper stocks, and recyclable substrates. Perfect for brands committed to reducing environmental impact.",
+                                "contentCn": "ChooseEco-FriendlyResponsibleOfMaterial，PackIncludingPLABaseCanDegradableFilm、FSCCertificationPaperAndRecyclableBase Material。Ideal forSuitableUltimatePowerAtReduceEnvironmentImpactOfBrand。"
+                            },
+                            "section2": {
+                                "title": "Premium Surface Finishes",
+                                "titleCn": "Premium Surface Finishing",
+                                "content": "Elevate your labels and stickers with professional finishes: Matte for sophisticated, non-reflective look; Gloss for vibrant shine; UV Coating for enhanced durability; and Hot Foil Stamping for luxurious metallic accents.",
+                                "contentCn": "UseProfessionalIndustrySurfaceProcessingImproveLabelAndStickerQuality：MattePresentFineUltimateOutsideView、GlossWithComeGloss、UVCoatingLayerIncreaseStrongResistantLongProperty、Hot StampingWorkerArtStrikeMakeLuxury GoldBelongQualityFeel。"
+                            },
+                            "finishes": {
+                                "matte": {
+                                    "title": "Matte",
+                                    "sub": "Matte"
+                                },
+                                "gloss": {
+                                    "title": "Gloss",
+                                    "sub": "Gloss"
+                                },
+                                "uv": {
+                                    "title": "UV Coating",
+                                    "sub": "UVCoatingLayer"
+                                },
+                                "foil": {
+                                    "title": "Hot Foil",
+                                    "sub": "Hot Stamping"
+                                },
+                                "kraft": {
+                                    "title": "Kraft",
+                                    "sub": "Kraft Paper"
+                                }
+                            }
+                        },
+                        "applications": {
+                            "title": "Brand Applications",
+                            "section1": {
+                                "title": "From Factory to Brand Application",
+                                "titleCn": "FromFactoryToBrandLand",
+                                "content": "Our labels and stickers work seamlessly across applications: product branding on bottles and jars, flexible packaging labeling, box sealing, food container identification, promotional materials, and event marketing.",
+                                "contentCn": "OurLabelAndStickerCanNoSeamApplicationAtVariousScenario：Bottles and JarsProductBrand、FlexiblePackagingLabeling、BoxChildSeal、FoodCapacityDeviceIdentification、PromotionMaterialAndActivityMarketing。"
+                            },
+                            "benefits": {
+                                "branding": {
+                                    "title": "Product Branding",
+                                    "desc": "Bottles, jars, pouches, boxes",
+                                    "sub": "ProductBrandLabeling"
+                                },
+                                "sealing": {
+                                    "title": "Package Sealing",
+                                    "desc": "Seal bags, boxes, envelopes",
+                                    "sub": "PackagingSeal"
+                                },
+                                "marketing": {
+                                    "title": "Marketing & Events",
+                                    "desc": "Promotional, giveaways",
+                                    "sub": "MarketingAndActivity"
+                                }
+                            }
+                        },
+                        "related": {
+                            "title": "Complete Your Packaging Solution",
+                            "content": "Combine custom labels and stickers with our flexible packaging solutions for a complete branded experience:",
+                            "item1": {
+                                "title": "Stand-Up Pouches",
+                                "desc": "Flexible packaging base"
+                            },
+                            "item2": {
+                                "title": "Flat Pouches",
+                                "desc": "Sachets & samples"
+                            },
+                            "item3": {
+                                "title": "Surface Finishes",
+                                "desc": "Matte, gloss, soft-touch"
+                            },
+                            "item4": {
+                                "title": "Compostable Materials",
+                                "desc": "Eco-friendly options"
+                            }
+                        },
+                        "faq": {
+                            "title": "Frequently Asked Questions",
+                            "q1": {
+                                "q": "What is the difference between labels and stickers?",
+                                "a": "Labels are typically functional identifiers designed for product packaging, with focus on information display and brand identity. Stickers can be both functional and decorative, often used for marketing, branding, sealing, and promotional purposes. Both use similar materials and printing methods."
+                            },
+                            "q2": {
+                                "q": "Do you offer eco-friendly label options?",
+                                "a": "Yes! We offer PLA-based biodegradable films, FSC-certified paper stocks, and recyclable substrates. Our eco-friendly options work great with our compostable packaging to create a fully sustainable brand experience."
+                            },
+                            "q3": {
+                                "q": "Can I use custom labels with your stand-up pouches?",
+                                "a": "Absolutely! Our custom labels are specifically designed to complement our stand-up pouches and flexible packaging. We ensure adhesive compatibility and sizing works perfectly with our pouch surfaces for a cohesive brand presentation."
+                            },
+                            "q4": {
+                                "q": "What finishing options are available?",
+                                "a": "We offer multiple finishes: Matte for sophisticated appeal, Gloss for vibrant shine, UV Coating for durability, Hot Foil Stamping for metallic accents, and Kraft for natural aesthetics. Finishes can dramatically elevate your product's appearance."
+                            },
+                            "q5": {
+                                "q": "How fast is the turnaround time?",
+                                "a": "For sheet labels, turnaround is 2-3 business days after design approval. Roll stickers and larger orders typically take 7-10 days production. Our team reviews every file and provides feedback before printing begins."
+                            }
+                        },
+                        "cta": {
+                            "title": "Ready to Order Custom Labels & Stickers?",
+                            "subtitle": "Get Your Custom Quote Today",
+                            "content": "Contact our team to discuss your labeling and sticker requirements. Professional quality, flexible options, and expert support throughout the process.",
+                            "btnCall": "Book Free Consultation",
+                            "btnWa": "WhatsApp Chat",
+                            "btnMail": "Email Quote"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

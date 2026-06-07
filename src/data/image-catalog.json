@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2980,
+  "total_images": 2981,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1442,
+    ".png": 1443,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 278,
+      "count": 279,
       "images": [
+        {
+          "filename": "mono-pe-compostable-film-for-flexible-packaging-hero.png",
+          "path": "/imgs/blog/heros/mono-pe-compostable-film-for-flexible-packaging-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T16:00:23.096Z"
+        },
         {
           "filename": "kraft-paper-sachet-with-window-for-coffee-hero.png",
           "path": "/imgs/blog/heros/kraft-paper-sachet-with-window-for-coffee-hero.png",

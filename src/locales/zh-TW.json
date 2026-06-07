@@ -13539,6 +13539,283 @@
                         }
                     }
                 }
+            },
+            "labelsAndStickers": {
+                "achievePack": {
+                    "seo": {
+                        "title": "客製化標籤和貼紙|單張標籤、捲筒貼紙、模切 |成就包",
+                        "description": "專業客製化標籤和貼紙採用優質材料、環保選項和專業飾面。 單張標籤、捲筒貼紙、模切和吻切類型。 无最低订购量。",
+                        "heroTitle": "Custom Labels & Stickers",
+                        "heroSubtitle": "Sheet Labels • Roll Stickers • Die-Cut • Eco-Friendly Options",
+                        "introSummary": "為每個品牌提供優質材料、客製化形狀和專業飾面的完整標籤和貼紙解決方案。",
+                        "keywords": [
+                            "自訂標籤",
+                            "客製化貼紙",
+                            "標籤紙",
+                            "捲貼紙",
+                            "模切貼紙",
+                            "吻切貼紙",
+                            "eco-friendly labels",
+                            "產品標籤",
+                            "branded stickers"
+                        ]
+                    },
+                    "clickToEnlarge": "點擊放大 點擊放大",
+                    "gallery": {
+                        "item1": {
+                            "title": "自訂標籤",
+                            "desc": "訂製紙質不沾膠標籤"
+                        },
+                        "item2": {
+                            "title": "Brand Label Overview",
+                            "desc": "BrandLabelOverview"
+                        },
+                        "item3": {
+                            "title": "袋子上的標籤",
+                            "desc": "自立袋標籤應用"
+                        },
+                        "item4": {
+                            "title": "Multi-Material Labels",
+                            "desc": "MultipleMaterialLabel"
+                        },
+                        "item5": {
+                            "title": "客製化貼紙",
+                            "desc": "客製化貼紙"
+                        },
+                        "item6": {
+                            "title": "四種貼紙類型",
+                            "desc": "四種類型貼紙類別類型"
+                        },
+                        "item7": {
+                            "title": "Custom Shapes",
+                            "desc": "Custom Shape"
+                        },
+                        "item8": {
+                            "title": "環保材料",
+                            "desc": "環保材料"
+                        },
+                        "item9": {
+                            "title": "表面處理",
+                            "desc": "表面處理"
+                        },
+                        "item10": {
+                            "title": "品牌應用",
+                            "desc": "品牌應用場景"
+                        }
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "自訂標籤和貼紙概述",
+                            "summaryStrong": "適合每個品牌的完整標籤和貼紙解決方案",
+                            "summaryText": "— 從專業的片材標籤到工廠級捲筒貼紙，我們提供優質材料、環保選項和專業列印能力的全面客製化。",
+                            "summaryStrongCn": "ForEachUnitBrandProvideCompleteOfLabelAndStickerSolveSolution",
+                            "summaryTextCn": "— 從專業工業紙張不乾膠標籤到工廠級卷狀貼紙，我們提供優質材料、環保選項和專業工業印刷CanPowerOfFullFace客製化服務。",
+                            "badgeSheet": "標籤紙",
+                            "badgeRoll": "捲貼紙",
+                            "badgeDieCut": "模切貼紙",
+                            "badgeKissCut": "吻切",
+                            "badgeEcoFriendly": "環保",
+                            "cardLabels": {
+                                "title": "自訂標籤",
+                                "titleCn": "訂製紙質不沾膠標籤",
+                                "desc": "專業標籤，無最低訂購量，2-3 個工作天內即可列印。 非常適合產品、活動和小批量客製化。"
+                            },
+                            "cardStickers": {
+                                "title": "客製化貼紙",
+                                "titleCn": "工廠級訂製貼紙",
+                                "desc": "工廠級訂製貼紙，具有多種類型、形狀、材料和飾面。 提供按尺寸切割、卷材切割、片材切割和吻切選項。"
+                            }
+                        },
+                        "labels": {
+                            "title": "自訂標籤",
+                            "section1": {
+                                "title": "適用於任何產品的專業標籤",
+                                "titleCn": "適用於任何產品的專業工業紙標籤",
+                                "content": "專為產品、活動、個人使用和小批量定製而設計的高品質標籤。 多種材質選擇，包括白色霧面、亮光、牛皮紙和透明薄膜。 強力的永久性黏合劑可確保您的標籤保持完美黏貼。",
+                                "contentCn": "高品質紙質不乾膠標籤，適用於產品標籤、活動標籤...[已截斷]"
+                            },
+                            "section2": {
+                                "title": "與軟包裝的完美搭配",
+                                "titleCn": "與靈活的包裝完整的美感相匹配",
+                                "content": "我們的客製化標籤旨在補充我們的自立袋和軟包裝。 無論您需要為袋子貼上品牌標籤還是單獨的產品標籤，我們都能確保您整個包裝系統的品質始終如一。",
+                                "contentCn": "我們的客製化標籤用途和自立袋和靈活包裝完整美觀且適合。 NoTheoryYouRequireNeedBagChildBrandLabelAlsoIsIndependentProductLabeling...[截斷]"
+                            },
+                            "benefits": {
+                                "noMinimum": {
+                                    "title": "無最低要求",
+                                    "desc": "訂購任意數量",
+                                    "sub": "無最低最低訂單量"
+                                },
+                                "days": {
+                                    "title": "2-3天",
+                                    "desc": "印刷就緒週轉",
+                                    "sub": "快速出品"
+                                },
+                                "multiDesign": {
+                                    "title": "多元設計",
+                                    "desc": "有折扣",
+                                    "sub": "多種設計折扣"
+                                },
+                                "strongAdhesive": {
+                                    "title": "強力黏合劑",
+                                    "desc": "永久保留",
+                                    "sub": "強力膠棒"
+                                }
+                            }
+                        },
+                        "stickers": {
+                            "title": "客製化貼紙",
+                            "section1": {
+                                "title": "四種貼紙類型可滿足各種需求",
+                                "titleCn": "四種類型貼紙類別類型滿足各種需求需求",
+                                "content": "從「按尺寸切割」（單一模切貼紙）、「捲」（用於大批量應用的連續卷）、「單張」（每張多張貼紙）和「吻切」（背紙上的貼紙以便於剝離）中進行選擇。 每種類型都針對特定用例進行了最佳化。",
+                                "contentCn": "可選擇模切片材、捲筒形式、紙張樣式和模切。每種類型類別類型均針對特定使用場景進行最佳化。"
+                            },
+                            "section2": {
+                                "title": "無限的形狀和尺寸選項",
+                                "titleCn": "無限制形狀和尺寸選擇",
+                                "content": "利用我們的定制模切功能超越標準形狀。 正方形、圓形、橢圓形、圓角矩形、心形、六邊形、星形或完全客製化的形狀——我們可以透過精密切割來生產您需要的任何設計。",
+                                "contentCn": "突破標準形狀限制，我們提供客製化模切CanPower。方形、圓形、橢圓形、圓角矩形形狀、心形形狀、六邊形形狀，或完整的客製化形狀。"
+                            },
+                            "benefits": {
+                                "roll": {
+                                    "title": "捲貼紙",
+                                    "desc": "大批量準備就緒",
+                                    "sub": "捲狀貼紙"
+                                },
+                                "dieCut": {
+                                    "title": "模切",
+                                    "desc": "客製化形狀",
+                                    "sub": "CutForm 類型"
+                                },
+                                "sheet": {
+                                    "title": "貼紙",
+                                    "desc": "每張多張",
+                                    "sub": "紙張樣式"
+                                },
+                                "kissCut": {
+                                    "title": "吻切",
+                                    "desc": "易剝落",
+                                    "sub": "模切"
+                                }
+                            }
+                        },
+                        "materials": {
+                            "title": "材料和飾面",
+                            "section1": {
+                                "title": "環保和永續的選擇",
+                                "titleCn": "環保可連續選擇",
+                                "content": "選擇對環境負責的材料，包括基於 PLA 的可生物降解薄膜、FSC 認證的紙材和可回收基材。 非常適合致力於減少環境影響的品牌。",
+                                "contentCn": "選擇環保負責任的材料，包裝包括PLA底座可降解薄膜、FSC認證紙張和可回收基材。非常適合適合終極動力並減少環境影響的品牌。"
+                            },
+                            "section2": {
+                                "title": "優質表面處理",
+                                "titleCn": "高級表面處理",
+                                "content": "透過專業飾面提升您的標籤和貼紙的品質：霧面打造精緻、不反光的外觀；光澤充滿活力； UV 塗層增強耐用性；和燙金打造奢華金屬裝飾。",
+                                "contentCn": "採用專業工業表面處理提高標籤和貼紙品質：霧面呈現精細極致外觀、光澤隨來光澤、UV塗層增加強耐久性能、燙印工藝術罷工使奢華黃金屬於品質感。"
+                            },
+                            "finishes": {
+                                "matte": {
+                                    "title": "霧面的",
+                                    "sub": "霧面的"
+                                },
+                                "gloss": {
+                                    "title": "光澤度",
+                                    "sub": "光澤度"
+                                },
+                                "uv": {
+                                    "title": "紫外線塗層",
+                                    "sub": "UV塗層"
+                                },
+                                "foil": {
+                                    "title": "熱箔",
+                                    "sub": "燙印"
+                                },
+                                "kraft": {
+                                    "title": "卡夫",
+                                    "sub": "牛皮紙"
+                                }
+                            }
+                        },
+                        "applications": {
+                            "title": "品牌應用",
+                            "section1": {
+                                "title": "從工廠到品牌應用",
+                                "titleCn": "從工廠到品牌地",
+                                "content": "我們的標籤和貼紙可在各種應用中無縫協作：瓶子和罐子上的產品品牌、軟包裝標籤、盒子密封、食品容器標識、促銷材料和活動行銷。",
+                                "contentCn": "我們的標籤和貼紙可以無接縫應用在各種場景：瓶罐產品品牌、柔性包裝標籤、盒子兒童密封、食品容量設備識別、促銷材料和活動行銷。"
+                            },
+                            "benefits": {
+                                "branding": {
+                                    "title": "產品品牌",
+                                    "desc": "瓶子、罐子、袋子、盒子",
+                                    "sub": "產品品牌標籤"
+                                },
+                                "sealing": {
+                                    "title": "包裝密封",
+                                    "desc": "密封袋子、盒子、信封",
+                                    "sub": "包裝密封"
+                                },
+                                "marketing": {
+                                    "title": "行銷與活動",
+                                    "desc": "促銷、贈品",
+                                    "sub": "行銷與活動"
+                                }
+                            }
+                        },
+                        "related": {
+                            "title": "完善您的包裝解決方案",
+                            "content": "將客製化標籤和貼紙與我們的軟包裝解決方案相結合，以獲得完整的品牌體驗：",
+                            "item1": {
+                                "title": "自立袋",
+                                "desc": "軟包裝基地"
+                            },
+                            "item2": {
+                                "title": "平袋",
+                                "desc": "小袋和樣品"
+                            },
+                            "item3": {
+                                "title": "表面處理",
+                                "desc": "霧面、亮光、觸感柔軟"
+                            },
+                            "item4": {
+                                "title": "可堆肥材料",
+                                "desc": "環保選擇"
+                            }
+                        },
+                        "faq": {
+                            "title": "常見問題解答",
+                            "q1": {
+                                "q": "What is the difference between labels and stickers?",
+                                "a": "標籤通常是為產品包裝設計的功能標識符，重點是資訊顯示和品牌標識。 貼紙既可以是功能性的，也可以是裝飾性的，通常用於行銷、品牌、密封和促銷目的。 兩者都使用相似的材料和印刷方法。"
+                            },
+                            "q2": {
+                                "q": "你們有提供環保標章選項嗎？",
+                                "a": "是的！ 我們提供基於 PLA 的可生物降解薄膜、FSC 認證的紙材和可回收基材。 我們的環保選項與可堆肥包裝完美配合，打造完全永續的品牌體驗。"
+                            },
+                            "q3": {
+                                "q": "我可以在你們的自立袋上使用客製化標籤嗎？",
+                                "a": "絕對地！ 我們的客製化標籤專門設計用於補充我們的自立袋和軟包裝。 我們確保黏合劑相容性和尺寸與我們的袋表面完美配合，以實現有凝聚力的品牌展示。"
+                            },
+                            "q4": {
+                                "q": "有哪些整理選項可供選擇？",
+                                "a": "我們提供多種飾面：霧面打造精緻魅力，光澤打造活力光澤，UV 塗層打造耐用，燙金打造金屬裝飾，牛皮紙打造自然美感。 飾面可以大大提升產品的外觀。"
+                            },
+                            "q5": {
+                                "q": "週轉時間有多快？",
+                                "a": "對於片材標籤，週轉時間為設計批准後 2-3 個工作天。 卷狀貼紙和較大訂單通常需要 7-10 天的生產時間。 我們的團隊會在列印開始之前審核每個文件並提供回饋。"
+                            }
+                        },
+                        "cta": {
+                            "title": "準備好訂購客製化標籤和貼紙了嗎？",
+                            "subtitle": "Get Your Custom Quote Today",
+                            "content": "Contact our team to discuss your labeling and sticker requirements. Professional quality, flexible options, and expert support throughout the process.",
+                            "btnCall": "預約免費諮詢",
+                            "btnWa": "WhatsApp 聊天",
+                            "btnMail": "電子郵件報價"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

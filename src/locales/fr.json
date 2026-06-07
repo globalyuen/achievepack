@@ -13539,6 +13539,283 @@
                         }
                     }
                 }
+            },
+            "labelsAndStickers": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Étiquettes et autocollants personnalisés | Étiquettes en feuille, autocollants en rouleau, découpés | Réaliser le pack",
+                        "description": "Étiquettes et autocollants personnalisés professionnels avec des matériaux haut de gamme, des options respectueuses de l'environnement et des finitions expertes. Étiquettes en feuille, autocollants en rouleau, types découpés à l'emporte-pièce et découpés par baiser. Pas de minimum de commande.",
+                        "heroTitle": "Étiquettes et autocollants personnalisés",
+                        "heroSubtitle": "Étiquettes en feuille • Autocollants en rouleau • Découpés • Options respectueuses de l'environnement",
+                        "introSummary": "Solutions complètes d'étiquetage et d'autocollants avec des matériaux haut de gamme, des formes personnalisées et des finitions professionnelles pour chaque marque.",
+                        "keywords": [
+                            "étiquettes personnalisées",
+                            "autocollants personnalisés",
+                            "étiquettes de feuille",
+                            "rouleau d'autocollants",
+                            "autocollants découpés",
+                            "autocollants coupés en baisers",
+                            "étiquettes écologiques",
+                            "étiquettes de produits",
+                            "autocollants de marque"
+                        ]
+                    },
+                    "clickToEnlarge": "Cliquez pour agrandir Cliquez pour agrandir",
+                    "gallery": {
+                        "item1": {
+                            "title": "Étiquettes de feuille personnalisées",
+                            "desc": "CustomPaperNotAdhesiveLabel"
+                        },
+                        "item2": {
+                            "title": "Présentation de l'étiquette de marque",
+                            "desc": "BrandLabelVue d'ensemble"
+                        },
+                        "item3": {
+                            "title": "Étiquettes sur les pochettes",
+                            "desc": "LabelApplicationAtPochettes Stand-Up"
+                        },
+                        "item4": {
+                            "title": "Étiquettes multi-matériaux",
+                            "desc": "Étiquette de matériau multiple"
+                        },
+                        "item5": {
+                            "title": "Autocollants personnalisés",
+                            "desc": "Autocollant personnalisé"
+                        },
+                        "item6": {
+                            "title": "Quatre types d'autocollants",
+                            "desc": "Quatre typesAutocollantCatégorieType"
+                        },
+                        "item7": {
+                            "title": "Formes personnalisées",
+                            "desc": "Forme personnalisée"
+                        },
+                        "item8": {
+                            "title": "Matériaux respectueux de l'environnement",
+                            "desc": "Matériaux respectueux de l'environnement"
+                        },
+                        "item9": {
+                            "title": "Finitions de surface",
+                            "desc": "Finition de surface"
+                        },
+                        "item10": {
+                            "title": "Applications de marque",
+                            "desc": "Scénario d'application de marque"
+                        }
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Présentation des étiquettes et autocollants personnalisés",
+                            "summaryStrong": "Solutions complètes d'étiquetage et d'autocollants pour chaque marque",
+                            "summaryText": "— Des étiquettes professionnelles en feuilles aux autocollants en rouleau de qualité usine, nous proposons une personnalisation complète avec des matériaux haut de gamme, des options respectueuses de l'environnement et des capacités d'impression expertes.",
+                            "summaryStrongCn": "ForEachUnitBrandProvideCompleteOfLabelAndStickerSolveSolution",
+                            "summaryTextCn": "— FromProfessionalIndustryPaperNotAdhesiveLabelToFactory GradeRoll FormSticker, WeProvidePremiumMaterial、Eco-FriendlyOptionsAndProfessionalIndustryPrintingCanPowerOfFullFaceCustomService.",
+                            "badgeSheet": "Étiquettes de feuille",
+                            "badgeRoll": "Rouleaux d'autocollants",
+                            "badgeDieCut": "Autocollants découpés",
+                            "badgeKissCut": "Coupe de baiser",
+                            "badgeEcoFriendly": "Respectueux de l'environnement",
+                            "cardLabels": {
+                                "title": "Étiquettes de feuille personnalisées",
+                                "titleCn": "CustomPaperNotAdhesiveLabel",
+                                "desc": "Étiquettes professionnelles en feuilles sans minimum de commande, prêtes à imprimer en 2-3 jours ouvrables. Parfait pour les produits, les événements et la personnalisation de petits lots."
+                            },
+                            "cardStickers": {
+                                "title": "Autocollants personnalisés",
+                                "titleCn": "Autocollant personnalisé de qualité usine",
+                                "desc": "Autocollants personnalisés de qualité usine avec plusieurs types, formes, matériaux et finitions. Options de coupe sur mesure, de rouleau, de feuille et de coupe mi-cuisse."
+                            }
+                        },
+                        "labels": {
+                            "title": "Étiquettes de feuille personnalisées",
+                            "section1": {
+                                "title": "Étiquettes professionnelles pour tout produit",
+                                "titleCn": "Convient pour n'importe quel produit de l'industrie professionnelle.",
+                                "content": "Feuilles d'étiquettes de haute qualité conçues pour les produits, les événements, l'usage personnel et la personnalisation de petits lots. Plusieurs options de matériaux, notamment des films blancs mats, brillants, kraft et transparents. Un adhésif permanent puissant garantit que vos étiquettes restent parfaitement appliquées.",
+                                "contentCn": "Étiquettes adhésives en papier de haute qualité, adaptées à ProductLabel, ActivityLabel... [tronqué]"
+                            },
+                            "section2": {
+                                "title": "Accord parfait avec un emballage flexible",
+                                "titleCn": "EtEmballage flexibleCompletBeautéMatchAvec",
+                                "content": "Nos étiquettes personnalisées sont conçues pour compléter nos sachets stand-up et nos emballages flexibles. Que vous ayez besoin d'étiquettes de marque pour vos sachets ou d'un étiquetage de produits séparé, nous garantissons une qualité constante sur l'ensemble de votre système d'emballage.",
+                                "contentCn": "OurCustomLabelPurposeInAndStand-Up PouchesAndFlexiblePackagingCompleteBeautyWithConvient.NoTheoryYouRequireNeedBagChildBrandLabelAlsoIsIndependentProductLabeling...[tronqué]"
+                            },
+                            "benefits": {
+                                "noMinimum": {
+                                    "title": "Pas de minimum",
+                                    "desc": "Commandez n'importe quelle quantité",
+                                    "sub": "NonVolume minimum de commande le plus faible"
+                                },
+                                "days": {
+                                    "title": "2-3 jours",
+                                    "desc": "Délai prêt à imprimer",
+                                    "sub": "FastOutGoods"
+                                },
+                                "multiDesign": {
+                                    "title": "Multi-conception",
+                                    "desc": "Réductions disponibles",
+                                    "sub": "Remises multi-designs"
+                                },
+                                "strongAdhesive": {
+                                    "title": "Adhésif puissant",
+                                    "desc": "Maintien permanent",
+                                    "sub": "StrongPowerColleStick"
+                                }
+                            }
+                        },
+                        "stickers": {
+                            "title": "Autocollants personnalisés",
+                            "section1": {
+                                "title": "Quatre types d'autocollants pour chaque besoin",
+                                "titleCn": "Quatre typesAutocollantCatégorieTypeRépondreDiversexigerDemande",
+                                "content": "Choisissez entre Cut to Size (autocollants découpés individuellement), Roll (rouleau continu pour une application à grand volume), Sheet (plusieurs autocollants par feuille) et Kiss Cut (autocollants sur la feuille de support pour un décollement facile). Chaque type est optimisé pour des cas d'utilisation spécifiques.",
+                                "contentCn": "CanChooseDie-Cut Sheets, Roll Form, Paper StyleAndDie Cut. Chaque TypeCategoryTypeAllNeedleForSpecificUseScenarioOptimizeization."
+                            },
+                            "section2": {
+                                "title": "Options illimitées de forme et de taille",
+                                "titleCn": "NoLimitFormeEtDimensionsChoisir",
+                                "content": "Allez au-delà des formes standard grâce à nos capacités de découpe personnalisées. Carré, cercle, ovale, rectangle arrondi, cœur, hexagone, étoile ou formes entièrement personnalisées : nous pouvons produire n'importe quel design dont vous avez besoin avec une découpe de précision.",
+                                "contentCn": "Briser la limite de forme standard, nous fournissons une découpe personnalisée. Carré, rond, ovale, forme rectangulaire arrondie, forme de cœur, forme à six bords, ou forme personnalisée complète."
+                            },
+                            "benefits": {
+                                "roll": {
+                                    "title": "Rouleaux d'autocollants",
+                                    "desc": "Prêt pour les gros volumes",
+                                    "sub": "Autocollant en rouleau"
+                                },
+                                "dieCut": {
+                                    "title": "Découpée",
+                                    "desc": "Formes personnalisées",
+                                    "sub": "Le type de forme de coupe"
+                                },
+                                "sheet": {
+                                    "title": "Feuilles d'autocollants",
+                                    "desc": "Multi par feuille",
+                                    "sub": "Style de papier"
+                                },
+                                "kissCut": {
+                                    "title": "Coupe de baiser",
+                                    "desc": "Pelage facile",
+                                    "sub": "Découpé"
+                                }
+                            }
+                        },
+                        "materials": {
+                            "title": "Matériaux et finitions",
+                            "section1": {
+                                "title": "Options écologiques et durables",
+                                "titleCn": "ÉcologiquePeutContinuChoisir",
+                                "content": "Choisissez des matériaux respectueux de l'environnement, notamment des films biodégradables à base de PLA, des papiers certifiés FSC et des substrats recyclables. Parfait pour les marques engagées dans la réduction de l’impact environnemental.",
+                                "contentCn": "ChooseEco-FriendlyResponsibleOfMaterial,PackIncludingPLABaseCanDegradableFilm、FSCCertificationPaperAndRecyclableBase Material.Idéal pourSuitableUltimatePowerAtReduceEnvironmentImpactOfBrand."
+                            },
+                            "section2": {
+                                "title": "Finitions de surface haut de gamme",
+                                "titleCn": "Finition de surface haut de gamme",
+                                "content": "Améliorez vos étiquettes et autocollants avec des finitions professionnelles : mat pour un look sophistiqué et non réfléchissant ; Gloss pour une brillance éclatante ; Revêtement UV pour une durabilité améliorée ; et estampage à chaud pour des accents métalliques luxueux.",
+                                "contentCn": "UseProfessionalIndustrySurfaceProcessingImproveLabelAndStickerQuality：MattePresentFineUltimateOutsideView、GlossWithComeGloss、UVCoatingLayerIncreaseStrongResistantLongProperty、Hot StampingWorkerArtStrikeMakeLuxury GoldBelongQualityFeel。"
+                            },
+                            "finishes": {
+                                "matte": {
+                                    "title": "Mat",
+                                    "sub": "Mat"
+                                },
+                                "gloss": {
+                                    "title": "Brillant",
+                                    "sub": "Brillant"
+                                },
+                                "uv": {
+                                    "title": "Revêtement UV",
+                                    "sub": "UVCoatingCouche"
+                                },
+                                "foil": {
+                                    "title": "Feuille chaude",
+                                    "sub": "Marquage à chaud"
+                                },
+                                "kraft": {
+                                    "title": "Carton",
+                                    "sub": "Papier kraft"
+                                }
+                            }
+                        },
+                        "applications": {
+                            "title": "Applications de marque",
+                            "section1": {
+                                "title": "De l’usine à l’application de marque",
+                                "titleCn": "De l'usine à la marque",
+                                "content": "Nos étiquettes et autocollants fonctionnent de manière transparente dans toutes les applications : marquage de produits sur des bouteilles et des pots, étiquetage d'emballages flexibles, scellage de boîtes, identification de contenants alimentaires, matériel promotionnel et marketing événementiel.",
+                                "contentCn": "OurLabelAndStickerCanNoSeamApplicationAtVariousScenario：Bouteilles et bocauxProductBrand、FlexiblePackagingLabeling、BoxChildSeal、FoodCapacityDeviceIdentification、PromotionMaterialAndActivityMarketing."
+                            },
+                            "benefits": {
+                                "branding": {
+                                    "title": "Image de marque du produit",
+                                    "desc": "Bouteilles, pots, pochettes, boîtes",
+                                    "sub": "ProduitMarqueÉtiquetage"
+                                },
+                                "sealing": {
+                                    "title": "Scellage des emballages",
+                                    "desc": "Sceller les sacs, boîtes, enveloppes",
+                                    "sub": "EmballageScellé"
+                                },
+                                "marketing": {
+                                    "title": "Marketing et événements",
+                                    "desc": "Promotionnels, cadeaux",
+                                    "sub": "MarketingEtActivité"
+                                }
+                            }
+                        },
+                        "related": {
+                            "title": "Complétez votre solution d'emballage",
+                            "content": "Combinez des étiquettes et des autocollants personnalisés avec nos solutions d’emballage flexibles pour une expérience de marque complète :",
+                            "item1": {
+                                "title": "Pochettes verticales",
+                                "desc": "Base d'emballage flexible"
+                            },
+                            "item2": {
+                                "title": "Pochettes plates",
+                                "desc": "Sachets et échantillons"
+                            },
+                            "item3": {
+                                "title": "Finitions de surface",
+                                "desc": "Mat, brillant, doux au toucher"
+                            },
+                            "item4": {
+                                "title": "Matériaux compostables",
+                                "desc": "Options écologiques"
+                            }
+                        },
+                        "faq": {
+                            "title": "Foire aux questions",
+                            "q1": {
+                                "q": "Quelle est la différence entre les étiquettes et les autocollants ?",
+                                "a": "Les étiquettes sont généralement des identifiants fonctionnels conçus pour l'emballage des produits, en mettant l'accent sur l'affichage des informations et l'identité de la marque. Les autocollants peuvent être à la fois fonctionnels et décoratifs, souvent utilisés à des fins de marketing, de branding, de scellement et de promotion. Les deux utilisent des matériaux et des méthodes d’impression similaires."
+                            },
+                            "q2": {
+                                "q": "Proposez-vous des options de label écologique ?",
+                                "a": "Oui! Nous proposons des films biodégradables à base de PLA, des papiers certifiés FSC et des substrats recyclables. Nos options respectueuses de l'environnement fonctionnent parfaitement avec nos emballages compostables pour créer une expérience de marque entièrement durable."
+                            },
+                            "q3": {
+                                "q": "Puis-je utiliser des étiquettes personnalisées avec vos pochettes stand-up ?",
+                                "a": "Absolument! Nos étiquettes personnalisées sont spécialement conçues pour compléter nos sachets stand-up et nos emballages flexibles. Nous garantissons que la compatibilité adhésive et le dimensionnement fonctionnent parfaitement avec les surfaces de nos pochettes pour une présentation de marque cohérente."
+                            },
+                            "q4": {
+                                "q": "Quelles options de finition sont disponibles ?",
+                                "a": "Nous proposons plusieurs finitions : mate pour un attrait sophistiqué, brillante pour une brillance éclatante, revêtement UV pour la durabilité, estampage à chaud pour des accents métalliques et Kraft pour une esthétique naturelle. Les finitions peuvent rehausser considérablement l’apparence de votre produit."
+                            },
+                            "q5": {
+                                "q": "Quelle est la rapidité du délai d’exécution ?",
+                                "a": "Pour les étiquettes en feuille, le délai d’exécution est de 2 à 3 jours ouvrables après l’approbation de la conception. Les autocollants en rouleau et les commandes plus importantes prennent généralement 7 à 10 jours de production. Notre équipe examine chaque fichier et fournit des commentaires avant le début de l’impression."
+                            }
+                        },
+                        "cta": {
+                            "title": "Prêt à commander des étiquettes et des autocollants personnalisés ?",
+                            "subtitle": "Obtenez votre devis personnalisé aujourd'hui",
+                            "content": "Contactez notre équipe pour discuter de vos besoins en matière d’étiquetage et d’autocollants. Qualité professionnelle, options flexibles et assistance d'experts tout au long du processus.",
+                            "btnCall": "Réservez une consultation gratuite",
+                            "btnWa": "Chat WhatsApp",
+                            "btnMail": "Devis par e-mail"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
