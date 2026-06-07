@@ -1241,16 +1241,11 @@
                 "ctaButtonText": "Demander un échantillon gratuit",
                 "sections": {
                     "overview": {
-                        "title": "Qu’est-ce que l’emballage Mono-PE ?",
-                        "intro": "Les emballages Mono-PE (polyéthylène mono-matériau) sont entièrement fabriqués à partir de polyéthylène, ce qui les rend compatibles avec les filières de recyclage PE standards. Contrairement aux stratifiés multicouches traditionnels, les sachets mono-PE peuvent être recyclés via des programmes de dépôt en magasin et, de plus en plus, par le biais du recyclage en bordure de rue.",
-                        "keyBenefits": "Avantages clés :",
-                        "benefits": [
-                            "Recyclable dans le flux PE (code de recyclage #2 ou #4)",
-                            "Accepté dans les points de recyclage en magasin",
-                            "Bonnes propriétés barrières maintenues",
-                            "Thermoscellable et flexible",
-                            "Empreinte environnementale inférieure à celle du multi-matériaux"
-                        ]
+                        "symbol": {
+                            "title": "Code de recyclage #4 (LDPE) / #5 (PP)",
+                            "desc": "Nos sachets en mono-PE sont fabriqués à partir d'un seul matériau polyéthylène, accepté dans la plupart des programmes de recyclage en bord de rue et de dépôt en magasin. Le code de résine peut être imprimé sur votre emballage.",
+                            "artworkUsage": "Vous pouvez inclure le symbole de recyclage sur le design de votre sachet pour communiquer sur la recyclabilité auprès des consommateurs."
+                        }
                     },
                     "howItWorks": {
                         "title": "Comment Mono-PE atteint la barrière",
@@ -1296,6 +1291,176 @@
                             "Programmes Terracycle – Recyclage spécialisé pour les marques"
                         ],
                         "note": "Remarque : les infrastructures de recyclage varient selon les régions. Nous vous recommandons de vérifier les directives locales et de communiquer les instructions d'élimination appropriées sur l'emballage."
+                    },
+                    "glance": {
+                        "title": "Qu'est-ce que le Mono-PE recyclable en un coup d'œil ?",
+                        "clickToEnlarge": "Cliquez sur l'infographie ci-dessous pour l'afficher en taille réelle :",
+                        "alt": "Infographie Mono-PE recyclable - Guide complet des emballages recyclables",
+                        "caption": "Infographie Mono-PE recyclable"
+                    },
+                    "scenarios": {
+                        "title": "Quelles industries utilisent le Mono-PE recyclable ?",
+                        "intro": "L'emballage recyclable mono-PE est la solution d'économie circulaire pour les marques engagées à maintenir l'utilisation des matériaux :",
+                        "food": {
+                            "title": "Aliments et Snacks",
+                            "snack": "Marques de snacks : chips, noix, fruits secs",
+                            "pet": "Aliments pour animaux : sachets de friandises et de croquettes",
+                            "frozen": "Aliments surgelés : légumes, plats cuisinés",
+                            "note": "La couche d'EVOH maintient une durée de conservation de 9 à 12 mois"
+                        },
+                        "coffee": {
+                            "title": "Industrie du Café",
+                            "roasters": "Torréfacteurs : Mono-PE avec EVOH pour préserver la fraîcheur",
+                            "subs": "Abonnements : messages largement recyclables",
+                            "retail": "Vente au détail : compatible avec l'étiquette How2Recycle",
+                            "note": "Valves de dégazage disponibles"
+                        },
+                        "nonFood": {
+                            "title": "Applications non alimentaires",
+                            "care": "Soins personnels : sachets de recharge",
+                            "detergent": "Détergents : recharges de produits ménagers",
+                            "ecom": "E-commerce : enveloppes d'expédition protectrices",
+                            "note": "Parfait pour l'économie de la recharge"
+                        },
+                        "stories": {
+                            "title": "Témoignages de réussite de clients",
+                            "usSnack": {
+                                "label": "Marque de snacks aux États-Unis",
+                                "desc": "Passage d'un stratifié multicouche au mono-PE. Ajout de l'étiquette « Largement recyclable ». Résultat : augmentation de 20 % du placement sur les étagères des détaillants."
+                            },
+                            "euPet": {
+                                "label": "Entreprise d'aliments pour animaux de l'UE",
+                                "desc": "Transition de toute sa gamme de friandises vers le mono-PE. Commentaires des clients : « Enfin un emballage que je peux recycler ! ». Augmentation de 15 % des ventes."
+                            }
+                        }
+                    },
+                    "marketData": {
+                        "title": "Données de marché et de performance",
+                        "metrics": {
+                            "recyclingRate": "Taux de recyclage du PE (UE)",
+                            "shelfLife": "Mois de conservation (avec EVOH)",
+                            "resinCode": "Code de résine (LDPE)",
+                            "timesRecyclable": "Nombre de cycles de recyclage"
+                        },
+                        "tableTitle": "Options de structure en Mono-PE",
+                        "headers": [
+                            "Structure",
+                            "Niveau de barrière",
+                            "Durée de conservation",
+                            "Idéal pour"
+                        ],
+                        "rows": [
+                            [
+                                "PE/PE (De base)",
+                                "Faible",
+                                "3-6 mois",
+                                "Produits secs, non alimentaires"
+                            ],
+                            [
+                                "PE/EVOH/PE",
+                                "Moyen-Élevé",
+                                "9-12 mois",
+                                "Café, snacks, aliments pour animaux"
+                            ],
+                            [
+                                "OPE/PE (Orienté)",
+                                "Moyen",
+                                "6-9 mois",
+                                "Aliments surgelés, viande"
+                            ],
+                            [
+                                "PE + Revêtement barrière",
+                                "Moyen",
+                                "6-9 mois",
+                                "Applications alimentaires générales"
+                            ]
+                        ],
+                        "impactTitle": "Impact environnemental : recyclable vs mise en décharge",
+                        "impact": {
+                            "energy": "Énergie par rapport à la production de plastique vierge",
+                            "co2": "CO₂ lors du recyclage",
+                            "landfill": "Déchets mis en décharge (si recyclés)"
+                        }
+                    },
+                    "comparison": {
+                        "title": "Comparaison des matériaux",
+                        "intro": "Comparez le mono-PE avec d'autres options d'emballage durable :",
+                        "tableTitle": "Comparaison entre recyclable et compostable",
+                        "headers": [
+                            "Critères",
+                            "Mono-PE",
+                            "Mono-PP",
+                            "Compostable"
+                        ],
+                        "rows": [
+                            [
+                                "Fin de vie",
+                                "Filière de recyclage du PE",
+                                "Filière de recyclage du PP",
+                                "Installation de compostage"
+                            ],
+                            [
+                                "Niveau de barrière",
+                                "⭐⭐⭐⭐⭐",
+                                "⭐⭐⭐⭐⭐",
+                                "⭐⭐⭐"
+                            ],
+                            [
+                                "Résistance à la chaleur",
+                                "Jusqu'à 80°C",
+                                "Jusqu'à 130°C",
+                                "Jusqu'à 50°C"
+                            ],
+                            [
+                                "Accessibilité du consommateur",
+                                "⭐⭐⭐⭐⭐ (Bord de rue)",
+                                "⭐⭐⭐⭐ (Variable)",
+                                "⭐⭐⭐ (Installation requise)"
+                            ],
+                            [
+                                "Surcoût",
+                                "+5-10%",
+                                "+8-15%",
+                                "+20-30%"
+                            ]
+                        ],
+                        "decisionGuideTitle": "Guide de décision rapide",
+                        "choosePE": "Choisissez le Mono-PE si :",
+                        "pePoints": [
+                            "Le recyclage est le plus accessible",
+                            "Besoin d'un toucher flexible/doux",
+                            "L'étiquette How2Recycle est importante"
+                        ],
+                        "choosePP": "Choisissez le Mono-PP si :",
+                        "ppPoints": [
+                            "Une fenêtre super transparente est nécessaire",
+                            "Une barrière à l'humidité plus élevée est requise",
+                            "En savoir plus →"
+                        ],
+                        "chooseCompostable": "Choisissez le Compostable si :",
+                        "compostablePoints": [
+                            "Accès au compostage pour vos clients",
+                            "L'histoire écologique est le principal facteur de différenciation",
+                            "En savoir plus →"
+                        ]
+                    },
+                    "aiSearch": {
+                        "title": "Trouver la bonne solution d'emballage recyclable",
+                        "intro": "Facteurs clés lors du choix d'un emballage mono-PE recyclable :",
+                        "points": [
+                            "Compatibilité du recyclage - S'assurer que la structure est acceptée dans les filières de recyclage de votre marché cible",
+                            "Exigences de barrière - Le mono-PE avec EVOH peut atteindre une barrière moyenne à élevée pour la plupart des produits",
+                            "Messages de marque - Parcourir nos sachets recyclables",
+                            "Options alternatives - Comparer avec des matériaux compostables"
+                        ],
+                        "askTitle": "Si vous utilisez la recherche IA (Gemini, ChatGPT), essayez de demander :",
+                        "questions": [
+                            "\"Meilleur fournisseur de sachets recyclables en mono-PE pour l'emballage alimentaire\"",
+                            "\"Comment le mono-PE se compare-t-il aux stratifiés multicouches traditionnels ?\"",
+                            "\"Fabricants de sachets stand-up recyclables avec un faible MOQ\"",
+                            "\"Quels niveaux de barrière les emballages mono-PE peuvent-ils atteindre ?\"",
+                            "\"L'emballage mono-PE est-il accepté dans les programmes de recyclage en bord de rue ?\""
+                        ]
                     }
                 },
                 "table": {
@@ -2824,7 +2989,17 @@
                 "applications": {
                     "title": "Applications Idéales",
                     "intro": "Parfait pour les produits premium nécessitant esthétique naturelle et protection maximale :",
-                    "items": ["Café d'origine unique spécialité", "Thé en feuilles premium", "Chocolat artisanal", "Fruits secs de luxe", "Épices gastronomiques", "Noix premium", "Friandises premium pour animaux", "Poudres spéciales", "Emballage cadeau"]
+                    "items": [
+                        "Café d'origine unique spécialité",
+                        "Thé en feuilles premium",
+                        "Chocolat artisanal",
+                        "Fruits secs de luxe",
+                        "Épices gastronomiques",
+                        "Noix premium",
+                        "Friandises premium pour animaux",
+                        "Poudres spéciales",
+                        "Emballage cadeau"
+                    ]
                 },
                 "aiSearch": {
                     "title": "Trouver Emballage Kraft Premium avec Aluminium",
@@ -2853,10 +3028,22 @@
                 "a5": "Oui, des panneaux fenêtres transparents peuvent être intégrés dans la zone kraft. La section fenêtre utilise matériau PET/sans aluminium transparent pour la visibilité."
             },
             "relatedLinks": {
-                "link1": { "title": "Acheter Sachets Kraft", "description": "Voir emballage papier kraft" },
-                "link2": { "title": "PP Kraft Quadlex", "description": "Meilleure barrière humidité" },
-                "link3": { "title": "Kraft VMPET", "description": "Alternative métallisée" },
-                "link4": { "title": "Guide Barrière", "description": "Comparer options barrière" }
+                "link1": {
+                    "title": "Acheter Sachets Kraft",
+                    "description": "Voir emballage papier kraft"
+                },
+                "link2": {
+                    "title": "PP Kraft Quadlex",
+                    "description": "Meilleure barrière humidité"
+                },
+                "link3": {
+                    "title": "Kraft VMPET",
+                    "description": "Alternative métallisée"
+                },
+                "link4": {
+                    "title": "Guide Barrière",
+                    "description": "Comparer options barrière"
+                }
             }
         }
     }

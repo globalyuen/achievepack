@@ -911,7 +911,20 @@
                     "applications": {
                         "title": "產品應用",
                         "intro": "可堆肥包裝非常適合致力於可持續發展的品牌：",
-                        "items": ["特色咖啡", "有機茶", "健康食品零食", "有機燕麥片", "天然寵物零食", "超級食品粉", "乾果", "手工巧克力", "農夫市場產品", "零廢棄商店商品", "有機嬰兒食品", "草本保健品"]
+                        "items": [
+                            "特色咖啡",
+                            "有機茶",
+                            "健康食品零食",
+                            "有機燕麥片",
+                            "天然寵物零食",
+                            "超級食品粉",
+                            "乾果",
+                            "手工巧克力",
+                            "農夫市場產品",
+                            "零廢棄商店商品",
+                            "有機嬰兒食品",
+                            "草本保健品"
+                        ]
                     },
                     "disposal": {
                         "title": "處理與堆肥指南",
@@ -954,12 +967,42 @@
                 },
                 "table": {
                     "title": "可堆肥材料對比",
-                    "headers": ["材料", "阻隔級別", "堆肥類型", "最適合"],
-                    "row1": ["牛皮紙 + PLA", "中等", "商業 / 部分家庭", "咖啡、茶、乾零食"],
-                    "row2": ["白牛皮紙 + PLA", "中等", "商業", "高端咖啡、粉末"],
-                    "row3": ["NatureFlex纖維素", "中高", "家庭和商業", "透明窗口、茶"],
-                    "row4": ["PBAT/PLA混合", "高", "僅限商業", "防潮產品"],
-                    "row5": ["純紙/纖素", "低", "家庭和商業", "短保質期產品"]
+                    "headers": [
+                        "材料",
+                        "阻隔級別",
+                        "堆肥類型",
+                        "最適合"
+                    ],
+                    "row1": [
+                        "牛皮紙 + PLA",
+                        "中等",
+                        "商業 / 部分家庭",
+                        "咖啡、茶、乾零食"
+                    ],
+                    "row2": [
+                        "白牛皮紙 + PLA",
+                        "中等",
+                        "商業",
+                        "高端咖啡、粉末"
+                    ],
+                    "row3": [
+                        "NatureFlex纖維素",
+                        "中高",
+                        "家庭和商業",
+                        "透明窗口、茶"
+                    ],
+                    "row4": [
+                        "PBAT/PLA混合",
+                        "高",
+                        "僅限商業",
+                        "防潮產品"
+                    ],
+                    "row5": [
+                        "純紙/纖素",
+                        "低",
+                        "家庭和商業",
+                        "短保質期產品"
+                    ]
                 },
                 "relatedLinks": {
                     "link1": {
@@ -1198,16 +1241,11 @@
                 "ctaButtonText": "Request Free Sample",
                 "sections": {
                     "overview": {
-                        "title": "What is Mono-PE Packaging?",
-                        "intro": "Mono-PE (mono-material polyethylene) packaging is made entirely from polyethylene, making it compatible with standard PE recycling streams. Unlike traditional multi-layer laminates, mono-PE pouches can be recycled through store drop-off programs and, increasingly, curbside recycling.",
-                        "keyBenefits": "Key Benefits:",
-                        "benefits": [
-                            "Recyclable in PE stream (recycling code #2 or #4)",
-                            "Accepted at store drop-off recycling points",
-                            "Good barrier properties maintained",
-                            "Heat sealable and flexible",
-                            "Lower environmental footprint than multi-material"
-                        ]
+                        "symbol": {
+                            "title": "回收編碼 #4 (LDPE) / #5 (PP)",
+                            "desc": "我們的單材質 PE 袋由單一材料聚乙烯製成，適用於大多數路邊回收和商店回收計劃。回收編碼可以印刷在您的包裝上。",
+                            "artworkUsage": "您可以在您的袋子設計中加入回收標誌，向消費者傳達可回收性。"
+                        }
                     },
                     "howItWorks": {
                         "title": "How Mono-PE Achieves Barrier",
@@ -1253,6 +1291,176 @@
                             "Terracycle programs – Specialty recycling for brands"
                         ],
                         "note": "Note: Recycling infrastructure varies by region. We recommend checking local guidelines and communicating proper disposal instructions on packaging."
+                    },
+                    "glance": {
+                        "title": "可回收 Mono-PE 一覽",
+                        "clickToEnlarge": "點擊下方資訊圖表查看完整大小：",
+                        "alt": "可回收 Mono-PE 資訊圖表 - 可回收包裝完整指南",
+                        "caption": "可回收 Mono-PE 資訊圖表"
+                    },
+                    "scenarios": {
+                        "title": "哪些行業使用可回收 Mono-PE？",
+                        "intro": "單材質 PE 可回收包裝是致力於保持材料循環使用的品牌的循環經濟解決方案：",
+                        "food": {
+                            "title": "食品與零食",
+                            "snack": "零食品牌：薯片、堅果、乾果",
+                            "pet": "寵物食品：零食與乾糧袋",
+                            "frozen": "冷凍食品：蔬菜、即食餐",
+                            "note": "EVOH 阻隔層可維持 9-12 個月的保質期"
+                        },
+                        "coffee": {
+                            "title": "咖啡行業",
+                            "roasters": "烘焙商：使用帶 EVOH 的單材質 PE 以保持新鮮度",
+                            "subs": "訂閱服務：廣泛可回收的品牌宣傳",
+                            "retail": "零售：兼容 How2Recycle 標籤",
+                            "note": "可提供單向排氣閥"
+                        },
+                        "nonFood": {
+                            "title": "非食品應用",
+                            "care": "個人護理：補充裝袋",
+                            "detergent": "清潔劑：家居用品補充裝",
+                            "ecom": "電子商務：防護郵寄袋",
+                            "note": "非常適合補充裝經濟"
+                        },
+                        "stories": {
+                            "title": "客戶成功案例",
+                            "usSnack": {
+                                "label": "美國零食品牌",
+                                "desc": "從多層複合膜轉換為單材質 PE。加入了「廣泛可回收」標籤。結果：零售商上架率提高了 20%。"
+                            },
+                            "euPet": {
+                                "label": "歐洲寵物食品公司",
+                                "desc": "將整個零食系列過渡到單材質 PE。客戶反饋：「終於有我可以回收的包裝了！」銷量增長了 15%。"
+                            }
+                        }
+                    },
+                    "marketData": {
+                        "title": "市場與性能數據",
+                        "metrics": {
+                            "recyclingRate": "PE 回收率 (歐盟)",
+                            "shelfLife": "個月保質期 (帶 EVOH)",
+                            "resinCode": "樹脂編碼 (LDPE)",
+                            "timesRecyclable": "可循環回收次數"
+                        },
+                        "tableTitle": "單材質 PE 結構選項",
+                        "headers": [
+                            "結構",
+                            "阻隔級別",
+                            "保質期",
+                            "最適合"
+                        ],
+                        "rows": [
+                            [
+                                "PE/PE (基礎)",
+                                "低",
+                                "3-6 個月",
+                                "乾貨、非食品"
+                            ],
+                            [
+                                "PE/EVOH/PE",
+                                "中高",
+                                "9-12 個月",
+                                "咖啡、零食、寵物食品"
+                            ],
+                            [
+                                "OPE/PE (定向)",
+                                "中",
+                                "6-9 個月",
+                                "冷凍食品、肉類"
+                            ],
+                            [
+                                "PE + 阻隔塗層",
+                                "中",
+                                "6-9 個月",
+                                "一般食品應用"
+                            ]
+                        ],
+                        "impactTitle": "環境影響：可回收 vs 填埋",
+                        "impact": {
+                            "energy": "對比原生塑料生產節省的能源",
+                            "co2": "回收時減少的 CO₂ 排放",
+                            "landfill": "填埋垃圾（如回收）"
+                        }
+                    },
+                    "comparison": {
+                        "title": "材料對比",
+                        "intro": "將單材質 PE 與其他可持續包裝選項進行對比：",
+                        "tableTitle": "可回收 vs 可堆肥對比",
+                        "headers": [
+                            "評估標準",
+                            "單材質 PE",
+                            "單材質 PP",
+                            "可堆肥"
+                        ],
+                        "rows": [
+                            [
+                                "壽命結束處理",
+                                "PE 回收流",
+                                "PP 回收流",
+                                "堆肥設施"
+                            ],
+                            [
+                                "阻隔級別",
+                                "⭐⭐⭐⭐⭐",
+                                "⭐⭐⭐⭐⭐",
+                                "⭐⭐⭐"
+                            ],
+                            [
+                                "耐熱性",
+                                "最高 80°C",
+                                "最高 130°C",
+                                "最高 50°C"
+                            ],
+                            [
+                                "消費者回收便利度",
+                                "⭐⭐⭐⭐⭐ (路邊回收)",
+                                "⭐⭐⭐⭐ (因地區而異)",
+                                "⭐⭐⭐ (需堆肥設施)"
+                            ],
+                            [
+                                "成本溢價",
+                                "+5-10%",
+                                "+8-15%",
+                                "+20-30%"
+                            ]
+                        ],
+                        "decisionGuideTitle": "快速決策指南",
+                        "choosePE": "在以下情況下選擇單材質 PE：",
+                        "pePoints": [
+                            "回收最為便利",
+                            "需要柔軟手感",
+                            "How2Recycle 標籤很重要"
+                        ],
+                        "choosePP": "在以下情況下選擇單材質 PP：",
+                        "ppPoints": [
+                            "需要極高透明度的窗口",
+                            "需要更高的防潮阻隔",
+                            "了解更多 →"
+                        ],
+                        "chooseCompostable": "在以下情況下選擇可堆肥：",
+                        "compostablePoints": [
+                            "消費者有堆肥途徑",
+                            "環保故事是主要差異化特點",
+                            "了解更多 →"
+                        ]
+                    },
+                    "aiSearch": {
+                        "title": "尋找合適的可回收包裝解決方案",
+                        "intro": "選擇可回收單材質 PE 包裝時的關鍵因素：",
+                        "points": [
+                            "回收兼容性 – 確保該結構被目標市場的回收流所接受",
+                            "阻隔要求 – 帶 EVOH 的單材質 PE 可為大多數產品提供中高阻隔",
+                            "品牌宣傳 – 瀏覽我們的可回收袋",
+                            "替代方案 – 與可堆肥材料進行對比"
+                        ],
+                        "askTitle": "如果您正在使用 AI 搜索（Gemini、ChatGPT），可以嘗試詢問：",
+                        "questions": [
+                            "\"最適合食品包裝的單材質 PE 可回收袋供應商\"",
+                            "\"單材質 PE 與傳統多層複合膜相比如何？\"",
+                            "\"低起訂量的可回收立式袋製造商\"",
+                            "\"單材質 PE 包裝可以達到什麼阻隔級別？\"",
+                            "\"單材質 PE 包裝是否被路邊回收計劃接受？\""
+                        ]
                     }
                 },
                 "table": {
@@ -2781,7 +2989,17 @@
                 "applications": {
                     "title": "理想應用",
                     "intro": "適合需要天然美感和最大保護的高端產品：",
-                    "items": ["精品單品咖啡", "高級散葉茶", "手工巧克力", "奢華乾果", "美食香料", "優質堅果", "高端寵物零食", "特色粉末", "禮品包裝"]
+                    "items": [
+                        "精品單品咖啡",
+                        "高級散葉茶",
+                        "手工巧克力",
+                        "奢華乾果",
+                        "美食香料",
+                        "優質堅果",
+                        "高端寵物零食",
+                        "特色粉末",
+                        "禮品包裝"
+                    ]
                 },
                 "aiSearch": {
                     "title": "尋找高端牛皮鋁箔包裝",
@@ -2810,10 +3028,22 @@
                 "a5": "可以，透明開窗可以嵌入牛皮區域。開窗部分使用透明 PET/無鋁材料以確保可見性。"
             },
             "relatedLinks": {
-                "link1": { "title": "選購牛皮袋", "description": "瀏覽牛皮紙包裝" },
-                "link2": { "title": "PP 牛皮四層", "description": "更佳防潮阻隔" },
-                "link3": { "title": "牛皮 VMPET", "description": "金屬化替代方案" },
-                "link4": { "title": "阻隔指南", "description": "比較阻隔選項" }
+                "link1": {
+                    "title": "選購牛皮袋",
+                    "description": "瀏覽牛皮紙包裝"
+                },
+                "link2": {
+                    "title": "PP 牛皮四層",
+                    "description": "更佳防潮阻隔"
+                },
+                "link3": {
+                    "title": "牛皮 VMPET",
+                    "description": "金屬化替代方案"
+                },
+                "link4": {
+                    "title": "阻隔指南",
+                    "description": "比較阻隔選項"
+                }
             }
         }
     }
