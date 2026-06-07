@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2941,
+  "total_images": 2943,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1403,
+    ".png": 1405,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,20 @@
       ]
     },
     "blog/heros": {
-      "count": 239,
+      "count": 241,
       "images": [
+        {
+          "filename": "high-barrier-film-for-digital-printing-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-film-for-digital-printing-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T06:30:23.152Z"
+        },
+        {
+          "filename": "recyclable-flat-bottom-pouch-sizes-hero.png",
+          "path": "/imgs/blog/heros/recyclable-flat-bottom-pouch-sizes-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T06:15:30.723Z"
+        },
         {
           "filename": "small-batch-compostable-pouch-printing-hero.png",
           "path": "/imgs/blog/heros/small-batch-compostable-pouch-printing-hero.png",

@@ -807,17 +807,20 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             }
           .print-page {
               width: 210mm;
-              height: 272mm;
-              max-height: 272mm;
+              min-height: 272mm;
+              height: auto;
               padding: 4mm 6mm;
               position: relative;
-              page-break-after: always !important;
-              page-break-inside: avoid !important;
+              page-break-after: auto !important;
+              page-break-inside: auto !important;
               box-sizing: border-box;
-              overflow: hidden;
+              overflow: visible;
               display: flex;
               flex-direction: column;
               justify-content: space-between;
+            }
+            .print-page tr {
+              page-break-inside: avoid !important;
             }
             /* Hide global screen elements when printing */
             nav, 
