@@ -2030,31 +2030,31 @@
                                     "Scénarios d'application recommandés"
                                 ],
                                 "rows": [
-                                    {
-                                        "0": "70x110 + 40mm",
-                                        "1": "20g - 50g",
-                                        "2": "Sachets d'échantillons de produits, épices gourmandes, extraits botaniques secs"
-                                    },
-                                    {
-                                        "0": "100x150 + 60mm",
-                                        "1": "50g - 100g",
-                                        "2": "Sachets de poudre de soin, feuilles de thé d'origine unique, boîtes de friandises pour animaux de compagnie"
-                                    },
-                                    {
-                                        "0": "120x200 + 80mm",
-                                        "1": "100g - 250g",
-                                        "2": "Cafés de spécialité en grains (avec valve), granolas bio, chips protéinées"
-                                    },
-                                    {
-                                        "0": "150x230 + 90mm",
-                                        "1": "250g - 500g",
-                                        "2": "Avoine biologique commerciale, grandes références de collations, bidons de sel de bain"
-                                    },
-                                    {
-                                        "0": "180 x 280 + 100 mm",
-                                        "1": "500g - 1kg",
-                                        "2": "Sacs de croquettes pour animaux de compagnie, céréales en vrac, grains de café en gros"
-                                    }
+                                    [
+                                        "70x110 + 40mm",
+                                        "20g - 50g",
+                                        "Sachets d'échantillons de produits, épices gourmandes, extraits botaniques secs"
+                                    ],
+                                    [
+                                        "100x150 + 60mm",
+                                        "50g - 100g",
+                                        "Sachets de poudre de soin, feuilles de thé d'origine unique, boîtes de friandises pour animaux de compagnie"
+                                    ],
+                                    [
+                                        "120x200 + 80mm",
+                                        "100g - 250g",
+                                        "Cafés de spécialité en grains (avec valve), granolas bio, chips protéinées"
+                                    ],
+                                    [
+                                        "150x230 + 90mm",
+                                        "250g - 500g",
+                                        "Avoine biologique commerciale, grandes références de collations, bidons de sel de bain"
+                                    ],
+                                    [
+                                        "180 x 280 + 100 mm",
+                                        "500g - 1kg",
+                                        "Sacs de croquettes pour animaux de compagnie, céréales en vrac, grains de café en gros"
+                                    ]
                                 ]
                             }
                         }
@@ -2338,31 +2338,31 @@
                                 "Recommandé pour"
                             ],
                             "rows": [
-                                {
-                                    "0": "250g",
-                                    "1": "120 × 200 × 80 mm",
-                                    "2": "Thé haut de gamme, café de spécialité"
-                                },
-                                {
-                                    "0": "500g",
-                                    "1": "140 × 240 × 90 mm",
-                                    "2": "Grains de café, granola"
-                                },
-                                {
-                                    "0": "1 kg",
-                                    "1": "160 × 280 × 100 mm",
-                                    "2": "Aliments pour animaux, poudre de protéines"
-                                },
-                                {
-                                    "0": "2kg",
-                                    "1": "200 × 350 × 120 mm",
-                                    "2": "Nourriture pour animaux en vrac, riz"
-                                },
-                                {
-                                    "0": "5 kg",
-                                    "1": "280 × 450 × 150 mm",
-                                    "2": "Aliments pour animaux de grande taille"
-                                }
+                                [
+                                    "250g",
+                                    "120 × 200 × 80 mm",
+                                    "Thé haut de gamme, café de spécialité"
+                                ],
+                                [
+                                    "500g",
+                                    "140 × 240 × 90 mm",
+                                    "Grains de café, granola"
+                                ],
+                                [
+                                    "1 kg",
+                                    "160 × 280 × 100 mm",
+                                    "Aliments pour animaux, poudre de protéines"
+                                ],
+                                [
+                                    "2kg",
+                                    "200 × 350 × 120 mm",
+                                    "Nourriture pour animaux en vrac, riz"
+                                ],
+                                [
+                                    "5 kg",
+                                    "280 × 450 × 150 mm",
+                                    "Aliments pour animaux de grande taille"
+                                ]
                             ]
                         }
                     }
@@ -2710,36 +2710,36 @@
                                 "Utilisation typique"
                             ],
                             "rows": [
-                                {
-                                    "0": "90-100ml",
-                                    "1": "100 × 150 mm",
-                                    "2": "Nourriture pour bébé en portion individuelle"
-                                },
-                                {
-                                    "0": "150 ml",
-                                    "1": "110 × 170mm",
-                                    "2": "Nourriture pour bébé, smoothie"
-                                },
-                                {
-                                    "0": "250 ml",
-                                    "1": "130 × 200 mm",
-                                    "2": "Sauces, boissons"
-                                },
-                                {
-                                    "0": "500 ml",
-                                    "1": "160 × 250 mm",
-                                    "2": "Huile de cuisson, recharges"
-                                },
-                                {
-                                    "0": "1L",
-                                    "1": "200 × 300 mm",
-                                    "2": "Recharges grand format"
-                                },
-                                {
-                                    "0": "2L",
-                                    "1": "250 × 350 mm",
-                                    "2": "Recharges en vrac, restauration"
-                                }
+                                [
+                                    "90-100ml",
+                                    "100 × 150 mm",
+                                    "Nourriture pour bébé en portion individuelle"
+                                ],
+                                [
+                                    "150 ml",
+                                    "110 × 170mm",
+                                    "Nourriture pour bébé, smoothie"
+                                ],
+                                [
+                                    "250 ml",
+                                    "130 × 200 mm",
+                                    "Sauces, boissons"
+                                ],
+                                [
+                                    "500 ml",
+                                    "160 × 250 mm",
+                                    "Huile de cuisson, recharges"
+                                ],
+                                [
+                                    "1L",
+                                    "200 × 300 mm",
+                                    "Recharges grand format"
+                                ],
+                                [
+                                    "2L",
+                                    "250 × 350 mm",
+                                    "Recharges en vrac, restauration"
+                                ]
                             ]
                         }
                     }
@@ -3179,36 +3179,36 @@
                                 "Utilisation courante"
                             ],
                             "rows": [
-                                {
-                                    "0": "Petit sachet",
-                                    "1": "50 × 70mm",
-                                    "2": "5-10g / 5-10ml",
-                                    "3": "Sachets de sucre, échantillons"
-                                },
-                                {
-                                    "0": "Sachet moyen",
-                                    "1": "70 × 100mm",
-                                    "2": "10-30g",
-                                    "3": "Épices, sachets de sauce"
-                                },
-                                {
-                                    "0": "Grand sachet",
-                                    "1": "100 × 150 mm",
-                                    "2": "30-100g",
-                                    "3": "Thé extérieur, sachets de graines"
-                                },
-                                {
-                                    "0": "Pochette d'échantillon",
-                                    "1": "80 × 120 mm",
-                                    "2": "20-50g",
-                                    "3": "Échantillons de produits"
-                                },
-                                {
-                                    "0": "Promotionnelle",
-                                    "1": "120 × 180mm",
-                                    "2": "50-100g",
-                                    "3": "Articles promotionnels"
-                                }
+                                [
+                                    "Petit sachet",
+                                    "50 × 70mm",
+                                    "5-10g / 5-10ml",
+                                    "Sachets de sucre, échantillons"
+                                ],
+                                [
+                                    "Sachet moyen",
+                                    "70 × 100mm",
+                                    "10-30g",
+                                    "Épices, sachets de sauce"
+                                ],
+                                [
+                                    "Grand sachet",
+                                    "100 × 150 mm",
+                                    "30-100g",
+                                    "Thé extérieur, sachets de graines"
+                                ],
+                                [
+                                    "Pochette d'échantillon",
+                                    "80 × 120 mm",
+                                    "20-50g",
+                                    "Échantillons de produits"
+                                ],
+                                [
+                                    "Promotionnelle",
+                                    "120 × 180mm",
+                                    "50-100g",
+                                    "Articles promotionnels"
+                                ]
                             ]
                         }
                     }
@@ -3397,31 +3397,31 @@
                                 "Utilisation courante"
                             ],
                             "rows": [
-                                {
-                                    "0": "250g",
-                                    "1": "100 × 280 × 60 mm",
-                                    "2": "Café, thé au détail"
-                                },
-                                {
-                                    "0": "500g",
-                                    "1": "120 × 320 × 70mm",
-                                    "2": "Grains de café, fruits secs"
-                                },
-                                {
-                                    "0": "1 kg",
-                                    "1": "140 × 380 × 80 mm",
-                                    "2": "Nourriture pour animaux, riz"
-                                },
-                                {
-                                    "0": "2,5kg",
-                                    "1": "180 × 450 × 100 mm",
-                                    "2": "Produits en vrac"
-                                },
-                                {
-                                    "0": "5 kg",
-                                    "1": "220 × 550 × 120 mm",
-                                    "2": "Aliments pour animaux de grande taille"
-                                }
+                                [
+                                    "250g",
+                                    "100 × 280 × 60 mm",
+                                    "Café, thé au détail"
+                                ],
+                                [
+                                    "500g",
+                                    "120 × 320 × 70mm",
+                                    "Grains de café, fruits secs"
+                                ],
+                                [
+                                    "1 kg",
+                                    "140 × 380 × 80 mm",
+                                    "Nourriture pour animaux, riz"
+                                ],
+                                [
+                                    "2,5kg",
+                                    "180 × 450 × 100 mm",
+                                    "Produits en vrac"
+                                ],
+                                [
+                                    "5 kg",
+                                    "220 × 550 × 120 mm",
+                                    "Aliments pour animaux de grande taille"
+                                ]
                             ]
                         }
                     }
@@ -11467,6 +11467,247 @@
                 "seeHowAUs": "Découvrez comment un torréfacteur américain est passé à un emballage durable",
                 "standupPouches": "Pochettes verticales",
                 "mostPopularFormatFor": "Format le plus populaire pour le café au détail"
+            },
+            "usaSnacks": {
+                "seo": {
+                    "title": "Emballages de collations compostables pour les marques américaines | ASTM D6400 | Réaliser le pack",
+                    "description": "Sachets de collations compostables certifiés ASTM D6400 pour les marques alimentaires américaines. Pochettes verticales avec fermetures éclair refermables, faible MOQ à partir de 100 pièces, expédiées aux États-Unis en 15 à 20 jours.",
+                    "keywords": [
+                        "emballage de collation compostable États-Unis",
+                        "sacs de chips compostables",
+                        "Sachets de collation ASTM D6400",
+                        "emballage de collation durable",
+                        "sacs granola écologiques",
+                        "pochette debout compostable",
+                        "emballage de collations biologiques",
+                        "sacs de collation à faible MOQ",
+                        "Emballage de snacks conforme aux normes californiennes",
+                        "emballage alimentaire naturel"
+                    ],
+                    "heroTitle": "Emballages de collations compostables pour les marques américaines",
+                    "heroSubtitle": "Pochettes debout certifiées ASTM D6400 avec fermetures éclair refermables. Parfait pour les chips, les granola, les noix et les collations biologiques ciblant les détaillants d'aliments naturels.",
+                    "heroImageAlt": "Sachets d'emballage de snacks compostables pour les marques américaines d'aliments naturels",
+                    "introSummary": "Achieve Pack fournit des emballages de collations compostables certifiés, conçus spécifiquement pour les marques américaines d'aliments naturels, avec un faible MOQ, une expédition rapide et une conformité totale avec les réglementations de l'État.",
+                    "ctaTitle": "Obtenez des échantillons d'emballages de collations compostables",
+                    "ctaDescription": "Demandez des échantillons de sachets expédiés directement à votre établissement américain. Notre équipe vous aidera à choisir le bon matériau et la bonne taille pour vos produits snack.",
+                    "ctaButtonText": "Demander des échantillons"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "Emballages de collations compostables pour les marques américaines",
+                        "descStrong": "Les marques américaines de snacks sont confrontées à une pression croissante pour réduire les déchets d’emballages plastiques.",
+                        "descText": "Des chips et granola aux noix et fruits secs, les consommateurs s'attendent de plus en plus à des options d'emballage durables.",
+                        "descLink": "Sachets stand-up compostables",
+                        "descTextEnd": "offrent l'équilibre parfait entre protection du produit, attrait en rayon et responsabilité environnementale.",
+                        "driversTitle": "Facteurs du marché pour les emballages de collations durables :",
+                        "driver1Strong": "Aliments complets, germes, épiceries naturelles",
+                        "driver1Text": "donner la priorité aux fournisseurs d’emballages durables",
+                        "driver2Strong": "Consommateurs de la génération Z",
+                        "driver2Text": "prêt à payer 10 à 15 % de plus pour des emballages écologiques",
+                        "driver3Strong": "Californie AB 1201",
+                        "driver3Text": "nécessite la certification ASTM pour les allégations « compostables »",
+                        "driver4Strong": "Différenciation de marque",
+                        "driver4Text": "dans les allées bondées des snacks grâce à une durabilité visible",
+                        "achievePackLink": "Réaliser le pack",
+                        "descEnd": "propose des sachets de collations compostables certifiés ASTM D6400 avec fermetures éclair refermables, idéaux pour les marques de collations biologiques et naturelles ciblant le marché américain.",
+                        "imgAlt": "Emballages de snacks durables pour les marques américaines",
+                        "imgCaption": "Emballage de snacks compostables conçu pour les marques américaines d'aliments naturels"
+                    },
+                    "products": {
+                        "title": "Produits de collation que nous emballons",
+                        "intro": "Nos sachets compostables protègent une large gamme de produits de snacking :",
+                        "items": [
+                            "Chips de pommes de terre et de légumes",
+                            "Granola & Muesli",
+                            "Mélanges montagnards et mélanges de noix",
+                            "Fruits secs",
+                            "Popcorn",
+                            "Bretzels et craquelins",
+                            "Barres et bouchées énergétiques",
+                            "Chocolat & Confiserie",
+                            "Collations biologiques",
+                            "Snacks séchés et à la viande",
+                            "Galettes et chips de riz",
+                            "Packs de collations pour enfants"
+                        ]
+                    },
+                    "materials": {
+                        "title": "Matériaux compostables pour les collations",
+                        "intro": "Choisissez le bon matériau compostable en fonction des exigences de barrière de votre produit :",
+                        "card1Title": "Kraft + PLA (Barrière Standard)",
+                        "card1Item1": "Extérieur en papier kraft naturel",
+                        "card1Item2": "Bonne barrière contre l'humidité et l'oxygène",
+                        "card1Item3": "Durée de conservation de 6 à 9 mois",
+                        "card1Item4": "Idéal pour : Granola, fruits secs, noix",
+                        "card1Item5": "Certifié ASTM D6400",
+                        "card2Title": "Compostable à haute barrière",
+                        "card2Item1": "Protection améliorée contre l'humidité",
+                        "card2Item2": "Durée de conservation de plus de 12 mois",
+                        "card2Item3": "Couche barrière métallisée (compostable)",
+                        "card2Item4": "Idéal pour : chips, crackers, confiseries",
+                        "card2Item5": "Certifié ASTM D6400",
+                        "clearWindowStrong": "Besoin d'une fenêtre transparente ?",
+                        "clearWindowText": "Notre",
+                        "clearWindowLink": "Film compostable domestique NatureFlex™",
+                        "clearWindowTextEnd": "offre une visibilité au produit tout en restant entièrement compostable.",
+                        "imgAlt": "Tableau comparatif des formats de sachets snacks",
+                        "imgCaption": "Comparez différents formats de sachets pour l'emballage de snacks"
+                    },
+                    "features": {
+                        "title": "Caractéristiques de l'emballage des collations",
+                        "intro": "Nos sachets de collations compostables incluent des caractéristiques essentielles au succès de la vente au détail :",
+                        "card1Title": "Fonctionnalités prêtes pour la vente au détail",
+                        "card1Item1": "✓ Fermeture à glissière refermable à pression",
+                        "card1Item2": "✓ Conception à soufflet vertical",
+                        "card1Item3": "✓ Option de trou de suspension disponible",
+                        "card1Item4": "✓ Encoches détachables pour une ouverture facile",
+                        "card1Item5": "✓ Impression personnalisée en couleur",
+                        "card2Title": "Formats disponibles",
+                        "card2Link1": "Pochettes stand-up",
+                        "card2Link2": "Sacs à fond plat",
+                        "card2Link3": "Sachets scellés sur 3 côtés",
+                        "card2Item4": "✓ Sachets individuels",
+                        "card2Item5": "✓ Formats multipacks"
+                    },
+                    "caseStudy": {
+                        "title": "Histoire de réussite d'une marque de snacks aux États-Unis",
+                        "quote": "Le passage à des emballages compostables nous a permis de gagner de l'espace en rayon chez trois grands détaillants d'aliments naturels. L'emballage a l'air de qualité supérieure et nos clients adorent qu'il soit certifié compostable. Atteindre le faible MOQ de Pack nous permet de tester plusieurs tailles de SKU avant de nous engager.",
+                        "author": "— Marque de granola biologique, Austin, Texas",
+                        "stat1Value": "3",
+                        "stat1Label": "Nouveaux comptes de détail",
+                        "stat2Value": "18%",
+                        "stat2Label": "Augmentation des ventes sur un an",
+                        "stat3Value": "5★",
+                        "stat3Label": "Avis clients sur l'emballage",
+                        "caseStudyLink": "Lire l'étude de cas complète →",
+                        "imgAlt": "Guide de durabilité pour les marques de snacks",
+                        "imgCaption": "Guide complet de durabilité pour les marques de snacks américaines"
+                    },
+                    "compliance": {
+                        "title": "Conformité réglementaire américaine",
+                        "intro": "Nos emballages de collations compostables répondent à toutes les certifications américaines pertinentes :",
+                        "cert1Strong": "ASTM D6400",
+                        "cert1Text": "– Compostabilité industrielle américaine",
+                        "cert2Strong": "EN 13432",
+                        "cert2Text": "– Norme européenne",
+                        "cert3Strong": "Contact alimentaire FDA",
+                        "cert3Text": "– Sans danger pour le contact direct avec les aliments",
+                        "complianceLink": "Consultez notre guide de conformité en matière d'étiquetage aux États-Unis",
+                        "complianceText": "pour les exigences de la Californie, de Washington et du Colorado."
+                    },
+                    "ordering": {
+                        "title": "Commande pour les marques de snacks américaines",
+                        "card1Value": "100",
+                        "card1Text": "Commande minimale",
+                        "card2Value": "15-20",
+                        "card2Text": "Jours aux États-Unis",
+                        "card3Value": "Gratuite",
+                        "card3Text": "Assistance à la conception",
+                        "ctaLinkText": "Achetez des sachets de collation compostables →"
+                    },
+                    "aiSearch": {
+                        "title": "Trouver le bon fournisseur d'emballages de collations",
+                        "intro": "Facteurs clés lors du choix d’un emballage de snack compostable :",
+                        "factor1Strong": "Performances de la barrière",
+                        "factor1Text": "– Adapté aux besoins en humidité/oxygène de votre produit",
+                        "factor2Strong": "Certification ASTM D6400",
+                        "factor2Text": "– Obligatoire pour les allégations de compostage aux États-Unis",
+                        "factor3Strong": "Options refermables",
+                        "factor3Text": "– Indispensable pour les collations multi-portions",
+                        "factor4Strong": "Faible quantité de commande",
+                        "factor4Text": "–",
+                        "factor4Link": "Le pack Achieve commence à 100 pièces",
+                        "aiTitle": "💡 Exemples de recherche d'IA :",
+                        "aiItem1": "• \"Meilleurs sachets compostables pour granola biologique\"",
+                        "aiItem2": "• \"Emballage de snacks certifié ASTM D6400 avec fermeture éclair refermable\"",
+                        "aiItem3": "• \"Sacs de chips compostables pour les marques américaines d'aliments naturels\"",
+                        "aiItem4": "• \"Fournisseur d'emballages de snacks durables à faible MOQ aux États-Unis\""
+                    },
+                    "scenarioTrigger": {
+                        "title": "Cette page est-elle pour vous ?",
+                        "introStrong": "Si vous êtes une marque américaine de snacks, un producteur d'aliments naturels ou une entreprise biologique",
+                        "introText": "à la recherche d'emballages certifiés compostables, vous êtes au bon endroit.",
+                        "card1Title": "Marques de collations biologiques",
+                        "card1Desc": "Certifié ASTM D6400 pour les chaînes de vente au détail",
+                        "card2Title": "Vendeurs du marché fermier",
+                        "card2Desc": "Options compostables à domicile disponibles",
+                        "card3Title": "Marques alimentaires de startup",
+                        "card3Desc": "Faible MOQ à partir de 100 pièces pour les tests"
+                    },
+                    "riskHedge": {
+                        "title": "Vous n'êtes toujours pas sûr ? Nous avons des réponses",
+                        "q1": "« Est-ce que ça gardera les collations fraîches ?",
+                        "a1": "Options à haute barrière avec une durée de conservation de plus de 12 mois",
+                        "q2": "« Est-ce certifié pour les États-Unis ? »",
+                        "a2": "Matériaux certifiés ASTM D6400 + BPI",
+                        "q3": "« Expédiez-vous aux États-Unis ? »",
+                        "a3": "Livraison porte à porte en 15 à 20 jours dans tout le pays",
+                        "q4": "« Puis-je d'abord obtenir des échantillons ? »",
+                        "a4": "Échantillons gratuits + essai pilote à partir de 100 unités"
+                    },
+                    "decisionCta": {
+                        "title": "Prêt à commencer ?",
+                        "heading": "Choisissez comment vous souhaitez vous connecter",
+                        "card1Title": "Réserver un appel",
+                        "card1Desc": "Consultation gratuite de 30 minutes",
+                        "card1Button": "Planifiez maintenant",
+                        "card2Title": "Devis par e-mail",
+                        "card2Desc": "Obtenez une réponse dans les 24 heures",
+                        "card2Button": "Envoyer un e-mail",
+                        "card3Title": "Échantillons gratuits",
+                        "card3Desc": "Testez d’abord les matériaux",
+                        "card3Button": "Demander des échantillons"
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "De quel niveau de barrière ai-je besoin pour les emballages de snacks ?",
+                        "answer": "Cela dépend de votre produit. Les fruits secs et le granola se portent généralement bien avec une barrière kraft + PLA standard (durée de conservation de 6 à 9 mois). Les chips, crackers et produits sensibles à l'humidité bénéficient de nos options compostables à haute barrière (durée de conservation de plus de 12 mois). Nous pouvons vous recommander le bon matériau en fonction de votre produit spécifique."
+                    },
+                    {
+                        "question": "Puis-je obtenir une fenêtre transparente sur les sachets de collations compostables ?",
+                        "answer": "Oui! Notre film compostable NatureFlex™ offre une excellente clarté pour les vitrines des produits. Il est certifié TÜV OK compost HOME, ce qui signifie que les consommateurs peuvent le composter dans leur jardin. Nous pouvons créer des pochettes avec des panneaux transparents partiels ou complets."
+                    },
+                    {
+                        "question": "Des fermetures éclair refermables sont-elles disponibles sur les sachets compostables ?",
+                        "answer": "Absolument. Nous proposons des fermetures éclair refermables à pression sur toutes nos pochettes verticales. Les fermetures éclair sont entièrement compostables avec le reste de l'emballage, afin que les consommateurs puissent jeter l'intégralité du sachet dans un compostage industriel."
+                    },
+                    {
+                        "question": "Quelles tailles conviennent le mieux aux emballages de snacks au détail ?",
+                        "answer": "Les formats de vente au détail populaires incluent les sachets debout de 4 oz, 6 oz, 8 oz et 12 oz. Pour les magasins club ou les formats en vrac, nous proposons des options de 16 oz et 24 oz. Des sachets en portion individuelle (1 à 2 oz) sont disponibles pour l'échantillonnage ou des packs pratiques."
+                    },
+                    {
+                        "question": "Comment étiqueter les emballages de snacks compostables pour la Californie ?",
+                        "answer": "La Californie exige la certification ASTM D6400 et un langage d'étiquetage spécifique. Votre emballage doit inclure le logo « Commercialement compostable » et éviter les termes comme « biodégradable ». Notre équipe de conception peut vous aider à garantir que votre œuvre d’art répond aux exigences California AB 1201 et SB 343."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Magasiner les sachets compostables",
+                        "url": "/magasin",
+                        "description": "Parcourez les options d’emballage de snacks – MOQ à partir de 100 pièces"
+                    },
+                    {
+                        "title": "Centre compostable aux États-Unis",
+                        "url": "/usa/emballage-compostable",
+                        "description": "Guide complet des emballages compostables pour les marques américaines"
+                    },
+                    {
+                        "title": "Snacks et industrie alimentaire",
+                        "url": "/industrie/snacks-alimentaires",
+                        "description": "Toutes les options de packaging pour les marques de snacks"
+                    },
+                    {
+                        "title": "Étude de cas sur les collations naturelles",
+                        "url": "/études-de-cas/marque-de-snacks-naturels",
+                        "description": "Découvrez comment une marque américaine de snacks est passée au compostage"
+                    },
+                    {
+                        "title": "Pochettes verticales",
+                        "url": "/emballage/sachet-stand-up",
+                        "description": "Format le plus populaire pour les collations au détail"
+                    }
+                ]
             }
         }
     },

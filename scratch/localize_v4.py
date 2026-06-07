@@ -209,16 +209,20 @@ def localize_file(file_path, page_key):
 
     # Step 1: Replace JS variable declarations for title, description, metaDescription
     # E.g., const title = '...' or const metaDescription = '...'
-    var_pattern = r'\b(title|metaDescription|description)\s*=\s*(["\'`])((?:\\\2|(?!\2).)*)\2'
+    var_pattern = r'(\bconst\s+|\blet\s+|\bvar\s+)?\b(title|metaDescription|description)\s*=\s*(["\'`])((?:\\\3|(?!\3).)*)\3'
     def replace_var(match):
-        var_name = match.group(1)
-        quote = match.group(2)
-        val = match.group(3)
+        prefix = match.group(1) or ''
+        var_name = match.group(2)
+        quote = match.group(3)
+        val = match.group(4)
         unescaped = val.replace('\\' + quote, quote)
         if is_translatable(unescaped):
             key = 'metaTitle' if var_name == 'title' else 'metaDescription'
             translations[key] = unescaped
-            return f"{var_name} = t('seoPages.pages.{page_key}.{key}')"
+            if prefix:
+                return f"{prefix}{var_name} = t('seoPages.pages.{page_key}.{key}')"
+            else:
+                return f"{var_name}={{t('seoPages.pages.{page_key}.{key}')}}"
         return match.group(0)
     content = re.sub(var_pattern, replace_var, content)
 

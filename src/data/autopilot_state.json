@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T14:45:33.954Z",
+  "lastUnifiedRun": "2026-06-07T15:00:36.587Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1666,17 +1666,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-retort-packaging-for-sauces-suppliers",
       "status": "Pending Approval",
       "volume": 620,
       "keyword": "compostable retort packaging for sauces suppliers",
-      "difficulty": "Low",
-      "slug": "compostable-retort-packaging-for-sauces-suppliers"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 880,
       "keyword": "small batch digital print on mono pe film",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "small-batch-digital-print-on-mono-pe-film"
     },
     {
       "status": "Pending",
@@ -1735,9 +1736,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T14:45:25.474Z",
+      "timestamp": "2026-06-07T15:00:28.151Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable retort packaging for sauces suppliers\" to /blog/compostable-retort-packaging-for-sauces-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital print on mono pe film\" to /blog/small-batch-digital-print-on-mono-pe-film (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort packaging for sauces suppliers\" to /blog/compostable-retort-packaging-for-sauces-suppliers (Pending Approval)",
+      "timestamp": "2026-06-07T14:45:25.474Z"
     },
     {
       "action": "Autopilot Generation Draft",

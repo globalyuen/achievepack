@@ -2030,31 +2030,31 @@
                                     "Escenarios de aplicación recomendados"
                                 ],
                                 "rows": [
-                                    {
-                                        "0": "70x110 + 40mm",
-                                        "1": "20g - 50g",
-                                        "2": "Sobres de muestra de producto, especias gourmet, extractos botánicos secos"
-                                    },
-                                    {
-                                        "0": "100x150 + 60mm",
-                                        "1": "50g - 100g",
-                                        "2": "Bolsas de polvos para el cuidado de la piel, hojas de té de origen único, cajas de golosinas para mascotas"
-                                    },
-                                    {
-                                        "0": "120 x 200 + 80 mm",
-                                        "1": "100g - 250g",
-                                        "2": "Café de especialidad en grano (con válvula), granolas orgánicas, chips proteicos"
-                                    },
-                                    {
-                                        "0": "150 x 230 + 90 mm",
-                                        "1": "250g - 500g",
-                                        "2": "Avena orgánica comercial, SKU de refrigerios grandes, botes de sal de baño"
-                                    },
-                                    {
-                                        "0": "180 x 280 + 100 mm",
-                                        "1": "500g - 1kg",
-                                        "2": "Bolsas de croquetas para comida para mascotas, granos a granel, granos de café al por mayor"
-                                    }
+                                    [
+                                        "70x110 + 40mm",
+                                        "20g - 50g",
+                                        "Sobres de muestra de producto, especias gourmet, extractos botánicos secos"
+                                    ],
+                                    [
+                                        "100x150 + 60mm",
+                                        "50g - 100g",
+                                        "Bolsas de polvos para el cuidado de la piel, hojas de té de origen único, cajas de golosinas para mascotas"
+                                    ],
+                                    [
+                                        "120 x 200 + 80 mm",
+                                        "100g - 250g",
+                                        "Café de especialidad en grano (con válvula), granolas orgánicas, chips proteicos"
+                                    ],
+                                    [
+                                        "150 x 230 + 90 mm",
+                                        "250g - 500g",
+                                        "Avena orgánica comercial, SKU de refrigerios grandes, botes de sal de baño"
+                                    ],
+                                    [
+                                        "180 x 280 + 100 mm",
+                                        "500g - 1kg",
+                                        "Bolsas de croquetas para comida para mascotas, granos a granel, granos de café al por mayor"
+                                    ]
                                 ]
                             }
                         }
@@ -2338,31 +2338,31 @@
                                 "Recomendado para"
                             ],
                             "rows": [
-                                {
-                                    "0": "250g",
-                                    "1": "120 × 200 × 80 mm",
-                                    "2": "Té premium, café especial."
-                                },
-                                {
-                                    "0": "500g",
-                                    "1": "140 × 240 × 90 mm",
-                                    "2": "Granos de café, granola"
-                                },
-                                {
-                                    "0": "1kg",
-                                    "1": "160 × 280 × 100 mm",
-                                    "2": "Alimento para mascotas, proteína en polvo"
-                                },
-                                {
-                                    "0": "2 kilos",
-                                    "1": "200 × 350 × 120 mm",
-                                    "2": "Comida para mascotas a granel, arroz"
-                                },
-                                {
-                                    "0": "5 kilos",
-                                    "1": "280 × 450 × 150 mm",
-                                    "2": "Comida para mascotas de gran formato"
-                                }
+                                [
+                                    "250g",
+                                    "120 × 200 × 80 mm",
+                                    "Té premium, café especial."
+                                ],
+                                [
+                                    "500g",
+                                    "140 × 240 × 90 mm",
+                                    "Granos de café, granola"
+                                ],
+                                [
+                                    "1kg",
+                                    "160 × 280 × 100 mm",
+                                    "Alimento para mascotas, proteína en polvo"
+                                ],
+                                [
+                                    "2 kilos",
+                                    "200 × 350 × 120 mm",
+                                    "Comida para mascotas a granel, arroz"
+                                ],
+                                [
+                                    "5 kilos",
+                                    "280 × 450 × 150 mm",
+                                    "Comida para mascotas de gran formato"
+                                ]
                             ]
                         }
                     }
@@ -2710,36 +2710,36 @@
                                 "Uso típico"
                             ],
                             "rows": [
-                                {
-                                    "0": "90-100ml",
-                                    "1": "100 × 150 mm",
-                                    "2": "Comida para bebes monodosis"
-                                },
-                                {
-                                    "0": "150ml",
-                                    "1": "110 × 170 mm",
-                                    "2": "Comida para bebé, batido"
-                                },
-                                {
-                                    "0": "250ml",
-                                    "1": "130 × 200 mm",
-                                    "2": "Salsas, bebidas"
-                                },
-                                {
-                                    "0": "500ml",
-                                    "1": "160 × 250 mm",
-                                    "2": "Aceite de cocina, recargas"
-                                },
-                                {
-                                    "0": "1L",
-                                    "1": "200 × 300 mm",
-                                    "2": "Recargas de gran formato"
-                                },
-                                {
-                                    "0": "2L",
-                                    "1": "250 × 350 mm",
-                                    "2": "Recargas a granel, servicio de alimentos"
-                                }
+                                [
+                                    "90-100ml",
+                                    "100 × 150 mm",
+                                    "Comida para bebes monodosis"
+                                ],
+                                [
+                                    "150ml",
+                                    "110 × 170 mm",
+                                    "Comida para bebé, batido"
+                                ],
+                                [
+                                    "250ml",
+                                    "130 × 200 mm",
+                                    "Salsas, bebidas"
+                                ],
+                                [
+                                    "500ml",
+                                    "160 × 250 mm",
+                                    "Aceite de cocina, recargas"
+                                ],
+                                [
+                                    "1L",
+                                    "200 × 300 mm",
+                                    "Recargas de gran formato"
+                                ],
+                                [
+                                    "2L",
+                                    "250 × 350 mm",
+                                    "Recargas a granel, servicio de alimentos"
+                                ]
                             ]
                         }
                     }
@@ -3179,36 +3179,36 @@
                                 "Uso común"
                             ],
                             "rows": [
-                                {
-                                    "0": "Bolsita pequeña",
-                                    "1": "50 × 70 mm",
-                                    "2": "5-10g / 5-10ml",
-                                    "3": "Paquetes de azúcar, muestras."
-                                },
-                                {
-                                    "0": "Bolsita mediana",
-                                    "1": "70 × 100 mm",
-                                    "2": "10-30g",
-                                    "3": "Especias, bolsitas de salsa."
-                                },
-                                {
-                                    "0": "Bolsita grande",
-                                    "1": "100 × 150 mm",
-                                    "2": "30-100g",
-                                    "3": "Té exterior, paquetes de semillas."
-                                },
-                                {
-                                    "0": "Bolsa de muestra",
-                                    "1": "80 × 120 mm",
-                                    "2": "20-50g",
-                                    "3": "Muestras de productos"
-                                },
-                                {
-                                    "0": "promocional",
-                                    "1": "120 × 180 mm",
-                                    "2": "50-100g",
-                                    "3": "Artículos promocionales"
-                                }
+                                [
+                                    "Bolsita pequeña",
+                                    "50 × 70 mm",
+                                    "5-10g / 5-10ml",
+                                    "Paquetes de azúcar, muestras."
+                                ],
+                                [
+                                    "Bolsita mediana",
+                                    "70 × 100 mm",
+                                    "10-30g",
+                                    "Especias, bolsitas de salsa."
+                                ],
+                                [
+                                    "Bolsita grande",
+                                    "100 × 150 mm",
+                                    "30-100g",
+                                    "Té exterior, paquetes de semillas."
+                                ],
+                                [
+                                    "Bolsa de muestra",
+                                    "80 × 120 mm",
+                                    "20-50g",
+                                    "Muestras de productos"
+                                ],
+                                [
+                                    "promocional",
+                                    "120 × 180 mm",
+                                    "50-100g",
+                                    "Artículos promocionales"
+                                ]
                             ]
                         }
                     }
@@ -3397,31 +3397,31 @@
                                 "Uso común"
                             ],
                             "rows": [
-                                {
-                                    "0": "250g",
-                                    "1": "100 × 280 × 60 mm",
-                                    "2": "Café al por menor, té"
-                                },
-                                {
-                                    "0": "500g",
-                                    "1": "120 × 320 × 70 mm",
-                                    "2": "Granos de café, frutos secos."
-                                },
-                                {
-                                    "0": "1kg",
-                                    "1": "140 × 380 × 80 mm",
-                                    "2": "comida para mascotas, arroz"
-                                },
-                                {
-                                    "0": "2,5 kilos",
-                                    "1": "180 × 450 × 100 mm",
-                                    "2": "Productos a granel"
-                                },
-                                {
-                                    "0": "5 kilos",
-                                    "1": "220 × 550 × 120 mm",
-                                    "2": "Comida para mascotas de gran formato"
-                                }
+                                [
+                                    "250g",
+                                    "100 × 280 × 60 mm",
+                                    "Café al por menor, té"
+                                ],
+                                [
+                                    "500g",
+                                    "120 × 320 × 70 mm",
+                                    "Granos de café, frutos secos."
+                                ],
+                                [
+                                    "1kg",
+                                    "140 × 380 × 80 mm",
+                                    "comida para mascotas, arroz"
+                                ],
+                                [
+                                    "2,5 kilos",
+                                    "180 × 450 × 100 mm",
+                                    "Productos a granel"
+                                ],
+                                [
+                                    "5 kilos",
+                                    "220 × 550 × 120 mm",
+                                    "Comida para mascotas de gran formato"
+                                ]
                             ]
                         }
                     }
@@ -11467,6 +11467,247 @@
                 "seeHowAUs": "Vea cómo un tostador estadounidense cambió a envases sostenibles",
                 "standupPouches": "Bolsas de pie",
                 "mostPopularFormatFor": "Formato más popular para café minorista"
+            },
+            "usaSnacks": {
+                "seo": {
+                    "title": "Envases de snacks compostables para marcas estadounidenses | Norma ASTM D6400 | Paquete de logros",
+                    "description": "Bolsas de refrigerios compostables con certificación ASTM D6400 para marcas de alimentos de EE. UU. Bolsas verticales con cremalleras resellables, MOQ bajo de 100 piezas, se envía a EE. UU. en 15 a 20 días.",
+                    "keywords": [
+                        "Envases de snacks compostables EE. UU.",
+                        "bolsas de chips compostables",
+                        "Bolsas de bocadillos ASTM D6400",
+                        "envases de snacks sostenibles",
+                        "bolsas de granola ecologicas",
+                        "bolsa de pie compostable",
+                        "envases de snacks orgánicos",
+                        "bolsas de bocadillos de MOQ bajo",
+                        "Embalaje de snacks que cumple con las normas de California",
+                        "envases de alimentos naturales"
+                    ],
+                    "heroTitle": "Envases de snacks compostables para marcas estadounidenses",
+                    "heroSubtitle": "Bolsas verticales certificadas ASTM D6400 con cremalleras resellables. Perfecto para patatas fritas, granola, frutos secos y snacks orgánicos dirigidos a minoristas de alimentos naturales.",
+                    "heroImageAlt": "Bolsas compostables para envasado de snacks para marcas de alimentos naturales de EE. UU.",
+                    "introSummary": "Achieve Pack ofrece envases de refrigerios compostables certificados diseñados específicamente para marcas de alimentos naturales de EE. UU., con MOQ bajo, envío rápido y pleno cumplimiento de las regulaciones estatales.",
+                    "ctaTitle": "Obtenga muestras de envases de refrigerios compostables",
+                    "ctaDescription": "Solicite bolsas de muestra enviadas directamente a sus instalaciones en EE. UU. Nuestro equipo le ayudará a elegir el material y el tamaño adecuados para sus productos snack.",
+                    "ctaButtonText": "Solicitar muestras"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "Envases de snacks compostables para marcas estadounidenses",
+                        "descStrong": "Las marcas de snacks estadounidenses se enfrentan a una presión cada vez mayor para reducir los residuos de envases de plástico.",
+                        "descText": "Desde patatas fritas y granola hasta nueces y frutos secos, los consumidores esperan cada vez más opciones de envasado sostenibles.",
+                        "descLink": "Bolsas compostables de pie",
+                        "descTextEnd": "ofrecen el equilibrio perfecto entre protección del producto, atractivo en el lineal y responsabilidad medioambiental.",
+                        "driversTitle": "Impulsoras del mercado para el envasado sostenible de meriendas:",
+                        "driver1Strong": "Alimentos integrales, brotes, tiendas de comestibles naturales",
+                        "driver1Text": "priorizar a los proveedores de envases sostenibles",
+                        "driver2Strong": "Consumidoras de la Generación Z",
+                        "driver2Text": "Dispuesta a pagar un 10-15% más por envases ecológicos.",
+                        "driver3Strong": "CaliforniaAB 1201",
+                        "driver3Text": "requiere certificación ASTM para declaraciones de \"compostable\"",
+                        "driver4Strong": "Diferenciación de marca",
+                        "driver4Text": "en pasillos de refrigerios abarrotados a través de una sostenibilidad visible",
+                        "achievePackLink": "Paquete de logros",
+                        "descEnd": "ofrece bolsas de refrigerios compostables con certificación ASTM D6400 con cremalleras resellables, ideales para marcas de refrigerios orgánicos y naturales dirigidas al mercado estadounidense.",
+                        "imgAlt": "Envases de snacks sostenibles para marcas estadounidenses",
+                        "imgCaption": "Envases de snacks compostables diseñados para marcas de alimentos naturales de EE. UU."
+                    },
+                    "products": {
+                        "title": "Productos de snack que empaquetamos",
+                        "intro": "Nuestras bolsas compostables protegen una amplia gama de snacks:",
+                        "items": [
+                            "Patatas fritas y verduras",
+                            "Granola & Muesli",
+                            "Mezclas de frutos secos y frutos secos",
+                            "frutos secos",
+                            "Palomitas",
+                            "Pretzels y galletas saladas",
+                            "Barras y bocados energéticos",
+                            "Chocolate y Confitería",
+                            "Bocadillos Orgánicos",
+                            "Aperitivos de carne y cecina",
+                            "Tortitas De Arroz Y Patatas Fritas",
+                            "Paquetes de meriendas para niños"
+                        ]
+                    },
+                    "materials": {
+                        "title": "Materiales compostables para snacks",
+                        "intro": "Elija el material compostable adecuado según los requisitos de barrera de su producto:",
+                        "card1Title": "Kraft + PLA (Barrera Estándar)",
+                        "card1Item1": "Exterior de papel kraft natural",
+                        "card1Item2": "Buena barrera contra la humedad y el oxígeno.",
+                        "card1Item3": "Vida útil de 6 a 9 meses",
+                        "card1Item4": "Ideal para: granola, frutos secos, nueces.",
+                        "card1Item5": "Certificado ASTM D6400",
+                        "card2Title": "Compostable de alta barrera",
+                        "card2Item1": "Protección mejorada contra la humedad",
+                        "card2Item2": "Vida útil de más de 12 meses",
+                        "card2Item3": "Capa barrera metalizada (compostable)",
+                        "card2Item4": "Ideal para: patatas fritas, galletas saladas y dulces.",
+                        "card2Item5": "Certificado ASTM D6400",
+                        "clearWindowStrong": "¿Necesita una ventana clara?",
+                        "clearWindowText": "Nuestra",
+                        "clearWindowLink": "Película compostable para el hogar NatureFlex™",
+                        "clearWindowTextEnd": "Ofrece visibilidad del producto sin dejar de ser totalmente compostable.",
+                        "imgAlt": "Cuadro comparativo de formatos de bolsas de snacks",
+                        "imgCaption": "Compara diferentes formatos de bolsas para envasar snacks"
+                    },
+                    "features": {
+                        "title": "Características del envasado de refrigerios",
+                        "intro": "Nuestras bolsas de refrigerios compostables incluyen características esenciales para el éxito del comercio minorista:",
+                        "card1Title": "Funciones listas para la venta al por menor",
+                        "card1Item1": "✓ Cremallera resellable de presionar para cerrar",
+                        "card1Item2": "✓ Diseño de refuerzo vertical",
+                        "card1Item3": "✓ Opción de orificio para colgar disponible",
+                        "card1Item4": "✓ Muescas para facilitar la apertura",
+                        "card1Item5": "✓ Impresión personalizada a todo color",
+                        "card2Title": "Formatos disponibles",
+                        "card2Link1": "Bolsas de pie",
+                        "card2Link2": "Bolsas de fondo plano",
+                        "card2Link3": "Bolsas con sello de 3 lados",
+                        "card2Item4": "✓ Sobres monodosis",
+                        "card2Item5": "✓ Formatos de paquetes múltiples"
+                    },
+                    "caseStudy": {
+                        "title": "Historia de éxito de una marca de snacks en EE. UU.",
+                        "quote": "Pasar a envases compostables nos ayudó a ganar espacio en los estantes de tres importantes minoristas de alimentos naturales. El empaque tiene un aspecto premium y a nuestros clientes les encanta que esté certificado como compostable. El bajo MOQ de Achieve Pack nos permite probar varios tamaños de SKU antes de comprometernos.",
+                        "author": "— Marca de granola orgánica, Austin, TX",
+                        "stat1Value": "3",
+                        "stat1Label": "Nuevas cuentas minoristas",
+                        "stat2Value": "18%",
+                        "stat2Label": "Aumento de ventas interanual",
+                        "stat3Value": "5★",
+                        "stat3Label": "Opiniones de clientes sobre el embalaje.",
+                        "caseStudyLink": "Lea el estudio de caso completo →",
+                        "imgAlt": "Guía de sostenibilidad para marcas de snacks",
+                        "imgCaption": "Guía completa de sostenibilidad para marcas de snacks estadounidenses"
+                    },
+                    "compliance": {
+                        "title": "Cumplimiento normativo de EE. UU.",
+                        "intro": "Nuestros envases de snacks compostables cumplen con todas las certificaciones pertinentes de EE. UU.:",
+                        "cert1Strong": "Norma ASTM D6400",
+                        "cert1Text": "– compostabilidad industrial de EE. UU.",
+                        "cert2Strong": "EN 13432",
+                        "cert2Text": "– Norma europea",
+                        "cert3Strong": "Contacto con alimentos de la FDA",
+                        "cert3Text": "- Segura para el contacto directo con alimentos",
+                        "complianceLink": "Vea nuestra guía de cumplimiento de etiquetado en EE. UU.",
+                        "complianceText": "para los requisitos de California, Washington y Colorado."
+                    },
+                    "ordering": {
+                        "title": "Realizar pedidos de marcas de snacks de EE. UU.",
+                        "card1Value": "100",
+                        "card1Text": "Orden Mínima",
+                        "card2Value": "15-20",
+                        "card2Text": "Días a EE.UU.",
+                        "card3Value": "Gratis",
+                        "card3Text": "Soporte de diseño",
+                        "ctaLinkText": "Comprar bolsas de refrigerios compostables →"
+                    },
+                    "aiSearch": {
+                        "title": "Encontrar el proveedor de envases de snacks adecuado",
+                        "intro": "Factores clave a la hora de elegir envases de snacks compostables:",
+                        "factor1Strong": "Rendimiento de barrera",
+                        "factor1Text": "– Adaptarse a las necesidades de humedad/oxígeno de su producto",
+                        "factor2Strong": "Certificación ASTM D6400",
+                        "factor2Text": "– Requerido para declaraciones de compostaje en EE. UU.",
+                        "factor3Strong": "Opciones resellables",
+                        "factor3Text": "– Esencial para refrigerios de varias porciones",
+                        "factor4Strong": "MOQ bajo",
+                        "factor4Text": "–",
+                        "factor4Link": "El paquete Achieve comienza en 100 piezas",
+                        "aiTitle": "💡 Ejemplos de búsqueda con IA:",
+                        "aiItem1": "• \"Las mejores bolsas compostables para granola orgánica\"",
+                        "aiItem2": "• \"Envase de snacks certificado ASTM D6400 con cremallera resellable\"",
+                        "aiItem3": "• \"Bolsas de chips compostables para marcas de alimentos naturales estadounidenses\"",
+                        "aiItem4": "• \"Proveedor de envases de snacks sostenibles con MOQ bajo en EE. UU.\""
+                    },
+                    "scenarioTrigger": {
+                        "title": "¿Es esta página para usted?",
+                        "introStrong": "Si es una marca de snacks, un productor de alimentos naturales o una empresa orgánica de EE. UU.",
+                        "introText": "Si busca envases compostables certificados, está en el lugar correcto.",
+                        "card1Title": "Marcas de snacks orgánicos",
+                        "card1Desc": "Certificación ASTM D6400 para cadenas minoristas",
+                        "card2Title": "Vendedores del mercado de agricultores",
+                        "card2Desc": "Opciones de compostaje doméstico disponibles",
+                        "card3Title": "Marcas de alimentos emergentes",
+                        "card3Desc": "MOQ bajo de 100 piezas para pruebas"
+                    },
+                    "riskHedge": {
+                        "title": "¿Aún no estás seguro? Tenemos respuestas",
+                        "q1": "\"¿Mantendrá los bocadillos frescos?\"",
+                        "a1": "Opciones de alta barrera con vida útil de más de 12 meses",
+                        "q2": "\"¿Está certificado para EE. UU.?\"",
+                        "a2": "Materiales certificados ASTM D6400 + BPI",
+                        "q3": "\"¿Hacen envíos a EE. UU.?\"",
+                        "a3": "Entrega puerta a puerta de 15 a 20 días a todo el país.",
+                        "q4": "\"¿Puedo obtener muestras primero?\"",
+                        "a4": "Muestras gratuitas + prueba piloto a partir de 100 unidades"
+                    },
+                    "decisionCta": {
+                        "title": "¿Listo para empezar?",
+                        "heading": "Elija cómo desea conectarse",
+                        "card1Title": "Reservar una llamada",
+                        "card1Desc": "Consulta gratuita de 30 minutos.",
+                        "card1Button": "Agenda ahora",
+                        "card2Title": "Cotización por correo electrónico",
+                        "card2Desc": "Obtenga respuesta dentro de las 24 horas",
+                        "card2Button": "Enviar correo electrónico",
+                        "card3Title": "Muestras gratis",
+                        "card3Desc": "Materiales de prueba primero",
+                        "card3Button": "Solicitar muestras"
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "¿Qué nivel de barrera necesito para el envasado de snacks?",
+                        "answer": "Depende de tu producto. Las frutas secas y la granola suelen funcionar bien con la barrera kraft + PLA estándar (vida útil de 6 a 9 meses). Las patatas fritas, las galletas saladas y los productos sensibles a la humedad se benefician de nuestras opciones compostables de alta barrera (vida útil de más de 12 meses). Podemos recomendar el material adecuado según su producto específico."
+                    },
+                    {
+                        "question": "¿Puedo obtener una ventana transparente para las bolsas de refrigerios compostables?",
+                        "answer": "¡Sí! Nuestra película compostable NatureFlex™ ofrece una claridad excelente para las ventanas de productos. Tiene la certificación TÜV OK compost HOME, lo que significa que los consumidores pueden convertirlo en abono en su patio trasero. Podemos crear bolsas con paneles transparentes parciales o totales."
+                    },
+                    {
+                        "question": "¿Hay cremalleras resellables disponibles en bolsas compostables?",
+                        "answer": "Absolutamente. Ofrecemos cremalleras resellables que se presionan para cerrar en todas nuestras bolsas verticales. Las cremalleras son totalmente compostables junto con el resto del paquete, por lo que los consumidores pueden desechar toda la bolsa en compostaje industrial."
+                    },
+                    {
+                        "question": "¿Qué tamaños funcionan mejor para los envases de snacks al por menor?",
+                        "answer": "Los tamaños minoristas populares incluyen bolsas verticales de 4 oz, 6 oz, 8 oz y 12 oz. Para formatos de tienda club o a granel, ofrecemos opciones de 16 oz y 24 oz. Hay bolsitas individuales (de 1 a 2 onzas) disponibles para muestras o paquetes convenientes."
+                    },
+                    {
+                        "question": "¿Cómo etiqueto envases de refrigerios compostables para California?",
+                        "answer": "California exige la certificación ASTM D6400 y un lenguaje de etiquetado específico. Su embalaje debe incluir el logotipo \"Comercialmente compostable\" y evitar términos como \"biodegradable\". Nuestro equipo de diseño puede ayudar a garantizar que su obra de arte cumpla con los requisitos AB 1201 y SB 343 de California."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Comprar bolsas compostables",
+                        "url": "/almacenar",
+                        "description": "Explore las opciones de empaque de refrigerios: MOQ desde 100 piezas"
+                    },
+                    {
+                        "title": "Centro compostable de EE. UU.",
+                        "url": "/usa/envases-compostables",
+                        "description": "Guía completa de envases compostables para marcas estadounidenses"
+                    },
+                    {
+                        "title": "Snacks e industria alimentaria",
+                        "url": "/industria/snacks-comida",
+                        "description": "Todas las opciones de embalaje para marcas de snacks."
+                    },
+                    {
+                        "title": "Estudio de caso de refrigerios naturales",
+                        "url": "/casos-de-estudio/marca-de-snacks-naturales",
+                        "description": "Vea cómo una marca de snacks estadounidense pasó a ser compostable"
+                    },
+                    {
+                        "title": "Bolsas de pie",
+                        "url": "/embalaje/bolsas-stand-up",
+                        "description": "Formato más popular para snacks minoristas"
+                    }
+                ]
             }
         }
     },
