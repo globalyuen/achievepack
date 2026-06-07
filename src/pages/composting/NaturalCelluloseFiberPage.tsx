@@ -117,34 +117,35 @@ const ImageTextRow: React.FC<{
   )
 }
 
-// FAQ Data
-const faqs = [
-  {
-    question: "What is natural cellulose fiber in packaging?",
-    answer: "Natural cellulose fibers are derived directly from renewable plant sources like wood pulp. Unlike chemically modified acetate fibers, natural cellulose preserves its original molecular structure, delivering full biodegradability and compostability. These fibers feature β(1→4) linked D-glucose units with high tensile strength (up to 900 MPa)."
-  },
-  {
-    question: "How does cellulose compare to acetate fiber?",
-    answer: "Cellulose ignites fast, burns with a paper scent, and leaves soft gray ash that crumbles easily. Acetate emits a vinegar odor, forms hard black beads, and partially melts. Cellulose biodegrades 30-90% in 28-120 days under composting, while acetate degrades less than 3% in 16 weeks."
-  },
-  {
-    question: "What are the environmental benefits of cellulose packaging?",
-    answer: "Life Cycle Assessments confirm cellulose packaging has lower global warming potential and ecotoxicity than acetate or PET. It biodegrades 30-90% in 28-120 days under composting and eliminates microplastic risks associated with acetate degradation. Cellulose packaging can cut e-commerce carbon footprints by 30%+ versus plastics."
-  },
-  {
-    question: "Is cellulose fiber packaging food-safe?",
-    answer: "Yes, natural cellulose fiber packaging is food-safe and suitable for protective applications. It provides strong water retention, crack resistance, and moisture barriers. AchievePack's cellulose solutions meet global food safety standards and comply with single-use plastic bans in various markets."
-  },
-  {
-    question: "What applications is cellulose packaging best for?",
-    answer: "Cellulose packaging is ideal for food, e-commerce, and electronics packaging. Its high microfibril-level tensile strength (up to 900 MPa) and elastic modulus (up to 8.5 GPa) make it perfect for molded pulp packaging and protective applications requiring both sustainability and performance."
-  }
-]
 
 const NaturalCelluloseFiberPage: React.FC = () => {
   const { t } = useTranslation()
 
   const { openCalendly } = useCalendly()
+
+  // FAQ Data
+  const faqs = [
+    {
+      question: t('seoPages.pages.naturalCelluloseFiber.question_whatIsNaturalCelluloseFiber'),
+      answer: t('seoPages.pages.naturalCelluloseFiber.answer_naturalCelluloseFibersAreDerived')
+    },
+    {
+      question: t('seoPages.pages.naturalCelluloseFiber.question_howDoesCelluloseCompareTo'),
+      answer: t('seoPages.pages.naturalCelluloseFiber.answer_celluloseIgnitesFastBurnsWith')
+    },
+    {
+      question: t('seoPages.pages.naturalCelluloseFiber.question_whatAreTheEnvironmentalBenefits'),
+      answer: t('seoPages.pages.naturalCelluloseFiber.answer_lifeCycleAssessmentsConfirmCellulose')
+    },
+    {
+      question: t('seoPages.pages.naturalCelluloseFiber.question_isCelluloseFiberPackagingFoodsafe'),
+      answer: t('seoPages.pages.naturalCelluloseFiber.answer_yesNaturalCelluloseFiberPackaging')
+    },
+    {
+      question: t('seoPages.pages.naturalCelluloseFiber.question_whatApplicationsIsCellulosePackaging'),
+      answer: t('seoPages.pages.naturalCelluloseFiber.answer_cellulosePackagingIsIdealFor')
+    }
+  ]
 
   return (
     <>
@@ -275,7 +276,7 @@ const NaturalCelluloseFiberPage: React.FC = () => {
                 </h2>
                 <SocialShareButtons 
                   url="https://achievepack.com/composting/natural-cellulose-fiber"
-                  title="Natural Cellulose Fiber in AchievePack Solutions"
+                  title={t('seoPages.pages.naturalCelluloseFiber.title_naturalCelluloseFiberInAchievepack')}
                 />
               </div>
               <ul className="space-y-3 text-green-800">

@@ -113,10 +113,10 @@ const CompostingBenefitsPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>The Composting Benefits for Our Planet – And What It Means for Your Packaging | Achieve Pack</title>
-        <meta name="description" content="How composting cuts emissions, protects soil and water, and how Achievepack® compostable packaging fits into the picture. Learn the environmental benefits of commercial composting and certified compostable packaging." />
+        <title>{t('seoPages.pages.compostingBenefits.metaTitle')}</title>
+        <meta name="description" content={t('seoPages.pages.compostingBenefits.metaDescription')} />
         <link rel="canonical" href="https://achievepack.com/composting/composting-benefits" />
-        <meta name="keywords" content="composting benefits, environmental composting, compostable packaging, reduce emissions, soil health, commercial composting, EN 13432, ASTM D6400, sustainable packaging, organic waste" />
+        <meta name="keywords" content={t('seoPages.pages.compostingBenefits.metaKeywords')} />
         
         {/* Open Graph */}
         <meta property="og:title" content="The Composting Benefits for Our Planet – And What It Means for Your Packaging" />
@@ -277,9 +277,9 @@ const CompostingBenefitsPage: React.FC = () => {
               <div className="hidden md:block">
                 <ClickableImage
                   src={IMAGES.hero}
-                  alt="Composting benefits for sustainable packaging - Achievepack"
+                  alt={t('seoPages.pages.compostingBenefits.alt_compostingBenefitsForSustainablePackagin')}
                   className="rounded-2xl shadow-2xl w-full"
-                  caption="Composting transforms organic waste into valuable soil amendment"
+                  caption={t('seoPages.pages.compostingBenefits.caption_compostingTransformsOrganicWasteInto')}
                 />
               </div>
             </div>

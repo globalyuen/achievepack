@@ -123,9 +123,9 @@ export default function PouchPlasticFreePage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>{title}</title>
+        <title>{t('seoPages.pages.pouchPlasticFree.metaTitle')}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="plastic free packaging, compostable vs plastic free, PLA packaging, PBAT bioplastic, conventional plastic free, biobased packaging, EN 13432, sustainable packaging claims" />
+        <meta name="keywords" content={t('seoPages.pages.pouchPlasticFree.metaKeywords')} />
         <link rel="canonical" href="https://pouch.eco/composting/plastic-free" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -147,7 +147,7 @@ export default function PouchPlasticFreePage() {
             <div className="space-y-8 z-10">
               <div className="flex flex-wrap gap-2">
                 <span className="inline-block bg-[#00FFFF] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
-                  ACADEMY_DEBUNK_01
+                  {t('seoPages.pages.pouchPlasticFree.academydebunk01')}
                 </span>
                 <span className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
                   {t('seoPages.pages.pouchPlasticFree.100Transparent')}
@@ -193,7 +193,7 @@ export default function PouchPlasticFreePage() {
       {/* Quick Definitions Cards */}
       <section id="definitions" className="py-24 px-4 md:px-6 max-w-7xl mx-auto text-left">
         <div className="mb-16">
-          <NeoBadge color="magenta">THE_DIFFERENCE</NeoBadge>
+          <NeoBadge color="magenta">{t('seoPages.pages.pouchPlasticFree.thedifference')}</NeoBadge>
           <h2 className="font-black text-4xl md:text-6xl uppercase mt-4">{t('seoPages.pages.pouchPlasticFree.understandingTheTerms')}</h2>
         </div>
 
@@ -227,7 +227,7 @@ export default function PouchPlasticFreePage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <NeoBadge color="cyan">MATERIAL_ANATOMY</NeoBadge>
+              <NeoBadge color="cyan">{t('seoPages.pages.pouchPlasticFree.materialanatomy')}</NeoBadge>
               <h2 className="font-black text-4xl md:text-6xl uppercase">{t('seoPages.pages.pouchPlasticFree.ourCertifiedMultilayerStructure')}</h2>
               <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 leading-relaxed">
                 {t('seoPages.pages.pouchPlasticFree.ratherThanUsingDeceptive')}
@@ -283,13 +283,13 @@ export default function PouchPlasticFreePage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
-              <NeoBadge color="magenta">PROCUREMENT_UTILITY</NeoBadge>
+              <NeoBadge color="magenta">{t('seoPages.pages.pouchPlasticFree.procurementutility')}</NeoBadge>
               <h2 className="font-black text-5xl md:text-7xl uppercase mt-4">
                 {t('seoPages.pages.pouchPlasticFree.valueSpecsMatrix')}
               </h2>
             </div>
             <div className="font-['JetBrains_Mono'] text-sm font-bold bg-[#D4FF00] border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              STANDARDS_COMPLIANCE_2026
+              {t('seoPages.pages.pouchPlasticFree.standardscompliance2026')}
             </div>
           </div>
 
@@ -355,7 +355,7 @@ export default function PouchPlasticFreePage() {
       <section className="py-24 bg-white border-t-4 border-black text-left">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <NeoBadge color="magenta">EXPERT_FAQ</NeoBadge>
+            <NeoBadge color="magenta">{t('seoPages.pages.pouchPlasticFree.expertfaq')}</NeoBadge>
             <h2 className="text-4xl md:text-5xl font-black uppercase mt-6 text-center">
               {t('seoPages.pages.pouchPlasticFree.procurementComplianceFaq')}
             </h2>
@@ -397,7 +397,7 @@ export default function PouchPlasticFreePage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#D4FF00] border-t-4 border-black text-center">
         <div className="max-w-4xl mx-auto px-4 space-y-8">
-          <NeoBadge color="bg-black text-white">ELEVATE_YOUR_BRAND</NeoBadge>
+          <NeoBadge color="bg-black text-white">{t('seoPages.pages.pouchPlasticFree.elevateyourbrand')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
             {t('seoPages.pages.pouchPlasticFree.beginYourCustomRun')}
           </h2>

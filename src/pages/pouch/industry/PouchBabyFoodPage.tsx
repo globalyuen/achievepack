@@ -27,7 +27,7 @@ export default function PouchBabyFoodPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>{title}</title>
+        <title>{t('seoPages.pages.pouchBabyFood.metaTitle')}</title>
         <meta name="description" content={description} />
         <meta property="og:image" content="https://pouch.eco/imgs/artifacts/baby_food_hero.jpg" />
         <link rel="canonical" href="https://pouch.eco/industry/baby-food" />
@@ -69,7 +69,7 @@ export default function PouchBabyFoodPage() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-[#D4FF00] border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20 text-black">
-                    FOOD_GRADE_CERT
+                    {t('seoPages.pages.pouchBabyFood.foodgradecert')}
                   </motion.div>
                 </div>
               </NeoCard>
@@ -92,7 +92,7 @@ export default function PouchBabyFoodPage() {
               />
             </div>
             <div>
-              <NeoBadge color="cyan">CERTIFIED_CLEAN</NeoBadge>
+              <NeoBadge color="cyan">{t('seoPages.pages.pouchBabyFood.certifiedclean')}</NeoBadge>
               <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic text-pink-600">{t('seoPages.pages.pouchBabyFood.trustIs')}<br/>{t('seoPages.pages.pouchBabyFood.everything')}</h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
                 {t('seoPages.pages.pouchBabyFood.babyFoodBrandsFace')}
@@ -114,7 +114,7 @@ export default function PouchBabyFoodPage() {
       {/* Visual Product Gallery Section */}
       <section className="py-24 bg-pink-50 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <NeoBadge color="magenta">{t('seoPages.pages.pouchBabyFood.visualshowcase')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">{t('seoPages.pages.pouchBabyFood.formats')}<br/>{t('seoPages.pages.pouchBabyFood.styles')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 
@@ -149,7 +149,7 @@ export default function PouchBabyFoodPage() {
       <section className="py-24 bg-[#F0F0F0] border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <NeoBadge color="blue">GLOBAL_SAFETY_STANDARDS</NeoBadge>
+            <NeoBadge color="blue">{t('seoPages.pages.pouchBabyFood.globalsafetystandards')}</NeoBadge>
             <h2 className="font-black text-5xl md:text-7xl uppercase mt-4 italic">{t('seoPages.pages.pouchBabyFood.noCompromise')}</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -175,7 +175,7 @@ export default function PouchBabyFoodPage() {
       {/* Deep Dive SEO Content */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="pink">INDUSTRY_DEEP_DIVE</NeoBadge>
+          <NeoBadge color="pink">{t('seoPages.pages.pouchBabyFood.industrydeepdive')}</NeoBadge>
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-8 italic">
             {t('seoPages.pages.pouchBabyFood.theNewStandardIn')} <span className="text-[#10b981]">{t('seoPages.pages.pouchBabyFood.babyFoodPackaging')}</span>
           </h2>
@@ -225,7 +225,7 @@ export default function PouchBabyFoodPage() {
       {/* FAQ Section */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <NeoBadge color="blue">{t('seoPages.pages.pouchBabyFood.knowledgebase')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">{t('seoPages.pages.pouchBabyFood.frequentlyAsked')}<br/>{t('seoPages.pages.pouchBabyFood.questions')}</h2>
           <div className="space-y-6">
             <NeoCard color="bg-gray-50">
@@ -251,7 +251,7 @@ export default function PouchBabyFoodPage() {
       {/* CTA Section */}
       <section className="py-24 bg-pink-600 text-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <NeoBadge color="lime">SOIL_FRIENDLY</NeoBadge>
+          <NeoBadge color="lime">{t('seoPages.pages.pouchBabyFood.soilfriendly')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-8xl uppercase leading-none italic">{t('seoPages.pages.pouchBabyFood.protectTheir')}<br/>{t('seoPages.pages.pouchBabyFood.future')}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto">
             {t('seoPages.pages.pouchBabyFood.empoweringNextgenBabyFood')}

@@ -27,7 +27,7 @@ export default function PouchFrozenFoodPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>{title}</title>
+        <title>{t('seoPages.pages.pouchFrozenFood.metaTitle')}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href="https://pouch.eco/industry/frozen-food" />
       </Helmet>
@@ -68,7 +68,7 @@ export default function PouchFrozenFoodPage() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <motion.div animate={floatAnim} className="absolute top-4 right-4 bg-white border-2 border-black px-2 py-1 font-['JetBrains_Mono'] text-xs font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-20 text-black">
-                    ARCTIC_GRADE_V2
+                    {t('seoPages.pages.pouchFrozenFood.arcticgradev2')}
                   </motion.div>
                 </div>
               </NeoCard>
@@ -91,7 +91,7 @@ export default function PouchFrozenFoodPage() {
               />
             </div>
             <div>
-              <NeoBadge color="cyan">SCIENCE_OF_COLD</NeoBadge>
+              <NeoBadge color="cyan">{t('seoPages.pages.pouchFrozenFood.scienceofcold')}</NeoBadge>
               <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic">{t('seoPages.pages.pouchFrozenFood.frost')}<br/>{t('seoPages.pages.pouchFrozenFood.resistant')}</h2>
               <p className="mt-8 text-xl text-gray-600 font-['JetBrains_Mono'] leading-relaxed">
                 {t('seoPages.pages.pouchFrozenFood.frozenProductsDemandSpecialized')}
@@ -113,7 +113,7 @@ export default function PouchFrozenFoodPage() {
       {/* Visual Product Gallery Section */}
       <section className="py-24 bg-cyan-50 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="blue">VISUAL_SHOWCASE</NeoBadge>
+          <NeoBadge color="blue">{t('seoPages.pages.pouchFrozenFood.visualshowcase')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">{t('seoPages.pages.pouchFrozenFood.arctic')}<br/>{t('seoPages.pages.pouchFrozenFood.solutions')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 
@@ -155,12 +155,12 @@ export default function PouchFrozenFoodPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="border-4 border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <h4 className="font-black uppercase mb-2 text-black text-xs">{t('seoPages.pages.pouchFrozenFood.burstTest')}</h4>
-                <p className="text-xl font-black font-['JetBrains_Mono'] text-black">PASS</p>
+                <p className="text-xl font-black font-['JetBrains_Mono'] text-black">{t('seoPages.pages.pouchFrozenFood.pass')}</p>
                 <p className="text-[10px] font-bold opacity-60">{t('seoPages.pages.pouchFrozenFood.highPressureResistance')}</p>
               </div>
               <div className="border-4 border-black p-4 bg-[#D4FF00] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <h4 className="font-black uppercase mb-2 text-black text-xs">{t('seoPages.pages.pouchFrozenFood.sealIntegrity')}</h4>
-                <p className="text-xl font-black font-['JetBrains_Mono'] text-black">ACTIVE</p>
+                <p className="text-xl font-black font-['JetBrains_Mono'] text-black">{t('seoPages.pages.pouchFrozenFood.active')}</p>
                 <p className="text-[10px] font-bold opacity-60">{t('seoPages.pages.pouchFrozenFood.zeroleakClosure')}</p>
               </div>
             </div>
@@ -190,7 +190,7 @@ export default function PouchFrozenFoodPage() {
       {/* Deep Dive SEO Content */}
       <section className="py-24 bg-white border-t-4 border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="cyan">INDUSTRY_DEEP_DIVE</NeoBadge>
+          <NeoBadge color="cyan">{t('seoPages.pages.pouchFrozenFood.industrydeepdive')}</NeoBadge>
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-8 italic">
             {t('seoPages.pages.pouchFrozenFood.theScienceOf')} <span className="text-cyan-600">{t('seoPages.pages.pouchFrozenFood.frozenFoodPackaging')}</span>
           </h2>
@@ -240,7 +240,7 @@ export default function PouchFrozenFoodPage() {
       {/* FAQ Section */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <NeoBadge color="blue">{t('seoPages.pages.pouchFrozenFood.knowledgebase')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">{t('seoPages.pages.pouchFrozenFood.frequentlyAsked')}<br/>{t('seoPages.pages.pouchFrozenFood.questions')}</h2>
           <div className="space-y-6">
             <NeoCard color="bg-gray-50">
@@ -266,7 +266,7 @@ export default function PouchFrozenFoodPage() {
       {/* CTA Section */}
       <section className="py-24 bg-cyan-600 text-white border-t-4 border-black">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <NeoBadge color="lime">ARCTIC_READY</NeoBadge>
+          <NeoBadge color="lime">{t('seoPages.pages.pouchFrozenFood.arcticready')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-8xl uppercase leading-none italic text-black">{t('seoPages.pages.pouchFrozenFood.coldChain')}<br/>{t('seoPages.pages.pouchFrozenFood.builtSolid')}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl opacity-80 max-w-2xl mx-auto text-black">
             {t('seoPages.pages.pouchFrozenFood.specializedFrozenFoodPackaging')}

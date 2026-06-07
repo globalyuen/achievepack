@@ -96,7 +96,7 @@ export default function PouchSupplementsPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>{title}</title>
+        <title>{t('seoPages.pages.pouchSupplements.metaTitle')}</title>
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonicalUrl} />
         
@@ -220,7 +220,7 @@ export default function PouchSupplementsPage() {
       {/* Visual Product Gallery Section */}
       <section className="py-24 bg-blue-50 border-b-4 border-black">
         <div className="max-w-7xl mx-auto px-6">
-          <NeoBadge color="magenta">VISUAL_SHOWCASE</NeoBadge>
+          <NeoBadge color="magenta">{t('seoPages.pages.pouchSupplements.visualshowcase')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl mt-6 uppercase leading-tight italic mb-12">{t('seoPages.pages.pouchSupplements.supplements')}<br/>{t('seoPages.pages.pouchSupplements.gallery')}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <ClickableImage 

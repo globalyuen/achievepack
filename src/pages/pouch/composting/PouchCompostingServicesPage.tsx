@@ -257,9 +257,9 @@ export default function PouchCompostingServicesPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>{title}</title>
+        <title>{t('seoPages.pages.pouchCompostingServices.metaTitle')}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="composting service, compost facility, EN 13432, ASTM D6400, AS 4736, industrial composting, compostable packaging, USA composting, Canada composting, Australia composting, Europe composting" />
+        <meta name="keywords" content={t('seoPages.pages.pouchCompostingServices.metaKeywords')} />
         <link rel="canonical" href="https://pouch.eco/composting/composting-services" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -281,7 +281,7 @@ export default function PouchCompostingServicesPage() {
             <div className="space-y-8 z-10">
               <div className="flex flex-wrap gap-2">
                 <span className="inline-block bg-[#00FFFF] border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
-                  FACILITY_LOCATOR
+                  {t('seoPages.pages.pouchCompostingServices.facilitylocator')}
                 </span>
                 <span className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
                   {t('seoPages.pages.pouchCompostingServices.100ServicesListed')}
@@ -359,7 +359,7 @@ export default function PouchCompostingServicesPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <span className="inline-block bg-black text-[#D4FF00] font-['JetBrains_Mono'] font-bold text-xs uppercase px-2 py-1 border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-              USA_COMPLIANT_SERVICES_DATABASE
+              {t('seoPages.pages.pouchCompostingServices.usacompliantservicesdatabase')}
             </span>
             <p className="font-['JetBrains_Mono'] text-xs text-neutral-500">
               {t('seoPages.pages.pouchCompostingServices.found')} <strong>{filteredServices.length}</strong> {t('seoPages.pages.pouchCompostingServices.matchingFacilities')}
@@ -415,13 +415,13 @@ export default function PouchCompostingServicesPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
-              <NeoBadge color="magenta">STANDARDS_VALIDATION</NeoBadge>
+              <NeoBadge color="magenta">{t('seoPages.pages.pouchCompostingServices.standardsvalidation')}</NeoBadge>
               <h2 className="font-black text-5xl md:text-7xl uppercase mt-4">
                 {t('seoPages.pages.pouchCompostingServices.fogoSpecsMatrix')}
               </h2>
             </div>
             <div className="font-['JetBrains_Mono'] text-sm font-bold bg-[#D4FF00] border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              FOGO_COMPLIANCE_STANDARDS
+              {t('seoPages.pages.pouchCompostingServices.fogocompliancestandards')}
             </div>
           </div>
 
@@ -445,7 +445,7 @@ export default function PouchCompostingServicesPage() {
       <section className="py-24 bg-white border-t-4 border-black text-left">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <NeoBadge color="magenta">EXPERT_FAQ</NeoBadge>
+            <NeoBadge color="magenta">{t('seoPages.pages.pouchCompostingServices.expertfaq')}</NeoBadge>
             <h2 className="text-4xl md:text-5xl font-black uppercase mt-6 text-center">
               {t('seoPages.pages.pouchCompostingServices.municipalOrderingFaq')}
             </h2>
@@ -487,7 +487,7 @@ export default function PouchCompostingServicesPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#D4FF00] border-t-4 border-black text-center">
         <div className="max-w-4xl mx-auto px-4 space-y-8">
-          <NeoBadge color="bg-black text-white">CIRCULAR_ECONOMY</NeoBadge>
+          <NeoBadge color="bg-black text-white">{t('seoPages.pages.pouchCompostingServices.circulareconomy')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
             {t('seoPages.pages.pouchCompostingServices.beginYourCustomRun')}
           </h2>

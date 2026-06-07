@@ -40,8 +40,12 @@ async function translateText(text, targetLang) {
   }
 }
 
-async function translateObject(obj, targetLang, depth = 0) {
+async function translateObject(obj, targetLang, existingObj, depth = 0) {
   if (typeof obj === 'string') {
+    if (existingObj && typeof existingObj === 'string' && existingObj.trim()) {
+      stats.skipped++;
+      return existingObj;
+    }
     const result = await translateText(obj, targetLang);
     if (stats.translated % 20 === 0 && stats.translated > 0) {
       process.stdout.write(`\r    Progress: ${stats.translated} strings translated...`);
@@ -52,8 +56,9 @@ async function translateObject(obj, targetLang, depth = 0) {
 
   if (Array.isArray(obj)) {
     const result = [];
-    for (const item of obj) {
-      result.push(await translateObject(item, targetLang, depth + 1));
+    for (let i = 0; i < obj.length; i++) {
+      const existingItem = (existingObj && Array.isArray(existingObj)) ? existingObj[i] : undefined;
+      result.push(await translateObject(obj[i], targetLang, existingItem, depth + 1));
     }
     return result;
   }
@@ -61,7 +66,8 @@ async function translateObject(obj, targetLang, depth = 0) {
   if (typeof obj === 'object' && obj !== null) {
     const result = {};
     for (const key of Object.keys(obj)) {
-      result[key] = await translateObject(obj[key], targetLang, depth + 1);
+      const existingVal = (existingObj && typeof existingObj === 'object') ? existingObj[key] : undefined;
+      result[key] = await translateObject(obj[key], targetLang, existingVal, depth + 1);
     }
     return result;
   }
@@ -83,7 +89,7 @@ async function translateToLanguage(content, langCode, langInfo) {
   }
 
   console.log(`    Translating seoPages...`);
-  const translatedSeoPages = await translateObject(content.seoPages, langInfo.code);
+  const translatedSeoPages = await translateObject(content.seoPages, langInfo.code, langContent.seoPages);
   
   langContent.seoPages = translatedSeoPages;
 

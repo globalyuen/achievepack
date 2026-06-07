@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Package, Leaf, Layers, Settings, ShoppingBag, Coffee, Award, Users, Globe, FileCheck, Building2, Sparkles, Shield, CheckCircle, Calendar, Mail, X, ChevronLeft, ChevronRight, Palette, Ruler, Recycle } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
@@ -7,19 +8,24 @@ import { getDomain } from '../../utils/domain'
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images from /imgs/function/rice/
-const ricePaperGallery = [
-  { src: '/imgs/function/rice/hero.webp', title: 'Achieve Pack® Rice Paper & PLA Packaging', desc: 'Achieve Pack® Rice Paper PLA Compostable Packaging' },
-  { src: '/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp', title: 'Eco Material Closeup & Texture', desc: 'Eco-FriendlyMaterialTextureClose-Up' },
-  { src: '/imgs/function/rice/a_achievepack_structure_variety_infographic_9570629.webp', title: 'Structure Variety Infographic', desc: 'MultipleBagTypeStructure' },
-  { src: '/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp', title: 'Coffee Valve & Degassing System', desc: 'CoffeeDegassing ValveSystem' },
-  { src: '/imgs/function/rice/a_achievepack_snacks_drygood_lifestyle_9593537.webp', title: 'Snacks & Dry Goods Applications', desc: 'Dry GoodsSnackApplicationScenario' },
-  { src: '/imgs/function/rice/a_achievepack_coffee_tea_scene_3005344.webp', title: 'Coffee & Tea Scene', desc: 'CoffeeAndTeaApplicationScenario' },
-  { src: '/imgs/function/rice/a_achievepack_size_customization_chart_0780816.webp', title: 'Size Customization Chart', desc: 'DimensionsCustomSolution' },
-  { src: '/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp', title: 'Printing & Branding Detail', desc: 'PrintingAndBrandDetails' },
-  { src: '/imgs/function/rice/a_achievepack_sustainability_manifesto_6720236.webp', title: 'Sustainability Manifesto', desc: 'CanContinuousDeclaration' },
-]
+
 
 const RicePaperBagsPage: React.FC = () => {
+  const { t } = useTranslation()
+
+  const ricePaperGallery = [
+  { src: '/imgs/function/rice/hero.webp', title: t('seoPages.pages.ricePaperBags.title_achievePackRicePaperPla'), desc: t('seoPages.pages.ricePaperBags.desc_achievePackRicePaperPla') },
+  { src: '/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp', title: t('seoPages.pages.ricePaperBags.title_ecoMaterialCloseupTexture'), desc: t('seoPages.pages.ricePaperBags.desc_ecofriendlymaterialtexturecloseup') },
+  { src: '/imgs/function/rice/a_achievepack_structure_variety_infographic_9570629.webp', title: t('seoPages.pages.ricePaperBags.title_structureVarietyInfographic'), desc: t('seoPages.pages.ricePaperBags.desc_multiplebagtypestructure') },
+  { src: '/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp', title: t('seoPages.pages.ricePaperBags.title_coffeeValveDegassingSystem'), desc: t('seoPages.pages.ricePaperBags.desc_coffeedegassingValvesystem') },
+  { src: '/imgs/function/rice/a_achievepack_snacks_drygood_lifestyle_9593537.webp', title: t('seoPages.pages.ricePaperBags.title_snacksDryGoodsApplications'), desc: t('seoPages.pages.ricePaperBags.desc_dryGoodssnackapplicationscenario') },
+  { src: '/imgs/function/rice/a_achievepack_coffee_tea_scene_3005344.webp', title: t('seoPages.pages.ricePaperBags.title_coffeeTeaScene'), desc: t('seoPages.pages.ricePaperBags.desc_coffeeandteaapplicationscenario') },
+  { src: '/imgs/function/rice/a_achievepack_size_customization_chart_0780816.webp', title: t('seoPages.pages.ricePaperBags.title_sizeCustomizationChart'), desc: t('seoPages.pages.ricePaperBags.desc_dimensionscustomsolution') },
+  { src: '/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp', title: t('seoPages.pages.ricePaperBags.title_printingBrandingDetail'), desc: t('seoPages.pages.ricePaperBags.desc_printingandbranddetails') },
+  { src: '/imgs/function/rice/a_achievepack_sustainability_manifesto_6720236.webp', title: t('seoPages.pages.ricePaperBags.title_sustainabilityManifesto'), desc: t('seoPages.pages.ricePaperBags.desc_cancontinuousdeclaration') },
+]
+
+
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   
@@ -93,23 +99,23 @@ const RicePaperBagsPage: React.FC = () => {
   const sections = [
     {
       id: 'intro',
-      title: 'Achieve Pack® Rice Paper & PLA Packaging Overview',
+      title: t('seoPages.pages.ricePaperBags.title_achievePackRicePaperPla'),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>Premium compostable packaging with natural rice paper texture</strong> — Achieve Pack® rice paper bags combine the authentic look of natural fiber with PLA or cellophane lining for full compostability. Replace traditional plastic packaging with sustainable, premium-feeling pouches.
+              <strong>{t('seoPages.pages.ricePaperBags.premiumCompostablePackagingWithNatural')}</strong> {t('seoPages.pages.ricePaperBags.achievePackRicePaperBags')}
             </p>
             <p className="text-neutral-700">
-              NaturalRice PaperTextureOfPremiumCompostable Packaging — Achieve Pack® Rice PaperBagWillNaturalFiberQualityFeelAnd PLA/CellophaneInsideLinerKnotSuitable，AchieveCompleteCanCompostable。UseCanContinuous、HighGradeTouchFeelOfBagChildAlternativeTraditionalPlasticPackaging。
+              {t('seoPages.pages.ricePaperBags.naturalricePapertextureofpremiumcomposta')}
             </p>
           </div>
           
           <AlternatingSection
             image="/imgs/function/rice/hero.webp"
             imageAlt="Achieve Pack Rice Paper & PLA Packaging Hero"
-            title="Achieve Pack® Rice Paper & PLA Packaging"
+            title={t('seoPages.pages.ricePaperBags.title_achievePackRicePaperPla')}
             titleCn="Achieve Pack® Rice Paper PLA Compostable Packaging"
             content="Our rice paper pouches feature natural fiber texture on the exterior with fully compostable PLA or cellophane inner layers. Certified home compostable or industrial compostable options available. Ideal for brands seeking authentic, eco-conscious packaging with premium aesthetics."
             contentCn="OurRice PaperBagOutsideLayerUsingNaturalFiber Texture，InsideLayerForCompleteCanCompostableOf PLA OrCellophane。OptionalHomeFamilyCanCompostableOrWorkerIndustryCanCompostableCertification。SuitableSuitablePursueNatural、Eco-FriendlyAndToolHavePremiumBeautyFeelOfBrand。"
@@ -121,14 +127,14 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'eco-materials',
-      title: 'Eco-Friendly Materials & Compostability',
+      title: t('seoPages.pages.ricePaperBags.title_ecofriendlyMaterialsCompostability'),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp"
             imageAlt="Rice Paper Material Closeup Texture"
-            title="Rice Paper + PLA/Cellophane: 100% Compostable"
+            title={t('seoPages.pages.ricePaperBags.title_ricePaperPlacellophane100Compostable')}
             titleCn="Rice Paper + PLA/Cellophane：100% CanCompostable"
             content="Rice paper substrate provides natural fiber texture and feel. Combined with PLA (polylactic acid) or cellophane inner layers, the entire structure is fully compostable. Replaces traditional plastic packaging for coffee, tea, snacks, and dry goods with a sustainable alternative that breaks down naturally."
             contentCn="Rice PaperBase MaterialProvideNaturalFiber TextureAndTouchFeel。KnotSuitable PLA（Polylactic Acid）OrCellophaneInsideLayer，WholeBodyStructureCompleteCanCompostable。UseCanDegradableOfCanContinuousAlternativeProductTakeGenerationCoffee、Tea Leaves、SnackAndDry GoodsOfTraditionalPlasticPackaging。"
@@ -139,21 +145,21 @@ const RicePaperBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Leaf className="h-5 w-5 text-green-600 mb-2" />
-              <h4 className="font-semibold text-green-800">Rice Paper Base</h4>
-              <p className="text-sm text-green-700">Natural fiber texture substrate</p>
-              <p className="text-xs text-green-600 mt-1">NaturalFiber TextureBase Material</p>
+              <h4 className="font-semibold text-green-800">{t('seoPages.pages.ricePaperBags.ricePaperBase')}</h4>
+              <p className="text-sm text-green-700">{t('seoPages.pages.ricePaperBags.naturalFiberTextureSubstrate')}</p>
+              <p className="text-xs text-green-600 mt-1">{t('seoPages.pages.ricePaperBags.naturalfiberTexturebaseMaterial')}</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Recycle className="h-5 w-5 text-green-600 mb-2" />
-              <h4 className="font-semibold text-green-800">PLA or Cellophane</h4>
-              <p className="text-sm text-green-700">Compostable inner barrier</p>
-              <p className="text-xs text-green-600 mt-1">CanCompostableInsideLayerBarrier</p>
+              <h4 className="font-semibold text-green-800">{t('seoPages.pages.ricePaperBags.plaOrCellophane')}</h4>
+              <p className="text-sm text-green-700">{t('seoPages.pages.ricePaperBags.compostableInnerBarrier')}</p>
+              <p className="text-xs text-green-600 mt-1">{t('seoPages.pages.ricePaperBags.cancompostableinsidelayerbarrier')}</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <Shield className="h-5 w-5 text-green-600 mb-2" />
-              <h4 className="font-semibold text-green-800">Certified Compostable</h4>
-              <p className="text-sm text-green-700">Home or industrial options</p>
-              <p className="text-xs text-green-600 mt-1">HomeFamilyOrWorkerIndustryCanCompostableCertification</p>
+              <h4 className="font-semibold text-green-800">{t('seoPages.pages.ricePaperBags.certifiedCompostable')}</h4>
+              <p className="text-sm text-green-700">{t('seoPages.pages.ricePaperBags.homeOrIndustrialOptions')}</p>
+              <p className="text-xs text-green-600 mt-1">{t('seoPages.pages.ricePaperBags.homefamilyorworkerindustrycancompostable')}</p>
             </div>
           </div>
         </div>
@@ -161,14 +167,14 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'structures',
-      title: 'Multiple Bag Structures Available',
+      title: t('seoPages.pages.ricePaperBags.title_multipleBagStructuresAvailable'),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/rice/a_achievepack_structure_variety_infographic_9570629.webp"
             imageAlt="Rice Paper Bag Structure Variety"
-            title="Stand Up, Side Gusset, Flat Bottom & Flat Pouch"
+            title={t('seoPages.pages.ricePaperBags.title_standUpSideGussetFlat')}
             titleCn="Stand-Up Pouches、Side GussetBag、Flat Bottom Bags、ThreeEdgeSeal"
             content="Achieve Pack® rice paper bags are available in all major pouch structures: Stand up pouch for shelf presence, Side gusset pouch for bulk products, Flat bottom (box pouch) for premium presentation, and Flat pouch (3-side seal) for sachets and samples. Each structure optimized for your specific product requirements."
             contentCn="Achieve Pack® Rice PaperBagProvideAllMainstreamBagTypeStructure：Stand-Up PouchesDisplayPropertyBest，Side GussetBagSuitableSuitableLargeCapacityProduct，FlatBottomBoxTypeBagPresentPremiumQualityFeel，ThreeEdgeSealFlatBagUseAtSmallBagSample。Each TypeStructureEvenNeedleForYouOfProductRequireDemandOptimizeization。"
@@ -179,44 +185,44 @@ const RicePaperBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800 text-sm">Stand Up Pouch</h4>
-              <p className="text-xs text-neutral-500">Stand-Up Pouches</p>
+              <h4 className="font-semibold text-neutral-800 text-sm">{t('seoPages.pages.ricePaperBags.standUpPouch')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.standupPouches')}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800 text-sm">Side Gusset</h4>
-              <p className="text-xs text-neutral-500">Side GussetBag</p>
+              <h4 className="font-semibold text-neutral-800 text-sm">{t('seoPages.pages.ricePaperBags.sideGusset')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.sideGussetbag')}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800 text-sm">Flat Bottom</h4>
-              <p className="text-xs text-neutral-500">Flat Bottom Bags</p>
+              <h4 className="font-semibold text-neutral-800 text-sm">{t('seoPages.pages.ricePaperBags.flatBottom')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.flatBottomBags')}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <Package className="h-6 w-6 text-primary-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800 text-sm">Flat Pouch</h4>
-              <p className="text-xs text-neutral-500">ThreeEdgeSeal</p>
+              <h4 className="font-semibold text-neutral-800 text-sm">{t('seoPages.pages.ricePaperBags.flatPouch')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.threeedgeseal')}</p>
             </div>
           </div>
           
           <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
-            <h4 className="font-semibold text-amber-800 mb-3">✓ Optional Features</h4>
+            <h4 className="font-semibold text-amber-800 mb-3">{t('seoPages.pages.ricePaperBags.optionalFeatures')}</h4>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
-                <p className="text-amber-700"><strong>Self-standing bottom</strong></p>
-                <p className="text-amber-600">Stand-Up BottomDesign</p>
+                <p className="text-amber-700"><strong>{t('seoPages.pages.ricePaperBags.selfstandingBottom')}</strong></p>
+                <p className="text-amber-600">{t('seoPages.pages.ricePaperBags.standupBottomdesign')}</p>
               </div>
               <div>
-                <p className="text-amber-700"><strong>Hang hole / Euro slot</strong></p>
-                <p className="text-amber-600">Hang Hole / EuroStyleHang Hole</p>
+                <p className="text-amber-700"><strong>{t('seoPages.pages.ricePaperBags.hangHoleEuroSlot')}</strong></p>
+                <p className="text-amber-600">{t('seoPages.pages.ricePaperBags.hangHoleEurostylehangHole')}</p>
               </div>
               <div>
-                <p className="text-amber-700"><strong>Easy tear notch</strong></p>
-                <p className="text-amber-600">EasyTearOpening</p>
+                <p className="text-amber-700"><strong>{t('seoPages.pages.ricePaperBags.easyTearNotch')}</strong></p>
+                <p className="text-amber-600">{t('seoPages.pages.ricePaperBags.easytearopening')}</p>
               </div>
               <div>
-                <p className="text-amber-700"><strong>Side gusset expansion</strong></p>
-                <p className="text-amber-600">Side GussetAddWide</p>
+                <p className="text-amber-700"><strong>{t('seoPages.pages.ricePaperBags.sideGussetExpansion')}</strong></p>
+                <p className="text-amber-600">{t('seoPages.pages.ricePaperBags.sideGussetaddwide')}</p>
               </div>
             </div>
           </div>
@@ -225,14 +231,14 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'features',
-      title: 'Functional Features: Zipper, Valve & Window',
+      title: t('seoPages.pages.ricePaperBags.title_functionalFeaturesZipperValveWindow'),
       icon: <Settings className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp"
             imageAlt="Rice Paper Bag Coffee Valve Degassing"
-            title="Resealable Zipper, Degassing Valve & Clear Window"
+            title={t('seoPages.pages.ricePaperBags.title_resealableZipperDegassingValveClear')}
             titleCn="CanRepeatedSealedZipper、Degassing Valve、TransparentWindow"
             content="Add functional features to your rice paper pouches: Resealable zipper or ziplock for extended freshness, one-way degassing valve perfect for coffee packaging, and clear window options for product visibility. All features maintain the compostable integrity of the packaging."
             contentCn="ForRice PaperBagAddFunctionCanWithPiece：CanRepeatedSealedZipperExtendLongFresh KeepingPeriod，SingleTowardDegassing ValveSuitableSuitableCoffeePackaging，TransparentWindowDisplayProduct。AllWithPieceEvenMaintainPackagingOfCanCompostableSpecialProperty。"
@@ -243,31 +249,31 @@ const RicePaperBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <Settings className="h-5 w-5 text-blue-600 mb-2" />
-              <h4 className="font-semibold text-blue-800">Zipper / Ziplock</h4>
-              <p className="text-sm text-blue-700">Resealable closure options</p>
-              <p className="text-xs text-blue-600 mt-1">CanRepeatedSealZipper</p>
+              <h4 className="font-semibold text-blue-800">{t('seoPages.pages.ricePaperBags.zipperZiplock')}</h4>
+              <p className="text-sm text-blue-700">{t('seoPages.pages.ricePaperBags.resealableClosureOptions')}</p>
+              <p className="text-xs text-blue-600 mt-1">{t('seoPages.pages.ricePaperBags.canrepeatedsealzipper')}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <Coffee className="h-5 w-5 text-blue-600 mb-2" />
-              <h4 className="font-semibold text-blue-800">Degassing Valve</h4>
-              <p className="text-sm text-blue-700">One-way valve for coffee</p>
-              <p className="text-xs text-blue-600 mt-1">CoffeeProfessionalUseDegassing Valve</p>
+              <h4 className="font-semibold text-blue-800">{t('seoPages.pages.ricePaperBags.degassingValve')}</h4>
+              <p className="text-sm text-blue-700">{t('seoPages.pages.ricePaperBags.onewayValveForCoffee')}</p>
+              <p className="text-xs text-blue-600 mt-1">{t('seoPages.pages.ricePaperBags.coffeeprofessionalusedegassingValve')}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <Package className="h-5 w-5 text-blue-600 mb-2" />
-              <h4 className="font-semibold text-blue-800">Clear Window</h4>
-              <p className="text-sm text-blue-700">Product visibility option</p>
-              <p className="text-xs text-blue-600 mt-1">ProductCanViewWindow</p>
+              <h4 className="font-semibold text-blue-800">{t('seoPages.pages.ricePaperBags.clearWindow')}</h4>
+              <p className="text-sm text-blue-700">{t('seoPages.pages.ricePaperBags.productVisibilityOption')}</p>
+              <p className="text-xs text-blue-600 mt-1">{t('seoPages.pages.ricePaperBags.productcanviewwindow')}</p>
             </div>
           </div>
           
           <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-            <h4 className="font-semibold text-green-800 mb-3">✓ Barrier Performance</h4>
+            <h4 className="font-semibold text-green-800 mb-3">{t('seoPages.pages.ricePaperBags.barrierPerformance')}</h4>
             <p className="text-neutral-700 mb-2">
-              Rice paper pouches with PLA or cellophane lining provide good moisture and oxygen barrier properties, suitable for dry goods, coffee beans, tea leaves, nuts, and pet food products.
+              {t('seoPages.pages.ricePaperBags.ricePaperPouchesWithPla')}
             </p>
             <p className="text-neutral-600 text-sm">
-              Rice PaperBagWithSuitable PLA OrCellophaneInsideLiner，ProvideGoodGoodOfMoisture ProofAntiOxygenBarrierPropertyCan，Suitable forDry Goods、Coffee Beans、Tea Leaves、NutsAndPetFood。
+              {t('seoPages.pages.ricePaperBags.ricePaperbagwithsuitablePlaOrcellophanei')}
             </p>
           </div>
         </div>
@@ -275,14 +281,14 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'applications-snacks',
-      title: 'Applications: Snacks, Nuts & Dry Goods',
+      title: t('seoPages.pages.ricePaperBags.title_applicationsSnacksNutsDryGoods'),
       icon: <ShoppingBag className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/rice/a_achievepack_snacks_drygood_lifestyle_9593537.webp"
             imageAlt="Rice Paper Bags for Snacks and Dry Goods"
-            title="Perfect for Snacks, Cereals, Nuts & Superfoods"
+            title={t('seoPages.pages.ricePaperBags.title_perfectForSnacksCerealsNuts')}
             titleCn="Snack、Cereal、Nuts、SuperFoodOfIdealPackaging"
             content="Rice paper pouches are ideal for dry goods that benefit from natural, premium presentation. The authentic fiber texture conveys quality and sustainability. Stand up pouches with clear windows showcase your product while maintaining freshness with resealable zipper closures."
             contentCn="Rice PaperBagIsDry GoodsCategoryProductOfIdealPackaging，NaturalPremiumOfPresentMethod。TrueRealOfFiber TextureTransferReachQualityAndCanContinuousReasonConcept。WithTransparentWindowOfStand-Up PouchesDisplayProduct，MeanwhileWithSuitableCanRepeatedSealZipperMaintainFreshDegree。"
@@ -293,23 +299,23 @@ const RicePaperBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🥜</span>
-              <h4 className="font-semibold text-neutral-800 text-sm mt-2">Nuts & Seeds</h4>
-              <p className="text-xs text-neutral-500">NutsTypeChild</p>
+              <h4 className="font-semibold text-neutral-800 text-sm mt-2">{t('seoPages.pages.ricePaperBags.nutsSeeds')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.nutstypechild')}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🍿</span>
-              <h4 className="font-semibold text-neutral-800 text-sm mt-2">Snacks</h4>
-              <p className="text-xs text-neutral-500">CasualSnack</p>
+              <h4 className="font-semibold text-neutral-800 text-sm mt-2">{t('seoPages.pages.ricePaperBags.snacks')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.casualsnack')}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🥣</span>
-              <h4 className="font-semibold text-neutral-800 text-sm mt-2">Cereals</h4>
-              <p className="text-xs text-neutral-500">CerealGrains</p>
+              <h4 className="font-semibold text-neutral-800 text-sm mt-2">{t('seoPages.pages.ricePaperBags.cereals')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.cerealgrains')}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg border border-neutral-200 text-center">
               <span className="text-2xl">🫐</span>
-              <h4 className="font-semibold text-neutral-800 text-sm mt-2">Superfoods</h4>
-              <p className="text-xs text-neutral-500">SuperFood</p>
+              <h4 className="font-semibold text-neutral-800 text-sm mt-2">{t('seoPages.pages.ricePaperBags.superfoods')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.superfood')}</p>
             </div>
           </div>
         </div>
@@ -317,14 +323,14 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'applications-coffee',
-      title: 'Applications: Coffee & Tea',
+      title: t('seoPages.pages.ricePaperBags.title_applicationsCoffeeTea'),
       icon: <Coffee className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/rice/a_achievepack_coffee_tea_scene_3005344.webp"
             imageAlt="Rice Paper Bags for Coffee and Tea"
-            title="Compostable Coffee & Tea Packaging"
+            title={t('seoPages.pages.ricePaperBags.title_compostableCoffeeTeaPackaging')}
             titleCn="CanCompostableCoffeeAndTea LeavesPackaging"
             content="Rice paper coffee bags with one-way degassing valve are perfect for specialty coffee roasters. The natural paper texture aligns with artisan, sustainable brand values. Available in side gusset and flat bottom structures with capacity from 250g to 1kg+. Tea pouches benefit from the premium presentation and eco-friendly messaging."
             contentCn="WithSingleTowardDegassing ValveOfRice PaperCoffeeBagIdeal forSuitableFineProductCoffeeBakingBusiness。NaturalPaperQualityTextureContractSuitableHandWorkerArt、CanContinuousOfBrandPriceValueView。ProvideSide GussetBagAndFlat Bottom BagsStructure，CapacityFrom 250g To 1kg+。Tea LeavesBagSameStyleReceiveBenefitAtPremiumPresentAndEco-FriendlyReasonConcept。"
@@ -335,22 +341,22 @@ const RicePaperBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-amber-50 p-5 rounded-lg border border-amber-200">
               <Coffee className="h-6 w-6 text-amber-700 mb-2" />
-              <h4 className="font-semibold text-amber-800 mb-2">Coffee Packaging</h4>
+              <h4 className="font-semibold text-amber-800 mb-2">{t('seoPages.pages.ricePaperBags.coffeePackaging')}</h4>
               <ul className="text-sm text-amber-700 space-y-1">
-                <li>• One-way degassing valve SingleTowardDegassing Valve</li>
-                <li>• Side gusset or flat bottom Side GussetOrFlatBottom</li>
-                <li>• 250g to 2kg capacity MultipleSpecification</li>
-                <li>• Premium roaster presentation PremiumBakingPresent</li>
+                <li>{t('seoPages.pages.ricePaperBags.onewayDegassingValveSingletowarddegassin')}</li>
+                <li>{t('seoPages.pages.ricePaperBags.sideGussetOrFlatBottom')}</li>
+                <li>{t('seoPages.pages.ricePaperBags.250gTo2kgCapacityMultiplespecification')}</li>
+                <li>{t('seoPages.pages.ricePaperBags.premiumRoasterPresentationPremiumbakingp')}</li>
               </ul>
             </div>
             <div className="bg-green-50 p-5 rounded-lg border border-green-200">
               <Leaf className="h-6 w-6 text-green-700 mb-2" />
-              <h4 className="font-semibold text-green-800 mb-2">Tea Packaging</h4>
+              <h4 className="font-semibold text-green-800 mb-2">{t('seoPages.pages.ricePaperBags.teaPackaging')}</h4>
               <ul className="text-sm text-green-700 space-y-1">
-                <li>• Loose leaf or tea bag options ScatterTeaOrTeaPack</li>
-                <li>• Stand up or flat pouch Stand-Up PouchesOrFlatBag</li>
-                <li>• Small sachets available SmallBagInstallOptional</li>
-                <li>• Natural aesthetic appeal NaturalBeautyStudy</li>
+                <li>{t('seoPages.pages.ricePaperBags.looseLeafOrTeaBag')}</li>
+                <li>{t('seoPages.pages.ricePaperBags.standUpOrFlatPouch')}</li>
+                <li>{t('seoPages.pages.ricePaperBags.smallSachetsAvailableSmallbaginstallopti')}</li>
+                <li>{t('seoPages.pages.ricePaperBags.naturalAestheticAppealNaturalbeautystudy')}</li>
               </ul>
             </div>
           </div>
@@ -359,14 +365,14 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'sizes-customization',
-      title: 'Sizes & Customization',
+      title: t('seoPages.pages.ricePaperBags.title_sizesCustomization'),
       icon: <Ruler className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/rice/a_achievepack_size_customization_chart_0780816.webp"
             imageAlt="Rice Paper Bag Size Customization"
-            title="From 250g to 2kg+: Custom Sizes & OEM"
+            title={t('seoPages.pages.ricePaperBags.title_from250gTo2kgCustom')}
             titleCn="From 250g To 2kg+：CustomDimensionsAnd OEM Service"
             content="Achieve Pack® rice paper pouches are available in standard sizes from 250g to 2kg capacity, with fully custom dimensions available. Choose from kraft brown, white kraft, or natural rice paper texture surfaces. Support for digital printing or gravure printing with brand-specific artwork and logos."
             contentCn="Achieve Pack® Rice PaperBagProvide 250g To 2kg StandardSpecification，AlsoSupportCompleteCustomDimensions。OptionalBrown KraftSkin、WhiteCowSkinOrNaturalRice PaperTextureSurface。SupportDigitalPrintingOrGravurePrinting，WithSuitableBrandProfessionalBelongPatternAnd Logo。"
@@ -375,42 +381,42 @@ const RicePaperBagsPage: React.FC = () => {
           />
           
           <div className="bg-neutral-50 p-6 rounded-lg">
-            <h4 className="font-semibold text-neutral-800 mb-4">Standard Size Options</h4>
+            <h4 className="font-semibold text-neutral-800 mb-4">{t('seoPages.pages.ricePaperBags.standardSizeOptions')}</h4>
             <div className="grid md:grid-cols-4 gap-4">
               <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
-                <h5 className="font-bold text-primary-600 text-xl">250g</h5>
-                <p className="text-xs text-neutral-500">Sample & retail size</p>
+                <h5 className="font-bold text-primary-600 text-xl">{t('seoPages.pages.ricePaperBags.250g')}</h5>
+                <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.sampleRetailSize')}</p>
               </div>
               <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
-                <h5 className="font-bold text-primary-600 text-xl">500g</h5>
-                <p className="text-xs text-neutral-500">Standard retail</p>
+                <h5 className="font-bold text-primary-600 text-xl">{t('seoPages.pages.ricePaperBags.500g')}</h5>
+                <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.standardRetail')}</p>
               </div>
               <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
-                <h5 className="font-bold text-primary-600 text-xl">1kg</h5>
-                <p className="text-xs text-neutral-500">Family / bulk size</p>
+                <h5 className="font-bold text-primary-600 text-xl">{t('seoPages.pages.ricePaperBags.1kg')}</h5>
+                <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.familyBulkSize')}</p>
               </div>
               <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
-                <h5 className="font-bold text-primary-600 text-xl">2kg+</h5>
-                <p className="text-xs text-neutral-500">Commercial size</p>
+                <h5 className="font-bold text-primary-600 text-xl">{t('seoPages.pages.ricePaperBags.2kg')}</h5>
+                <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.commercialSize')}</p>
               </div>
             </div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-              <h4 className="font-semibold text-amber-800">Kraft Brown</h4>
-              <p className="text-sm text-amber-700">Classic natural look</p>
-              <p className="text-xs text-amber-600 mt-1">ThroughClassicBrown KraftSkin</p>
+              <h4 className="font-semibold text-amber-800">{t('seoPages.pages.ricePaperBags.kraftBrown')}</h4>
+              <p className="text-sm text-amber-700">{t('seoPages.pages.ricePaperBags.classicNaturalLook')}</p>
+              <p className="text-xs text-amber-600 mt-1">{t('seoPages.pages.ricePaperBags.throughclassicbrownKraftskin')}</p>
             </div>
             <div className="bg-neutral-100 p-4 rounded-lg border border-neutral-300">
-              <h4 className="font-semibold text-neutral-800">White Kraft</h4>
-              <p className="text-sm text-neutral-700">Clean modern aesthetic</p>
-              <p className="text-xs text-neutral-600 mt-1">White Kraft Paper</p>
+              <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.ricePaperBags.whiteKraft')}</h4>
+              <p className="text-sm text-neutral-700">{t('seoPages.pages.ricePaperBags.cleanModernAesthetic')}</p>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.ricePaperBags.whiteKraftPaper')}</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h4 className="font-semibold text-green-800">Rice Paper Texture</h4>
-              <p className="text-sm text-green-700">Premium fiber feel</p>
-              <p className="text-xs text-green-600 mt-1">Rice PaperTexture</p>
+              <h4 className="font-semibold text-green-800">{t('seoPages.pages.ricePaperBags.ricePaperTexture')}</h4>
+              <p className="text-sm text-green-700">{t('seoPages.pages.ricePaperBags.premiumFiberFeel')}</p>
+              <p className="text-xs text-green-600 mt-1">{t('seoPages.pages.ricePaperBags.ricePapertexture')}</p>
             </div>
           </div>
         </div>
@@ -418,14 +424,14 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'printing-branding',
-      title: 'Printing & Brand Customization',
+      title: t('seoPages.pages.ricePaperBags.title_printingBrandCustomization'),
       icon: <Palette className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp"
             imageAlt="Rice Paper Bag Printing and Branding"
-            title="High-Quality Custom Printing"
+            title={t('seoPages.pages.ricePaperBags.title_highqualityCustomPrinting')}
             titleCn="HighQualityCustomPrinting"
             content="Achieve Pack® supports both digital printing for low MOQ orders (from 500 pieces) and gravure/plate printing for larger runs. Print your brand artwork, illustrations, and logos with vibrant colors on rice paper substrates. The natural paper texture enhances the premium feel of your printed design."
             contentCn="Achieve Pack® SupportDigitalPrinting（LowTo 500 PieceMinimum Order）AndGravurePrinting（LargeBatchVolumeOrder）。InRice PaperBase MaterialUpPrintingYouOfBrandPattern、InsertDrawAnd Logo，ColorColorBright。NaturalPaperQualityTextureIncreaseStrongPrintingDesignOfPremiumQualityFeel。"
@@ -435,21 +441,21 @@ const RicePaperBagsPage: React.FC = () => {
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-purple-50 p-5 rounded-lg border border-purple-200">
-              <h4 className="font-semibold text-purple-800 mb-3">Digital Printing</h4>
+              <h4 className="font-semibold text-purple-800 mb-3">{t('seoPages.pages.ricePaperBags.digitalPrinting')}</h4>
               <ul className="text-sm text-purple-700 space-y-2">
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Low MOQ from 500pcs</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> No plate costs</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Variable data printing</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Fast turnaround</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.lowMoqFrom500pcs')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.noPlateCosts')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.variableDataPrinting')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.fastTurnaround')}</li>
               </ul>
             </div>
             <div className="bg-blue-50 p-5 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-3">Gravure Printing</h4>
+              <h4 className="font-semibold text-blue-800 mb-3">{t('seoPages.pages.ricePaperBags.gravurePrinting')}</h4>
               <ul className="text-sm text-blue-700 space-y-2">
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Best for large volumes</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Excellent color consistency</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Special finishes available</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Cost-effective at scale</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.bestForLargeVolumes')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.excellentColorConsistency')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.specialFinishesAvailable')}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.costeffectiveAtScale')}</li>
               </ul>
             </div>
           </div>
@@ -458,14 +464,14 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'trust-eeat',
-      title: 'Why Trust Achieve Pack?',
+      title: t('seoPages.pages.ricePaperBags.title_whyTrustAchievePack'),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/function/rice/a_achievepack_sustainability_manifesto_6720236.webp"
             imageAlt="Achieve Pack Sustainability Manifesto"
-            title="Designed for Sustainable Brands"
+            title={t('seoPages.pages.ricePaperBags.title_designedForSustainableBrands')}
             titleCn="ForCanContinuousBrandAndDesign"
             content="With over 13 years of flexible packaging expertise, Achieve Pack has supplied compostable rice paper pouches to coffee roasters, tea brands, superfood companies, and snack producers across North America, Europe, and Asia-Pacific. Our rice paper bags are certified compostable and trusted by 500+ brands worldwide."
             contentCn="With Over 13 Years of FlexiblePackagingProfessionalIndustryThroughTest，Achieve Pack Already Served North America、EuropeAndAsia PacificOfCoffeeBakingBusiness、Tea LeavesBrand、SuperFoodCompanyAndSnackProductionBusinessProvideCanCompostableRice PaperBag。OurRice PaperBagThroughThroughCanCompostableCertification，ReceiveToGlobal 500+ BrandTrust。"
@@ -477,56 +483,56 @@ const RicePaperBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <FileCheck className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">FDA Compliant</h4>
-              <p className="text-xs text-neutral-500">Food contact approved</p>
+              <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.ricePaperBags.fdaCompliant')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.foodContactApproved')}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <Building2 className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">BRC Certified</h4>
-              <p className="text-xs text-neutral-500">Food safety standard</p>
+              <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.ricePaperBags.brcCertified')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.foodSafetyStandard')}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <Globe className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">500+ Brands</h4>
-              <p className="text-xs text-neutral-500">Trusted worldwide</p>
+              <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.ricePaperBags.500Brands')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.trustedWorldwide')}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <Users className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">13+ Years</h4>
-              <p className="text-xs text-neutral-500">Industry experience</p>
+              <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.ricePaperBags.13Years')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.ricePaperBags.industryExperience')}</p>
             </div>
           </div>
           
           {/* Internal Links for SEO */}
           <div className="bg-neutral-50 p-6 rounded-lg">
-            <h4 className="font-semibold text-neutral-800 mb-3">Explore Related Solutions</h4>
+            <h4 className="font-semibold text-neutral-800 mb-3">{t('seoPages.pages.ricePaperBags.exploreRelatedSolutions')}</h4>
             <div className="grid md:grid-cols-3 gap-3">
               <Link to="/materials/compostable" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
-                <Leaf className="h-4 w-4" /> Compostable Materials
+                <Leaf className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.compostableMaterials')}
               </Link>
               <Link to="/materials/home-compostable" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
-                <Recycle className="h-4 w-4" /> Home Compostable
+                <Recycle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.homeCompostable')}
               </Link>
               <Link to="/packaging/stand-up-pouches" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
-                <Package className="h-4 w-4" /> Stand Up Pouches
+                <Package className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.standUpPouches')}
               </Link>
               <Link to="/industry/coffee-tea" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
-                <Coffee className="h-4 w-4" /> Coffee & Tea Industry
+                <Coffee className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.coffeeTeaIndustry')}
               </Link>
               <Link to="/products/compostable-coffee-bags" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
-                <Award className="h-4 w-4" /> Compostable Coffee Bags
+                <Award className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.compostableCoffeeBags')}
               </Link>
               <Link to="/printing/digital-printing" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
-                <Palette className="h-4 w-4" /> Digital Printing
+                <Palette className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.digitalPrinting')}
               </Link>
               <Link to="/features/reclosure-options" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
-                <Settings className="h-4 w-4" /> Reclosure Options
+                <Settings className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.reclosureOptions')}
               </Link>
               <Link to="/company/certificates" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
-                <Shield className="h-4 w-4" /> Our Certifications
+                <Shield className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.ourCertifications')}
               </Link>
               <Link to="/support/faqs" className="flex items-center gap-2 text-primary-600 hover:text-primary-700 text-sm">
-                <CheckCircle className="h-4 w-4" /> FAQs
+                <CheckCircle className="h-4 w-4" /> {t('seoPages.pages.ricePaperBags.faqs')}
               </Link>
             </div>
           </div>
@@ -535,26 +541,26 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Ready to Get Started?',
+      title: t('seoPages.pages.ricePaperBags.title_readyToGetStarted'),
       icon: <Sparkles className="h-5 w-5 text-white" />,
       content: (
         <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white p-8 rounded-xl">
-          <h3 className="text-2xl font-bold mb-6 text-center">Choose How You'd Like to Connect</h3>
+          <h3 className="text-2xl font-bold mb-6 text-center">{t('seoPages.pages.ricePaperBags.chooseHowYoudLikeTo')}</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
               <Calendar className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Book a Call</h4>
-              <p className="text-sm text-white/80 mb-4">30-min free consultation</p>
+              <h4 className="font-semibold mb-2">{t('seoPages.pages.ricePaperBags.bookACall')}</h4>
+              <p className="text-sm text-white/80 mb-4">{t('seoPages.pages.ricePaperBags.30minFreeConsultation')}</p>
               <button onClick={openCalendly} className="w-full bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition cursor-pointer">
-                Schedule Now
+                {t('seoPages.pages.ricePaperBags.scheduleNow')}
               </button>
             </div>
             <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
               <Mail className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Email Quote</h4>
-              <p className="text-sm text-white/80 mb-4">Get response within 24hrs</p>
+              <h4 className="font-semibold mb-2">{t('seoPages.pages.ricePaperBags.emailQuote')}</h4>
+              <p className="text-sm text-white/80 mb-4">{t('seoPages.pages.ricePaperBags.getResponseWithin24hrs')}</p>
               <a href="mailto:ryan@achievepack.com?subject=Rice Paper Bags Quote" className="block w-full bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition">
-                Send Email
+                {t('seoPages.pages.ricePaperBags.sendEmail')}
               </a>
             </div>
           </div>
@@ -565,76 +571,76 @@ const RicePaperBagsPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "What is rice paper packaging made of?",
-      answer: "Rice paper packaging from Achieve Pack® uses a natural fiber paper substrate with a distinctive texture, combined with compostable inner layers such as PLA (polylactic acid) or cellophane. The entire structure is designed to be fully compostable while providing adequate barrier protection for dry goods."
+      question: t('seoPages.pages.ricePaperBags.question_whatIsRicePaperPackaging'),
+      answer: t('seoPages.pages.ricePaperBags.answer_ricePaperPackagingFromAchieve')
     },
     {
-      question: "Is rice paper packaging truly compostable?",
-      answer: "Yes, Achieve Pack® rice paper pouches are certified compostable. Depending on the specific material combination, they can be home compostable (OK Compost HOME) or industrial compostable (EN 13432 / ASTM D6400). The packaging breaks down naturally without leaving harmful residues."
+      question: t('seoPages.pages.ricePaperBags.question_isRicePaperPackagingTruly'),
+      answer: t('seoPages.pages.ricePaperBags.answer_yesAchievePackRicePaper')
     },
     {
-      question: "What products are best suited for rice paper bags?",
-      answer: "Rice paper bags are ideal for dry goods including coffee beans, tea leaves, nuts, snacks, cereals, superfoods, dried fruits, pet treats, and bakery items. The natural texture and compostable properties make them especially popular with organic, artisan, and eco-conscious brands."
+      question: t('seoPages.pages.ricePaperBags.question_whatProductsAreBestSuited'),
+      answer: t('seoPages.pages.ricePaperBags.answer_ricePaperBagsAreIdeal')
     },
     {
-      question: "Can I add a degassing valve for coffee packaging?",
-      answer: "Yes, we offer one-way degassing valves for rice paper coffee bags. The valve allows CO2 released by freshly roasted coffee to escape while preventing oxygen from entering, maintaining freshness. Our valves are compatible with compostable packaging structures."
+      question: t('seoPages.pages.ricePaperBags.question_canIAddADegassing'),
+      answer: t('seoPages.pages.ricePaperBags.answer_yesWeOfferOnewayDegassing')
     },
     {
-      question: "What are the minimum order quantities for rice paper pouches?",
-      answer: "For digitally printed rice paper pouches, MOQ starts from 500 pieces. For gravure/plate printing with larger volumes, MOQ typically starts from 5,000-10,000 pieces depending on size and specifications. Contact us for exact quotes based on your requirements."
+      question: t('seoPages.pages.ricePaperBags.question_whatAreTheMinimumOrder'),
+      answer: t('seoPages.pages.ricePaperBags.answer_forDigitallyPrintedRicePaper')
     },
     {
-      question: "What sizes are available for rice paper bags?",
-      answer: "We offer standard sizes from 250g to 2kg capacity, suitable for retail and bulk applications. Custom dimensions are available for specific product requirements. Popular formats include stand up pouches, side gusset bags, flat bottom bags, and flat pouches."
+      question: t('seoPages.pages.ricePaperBags.question_whatSizesAreAvailableFor'),
+      answer: t('seoPages.pages.ricePaperBags.answer_weOfferStandardSizesFrom')
     },
     {
-      question: "Can I print my brand design on rice paper pouches?",
-      answer: "Yes, we offer both digital printing (low MOQ, no plate costs) and gravure printing (best for large volumes) on rice paper substrates. The natural paper texture adds a premium feel to printed designs. Full-color printing with brand artwork, logos, and product information is available."
+      question: t('seoPages.pages.ricePaperBags.question_canIPrintMyBrand'),
+      answer: t('seoPages.pages.ricePaperBags.answer_yesWeOfferBothDigital')
     },
     {
-      question: "What barrier options are available for rice paper packaging?",
-      answer: "Rice paper pouches with PLA or cellophane inner layers provide good moisture and oxygen barrier suitable for most dry goods. For products requiring higher barrier protection, we can incorporate additional compostable barrier layers. Our team can recommend the best structure for your specific product requirements."
+      question: t('seoPages.pages.ricePaperBags.question_whatBarrierOptionsAreAvailable'),
+      answer: t('seoPages.pages.ricePaperBags.answer_ricePaperPouchesWithPla')
     }
   ]
 
   const relatedLinks = [
-    { title: "Compostable Materials", url: "/materials/compostable", description: "100% plastic-free eco-friendly material options" },
-    { title: "Home Compostable", url: "/materials/home-compostable", description: "OK Compost HOME certified materials" },
-    { title: "Industrial Compostable", url: "/materials/industrial-compostable", description: "EN 13432 / ASTM D6400 certified options" },
-    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Versatile self-standing packaging" },
-    { title: "Flat Bottom Bags", url: "/packaging/flat-bottom-bags", description: "Premium box-bottom pouch style" },
-    { title: "Side Gusset Bags", url: "/packaging/side-gusset-bags", description: "Classic side-fold coffee bag format" },
-    { title: "Compostable Coffee Bags", url: "/products/compostable-coffee-bags", description: "Eco-friendly coffee packaging" },
-    { title: "Compostable Stand Up Pouches", url: "/products/compostable-stand-up-pouches", description: "Fully compostable standing pouches" },
-    { title: "Reclosure Options", url: "/features/reclosure-options", description: "Zipper and seal types available" },
-    { title: "Digital Printing", url: "/printing/digital-printing", description: "Low MOQ custom printed pouches" },
-    { title: "Coffee & Tea Industry", url: "/industry/coffee-tea", description: "Specialty coffee & tea packaging" },
-    { title: "Snacks & Food", url: "/industry/snacks-food", description: "Dry snack packaging solutions" },
-    { title: "Pet Food", url: "/industry/pet-food", description: "Pet treat and food pouches" },
-    { title: "Carbon Neutral Bags", url: "/function/carbon-neutral-bags", description: "Climate-positive packaging solutions" },
-    { title: "Spout Pouches", url: "/function/spout-pouches-juice", description: "Liquid packaging with spout" },
-    { title: "Certificates", url: "/company/certificates", description: "View our certifications" },
-    { title: "FAQs", url: "/support/faqs", description: "Common questions answered" }
+    { title: t('seoPages.pages.ricePaperBags.title_compostableMaterials'), url: "/materials/compostable", description: t('seoPages.pages.ricePaperBags.description_100PlasticfreeEcofriendlyMaterialOptions') },
+    { title: t('seoPages.pages.ricePaperBags.title_homeCompostable'), url: "/materials/home-compostable", description: t('seoPages.pages.ricePaperBags.description_okCompostHomeCertifiedMaterials') },
+    { title: t('seoPages.pages.ricePaperBags.title_industrialCompostable'), url: "/materials/industrial-compostable", description: t('seoPages.pages.ricePaperBags.description_en13432AstmD6400Certified') },
+    { title: t('seoPages.pages.ricePaperBags.title_standUpPouches'), url: "/packaging/stand-up-pouches", description: t('seoPages.pages.ricePaperBags.description_versatileSelfstandingPackaging') },
+    { title: t('seoPages.pages.ricePaperBags.title_flatBottomBags'), url: "/packaging/flat-bottom-bags", description: t('seoPages.pages.ricePaperBags.description_premiumBoxbottomPouchStyle') },
+    { title: t('seoPages.pages.ricePaperBags.title_sideGussetBags'), url: "/packaging/side-gusset-bags", description: t('seoPages.pages.ricePaperBags.description_classicSidefoldCoffeeBagFormat') },
+    { title: t('seoPages.pages.ricePaperBags.title_compostableCoffeeBags'), url: "/products/compostable-coffee-bags", description: t('seoPages.pages.ricePaperBags.description_ecofriendlyCoffeePackaging') },
+    { title: t('seoPages.pages.ricePaperBags.title_compostableStandUpPouches'), url: "/products/compostable-stand-up-pouches", description: t('seoPages.pages.ricePaperBags.description_fullyCompostableStandingPouches') },
+    { title: t('seoPages.pages.ricePaperBags.title_reclosureOptions'), url: "/features/reclosure-options", description: t('seoPages.pages.ricePaperBags.description_zipperAndSealTypesAvailable') },
+    { title: t('seoPages.pages.ricePaperBags.title_digitalPrinting'), url: "/printing/digital-printing", description: t('seoPages.pages.ricePaperBags.description_lowMoqCustomPrintedPouches') },
+    { title: t('seoPages.pages.ricePaperBags.title_coffeeTeaIndustry'), url: "/industry/coffee-tea", description: t('seoPages.pages.ricePaperBags.description_specialtyCoffeeTeaPackaging') },
+    { title: t('seoPages.pages.ricePaperBags.title_snacksFood'), url: "/industry/snacks-food", description: t('seoPages.pages.ricePaperBags.description_drySnackPackagingSolutions') },
+    { title: t('seoPages.pages.ricePaperBags.title_petFood'), url: "/industry/pet-food", description: t('seoPages.pages.ricePaperBags.description_petTreatAndFoodPouches') },
+    { title: t('seoPages.pages.ricePaperBags.title_carbonNeutralBags'), url: "/function/carbon-neutral-bags", description: t('seoPages.pages.ricePaperBags.description_climatepositivePackagingSolutions') },
+    { title: t('seoPages.pages.ricePaperBags.title_spoutPouches'), url: "/function/spout-pouches-juice", description: t('seoPages.pages.ricePaperBags.description_liquidPackagingWithSpout') },
+    { title: t('seoPages.pages.ricePaperBags.title_certificates'), url: "/company/certificates", description: t('seoPages.pages.ricePaperBags.description_viewOurCertifications') },
+    { title: t('seoPages.pages.ricePaperBags.title_faqs'), url: "/support/faqs", description: t('seoPages.pages.ricePaperBags.description_commonQuestionsAnswered') }
   ]
 
   // B2C Specific Content & Layout
   const b2cSections = [
     {
       id: 'organic-texture',
-      title: 'Eco-Aesthetic: Authentic Rice Paper Texture for Coffee & Tea Startups',
+      title: t('seoPages.pages.ricePaperBags.title_ecoaestheticAuthenticRicePaperTexture'),
       icon: <Coffee className="h-5 w-5 text-black" />,
       content: (
         <div className="space-y-6">
           <p className="text-neutral-700">
-            For modern, direct-to-consumer (DTC) organic coffee, tea, and wellness brands, the first point of physical contact with your customer is your packaging. Before they smell the fresh roast or taste the botanical herbal tea, they <em>feel</em> the bag.
+            {t('seoPages.pages.ricePaperBags.forModernDirecttoconsumerDtcOrganic')} <em>{t('seoPages.pages.ricePaperBags.feel')}</em> {t('seoPages.pages.ricePaperBags.theBag')}
           </p>
           <div className="bg-[#D4FF00] p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono']">
             <p className="text-lg font-black text-neutral-900 mb-2 uppercase">
-              "Touch is the first sensor of quality."
+              {t('seoPages.pages.ricePaperBags.touchIsTheFirstSensor')}
             </p>
             <p className="text-sm text-neutral-800 leading-relaxed">
-              Our authentic rice paper pouches feature a beautiful, textured, natural-fiber finish that instantly communicates artisan care and sustainable values. It breaks the monotony of generic plastic bags on supermarket shelves or inside shipping boxes, giving your brand an organic, tactile edge that customers love.
+              {t('seoPages.pages.ricePaperBags.ourAuthenticRicePaperPouches')}
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
@@ -642,23 +648,23 @@ const RicePaperBagsPage: React.FC = () => {
               onClick={() => setGalleryEnlarged({ src: '/imgs/function/rice/hero.webp', index: 0 })}
               className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
             >
-              <img src="/imgs/function/rice/hero.webp" alt="Authentic rice paper texture" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+              <img src="/imgs/function/rice/hero.webp" alt={t('seoPages.pages.ricePaperBags.alt_authenticRicePaperTexture')} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">{t('seoPages.pages.ricePaperBags.clickToEnlarge')}</div>
             </button>
             <div className="space-y-3">
-              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Why Organic Startups Choose Rice Paper:</h4>
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">{t('seoPages.pages.ricePaperBags.whyOrganicStartupsChooseRice')}</h4>
               <ul className="text-sm space-y-2 text-neutral-600">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
-                  <span><strong>Artisan Appeal:</strong> Conveys a handcrafted, premium micro-batch aesthetic that justifies higher retail pricing.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.artisanAppeal')}</strong> {t('seoPages.pages.ricePaperBags.conveysAHandcraftedPremiumMicrobatch')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
-                  <span><strong>Visual Contrast:</strong> The delicate cloud-like paper fibers catch the light beautifully, standing out under shop lights or in product photos.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.visualContrast')}</strong> {t('seoPages.pages.ricePaperBags.theDelicateCloudlikePaperFibers')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
-                  <span><strong>100% Organic Match:</strong> Align your packaging material with your pure, pesticide-free product inside.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.100OrganicMatch')}</strong> {t('seoPages.pages.ricePaperBags.alignYourPackagingMaterialWith')}</span>
                 </li>
               </ul>
             </div>
@@ -668,32 +674,32 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'low-moq',
-      title: 'Low-Risk Launches: 500-Unit MOQ & Multi-SKU Digital Printing',
+      title: t('seoPages.pages.ricePaperBags.title_lowriskLaunches500unitMoqMultisku'),
       icon: <Sparkles className="h-5 w-5 text-black" />,
       content: (
         <div className="space-y-6">
           <p className="text-neutral-700">
-            Many traditional B2B manufacturers require massive minimum orders of 10,000+ units per design just to get started. If you're a startup launching three different coffee origins or a new line of seasonal botanical tea blends, that's thousands of dollars of cash flow locked up in inventory.
+            {t('seoPages.pages.ricePaperBags.manyTraditionalB2bManufacturersRequire')}
           </p>
           <div className="bg-[#00FFFF] border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">Zero Plate Setup Fees · Launch More SKUs</h4>
+            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">{t('seoPages.pages.ricePaperBags.zeroPlateSetupFeesLaunch')}</h4>
             <p className="text-sm text-neutral-800 leading-relaxed">
-              At Pouch.eco, we believe in supporting growing brands with ultimate agility. We offer custom-printed rice paper bags starting from just <strong>500 units</strong>. And because we use high-fidelity digital printing, there are absolutely zero plate fees or setup charges. You can split your order across multiple SKUs and designs, keeping your inventory lean and testing new flavors with zero risk.
+              {t('seoPages.pages.ricePaperBags.atPouchecoWeBelieveIn')} <strong>{t('seoPages.pages.ricePaperBags.500Units')}</strong>{t('seoPages.pages.ricePaperBags.andBecauseWeUseHighfidelity')}
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Start Small, Scale Smart:</h4>
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">{t('seoPages.pages.ricePaperBags.startSmallScaleSmart')}</h4>
               <p className="text-sm text-neutral-600 leading-relaxed">
-                Test custom packaging directly with your customers, optimize the design based on their feedback, and print exactly what you need when you need it. As your customer base grows, we seamlessly scale with you to larger, high-volume runs with volume discounts.
+                {t('seoPages.pages.ricePaperBags.testCustomPackagingDirectlyWith')}
               </p>
             </div>
             <button 
               onClick={() => setGalleryEnlarged({ src: '/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp', index: 7 })}
               className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
             >
-              <img src="/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp" alt="Custom printed rice paper bags" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+              <img src="/imgs/function/rice/a_achievepack_printing_branding_detail_1178187.webp" alt={t('seoPages.pages.ricePaperBags.alt_customPrintedRicePaperBags')} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">{t('seoPages.pages.ricePaperBags.clickToEnlarge')}</div>
             </button>
           </div>
         </div>
@@ -701,31 +707,31 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'diy-stamping',
-      title: 'DIY Friendly: Hand-Writing & Ink-Stamping Compatibility',
+      title: t('seoPages.pages.ricePaperBags.title_diyFriendlyHandwritingInkstampingCompati'),
       icon: <Palette className="h-5 w-5 text-black" />,
       content: (
         <div className="space-y-6">
           <p className="text-neutral-700">
-            Startups love the authentic, rustic feel of hand-stamped or handwritten packaging. The fibrous texture of our organic rice paper bags is highly receptive to stamps, pigment ink, and permanent markers.
+            {t('seoPages.pages.ricePaperBags.startupsLoveTheAuthenticRustic')}
           </p>
           <div className="bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <h4 className="font-bold text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">The Rustic Micro-Batch Aesthetic</h4>
+            <h4 className="font-bold text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">{t('seoPages.pages.ricePaperBags.theRusticMicrobatchAesthetic')}</h4>
             <p className="text-sm text-neutral-700 leading-relaxed">
-              Instead of printing every single batch detail, you can buy beautiful, plain stock rice paper pouches and add custom stampers for flavor varieties, roast dates, single-origin tags, or custom holiday branding. It gives your products a highly personalized, hand-packed look that signals high attention to detail and a true connection to the craft.
+              {t('seoPages.pages.ricePaperBags.insteadOfPrintingEverySingle')}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-4 mt-6">
             <div className="bg-[#F0F0F0] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h5 className="font-bold uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Stamper Friendly</h5>
-              <p className="text-xs text-neutral-700">Porous texture absorbs inks perfectly without smudging, giving you clean, crisp stamp edges.</p>
+              <h5 className="font-bold uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">{t('seoPages.pages.ricePaperBags.stamperFriendly')}</h5>
+              <p className="text-xs text-neutral-700">{t('seoPages.pages.ricePaperBags.porousTextureAbsorbsInksPerfectly')}</p>
             </div>
             <div className="bg-[#D4FF00] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h5 className="font-bold uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Handwrite Batches</h5>
-              <p className="text-xs text-black">Perfect for adding custom signatures, limited edition batch numbers, or personalized thank-you notes.</p>
+              <h5 className="font-bold uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">{t('seoPages.pages.ricePaperBags.handwriteBatches')}</h5>
+              <p className="text-xs text-black">{t('seoPages.pages.ricePaperBags.perfectForAddingCustomSignatures')}</p>
             </div>
             <div className="bg-[#00FFFF] border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <h5 className="font-bold uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">Sticker Compatibility</h5>
-              <p className="text-xs text-black">Textured surface allows organic, paper-based labels to adhere firmly without lifting at the edges.</p>
+              <h5 className="font-bold uppercase text-xs tracking-wider mb-2 font-['JetBrains_Mono']">{t('seoPages.pages.ricePaperBags.stickerCompatibility')}</h5>
+              <p className="text-xs text-black">{t('seoPages.pages.ricePaperBags.texturedSurfaceAllowsOrganicPaperbased')}</p>
             </div>
           </div>
         </div>
@@ -733,17 +739,17 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'compostability',
-      title: 'Compostability Without Compromise: BPI & EN 13432 Certified Barriers',
+      title: t('seoPages.pages.ricePaperBags.title_compostabilityWithoutCompromiseBpiEn'),
       icon: <Leaf className="h-5 w-5 text-black" />,
       content: (
         <div className="space-y-6">
           <p className="text-neutral-700">
-            For eco-conscious consumers, a sustainable package must back up its claims with verified certifications. A bag that looks like paper but contains standard plastic lining is not compostable.
+            {t('seoPages.pages.ricePaperBags.forEcoconsciousConsumersASustainable')}
           </p>
           <div className="bg-[#D4FF00] p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">100% Certified Compostable Structure</h4>
+            <h4 className="font-black text-neutral-900 mb-2 uppercase font-['JetBrains_Mono']">{t('seoPages.pages.ricePaperBags.100CertifiedCompostableStructure')}</h4>
             <p className="text-sm text-neutral-800 leading-relaxed font-semibold">
-              Our rice paper pouches are laminated with high-performance compostable inner bio-films (like PLA or cellulose films) which are fully BPI and EN 13432 certified compostable. The entire structure degrades into organic humus within 90-180 days in standard composting setups, leaving zero toxic microplastics or harmful residues behind.
+              {t('seoPages.pages.ricePaperBags.ourRicePaperPouchesAre')}
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 items-center mt-6">
@@ -751,23 +757,23 @@ const RicePaperBagsPage: React.FC = () => {
               onClick={() => setGalleryEnlarged({ src: '/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp', index: 1 })}
               className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
             >
-              <img src="/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp" alt="Certified compostable material layer closeup" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+              <img src="/imgs/function/rice/a_achievepack_ecomat_closeup_texture_9246951.webp" alt={t('seoPages.pages.ricePaperBags.alt_certifiedCompostableMaterialLayerCloseup')} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">{t('seoPages.pages.ricePaperBags.clickToEnlarge')}</div>
             </button>
             <div className="space-y-3">
-              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">High-Performance Barrier Features:</h4>
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">{t('seoPages.pages.ricePaperBags.highperformanceBarrierFeatures')}</h4>
               <ul className="text-sm space-y-2 text-neutral-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>Vapor & Aroma Lock:</strong> Keeps your delicate whole bean coffee aromas or delicate tea essential oils locked inside safely.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.vaporAromaLock')}</strong> {t('seoPages.pages.ricePaperBags.keepsYourDelicateWholeBean')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>Oxygen & Moisture Defense:</strong> Prevents premature oxidation or humidity infiltration to maintain product crunch and freshness.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.oxygenMoistureDefense')}</strong> {t('seoPages.pages.ricePaperBags.preventsPrematureOxidationOrHumidity')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span><strong>Fully Eco-Certified:</strong> Print BPI or OK Compost logos directly on your bags to gain immediate consumer trust.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.fullyEcocertified')}</strong> {t('seoPages.pages.ricePaperBags.printBpiOrOkCompost')}</span>
                 </li>
               </ul>
             </div>
@@ -777,32 +783,32 @@ const RicePaperBagsPage: React.FC = () => {
     },
     {
       id: 'customization',
-      title: 'Agile Customization: Compostable Zippers, Clear Windows & Custom Shapes',
+      title: t('seoPages.pages.ricePaperBags.title_agileCustomizationCompostableZippersClea'),
       icon: <Layers className="h-5 w-5 text-black" />,
       content: (
         <div className="space-y-6">
           <p className="text-neutral-700">
-            A great bag is both beautiful and functional. At Pouch.eco, we don't believe you should sacrifice convenience to be eco-friendly. Customize your rice paper bags with high-performance reclosure features and visibility:
+            {t('seoPages.pages.ricePaperBags.aGreatBagIsBoth')}
           </p>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
-              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">Tailored Add-Ons for Modern Products:</h4>
+              <h4 className="font-bold text-neutral-900 font-['JetBrains_Mono'] uppercase">{t('seoPages.pages.ricePaperBags.tailoredAddonsForModernProducts')}</h4>
               <ul className="text-sm space-y-2 text-neutral-600">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
-                  <span><strong>Compostable Zippers:</strong> Add an airtight, resealable compostable ziplock to keep tea and snacks dry and fresh for multiple uses.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.compostableZippers')}</strong> {t('seoPages.pages.ricePaperBags.addAnAirtightResealableCompostable')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
-                  <span><strong>Transparent Windows:</strong> Incorporate clean, clear biodegradable windows so customers can see your beautiful loose tea leaves, colorful granola, or organic treats.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.transparentWindows')}</strong> {t('seoPages.pages.ricePaperBags.incorporateCleanClearBiodegradableWindow')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
-                  <span><strong>One-Way Degassing Valves:</strong> Essential for fresh coffee beans. Allows carbon dioxide to escape without letting oxygen in, preventing bag bloating.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.onewayDegassingValves')}</strong> {t('seoPages.pages.ricePaperBags.essentialForFreshCoffeeBeans')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0" />
-                  <span><strong>Custom Dimensions:</strong> From 2oz sample sachets to 5lb bulk bags, we manufacture custom dimensions to match your exact product volume perfectly.</span>
+                  <span><strong>{t('seoPages.pages.ricePaperBags.customDimensions')}</strong> {t('seoPages.pages.ricePaperBags.from2ozSampleSachetsTo')}</span>
                 </li>
               </ul>
             </div>
@@ -810,8 +816,8 @@ const RicePaperBagsPage: React.FC = () => {
               onClick={() => setGalleryEnlarged({ src: '/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp', index: 3 })}
               className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
             >
-              <img src="/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp" alt="Coffee degassing valve feature" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">Click to enlarge</div>
+              <img src="/imgs/function/rice/a_achievepack_coffeevalve_degassing_7639370.webp" alt={t('seoPages.pages.ricePaperBags.alt_coffeeDegassingValveFeature')} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center border-t-2 border-neutral-200">{t('seoPages.pages.ricePaperBags.clickToEnlarge')}</div>
             </button>
           </div>
         </div>
@@ -822,8 +828,8 @@ const RicePaperBagsPage: React.FC = () => {
   if (isPouchDomain) {
     return (
       <BlogArticleTemplate
-        title="Rice Paper Bags | Premium Tactile Eco-Branding | POUCH.ECO"
-        metaDescription="Launch custom textured rice paper bags starting from 500 units. Certified compostable BPI/EN 13432 barrier films, digital printing, coffee valves, & custom shapes."
+        title={t('seoPages.pages.ricePaperBags.title_ricePaperBagsPremiumTactile')}
+        metaDescription={t('seoPages.pages.ricePaperBags.metaDescription')}
         canonicalUrl="https://pouch.eco/function/rice-paper-bags"
         keywords={['rice paper bags', 'compostable pouches', 'organic tea packaging', 'textured coffee bag', 'low MOQ custom printed bags', 'BPI certified compostable']}
         publishedDate="2026-05-27"
@@ -834,18 +840,18 @@ const RicePaperBagsPage: React.FC = () => {
             Rice Paper <span className="bg-[#D4FF00] px-2 text-black">Bags</span>
           </span>
         }
-        heroSubtitle="Give your startup coffee, tea, or snack brand a tactile, premium organic aesthetic with certified compostable natural-fiber textured pouches."
+        heroSubtitle={t('seoPages.pages.ricePaperBags.heroSubtitle')}
         heroImage="/imgs/function/rice/hero.webp"
         heroImageAlt="Tactile rice paper packaging for startups"
         categoryTag="Function & Aesthetic"
         categoryColor="#D4FF00"
         readTime="4 min read"
         sections={b2cSections}
-        ctaTitle="Ready to Elevate Your Startup's Packaging?"
-        ctaDescription="Book a free 30-minute design consultation. Let's discuss low MOQs, digital proofing, and how to create the ultimate organic tactile branding for your products."
+        ctaTitle={t('seoPages.pages.ricePaperBags.ctaTitle')}
+        ctaDescription={t('seoPages.pages.ricePaperBags.ctaDescription')}
         calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
         achievePackLink="https://achievepack.com/function/rice-paper-bags"
-        achievePackText="Need enterprise volumes or high-volume wholesale discounts? Visit AchievePack.com"
+        achievePackText={t('seoPages.pages.ricePaperBags.achievePackText')}
         showTableOfContents={true}
       />
     )
@@ -854,21 +860,21 @@ const RicePaperBagsPage: React.FC = () => {
   return (
     <>
       <SEOPageLayout heroBgColor="#1f2937"
-        title="Rice Paper Bags | Achieve Pack® Compostable Pouches"
-        description="Achieve Pack® rice paper bags feature natural fiber texture with PLA/cellophane lining for 100% compostability. Ideal for coffee, tea, snacks, and dry goods. Stand up, side gusset, flat bottom options. Custom printing from 500pcs."
+        title={t('seoPages.pages.ricePaperBags.title_ricePaperBagsAchievePack')}
+        description={t('seoPages.pages.ricePaperBags.description')}
         keywords={['rice paper bags', 'compostable pouches', 'rice paper packaging', 'PLA pouches', 'cellophane bags', 'eco-friendly packaging', 'compostable coffee bags', 'natural fiber pouches', 'sustainable packaging', 'biodegradable bags', 'kraft paper bags', 'stand up pouch', 'side gusset bag', 'Rice PaperBag', 'Compostable Packaging', 'PLAPackaging']}
         canonicalUrl="https://achievepack.com/function/rice-paper-bags"
-        heroTitle="Achieve Pack® Rice Paper Bags"
-        heroSubtitle="Premium compostable pouches with natural fiber texture / NaturalFiber TextureOfPremiumCompostable Packaging"
+        heroTitle={t('seoPages.pages.ricePaperBags.heroTitle')}
+        heroSubtitle={t('seoPages.pages.ricePaperBags.heroSubtitle')}
         heroImage="/imgs/function/rice/hero.webp"
         heroImageAlt="Achieve Pack Rice Paper & PLA Compostable Packaging"
-        introSummary="Achieve Pack® rice paper bags combine natural fiber texture with PLA or cellophane lining for 100% compostable packaging. Available in stand up, side gusset, flat bottom structures. Perfect for coffee, tea, snacks, and eco-conscious brands."
+        introSummary={t('seoPages.pages.ricePaperBags.introSummary')}
         sections={sections}
         faqs={faqs}
         relatedLinks={relatedLinks}
-        ctaTitle="Ready to Order Rice Paper Bags?"
-        ctaDescription="Get Achieve Pack® rice paper pouches for coffee, tea, snacks, and dry goods. Certified compostable with premium aesthetics."
-        ctaButtonText="Get a Quote"
+        ctaTitle={t('seoPages.pages.ricePaperBags.ctaTitle')}
+        ctaDescription={t('seoPages.pages.ricePaperBags.ctaDescription')}
+        ctaButtonText={t('seoPages.pages.ricePaperBags.ctaButtonText')}
       />
       
       {/* Gallery Lightbox Modal */}

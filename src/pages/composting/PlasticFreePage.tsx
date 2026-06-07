@@ -107,46 +107,47 @@ const ImageTextRow: React.FC<{
   )
 }
 
-// FAQ Data
-const faqs = [
-  {
-    question: "What is the difference between plastic-free and compostable packaging?",
-    answer: "Plastic-free (strict sense) means absolutely no plastic polymers, including bioplastics like PLA or PBAT. Compostable means the material breaks down within 90-180 days under composting conditions, but may still contain compostable bioplastics. Our bags are compostable and conventional-plastic-free, but not strictly plastic-free due to the PLA/PBAT layers."
-  },
-  {
-    question: "Is PLA considered plastic?",
-    answer: "Yes, PLA (polylactic acid) is technically a plastic—it's a biodegradable polymer. However, it's a biobased, compostable plastic made from renewable resources like corn or sugarcane, not a conventional fossil-based plastic like PE or PP. This is why our bags are 'conventional plastic-free' but not 'plastic-free' in the strictest sense."
-  },
-  {
-    question: "What does 'conventional plastic-free' mean?",
-    answer: "Conventional plastic-free allows biobased or compostable polymers while excluding traditional fossil-based plastics such as PE, PP, PET. Under this definition, PLA and PBAT are accepted as sustainable alternatives, making our multi-layer compostable bags qualify as conventional plastic-free."
-  },
-  {
-    question: "Are your compostable bags certified?",
-    answer: "Yes, our compostable bags are designed to meet industrial compostability standards like EN 13432 and ASTM D6400. The materials, inks, and adhesives are all selected to be compatible with industrial composting systems. Contact us for specific certification documentation."
-  },
-  {
-    question: "What is PBAT and why is it in your bags?",
-    answer: "PBAT (polybutylene adipate terephthalate) is a compostable polyester that adds flexibility and toughness to the PLA film. While PBAT is made from petrochemical building blocks, it's engineered to biodegrade under composting conditions. It's commonly blended with PLA to improve mechanical properties while maintaining compostability."
-  },
-  {
-    question: "Is the aluminum layer in your bags compostable?",
-    answer: "The metallized PLA layer uses an extremely thin aluminum coating for barrier properties. While aluminum itself is a metal (not plastic) and not compostable, the layer is so thin that overall bag performance still targets industrial compostability. The PLA carrier is fully compostable."
-  },
-  {
-    question: "Can your bags be certified as biobased?",
-    answer: "Our bags contain biobased components (kraft paper, PLA from corn/sugarcane) and petroleum-derived components (PBAT, some ink/adhesive chemistry). Under TÜV Austria's OK biobased scheme, products can range from 1-star (20-40% biobased) to 4-star (≥80% biobased). Our bags would qualify for partial biobased certification."
-  },
-  {
-    question: "How should I position my brand's compostable packaging claims?",
-    answer: "We recommend transparent messaging: 'Compostable packaging made from plant-based materials and compostable bioplastics. Free from conventional plastics like PE and PP. Designed for industrial composting facilities.' This avoids greenwashing while highlighting genuine sustainability benefits."
-  }
-]
 
 const PlasticFreePage: React.FC = () => {
   const { t } = useTranslation()
 
   const { openCalendly } = useCalendly()
+
+  // FAQ Data
+  const faqs = [
+    {
+      question: t('seoPages.pages.plasticFree.question_whatIsTheDifferenceBetween'),
+      answer: t('seoPages.pages.plasticFree.answer_plasticfreeStrictSenseMeansAbsolutely')
+    },
+    {
+      question: t('seoPages.pages.plasticFree.question_isPlaConsideredPlastic'),
+      answer: t('seoPages.pages.plasticFree.answer_yesPlaPolylacticAcidIs')
+    },
+    {
+      question: t('seoPages.pages.plasticFree.question_whatDoesConventionalPlasticfreeMean'),
+      answer: t('seoPages.pages.plasticFree.answer_conventionalPlasticfreeAllowsBiobasedOr')
+    },
+    {
+      question: t('seoPages.pages.plasticFree.question_areYourCompostableBagsCertified'),
+      answer: t('seoPages.pages.plasticFree.answer_yesOurCompostableBagsAre')
+    },
+    {
+      question: t('seoPages.pages.plasticFree.question_whatIsPbatAndWhy'),
+      answer: t('seoPages.pages.plasticFree.answer_pbatPolybutyleneAdipateTerephthalateIs')
+    },
+    {
+      question: t('seoPages.pages.plasticFree.question_isTheAluminumLayerIn'),
+      answer: t('seoPages.pages.plasticFree.answer_theMetallizedPlaLayerUses')
+    },
+    {
+      question: t('seoPages.pages.plasticFree.question_canYourBagsBeCertified'),
+      answer: t('seoPages.pages.plasticFree.answer_ourBagsContainBiobasedComponents')
+    },
+    {
+      question: t('seoPages.pages.plasticFree.question_howShouldIPositionMy'),
+      answer: t('seoPages.pages.plasticFree.answer_weRecommendTransparentMessagingCompostab')
+    }
+  ]
 
   return (
     <>

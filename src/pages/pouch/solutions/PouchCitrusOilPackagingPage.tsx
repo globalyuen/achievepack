@@ -113,8 +113,8 @@ export default function PouchCitrusOilPackagingPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>{t('seoPages.pages.pouchCitrusOilPackaging.citrusOilPackagingLow')}</title>
-        <meta name="description" content="Launch your liquid citrus oil or beauty brand with premium eco-friendly spouted pouches, foil capsules, and bottle-shaped sachets from just 100 pieces. Leak-proof and certified." />
+        <title>{t('seoPages.pages.pouchCitrusOilPackaging.metaTitle')}</title>
+        <meta name="description" content={t('seoPages.pages.pouchCitrusOilPackaging.metaDescription')} />
         <link rel="canonical" href={`${baseUrl}/solutions/citrus-oil-packaging`} />
         <meta property="og:title" content="Citrus Oil & Cosmetics Packaging | Low MOQ | Pouch.eco" />
         <meta property="og:description" content="Compare bottle sachets, foil capsules, and recyclable mono-PE spout pouches designed for active botanical oils." />
@@ -126,7 +126,7 @@ export default function PouchCitrusOilPackagingPage() {
         <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] opacity-20" />
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 text-center space-y-8">
           <div className="inline-block bg-black text-[#D4FF00] border-4 border-black px-4 py-2 transform -rotate-1 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-            <span className="font-['JetBrains_Mono'] font-bold text-sm">LAUNCH_SOLUTIONS_05</span>
+            <span className="font-['JetBrains_Mono'] font-bold text-sm">{t('seoPages.pages.pouchCitrusOilPackaging.launchsolutions05')}</span>
           </div>
 
           <h1 className="font-black text-5xl md:text-8xl leading-[0.9] tracking-tighter uppercase">
@@ -181,7 +181,7 @@ export default function PouchCitrusOilPackagingPage() {
             {t('seoPages.pages.pouchCitrusOilPackaging.packaging')}<br/>{t('seoPages.pages.pouchCitrusOilPackaging.directions')}
           </h2>
           <div className="font-['JetBrains_Mono'] text-sm font-bold bg-[#00FFFF] border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            FROM_LOW_COST_TO_PREMIUM
+            {t('seoPages.pages.pouchCitrusOilPackaging.fromlowcosttopremium')}
           </div>
         </div>
 
@@ -238,7 +238,7 @@ export default function PouchCitrusOilPackagingPage() {
             </div>
             <div className="w-full md:w-3/5 space-y-4">
               <span className="bg-black text-[#D4FF00] font-black uppercase text-[10px] px-3 py-1 border-2 border-[#D4FF00]">
-                UNBOXING_DESIGN_ECOSYSTEM
+                {t('seoPages.pages.pouchCitrusOilPackaging.unboxingdesignecosystem')}
               </span>
               <h3 className="font-black text-3xl md:text-5xl uppercase leading-none text-black">
                 {t('seoPages.pages.pouchCitrusOilPackaging.fscCapsuleDisplayBox')}

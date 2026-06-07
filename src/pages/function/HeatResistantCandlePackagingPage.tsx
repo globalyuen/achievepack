@@ -8,14 +8,17 @@ import { getDomain } from '../../utils/domain'
 import BlogArticleTemplate from '../../components/pouch/BlogArticleTemplate'
 
 // Gallery images for Candle Wax Packaging
-const candleGallery = [
-  { src: '/imgs/function/heat-resistant-candle-hero.png', title: 'High-Heat Compostable Candle Pouch', desc: 'Capable of handling 85°C hot wax pour directly into the bag.' },
-  { src: '/imgs/spec/pcr-pet-kraft-triplex-clear.webp', title: 'NK/Kraft/PBS Triplex Structure', desc: 'NatureFlex (NK), FSC Kraft Paper, and High-Heat PBS composite layers for maximum heat resistance.' },
-]
+
 
 
 const HeatResistantCandlePackagingPage: React.FC = () => {
   const { t } = useTranslation()
+
+  const candleGallery = [
+  { src: '/imgs/function/heat-resistant-candle-hero.png', title: t('seoPages.pages.heatResistantCandlePackaging.title_highheatCompostableCandlePouch'), desc: t('seoPages.pages.heatResistantCandlePackaging.desc_capableOfHandling85cHot') },
+  { src: '/imgs/spec/pcr-pet-kraft-triplex-clear.webp', title: t('seoPages.pages.heatResistantCandlePackaging.title_nkkraftpbsTriplexStructure'), desc: t('seoPages.pages.heatResistantCandlePackaging.desc_natureflexNkFscKraftPaper') },
+]
+
 
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
@@ -107,20 +110,20 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
   const sections = [
     {
       id: 'the-challenge',
-      title: 'The High-Heat Pouch Challenge',
+      title: t('seoPages.pages.heatResistantCandlePackaging.title_theHighheatPouchChallenge'),
       icon: <Thermometer className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>Can compostable bags handle hot candle wax?</strong> Most eco-friendly materials fail at 50°C. We engineered a solution that withstands 85°C.
+              <strong>{t('seoPages.pages.heatResistantCandlePackaging.canCompostableBagsHandleHot')}</strong> {t('seoPages.pages.heatResistantCandlePackaging.mostEcofriendlyMaterialsFailAt')}
             </p>
           </div>
           
           <AlternatingSection
             image="/imgs/function/heat-resistant-candle-hero.png"
             imageAlt="Hot wax pouring into compostable pouch"
-            title="Engineered for 85°C+ Performance"
+            title={t('seoPages.pages.heatResistantCandlePackaging.title_engineeredFor85cPerformance')}
             content="Pouring 284g of hardened candle wax at 85°C requires more than just a bag—it requires material excellence. Conventional compostable films like standard PLA soften and leak when exposed to heat. Our high-heat pouches utilize advanced PBS (Polybutylene succinate) or NatureFlex cellulose to ensure the bag holds its shape, seal, and integrity throughout the pouring and cooling process."
             imageLeft={true}
             index={0}
@@ -130,18 +133,18 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
     },
     {
       id: 'material-science',
-      title: 'Material Science: NatureFlex & PBS',
+      title: t('seoPages.pages.heatResistantCandlePackaging.title_materialScienceNatureflexPbs'),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <div className="prose prose-sm max-w-none text-neutral-700">
             <p>
-              To achieve 85°C microwave and stovetop safety, we move beyond basic starch-based films. The secret lies in our **Heat-Stable Barrier Architecture**:
+              {t('seoPages.pages.heatResistantCandlePackaging.toAchieve85cMicrowaveAnd')}
             </p>
             <ul className="space-y-2">
-              <li><strong>NatureFlex™ (NK) Outer Layer:</strong> A wood-pulp based cellulose that offers excellent clarity and printability while remaining stable at high temperatures.</li>
-              <li><strong>FSC Kraft Paper Middle Layer:</strong> Provides the structural backbone and the natural, premium tactile feel desired by boutique candle brands.</li>
-              <li><strong>High-Heat PBS Sealant:</strong> Our bio-based Polybutylene succinate can withstand temperatures up to 100°C without losing its hermetic seal.</li>
+              <li><strong>{t('seoPages.pages.heatResistantCandlePackaging.natureflexNkOuterLayer')}</strong> {t('seoPages.pages.heatResistantCandlePackaging.aWoodpulpBasedCelluloseThat')}</li>
+              <li><strong>{t('seoPages.pages.heatResistantCandlePackaging.fscKraftPaperMiddleLayer')}</strong> {t('seoPages.pages.heatResistantCandlePackaging.providesTheStructuralBackboneAnd')}</li>
+              <li><strong>{t('seoPages.pages.heatResistantCandlePackaging.highheatPbsSealant')}</strong> {t('seoPages.pages.heatResistantCandlePackaging.ourBiobasedPolybutyleneSuccinateCan')}</li>
             </ul>
 
           </div>
@@ -149,7 +152,7 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
           <AlternatingSection
             image="/imgs/spec/pcr-pet-kraft-triplex-clear.webp"
             imageAlt="NK / Kraft Paper / PBS Structure"
-            title="NK / Kraft Paper / PBS Triplex"
+            title={t('seoPages.pages.heatResistantCandlePackaging.title_nkKraftPaperPbsTriplex')}
             content="This 100% compostable bio-structure is specifically engineered for the candle industry. The NK layer handles the heat, the Kraft paper adds rigidity, and the PBS ensures a fail-safe seal even when pouring heavy, hot wax. It's the ultimate plastic-free alternative to traditional glass jars."
             imageLeft={false}
             index={1}
@@ -160,72 +163,72 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
     },
     {
       id: 'low-moq',
-      title: 'Digital Printing & Low MOQ Strategy',
+      title: t('seoPages.pages.heatResistantCandlePackaging.title_digitalPrintingLowMoqStrategy'),
       icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
           <p className="text-neutral-700">
-            Startup candle brands often face a barrier: High Minimum Order Quantities (MOQ). Traditional plate printing requires 5,000+ units per design. For a line of 6 scents, that's 30,000 bags—a massive capital outlay.
+            {t('seoPages.pages.heatResistantCandlePackaging.startupCandleBrandsOftenFace')}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white border-2 border-primary-200 p-5 rounded-xl shadow-sm">
               <LayoutPanelTop className="h-6 w-6 text-primary-600 mb-3" />
-              <h4 className="font-bold text-neutral-900 mb-2">Digital Printing (Low MOQ)</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t('seoPages.pages.heatResistantCandlePackaging.digitalPrintingLowMoq')}</h4>
               <ul className="text-sm space-y-1 text-neutral-600">
-                <li>• MOQ: 1,000 total (e.g., 6 designs x 178 pcs)</li>
-                <li>• No plate costs</li>
-                <li>• High-resolution photo quality</li>
-                <li>• Fast 2-3 week lead time</li>
+                <li>{t('seoPages.pages.heatResistantCandlePackaging.moq1000TotalEg6')}</li>
+                <li>{t('seoPages.pages.heatResistantCandlePackaging.noPlateCosts')}</li>
+                <li>{t('seoPages.pages.heatResistantCandlePackaging.highresolutionPhotoQuality')}</li>
+                <li>{t('seoPages.pages.heatResistantCandlePackaging.fast23WeekLeadTime')}</li>
               </ul>
             </div>
             <div className="bg-neutral-50 border border-neutral-200 p-5 rounded-xl">
               <Database className="h-6 w-6 text-neutral-400 mb-3" />
-              <h4 className="font-bold text-neutral-900 mb-2">Cylinder Printing (High Volume)</h4>
+              <h4 className="font-bold text-neutral-900 mb-2">{t('seoPages.pages.heatResistantCandlePackaging.cylinderPrintingHighVolume')}</h4>
               <ul className="text-sm space-y-1 text-neutral-500">
-                <li>• MOQ: 5,000+ per design</li>
-                <li>• Initial plate cost ($150-250 per color)</li>
-                <li>• Lowest unit price for mass production</li>
-                <li>• 4-5 week lead time</li>
+                <li>{t('seoPages.pages.heatResistantCandlePackaging.moq5000PerDesign')}</li>
+                <li>{t('seoPages.pages.heatResistantCandlePackaging.initialPlateCost150250Per')}</li>
+                <li>{t('seoPages.pages.heatResistantCandlePackaging.lowestUnitPriceForMass')}</li>
+                <li>{t('seoPages.pages.heatResistantCandlePackaging.45WeekLeadTime')}</li>
               </ul>
             </div>
           </div>
           <p className="text-sm italic text-neutral-500">
-            For 1,070 units across 6 designs, digital printing is the only commercially viable path. Our selected partners support low MOQ requirements for boutique brands.
+            {t('seoPages.pages.heatResistantCandlePackaging.for1070UnitsAcross6')}
           </p>
         </div>
       )
     },
     {
       id: 'supplier-insights',
-      title: 'Our Proprietary Supply Protocol',
+      title: t('seoPages.pages.heatResistantCandlePackaging.title_ourProprietarySupplyProtocol'),
       icon: <SearchCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <div className="bg-primary-50 p-8 rounded-xl border-4 border-primary-900 shadow-xl">
-            <h3 className="text-2xl font-black text-neutral-900 mb-4 uppercase tracking-tight">Our Integrated Solution Network</h3>
+            <h3 className="text-2xl font-black text-neutral-900 mb-4 uppercase tracking-tight">{t('seoPages.pages.heatResistantCandlePackaging.ourIntegratedSolutionNetwork')}</h3>
             <p className="text-neutral-700 mb-6">
-              Finding the right pouch for 85°C wax isn't just about a supplier; it's about engineering the perfect material stack. We have audited over 15 global production lines to curate a proprietary network that meets these exact thermal and structural requirements.
+              {t('seoPages.pages.heatResistantCandlePackaging.findingTheRightPouchFor')}
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white p-4 border-2 border-primary-200 rounded-lg">
-                <h4 className="font-bold text-neutral-900 mb-1 italic underline decoration-primary-500 decoration-4">The Boutique Specialist</h4>
-                <p className="text-sm text-neutral-600">Perfect for 1,000 unit launches across multiple designs. We manage the digital printing process to eliminate plate costs while ensuring 95°C heat stability.</p>
+                <h4 className="font-bold text-neutral-900 mb-1 italic underline decoration-primary-500 decoration-4">{t('seoPages.pages.heatResistantCandlePackaging.theBoutiqueSpecialist')}</h4>
+                <p className="text-sm text-neutral-600">{t('seoPages.pages.heatResistantCandlePackaging.perfectFor1000UnitLaunches')}</p>
               </div>
               <div className="bg-white p-4 border-2 border-primary-200 rounded-lg">
-                <h4 className="font-bold text-neutral-900 mb-1 italic underline decoration-primary-500 decoration-4">The High-Volume Partner</h4>
-                <p className="text-sm text-neutral-600">For established brands, we leverage our scale to provide 100°C-capable PBS pouches at the most competitive global price points.</p>
+                <h4 className="font-bold text-neutral-900 mb-1 italic underline decoration-primary-500 decoration-4">{t('seoPages.pages.heatResistantCandlePackaging.theHighvolumePartner')}</h4>
+                <p className="text-sm text-neutral-600">{t('seoPages.pages.heatResistantCandlePackaging.forEstablishedBrandsWeLeverage')}</p>
               </div>
             </div>
           </div>
           <div className="bg-neutral-100 p-6 rounded-lg text-sm leading-relaxed text-neutral-700 mt-6 border-l-8 border-neutral-900">
-            <strong>The Achieve Pack Advantage:</strong> We remove the risk of trial and error. By working with us, you gain access to a pre-vetted supply chain and material engineering that has already been stress-tested for candle wax pouring.
+            <strong>{t('seoPages.pages.heatResistantCandlePackaging.theAchievePackAdvantage')}</strong> {t('seoPages.pages.heatResistantCandlePackaging.weRemoveTheRiskOf')}
           </div>
         </div>
       )
     },
     {
       id: 'knowhow',
-      title: 'Our Knowledge: Why the Seal Matters',
+      title: t('seoPages.pages.heatResistantCandlePackaging.title_ourKnowledgeWhyTheSeal'),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
@@ -233,29 +236,29 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
             <div className="space-y-2">
               <h4 className="font-bold flex items-center gap-2 text-neutral-900">
                 <CheckCircle className="h-4 w-4 text-green-600" />
-                Gusset Reinforcement
+                {t('seoPages.pages.heatResistantCandlePackaging.gussetReinforcement')}
               </h4>
-              <p className="text-xs text-neutral-600">Liquid candle wax is heavy. The 99mm bottom gusset (49.5mm x 2) must be heat-sealed with a 5mm overlap to prevent "corner leaking" under hydraulic pressure.</p>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.heatResistantCandlePackaging.liquidCandleWaxIsHeavy')}</p>
             </div>
             <div className="space-y-2">
               <h4 className="font-bold flex items-center gap-2 text-neutral-900">
                 <CheckCircle className="h-4 w-4 text-green-600" />
-                Shrinkage Tension
+                {t('seoPages.pages.heatResistantCandlePackaging.shrinkageTension')}
               </h4>
-              <p className="text-xs text-neutral-600">As wax cools, it shrinks. We recommend NatureFlex/PBS composites because they maintain elasticity during thermal contraction, preventing the "crinkly" look of standard PLA.</p>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.heatResistantCandlePackaging.asWaxCoolsItShrinks')}</p>
             </div>
             <div className="space-y-2">
               <h4 className="font-bold flex items-center gap-2 text-neutral-900">
                 <CheckCircle className="h-4 w-4 text-green-600" />
-                Microwave Stability
+                {t('seoPages.pages.heatResistantCandlePackaging.microwaveStability')}
               </h4>
-              <p className="text-xs text-neutral-600">For customers who melt wax directly in the pouch, our CPLA layers prevent localized "hot spots" from melting the film, ensuring stovetop and microwave safety.</p>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.heatResistantCandlePackaging.forCustomersWhoMeltWax')}</p>
             </div>
           </div>
           <div className="bg-primary-900 text-white p-6 rounded-xl">
             <p className="text-sm leading-relaxed italic">
-              "We don't just sell bags; we sell the assurance that your 85°C wax won't end up on your factory floor. Our expertise in high-heat compostable polymers allows candle makers to ditch the glass jar without ditching performance." 
-              <br/>— Achieve Pack Engineering Team
+              {t('seoPages.pages.heatResistantCandlePackaging.weDontJustSellBags')} 
+              <br/>{t('seoPages.pages.heatResistantCandlePackaging.achievePackEngineeringTeam')}
             </p>
           </div>
         </div>
@@ -263,37 +266,37 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
     },
     {
       id: 'trust-eeat',
-      title: 'Why Trust Achieve Pack?',
+      title: t('seoPages.pages.heatResistantCandlePackaging.title_whyTrustAchievePack'),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <div className="bg-gradient-to-r from-primary-50 to-green-50 p-6 rounded-xl border border-primary-200">
-            <h3 className="text-xl font-bold text-neutral-900 mb-4">Food-Grade Packaging Experts Since 2011</h3>
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">{t('seoPages.pages.heatResistantCandlePackaging.foodgradePackagingExpertsSince2011')}</h3>
             <p className="text-neutral-700 mb-4">
-              Achieve Pack has been manufacturing food-safe flexible packaging for over 13 years. Our high-heat compostable pouches are produced in BRC-certified facilities and tested to meet international food contact standards.
+              {t('seoPages.pages.heatResistantCandlePackaging.achievePackHasBeenManufacturing')}
             </p>
           </div>
           
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <FileCheck className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">FDA Compliant</h4>
-              <p className="text-xs text-neutral-500">Food contact approved</p>
+              <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.heatResistantCandlePackaging.fdaCompliant')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.heatResistantCandlePackaging.foodContactApproved')}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <Building2 className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">BRC Certified</h4>
-              <p className="text-xs text-neutral-500">Food safety standard</p>
+              <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.heatResistantCandlePackaging.brcCertified')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.heatResistantCandlePackaging.foodSafetyStandard')}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <Globe className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">500+ Brands</h4>
-              <p className="text-xs text-neutral-500">Trusted worldwide</p>
+              <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.heatResistantCandlePackaging.500Brands')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.heatResistantCandlePackaging.trustedWorldwide')}</p>
             </div>
             <div className="bg-white border border-neutral-200 p-4 rounded-lg text-center">
               <Users className="h-8 w-8 text-green-600 mx-auto mb-2" />
-              <h4 className="font-semibold text-neutral-800">13+ Years</h4>
-              <p className="text-xs text-neutral-500">Industry experience</p>
+              <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.heatResistantCandlePackaging.13Years')}</h4>
+              <p className="text-xs text-neutral-500">{t('seoPages.pages.heatResistantCandlePackaging.industryExperience')}</p>
             </div>
           </div>
         </div>
@@ -301,26 +304,26 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
     },
     {
       id: 'cta',
-      title: 'Ready to Pack Your Candles?',
+      title: t('seoPages.pages.heatResistantCandlePackaging.title_readyToPackYourCandles'),
       icon: <Shield className="h-5 w-5 text-white" />,
       content: (
         <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white p-8 rounded-xl shadow-2xl">
-          <h3 className="text-2xl font-bold mb-6 text-center">Get Your High-Heat Sample Kit</h3>
+          <h3 className="text-2xl font-bold mb-6 text-center">{t('seoPages.pages.heatResistantCandlePackaging.getYourHighheatSampleKit')}</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center border border-white/20">
               <Calendar className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Technical Consultation</h4>
-              <p className="text-sm text-white/80 mb-4">Discuss material compatibility with your specific wax formula.</p>
+              <h4 className="font-semibold mb-2">{t('seoPages.pages.heatResistantCandlePackaging.technicalConsultation')}</h4>
+              <p className="text-sm text-white/80 mb-4">{t('seoPages.pages.heatResistantCandlePackaging.discussMaterialCompatibilityWithYour')}</p>
               <button onClick={openCalendly} className="w-full bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 transition cursor-pointer">
-                Schedule Now
+                {t('seoPages.pages.heatResistantCandlePackaging.scheduleNow')}
               </button>
             </div>
             <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center border border-white/20">
               <Mail className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Request Quote</h4>
-              <p className="text-sm text-white/80 mb-4">Get a detailed breakdown for 1,000+ units with digital printing.</p>
+              <h4 className="font-semibold mb-2">{t('seoPages.pages.heatResistantCandlePackaging.requestQuote')}</h4>
+              <p className="text-sm text-white/80 mb-4">{t('seoPages.pages.heatResistantCandlePackaging.getADetailedBreakdownFor')}</p>
               <a href="mailto:ryan@achievepack.com?subject=Heat-Resistant Candle Pouch Inquiry" className="block w-full bg-white text-neutral-900 px-4 py-2 rounded-lg font-semibold hover:bg-neutral-100 transition">
-                Send Email
+                {t('seoPages.pages.heatResistantCandlePackaging.sendEmail')}
               </a>
             </div>
           </div>
@@ -331,39 +334,39 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "Can I pour 85°C hot wax directly into these pouches?",
-      answer: "Yes. Our specific NatureFlex/PBS triplex composite is engineered to withstand up to 95°C. This allows you to pour most soy, paraffin, or beeswax blends directly into the bag without deformation."
+      question: t('seoPages.pages.heatResistantCandlePackaging.question_canIPour85cHot'),
+      answer: t('seoPages.pages.heatResistantCandlePackaging.answer_yesOurSpecificNatureflexpbsTriplex')
     },
     {
-      question: "What is the minimum order quantity for multiple scents?",
-      answer: "With digital printing, we can support orders as low as 1,000 total bags, which can be split across multiple designs (e.g., 6 designs at 166 units each). This is perfect for limited edition or seasonal candle releases."
+      question: t('seoPages.pages.heatResistantCandlePackaging.question_whatIsTheMinimumOrder'),
+      answer: t('seoPages.pages.heatResistantCandlePackaging.answer_withDigitalPrintingWeCan')
     },
     {
-      question: "Are these bags 100% compostable?",
-      answer: "Absolutely. All materials used—including the zippers and valves (if needed)—are certified to ASTM D6400 or OK Compost Industrial standards. They will break down completely in industrial composting facilities within 90-180 days."
+      question: t('seoPages.pages.heatResistantCandlePackaging.question_areTheseBags100Compostable'),
+      answer: t('seoPages.pages.heatResistantCandlePackaging.answer_absolutelyAllMaterialsUsedincludingThe')
     },
     {
-      question: "Do I need to pay for printing plates?",
-      answer: "Not with digital printing. We charge zero plate fees for digital runs. You only pay for the bags and a small setup fee per SKU, saving you thousands in upfront costs."
+      question: t('seoPages.pages.heatResistantCandlePackaging.question_doINeedToPay'),
+      answer: t('seoPages.pages.heatResistantCandlePackaging.answer_notWithDigitalPrintingWe')
     },
     {
-      question: "Will the fragrance (essential oils) damage the bag?",
-      answer: "No. The PBS barrier layer is chemically resistant to most natural essential oils and synthetic fragrances used in candle making, preventing delamination or odor leakage."
+      question: t('seoPages.pages.heatResistantCandlePackaging.question_willTheFragranceEssentialOils'),
+      answer: t('seoPages.pages.heatResistantCandlePackaging.answer_noThePbsBarrierLayer')
     }
   ]
 
   const relatedLinks = [
-    { title: "Compostable Pouches", url: "/materials/compostable", description: "Learn about our range of eco-materials." },
-    { title: "Digital Printing Solutions", url: "/printing/digital", description: "Low MOQ, no plate fees." },
-    { title: "Stand Up Pouches", url: "/packaging/stand-up-pouches", description: "Classic doypack style for candles." },
-    { title: "High-Barrier Materials", url: "/features/barrier-options", description: "Protecting your fragrance integrity." },
+    { title: t('seoPages.pages.heatResistantCandlePackaging.title_compostablePouches'), url: "/materials/compostable", description: t('seoPages.pages.heatResistantCandlePackaging.description_learnAboutOurRangeOf') },
+    { title: t('seoPages.pages.heatResistantCandlePackaging.title_digitalPrintingSolutions'), url: "/printing/digital", description: t('seoPages.pages.heatResistantCandlePackaging.description_lowMoqNoPlateFees') },
+    { title: t('seoPages.pages.heatResistantCandlePackaging.title_standUpPouches'), url: "/packaging/stand-up-pouches", description: t('seoPages.pages.heatResistantCandlePackaging.description_classicDoypackStyleForCandles') },
+    { title: t('seoPages.pages.heatResistantCandlePackaging.title_highbarrierMaterials'), url: "/features/barrier-options", description: t('seoPages.pages.heatResistantCandlePackaging.description_protectingYourFragranceIntegrity') },
   ]
 
   if (isPouchDomain) {
     return (
       <BlogArticleTemplate
-        title="High-Heat Compostable Candle Wax Pouches Guide | POUCH.ECO"
-        metaDescription="Pour hot wax directly into certified 100% compostable candle pouches. No glass jars, low MOQ from 500 units, beautiful natural organic Kraft!"
+        title={t('seoPages.pages.heatResistantCandlePackaging.title_highheatCompostableCandleWaxPouches')}
+        metaDescription={t('seoPages.pages.heatResistantCandlePackaging.metaDescription')}
         canonicalUrl="https://pouch.eco/function/heat-resistant-compostable-pouches"
         keywords={['compostable candle bags', 'heat resistant candle pouches', 'wax pour pouches', 'PBS pouches', 'NatureFlex candle bags']}
         publishedDate="2026-05-27"
@@ -400,27 +403,27 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
             </h1>
           </div>
         }
-        heroSubtitle="Safely pour hot wax at 85°C into 100% compostable packaging. Ditch heavy glass jars and start with just 500 units!"
+        heroSubtitle={t('seoPages.pages.heatResistantCandlePackaging.heroSubtitle')}
         heroImage="/imgs/function/heat-resistant-candle-hero.png"
         heroImageAlt="POUCH.ECO heat resistant compostable candle pouch wax pour guide"
         categoryTag="ECO_PRODUCTS"
         categoryColor="#10b981"
         readTime="8 min read"
         sections={sections}
-        ctaTitle="Ditch Heavy Glass Jars Today"
-        ctaDescription="Book a quick 30-minute packaging audit with our specialists to review candle wax formulas, sizes, and order free custom stamp sample kits."
+        ctaTitle={t('seoPages.pages.heatResistantCandlePackaging.ctaTitle')}
+        ctaDescription={t('seoPages.pages.heatResistantCandlePackaging.ctaDescription')}
         calendlyUrl="https://calendly.com/30-min-free-packaging-consultancy"
         achievePackLink="https://achievepack.com/function/heat-resistant-compostable-pouches"
-        achievePackText="Need enterprise-level bulk orders or advanced B2B material engineering?"
+        achievePackText={t('seoPages.pages.heatResistantCandlePackaging.achievePackText')}
         showTableOfContents={true}
         relatedArticles={[
           {
-            title: 'Why Writable & Stampable Pouches are Essential for Eco-Packers',
+            title: t('seoPages.pages.heatResistantCandlePackaging.title_whyWritableStampablePouchesAre'),
             url: '/knowledge/writable-stampable-pouches',
             image: '/imgs/knowledge/writable-stampable-pouches.jpg'
           },
           {
-            title: 'Compostable Side Gusset Pouches: Sizing & Scent Preservation',
+            title: t('seoPages.pages.heatResistantCandlePackaging.title_compostableSideGussetPouchesSizing'),
             url: '/products/compostable-side-gusset-bags',
             image: '/imgs/store/products/compostable-side-gusset-collection.png'
           }
@@ -432,22 +435,22 @@ const HeatResistantCandlePackagingPage: React.FC = () => {
   return (
     <>
       <SEOPageLayout heroBgColor="#171717"
-        title="High-Heat Compostable Candle Packaging (85°C+) | Achieve Pack"
-        description="Heat-resistant compostable stand-up pouches for candle wax (85°C+). PBS and NatureFlex materials with low MOQ digital printing. Certified eco-friendly candle packaging solutions."
+        title={t('seoPages.pages.heatResistantCandlePackaging.title_highheatCompostableCandlePackaging85c')}
+        description={t('seoPages.pages.heatResistantCandlePackaging.description')}
         keywords={['compostable candle packaging', 'heat resistant pouches', 'candle wax bags', 'PBS pouches', 'NatureFlex candle bags', 'high temperature compostable packaging', 'digital printing candle bags', 'low MOQ eco packaging', 'wax pour pouches', 'sustainable candle jars alternative', '85 degree heat resistant bags']}
         canonicalUrl="https://achievepack.com/function/heat-resistant-compostable-pouches"
-        heroTitle="The High-Heat Eco Pouch for Candle Makers"
-        heroSubtitle="Safely pour hot wax at 85°C into 100% compostable packaging. No plates, low MOQ, zero compromises on heat resistance."
+        heroTitle={t('seoPages.pages.heatResistantCandlePackaging.heroTitle')}
+        heroSubtitle={t('seoPages.pages.heatResistantCandlePackaging.heroSubtitle')}
         aboveTitle={visualBreadcrumbsAndLabels}
         heroImage="/imgs/function/heat-resistant-candle-hero.png"
         heroImageAlt="Premium compostable candle pouch being filled with hot wax"
-        introSummary="Transitioning to sustainable packaging shouldn't mean compromising on your manufacturing process. We provide the material know-how to handle 85°C wax pours in a fully certified compostable format."
+        introSummary={t('seoPages.pages.heatResistantCandlePackaging.introSummary')}
         sections={sections}
         faqs={faqs}
         relatedLinks={relatedLinks}
-        ctaTitle="Ready to Elevate Your Candle Brand?"
-        ctaDescription="Ditch the glass and go eco with high-heat pouches. Request your custom quote today."
-        ctaButtonText="Talk to a Specialist"
+        ctaTitle={t('seoPages.pages.heatResistantCandlePackaging.ctaTitle')}
+        ctaDescription={t('seoPages.pages.heatResistantCandlePackaging.ctaDescription')}
+        ctaButtonText={t('seoPages.pages.heatResistantCandlePackaging.ctaButtonText')}
       />
       
       {galleryEnlarged && (

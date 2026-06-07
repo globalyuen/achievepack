@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2962,
+  "total_images": 2963,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1424,
+    ".png": 1425,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 260,
+      "count": 261,
       "images": [
+        {
+          "filename": "digital-printed-compostable-bags-for-beverages-hero.png",
+          "path": "/imgs/blog/heros/digital-printed-compostable-bags-for-beverages-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T11:30:37.365Z"
+        },
         {
           "filename": "high-barrier-film-for-pet-food-pouches-hero.png",
           "path": "/imgs/blog/heros/high-barrier-film-for-pet-food-pouches-hero.png",

@@ -123,9 +123,9 @@ export default function PouchCompostingBenefitsPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>{title}</title>
+        <title>{t('seoPages.pages.pouchCompostingBenefits.metaTitle')}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content="composting benefits, environmental composting, compostable packaging, reduce emissions, soil health, commercial composting, EN 13432, ASTM D6400, sustainable packaging, organic waste" />
+        <meta name="keywords" content={t('seoPages.pages.pouchCompostingBenefits.metaKeywords')} />
         <link rel="canonical" href="https://pouch.eco/composting/composting-benefits" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -147,7 +147,7 @@ export default function PouchCompostingBenefitsPage() {
             <div className="space-y-8 z-10">
               <div className="flex flex-wrap gap-2">
                 <span className="inline-block bg-[#FF00FF] text-white border-4 border-black px-4 py-2 transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
-                  CIRCULARITY_01
+                  {t('seoPages.pages.pouchCompostingBenefits.circularity01')}
                 </span>
                 <span className="inline-block bg-black text-white border-4 border-black px-4 py-2 transform -rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['JetBrains_Mono'] font-black text-sm">
                   {t('seoPages.pages.pouchCompostingBenefits.brcgsCompliant')}
@@ -193,7 +193,7 @@ export default function PouchCompostingBenefitsPage() {
       {/* Benefits Cards Section */}
       <section id="benefits" className="py-24 px-4 md:px-6 max-w-7xl mx-auto text-left">
         <div className="mb-16">
-          <NeoBadge color="magenta">THE_IMPACT</NeoBadge>
+          <NeoBadge color="magenta">{t('seoPages.pages.pouchCompostingBenefits.theimpact')}</NeoBadge>
           <h2 className="font-black text-4xl md:text-6xl uppercase mt-4">{t('seoPages.pages.pouchCompostingBenefits.keyEnvironmentalBenefits')}</h2>
         </div>
 
@@ -204,7 +204,7 @@ export default function PouchCompostingBenefitsPage() {
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
               {t('seoPages.pages.pouchCompostingBenefits.organicWasteIsDiverted')}
             </p>
-            <NeoBadge color="bg-[#10b981] text-white">WASTE_DIVERSION</NeoBadge>
+            <NeoBadge color="bg-[#10b981] text-white">{t('seoPages.pages.pouchCompostingBenefits.wastediversion')}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#FF00FF]" className="text-white">
@@ -213,7 +213,7 @@ export default function PouchCompostingBenefitsPage() {
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6 text-white">
               {t('seoPages.pages.pouchCompostingBenefits.aerobicCompostingAvoidsLandfill')}
             </p>
-            <NeoBadge color="bg-[#D4FF00]">CLIMATE_POSITIVE</NeoBadge>
+            <NeoBadge color="bg-[#D4FF00]">{t('seoPages.pages.pouchCompostingBenefits.climatepositive')}</NeoBadge>
           </NeoCard>
 
           <NeoCard color="bg-[#D4FF00]">
@@ -222,7 +222,7 @@ export default function PouchCompostingBenefitsPage() {
             <p className="font-['JetBrains_Mono'] text-sm leading-relaxed mb-6">
               {t('seoPages.pages.pouchCompostingBenefits.addingOrganicCompostEnriches')}
             </p>
-            <NeoBadge color="bg-white">REGENERATIVE</NeoBadge>
+            <NeoBadge color="bg-white">{t('seoPages.pages.pouchCompostingBenefits.regenerative')}</NeoBadge>
           </NeoCard>
         </div>
       </section>
@@ -232,7 +232,7 @@ export default function PouchCompostingBenefitsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <NeoBadge color="cyan">INFRASTRUCTURE_METRICS</NeoBadge>
+              <NeoBadge color="cyan">{t('seoPages.pages.pouchCompostingBenefits.infrastructuremetrics')}</NeoBadge>
               <h2 className="font-black text-4xl md:text-6xl uppercase">{t('seoPages.pages.pouchCompostingBenefits.backyardVsIndustrialFacility')}</h2>
               <p className="font-['JetBrains_Mono'] text-sm text-neutral-600 leading-relaxed">
                 {t('seoPages.pages.pouchCompostingBenefits.knowingTheOperationalScale')}
@@ -276,13 +276,13 @@ export default function PouchCompostingBenefitsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
-              <NeoBadge color="magenta">VALUE_TRANSLATION</NeoBadge>
+              <NeoBadge color="magenta">{t('seoPages.pages.pouchCompostingBenefits.valuetranslation')}</NeoBadge>
               <h2 className="font-black text-5xl md:text-7xl uppercase mt-4">
                 {t('seoPages.pages.pouchCompostingBenefits.circularitySpecsMatrix')}
               </h2>
             </div>
             <div className="font-['JetBrains_Mono'] text-sm font-bold bg-[#D4FF00] border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              STANDARDS_COMPLIANCE_2026
+              {t('seoPages.pages.pouchCompostingBenefits.standardscompliance2026')}
             </div>
           </div>
 
@@ -342,7 +342,7 @@ export default function PouchCompostingBenefitsPage() {
       <section className="py-24 bg-white border-t-4 border-black text-left">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <NeoBadge color="magenta">EXPERT_FAQ</NeoBadge>
+            <NeoBadge color="magenta">{t('seoPages.pages.pouchCompostingBenefits.expertfaq')}</NeoBadge>
             <h2 className="text-4xl md:text-5xl font-black uppercase mt-6 text-center">
               {t('seoPages.pages.pouchCompostingBenefits.procurementCircularityFaq')}
             </h2>
@@ -384,7 +384,7 @@ export default function PouchCompostingBenefitsPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#D4FF00] border-t-4 border-black text-center">
         <div className="max-w-4xl mx-auto px-4 space-y-8">
-          <NeoBadge color="bg-black text-white">REGENERATIVE_FUTURE</NeoBadge>
+          <NeoBadge color="bg-black text-white">{t('seoPages.pages.pouchCompostingBenefits.regenerativefuture')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-7xl uppercase drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
             {t('seoPages.pages.pouchCompostingBenefits.startYourCustomRun')}
           </h2>

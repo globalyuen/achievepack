@@ -96,7 +96,7 @@ export default function PouchSaucesPage() {
   return (
     <PouchLayout>
       <Helmet>
-        <title>{title}</title>
+        <title>{t('seoPages.pages.pouchSauces.metaTitle')}</title>
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonicalUrl} />
         
@@ -209,7 +209,7 @@ export default function PouchSaucesPage() {
       {/* Deep Dive SEO Content */}
       <section className="py-24 bg-white border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="red">INDUSTRY_DEEP_DIVE</NeoBadge>
+          <NeoBadge color="red">{t('seoPages.pages.pouchSauces.industrydeepdive')}</NeoBadge>
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-8 italic">
             {t('seoPages.pages.pouchSauces.theLiquidRevolutionIn')} <span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.saucePackaging')}</span>
           </h2>
@@ -259,26 +259,26 @@ export default function PouchSaucesPage() {
       {/* FAQ Section */}
       <section className="py-24 bg-gray-50 border-b-4 border-black">
         <div className="max-w-4xl mx-auto px-6">
-          <NeoBadge color="blue">KNOWLEDGE_BASE</NeoBadge>
+          <NeoBadge color="blue">{t('seoPages.pages.pouchSauces.knowledgebase')}</NeoBadge>
           <h2 className="text-4xl md:text-5xl font-['Space_Grotesk'] font-black uppercase mt-6 mb-12 italic">
             {t('seoPages.pages.pouchSauces.common')} <span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.questions')}</span>
           </h2>
           <div className="space-y-6">
             <NeoCard color="bg-white">
-              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">Q:</span> {t('seoPages.pages.pouchSauces.areYourSaucePouches')}</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">A:</span> {t('seoPages.pages.pouchSauces.yesOurSpoutedPouches')}</p>
+              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.q')}</span> {t('seoPages.pages.pouchSauces.areYourSaucePouches')}</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">{t('seoPages.pages.pouchSauces.a')}</span> {t('seoPages.pages.pouchSauces.yesOurSpoutedPouches')}</p>
             </NeoCard>
             <NeoCard color="bg-white">
-              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">Q:</span> {t('seoPages.pages.pouchSauces.canThesePouchesBe')}</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">A:</span> {t('seoPages.pages.pouchSauces.absolutelyWeOfferSpecialized')}</p>
+              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.q')}</span> {t('seoPages.pages.pouchSauces.canThesePouchesBe')}</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">{t('seoPages.pages.pouchSauces.a')}</span> {t('seoPages.pages.pouchSauces.absolutelyWeOfferSpecialized')}</p>
             </NeoCard>
             <NeoCard color="bg-white">
-              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">Q:</span> {t('seoPages.pages.pouchSauces.whatSpoutSizesAre')}</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">A:</span> {t('seoPages.pages.pouchSauces.weOfferVariousSpout')}</p>
+              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.q')}</span> {t('seoPages.pages.pouchSauces.whatSpoutSizesAre')}</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">{t('seoPages.pages.pouchSauces.a')}</span> {t('seoPages.pages.pouchSauces.weOfferVariousSpout')}</p>
             </NeoCard>
             <NeoCard color="bg-white">
-              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">Q:</span> {t('seoPages.pages.pouchSauces.doYouOfferRecyclable')}</h4>
-              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">A:</span> {t('seoPages.pages.pouchSauces.yesWeManufactureMonope')}</p>
+              <h4 className="font-black text-xl mb-2 flex items-center gap-2"><span className="text-[#FF0000]">{t('seoPages.pages.pouchSauces.q')}</span> {t('seoPages.pages.pouchSauces.doYouOfferRecyclable')}</h4>
+              <p className="font-['JetBrains_Mono'] text-gray-600 pl-8"><span className="font-bold text-[#FF0000]">{t('seoPages.pages.pouchSauces.a')}</span> {t('seoPages.pages.pouchSauces.yesWeManufactureMonope')}</p>
             </NeoCard>
           </div>
         </div>
@@ -287,7 +287,7 @@ export default function PouchSaucesPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#FF0000] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-8">
-          <NeoBadge color="white">POUR_WITH_PRECISION</NeoBadge>
+          <NeoBadge color="white">{t('seoPages.pages.pouchSauces.pourwithprecision')}</NeoBadge>
           <h2 className="font-black text-5xl md:text-8xl uppercase leading-none italic">{t('seoPages.pages.pouchSauces.ditchTheGlass')}</h2>
           <p className="font-['JetBrains_Mono'] font-bold text-xl max-w-2xl mx-auto">
             {t('seoPages.pages.pouchSauces.switchToLightweightShatterproof')}

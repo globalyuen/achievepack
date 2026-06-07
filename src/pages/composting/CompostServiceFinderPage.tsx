@@ -199,10 +199,10 @@ const CompostServiceFinderPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Global Composting Service Finder | USA, Canada, Australia, Europe | Achieve Pack</title>
-        <meta name="description" content="Find composting services worldwide. Directory of 300+ US facilities plus Canada, Australia & Europe. EN 13432, ASTM D6400, AS 4736 certified compostable packaging accepted." />
+        <title>{t('seoPages.pages.compostServiceFinder.metaTitle')}</title>
+        <meta name="description" content={t('seoPages.pages.compostServiceFinder.metaDescription')} />
         <link rel="canonical" href="https://achievepack.com/composting/composting-services" />
-        <meta name="keywords" content="composting service, compost facility, EN 13432, ASTM D6400, AS 4736, industrial composting, compostable packaging, USA composting, Canada composting, Australia composting, Europe composting" />
+        <meta name="keywords" content={t('seoPages.pages.compostServiceFinder.metaKeywords')} />
         
         {/* Open Graph */}
         <meta property="og:title" content="Global Composting Service Finder - USA, Canada, Australia, Europe" />

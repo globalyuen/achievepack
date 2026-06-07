@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T11:16:28.768Z",
+  "lastUnifiedRun": "2026-06-07T11:31:12.462Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1561,24 +1561,25 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-packaging-for-snacks-low-moq",
       "status": "Pending Approval",
       "volume": 850,
       "keyword": "sustainable packaging for snacks low moq",
-      "difficulty": "Medium",
-      "slug": "sustainable-packaging-for-snacks-low-moq"
+      "difficulty": "Medium"
     },
     {
+      "slug": "high-barrier-film-for-pet-food-pouches",
       "status": "Pending Approval",
       "volume": 1500,
       "keyword": "high barrier film for pet food pouches",
-      "difficulty": "Low",
-      "slug": "high-barrier-film-for-pet-food-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 750,
       "keyword": "digital printed compostable bags for beverages",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-printed-compostable-bags-for-beverages"
     },
     {
       "status": "Pending",
@@ -1721,14 +1722,19 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T11:15:59.394Z",
+      "timestamp": "2026-06-07T11:30:41.625Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier film for pet food pouches\" to /blog/high-barrier-film-for-pet-food-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed compostable bags for beverages\" to /blog/digital-printed-compostable-bags-for-beverages (Pending Approval)"
     },
     {
-      "timestamp": "2026-06-07T11:00:25.848Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging for snacks low moq\" to /blog/sustainable-packaging-for-snacks-low-moq (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier film for pet food pouches\" to /blog/high-barrier-film-for-pet-food-pouches (Pending Approval)",
+      "timestamp": "2026-06-07T11:15:59.394Z"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable packaging for snacks low moq\" to /blog/sustainable-packaging-for-snacks-low-moq (Pending Approval)",
+      "timestamp": "2026-06-07T11:00:25.848Z"
     },
     {
       "action": "Autopilot Generation Draft",
