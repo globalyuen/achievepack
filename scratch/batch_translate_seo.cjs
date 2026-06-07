@@ -24,8 +24,9 @@ function setDeep(obj, path, value) {
   let current = obj;
   for (let i = 0; i < path.length - 1; i++) {
     const part = path[i];
+    const nextPart = path[i + 1];
     if (current[part] === undefined) {
-      current[part] = {};
+      current[part] = typeof nextPart === 'number' ? [] : {};
     }
     current = current[part];
   }

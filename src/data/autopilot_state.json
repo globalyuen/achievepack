@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T14:30:35.474Z",
+  "lastUnifiedRun": "2026-06-07T14:45:33.954Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1659,17 +1659,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "sustainable-high-barrier-sachet-for-snacks",
       "status": "Pending Approval",
       "volume": 1050,
       "keyword": "sustainable high barrier sachet for snacks",
-      "difficulty": "Low",
-      "slug": "sustainable-high-barrier-sachet-for-snacks"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 620,
       "keyword": "compostable retort packaging for sauces suppliers",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-retort-packaging-for-sauces-suppliers"
     },
     {
       "status": "Pending",
@@ -1734,9 +1735,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T14:30:23.637Z",
+      "timestamp": "2026-06-07T14:45:25.474Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable high barrier sachet for snacks\" to /blog/sustainable-high-barrier-sachet-for-snacks (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable retort packaging for sauces suppliers\" to /blog/compostable-retort-packaging-for-sauces-suppliers (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable high barrier sachet for snacks\" to /blog/sustainable-high-barrier-sachet-for-snacks (Pending Approval)",
+      "timestamp": "2026-06-07T14:30:23.637Z"
     },
     {
       "action": "Autopilot Generation Draft",

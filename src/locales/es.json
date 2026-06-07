@@ -1918,14 +1918,14 @@
                         "titlePre": "PREGUNTAS FRECUENTES <span className=\"text-[#10b981]\">",
                         "titleHighlight": "PREGUNTAS FRECUENTES <span className=\"text-[#10b981]\">"
                     },
-                    "metaKeywords": {
-                        "0": "bolsas de pie personalizadas",
-                        "1": "bolsas ecológicas de pie",
-                        "2": "bolsas de pie compostables",
-                        "3": "bolsas de café reciclables",
-                        "4": "pouch.eco",
-                        "5": "envases flexibles sostenibles"
-                    }
+                    "metaKeywords": [
+                        "bolsas de pie personalizadas",
+                        "bolsas ecológicas de pie",
+                        "bolsas de pie compostables",
+                        "bolsas de café reciclables",
+                        "pouch.eco",
+                        "envases flexibles sostenibles"
+                    ]
                 },
                 "seoPages": {
                     "breadcrumbs": {
@@ -1942,12 +1942,12 @@
                             "title": "Bolsas de pie personalizadas al por mayor y suministro",
                             "intro": "Las <strong>bolsas stand-up personalizadas (SUP)</strong> representan el estándar de oro en envases flexibles comerciales de primera calidad. Derivadas de líneas de producción de fábrica certificadas por BRCGS, nuestras bolsas ofrecen máxima presencia en los estantes, ahorro de material liviano y una barrera de protección sólida específicamente calibrada para nuevas empresas globales de DTC y marcas de alimentos mayoristas en expansión.",
                             "listTitle": "Indicadores clave de desempeño comercial B2B:",
-                            "listItems": {
-                                "0": "<strong>Huella un 75 % más ligera</strong>: reduce drásticamente el espacio de almacenamiento y las emisiones de envío de larga distancia en comparación con los frascos de vidrio o las latas de metal.",
-                                "1": "<strong>Marca inmobiliaria de 360°</strong>: cobertura de diseño digital de ancho completo impreso con tintas vegetales certificadas a base de soja.",
-                                "2": "<strong>Integración resellable</strong>: cierres de cremallera duraderos y controles deslizantes que evitan la degradación del producto en los estantes.",
-                                "3": "<strong>Compatibilidad de líneas automáticas</strong>: tolerancia de ancho de rollo diseñada que permite una integración perfecta en líneas automáticas VFFS/HFFS."
-                            }
+                            "listItems": [
+                                "<strong>Huella un 75 % más ligera</strong>: reduce drásticamente el espacio de almacenamiento y las emisiones de envío de larga distancia en comparación con los frascos de vidrio o las latas de metal.",
+                                "<strong>Marca inmobiliaria de 360°</strong>: cobertura de diseño digital de ancho completo impreso con tintas vegetales certificadas a base de soja.",
+                                "<strong>Integración resellable</strong>: cierres de cremallera duraderos y controles deslizantes que evitan la degradación del producto en los estantes.",
+                                "<strong>Compatibilidad de líneas automáticas</strong>: tolerancia de ancho de rollo diseñada que permite una integración perfecta en líneas automáticas VFFS/HFFS."
+                            ]
                         },
                         "specifications": {
                             "title": "Guía de compra y traducción de parámetros técnicos",
@@ -1994,34 +1994,34 @@
                     "heroTitle": "Bolsas de pie personalizadas al por mayor",
                     "heroSubtitle": "Certificado BRCGS directo de fábrica • MOQ bajo 500 unidades • Películas ecológicas 100 % certificadas",
                     "introSummary": "Proveedor directo de bolsas verticales certificadas, compostables y reciclables en la acera. Calibrado con barreras de oxígeno OTR/WVTR de alto rendimiento y refuerzos inferiores de diagnóstico para evitar la rotura del sello, lo que garantiza una vida útil de más de 12 meses.",
-                    "faqs": {
-                        "0": {
+                    "faqs": [
+                        {
                             "question": "1. ¿Cuál es la cantidad mínima de pedido (MOQ) para bolsas verticales personalizadas?",
                             "answer": "Apoyamos a las empresas emergentes con un MOQ de impresión digital, el más bajo del sector, de solo 500 unidades por diseño. Para volúmenes mayoristas más grandes, operamos la impresión de planchas de huecograbado a partir de 5000 unidades, lo que brinda la máxima rentabilidad al por mayor."
                         },
-                        "1": {
+                        {
                             "question": "2. ¿Proporcionan muestras físicas de preproducción?",
                             "answer": "Sí, enviamos un kit de muestra sostenible gratuito con 10 bolsas físicas para probar las propiedades de barrera. Para pedidos personalizados, generamos una prueba en formato PDF las 24 horas y podemos construir maquetas digitales personalizadas exactas antes de la fabricación en masa."
                         },
-                        "2": {
+                        {
                             "question": "3. ¿Pueden fabricar bolsas verticales según dibujos CAD volumétricos personalizados?",
                             "answer": "Sí. Nuestros ingenieros de materiales analizan la densidad volumétrica de su producto y personalizan los refuerzos inferiores y las dimensiones hasta la escala milimétrica. Proporcionamos un PDF de diseño de línea personalizado en un plazo de 24 horas."
                         },
-                        "3": {
+                        {
                             "question": "4. ¿Cuál es el tiempo de producción y tránsito para tiradas comerciales?",
                             "answer": "Las tiradas digitales finalizan en 7 a 10 días hábiles; Los pedidos de placas de huecograbado tardan entre 12 y 14 días. La entrega aérea exprés por DHL/FedEx a EE. UU./UE tarda de 5 a 7 días hábiles, y el transporte marítimo económico está disponible en 20 a 30 días."
                         },
-                        "4": {
+                        {
                             "question": "5. ¿Qué certificaciones están disponibles para verificar el cumplimiento ecológico?",
                             "answer": "Nuestros biopolímeros llevan números de certificado oficiales de BPI (Instituto de Productos Biodegradables #10529618) y TÜV Austria (OK Compost HOME). Las pilas cumplen con las pautas de compostabilidad ASTM D6400 (EE. UU.) y EN 13432 (UE)."
                         },
-                        "5": {
+                        {
                             "question": "6. ¿Qué detalles se deben enviar para recibir una cotización mayorista?",
                             "answer": "Proporcione la capacidad volumétrica estimada (o dimensiones exactas), la preferencia de material (kraft compostable, mono-PE reciclable, barrera alta), los requisitos de la válvula zip/desgasificadora, la cantidad de SKU y el diseño vectorial."
                         }
-                    },
-                    "tables": {
-                        "0": {
+                    ],
+                    "tables": [
+                        {
                             "title": "Matriz de tamaños volumétricos comerciales",
                             "data": {
                                 "headers": {
@@ -2058,31 +2058,31 @@
                                 }
                             }
                         }
-                    },
-                    "relatedLinks": {
-                        "0": {
+                    ],
+                    "relatedLinks": [
+                        {
                             "title": "Bolsas de fondo plano",
                             "url": "/embalaje/bolsas-de-fondo-plano",
                             "description": "Alternativa estable de refuerzo de caja de 5 paneles"
                         },
-                        "1": {
+                        {
                             "title": "Soluciones de café y té",
                             "url": "/industria/cafe-te",
                             "description": "Bolsas con válvulas desgasificadoras y bridas."
                         },
-                        "2": {
+                        {
                             "title": "Especificaciones del material compostable",
                             "url": "/materiales/compostables",
                             "description": "Compara las especificaciones del biopolímero OK Compost"
                         }
-                    },
-                    "metaKeywords": {
-                        "0": "bolsas de pie personalizadas",
-                        "1": "venta al por major bolsas de pie",
-                        "2": "bolsas de pie compostables",
-                        "3": "Embalajes flexibles certificados BRC",
-                        "4": "lograr una bolsa de pie"
-                    }
+                    ],
+                    "metaKeywords": [
+                        "bolsas de pie personalizadas",
+                        "venta al por major bolsas de pie",
+                        "bolsas de pie compostables",
+                        "Embalajes flexibles certificados BRC",
+                        "lograr una bolsa de pie"
+                    ]
                 }
             },
             "flatBottomBags": {
@@ -2310,26 +2310,26 @@
                 "metaTitle": "Bolsas de fondo plano | Bolsas con fondo de caja | Embalaje con fondo de bloque",
                 "metaDescription": "title=\"Bolsas de fondo plano | Bolsas de fondo de caja | Embalaje de fondo de bloque",
                 "heroImageAlt": "Embalaje de bolsa de caja de bolsa de fondo plano",
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "¿Cuál es la diferencia entre las bolsas de fondo plano y las de pie?",
                         "answer": "Las bolsas de fondo plano tienen una base rectangular con 5 paneles imprimibles, ofreciendo más estabilidad y capacidad. Las bolsas verticales tienen un refuerzo ovalado con 2-3 paneles. Las bolsas de fondo plano proporcionan aproximadamente entre un 15 y un 20 % más de volumen para el mismo espacio."
                     },
-                    "1": {
+                    {
                         "question": "¿Son más caras las bolsas de fondo plano?",
                         "answer": "Sí, las bolsas de fondo plano suelen costar entre un 15 y un 25 % más que las bolsas verticales debido a su construcción más compleja. Sin embargo, ofrecen una presencia premium en los lineales y un espacio adicional para la marca que a menudo justifica la inversión en productos especiales."
                     },
-                    "2": {
+                    {
                         "question": "¿Qué tamaños están disponibles para bolsas de fondo plano?",
                         "answer": "Ofrecemos bolsas de fondo plano desde 100 g de capacidad hasta 5 kg. Los tamaños comunes incluyen 250 g, 500 g, 1 kg y 2 kg. Hay tamaños personalizados disponibles para pedidos superiores a 5000 unidades."
                     },
-                    "3": {
+                    {
                         "question": "¿Las bolsas de fondo plano pueden tener válvula desgasificadora?",
                         "answer": "Sí, ofrecemos válvulas desgasificadoras unidireccionales para café y otros productos que liberan CO2. La válvula se puede colocar en cualquier panel, pero normalmente está en la parte posterior por razones estéticas."
                     }
-                },
-                "tables": {
-                    "0": {
+                ],
+                "tables": [
+                    {
                         "title": "Guía de tamaños de bolsas de fondo plano",
                         "data": {
                             "headers": {
@@ -2366,34 +2366,34 @@
                             }
                         }
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Bolsas de pie",
                         "url": "/embalaje/bolsas-stand-up",
                         "description": "Alternativa más económica"
                     },
-                    "1": {
+                    {
                         "title": "Envasado de café y té",
                         "url": "/industria/cafe-te",
                         "description": "Soluciones para cafés especiales"
                     },
-                    "2": {
+                    {
                         "title": "Materiales compostables",
                         "url": "/materiales/compostables",
                         "description": "Opciones ecológicas"
                     }
-                },
-                "metaKeywords": {
-                    "0": "bolsa de fondo plano",
-                    "1": "bolsa inferior de la caja",
-                    "2": "bolsa con fondo de bloque",
-                    "3": "bolsa de café de fondo plano",
-                    "4": "embalaje de bolsa premium",
-                    "5": "bolsa de café de fondo plano",
-                    "6": "bolsa de caja",
-                    "7": "bolsa de 5 paneles"
-                }
+                ],
+                "metaKeywords": [
+                    "bolsa de fondo plano",
+                    "bolsa inferior de la caja",
+                    "bolsa con fondo de bloque",
+                    "bolsa de café de fondo plano",
+                    "embalaje de bolsa premium",
+                    "bolsa de café de fondo plano",
+                    "bolsa de caja",
+                    "bolsa de 5 paneles"
+                ]
             },
             "spoutPouches": {
                 "title": "Spout Pouches | Liquid Packaging Solutions",
@@ -2682,26 +2682,26 @@
                 "metaTitle": "Bolsas con pico | Envasado de líquidos | Bolsas con pico vertedor",
                 "metaDescription": "title=\"Bolsas con pico | Envases de líquidos | Bolsas con pico vertedor",
                 "heroImageAlt": "Envasado de bolsas con pico para líquidos",
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "¿Para qué productos se utilizan las bolsas con boquilla?",
                         "answer": "Las bolsas con boquilla son ideales para líquidos, semilíquidos y productos viscosos, incluidos purés de comida para bebés, salsas, condimentos, bebidas, paquetes de batidos, aceites de cocina, miel, sopas y aderezos para alimentos para mascotas. También son populares para aplicaciones no alimentarias, como recargas de detergente."
                     },
-                    "1": {
+                    {
                         "question": "¿Las bolsas con pico son reciclables?",
                         "answer": "Las bolsas estándar con boquilla multimaterial son difíciles de reciclar en la mayoría de los sistemas municipales. Sin embargo, ofrecemos bolsas con pico mono-PE que son reciclables en flujos de reciclaje de PE. La tapa debe retirarse antes de reciclar."
                     },
-                    "2": {
+                    {
                         "question": "¿Se pueden utilizar bolsas con pico para productos calientes?",
                         "answer": "Sí, ofrecemos bolsas con pico de llenado en caliente adecuadas para llenar hasta 85°C. Para productos esterilizados y estables en almacenamiento, ofrecemos bolsas con capacidad de autoclave que resisten el procesamiento a 121 °C."
                     },
-                    "3": {
+                    {
                         "question": "¿Cuál es el pedido mínimo de bolsas con pico?",
                         "answer": "Nuestro pedido mínimo de bolsas con boquilla impresas personalizadas es de 1.000 unidades. Para bolsas simples con tapas estándar, podemos ofrecer cantidades menores de 500 unidades."
                     }
-                },
-                "tables": {
-                    "0": {
+                ],
+                "tables": [
+                    {
                         "title": "Guía de tamaños de bolsa con boquilla",
                         "data": {
                             "headers": {
@@ -2743,44 +2743,44 @@
                             }
                         }
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Comprar bolsas con boquilla",
                         "url": "/almacenar",
                         "description": "Explorar envases de líquidos - MOQ desde 500 piezas"
                     },
-                    "1": {
+                    {
                         "title": "Envasado de alimentos para bebés",
                         "url": "/industria/alimentos-para-bebes",
                         "description": "Envases seguros para la nutrición infantil"
                     },
-                    "2": {
+                    {
                         "title": "Salsas y Condimentos",
                         "url": "/industria/salsas-condimentos",
                         "description": "Soluciones de envasado de alimentos líquidos"
                     },
-                    "3": {
+                    {
                         "title": "Bolsas de pie",
                         "url": "/embalaje/bolsas-stand-up",
                         "description": "Alternativa para productos secos."
                     },
-                    "4": {
+                    {
                         "title": "Guía de embalaje sostenible",
                         "url": "/blog/análisis-de-proveedores-de-envases-sostenibles",
                         "description": "Compara proveedores ecológicos"
                     }
-                },
-                "metaKeywords": {
-                    "0": "bolsa con pico",
-                    "1": "bolsa de liquido",
-                    "2": "bolsa con pico vertedor",
-                    "3": "bolsa de comida para bebé",
-                    "4": "bolsa de salsa",
-                    "5": "bolsa de bebida",
-                    "6": "bolsa con pico",
-                    "7": "bolsa de envasado de líquidos"
-                }
+                ],
+                "metaKeywords": [
+                    "bolsa con pico",
+                    "bolsa de liquido",
+                    "bolsa con pico vertedor",
+                    "bolsa de comida para bebé",
+                    "bolsa de salsa",
+                    "bolsa de bebida",
+                    "bolsa con pico",
+                    "bolsa de envasado de líquidos"
+                ]
             },
             "vacuumPouches": {
                 "title": "Vacuum Pouches | Extended Shelf Life Packaging",
@@ -2926,52 +2926,52 @@
                     "heroSubtitle": "seoPages.pages.vacuumPouches.heroSubtítulo",
                     "heroImageAlt": "Bolsas de envasado al vacío",
                     "introSummary": "seoPages.pages.vacuumPouches.introResumen",
-                    "keywords": {
-                        "0": "bolsa de vacío",
-                        "1": "bolsa de sellado al vacío",
-                        "2": "bolsa sous vide",
-                        "3": "envasado al vacío",
-                        "4": "bolsas ahorradoras de alimentos",
-                        "5": "bolsa de vacío de cámara",
-                        "6": "bolsa de vacío para carne",
-                        "7": "paquete de café al vacío"
-                    }
+                    "keywords": [
+                        "bolsa de vacío",
+                        "bolsa de sellado al vacío",
+                        "bolsa sous vide",
+                        "envasado al vacío",
+                        "bolsas ahorradoras de alimentos",
+                        "bolsa de vacío de cámara",
+                        "bolsa de vacío para carne",
+                        "paquete de café al vacío"
+                    ]
                 },
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "¿Cuánto más prolonga la vida útil el envasado al vacío?",
                         "answer": "El envasado al vacío suele prolongar la vida útil de 3 a 5 veces en comparación con el envasado estándar. Por ejemplo, la carne fresca puede durar de 3 a 5 días en un empaque normal, pero de 2 a 3 semanas sellada al vacío bajo refrigeración."
                     },
-                    "1": {
+                    {
                         "question": "¿Se pueden utilizar bolsas de vacío para cocinar al vacío?",
                         "answer": "Sí, ofrecemos bolsas al vacío con clasificación sous vide que son seguras para cocinar por inmersión a temperaturas de hasta 100 °C (212 °F). Estas bolsas mantienen la integridad del sello durante tiempos de cocción prolongados."
                     },
-                    "2": {
+                    {
                         "question": "¿Cuál es la diferencia entre las bolsas de vacío de cámara y externas?",
                         "answer": "Las bolsas de cámara son lisas y funcionan con máquinas de vacío de cámara (comunes en entornos comerciales). Las bolsas externas tienen una textura en relieve/canalada para la evacuación del aire y funcionan con selladores externos y portátiles."
                     },
-                    "3": {
+                    {
                         "question": "¿Las bolsas de vacío son reciclables?",
                         "answer": "Las bolsas de vacío estándar de PA/PE son difíciles de reciclar debido a su estructura multicapa. Ofrecemos bolsas de vacío mono-PE reciclables para aplicaciones en las que se prioriza el reciclaje, aunque tienen propiedades de barrera ligeramente inferiores."
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Envasado de alimentos congelados",
                         "url": "/industria/alimentos-congelados",
                         "description": "Soluciones para productos congelados"
                     },
-                    "1": {
+                    {
                         "title": "Envasado de alimentos para mascotas",
                         "url": "/industria/alimentos-para-mascotas",
                         "description": "Soluciones de alimentos frescos para mascotas"
                     },
-                    "2": {
+                    {
                         "title": "Mono-PE reciclable",
                         "url": "/materiales/mono-pe-reciclable",
                         "description": "Opciones de vacío sostenibles"
                     }
-                }
+                ]
             },
             "flatPouches": {
                 "title": "Flat Pouches | Three-Side Sealed Bags",
@@ -3022,20 +3022,20 @@
                     },
                     "applications": {
                         "title": "Aplicaciones comunes",
-                        "items": {
-                            "0": "Muestras de productos",
-                            "1": "Porciones individuales",
-                            "2": "Bolsitas de especias",
-                            "3": "Paquetes de azúcar y edulcorantes",
-                            "4": "Bolsitas de salsa",
-                            "5": "Bolsitas de té (exteriores)",
-                            "6": "Paquetes de semillas",
-                            "7": "Artículos promocionales",
-                            "8": "Sobres farmacéuticos",
-                            "9": "Muestras cosméticas",
-                            "10": "Servicios del hotel",
-                            "11": "toallitas húmedas"
-                        }
+                        "items": [
+                            "Muestras de productos",
+                            "Porciones individuales",
+                            "Bolsitas de especias",
+                            "Paquetes de azúcar y edulcorantes",
+                            "Bolsitas de salsa",
+                            "Bolsitas de té (exteriores)",
+                            "Paquetes de semillas",
+                            "Artículos promocionales",
+                            "Sobres farmacéuticos",
+                            "Muestras cosméticas",
+                            "Servicios del hotel",
+                            "toallitas húmedas"
+                        ]
                     },
                     "features": {
                         "title": "Funciones disponibles",
@@ -3150,26 +3150,26 @@
                 "metaTitle": "Bolsas con sello de 3 lados | Bolsas planas | Bolsitas | Embalaje de muestra",
                 "metaDescription": "title=\"Bolsas con sello de 3 lados | Bolsas planas | Bolsitas | Embalaje de muestra",
                 "heroImageAlt": "Embalaje de bolsita de bolsa plana con sello de 3 lados",
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "¿Cuál es la diferencia entre el sello de 3 lados y el sello de 4 lados?",
                         "answer": "Las bolsas con sello de 3 lados están hechas de película doblada (selladas por 3 lados), mientras que las bolsas con sello de 4 lados usan dos hojas separadas (selladas por los 4 lados). El sello de 3 lados es más económico, mientras que el sello de 4 lados ofrece una superficie ligeramente mayor y permite diferentes materiales en el frente y en la parte posterior."
                     },
-                    "1": {
+                    {
                         "question": "¿Cuál es el pedido mínimo de sobres?",
                         "answer": "Nuestro MOQ para sobres impresos personalizados es de 1000 unidades. Para sobres simples podemos ofrecer 500 unidades. El precio más bajo por unidad hace que los sobres sean económicos incluso en cantidades más pequeñas."
                     },
-                    "2": {
+                    {
                         "question": "¿Pueden las bolsas planas tener una cremallera resellable?",
                         "answer": "Las bolsas planas tradicionales son de un solo uso, pero podemos agregar una cremallera para crear una bolsa plana con cierre. Sin embargo, para aplicaciones resellables, las bolsas verticales suelen ofrecer una mejor funcionalidad y valor."
                     },
-                    "3": {
+                    {
                         "question": "¿Hay bolsas planas disponibles en materiales compostables?",
                         "answer": "Sí, ofrecemos bolsas planas compostables hechas de PLA, papel/PLA o películas a base de celulosa. Están certificados según EN 13432 para compostaje industrial."
                     }
-                },
-                "tables": {
-                    "0": {
+                ],
+                "tables": [
+                    {
                         "title": "Guía de tamaños de bolsas planas",
                         "data": {
                             "headers": {
@@ -3212,34 +3212,34 @@
                             }
                         }
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Bolsas de pie",
                         "url": "/embalaje/bolsas-stand-up",
                         "description": "Alternativa independiente"
                     },
-                    "1": {
+                    {
                         "title": "Materiales compostables",
                         "url": "/materiales/compostables",
                         "description": "Opciones de bolsitas ecológicas"
                     },
-                    "2": {
+                    {
                         "title": "Café y té",
                         "url": "/industria/cafe-te",
                         "description": "Soluciones en bolsitas de té"
                     }
-                },
-                "metaKeywords": {
-                    "0": "Bolsa con sello de 3 lados",
-                    "1": "bolsa plana",
-                    "2": "embalaje de bolsitas",
-                    "3": "bolsas de muestra",
-                    "4": "paquetes individuales",
-                    "5": "bolsas de bolsitas",
-                    "6": "embalaje de bolsa plana",
-                    "7": "Bolsa con sello de 4 lados"
-                }
+                ],
+                "metaKeywords": [
+                    "Bolsa con sello de 3 lados",
+                    "bolsa plana",
+                    "embalaje de bolsitas",
+                    "bolsas de muestra",
+                    "paquetes individuales",
+                    "bolsas de bolsitas",
+                    "embalaje de bolsa plana",
+                    "Bolsa con sello de 4 lados"
+                ]
             },
             "sideGussetBags": {
                 "title": "Side Gusset Bags | High-Volume Packaging",
@@ -3278,20 +3278,20 @@
                     },
                     "applications": {
                         "title": "Aplicaciones comunes",
-                        "items": {
-                            "0": "granos de café",
-                            "1": "cafe molido",
-                            "2": "Té de hojas sueltas",
-                            "3": "Arroz y cereales",
-                            "4": "Harina y horneado",
-                            "5": "comida para mascotas",
-                            "6": "Semillas para pájaros",
-                            "7": "pasta seca",
-                            "8": "Nueces y semillas",
-                            "9": "frutos secos",
-                            "10": "Galletas y bizcochos",
-                            "11": "Especias a granel"
-                        }
+                        "items": [
+                            "granos de café",
+                            "cafe molido",
+                            "Té de hojas sueltas",
+                            "Arroz y cereales",
+                            "Harina y horneado",
+                            "comida para mascotas",
+                            "Semillas para pájaros",
+                            "pasta seca",
+                            "Nueces y semillas",
+                            "frutos secos",
+                            "Galletas y bizcochos",
+                            "Especias a granel"
+                        ]
                     },
                     "features": {
                         "title": "Funciones adicionales",
@@ -3373,22 +3373,22 @@
                 "metaTitle": "Bolsas con fuelle lateral | Bolsas con sello cuádruple | Bolsas de café",
                 "metaDescription": "title=\"Bolsas con fuelle lateral | Bolsas con sellado cuádruple | Bolsas para café",
                 "heroImageAlt": "Embalaje de bolsa de café con fuelle lateral",
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "¿Cuál es la diferencia entre bolsas con fuelle lateral y bolsas de fondo plano?",
                         "answer": "Las bolsas con fuelle lateral tienen paneles laterales expandibles y se colocan relativamente planas, mientras que las bolsas de fondo plano tienen una base rectangular rígida para una estabilidad superior. Las bolsas de fondo plano ofrecen más presencia en los estantes pero cuestan más. Las bolsas con fuelle lateral son más tradicionales para el café y ofrecen buena capacidad."
                     },
-                    "1": {
+                    {
                         "question": "¿Las bolsas con fuelle lateral son adecuadas para el llenado automático?",
                         "answer": "Sí, las bolsas con fuelle lateral funcionan bien con máquinas VFFS (formado, llenado y sellado vertical). Podemos suministrar bolsas prefabricadas o en rollos de película para líneas de envasado automático."
                     },
-                    "2": {
+                    {
                         "question": "¿Qué tallas hay disponibles?",
                         "answer": "Las bolsas con fuelle lateral están disponibles con una capacidad de 100 ga 5 kg. Los tamaños habituales son 250 g, 500 g, 1 kg y 2,5 kg. Tamaños personalizados disponibles para pedidos superiores a 5.000 unidades."
                     }
-                },
-                "tables": {
-                    "0": {
+                ],
+                "tables": [
+                    {
                         "title": "Guía de tallas de bolsas con fuelle lateral",
                         "data": {
                             "headers": {
@@ -3425,33 +3425,33 @@
                             }
                         }
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Bolsas de fondo plano",
                         "url": "/embalaje/bolsas-de-fondo-plano",
                         "description": "Alternativa premium con mejor estabilidad"
                     },
-                    "1": {
+                    {
                         "title": "Bolsas de pie",
                         "url": "/embalaje/bolsas-stand-up",
                         "description": "Formato moderno popular"
                     },
-                    "2": {
+                    {
                         "title": "Café y té",
                         "url": "/industria/cafe-te",
                         "description": "Soluciones para cafés especiales"
                     }
-                },
-                "metaKeywords": {
-                    "0": "bolsa con fuelle lateral",
-                    "1": "bolsa con sello cuádruple",
-                    "2": "refuerzo de bolsa de café",
-                    "3": "bolsa con fuelle",
-                    "4": "bolso plegable lateral",
-                    "5": "bolsa de café con lazo de hojalata",
-                    "6": "bolsa de comida a granel"
-                }
+                ],
+                "metaKeywords": [
+                    "bolsa con fuelle lateral",
+                    "bolsa con sello cuádruple",
+                    "refuerzo de bolsa de café",
+                    "bolsa con fuelle",
+                    "bolso plegable lateral",
+                    "bolsa de café con lazo de hojalata",
+                    "bolsa de comida a granel"
+                ]
             },
             "coffeeTea": {
                 "title": "Coffee & Tea Packaging | Aromatic Barrier Pouches",
@@ -7156,12 +7156,12 @@
                 },
                 "aiBadge": "AI_SEARCH_TIPS",
                 "aiIntro": "Intente preguntarle a Gemini o ChatGPT:",
-                "aiQueries": {
-                    "0": "¿Qué bolsas kraft realmente no contienen plástico?",
-                    "1": "¿Es mejor el papel revestido con PLA que el papel revestido con PE?",
-                    "2": "Bolsas kraft compostables certificadas con MOQ bajo",
-                    "3": "Cómo detectar el lavado verde en bolsas de papel"
-                },
+                "aiQueries": [
+                    "¿Qué bolsas kraft realmente no contienen plástico?",
+                    "¿Es mejor el papel revestido con PLA que el papel revestido con PE?",
+                    "Bolsas kraft compostables certificadas con MOQ bajo",
+                    "Cómo detectar el lavado verde en bolsas de papel"
+                ],
                 "futureTitle1": "El futuro",
                 "futureTitle2": "es circular",
                 "futureDesc": "Deje de conformarse con envases de \"aspecto ecológico\". En Pouch.eco, proporcionamos los datos técnicos y las certificaciones para demostrar que su marca realmente no contiene plástico.",
@@ -7266,12 +7266,12 @@
             "artisanProducer": {
                 "title": "Embalaje Productor Artesanal | Soluciones de lotes pequeños",
                 "description": "Envases para elaboradores de alimentos artesanales. MOQ bajo de 100 piezas, estética artesanal, mercado de agricultores duradero.",
-                "keywords": {
-                    "0": "embalaje artesanal",
-                    "1": "embalaje de lotes pequeños",
-                    "2": "embalaje del mercado de agricultores",
-                    "3": "embalaje de comida gourmet"
-                },
+                "keywords": [
+                    "embalaje artesanal",
+                    "embalaje de lotes pequeños",
+                    "embalaje del mercado de agricultores",
+                    "embalaje de comida gourmet"
+                ],
                 "heroTitle": "Envases para artesanas",
                 "heroSubtitle": "Cantidad mínima de pedido de 100 piezas | Estética artesanal | Mercado duradero",
                 "introSummary": "Envasa tus productos artesanales con el cuidado que se merecen. Pedidos mínimos bajos, acabados artesanales naturales y materiales sostenibles que cuentan su historia.",
@@ -7287,19 +7287,19 @@
                         "introStrong": "productos gourmet en lotes pequeños",
                         "intro2": "con cuidado: granolas artesanales, chocolates artesanales y conservas especiales. Su empaque debería contar esa historia, pero los MOQ altos y las opciones genéricas no coinciden con su oficio.",
                         "challengesTitle": "Retos Artesanos",
-                        "challenges": {
-                            "0": "Pequeños lotes, producción irregular.",
-                            "1": "El embalaje genérico no transmite artesanía.",
-                            "2": "Condiciones del mercado de agricultores (sol, calor)",
-                            "3": "Presupuesto limitado para embalaje."
-                        },
+                        "challenges": [
+                            "Pequeños lotes, producción irregular.",
+                            "El embalaje genérico no transmite artesanía.",
+                            "Condiciones del mercado de agricultores (sol, calor)",
+                            "Presupuesto limitado para embalaje."
+                        ],
                         "needsTitle": "Lo que necesitas",
-                        "needs": {
-                            "0": "MOQ bajo para tiradas pequeñas",
-                            "1": "Envases que cuentan tu historia",
-                            "2": "Durable para mercados al aire libre",
-                            "3": "Respetuoso con el medio ambiente para igualar los valores"
-                        }
+                        "needs": [
+                            "MOQ bajo para tiradas pequeñas",
+                            "Envases que cuentan tu historia",
+                            "Durable para mercados al aire libre",
+                            "Respetuoso con el medio ambiente para igualar los valores"
+                        ]
                     },
                     "small-batch": {
                         "title": "Hecho para la producción de lotes pequeños",
@@ -7322,19 +7322,19 @@
                         "introStrong": "Texturas y acabados naturales.",
                         "introEnd": "que comunican calidad artesanal y conectan con consumidores conscientes.",
                         "craftTitle": "Estética artesanal",
-                        "craft": {
-                            "0": "Aspecto de papel kraft natural.",
-                            "1": "Ventanas claras para visibilidad del producto.",
-                            "2": "Acabados mate para una sensación orgánica",
-                            "3": "Impresión en tonos tierra"
-                        },
+                        "craft": [
+                            "Aspecto de papel kraft natural.",
+                            "Ventanas claras para visibilidad del producto.",
+                            "Acabados mate para una sensación orgánica",
+                            "Impresión en tonos tierra"
+                        ],
                         "customTitle": "Opciones personalizadas",
-                        "custom": {
-                            "0": "Su logotipo e historia de marca",
-                            "1": "Listas de ingredientes y certificaciones.",
-                            "2": "Números de lote y fechas",
-                            "3": "Etiquetas de temporada/edición limitada"
-                        },
+                        "custom": [
+                            "Su logotipo e historia de marca",
+                            "Listas de ingredientes y certificaciones.",
+                            "Números de lote y fechas",
+                            "Etiquetas de temporada/edición limitada"
+                        ],
                         "captionChocolate": "Chocolate Artesanal",
                         "captionTea": "Té artesanal",
                         "captionPaper": "Papel kraft",
@@ -7346,16 +7346,16 @@
                         "introStrong": "Nuestras bolsas están diseñadas para una mayor durabilidad en el mundo real.",
                         "introEnd": "manteniendo la frescura del producto.",
                         "featuresTitle": "Funciones listas para el mercado",
-                        "featuresLeft": {
-                            "0": "Impresión resistente a los rayos UV",
-                            "1": "Materiales resistentes a pinchazos",
-                            "2": "Diseño stand-up para exhibición"
-                        },
-                        "featuresRight": {
-                            "0": "Resellable para muestreo",
-                            "1": "Protección de barrera contra la humedad",
-                            "2": "Opción de orificio para colgar fácilmente"
-                        }
+                        "featuresLeft": [
+                            "Impresión resistente a los rayos UV",
+                            "Materiales resistentes a pinchazos",
+                            "Diseño stand-up para exhibición"
+                        ],
+                        "featuresRight": [
+                            "Resellable para muestreo",
+                            "Protección de barrera contra la humedad",
+                            "Opción de orificio para colgar fácilmente"
+                        ]
                     },
                     "sustainable": {
                         "title": "Sostenibilidad que coincide con sus valores",
@@ -7429,36 +7429,36 @@
                         "title": "Comparación de materiales",
                         "intro": "Comparación de las características de diferentes materiales de embalaje para ayudarte a elegir la solución más adecuada para tus productos artesanales.",
                         "table": {
-                            "headers": {
-                                "0": "Tipo de embalaje",
-                                "1": "Orden Mínima",
-                                "2": "Certificación ecológica",
-                                "3": "Escenarios adecuados",
-                                "4": "Costo"
-                            },
-                            "rows": {
-                                "0": {
+                            "headers": [
+                                "Tipo de embalaje",
+                                "Orden Mínima",
+                                "Certificación ecológica",
+                                "Escenarios adecuados",
+                                "Costo"
+                            ],
+                            "rows": [
+                                {
                                     "0": "Kraft compostable",
                                     "1": "100 unidades",
                                     "2": "★★★★★",
                                     "3": "Mercados de agricultores, Tiendas orgánicas",
                                     "4": "$$"
                                 },
-                                "1": {
+                                {
                                     "0": "Reciclable Transparente",
                                     "1": "100 unidades",
                                     "2": "★★★★",
                                     "3": "Tiendas de alimentos especializados, Venta al por menor",
                                     "4": "$"
                                 },
-                                "2": {
+                                {
                                     "0": "Kraft con ventana",
                                     "1": "100 unidades",
                                     "2": "★★★★",
                                     "3": "Merchandising de display, embalaje de escaparates",
                                     "4": "$$"
                                 }
-                            }
+                            ]
                         },
                         "guide": {
                             "title": "Guía de selección de materiales",
@@ -7490,17 +7490,17 @@
                         "title": "El desafío del aceite de cítricos: degradación de terpenos y selección de materiales",
                         "intro": "Los aceites derivados de los cítricos, ricos en compuestos orgánicos activos como el d-limoneno y otros terpenos ácidos, son muy volátiles y químicamente agresivos. A diferencia de los cosméticos comunes a base de agua, los aceites cítricos actúan como solventes orgánicos suaves que pueden hincharse, agrietarse o permear los plásticos estándar de baja barrera con el tiempo.",
                         "risksTitle": "Riesgos materiales clave",
-                        "risks": {
-                            "0": "Permeación de terpenos: los aromas se filtran a través del PE de baja densidad en cuestión de días, lo que provoca la oxidación del producto.",
-                            "1": "Agrietamiento por tensión: Los componentes ácidos debilitan las uniones termoselladas, lo que genera riesgo de fugas en el transporte.",
-                            "2": "Eliminación de aromas: Los líquidos con alto contenido de terpenos degradan los perfiles de sabor plástico, volviendo rancios los aceites premium."
-                        },
+                        "risks": [
+                            "Permeación de terpenos: los aromas se filtran a través del PE de baja densidad en cuestión de días, lo que provoca la oxidación del producto.",
+                            "Agrietamiento por tensión: Los componentes ácidos debilitan las uniones termoselladas, lo que genera riesgo de fugas en el transporte.",
+                            "Eliminación de aromas: Los líquidos con alto contenido de terpenos degradan los perfiles de sabor plástico, volviendo rancios los aceites premium."
+                        ],
                         "reqsTitle": "Requisitos de ingeniería",
-                        "reqs": {
-                            "0": "Barrera de terpenos metalizados: un núcleo de lámina sólida (aluminio o revestimiento de EVOH de alta densidad).",
-                            "1": "Selladores resistentes a los ácidos: laminados de copolímero probados contra extractos directos de frutas.",
-                            "2": "Cajas de presentación sólidas FSC: cajas exteriores protectoras para cápsulas delicadas o bolsas alternativas al vidrio."
-                        }
+                        "reqs": [
+                            "Barrera de terpenos metalizados: un núcleo de lámina sólida (aluminio o revestimiento de EVOH de alta densidad).",
+                            "Selladores resistentes a los ácidos: laminados de copolímero probados contra extractos directos de frutas.",
+                            "Cajas de presentación sólidas FSC: cajas exteriores protectoras para cápsulas delicadas o bolsas alternativas al vidrio."
+                        ]
                     },
                     "packaging-options": {
                         "title": "Cinco opciones de empaque comparadas: MVP de bajo costo a premium sustentable",
@@ -7510,11 +7510,11 @@
                             "tag": "MVP de bajo costo",
                             "title": "Bolsita de aluminio en forma de botella",
                             "desc": "Una llamativa forma de bolsita de aluminio especial diseñada para paquetes de prueba de un solo uso o lanzamientos de tamaño de viaje. Extremadamente rentable con protección absoluta de la luz y el aire.",
-                            "features": {
-                                "0": "Aluminio mate de alta barrera",
-                                "1": "Ideal para dosis de prueba (5-30 g)",
-                                "2": "Muesca para una apertura suave"
-                            },
+                            "features": [
+                                "Aluminio mate de alta barrera",
+                                "Ideal para dosis de prueba (5-30 g)",
+                                "Muesca para una apertura suave"
+                            ],
                             "linkText": "Solicitar bolsitas (a partir de 0,06 US$)"
                         },
                         "opt2": {
@@ -7522,11 +7522,11 @@
                             "tag": "Premium y Distinto",
                             "title": "Cápsula de aluminio sin plástico",
                             "desc": "Cápsulas MVP compactas de 40ml fabricadas en papel de aluminio con tapas termoselladas. Cero plásticos y un atractivo de lujo audaz al abrir la caja: perfecto para regalar y degustar muestras premium.",
-                            "features": {
-                                "0": "Capa de barrera metálica pura",
-                                "1": "Estética minorista mate de alta gama",
-                                "2": "Coste inicial mínimo de puesta en marcha de la maquinaria."
-                            },
+                            "features": [
+                                "Capa de barrera metálica pura",
+                                "Estética minorista mate de alta gama",
+                                "Coste inicial mínimo de puesta en marcha de la maquinaria."
+                            ],
                             "linkText": "Solicitar RFQ de cápsula personalizada"
                         },
                         "opt3": {
@@ -7534,11 +7534,11 @@
                             "tag": "Estilo de recarga ecológica",
                             "title": "Bolsa con boquilla reciclable",
                             "desc": "Una bolsa vertical de PE monomaterial de alta claridad que es totalmente reciclable en flujos de plástico estándar. Perfecto para recargas D2C con alta visibilidad de marca.",
-                            "features": {
-                                "0": "Estructura monomaterial EVOH/PE",
-                                "1": "Color dorado del producto completamente visible.",
-                                "2": "Menor huella de carbono que las botellas."
-                            },
+                            "features": [
+                                "Estructura monomaterial EVOH/PE",
+                                "Color dorado del producto completamente visible.",
+                                "Menor huella de carbono que las botellas."
+                            ],
                             "linkText": "Comprar bolsas reciclables"
                         },
                         "opt4": {
@@ -7546,11 +7546,11 @@
                             "tag": "PE a base de caña de azúcar",
                             "title": "Bolsa con boquilla de caña de azúcar Bio-PE",
                             "desc": "Polietileno orgánico derivado de la caña de azúcar combinado con capas de barrera metalizadas avanzadas. El estándar de oro para la máxima estabilidad a largo plazo e integridad del sello de transporte.",
-                            "features": {
-                                "0": "Estructura de polímero de base biológica.",
-                                "1": "La mayor defensa química contra el d-limoneno",
-                                "2": "Resistente a pinchazos durante la logística"
-                            },
+                            "features": [
+                                "Estructura de polímero de base biológica.",
+                                "La mayor defensa química contra el d-limoneno",
+                                "Resistente a pinchazos durante la logística"
+                            ],
                             "linkText": "Comprar bolsas de aluminio con pico"
                         },
                         "opt5": {
@@ -7558,11 +7558,11 @@
                             "tag": "Regalo de lujo al por menor",
                             "title": "Caja expositora de cápsulas FSC",
                             "desc": "Agregue cajas de exhibición minoristas FSC premium a juego a su línea de cápsulas de aluminio. Combina bandejas interiores troqueladas personalizadas y detalles en láminas doradas para crear un ecosistema de lujo completo.",
-                            "features": {
-                                "0": "Pizarra gris sólida reciclada FSC",
-                                "1": "Acabados mate y lámina dorada de primera calidad",
-                                "2": "Se envía plano para ahorrar espacio de almacenamiento."
-                            },
+                            "features": [
+                                "Pizarra gris sólida reciclada FSC",
+                                "Acabados mate y lámina dorada de primera calidad",
+                                "Se envía plano para ahorrar espacio de almacenamiento."
+                            ],
                             "linkText": "Diseño de caja de presentación personalizada"
                         }
                     },
@@ -7601,17 +7601,17 @@
                         "title": "Lista de verificación de protocolo de prueba y cumplimiento activo",
                         "intro": "Para garantizar una degradación estructural cero y una compatibilidad química absoluta, recomendamos seguir el marco de pruebas de laboratorio de Achieve Pack antes de la producción en masa completa:",
                         "phase1Title": "🧪 Fase 1: Verificación de materiales",
-                        "phase1": {
-                            "0": "Confirme si la fórmula tiene proporciones altas de terpenos (p. ej., >1,5 % de d-limoneno).",
-                            "1": "Verifique la estabilidad de la emulsión agua/aceite bajo diferentes temperaturas.",
-                            "2": "Evaluar los disolventes activos (alcohol o tensioactivos orgánicos) presentes en la fórmula."
-                        },
+                        "phase1": [
+                            "Confirme si la fórmula tiene proporciones altas de terpenos (p. ej., >1,5 % de d-limoneno).",
+                            "Verifique la estabilidad de la emulsión agua/aceite bajo diferentes temperaturas.",
+                            "Evaluar los disolventes activos (alcohol o tensioactivos orgánicos) presentes en la fórmula."
+                        ],
                         "phase2Title": "⚖ Fase 2: Pruebas de integridad",
-                        "phase2": {
-                            "0": "Realice una prueba de estrés continua de 30 días a 40 °C en entornos minoristas simulados.",
-                            "1": "Realice pruebas estándar de fugas por caída y perforación al vacío bajo cargas de envío.",
-                            "2": "Verifique la consistencia de la fuerza del sello tanto en las cápsulas termoselladas como en las tapas de las bolsas."
-                        }
+                        "phase2": [
+                            "Realice una prueba de estrés continua de 30 días a 40 °C en entornos minoristas simulados.",
+                            "Realice pruebas estándar de fugas por caída y perforación al vacío bajo cargas de envío.",
+                            "Verifique la consistencia de la fuerza del sello tanto en las cápsulas termoselladas como en las tapas de las bolsas."
+                        ]
                     }
                 },
                 "faqs": {
@@ -7626,16 +7626,16 @@
                 },
                 "tables": {
                     "title": "Comparación técnica: opciones de envasado de cítricos",
-                    "headers": {
-                        "0": "Formato",
-                        "1": "Barrera de oxígeno (OTR)",
-                        "2": "Vapor de agua (WVTR)",
-                        "3": "Resistencia al ácido/terpeno",
-                        "4": "Cantidad mínima de pedido",
-                        "5": "Costo relativo"
-                    },
-                    "rows": {
-                        "0": {
+                    "headers": [
+                        "Formato",
+                        "Barrera de oxígeno (OTR)",
+                        "Vapor de agua (WVTR)",
+                        "Resistencia al ácido/terpeno",
+                        "Cantidad mínima de pedido",
+                        "Costo relativo"
+                    ],
+                    "rows": [
+                        {
                             "0": "Bolsita de aluminio para botella",
                             "1": "0,01 ml/m²/día",
                             "2": "0,02 g/m²/día",
@@ -7643,7 +7643,7 @@
                             "4": "100 piezas",
                             "5": "Bajo ($)"
                         },
-                        "1": {
+                        {
                             "0": "MVP de la cápsula de aluminio",
                             "1": "0,02 ml/m²/día",
                             "2": "0,03 g/m²/día",
@@ -7651,7 +7651,7 @@
                             "4": "500 piezas",
                             "5": "Mediano ($$)"
                         },
-                        "2": {
+                        {
                             "0": "Bolsa transparente de mono-PE",
                             "1": "0,45 ml/m²/día",
                             "2": "0,35 g/m²/día",
@@ -7659,7 +7659,7 @@
                             "4": "500 piezas",
                             "5": "Mediano ($$)"
                         },
-                        "3": {
+                        {
                             "0": "Bolsa de Bio-PE de caña de azúcar",
                             "1": "0,05 ml/m²/día",
                             "2": "0,08 g/m²/día",
@@ -7667,7 +7667,7 @@
                             "4": "500 piezas",
                             "5": "Alto ($$$)"
                         },
-                        "4": {
+                        {
                             "0": "Caja de presentación personalizada FSC",
                             "1": "N/A (Protección exterior)",
                             "2": "N / A",
@@ -7675,26 +7675,26 @@
                             "4": "200 piezas",
                             "5": "Prima ($$$$)"
                         }
-                    }
+                    ]
                 },
-                "relatedLinks": {
-                    "0": {
+                "relatedLinks": [
+                    {
                         "title": "Bolsas de papel de aluminio con pico",
                         "description": "Compre bolsas de aluminio con pico central de alta barrera diseñadas para formulaciones químicas y líquidas."
                     },
-                    "1": {
+                    {
                         "title": "Bolsas ecológicas de pie",
                         "description": "Catálogo de bolsas orgánicas sustentables que respaldan flujos de reciclaje ecológicos."
                     },
-                    "2": {
+                    {
                         "title": "Bolsa tipo bolsita especial en forma de botella",
                         "description": "Pida llamativos sobres de aluminio de alta barrera en magníficos acabados pastel mate."
                     },
-                    "3": {
+                    {
                         "title": "Adhesivos de sellado de PLA premium",
                         "description": "Etiquetas transparentes biodegradables termoestables para sellar cápsulas o bolsas plegables."
                     }
-                }
+                ]
             },
             "coffeeRoaster": {
                 "title": "Embalaje para tostador de café | Bolsas de válvula desgasificadora | Sostenible | Paquete de logros",
@@ -7707,19 +7707,19 @@
                         "title": "El desafío del envasado de café",
                         "intro": "Como tostador de café de especialidad establecido, usted ha perfeccionado su oficio. Ahora los clientes y las regulaciones lo están presionando para que reduzca el desperdicio de plástico, sin comprometer la frescura y la presencia en los estantes que impulsan las ventas.",
                         "concernsTitle": "Preocupaciones actuales",
-                        "concerns": {
-                            "0": "Las bolsas tradicionales utilizan plásticos multicapa.",
-                            "1": "Demanda de los clientes por opciones sostenibles",
-                            "2": "Miedo a comprometer la frescura/vida útil",
-                            "3": "La apariencia premium impulsa las ventas minoristas"
-                        },
+                        "concerns": [
+                            "Las bolsas tradicionales utilizan plásticos multicapa.",
+                            "Demanda de los clientes por opciones sostenibles",
+                            "Miedo a comprometer la frescura/vida útil",
+                            "La apariencia premium impulsa las ventas minoristas"
+                        ],
                         "needsTitle": "Lo que necesitas",
-                        "needs": {
-                            "0": "Compatibilidad de la válvula de desgasificación",
-                            "1": "Rendimiento de frescura comprobado",
-                            "2": "Atractivo de primera calidad en el lineal del comercio minorista",
-                            "3": "Credenciales sostenibles"
-                        }
+                        "needs": [
+                            "Compatibilidad de la válvula de desgasificación",
+                            "Rendimiento de frescura comprobado",
+                            "Atractivo de primera calidad en el lineal del comercio minorista",
+                            "Credenciales sostenibles"
+                        ]
                     },
                     "degassing": {
                         "title": "Válvulas de desgasificación y frescura",
@@ -7752,26 +7752,26 @@
                         "title": "Presencia minorista premium",
                         "intro": "El atractivo en las estanterías impulsa las compras impulsivas. Nuestros acabados premium crean envases destacados que llaman la atención en entornos minoristas abarrotados.",
                         "col1Title": "Estilos de bolsa",
-                        "col1Items": {
-                            "0": "Fondo plano (bolsa de caja)",
-                            "1": "Bolsa de pie",
-                            "2": "refuerzo lateral",
-                            "3": "Sello cuádruple"
-                        },
+                        "col1Items": [
+                            "Fondo plano (bolsa de caja)",
+                            "Bolsa de pie",
+                            "refuerzo lateral",
+                            "Sello cuádruple"
+                        ],
                         "col2Title": "Acabados Premium",
-                        "col2Items": {
-                            "0": "Mate/suave al tacto",
-                            "1": "Brillo UV puntual",
-                            "2": "Estampado de láminas",
-                            "3": "Realce"
-                        },
+                        "col2Items": [
+                            "Mate/suave al tacto",
+                            "Brillo UV puntual",
+                            "Estampado de láminas",
+                            "Realce"
+                        ],
                         "col3Title": "Opciones de cierre",
-                        "col3Items": {
-                            "0": "Cremallera que se presiona para cerrar",
-                            "1": "Corbata de hojalata + cremallera",
-                            "2": "Cremallera deslizante",
-                            "3": "Sellado térmico"
-                        }
+                        "col3Items": [
+                            "Cremallera que se presiona para cerrar",
+                            "Corbata de hojalata + cremallera",
+                            "Cremallera deslizante",
+                            "Sellado térmico"
+                        ]
                     },
                     "consistent-supply": {
                         "title": "Cadena de suministro confiable",
@@ -7825,36 +7825,36 @@
                     "material-comparison": {
                         "title": "Comparación de materiales",
                         "intro": "Compare las características de diferentes materiales de embalaje de café para elegir la mejor solución para su marca.",
-                        "headers": {
-                            "0": "Tipo de embalaje",
-                            "1": "Duración",
-                            "2": "Compatibilidad de la válvula desgasificadora",
-                            "3": "Certificación Ecológica",
-                            "4": "Costo"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Tipo de embalaje",
+                            "Duración",
+                            "Compatibilidad de la válvula desgasificadora",
+                            "Certificación Ecológica",
+                            "Costo"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Papel Kraft compostable",
                                 "1": "6-9 meses",
                                 "2": "✓ Totalmente compatible",
                                 "3": "Norma ASTM D6400",
                                 "4": "$$"
                             },
-                            "1": {
+                            {
                                 "0": "Mono-PE reciclable",
                                 "1": "12+ meses",
                                 "2": "✓ Totalmente compatible",
                                 "3": "Cómo2reciclar",
                                 "4": "$"
                             },
-                            "2": {
+                            {
                                 "0": "Papel de alta barrera",
                                 "1": "12+ meses",
                                 "2": "✓ Totalmente compatibles",
                                 "3": "Reciclable",
                                 "4": "$$"
                             }
-                        },
+                        ],
                         "guideTitle": "Guía de selección de materiales",
                         "guideDesc": "Para los tostadores de café, recomendamos elegir materiales en función del posicionamiento de su producto y de sus clientes objetivo. Los cafés especiales premium de alta gama son más adecuados para el papel kraft compostable, mientras que los cafés de gran volumen se benefician de la rentabilidad del mono-PE reciclable."
                     }
@@ -7881,60 +7881,60 @@
                         "title": "Cumplir los objetivos de sostenibilidad corporativa",
                         "intro": "Como director de sostenibilidad, su tarea es cumplir objetivos medioambientales ambiciosos mientras gestiona múltiples marcas y proveedores. Necesita soluciones de embalaje con datos de impacto cuantificables para los informes corporativos.",
                         "concernsTitle": "Desafíos corporativos",
-                        "concerns": {
-                            "0": "Múltiples marcas con diferentes necesidades de empaque",
-                            "1": "Cumplimiento normativo en todas las regiones",
-                            "2": "Requisitos de presentación de informes ESG",
-                            "3": "Necesidades de auditoría y certificación de proveedores"
-                        },
+                        "concerns": [
+                            "Múltiples marcas con diferentes necesidades de empaque",
+                            "Cumplimiento normativo en todas las regiones",
+                            "Requisitos de presentación de informes ESG",
+                            "Necesidades de auditoría y certificación de proveedores"
+                        ],
                         "needsTitle": "Lo que necesitas",
-                        "needs": {
-                            "0": "Datos de impacto ambiental cuantificables",
-                            "1": "Certificaciones de terceros para todos los reclamos",
-                            "2": "Soluciones escalables en todas las líneas de productos",
-                            "3": "Documentación transparente de la cadena de suministro"
-                        }
+                        "needs": [
+                            "Datos de impacto ambiental cuantificables",
+                            "Certificaciones de terceros para todos los reclamos",
+                            "Soluciones escalables en todas las líneas de productos",
+                            "Documentación transparente de la cadena de suministro"
+                        ]
                     },
                     "certifications": {
                         "title": "Certificaciones verificadas por terceros",
                         "intro": "Cada declaración ambiental que hacemos está respaldada por certificaciones de terceros reconocidas internacionalmente: la documentación que necesita para los informes ESG y las declaraciones dirigidas al consumidor.",
                         "col1Title": "compostabilidad",
-                        "col1Items": {
-                            "0": "ASTM D6400 (EE. UU.)",
-                            "1": "EN 13432 (UE)",
-                            "2": "AS5810 (Australia)"
-                        },
+                        "col1Items": [
+                            "ASTM D6400 (EE. UU.)",
+                            "EN 13432 (UE)",
+                            "AS5810 (Australia)"
+                        ],
                         "col2Title": "Seguridad alimentaria",
-                        "col2Items": {
-                            "0": "Fábrica certificada BRC",
-                            "1": "Cumple con la FDA",
-                            "2": "FSSC 22000"
-                        },
+                        "col2Items": [
+                            "Fábrica certificada BRC",
+                            "Cumple con la FDA",
+                            "FSSC 22000"
+                        ],
                         "col3Title": "Reciclabilidad",
-                        "col3Items": {
-                            "0": "How2Recycle Verificado",
-                            "1": "Certificado de entrega en tienda",
-                            "2": "Guía de diseño APR"
-                        }
+                        "col3Items": [
+                            "How2Recycle Verificado",
+                            "Certificado de entrega en tienda",
+                            "Guía de diseño APR"
+                        ]
                     },
                     "reporting": {
                         "title": "Soporte de informes ESG",
                         "intro": "Proporcionamos los datos cuantificables que necesita para los informes de sostenibilidad corporativa: comparaciones de huella de carbono, métricas de reducción de plástico y documentación sobre el final de su vida útil.",
                         "metricsTitle": "Métricas y documentación disponibles",
                         "metricCol1Title": "Impacto ambiental",
-                        "metricCol1Items": {
-                            "0": "Huella de carbono por unidad (kg CO2e)",
-                            "1": "Porcentaje de reducción de plástico virgen",
-                            "2": "Certificación de contenido de base biológica/PCR",
-                            "3": "Datos comparativos del consumo de agua"
-                        },
+                        "metricCol1Items": [
+                            "Huella de carbono por unidad (kg CO2e)",
+                            "Porcentaje de reducción de plástico virgen",
+                            "Certificación de contenido de base biológica/PCR",
+                            "Datos comparativos del consumo de agua"
+                        ],
                         "metricCol2Title": "Documentos de cumplimiento",
-                        "metricCol2Items": {
-                            "0": "Certificados de certificación (PDF)",
-                            "1": "Fichas de datos de seguridad de materiales",
-                            "2": "Informes de auditoría de la cadena de suministro",
-                            "3": "Directrices para la eliminación al final de su vida útil"
-                        },
+                        "metricCol2Items": [
+                            "Certificados de certificación (PDF)",
+                            "Fichas de datos de seguridad de materiales",
+                            "Informes de auditoría de la cadena de suministro",
+                            "Directrices para la eliminación al final de su vida útil"
+                        ],
                         "img1Caption": "Certificado compostable",
                         "img2Caption": "Certificada reciclable",
                         "img3Caption": "Contenido de la PCR",
@@ -7954,13 +7954,13 @@
                         "title": "Cadena de suministro transparente",
                         "intro": "Mantenemos total transparencia en la cadena de suministro con abastecimiento de materiales documentados, certificaciones de fábrica y prácticas de fabricación éticas.",
                         "cardTitle": "Credenciales de fábrica",
-                        "badges": {
-                            "0": "Certificada BRC",
-                            "1": "Norma ISO 9001",
-                            "2": "ISO 14001",
-                            "3": "Miembro SEDEX",
-                            "4": "BSCI auditada"
-                        }
+                        "badges": [
+                            "Certificada BRC",
+                            "Norma ISO 9001",
+                            "ISO 14001",
+                            "Miembro SEDEX",
+                            "BSCI auditada"
+                        ]
                     },
                     "cta": {
                         "title": "Programe una revisión de embalaje corporativo",
@@ -8004,43 +8004,43 @@
                     "material-comparison": {
                         "title": "Comparación de materiales",
                         "intro": "Compare diferentes certificaciones e informes de materiales sostenibles para ayudarle a elegir la solución que cumpla con sus objetivos corporativos.",
-                        "headers": {
-                            "0": "Tipo de material",
-                            "1": "Reducción de la huella de carbono",
-                            "2": "Certificación de terceros",
-                            "3": "Preparación para la presentación de informes ESG",
-                            "4": "Nivel de recomendación"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Tipo de material",
+                            "Reducción de la huella de carbono",
+                            "Certificación de terceros",
+                            "Preparación para la presentación de informes ESG",
+                            "Nivel de recomendación"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Materiales compostables",
                                 "1": "-60%",
                                 "2": "ASTM/EN13432",
                                 "3": "★★★★★",
                                 "4": "muy alto"
                             },
-                            "1": {
+                            {
                                 "0": "Material reciclado por PCR",
                                 "1": "-30% a 50%",
                                 "2": "Certificación PCR",
                                 "3": "★★★★",
                                 "4": "Alta"
                             },
-                            "2": {
+                            {
                                 "0": "Bio-PE/de base biológica",
                                 "1": "-50%",
                                 "2": "ISCC Plus",
                                 "3": "★★★★★",
                                 "4": "muy alto"
                             },
-                            "3": {
+                            {
                                 "0": "Mono-PE reciclable",
                                 "1": "-20%",
                                 "2": "Cómo2reciclar",
                                 "3": "★★★",
                                 "4": "Medio"
                             }
-                        },
+                        ],
                         "guideTitle": "Guía de selección de materiales",
                         "guideDesc": "Para envases corporativos sostenibles, recomendamos elegir en función de sus objetivos ESG y los requisitos de la cadena de suministro. Proporcionamos documentos de certificación completos y datos de huella de carbono para respaldar sus informes ESG."
                     }
@@ -8067,19 +8067,19 @@
                         "title": "Desafíos del embalaje del comercio electrónico",
                         "intro": "Usted creó su marca de suplementos para la salud para ventas en línea. Cada costo de envío, cada producto dañado, cada experiencia de desembalaje olvidable impacta directamente en sus resultados y en la retención de clientes.",
                         "concernsTitle": "¿Qué te está costando dinero?",
-                        "concerns": {
-                            "0": "Embalaje pesado que infla los costos de envío",
-                            "1": "Productos dañados en tránsito = devoluciones",
-                            "2": "Embalaje genérico = no compartir en redes sociales",
-                            "3": "Cajas de gran tamaño = espacio de almacén desperdiciado"
-                        },
+                        "concerns": [
+                            "Embalaje pesado que infla los costos de envío",
+                            "Productos dañados en tránsito = devoluciones",
+                            "Embalaje genérico = no compartir en redes sociales",
+                            "Cajas de gran tamaño = espacio de almacén desperdiciado"
+                        ],
                         "needsTitle": "¿Qué impulsa el crecimiento?",
-                        "needs": {
-                            "0": "Peso ligero = menores costos de zona de envío",
-                            "1": "Durable = cero reclamaciones por daños",
-                            "2": "Digno de Instagram = marketing gratuito",
-                            "3": "Ahorro de espacio = mejores rotaciones de inventario"
-                        }
+                        "needs": [
+                            "Peso ligero = menores costos de zona de envío",
+                            "Durable = cero reclamaciones por daños",
+                            "Digno de Instagram = marketing gratuito",
+                            "Ahorro de espacio = mejores rotaciones de inventario"
+                        ]
                     },
                     "solution": {
                         "title": "Embalaje optimizado para envío DTC",
@@ -8102,26 +8102,26 @@
                         "title": "Crea un unboxing digno de Instagram",
                         "intro": "En DTC, su embalaje ES el estante de su tienda. Los acabados premium y el diseño personalizado transforman su empaque en contenido compartible que impulsa el crecimiento orgánico.",
                         "col1Title": "Acabados Premium",
-                        "col1Items": {
-                            "0": "Laminación suave al tacto",
-                            "1": "Recubrimiento UV puntual",
-                            "2": "Estampado de láminas",
-                            "3": "Combinaciones mate/brillante"
-                        },
+                        "col1Items": [
+                            "Laminación suave al tacto",
+                            "Recubrimiento UV puntual",
+                            "Estampado de láminas",
+                            "Combinaciones mate/brillante"
+                        ],
                         "col2Title": "Diseño listo para fotografías",
-                        "col2Items": {
-                            "0": "Impresión completa de 360°",
-                            "1": "CMYK + Pantone",
-                            "2": "Limpiar ventanas",
-                            "3": "Troqueles personalizados"
-                        },
+                        "col2Items": [
+                            "Impresión completa de 360°",
+                            "CMYK + Pantone",
+                            "Limpiar ventanas",
+                            "Troqueles personalizados"
+                        ],
                         "col3Title": "Características funcionales",
-                        "col3Items": {
-                            "0": "Cremalleras resellables",
-                            "1": "Muescas fáciles de rasgar",
-                            "2": "Agujeros para colgar para exhibición.",
-                            "3": "códigos QR"
-                        }
+                        "col3Items": [
+                            "Cremalleras resellables",
+                            "Muescas fáciles de rasgar",
+                            "Agujeros para colgar para exhibición.",
+                            "códigos QR"
+                        ]
                     },
                     "durability": {
                         "title": "Diseñado para condiciones de envío",
@@ -8133,12 +8133,12 @@
                         "col2Desc": "6-12 meses. Para snacks, productos secos.",
                         "col3Title": "Estándar",
                         "col3Desc": "3-6 meses. Para productos de giro rápido.",
-                        "badges": {
-                            "0": "Resistente a pinchazos",
-                            "1": "Barrera de humedad",
-                            "2": "Protección UV",
-                            "3": "Barrera de oxígeno"
-                        }
+                        "badges": [
+                            "Resistente a pinchazos",
+                            "Barrera de humedad",
+                            "Protección UV",
+                            "Barrera de oxígeno"
+                        ]
                     },
                     "sustainability": {
                         "title": "Opciones sostenibles para clientes conscientes del medio ambiente",
@@ -8196,43 +8196,43 @@
                     "material-comparison": {
                         "title": "Comparación de materiales",
                         "intro": "Compare diferentes características de empaque de comercio electrónico para ayudarlo a elegir la mejor solución.",
-                        "headers": {
-                            "0": "Tipo de embalaje",
-                            "1": "Ahorro de peso",
-                            "2": "Protección de envío",
-                            "3": "Experiencia de desembalaje",
-                            "4": "Impacto en los costos de envío"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Tipo de embalaje",
+                            "Ahorro de peso",
+                            "Protección de envío",
+                            "Experiencia de desembalaje",
+                            "Impacto en los costos de envío"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Bolsas flexibles de tacto suave",
                                 "1": "-75%",
                                 "2": "★★★★★",
                                 "3": "★★★★★",
                                 "4": "-60%"
                             },
-                            "1": {
+                            {
                                 "0": "Bolsas con acabado mate",
                                 "1": "-75%",
                                 "2": "★★★★",
                                 "3": "★★★★",
                                 "4": "-55%"
                             },
-                            "2": {
+                            {
                                 "0": "Bolsas de papel kraft",
                                 "1": "-70%",
                                 "2": "★★★★",
                                 "3": "★★★★",
                                 "4": "-50%"
                             },
-                            "3": {
+                            {
                                 "0": "Cajas Rígidas Tradicionales",
                                 "1": "Estándar básico",
                                 "2": "★★★",
                                 "3": "★★★",
                                 "4": "Estándar básico"
                             }
-                        },
+                        ],
                         "guideTitle": "Guía de selección de materiales",
                         "guideDesc": "Para las marcas de comercio electrónico de DTC, las bolsas flexibles de tacto suave son la mejor opción. Ahorran significativamente en costos de envío y al mismo tiempo brindan una experiencia de desembalaje superior. Múltiples acabados de superficie pueden mejorar las tasas de participación social."
                     }
@@ -8259,47 +8259,47 @@
                         "title": "Navegando por las regulaciones de embalaje",
                         "intro": "Como profesional de la fabricación de alimentos, usted navega por complejas regulaciones de embalaje en los mercados nacionales e internacionales. Las regulaciones ambientales cada vez más estrictas añaden otra capa de complejidad.",
                         "concernsTitle": "Desafíos regulatorios",
-                        "concerns": {
-                            "0": "Directiva de la UE sobre plásticos de un solo uso",
-                            "1": "EPR (Responsabilidad Extendida del Productor)",
-                            "2": "Leyes de embalaje de EE. UU. a nivel estatal",
-                            "3": "Cumplimiento de contacto con alimentos FDA/EFSA"
-                        },
+                        "concerns": [
+                            "Directiva de la UE sobre plásticos de un solo uso",
+                            "EPR (Responsabilidad Extendida del Productor)",
+                            "Leyes de embalaje de EE. UU. a nivel estatal",
+                            "Cumplimiento de contacto con alimentos FDA/EFSA"
+                        ],
                         "needsTitle": "Lo que necesitas",
-                        "needs": {
-                            "0": "Conocimiento regulatorio actual",
-                            "1": "Embalaje compatible con múltiples mercados",
-                            "2": "Certificaciones de seguridad alimentaria",
-                            "3": "Documentación para auditorías."
-                        }
+                        "needs": [
+                            "Conocimiento regulatorio actual",
+                            "Embalaje compatible con múltiples mercados",
+                            "Certificaciones de seguridad alimentaria",
+                            "Documentación para auditorías."
+                        ]
                     },
                     "compliance": {
                         "title": "Cumplimiento multijurisdicción",
                         "intro": "Nuestro embalaje cumple con los requisitos reglamentarios en los principales mercados: un solo proveedor para las necesidades nacionales y de exportación.",
                         "usTitle": "Estados Unidos",
-                        "usItems": {
-                            "0": "Contacto con alimentos de la FDA",
-                            "1": "ASTM D6400 compostable",
-                            "2": "Leyes estatales de CA/NY/NJ"
-                        },
+                        "usItems": [
+                            "Contacto con alimentos de la FDA",
+                            "ASTM D6400 compostable",
+                            "Leyes estatales de CA/NY/NJ"
+                        ],
                         "euTitle": "unión Europea",
-                        "euItems": {
-                            "0": "Cumple con la EFSA",
-                            "1": "EN 13432 compostables",
-                            "2": "Directiva SUP lista"
-                        },
+                        "euItems": [
+                            "Cumple con la EFSA",
+                            "EN 13432 compostables",
+                            "Directiva SUP lista"
+                        ],
                         "ukTitle": "Reino Unido",
-                        "ukItems": {
-                            "0": "Contacto con alimentos en el Reino Unido",
-                            "1": "Impuesto sobre envases de plástico",
-                            "2": "Esquema EPR listo"
-                        },
+                        "ukItems": [
+                            "Contacto con alimentos en el Reino Unido",
+                            "Impuesto sobre envases de plástico",
+                            "Esquema EPR listo"
+                        ],
                         "auTitle": "Australia/Nueva Zelanda",
-                        "auItems": {
-                            "0": "Cumple con FSANZ",
-                            "1": "AS5810 compostable",
-                            "2": "Informes APCO"
-                        }
+                        "auItems": [
+                            "Cumple con FSANZ",
+                            "AS5810 compostable",
+                            "Informes APCO"
+                        ]
                     },
                     "food-safety": {
                         "title": "Certificaciones de seguridad alimentaria",
@@ -8319,29 +8319,29 @@
                         "title": "Documentación regulatoria",
                         "intro": "Proporcionamos documentación completa para presentaciones y auditorías regulatorias.",
                         "colTitle": "Documentos disponibles",
-                        "itemsCol1": {
-                            "0": "Certificado de conformidad",
-                            "1": "Declaración de contacto con alimentos",
-                            "2": "Hojas de datos de seguridad de materiales",
-                            "3": "Informes de pruebas de migración"
-                        },
-                        "itemsCol2": {
-                            "0": "Certificados de compostabilidad",
-                            "1": "Verificación de reciclabilidad",
-                            "2": "Informes de auditoría de fábrica",
-                            "3": "Registros de trazabilidad"
-                        }
+                        "itemsCol1": [
+                            "Certificado de conformidad",
+                            "Declaración de contacto con alimentos",
+                            "Hojas de datos de seguridad de materiales",
+                            "Informes de pruebas de migración"
+                        ],
+                        "itemsCol2": [
+                            "Certificados de compostabilidad",
+                            "Verificación de reciclabilidad",
+                            "Informes de auditoría de fábrica",
+                            "Registros de trazabilidad"
+                        ]
                     },
                     "future-proof": {
                         "title": "Prepare su embalaje para el futuro",
                         "intro": "Las regulaciones están evolucionando rápidamente. Nos adelantamos a los próximos requisitos para que pueda realizar la transición de forma proactiva en lugar de reactiva.",
                         "cardTitle": "Próximas regulaciones que estamos siguiendo",
-                        "items": {
-                            "0": "Reglamento de la UE sobre envases y residuos de envases (PPWR) 2025",
-                            "1": "Desarrollos de la política plástica federal de EE. UU.",
-                            "2": "Ampliaciones de la Responsabilidad Extendida del Productor",
-                            "3": "Requisitos obligatorios de contenido reciclado"
-                        }
+                        "items": [
+                            "Reglamento de la UE sobre envases y residuos de envases (PPWR) 2025",
+                            "Desarrollos de la política plástica federal de EE. UU.",
+                            "Ampliaciones de la Responsabilidad Extendida del Productor",
+                            "Requisitos obligatorios de contenido reciclado"
+                        ]
                     },
                     "cta": {
                         "title": "Programe una revisión de cumplimiento",
@@ -8376,31 +8376,31 @@
                         "stat4Label": "Nuevas regulaciones de embalaje desde 2023",
                         "trendTitle": "Tendencias regulatorias 2024-2026",
                         "col1Title": "Requisitos crecientes",
-                        "col1Items": {
-                            "0": "Objetivos obligatorios de contenido reciclado de PPWR de la UE",
-                            "1": "Esquemas EPR ampliados en Asia y el Pacífico",
-                            "2": "Restricciones más estrictas de PFAS en contacto con alimentos"
-                        },
+                        "col1Items": [
+                            "Objetivos obligatorios de contenido reciclado de PPWR de la UE",
+                            "Esquemas EPR ampliados en Asia y el Pacífico",
+                            "Restricciones más estrictas de PFAS en contacto con alimentos"
+                        ],
                         "col2Title": "Estándares emergentes",
-                        "col2Items": {
-                            "0": "Pasaportes digitales de productos para embalajes",
-                            "1": "Requisitos de etiquetado de huella de carbono",
-                            "2": "Estándares globales armonizados de compostabilidad"
-                        }
+                        "col2Items": [
+                            "Pasaportes digitales de productos para embalajes",
+                            "Requisitos de etiquetado de huella de carbono",
+                            "Estándares globales armonizados de compostabilidad"
+                        ]
                     },
                     "material-comparison": {
                         "title": "Comparación de materiales",
                         "intro": "Compare materiales de embalaje que cumplan con las normas para seleccionar la opción adecuada para sus requisitos normativos y mercados.",
-                        "headers": {
-                            "0": "Material",
-                            "1": "FDA/EFSA",
-                            "2": "Certificado compostable",
-                            "3": "Compatible con EPR",
-                            "4": "Mejores mercados",
-                            "5": "Nivel de costo"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Material",
+                            "FDA/EFSA",
+                            "Certificado compostable",
+                            "Compatible con EPR",
+                            "Mejores mercados",
+                            "Nivel de costo"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Kraft + PLA Compostables",
                                 "1": "✓ Completa",
                                 "2": "✓EN13432/ASTM",
@@ -8408,7 +8408,7 @@
                                 "4": "UE, EE. UU., UA",
                                 "5": "$$$"
                             },
-                            "1": {
+                            {
                                 "0": "Mono-PE reciclable",
                                 "1": "✓ Completa",
                                 "2": "- N / A",
@@ -8416,7 +8416,7 @@
                                 "4": "EE.UU., Reino Unido, Australia",
                                 "5": "$$"
                             },
-                            "2": {
+                            {
                                 "0": "Película de contenido PCR",
                                 "1": "✓ Completa",
                                 "2": "- N / A",
@@ -8424,7 +8424,7 @@
                                 "4": "Reino Unido, UE",
                                 "5": "$$"
                             },
-                            "3": {
+                            {
                                 "0": "Película de bio-PE",
                                 "1": "✓ Completa",
                                 "2": "- N / A",
@@ -8432,7 +8432,7 @@
                                 "4": "Global",
                                 "5": "$$$"
                             }
-                        },
+                        ],
                         "adviceTitle": "Consejos de selección de expertos",
                         "adviceDesc": "Para exportación a múltiples mercados: elija Kraft + PLA Compostable para los mercados de la UE y AU con estrictos requisitos de compostabilidad, o PCR Content para el cumplimiento del impuesto sobre envases de plástico del Reino Unido. Nuestro equipo puede ayudarle a navegar por los requisitos específicos del mercado."
                     }
@@ -8459,19 +8459,19 @@
                         "title": "Embalaje para la innovación de productos",
                         "intro": "Como desarrollador de productos centrado en la innovación, usted lanza rápidamente productos novedosos al mercado. Necesita socios de embalaje que puedan seguir su ritmo y aportar soluciones creativas.",
                         "concernsTitle": "Desafíos de innovación",
-                        "concerns": {
-                            "0": "Los largos plazos de entrega retrasan los lanzamientos de productos",
-                            "1": "Los proveedores no entienden los productos novedosos",
-                            "2": "Las opciones de embalaje rígido limitan la creatividad",
-                            "3": "Los MOQ elevados impiden las pruebas de mercado"
-                        },
+                        "concerns": [
+                            "Los largos plazos de entrega retrasan los lanzamientos de productos",
+                            "Los proveedores no entienden los productos novedosos",
+                            "Las opciones de embalaje rígido limitan la creatividad",
+                            "Los MOQ elevados impiden las pruebas de mercado"
+                        ],
                         "needsTitle": "Lo que necesitas",
-                        "needs": {
-                            "0": "Capacidades de creación rápida de prototipos",
-                            "1": "Opciones de materiales de última generación",
-                            "2": "Ciclos de iteración flexibles",
-                            "3": "Asociación de diseño colaborativo"
-                        }
+                        "needs": [
+                            "Capacidades de creación rápida de prototipos",
+                            "Opciones de materiales de última generación",
+                            "Ciclos de iteración flexibles",
+                            "Asociación de diseño colaborativo"
+                        ]
                     },
                     "rapid-prototyping": {
                         "title": "Creación rápida de prototipos y pruebas",
@@ -8490,19 +8490,19 @@
                         "title": "Materiales y tecnologías de vanguardia",
                         "intro": "Manténgase a la vanguardia con las últimas innovaciones en envases sostenibles: materiales y características que diferencian sus productos y atraen a los primeros usuarios.",
                         "card1Title": "Materiales innovadores",
-                        "card1Items": {
-                            "0": "Películas compostables PLA/PBAT",
-                            "1": "Bio-PE (a base de caña de azúcar)",
-                            "2": "Mono-PE reciclable",
-                            "3": "Películas de contenido PCR"
-                        },
+                        "card1Items": [
+                            "Películas compostables PLA/PBAT",
+                            "Bio-PE (a base de caña de azúcar)",
+                            "Mono-PE reciclable",
+                            "Películas de contenido PCR"
+                        ],
                         "card2Title": "Funciones avanzadas",
-                        "card2Items": {
-                            "0": "Embalaje inteligente NFC/QR",
-                            "1": "Listo para realidad aumentada",
-                            "2": "Cierres a prueba de niños",
-                            "3": "Sellos a prueba de manipulaciones"
-                        },
+                        "card2Items": [
+                            "Embalaje inteligente NFC/QR",
+                            "Listo para realidad aumentada",
+                            "Cierres a prueba de niños",
+                            "Sellos a prueba de manipulaciones"
+                        ],
                         "img1Caption": "Acabado metálico",
                         "img2Caption": "Papel de sello",
                         "img3Caption": "Cremallera deslizante",
@@ -8524,19 +8524,19 @@
                         "title": "Asociación de diseño colaborativo",
                         "intro": "No somos sólo proveedores: somos socios de innovación en envases. Nuestro equipo aporta ideas y resuelve desafíos técnicos junto a usted.",
                         "col1Title": "Lo que traemos",
-                        "col1Items": {
-                            "0": "Experiencia en ciencia de materiales",
-                            "1": "Creatividad en el diseño estructural.",
-                            "2": "Guía de viabilidad de fabricación",
-                            "3": "Información sobre tendencias y consumidores"
-                        },
+                        "col1Items": [
+                            "Experiencia en ciencia de materiales",
+                            "Creatividad en el diseño estructural.",
+                            "Guía de viabilidad de fabricación",
+                            "Información sobre tendencias y consumidores"
+                        ],
                         "col2Title": "Cómo trabajamos",
-                        "col2Items": {
-                            "0": "Sesiones de lluvia de ideas",
-                            "1": "Ciclos rápidos de creación de prototipos",
-                            "2": "Resolución de problemas técnicos",
-                            "3": "Soporte para pruebas de mercado"
-                        }
+                        "col2Items": [
+                            "Sesiones de lluvia de ideas",
+                            "Ciclos rápidos de creación de prototipos",
+                            "Resolución de problemas técnicos",
+                            "Soporte para pruebas de mercado"
+                        ]
                     },
                     "cta": {
                         "title": "Programe una sesión de innovación",
@@ -8571,31 +8571,31 @@
                         "stat4Label": "Mercado mundial de envases inteligentes para 2026",
                         "trendTitle": "Tendencias de innovación 2024-2026",
                         "col1Title": "Tecnologías emergentes",
-                        "col1Items": {
-                            "0": "Integración de embalaje inteligente NFC/RFID",
-                            "1": "Experiencias de consumidor habilitadas para AR",
-                            "2": "Envases activos para prolongar la frescura."
-                        },
+                        "col1Items": [
+                            "Integración de embalaje inteligente NFC/RFID",
+                            "Experiencias de consumidor habilitadas para AR",
+                            "Envases activos para prolongar la frescura."
+                        ],
                         "col2Title": "Innovación de materiales",
-                        "col2Items": {
-                            "0": "Películas a base de algas y algas",
-                            "1": "Envasado de micelio de hongos.",
-                            "2": "Envases comestibles y solubles."
-                        }
+                        "col2Items": [
+                            "Películas a base de algas y algas",
+                            "Envasado de micelio de hongos.",
+                            "Envases comestibles y solubles."
+                        ]
                     },
                     "material-comparison": {
                         "title": "Comparación de materiales",
                         "intro": "Compare materiales de embalaje innovadores para seleccionar la opción adecuada para sus necesidades de desarrollo de productos.",
-                        "headers": {
-                            "0": "Material",
-                            "1": "Nivel de innovación",
-                            "2": "Velocidad del prototipo",
-                            "3": "Sostenibilidad",
-                            "4": "Mejor caso de uso",
-                            "5": "Nivel de costo"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Material",
+                            "Nivel de innovación",
+                            "Velocidad del prototipo",
+                            "Sostenibilidad",
+                            "Mejor caso de uso",
+                            "Nivel de costo"
+                        ],
+                        "rows": [
+                            {
                                 "0": "PLA/PBAT compostables",
                                 "1": "★★★★★",
                                 "2": "48 horas",
@@ -8603,7 +8603,7 @@
                                 "4": "Lanzamientos ecológicos",
                                 "5": "$$$"
                             },
-                            "1": {
+                            {
                                 "0": "Películas metálicas/holográficas",
                                 "1": "★★★★",
                                 "2": "48 horas",
@@ -8611,7 +8611,7 @@
                                 "4": "Posicionamiento premium",
                                 "5": "$$$"
                             },
-                            "2": {
+                            {
                                 "0": "Bio-PE (Caña de Azúcar)",
                                 "1": "★★★★",
                                 "2": "48 horas",
@@ -8619,7 +8619,7 @@
                                 "4": "Directamente sostenible",
                                 "5": "$$"
                             },
-                            "3": {
+                            {
                                 "0": "Inteligente / NFC habilitada",
                                 "1": "★★★★★",
                                 "2": "1-2 semanas",
@@ -8627,7 +8627,7 @@
                                 "4": "Compromiso del consumidor",
                                 "5": "$$$$"
                             }
-                        },
+                        ],
                         "adviceTitle": "Consejos de selección de expertos",
                         "adviceDesc": "Para realizar pruebas de concepto rápidas: comience con materiales sostenibles estándar para validar el concepto y luego actualice a materiales premium o inteligentes para la producción. Nuestra impresión digital permite cambios fáciles de material entre iteraciones de prototipos."
                     }
@@ -8654,19 +8654,19 @@
                         "title": "El desafío de la sostenibilidad de las marcas de snacks",
                         "intro": "Como gerente de marca de snacks orgánicos, usted defiende la sostenibilidad y al mismo tiempo gestiona las presiones de costos y la complejidad de la cadena de suministro. Necesita un embalaje que respalde las afirmaciones de marketing y funcione en todos los canales minoristas.",
                         "concernsTitle": "Desafíos internos",
-                        "concerns": {
-                            "0": "Equilibrio de costos con sostenibilidad",
-                            "1": "Múltiples líneas/tamaños de productos",
-                            "2": "Requisitos de distribución minorista",
-                            "3": "Documentar reclamos ambientales"
-                        },
+                        "concerns": [
+                            "Equilibrio de costos con sostenibilidad",
+                            "Múltiples líneas/tamaños de productos",
+                            "Requisitos de distribución minorista",
+                            "Documentar reclamos ambientales"
+                        ],
                         "needsTitle": "Lo que necesitas",
-                        "needs": {
-                            "0": "Credenciales de sostenibilidad verificadas",
-                            "1": "Rentable a escala",
-                            "2": "Cadena de suministro consistente",
-                            "3": "Documentación para marketing."
-                        }
+                        "needs": [
+                            "Credenciales de sostenibilidad verificadas",
+                            "Rentable a escala",
+                            "Cadena de suministro consistente",
+                            "Documentación para marketing."
+                        ]
                     },
                     "multi-product": {
                         "title": "Soluciones en toda su gama de productos",
@@ -8687,86 +8687,86 @@
                         "intro": "Los equipos de marketing necesitan pruebas. Proporcionamos documentación completa para las afirmaciones de sostenibilidad de los envases: certificaciones, datos del ciclo de vida y mensajes aprobados.",
                         "cardTitle": "Qué ofrecemos para marketing",
                         "col1Title": "Certificaciones",
-                        "col1Items": {
-                            "0": "ASTM D6400 / EN 13432 compostable",
-                            "1": "Aprobación del etiquetado How2Recycle",
-                            "2": "Verificación del contenido por PCR",
-                            "3": "Certificación de contenido de base biológica"
-                        },
+                        "col1Items": [
+                            "ASTM D6400 / EN 13432 compostable",
+                            "Aprobación del etiquetado How2Recycle",
+                            "Verificación del contenido por PCR",
+                            "Certificación de contenido de base biológica"
+                        ],
                         "col2Title": "Soporte de mensajería",
-                        "col2Items": {
-                            "0": "Idioma de reclamo aprobado",
-                            "1": "Logotipos de certificación (alta resolución)",
-                            "2": "Instrucciones de eliminación para el consumidor",
-                            "3": "Datos de impacto ambiental"
-                        }
+                        "col2Items": [
+                            "Idioma de reclamo aprobado",
+                            "Logotipos de certificación (alta resolución)",
+                            "Instrucciones de eliminación para el consumidor",
+                            "Datos de impacto ambiental"
+                        ]
                     },
                     "cost-performance": {
                         "title": "Equilibrio entre costos y sostenibilidad",
                         "intro": "La sostenibilidad no tiene por qué romper el presupuesto. Ofrecemos opciones escalonadas que le permiten elegir el equilibrio adecuado entre credenciales ambientales y costos para cada línea de productos.",
-                        "headers": {
-                            "0": "Opción",
-                            "1": "Sostenibilidad",
-                            "2": "Costo",
-                            "3": "La mejor para"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Opción",
+                            "Sostenibilidad",
+                            "Costo",
+                            "La mejor para"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Compostable certificado",
                                 "1": "★★★★★",
                                 "2": "De primera calidad",
                                 "3": "Líneas orgánicas emblemáticas"
                             },
-                            "1": {
+                            {
                                 "0": "Mono-PE reciclable",
                                 "1": "★★★★",
                                 "2": "gama media",
                                 "3": "Productos convencionales"
                             },
-                            "2": {
+                            {
                                 "0": "Contenido de la PCR",
                                 "1": "★★★",
                                 "2": "Competitiva",
                                 "3": "Líneas conscientes del presupuesto"
                             }
-                        }
+                        ]
                     },
                     "retail-ready": {
                         "title": "Embalaje listo para la venta al por menor",
                         "intro": "Los compradores minoristas tienen requisitos específicos. Nuestro embalaje cumple con los principales estándares de los minoristas en cuanto a presencia en los lineales, logística y compromisos de sostenibilidad.",
                         "col1Title": "Rendimiento en estantería",
-                        "col1Items": {
-                            "0": "Pantalla de pie",
-                            "1": "Colgar agujeros para clavijas",
-                            "2": "Visibilidad clara de la marca",
-                            "3": "Configuraciones de paquetes múltiples"
-                        },
+                        "col1Items": [
+                            "Pantalla de pie",
+                            "Colgar agujeros para clavijas",
+                            "Visibilidad clara de la marca",
+                            "Configuraciones de paquetes múltiples"
+                        ],
                         "col2Title": "Logística",
-                        "col2Items": {
-                            "0": "Eficiencia del paquete de cajas",
-                            "1": "Optimización de palets",
-                            "2": "Compatibilidad de códigos de barras",
-                            "3": "Etiquetado de vida útil"
-                        },
+                        "col2Items": [
+                            "Eficiencia del paquete de cajas",
+                            "Optimización de palets",
+                            "Compatibilidad de códigos de barras",
+                            "Etiquetado de vida útil"
+                        ],
                         "col3Title": "Requisitos del minorista",
-                        "col3Items": {
-                            "0": "Estándares de alimentos integrales",
-                            "1": "Directrices para los brotes",
-                            "2": "Especificaciones de tiendas de comestibles naturales.",
-                            "3": "Amazon Logística de Amazon listo"
-                        }
+                        "col3Items": [
+                            "Estándares de alimentos integrales",
+                            "Directrices para los brotes",
+                            "Especificaciones de tiendas de comestibles naturales.",
+                            "Amazon Logística de Amazon listo"
+                        ]
                     },
                     "supplier-partnership": {
                         "title": "Asociación con proveedores a largo plazo",
                         "intro": "Los gerentes de marca necesitan proveedores confiables. Construimos asociaciones a largo plazo con precios consistentes, producción prioritaria y actualizaciones de innovación proactivas.",
                         "cardTitle": "Beneficios de la asociación",
-                        "badges": {
-                            "0": "Precios por volumen",
-                            "1": "Producción Prioritaria",
-                            "2": "Órdenes generales",
-                            "3": "Actualizaciones de nuevos materiales",
-                            "4": "Gerente de cuenta dedicada"
-                        }
+                        "badges": [
+                            "Precios por volumen",
+                            "Producción Prioritaria",
+                            "Órdenes generales",
+                            "Actualizaciones de nuevos materiales",
+                            "Gerente de cuenta dedicada"
+                        ]
                     },
                     "cta": {
                         "title": "Programe una revisión de la cartera",
@@ -8801,31 +8801,31 @@
                         "stat4Label": "Crecimiento anual en la categoría de snacks orgánicos",
                         "trendTitle": "Tendencias en envases de snacks 2024-2026",
                         "col1Title": "Preferencias del consumidor",
-                        "col1Items": {
-                            "0": "Opciones resellables para control de porciones",
-                            "1": "Ventanas transparentes para visibilidad del producto.",
-                            "2": "Códigos QR que enlazan con historias de abastecimiento"
-                        },
+                        "col1Items": [
+                            "Opciones resellables para control de porciones",
+                            "Ventanas transparentes para visibilidad del producto.",
+                            "Códigos QR que enlazan con historias de abastecimiento"
+                        ],
                         "col2Title": "Requisitos del minorista",
-                        "col2Items": {
-                            "0": "Mandatos de embalaje sostenible para 2025",
-                            "1": "Requisitos de etiquetado de How2Recycle",
-                            "2": "Documentación de reciclabilidad para compradores."
-                        }
+                        "col2Items": [
+                            "Mandatos de embalaje sostenible para 2025",
+                            "Requisitos de etiquetado de How2Recycle",
+                            "Documentación de reciclabilidad para compradores."
+                        ]
                     },
                     "material-comparison": {
                         "title": "Comparación de materiales",
                         "intro": "Compare materiales de envasado de snacks sostenibles para seleccionar la opción adecuada para cada línea de productos.",
-                        "headers": {
-                            "0": "Material",
-                            "1": "Sostenibilidad",
-                            "2": "Nivel de barrera",
-                            "3": "La mejor para",
-                            "4": "Ajuste minorista",
-                            "5": "Nivel de costo"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Material",
+                            "Sostenibilidad",
+                            "Nivel de barrera",
+                            "La mejor para",
+                            "Ajuste minorista",
+                            "Nivel de costo"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Kraft + PLA Compostables",
                                 "1": "★★★★★",
                                 "2": "Medio-Alto",
@@ -8833,7 +8833,7 @@
                                 "4": "Alimentos Integrales, Brotes",
                                 "5": "$$$"
                             },
-                            "1": {
+                            {
                                 "0": "Mono-PE reciclable",
                                 "1": "★★★★",
                                 "2": "Alta",
@@ -8841,7 +8841,7 @@
                                 "4": "Objetivo, Kroger",
                                 "5": "$$"
                             },
-                            "2": {
+                            {
                                 "0": "Película de contenido PCR",
                                 "1": "★★★",
                                 "2": "Alta",
@@ -8849,7 +8849,7 @@
                                 "4": "Comercio minorista convencional",
                                 "5": "$$"
                             },
-                            "3": {
+                            {
                                 "0": "Película de bio-PE",
                                 "1": "★★★★",
                                 "2": "Alta",
@@ -8857,7 +8857,7 @@
                                 "4": "tenderos naturales",
                                 "5": "$$$"
                             }
-                        },
+                        ],
                         "adviceTitle": "Consejos de selección de expertos",
                         "adviceDesc": "Para carteras de múltiples productos: use Kraft + PLA compostable para líneas orgánicas emblemáticas, Mono-PE reciclable para productos convencionales que requieren una alta barrera. Podemos ayudarle a crear una estrategia de sostenibilidad escalonada que equilibre los costos y las credenciales ambientales."
                     }
@@ -8876,13 +8876,13 @@
             "startupFounder": {
                 "title": "Embalaje para fundadores de empresas emergentes | Bolsas sostenibles de MOQ bajo | Paquete de logros",
                 "description": "Embalaje sostenible apto para empresas emergentes con pedido mínimo de 100 piezas. Bolsas compostables certificadas, soporte de diseño gratuito y respuesta rápida para el lanzamiento de productos. Perfecto para las marcas de bienestar DTC.",
-                "keywords": {
-                    "0": "embalaje de inicio",
-                    "1": "bolsas de MOQ bajo",
-                    "2": "Embalaje de la marca DTC",
-                    "3": "startup de embalaje sostenible",
-                    "4": "embalaje de marca de bienestar"
-                },
+                "keywords": [
+                    "embalaje de inicio",
+                    "bolsas de MOQ bajo",
+                    "Embalaje de la marca DTC",
+                    "startup de embalaje sostenible",
+                    "embalaje de marca de bienestar"
+                ],
                 "heroTitle": "Embalaje para fundadores de startups",
                 "heroSubtitle": "MOQ bajo desde 100 piezas | Certificado Sostenible | Soporte de diseño gratuito",
                 "introSummary": "Lanza tu marca DTC con envases que coincidan con tus valores de sostenibilidad. Obtenga bolsas compostables certificadas e impresas personalizadas a partir de solo 100 piezas, con soporte de diseño gratuito y un plazo de entrega de 2 a 3 semanas.",
@@ -8893,19 +8893,19 @@
                         "introStrong": "marca de bienestar directa al consumidor",
                         "intro2": "con presupuestos ajustados y grandes objetivos de sostenibilidad. Encontrar un embalaje que se adapte a su negocio y al mismo tiempo mantener sus credenciales ecológicas parece imposible.",
                         "challengesTitle": "Frustraciones comunes",
-                        "challenges": {
-                            "0": "Más de 10 000 requisitos de MOQ te bloquean",
-                            "1": "El embalaje genérico no coincide con el posicionamiento de la marca",
-                            "2": "Certificaciones medioambientales poco claras",
-                            "3": "Los largos plazos de entrega impiden el lanzamiento de productos"
-                        },
+                        "challenges": [
+                            "Más de 10 000 requisitos de MOQ te bloquean",
+                            "El embalaje genérico no coincide con el posicionamiento de la marca",
+                            "Certificaciones medioambientales poco claras",
+                            "Los largos plazos de entrega impiden el lanzamiento de productos"
+                        ],
                         "needsTitle": "Lo que realmente necesitas",
-                        "needs": {
-                            "0": "MOQ bajo (100-500 piezas) para pruebas",
-                            "1": "Certificaciones compostables verificadas",
-                            "2": "Diseño premium sin precios premium",
-                            "3": "Rápido cumplimiento de los plazos de lanzamiento"
-                        }
+                        "needs": [
+                            "MOQ bajo (100-500 piezas) para pruebas",
+                            "Certificaciones compostables verificadas",
+                            "Diseño premium sin precios premium",
+                            "Rápido cumplimiento de los plazos de lanzamiento"
+                        ]
                     },
                     "solution": {
                         "title": "¿Cómo resuelve sus problemas el embalaje con MOQ bajo?",
@@ -9034,17 +9034,17 @@
                         "card4Desc": "Mayor compromiso con marcas sostenibles",
                         "trendTitle": "Tendencias de embalaje para startups 2024-2026",
                         "col1Title": "Factores de éxito",
-                        "col1Items": {
-                            "0": "La experiencia de unboxing impulsa las acciones sociales",
-                            "1": "La historia de sostenibilidad aumenta la conversión",
-                            "2": "El MOQ bajo permite realizar pruebas de mercado más rápidas"
-                        },
+                        "col1Items": [
+                            "La experiencia de unboxing impulsa las acciones sociales",
+                            "La historia de sostenibilidad aumenta la conversión",
+                            "El MOQ bajo permite realizar pruebas de mercado más rápidas"
+                        ],
                         "col2Title": "Tendencias de inversión",
-                        "col2Items": {
-                            "0": "Los capitalistas de riesgo dan prioridad a las cadenas de suministro sostenibles",
-                            "1": "Los envases premium exigen precios más altos",
-                            "2": "Los logotipos de certificación generan confianza en el consumidor"
-                        }
+                        "col2Items": [
+                            "Los capitalistas de riesgo dan prioridad a las cadenas de suministro sostenibles",
+                            "Los envases premium exigen precios más altos",
+                            "Los logotipos de certificación generan confianza en el consumidor"
+                        ]
                     },
                     "material-comparison": {
                         "title": "Comparación de materiales",
@@ -9095,12 +9095,12 @@
                 "trustBadge3": "Pyme a la medida",
                 "takeaways": {
                     "title": "Conclusiones clave",
-                    "items": {
-                        "0": "<strong>Paso 1: Auditoría:</strong> Mapee todas las referencias de envases flexibles e identifique las estructuras de alto riesgo.",
-                        "1": "<strong>Paso 2: Rediseño:</strong> Convierta los SKU prioritarios en bolsas Eco Digital mono-PE",
-                        "2": "<strong>Paso 3: ampliar:</strong> escalar a través de la cartera y las capas en PCR y bio-PE",
-                        "3": "<strong>Enfoque por fases:</strong> Evite abrumar a su equipo realizando conversiones de forma incremental."
-                    }
+                    "items": [
+                        "<strong>Paso 1: Auditoría:</strong> Mapee todas las referencias de envases flexibles e identifique las estructuras de alto riesgo.",
+                        "<strong>Paso 2: Rediseño:</strong> Convierta los SKU prioritarios en bolsas Eco Digital mono-PE",
+                        "<strong>Paso 3: ampliar:</strong> escalar a través de la cartera y las capas en PCR y bio-PE",
+                        "<strong>Enfoque por fases:</strong> Evite abrumar a su equipo realizando conversiones de forma incremental."
+                    ]
                 },
                 "introduction": {
                     "title": "De la ambición a la realidad operativa",
@@ -9113,21 +9113,21 @@
                     "caption": "Mapee su embalaje actual para comprender su punto de partida",
                     "taskTitle": "Tarea clave: hacer un inventario de sus SKU",
                     "taskSubtitle": "Listar todos los formatos de envases flexibles (bolsas, bolsitas, sachets) con:",
-                    "taskItems": {
-                        "0": "Estructuras de capas (p. ej., PET/ALU/PE, PET/PE, mono-PE)",
-                        "1": "Tipo de producto (café, snacks, golosinas para mascotas, suplementos, etc.)",
-                        "2": "Volúmenes anuales y mercados de ventas clave"
-                    }
+                    "taskItems": [
+                        "Estructuras de capas (p. ej., PET/ALU/PE, PET/PE, mono-PE)",
+                        "Tipo de producto (café, snacks, golosinas para mascotas, suplementos, etc.)",
+                        "Volúmenes anuales y mercados de ventas clave"
+                    ]
                 },
                 "highRisk": {
                     "title": "Identificar estructuras de alto riesgo",
                     "caption": "Resalte los laminados difíciles de reciclar y priorice los cambios",
                     "intro": "Resalte los laminados que son claramente difíciles de reciclar en los sistemas actuales:",
-                    "items": {
-                        "0": "Laminados de papel de aluminio",
-                        "1": "Películas multipolímeras complejas",
-                        "2": "SKU donde los minoristas o los clientes ya preguntan sobre la reciclabilidad"
-                    },
+                    "items": [
+                        "Laminados de papel de aluminio",
+                        "Películas multipolímeras complejas",
+                        "SKU donde los minoristas o los clientes ya preguntan sobre la reciclabilidad"
+                    ],
                     "footerText": "Esta auditoría generalmente revelará un subconjunto de SKU en los que un cambio de diseño mejoraría significativamente su perfil de reciclabilidad."
                 },
                 "step2": {
@@ -9135,19 +9135,19 @@
                     "caption": "Convierta los SKU prioritarios en estructuras mono-PE Eco Digital",
                     "intro": "Una vez que tengamos claro cuál es nuestra situación, el siguiente paso es rediseñar los SKU prioritarios (aquellos con mayor impacto estratégico) para que sean 100 % reciclables siempre que sea posible.",
                     "taskTitle": "Seleccionar SKU candidatas",
-                    "taskItems": {
-                        "0": "Centrarse en productos estrella, líneas de gran volumen o paquetes que cumplan con los requisitos de sostenibilidad de los minoristas.",
-                        "1": "Considere comenzar con SKU que ya utilizan laminados más simples, ya que a menudo se convierten a mono-PE más fácilmente."
-                    }
+                    "taskItems": [
+                        "Centrarse en productos estrella, líneas de gran volumen o paquetes que cumplan con los requisitos de sostenibilidad de los minoristas.",
+                        "Considere comenzar con SKU que ya utilizan laminados más simples, ya que a menudo se convierten a mono-PE más fácilmente."
+                    ]
                 },
                 "flexibility": {
                     "title": "Trabajar con Achieve Pack en rediseño estructural",
                     "caption": "La impresión digital permite la creación rápida de prototipos sin costes de planchas",
-                    "items": {
-                        "0": "<strong>Rediseñar los SKU</strong> en bolsas Eco Digital mono‑PE, equilibrando la vida útil, la resistencia mecánica y la reciclabilidad",
-                        "1": "<strong>Utilizar grados de PE de barrera y diseño estructural</strong> para reemplazar los enfoques con múltiples materiales cuando sea posible",
-                        "2": "<strong>Validar mediante pruebas:</strong> resistencia del sellado, adherencia en caliente, resistencia a la perforación, rendimiento ante caídas y barrera"
-                    },
+                    "items": [
+                        "<strong>Rediseñar los SKU</strong> en bolsas Eco Digital mono‑PE, equilibrando la vida útil, la resistencia mecánica y la reciclabilidad",
+                        "<strong>Utilizar grados de PE de barrera y diseño estructural</strong> para reemplazar los enfoques con múltiples materiales cuando sea posible",
+                        "<strong>Validar mediante pruebas:</strong> resistencia del sellado, adherencia en caliente, resistencia a la perforación, rendimiento ante caídas y barrera"
+                    ],
                     "footerText": "Debido a que Eco Digital utiliza impresión digital, puede crear prototipos e iterar diseños de envases sin el costo y el tiempo asociados con las nuevas planchas de impresión."
                 },
                 "step3": {
@@ -9155,11 +9155,11 @@
                     "caption": "Escale su cartera y agregue mejoras de sostenibilidad",
                     "intro": "Una vez que haya demostrado el éxito con los primeros SKU, es hora de escalar y perfeccionar.",
                     "taskTitle": "Ampliando el diseño 100% reciclable",
-                    "taskItems": {
-                        "0": "Convierta gradualmente más SKU de laminados complejos a mono-PE Eco Digital",
-                        "1": "Analice su cartera en función del volumen, el margen y la importancia estratégica",
-                        "2": "Estandarice en un conjunto manejable de especificaciones mono-PE"
-                    }
+                    "taskItems": [
+                        "Convierta gradualmente más SKU de laminados complejos a mono-PE Eco Digital",
+                        "Analice su cartera en función del volumen, el margen y la importancia estratégica",
+                        "Estandarice en un conjunto manejable de especificaciones mono-PE"
+                    ]
                 },
                 "optimize": {
                     "title": "Optimización y superposición de palancas adicionales",
@@ -9197,11 +9197,11 @@
                     "title": "¿Listo para comenzar su hoja de ruta de reciclabilidad?",
                     "intro": "Un objetivo de embalaje 100% reciclable se vuelve práctico cuando se divide en pasos concretos y cuenta con el apoyo de los socios adecuados.",
                     "subTitle": "Si su marca quiere pasar del compromiso a la implementación, Achieve Pack puede ayudarle a:",
-                    "items": {
-                        "0": "Realice una <strong>auditoría específica de su embalaje flexible actual</strong>",
-                        "1": "Seleccionar y <strong>rediseñar SKU prioritarios</strong> como bolsas Eco Digital mono‑PE",
-                        "2": "Elaborar un <strong>plan plurianual</strong> para ampliar el diseño y la capa 100 % reciclables en PCR y bio‑PE"
-                    },
+                    "items": [
+                        "Realice una <strong>auditoría específica de su embalaje flexible actual</strong>",
+                        "Seleccionar y <strong>rediseñar SKU prioritarios</strong> como bolsas Eco Digital mono‑PE",
+                        "Elaborar un <strong>plan plurianual</strong> para ampliar el diseño y la capa 100 % reciclables en PCR y bio‑PE"
+                    ],
                     "btn1": "Reservar consulta gratuita",
                     "btn2": "Solicitar paquete de muestra",
                     "btn3": "Explorar tienda"
@@ -11334,115 +11334,115 @@
                     "ctaTitle": "¿Listo para pedir cajas personalizadas?",
                     "ctaDescription": "Crea embalajes premium para tus productos artesanales con nuestras cajas impresas personalizadas. Cantidad mínima de pedido 200 piezas.",
                     "ctaButtonText": "Comprar cajas personalizadas",
-                    "keywords": {
-                        "0": "cajas personalizadas",
-                        "1": "cajas rígidas",
-                        "2": "cajas de correo",
-                        "3": "cajas de regalo",
-                        "4": "cajas de regalo",
-                        "5": "embalaje de chocolate",
-                        "6": "embalaje de caja de té",
-                        "7": "embalaje de caja de café",
-                        "8": "cajas de papel de oro",
-                        "9": "Cajas certificadas FSC",
-                        "10": "embalaje en relieve",
-                        "11": "cajas impresas personalizadas"
-                    }
+                    "keywords": [
+                        "cajas personalizadas",
+                        "cajas rígidas",
+                        "cajas de correo",
+                        "cajas de regalo",
+                        "cajas de regalo",
+                        "embalaje de chocolate",
+                        "embalaje de caja de té",
+                        "embalaje de caja de café",
+                        "cajas de papel de oro",
+                        "Cajas certificadas FSC",
+                        "embalaje en relieve",
+                        "cajas impresas personalizadas"
+                    ]
                 },
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "¿Qué tipos de cajas personalizadas ofrecéis?",
                         "answer": "Ofrecemos dos tipos principales: cajas de cartón corrugado (ideales para café, té y productos protegidos para envío en tamaños de 500 gy 1 kg) y cajas/cartones plegables (perfectas para barras de chocolate, bolsitas de té y dulces de primera calidad). Ambos cuentan con impresión CMYK personalizada, laminación mate y estampado en lámina dorada opcional con relieve."
                     },
-                    "1": {
+                    {
                         "question": "¿Cuál es la cantidad mínima de pedido para cajas personalizadas?",
                         "answer": "Nuestra cantidad mínima de pedido es de 200 piezas tanto para cajas de cartón corrugado como para cajas plegables. Este MOQ bajo hace que las cajas impresas personalizadas sean accesibles para pequeñas marcas artesanales, nuevas empresas y empresas que prueban nuevos diseños de empaque."
                     },
-                    "2": {
+                    {
                         "question": "¿Tus cajas son ecológicas?",
                         "answer": "Sí, todas nuestras cajas están fabricadas con papel y cartón reciclado certificado FSC. Son totalmente reciclables en programas estándar de reciclaje en la acera. Priorizamos los materiales sostenibles para apoyar las marcas con conciencia ecológica."
                     },
-                    "3": {
+                    {
                         "question": "¿Qué acabados premium están disponibles?",
                         "answer": "Ofrecemos estampado en caliente con lámina dorada, detalles en relieve y laminación mate como estándar. Estos acabados premium crean una experiencia de lujo al abrir la caja, perfecta para aplicaciones de embalaje de chocolate, té, café y regalos."
                     },
-                    "4": {
+                    {
                         "question": "¿Cuáles son los tamaños disponibles?",
                         "answer": "Las cajas de cartón corrugado vienen en tamaños de 500 g (130 × 85 × 35 mm) y 1 kg (270 × 85 × 35 mm). Las cajas Tuck están disponibles en tamaños de 100 g (81 × 162 × 15 mm). Para dimensiones personalizadas, comuníquese con nuestro equipo para obtener un presupuesto personalizado."
                     },
-                    "5": {
+                    {
                         "question": "¿Cuánto tiempo lleva la producción y el envío?",
                         "answer": "La producción demora aproximadamente 30 días. El envío por transporte marítimo está incluido en todos los precios y tarda entre 40 y 60 días. El plazo total de entrega es de aproximadamente 70 a 90 días desde la confirmación del pedido. Para pedidos urgentes, consulte sobre las opciones de transporte aéreo."
                     },
-                    "6": {
+                    {
                         "question": "¿Ofrecen muestras antes de realizar el pedido?",
                         "answer": "Sí, podemos proporcionar muestras para su evaluación antes de realizar un pedido completo. Por favor contáctenos para organizar cajas de muestra. Para pedidos estándar, recomendamos comenzar con nuestro pedido mínimo de 200 piezas para probar con sus productos y clientes."
                     },
-                    "7": {
+                    {
                         "question": "¿Puedo obtener tamaños personalizados para mis productos?",
                         "answer": "¡Absolutamente! Ofrecemos tamaños personalizados para pedidos de cantidades mayores. Póngase en contacto con nuestro equipo con las dimensiones de su producto y le proporcionaremos un presupuesto personalizado. Es posible que se requieran herramientas personalizadas para tamaños no estándar."
                     }
-                },
+                ],
                 "tables": {
                     "0": {
                         "title": "Descripción general de los tamaños de cajas",
                         "data": {
-                            "headers": {
-                                "0": "Tipo de caja",
-                                "1": "Etiqueta de tamaño",
-                                "2": "Dimensiones (largo x ancho x alto)",
-                                "3": "La mejor para"
-                            },
-                            "rows": {
-                                "0": {
+                            "headers": [
+                                "Tipo de caja",
+                                "Etiqueta de tamaño",
+                                "Dimensiones (largo x ancho x alto)",
+                                "La mejor para"
+                            ],
+                            "rows": [
+                                {
                                     "0": "Anuncio publicitario corrugado",
                                     "1": "500g",
                                     "2": "130 × 85 × 35 mm",
                                     "3": "Pequeñas bolsas de café, cajas de té."
                                 },
-                                "1": {
+                                {
                                     "0": "Anuncio publicitario corrugado",
                                     "1": "1kg",
                                     "2": "270 × 85 × 35 mm",
                                     "3": "Bolsas de café grandes, juegos de regalo."
                                 },
-                                "2": {
+                                {
                                     "0": "Caja plegable",
                                     "1": "100g",
                                     "2": "81 × 162 × 15 mm",
                                     "3": "Barras de chocolate, bolsitas de té."
                                 }
-                            }
+                            ]
                         }
                     }
                 },
-                "relatedLinks": {
-                    "0": {
+                "relatedLinks": [
+                    {
                         "title": "Comprar cajas de cartón corrugado",
                         "url": "/tienda/producto/caja-corrugada-personalizada",
                         "description": "Solicite cajas postales impresas personalizadas - MOQ 200 piezas"
                     },
-                    "1": {
+                    {
                         "title": "Comprar cajas plegables",
                         "url": "/tienda/producto/box-tuck-personalizado",
                         "description": "Cartones premium con lámina dorada y relieve."
                     },
-                    "2": {
+                    {
                         "title": "Bolsas de pie",
                         "url": "/embalaje/bolsas-stand-up",
                         "description": "Alternativa flexible para el envasado de alimentos"
                     },
-                    "3": {
+                    {
                         "title": "Bolsas de fondo plano",
                         "url": "/embalaje/bolsas-de-fondo-plano",
                         "description": "Bolsitas premium para café y té"
                     },
-                    "4": {
+                    {
                         "title": "Materiales compostables",
                         "url": "/materiales/compostables",
                         "description": "Opciones de embalaje flexible ecológico"
                     }
-                }
+                ]
             }
         }
     },

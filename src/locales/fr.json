@@ -1918,14 +1918,14 @@
                         "titlePre": "<span className=\"text-[#10b981]\">QUESTIONS FRÉQUEMMENT POSÉES",
                         "titleHighlight": "<span className=\"text-[#10b981]\">QUESTIONS FRÉQUEMMENT POSÉES"
                     },
-                    "metaKeywords": {
-                        "0": "pochettes personnalisées",
-                        "1": "sacs écologiques",
-                        "2": "sachets compostables",
-                        "3": "sacs de café recyclables",
-                        "4": "pouch.eco",
-                        "5": "emballage flexible durable"
-                    }
+                    "metaKeywords": [
+                        "pochettes personnalisées",
+                        "sacs écologiques",
+                        "sachets compostables",
+                        "sacs de café recyclables",
+                        "pouch.eco",
+                        "emballage flexible durable"
+                    ]
                 },
                 "seoPages": {
                     "breadcrumbs": {
@@ -1942,12 +1942,12 @@
                             "title": "Pochettes stand-up personnalisées en gros et approvisionnement",
                             "intro": "Les <strong>Pochettes Stand-Up Personnalisées (SUP)</strong> représentent la référence en matière d'emballages flexibles commerciaux haut de gamme. Dérivés de lignes de production en usine certifiées BRCGS, nos sachets offrent une présence maximale en rayon, des économies de matériaux légers et une barrière de protection robuste spécialement calibrée pour les startups DTC mondiales et les marques alimentaires de gros à grande échelle.",
                             "listTitle": "Indicateurs clés de performance commerciale B2B :",
-                            "listItems": {
-                                "0": "<strong>75 % d'empreinte plus légère</strong> – Réduit considérablement l'espace de stockage et les émissions d'expédition sur de longues distances par rapport aux bocaux en verre ou aux boîtes métalliques.",
-                                "1": "<strong>Branding Real Estate à 360°</strong> – Couverture de mise en page numérique pleine largeur imprimée avec des encres végétales certifiées à base de soja.",
-                                "2": "<strong>Intégration refermable</strong> – Fermetures à glissière et curseurs durables qui empêchent la dégradation du produit en rayon.",
-                                "3": "<strong>Compatibilité automatique des lignes</strong> – Tolérance de largeur de rouleau conçue pour permettre une intégration transparente sur les lignes automatiques VFFS/HFFS."
-                            }
+                            "listItems": [
+                                "<strong>75 % d'empreinte plus légère</strong> – Réduit considérablement l'espace de stockage et les émissions d'expédition sur de longues distances par rapport aux bocaux en verre ou aux boîtes métalliques.",
+                                "<strong>Branding Real Estate à 360°</strong> – Couverture de mise en page numérique pleine largeur imprimée avec des encres végétales certifiées à base de soja.",
+                                "<strong>Intégration refermable</strong> – Fermetures à glissière et curseurs durables qui empêchent la dégradation du produit en rayon.",
+                                "<strong>Compatibilité automatique des lignes</strong> – Tolérance de largeur de rouleau conçue pour permettre une intégration transparente sur les lignes automatiques VFFS/HFFS."
+                            ]
                         },
                         "specifications": {
                             "title": "Guide de traduction et d’achat des paramètres techniques",
@@ -1994,34 +1994,34 @@
                     "heroTitle": "Pochettes stand-up personnalisées en gros",
                     "heroSubtitle": "Certifié BRCGS directement en usine • Faible MOQ 500 unités • Eco-Films certifiés à 100 %",
                     "introSummary": "Fournisseur direct de sachets debout certifiés compostables et recyclables en bordure de rue. Calibré avec des barrières à oxygène OTR/WVTR hautes performances et des goussets inférieurs de diagnostic pour éviter l'éclatement du joint, garantissant une durée de conservation de plus de 12 mois.",
-                    "faqs": {
-                        "0": {
+                    "faqs": [
+                        {
                             "question": "1. Quelle est la quantité minimum de commande (MOQ) pour les sachets stand-up personnalisés ?",
                             "answer": "Nous soutenons les startups avec un MOQ d’impression numérique le plus bas du secteur, de seulement 500 unités par conception. Pour les volumes de vente en gros plus importants, nous effectuons l’impression sur plaque héliogravure à partir de 5 000 unités, offrant ainsi une rentabilité de gros optimale."
                         },
-                        "1": {
+                        {
                             "question": "2. Fournissez-vous des échantillons physiques de pré-production ?",
                             "answer": "Oui, nous expédions gratuitement un kit d’échantillons durables contenant 10 sachets physiques pour tester les propriétés barrières. Pour les commandes personnalisées, nous générons une épreuve électronique PDF 24 heures sur 24 et pouvons construire des maquettes numériques personnalisées exactes avant la fabrication en masse."
                         },
-                        "2": {
+                        {
                             "question": "3. Pouvez-vous fabriquer des sachets debout selon des dessins CAO volumétriques personnalisés ?",
                             "answer": "Oui. Nos ingénieurs matériaux analysent la densité volumétrique de votre produit et personnalisent les goussets inférieurs et les dimensions jusqu'à l'échelle millimétrique. Nous fournissons une mise en page PDF personnalisée dans les 24 heures."
                         },
-                        "3": {
+                        {
                             "question": "4. Quels sont les délais de production et de transit pour les séries commerciales ?",
                             "answer": "Les exécutions numériques se terminent dans 7 à 10 jours ouvrables ; Les commandes de plaques d’héliogravure prennent 12 à 14 jours. La livraison aérienne express DHL/FedEx vers les États-Unis/l’UE prend 5 à 7 jours ouvrables, et le fret maritime économique est disponible en 20 à 30 jours."
                         },
-                        "4": {
+                        {
                             "question": "5. Quelles certifications sont disponibles pour vérifier la conformité écologique ?",
                             "answer": "Nos biopolymères portent des numéros de certificat officiels du BPI (Biodegradable Products Institute #10529618) et du TÜV Autriche (OK Compost HOME). Les piles sont conformes aux directives de compostabilité ASTM D6400 (États-Unis) et EN 13432 (UE)."
                         },
-                        "5": {
+                        {
                             "question": "6. Quels détails doivent être soumis pour recevoir un devis de gros ?",
                             "answer": "Veuillez fournir une estimation de la capacité volumétrique (ou des dimensions exactes), des préférences en matière de matériau (kraft compostable, mono-PE recyclable, haute barrière), des exigences en matière de fermeture éclair/de dégazage, du nombre de SKU et des illustrations vectorielles."
                         }
-                    },
-                    "tables": {
-                        "0": {
+                    ],
+                    "tables": [
+                        {
                             "title": "Matrice de taille volumétrique commerciale",
                             "data": {
                                 "headers": {
@@ -2058,31 +2058,31 @@
                                 }
                             }
                         }
-                    },
-                    "relatedLinks": {
-                        "0": {
+                    ],
+                    "relatedLinks": [
+                        {
                             "title": "Sacs à fond plat",
                             "url": "/emballage/sacs-à-fond-plat",
                             "description": "Alternative stable au gousset en caisson à 5 panneaux"
                         },
-                        "1": {
+                        {
                             "title": "Solutions café et thé",
                             "url": "/industrie/café-thé",
                             "description": "Sacs avec valves de dégazage et attaches en fer blanc"
                         },
-                        "2": {
+                        {
                             "title": "Spécifications des matériaux compostables",
                             "url": "/matériaux/compostables",
                             "description": "Comparez les spécifications des biopolymères OK Compost"
                         }
-                    },
-                    "metaKeywords": {
-                        "0": "pochettes personnalisées",
-                        "1": "Vente en gros sacs debout",
-                        "2": "sachets compostables",
-                        "3": "Emballage flexible certifié BRC",
-                        "4": "réaliser une pochette debout"
-                    }
+                    ],
+                    "metaKeywords": [
+                        "pochettes personnalisées",
+                        "Vente en gros sacs debout",
+                        "sachets compostables",
+                        "Emballage flexible certifié BRC",
+                        "réaliser une pochette debout"
+                    ]
                 }
             },
             "flatBottomBags": {
@@ -2310,26 +2310,26 @@
                 "metaTitle": "Sacs à fond plat | Pochettes inférieures de boîte | Emballage à fond bloc",
                 "metaDescription": "title=\"Sacs à fond plat | Sachets à fond de boîte | Emballage à fond bloc",
                 "heroImageAlt": "Emballage de pochette de boîte de sac à fond plat",
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "Quelle est la différence entre les sachets à fond plat et les sachets à fond plat ?",
                         "answer": "Les sacs à fond plat ont une base rectangulaire avec 5 panneaux imprimables, offrant plus de stabilité et de capacité. Les pochettes verticales ont un soufflet ovale avec 2-3 panneaux. Les sacs à fond plat offrent environ 15 à 20 % de volume en plus pour le même encombrement."
                     },
-                    "1": {
+                    {
                         "question": "Les sacs à fond plat sont-ils plus chers ?",
                         "answer": "Oui, les sacs à fond plat coûtent généralement 15 à 25 % de plus que les sachets à fond plat en raison de leur construction plus complexe. Cependant, ils offrent une présence haut de gamme en rayon et un espace de marque supplémentaire qui justifie souvent l'investissement dans des produits spécialisés."
                     },
-                    "2": {
+                    {
                         "question": "Quelles tailles sont disponibles pour les sacs à fond plat ?",
                         "answer": "Nous proposons des sacs à fond plat d'une capacité de 100 g jusqu'à 5 kg. Les tailles courantes incluent 250 g, 500 g, 1 kg et 2 kg. Des tailles personnalisées sont disponibles pour les commandes de plus de 5 000 unités."
                     },
-                    "3": {
+                    {
                         "question": "Les sacs à fond plat peuvent-ils avoir une valve de dégazage ?",
                         "answer": "Oui, nous proposons des vannes de dégazage unidirectionnelles pour le café et autres produits dégageant du CO2. La valve peut être placée sur n'importe quel panneau mais elle est généralement située à l'arrière pour des raisons esthétiques."
                     }
-                },
-                "tables": {
-                    "0": {
+                ],
+                "tables": [
+                    {
                         "title": "Guide des tailles des sacs à fond plat",
                         "data": {
                             "headers": {
@@ -2366,34 +2366,34 @@
                             }
                         }
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Pochettes verticales",
                         "url": "/emballage/sachet-stand-up",
                         "description": "Alternative plus économique"
                     },
-                    "1": {
+                    {
                         "title": "Emballage de café et de thé",
                         "url": "/industrie/café-thé",
                         "description": "Solutions de café de spécialité"
                     },
-                    "2": {
+                    {
                         "title": "Matériaux compostables",
                         "url": "/matériaux/compostables",
                         "description": "Options écologiques"
                     }
-                },
-                "metaKeywords": {
-                    "0": "sac à fond plat",
-                    "1": "pochette de fond de boîte",
-                    "2": "sac à fond bloc",
-                    "3": "sac à café fond plat",
-                    "4": "emballage en sachet haut de gamme",
-                    "5": "sac à café à fond plat",
-                    "6": "pochette de boîte",
-                    "7": "pochette 5 panneaux"
-                }
+                ],
+                "metaKeywords": [
+                    "sac à fond plat",
+                    "pochette de fond de boîte",
+                    "sac à fond bloc",
+                    "sac à café fond plat",
+                    "emballage en sachet haut de gamme",
+                    "sac à café à fond plat",
+                    "pochette de boîte",
+                    "pochette 5 panneaux"
+                ]
             },
             "spoutPouches": {
                 "title": "Pochettes à bec | Solutions d'emballage de liquides",
@@ -2682,26 +2682,26 @@
                 "metaTitle": "Pochettes à bec | Emballage liquide | Sacs à bec verseur",
                 "metaDescription": "title=\"Pochettes à bec verseur | Emballages liquides | Sacs à bec verseur",
                 "heroImageAlt": "Emballage en pochette à bec verseur pour liquides",
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "Pour quels produits les pochettes à bec verseur sont-elles utilisées ?",
                         "answer": "Les sachets à bec verseur sont idéaux pour les liquides, semi-liquides et les produits visqueux, notamment les purées d'aliments pour bébés, les sauces, les condiments, les boissons, les packs de smoothies, les huiles de cuisson, le miel, les soupes et les garnitures d'aliments pour animaux de compagnie. Ils sont également populaires pour les applications non alimentaires comme les recharges de détergent."
                     },
-                    "1": {
+                    {
                         "question": "Les pochettes à bec verseur sont-elles recyclables ?",
                         "answer": "Les sachets à bec verseur multi-matériaux standard sont difficiles à recycler dans la plupart des systèmes municipaux. Nous proposons cependant des pochettes à bec mono-PE recyclables dans les filières de recyclage PE. Le capuchon doit être retiré avant le recyclage."
                     },
-                    "2": {
+                    {
                         "question": "Les sachets à bec verseur peuvent-ils être utilisés pour des produits chauds ?",
                         "answer": "Oui, nous proposons des sachets avec bec verseur à remplissage à chaud pouvant être remplis jusqu'à 85°C. Pour les produits stérilisés de longue conservation, nous proposons des sachets autoclaves qui résistent à un traitement à 121°C."
                     },
-                    "3": {
+                    {
                         "question": "Quelle est la commande minimum de sachets à bec verseur ?",
                         "answer": "Notre commande minimum de sachets à bec verseur imprimés personnalisés est de 1 000 unités. Pour les sachets unis avec bouchons standards, nous pouvons proposer de plus petites quantités de 500 unités."
                     }
-                },
-                "tables": {
-                    "0": {
+                ],
+                "tables": [
+                    {
                         "title": "Guide des tailles de pochette à bec verseur",
                         "data": {
                             "headers": {
@@ -2743,44 +2743,44 @@
                             }
                         }
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Magasiner les pochettes pour bec verseur",
                         "url": "/magasin",
                         "description": "Parcourir les emballages liquides - MOQ à partir de 500 pièces"
                     },
-                    "1": {
+                    {
                         "title": "Emballages alimentaires pour bébés",
                         "url": "/industrie/aliments pour bébés",
                         "description": "Emballage sûr pour la nutrition infantile"
                     },
-                    "2": {
+                    {
                         "title": "Sauces et condiments",
                         "url": "/industrie/sauces-condiments",
                         "description": "Solutions d'emballage alimentaire liquide"
                     },
-                    "3": {
+                    {
                         "title": "Pochettes verticales",
                         "url": "/emballage/sachet-stand-up",
                         "description": "Alternative aux produits secs"
                     },
-                    "4": {
+                    {
                         "title": "Guide d'emballage durable",
                         "url": "/blog/analyse-des-fournisseurs-d'emballages-durables",
                         "description": "Comparez les fournisseurs éco-responsables"
                     }
-                },
-                "metaKeywords": {
-                    "0": "pochette à bec",
-                    "1": "pochette à liquide",
-                    "2": "sac à bec verseur",
-                    "3": "pochette de nourriture pour bébé",
-                    "4": "pochette à sauce",
-                    "5": "pochette à boisson",
-                    "6": "pochette à bec",
-                    "7": "sac d'emballage liquide"
-                }
+                ],
+                "metaKeywords": [
+                    "pochette à bec",
+                    "pochette à liquide",
+                    "sac à bec verseur",
+                    "pochette de nourriture pour bébé",
+                    "pochette à sauce",
+                    "pochette à boisson",
+                    "pochette à bec",
+                    "sac d'emballage liquide"
+                ]
             },
             "vacuumPouches": {
                 "title": "Pochettes sous vide | Emballage à durée de conservation prolongée",
@@ -2926,52 +2926,52 @@
                     "heroSubtitle": "seoPages.pages.vacuumPouches.heroSubtitle",
                     "heroImageAlt": "Sachets d'emballage sous vide",
                     "introSummary": "seoPages.pages.vacuumPouches.introRésumé",
-                    "keywords": {
-                        "0": "pochette sous vide",
-                        "1": "sac sous vide",
-                        "2": "sac sous vide",
-                        "3": "emballage sous vide",
-                        "4": "sacs économiseurs de nourriture",
-                        "5": "pochette sous vide à chambre",
-                        "6": "sac sous vide pour viande",
-                        "7": "café sous vide"
-                    }
+                    "keywords": [
+                        "pochette sous vide",
+                        "sac sous vide",
+                        "sac sous vide",
+                        "emballage sous vide",
+                        "sacs économiseurs de nourriture",
+                        "pochette sous vide à chambre",
+                        "sac sous vide pour viande",
+                        "café sous vide"
+                    ]
                 },
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "De combien de temps l’emballage sous vide prolonge-t-il la durée de conservation ?",
                         "answer": "L'emballage sous vide prolonge généralement la durée de conservation de 3 à 5 fois par rapport à l'emballage standard. Par exemple, la viande fraîche peut se conserver 3 à 5 jours dans un emballage ordinaire, mais 2 à 3 semaines sous vide et au réfrigérateur."
                     },
-                    "1": {
+                    {
                         "question": "Les sachets sous vide peuvent-ils être utilisés pour la cuisson sous vide ?",
                         "answer": "Oui, nous proposons des sachets sous vide sous vide qui conviennent sans danger pour la cuisson par immersion à des températures allant jusqu'à 100°C (212°F). Ces sachets maintiennent l'intégrité du joint pendant les temps de cuisson prolongés."
                     },
-                    "2": {
+                    {
                         "question": "Quelle est la différence entre les poches sous vide à chambre et externes ?",
                         "answer": "Les sachets à chambre sont lisses et fonctionnent avec des machines à vide à chambre (courantes dans les environnements commerciaux). Les pochettes externes ont une texture gaufrée/canalisée pour l'évacuation de l'air et fonctionnent avec des scelleuses portables et externes."
                     },
-                    "3": {
+                    {
                         "question": "Les pochettes sous vide sont-elles recyclables ?",
                         "answer": "Les sachets sous vide PA/PE standards sont difficiles à recycler en raison de leur structure multicouche. Nous proposons des pochettes sous vide mono-PE recyclables pour les applications où le recyclage est prioritaire, même si elles ont des propriétés barrières légèrement inférieures."
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Emballage d'aliments surgelés",
                         "url": "/industrie/aliments-surgelés",
                         "description": "Solutions pour produits surgelés"
                     },
-                    "1": {
+                    {
                         "title": "Emballage d'aliments pour animaux de compagnie",
                         "url": "/industrie/aliments pour animaux de compagnie",
                         "description": "Solutions d'aliments frais pour animaux de compagnie"
                     },
-                    "2": {
+                    {
                         "title": "Mono-PE recyclable",
                         "url": "/matériaux/mono-pe-recyclable",
                         "description": "Options d'aspirateur durables"
                     }
-                }
+                ]
             },
             "flatPouches": {
                 "title": "Pochettes plates | Sacs scellés sur trois côtés",
@@ -3022,20 +3022,20 @@
                     },
                     "applications": {
                         "title": "Applications courantes",
-                        "items": {
-                            "0": "Échantillons de produits",
-                            "1": "Portions individuelles",
-                            "2": "Sachets d'épices",
-                            "3": "Sachets de sucre et édulcorants",
-                            "4": "Sauce sachets",
-                            "5": "Sachets de thé (extérieurs)",
-                            "6": "Sachets de graines",
-                            "7": "Articles promotionnels",
-                            "8": "Sachets pharmaceutiques",
-                            "9": "Échantillons cosmétiques",
-                            "10": "Commodités de l'hôtel",
-                            "11": "Lingettes humides"
-                        }
+                        "items": [
+                            "Échantillons de produits",
+                            "Portions individuelles",
+                            "Sachets d'épices",
+                            "Sachets de sucre et édulcorants",
+                            "Sauce sachets",
+                            "Sachets de thé (extérieurs)",
+                            "Sachets de graines",
+                            "Articles promotionnels",
+                            "Sachets pharmaceutiques",
+                            "Échantillons cosmétiques",
+                            "Commodités de l'hôtel",
+                            "Lingettes humides"
+                        ]
                     },
                     "features": {
                         "title": "Fonctionnalités disponibles",
@@ -3150,26 +3150,26 @@
                 "metaTitle": "Pochettes scellées à 3 côtés | Pochettes plates | Sachets | Emballage d'échantillon",
                 "metaDescription": "title=\"Pochettes scellées sur 3 côtés | Sachets plats | Sachets | Emballage d'échantillons",
                 "heroImageAlt": "Emballage en sachet plat à fermeture sur 3 côtés",
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "Quelle est la différence entre un joint à 3 côtés et un joint à 4 côtés ?",
                         "answer": "Les sachets scellés sur 3 côtés sont fabriqués à partir d'un film plié (scellés sur 3 côtés), tandis que les sachets scellés sur 4 côtés utilisent deux feuilles séparées (scellées sur les 4 côtés). Le joint sur 3 côtés est plus économique, tandis que le joint sur 4 côtés offre une surface légèrement plus grande et permet différents matériaux à l'avant et à l'arrière."
                     },
-                    "1": {
+                    {
                         "question": "Quelle est la commande minimum de sachets ?",
                         "answer": "Notre MOQ pour les sachets imprimés personnalisés est de 1 000 unités. Pour les sachets nature, nous pouvons proposer 500 unités. Le prix unitaire plus bas rend les sachets économiques même en petites quantités."
                     },
-                    "2": {
+                    {
                         "question": "Les pochettes plates peuvent-elles avoir une fermeture éclair refermable ?",
                         "answer": "Les pochettes plates traditionnelles sont à usage unique, mais nous pouvons ajouter une fermeture éclair pour créer une pochette plate refermable. Cependant, pour les applications refermables, les sachets stand-up offrent généralement une meilleure fonctionnalité et une meilleure valeur."
                     },
-                    "3": {
+                    {
                         "question": "Les sachets plats sont-ils disponibles en matériaux compostables ?",
                         "answer": "Oui, nous proposons des sachets plats compostables à base de PLA, de papier/PLA ou de films à base de cellulose. Ceux-ci sont certifiés EN 13432 pour le compostage industriel."
                     }
-                },
-                "tables": {
-                    "0": {
+                ],
+                "tables": [
+                    {
                         "title": "Guide des tailles des pochettes plates",
                         "data": {
                             "headers": {
@@ -3212,34 +3212,34 @@
                             }
                         }
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Pochettes verticales",
                         "url": "/emballage/sachet-stand-up",
                         "description": "Alternative autonome"
                     },
-                    "1": {
+                    {
                         "title": "Matériaux compostables",
                         "url": "/matériaux/compostables",
                         "description": "Options de sachets écologiques"
                     },
-                    "2": {
+                    {
                         "title": "Café et thé",
                         "url": "/industrie/café-thé",
                         "description": "Solutions en sachets de thé"
                     }
-                },
-                "metaKeywords": {
-                    "0": "Pochette à 3 joints latéraux",
-                    "1": "pochette plate",
-                    "2": "emballage en sachet",
-                    "3": "pochettes d'échantillons",
-                    "4": "paquets individuels",
-                    "5": "sacs en sachet",
-                    "6": "emballage en sac plat",
-                    "7": "Pochette à 4 joints latéraux"
-                }
+                ],
+                "metaKeywords": [
+                    "Pochette à 3 joints latéraux",
+                    "pochette plate",
+                    "emballage en sachet",
+                    "pochettes d'échantillons",
+                    "paquets individuels",
+                    "sacs en sachet",
+                    "emballage en sac plat",
+                    "Pochette à 4 joints latéraux"
+                ]
             },
             "sideGussetBags": {
                 "title": "Sacs à soufflet latéraux | Emballage à grand volume",
@@ -3278,20 +3278,20 @@
                     },
                     "applications": {
                         "title": "Applications courantes",
-                        "items": {
-                            "0": "Café en grains",
-                            "1": "Café moulu",
-                            "2": "Thé en feuilles",
-                            "3": "Riz et céréales",
-                            "4": "Farine et pâtisserie",
-                            "5": "Nourriture pour animaux",
-                            "6": "Graine pour oiseaux",
-                            "7": "Pâtes séchées",
-                            "8": "Noix et graines",
-                            "9": "Fruits secs",
-                            "10": "Biscuits et biscuits",
-                            "11": "Épices en vrac"
-                        }
+                        "items": [
+                            "Café en grains",
+                            "Café moulu",
+                            "Thé en feuilles",
+                            "Riz et céréales",
+                            "Farine et pâtisserie",
+                            "Nourriture pour animaux",
+                            "Graine pour oiseaux",
+                            "Pâtes séchées",
+                            "Noix et graines",
+                            "Fruits secs",
+                            "Biscuits et biscuits",
+                            "Épices en vrac"
+                        ]
                     },
                     "features": {
                         "title": "Fonctionnalités supplémentaires",
@@ -3373,22 +3373,22 @@
                 "metaTitle": "Sacs à soufflet latéraux | Sacs à quatre joints | Sacs à café",
                 "metaDescription": "title=\"Sacs à soufflet latéraux | Sacs à quatre joints | Sacs à café",
                 "heroImageAlt": "Emballage de sac de café à soufflet latéral",
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "Quelle est la différence entre les sacs à soufflet latéral et les sacs à fond plat ?",
                         "answer": "Les sacs à soufflet latéraux ont des panneaux latéraux extensibles et sont relativement plats, tandis que les sacs à fond plat ont une base rectangulaire rigide pour une stabilité supérieure. Les sacs à fond plat offrent plus de présence en rayon mais coûtent plus cher. Les sacs à soufflets latéraux sont plus traditionnels pour le café et offrent une bonne capacité."
                     },
-                    "1": {
+                    {
                         "question": "Les sacs à soufflets latéraux sont-ils adaptés au remplissage automatique ?",
                         "answer": "Oui, les sacs à soufflet latéraux fonctionnent bien avec les machines VFFS (vertical form fill seal). Nous pouvons fournir des sacs préfabriqués ou sous forme de film en rouleau pour les lignes d'emballage automatiques."
                     },
-                    "2": {
+                    {
                         "question": "Quelles tailles sont disponibles ?",
                         "answer": "Les sacs à soufflets latéraux sont disponibles d'une capacité de 100 g à 5 kg. Les tailles courantes sont 250 g, 500 g, 1 kg et 2,5 kg. Tailles personnalisées disponibles pour les commandes de plus de 5 000 unités."
                     }
-                },
-                "tables": {
-                    "0": {
+                ],
+                "tables": [
+                    {
                         "title": "Guide des tailles des sacs à soufflet latéral",
                         "data": {
                             "headers": {
@@ -3425,33 +3425,33 @@
                             }
                         }
                     }
-                },
-                "relatedLinks": {
-                    "0": {
+                ],
+                "relatedLinks": [
+                    {
                         "title": "Sacs à fond plat",
                         "url": "/emballage/sacs-à-fond-plat",
                         "description": "Alternative premium avec une meilleure stabilité"
                     },
-                    "1": {
+                    {
                         "title": "Pochettes verticales",
                         "url": "/emballage/sachet-stand-up",
                         "description": "Format moderne populaire"
                     },
-                    "2": {
+                    {
                         "title": "Café et thé",
                         "url": "/industrie/café-thé",
                         "description": "Solutions de café de spécialité"
                     }
-                },
-                "metaKeywords": {
-                    "0": "sac à soufflet latéral",
-                    "1": "sac à quatre joints",
-                    "2": "gousset pour sac à café",
-                    "3": "pochette à soufflet",
-                    "4": "sac pliable sur le côté",
-                    "5": "sac à café avec lien en étain",
-                    "6": "sac de nourriture en vrac"
-                }
+                ],
+                "metaKeywords": [
+                    "sac à soufflet latéral",
+                    "sac à quatre joints",
+                    "gousset pour sac à café",
+                    "pochette à soufflet",
+                    "sac pliable sur le côté",
+                    "sac à café avec lien en étain",
+                    "sac de nourriture en vrac"
+                ]
             },
             "coffeeTea": {
                 "title": "Emballage de café et de thé | Sachets barrière aromatique",
@@ -7156,12 +7156,12 @@
                 },
                 "aiBadge": "AI_SEARCH_TIPS",
                 "aiIntro": "Essayez de demander à Gemini ou ChatGPT :",
-                "aiQueries": {
-                    "0": "Quels sachets kraft sont véritablement sans plastique ?",
-                    "1": "Le papier ligné PLA est-il meilleur que le papier ligné PE ?",
-                    "2": "Sachets kraft certifiés compostables avec un faible MOQ",
-                    "3": "Comment repérer le greenwashing dans les sacs en papier"
-                },
+                "aiQueries": [
+                    "Quels sachets kraft sont véritablement sans plastique ?",
+                    "Le papier ligné PLA est-il meilleur que le papier ligné PE ?",
+                    "Sachets kraft certifiés compostables avec un faible MOQ",
+                    "Comment repérer le greenwashing dans les sacs en papier"
+                ],
                 "futureTitle1": "L'avenir",
                 "futureTitle2": "est circulaire",
                 "futureDesc": "Arrêtez de vous contenter d’emballages « écologiques ». Chez Pouch.eco, nous fournissons les données techniques et les certifications pour prouver que votre marque est véritablement sans plastique.",
@@ -7266,12 +7266,12 @@
             "artisanProducer": {
                 "title": "Emballage de producteur artisanal | Solutions pour petits lots",
                 "description": "Emballage pour les artisans agroalimentaires. Faible MOQ à partir de 100 pièces, esthétique artisanale, marché agricole durable.",
-                "keywords": {
-                    "0": "emballage artisanal",
-                    "1": "emballage en petits lots",
-                    "2": "emballage du marché fermier",
-                    "3": "emballage alimentaire gastronomique"
-                },
+                "keywords": [
+                    "emballage artisanal",
+                    "emballage en petits lots",
+                    "emballage du marché fermier",
+                    "emballage alimentaire gastronomique"
+                ],
                 "heroTitle": "Emballages pour artisans",
                 "heroSubtitle": "100 pièces MOQ | Esthétique artisanale | Marché durable",
                 "introSummary": "Emballez vos produits artisanaux avec le soin qu’ils méritent. Commandes minimales faibles, finitions artisanales naturelles et matériaux durables qui racontent votre histoire.",
@@ -7287,19 +7287,19 @@
                         "introStrong": "produits gastronomiques en petites séries",
                         "intro2": "avec soin : granolas artisanaux, chocolats artisanaux, conserves spéciales. Votre emballage doit raconter cette histoire, mais les MOQ élevés et les options génériques ne correspondent pas à votre métier.",
                         "challengesTitle": "Défis artisanaux",
-                        "challenges": {
-                            "0": "Petits lots, production irrégulière",
-                            "1": "Les emballages génériques ne véhiculent pas l'artisanat",
-                            "2": "Conditions du marché fermier (soleil, chaleur)",
-                            "3": "Budget limité pour l'emballage"
-                        },
+                        "challenges": [
+                            "Petits lots, production irrégulière",
+                            "Les emballages génériques ne véhiculent pas l'artisanat",
+                            "Conditions du marché fermier (soleil, chaleur)",
+                            "Budget limité pour l'emballage"
+                        ],
                         "needsTitle": "Ce dont vous avez besoin",
-                        "needs": {
-                            "0": "Faible MOQ pour les petites séries",
-                            "1": "Un emballage qui raconte votre histoire",
-                            "2": "Durable pour les marchés extérieurs",
-                            "3": "Respectueux de l'environnement pour correspondre aux valeurs"
-                        }
+                        "needs": [
+                            "Faible MOQ pour les petites séries",
+                            "Un emballage qui raconte votre histoire",
+                            "Durable pour les marchés extérieurs",
+                            "Respectueux de l'environnement pour correspondre aux valeurs"
+                        ]
                     },
                     "small-batch": {
                         "title": "Conçu pour la production en petits lots",
@@ -7322,19 +7322,19 @@
                         "introStrong": "Textures et finitions naturelles",
                         "introEnd": "qui communiquent la qualité artisanale et se connectent avec des consommateurs conscients.",
                         "craftTitle": "Esthétique artisanale",
-                        "craft": {
-                            "0": "Aspect papier kraft naturel",
-                            "1": "Fenêtres claires pour la visibilité du produit",
-                            "2": "Finitions mates pour une sensation organique",
-                            "3": "Impression tons terre"
-                        },
+                        "craft": [
+                            "Aspect papier kraft naturel",
+                            "Fenêtres claires pour la visibilité du produit",
+                            "Finitions mates pour une sensation organique",
+                            "Impression tons terre"
+                        ],
                         "customTitle": "Options personnalisées",
-                        "custom": {
-                            "0": "Votre logo et l'histoire de votre marque",
-                            "1": "Listes d'ingrédients et certifications",
-                            "2": "Numéros et dates de lots",
-                            "3": "Étiquettes saisonnières/édition limitée"
-                        },
+                        "custom": [
+                            "Votre logo et l'histoire de votre marque",
+                            "Listes d'ingrédients et certifications",
+                            "Numéros et dates de lots",
+                            "Étiquettes saisonnières/édition limitée"
+                        ],
                         "captionChocolate": "Chocolat artisanal",
                         "captionTea": "Thé artisanal",
                         "captionPaper": "Papier kraft",
@@ -7346,16 +7346,16 @@
                         "introStrong": "Nos pochettes sont conçues pour une durabilité réelle",
                         "introEnd": "tout en conservant la fraîcheur du produit.",
                         "featuresTitle": "Fonctionnalités prêtes pour le marché",
-                        "featuresLeft": {
-                            "0": "Impression résistante aux UV",
-                            "1": "Matériaux résistants à la perforation",
-                            "2": "Conception debout pour l'affichage"
-                        },
-                        "featuresRight": {
-                            "0": "Refermable pour l'échantillonnage",
-                            "1": "Protection contre l'humidité",
-                            "2": "Option de trou de suspension facile"
-                        }
+                        "featuresLeft": [
+                            "Impression résistante aux UV",
+                            "Matériaux résistants à la perforation",
+                            "Conception debout pour l'affichage"
+                        ],
+                        "featuresRight": [
+                            "Refermable pour l'échantillonnage",
+                            "Protection contre l'humidité",
+                            "Option de trou de suspension facile"
+                        ]
                     },
                     "sustainable": {
                         "title": "Une durabilité qui correspond à vos valeurs",
@@ -7429,36 +7429,36 @@
                         "title": "Comparaison des matériaux",
                         "intro": "Comparaison des caractéristiques des différents matériaux d'emballage pour vous aider à choisir la solution la plus adaptée à vos produits artisanaux.",
                         "table": {
-                            "headers": {
-                                "0": "Type d'emballage",
-                                "1": "Commande minimale",
-                                "2": "Certification écologique",
-                                "3": "Scénarios appropriés",
-                                "4": "Coût"
-                            },
-                            "rows": {
-                                "0": {
+                            "headers": [
+                                "Type d'emballage",
+                                "Commande minimale",
+                                "Certification écologique",
+                                "Scénarios appropriés",
+                                "Coût"
+                            ],
+                            "rows": [
+                                {
                                     "0": "Papier kraft compostable",
                                     "1": "100 unités",
                                     "2": "★★★★★",
                                     "3": "Marchés de producteurs, Magasins bio",
                                     "4": "$$"
                                 },
-                                "1": {
+                                {
                                     "0": "Recyclable Transparent",
                                     "1": "100 unités",
                                     "2": "★★★★",
                                     "3": "Magasins d'alimentation spécialisés, Commerce de détail",
                                     "4": "$"
                                 },
-                                "2": {
+                                {
                                     "0": "Kraft avec fenêtre",
                                     "1": "100 unités",
                                     "2": "★★★★",
                                     "3": "Display Merchandising, Emballage en vitrine",
                                     "4": "$$"
                                 }
-                            }
+                            ]
                         },
                         "guide": {
                             "title": "Guide de sélection des matériaux",
@@ -7490,17 +7490,17 @@
                         "title": "Le défi de l’huile d’agrumes : dégradation des terpènes et sélection des matériaux",
                         "intro": "Les huiles dérivées d’agrumes, riches en composés organiques actifs comme le d-limonène et d’autres terpènes acides, sont très volatiles et chimiquement agressives. Contrairement aux cosmétiques ordinaires à base d’eau, les huiles d’agrumes agissent comme des solvants organiques doux qui peuvent gonfler, se fissurer sous contrainte ou imprégner les plastiques standards à faible barrière au fil du temps.",
                         "risksTitle": "Principaux risques importants",
-                        "risks": {
-                            "0": "Perméation des terpènes : les arômes s'échappent à travers le PE de faible densité en quelques jours, provoquant l'oxydation du produit.",
-                            "1": "Fissuration sous contrainte : les composants acides fragilisent les joints thermoscellés, risquant des fuites lors du transport.",
-                            "2": "Extraction des arômes : les liquides riches en terpènes dégradent les profils de saveur du plastique, rendant les huiles de qualité supérieure rances."
-                        },
+                        "risks": [
+                            "Perméation des terpènes : les arômes s'échappent à travers le PE de faible densité en quelques jours, provoquant l'oxydation du produit.",
+                            "Fissuration sous contrainte : les composants acides fragilisent les joints thermoscellés, risquant des fuites lors du transport.",
+                            "Extraction des arômes : les liquides riches en terpènes dégradent les profils de saveur du plastique, rendant les huiles de qualité supérieure rances."
+                        ],
                         "reqsTitle": "Exigences techniques",
-                        "reqs": {
-                            "0": "Barrière terpénique métallisée : un noyau en feuille solide (revêtement en aluminium ou EVOH haute densité).",
-                            "1": "Scellants résistants aux acides : stratifiés copolymères testés contre des extraits directs de fruits.",
-                            "2": "Boîtes de présentation solides FSC : cartons extérieurs de protection pour capsules délicates ou sachets alternatifs en verre."
-                        }
+                        "reqs": [
+                            "Barrière terpénique métallisée : un noyau en feuille solide (revêtement en aluminium ou EVOH haute densité).",
+                            "Scellants résistants aux acides : stratifiés copolymères testés contre des extraits directs de fruits.",
+                            "Boîtes de présentation solides FSC : cartons extérieurs de protection pour capsules délicates ou sachets alternatifs en verre."
+                        ]
                     },
                     "packaging-options": {
                         "title": "5 options d'emballage comparées : du MVP à faible coût au premium durable",
@@ -7510,11 +7510,11 @@
                             "tag": "MVP à faible coût",
                             "title": "Sachet en aluminium en forme de bouteille",
                             "desc": "Une forme de sachet en aluminium spécialisée et attrayante, conçue pour les packs d'essai à usage unique ou les lancements au format voyage. Extrêmement rentable avec une protection absolue contre la lumière et l’air.",
-                            "features": {
-                                "0": "Aluminium mat haute barrière",
-                                "1": "Idéal pour les doses d'essai (5-30g)",
-                                "2": "Encoche pour une ouverture en douceur"
-                            },
+                            "features": [
+                                "Aluminium mat haute barrière",
+                                "Idéal pour les doses d'essai (5-30g)",
+                                "Encoche pour une ouverture en douceur"
+                            ],
                             "linkText": "Commander des sachets (à partir de 0,06 $ US)"
                         },
                         "opt2": {
@@ -7522,11 +7522,11 @@
                             "tag": "Premium et distinct",
                             "title": "Capsule en aluminium sans plastique",
                             "desc": "Capsules MVP compactes de 40 ml en papier d'aluminium avec dessus thermosoudé. Zéro plastique et attrait de luxe audacieux au déballage : parfait pour les cadeaux et les échantillons haut de gamme.",
-                            "features": {
-                                "0": "Couche barrière métallique pure",
-                                "1": "Esthétique mate de vente au détail haut de gamme",
-                                "2": "Coût de démarrage initial minimal des machines"
-                            },
+                            "features": [
+                                "Couche barrière métallique pure",
+                                "Esthétique mate de vente au détail haut de gamme",
+                                "Coût de démarrage initial minimal des machines"
+                            ],
                             "linkText": "Demander un appel d'offres pour des capsules personnalisées"
                         },
                         "opt3": {
@@ -7534,11 +7534,11 @@
                             "tag": "Style de recharge écologique",
                             "title": "Pochette à bec recyclable",
                             "desc": "Une pochette stand-up en PE mono-matériau de haute transparence, entièrement recyclable dans les flux de plastique standards. Parfait pour les recharges D2C avec une grande visibilité de la marque.",
-                            "features": {
-                                "0": "Structure mono-matériau EVOH/PE",
-                                "1": "Couleur dorée du produit entièrement visible",
-                                "2": "Empreinte carbone inférieure à celle des bouteilles"
-                            },
+                            "features": [
+                                "Structure mono-matériau EVOH/PE",
+                                "Couleur dorée du produit entièrement visible",
+                                "Empreinte carbone inférieure à celle des bouteilles"
+                            ],
                             "linkText": "Acheter des pochettes recyclables"
                         },
                         "opt4": {
@@ -7546,11 +7546,11 @@
                             "tag": "PE à base de canne à sucre",
                             "title": "Pochette à bec verseur en canne à sucre Bio-PE",
                             "desc": "Polyéthylène organique dérivé de la canne à sucre associé à des couches barrières métallisées avancées. La référence en matière de stabilité ultime à long terme et d’intégrité des joints de transport.",
-                            "features": {
-                                "0": "Structure polymère biosourcée",
-                                "1": "Défense chimique la plus élevée contre le d-limonène",
-                                "2": "Résistant à la perforation pendant la logistique"
-                            },
+                            "features": [
+                                "Structure polymère biosourcée",
+                                "Défense chimique la plus élevée contre le d-limonène",
+                                "Résistant à la perforation pendant la logistique"
+                            ],
                             "linkText": "Magasiner les pochettes en aluminium à bec"
                         },
                         "opt5": {
@@ -7558,11 +7558,11 @@
                             "tag": "Cadeau de luxe au détail",
                             "title": "Boîte de présentation de capsules FSC",
                             "desc": "Ajoutez des boîtes de présentation FSC haut de gamme assorties à votre gamme de capsules en aluminium. Associe des plateaux intérieurs découpés sur mesure et des accents de feuille d'or pour créer un écosystème de luxe complet.",
-                            "features": {
-                                "0": "Tableau gris massif recyclé FSC",
-                                "1": "Feuille d'or de qualité supérieure et finitions mates",
-                                "2": "Expédié à plat pour économiser de l'espace de stockage"
-                            },
+                            "features": [
+                                "Tableau gris massif recyclé FSC",
+                                "Feuille d'or de qualité supérieure et finitions mates",
+                                "Expédié à plat pour économiser de l'espace de stockage"
+                            ],
                             "linkText": "Concevoir une boîte d'affichage personnalisée"
                         }
                     },
@@ -7601,17 +7601,17 @@
                         "title": "Liste de contrôle du protocole de conformité et de test actif",
                         "intro": "Pour garantir une dégradation structurelle nulle et une compatibilité chimique absolue, nous vous recommandons de suivre le cadre de tests en laboratoire Achieve Pack avant la production en masse :",
                         "phase1Title": "🧪 Phase 1 : Vérification du matériel",
-                        "phase1": {
-                            "0": "Confirmez si la formule a des ratios de terpènes élevés (par exemple > 1,5 % de d-limonène).",
-                            "1": "Vérifier la stabilité de l’émulsion eau/huile à différentes températures.",
-                            "2": "Évaluez les solvants actifs (alcool ou tensioactifs organiques) présents dans la formule."
-                        },
+                        "phase1": [
+                            "Confirmez si la formule a des ratios de terpènes élevés (par exemple > 1,5 % de d-limonène).",
+                            "Vérifier la stabilité de l’émulsion eau/huile à différentes températures.",
+                            "Évaluez les solvants actifs (alcool ou tensioactifs organiques) présents dans la formule."
+                        ],
                         "phase2Title": "⚖ Phase 2 : Tests d'intégrité",
-                        "phase2": {
-                            "0": "Effectuez un test de résistance continu de 30 jours à 40 °C dans des environnements de vente au détail simulés.",
-                            "1": "Effectuez des tests standard de fuite par chute et par perforation sous vide sous les charges d’expédition.",
-                            "2": "Vérifiez la cohérence de la force de scellage sur les capsules thermoscellées et les capuchons des sachets."
-                        }
+                        "phase2": [
+                            "Effectuez un test de résistance continu de 30 jours à 40 °C dans des environnements de vente au détail simulés.",
+                            "Effectuez des tests standard de fuite par chute et par perforation sous vide sous les charges d’expédition.",
+                            "Vérifiez la cohérence de la force de scellage sur les capsules thermoscellées et les capuchons des sachets."
+                        ]
                     }
                 },
                 "faqs": {
@@ -7626,16 +7626,16 @@
                 },
                 "tables": {
                     "title": "Comparaison technique : options d'emballage d'agrumes",
-                    "headers": {
-                        "0": "Format",
-                        "1": "Barrière à l'oxygène (OTR)",
-                        "2": "Vapeur d'eau (WVTR)",
-                        "3": "Résistance aux acides/terpènes",
-                        "4": "Quantité minimale de commande",
-                        "5": "Coût relatif"
-                    },
-                    "rows": {
-                        "0": {
+                    "headers": [
+                        "Format",
+                        "Barrière à l'oxygène (OTR)",
+                        "Vapeur d'eau (WVTR)",
+                        "Résistance aux acides/terpènes",
+                        "Quantité minimale de commande",
+                        "Coût relatif"
+                    ],
+                    "rows": [
+                        {
                             "0": "Sachet de papier d'aluminium pour bouteille",
                             "1": "0,01 ml/m²/jour",
                             "2": "0,02 g/m²/jour",
@@ -7643,7 +7643,7 @@
                             "4": "100 pièces",
                             "5": "Faible ($)"
                         },
-                        "1": {
+                        {
                             "0": "MVP des capsules en aluminium",
                             "1": "0,02 ml/m²/jour",
                             "2": "0,03 g/m²/jour",
@@ -7651,7 +7651,7 @@
                             "4": "500 pièces",
                             "5": "Moyen ($$)"
                         },
-                        "2": {
+                        {
                             "0": "Pochette transparente mono-PE",
                             "1": "0,45 ml/m²/jour",
                             "2": "0,35 g/m²/jour",
@@ -7659,7 +7659,7 @@
                             "4": "500 pièces",
                             "5": "Moyen ($$)"
                         },
-                        "3": {
+                        {
                             "0": "Pochette Bio-PE en canne à sucre",
                             "1": "0,05 ml/m²/jour",
                             "2": "0,08 g/m²/jour",
@@ -7667,7 +7667,7 @@
                             "4": "500 pièces",
                             "5": "Élevé ($$$)"
                         },
-                        "4": {
+                        {
                             "0": "Boîte d'affichage personnalisée FSC",
                             "1": "N/A (Protection extérieure)",
                             "2": "N / A",
@@ -7675,26 +7675,26 @@
                             "4": "200 pièces",
                             "5": "Prime ($$$$)"
                         }
-                    }
+                    ]
                 },
-                "relatedLinks": {
-                    "0": {
+                "relatedLinks": [
+                    {
                         "title": "Pochettes en aluminium à bec verseur",
                         "description": "Achetez des sachets en aluminium à haute barrière et à bec central conçus pour les formulations chimiques et liquides."
                     },
-                    "1": {
+                    {
                         "title": "Pochettes écologiques",
                         "description": "Catalogue de sachets debout biologiques durables soutenant les flux de recyclage respectueux de l'environnement."
                     },
-                    "2": {
+                    {
                         "title": "Sachet spécial en forme de bouteille",
                         "description": "Commandez des sachets en aluminium à haute barrière accrocheurs dans de superbes finitions pastel mates."
                     },
-                    "3": {
+                    {
                         "title": "Autocollants d’étanchéité PLA haut de gamme",
                         "description": "Étiquettes transparentes biodégradables et thermostables pour sceller des capsules ou des sachets pliables."
                     }
-                }
+                ]
             },
             "coffeeRoaster": {
                 "title": "Emballage de torréfacteur | Sacs à valve de dégazage | Durable | Réaliser le pack",
@@ -7707,19 +7707,19 @@
                         "title": "Le défi de l’emballage du café",
                         "intro": "En tant que torréfacteur de spécialité établi, vous avez perfectionné votre métier. Désormais, les clients et les réglementations vous poussent à réduire les déchets plastiques, sans compromettre la fraîcheur et la présence en rayon qui stimulent les ventes.",
                         "concernsTitle": "Préoccupations actuelles",
-                        "concerns": {
-                            "0": "Les sacs traditionnels utilisent des plastiques multicouches",
-                            "1": "Demande des clients pour des options durables",
-                            "2": "Peur de compromettre la fraîcheur/la durée de conservation",
-                            "3": "L’apparence haut de gamme stimule les ventes au détail"
-                        },
+                        "concerns": [
+                            "Les sacs traditionnels utilisent des plastiques multicouches",
+                            "Demande des clients pour des options durables",
+                            "Peur de compromettre la fraîcheur/la durée de conservation",
+                            "L’apparence haut de gamme stimule les ventes au détail"
+                        ],
                         "needsTitle": "Ce dont vous avez besoin",
-                        "needs": {
-                            "0": "Compatibilité des vannes de dégazage",
-                            "1": "Performance de fraîcheur éprouvée",
-                            "2": "Attrait haut de gamme en rayon",
-                            "3": "Des références durables"
-                        }
+                        "needs": [
+                            "Compatibilité des vannes de dégazage",
+                            "Performance de fraîcheur éprouvée",
+                            "Attrait haut de gamme en rayon",
+                            "Des références durables"
+                        ]
                     },
                     "degassing": {
                         "title": "Vannes de dégazage et fraîcheur",
@@ -7752,26 +7752,26 @@
                         "title": "Présence de détail haut de gamme",
                         "intro": "L’attrait en rayon stimule les achats impulsifs. Nos finitions haut de gamme créent un emballage remarquable qui attire l’attention dans les environnements de vente au détail très fréquentés.",
                         "col1Title": "Styles de pochettes",
-                        "col1Items": {
-                            "0": "Fond plat (pochette boîte)",
-                            "1": "Pochette debout",
-                            "2": "Gousset latéral",
-                            "3": "Joint quadruple"
-                        },
+                        "col1Items": [
+                            "Fond plat (pochette boîte)",
+                            "Pochette debout",
+                            "Gousset latéral",
+                            "Joint quadruple"
+                        ],
                         "col2Title": "Finitions haut de gamme",
-                        "col2Items": {
-                            "0": "Mat/doux au toucher",
-                            "1": "Brillant UV ponctuel",
-                            "2": "Estampage à la feuille",
-                            "3": "Gaufrage"
-                        },
+                        "col2Items": [
+                            "Mat/doux au toucher",
+                            "Brillant UV ponctuel",
+                            "Estampage à la feuille",
+                            "Gaufrage"
+                        ],
                         "col3Title": "Options de fermeture",
-                        "col3Items": {
-                            "0": "Fermeture éclair à pression",
-                            "1": "Attache en étain + fermeture éclair",
-                            "2": "Fermeture éclair coulissante",
-                            "3": "Thermoscellage"
-                        }
+                        "col3Items": [
+                            "Fermeture éclair à pression",
+                            "Attache en étain + fermeture éclair",
+                            "Fermeture éclair coulissante",
+                            "Thermoscellage"
+                        ]
                     },
                     "consistent-supply": {
                         "title": "Chaîne d'approvisionnement fiable",
@@ -7825,36 +7825,36 @@
                     "material-comparison": {
                         "title": "Comparaison des matériaux",
                         "intro": "Comparez les caractéristiques des différents matériaux d'emballage du café pour choisir la meilleure solution pour votre marque.",
-                        "headers": {
-                            "0": "Type d'emballage",
-                            "1": "Durée de conservation",
-                            "2": "Compatibilité des vannes de dégazage",
-                            "3": "Certification écologique",
-                            "4": "Coût"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Type d'emballage",
+                            "Durée de conservation",
+                            "Compatibilité des vannes de dégazage",
+                            "Certification écologique",
+                            "Coût"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Papier kraft compostable",
                                 "1": "6-9 mois",
                                 "2": "✓ Entièrement compatible",
                                 "3": "ASTM D6400",
                                 "4": "$$"
                             },
-                            "1": {
+                            {
                                 "0": "Mono-PE recyclable",
                                 "1": "12+ mois",
                                 "2": "✓ Entièrement compatible",
                                 "3": "Comment2Recycler",
                                 "4": "$"
                             },
-                            "2": {
+                            {
                                 "0": "Papier haute barrière",
                                 "1": "12+ mois",
                                 "2": "✓ Entièrement compatible",
                                 "3": "Recyclable",
                                 "4": "$$"
                             }
-                        },
+                        ],
                         "guideTitle": "Guide de sélection des matériaux",
                         "guideDesc": "Pour les torréfacteurs, nous recommandons de choisir les matériaux en fonction du positionnement de votre produit et de votre clientèle cible. Les cafés de spécialité haut de gamme conviennent mieux au papier kraft compostable, tandis que les cafés à grand volume bénéficient de la rentabilité du mono-PE recyclable."
                     }
@@ -7881,60 +7881,60 @@
                         "title": "Atteindre les objectifs de développement durable de l’entreprise",
                         "intro": "En tant que directeur du développement durable, vous êtes chargé d'atteindre des objectifs environnementaux ambitieux tout en gérant plusieurs marques et fournisseurs. Vous avez besoin de solutions de packaging avec des données d'impact quantifiables pour le reporting d'entreprise.",
                         "concernsTitle": "Défis d'entreprise",
-                        "concerns": {
-                            "0": "Plusieurs marques avec des besoins d'emballage différents",
-                            "1": "Conformité réglementaire dans toutes les régions",
-                            "2": "Exigences de reporting ESG",
-                            "3": "Besoins d’audit et de certification des fournisseurs"
-                        },
+                        "concerns": [
+                            "Plusieurs marques avec des besoins d'emballage différents",
+                            "Conformité réglementaire dans toutes les régions",
+                            "Exigences de reporting ESG",
+                            "Besoins d’audit et de certification des fournisseurs"
+                        ],
                         "needsTitle": "Ce dont vous avez besoin",
-                        "needs": {
-                            "0": "Données quantifiables sur l’impact environnemental",
-                            "1": "Certifications tierces pour toutes les réclamations",
-                            "2": "Solutions évolutives sur toutes les gammes de produits",
-                            "3": "Documentation transparente de la chaîne d'approvisionnement"
-                        }
+                        "needs": [
+                            "Données quantifiables sur l’impact environnemental",
+                            "Certifications tierces pour toutes les réclamations",
+                            "Solutions évolutives sur toutes les gammes de produits",
+                            "Documentation transparente de la chaîne d'approvisionnement"
+                        ]
                     },
                     "certifications": {
                         "title": "Certifications vérifiées par des tiers",
                         "intro": "Chaque affirmation environnementale que nous faisons est étayée par des certifications tierces reconnues à l’échelle internationale : la documentation dont vous avez besoin pour les rapports ESG et les allégations destinées aux consommateurs.",
                         "col1Title": "Compostabilité",
-                        "col1Items": {
-                            "0": "ASTM D6400 (États-Unis)",
-                            "1": "EN 13432 (EU)",
-                            "2": "AS5810 (Australie)"
-                        },
+                        "col1Items": [
+                            "ASTM D6400 (États-Unis)",
+                            "EN 13432 (EU)",
+                            "AS5810 (Australie)"
+                        ],
                         "col2Title": "Sécurité alimentaire",
-                        "col2Items": {
-                            "0": "Usine certifiée BRC",
-                            "1": "Conforme à la FDA",
-                            "2": "FSSC22000"
-                        },
+                        "col2Items": [
+                            "Usine certifiée BRC",
+                            "Conforme à la FDA",
+                            "FSSC22000"
+                        ],
                         "col3Title": "Recyclabilité",
-                        "col3Items": {
-                            "0": "How2Recycle Vérifié",
-                            "1": "Certifié Dépôt en Magasin",
-                            "2": "Guide de conception APR"
-                        }
+                        "col3Items": [
+                            "How2Recycle Vérifié",
+                            "Certifié Dépôt en Magasin",
+                            "Guide de conception APR"
+                        ]
                     },
                     "reporting": {
                         "title": "Prise en charge des rapports ESG",
                         "intro": "Nous fournissons les données quantifiables dont vous avez besoin pour les rapports de développement durable d'entreprise : comparaisons de l'empreinte carbone, mesures de réduction du plastique et documentation de fin de vie.",
                         "metricsTitle": "Métriques et documentation disponibles",
                         "metricCol1Title": "Impact environnemental",
-                        "metricCol1Items": {
-                            "0": "Empreinte carbone par unité (kg CO2e)",
-                            "1": "Pourcentage de réduction du plastique vierge",
-                            "2": "Certification PCR/contenu biosourcé",
-                            "3": "Données comparatives sur la consommation d'eau"
-                        },
+                        "metricCol1Items": [
+                            "Empreinte carbone par unité (kg CO2e)",
+                            "Pourcentage de réduction du plastique vierge",
+                            "Certification PCR/contenu biosourcé",
+                            "Données comparatives sur la consommation d'eau"
+                        ],
                         "metricCol2Title": "Documents de conformité",
-                        "metricCol2Items": {
-                            "0": "Certificats de certification (PDF)",
-                            "1": "Fiches de données de sécurité",
-                            "2": "Rapports d'audit de la chaîne d'approvisionnement",
-                            "3": "Directives d'élimination en fin de vie"
-                        },
+                        "metricCol2Items": [
+                            "Certificats de certification (PDF)",
+                            "Fiches de données de sécurité",
+                            "Rapports d'audit de la chaîne d'approvisionnement",
+                            "Directives d'élimination en fin de vie"
+                        ],
                         "img1Caption": "Certifié compostable",
                         "img2Caption": "Certifié recyclable",
                         "img3Caption": "Contenu du RAP",
@@ -7954,13 +7954,13 @@
                         "title": "Chaîne d'approvisionnement transparente",
                         "intro": "Nous maintenons une transparence totale de la chaîne d'approvisionnement avec un approvisionnement en matériaux documenté, des certifications d'usine et des pratiques de fabrication éthiques.",
                         "cardTitle": "Informations d'identification d'usine",
-                        "badges": {
-                            "0": "Certifié BRC",
-                            "1": "OIN 9001",
-                            "2": "OIN 14001",
-                            "3": "Membre SEDEX",
-                            "4": "Audité par la BSCI"
-                        }
+                        "badges": [
+                            "Certifié BRC",
+                            "OIN 9001",
+                            "OIN 14001",
+                            "Membre SEDEX",
+                            "Audité par la BSCI"
+                        ]
                     },
                     "cta": {
                         "title": "Planifier un examen de l'emballage d'entreprise",
@@ -8004,43 +8004,43 @@
                     "material-comparison": {
                         "title": "Comparaison des matériaux",
                         "intro": "Comparez les différentes certifications et rapports sur les matériaux durables pour vous aider à choisir la solution qui répond aux objectifs de votre entreprise.",
-                        "headers": {
-                            "0": "Type de matériau",
-                            "1": "Réduction de l'empreinte carbone",
-                            "2": "Certification tierce",
-                            "3": "Préparation aux rapports ESG",
-                            "4": "Niveau de recommandation"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Type de matériau",
+                            "Réduction de l'empreinte carbone",
+                            "Certification tierce",
+                            "Préparation aux rapports ESG",
+                            "Niveau de recommandation"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Matériaux compostables",
                                 "1": "-60%",
                                 "2": "ASTM/EN13432",
                                 "3": "★★★★★",
                                 "4": "Très élevé"
                             },
-                            "1": {
+                            {
                                 "0": "Matériau recyclé PCR",
                                 "1": "-30% à 50%",
                                 "2": "Certification PCR",
                                 "3": "★★★★",
                                 "4": "Haut"
                             },
-                            "2": {
+                            {
                                 "0": "Bio-PE / Biosourcé",
                                 "1": "-50%",
                                 "2": "ISCC Plus",
                                 "3": "★★★★★",
                                 "4": "Très élevé"
                             },
-                            "3": {
+                            {
                                 "0": "Mono-PE Recyclable",
                                 "1": "-20%",
                                 "2": "Comment2Recycler",
                                 "3": "★★★",
                                 "4": "Moyen"
                             }
-                        },
+                        ],
                         "guideTitle": "Guide de sélection des matériaux",
                         "guideDesc": "Pour les emballages durables d’entreprise, nous vous recommandons de choisir en fonction de vos objectifs ESG et des exigences de votre chaîne d’approvisionnement. Nous fournissons des documents de certification complets et des données d'empreinte carbone pour soutenir votre reporting ESG."
                     }
@@ -8067,19 +8067,19 @@
                         "title": "Les défis de l'emballage du commerce électronique",
                         "intro": "Vous avez créé votre marque de compléments alimentaires pour la vente en ligne. Chaque frais d'expédition, chaque produit endommagé, chaque expérience de déballage inoubliable a un impact direct sur vos résultats et sur la fidélisation de vos clients.",
                         "concernsTitle": "Qu'est-ce qui vous coûte de l'argent",
-                        "concerns": {
-                            "0": "Emballage lourd gonflant les frais d'expédition",
-                            "1": "Produits endommagés pendant le transport = retours",
-                            "2": "Packaging générique = pas de partage social",
-                            "3": "Cartons surdimensionnés = espace d'entrepôt gaspillé"
-                        },
+                        "concerns": [
+                            "Emballage lourd gonflant les frais d'expédition",
+                            "Produits endommagés pendant le transport = retours",
+                            "Packaging générique = pas de partage social",
+                            "Cartons surdimensionnés = espace d'entrepôt gaspillé"
+                        ],
                         "needsTitle": "Ce qui stimule la croissance",
-                        "needs": {
-                            "0": "Léger = coûts de zone d'expédition réduits",
-                            "1": "Durable = zéro réclamation",
-                            "2": "Digne d'Instagram = marketing gratuit",
-                            "3": "Gain de place = meilleure rotation des stocks"
-                        }
+                        "needs": [
+                            "Léger = coûts de zone d'expédition réduits",
+                            "Durable = zéro réclamation",
+                            "Digne d'Instagram = marketing gratuit",
+                            "Gain de place = meilleure rotation des stocks"
+                        ]
                     },
                     "solution": {
                         "title": "Emballage optimisé pour l'expédition DTC",
@@ -8102,26 +8102,26 @@
                         "title": "Créez un déballage digne d'Instagram",
                         "intro": "Chez DTC, votre emballage EST votre étagère de magasin. Des finitions haut de gamme et un design personnalisé transforment votre emballage en contenu partageable qui stimule la croissance organique.",
                         "col1Title": "Finitions haut de gamme",
-                        "col1Items": {
-                            "0": "Plastification douce au toucher",
-                            "1": "Revêtement UV ponctuel",
-                            "2": "Estampage à la feuille",
-                            "3": "Combinaisons mat/brillant"
-                        },
+                        "col1Items": [
+                            "Plastification douce au toucher",
+                            "Revêtement UV ponctuel",
+                            "Estampage à la feuille",
+                            "Combinaisons mat/brillant"
+                        ],
                         "col2Title": "Conception prête à photographier",
-                        "col2Items": {
-                            "0": "Impression complète à 360°",
-                            "1": "CMJN + Pantone",
-                            "2": "Effacer les fenêtres",
-                            "3": "Découpes personnalisées"
-                        },
+                        "col2Items": [
+                            "Impression complète à 360°",
+                            "CMJN + Pantone",
+                            "Effacer les fenêtres",
+                            "Découpes personnalisées"
+                        ],
                         "col3Title": "Caractéristiques fonctionnelles",
-                        "col3Items": {
-                            "0": "Fermetures éclair refermables",
-                            "1": "Encoches faciles à déchirer",
-                            "2": "Trous de suspension pour l'affichage",
-                            "3": "Codes QR"
-                        }
+                        "col3Items": [
+                            "Fermetures éclair refermables",
+                            "Encoches faciles à déchirer",
+                            "Trous de suspension pour l'affichage",
+                            "Codes QR"
+                        ]
                     },
                     "durability": {
                         "title": "Conçu pour les conditions d'expédition",
@@ -8133,12 +8133,12 @@
                         "col2Desc": "6-12 mois. Pour snacks, produits secs.",
                         "col3Title": "Standard",
                         "col3Desc": "3-6 mois. Pour les produits à rotation rapide.",
-                        "badges": {
-                            "0": "Résistant aux perforations",
-                            "1": "Barrière contre l'humidité",
-                            "2": "Protection UV",
-                            "3": "Barrière d'oxygène"
-                        }
+                        "badges": [
+                            "Résistant aux perforations",
+                            "Barrière contre l'humidité",
+                            "Protection UV",
+                            "Barrière d'oxygène"
+                        ]
                     },
                     "sustainability": {
                         "title": "Options durables pour les clients soucieux de l'environnement",
@@ -8196,43 +8196,43 @@
                     "material-comparison": {
                         "title": "Comparaison des matériaux",
                         "intro": "Comparez les différentes fonctionnalités d'emballage du commerce électronique pour vous aider à choisir la meilleure solution.",
-                        "headers": {
-                            "0": "Type d'emballage",
-                            "1": "Gain de poids",
-                            "2": "Protection d'expédition",
-                            "3": "Expérience de déballage",
-                            "4": "Impact sur les frais d'expédition"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Type d'emballage",
+                            "Gain de poids",
+                            "Protection d'expédition",
+                            "Expérience de déballage",
+                            "Impact sur les frais d'expédition"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Sacs flexibles doux au toucher",
                                 "1": "-75%",
                                 "2": "★★★★★",
                                 "3": "★★★★★",
                                 "4": "-60%"
                             },
-                            "1": {
+                            {
                                 "0": "Sacs au fini mat",
                                 "1": "-75%",
                                 "2": "★★★★",
                                 "3": "★★★★",
                                 "4": "-55%"
                             },
-                            "2": {
+                            {
                                 "0": "Sacs en papier kraft",
                                 "1": "-70%",
                                 "2": "★★★★",
                                 "3": "★★★★",
                                 "4": "-50%"
                             },
-                            "3": {
+                            {
                                 "0": "Boîtes rigides traditionnelles",
                                 "1": "Norme de base",
                                 "2": "★★★",
                                 "3": "★★★",
                                 "4": "Norme de base"
                             }
-                        },
+                        ],
                         "guideTitle": "Guide de sélection des matériaux",
                         "guideDesc": "Pour les marques de commerce électronique DTC, les sacs souples au toucher doux sont le meilleur choix. Ils permettent d'économiser considérablement sur les frais d'expédition tout en offrant une expérience de déballage supérieure. Plusieurs finitions de surface peuvent améliorer les taux de partage social."
                     }
@@ -8259,47 +8259,47 @@
                         "title": "Naviguer dans les réglementations sur l’emballage",
                         "intro": "En tant que professionnel de la fabrication alimentaire, vous maîtrisez les réglementations complexes en matière d’emballage sur les marchés nationaux et internationaux. Les réglementations environnementales de plus en plus strictes ajoutent un autre niveau de complexité.",
                         "concernsTitle": "Défis réglementaires",
-                        "concerns": {
-                            "0": "Directive européenne sur les plastiques à usage unique",
-                            "1": "REP (Responsabilité Elargie du Producteur)",
-                            "2": "Lois américaines sur les emballages au niveau des États",
-                            "3": "Conformité FDA/EFSA en matière de contact alimentaire"
-                        },
+                        "concerns": [
+                            "Directive européenne sur les plastiques à usage unique",
+                            "REP (Responsabilité Elargie du Producteur)",
+                            "Lois américaines sur les emballages au niveau des États",
+                            "Conformité FDA/EFSA en matière de contact alimentaire"
+                        ],
                         "needsTitle": "Ce dont vous avez besoin",
-                        "needs": {
-                            "0": "Connaissances réglementaires actuelles",
-                            "1": "Emballage conforme multi-marchés",
-                            "2": "Certifications de sécurité alimentaire",
-                            "3": "Documentation pour les audits"
-                        }
+                        "needs": [
+                            "Connaissances réglementaires actuelles",
+                            "Emballage conforme multi-marchés",
+                            "Certifications de sécurité alimentaire",
+                            "Documentation pour les audits"
+                        ]
                     },
                     "compliance": {
                         "title": "Conformité multi-juridiction",
                         "intro": "Nos emballages répondent aux exigences réglementaires des principaux marchés : un seul fournisseur pour les besoins nationaux et d'exportation.",
                         "usTitle": "États-Unis",
-                        "usItems": {
-                            "0": "Contact alimentaire FDA",
-                            "1": "ASTM D6400 compostable",
-                            "2": "Lois des États de CA/NY/NJ"
-                        },
+                        "usItems": [
+                            "Contact alimentaire FDA",
+                            "ASTM D6400 compostable",
+                            "Lois des États de CA/NY/NJ"
+                        ],
                         "euTitle": "Union européenne",
-                        "euItems": {
-                            "0": "Conforme à l'EFSA",
-                            "1": "EN 13432 compostable",
-                            "2": "Directive SUP prête"
-                        },
+                        "euItems": [
+                            "Conforme à l'EFSA",
+                            "EN 13432 compostable",
+                            "Directive SUP prête"
+                        ],
                         "ukTitle": "Royaume-Uni",
-                        "ukItems": {
-                            "0": "Contact alimentaire au Royaume-Uni",
-                            "1": "Taxe sur les emballages plastiques",
-                            "2": "Le dispositif EPR est prêt"
-                        },
+                        "ukItems": [
+                            "Contact alimentaire au Royaume-Uni",
+                            "Taxe sur les emballages plastiques",
+                            "Le dispositif EPR est prêt"
+                        ],
                         "auTitle": "Australie/Nouvelle-Zélande",
-                        "auItems": {
-                            "0": "Conforme FSANZ",
-                            "1": "AS5810 compostable",
-                            "2": "Rapports APCO"
-                        }
+                        "auItems": [
+                            "Conforme FSANZ",
+                            "AS5810 compostable",
+                            "Rapports APCO"
+                        ]
                     },
                     "food-safety": {
                         "title": "Certifications de sécurité alimentaire",
@@ -8319,29 +8319,29 @@
                         "title": "Documentation réglementaire",
                         "intro": "Nous fournissons une documentation complète pour les soumissions réglementaires et les audits.",
                         "colTitle": "Documents disponibles",
-                        "itemsCol1": {
-                            "0": "Certificat de Conformité",
-                            "1": "Déclaration de contact alimentaire",
-                            "2": "Fiches de données de sécurité",
-                            "3": "Rapports de tests de migration"
-                        },
-                        "itemsCol2": {
-                            "0": "Certificats de compostabilité",
-                            "1": "Vérification de la recyclabilité",
-                            "2": "Rapports d'audit d'usine",
-                            "3": "Enregistrements de traçabilité"
-                        }
+                        "itemsCol1": [
+                            "Certificat de Conformité",
+                            "Déclaration de contact alimentaire",
+                            "Fiches de données de sécurité",
+                            "Rapports de tests de migration"
+                        ],
+                        "itemsCol2": [
+                            "Certificats de compostabilité",
+                            "Vérification de la recyclabilité",
+                            "Rapports d'audit d'usine",
+                            "Enregistrements de traçabilité"
+                        ]
                     },
                     "future-proof": {
                         "title": "Pérennisez votre emballage",
                         "intro": "Les réglementations évoluent rapidement. Nous anticipons les exigences à venir afin que vous puissiez effectuer une transition de manière proactive plutôt que réactive.",
                         "cardTitle": "Règlements à venir que nous suivons",
-                        "items": {
-                            "0": "Règlement européen sur les emballages et les déchets d’emballages (PPWR) 2025",
-                            "1": "Développements de la politique fédérale américaine en matière de plastique",
-                            "2": "Extensions de la responsabilité élargie du producteur",
-                            "3": "Exigences obligatoires en matière de contenu recyclé"
-                        }
+                        "items": [
+                            "Règlement européen sur les emballages et les déchets d’emballages (PPWR) 2025",
+                            "Développements de la politique fédérale américaine en matière de plastique",
+                            "Extensions de la responsabilité élargie du producteur",
+                            "Exigences obligatoires en matière de contenu recyclé"
+                        ]
                     },
                     "cta": {
                         "title": "Planifier un examen de conformité",
@@ -8376,31 +8376,31 @@
                         "stat4Label": "Nouvelle réglementation sur les emballages depuis 2023",
                         "trendTitle": "Tendances réglementaires 2024-2026",
                         "col1Title": "Des exigences croissantes",
-                        "col1Items": {
-                            "0": "Objectifs de contenu recyclé obligatoires des PPWR de l’UE",
-                            "1": "Programmes REP élargis en Asie-Pacifique",
-                            "2": "Restrictions plus strictes en matière de PFAS en contact avec les aliments"
-                        },
+                        "col1Items": [
+                            "Objectifs de contenu recyclé obligatoires des PPWR de l’UE",
+                            "Programmes REP élargis en Asie-Pacifique",
+                            "Restrictions plus strictes en matière de PFAS en contact avec les aliments"
+                        ],
                         "col2Title": "Normes émergentes",
-                        "col2Items": {
-                            "0": "Passeports produits numériques pour les emballages",
-                            "1": "Exigences en matière d'étiquetage de l'empreinte carbone",
-                            "2": "Normes mondiales harmonisées de compostabilité"
-                        }
+                        "col2Items": [
+                            "Passeports produits numériques pour les emballages",
+                            "Exigences en matière d'étiquetage de l'empreinte carbone",
+                            "Normes mondiales harmonisées de compostabilité"
+                        ]
                     },
                     "material-comparison": {
                         "title": "Comparaison des matériaux",
                         "intro": "Comparez les matériaux d'emballage conformes pour sélectionner la bonne option pour vos exigences réglementaires et vos marchés.",
-                        "headers": {
-                            "0": "Matérielle",
-                            "1": "FDA/EFSA",
-                            "2": "Certificat compostable",
-                            "3": "Compatible REP",
-                            "4": "Meilleurs marchés",
-                            "5": "Niveau de coût"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Matérielle",
+                            "FDA/EFSA",
+                            "Certificat compostable",
+                            "Compatible REP",
+                            "Meilleurs marchés",
+                            "Niveau de coût"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Kraft + PLA compostables",
                                 "1": "✓ Complet",
                                 "2": "✓ EN13432/ASTM",
@@ -8408,7 +8408,7 @@
                                 "4": "UE, États-Unis, UA",
                                 "5": "$$$"
                             },
-                            "1": {
+                            {
                                 "0": "Mono-PE recyclable",
                                 "1": "✓ Complet",
                                 "2": "- N / A",
@@ -8416,7 +8416,7 @@
                                 "4": "États-Unis, Royaume-Uni, Australie",
                                 "5": "$$"
                             },
-                            "2": {
+                            {
                                 "0": "Film de contenu PCR",
                                 "1": "✓ Complet",
                                 "2": "- N / A",
@@ -8424,7 +8424,7 @@
                                 "4": "Royaume-Uni, UE",
                                 "5": "$$"
                             },
-                            "3": {
+                            {
                                 "0": "Film Bio-PE",
                                 "1": "✓ Complet",
                                 "2": "- N / A",
@@ -8432,7 +8432,7 @@
                                 "4": "Mondiale",
                                 "5": "$$$"
                             }
-                        },
+                        ],
                         "adviceTitle": "Conseils de sélection d'experts",
                         "adviceDesc": "Pour l'exportation sur plusieurs marchés : choisissez Kraft + PLA Compostable pour les marchés de l'UE/AU avec des exigences strictes en matière de compostabilité, ou le contenu PCR pour la conformité à la taxe britannique sur les emballages plastiques. Notre équipe peut vous aider à répondre aux exigences spécifiques du marché."
                     }
@@ -8459,19 +8459,19 @@
                         "title": "Emballage pour l'innovation produit",
                         "intro": "En tant que développeur de produits axé sur l’innovation, vous commercialisez rapidement de nouveaux produits. Vous avez besoin de partenaires d’emballage capables de suivre votre rythme et de proposer des solutions créatives.",
                         "concernsTitle": "Les défis de l'innovation",
-                        "concerns": {
-                            "0": "Les longs délais de livraison ralentissent les lancements de produits",
-                            "1": "Les fournisseurs ne comprennent pas les nouveaux produits",
-                            "2": "Les options d'emballage rigide limitent la créativité",
-                            "3": "Des MOQ élevés empêchent les tests de marché"
-                        },
+                        "concerns": [
+                            "Les longs délais de livraison ralentissent les lancements de produits",
+                            "Les fournisseurs ne comprennent pas les nouveaux produits",
+                            "Les options d'emballage rigide limitent la créativité",
+                            "Des MOQ élevés empêchent les tests de marché"
+                        ],
                         "needsTitle": "Ce dont vous avez besoin",
-                        "needs": {
-                            "0": "Capacités de prototypage rapide",
-                            "1": "Options de matériaux de pointe",
-                            "2": "Cycles d'itération flexibles",
-                            "3": "Partenariat de conception collaborative"
-                        }
+                        "needs": [
+                            "Capacités de prototypage rapide",
+                            "Options de matériaux de pointe",
+                            "Cycles d'itération flexibles",
+                            "Partenariat de conception collaborative"
+                        ]
                     },
                     "rapid-prototyping": {
                         "title": "Prototypage et tests rapides",
@@ -8490,19 +8490,19 @@
                         "title": "Matériaux et technologies de pointe",
                         "intro": "Gardez une longueur d'avance grâce aux dernières innovations en matière d'emballage durable : des matériaux et des caractéristiques qui différencient vos produits et séduisent les premiers utilisateurs.",
                         "card1Title": "Matériaux innovants",
-                        "card1Items": {
-                            "0": "Films compostables PLA/PBAT",
-                            "1": "Bio-PE (à base de canne à sucre)",
-                            "2": "Mono-PE Recyclable",
-                            "3": "Films de contenu PCR"
-                        },
+                        "card1Items": [
+                            "Films compostables PLA/PBAT",
+                            "Bio-PE (à base de canne à sucre)",
+                            "Mono-PE Recyclable",
+                            "Films de contenu PCR"
+                        ],
                         "card2Title": "Fonctionnalités avancées",
-                        "card2Items": {
-                            "0": "Emballage intelligent NFC/QR",
-                            "1": "Prêt pour la réalité augmentée",
-                            "2": "Fermetures à l'épreuve des enfants",
-                            "3": "Sceaux inviolables"
-                        },
+                        "card2Items": [
+                            "Emballage intelligent NFC/QR",
+                            "Prêt pour la réalité augmentée",
+                            "Fermetures à l'épreuve des enfants",
+                            "Sceaux inviolables"
+                        ],
                         "img1Caption": "Finition métallique",
                         "img2Caption": "Feuille de timbre",
                         "img3Caption": "Fermeture éclair coulissante.",
@@ -8524,19 +8524,19 @@
                         "title": "Partenariat de conception collaborative",
                         "intro": "Nous ne sommes pas de simples fournisseurs, nous sommes des partenaires d'innovation en matière d'emballage. Notre équipe apporte des idées et résout les défis techniques à vos côtés.",
                         "col1Title": "Ce que nous apportons",
-                        "col1Items": {
-                            "0": "Expertise en science des matériaux",
-                            "1": "Créativité en matière de conception structurelle",
-                            "2": "Conseils sur la faisabilité de la fabrication",
-                            "3": "Tendances et informations sur les consommateurs"
-                        },
+                        "col1Items": [
+                            "Expertise en science des matériaux",
+                            "Créativité en matière de conception structurelle",
+                            "Conseils sur la faisabilité de la fabrication",
+                            "Tendances et informations sur les consommateurs"
+                        ],
                         "col2Title": "Comment nous travaillons",
-                        "col2Items": {
-                            "0": "Séances de brainstorming",
-                            "1": "Cycles de prototypage rapides",
-                            "2": "Résolution de problèmes techniques",
-                            "3": "Assistance aux tests de marché"
-                        }
+                        "col2Items": [
+                            "Séances de brainstorming",
+                            "Cycles de prototypage rapides",
+                            "Résolution de problèmes techniques",
+                            "Assistance aux tests de marché"
+                        ]
                     },
                     "cta": {
                         "title": "Planifier une séance d'innovation",
@@ -8571,31 +8571,31 @@
                         "stat4Label": "Marché mondial des emballages intelligents d’ici 2026",
                         "trendTitle": "Tendances de l'innovation 2024-2026",
                         "col1Title": "Technologies émergentes",
-                        "col1Items": {
-                            "0": "Intégration d'emballages intelligents NFC/RFID",
-                            "1": "Expériences de consommation basées sur la réalité augmentée",
-                            "2": "Packaging actif pour l’extension de la fraîcheur"
-                        },
+                        "col1Items": [
+                            "Intégration d'emballages intelligents NFC/RFID",
+                            "Expériences de consommation basées sur la réalité augmentée",
+                            "Packaging actif pour l’extension de la fraîcheur"
+                        ],
                         "col2Title": "Innovation matérielle",
-                        "col2Items": {
-                            "0": "Films à base d'algues et d'algues",
-                            "1": "Emballage de mycélium de champignon",
-                            "2": "Emballage comestible et soluble"
-                        }
+                        "col2Items": [
+                            "Films à base d'algues et d'algues",
+                            "Emballage de mycélium de champignon",
+                            "Emballage comestible et soluble"
+                        ]
                     },
                     "material-comparison": {
                         "title": "Comparaison des matériaux",
                         "intro": "Comparez les matériaux d'emballage innovants pour sélectionner la bonne option pour vos besoins de développement de produits.",
-                        "headers": {
-                            "0": "Matérielle",
-                            "1": "Niveau d'innovation",
-                            "2": "Vitesse du prototype",
-                            "3": "Durabilité",
-                            "4": "Meilleur cas d'utilisation",
-                            "5": "Niveau de coût"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Matérielle",
+                            "Niveau d'innovation",
+                            "Vitesse du prototype",
+                            "Durabilité",
+                            "Meilleur cas d'utilisation",
+                            "Niveau de coût"
+                        ],
+                        "rows": [
+                            {
                                 "0": "PLA/PBAT compostables",
                                 "1": "★★★★★",
                                 "2": "48 heures",
@@ -8603,7 +8603,7 @@
                                 "4": "Des lancements écoresponsables",
                                 "5": "$$$"
                             },
-                            "1": {
+                            {
                                 "0": "Films métalliques/holographiques",
                                 "1": "★★★★",
                                 "2": "48 heures",
@@ -8611,7 +8611,7 @@
                                 "4": "Un positionnement premium",
                                 "5": "$$$"
                             },
-                            "2": {
+                            {
                                 "0": "Bio-PE (canne à sucre)",
                                 "1": "★★★★",
                                 "2": "48 heures",
@@ -8619,7 +8619,7 @@
                                 "4": "Accueil durable",
                                 "5": "$$"
                             },
-                            "3": {
+                            {
                                 "0": "Intelligent/NFC activé",
                                 "1": "★★★★★",
                                 "2": "1-2 semaines",
@@ -8627,7 +8627,7 @@
                                 "4": "Engagement des consommateurs",
                                 "5": "$$$$"
                             }
-                        },
+                        ],
                         "adviceTitle": "Conseils de sélection d'experts",
                         "adviceDesc": "Pour des tests de concept rapides : commencez avec des matériaux durables standards pour valider le concept, puis passez à des matériaux haut de gamme ou intelligents pour la production. Notre impression numérique permet des changements de matériaux faciles entre les itérations du prototype."
                     }
@@ -8654,19 +8654,19 @@
                         "title": "Le défi de durabilité des marques de snacks",
                         "intro": "En tant que chef de marque de snacks biologiques, vous défendez la durabilité tout en gérant les pressions sur les coûts et la complexité de la chaîne d'approvisionnement. Vous avez besoin d’un emballage qui prend en charge les allégations marketing et qui fonctionne sur tous les canaux de vente au détail.",
                         "concernsTitle": "Défis internes",
-                        "concerns": {
-                            "0": "Équilibrer les coûts et la durabilité",
-                            "1": "Plusieurs gammes/tailles de produits",
-                            "2": "Exigences en matière de distribution au détail",
-                            "3": "Documenter les allégations environnementales"
-                        },
+                        "concerns": [
+                            "Équilibrer les coûts et la durabilité",
+                            "Plusieurs gammes/tailles de produits",
+                            "Exigences en matière de distribution au détail",
+                            "Documenter les allégations environnementales"
+                        ],
                         "needsTitle": "Ce dont vous avez besoin",
-                        "needs": {
-                            "0": "Références vérifiées en matière de durabilité",
-                            "1": "Rentable à grande échelle",
-                            "2": "Chaîne d'approvisionnement cohérente",
-                            "3": "Documentation pour la commercialisation"
-                        }
+                        "needs": [
+                            "Références vérifiées en matière de durabilité",
+                            "Rentable à grande échelle",
+                            "Chaîne d'approvisionnement cohérente",
+                            "Documentation pour la commercialisation"
+                        ]
                     },
                     "multi-product": {
                         "title": "Solutions pour toute votre gamme de produits",
@@ -8687,86 +8687,86 @@
                         "intro": "Les équipes marketing ont besoin de preuves. Nous fournissons une documentation complète sur les allégations de durabilité des emballages : certifications, données sur le cycle de vie et messages approuvés.",
                         "cardTitle": "Ce que nous proposons pour le marketing",
                         "col1Title": "Certifications",
-                        "col1Items": {
-                            "0": "ASTM D6400 / EN 13432 compostable",
-                            "1": "Approbation de l’étiquetage How2Recycle",
-                            "2": "Vérification du contenu PCR",
-                            "3": "Certification de contenu biosourcé"
-                        },
+                        "col1Items": [
+                            "ASTM D6400 / EN 13432 compostable",
+                            "Approbation de l’étiquetage How2Recycle",
+                            "Vérification du contenu PCR",
+                            "Certification de contenu biosourcé"
+                        ],
                         "col2Title": "Prise en charge de la messagerie",
-                        "col2Items": {
-                            "0": "Langue de la revendication approuvée",
-                            "1": "Logos de certification (haute résolution)",
-                            "2": "Instructions d'élimination pour le consommateur",
-                            "3": "Données d'impact environnemental"
-                        }
+                        "col2Items": [
+                            "Langue de la revendication approuvée",
+                            "Logos de certification (haute résolution)",
+                            "Instructions d'élimination pour le consommateur",
+                            "Données d'impact environnemental"
+                        ]
                     },
                     "cost-performance": {
                         "title": "Équilibrer les coûts et la durabilité",
                         "intro": "La durabilité ne doit pas nécessairement casser le budget. Nous proposons des options à plusieurs niveaux qui vous permettent de choisir le bon équilibre entre les qualités environnementales et le coût pour chaque gamme de produits.",
-                        "headers": {
-                            "0": "Option",
-                            "1": "Durabilité",
-                            "2": "Coût",
-                            "3": "Idéal pour"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Option",
+                            "Durabilité",
+                            "Coût",
+                            "Idéal pour"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Certifié compostable",
                                 "1": "★★★★★",
                                 "2": "Prime",
                                 "3": "Des lignes bio phares"
                             },
-                            "1": {
+                            {
                                 "0": "Mono-PE recyclable",
                                 "1": "★★★★",
                                 "2": "Milieu de gamme",
                                 "3": "Produits grand public"
                             },
-                            "2": {
+                            {
                                 "0": "Contenu du RAP",
                                 "1": "★★★",
                                 "2": "Compétitive",
                                 "3": "Des lignes soucieuses de leur budget"
                             }
-                        }
+                        ]
                     },
                     "retail-ready": {
                         "title": "Emballage prêt à la vente au détail",
                         "intro": "Les acheteurs au détail ont des exigences spécifiques. Nos emballages répondent aux normes des principaux détaillants en matière de présence en rayon, de logistique et d'engagements en matière de développement durable.",
                         "col1Title": "Performance en rayon",
-                        "col1Items": {
-                            "0": "Présentoir debout",
-                            "1": "Trous de suspension pour les piquets",
-                            "2": "Visibilité claire de la marque",
-                            "3": "Configurations multipacks"
-                        },
+                        "col1Items": [
+                            "Présentoir debout",
+                            "Trous de suspension pour les piquets",
+                            "Visibilité claire de la marque",
+                            "Configurations multipacks"
+                        ],
                         "col2Title": "Logistique",
-                        "col2Items": {
-                            "0": "Efficacité des coffrets",
-                            "1": "Optimisation des palettes",
-                            "2": "Compatibilité des codes-barres",
-                            "3": "Étiquetage de la durée de conservation"
-                        },
+                        "col2Items": [
+                            "Efficacité des coffrets",
+                            "Optimisation des palettes",
+                            "Compatibilité des codes-barres",
+                            "Étiquetage de la durée de conservation"
+                        ],
                         "col3Title": "Exigences du détaillant",
-                        "col3Items": {
-                            "0": "Normes pour les aliments entiers",
-                            "1": "Lignes directrices sur les germes",
-                            "2": "Spécifications des épiciers naturels",
-                            "3": "Prêt pour Amazon FBA"
-                        }
+                        "col3Items": [
+                            "Normes pour les aliments entiers",
+                            "Lignes directrices sur les germes",
+                            "Spécifications des épiciers naturels",
+                            "Prêt pour Amazon FBA"
+                        ]
                     },
                     "supplier-partnership": {
                         "title": "Partenariat fournisseur à long terme",
                         "intro": "Les chefs de marque ont besoin de fournisseurs fiables. Nous construisons des partenariats à long terme avec des prix cohérents, une production prioritaire et des mises à jour proactives en matière d'innovation.",
                         "cardTitle": "Avantages du partenariat",
-                        "badges": {
-                            "0": "Prix ​​​​de volume",
-                            "1": "Production prioritaire",
-                            "2": "Commandes globales",
-                            "3": "Mises à jour de nouveaux matériaux",
-                            "4": "Gestionnaire de compte dédié"
-                        }
+                        "badges": [
+                            "Prix ​​​​de volume",
+                            "Production prioritaire",
+                            "Commandes globales",
+                            "Mises à jour de nouveaux matériaux",
+                            "Gestionnaire de compte dédié"
+                        ]
                     },
                     "cta": {
                         "title": "Planifier une revue de portefeuille",
@@ -8801,31 +8801,31 @@
                         "stat4Label": "Croissance annuelle dans la catégorie des collations biologiques",
                         "trendTitle": "Tendances des emballages de collations 2024-2026",
                         "col1Title": "Préférences des consommateurs",
-                        "col1Items": {
-                            "0": "Options refermables pour le contrôle des portions",
-                            "1": "Fenêtres transparentes pour la visibilité du produit",
-                            "2": "Codes QR liés aux histoires de sourcing"
-                        },
+                        "col1Items": [
+                            "Options refermables pour le contrôle des portions",
+                            "Fenêtres transparentes pour la visibilité du produit",
+                            "Codes QR liés aux histoires de sourcing"
+                        ],
                         "col2Title": "Exigences du détaillant",
-                        "col2Items": {
-                            "0": "Mandats d’emballage durable d’ici 2025",
-                            "1": "Exigences d’étiquetage How2Recycle",
-                            "2": "Documentation de recyclabilité pour les acheteurs"
-                        }
+                        "col2Items": [
+                            "Mandats d’emballage durable d’ici 2025",
+                            "Exigences d’étiquetage How2Recycle",
+                            "Documentation de recyclabilité pour les acheteurs"
+                        ]
                     },
                     "material-comparison": {
                         "title": "Comparaison des matériaux",
                         "intro": "Comparez les matériaux d'emballage de snacks durables pour sélectionner la bonne option pour chaque gamme de produits.",
-                        "headers": {
-                            "0": "Matérielle",
-                            "1": "Durabilité",
-                            "2": "Niveau de barrière",
-                            "3": "Idéal pour",
-                            "4": "Ajustement du détaillant",
-                            "5": "Niveau de coût"
-                        },
-                        "rows": {
-                            "0": {
+                        "headers": [
+                            "Matérielle",
+                            "Durabilité",
+                            "Niveau de barrière",
+                            "Idéal pour",
+                            "Ajustement du détaillant",
+                            "Niveau de coût"
+                        ],
+                        "rows": [
+                            {
                                 "0": "Kraft + PLA compostables",
                                 "1": "★★★★★",
                                 "2": "Moyen-élevé",
@@ -8833,7 +8833,7 @@
                                 "4": "Aliments complets, germes",
                                 "5": "$$$"
                             },
-                            "1": {
+                            {
                                 "0": "Mono-PE recyclable",
                                 "1": "★★★★",
                                 "2": "Haut",
@@ -8841,7 +8841,7 @@
                                 "4": "Cible, Kroger",
                                 "5": "$$"
                             },
-                            "2": {
+                            {
                                 "0": "Film de contenu PCR",
                                 "1": "★★★",
                                 "2": "Haut",
@@ -8849,7 +8849,7 @@
                                 "4": "Commerce de détail grand public",
                                 "5": "$$"
                             },
-                            "3": {
+                            {
                                 "0": "Film Bio-PE",
                                 "1": "★★★★",
                                 "2": "Haut",
@@ -8857,7 +8857,7 @@
                                 "4": "Épiciers naturels",
                                 "5": "$$$"
                             }
-                        },
+                        ],
                         "adviceTitle": "Conseils de sélection d'experts",
                         "adviceDesc": "Pour les portefeuilles multi-produits : utilisez du Kraft + PLA Compostable pour les gammes biologiques phares, du Mono-PE recyclable pour les produits grand public nécessitant une barrière élevée. Nous pouvons vous aider à créer une stratégie de développement durable à plusieurs niveaux qui équilibre les coûts et les qualités environnementales."
                     }
@@ -8876,13 +8876,13 @@
             "startupFounder": {
                 "title": "Emballage pour les fondateurs de startups | Pochettes durables à faible MOQ | Réaliser le pack",
                 "description": "Emballage durable adapté aux startups avec une commande minimum de 100 pièces. Sachets compostables certifiés, assistance à la conception gratuite et délai d'exécution rapide pour les lancements de produits. Parfait pour les marques de bien-être DTC.",
-                "keywords": {
-                    "0": "emballage de démarrage",
-                    "1": "pochettes à faible MOQ",
-                    "2": "Emballage de marque DTC",
-                    "3": "startup d'emballage durable",
-                    "4": "emballage de marque de bien-être"
-                },
+                "keywords": [
+                    "emballage de démarrage",
+                    "pochettes à faible MOQ",
+                    "Emballage de marque DTC",
+                    "startup d'emballage durable",
+                    "emballage de marque de bien-être"
+                ],
                 "heroTitle": "Emballage pour les fondateurs de startups",
                 "heroSubtitle": "Faible MOQ à partir de 100 pièces | Certifié durable | Assistance de conception gratuite",
                 "introSummary": "Lancez votre marque DTC avec un emballage qui correspond à vos valeurs de durabilité. Obtenez des sachets compostables imprimés et certifiés personnalisés à partir de seulement 100 pièces, avec une assistance de conception gratuite et un délai d'exécution de 2 à 3 semaines.",
@@ -8893,19 +8893,19 @@
                         "introStrong": "marque de bien-être destinée directement aux consommateurs",
                         "intro2": "avec des budgets serrés et de grands objectifs de développement durable. Trouver un emballage qui évolue avec votre entreprise tout en conservant vos références écologiques semble impossible.",
                         "challengesTitle": "Frustrations courantes",
-                        "challenges": {
-                            "0": "Plus de 10 000 exigences MOQ vous excluent",
-                            "1": "L'emballage générique ne correspond pas au positionnement de la marque",
-                            "2": "Des certifications environnementales peu claires",
-                            "3": "Les longs délais de livraison manquent les lancements de produits"
-                        },
+                        "challenges": [
+                            "Plus de 10 000 exigences MOQ vous excluent",
+                            "L'emballage générique ne correspond pas au positionnement de la marque",
+                            "Des certifications environnementales peu claires",
+                            "Les longs délais de livraison manquent les lancements de produits"
+                        ],
                         "needsTitle": "Ce dont vous avez réellement besoin",
-                        "needs": {
-                            "0": "Faible MOQ (100-500 pièces) pour les tests",
-                            "1": "Certifications compostables vérifiées",
-                            "2": "Un design haut de gamme sans prix premium",
-                            "3": "Délai d'exécution rapide pour les délais de lancement"
-                        }
+                        "needs": [
+                            "Faible MOQ (100-500 pièces) pour les tests",
+                            "Certifications compostables vérifiées",
+                            "Un design haut de gamme sans prix premium",
+                            "Délai d'exécution rapide pour les délais de lancement"
+                        ]
                     },
                     "solution": {
                         "title": "Comment les emballages à faible quantité de commande résolvent-ils vos problèmes ?",
@@ -9034,17 +9034,17 @@
                         "card4Desc": "Engagement accru avec les marques durables",
                         "trendTitle": "Tendances des emballages de startups 2024-2026",
                         "col1Title": "Facteurs de réussite",
-                        "col1Items": {
-                            "0": "L'expérience de déballage stimule les partages sociaux",
-                            "1": "L'histoire de durabilité augmente la conversion",
-                            "2": "Un faible MOQ permet des tests de marché plus rapides"
-                        },
+                        "col1Items": [
+                            "L'expérience de déballage stimule les partages sociaux",
+                            "L'histoire de durabilité augmente la conversion",
+                            "Un faible MOQ permet des tests de marché plus rapides"
+                        ],
                         "col2Title": "Tendances d'investissement",
-                        "col2Items": {
-                            "0": "Les sociétés de capital-risque donnent la priorité aux chaînes d'approvisionnement durables",
-                            "1": "Les emballages haut de gamme entraînent des prix plus élevés",
-                            "2": "Les logos de certification renforcent la confiance des consommateurs"
-                        }
+                        "col2Items": [
+                            "Les sociétés de capital-risque donnent la priorité aux chaînes d'approvisionnement durables",
+                            "Les emballages haut de gamme entraînent des prix plus élevés",
+                            "Les logos de certification renforcent la confiance des consommateurs"
+                        ]
                     },
                     "material-comparison": {
                         "title": "Comparaison des matériaux",
@@ -9095,12 +9095,12 @@
                 "trustBadge3": "PME sur mesure",
                 "takeaways": {
                     "title": "Points clés à retenir",
-                    "items": {
-                        "0": "<strong>Étape 1 – Audit :</strong> cartographiez tous les SKU d'emballages flexibles et identifiez les structures à haut risque",
-                        "1": "<strong>Étape 2 – Refonte :</strong> Convertissez les SKU prioritaires en sachets mono-PE Eco Digital",
-                        "2": "<strong>Étape 3 – Étendre</strong> : étendre l'ensemble du portefeuille et des couches en PCR et bio-PE",
-                        "3": "<strong>Approche par étapes</strong> : évitez de surcharger votre équipe en effectuant des conversions progressives."
-                    }
+                    "items": [
+                        "<strong>Étape 1 – Audit :</strong> cartographiez tous les SKU d'emballages flexibles et identifiez les structures à haut risque",
+                        "<strong>Étape 2 – Refonte :</strong> Convertissez les SKU prioritaires en sachets mono-PE Eco Digital",
+                        "<strong>Étape 3 – Étendre</strong> : étendre l'ensemble du portefeuille et des couches en PCR et bio-PE",
+                        "<strong>Approche par étapes</strong> : évitez de surcharger votre équipe en effectuant des conversions progressives."
+                    ]
                 },
                 "introduction": {
                     "title": "De l’ambition à la réalité opérationnelle",
@@ -9113,21 +9113,21 @@
                     "caption": "Cartographiez votre emballage actuel pour comprendre votre point de départ",
                     "taskTitle": "Tâche clé : Inventorier vos SKU",
                     "taskSubtitle": "Répertorier tous les formats d'emballages souples (pochettes, sachets, sachets) avec :",
-                    "taskItems": {
-                        "0": "Structures en couches (par exemple, PET/ALU/PE, PET/PE, mono‐PE)",
-                        "1": "Type de produit (café, collations, friandises pour animaux, suppléments, etc.)",
-                        "2": "Volumes annuels et principaux marchés de vente"
-                    }
+                    "taskItems": [
+                        "Structures en couches (par exemple, PET/ALU/PE, PET/PE, mono‐PE)",
+                        "Type de produit (café, collations, friandises pour animaux, suppléments, etc.)",
+                        "Volumes annuels et principaux marchés de vente"
+                    ]
                 },
                 "highRisk": {
                     "title": "Identifier les structures à haut risque",
                     "caption": "Mettez en avant les stratifiés difficiles à recycler et priorisez les changements",
                     "intro": "Mettez en avant les stratifiés qui sont clairement difficiles à recycler dans les systèmes actuels :",
-                    "items": {
-                        "0": "Stratifiés de papier d'aluminium",
-                        "1": "Films multipolymères complexes",
-                        "2": "SKU pour lesquels les détaillants ou les clients posent déjà des questions sur la recyclabilité"
-                    },
+                    "items": [
+                        "Stratifiés de papier d'aluminium",
+                        "Films multipolymères complexes",
+                        "SKU pour lesquels les détaillants ou les clients posent déjà des questions sur la recyclabilité"
+                    ],
                     "footerText": "Cet audit révélera généralement un sous-ensemble de SKU pour lesquels une modification de conception améliorerait considérablement votre profil de recyclabilité."
                 },
                 "step2": {
@@ -9135,19 +9135,19 @@
                     "caption": "Convertir les SKU prioritaires en structures mono-PE Eco Digital",
                     "intro": "Une fois votre position clairement définie, l'étape suivante consiste à repenser les SKU prioritaires (ceux ayant le plus grand impact stratégique) pour qu'ils soient 100 % recyclables lorsque cela est possible.",
                     "taskTitle": "Sélectionnez les SKU candidats",
-                    "taskItems": {
-                        "0": "Concentrez-vous sur les produits phares, les lignes à gros volumes ou les packs ciblés par les exigences de durabilité des détaillants",
-                        "1": "Envisagez de commencer avec des SKU qui utilisent déjà des stratifiés plus simples, car ils se convertissent souvent plus facilement en mono-PE"
-                    }
+                    "taskItems": [
+                        "Concentrez-vous sur les produits phares, les lignes à gros volumes ou les packs ciblés par les exigences de durabilité des détaillants",
+                        "Envisagez de commencer avec des SKU qui utilisent déjà des stratifiés plus simples, car ils se convertissent souvent plus facilement en mono-PE"
+                    ]
                 },
                 "flexibility": {
                     "title": "Travailler avec Achieve Pack sur la refonte structurelle",
                     "caption": "L'impression numérique permet un prototypage rapide sans coûts de plaques",
-                    "items": {
-                        "0": "<strong>Repenser les références</strong> en sachets mono-PE Eco Digital, en équilibrant la durée de conservation, la résistance mécanique et la recyclabilité.",
-                        "1": "<strong>Utiliser des qualités de PE barrière et une conception structurelle</strong> pour remplacer les approches multi-matériaux lorsque cela est possible",
-                        "2": "<strong>Valider par des tests</strong> : résistance du joint, tack à chaud, résistance à la perforation, performance en cas de chute et barrière"
-                    },
+                    "items": [
+                        "<strong>Repenser les références</strong> en sachets mono-PE Eco Digital, en équilibrant la durée de conservation, la résistance mécanique et la recyclabilité.",
+                        "<strong>Utiliser des qualités de PE barrière et une conception structurelle</strong> pour remplacer les approches multi-matériaux lorsque cela est possible",
+                        "<strong>Valider par des tests</strong> : résistance du joint, tack à chaud, résistance à la perforation, performance en cas de chute et barrière"
+                    ],
                     "footerText": "Parce qu'Eco Digital utilise l'impression numérique, vous pouvez créer des prototypes et itérer des conceptions d'emballages sans le coût et le temps associés aux nouvelles plaques d'impression."
                 },
                 "step3": {
@@ -9155,11 +9155,11 @@
                     "caption": "Étendez votre portefeuille et ajoutez des améliorations en matière de durabilité",
                     "intro": "Une fois que vous avez prouvé votre succès avec les premiers SKU, il est temps de les mettre à l’échelle et de les affiner.",
                     "taskTitle": "Extension de la conception 100 % recyclable",
-                    "taskItems": {
-                        "0": "Convertir progressivement davantage de références de stratifiés complexes en mono-PE Eco Digital",
-                        "1": "Parcourez votre portefeuille en fonction du volume, de la marge et de l'importance stratégique",
-                        "2": "Standardiser sur un ensemble gérable de spécifications mono-PE"
-                    }
+                    "taskItems": [
+                        "Convertir progressivement davantage de références de stratifiés complexes en mono-PE Eco Digital",
+                        "Parcourez votre portefeuille en fonction du volume, de la marge et de l'importance stratégique",
+                        "Standardiser sur un ensemble gérable de spécifications mono-PE"
+                    ]
                 },
                 "optimize": {
                     "title": "Optimiser et superposer des leviers supplémentaires",
@@ -9197,11 +9197,11 @@
                     "title": "Prêt à démarrer votre feuille de route de recyclabilité ?",
                     "intro": "Un objectif d’emballage 100 % recyclable devient pratique lorsqu’il est divisé en étapes concrètes et soutenu par les bons partenaires.",
                     "subTitle": "Si votre marque souhaite passer de l’engagement à la mise en œuvre, Achieve Pack peut vous aider :",
-                    "items": {
-                        "0": "Réalisez un <strong>audit ciblé de votre emballage flexible actuel</strong>",
-                        "1": "Sélectionner et <strong>reconcevoir les SKU prioritaires</strong> en pochettes mono-PE Eco Digital",
-                        "2": "Élaborer un <strong>plan pluriannuel</strong> pour étendre la conception et la couche 100 % recyclables en PCR et bio-PE"
-                    },
+                    "items": [
+                        "Réalisez un <strong>audit ciblé de votre emballage flexible actuel</strong>",
+                        "Sélectionner et <strong>reconcevoir les SKU prioritaires</strong> en pochettes mono-PE Eco Digital",
+                        "Élaborer un <strong>plan pluriannuel</strong> pour étendre la conception et la couche 100 % recyclables en PCR et bio-PE"
+                    ],
                     "btn1": "Réservez une consultation gratuite",
                     "btn2": "Commander un pack d'échantillons",
                     "btn3": "Parcourir la boutique"
@@ -11334,115 +11334,115 @@
                     "ctaTitle": "Prêt à commander des boîtes personnalisées ?",
                     "ctaDescription": "Créez des emballages haut de gamme pour vos produits artisanaux avec nos boîtes imprimées personnalisées. MOQ 200 pièces.",
                     "ctaButtonText": "Achetez des boîtes personnalisées",
-                    "keywords": {
-                        "0": "boîtes personnalisées",
-                        "1": "boîtes rigides",
-                        "2": "boîtes aux lettres",
-                        "3": "boîtes de rangement",
-                        "4": "coffrets cadeaux",
-                        "5": "emballage de chocolat",
-                        "6": "emballage de boîte à thé",
-                        "7": "emballage de boîte à café",
-                        "8": "boîtes de feuille d'or",
-                        "9": "Boîtes certifiées FSC",
-                        "10": "emballage en relief",
-                        "11": "boîtes imprimées personnalisées"
-                    }
+                    "keywords": [
+                        "boîtes personnalisées",
+                        "boîtes rigides",
+                        "boîtes aux lettres",
+                        "boîtes de rangement",
+                        "coffrets cadeaux",
+                        "emballage de chocolat",
+                        "emballage de boîte à thé",
+                        "emballage de boîte à café",
+                        "boîtes de feuille d'or",
+                        "Boîtes certifiées FSC",
+                        "emballage en relief",
+                        "boîtes imprimées personnalisées"
+                    ]
                 },
-                "faqs": {
-                    "0": {
+                "faqs": [
+                    {
                         "question": "Quels types de coffrets personnalisés proposez-vous ?",
                         "answer": "Nous proposons deux types principaux : les boîtes postales en carton ondulé (idéales pour le café, le thé et les produits protégés lors de l'expédition en formats 500 g et 1 kg) et les boîtes/cartons Tuck (parfaites pour les barres de chocolat, les sachets de thé et les confiseries haut de gamme). Les deux disposent d'une impression CMJN personnalisée, d'un laminage mat et d'un estampage à la feuille d'or en option avec gaufrage."
                     },
-                    "1": {
+                    {
                         "question": "Quelle est la quantité minimum de commande pour les boîtes personnalisées ?",
                         "answer": "Notre quantité minimum de commande est de 200 pièces pour les boîtes postales en carton ondulé et les boîtes de rangement. Ce faible MOQ rend les boîtes imprimées personnalisées accessibles aux petites marques artisanales, aux startups et aux entreprises testant de nouveaux modèles d'emballage."
                     },
-                    "2": {
+                    {
                         "question": "Vos cartons sont-ils écologiques ?",
                         "answer": "Oui, toutes nos boîtes sont fabriquées à partir de papier et carton recyclés certifiés FSC. Ils sont entièrement recyclables dans les programmes standards de collecte sélective. Nous donnons la priorité aux matériaux durables pour soutenir les marques soucieuses de l'environnement."
                     },
-                    "3": {
+                    {
                         "question": "Quelles finitions haut de gamme sont disponibles ?",
                         "answer": "Nous proposons en standard un marquage à chaud à la feuille d'or, des détails en relief et un laminage mat. Ces finitions haut de gamme créent une expérience de déballage luxueuse, parfaite pour les applications d'emballage de chocolat, de thé, de café et de cadeaux."
                     },
-                    "4": {
+                    {
                         "question": "Quelles sont les tailles disponibles ?",
                         "answer": "Les boîtes postales en carton ondulé sont disponibles en formats de 500 g (130 × 85 × 35 mm) et 1 kg (270 × 85 × 35 mm). Les Tuck Box sont disponibles en format 100 g (81 × 162 × 15 mm). Pour des dimensions personnalisées, veuillez contacter notre équipe pour un devis sur mesure."
                     },
-                    "5": {
+                    {
                         "question": "Combien de temps prennent la production et l’expédition ?",
                         "answer": "La production prend environ 30 jours. L'expédition par fret maritime est incluse dans tous les prix et prend 40 à 60 jours. Le délai de livraison total est d'environ 70 à 90 jours à compter de la confirmation de la commande. Pour les commandes urgentes, veuillez vous renseigner sur les options de fret aérien."
                     },
-                    "6": {
+                    {
                         "question": "Proposez-vous des échantillons avant de commander ?",
                         "answer": "Oui, nous pouvons fournir des échantillons pour évaluation avant de passer une commande complète. Veuillez nous contacter pour organiser des boîtes d'échantillons. Pour les commandes standards, nous vous recommandons de commencer par notre commande minimum de 200 pièces pour tester avec vos produits et vos clients."
                     },
-                    "7": {
+                    {
                         "question": "Puis-je obtenir des tailles personnalisées pour mes produits ?",
                         "answer": "Absolument! Nous proposons des tailles sur mesure pour les commandes de plus grandes quantités. Contactez notre équipe avec les dimensions de votre produit et nous vous fournirons un devis personnalisé. Un outillage personnalisé peut être requis pour les tailles non standard."
                     }
-                },
+                ],
                 "tables": {
                     "0": {
                         "title": "Aperçu des tailles de boîtes",
                         "data": {
-                            "headers": {
-                                "0": "Type de boîte",
-                                "1": "Étiquette de taille",
-                                "2": "Dimensions (L×L×H)",
-                                "3": "Idéal pour"
-                            },
-                            "rows": {
-                                "0": {
+                            "headers": [
+                                "Type de boîte",
+                                "Étiquette de taille",
+                                "Dimensions (L×L×H)",
+                                "Idéal pour"
+                            ],
+                            "rows": [
+                                {
                                     "0": "Enveloppe en carton ondulé",
                                     "1": "500g",
                                     "2": "130 × 85 × 35 mm",
                                     "3": "Petits sachets de café, boîtes à thé"
                                 },
-                                "1": {
+                                {
                                     "0": "Enveloppe en carton ondulé",
                                     "1": "1 kg",
                                     "2": "270 × 85 × 35 mm",
                                     "3": "Grands sachets de café, coffrets cadeaux"
                                 },
-                                "2": {
+                                {
                                     "0": "Boîte de rangement",
                                     "1": "100g",
                                     "2": "81 × 162 × 15 mm",
                                     "3": "Barres de chocolat, sachets de thé"
                                 }
-                            }
+                            ]
                         }
                     }
                 },
-                "relatedLinks": {
-                    "0": {
+                "relatedLinks": [
+                    {
                         "title": "Magasiner les boîtes en carton ondulé",
                         "url": "/store/product/box-ondulé-custom",
                         "description": "Commandez des boîtes postales imprimées personnalisées - MOQ 200 pièces"
                     },
-                    "1": {
+                    {
                         "title": "Magasiner les boîtes de rangement",
                         "url": "/store/product/box-tuck-custom",
                         "description": "Cartons haut de gamme avec feuille d'or et gaufrage"
                     },
-                    "2": {
+                    {
                         "title": "Pochettes verticales",
                         "url": "/emballage/sachet-stand-up",
                         "description": "Alternative flexible pour l'emballage alimentaire"
                     },
-                    "3": {
+                    {
                         "title": "Sacs à fond plat",
                         "url": "/emballage/sacs-à-fond-plat",
                         "description": "Sachets premium pour café et thé"
                     },
-                    "4": {
+                    {
                         "title": "Matériaux compostables",
                         "url": "/matériaux/compostables",
                         "description": "Options d'emballage flexibles et respectueuses de l'environnement"
                     }
-                }
+                ]
             }
         }
     },
