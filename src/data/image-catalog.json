@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2922,
+  "total_images": 2925,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1384,
+    ".png": 1387,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,26 @@
       ]
     },
     "blog/heros": {
-      "count": 220,
+      "count": 223,
       "images": [
+        {
+          "filename": "custom-shaped-sachets-for-spices-hero.png",
+          "path": "/imgs/blog/heros/custom-shaped-sachets-for-spices-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T02:00:21.368Z"
+        },
+        {
+          "filename": "barrier-film-roll-stock-suppliers-hero.png",
+          "path": "/imgs/blog/heros/barrier-film-roll-stock-suppliers-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T01:45:36.145Z"
+        },
+        {
+          "filename": "recyclable-pouch-suppliers-for-pet-food-hero.png",
+          "path": "/imgs/blog/heros/recyclable-pouch-suppliers-for-pet-food-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T01:30:25.540Z"
+        },
         {
           "filename": "small-run-flexible-packaging-printing-hero.png",
           "path": "/imgs/blog/heros/small-run-flexible-packaging-printing-hero.png",

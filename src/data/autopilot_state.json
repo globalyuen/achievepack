@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T01:46:08.056Z",
+  "lastUnifiedRun": "2026-06-07T02:00:31.080Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1302,17 +1302,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "barrier-film-roll-stock-suppliers",
       "status": "Pending Approval",
       "volume": 760,
       "keyword": "barrier film roll stock suppliers",
-      "difficulty": "Low",
-      "slug": "barrier-film-roll-stock-suppliers"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 540,
       "keyword": "custom shaped sachets for spices",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-shaped-sachets-for-spices"
     },
     {
       "status": "Pending",
@@ -1357,119 +1358,124 @@
       "difficulty": "Low"
     },
     {
-      "keyword": "sustainable pouch dimensions for snacks",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "sustainable pouch dimensions for snacks",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable sachet dimensions for liquids",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 720,
-      "status": "Pending"
+      "keyword": "compostable sachet dimensions for liquids",
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital printed stand up pouches low minimum order",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1100,
-      "status": "Pending"
+      "keyword": "digital printed stand up pouches low minimum order",
+      "difficulty": "Low"
     },
     {
-      "keyword": "barrier film for sustainable packaging",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "barrier film for sustainable packaging",
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono material pouch sizes for powders",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 680,
-      "status": "Pending"
+      "keyword": "mono material pouch sizes for powders",
+      "difficulty": "Low"
     },
     {
-      "keyword": "eco friendly retort pouch dimensions",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 790,
-      "status": "Pending"
+      "keyword": "eco friendly retort pouch dimensions",
+      "difficulty": "Low"
     },
     {
-      "keyword": "custom shaped sachets for beverages",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1050,
-      "status": "Pending"
+      "keyword": "custom shaped sachets for beverages",
+      "difficulty": "Low"
     },
     {
-      "keyword": "sustainable barrier film suppliers",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1200,
-      "status": "Pending"
+      "keyword": "sustainable barrier film suppliers",
+      "difficulty": "Low"
     },
     {
-      "keyword": "small batch compostable pouch printing",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 880,
-      "status": "Pending"
+      "keyword": "small batch compostable pouch printing",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable flat bottom pouch sizes",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 740,
-      "status": "Pending"
+      "keyword": "recyclable flat bottom pouch sizes",
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier film for digital printing",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 630,
-      "status": "Pending"
+      "keyword": "high barrier film for digital printing",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable pouch suppliers for pet food",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 920,
-      "status": "Pending"
+      "keyword": "compostable pouch suppliers for pet food",
+      "difficulty": "Low"
     },
     {
-      "keyword": "stand up pouch filling and sealing equipment",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1500,
-      "status": "Pending"
+      "keyword": "stand up pouch filling and sealing equipment",
+      "difficulty": "Low"
     },
     {
-      "keyword": "custom digital print sachet sizes",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 810,
-      "status": "Pending"
+      "keyword": "custom digital print sachet sizes",
+      "difficulty": "Low"
     },
     {
-      "keyword": "biodegradable barrier film for snacks",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 670,
-      "status": "Pending"
+      "keyword": "biodegradable barrier film for snacks",
+      "difficulty": "Low"
     },
     {
-      "keyword": "kraft paper pouch sizes for spices",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 890,
-      "status": "Pending"
+      "keyword": "kraft paper pouch sizes for spices",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable stand up pouch dimensions chart",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 760,
-      "status": "Pending"
+      "keyword": "recyclable stand up pouch dimensions chart",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable flat bottom pouch for nuts",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 820,
-      "status": "Pending"
+      "keyword": "compostable flat bottom pouch for nuts",
+      "difficulty": "Low"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T01:45:42.693Z",
+      "timestamp": "2026-06-07T02:00:23.092Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"barrier film roll stock suppliers\" to /blog/barrier-film-roll-stock-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom shaped sachets for spices\" to /blog/custom-shaped-sachets-for-spices (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"barrier film roll stock suppliers\" to /blog/barrier-film-roll-stock-suppliers (Pending Approval)",
+      "timestamp": "2026-06-07T01:45:42.693Z"
     },
     {
       "action": "Autopilot Generation Draft",
