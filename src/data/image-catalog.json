@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2978,
+  "total_images": 2979,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1440,
+    ".png": 1441,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 276,
+      "count": 277,
       "images": [
+        {
+          "filename": "custom-shaped-recyclable-barrier-bags-for-beverages-hero.png",
+          "path": "/imgs/blog/heros/custom-shaped-recyclable-barrier-bags-for-beverages-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T15:30:24.061Z"
+        },
         {
           "filename": "biodegradable-stand-up-pouch-size-guide-for-nuts-hero.png",
           "path": "/imgs/blog/heros/biodegradable-stand-up-pouch-size-guide-for-nuts-hero.png",
