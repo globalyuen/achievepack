@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T08:30:54.329Z",
+  "lastUnifiedRun": "2026-06-07T09:00:40.527Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1491,23 +1491,25 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-barrier-film-for-dry-goods",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "compostable barrier film for dry goods",
-      "difficulty": "Low",
-      "slug": "compostable-barrier-film-for-dry-goods"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "slug": "custom-digital-printed-standup-pouches",
+      "status": "Pending Approval",
       "volume": 900,
       "keyword": "custom digital printed standup pouches",
       "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "small batch sachet packaging solutions",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-sachet-packaging-solutions"
     },
     {
       "status": "Pending",
@@ -1602,9 +1604,19 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T08:30:35.837Z",
+      "timestamp": "2026-06-07T09:00:32.743Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film for dry goods\" to /blog/compostable-barrier-film-for-dry-goods (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch sachet packaging solutions\" to /blog/small-batch-sachet-packaging-solutions (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom digital printed standup pouches\" to /blog/custom-digital-printed-standup-pouches (Pending Approval)",
+      "timestamp": "2026-06-07T08:45:24.377Z"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film for dry goods\" to /blog/compostable-barrier-film-for-dry-goods (Pending Approval)",
+      "timestamp": "2026-06-07T08:30:35.837Z"
     },
     {
       "action": "Autopilot Generation Draft",

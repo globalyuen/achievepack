@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2951,
+  "total_images": 2953,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1413,
+    ".png": 1415,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,20 @@
       ]
     },
     "blog/heros": {
-      "count": 249,
+      "count": 251,
       "images": [
+        {
+          "filename": "small-batch-sachet-packaging-solutions-hero.png",
+          "path": "/imgs/blog/heros/small-batch-sachet-packaging-solutions-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T09:00:31.529Z"
+        },
+        {
+          "filename": "custom-digital-printed-standup-pouches-hero.png",
+          "path": "/imgs/blog/heros/custom-digital-printed-standup-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T08:45:22.178Z"
+        },
         {
           "filename": "compostable-barrier-film-for-dry-goods-hero.png",
           "path": "/imgs/blog/heros/compostable-barrier-film-for-dry-goods-hero.png",
