@@ -805,11 +805,11 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
               color: black;
               font-family: Arial, sans-serif;
             }
-            .print-page {
+          .print-page {
               width: 210mm;
-              height: 297mm;
-              max-height: 297mm;
-              padding: 10mm 12mm;
+              height: 272mm;
+              max-height: 272mm;
+              padding: 4mm 6mm;
               position: relative;
               page-break-after: always !important;
               page-break-inside: avoid !important;
@@ -829,16 +829,18 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             .no-print {
               display: none !important;
             }
-            table {
-              border-collapse: collapse;
-              width: 100%;
-              margin-bottom: 5px !important;
+            .print-page table {
+              border-collapse: collapse !important;
+              width: 100% !important;
+              margin-bottom: 2px !important;
+              page-break-inside: avoid !important;
             }
-            th, td {
-              border: 1px solid #7f8c8d;
-              padding: 1.5px 3px !important;
-              font-size: 7px !important;
-              line-height: 1.15 !important;
+            .print-page th, 
+            .print-page td {
+              border: 0.5px solid #7f8c8d !important;
+              padding: 0.5px 1.5px !important;
+              font-size: 5.8px !important;
+              line-height: 1.05 !important;
             }
             .bg-gray-100 {
               background-color: #f2f2f2 !important;
@@ -856,35 +858,35 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
         <div className="print-page flex flex-col justify-between">
           <div>
             {/* Header Letterhead */}
-            <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-2 mb-3">
+            <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-1 mb-1.5">
               <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <img src="/logo.png" alt="AchievePack" className="h-10 w-auto object-contain" />
-                  <span className="text-xl font-black tracking-widest text-blue-950">achievepack</span>
+                <div className="flex items-center gap-1">
+                  <img src="/logo.png" alt="AchievePack" className="h-7 w-auto object-contain" />
+                  <span className="text-base font-black tracking-widest text-blue-950">achievepack</span>
                 </div>
-                <span className="text-[8px] font-extrabold text-gray-400 uppercase tracking-wider mt-0.5">High Performance Sustainable Packaging</span>
+                <span className="text-[6.5px] font-extrabold text-gray-400 uppercase tracking-wider mt-0.5">High Performance Sustainable Packaging</span>
               </div>
-              <div className="text-right text-[7px] leading-tight text-gray-500 max-w-[250px]">
-                <strong className="text-[9px] text-gray-800 font-bold block">AchievePack Limited</strong>
+              <div className="text-right text-[6px] leading-tight text-gray-500 max-w-[250px]">
+                <strong className="text-[7.5px] text-gray-800 font-bold block">AchievePack Limited</strong>
                 HK BRN: 41007097-000-07-14-4<br/>
                 1 Floor, No.41 Wo Liu Hang Tsuen, Fotan, Hong Kong<br/>
                 Hotline: +852 6970 4411 | engineering@achievepack.com
               </div>
             </div>
 
-            <div className="bg-blue-900 text-white text-center font-bold text-xs uppercase py-1.5 tracking-widest rounded mb-3" style={{ color: 'white' }}>
+            <div className="bg-blue-900 text-white text-center font-bold text-[9px] uppercase py-0.5 tracking-widest rounded mb-1.5" style={{ color: 'white' }}>
               Factory Inspection Report / Certificate of Analysis
             </div>
 
             {/* COA Metadata block */}
-            <div className="grid grid-cols-2 gap-4 mb-3 border border-gray-300 rounded-lg p-2.5 bg-gray-100/30">
+            <div className="grid grid-cols-2 gap-2 mb-1.5 border border-gray-300 rounded-lg p-1.5 bg-gray-100/30 text-[7px]">
               <div className="space-y-0.5">
                 <div><span className="font-bold text-gray-500">Sample Name:</span> <span className="font-bold text-gray-900">{data.sampleName}</span></div>
                 <div><span className="font-bold text-gray-500">Customer Name:</span> <span className="font-bold text-gray-900">{data.customer}</span></div>
-                <div><span className="font-bold text-gray-500">Customer Address:</span> <span className="text-gray-700 text-[8px] block whitespace-pre-line leading-snug">{data.customerAddress}</span></div>
-                <div><span className="font-bold text-gray-500">Material Composition:</span> <span className="font-mono text-indigo-700 text-[8px] block font-bold">{data.materialComposition}</span></div>
+                <div><span className="font-bold text-gray-500">Customer Address:</span> <span className="text-gray-700 text-[6.5px] block whitespace-pre-line leading-snug">{data.customerAddress}</span></div>
+                <div><span className="font-bold text-gray-500">Material Composition:</span> <span className="font-mono text-indigo-700 text-[7px] block font-bold">{data.materialComposition}</span></div>
               </div>
-              <div className="space-y-0.5 border-l border-gray-300 pl-4">
+              <div className="space-y-0.5 border-l border-gray-300 pl-3">
                 <div><span className="font-bold text-gray-500">Product Specs:</span> <span className="font-bold text-gray-900">{data.productSpecifications}</span></div>
                 <div><span className="font-bold text-gray-500">Test Conditions:</span> <span className="font-bold text-gray-900">{data.testConditions}</span></div>
                 <div className="grid grid-cols-2 gap-2">
@@ -902,12 +904,12 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="text-left font-bold text-gray-600 w-20">Item Category</th>
-                  <th className="text-left font-bold text-gray-600 w-28">Inspection Item</th>
-                  <th className="text-left font-bold text-gray-600">Inspection Standard</th>
-                  <th className="text-center font-bold text-gray-600 w-20">Test Speed / Cond.</th>
-                  <th className="text-center font-bold text-gray-600 w-20">Test Result</th>
-                  <th className="text-center font-bold text-gray-600 w-16">Conclusion</th>
+                  <th className="text-left font-bold text-gray-600 w-18 text-[5.8px] p-0.5">Item Category</th>
+                  <th className="text-left font-bold text-gray-600 w-24 text-[5.8px] p-0.5">Inspection Item</th>
+                  <th className="text-left font-bold text-gray-600 text-[5.8px] p-0.5">Inspection Standard</th>
+                  <th className="text-center font-bold text-gray-600 w-16 text-[5.8px] p-0.5">Test Speed</th>
+                  <th className="text-center font-bold text-gray-600 w-18 text-[5.8px] p-0.5">Inspection Result</th>
+                  <th className="text-center font-bold text-gray-600 w-14 text-[5.8px] p-0.5">Conclusion</th>
                 </tr>
               </thead>
               <tbody>
@@ -930,17 +932,17 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                   return data.items.map((item, idx) => (
                     <tr key={idx}>
                       {rowSpans[idx] > 0 && (
-                        <td className="font-bold text-gray-500 align-top bg-gray-50/50" rowSpan={rowSpans[idx]}>
+                        <td className="font-bold text-gray-500 align-middle bg-gray-50/50 text-[5.8px] p-0.5" rowSpan={rowSpans[idx]}>
                           {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' :
                            item.category === 'Dimensional deviation' ? 'Dimensional' :
                            item.category}
                         </td>
                       )}
-                      <td className="font-semibold text-gray-900">{item.name}</td>
-                      <td className="text-gray-600 leading-snug">{item.standard}</td>
-                      <td className="text-center text-gray-600 font-mono">{item.testSpeed || '-'}</td>
-                      <td className="text-center font-semibold text-gray-800 font-mono">{item.result}</td>
-                      <td className="text-center font-bold text-emerald-700">{item.conclusion}</td>
+                      <td className="font-semibold text-gray-900 text-[5.8px] p-0.5">{item.name}</td>
+                      <td className="text-gray-600 text-[5.8px] p-0.5 leading-tight">{item.standard}</td>
+                      <td className="text-center text-gray-600 font-mono text-[5.8px] p-0.5">{item.testSpeed || '-'}</td>
+                      <td className="text-center font-semibold text-gray-800 font-mono text-[5.8px] p-0.5">{item.result}</td>
+                      <td className="text-center font-bold text-emerald-700 text-[5.8px] p-0.5">{item.conclusion}</td>
                     </tr>
                   ));
                 })()}
@@ -948,28 +950,28 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             </table>
 
             {/* COA Bottom Block */}
-            <div className="border-t border-gray-300 pt-2.5 mt-3 space-y-2 relative">
+            <div className="border-t border-gray-300 pt-1 mt-1 space-y-1 relative">
               <div>
-                <span className="font-extrabold text-[8px] text-gray-400 uppercase tracking-wider block mb-0.5">Overall Inspection Conclusion</span>
-                <p className="font-bold text-blue-900 text-[11px]">{data.conclusionText}</p>
+                <span className="font-extrabold text-[6.5px] text-gray-400 uppercase tracking-wider block mb-0.5">Overall Inspection Conclusion</span>
+                <p className="font-bold text-blue-900 text-[8.5px]">{data.conclusionText}</p>
               </div>
-              <div className="grid grid-cols-2 gap-4 pt-1">
+              <div className="grid grid-cols-2 gap-4 pt-0.5">
                 <div className="space-y-0.5">
-                  <span className="text-gray-400 font-bold block text-[7px] uppercase tracking-wider">Signature of Analyst</span>
-                  <div className="border border-indigo-100 rounded p-1.5 bg-indigo-50/30 flex items-center justify-center min-h-[25px] w-32">
-                    <span className="font-serif italic text-xs text-indigo-800">{data.analystSignature}</span>
+                  <span className="text-gray-400 font-bold block text-[6px] uppercase tracking-wider">Signature of Analyst</span>
+                  <div className="border border-indigo-100 rounded p-0.5 bg-indigo-50/30 flex items-center justify-center min-h-[16px] w-24">
+                    <span className="font-serif italic text-[8.5px] text-indigo-800">{data.analystSignature}</span>
                   </div>
                 </div>
                 <div className="space-y-0.5 text-right">
-                  <span className="text-gray-400 font-bold block text-[7px] uppercase tracking-wider">Signature of Factory Director</span>
-                  <div className="border border-indigo-100 rounded p-1.5 bg-indigo-50/30 flex items-center justify-center min-h-[25px] w-32 ml-auto">
-                    <span className="font-serif italic text-xs text-indigo-800">{data.directorSignature}</span>
+                  <span className="text-gray-400 font-bold block text-[6px] uppercase tracking-wider">Signature of Factory Director</span>
+                  <div className="border border-indigo-100 rounded p-0.5 bg-indigo-50/30 flex items-center justify-center min-h-[16px] w-24 ml-auto">
+                    <span className="font-serif italic text-[8.5px] text-indigo-800">{data.directorSignature}</span>
                   </div>
                 </div>
               </div>
 
               {/* ACHIEVEPACK CORPORATE SEAL */}
-              <svg className="absolute right-[40px] bottom-[5px] opacity-85 transform rotate-[-8deg] pointer-events-none" width="85" height="85" viewBox="0 0 100 100">
+              <svg className="absolute right-[15px] bottom-[-5px] opacity-85 transform rotate-[-8deg] pointer-events-none" width="60" height="60" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="45" fill="none" stroke="#ef4444" strokeWidth="2" strokeDasharray="94 1.5" />
                 <circle cx="50" cy="50" r="44" fill="none" stroke="#ef4444" strokeWidth="0.75" />
                 <path id="print-seal-path" d="M 15 50 A 35 35 0 0 1 85 50" fill="none" />
