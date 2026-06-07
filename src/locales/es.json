@@ -13226,6 +13226,319 @@
                         }
                     }
                 }
+            },
+            "customStickers": {
+                "achievePack": {
+                    "clickToEnlarge": "Haga clic para ampliar Haga clic para ampliar",
+                    "seo": {
+                        "title": "Pegatinas personalizadas | Impresión de calidad de fábrica | Paquete de logros",
+                        "description": "Adhesivos personalizados de fábrica con materiales de primera calidad, múltiples formas, opciones ecológicas y acabados profesionales. Disponibles tipos de corte a medida, rollo, hoja y corte beso.",
+                        "heroTitle": "Pegatinas personalizadas",
+                        "heroSubtitle": "Calidad de fábrica • Materiales de primera calidad • Opciones ecológicas",
+                        "introSummary": "Adhesivos profesionales personalizados con múltiples tipos, formas, materiales y acabados. Desde sencillos cortados a medida hasta pegatinas en rollo.",
+                        "keywords": [
+                            "pegatinas personalizadas",
+                            "rollo de pegatinas",
+                            "pegatinas troqueladas",
+                            "corte de beso pegatinas",
+                            "pegatinas de hoja",
+                            "pegatinas ecológicas",
+                            "pegatinas de PLA",
+                            "pegatinas metalicas"
+                        ]
+                    },
+                    "gallery": {
+                        "item1": {
+                            "title": "Descripción general de las pegatinas personalizadas",
+                            "desc": "Descripción general de la etiqueta personalizada"
+                        },
+                        "item2": {
+                            "title": "Cuatro tipos de pegatinas",
+                            "desc": "Cuatro tiposStickerCategoryType"
+                        },
+                        "item3": {
+                            "title": "Formas y tamaños personalizados",
+                            "desc": "Forma y dimensiones personalizadas"
+                        },
+                        "item4": {
+                            "title": "Opciones de materiales",
+                            "desc": "Opciones de materiales"
+                        },
+                        "item5": {
+                            "title": "Materiales ecológicos",
+                            "desc": "Materiales ecológicos"
+                        },
+                        "item6": {
+                            "title": "Métodos de impresión",
+                            "desc": "Método de impresión"
+                        },
+                        "item7": {
+                            "title": "Tipos de tinta y efectos",
+                            "desc": "Tipo de categoría de tinta y efecto"
+                        },
+                        "item8": {
+                            "title": "Acabados superficiales",
+                            "desc": "Acabado superficial"
+                        },
+                        "item9": {
+                            "title": "Configuración sencilla",
+                            "desc": "ConvenienteQuickWithSet"
+                        },
+                        "item10": {
+                            "title": "Proceso de pedido",
+                            "desc": "Proceso de pedido"
+                        },
+                        "item11": {
+                            "title": "Aplicaciones de marca",
+                            "desc": "MarcaAplicaciónEscenario"
+                        }
+                    },
+                    "sections": {
+                        "intro": {
+                            "title": "Descripción general de las pegatinas personalizadas",
+                            "summaryStrong": "Adhesivos personalizados de fábrica con materiales y acabados de primera calidad",
+                            "summaryText": "— Desde pegatinas individuales cortadas a medida hasta pegatinas en rollo, ofrecemos una personalización completa de las opciones de forma, material, impresión y acabado.",
+                            "summaryStrongCn": "Etiqueta personalizada de grado de fábrica, material premium y acabado superficial",
+                            "summaryTextCn": "— De hojas troqueladas a etiqueta adhesiva en forma de rollo, proporcione forma, material, impresión y procesamiento de superficie de posición completa personalizada.",
+                            "badgeCut": "Cortar a medida",
+                            "badgeRoll": "Rollo de pegatinas",
+                            "badgeSheet": "Pegatinas de hojas",
+                            "badgeKiss": "corte de beso",
+                            "item1": {
+                                "title": "Cuatro tipos de pegatinas para cada necesidad",
+                                "titleCn": "Cuatro tiposStickerCategoríaTipoCumplirVariosRequerirDemanda",
+                                "desc": "Elija entre Cortar a medida (pegatinas troqueladas individuales), Rollo (rollo continuo para aplicaciones de gran volumen), Hoja (múltiples pegatinas por hoja) y Kiss Cut (pegatinas en la hoja posterior para despegarlas fácilmente). Cada tipo está optimizado para casos de uso y métodos de aplicación específicos.",
+                                "descCn": "Puede elegir hojas troqueladas (pegatina troquelada única y única), forma de rollo (adecuada, aplicación de volumen de lote grande y rollo continuo), estilo de papel (cada hoja con varias unidades adhesivas) y troquelado (con papel de revestimiento conveniente en TearTake). TypeCategoryTypeAllNeedleForSpecificUseScenarioAndApplicationMethodOptimizeization。"
+                            },
+                            "item2": {
+                                "title": "Opciones ilimitadas de forma y tamaño",
+                                "titleCn": "NoLimitShapeAndDimensionsElija",
+                                "desc": "Vaya más allá de las formas estándar con nuestras capacidades de troquelado personalizado. Cuadrado, círculo, óvalo, rectángulo redondeado, corazón, hexágono, estrella o formas completamente personalizadas: podemos producir cualquier diseño que necesite con corte de precisión.",
+                                "descCn": "Romper el límite de forma estándar, proporcionamos troquelado personalizado CanPower 。 cuadrado, redondo, ovalado, rectángulo redondeado, forma de corazón, burbuja de seis bordes, forma de ráfaga de estrella, o forma personalizada completa: podemos con FineExactCutProductionAnyYouRequireNeedOfDesign."
+                            }
+                        },
+                        "materials": {
+                            "title": "Opciones de materiales",
+                            "item3": {
+                                "title": "Selección de materiales de primera calidad",
+                                "titleCn": "PremiumMaterialElegir",
+                                "desc": "Nuestra biblioteca de materiales incluye papel Kraft blanco para una sensación orgánica, papel recubierto C2S para colores vibrantes, plástico transparente para aplicaciones transparentes, plástico blanco para mayor durabilidad y papel Kraft natural para marcas ecológicas.",
+                                "descCn": "Nuestro paquete de almacenamiento de materiales incluye: papel kraft blanco con sensación orgánica natural, papel de revestimiento C2, color brillante, plástico transparente, aplicación transparente, plástico blanco, propiedad de uso resistente, papel kraft natural, cumple con la marca ecológica y requiere demanda."
+                            },
+                            "card1": {
+                                "title": "Kraft blanca",
+                                "desc": "aspecto natural",
+                                "sub": "Papel kraft blanco"
+                            },
+                            "card2": {
+                                "title": "Recubierta de C2S",
+                                "desc": "Colores vibrantes",
+                                "sub": "RecubrimientoPañoPapel"
+                            },
+                            "card3": {
+                                "title": "Plástico transparente",
+                                "desc": "Transparente",
+                                "sub": "TransparenteDe Plástico"
+                            },
+                            "card4": {
+                                "title": "Plástico blanco",
+                                "desc": "Duradera",
+                                "sub": "BlancoPlástico"
+                            },
+                            "card5": {
+                                "title": "Papel kraft",
+                                "desc": "Respetuoso del medio ambiente",
+                                "sub": "Papel kraft"
+                            }
+                        },
+                        "eco": {
+                            "title": "Ecológico y sostenible",
+                            "item4": {
+                                "title": "Opciones de materiales sostenibles",
+                                "titleCn": "CanContinuousMaterialSolution",
+                                "desc": "Elija materiales ambientalmente responsables, incluidas películas biodegradables basadas en PLA, papeles con certificación FSC y sustratos reciclables. Perfecto para marcas comprometidas con la reducción de su huella medioambiental.",
+                                "descCn": "Elija material responsable y respetuoso con el medio ambiente, paquete que incluya PLABaseCanDegradableFilm, papel de certificación FSC y material de base reciclable. Ideal para la máxima potencia adecuada para reducir la huella ambiental de la marca."
+                            },
+                            "boxTitle": "Opciones ecológicas",
+                            "box1Title": "PLA biodegradable",
+                            "box1Desc": "Películas de origen vegetal",
+                            "box2Title": "Papel certificado FSC",
+                            "box2Desc": "Silvicultura sostenible",
+                            "box3Title": "Sustratos Reciclables",
+                            "box3Desc": "Listo para el final de su vida útil"
+                        },
+                        "printing": {
+                            "title": "Métodos de impresión y tipos de tinta",
+                            "item5": {
+                                "title": "Tecnología de impresión de calidad de fábrica",
+                                "titleCn": "Tecnología de impresión de grado de fábrica",
+                                "desc": "Utilizamos múltiples tecnologías de impresión para lograr los mejores resultados: flexografía para tiradas rentables de gran volumen, huecograbado para detalles excepcionales, impresión digital para tiradas cortas y datos variables e impresión UV para efectos especiales.",
+                                "descCn": "Usamos tecnología de impresión múltiple con obtener el mejor efecto: SoftEditionPrintingSuitableSuitableHighPropertyPriceRatioLargeBatchVolume、GravurePrintingPresentExcellentDetails、DigitalPrintingSuitableSuitableShortEditionAndCanChangeData、UVPrintingAchieveSpecialEffect。"
+                            },
+                            "item6": {
+                                "title": "Opciones de tintas especiales",
+                                "titleCn": "Opciones de tinta especiales",
+                                "desc": "Más allá de las tintas estándar, ofrecemos tintas ecológicas a base de agua, opciones sustentables a base de soja/vegetales, colores fluorescentes para un impacto llamativo y tintas Pantone metálicas para acabados premium que captan la luz.",
+                                "descCn": "Retire la tinta estándar en el exterior, también proporcionamos tinta ecológica con propiedad de agua, opciones continuas para la base de material de frijol/planta grande, color fluorescente, huelga, efecto llamativo, con y oro pertenecen a PanConnectInk para lograr la captura de línea de luz de efecto de superficie Premium."
+                            },
+                            "card1": {
+                                "title": "Flexografía",
+                                "desc": "Alto volumen, rentable",
+                                "sub": "SoftEditionImpresión"
+                            },
+                            "card2": {
+                                "title": "huecograbado",
+                                "desc": "Detalle excepcional",
+                                "sub": "HuecograbadoImpresión"
+                            },
+                            "card3": {
+                                "title": "Digital",
+                                "desc": "Tiradas cortas, datos variables",
+                                "sub": "Impresión Digital"
+                            },
+                            "card4": {
+                                "title": "Impresión UV",
+                                "desc": "Efectos especiales",
+                                "sub": "Impresión UV"
+                            }
+                        },
+                        "finishes": {
+                            "title": "Acabados y efectos de superficie",
+                            "item7": {
+                                "title": "Opciones de acabado premium",
+                                "titleCn": "Acabado de superficies de primera calidad",
+                                "desc": "Realce sus pegatinas con acabados profesionales: mate para una apariencia sofisticada y no reflectante; Brillo para un brillo vibrante y llamativo; Recubrimiento UV para mayor durabilidad; y estampado en caliente para detalles metálicos lujosos.",
+                                "descCn": "UseProfessionalIndustrySurfaceProcessingImproveStickerQuality：MattePresentFineUltimateNoReverseInjectOutsideView、GlossWithComeBrightEye-CatchingGloss、UVCoatingLayerIncreaseStrongResistantLongProperty、Hot StampingWorkerArtStrikeMakeLuxury GoldBelongQualityFeel。"
+                            },
+                            "card1": {
+                                "title": "mate",
+                                "desc": "Sofisticado, no reflectante",
+                                "sub": "mate"
+                            },
+                            "card2": {
+                                "title": "Brillo",
+                                "desc": "Vibrante, brillante",
+                                "sub": "Brillo"
+                            },
+                            "card3": {
+                                "title": "Recubrimiento UV",
+                                "desc": "Durabilidad mejorada",
+                                "sub": "Capa de recubrimiento UV"
+                            },
+                            "card4": {
+                                "title": "lámina caliente",
+                                "desc": "Detalles metálicos",
+                                "sub": "Estampado en caliente"
+                            }
+                        },
+                        "ordering": {
+                            "title": "Proceso de pedido sencillo",
+                            "item8": {
+                                "title": "Sistema de configuración simple",
+                                "titleCn": "SimpleCleanConSetSystem",
+                                "desc": "Nuestro intuitivo sistema de pedidos le permite seleccionar Tipo (Cortado a medida, Rollo, Hoja, Corte doble), Forma (Cuadrado, Círculo, Ovalado, Personalizado), Material (Kraft blanco, Plástico transparente, Plástico blanco, Papel Kraft) y Acabado (Mate, Brillo), todo en una interfaz optimizada.",
+                                "descCn": "WeStraightViewOfOrderSystemLetYouCanWithChooseCategoryType (Hojas troqueladas, Forma de rollo, Estilo de papel, Troquelado), Forma (Cuadrado, Redondo, Ovalado, Autodefinido), Material (Papel Kraft blanco, Plástico transparente, Plástico blanco, Kraft Papel) y procesamiento de superficie (mate, brillo) ——FullPartInOneUnitSimpleizationWorldFaceInCompleteForm。"
+                            },
+                            "item9": {
+                                "title": "4 sencillos pasos para tus pegatinas personalizadas",
+                                "titleCn": "FourStepLightSueltoPersonalizadoSticker",
+                                "desc": "1) Personaliza tu embalaje con nuestro configurador online. 2) Agregue a la cotización y envíe sus requisitos. 3) Consulte con nuestro experto en embalaje para optimizarlo. 4) La producción comienza con el envío rápido a su ubicación.",
+                                "descCn": "1）UseInLineWithSetDeviceCustomYouOfPackaging。2）AddToQuoteAndRaiseSubmitRequireDemand。3）AndPackagingProfessionalHomeConsultExcellentizationSolution。4）StartProductionAndFastShippingToYouOfPositionSet。"
+                            },
+                            "step1": {
+                                "title": "Personalizar",
+                                "desc": "Configura las especificaciones de tu pegatina"
+                            },
+                            "step2": {
+                                "title": "Enviar cotización",
+                                "desc": "Agregar a cotizar y enviar"
+                            },
+                            "step3": {
+                                "title": "Consultar experto",
+                                "desc": "Revisa con nuestro equipo"
+                            },
+                            "step4": {
+                                "title": "Producción",
+                                "desc": "Fabricación y envío rápidos"
+                            }
+                        },
+                        "applications": {
+                            "title": "Aplicaciones de marca",
+                            "item10": {
+                                "title": "De la fábrica a la aplicación de marca",
+                                "titleCn": "De la fábrica a la tierra de la marca",
+                                "desc": "Nuestras pegatinas funcionan perfectamente en todas las aplicaciones: marca de productos en botellas y frascos de vidrio, sellado de cajas y paquetes, etiquetado de contenedores de alimentos, materiales promocionales y marketing de eventos. Capacidad completa desde la producción hasta las manos de sus clientes.",
+                                "descCn": "OurStickerCanNoSeamApplicationAtVariousScenario:Botellas y frascos de vidrioProductBrand、BoxChildAndPackagingSeal、FoodCapacityDeviceLabeling、PromotionMaterialAndActivityMarketing。FromProductionToCustomerHandInOfCompleteCanPower。"
+                            },
+                            "card1": {
+                                "title": "Marca del producto",
+                                "desc": "Botellas, tarros, contenedores.",
+                                "sub": "ProductoMarcaEtiquetado"
+                            },
+                            "card2": {
+                                "title": "Sellado de paquetes",
+                                "desc": "Cajas, bolsas, sobres.",
+                                "sub": "EmbalajeSello"
+                            },
+                            "card3": {
+                                "title": "Marketing y Eventos",
+                                "desc": "Promocionales, obsequios.",
+                                "sub": "Marketing y actividad"
+                            }
+                        },
+                        "related": {
+                            "title": "Complete su solución de embalaje",
+                            "desc": "Combine pegatinas personalizadas con nuestras soluciones de embalaje flexible para una experiencia de marca completa:",
+                            "link1": {
+                                "title": "Etiquetas personalizadas",
+                                "desc": "Etiquetas en hojas para productos."
+                            },
+                            "link2": {
+                                "title": "Bolsas de pie",
+                                "desc": "Base de embalaje flexible"
+                            },
+                            "link3": {
+                                "title": "Acabados superficiales",
+                                "desc": "Mate, brillo, tacto suave"
+                            },
+                            "link4": {
+                                "title": "Materiales compostables",
+                                "desc": "Opciones ecológicas"
+                            }
+                        },
+                        "faq": {
+                            "title": "Preguntas frecuentes",
+                            "q1": {
+                                "q": "¿Qué tipos de pegatinas personalizadas ofrecéis?",
+                                "a": "Ofrecemos cuatro tipos principales: Corte a medida (pegatinas troqueladas individuales), Rollo (rollo continuo para aplicaciones de gran volumen), Hoja (múltiples pegatinas por hoja) y Kiss Cut (pegatinas en la hoja trasera para despegar fácilmente). Cada tipo está optimizado para aplicaciones específicas."
+                            },
+                            "q2": {
+                                "q": "¿Ofrecen materiales adhesivos ecológicos?",
+                                "a": "¡Sí! Ofrecemos películas biodegradables a base de PLA, papeles con certificación FSC y sustratos reciclables. También utilizamos tintas ecológicas a base de agua y de soja/vegetales para marcas respetuosas con el medio ambiente."
+                            },
+                            "q3": {
+                                "q": "¿Qué acabados superficiales están disponibles?",
+                                "a": "Ofrecemos Mate (sofisticado, no reflectante), Brillo (vibrante, brillante), Revestimiento UV (durabilidad mejorada) y Estampado en caliente (lujosos detalles metálicos). Estos acabados pueden mejorar drásticamente la apariencia de su pegatina."
+                            },
+                            "q4": {
+                                "q": "¿Puedo crear formas personalizadas?",
+                                "a": "¡Absolutamente! Ofrecemos opciones de formas ilimitadas, incluidas formas cuadradas, circulares, ovaladas, rectangulares redondeadas, de corazón, hexagonales, en forma de estrella o completamente personalizadas. Nuestro troquelado de precisión puede producir cualquier diseño que necesite."
+                            },
+                            "q5": {
+                                "q": "¿Qué métodos de impresión utilizas?",
+                                "a": "Utilizamos múltiples tecnologías de impresión: flexografía para tiradas rentables de gran volumen, huecograbado para detalles excepcionales, impresión digital para tiradas cortas y datos variables e impresión UV para efectos especiales."
+                            }
+                        },
+                        "cta": {
+                            "title": "¿Listo para pedir pegatinas personalizadas?",
+                            "header": "Obtenga su cotización de pegatinas personalizadas",
+                            "desc": "Póngase en contacto con nuestro equipo para analizar sus requisitos de calcomanías. Calidad de fábrica, opciones flexibles y soporte experto durante todo el proceso.",
+                            "btnCall": "Reservar consulta gratuita",
+                            "btnWa": "Chat de whatsapp",
+                            "btnMail": "Cotización por correo electrónico"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

@@ -3,25 +3,27 @@ import { Sticker, Layers, Leaf, Palette, Printer, Sparkles, Settings, Truck, Bui
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
-
-// Gallery images from /imgs/label/custom-sticker/
-const customStickerGallery = [
-  { src: '/imgs/label/custom-sticker/hero.webp', title: 'Custom Stickers Overview', desc: 'CustomStickerOverview' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_overview_four_types_8850197.webp', title: 'Four Sticker Types', desc: 'Four TypesStickerCategoryType' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_sticker_shapes_custom_5720791.webp', title: 'Custom Shapes & Sizes', desc: 'ShapeAndDimensionsCustom' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_materials_swatch_wall_2342788.webp', title: 'Material Options', desc: 'MaterialOptions' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_eco_materials_pla_6955352.webp', title: 'Eco-Friendly Materials', desc: 'Eco-Friendly Materials' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_printing_methods_detail_2866450.webp', title: 'Printing Methods', desc: 'PrintingMethod' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_ink_types_effects_1477402.webp', title: 'Ink Types & Effects', desc: 'InkCategoryTypeAndEffect' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_surface_finishes_comparison_4126542.webp', title: 'Surface Finishes', desc: 'Surface Finish' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_order_config_interface_2146544.webp', title: 'Easy Configuration', desc: 'ConvenientQuickWithSet' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_ordering_process_steps_1608220.webp', title: 'Ordering Process', desc: 'OrderProcess' },
-  { src: '/imgs/label/custom-sticker/a_achievepack_brand_collage_application_8409454.webp', title: 'Brand Applications', desc: 'BrandApplicationScenario' },
-]
+import { useTranslation } from 'react-i18next'
 
 const CustomStickersPage: React.FC = () => {
+  const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
+
+  // Gallery images from /imgs/label/custom-sticker/
+  const customStickerGallery = [
+    { src: '/imgs/label/custom-sticker/hero.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item1.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item1.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_sticker_overview_four_types_8850197.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item2.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item2.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_sticker_shapes_custom_5720791.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item3.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item3.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_materials_swatch_wall_2342788.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item4.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item4.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_eco_materials_pla_6955352.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item5.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item5.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_printing_methods_detail_2866450.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item6.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item6.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_ink_types_effects_1477402.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item7.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item7.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_surface_finishes_comparison_4126542.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item8.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item8.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_order_config_interface_2146544.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item9.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item9.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_ordering_process_steps_1608220.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item10.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item10.desc') },
+    { src: '/imgs/label/custom-sticker/a_achievepack_brand_collage_application_8409454.webp', title: t('seoPages.pages.customStickers.achievePack.gallery.item11.title'), desc: t('seoPages.pages.customStickers.achievePack.gallery.item11.desc') },
+  ]
   
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
@@ -59,7 +61,7 @@ const CustomStickersPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">{t('seoPages.pages.customStickers.achievePack.clickToEnlarge', { defaultValue: 'Click to enlarge Click to enlarge' })}</div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -81,7 +83,7 @@ const CustomStickersPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">{t('seoPages.pages.customStickers.achievePack.clickToEnlarge', { defaultValue: 'Click to enlarge Click to enlarge' })}</div>
           </button>
         </>
       )}
@@ -91,32 +93,32 @@ const CustomStickersPage: React.FC = () => {
   const sections = [
     {
       id: 'intro',
-      title: 'Custom Stickers Overview',
+      title: t('seoPages.pages.customStickers.achievePack.sections.intro.title'),
       icon: <Sticker className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <div className="bg-gradient-to-r from-primary-50 to-purple-50 p-6 rounded-lg border border-primary-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>Factory-grade custom stickers with premium materials and finishes</strong> — From cut-to-size singles to roll stickers, we offer complete customization for shape, material, printing, and finishing options.
+              <strong>{t('seoPages.pages.customStickers.achievePack.sections.intro.summaryStrong')}</strong>{t('seoPages.pages.customStickers.achievePack.sections.intro.summaryText')}
             </p>
             <p className="text-neutral-700 mb-4">
-              Factory GradeCustomSticker，PremiumMaterialAndSurface Finish — FromDie-Cut SheetsToRoll FormSticker，ProvideShape、Material、PrintingAndSurfaceProcessingOfFullSidePositionCustom。
+              <strong>{t('seoPages.pages.customStickers.achievePack.sections.intro.summaryStrongCn')}</strong>{t('seoPages.pages.customStickers.achievePack.sections.intro.summaryTextCn')}
             </p>
             <div className="flex flex-wrap gap-2 mt-4">
-              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">Cut to Size</span>
-              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">Roll Stickers</span>
-              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">Sheet Stickers</span>
-              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">Kiss Cut</span>
+              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">{t('seoPages.pages.customStickers.achievePack.sections.intro.badgeCut')}</span>
+              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">{t('seoPages.pages.customStickers.achievePack.sections.intro.badgeRoll')}</span>
+              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">{t('seoPages.pages.customStickers.achievePack.sections.intro.badgeSheet')}</span>
+              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-primary-700 border border-primary-200">{t('seoPages.pages.customStickers.achievePack.sections.intro.badgeKiss')}</span>
             </div>
           </div>
 
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_sticker_overview_four_types_8850197.webp"
             imageAlt="Four types of custom stickers"
-            title="Four Sticker Types for Every Need"
-            titleCn="Four TypesStickerCategoryTypeMeetVariousRequireDemand"
-            content="Choose from Cut to Size (individual die-cut stickers), Roll (continuous roll for high-volume application), Sheet (multiple stickers per sheet), and Kiss Cut (stickers on backing sheet for easy peeling). Each type is optimized for specific use cases and application methods."
-            contentCn="CanChooseDie-Cut Sheets（SingleUniqueDie CutSticker）、Roll Form（SuitableSuitableLargeBatchVolumeApplicationOfContinuousRoll）、Paper Style（EachSheetMultipleUnitSticker）AndDie Cut（WithLinerPaperConvenientAtTearTake）。Each TypeCategoryTypeAllNeedleForSpecificUseScenarioAndApplicationMethodOptimizeization。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.intro.item1.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.intro.item1.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.intro.item1.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.intro.item1.descCn')}
             imageLeft={true}
             index={1}
           />
@@ -124,10 +126,10 @@ const CustomStickersPage: React.FC = () => {
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_sticker_shapes_custom_5720791.webp"
             imageAlt="Custom shapes and sizes for stickers"
-            title="Unlimited Shape & Size Options"
-            titleCn="NoLimitShapeAndDimensionsChoose"
-            content="Go beyond standard shapes with our custom die-cutting capabilities. Square, circle, oval, rounded rectangle, heart, hexagon, starburst, or completely custom shapes — we can produce any design you need with precision cutting."
-            contentCn="Break ThroughStandardShapeLimit，WeProvideCustomDie CutCanPower。Square、Round、Oval、Rounded RectangleForm、HeartForm、SixEdgeForm、StarBurstForm，OrCompleteCustom Shape——WeCanWithFineExactCutProductionAnyYouRequireNeedOfDesign。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.intro.item2.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.intro.item2.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.intro.item2.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.intro.item2.descCn')}
             imageLeft={false}
             index={2}
           />
@@ -136,17 +138,17 @@ const CustomStickersPage: React.FC = () => {
     },
     {
       id: 'materials',
-      title: 'Material Options',
+      title: t('seoPages.pages.customStickers.achievePack.sections.materials.title'),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_materials_swatch_wall_2342788.webp"
             imageAlt="Material options swatch wall"
-            title="Premium Material Selection"
-            titleCn="PremiumMaterialChoose"
-            content="Our material library includes White Kraft paper for an organic feel, C2S coated paper for vibrant colors, Clear Plastic for transparent applications, White Plastic for durability, and natural Kraft Paper for eco-conscious brands."
-            contentCn="OurMaterialStoragePackIncluding：White Kraft PaperWithComeSelfNaturalOrganicFeel、C2SCoatingClothPaperPresentBrightColorColor、TransparentPlasticSuitableSuitableTransparentApplication、WhitePlasticProvideResistantUseProperty、NaturalKraft PaperMeetEco-FriendlyBrandRequireDemand。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.materials.item3.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.materials.item3.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.materials.item3.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.materials.item3.descCn')}
             imageLeft={true}
             index={3}
           />
@@ -156,41 +158,41 @@ const CustomStickersPage: React.FC = () => {
               <div className="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-2">
                 <Package className="h-5 w-5 text-amber-600" />
               </div>
-              <h5 className="font-semibold text-neutral-900 text-sm">White Kraft</h5>
-              <p className="text-xs text-neutral-600 mt-1">Natural look</p>
-              <p className="text-xs text-primary-600">White Kraft Paper</p>
+              <h5 className="font-semibold text-neutral-900 text-sm">{t('seoPages.pages.customStickers.achievePack.sections.materials.card1.title')}</h5>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.materials.card1.desc')}</p>
+              <p className="text-xs text-primary-600">{t('seoPages.pages.customStickers.achievePack.sections.materials.card1.sub')}</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-2">
                 <Sparkles className="h-5 w-5 text-blue-600" />
               </div>
-              <h5 className="font-semibold text-neutral-900 text-sm">C2S Coated</h5>
-              <p className="text-xs text-neutral-600 mt-1">Vibrant colors</p>
-              <p className="text-xs text-primary-600">CoatingClothPaper</p>
+              <h5 className="font-semibold text-neutral-900 text-sm">{t('seoPages.pages.customStickers.achievePack.sections.materials.card2.title')}</h5>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.materials.card2.desc')}</p>
+              <p className="text-xs text-primary-600">{t('seoPages.pages.customStickers.achievePack.sections.materials.card2.sub')}</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="w-10 h-10 bg-neutral-50 rounded-full flex items-center justify-center mx-auto mb-2">
                 <Layers className="h-5 w-5 text-neutral-600" />
               </div>
-              <h5 className="font-semibold text-neutral-900 text-sm">Clear Plastic</h5>
-              <p className="text-xs text-neutral-600 mt-1">Transparent</p>
-              <p className="text-xs text-primary-600">TransparentPlastic</p>
+              <h5 className="font-semibold text-neutral-900 text-sm">{t('seoPages.pages.customStickers.achievePack.sections.materials.card3.title')}</h5>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.materials.card3.desc')}</p>
+              <p className="text-xs text-primary-600">{t('seoPages.pages.customStickers.achievePack.sections.materials.card3.sub')}</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-2">
                 <Package className="h-5 w-5 text-gray-600" />
               </div>
-              <h5 className="font-semibold text-neutral-900 text-sm">White Plastic</h5>
-              <p className="text-xs text-neutral-600 mt-1">Durable</p>
-              <p className="text-xs text-primary-600">WhitePlastic</p>
+              <h5 className="font-semibold text-neutral-900 text-sm">{t('seoPages.pages.customStickers.achievePack.sections.materials.card4.title')}</h5>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.materials.card4.desc')}</p>
+              <p className="text-xs text-primary-600">{t('seoPages.pages.customStickers.achievePack.sections.materials.card4.sub')}</p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <div className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-2">
                 <Package className="h-5 w-5 text-orange-600" />
               </div>
-              <h5 className="font-semibold text-neutral-900 text-sm">Kraft Paper</h5>
-              <p className="text-xs text-neutral-600 mt-1">Eco-friendly</p>
-              <p className="text-xs text-primary-600">Kraft Paper</p>
+              <h5 className="font-semibold text-neutral-900 text-sm">{t('seoPages.pages.customStickers.achievePack.sections.materials.card5.title')}</h5>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.materials.card5.desc')}</p>
+              <p className="text-xs text-primary-600">{t('seoPages.pages.customStickers.achievePack.sections.materials.card5.sub')}</p>
             </div>
           </div>
         </div>
@@ -198,17 +200,17 @@ const CustomStickersPage: React.FC = () => {
     },
     {
       id: 'eco',
-      title: 'Eco-Friendly & Sustainable',
+      title: t('seoPages.pages.customStickers.achievePack.sections.eco.title'),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_eco_materials_pla_6955352.webp"
             imageAlt="Eco-friendly PLA and paper-based stickers"
-            title="Sustainable Material Options"
-            titleCn="CanContinuousMaterialSolution"
-            content="Choose environmentally responsible materials including PLA-based biodegradable films, FSC-certified paper stocks, and recyclable substrates. Perfect for brands committed to reducing their environmental footprint."
-            contentCn="ChooseEco-FriendlyResponsibleOfMaterial，PackIncludingPLABaseCanDegradableFilm、FSCCertificationPaperAndRecyclableBase Material。Ideal forSuitableUltimatePowerAtReduceEnvironmentFootprintOfBrand。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.eco.item4.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.eco.item4.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.eco.item4.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.eco.item4.descCn')}
             imageLeft={false}
             index={4}
           />
@@ -216,28 +218,28 @@ const CustomStickersPage: React.FC = () => {
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
             <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
               <Leaf className="h-5 w-5 text-green-600" />
-              Eco-Friendly Options
+              {t('seoPages.pages.customStickers.achievePack.sections.eco.boxTitle')}
             </h4>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-neutral-800">PLA Biodegradable</p>
-                  <p className="text-sm text-neutral-600">Plant-based films</p>
+                  <p className="font-medium text-neutral-800">{t('seoPages.pages.customStickers.achievePack.sections.eco.box1Title')}</p>
+                  <p className="text-sm text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.eco.box1Desc')}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-neutral-800">FSC Certified Paper</p>
-                  <p className="text-sm text-neutral-600">Sustainable forestry</p>
+                  <p className="font-medium text-neutral-800">{t('seoPages.pages.customStickers.achievePack.sections.eco.box2Title')}</p>
+                  <p className="text-sm text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.eco.box2Desc')}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-neutral-800">Recyclable Substrates</p>
-                  <p className="text-sm text-neutral-600">End-of-life ready</p>
+                  <p className="font-medium text-neutral-800">{t('seoPages.pages.customStickers.achievePack.sections.eco.box3Title')}</p>
+                  <p className="text-sm text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.eco.box3Desc')}</p>
                 </div>
               </div>
             </div>
@@ -247,17 +249,17 @@ const CustomStickersPage: React.FC = () => {
     },
     {
       id: 'printing',
-      title: 'Printing Methods & Ink Types',
+      title: t('seoPages.pages.customStickers.achievePack.sections.printing.title'),
       icon: <Printer className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_printing_methods_detail_2866450.webp"
             imageAlt="Professional printing methods detail"
-            title="Factory-Grade Printing Technology"
-            titleCn="Factory GradePrintingTechnology"
-            content="We utilize multiple printing technologies to achieve the best results: Flexography for cost-effective high-volume runs, Gravure for exceptional detail, Digital printing for short runs and variable data, and UV printing for special effects."
-            contentCn="WeUsingMultiplePrintingTechnologyWithObtainMostBestEffect：SoftEditionPrintingSuitableSuitableHighPropertyPriceRatioLargeBatchVolume、GravurePrintingPresentExcellentDetails、DigitalPrintingSuitableSuitableShortEditionAndCanChangeData、UVPrintingAchieveSpecialEffect。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.printing.item5.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.printing.item5.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.printing.item5.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.printing.item5.descCn')}
             imageLeft={true}
             index={5}
           />
@@ -265,34 +267,34 @@ const CustomStickersPage: React.FC = () => {
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_ink_types_effects_1477402.webp"
             imageAlt="Ink types and special effects"
-            title="Specialty Ink Options"
-            titleCn="SpecialInkOptions"
-            content="Beyond standard inks, we offer water-based eco inks, soy/vegetable-based sustainable options, fluorescent colors for eye-catching impact, and metallic Pantone inks for premium finishes that catch the light."
-            contentCn="RemoveStandardInkOutside，WeAlsoProvideWaterPropertyEco-FriendlyInk、LargeBean/PlantMaterialBaseCanContinuousOptions、FluorescentColorStrikeMakeEye-CatchingEffect，WithAndGoldBelongPanConnectInkAchieveCapture LightLineOfPremiumSurfaceEffect。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.printing.item6.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.printing.item6.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.printing.item6.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.printing.item6.descCn')}
             imageLeft={false}
             index={6}
           />
 
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
-              <div className="text-lg font-bold text-primary-600 mb-2">Flexography</div>
-              <p className="text-xs text-neutral-600">High-volume, cost-effective</p>
-              <p className="text-xs text-primary-600 mt-1">SoftEditionPrinting</p>
+              <div className="text-lg font-bold text-primary-600 mb-2">{t('seoPages.pages.customStickers.achievePack.sections.printing.card1.title')}</div>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.printing.card1.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.printing.card1.sub')}</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
-              <div className="text-lg font-bold text-primary-600 mb-2">Gravure</div>
-              <p className="text-xs text-neutral-600">Exceptional detail</p>
-              <p className="text-xs text-primary-600 mt-1">GravurePrinting</p>
+              <div className="text-lg font-bold text-primary-600 mb-2">{t('seoPages.pages.customStickers.achievePack.sections.printing.card2.title')}</div>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.printing.card2.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.printing.card2.sub')}</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
-              <div className="text-lg font-bold text-primary-600 mb-2">Digital</div>
-              <p className="text-xs text-neutral-600">Short runs, variable data</p>
-              <p className="text-xs text-primary-600 mt-1">DigitalPrinting</p>
+              <div className="text-lg font-bold text-primary-600 mb-2">{t('seoPages.pages.customStickers.achievePack.sections.printing.card3.title')}</div>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.printing.card3.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.printing.card3.sub')}</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
-              <div className="text-lg font-bold text-primary-600 mb-2">UV Print</div>
-              <p className="text-xs text-neutral-600">Special effects</p>
-              <p className="text-xs text-primary-600 mt-1">UVPrinting</p>
+              <div className="text-lg font-bold text-primary-600 mb-2">{t('seoPages.pages.customStickers.achievePack.sections.printing.card4.title')}</div>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.printing.card4.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.printing.card4.sub')}</p>
             </div>
           </div>
         </div>
@@ -300,41 +302,41 @@ const CustomStickersPage: React.FC = () => {
     },
     {
       id: 'finishes',
-      title: 'Surface Finishes & Effects',
+      title: t('seoPages.pages.customStickers.achievePack.sections.finishes.title'),
       icon: <Sparkles className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_surface_finishes_comparison_4126542.webp"
             imageAlt="Surface finish comparison matte gloss UV foil"
-            title="Premium Finish Options"
-            titleCn="Premium Surface Finishing"
-            content="Elevate your stickers with professional finishes: Matte for a sophisticated, non-reflective look; Gloss for vibrant, eye-catching shine; UV Coating for enhanced durability; and Hot Foil Stamping for luxurious metallic accents."
-            contentCn="UseProfessionalIndustrySurfaceProcessingImproveStickerQuality：MattePresentFineUltimateNoReverseInjectOutsideView、GlossWithComeBrightEye-CatchingGloss、UVCoatingLayerIncreaseStrongResistantLongProperty、Hot StampingWorkerArtStrikeMakeLuxury GoldBelongQualityFeel。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.finishes.item7.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.finishes.item7.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.finishes.item7.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.finishes.item7.descCn')}
             imageLeft={true}
             index={7}
           />
 
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-gradient-to-br from-neutral-100 to-neutral-200 p-5 rounded-lg text-center">
-              <div className="font-bold text-neutral-800 mb-2">Matte</div>
-              <p className="text-xs text-neutral-600">Sophisticated, non-reflective</p>
-              <p className="text-xs text-primary-600 mt-1">Matte</p>
+              <div className="font-bold text-neutral-800 mb-2">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card1.title')}</div>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card1.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card1.sub')}</p>
             </div>
             <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-5 rounded-lg text-center">
-              <div className="font-bold text-neutral-800 mb-2">Gloss</div>
-              <p className="text-xs text-neutral-600">Vibrant, shiny</p>
-              <p className="text-xs text-primary-600 mt-1">Gloss</p>
+              <div className="font-bold text-neutral-800 mb-2">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card2.title')}</div>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card2.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card2.sub')}</p>
             </div>
             <div className="bg-gradient-to-br from-purple-100 to-purple-200 p-5 rounded-lg text-center">
-              <div className="font-bold text-neutral-800 mb-2">UV Coating</div>
-              <p className="text-xs text-neutral-600">Enhanced durability</p>
-              <p className="text-xs text-primary-600 mt-1">UVCoatingLayer</p>
+              <div className="font-bold text-neutral-800 mb-2">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card3.title')}</div>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card3.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card3.sub')}</p>
             </div>
             <div className="bg-gradient-to-br from-amber-100 to-amber-200 p-5 rounded-lg text-center">
-              <div className="font-bold text-neutral-800 mb-2">Hot Foil</div>
-              <p className="text-xs text-neutral-600">Metallic accents</p>
-              <p className="text-xs text-primary-600 mt-1">Hot Stamping</p>
+              <div className="font-bold text-neutral-800 mb-2">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card4.title')}</div>
+              <p className="text-xs text-neutral-600">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card4.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.finishes.card4.sub')}</p>
             </div>
           </div>
         </div>
@@ -342,17 +344,17 @@ const CustomStickersPage: React.FC = () => {
     },
     {
       id: 'ordering',
-      title: 'Easy Ordering Process',
+      title: t('seoPages.pages.customStickers.achievePack.sections.ordering.title'),
       icon: <Settings className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_order_config_interface_2146544.webp"
             imageAlt="Order configuration interface"
-            title="Simple Configuration System"
-            titleCn="SimpleCleanWithSetSystem"
-            content="Our intuitive ordering system lets you select Type (Cut to Size, Roll, Sheet, Kiss Cut), Shape (Square, Circle, Oval, Custom), Material (White Kraft, Clear Plastic, White Plastic, Kraft Paper), and Finish (Matte, Gloss) — all in one streamlined interface."
-            contentCn="WeStraightViewOfOrderSystemLetYouCanWithChooseCategoryType（Die-Cut Sheets、Roll Form、Paper Style、Die Cut）、Shape（Square、Round、Oval、SelfDefine）、Material（White Kraft Paper、TransparentPlastic、WhitePlastic、Kraft Paper）AndSurfaceProcessing（Matte、Gloss）——FullPartInOneUnitSimpleizationWorldFaceInCompleteForm。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.ordering.item8.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.ordering.item8.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.ordering.item8.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.ordering.item8.descCn')}
             imageLeft={false}
             index={8}
           />
@@ -360,10 +362,10 @@ const CustomStickersPage: React.FC = () => {
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_ordering_process_steps_1608220.webp"
             imageAlt="Four-step ordering process"
-            title="4 Simple Steps to Your Custom Stickers"
-            titleCn="FourStepLightLooseCustomSticker"
-            content="1) Customize your packaging with our online configurator. 2) Add to quote and submit your requirements. 3) Consult with our packaging expert for optimization. 4) Production begins with fast shipping to your location."
-            contentCn="1）UseInLineWithSetDeviceCustomYouOfPackaging。2）AddToQuoteAndRaiseSubmitRequireDemand。3）AndPackagingProfessionalHomeConsultExcellentizationSolution。4）StartProductionAndFastShippingToYouOfPositionSet。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.ordering.item9.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.ordering.item9.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.ordering.item9.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.ordering.item9.descCn')}
             imageLeft={true}
             index={9}
           />
@@ -374,29 +376,29 @@ const CustomStickersPage: React.FC = () => {
                 <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">1</span>
                 </div>
-                <h5 className="font-semibold mb-2">Customize</h5>
-                <p className="text-sm text-white/80">Configure your sticker specs</p>
+                <h5 className="font-semibold mb-2">{t('seoPages.pages.customStickers.achievePack.sections.ordering.step1.title')}</h5>
+                <p className="text-sm text-white/80">{t('seoPages.pages.customStickers.achievePack.sections.ordering.step1.desc')}</p>
               </div>
               <div>
                 <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">2</span>
                 </div>
-                <h5 className="font-semibold mb-2">Submit Quote</h5>
-                <p className="text-sm text-white/80">Add to quote & submit</p>
+                <h5 className="font-semibold mb-2">{t('seoPages.pages.customStickers.achievePack.sections.ordering.step2.title')}</h5>
+                <p className="text-sm text-white/80">{t('seoPages.pages.customStickers.achievePack.sections.ordering.step2.desc')}</p>
               </div>
               <div>
                 <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">3</span>
                 </div>
-                <h5 className="font-semibold mb-2">Consult Expert</h5>
-                <p className="text-sm text-white/80">Review with our team</p>
+                <h5 className="font-semibold mb-2">{t('seoPages.pages.customStickers.achievePack.sections.ordering.step3.title')}</h5>
+                <p className="text-sm text-white/80">{t('seoPages.pages.customStickers.achievePack.sections.ordering.step3.desc')}</p>
               </div>
               <div>
                 <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">4</span>
                 </div>
-                <h5 className="font-semibold mb-2">Production</h5>
-                <p className="text-sm text-white/80">Fast manufacturing & shipping</p>
+                <h5 className="font-semibold mb-2">{t('seoPages.pages.customStickers.achievePack.sections.ordering.step4.title')}</h5>
+                <p className="text-sm text-white/80">{t('seoPages.pages.customStickers.achievePack.sections.ordering.step4.desc')}</p>
               </div>
             </div>
           </div>
@@ -405,17 +407,17 @@ const CustomStickersPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Brand Applications',
+      title: t('seoPages.pages.customStickers.achievePack.sections.applications.title'),
       icon: <Building2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/label/custom-sticker/a_achievepack_brand_collage_application_8409454.webp"
             imageAlt="Brand application collage showing stickers on various products"
-            title="From Factory to Brand Application"
-            titleCn="FromFactoryToBrandLand"
-            content="Our stickers work seamlessly across applications: product branding on glass bottles and jars, box and package sealing, food container labeling, promotional materials, and event marketing. Complete capability from production to your customers' hands."
-            contentCn="OurStickerCanNoSeamApplicationAtVariousScenario：GlassBottles and JarsProductBrand、BoxChildAndPackagingSeal、FoodCapacityDeviceLabeling、PromotionMaterialAndActivityMarketing。FromProductionToCustomerHandInOfCompleteCanPower。"
+            title={t('seoPages.pages.customStickers.achievePack.sections.applications.item10.title')}
+            titleCn={t('seoPages.pages.customStickers.achievePack.sections.applications.item10.titleCn')}
+            content={t('seoPages.pages.customStickers.achievePack.sections.applications.item10.desc')}
+            contentCn={t('seoPages.pages.customStickers.achievePack.sections.applications.item10.descCn')}
             imageLeft={false}
             index={10}
           />
@@ -423,21 +425,21 @@ const CustomStickersPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <Package className="h-6 w-6 text-primary-600 mb-3" />
-              <h5 className="font-semibold text-neutral-900">Product Branding</h5>
-              <p className="text-sm text-neutral-600 mt-1">Bottles, jars, containers</p>
-              <p className="text-xs text-primary-600 mt-1">ProductBrandLabeling</p>
+              <h5 className="font-semibold text-neutral-900">{t('seoPages.pages.customStickers.achievePack.sections.applications.card1.title')}</h5>
+              <p className="text-sm text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.applications.card1.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.applications.card1.sub')}</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <FileCheck className="h-6 w-6 text-primary-600 mb-3" />
-              <h5 className="font-semibold text-neutral-900">Package Sealing</h5>
-              <p className="text-sm text-neutral-600 mt-1">Boxes, bags, envelopes</p>
-              <p className="text-xs text-primary-600 mt-1">PackagingSeal</p>
+              <h5 className="font-semibold text-neutral-900">{t('seoPages.pages.customStickers.achievePack.sections.applications.card2.title')}</h5>
+              <p className="text-sm text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.applications.card2.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.applications.card2.sub')}</p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <Zap className="h-6 w-6 text-primary-600 mb-3" />
-              <h5 className="font-semibold text-neutral-900">Marketing & Events</h5>
-              <p className="text-sm text-neutral-600 mt-1">Promotional, giveaways</p>
-              <p className="text-xs text-primary-600 mt-1">MarketingAndActivity</p>
+              <h5 className="font-semibold text-neutral-900">{t('seoPages.pages.customStickers.achievePack.sections.applications.card3.title')}</h5>
+              <p className="text-sm text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.applications.card3.desc')}</p>
+              <p className="text-xs text-primary-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.applications.card3.sub')}</p>
             </div>
           </div>
         </div>
@@ -445,32 +447,32 @@ const CustomStickersPage: React.FC = () => {
     },
     {
       id: 'related',
-      title: 'Complete Your Packaging Solution',
+      title: t('seoPages.pages.customStickers.achievePack.sections.related.title'),
       icon: <Globe className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">Combine custom stickers with our flexible packaging solutions for a complete branded experience:</p>
+          <p className="text-neutral-700">{t('seoPages.pages.customStickers.achievePack.sections.related.desc')}</p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link to="/products/custom-labels" className="group block bg-white p-5 rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
               <Sticker className="h-6 w-6 text-primary-600 mb-3 group-hover:scale-110 transition-transform" />
-              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">Custom Labels</h5>
-              <p className="text-xs text-neutral-600 mt-1">Sheet labels for products</p>
+              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">{t('seoPages.pages.customStickers.achievePack.sections.related.link1.title')}</h5>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.related.link1.desc')}</p>
             </Link>
             <Link to="/packaging/stand-up-pouches" className="group block bg-white p-5 rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
               <Package className="h-6 w-6 text-primary-600 mb-3 group-hover:scale-110 transition-transform" />
-              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">Stand-Up Pouches</h5>
-              <p className="text-xs text-neutral-600 mt-1">Flexible packaging base</p>
+              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">{t('seoPages.pages.customStickers.achievePack.sections.related.link2.title')}</h5>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.related.link2.desc')}</p>
             </Link>
             <Link to="/features/surface-finish" className="group block bg-white p-5 rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
               <Palette className="h-6 w-6 text-primary-600 mb-3 group-hover:scale-110 transition-transform" />
-              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">Surface Finishes</h5>
-              <p className="text-xs text-neutral-600 mt-1">Matte, gloss, soft-touch</p>
+              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">{t('seoPages.pages.customStickers.achievePack.sections.related.link3.title')}</h5>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.related.link3.desc')}</p>
             </Link>
             <Link to="/materials/compostable" className="group block bg-white p-5 rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
               <Award className="h-6 w-6 text-primary-600 mb-3 group-hover:scale-110 transition-transform" />
-              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">Compostable Materials</h5>
-              <p className="text-xs text-neutral-600 mt-1">Eco-friendly options</p>
+              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">{t('seoPages.pages.customStickers.achievePack.sections.related.link4.title')}</h5>
+              <p className="text-xs text-neutral-600 mt-1">{t('seoPages.pages.customStickers.achievePack.sections.related.link4.desc')}</p>
             </Link>
           </div>
         </div>
@@ -478,57 +480,57 @@ const CustomStickersPage: React.FC = () => {
     },
     {
       id: 'faq',
-      title: 'Frequently Asked Questions',
+      title: t('seoPages.pages.customStickers.achievePack.sections.faq.title'),
       icon: <Star className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4">
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">What types of custom stickers do you offer?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.customStickers.achievePack.sections.faq.q1.q')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">We offer four main types: Cut to Size (individual die-cut stickers), Roll (continuous roll for high-volume application), Sheet (multiple stickers per sheet), and Kiss Cut (stickers on backing sheet for easy peeling). Each type is optimized for specific applications.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.customStickers.achievePack.sections.faq.q1.a')}</div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">Do you offer eco-friendly sticker materials?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.customStickers.achievePack.sections.faq.q2.q')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Yes! We offer PLA-based biodegradable films, FSC-certified paper stocks, and recyclable substrates. We also use water-based and soy/vegetable-based eco-friendly inks for environmentally conscious brands.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.customStickers.achievePack.sections.faq.q2.a')}</div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">What surface finishes are available?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.customStickers.achievePack.sections.faq.q3.q')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">We offer Matte (sophisticated, non-reflective), Gloss (vibrant, shiny), UV Coating (enhanced durability), and Hot Foil Stamping (luxurious metallic accents). These finishes can dramatically elevate your sticker's appearance.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.customStickers.achievePack.sections.faq.q3.a')}</div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">Can I create custom shapes?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.customStickers.achievePack.sections.faq.q4.q')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Absolutely! We offer unlimited shape options including square, circle, oval, rounded rectangle, heart, hexagon, starburst, or completely custom shapes. Our precision die-cutting can produce any design you need.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.customStickers.achievePack.sections.faq.q4.a')}</div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">What printing methods do you use?</span>
+              <span className="font-semibold text-neutral-900 pr-4">{t('seoPages.pages.customStickers.achievePack.sections.faq.q5.q')}</span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">We use multiple printing technologies: Flexography for cost-effective high-volume runs, Gravure for exceptional detail, Digital printing for short runs and variable data, and UV printing for special effects.</div>
+            <div className="px-6 pb-6 text-neutral-700">{t('seoPages.pages.customStickers.achievePack.sections.faq.q5.a')}</div>
           </details>
         </div>
       )
     },
     {
       id: 'cta',
-      title: 'Ready to Order Custom Stickers?',
+      title: t('seoPages.pages.customStickers.achievePack.sections.cta.title'),
       icon: <Sticker className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 rounded-2xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Get Your Custom Stickers Quote</h3>
+          <h3 className="text-2xl font-bold mb-4">{t('seoPages.pages.customStickers.achievePack.sections.cta.header')}</h3>
           <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-            Contact our team to discuss your sticker requirements. Factory-grade quality, flexible options, and expert support throughout the process.
+            {t('seoPages.pages.customStickers.achievePack.sections.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -536,7 +538,7 @@ const CustomStickersPage: React.FC = () => {
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary-600 rounded-lg font-semibold hover:bg-primary-50 transition"
             >
               <Calendar className="h-5 w-5" />
-              Book Free Consultation
+              {t('seoPages.pages.customStickers.achievePack.sections.cta.btnCall')}
             </button>
             <a
               href="https://wa.me/85269704411?text=Hi%2C%20I%27m%20interested%20in%20custom%20stickers"
@@ -544,14 +546,14 @@ const CustomStickersPage: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition"
             >
-              WhatsApp Chat
+              {t('seoPages.pages.customStickers.achievePack.sections.cta.btnWa')}
             </a>
             <a
               href="mailto:ryan@achievepack.com?subject=Custom Stickers Quote"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white rounded-lg font-semibold hover:bg-white/20 transition"
             >
               <Mail className="h-5 w-5" />
-              Email Quote
+              {t('seoPages.pages.customStickers.achievePack.sections.cta.btnMail')}
             </a>
           </div>
         </div>
@@ -559,18 +561,20 @@ const CustomStickersPage: React.FC = () => {
     }
   ]
 
+  const achieveKeywords = t('seoPages.pages.customStickers.achievePack.seo.keywords', { returnObjects: true }) as string[]
+
   return (
     <>
       <SEOPageLayout heroBgColor="#1f2937"
-        title="Custom Stickers | Factory-Grade Printing | Achieve Pack"
-        description="Factory-grade custom stickers with premium materials, multiple shapes, eco-friendly options, and professional finishes. Cut-to-size, roll, sheet, and kiss-cut types available."
+        title={t('seoPages.pages.customStickers.achievePack.seo.title')}
+        description={t('seoPages.pages.customStickers.achievePack.seo.description')}
         canonicalUrl="https://achievepack.com/products/custom-stickers"
-        heroTitle="Custom Stickers"
-        heroSubtitle="Factory-Grade Quality • Premium Materials • Eco-Friendly Options"
-        introSummary="Professional custom stickers with multiple types, shapes, materials, and finishes. From cut-to-size singles to roll stickers."
+        heroTitle={t('seoPages.pages.customStickers.achievePack.seo.heroTitle')}
+        heroSubtitle={t('seoPages.pages.customStickers.achievePack.seo.heroSubtitle')}
+        introSummary={t('seoPages.pages.customStickers.achievePack.seo.introSummary')}
         heroImage="/imgs/label/custom-sticker/hero.webp"
         sections={sections}
-        keywords={['custom stickers', 'roll stickers', 'die cut stickers', 'kiss cut stickers', 'sheet stickers', 'eco-friendly stickers', 'PLA stickers', 'metallic stickers']}
+        keywords={achieveKeywords}
         schemaType="Product"
       />
 

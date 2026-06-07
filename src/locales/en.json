@@ -13325,6 +13325,319 @@
                         }
                     }
                 }
+            },
+            "customStickers": {
+                "achievePack": {
+                    "clickToEnlarge": "Click to enlarge Click to enlarge",
+                    "seo": {
+                        "title": "Custom Stickers | Factory-Grade Printing | Achieve Pack",
+                        "description": "Factory-grade custom stickers with premium materials, multiple shapes, eco-friendly options, and professional finishes. Cut-to-size, roll, sheet, and kiss-cut types available.",
+                        "heroTitle": "Custom Stickers",
+                        "heroSubtitle": "Factory-Grade Quality • Premium Materials • Eco-Friendly Options",
+                        "introSummary": "Professional custom stickers with multiple types, shapes, materials, and finishes. From cut-to-size singles to roll stickers.",
+                        "keywords": [
+                            "custom stickers",
+                            "roll stickers",
+                            "die cut stickers",
+                            "kiss cut stickers",
+                            "sheet stickers",
+                            "eco-friendly stickers",
+                            "PLA stickers",
+                            "metallic stickers"
+                        ]
+                    },
+                    "gallery": {
+                        "item1": {
+                            "title": "Custom Stickers Overview",
+                            "desc": "CustomStickerOverview"
+                        },
+                        "item2": {
+                            "title": "Four Sticker Types",
+                            "desc": "Four TypesStickerCategoryType"
+                        },
+                        "item3": {
+                            "title": "Custom Shapes & Sizes",
+                            "desc": "ShapeAndDimensionsCustom"
+                        },
+                        "item4": {
+                            "title": "Material Options",
+                            "desc": "MaterialOptions"
+                        },
+                        "item5": {
+                            "title": "Eco-Friendly Materials",
+                            "desc": "Eco-Friendly Materials"
+                        },
+                        "item6": {
+                            "title": "Printing Methods",
+                            "desc": "PrintingMethod"
+                        },
+                        "item7": {
+                            "title": "Ink Types & Effects",
+                            "desc": "InkCategoryTypeAndEffect"
+                        },
+                        "item8": {
+                            "title": "Surface Finishes",
+                            "desc": "Surface Finish"
+                        },
+                        "item9": {
+                            "title": "Easy Configuration",
+                            "desc": "ConvenientQuickWithSet"
+                        },
+                        "item10": {
+                            "title": "Ordering Process",
+                            "desc": "OrderProcess"
+                        },
+                        "item11": {
+                            "title": "Brand Applications",
+                            "desc": "BrandApplicationScenario"
+                        }
+                    },
+                    "sections": {
+                        "intro": {
+                            "title": "Custom Stickers Overview",
+                            "summaryStrong": "Factory-grade custom stickers with premium materials and finishes",
+                            "summaryText": " — From cut-to-size singles to roll stickers, we offer complete customization for shape, material, printing, and finishing options.",
+                            "summaryStrongCn": "Factory GradeCustomSticker，PremiumMaterialAndSurface Finish",
+                            "summaryTextCn": " — FromDie-Cut SheetsToRoll FormSticker，ProvideShape、Material、PrintingAndSurfaceProcessingOfFullSidePositionCustom。",
+                            "badgeCut": "Cut to Size",
+                            "badgeRoll": "Roll Stickers",
+                            "badgeSheet": "Sheet Stickers",
+                            "badgeKiss": "Kiss Cut",
+                            "item1": {
+                                "title": "Four Sticker Types for Every Need",
+                                "titleCn": "Four TypesStickerCategoryTypeMeetVariousRequireDemand",
+                                "desc": "Choose from Cut to Size (individual die-cut stickers), Roll (continuous roll for high-volume application), Sheet (multiple stickers per sheet), and Kiss Cut (stickers on backing sheet for easy peeling). Each type is optimized for specific use cases and application methods.",
+                                "descCn": "CanChooseDie-Cut Sheets（SingleUniqueDie CutSticker）、Roll Form（SuitableSuitableLargeBatchVolumeApplicationOfContinuousRoll）、Paper Style（EachSheetMultipleUnitSticker）AndDie Cut（WithLinerPaperConvenientAtTearTake）。Each TypeCategoryTypeAllNeedleForSpecificUseScenarioAndApplicationMethodOptimizeization。"
+                            },
+                            "item2": {
+                                "title": "Unlimited Shape & Size Options",
+                                "titleCn": "NoLimitShapeAndDimensionsChoose",
+                                "desc": "Go beyond standard shapes with our custom die-cutting capabilities. Square, circle, oval, rounded rectangle, heart, hexagon, starburst, or completely custom shapes — we can produce any design you need with precision cutting.",
+                                "descCn": "Break ThroughStandardShapeLimit，WeProvideCustomDie CutCanPower。Square、Round、Oval、Rounded RectangleForm、HeartForm、SixEdgeForm bubble、StarBurstForm，OrCompleteCustom Shape——WeCanWithFineExactCutProductionAnyYouRequireNeedOfDesign。"
+                            }
+                        },
+                        "materials": {
+                            "title": "Material Options",
+                            "item3": {
+                                "title": "Premium Material Selection",
+                                "titleCn": "PremiumMaterialChoose",
+                                "desc": "Our material library includes White Kraft paper for an organic feel, C2S coated paper for vibrant colors, Clear Plastic for transparent applications, White Plastic for durability, and natural Kraft Paper for eco-conscious brands.",
+                                "descCn": "OurMaterialStoragePackIncluding：White Kraft PaperWithComeSelfNaturalOrganicFeel、C2SCoatingClothPaperPresentBrightColorColor、TransparentPlasticSuitableSuitableTransparentApplication、WhitePlasticProvideResistantUseProperty、NaturalKraft PaperMeetEco-FriendlyBrandRequireDemand。"
+                            },
+                            "card1": {
+                                "title": "White Kraft",
+                                "desc": "Natural look",
+                                "sub": "White Kraft Paper"
+                            },
+                            "card2": {
+                                "title": "C2S Coated",
+                                "desc": "Vibrant colors",
+                                "sub": "CoatingClothPaper"
+                            },
+                            "card3": {
+                                "title": "Clear Plastic",
+                                "desc": "Transparent",
+                                "sub": "TransparentPlastic"
+                            },
+                            "card4": {
+                                "title": "White Plastic",
+                                "desc": "Durable",
+                                "sub": "WhitePlastic"
+                            },
+                            "card5": {
+                                "title": "Kraft Paper",
+                                "desc": "Eco-friendly",
+                                "sub": "Kraft Paper"
+                            }
+                        },
+                        "eco": {
+                            "title": "Eco-Friendly & Sustainable",
+                            "item4": {
+                                "title": "Sustainable Material Options",
+                                "titleCn": "CanContinuousMaterialSolution",
+                                "desc": "Choose environmentally responsible materials including PLA-based biodegradable films, FSC-certified paper stocks, and recyclable substrates. Perfect for brands committed to reducing their environmental footprint.",
+                                "descCn": "ChooseEco-FriendlyResponsibleOfMaterial，PackIncludingPLABaseCanDegradableFilm、FSCCertificationPaperAndRecyclableBase Material。Ideal forSuitableUltimatePowerAtReduceEnvironmentFootprintOfBrand。"
+                            },
+                            "boxTitle": "Eco-Friendly Options",
+                            "box1Title": "PLA Biodegradable",
+                            "box1Desc": "Plant-based films",
+                            "box2Title": "FSC Certified Paper",
+                            "box2Desc": "Sustainable forestry",
+                            "box3Title": "Recyclable Substrates",
+                            "box3Desc": "End-of-life ready"
+                        },
+                        "printing": {
+                            "title": "Printing Methods & Ink Types",
+                            "item5": {
+                                "title": "Factory-Grade Printing Technology",
+                                "titleCn": "Factory GradePrintingTechnology",
+                                "desc": "We utilize multiple printing technologies to achieve the best results: Flexography for cost-effective high-volume runs, Gravure for exceptional detail, Digital printing for short runs and variable data, and UV printing for special effects.",
+                                "descCn": "WeUsingMultiplePrintingTechnologyWithObtainMostBestEffect：SoftEditionPrintingSuitableSuitableHighPropertyPriceRatioLargeBatchVolume、GravurePrintingPresentExcellentDetails、DigitalPrintingSuitableSuitableShortEditionAndCanChangeData、UVPrintingAchieveSpecialEffect。"
+                            },
+                            "item6": {
+                                "title": "Specialty Ink Options",
+                                "titleCn": "SpecialInkOptions",
+                                "desc": "Beyond standard inks, we offer water-based eco inks, soy/vegetable-based sustainable options, fluorescent colors for eye-catching impact, and metallic Pantone inks for premium finishes that catch the light.",
+                                "descCn": "RemoveStandardInkOutside，WeAlsoProvideWaterPropertyEco-FriendlyInk、LargeBean/PlantMaterialBaseCanContinuousOptions、FluorescentColorStrikeMakeEye-CatchingEffect，WithAndGoldBelongPanConnectInkAchieveCapture LightLineOfPremiumSurfaceEffect。"
+                            },
+                            "card1": {
+                                "title": "Flexography",
+                                "desc": "High-volume, cost-effective",
+                                "sub": "SoftEditionPrinting"
+                            },
+                            "card2": {
+                                "title": "Gravure",
+                                "desc": "Exceptional detail",
+                                "sub": "GravurePrinting"
+                            },
+                            "card3": {
+                                "title": "Digital",
+                                "desc": "Short runs, variable data",
+                                "sub": "DigitalPrinting"
+                            },
+                            "card4": {
+                                "title": "UV Print",
+                                "desc": "Special effects",
+                                "sub": "UVPrinting"
+                            }
+                        },
+                        "finishes": {
+                            "title": "Surface Finishes & Effects",
+                            "item7": {
+                                "title": "Premium Finish Options",
+                                "titleCn": "Premium Surface Finishing",
+                                "desc": "Elevate your stickers with professional finishes: Matte for a sophisticated, non-reflective look; Gloss for vibrant, eye-catching shine; UV Coating for enhanced durability; and Hot Foil Stamping for luxurious metallic accents.",
+                                "descCn": "UseProfessionalIndustrySurfaceProcessingImproveStickerQuality：MattePresentFineUltimateNoReverseInjectOutsideView、GlossWithComeBrightEye-CatchingGloss、UVCoatingLayerIncreaseStrongResistantLongProperty、Hot StampingWorkerArtStrikeMakeLuxury GoldBelongQualityFeel。"
+                            },
+                            "card1": {
+                                "title": "Matte",
+                                "desc": "Sophisticated, non-reflective",
+                                "sub": "Matte"
+                            },
+                            "card2": {
+                                "title": "Gloss",
+                                "desc": "Vibrant, shiny",
+                                "sub": "Gloss"
+                            },
+                            "card3": {
+                                "title": "UV Coating",
+                                "desc": "Enhanced durability",
+                                "sub": "UVCoatingLayer"
+                            },
+                            "card4": {
+                                "title": "Hot Foil",
+                                "desc": "Metallic accents",
+                                "sub": "Hot Stamping"
+                            }
+                        },
+                        "ordering": {
+                            "title": "Easy Ordering Process",
+                            "item8": {
+                                "title": "Simple Configuration System",
+                                "titleCn": "SimpleCleanWithSetSystem",
+                                "desc": "Our intuitive ordering system lets you select Type (Cut to Size, Roll, Sheet, Kiss Cut), Shape (Square, Circle, Oval, Custom), Material (White Kraft, Clear Plastic, White Plastic, Kraft Paper), and Finish (Matte, Gloss) — all in one streamlined interface.",
+                                "descCn": "WeStraightViewOfOrderSystemLetYouCanWithChooseCategoryType（Die-Cut Sheets、Roll Form、Paper Style、Die Cut）、Shape（Square、Round、Oval、SelfDefine）、Material（White Kraft Paper、TransparentPlastic、WhitePlastic、Kraft Paper）AndSurfaceProcessing（Matte、Gloss）——FullPartInOneUnitSimpleizationWorldFaceInCompleteForm。"
+                            },
+                            "item9": {
+                                "title": "4 Simple Steps to Your Custom Stickers",
+                                "titleCn": "FourStepLightLooseCustomSticker",
+                                "desc": "1) Customize your packaging with our online configurator. 2) Add to quote and submit your requirements. 3) Consult with our packaging expert for optimization. 4) Production begins with fast shipping to your location.",
+                                "descCn": "1）UseInLineWithSetDeviceCustomYouOfPackaging。2）AddToQuoteAndRaiseSubmitRequireDemand。3）AndPackagingProfessionalHomeConsultExcellentizationSolution。4）StartProductionAndFastShippingToYouOfPositionSet。"
+                            },
+                            "step1": {
+                                "title": "Customize",
+                                "desc": "Configure your sticker specs"
+                            },
+                            "step2": {
+                                "title": "Submit Quote",
+                                "desc": "Add to quote & submit"
+                            },
+                            "step3": {
+                                "title": "Consult Expert",
+                                "desc": "Review with our team"
+                            },
+                            "step4": {
+                                "title": "Production",
+                                "desc": "Fast manufacturing & shipping"
+                            }
+                        },
+                        "applications": {
+                            "title": "Brand Applications",
+                            "item10": {
+                                "title": "From Factory to Brand Application",
+                                "titleCn": "FromFactoryToBrandLand",
+                                "desc": "Our stickers work seamlessly across applications: product branding on glass bottles and jars, box and package sealing, food container labeling, promotional materials, and event marketing. Complete capability from production to your customers' hands.",
+                                "descCn": "OurStickerCanNoSeamApplicationAtVariousScenario：GlassBottles and JarsProductBrand、BoxChildAndPackagingSeal、FoodCapacityDeviceLabeling、PromotionMaterialAndActivityMarketing。FromProductionToCustomerHandInOfCompleteCanPower。"
+                            },
+                            "card1": {
+                                "title": "Product Branding",
+                                "desc": "Bottles, jars, containers",
+                                "sub": "ProductBrandLabeling"
+                            },
+                            "card2": {
+                                "title": "Package Sealing",
+                                "desc": "Boxes, bags, envelopes",
+                                "sub": "PackagingSeal"
+                            },
+                            "card3": {
+                                "title": "Marketing & Events",
+                                "desc": "Promotional, giveaways",
+                                "sub": "MarketingAndActivity"
+                            }
+                        },
+                        "related": {
+                            "title": "Complete Your Packaging Solution",
+                            "desc": "Combine custom stickers with our flexible packaging solutions for a complete branded experience:",
+                            "link1": {
+                                "title": "Custom Labels",
+                                "desc": "Sheet labels for products"
+                            },
+                            "link2": {
+                                "title": "Stand-Up Pouches",
+                                "desc": "Flexible packaging base"
+                            },
+                            "link3": {
+                                "title": "Surface Finishes",
+                                "desc": "Matte, gloss, soft-touch"
+                            },
+                            "link4": {
+                                "title": "Compostable Materials",
+                                "desc": "Eco-friendly options"
+                            }
+                        },
+                        "faq": {
+                            "title": "Frequently Asked Questions",
+                            "q1": {
+                                "q": "What types of custom stickers do you offer?",
+                                "a": "We offer four main types: Cut to Size (individual die-cut stickers), Roll (continuous roll for high-volume application), Sheet (multiple stickers per sheet), and Kiss Cut (stickers on backing sheet for easy peeling). Each type is optimized for specific applications."
+                            },
+                            "q2": {
+                                "q": "Do you offer eco-friendly sticker materials?",
+                                "a": "Yes! We offer PLA-based biodegradable films, FSC-certified paper stocks, and recyclable substrates. We also use water-based and soy/vegetable-based eco-friendly inks for environmentally conscious brands."
+                            },
+                            "q3": {
+                                "q": "What surface finishes are available?",
+                                "a": "We offer Matte (sophisticated, non-reflective), Gloss (vibrant, shiny), UV Coating (enhanced durability), and Hot Foil Stamping (luxurious metallic accents). These finishes can dramatically elevate your sticker's appearance."
+                            },
+                            "q4": {
+                                "q": "Can I create custom shapes?",
+                                "a": "Absolutely! We offer unlimited shape options including square, circle, oval, rounded rectangle, heart, hexagon, starburst, or completely custom shapes. Our precision die-cutting can produce any design you need."
+                            },
+                            "q5": {
+                                "q": "What printing methods do you use?",
+                                "a": "We use multiple printing technologies: Flexography for cost-effective high-volume runs, Gravure for exceptional detail, Digital printing for short runs and variable data, and UV printing for special effects."
+                            }
+                        },
+                        "cta": {
+                            "title": "Ready to Order Custom Stickers?",
+                            "header": "Get Your Custom Stickers Quote",
+                            "desc": "Contact our team to discuss your sticker requirements. Factory-grade quality, flexible options, and expert support throughout the process.",
+                            "btnCall": "Book Free Consultation",
+                            "btnWa": "WhatsApp Chat",
+                            "btnMail": "Email Quote"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

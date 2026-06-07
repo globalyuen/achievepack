@@ -13226,6 +13226,319 @@
                         }
                     }
                 }
+            },
+            "customStickers": {
+                "achievePack": {
+                    "clickToEnlarge": "Cliquez pour agrandir Cliquez pour agrandir",
+                    "seo": {
+                        "title": "Autocollants personnalisés | Impression de qualité usine | Réaliser le pack",
+                        "description": "Autocollants personnalisés de qualité usine avec des matériaux haut de gamme, des formes multiples, des options respectueuses de l'environnement et des finitions professionnelles. Types découpés sur mesure, en rouleau, en feuille et découpés en baisers disponibles.",
+                        "heroTitle": "Autocollants personnalisés",
+                        "heroSubtitle": "Qualité d'usine • Matériaux haut de gamme • Options respectueuses de l'environnement",
+                        "introSummary": "Autocollants professionnels personnalisés avec plusieurs types, formes, matériaux et finitions. Des singles découpés sur mesure aux autocollants en rouleau.",
+                        "keywords": [
+                            "autocollants personnalisés",
+                            "rouleau d'autocollants",
+                            "autocollants découpés",
+                            "autocollants coupés en baisers",
+                            "feuille d'autocollants",
+                            "autocollants écologiques",
+                            "Autocollants PLA",
+                            "autocollants métalliques"
+                        ]
+                    },
+                    "gallery": {
+                        "item1": {
+                            "title": "Présentation des autocollants personnalisés",
+                            "desc": "CustomStickerVue d'ensemble"
+                        },
+                        "item2": {
+                            "title": "Quatre types d'autocollants",
+                            "desc": "Quatre typesAutocollantCatégorieType"
+                        },
+                        "item3": {
+                            "title": "Formes et tailles personnalisées",
+                            "desc": "FormeEtDimensionsPersonnalisée"
+                        },
+                        "item4": {
+                            "title": "Options matérielles",
+                            "desc": "Options matérielles"
+                        },
+                        "item5": {
+                            "title": "Matériaux respectueux de l'environnement",
+                            "desc": "Matériaux respectueux de l'environnement"
+                        },
+                        "item6": {
+                            "title": "Méthodes d'impression",
+                            "desc": "Méthode d'impression"
+                        },
+                        "item7": {
+                            "title": "Types d'encre et effets",
+                            "desc": "InkCategoryTypeAndEffect"
+                        },
+                        "item8": {
+                            "title": "Finitions de surface",
+                            "desc": "Finition de surface"
+                        },
+                        "item9": {
+                            "title": "Configuration facile",
+                            "desc": "PratiqueRapideAvecEnsemble"
+                        },
+                        "item10": {
+                            "title": "Processus de commande",
+                            "desc": "Processus de commande"
+                        },
+                        "item11": {
+                            "title": "Applications de marque",
+                            "desc": "Scénario d'application de marque"
+                        }
+                    },
+                    "sections": {
+                        "intro": {
+                            "title": "Présentation des autocollants personnalisés",
+                            "summaryStrong": "Autocollants personnalisés de qualité usine avec des matériaux et des finitions haut de gamme",
+                            "summaryText": "— Des autocollants découpés sur mesure aux autocollants en rouleau, nous proposons une personnalisation complète des options de forme, de matériau, d'impression et de finition.",
+                            "summaryStrongCn": "Autocollant personnalisé de qualité usine, matériau de qualité supérieure et finition de surface.",
+                            "summaryTextCn": "— FromDie-Cut SheetsToRoll FormSticker, ProvideShape, Material, PrintingAndSurfaceProcessingOfFullSidePositionCustom.",
+                            "badgeCut": "Coupé à la taille",
+                            "badgeRoll": "Rouleaux d'autocollants",
+                            "badgeSheet": "Feuilles d'autocollants",
+                            "badgeKiss": "Coupe de baiser",
+                            "item1": {
+                                "title": "Quatre types d'autocollants pour chaque besoin",
+                                "titleCn": "Quatre typesAutocollantCatégorieTypeRépondreDiversexigerDemande",
+                                "desc": "Choisissez entre Cut to Size (autocollants découpés individuellement), Roll (rouleau continu pour une application à grand volume), Sheet (plusieurs autocollants par feuille) et Kiss Cut (autocollants sur la feuille de support pour un décollement facile). Chaque type est optimisé pour des cas d'utilisation et des méthodes d'application spécifiques.",
+                                "descCn": "CanChooseFeuilles découpées (SingleUniqueDie CutSticker), Forme de rouleau (SuitableSuitableLargeBatchVolumeApplicationOfContinuousRoll), Style de papier (EachSheetMultipleUnitSticker) et Die Cut (WithLinerPaperConvenientAtTearTake) Chacune. TypeCategoryTypeAllNeedleForSpecificUseScenarioAndApplicationMethodOptimizeization."
+                            },
+                            "item2": {
+                                "title": "Options illimitées de forme et de taille",
+                                "titleCn": "NoLimitFormeEtDimensionsChoisir",
+                                "desc": "Allez au-delà des formes standard grâce à nos capacités de découpe personnalisées. Carré, cercle, ovale, rectangle arrondi, cœur, hexagone, étoile ou formes entièrement personnalisées : nous pouvons produire n'importe quel design dont vous avez besoin avec une découpe de précision.",
+                                "descCn": "Briser la limite de forme standard, nous fournissons une découpe personnalisée."
+                            }
+                        },
+                        "materials": {
+                            "title": "Options matérielles",
+                            "item3": {
+                                "title": "Sélection de matériaux haut de gamme",
+                                "titleCn": "PremiumMatérielChoisir",
+                                "desc": "Notre bibliothèque de matériaux comprend du papier Kraft blanc pour une sensation organique, du papier couché C2S pour des couleurs éclatantes, du plastique transparent pour des applications transparentes, du plastique blanc pour la durabilité et du papier Kraft naturel pour les marques soucieuses de l'environnement.",
+                                "descCn": "OurMaterialStoragePackComprenant: Papier Kraft blancAvecComeSelfNaturalOrganicFeel、C2SCoatingClothPaperPresentBrightColorColor、TransparentPlasticSuitableSuitableTransparentApplication、WhitePlasticProvideResistantUseProperty、NaturalKraft PaperMeetEco-FriendlyBrandRequireDemand."
+                            },
+                            "card1": {
+                                "title": "Carton blanc",
+                                "desc": "Aspect naturel",
+                                "sub": "Papier kraft blanc"
+                            },
+                            "card2": {
+                                "title": "Revêtement C2S",
+                                "desc": "Des couleurs vibrantes",
+                                "sub": "RevêtementTissuPapier"
+                            },
+                            "card3": {
+                                "title": "Plastique transparent",
+                                "desc": "Transparente",
+                                "sub": "TransparentPlastique"
+                            },
+                            "card4": {
+                                "title": "Plastique blanc",
+                                "desc": "Durable",
+                                "sub": "BlancPlastique"
+                            },
+                            "card5": {
+                                "title": "Papier kraft",
+                                "desc": "Écologique",
+                                "sub": "Papier kraft"
+                            }
+                        },
+                        "eco": {
+                            "title": "Écologique et durable",
+                            "item4": {
+                                "title": "Options de matériaux durables",
+                                "titleCn": "CanContinuousMatérielSolution",
+                                "desc": "Choisissez des matériaux respectueux de l'environnement, notamment des films biodégradables à base de PLA, des papiers certifiés FSC et des substrats recyclables. Parfait pour les marques engagées à réduire leur empreinte environnementale.",
+                                "descCn": "ChooseEco-FriendlyResponsibleOfMaterial,PackIncludingPLABaseCanDegradableFilm、FSCCertificationPaperAndRecyclableBase Material.Idéal pourSuitableUltimatePowerAtReduceEnvironmentFootprintOfBrand."
+                            },
+                            "boxTitle": "Options écologiques",
+                            "box1Title": "PLA Biodégradable",
+                            "box1Desc": "Films végétaux",
+                            "box2Title": "Papier certifié FSC",
+                            "box2Desc": "Foresterie durable",
+                            "box3Title": "Substrats recyclables",
+                            "box3Desc": "Prêt pour la fin de vie"
+                        },
+                        "printing": {
+                            "title": "Méthodes d'impression et types d'encre",
+                            "item5": {
+                                "title": "Technologie d'impression de qualité usine",
+                                "titleCn": "Technologie d'impression de qualité usine",
+                                "desc": "Nous utilisons plusieurs technologies d'impression pour obtenir les meilleurs résultats : flexographie pour des tirages à gros volumes rentables, héliogravure pour des détails exceptionnels, impression numérique pour des tirages courts et des données variables, et impression UV pour des effets spéciaux.",
+                                "descCn": "WeUsingMultiplePrintingTechnologyWithObtainMostBestEffect：SoftEditionPrintingSuitableSuitableHighPropertyPriceRatioLargeBatchVolume、GravurePrintingPresentExcellentDetails、DigitalPrintingSuitableSuitableShortEditionAndCanChangeData、UVPrintingAchieveSpecialEffect。"
+                            },
+                            "item6": {
+                                "title": "Options d'encre spécialisée",
+                                "titleCn": "Options d'encre spéciales",
+                                "desc": "Au-delà des encres standards, nous proposons des encres écologiques à base d'eau, des options durables à base de soja/légume, des couleurs fluorescentes pour un impact accrocheur et des encres Pantone métalliques pour des finitions haut de gamme qui captent la lumière.",
+                                "descCn": "RemoveStandardInkOutside, WeAlsoProvideWaterPropertyEco-FriendlyInk, LargeBean/PlantMaterialBaseCanContinuousOptions, FluorescentColorStrikeMakeEye-CatchingEffect, WithAndGoldBelongPanConnectInkAchieveCapture LightLineOfPremiumSurfaceEffect."
+                            },
+                            "card1": {
+                                "title": "Flexographie",
+                                "desc": "Gros volume, rentable",
+                                "sub": "SoftEditionImpression"
+                            },
+                            "card2": {
+                                "title": "Gravure",
+                                "desc": "Détail exceptionnel",
+                                "sub": "HélioImpression"
+                            },
+                            "card3": {
+                                "title": "Numérique",
+                                "desc": "Séries courtes, données variables",
+                                "sub": "Impression Numérique"
+                            },
+                            "card4": {
+                                "title": "Impression UV",
+                                "desc": "Effets spéciaux",
+                                "sub": "Impression UV"
+                            }
+                        },
+                        "finishes": {
+                            "title": "Finitions et effets de surface",
+                            "item7": {
+                                "title": "Options de finition haut de gamme",
+                                "titleCn": "Finition de surface haut de gamme",
+                                "desc": "Rehaussez vos autocollants avec des finitions professionnelles : Mat pour un look sophistiqué et non réfléchissant ; Gloss pour une brillance vibrante et accrocheuse ; Revêtement UV pour une durabilité améliorée ; et estampage à chaud pour des accents métalliques luxueux.",
+                                "descCn": "UseProfessionalIndustrySurfaceProcessingImproveStickerQuality：MattePresentFineUltimateNoReverseInjectOutsideView、GlossWithComeBrightEye-CatchingGloss、UVCoatingLayerIncreaseStrongResistantLongProperty、Hot StampingWorkerArtStrikeMakeLuxury GoldBelongQualityFeel."
+                            },
+                            "card1": {
+                                "title": "Mat",
+                                "desc": "Sophistiqué, non réfléchissant",
+                                "sub": "Mat"
+                            },
+                            "card2": {
+                                "title": "Brillant",
+                                "desc": "Vibrant, brillant",
+                                "sub": "Brillant"
+                            },
+                            "card3": {
+                                "title": "Revêtement UV",
+                                "desc": "Durabilité améliorée",
+                                "sub": "UVCoatingCouche"
+                            },
+                            "card4": {
+                                "title": "Feuille chaude",
+                                "desc": "Accents métalliques",
+                                "sub": "Marquage à chaud"
+                            }
+                        },
+                        "ordering": {
+                            "title": "Processus de commande facile",
+                            "item8": {
+                                "title": "Système de configuration simple",
+                                "titleCn": "SimpleCleanWithSetSystem",
+                                "desc": "Notre système de commande intuitif vous permet de sélectionner le type (coupé à la taille, rouleau, feuille, coupe baiser), la forme (carré, cercle, ovale, personnalisé), le matériau (kraft blanc, plastique transparent, plastique blanc, papier kraft) et la finition (mat, brillant) — le tout dans une interface simplifiée.",
+                                "descCn": "WeStraightViewOfOrderSystemLetYouCanWithChooseCategoryType (Feuilles découpées, Forme de rouleau, Style de papier, Découpé), Forme (Carré, Rond, Ovale, Auto-défini), Matériau (Papier kraft blanc, Plastique transparent, Plastique blanc, Kraft Papier) et SurfaceProcessing (mat, brillant) ——FullPartInOneUnitSimpleizationWorldFaceInCompleteForm."
+                            },
+                            "item9": {
+                                "title": "4 étapes simples pour vos autocollants personnalisés",
+                                "titleCn": "FourStepLightLooseCustomSticker",
+                                "desc": "1) Personnalisez votre emballage avec notre configurateur en ligne. 2) Ajoutez au devis et soumettez vos besoins. 3) Consultez notre expert en emballage pour une optimisation. 4) La production commence par une expédition rapide vers votre emplacement.",
+                                "descCn": "1) UseInLineWithSetDeviceCustomYouOfPackaging。2)AddToQuoteAndRaiseSubmitRequireDemand。3)AndPackagingProfessionalHomeConsultExcellentizationSolution。4)StartProductionAndFastShippingToYouOfPositionSet。"
+                            },
+                            "step1": {
+                                "title": "Personnaliser",
+                                "desc": "Configurez les spécifications de vos autocollants"
+                            },
+                            "step2": {
+                                "title": "Soumettre un devis",
+                                "desc": "Ajouter au devis et soumettre"
+                            },
+                            "step3": {
+                                "title": "Consulter un expert",
+                                "desc": "Révision avec notre équipe"
+                            },
+                            "step4": {
+                                "title": "Production",
+                                "desc": "Fabrication et expédition rapides"
+                            }
+                        },
+                        "applications": {
+                            "title": "Applications de marque",
+                            "item10": {
+                                "title": "De l’usine à l’application de marque",
+                                "titleCn": "De l'usine à la marque",
+                                "desc": "Nos autocollants fonctionnent parfaitement dans toutes les applications : marquage de produits sur des bouteilles et des bocaux en verre, scellage de boîtes et d'emballages, étiquetage de contenants alimentaires, matériel promotionnel et marketing événementiel. Capacité complète, de la production aux mains de vos clients.",
+                                "descCn": "OurStickerCanNoSeamApplicationAtVariousScenario：GlassBottles and JarsProductBrand、BoxChildAndPackagingSeal、FoodCapacityDeviceLabeling、PromotionMaterialAndActivityMarketing。FromProductionToCustomerHandInOfCompleteCanPower。"
+                            },
+                            "card1": {
+                                "title": "Image de marque du produit",
+                                "desc": "Bouteilles, pots, contenants",
+                                "sub": "ProduitMarqueÉtiquetage"
+                            },
+                            "card2": {
+                                "title": "Scellage des emballages",
+                                "desc": "Boîtes, sacs, enveloppes",
+                                "sub": "EmballageScellé"
+                            },
+                            "card3": {
+                                "title": "Marketing et événements",
+                                "desc": "Promotionnels, cadeaux",
+                                "sub": "MarketingEtActivité"
+                            }
+                        },
+                        "related": {
+                            "title": "Complétez votre solution d'emballage",
+                            "desc": "Combinez des autocollants personnalisés avec nos solutions d’emballage flexibles pour une expérience de marque complète :",
+                            "link1": {
+                                "title": "Étiquettes personnalisées",
+                                "desc": "Feuilles d'étiquettes pour produits"
+                            },
+                            "link2": {
+                                "title": "Pochettes verticales",
+                                "desc": "Base d'emballage flexible"
+                            },
+                            "link3": {
+                                "title": "Finitions de surface",
+                                "desc": "Mat, brillant, doux au toucher"
+                            },
+                            "link4": {
+                                "title": "Matériaux compostables",
+                                "desc": "Options écologiques"
+                            }
+                        },
+                        "faq": {
+                            "title": "Foire aux questions",
+                            "q1": {
+                                "q": "Quels types d’autocollants personnalisés proposez-vous ?",
+                                "a": "Nous proposons quatre types principaux : Découpé à la taille (autocollants individuels découpés), Rouleau (rouleau continu pour une application à grand volume), Feuille (plusieurs autocollants par feuille) et Kiss Cut (autocollants sur une feuille de support pour un décollement facile). Chaque type est optimisé pour des applications spécifiques."
+                            },
+                            "q2": {
+                                "q": "Proposez-vous des matériaux autocollants écologiques ?",
+                                "a": "Oui! Nous proposons des films biodégradables à base de PLA, des papiers certifiés FSC et des substrats recyclables. Nous utilisons également des encres écologiques à base d’eau et de soja/végétale pour des marques soucieuses de l’environnement."
+                            },
+                            "q3": {
+                                "q": "Quelles finitions de surface sont disponibles ?",
+                                "a": "Nous proposons du mat (sophistiqué, non réfléchissant), du brillant (vibrant, brillant), du revêtement UV (durabilité améliorée) et de l'estampage à chaud (accents métalliques luxueux). Ces finitions peuvent rehausser considérablement l’apparence de votre autocollant."
+                            },
+                            "q4": {
+                                "q": "Puis-je créer des formes personnalisées ?",
+                                "a": "Absolument! Nous proposons des options de formes illimitées, notamment des formes carrées, circulaires, ovales, rectangulaires arrondies, cœurs, hexagones, étoiles ou entièrement personnalisées. Notre découpe de précision peut produire n’importe quelle conception dont vous avez besoin."
+                            },
+                            "q5": {
+                                "q": "Quelles méthodes d'impression utilisez-vous ?",
+                                "a": "Nous utilisons plusieurs technologies d'impression : la flexographie pour des tirages à gros volumes rentables, l'héliogravure pour des détails exceptionnels, l'impression numérique pour des tirages courts et des données variables, et l'impression UV pour des effets spéciaux."
+                            }
+                        },
+                        "cta": {
+                            "title": "Prêt à commander des autocollants personnalisés ?",
+                            "header": "Obtenez votre devis d'autocollants personnalisés",
+                            "desc": "Contactez notre équipe pour discuter de vos besoins en matière d’autocollants. Qualité de qualité usine, options flexibles et assistance experte tout au long du processus.",
+                            "btnCall": "Réservez une consultation gratuite",
+                            "btnWa": "Chat WhatsApp",
+                            "btnMail": "Devis par e-mail"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

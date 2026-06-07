@@ -13226,6 +13226,319 @@
                         }
                     }
                 }
+            },
+            "customStickers": {
+                "achievePack": {
+                    "clickToEnlarge": "點擊放大 點擊放大",
+                    "seo": {
+                        "title": "客製化貼紙|工廠級印刷 |成就包",
+                        "description": "工廠級客製化貼紙採用優質材料、多種形狀、環保選項和專業飾面。 提供按尺寸切割、卷材、片材和吻切類型。",
+                        "heroTitle": "客製化貼紙",
+                        "heroSubtitle": "工廠級品質 • 優質材料 • 環保選擇",
+                        "introSummary": "專業客製化貼紙，具有多種類型、形狀、材質和飾面。 從裁剪單張到捲貼紙。",
+                        "keywords": [
+                            "客製化貼紙",
+                            "捲貼紙",
+                            "模切貼紙",
+                            "吻切貼紙",
+                            "片狀貼紙",
+                            "環保貼紙",
+                            "解放軍貼紙",
+                            "金屬貼紙"
+                        ]
+                    },
+                    "gallery": {
+                        "item1": {
+                            "title": "自訂貼紙概述",
+                            "desc": "自訂貼紙概述"
+                        },
+                        "item2": {
+                            "title": "四種貼紙類型",
+                            "desc": "四種類型貼紙類別類型"
+                        },
+                        "item3": {
+                            "title": "客製化形狀和尺寸",
+                            "desc": "形狀和尺寸定制"
+                        },
+                        "item4": {
+                            "title": "材料選擇",
+                            "desc": "材質選項"
+                        },
+                        "item5": {
+                            "title": "環保材料",
+                            "desc": "環保材料"
+                        },
+                        "item6": {
+                            "title": "印刷方式",
+                            "desc": "印刷方式"
+                        },
+                        "item7": {
+                            "title": "墨水類型和效果",
+                            "desc": "墨水類別類型和效果"
+                        },
+                        "item8": {
+                            "title": "表面處理",
+                            "desc": "表面處理"
+                        },
+                        "item9": {
+                            "title": "輕鬆配置",
+                            "desc": "方便快速帶套裝"
+                        },
+                        "item10": {
+                            "title": "訂購流程",
+                            "desc": "訂單流程"
+                        },
+                        "item11": {
+                            "title": "品牌應用",
+                            "desc": "品牌應用場景"
+                        }
+                    },
+                    "sections": {
+                        "intro": {
+                            "title": "自訂貼紙概述",
+                            "summaryStrong": "採用優質材料和飾面的工廠級客製化貼紙",
+                            "summaryText": "— 從按尺寸切割的單張到卷狀貼紙，我們提供形狀、材料、印刷和表面處理選項的完整客製化。",
+                            "summaryStrongCn": "工廠級訂製貼紙，優質材料和表面處理",
+                            "summaryTextCn": "— 從模切片材到捲材貼紙，提供形狀、材質、印刷和表面處理的全邊位置客製化。",
+                            "badgeCut": "切割成尺寸",
+                            "badgeRoll": "捲貼紙",
+                            "badgeSheet": "貼紙",
+                            "badgeKiss": "吻切",
+                            "item1": {
+                                "title": "四種貼紙類型可滿足各種需求",
+                                "titleCn": "四種類型貼紙類別類型滿足各種需求需求",
+                                "desc": "從「按尺寸切割」（單一模切貼紙）、「捲」（用於大批量應用的連續卷）、「單張」（每張多張貼紙）和「吻切」（背紙上的貼紙以便於剝離）中進行選擇。 每種類型都針對特定用例和應用方法進行了最佳化。",
+                                "descCn": "可選擇模切片材（SingleUniqueDie CutSticker）、捲材形式（SuitableSuitableLargeBatchVolumeApplicationOfContinouslyRoll）、紙張樣式（EachSheetMultipleUnitSticker）和模切（WithLinerPaper方便撕紙）。每種類型類別類型AllNeedle針對特定使用情境和應用程式方法進行最佳化。"
+                            },
+                            "item2": {
+                                "title": "無限的形狀和尺寸選項",
+                                "titleCn": "無限制形狀和尺寸選擇",
+                                "desc": "利用我們的定制模切功能超越標準形狀。 正方形、圓形、橢圓形、圓角矩形、心形、六邊形、星形或完全客製化的形狀——我們可以透過精密切割來生產您需要的任何設計。",
+                                "descCn": "突破標準形狀限制，我們提供客製化模切能力。方形、圓形、橢圓形、圓角矩形形狀、心形形狀、六角形氣泡形狀、星形形狀，或完整的客製化形狀——我們可以用FineExactCut生產任何您需要的設計。"
+                            }
+                        },
+                        "materials": {
+                            "title": "材料選擇",
+                            "item3": {
+                                "title": "優質材料選擇",
+                                "titleCn": "優質材質選擇",
+                                "desc": "我們的材料庫包括具有有機感覺的白色牛皮紙、色彩鮮豔的 C2S 塗層紙、用於透明應用的透明塑料、用於耐用的白色塑料以及用於生態意識品牌的天然牛皮紙。",
+                                "descCn": "我們的材料儲存包包括：白色牛皮紙具有天然有機的手感、C2S塗層布紙呈現明亮的色彩、透明塑膠適合透明應用、白色塑膠提供耐使用性能、天然牛皮紙滿足環保品牌的需求。"
+                            },
+                            "card1": {
+                                "title": "白牛皮紙",
+                                "desc": "自然外觀",
+                                "sub": "白色牛皮紙"
+                            },
+                            "card2": {
+                                "title": "C2S塗層",
+                                "desc": "鮮豔的色彩",
+                                "sub": "塗佈紙"
+                            },
+                            "card3": {
+                                "title": "透明塑膠",
+                                "desc": "透明的",
+                                "sub": "透明塑膠"
+                            },
+                            "card4": {
+                                "title": "白色塑膠",
+                                "desc": "耐用的",
+                                "sub": "白色塑膠"
+                            },
+                            "card5": {
+                                "title": "牛皮紙",
+                                "desc": "環保",
+                                "sub": "牛皮紙"
+                            }
+                        },
+                        "eco": {
+                            "title": "環保且永續",
+                            "item4": {
+                                "title": "永續材料選擇",
+                                "titleCn": "可以連續材料解決方案",
+                                "desc": "選擇對環境負責的材料，包括基於 PLA 的可生物降解薄膜、FSC 認證的紙材和可回收基材。 非常適合致力於減少環境足跡的品牌。",
+                                "descCn": "選擇環保負責任的材料，包裝包括PLA底座、可降解薄膜、FSC認證紙張和可回收基材。適合終極動力、減少環境足跡的品牌的理想選擇。"
+                            },
+                            "boxTitle": "環保選項",
+                            "box1Title": "PLA可生物降解",
+                            "box1Desc": "植物基薄膜",
+                            "box2Title": "FSC 認證紙張",
+                            "box2Desc": "永續林業",
+                            "box3Title": "可回收基材",
+                            "box3Desc": "報廢準備就緒"
+                        },
+                        "printing": {
+                            "title": "印刷方法和墨水類型",
+                            "item5": {
+                                "title": "工廠級列印技術",
+                                "titleCn": "工廠級印刷技術",
+                                "desc": "我們利用多種印刷技術來實現最佳效果：柔印可實現經濟高效的大批量印刷，凹印可實現卓越的細節，數位印刷可實現小批量和可變數據，以及 UV 印刷可實現特殊效果。",
+                                "descCn": "我們採用多種印刷技術來獲得最佳的效果：軟版印刷適合高屬性價格比大批量批量、凹版印刷呈現優秀細節、數位印刷適合短版且可更改數據、UV印刷實現特殊效果。"
+                            },
+                            "item6": {
+                                "title": "特殊墨水選項",
+                                "titleCn": "特殊墨水選項",
+                                "desc": "除了標準墨水之外，我們還提供水性生態墨水、大豆/植物基可持續選項、引人注目的螢光色以及用於捕捉光線的優質飾面的金屬彩通墨水。",
+                                "descCn": "除標準墨水外，我們還提供水性環保墨水、大豆/植物材質底座可連續選項、螢光色彩打擊打造引人注目的效果，配合與金色同屬的盤連接墨水實現捕捉光線的優質表面效果。"
+                            },
+                            "card1": {
+                                "title": "柔版印刷",
+                                "desc": "大批量、高性價比",
+                                "sub": "軟版印刷"
+                            },
+                            "card2": {
+                                "title": "凹版印刷",
+                                "desc": "卓越的細節",
+                                "sub": "凹版印刷"
+                            },
+                            "card3": {
+                                "title": "數位的",
+                                "desc": "小批量、可變數據",
+                                "sub": "數位印刷"
+                            },
+                            "card4": {
+                                "title": "紫外線印刷",
+                                "desc": "特效",
+                                "sub": "UV印刷"
+                            }
+                        },
+                        "finishes": {
+                            "title": "表面處理和效果",
+                            "item7": {
+                                "title": "優質飾面選項",
+                                "titleCn": "高級表面處理",
+                                "desc": "透過專業飾面提升您的貼紙：霧面打造精緻、不反光的外觀；光澤充滿活力、引人注目； UV 塗層增強耐用性；和燙金打造奢華金屬裝飾。",
+                                "descCn": "採用專業工業表面處理提升貼紙品質：霧面呈現細膩極致無反注塑外觀、光澤與亮麗奪目光澤、UV鍍膜層數增加強耐久性能、燙印工藝術罷工打造奢華黃金屬於品質的感覺。"
+                            },
+                            "card1": {
+                                "title": "霧面的",
+                                "desc": "精密、不反光",
+                                "sub": "霧面的"
+                            },
+                            "card2": {
+                                "title": "光澤度",
+                                "desc": "充滿活力、閃亮",
+                                "sub": "光澤度"
+                            },
+                            "card3": {
+                                "title": "紫外線塗層",
+                                "desc": "增強耐用性",
+                                "sub": "UV塗層"
+                            },
+                            "card4": {
+                                "title": "熱箔",
+                                "desc": "金屬配件",
+                                "sub": "燙印"
+                            }
+                        },
+                        "ordering": {
+                            "title": "簡單的訂購流程",
+                            "item8": {
+                                "title": "簡單的配置系統",
+                                "titleCn": "SimpleCleanWithSetSystem",
+                                "desc": "我們直覺的訂購系統可讓您選擇類型（按尺寸切割、捲材、片材、吻切）、形狀（方形、圓形、橢圓形、定制）、材料（白色牛皮紙、透明塑料、白色塑料、牛皮紙）和表面處理（啞光、光澤）——所有這些都在一個簡化的界面中進行。",
+                                "descCn": "WeStraightViewOfOrderSystem讓您可以選擇類別類型（模切片材、卷狀、紙張樣式、模切）、形狀（方形、圓形、橢圓形、自訂）、材質（白牛皮紙、透明塑膠、白塑膠、牛皮紙）紙）和表面處理（霧面、光澤）—FullPartInOneUnitInatFormationInOneUnit（AFormas）。"
+                            },
+                            "item9": {
+                                "title": "自訂貼紙的 4 個簡單步驟",
+                                "titleCn": "四步驟輕鬆客製貼紙",
+                                "desc": "1) 使用我們的線上配置器自訂您的包裝。 2) 新增報價並提交您的要求。 3) 諮詢我們的包裝專家進行優化。 4) 生產從快速運送到您的地點開始。",
+                                "descCn": "1）UseInLineWithSetDeviceCustomYouOfPackaging。 2）AddToQuoteAndRaiseSubmitRequireDemand。 3）和PackagingProfessionalHomeConsultExcellentizationSolution。 4）StartProduction和FastShippingToYouOfPositionSet。"
+                            },
+                            "step1": {
+                                "title": "客製化",
+                                "desc": "配置您的貼紙規格"
+                            },
+                            "step2": {
+                                "title": "提交報價",
+                                "desc": "新增至報價並提交"
+                            },
+                            "step3": {
+                                "title": "諮詢專家",
+                                "desc": "與我們的團隊一起審查"
+                            },
+                            "step4": {
+                                "title": "生產",
+                                "desc": "快速製造和運輸"
+                            }
+                        },
+                        "applications": {
+                            "title": "品牌應用",
+                            "item10": {
+                                "title": "從工廠到品牌應用",
+                                "titleCn": "從工廠到品牌地",
+                                "desc": "我們的貼紙可在各種應用中無縫使用：玻璃瓶和罐子上的產品品牌、盒子和包裝密封、食品容器標籤、促銷材料和活動行銷。 從生產到客戶手中的完整能力。",
+                                "descCn": "我們的CanNoSeam貼紙應用在各種場景：玻璃瓶罐產品品牌、盒子和包裝密封、食品容量設備標籤、促銷材料和活動行銷。從生產到客戶交接的完整CanPower。"
+                            },
+                            "card1": {
+                                "title": "產品品牌",
+                                "desc": "瓶子、罐子、容器",
+                                "sub": "產品品牌標籤"
+                            },
+                            "card2": {
+                                "title": "包裝密封",
+                                "desc": "盒子、袋子、信封",
+                                "sub": "包裝密封"
+                            },
+                            "card3": {
+                                "title": "行銷與活動",
+                                "desc": "促銷、贈品",
+                                "sub": "行銷與活動"
+                            }
+                        },
+                        "related": {
+                            "title": "完善您的包裝解決方案",
+                            "desc": "Combine custom stickers with our flexible packaging solutions for a complete branded experience:",
+                            "link1": {
+                                "title": "客製化標籤",
+                                "desc": "產品標籤"
+                            },
+                            "link2": {
+                                "title": "自立袋",
+                                "desc": "軟包裝基地"
+                            },
+                            "link3": {
+                                "title": "表面處理",
+                                "desc": "霧面、亮光、觸感柔軟"
+                            },
+                            "link4": {
+                                "title": "可堆肥材料",
+                                "desc": "環保選擇"
+                            }
+                        },
+                        "faq": {
+                            "title": "常見問題解答",
+                            "q1": {
+                                "q": "What types of custom stickers do you offer?",
+                                "a": "我們提供四種主要類型：按尺寸切割（單一模切貼紙）、卷狀（用於大批量應用的連續卷狀）、單張（每張多張貼紙）和吻切（背紙上的貼紙，以便於剝離）。 每种类型都针对特定应用进行了优化。"
+                            },
+                            "q2": {
+                                "q": "Do you offer eco-friendly sticker materials?",
+                                "a": "是的！ 我们提供基于 PLA 的可生物降解薄膜、FSC 认证的纸材和可回收基材。 我们还为环保品牌使用水性和大豆/植物环保油墨。"
+                            },
+                            "q3": {
+                                "q": "What surface finishes are available?",
+                                "a": "我們提供霧面（精緻、不反光）、光澤（充滿活力、閃亮）、UV 塗層（增強耐用性）和燙金（奢華金屬裝飾）。 这些饰面可以极大地提升贴纸的外观。"
+                            },
+                            "q4": {
+                                "q": "Can I create custom shapes?",
+                                "a": "絕對地！ 我們提供無限的形狀選項，包括正方形、圓形、橢圓形、圓角矩形、心形、六邊形、星爆形或完全客製化的形狀。 我们的精密模切可以生产您需要的任何设计。"
+                            },
+                            "q5": {
+                                "q": "您使用什麼印刷方法？",
+                                "a": "我們使用多種印刷技術：用於經濟高效的大批量印刷的柔版印刷、用於卓越細節的凹版印刷、用於小批量和可變數據的數位印刷以及用於特殊效果的 UV 印刷。"
+                            }
+                        },
+                        "cta": {
+                            "title": "Ready to Order Custom Stickers?",
+                            "header": "Get Your Custom Stickers Quote",
+                            "desc": "Contact our team to discuss your sticker requirements. Factory-grade quality, flexible options, and expert support throughout the process.",
+                            "btnCall": "預約免費諮詢",
+                            "btnWa": "WhatsApp 聊天",
+                            "btnMail": "電子郵件報價"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
