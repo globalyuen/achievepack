@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T04:15:35.190Z",
+  "lastUnifiedRun": "2026-06-07T04:30:31.387Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1372,17 +1372,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "compostable-sachet-dimensions-for-liquids",
       "status": "Pending Approval",
       "volume": 720,
       "keyword": "compostable sachet dimensions for liquids",
-      "difficulty": "Low",
-      "slug": "compostable-sachet-dimensions-for-liquids"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "digital printed stand up pouches low minimum order",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-printed-stand-up-pouches-low-minimum-order"
     },
     {
       "status": "Pending",
@@ -1477,9 +1478,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T04:15:27.087Z",
+      "timestamp": "2026-06-07T04:30:23.910Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable sachet dimensions for liquids\" to /blog/compostable-sachet-dimensions-for-liquids (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed stand up pouches low minimum order\" to /blog/digital-printed-stand-up-pouches-low-minimum-order (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable sachet dimensions for liquids\" to /blog/compostable-sachet-dimensions-for-liquids (Pending Approval)",
+      "timestamp": "2026-06-07T04:15:27.087Z"
     },
     {
       "action": "Autopilot Generation Draft",
