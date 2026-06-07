@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T17:30:31.871Z",
+  "lastUnifiedRun": "2026-06-07T17:45:29.509Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1743,17 +1743,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "compostable-barrier-film-roll-for-pouches",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "compostable barrier film roll for pouches",
-      "difficulty": "Low",
-      "slug": "compostable-barrier-film-roll-for-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "digital printed custom sachet sizes",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "digital-printed-custom-sachet-sizes"
     },
     {
       "status": "Pending",
@@ -1854,9 +1855,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T17:30:23.940Z",
+      "timestamp": "2026-06-07T17:45:21.376Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film roll for pouches\" to /blog/compostable-barrier-film-roll-for-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed custom sachet sizes\" to /blog/digital-printed-custom-sachet-sizes (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable barrier film roll for pouches\" to /blog/compostable-barrier-film-roll-for-pouches (Pending Approval)",
+      "timestamp": "2026-06-07T17:30:23.940Z"
     },
     {
       "action": "Autopilot Generation Draft",
