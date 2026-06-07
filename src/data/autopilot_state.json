@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T01:15:27.021Z",
+  "lastUnifiedRun": "2026-06-07T01:30:42.543Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1288,17 +1288,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "small-run-flexible-packaging-printing",
       "status": "Pending Approval",
       "volume": 880,
       "keyword": "small run flexible packaging printing",
-      "difficulty": "Low",
-      "slug": "small-run-flexible-packaging-printing"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1050,
       "keyword": "recyclable pouch suppliers for pet food",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "recyclable-pouch-suppliers-for-pet-food"
     },
     {
       "status": "Pending",
@@ -1357,9 +1358,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T01:15:19.798Z",
+      "timestamp": "2026-06-07T01:30:26.944Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"small run flexible packaging printing\" to /blog/small-run-flexible-packaging-printing (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable pouch suppliers for pet food\" to /blog/recyclable-pouch-suppliers-for-pet-food (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"small run flexible packaging printing\" to /blog/small-run-flexible-packaging-printing (Pending Approval)",
+      "timestamp": "2026-06-07T01:15:19.798Z"
     },
     {
       "action": "Autopilot Generation Draft",
