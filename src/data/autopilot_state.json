@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T12:45:37.772Z",
+  "lastUnifiedRun": "2026-06-07T13:00:43.546Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1610,17 +1610,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "eco-friendly-digital-print-on-pouches",
       "status": "Pending Approval",
       "volume": 1050,
       "keyword": "eco friendly digital print on pouches",
-      "difficulty": "Medium",
-      "slug": "eco-friendly-digital-print-on-pouches"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "compostable pouch size chart for dry goods",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "compostable-pouch-size-chart-for-dry-goods"
     },
     {
       "status": "Pending",
@@ -1727,9 +1728,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T12:45:29.372Z",
+      "timestamp": "2026-06-07T13:00:35.289Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly digital print on pouches\" to /blog/eco-friendly-digital-print-on-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch size chart for dry goods\" to /blog/compostable-pouch-size-chart-for-dry-goods (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly digital print on pouches\" to /blog/eco-friendly-digital-print-on-pouches (Pending Approval)",
+      "timestamp": "2026-06-07T12:45:29.372Z"
     },
     {
       "action": "Autopilot Generation Draft",
