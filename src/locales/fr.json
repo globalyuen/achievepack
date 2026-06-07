@@ -11466,7 +11466,234 @@
                 "coffeeRoasteryCaseStudy": "Étude de cas sur une torréfaction de café",
                 "seeHowAUs": "Découvrez comment un torréfacteur américain est passé à un emballage durable",
                 "standupPouches": "Pochettes verticales",
-                "mostPopularFormatFor": "Format le plus populaire pour le café au détail"
+                "mostPopularFormatFor": "Format le plus populaire pour le café au détail",
+                "seo": {
+                    "title": "Emballage de café compostable pour les torréfacteurs américains | ASTM D6400 | Réaliser le pack",
+                    "description": "Sacs de café compostables certifiés ASTM D6400 avec valves de dégazage pour les torréfacteurs spécialisés américains. Pochettes en papier kraft, faible MOQ à partir de 100 pièces, expédiées aux États-Unis en 15 à 20 jours.",
+                    "keywords": [
+                        "sacs de café compostables États-Unis",
+                        "emballage de café compostable",
+                        "Sachets de café ASTM D6400",
+                        "sacs à café en papier kraft",
+                        "emballage de café durable",
+                        "sacs de café écologiques",
+                        "vanne de dégazage compostable",
+                        "emballage de torréfacteur spécialisé",
+                        "sacs de café à faible MOQ",
+                        "Emballage de café conforme aux normes californiennes"
+                    ],
+                    "heroTitle": "Emballage de café compostable pour les torréfacteurs américains",
+                    "heroSubtitle": "Sachets en papier kraft certifiés ASTM D6400 avec valves de dégazage compostables. Parfait pour les torréfacteurs spécialisés qui souhaitent un emballage durable sans compromettre la fraîcheur.",
+                    "heroImageAlt": "Sachets d'emballage de café compostables avec valves de dégazage pour torréfacteurs spécialisés américains",
+                    "introSummary": "Achieve Pack fournit des emballages de café certifiés compostables, conçus spécifiquement pour les torréfacteurs spécialisés américains, avec un faible MOQ, une expédition rapide et une conformité totale avec les réglementations de l'État.",
+                    "ctaTitle": "Obtenez des échantillons de sacs de café compostables",
+                    "ctaDescription": "Demandez des échantillons de sachets expédiés directement à votre torréfacteur américain. Notre équipe vous aidera à choisir la bonne taille et le bon matériau pour vos produits à café.",
+                    "ctaButtonText": "Demander des échantillons"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Cette page est-elle pour vous ?",
+                        "introText": "Si vous êtes un torréfacteur de café de spécialité américain à la recherche d'un emballage compostable répondant à la certification ASTM D6400, vous êtes au bon endroit.",
+                        "card1Title": "Torréfacteurs en petits lots",
+                        "card1Desc": "MOQ de plus de 100 pièces, parfait pour les tests ou les ventes sur les marchés agricoles",
+                        "card2Title": "Vendeurs DTC et Amazon",
+                        "card2Desc": "Un emballage durable qui trouve un écho auprès des consommateurs soucieux de l'environnement",
+                        "card3Title": "Marques de café au détail",
+                        "card3Desc": "Répondre aux exigences de durabilité des aliments entiers, des germes et des produits Natural Grocers"
+                    },
+                    "overview": {
+                        "title": "Emballage de café compostable pour les torréfacteurs américains",
+                        "descStrong": "Les torréfacteurs de café de spécialité américains subissent une pression croissante pour adopter des emballages durables.",
+                        "descText": "La demande des consommateurs pour des produits respectueux de l'environnement, les exigences des détaillants en matière de durabilité et les nouvelles réglementations nationales entraînent un passage rapide des emballages en plastique traditionnels aux alternatives compostables.",
+                        "whyTitle": "Pourquoi les marques de café américaines changent :",
+                        "why1Strong": "73% des consommateurs",
+                        "why1Text": "privilégier les marques avec des emballages durables (Nielsen)",
+                        "why2Strong": "Aliments complets, germes, épiceries naturelles",
+                        "why2Text": "exigent de plus en plus des emballages durables",
+                        "why3Strong": "Californie SB 343",
+                        "why3Text": "limite les allégations environnementales trompeuses",
+                        "why4Strong": "Un positionnement premium",
+                        "why4Text": "– les emballages compostables supportent des prix plus élevés",
+                        "intro": "Achieve Pack propose des sachets de café compostables certifiés ASTM D6400 avec valves de dégazage, parfaits pour les torréfacteurs spécialisés américains qui souhaitent être à l'avant-garde en matière de durabilité sans compromettre la protection des produits.",
+                        "imgAlt": "Sachets d'emballage de café de spécialité pour les torréfacteurs américains",
+                        "imgCaption": "Emballage de café compostable de qualité supérieure conçu pour les torréfacteurs spécialisés américains"
+                    },
+                    "materials": {
+                        "title": "Matériaux compostables pour le café",
+                        "intro": "Nos options d'emballages de café compostables sont conçues pour préserver la fraîcheur tout en répondant aux exigences de certification américaines :",
+                        "card1Title": "Kraft + PLA/PBAT (les plus populaires)",
+                        "card1Item1": "• Extérieur en papier kraft naturel",
+                        "card1Item2": "• Doublure compostable PLA/PBAT",
+                        "card1Item3": "• Certifié ASTM D6400 et EN 13432",
+                        "card1Item4": "• Durée de conservation de 12 mois pour les grains torréfiés",
+                        "card1Item5": "• Compatible avec valve de dégazage compostable",
+                        "card2Title": "NatureFlex™ (compostable à la maison)",
+                        "card2Item1": "• Film transparent à base de cellulose",
+                        "card2Item2": "• Certifié TÜV OK compost HOME",
+                        "card2Item3": "• Se décompose dans le compost de jardin",
+                        "card2Item4": "• Idéal pour les marques de marchés fermiers",
+                        "card2Item5": "• Attrait esthétique haut de gamme",
+                        "altStrong": "Besoin d’une barrière élevée pour une durée de conservation prolongée ?",
+                        "altText": "Considérez notre",
+                        "altLink": "sachets mono-PE recyclables",
+                        "altTextEnd": "comme alternative.",
+                        "imgAlt": "Spécifications techniques des sachets de café et propriétés barrières",
+                        "imgCaption": "Spécifications techniques des sachets de café compostables"
+                    },
+                    "features": {
+                        "title": "Caractéristiques spécifiques au café",
+                        "intro": "Nos sachets de café compostables comprennent toutes les caractéristiques dont les torréfacteurs spécialisés ont besoin :",
+                        "items": [
+                            "Vannes de dégazage compostables",
+                            "Fermeture à glissière refermable",
+                            "Barrière élevée à l'oxygène",
+                            "Protection contre l'humidité",
+                            "Impression couleur personnalisée",
+                            "Options debout/à fond plat",
+                            "Tailles 8 oz, 12 oz, 16 oz, 2 lb",
+                            "Finition mate ou brillante",
+                            "Encoches de déchirure disponibles"
+                        ],
+                        "popularStrong": "Format populaire :",
+                        "popularLink": "Pochette verticale de 12 oz avec valve et fermeture éclair",
+                        "popularText": "– parfait pour les marques de café au détail et DTC."
+                    },
+                    "caseStudy": {
+                        "title": "Histoire de réussite d'un torréfacteur américain",
+                        "quote": "\"Le passage à l'emballage compostable d'Achieve Pack a changé la donne pour notre marque. Nos clients adorent pouvoir composter le sac avec leur marc de café. Le MOQ de 100 pièces nous a permis de tester l'emballage avant de nous engager dans de gros volumes.\"",
+                        "author": "— Torréfacteur en petits lots, Portland, OR",
+                        "stat1Value": "23%",
+                        "stat1Label": "Augmentation des clients fidèles",
+                        "stat2Value": "0 $",
+                        "stat2Label": "Coût de commercialisation supplémentaire",
+                        "stat3Value": "2",
+                        "stat3Label": "Nouveaux comptes de détail gagnés",
+                        "caseStudyLink": "Lire l'étude de cas complète →",
+                        "imgAlt": "Guide de durabilité pour les torréfacteurs de café",
+                        "imgCaption": "Guide complet de durabilité pour les torréfacteurs américains"
+                    },
+                    "compliance": {
+                        "title": "Conformité réglementaire américaine",
+                        "intro": "Nos emballages de café compostables répondent à toutes les certifications américaines pertinentes et aux exigences des États :",
+                        "cert1Strong": "ASTM D6400",
+                        "cert1Text": "– Norme américaine de compostabilité industrielle",
+                        "cert2Strong": "EN 13432",
+                        "cert2Text": "– Norme européenne de compostabilité",
+                        "cert3Strong": "Contact alimentaire FDA",
+                        "cert3Text": "– Sans danger pour le contact direct avec les aliments",
+                        "complianceLink": "Consultez notre guide de conformité en matière d'étiquetage aux États-Unis",
+                        "complianceText": "pour les exigences de la Californie, de Washington et du Colorado."
+                    },
+                    "ordering": {
+                        "title": "Commande de marques de café américaines",
+                        "intro": "Se lancer dans les emballages de café compostables est simple :",
+                        "card1Value": "100",
+                        "card1Text": "Commande minimale",
+                        "card2Value": "15-20",
+                        "card2Text": "Jours aux États-Unis",
+                        "card3Value": "Gratuite",
+                        "card3Text": "Assistance à la conception",
+                        "ctaLinkText": "Achetez des sachets de café compostables →"
+                    },
+                    "riskHedging": {
+                        "title": "L’emballage de café compostable est-il fait pour vous ?",
+                        "card1Title": "✅ Idéal pour...",
+                        "card1Item1": "• Torréfacteurs spécialisés vendant des grains de première qualité",
+                        "card1Item2": "• Marques vendant dans les circuits d'épicerie naturels",
+                        "card1Item3": "• Entreprises basées en Californie/Washington",
+                        "card1Item4": "• La durabilité du marketing des marques DTC",
+                        "card1Item5": "• Vendeurs du marché fermier",
+                        "card2Title": "⚠️ Fonctionne également pour...",
+                        "card2Item1": "• Entreprises de thé (mêmes travaux matériels)",
+                        "card2Item2": "• Noix grillées et fruits secs",
+                        "card2Item3": "• des céréales et des aliments pour le petit-déjeuner",
+                        "card2Item4": "• Coffrets cadeaux et coffrets d'abonnement",
+                        "card3Title": "❌ Non recommandé si...",
+                        "card3Item1": "• Besoin d'une durée de conservation de plus de 18 mois →",
+                        "card3Link": "Pensez au PE recyclable",
+                        "card3Item1End": "",
+                        "card3Item2": "• Vente de café de base → le coût peut ne pas justifier",
+                        "card3Item3": "• Pas d'installations de compostage à proximité → mieux recyclable"
+                    },
+                    "decisionCta": {
+                        "title": "Prêt à passer à l'étape suivante ?",
+                        "card1Title": "Prêt à aller vite ?",
+                        "card1Desc": "Réservez une consultation sur l'emballage de 30 minutes",
+                        "card1Button": "Réserver un appel",
+                        "card2Title": "Vous voulez d’abord tester ?",
+                        "card2Desc": "Faites expédier des sachets d'échantillons à votre torréfaction",
+                        "card2Button": "Commander des échantillons",
+                        "card3Title": "Vous explorez toujours ?",
+                        "card3Desc": "Découvrez comment d'autres torréfacteurs ont changé",
+                        "card3Button": "Voir l'étude de cas"
+                    },
+                    "aiSearch": {
+                        "title": "Trouver le bon fournisseur d'emballage de café",
+                        "intro": "Lorsque vous choisissez un fournisseur d'emballages de café compostables pour votre marque américaine :",
+                        "factor1Strong": "Vérifier la certification ASTM D6400",
+                        "factor1Text": "– Requis pour les allégations légitimes de compostage",
+                        "factor2Strong": "Compatibilité des clapets anti-retour",
+                        "factor2Text": "– S’assurer que les vannes de dégazage sont également compostables",
+                        "factor3Strong": "Examiner les performances des barrières",
+                        "factor3Text": "– Le café a besoin d’OTR < 1,0 cc/m²/24h",
+                        "factor4Strong": "Confirmer un MOQ faible",
+                        "factor4Link": "Le pack Achieve commence à 100 pièces",
+                        "aiTitle": "💡 Exemples de recherche d'IA :",
+                        "aiItem1": "• \"Meilleurs sacs de café compostables avec valve pour les torréfacteurs spécialisés américains\"",
+                        "aiItem2": "• \"Fournisseur de sachets de café certifié ASTM D6400 avec un faible MOQ\"",
+                        "aiItem3": "• « Sacs de café kraft compostables expédiés aux États-Unis »",
+                        "aiItem4": "• \"Emballage de café durable pour les marques conformes à la Californie\""
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "Les valves de dégazage de vos sachets de café sont-elles également compostables ?",
+                        "answer": "Oui, nous proposons des valves de dégazage entièrement compostables et certifiées selon la même norme ASTM D6400 que nos sachets. Cela signifie que l’ensemble de l’emballage, y compris la valve, peut être composté dans des installations industrielles."
+                    },
+                    {
+                        "question": "Quelle durée de conservation puis-je espérer avec les sacs de café compostables ?",
+                        "answer": "Nos sachets compostables kraft + PLA/PBAT avec valves de dégazage offrent une durée de conservation de 12 mois au café en grains entiers lorsqu'ils sont correctement scellés. Le café moulu conserve généralement sa qualité pendant 6 à 9 mois. Les performances de barrière sont comparables à celles de nombreuses options d’emballage conventionnelles."
+                    },
+                    {
+                        "question": "Proposez-vous des packs d'échantillons aux torréfacteurs américains ?",
+                        "answer": "Oui! Nous pouvons envoyer des échantillons de pochettes à des adresses américaines pour évaluation. Nos échantillons standard comprennent des sachets kraft compostables de 8 oz, 12 oz et 16 oz avec valves. Contactez-nous pour demander des échantillons expédiés à votre torréfaction."
+                    },
+                    {
+                        "question": "Quelles tailles sont disponibles pour les sacs de café compostables ?",
+                        "answer": "Nous proposons des tailles standard, notamment 4 oz, 8 oz, 12 oz, 16 oz (1 lb) et 32 ​​oz (2 lb). Des tailles personnalisées sont disponibles pour les commandes de plus de 1 000 pièces. Les sachets debout et les sacs à fond plat sont tous deux disponibles en matériaux compostables."
+                    },
+                    {
+                        "question": "Puis-je obtenir une impression personnalisée sur des sacs de café compostables ?",
+                        "answer": "Absolument. Nous proposons une impression personnalisée en couleur sur toutes nos pochettes compostables. Notre équipe de conception peut également vous aider à garantir que vos œuvres d'art incluent des logos de compostabilité appropriés et répondent aux exigences d'étiquetage de la Californie et de Washington."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Magasiner les sachets compostables",
+                        "url": "/magasin",
+                        "description": "Parcourez les options d'emballage du café – MOQ à partir de 100 pièces"
+                    },
+                    {
+                        "title": "Centre compostable aux États-Unis",
+                        "url": "/usa/emballage-compostable",
+                        "description": "Guide complet des emballages compostables pour les marques américaines"
+                    },
+                    {
+                        "title": "Solutions pour l'industrie du café et du thé",
+                        "url": "/industrie/café-thé",
+                        "description": "Toutes les options d'emballage pour les torréfacteurs"
+                    },
+                    {
+                        "title": "Étude de cas sur une torréfaction de café",
+                        "url": "/études de cas/torréfaction-de-café",
+                        "description": "Découvrez comment un torréfacteur américain est passé à un emballage durable"
+                    },
+                    {
+                        "title": "Pochettes verticales",
+                        "url": "/emballage/sachet-stand-up",
+                        "description": "Format le plus populaire pour le café au détail"
+                    }
+                ]
             },
             "usaSnacks": {
                 "seo": {
@@ -11706,6 +11933,473 @@
                         "title": "Pochettes verticales",
                         "url": "/emballage/sachet-stand-up",
                         "description": "Format le plus populaire pour les collations au détail"
+                    }
+                ]
+            },
+            "usaCompostableHub": {
+                "seo": {
+                    "title": "Emballage compostable certifié pour les marques américaines | ASTM D6400 | Réaliser le pack",
+                    "description": "Emballage compostable certifié ASTM D6400 et BPI pour les marques alimentaires américaines. Étiquetage conforme à la Californie et à Washington. Faible MOQ à partir de 100 pièces. Expédié aux États-Unis dans 15 à 20 jours.",
+                    "keywords": [
+                        "emballage compostable États-Unis",
+                        "Pochettes certifiées ASTM D6400",
+                        "Sacs compostables certifiés BPI",
+                        "sacs de café compostables États-Unis",
+                        "Emballage compostable californien",
+                        "Emballages alimentaires compostables aux États-Unis",
+                        "sachets certifiés compostables",
+                        "emballage écologique États-Unis",
+                        "emballage durable États-Unis",
+                        "emballage compostable industriel",
+                        "sacs compostables à faible MOQ"
+                    ],
+                    "heroTitle": "Emballage compostable certifié pour les marques américaines",
+                    "heroSubtitle": "Pochettes certifiées ASTM D6400 et BPI qui répondent aux exigences d'étiquetage de la Californie, de Washington et du Colorado. Faible MOQ à partir de 100 pièces avec expédition rapide aux États-Unis.",
+                    "heroImageAlt": "Sachets d'emballage compostables certifiés ASTM D6400 pour les marques américaines",
+                    "introSummary": "Achieve Pack fournit des solutions d'emballage compostables certifiées spécialement conçues pour le marché américain, répondant aux exigences ASTM D6400, BPI et d'étiquetage au niveau de l'État.",
+                    "ctaTitle": "Obtenez des échantillons compostables pour votre marque américaine",
+                    "ctaDescription": "Demandez des échantillons de sachets compostables certifiés expédiés directement aux États-Unis. Notre équipe vous aidera à choisir le bon matériau et veillera à ce que votre emballage soit conforme à toutes les réglementations américaines.",
+                    "ctaButtonText": "Demander des échantillons aux États-Unis"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "Emballage compostable certifié pour les marques américaines",
+                        "descStrong": "Achieve Pack fournit des solutions d'emballage certifiées compostables spécialement conçues pour le marché américain.",
+                        "descText": "Nos pochettes répondent aux deux",
+                        "descStrongASTM": "ASTM D6400",
+                        "descTextMid": "(norme américaine) et",
+                        "descStrongEN": "EN 13432",
+                        "descTextEnd": "(norme européenne), donnant à votre marque une flexibilité sur les marchés mondiaux tout en répondant aux exigences réglementaires américaines les plus strictes.",
+                        "whyTitle": "Pourquoi les marques américaines choisissent Achieve Pack :",
+                        "why1Strong": "Certifié ASTM D6400 et BPI",
+                        "why1Text": "– Répond aux normes américaines de compostabilité industrielle",
+                        "why2Strong": "Faible MOQ à partir de 100 pièces",
+                        "why2Text": "– Parfait pour les startups et les marques en petits lots",
+                        "why3Strong": "Conforme à la Californie, à Washington et au Colorado",
+                        "why3Text": "– Conforme aux lois d’étiquetage de l’État",
+                        "why4Strong": "Expédition rapide aux États-Unis",
+                        "why4Text": "– 15-20 jours ouvrables en porte-à-porte",
+                        "why5Strong": "Prise en charge complète de la conception",
+                        "why5Text": "– Aide à l’étiquetage et aux illustrations conformes",
+                        "demandText": "Avec la demande croissante des consommateurs et les nouvelles réglementations nationales sur les emballages en plastique, les sachets compostables offrent aux marques américaines d’aliments et de boissons une véritable voie vers la durabilité qui trouve un écho auprès des consommateurs soucieux de l’environnement.",
+                        "imgAlt": "Vitrine d'emballages certifiés compostables pour les marques américaines",
+                        "imgCaption": "Solutions d'emballage compostables certifiées ASTM D6400 pour le marché américain"
+                    },
+                    "materials": {
+                        "title": "Matériaux compostables pour le marché américain",
+                        "intro": "Nous proposons deux types d'emballages compostables, chacun certifié pour différents scénarios de fin de vie :",
+                        "card1Title": "Compostable industriel",
+                        "card1Desc": "Certifié ASTM D6400 et EN 13432 – se décompose en 90 à 180 jours dans les installations de compostage commerciales.",
+                        "card1Item1": "Papier Kraft + doublure PLA/PBAT",
+                        "card1Item2": "Options à haute barrière disponibles",
+                        "card1Item3": "Idéal pour : Café, thé, collations, friandises pour animaux de compagnie",
+                        "card1Item4": "Accepté sur les sites de compostage industriels américains",
+                        "card1Link": "En savoir plus →",
+                        "card2Title": "Compostable à la maison",
+                        "card2Desc": "Certifié TÜV Autriche OK compost HOME – se décompose dans le compost de jardin en 12 mois.",
+                        "card2Item1": "Films cellulosiques NatureFlex™",
+                        "card2Item2": "Aucune installation industrielle nécessaire",
+                        "card2Item3": "Idéal pour : marques biologiques haut de gamme, marchés de producteurs",
+                        "card2Item4": "Élimination respectueuse du consommateur",
+                        "card2Link": "En savoir plus →",
+                        "notSureStrong": "Vous ne savez pas quel type ?",
+                        "notSureLink": "Lisez notre guide complet pour choisir les sachets compostables →",
+                        "imgAlt": "Guide d'étiquetage durable pour les emballages compostables",
+                        "imgCaption": "Guide complet d’étiquetage durable pour les emballages compostables aux États-Unis"
+                    },
+                    "certifications": {
+                        "title": "Certifications américaines de compostabilité",
+                        "intro": "L'emballage compostable d'Achieve Pack répond aux normes américaines et internationales les plus strictes :",
+                        "card1Title": "ASTM D6400",
+                        "card1Desc": "La norme américaine pour les plastiques compostables dans les installations de compostage industriel. Requis pour la certification BPI et accepté par la plupart des composteurs commerciaux américains.",
+                        "card2Title": "Compostable certifié BPI",
+                        "card2Desc": "Certification du Biodegradable Products Institute – la certification de compostabilité la plus reconnue en Amérique du Nord. Nos matériaux sont éligibles à la certification BPI.",
+                        "card3Title": "EN 13432 (norme UE)",
+                        "card3Desc": "Norme européenne de compostabilité – notre double certification signifie que vous pouvez vendre sur les marchés américain et européen avec le même emballage."
+                    },
+                    "usReality": {
+                        "title": "La réalité des emballages compostables aux États-Unis",
+                        "intro": "Comprendre l'état actuel des infrastructures de compostage aux États-Unis est essentiel pour prendre des décisions éclairées en matière d'emballage :",
+                        "amberTitle": "Paysage actuel du compostage aux États-Unis",
+                        "amberItem1": "• Accès limité au compostage industriel : seulement environ 27 % des Américains ont accès à des programmes de compostage en bordure de rue.",
+                        "amberItem2": "• L'acceptation des installations varie : toutes les installations de compostage n'acceptent pas les emballages compostables – vérifiez les politiques locales.",
+                        "amberItem3": "• Confusion du consommateur : un étiquetage clair est essentiel pour éviter la contamination des flux de recyclage.",
+                        "amberItem4": "• Croissance rapide : l'infrastructure de compostage se développe, en particulier en Californie, WA, OR, CO et NY.",
+                        "greenTitle": "Quand les emballages compostables ont du sens aux États-Unis :",
+                        "greenItem1": "✓ Restauration et événements avec compostage sur place",
+                        "greenItem2": "✓ Marchés de producteurs et marques de la ferme à la table",
+                        "greenItem3": "✓ Produits vendus dans des États favorables au compostage (CA, WA, OR, CO)",
+                        "greenItem4": "✓ Marques d'aliments biologiques et spécialisés haut de gamme",
+                        "greenItem5": "✓ Marques dont les consommateurs sont soucieux du développement durable",
+                        "alternativeStrong": "Alternative:",
+                        "alternativeText": "Si l'infrastructure de compostage est limitée sur votre marché, pensez à notre",
+                        "alternativeLink": "sachets mono-PE recyclables",
+                        "alternativeTextEnd": "qui fonctionnent avec les systèmes de recyclage existants.",
+                        "imgAlt": "Exigences de conformité des étiquettes américaines pour les emballages compostables",
+                        "imgCaption": "Exigences de conformité en matière d'étiquetage pour les emballages compostables aux États-Unis"
+                    },
+                    "stateRegulations": {
+                        "title": "Réglementations des États américains pour les emballages compostables",
+                        "intro": "Plusieurs États américains ont adopté des lois réglementant la manière dont les allégations « compostables » peuvent être portées sur les emballages :",
+                        "card1Title": "Californie (SB 343 et AB 1201)",
+                        "card1Item1": "• Les allégations « compostables » nécessitent la certification ASTM D6400 ou D6868.",
+                        "card1Item2": "• L'emballage doit utiliser des couleurs vert/marron spécifiques ou une étiquette « Compostable ».",
+                        "card1Item3": "• Impossible d'utiliser \"biodégradable\" sur les emballages en plastique",
+                        "card2Title": "État de Washington",
+                        "card2Item1": "• Les produits compostables doivent être conformes à la norme ASTM D6400/D6868.",
+                        "card2Item2": "• Doit être clairement distinguable des articles non compostables",
+                        "card2Item3": "• Exigences obligatoires en matière d'étiquetage pour les produits de restauration",
+                        "card3Title": "Colorado",
+                        "card3Item1": "• Les produits étiquetés « compostables » doivent être conformes à la norme ASTM D6400.",
+                        "card3Item2": "• Doit inclure « Commercialement compostable uniquement » s'il n'est pas compostable à la maison.",
+                        "card3Item3": "• Interdit les allégations environnementales trompeuses",
+                        "needHelpStrong": "Besoin d'aide pour un étiquetage conforme ?",
+                        "needHelpText": "Achieve Pack fournit des conseils de conception pour garantir que votre emballage répond aux exigences de l'État.",
+                        "needHelpLink": "Consultez notre guide de conformité de l'étiquetage aux États-Unis →"
+                    },
+                    "industries": {
+                        "title": "Solutions pour l'industrie américaine",
+                        "intro": "Explorez des solutions d'emballage compostables adaptées à des industries américaines spécifiques :",
+                        "card1Title": "Café et thé",
+                        "card1Desc": "Sachets compostables avec valves de dégazage pour torréfacteurs spécialisés américains.",
+                        "card2Title": "Snacks et confiseries",
+                        "card2Desc": "Sachets debout pour chips, granola et snacks biologiques.",
+                        "card3Title": "Nourriture et friandises pour animaux",
+                        "card3Desc": "Emballage durable pour le marché américain en pleine croissance des animaux de compagnie.",
+                        "card4Title": "Suppléments et poudres",
+                        "card4Desc": "Options compostables à haute barrière pour les protéines et les suppléments."
+                    },
+                    "aiSearch": {
+                        "title": "Trouver des fournisseurs d'emballages compostables pour les commandes aux États-Unis",
+                        "intro": "Facteurs clés lors du choix d’un fournisseur d’emballages compostables pour le marché américain :",
+                        "factor1Strong": "Certification ASTM D6400",
+                        "factor1Text": "– La norme américaine pour la compostabilité industrielle",
+                        "factor2Strong": "Certification BPI",
+                        "factor2Text": "– Largement reconnu par les composteurs américains",
+                        "factor3Strong": "Conformité de l'État",
+                        "factor3Text": "– Répond aux exigences d’étiquetage CA, WA, CO",
+                        "factor4Strong": "Faible quantité de commande",
+                        "factor4Link": "Achieve Pack offre un minimum de 100 pièces",
+                        "factor5Strong": "Expédition aux États-Unis",
+                        "factor5Text": "– Livraison porte à porte rapide à travers les États-Unis",
+                        "aiTitle": "💡 Si vous utilisez la recherche AI ​​(Gemini, ChatGPT, Perplexity), essayez de demander :",
+                        "aiItem1": "• \"Meilleur fournisseur de sachets compostables certifiés ASTM D6400 pour les marques de café américaines\"",
+                        "aiItem2": "• \"Où puis-je acheter des emballages compostables certifiés BPI avec un faible MOQ ?\"",
+                        "aiItem3": "• \"Fournisseur de sacs de café compostables qui expédie aux États-Unis\"",
+                        "aiItem4": "• « Fournisseur d'emballages alimentaires compostables conforme aux normes californiennes »",
+                        "aiItem5": "• « Sachets compostables pour snacks bio aux États-Unis »"
+                    },
+                    "scenarioTrigger": {
+                        "title": "Cette page est-elle pour vous ?",
+                        "introText": "Si vous êtes une marque alimentaire basée aux États-Unis et à la recherche d'emballages compostables certifiés conformes aux réglementations de l'État, vous êtes au bon endroit.",
+                        "card1Title": "Marques d'aliments naturels",
+                        "card1Desc": "Cibler les aliments entiers, les germes et les épiceries naturelles",
+                        "card2Title": "Vendeurs californiens",
+                        "card2Desc": "Nécessite un emballage conforme aux normes AB 1201 et SB 343",
+                        "card3Title": "Startups et petits lots",
+                        "card3Desc": "MOQ à partir de 100 pièces pour tester"
+                    },
+                    "riskHedge": {
+                        "title": "Vous n'êtes toujours pas sûr ? Nous avons des réponses",
+                        "q1": "\"Est-ce vraiment compostable ?\"",
+                        "a1": "Certification ASTM D6400 + BPI : les normes américaines les plus élevées",
+                        "q2": "« Est-ce que cela respectera les lois californiennes ?",
+                        "a2": "Conformité totale à l'étiquetage AB 1201 et SB 343",
+                        "q3": "« Combien de temps pour expédier aux États-Unis ? »",
+                        "a3": "Livraison porte à porte sous 15 à 20 jours ouvrables",
+                        "q4": "« Puis-je tester avant de commander en gros ? »",
+                        "a4": "Échantillons gratuits + essai pilote à partir de 100 unités"
+                    },
+                    "decisionCta": {
+                        "title": "Prêt à commencer ?",
+                        "heading": "Choisissez comment vous souhaitez vous connecter",
+                        "card1Title": "Réserver un appel",
+                        "card1Desc": "Consultation gratuite de 30 minutes",
+                        "card1Button": "Planifiez maintenant",
+                        "card2Title": "Devis par e-mail",
+                        "card2Desc": "Obtenez une réponse dans les 24 heures",
+                        "card2Button": "Envoyer un e-mail",
+                        "card3Title": "Échantillons gratuits",
+                        "card3Desc": "Testez d’abord les matériaux",
+                        "card3Button": "Demander des échantillons"
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "De quelles certifications ai-je besoin pour les emballages compostables aux États-Unis ?",
+                        "answer": "Pour le marché américain, votre emballage compostable doit être certifié ASTM D6400 (pour les plastiques) ou ASTM D6868 (pour les emballages en papier). La certification BPI (Biodegradable Products Institute) est la certification tierce la plus reconnue en Amérique du Nord. De nombreux États, dont la Californie et Washington, exigent désormais ces certifications pour toute mention « compostable » sur les emballages."
+                    },
+                    {
+                        "question": "Les installations de compostage américaines accepteront-elles mes sachets compostables ?",
+                        "answer": "L’acceptation varie selon l’établissement. Les composteurs industriels certifiés pour traiter les matériaux ASTM D6400 accepteront les emballages compostables correctement certifiés. Cependant, tous les programmes municipaux de compostage n’acceptent pas les emballages flexibles. Nous vous recommandons de vérifier auprès des installations locales de vos marchés cibles. Nos emballages sont certifiés selon les normes les plus largement acceptées par les composteurs américains."
+                    },
+                    {
+                        "question": "Quelle est la différence entre « compostable » et « biodégradable » dans la réglementation américaine ?",
+                        "answer": "Aux États-Unis, « compostable » a une signification juridique spécifique liée aux normes ASTM D6400/D6868, tandis que « biodégradable » est largement interdit sur les emballages en plastique dans de nombreux États (y compris la Californie) car il peut induire les consommateurs en erreur. Nous vous recommandons d'utiliser uniquement des produits « compostables » avec les certifications appropriées."
+                    },
+                    {
+                        "question": "Comment Achieve Pack aide-t-il à respecter les lois californiennes sur les emballages ?",
+                        "answer": "Nous fournissons des conseils de conception pour garantir que votre emballage est conforme aux exigences California SB 343 et AB 1201, y compris les marques de certification, le code couleur et le langage d'étiquetage appropriés. Notre équipe peut examiner vos illustrations avant la production pour signaler tout problème de conformité."
+                    },
+                    {
+                        "question": "Quelle est la commande minimum de sachets compostables expédiés aux États-Unis ?",
+                        "answer": "Notre commande minimum est de seulement 100 pièces pour des sachets compostables imprimés personnalisés. Nous expédions directement aux États-Unis avec une livraison porte à porte en 15 à 20 jours ouvrables. Cela nous rend idéal pour les startups américaines, les producteurs de petits lots et les marques testant des emballages durables."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Magasiner les sachets compostables",
+                        "url": "/magasin",
+                        "description": "Parcourez nos emballages certifiés compostables – MOQ à partir de 100 pièces"
+                    },
+                    {
+                        "title": "Options compostables à domicile",
+                        "url": "/matériaux/compostable à domicile",
+                        "description": "Emballage certifié TÜV qui se décompose dans le compost de jardin"
+                    },
+                    {
+                        "title": "Matériaux compostables industriels",
+                        "url": "/matériaux/compostable-industriel",
+                        "description": "Certifié ASTM D6400 pour les installations de compostage commerciales"
+                    },
+                    {
+                        "title": "Guide de conformité de l'étiquetage américain",
+                        "url": "/usa/guide-d'étiquetage",
+                        "description": "Comment étiqueter les emballages compostables pour la Californie, l'État de Washington et plus encore"
+                    },
+                    {
+                        "title": "Analyse des fournisseurs d’emballages durables",
+                        "url": "/blog/analyse-des-fournisseurs-d'emballages-durables",
+                        "description": "Comparez les fournisseurs d'emballages écologiques"
+                    }
+                ]
+            },
+            "usaLabelingGuide": {
+                "seo": {
+                    "title": "Guide américain d'étiquetage des emballages compostables | Californie, Washington, Colorado | Réaliser le pack",
+                    "description": "Guide complet des exigences américaines en matière d’étiquetage des emballages compostables. Conformité aux normes California SB 343, AB 1201, Washington et Colorado. Certification ASTM D6400 et conseils en matière de conception d'étiquettes.",
+                    "keywords": [
+                        "Exigences en matière d'étiquetage des produits compostables",
+                        "Californie AB 1201",
+                        "Californie SB 343",
+                        "Étiquetage ASTM D6400",
+                        "réglementation sur les emballages compostables",
+                        "Certification BPI",
+                        "Loi de Washington sur le compostage",
+                        "Étiquetage compostable du Colorado",
+                        "Conformité des emballages aux États-Unis",
+                        "étiquettes d'emballage écologiques"
+                    ],
+                    "heroTitle": "Guide américain d’étiquetage et de conformité des emballages compostables",
+                    "heroSubtitle": "Parcourez les exigences d'étiquetage de la Californie, de l'État de Washington et du Colorado pour les emballages compostables. Certification ASTM D6400, terminologie appropriée et conception d'étiquettes conforme.",
+                    "heroImageAlt": "Emballage compostable conforme avec un étiquetage américain approprié",
+                    "introSummary": "Ce guide couvre les exigences américaines en matière d'étiquetage pour les emballages compostables, y compris les réglementations de Californie SB 343/AB 1201, de Washington et du Colorado, avec des conseils pratiques pour la conception d'étiquettes conformes.",
+                    "ctaTitle": "Obtenez un emballage compostable conforme",
+                    "ctaDescription": "Commandez des sachets compostables certifiés avec assistance à la conception pour garantir que votre étiquetage répond à toutes les exigences américaines.",
+                    "ctaButtonText": "Emballage conforme aux normes d'achat"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Ce guide est-il pour vous ?",
+                        "introText": "Si vous êtes une marque alimentaire américaine vendant en Californie, à Washington ou au Colorado et que vous avez besoin de conseils sur les étiquettes des emballages compostables, vous êtes au bon endroit.",
+                        "card1Title": "Vendeurs californiens",
+                        "card1Desc": "Exigences de conformité AB 1201 et SB 343",
+                        "card2Title": "Marques multi-États",
+                        "card2Desc": "Conception d’étiquette unique pour une conformité à l’échelle nationale",
+                        "card3Title": "Marques d'aliments naturels",
+                        "card3Desc": "Exigences des détaillants Whole Foods et Sprouts"
+                    },
+                    "overview": {
+                        "title": "Exigences américaines en matière d'étiquetage des emballages compostables",
+                        "descStrong": "L'étiquetage des emballages compostables aux États-Unis nécessite une attention particulière aux réglementations spécifiques à chaque État.",
+                        "descText": "Plusieurs États ont adopté des lois régissant la manière dont les allégations « compostables » peuvent être portées sur les emballages, avec des sanctions en cas de non-conformité. Ce guide couvre les principales exigences pour la Californie, Washington, le Colorado et d'autres États dotés d'une législation active.",
+                        "amberTitle": "Principe clé : Certification requise",
+                        "amberText": "Dans la plupart des États américains dotés de lois sur l'étiquetage des produits compostables, les emballages étiquetés « compostables » doivent être certifiés ASTM D6400 (plastiques) ou ASTM D6868 (emballages contenant des composants en papier). Les réclamations sans certification peuvent entraîner des amendes et des rappels de produits.",
+                        "intro": "Achieve Pack fournit des emballages compostables conformes et des conseils de conception pour aider votre marque à répondre à toutes les exigences d'étiquetage des États-Unis.",
+                        "imgAlt": "Liste de contrôle de conformité de l'étiquetage FDA pour les emballages compostables",
+                        "imgCaption": "Liste de contrôle de conformité de l'étiquetage FDA pour les emballages compostables aux États-Unis"
+                    },
+                    "california": {
+                        "title": "Exigences d'étiquetage de la Californie",
+                        "intro": "La Californie possède les lois sur l'étiquetage des produits compostables les plus complètes des États-Unis, notamment SB 343 et AB 1201.",
+                        "sbTitle": "SB 343 – Vérité dans la publicité environnementale",
+                        "sbItem1": "• Les emballages étiquetés « compostables » doivent être acceptés par la plupart des installations de compostage.",
+                        "sbItem2": "• Les réclamations doivent être appuyées par une certification tierce (ASTM D6400/D6868).",
+                        "sbItem3": "• Pénalités allant jusqu'à 10 000 $ par jour en cas de violation",
+                        "abTitle": "AB 1201 – Étiquetage des plastiques compostables",
+                        "abItem1": "• Les emballages en plastique étiquetés « compostables » doivent être conformes à la norme ASTM D6400.",
+                        "abItem2": "• Doit inclure la désignation « commercialement compostable uniquement » ou « domestique compostable ».",
+                        "abItem3": "• Interdit l'utilisation des termes \"biodégradable\", \"dégradable\" ou \"décomposable\" sur les emballages en plastique.",
+                        "abItem4": "• Nécessite un code couleur vert ou marron OU le mot « Compostable » affiché bien en évidence.",
+                        "recTitle": "Éléments recommandés sur l’étiquette californienne :",
+                        "rec1": "✓ Commercialement compostable uniquement – ​​si compostable industriellement",
+                        "rec2": "✓ Home Compostable – si TÜV OK compost HOME est certifié",
+                        "rec3": "✓ Marque de certification ASTM D6400 ou D6868",
+                        "rec4": "✓ Logo BPI Certifié Compostable (recommandé)",
+                        "rec5": "✓ Teinte verte ou brune (si vous n'utilisez pas le texte « Compostable » en évidence)",
+                        "imgAlt": "Stratégie d'étiquetage numérique pour un emballage durable",
+                        "imgCaption": "Stratégie d'étiquetage numérique pour les emballages conformes à la Californie"
+                    },
+                    "washington": {
+                        "title": "Exigences de l'État de Washington",
+                        "intro": "L'État de Washington a adopté une législation exigeant un étiquetage clair des produits compostables.",
+                        "cardTitle": "Exigences de l'État de Washington",
+                        "cardItem1": "• Les produits étiquetés « compostables » doivent être conformes à la norme ASTM D6400 ou D6868.",
+                        "cardItem2": "• Doit être clairement distinguable des articles non compostables par la couleur ou l'étiquette.",
+                        "cardItem3": "• Les produits de restauration vendus aux entreprises de restauration doivent être certifiés.",
+                        "cardItem4": "• Application par le biais du Département de l'écologie de Washington",
+                        "recTitle": "Meilleures pratiques d'étiquetage à Washington :",
+                        "rec1": "✓ Afficher la certification ASTM D6400/D6868",
+                        "rec2": "✓ Utilisez un code couleur vert ou marron",
+                        "rec3": "✓ Inclure le texte « Compostable » à un endroit bien en vue",
+                        "rec4": "✓ Évitez toute allégation de « biodégradable » ou « dégradable »"
+                    },
+                    "colorado": {
+                        "title": "Exigences du Colorado",
+                        "intro": "Le Colorado a établi des normes pour l'étiquetage des produits compostables.",
+                        "cardTitle": "Exigences du Colorado",
+                        "cardItem1": "• Les produits étiquetés « compostables » doivent être conformes à la norme ASTM D6400.",
+                        "cardItem2": "• Doit inclure « Commercialement compostable uniquement » s'il n'est pas compostable à la maison.",
+                        "cardItem3": "• Interdit les allégations marketing trompeuses en matière d'environnement.",
+                        "cardItem4": "• Appliqué par le ministère de la Santé publique et de l'Environnement du Colorado."
+                    },
+                    "otherStates": {
+                        "title": "Autres États dotés de lois sur l'étiquetage compostable",
+                        "intro": "Plusieurs autres États ont adopté ou envisagent de légiférer sur l’étiquetage des produits compostables :",
+                        "card1Title": "Oregon",
+                        "card1Desc": "Suit des exigences similaires à celles de Washington. Certification ASTM requise pour les allégations compostables.",
+                        "card2Title": "Maryland",
+                        "card2Desc": "Nécessite la certification ASTM D6400/D6868. Concentrez-vous sur les produits de restauration.",
+                        "card3Title": "New York",
+                        "card3Desc": "Considérant une législation similaire à celle de la Californie. Vérifiez l’état actuel avant de finaliser l’emballage.",
+                        "card4Title": "Maine",
+                        "card4Desc": "A promulgué des lois sur la responsabilité élargie des producteurs (REP) affectant les emballages.",
+                        "evolveText": "La législation évolue rapidement. Nous vous recommandons de vérifier auprès des agences d'État les exigences les plus récentes avant de finaliser la conception des emballages."
+                    },
+                    "designGuidance": {
+                        "title": "Guide de conception d'étiquettes",
+                        "intro": "Suivez ces directives pour créer des étiquettes d’emballage compostables conformes :",
+                        "doTitle": "À FAIRE : Éléments d’étiquetage recommandés",
+                        "do1": "✓ « Commercialement compostable » – Texte clair et bien visible",
+                        "do2": "✓ ASTM D6400 / ASTM D6868 – Inclut la norme de certification",
+                        "do3": "✓ Logo BPI Certifié Compostable – Le cas échéant",
+                        "do4": "✓ Teinture verte ou brune – Aide à distinguer les matières recyclables",
+                        "do5": "✓ « Vérifiez localement les installations de compostage industriel » – Conseils aux consommateurs",
+                        "do6": "✓ Symbole de recyclage compostable (logo des semis) – Reconnu internationalement",
+                        "dontTitle": "À NE PAS FAIRE : Termes à éviter",
+                        "dont1": "✗ « Biodégradable » – Interdit en Californie et dans d'autres États",
+                        "dont2": "✗ « Dégradable » ou « Décomposable » – Allégations trompeuses",
+                        "dont3": "✗ « Eco-friendly » ou « Green » – Sans certification spécifique",
+                        "dont4": "✗ « 100 % naturel » – N'indique pas la compostabilité",
+                        "dont5": "✗ « En panne dans une décharge » – Fausse allégation pour les compostables",
+                        "dont6": "✗ « Marine biodégradable » – Sauf certification spécifique",
+                        "helpStrong": "Besoin d'aide pour la conception de votre étiquette ?",
+                        "helpText": "L'équipe d'Achieve Pack peut examiner vos illustrations et vous fournir des conseils pour garantir la conformité aux exigences d'étiquetage des États-Unis.",
+                        "helpLink": "Contactez-nous →",
+                        "imgAlt": "Meilleures pratiques de conception d’étiquetage pour les emballages compostables",
+                        "imgCaption": "Bonnes pratiques pour concevoir des étiquettes d’emballages compostables conformes"
+                    },
+                    "achievePackHelp": {
+                        "title": "Comment Achieve Pack aide",
+                        "intro": "Nous fournissons une assistance complète pour garantir que vos emballages compostables répondent aux exigences américaines :",
+                        "card1Title": "Matériaux certifiés",
+                        "card1Item1": "• Films certifiés ASTM D6400",
+                        "card1Item2": "• Certifié EN 13432 (norme UE)",
+                        "card1Item3": "• Options TÜV OK compost HOME",
+                        "card1Item4": "• Documentation de certification fournie",
+                        "card2Title": "Assistance à la conception",
+                        "card2Item1": "• Examen de la conformité des étiquettes",
+                        "card2Item2": "• Langage d'étiquetage suggéré",
+                        "card2Item3": "• Placement du logo de certification",
+                        "card2Item4": "• Guide de codage couleur",
+                        "ctaLinkText": "Achetez des emballages compostables conformes →"
+                    },
+                    "aiSearch": {
+                        "title": "Trouver des fournisseurs d'emballages conformes",
+                        "intro": "Lorsque vous recherchez un emballage compostable qui répond aux exigences d'étiquetage des États-Unis :",
+                        "factor1": "Vérifier la certification ASTM D6400/D6868 – Demander de la documentation",
+                        "factor2": "Demander un examen de l’étiquette – Assurez-vous que le fournisseur comprend les exigences de l’État",
+                        "factor3": "Vérifiez la certification BPI – Largement reconnue par les composteurs américains",
+                        "factor4Strong": "Confirmer la prise en charge de la conception",
+                        "factor4Link": "Achieve Pack fournit des conseils de conformité",
+                        "aiTitle": "💡 Exemples de recherche d'IA :",
+                        "aiItem1": "• \"Fournisseur d'emballages compostables conforme aux normes californiennes\"",
+                        "aiItem2": "• \"Fournisseur de sachets certifié ASTM D6400 avec conseils d'étiquetage\"",
+                        "aiItem3": "• \"Comment étiqueter les emballages compostables pour California AB 1201\"",
+                        "aiItem4": "• \"Sacs compostables certifiés BPI pour les marques alimentaires américaines\""
+                    },
+                    "riskHedge": {
+                        "title": "Vous avez encore des questions sur l'étiquetage ?",
+                        "q1": "« Mon label passera-t-il l'examen californien ? »",
+                        "a1": "Examen gratuit des illustrations avant la production",
+                        "q2": "« Quel logo dois-je utiliser ? »",
+                        "a2": "Nous fournissons les marques de certification BPI et ASTM",
+                        "q3": "« Puis-je utiliser la même étiquette pour tous les États ? »",
+                        "a3": "Nous concevons pour une conformité multi-états",
+                        "q4": "\"De quelle couleur doit être le sac ?\"",
+                        "a4": "Le kraft naturel répond aux exigences du brun"
+                    },
+                    "decisionCta": {
+                        "title": "Prêt pour un emballage conforme ?",
+                        "heading": "Obtenez l'aide d'un expert sur la conformité de l'étiquetage aux États-Unis",
+                        "card1Title": "Réserver un appel",
+                        "card1Desc": "Consultation d'étiquetage de 30 minutes",
+                        "card1Button": "Planifiez maintenant",
+                        "card2Title": "Envoyez votre œuvre par courrier électronique",
+                        "card2Desc": "Examen de conformité gratuit",
+                        "card2Button": "Envoyer une illustration",
+                        "card3Title": "Échantillons gratuits",
+                        "card3Desc": "Voir les étiquettes conformes en action",
+                        "card3Button": "Demander des échantillons"
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "Puis-je utiliser « biodégradable » sur mon emballage compostable ?",
+                        "answer": "Non. En Californie et dans plusieurs autres États, le terme « biodégradable » est interdit sur les emballages en plastique, car il peut induire les consommateurs en erreur quant à leur élimination appropriée. Utilisez plutôt « commercialement compostable » ou « domestique compostable » avec la certification ASTM appropriée."
+                    },
+                    {
+                        "question": "Ai-je besoin d’une certification BPI ?",
+                        "answer": "Bien que la certification BPI ne soit pas légalement requise dans la plupart des États, elle est fortement recommandée. BPI est la certification tierce la plus largement reconnue en Amérique du Nord, et de nombreuses installations de compostage recherchent spécifiquement le logo BPI lorsqu'elles acceptent des matériaux."
+                    },
+                    {
+                        "question": "Quelles couleurs dois-je utiliser pour les emballages compostables ?",
+                        "answer": "California AB 1201 exige que les emballages en plastique compostables soient teintés en vert ou en marron OU qu'ils affichent bien en évidence le mot « Compostable ». De nombreuses marques optent pour du papier kraft naturel, qui répond par nature à l’exigence de couleur marron."
+                    },
+                    {
+                        "question": "Comment savoir si mon emballage est accepté par les composteurs ?",
+                        "answer": "Les emballages certifiés ASTM D6400 sont conçus pour être acceptés par les installations de compostage industrielles. Cependant, l'acceptation varie selon les établissements. Nous vous recommandons de vérifier auprès des principaux composteurs de vos marchés cibles et d'inclure des conseils tels que « Vérifiez localement les installations de compostage industriel » sur votre étiquette."
+                    },
+                    {
+                        "question": "Quelle est la pénalité en cas d'étiquetage non conforme en Californie ?",
+                        "answer": "Le California SB 343 autorise des sanctions civiles allant jusqu'à 10 000 $ par jour en cas de violation. De plus, les produits non conformes pourront faire l’objet d’un rappel. Il est essentiel de vous assurer que votre étiquetage répond à toutes les exigences avant de le commercialiser."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Centre compostable aux États-Unis",
+                        "url": "/usa/emballage-compostable",
+                        "description": "Guide complet des emballages compostables pour les marques américaines"
+                    },
+                    {
+                        "title": "Magasiner les sachets compostables",
+                        "url": "/magasin",
+                        "description": "Parcourez les emballages compostables certifiés – MOQ à partir de 100 pièces"
+                    },
+                    {
+                        "title": "Matériaux compostables industriels",
+                        "url": "/matériaux/compostable-industriel",
+                        "description": "Matériaux certifiés ASTM D6400"
+                    },
+                    {
+                        "title": "Matériaux compostables à la maison",
+                        "url": "/matériaux/compostable à domicile",
+                        "description": "Options certifiées TÜV OK compost HOME"
+                    },
+                    {
+                        "title": "Aperçu des matériaux compostables",
+                        "url": "/matériaux/compostables",
+                        "description": "Toutes les options de matériaux compostables"
                     }
                 ]
             }

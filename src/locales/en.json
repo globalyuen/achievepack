@@ -11566,28 +11566,233 @@
                 ]
             },
             "usaCoffee": {
-                "metaTitle": "Compostable Coffee Packaging for US Roasters | ASTM D6400 | Achieve Pack",
-                "metaDescription": "ASTM D6400 certified compostable coffee bags with degassing valves for US specialty roasters. Kraft paper pouches, low MOQ from 100 pieces, ships to USA in 15-20 days.",
-                "isThisPageFor": "Is This Page For You?",
-                "compostableCoffeePackagingFor": "Compostable Coffee Packaging for US Roasters",
-                "compostableMaterialsForCoffee": "Compostable Materials for Coffee",
-                "coffeespecificFeatures": "Coffee-Specific Features",
-                "usRoasterSuccessStory": "US Roaster Success Story",
-                "usRegulatoryCompliance": "US Regulatory Compliance",
-                "orderingForUsCoffee": "Ordering for US Coffee Brands",
-                "isCompostableCoffeePackaging": "Is Compostable Coffee Packaging Right for You?",
-                "readyToTakeThe": "Ready to Take the Next Step?",
-                "findingTheRightCoffee": "Finding the Right Coffee Packaging Supplier",
-                "shopCompostablePouches": "Shop Compostable Pouches",
-                "browseCoffeePackagingOptions": "Browse coffee packaging options – MOQ from 100 pieces",
-                "usaCompostableHub": "USA Compostable Hub",
-                "completeGuideToCompostable": "Complete guide to compostable packaging for US brands",
-                "coffeeTeaIndustrySolutions": "Coffee & Tea Industry Solutions",
-                "allPackagingOptionsFor": "All packaging options for coffee roasters",
-                "coffeeRoasteryCaseStudy": "Coffee Roastery Case Study",
-                "seeHowAUs": "See how a US roaster switched to sustainable packaging",
-                "standupPouches": "Stand-Up Pouches",
-                "mostPopularFormatFor": "Most popular format for retail coffee"
+                "seo": {
+                    "title": "Compostable Coffee Packaging for US Roasters | ASTM D6400 | Achieve Pack",
+                    "description": "ASTM D6400 certified compostable coffee bags with degassing valves for US specialty roasters. Kraft paper pouches, low MOQ from 100 pieces, ships to USA in 15-20 days.",
+                    "keywords": [
+                        "compostable coffee bags USA",
+                        "compostable coffee packaging",
+                        "ASTM D6400 coffee pouches",
+                        "kraft paper coffee bags",
+                        "sustainable coffee packaging",
+                        "eco-friendly coffee bags",
+                        "degassing valve compostable",
+                        "specialty roaster packaging",
+                        "low MOQ coffee bags",
+                        "California compliant coffee packaging"
+                    ],
+                    "heroTitle": "Compostable Coffee Packaging for US Roasters",
+                    "heroSubtitle": "ASTM D6400 certified kraft paper pouches with compostable degassing valves. Perfect for specialty roasters who want sustainable packaging without compromising freshness.",
+                    "heroImageAlt": "Compostable coffee packaging pouches with degassing valves for US specialty roasters",
+                    "introSummary": "Achieve Pack provides certified compostable coffee packaging designed specifically for US specialty roasters, with low MOQ, fast shipping, and full compliance with state regulations.",
+                    "ctaTitle": "Get Compostable Coffee Bag Samples",
+                    "ctaDescription": "Request sample pouches shipped directly to your US roastery. Our team will help you choose the right size and material for your coffee products.",
+                    "ctaButtonText": "Request Samples"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Is This Page For You?",
+                        "introText": "If you are a US specialty coffee roaster looking for compostable packaging that meets ASTM D6400 certification—you're in the right place.",
+                        "card1Title": "Small Batch Roasters",
+                        "card1Desc": "100+ piece MOQ, perfect for testing or farmers market sales",
+                        "card2Title": "DTC & Amazon Sellers",
+                        "card2Desc": "Sustainable packaging that resonates with eco-conscious consumers",
+                        "card3Title": "Retail Coffee Brands",
+                        "card3Desc": "Meet Whole Foods, Sprouts, and Natural Grocers sustainability requirements"
+                    },
+                    "overview": {
+                        "title": "Compostable Coffee Packaging for US Roasters",
+                        "descStrong": "US specialty coffee roasters are under increasing pressure to adopt sustainable packaging.",
+                        "descText": "Consumer demand for eco-friendly products, retailer sustainability requirements, and emerging state regulations are driving a rapid shift from traditional plastic packaging to compostable alternatives.",
+                        "whyTitle": "Why US Coffee Brands Are Switching:",
+                        "why1Strong": "73% of consumers",
+                        "why1Text": " prefer brands with sustainable packaging (Nielsen)",
+                        "why2Strong": "Whole Foods, Sprouts, Natural Grocers",
+                        "why2Text": " increasingly require sustainable packaging",
+                        "why3Strong": "California SB 343",
+                        "why3Text": " restricts misleading environmental claims",
+                        "why4Strong": "Premium positioning",
+                        "why4Text": " – compostable packaging supports higher price points",
+                        "intro": "Achieve Pack offers ASTM D6400 certified compostable coffee pouches with degassing valves, perfect for US specialty roaster who want to lead on sustainability without compromising on product protection.",
+                        "imgAlt": "Specialty coffee packaging pouches for US roasters",
+                        "imgCaption": "Premium compostable coffee packaging designed for US specialty roasters"
+                    },
+                    "materials": {
+                        "title": "Compostable Materials for Coffee",
+                        "intro": "Our compostable coffee packaging options are designed to preserve freshness while meeting US certification requirements:",
+                        "card1Title": "Kraft + PLA/PBAT (Most Popular)",
+                        "card1Item1": "• Natural kraft paper exterior",
+                        "card1Item2": "• PLA/PBAT compostable lining",
+                        "card1Item3": "• ASTM D6400 & EN 13432 certified",
+                        "card1Item4": "• 12-month shelf life for roasted beans",
+                        "card1Item5": "• Compostable degassing valve compatible",
+                        "card2Title": "NatureFlex™ (Home Compostable)",
+                        "card2Item1": "• Cellulose-based clear film",
+                        "card2Item2": "• TÜV OK compost HOME certified",
+                        "card2Item3": "• Breaks down in backyard compost",
+                        "card2Item4": "• Ideal for farmers market brands",
+                        "card2Item5": "• Premium aesthetic appeal",
+                        "altStrong": "Need high barrier for extended shelf life?",
+                        "altText": " Consider our ",
+                        "altLink": "recyclable mono-PE pouches",
+                        "altTextEnd": " as an alternative.",
+                        "imgAlt": "Coffee pouch technical specifications and barrier properties",
+                        "imgCaption": "Technical specifications for compostable coffee pouches"
+                    },
+                    "features": {
+                        "title": "Coffee-Specific Features",
+                        "intro": "Our compostable coffee pouches include all the features specialty roasters need:",
+                        "items": [
+                            "Compostable Degassing Valves",
+                            "Resealable Zipper Closure",
+                            "High Oxygen Barrier",
+                            "Moisture Protection",
+                            "Custom Full-Color Printing",
+                            "Stand-Up / Flat Bottom Options",
+                            "8oz, 12oz, 16oz, 2lb Sizes",
+                            "Matte or Gloss Finish",
+                            "Tear Notches Available"
+                        ],
+                        "popularStrong": "Popular format:",
+                        "popularLink": "12oz stand-up pouch with valve and zipper",
+                        "popularText": " – perfect for retail and DTC coffee brands."
+                    },
+                    "caseStudy": {
+                        "title": "US Roaster Success Story",
+                        "quote": "\"Switching to compostable packaging from Achieve Pack was a game-changer for our brand. Our customers love that they can compost the bag along with their coffee grounds. The 100-piece MOQ let us test the packaging before committing to large volumes.\"",
+                        "author": "— Small Batch Roaster, Portland, OR",
+                        "stat1Value": "23%",
+                        "stat1Label": "Increase in repeat customers",
+                        "stat2Value": "$0",
+                        "stat2Label": "Additional marketing cost",
+                        "stat3Value": "2",
+                        "stat3Label": "New retail accounts won",
+                        "caseStudyLink": "Read the full case study →",
+                        "imgAlt": "Sustainability guide for coffee roasters",
+                        "imgCaption": "Complete sustainability guide for US coffee roasters"
+                    },
+                    "compliance": {
+                        "title": "US Regulatory Compliance",
+                        "intro": "Our compostable coffee packaging meets all relevant US certifications and state requirements:",
+                        "cert1Strong": "ASTM D6400",
+                        "cert1Text": "– US industrial compostability standard",
+                        "cert2Strong": "EN 13432",
+                        "cert2Text": "– European compostability standard",
+                        "cert3Strong": "FDA Food Contact",
+                        "cert3Text": "– Safe for direct food contact",
+                        "complianceLink": "View our US labeling compliance guide",
+                        "complianceText": " for California, Washington, and Colorado requirements."
+                    },
+                    "ordering": {
+                        "title": "Ordering for US Coffee Brands",
+                        "intro": "Getting started with compostable coffee packaging is easy:",
+                        "card1Value": "100",
+                        "card1Text": "Minimum Order",
+                        "card2Value": "15-20",
+                        "card2Text": "Days to USA",
+                        "card3Value": "Free",
+                        "card3Text": "Design Support",
+                        "ctaLinkText": "Shop Compostable Coffee Pouches →"
+                    },
+                    "riskHedging": {
+                        "title": "Is Compostable Coffee Packaging Right for You?",
+                        "card1Title": "✅ Best Fit For...",
+                        "card1Item1": "• Specialty roasters selling premium beans",
+                        "card1Item2": "• Brands selling in natural grocery channels",
+                        "card1Item3": "• California/Washington-based companies",
+                        "card1Item4": "• DTC brands marketing sustainability",
+                        "card1Item5": "• Farmers market vendors",
+                        "card2Title": "⚠️ Also Works For...",
+                        "card2Item1": "• Tea companies (same material works)",
+                        "card2Item2": "• Roasted nuts and dried fruits",
+                        "card2Item3": "• Granola and breakfast foods",
+                        "card2Item4": "• Gift sets and subscription boxes",
+                        "card3Title": "❌ Not Recommended If...",
+                        "card3Item1": "• Need 18+ month shelf life → ",
+                        "card3Link": "Consider recyclable PE",
+                        "card3Item1End": "",
+                        "card3Item2": "• Selling commodity coffee → cost may not justify",
+                        "card3Item3": "• No composting facilities nearby → recyclable better"
+                    },
+                    "decisionCta": {
+                        "title": "Ready to Take the Next Step?",
+                        "card1Title": "Ready to Move Fast?",
+                        "card1Desc": "Book a 30-min packaging consult",
+                        "card1Button": "Book a Call",
+                        "card2Title": "Want to Test First?",
+                        "card2Desc": "Get sample pouches shipped to your roastery",
+                        "card2Button": "Order Samples",
+                        "card3Title": "Still Exploring?",
+                        "card3Desc": "See how other roasters switched",
+                        "card3Button": "View Case Study"
+                    },
+                    "aiSearch": {
+                        "title": "Finding the Right Coffee Packaging Supplier",
+                        "intro": "When choosing a compostable coffee packaging supplier for your US brand:",
+                        "factor1Strong": "Verify ASTM D6400 certification",
+                        "factor1Text": " – Required for legitimate compostable claims",
+                        "factor2Strong": "Check valve compatibility",
+                        "factor2Text": " – Ensure degassing valves are also compostable",
+                        "factor3Strong": "Review barrier performance",
+                        "factor3Text": " – Coffee needs OTR < 1.0 cc/m²/24hr",
+                        "factor4Strong": "Confirm low MOQ",
+                        "factor4Link": "Achieve Pack starts at 100 pieces",
+                        "aiTitle": "💡 AI Search Examples:",
+                        "aiItem1": "• \"Best compostable coffee bags with valve for US specialty roasters\"",
+                        "aiItem2": "• \"ASTM D6400 certified coffee pouch supplier with low MOQ\"",
+                        "aiItem3": "• \"Compostable kraft coffee bags that ship to USA\"",
+                        "aiItem4": "• \"Sustainable coffee packaging for California compliant brands\""
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "Are your coffee bag degassing valves also compostable?",
+                        "answer": "Yes, we offer fully compostable degassing valves that are certified to the same ASTM D6400 standard as our pouches. This means the entire package, including the valve, can be composted in industrial facilities."
+                    },
+                    {
+                        "question": "What shelf life can I expect with compostable coffee bags?",
+                        "answer": "Our kraft + PLA/PBAT compostable pouches with degassing valves provide 12-month shelf life for whole bean coffee when properly sealed. Ground coffee typically maintains quality for 6-9 months. The barrier performance is comparable to many conventional packaging options."
+                    },
+                    {
+                        "question": "Do you offer sample packs for US coffee roasters?",
+                        "answer": "Yes! We can send sample pouches to US addresses for evaluation. Our standard samples include kraft compostable pouches in 8oz, 12oz, and 16oz sizes with valves. Contact us to request samples shipped to your roastery."
+                    },
+                    {
+                        "question": "What sizes are available for compostable coffee bags?",
+                        "answer": "We offer standard sizes including 4oz, 8oz, 12oz, 16oz (1lb), and 32oz (2lb). Custom sizes are available for orders of 1,000+ pieces. Stand-up pouches and flat bottom bags are both available in compostable materials."
+                    },
+                    {
+                        "question": "Can I get custom printing on compostable coffee bags?",
+                        "answer": "Absolutely. We offer full-color custom printing on all our compostable pouches. Our design team can also help ensure your artwork includes proper compostability logos and meets California/Washington labeling requirements."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Shop Compostable Pouches",
+                        "url": "/store",
+                        "description": "Browse coffee packaging options – MOQ from 100 pieces"
+                    },
+                    {
+                        "title": "USA Compostable Hub",
+                        "url": "/usa/compostable-packaging",
+                        "description": "Complete guide to compostable packaging for US brands"
+                    },
+                    {
+                        "title": "Coffee & Tea Industry Solutions",
+                        "url": "/industry/coffee-tea",
+                        "description": "All packaging options for coffee roasters"
+                    },
+                    {
+                        "title": "Coffee Roastery Case Study",
+                        "url": "/case-studies/coffee-roastery",
+                        "description": "See how a US roaster switched to sustainable packaging"
+                    },
+                    {
+                        "title": "Stand-Up Pouches",
+                        "url": "/packaging/stand-up-pouches",
+                        "description": "Most popular format for retail coffee"
+                    }
+                ]
             },
             "usaSnacks": {
                 "seo": {
@@ -11827,6 +12032,473 @@
                         "title": "Stand-Up Pouches",
                         "url": "/packaging/stand-up-pouches",
                         "description": "Most popular format for retail snacks"
+                    }
+                ]
+            },
+            "usaCompostableHub": {
+                "seo": {
+                    "title": "Certified Compostable Packaging for US Brands | ASTM D6400 | Achieve Pack",
+                    "description": "ASTM D6400 & BPI certified compostable packaging for US food brands. California & Washington compliant labeling. Low MOQ from 100 pieces. Ships to USA in 15-20 days.",
+                    "keywords": [
+                        "compostable packaging USA",
+                        "ASTM D6400 certified pouches",
+                        "BPI certified compostable bags",
+                        "compostable coffee bags USA",
+                        "California compostable packaging",
+                        "US compostable food packaging",
+                        "certified compostable pouches",
+                        "eco-friendly packaging USA",
+                        "sustainable packaging United States",
+                        "industrial compostable packaging",
+                        "low MOQ compostable bags"
+                    ],
+                    "heroTitle": "Certified Compostable Packaging for US Brands",
+                    "heroSubtitle": "ASTM D6400 & BPI certified pouches that meet California, Washington, and Colorado labeling requirements. Low MOQ from 100 pieces with fast shipping to the USA.",
+                    "heroImageAlt": "ASTM D6400 certified compostable packaging pouches for US brands",
+                    "introSummary": "Achieve Pack provides certified compostable packaging solutions specifically designed for the US market, meeting ASTM D6400, BPI, and state-level labeling requirements.",
+                    "ctaTitle": "Get Compostable Samples for Your US Brand",
+                    "ctaDescription": "Request certified compostable pouch samples shipped directly to the USA. Our team will help you choose the right material and ensure your packaging meets all US regulations.",
+                    "ctaButtonText": "Request US Samples"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "Certified Compostable Packaging for US Brands",
+                        "descStrong": "Achieve Pack provides certified compostable packaging solutions specifically designed for the US market.",
+                        "descText": " Our pouches meet both ",
+                        "descStrongASTM": "ASTM D6400",
+                        "descTextMid": " (US standard) and ",
+                        "descStrongEN": "EN 13432",
+                        "descTextEnd": " (European standard), giving your brand flexibility in global markets while meeting the strictest US regulatory requirements.",
+                        "whyTitle": "Why US Brands Choose Achieve Pack:",
+                        "why1Strong": "ASTM D6400 & BPI Certified",
+                        "why1Text": " – Meets US industrial compostability standards",
+                        "why2Strong": "Low MOQ from 100 pieces",
+                        "why2Text": " – Perfect for startups and small batch brands",
+                        "why3Strong": "California, Washington, Colorado compliant",
+                        "why3Text": " – Meets state labeling laws",
+                        "why4Strong": "Fast shipping to USA",
+                        "why4Text": " – 15-20 business days door-to-door",
+                        "why5Strong": "Full design support",
+                        "why5Text": " – Help with compliant labeling and artwork",
+                        "demandText": "With growing consumer demand and new state regulations on plastic packaging, compostable pouches offer US food and beverage brands a genuine path to sustainability that resonates with eco-conscious consumers.",
+                        "imgAlt": "Certified compostable packaging showcase for US brands",
+                        "imgCaption": "ASTM D6400 certified compostable packaging solutions for US market"
+                    },
+                    "materials": {
+                        "title": "Compostable Materials for US Market",
+                        "intro": "We offer two types of compostable packaging, each certified for different end-of-life scenarios:",
+                        "card1Title": "Industrial Compostable",
+                        "card1Desc": "Certified to ASTM D6400 & EN 13432 – breaks down in 90-180 days at commercial composting facilities.",
+                        "card1Item1": "Kraft Paper + PLA/PBAT lining",
+                        "card1Item2": "High barrier options available",
+                        "card1Item3": "Best for: Coffee, tea, snacks, pet treats",
+                        "card1Item4": "Accepted at US industrial composting sites",
+                        "card1Link": "Learn more →",
+                        "card2Title": "Home Compostable",
+                        "card2Desc": "TÜV Austria OK compost HOME certified – breaks down in backyard compost within 12 months.",
+                        "card2Item1": "NatureFlex™ cellulose films",
+                        "card2Item2": "No industrial facility needed",
+                        "card2Item3": "Best for: Premium organic brands, farmers markets",
+                        "card2Item4": "Consumer-friendly disposal",
+                        "card2Link": "Learn more →",
+                        "notSureStrong": "Not sure which type?",
+                        "notSureLink": "Read our complete guide to choosing compostable pouches →",
+                        "imgAlt": "Sustainability labeling guide for compostable packaging",
+                        "imgCaption": "Complete sustainability labeling guide for US compostable packaging"
+                    },
+                    "certifications": {
+                        "title": "US Compostability Certifications",
+                        "intro": "Achieve Pack's compostable packaging meets the strictest US and international standards:",
+                        "card1Title": "ASTM D6400",
+                        "card1Desc": "The US standard for compostable plastics in industrial composting facilities. Required for BPI certification and accepted by most US commercial composters.",
+                        "card2Title": "BPI Certified Compostable",
+                        "card2Desc": "Biodegradable Products Institute certification – the most widely recognized compostability certification in North America. Our materials are eligible for BPI certification.",
+                        "card3Title": "EN 13432 (EU Standard)",
+                        "card3Desc": "European compostability standard – our dual certification means you can sell in both US and European markets with the same packaging."
+                    },
+                    "usReality": {
+                        "title": "Compostable Packaging Reality in the USA",
+                        "intro": "Understanding the current state of composting infrastructure in the US is essential for making informed packaging decisions:",
+                        "amberTitle": "Current US Composting Landscape",
+                        "amberItem1": "• Limited industrial composting access: Only ~27% of Americans have access to curbside composting programs",
+                        "amberItem2": "• Facility acceptance varies: Not all composting facilities accept compostable packaging – check local policies",
+                        "amberItem3": "• Consumer confusion: Clear labeling is essential to prevent contamination of recycling streams",
+                        "amberItem4": "• Growing rapidly: Composting infrastructure is expanding, especially in CA, WA, OR, CO, and NY",
+                        "greenTitle": "When Compostable Packaging Makes Sense in the US:",
+                        "greenItem1": "✓ Food service and events with on-site composting",
+                        "greenItem2": "✓ Farmers markets and farm-to-table brands",
+                        "greenItem3": "✓ Products sold in composting-friendly states (CA, WA, OR, CO)",
+                        "greenItem4": "✓ Premium organic and specialty food brands",
+                        "greenItem5": "✓ Brands with sustainability-focused consumers",
+                        "alternativeStrong": "Alternative:",
+                        "alternativeText": " If composting infrastructure is limited in your market, consider our ",
+                        "alternativeLink": "recyclable mono-PE pouches",
+                        "alternativeTextEnd": " which work with existing recycling systems.",
+                        "imgAlt": "US label compliance requirements for compostable packaging",
+                        "imgCaption": "Label compliance requirements for US compostable packaging"
+                    },
+                    "stateRegulations": {
+                        "title": "US State Regulations for Compostable Packaging",
+                        "intro": "Several US states have enacted laws regulating how \"compostable\" claims can be made on packaging:",
+                        "card1Title": "California (SB 343 & AB 1201)",
+                        "card1Item1": "• \"Compostable\" claims require ASTM D6400 or D6868 certification",
+                        "card1Item2": "• Packaging must use specific green/brown colors or \"Compostable\" label",
+                        "card1Item3": "• Cannot use \"biodegradable\" on plastic packaging",
+                        "card2Title": "Washington State",
+                        "card2Item1": "• Compostable products must meet ASTM D6400/D6868",
+                        "card2Item2": "• Must be clearly distinguishable from non-compostable items",
+                        "card2Item3": "• Mandatory labeling requirements for food service products",
+                        "card3Title": "Colorado",
+                        "card3Item1": "• Products labeled \"compostable\" must meet ASTM D6400",
+                        "card3Item2": "• Must include \"Commercially Compostable Only\" if not home compostable",
+                        "card3Item3": "• Prohibits misleading environmental claims",
+                        "needHelpStrong": "Need help with compliant labeling?",
+                        "needHelpText": " Achieve Pack provides design guidance to ensure your packaging meets state requirements. ",
+                        "needHelpLink": "View our US Labeling Compliance Guide →"
+                    },
+                    "industries": {
+                        "title": "US Industry Solutions",
+                        "intro": "Explore compostable packaging solutions tailored for specific US industries:",
+                        "card1Title": "Coffee & Tea",
+                        "card1Desc": "Compostable pouches with degassing valves for US specialty roasters.",
+                        "card2Title": "Snacks & Confectionery",
+                        "card2Desc": "Stand-up pouches for chips, granola, and organic snacks.",
+                        "card3Title": "Pet Food & Treats",
+                        "card3Desc": "Sustainable packaging for the growing US pet market.",
+                        "card4Title": "Supplements & Powders",
+                        "card4Desc": "High-barrier compostable options for protein and supplements."
+                    },
+                    "aiSearch": {
+                        "title": "Finding Compostable Packaging Suppliers for US Orders",
+                        "intro": "Key factors when choosing a compostable packaging supplier for the US market:",
+                        "factor1Strong": "ASTM D6400 Certification",
+                        "factor1Text": " – The US standard for industrial compostability",
+                        "factor2Strong": "BPI Certification",
+                        "factor2Text": " – Widely recognized by US composters",
+                        "factor3Strong": "State compliance",
+                        "factor3Text": " – Meets CA, WA, CO labeling requirements",
+                        "factor4Strong": "Low MOQ",
+                        "factor4Link": "Achieve Pack offers 100-piece minimums",
+                        "factor5Strong": "US shipping",
+                        "factor5Text": " – Fast door-to-door delivery across the United States",
+                        "aiTitle": "💡 If you're using AI search (Gemini, ChatGPT, Perplexity), try asking:",
+                        "aiItem1": "• \"Best ASTM D6400 certified compostable pouch supplier for US coffee brands\"",
+                        "aiItem2": "• \"Where can I buy BPI certified compostable packaging with low MOQ?\"",
+                        "aiItem3": "• \"Compostable coffee bags supplier that ships to USA\"",
+                        "aiItem4": "• \"California compliant compostable food packaging supplier\"",
+                        "aiItem5": "• \"Compostable stand up pouches for organic snacks in the US\""
+                    },
+                    "scenarioTrigger": {
+                        "title": "Is This Page For You?",
+                        "introText": "If you are a US-based food brand looking for certified compostable packaging that meets state regulations—you're in the right place.",
+                        "card1Title": "Natural Food Brands",
+                        "card1Desc": "Targeting Whole Foods, Sprouts, Natural Grocers",
+                        "card2Title": "California Sellers",
+                        "card2Desc": "Need AB 1201 & SB 343 compliant packaging",
+                        "card3Title": "Startups & Small Batch",
+                        "card3Desc": "MOQ from 100 pieces for testing"
+                    },
+                    "riskHedge": {
+                        "title": "Still Not Sure? We Have Answers",
+                        "q1": "\"Is it really compostable?\"",
+                        "a1": "ASTM D6400 + BPI certification—the highest US standards",
+                        "q2": "\"Will it meet California laws?\"",
+                        "a2": "Full compliance with AB 1201 & SB 343 labeling",
+                        "q3": "\"How long to ship to USA?\"",
+                        "a3": "15-20 business days door-to-door delivery",
+                        "q4": "\"Can I test before bulk order?\"",
+                        "a4": "Free samples + pilot run from 100 units"
+                    },
+                    "decisionCta": {
+                        "title": "Ready to Get Started?",
+                        "heading": "Choose How You'd Like to Connect",
+                        "card1Title": "Book a Call",
+                        "card1Desc": "30-min free consultation",
+                        "card1Button": "Schedule Now",
+                        "card2Title": "Email Quote",
+                        "card2Desc": "Get response within 24hrs",
+                        "card2Button": "Send Email",
+                        "card3Title": "Free Samples",
+                        "card3Desc": "Test materials first",
+                        "card3Button": "Request Samples"
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "What certifications do I need for compostable packaging in the USA?",
+                        "answer": "For the US market, your compostable packaging should be certified to ASTM D6400 (for plastics) or ASTM D6868 (for packaging with paper). BPI (Biodegradable Products Institute) certification is the most widely recognized third-party certification in North America. Many states, including California and Washington, now require these certifications for any 'compostable' claims on packaging."
+                    },
+                    {
+                        "question": "Will US composting facilities accept my compostable pouches?",
+                        "answer": "Acceptance varies by facility. Industrial composters certified to process ASTM D6400 materials will accept properly certified compostable packaging. However, not all municipal composting programs accept flexible packaging. We recommend checking with local facilities in your target markets. Our packaging is certified to the standards most widely accepted by US composters."
+                    },
+                    {
+                        "question": "What's the difference between 'compostable' and 'biodegradable' in US regulations?",
+                        "answer": "In the US, 'compostable' has a specific legal meaning tied to ASTM D6400/D6868 standards, while 'biodegradable' is broadly prohibited on plastic packaging in many states (including California) because it can mislead consumers. We recommend using only 'compostable' with appropriate certifications."
+                    },
+                    {
+                        "question": "How does Achieve Pack help with California packaging laws?",
+                        "answer": "We provide design guidance to ensure your packaging complies with California SB 343 and AB 1201 requirements, including proper certification marks, color coding, and labeling language. Our team can review your artwork before production to flag any compliance issues."
+                    },
+                    {
+                        "question": "What's the minimum order for compostable pouches shipped to the USA?",
+                        "answer": "Our minimum order is just 100 pieces for custom printed compostable pouches. We ship directly to the USA with door-to-door delivery in 15-20 business days. This makes us ideal for US startups, small batch producers, and brands testing sustainable packaging."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Shop Compostable Pouches",
+                        "url": "/store",
+                        "description": "Browse our certified compostable packaging – MOQ from 100 pieces"
+                    },
+                    {
+                        "title": "Home Compostable Options",
+                        "url": "/materials/home-compostable",
+                        "description": "TÜV certified packaging that breaks down in backyard compost"
+                    },
+                    {
+                        "title": "Industrial Compostable Materials",
+                        "url": "/materials/industrial-compostable",
+                        "description": "ASTM D6400 certified for commercial composting facilities"
+                    },
+                    {
+                        "title": "US Labeling Compliance Guide",
+                        "url": "/usa/labeling-guide",
+                        "description": "How to label compostable packaging for California, Washington & more"
+                    },
+                    {
+                        "title": "Sustainable Packaging Supplier Analysis",
+                        "url": "/blog/sustainable-packaging-supplier-analysis",
+                        "description": "Compare eco-friendly packaging suppliers"
+                    }
+                ]
+            },
+            "usaLabelingGuide": {
+                "seo": {
+                    "title": "US Compostable Packaging Labeling Guide | California, Washington, Colorado | Achieve Pack",
+                    "description": "Complete guide to US compostable packaging labeling requirements. California SB 343, AB 1201, Washington, and Colorado compliance. ASTM D6400 certification and label design guidance.",
+                    "keywords": [
+                        "compostable labeling requirements",
+                        "California AB 1201",
+                        "California SB 343",
+                        "ASTM D6400 labeling",
+                        "compostable packaging regulations",
+                        "BPI certification",
+                        "Washington compostable law",
+                        "Colorado compostable labeling",
+                        "US packaging compliance",
+                        "eco-friendly packaging labels"
+                    ],
+                    "heroTitle": "US Compostable Packaging Labeling & Compliance Guide",
+                    "heroSubtitle": "Navigate California, Washington, and Colorado labeling requirements for compostable packaging. ASTM D6400 certification, proper terminology, and compliant label design.",
+                    "heroImageAlt": "Compliant compostable packaging with proper US labeling",
+                    "introSummary": "This guide covers US labeling requirements for compostable packaging, including California SB 343/AB 1201, Washington, and Colorado regulations, with practical guidance for compliant label design.",
+                    "ctaTitle": "Get Compliant Compostable Packaging",
+                    "ctaDescription": "Order certified compostable pouches with design support to ensure your labeling meets all US requirements.",
+                    "ctaButtonText": "Shop Compliant Packaging"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Is This Guide For You?",
+                        "introText": "If you are a US food brand selling in California, Washington, or Colorado and need guidance on compostable packaging labels—you're in the right place.",
+                        "card1Title": "California Sellers",
+                        "card1Desc": "AB 1201 & SB 343 compliance requirements",
+                        "card2Title": "Multi-State Brands",
+                        "card2Desc": "Single label design for nationwide compliance",
+                        "card3Title": "Natural Food Brands",
+                        "card3Desc": "Whole Foods, Sprouts retailer requirements"
+                    },
+                    "overview": {
+                        "title": "US Compostable Packaging Labeling Requirements",
+                        "descStrong": "Labeling compostable packaging in the United States requires careful attention to state-specific regulations.",
+                        "descText": "Several states have enacted laws governing how \"compostable\" claims can be made on packaging, with penalties for non-compliance. This guide covers the key requirements for California, Washington, Colorado, and other states with active legislation.",
+                        "amberTitle": "Key Principle: Certification Required",
+                        "amberText": "In most US states with compostable labeling laws, packaging labeled \"compostable\" must be certified to ASTM D6400 (plastics) or ASTM D6868 (packaging with paper components). Claims without certification may result in fines and product recalls.",
+                        "intro": "Achieve Pack provides compliant compostable packaging and design guidance to help your brand meet all US labeling requirements.",
+                        "imgAlt": "FDA labeling compliance checklist for compostable packaging",
+                        "imgCaption": "FDA labeling compliance checklist for US compostable packaging"
+                    },
+                    "california": {
+                        "title": "California Labeling Requirements",
+                        "intro": "California has the most comprehensive compostable labeling laws in the US, including SB 343 and AB 1201.",
+                        "sbTitle": "SB 343 – Truth in Environmental Advertising",
+                        "sbItem1": "• Packaging labeled \"compostable\" must be accepted by most composting facilities",
+                        "sbItem2": "• Claims must be supported by third-party certification (ASTM D6400/D6868)",
+                        "sbItem3": "• Penalties up to $10,000 per day for violations",
+                        "abTitle": "AB 1201 – Compostable Plastics Labeling",
+                        "abItem1": "• Plastic packaging labeled \"compostable\" must meet ASTM D6400",
+                        "abItem2": "• Must include \"Commercially Compostable Only\" or \"Home Compostable\" designation",
+                        "abItem3": "• Prohibits use of \"biodegradable,\" \"degradable,\" or \"decomposable\" on plastic packaging",
+                        "abItem4": "• Requires green or brown color coding OR the word \"Compostable\" prominently displayed",
+                        "recTitle": "Recommended California Label Elements:",
+                        "rec1": "✓ Commercially Compostable Only – if industrial compostable",
+                        "rec2": "✓ Home Compostable – if TÜV OK compost HOME certified",
+                        "rec3": "✓ ASTM D6400 or D6868 certification mark",
+                        "rec4": "✓ BPI Certified Compostable logo (recommended)",
+                        "rec5": "✓ Green or brown tint (if not using \"Compostable\" text prominently)",
+                        "imgAlt": "Digital labeling strategy for sustainable packaging",
+                        "imgCaption": "Digital labeling strategy for California compliant packaging"
+                    },
+                    "washington": {
+                        "title": "Washington State Requirements",
+                        "intro": "Washington State has enacted legislation requiring clear labeling of compostable products.",
+                        "cardTitle": "Washington State Requirements",
+                        "cardItem1": "• Products labeled \"compostable\" must meet ASTM D6400 or D6868",
+                        "cardItem2": "• Must be clearly distinguishable from non-compostable items by color or label",
+                        "cardItem3": "• Food service products sold to food service businesses must be certified",
+                        "cardItem4": "• Enforcement through Washington Department of Ecology",
+                        "recTitle": "Washington Labeling Best Practices:",
+                        "rec1": "✓ Display ASTM D6400/D6868 certification",
+                        "rec2": "✓ Use green or brown color coding",
+                        "rec3": "✓ Include \"Compostable\" text in prominent location",
+                        "rec4": "✓ Avoid any claims of \"biodegradable\" or \"degradable\""
+                    },
+                    "colorado": {
+                        "title": "Colorado Requirements",
+                        "intro": "Colorado has established standards for compostable product labeling.",
+                        "cardTitle": "Colorado Requirements",
+                        "cardItem1": "• Products labeled \"compostable\" must meet ASTM D6400",
+                        "cardItem2": "• Must include \"Commercially Compostable Only\" if not home compostable",
+                        "cardItem3": "• Prohibits misleading environmental marketing claims",
+                        "cardItem4": "• Enforced by Colorado Department of Public Health and Environment"
+                    },
+                    "otherStates": {
+                        "title": "Other States with Compostable Labeling Laws",
+                        "intro": "Several other states have enacted or are considering compostable labeling legislation:",
+                        "card1Title": "Oregon",
+                        "card1Desc": "Follows similar requirements to Washington. ASTM certification required for compostable claims.",
+                        "card2Title": "Maryland",
+                        "card2Desc": "Requires ASTM D6400/D6868 certification. Focus on food service products.",
+                        "card3Title": "New York",
+                        "card3Desc": "Considering legislation similar to California. Check current status before finalizing packaging.",
+                        "card4Title": "Maine",
+                        "card4Desc": "Has enacted Extended Producer Responsibility (EPR) laws affecting packaging.",
+                        "evolveText": "Legislation is evolving rapidly. We recommend checking with state agencies for the most current requirements before finalizing packaging designs."
+                    },
+                    "designGuidance": {
+                        "title": "Label Design Guidance",
+                        "intro": "Follow these guidelines to create compliant compostable packaging labels:",
+                        "doTitle": "DO: Recommended Label Elements",
+                        "do1": "✓ \"Commercially Compostable\" – Clear, prominent text",
+                        "do2": "✓ ASTM D6400 / ASTM D6868 – Include certification standard",
+                        "do3": "✓ BPI Certified Compostable logo – If applicable",
+                        "do4": "✓ Green or brown tinting – Helps distinguish from recyclables",
+                        "do5": "✓ \"Check locally for industrial composting facilities\" – Consumer guidance",
+                        "do6": "✓ Compostable recycling symbol (seedling logo) – Recognized internationally",
+                        "dontTitle": "DON'T: Terms to Avoid",
+                        "dont1": "✗ \"Biodegradable\" – Prohibited in California and other states",
+                        "dont2": "✗ \"Degradable\" or \"Decomposable\" – Misleading claims",
+                        "dont3": "✗ \"Eco-friendly\" or \"Green\" – Without specific certification",
+                        "dont4": "✗ \"100% Natural\" – Does not indicate compostability",
+                        "dont5": "✗ \"Breaks down in landfill\" – False claim for compostables",
+                        "dont6": "✗ \"Marine biodegradable\" – Unless specifically certified",
+                        "helpStrong": "Need help with your label design?",
+                        "helpText": " Achieve Pack's team can review your artwork and provide guidance to ensure compliance with US labeling requirements. ",
+                        "helpLink": "Contact us →",
+                        "imgAlt": "Labeling design best practices for compostable packaging",
+                        "imgCaption": "Best practices for designing compliant compostable packaging labels"
+                    },
+                    "achievePackHelp": {
+                        "title": "How Achieve Pack Helps",
+                        "intro": "We provide comprehensive support to ensure your compostable packaging meets US requirements:",
+                        "card1Title": "Certified Materials",
+                        "card1Item1": "• ASTM D6400 certified films",
+                        "card1Item2": "• EN 13432 certified (EU standard)",
+                        "card1Item3": "• TÜV OK compost HOME options",
+                        "card1Item4": "• Certification documentation provided",
+                        "card2Title": "Design Support",
+                        "card2Item1": "• Label compliance review",
+                        "card2Item2": "• Suggested labeling language",
+                        "card2Item3": "• Certification logo placement",
+                        "card2Item4": "• Color coding guidance",
+                        "ctaLinkText": "Shop Compliant Compostable Packaging →"
+                    },
+                    "aiSearch": {
+                        "title": "Finding Compliant Packaging Suppliers",
+                        "intro": "When searching for compostable packaging that meets US labeling requirements:",
+                        "factor1": "Verify ASTM D6400/D6868 certification – Ask for documentation",
+                        "factor2": "Request label review – Ensure supplier understands state requirements",
+                        "factor3": "Check BPI certification – Widely recognized by US composters",
+                        "factor4Strong": "Confirm design support",
+                        "factor4Link": "Achieve Pack provides compliance guidance",
+                        "aiTitle": "💡 AI Search Examples:",
+                        "aiItem1": "• \"California compliant compostable packaging supplier\"",
+                        "aiItem2": "• \"ASTM D6400 certified pouch supplier with labeling guidance\"",
+                        "aiItem3": "• \"How to label compostable packaging for California AB 1201\"",
+                        "aiItem4": "• \"BPI certified compostable bags for US food brands\""
+                    },
+                    "riskHedge": {
+                        "title": "Still Have Labeling Questions?",
+                        "q1": "\"Will my label pass California review?\"",
+                        "a1": "Free artwork review before production",
+                        "q2": "\"What logo should I use?\"",
+                        "a2": "We provide BPI & ASTM certification marks",
+                        "q3": "\"Can I use same label for all states?\"",
+                        "a3": "We design for multi-state compliance",
+                        "q4": "\"What color should the bag be?\"",
+                        "a4": "Natural kraft meets brown requirement"
+                    },
+                    "decisionCta": {
+                        "title": "Ready for Compliant Packaging?",
+                        "heading": "Get Expert Help with US Labeling Compliance",
+                        "card1Title": "Book a Call",
+                        "card1Desc": "30-min labeling consultation",
+                        "card1Button": "Schedule Now",
+                        "card2Title": "Email Your Artwork",
+                        "card2Desc": "Free compliance review",
+                        "card2Button": "Send Artwork",
+                        "card3Title": "Free Samples",
+                        "card3Desc": "See compliant labels in action",
+                        "card3Button": "Request Samples"
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "Can I use 'biodegradable' on my compostable packaging?",
+                        "answer": "No. In California and several other states, the term 'biodegradable' is prohibited on plastic packaging because it can mislead consumers about proper disposal. Use 'Commercially Compostable' or 'Home Compostable' with appropriate ASTM certification instead."
+                    },
+                    {
+                        "question": "Do I need BPI certification?",
+                        "answer": "While BPI certification is not legally required in most states, it is highly recommended. BPI is the most widely recognized third-party certification in North America, and many composting facilities specifically look for the BPI logo when accepting materials."
+                    },
+                    {
+                        "question": "What colors should I use for compostable packaging?",
+                        "answer": "California AB 1201 requires compostable plastic packaging to either use green or brown tinting OR prominently display the word 'Compostable.' Many brands opt for natural kraft paper, which inherently meets the brown color requirement."
+                    },
+                    {
+                        "question": "How do I know if my packaging is accepted by composters?",
+                        "answer": "Packaging certified to ASTM D6400 is designed to be accepted by industrial composting facilities. However, acceptance varies by facility. We recommend checking with major composters in your target markets and including guidance like 'Check locally for industrial composting facilities' on your label."
+                    },
+                    {
+                        "question": "What's the penalty for non-compliant labeling in California?",
+                        "answer": "California SB 343 allows for civil penalties up to $10,000 per day for violations. Additionally, non-compliant products may be subject to recall. It's essential to ensure your labeling meets all requirements before going to market."
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "USA Compostable Hub",
+                        "url": "/usa/compostable-packaging",
+                        "description": "Complete guide to compostable packaging for US brands"
+                    },
+                    {
+                        "title": "Shop Compostable Pouches",
+                        "url": "/store",
+                        "description": "Browse certified compostable packaging – MOQ from 100 pieces"
+                    },
+                    {
+                        "title": "Industrial Compostable Materials",
+                        "url": "/materials/industrial-compostable",
+                        "description": "ASTM D6400 certified materials"
+                    },
+                    {
+                        "title": "Home Compostable Materials",
+                        "url": "/materials/home-compostable",
+                        "description": "TÜV OK compost HOME certified options"
+                    },
+                    {
+                        "title": "Compostable Materials Overview",
+                        "url": "/materials/compostable",
+                        "description": "All compostable material options"
                     }
                 ]
             }

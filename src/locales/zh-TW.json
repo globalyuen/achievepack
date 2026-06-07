@@ -11466,7 +11466,234 @@
                 "coffeeRoasteryCaseStudy": "咖啡烘焙案例研究",
                 "seeHowAUs": "了解美國烘焙商如何轉向永續包裝",
                 "standupPouches": "自立袋",
-                "mostPopularFormatFor": "最受歡迎的零售咖啡形式"
+                "mostPopularFormatFor": "最受歡迎的零售咖啡形式",
+                "seo": {
+                    "title": "美國烘焙師的可堆肥咖啡包裝| ASTM D6400 |成就包",
+                    "description": "ASTM D6400 認證的可堆肥咖啡袋，帶排氣閥，適用於美國專業烘焙機。 牛皮紙袋，起訂量低至 100 件，15-20 天內運送到美國。",
+                    "keywords": [
+                        "可堆肥咖啡袋 美國",
+                        "可堆肥咖啡包裝",
+                        "ASTM D6400 咖啡袋",
+                        "牛皮紙咖啡袋",
+                        "永續咖啡包裝",
+                        "環保咖啡袋",
+                        "排氣閥 可堆肥",
+                        "專業烘焙包裝",
+                        "低起訂量咖啡袋",
+                        "符合加州標準的咖啡包裝"
+                    ],
+                    "heroTitle": "適用於美國烘焙師的可堆肥咖啡包裝",
+                    "heroSubtitle": "經過 ASTM D6400 認證的牛皮紙袋，帶有可堆肥排氣閥。 非常適合想要永續包裝但又不影響新鮮度的專業烘焙商。",
+                    "heroImageAlt": "適用於美國專業烘焙機的帶排氣閥的可堆肥咖啡包裝袋",
+                    "introSummary": "Achieve Pack 提供專為美國專業烘焙商設計的經過認證的可堆肥咖啡包裝，最小起訂量低，運輸快速，完全符合州法規。",
+                    "ctaTitle": "取得可堆肥咖啡袋樣品",
+                    "ctaDescription": "請將樣品袋直接運送到您的美國烘焙廠。 我們的團隊將協助您為您的咖啡產品選擇合適的尺寸和材質。",
+                    "ctaButtonText": "索取樣品"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "此頁面適合您嗎？",
+                        "introText": "如果您是美國精品咖啡烘焙商，正在尋找符合 ASTM D6400 認證的可堆肥包裝，那麼您來對地方了。",
+                        "card1Title": "小批量烘焙機",
+                        "card1Desc": "100 件以上訂購量，非常適合測試或農夫市集銷售",
+                        "card2Title": "DTC 和亞馬遜賣家",
+                        "card2Desc": "與具有生態意識的消費者產生共鳴的永續包裝",
+                        "card3Title": "零售咖啡品牌",
+                        "card3Desc": "滿足全食物、豆芽和天然雜貨店的永續發展要求"
+                    },
+                    "overview": {
+                        "title": "適用於美國烘焙師的可堆肥咖啡包裝",
+                        "descStrong": "美國精品咖啡烘焙商面臨著採用永續包裝的越來越大的壓力。",
+                        "descText": "消費者對環保產品的需求、零售商的可持續發展要求以及新興的國家法規正在推動傳統塑膠包裝向可堆肥替代品的快速轉變。",
+                        "whyTitle": "為什麼美國咖啡品牌正在改變：",
+                        "why1Strong": "73%的消費者",
+                        "why1Text": "喜歡具有永續包裝的品牌（尼爾森）",
+                        "why2Strong": "全食物、豆芽、天然雜貨店",
+                        "why2Text": "越來越需要永續包裝",
+                        "why3Strong": "加州 SB 343",
+                        "why3Text": "限制誤導性環境聲明",
+                        "why4Strong": "高端定位",
+                        "why4Text": "– 可堆肥包裝可支持更高的價位",
+                        "intro": "Achieve Pack 提供經過 ASTM D6400 認證的帶排氣閥的可堆肥咖啡袋，非常適合希望在不影響產品保護的情況下引領可持續發展的美國專業烘焙商。",
+                        "imgAlt": "為美國烘焙商提供的特殊咖啡包裝袋",
+                        "imgCaption": "專為美國專業烘焙商設計的優質可堆肥咖啡包裝"
+                    },
+                    "materials": {
+                        "title": "咖啡可堆肥材料",
+                        "intro": "我們的可堆肥咖啡包裝選項旨在保持新鮮度，同時滿足美國認證要求：",
+                        "card1Title": "牛皮紙 + PLA/PBAT（最受歡迎）",
+                        "card1Item1": "• 天然牛皮紙外層",
+                        "card1Item2": "• PLA/PBAT 可堆肥襯裡",
+                        "card1Item3": "• 通過 ASTM D6400 和 EN 13432 認證",
+                        "card1Item4": "• 烘焙豆的保存期限為 12 個月",
+                        "card1Item5": "• 相容於可堆肥脫氣閥",
+                        "card2Title": "NatureFlex™（家庭可堆肥）",
+                        "card2Item1": "• 纖維素基透明薄膜",
+                        "card2Item2": "• TÜV OK compost HOME 認證",
+                        "card2Item3": "• 在後院堆肥中分解",
+                        "card2Item4": "• 農夫市集品牌的理想選擇",
+                        "card2Item5": "• 優質的美感",
+                        "altStrong": "需要高阻隔性以延長保存期限？",
+                        "altText": "考慮我們的",
+                        "altLink": "可回收的單一 PE 袋",
+                        "altTextEnd": "作為替代方案。",
+                        "imgAlt": "咖啡袋技術規格與阻隔性能",
+                        "imgCaption": "可堆肥咖啡袋技術規範"
+                    },
+                    "features": {
+                        "title": "咖啡特有的功能",
+                        "intro": "Our compostable coffee pouches include all the features specialty roasters need:",
+                        "items": [
+                            "可堆肥排氣閥",
+                            "可重新密封的拉鍊封口",
+                            "高阻氧性",
+                            "防潮保護",
+                            "客製化全彩印刷",
+                            "直立/平底選項",
+                            "8 盎司、12 盎司、16 盎司、2 磅尺寸",
+                            "霧面或亮光飾面",
+                            "提供撕裂槽口"
+                        ],
+                        "popularStrong": "流行格式：",
+                        "popularLink": "12 盎司帶閥門和拉鍊的自立袋",
+                        "popularText": "– 非常適合零售和 DTC 咖啡品牌。"
+                    },
+                    "caseStudy": {
+                        "title": "美國烘焙商成功案例",
+                        "quote": "\"Switching to compostable packaging from Achieve Pack was a game-changer for our brand. Our customers love that they can compost the bag along with their coffee grounds. The 100-piece MOQ let us test the packaging before committing to large volumes.\"",
+                        "author": "- 小批量烘焙機，波特蘭，俄勒岡州",
+                        "stat1Value": "23%",
+                        "stat1Label": "回頭客增加",
+                        "stat2Value": "$0",
+                        "stat2Label": "額外的營銷費用",
+                        "stat3Value": "2",
+                        "stat3Label": "新零售帳戶獲獎",
+                        "caseStudyLink": "閱讀完整的案例研究 →",
+                        "imgAlt": "咖啡烘焙商永續發展指南",
+                        "imgCaption": "Complete sustainability guide for US coffee roasters"
+                    },
+                    "compliance": {
+                        "title": "美國監理合規性",
+                        "intro": "Our compostable coffee packaging meets all relevant US certifications and state requirements:",
+                        "cert1Strong": "ASTM D6400",
+                        "cert1Text": "– 美國工業可堆肥性標準",
+                        "cert2Strong": "EN 13432",
+                        "cert2Text": "– 歐洲可堆肥性標準",
+                        "cert3Strong": "FDA 食品接觸",
+                        "cert3Text": "– 可安全直接接觸食品",
+                        "complianceLink": "查看我們的美國標籤合規指南",
+                        "complianceText": "滿足加州、華盛頓州和科羅拉多州的要求。"
+                    },
+                    "ordering": {
+                        "title": "訂購美國咖啡品牌",
+                        "intro": "可堆肥咖啡包裝的入門很簡單：",
+                        "card1Value": "100",
+                        "card1Text": "最低訂購量",
+                        "card2Value": "15-20日",
+                        "card2Text": "前往美國天數",
+                        "card3Value": "自由的",
+                        "card3Text": "設計支援",
+                        "ctaLinkText": "購買可堆肥咖啡袋 →"
+                    },
+                    "riskHedging": {
+                        "title": "可堆肥咖啡包裝適合您嗎？",
+                        "card1Title": "✅ 最適合...",
+                        "card1Item1": "• 銷售優質咖啡豆的專業烘焙商",
+                        "card1Item2": "• 在天然雜貨通路銷售的品牌",
+                        "card1Item3": "• 加州/華盛頓州的公司",
+                        "card1Item4": "• DTC 品牌行銷永續性",
+                        "card1Item5": "• 農夫市集攤販",
+                        "card2Title": "⚠️ 也適用於...",
+                        "card2Item1": "• 茶葉公司（同材質作品）",
+                        "card2Item2": "• 烤堅果和乾果",
+                        "card2Item3": "• 格蘭諾拉麥片和早餐食品",
+                        "card2Item4": "• 禮品組和訂閱盒",
+                        "card3Title": "❌ 不推薦如果...",
+                        "card3Item1": "• 需要 18 個月以上的保存期限 →",
+                        "card3Link": "考慮可回收PE",
+                        "card3Item1End": "",
+                        "card3Item2": "• 銷售商品咖啡 → 成本可能不合理",
+                        "card3Item3": "• 附近沒有堆肥設施→可回收性更好"
+                    },
+                    "decisionCta": {
+                        "title": "準備好採取下一步了嗎？",
+                        "card1Title": "準備好快速行動了嗎？",
+                        "card1Desc": "預約 30 分鐘包裝諮詢",
+                        "card1Button": "來電預約",
+                        "card2Title": "想先測試一下嗎？",
+                        "card2Desc": "將樣品袋運送到您的烘焙廠",
+                        "card2Button": "訂購樣品",
+                        "card3Title": "還在探索嗎？",
+                        "card3Desc": "看看其他烘焙商是如何轉變的",
+                        "card3Button": "查看案例研究"
+                    },
+                    "aiSearch": {
+                        "title": "尋找合適的咖啡包裝供應商",
+                        "intro": "為您的美國品牌選擇可堆肥咖啡包裝供應商時：",
+                        "factor1Strong": "驗證 ASTM D6400 認證",
+                        "factor1Text": "– 合法的可堆肥聲明所必需的",
+                        "factor2Strong": "檢查閥門相容性",
+                        "factor2Text": "– 確保排氣閥也可堆肥",
+                        "factor3Strong": "審查屏障性能",
+                        "factor3Text": "– 咖啡需 OTR < 1.0 cc/m²/24 小時",
+                        "factor4Strong": "確認低起訂量",
+                        "factor4Link": "成就包起價 100 件",
+                        "aiTitle": "💡人工智慧搜尋範例：",
+                        "aiItem1": "•“美國專業烘焙商最好的帶閥門可堆肥咖啡袋”",
+                        "aiItem2": "• “ASTM D6400 認證的低起訂量咖啡袋供應商”",
+                        "aiItem3": "•“運往美國的可堆肥牛皮紙咖啡袋”",
+                        "aiItem4": "•“符合加州標準的品牌的可持續咖啡包裝”"
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "您的咖啡袋排氣閥也可堆肥嗎？",
+                        "answer": "是的，我們提供完全可堆肥的脫氣閥，這些閥與我們的袋子經過了相同的 ASTM D6400 標準認證。 這意味著包括閥門在內的整個套件可以在工業設施中堆肥。"
+                    },
+                    {
+                        "question": "可堆肥咖啡袋的保存期限是多久？",
+                        "answer": "我們的牛皮紙 + PLA/PBAT 可堆肥袋配有排氣閥，正確密封後，全豆咖啡的保存期限為 12 個月。 研磨咖啡的品質通常可以保持 6-9 個月。 阻隔性能可與許多傳統包裝選項相媲美。"
+                    },
+                    {
+                        "question": "你們有為美國咖啡烘焙商提供樣品包嗎？",
+                        "answer": "是的！ 我們可以將樣品袋送到美國地址進行評估。 我們的標準樣品包括帶閥門的 8 盎司、12 盎司和 16 盎司尺寸的牛皮紙可堆肥袋。 請聯絡我們，要求將樣品運送到您的烘焙廠。"
+                    },
+                    {
+                        "question": "可堆肥咖啡袋有哪些尺寸可供選擇？",
+                        "answer": "我們提供的標準尺寸包括 4 盎司、8 盎司、12 盎司、16 盎司（1 磅）和 32 盎司（2 磅）。 訂單數量超過 1,000 件時可提供客製尺寸。 自立袋和平底袋均採用可堆肥材料製成。"
+                    },
+                    {
+                        "question": "我可以在可堆肥咖啡袋上進行客製化印刷嗎？",
+                        "answer": "絕對地。 我們在所有可堆肥袋上提供全彩定製印刷。 我們的設計團隊還可以幫助確保您的藝術品包含適當的可堆肥性標誌並滿足加州/華盛頓州的標籤要求。"
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "選購可堆肥袋",
+                        "url": "/店鋪",
+                        "description": "瀏覽咖啡包裝選項 – 起訂量 100 件起"
+                    },
+                    {
+                        "title": "美國可堆肥中心",
+                        "url": "/美國/可堆肥包裝",
+                        "description": "美國品牌可堆肥包裝完整指南"
+                    },
+                    {
+                        "title": "咖啡和茶行業解決方案",
+                        "url": "/行業/咖啡茶",
+                        "description": "適用於咖啡烘焙機的所有包裝選項"
+                    },
+                    {
+                        "title": "咖啡烘焙案例研究",
+                        "url": "/案例研究/咖啡烘焙工坊",
+                        "description": "了解美國烘焙商如何轉向永續包裝"
+                    },
+                    {
+                        "title": "自立袋",
+                        "url": "/包裝/自立袋",
+                        "description": "最受歡迎的零售咖啡形式"
+                    }
+                ]
             },
             "usaSnacks": {
                 "seo": {
@@ -11706,6 +11933,473 @@
                         "title": "自立袋",
                         "url": "/包裝/自立袋",
                         "description": "零售零食最受歡迎的形式"
+                    }
+                ]
+            },
+            "usaCompostableHub": {
+                "seo": {
+                    "title": "美國品牌經過認證的可堆肥包裝| ASTM D6400 |成就包",
+                    "description": "美國食品品牌經 ASTM D6400 和 BPI 認證的可堆肥包裝。 符合加州和華盛頓州的標籤。 低最小起訂量 100 件起。 15-20 天內運送到美國。",
+                    "keywords": [
+                        "可堆肥包裝美國",
+                        "ASTM D6400 認證的袋子",
+                        "BPI 認證的可堆肥袋",
+                        "可堆肥咖啡袋 美國",
+                        "加州可堆肥包裝",
+                        "美國可堆肥食品包裝",
+                        "經過認證的可堆肥袋",
+                        "美國環保包裝",
+                        "永續包裝 美國",
+                        "工業可堆肥包裝",
+                        "低起訂量可堆肥袋"
+                    ],
+                    "heroTitle": "美國品牌經過認證的可堆肥包裝",
+                    "heroSubtitle": "經過 ASTM D6400 和 BPI 認證的袋子，符合加州、華盛頓州和科羅拉多州的標籤要求。 起訂量低，起訂量 100 件，可快速運送至美國。",
+                    "heroImageAlt": "美國品牌經 ASTM D6400 認證的可堆肥包裝袋",
+                    "introSummary": "Achieve Pack 提供專為美國市場設計的經過認證的可堆肥包裝解決方案，符合 ASTM D6400、BPI 和州級標籤要求。",
+                    "ctaTitle": "為您的美國品牌取得可堆肥樣品",
+                    "ctaDescription": "索取經過認證的可堆肥袋樣品，直接運往美國。 我們的團隊將協助您選擇合適的材料，並確保您的包裝符合所有美國法規。",
+                    "ctaButtonText": "索取美國樣品"
+                },
+                "sections": {
+                    "overview": {
+                        "title": "美國品牌經過認證的可堆肥包裝",
+                        "descStrong": "Achieve Pack 提供專為美國市場設計的經過認證的可堆肥包裝解決方案。",
+                        "descText": "我們的袋子符合這兩個要求",
+                        "descStrongASTM": "ASTM D6400",
+                        "descTextMid": "（美國標準）和",
+                        "descStrongEN": "EN 13432",
+                        "descTextEnd": "（歐洲標準），為您的品牌在全球市場提供彈性，同時滿足最嚴格的美國監管要求。",
+                        "whyTitle": "為什麼美國品牌選擇成就包：",
+                        "why1Strong": "ASTM D6400 和 BPI 認證",
+                        "why1Text": "– 符合美國工業可堆肥性標準",
+                        "why2Strong": "低最小起訂量 100 件起",
+                        "why2Text": "– 非常適合新創公司和小批量品牌",
+                        "why3Strong": "符合加州、華盛頓州、科羅拉多州標準",
+                        "why3Text": "– 符合州標籤法",
+                        "why4Strong": "快速運送到美國",
+                        "why4Text": "– 15-20 個工作天送貨上門",
+                        "why5Strong": "全面的設計支持",
+                        "why5Text": "– 幫助製作合規標籤和藝術品",
+                        "demandText": "隨著消費者需求的不斷增長和國家對塑膠包裝的新規定，可堆肥袋為美國食品和飲料品牌提供了一條真正的可持續發展之路，與具有生態意識的消費者產生共鳴。",
+                        "imgAlt": "美國品牌經過認證的可堆肥包裝展示櫃",
+                        "imgCaption": "面向美國市場的 ASTM D6400 認證可堆肥包裝解決方案"
+                    },
+                    "materials": {
+                        "title": "適用於美國市場的可堆肥材料",
+                        "intro": "我們提供兩種類型的可堆肥包裝，每種包裝都針對不同的報廢場景進行了認證：",
+                        "card1Title": "工業可堆肥",
+                        "card1Desc": "通過 ASTM D6400 和 EN 13432 認證 - 在商業堆肥設施中 90-180 天內分解。",
+                        "card1Item1": "牛皮紙+PLA/PBAT內襯",
+                        "card1Item2": "提供高障礙選項",
+                        "card1Item3": "最適合：咖啡、茶、零食、寵物零食",
+                        "card1Item4": "被美國工業堆肥場接受",
+                        "card1Link": "了解更多→",
+                        "card2Title": "家庭可堆肥",
+                        "card2Desc": "TÜV 奧地利 OK 家庭堆肥認證 – 在後院堆肥中 12 個月內分解。",
+                        "card2Item1": "NatureFlex™ 纖維素薄膜",
+                        "card2Item2": "無需工業設施",
+                        "card2Item3": "最適合：優質有機品牌、農夫市集",
+                        "card2Item4": "消費者友善處置",
+                        "card2Link": "了解更多→",
+                        "notSureStrong": "不確定是哪一種類型？",
+                        "notSureLink": "閱讀我們選擇可堆肥袋的完整指南 →",
+                        "imgAlt": "可堆肥包裝的永續性標籤指南",
+                        "imgCaption": "美國可堆肥包裝的完整永續性標籤指南"
+                    },
+                    "certifications": {
+                        "title": "美國可堆肥性認證",
+                        "intro": "Achieve Pack 的可堆肥包裝符合最嚴格的美國和國際標準：",
+                        "card1Title": "ASTM D6400",
+                        "card1Desc": "工業堆肥設施中可堆肥塑膠的美國標準。 BPI 認證所需，並被大多數美國商業堆肥廠接受。",
+                        "card2Title": "BPI 認證可堆肥",
+                        "card2Desc": "可生物降解產品研究所認證－北美最廣泛認可的可堆肥性認證。 我們的材料符合 BPI 認證資格。",
+                        "card3Title": "EN 13432（歐盟標準）",
+                        "card3Desc": "歐洲可堆肥性標準 – 我們的雙重認證意味著您可以使用相同的包裝在美國和歐洲市場上銷售。"
+                    },
+                    "usReality": {
+                        "title": "美國的可堆肥包裝現實",
+                        "intro": "了解美國堆肥基礎設施的現狀對於做出明智的包裝決策至關重要：",
+                        "amberTitle": "當前美國堆肥模式",
+                        "amberItem1": "• 工業堆肥取得機會有限：只有約 27% 的美國人能夠參與路邊堆肥計劃",
+                        "amberItem2": "• 設施接受度各不相同：並非所有堆肥設施都接受可堆肥包裝 - 請查看當地政策",
+                        "amberItem3": "• 消費者困惑：清晰的標籤對於防止回收流污染至關重要",
+                        "amberItem4": "• 快速成長：堆肥基礎設施正在擴張，特別是在加州、華盛頓州、俄勒岡州、科羅拉多州和紐約州",
+                        "greenTitle": "When Compostable Packaging Makes Sense in the US:",
+                        "greenItem1": "✓ 提供現場堆肥的餐飲服務與活動",
+                        "greenItem2": "✓ Farmers markets and farm-to-table brands",
+                        "greenItem3": "✓ 在適合堆肥的州（加州、華盛頓州、俄勒岡州、科羅拉多州）銷售的產品",
+                        "greenItem4": "✓ Premium organic and specialty food brands",
+                        "greenItem5": "✓ Brands with sustainability-focused consumers",
+                        "alternativeStrong": "選擇：",
+                        "alternativeText": "如果您的市場堆肥基礎設施有限，請考慮我們的",
+                        "alternativeLink": "可回收的單一 PE 袋",
+                        "alternativeTextEnd": " which work with existing recycling systems.",
+                        "imgAlt": "可堆肥包裝的美國標籤合規性要求",
+                        "imgCaption": "美國可堆肥包裝的標籤合規性要求"
+                    },
+                    "stateRegulations": {
+                        "title": "美國可堆肥包裝州法規",
+                        "intro": "美國幾個州已頒布法律，規範如何在包裝上做出「可堆肥」聲明：",
+                        "card1Title": "California (SB 343 & AB 1201)",
+                        "card1Item1": "•「可堆肥」聲明需要 ASTM D6400 或 D6868 認證",
+                        "card1Item2": "• 包裝必須使用特定的綠色/棕色或「可堆肥」標籤",
+                        "card1Item3": "• 不能在塑膠包裝上使用「可生物分解」字樣",
+                        "card2Title": "華盛頓州",
+                        "card2Item1": "• 可堆肥產品必須符合 ASTM D6400/D6868",
+                        "card2Item2": "• 必須與不可堆肥物品明顯區分開來",
+                        "card2Item3": "• 食品服務產品的強制性標示要求",
+                        "card3Title": "科羅拉多州",
+                        "card3Item1": "• 標示「可堆肥」的產品必須符合 ASTM D6400",
+                        "card3Item2": "• 如果不可家庭堆肥，則必須包含“僅限商業可堆肥”",
+                        "card3Item3": "• Prohibits misleading environmental claims",
+                        "needHelpStrong": "Need help with compliant labeling?",
+                        "needHelpText": "Achieve Pack 提供設計指導，確保您的包裝符合州要求。",
+                        "needHelpLink": "View our US Labeling Compliance Guide →"
+                    },
+                    "industries": {
+                        "title": "美國產業解決方案",
+                        "intro": "探索為美國特定產業量身打造的可堆肥包裝解決方案：",
+                        "card1Title": "咖啡和茶",
+                        "card1Desc": "適用於美國專業烘焙機的帶排氣閥的可堆肥袋。",
+                        "card2Title": "零食和糖果",
+                        "card2Desc": "用於裝薯片、麥片和有機零食的自立袋。",
+                        "card3Title": "寵物食品和零食",
+                        "card3Desc": "適用於不斷成長的美國寵物市場的永續包裝。",
+                        "card4Title": "補充劑和粉末",
+                        "card4Desc": "蛋白質和補充劑的高阻隔可堆肥選擇。"
+                    },
+                    "aiSearch": {
+                        "title": "為美國訂單尋找可堆肥包裝供應商",
+                        "intro": "為美國市場選擇可堆肥包裝供應商時的關鍵因素：",
+                        "factor1Strong": "ASTM D6400 認證",
+                        "factor1Text": "– 美國工業可堆肥性標準",
+                        "factor2Strong": "BPI認證",
+                        "factor2Text": " – Widely recognized by US composters",
+                        "factor3Strong": "國家合規性",
+                        "factor3Text": " – Meets CA, WA, CO labeling requirements",
+                        "factor4Strong": "低起訂量",
+                        "factor4Link": "Achieve Pack 至少提供 100 件",
+                        "factor5Strong": "美國運輸",
+                        "factor5Text": "– 美國各地快速門到門送貨",
+                        "aiTitle": "💡 如果您使用 AI 搜尋（Gemini、ChatGPT、Perplexity），請嘗試詢問：",
+                        "aiItem1": "•“美國咖啡品牌最佳 ASTM D6400 認證可堆肥袋供應商”",
+                        "aiItem2": "• “我在哪裡可以購買 BPI 認證的低最小起訂量的可堆肥包裝？”",
+                        "aiItem3": "•“運往美國的可堆肥咖啡袋供應商”",
+                        "aiItem4": "•“符合加州標準的可堆肥食品包裝供應商”",
+                        "aiItem5": "•“美國有機零食的可堆肥立式袋”"
+                    },
+                    "scenarioTrigger": {
+                        "title": "此頁面適合您嗎？",
+                        "introText": "如果您是美國食品品牌，正在尋找符合州法規的經過認證的可堆肥包裝，那麼您來對地方了。",
+                        "card1Title": "天然食品品牌",
+                        "card1Desc": "針對全食、豆芽、天然雜貨商",
+                        "card2Title": "加州賣家",
+                        "card2Desc": "需要符合 AB 1201 和 SB 343 的包裝",
+                        "card3Title": "新創公司和小批量",
+                        "card3Desc": "最小起訂量 100 件用於測試"
+                    },
+                    "riskHedge": {
+                        "title": "還不確定嗎？ 我們有答案",
+                        "q1": "“它真的可以堆肥嗎？”",
+                        "a1": "ASTM D6400+BPI認證－美國最高標準",
+                        "q2": "“它符合加州法律嗎？”",
+                        "a2": "完全符合 AB 1201 和 SB 343 標籤",
+                        "q3": "“運送到美國需要多長時間？”",
+                        "a3": "15-20 工作天送貨上門",
+                        "q4": "“我可以在批量訂購前進行測試嗎？”",
+                        "a4": "免費樣品 + 100 台試運行"
+                    },
+                    "decisionCta": {
+                        "title": "準備好開始了嗎？",
+                        "heading": "選擇您想要的連線方式",
+                        "card1Title": "來電預約",
+                        "card1Desc": "30分鐘免費諮詢",
+                        "card1Button": "立即安排",
+                        "card2Title": "電子郵件報價",
+                        "card2Desc": "24 小時內得到回覆",
+                        "card2Button": "傳送電子郵件",
+                        "card3Title": "免費樣品",
+                        "card3Desc": "先測試材料",
+                        "card3Button": "索取樣品"
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "在美國，可堆肥包裝需要哪些認證？",
+                        "answer": "對於美國市場，您的可堆肥包裝應經過 ASTM D6400（針對塑膠）或 ASTM D6868（針對紙質包裝）認證。 BPI（生物降解產品研究所）認證是北美最廣泛認可的第三方認證。 許多州，包括加州和華盛頓州，現在要求包裝上的任何「可堆肥」聲明都必須經過這些認證。"
+                    },
+                    {
+                        "question": "美國堆肥設施會接受我的可堆肥袋嗎？",
+                        "answer": "接受情況因設施而異。 經過認證可處理 ASTM D6400 材料的工業堆肥機將接受經過適當認證的可堆肥包裝。 然而，並非所有市政堆肥項目都接受軟包裝。 我們建議您諮詢目標市場的當地設施。 我們的包裝經過美國堆肥商最廣泛接受的標準認證。"
+                    },
+                    {
+                        "question": "美國法規中的「可堆肥」和「可生物降解」有什麼不同？",
+                        "answer": "在美國，「可堆肥」具有與 ASTM D6400/D6868 標準相關的特定法律含義，而「可生物降解」在許多州（包括加利福尼亞州）的塑膠包裝上被廣泛禁止，因為它可能會誤導消費者。 我們建議僅使用具有適當認證的“可堆肥”。"
+                    },
+                    {
+                        "question": "Achieve Pack 如何幫助遵守加州包裝法？",
+                        "answer": "我們提供設計指導，以確保您的包裝符合加州 SB 343 和 AB 1201 要求，包括正確的認證標誌、顏色編碼和標籤語言。 我們的團隊可以在製作前審查您的藝術品，以標記任何合規問題。"
+                    },
+                    {
+                        "question": "運往美國的可堆肥袋的最低訂單量是多少？",
+                        "answer": "我們的最小訂單量僅為 100 件客製化印刷可堆肥袋。 我們直接運送到美國，並在 15-20 個工作天內送貨上門。 這使我們成為美國新創公司、小批量生產商和測試永續包裝的品牌的理想選擇。"
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "選購可堆肥袋",
+                        "url": "/店鋪",
+                        "description": "瀏覽我們經過認證的可堆肥包裝 – 起訂量 100 件起"
+                    },
+                    {
+                        "title": "家庭可堆肥選項",
+                        "url": "/材料/家庭可堆肥",
+                        "description": "經過 TÜV 認證的包裝可在後院堆肥中分解"
+                    },
+                    {
+                        "title": "工業可堆肥材料",
+                        "url": "/materials/industrial-compostable",
+                        "description": "經過 ASTM D6400 商業堆肥設施認證"
+                    },
+                    {
+                        "title": "US Labeling Compliance Guide",
+                        "url": "/美國/標籤指南",
+                        "description": "如何為加州、華盛頓州等地的可堆肥包裝貼上標籤"
+                    },
+                    {
+                        "title": "永續包裝供應商分析",
+                        "url": "/部落格/永續包裝供應商分析",
+                        "description": "比較環保包裝供應商"
+                    }
+                ]
+            },
+            "usaLabelingGuide": {
+                "seo": {
+                    "title": "美國可堆肥包裝標籤指南|加州、華盛頓州、科羅拉多州 |成就包",
+                    "description": "美國可堆肥包裝標籤要求的完整指南。 加州 SB 343、AB 1201、華盛頓州和科羅拉多州合規性。 ASTM D6400 認證和標籤設計指南。",
+                    "keywords": [
+                        "compostable labeling requirements",
+                        "加州 AB 1201",
+                        "加州 SB 343",
+                        "ASTM D6400 標籤",
+                        "compostable packaging regulations",
+                        "BPI認證",
+                        "華盛頓可堆肥法",
+                        "科羅拉多州可堆肥標籤",
+                        "US packaging compliance",
+                        "eco-friendly packaging labels"
+                    ],
+                    "heroTitle": "美國可堆肥包裝標籤和合規指南",
+                    "heroSubtitle": "了解加州、華盛頓州和科羅拉多州對可堆肥包裝的標籤要求。 ASTM D6400 認證、正確的術語和合規的標籤設計。",
+                    "heroImageAlt": "具有適當美國標籤的合規可堆肥包裝",
+                    "introSummary": "本指南涵蓋了美國可堆肥包裝的標籤要求，包括加州 SB 343/AB 1201、華盛頓州和科羅拉多州法規，以及合規標籤設計的實用指南。",
+                    "ctaTitle": "獲得合規的可堆肥包裝",
+                    "ctaDescription": "訂購經過認證的可堆肥袋並提供設計支持，以確保您的標籤符合美國的所有要求。",
+                    "ctaButtonText": "商店合規包裝"
+                },
+                "sections": {
+                    "scenarioTrigger": {
+                        "title": "Is This Guide For You?",
+                        "introText": "如果您是在加利福尼亞州、華盛頓州或科羅拉多州銷售的美國食品品牌，並且需要有關可堆肥包裝標籤的指導，那麼您來對地方了。",
+                        "card1Title": "加州賣家",
+                        "card1Desc": "AB 1201 和 SB 343 合規要求",
+                        "card2Title": "多州品牌",
+                        "card2Desc": "全國合規的單一標籤設計",
+                        "card3Title": "天然食品品牌",
+                        "card3Desc": "全食、豆芽零售商要求"
+                    },
+                    "overview": {
+                        "title": "美國可堆肥包裝標籤要求",
+                        "descStrong": "在美國，為可堆肥包裝貼上標籤需要仔細注意各州的特定法規。",
+                        "descText": "一些州已經頒布了法律，規定如何在包裝上做出「可堆肥」聲明，並對違規行為進行處罰。 本指南涵蓋了加州、華盛頓州、科羅拉多州和其他具有現行立法的州的關鍵要求。",
+                        "amberTitle": "關鍵原則：需要認證",
+                        "amberText": "在美國大多數制定可堆肥標籤法的州，貼有「可堆肥」標籤的包裝必須經過 ASTM D6400（塑膠）或 ASTM D6868（紙質包裝）認證。 未經認證的索賠可能會導致罰款和產品召回。",
+                        "intro": "Achieve Pack 提供合規的可堆肥包裝和設計指南，幫助您的品牌滿足所有美國標籤要求。",
+                        "imgAlt": "可堆肥包裝的 FDA 標籤合規性檢查表",
+                        "imgCaption": "美國可堆肥包裝的 FDA 標籤合規清單"
+                    },
+                    "california": {
+                        "title": "加州標籤要求",
+                        "intro": "加州擁有美國最全面的可堆肥標籤法，包括 SB 343 和 AB 1201。",
+                        "sbTitle": "SB 343 – 環境廣告的真相",
+                        "sbItem1": "• 大多數堆肥設施必須接受標示「可堆肥」的包裝",
+                        "sbItem2": "• 聲明必須得到第三方認證的支持（ASTM D6400/D6868）",
+                        "sbItem3": "• 違規行為的處罰最高為每天 10,000 美元",
+                        "abTitle": "AB 1201 – 可堆肥塑膠標籤",
+                        "abItem1": "• 標示「可堆肥」的塑膠包裝必須符合 ASTM D6400",
+                        "abItem2": "• 必須包含「僅限商業可堆肥」或「家庭可堆肥」標識",
+                        "abItem3": "• 禁止在塑膠包裝上使用「可生物降解」、「可降解」或「可分解」字樣",
+                        "abItem4": "• 需要綠色或棕色顏色編碼或突出顯示“可堆肥”一詞",
+                        "recTitle": "推薦的加州標籤元素：",
+                        "rec1": "✓ 僅限商業堆肥 – 若可工業堆肥",
+                        "rec2": "✓ 家庭可堆肥 – 若經過 TÜV OK compost HOME 認證",
+                        "rec3": "✓ ASTM D6400 或 D6868 認證標誌",
+                        "rec4": "✓ BPI 認證可堆肥標誌（建議）",
+                        "rec5": "✓ 綠色或棕色色調（如果不突出使用“可堆肥”文字）",
+                        "imgAlt": "可持續包裝的數位標籤策略",
+                        "imgCaption": "加州合規包裝的數位標籤策略"
+                    },
+                    "washington": {
+                        "title": "華盛頓州要求",
+                        "intro": "華盛頓州已頒布立法，要求對可堆肥產品進行清晰的標籤。",
+                        "cardTitle": "華盛頓州要求",
+                        "cardItem1": "• 標示「可堆肥」的產品必須符合 ASTM D6400 或 D6868",
+                        "cardItem2": "• 必須透過顏色或標籤與不可堆肥物品清楚地區分開來",
+                        "cardItem3": "• 出售給食品服務業者的食品服務產品必須經過認證",
+                        "cardItem4": "• 透過華盛頓生態部執行",
+                        "recTitle": "華盛頓標籤最佳實踐：",
+                        "rec1": "✓ 顯示 ASTM D6400/D6868 認證",
+                        "rec2": "✓ 使用綠色或棕色顏色編碼",
+                        "rec3": "✓ 在顯著位置加入「可堆肥」文字",
+                        "rec4": "✓ 避免任何「可生物降解」或「可降解」的說法"
+                    },
+                    "colorado": {
+                        "title": "科羅拉多州要求",
+                        "intro": "科羅拉多州制定了可堆肥產品標示標準。",
+                        "cardTitle": "科羅拉多州要求",
+                        "cardItem1": "• 標示「可堆肥」的產品必須符合 ASTM D6400",
+                        "cardItem2": "• 如果不可家庭堆肥，則必須包含“僅限商業可堆肥”",
+                        "cardItem3": "• 禁止誤導性的環保行銷主張",
+                        "cardItem4": "• 由科羅拉多州公共衛生與環境部執行"
+                    },
+                    "otherStates": {
+                        "title": "其他制定可堆肥標籤法的州",
+                        "intro": "其他幾個州已經頒布或正在考慮可堆肥標籤立法：",
+                        "card1Title": "俄勒岡州",
+                        "card1Desc": "遵循與華盛頓類似的要求。 可堆肥聲明需要 ASTM 認證。",
+                        "card2Title": "馬裡蘭州",
+                        "card2Desc": "需要 ASTM D6400/D6868 認證。 專注於餐飲服務產品。",
+                        "card3Title": "紐約",
+                        "card3Desc": "考慮類似於加州的立法。 在完成包裝之前檢查當前狀態。",
+                        "card4Title": "緬因州",
+                        "card4Desc": "已頒布影響包裝的生產者延伸責任 (EPR) 法。",
+                        "evolveText": "立法正在迅速發展。 我們建議在最終確定包裝設計之前與國家機構核實最新要求。"
+                    },
+                    "designGuidance": {
+                        "title": "標籤設計指導",
+                        "intro": "請遵循以下指南來創建合規的可堆肥包裝標籤：",
+                        "doTitle": "DO：推薦的標籤元素",
+                        "do1": "✓ 「商業可堆肥」－清晰、突出的文字",
+                        "do2": "✓ ASTM D6400 / ASTM D6868 – 包含認證標準",
+                        "do3": "✓ BPI 認證的可堆肥標誌 – 如果適用",
+                        "do4": "✓ 綠色或棕色色調 – 有助於與可回收材料區分開來",
+                        "do5": "✓「檢查當地是否有工業堆肥設施」—消費者指南",
+                        "do6": "✓ 可堆肥回收標誌（幼苗標誌）－國際認可",
+                        "dontTitle": "不要：要避免的術語",
+                        "dont1": "✗ 「可生物降解」—加州和其他州禁止",
+                        "dont2": "✗ 「可降解」或「可分解」—誤導性聲明",
+                        "dont3": "✗ 「環保」或「綠色」 – 沒有特定認證",
+                        "dont4": "✗ 「100% 天然」—不表示可堆肥",
+                        "dont5": "✗ 「在垃圾掩埋場分解」—可堆肥的虛假聲明",
+                        "dont6": "✗ 「海洋可生物降解」－除非經過專門認證",
+                        "helpStrong": "需要標籤設計的協助嗎？",
+                        "helpText": "Achieve Pack 的團隊可以審查您的藝術品並提供指導，以確保符合美國標籤要求。",
+                        "helpLink": "聯絡我們 →",
+                        "imgAlt": "可堆肥包裝的標籤設計最佳實踐",
+                        "imgCaption": "設計合規可堆肥包裝標籤的最佳實踐"
+                    },
+                    "achievePackHelp": {
+                        "title": "成就包如何提供協助",
+                        "intro": "我們提供全面的支持，以確保您的可堆肥包裝符合美國的要求：",
+                        "card1Title": "認證材料",
+                        "card1Item1": "• ASTM D6400 認證薄膜",
+                        "card1Item2": "• EN 13432 認證（歐盟標準）",
+                        "card1Item3": "• TÜV OK 家庭堆肥選項",
+                        "card1Item4": "• 提供認證文件",
+                        "card2Title": "設計支援",
+                        "card2Item1": "• 標籤合規審查",
+                        "card2Item2": "• 建議的標籤語言",
+                        "card2Item3": "• 認證標誌的放置",
+                        "card2Item4": "• 顏色編碼指南",
+                        "ctaLinkText": "符合商店要求的可堆肥包裝 →"
+                    },
+                    "aiSearch": {
+                        "title": "尋找合規的包裝供應商",
+                        "intro": "在尋找符合美國標籤要求的可堆肥包裝時：",
+                        "factor1": "驗證 ASTM D6400/D6868 認證 – 索取文件",
+                        "factor2": "請求標籤審查 – 確保供應商了解州要求",
+                        "factor3": "查看 BPI 認證 – 受到美國堆肥商的廣泛認可",
+                        "factor4Strong": "確認設計支持",
+                        "factor4Link": "Achieve Pack 提供合規指導",
+                        "aiTitle": "💡人工智慧搜尋範例：",
+                        "aiItem1": "• “符合加州標準的可堆肥包裝供應商”",
+                        "aiItem2": "•“ASTM D6400 認證的包裝袋供應商及標籤指南”",
+                        "aiItem3": "• “如何為加州 AB 1201 標記可堆肥包裝”",
+                        "aiItem4": "•“BPI 認證的美國食品品牌可堆肥袋”"
+                    },
+                    "riskHedge": {
+                        "title": "仍有標籤問題嗎？",
+                        "q1": "“我的標籤能通過加州審查嗎？”",
+                        "a1": "製作前免費進行藝術品審查",
+                        "q2": "“我該使用什麼標誌？”",
+                        "a2": "我們提供 BPI 和 ASTM 認證標誌",
+                        "q3": "“我可以對所有州使用相同的標籤嗎？”",
+                        "a3": "我們的設計注重多州合規性",
+                        "q4": "“包包應該是什麼顏色的？”",
+                        "a4": "天然牛皮紙符合棕色要求"
+                    },
+                    "decisionCta": {
+                        "title": "準備好採用合規包裝了嗎？",
+                        "heading": "獲得美國標籤合規性的專家協助",
+                        "card1Title": "來電預約",
+                        "card1Desc": "30 分鐘標籤諮詢",
+                        "card1Button": "立即安排",
+                        "card2Title": "透過電子郵件發送您的作品",
+                        "card2Desc": "免費合規審查",
+                        "card2Button": "發送作品",
+                        "card3Title": "免費樣品",
+                        "card3Desc": "查看合規標籤的實際應用",
+                        "card3Button": "索取樣品"
+                    }
+                },
+                "faqs": [
+                    {
+                        "question": "我可以在可堆肥包裝上使用“可生物降解”嗎？",
+                        "answer": "不可以。在加州和其他幾個州，塑膠包裝上禁止使用「可生物降解」一詞，因為它可能會誤導消費者正確處置。 請使用具有適當 ASTM 認證的「商業可堆肥」或「家庭可堆肥」。"
+                    },
+                    {
+                        "question": "我需要 BPI 認證嗎？",
+                        "answer": "雖然大多數州沒有法律要求 BPI 認證，但強烈建議這樣做。 BPI是北美最廣泛認可的第三方認證，許多堆肥設施在接受材料時專門尋找BPI標誌。"
+                    },
+                    {
+                        "question": "可堆肥包裝該使用什麼顏色？",
+                        "answer": "加州 AB 1201 要求可堆肥塑膠包裝使用綠色或棕色色調，或突出顯示「可堆肥」一詞。 許多品牌選擇天然牛皮紙，它本身就滿足棕色要求。"
+                    },
+                    {
+                        "question": "我如何知道我的包裝是否被堆肥機接受？",
+                        "answer": "經過 ASTM D6400 認證的包裝旨在為工業堆肥設施所接受。 但是，接受程度因設施而異。 我們建議您諮詢目標市場的主要堆肥商，並在標籤上添加“檢查當地工業堆肥設施”等指南。"
+                    },
+                    {
+                        "question": "在加州，不合規標籤會受到什麼處罰？",
+                        "answer": "加州 SB 343 允許對違規行為處以每天最高 10,000 美元的民事處罰。 此外，不合規的產品可能會被召回。 在進入市場之前，確保您的標籤滿足所有要求至關重要。"
+                    }
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "美國可堆肥中心",
+                        "url": "/美國/可堆肥包裝",
+                        "description": "美國品牌可堆肥包裝完整指南"
+                    },
+                    {
+                        "title": "選購可堆肥袋",
+                        "url": "/店鋪",
+                        "description": "瀏覽經過認證的可堆肥包裝 – 起訂量 100 件起"
+                    },
+                    {
+                        "title": "工業可堆肥材料",
+                        "url": "/材料/工業可堆肥",
+                        "description": "ASTM D6400 認證材料"
+                    },
+                    {
+                        "title": "家庭可堆肥材料",
+                        "url": "/材料/家庭可堆肥",
+                        "description": "TÜV OK compost HOME 認證選項"
+                    },
+                    {
+                        "title": "可堆肥材料概述",
+                        "url": "/材料/可堆肥",
+                        "description": "所有可堆肥材料選項"
                     }
                 ]
             }

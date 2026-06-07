@@ -1,34 +1,38 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { FileCheck, AlertTriangle, CheckCircle, Shield, MapPin, MessageCircle, BookOpen, Scale, Target, Calendar, Phone, Download, Mail } from 'lucide-react'
+import { FileCheck, AlertTriangle, CheckCircle, Shield, MapPin, MessageCircle, BookOpen, Scale, Target, Calendar, Download, Mail } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
 import ClickableImage from '../../components/ClickableImage'
 import { useCalendly } from '../../contexts/CalendlyContext'
 
 const USALabelingGuidePage: React.FC = () => {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.usaLabelingGuide'
   const { openCalendly } = useCalendly()
+
   const sections = [
     {
       id: 'scenario-trigger',
-      title: 'Is This Guide For You?',
+      title: t(`${p}.sections.scenarioTrigger.title`),
       icon: <Target className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
           <p className="text-lg font-medium text-neutral-900 mb-4">
-            If you are a <strong>US food brand selling in California, Washington, or Colorado</strong> and need guidance on compostable packaging labels—you're in the right place.
+            {t(`${p}.sections.scenarioTrigger.introText`)}
           </p>
           <div className="grid md:grid-cols-3 gap-4 mt-4">
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">California Sellers</h4>
-              <p className="text-sm text-neutral-600 mt-1">AB 1201 & SB 343 compliance requirements</p>
+              <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.scenarioTrigger.card1Title`)}</h4>
+              <p className="text-sm text-neutral-600 mt-1">{t(`${p}.sections.scenarioTrigger.card1Desc`)}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Multi-State Brands</h4>
-              <p className="text-sm text-neutral-600 mt-1">Single label design for nationwide compliance</p>
+              <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.scenarioTrigger.card2Title`)}</h4>
+              <p className="text-sm text-neutral-600 mt-1">{t(`${p}.sections.scenarioTrigger.card2Desc`)}</p>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h4 className="font-semibold text-neutral-900">Natural Food Brands</h4>
-              <p className="text-sm text-neutral-600 mt-1">Whole Foods, Sprouts retailer requirements</p>
+              <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.scenarioTrigger.card3Title`)}</h4>
+              <p className="text-sm text-neutral-600 mt-1">{t(`${p}.sections.scenarioTrigger.card3Desc`)}</p>
             </div>
           </div>
         </div>
@@ -36,35 +40,35 @@ const USALabelingGuidePage: React.FC = () => {
     },
     {
       id: 'overview',
-      title: 'US Compostable Packaging Labeling Requirements',
+      title: t(`${p}.sections.overview.title`),
       icon: <FileCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <p>
-            <strong>Labeling compostable packaging in the United States requires careful attention to state-specific regulations.</strong> Several states have enacted laws governing how "compostable" claims can be made on packaging, with penalties for non-compliance. This guide covers the key requirements for California, Washington, Colorado, and other states with active legislation.
+            <strong>{t(`${p}.sections.overview.descStrong`)}</strong> {t(`${p}.sections.overview.descText`)}
           </p>
           
           <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-4">
             <h4 className="font-semibold text-amber-800 mb-2 flex items-center gap-2">
               <AlertTriangle className="h-4 w-4" />
-              Key Principle: Certification Required
+              {t(`${p}.sections.overview.amberTitle`)}
             </h4>
             <p className="text-sm text-amber-700">
-              In most US states with compostable labeling laws, packaging labeled "compostable" must be certified to <strong>ASTM D6400</strong> (plastics) or <strong>ASTM D6868</strong> (packaging with paper components). Claims without certification may result in fines and product recalls.
+              {t(`${p}.sections.overview.amberText`)}
             </p>
           </div>
           
           <p className="mt-4">
-            <Link to="/" className="text-primary-600 hover:underline">Achieve Pack</Link> provides compliant compostable packaging and design guidance to help your brand meet all US labeling requirements.
+            {t(`${p}.sections.overview.intro`)}
           </p>
           
           {/* FDA Labeling Checklist Image */}
           <div className="mt-6">
             <ClickableImage 
               src="/imgs/seo-photos/usa/label/a_fda_labeling_compliance_checklist_8653787.webp" 
-              alt="FDA labeling compliance checklist for compostable packaging" 
+              alt={t(`${p}.sections.overview.imgAlt`)} 
               className="w-full rounded-lg shadow-md"
-              caption="FDA labeling compliance checklist for US compostable packaging"
+              caption={t(`${p}.sections.overview.imgCaption`)}
             />
           </div>
         </div>
@@ -72,39 +76,39 @@ const USALabelingGuidePage: React.FC = () => {
     },
     {
       id: 'california',
-      title: 'California Labeling Requirements',
+      title: t(`${p}.sections.california.title`),
       icon: <MapPin className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>California has the most comprehensive compostable labeling laws in the US, including <strong>SB 343</strong> and <strong>AB 1201</strong>.</p>
+          <p>{t(`${p}.sections.california.intro`)}</p>
           
           <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">SB 343 – Truth in Environmental Advertising</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.california.sbTitle`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• Packaging labeled "compostable" must be accepted by most composting facilities</li>
-              <li>• Claims must be supported by third-party certification (ASTM D6400/D6868)</li>
-              <li>• Penalties up to $10,000 per day for violations</li>
+              <li>{t(`${p}.sections.california.sbItem1`)}</li>
+              <li>{t(`${p}.sections.california.sbItem2`)}</li>
+              <li>{t(`${p}.sections.california.sbItem3`)}</li>
             </ul>
           </div>
           
           <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 mt-4">
-            <h4 className="font-semibold text-green-800 mb-2">AB 1201 – Compostable Plastics Labeling</h4>
+            <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.california.abTitle`)}</h4>
             <ul className="text-sm text-green-700 space-y-1">
-              <li>• Plastic packaging labeled "compostable" must meet ASTM D6400</li>
-              <li>• Must include "Commercially Compostable Only" or "Home Compostable" designation</li>
-              <li>• Prohibits use of "biodegradable," "degradable," or "decomposable" on plastic packaging</li>
-              <li>• Requires green or brown color coding OR the word "Compostable" prominently displayed</li>
+              <li>{t(`${p}.sections.california.abItem1`)}</li>
+              <li>{t(`${p}.sections.california.abItem2`)}</li>
+              <li>{t(`${p}.sections.california.abItem3`)}</li>
+              <li>{t(`${p}.sections.california.abItem4`)}</li>
             </ul>
           </div>
           
           <div className="bg-neutral-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold text-neutral-800 mb-2">Recommended California Label Elements:</h4>
+            <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.california.recTitle`)}</h4>
             <ul className="text-sm space-y-1">
-              <li>✓ <code className="bg-neutral-200 px-1 rounded">Commercially Compostable Only</code> – if industrial compostable</li>
-              <li>✓ <code className="bg-neutral-200 px-1 rounded">Home Compostable</code> – if TÜV OK compost HOME certified</li>
-              <li>✓ ASTM D6400 or D6868 certification mark</li>
-              <li>✓ BPI Certified Compostable logo (recommended)</li>
-              <li>✓ Green or brown tint (if not using "Compostable" text prominently)</li>
+              <li>{t(`${p}.sections.california.rec1`)}</li>
+              <li>{t(`${p}.sections.california.rec2`)}</li>
+              <li>{t(`${p}.sections.california.rec3`)}</li>
+              <li>{t(`${p}.sections.california.rec4`)}</li>
+              <li>{t(`${p}.sections.california.rec5`)}</li>
             </ul>
           </div>
           
@@ -112,9 +116,9 @@ const USALabelingGuidePage: React.FC = () => {
           <div className="mt-6">
             <ClickableImage 
               src="/imgs/seo-photos/usa/label/a_digital_labeling_strategy_0282148.webp" 
-              alt="Digital labeling strategy for sustainable packaging" 
+              alt={t(`${p}.sections.california.imgAlt`)} 
               className="w-full rounded-lg shadow-md"
-              caption="Digital labeling strategy for California compliant packaging"
+              caption={t(`${p}.sections.california.imgCaption`)}
             />
           </div>
         </div>
@@ -122,29 +126,29 @@ const USALabelingGuidePage: React.FC = () => {
     },
     {
       id: 'washington',
-      title: 'Washington State Requirements',
+      title: t(`${p}.sections.washington.title`),
       icon: <MapPin className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Washington State has enacted legislation requiring clear labeling of compostable products.</p>
+          <p>{t(`${p}.sections.washington.intro`)}</p>
           
           <div className="bg-emerald-50 p-4 rounded-lg border-l-4 border-emerald-500 mt-4">
-            <h4 className="font-semibold text-emerald-800 mb-2">Washington State Requirements</h4>
+            <h4 className="font-semibold text-emerald-800 mb-2">{t(`${p}.sections.washington.cardTitle`)}</h4>
             <ul className="text-sm text-emerald-700 space-y-1">
-              <li>• Products labeled "compostable" must meet ASTM D6400 or D6868</li>
-              <li>• Must be clearly distinguishable from non-compostable items by color or label</li>
-              <li>• Food service products sold to food service businesses must be certified</li>
-              <li>• Enforcement through Washington Department of Ecology</li>
+              <li>{t(`${p}.sections.washington.cardItem1`)}</li>
+              <li>{t(`${p}.sections.washington.cardItem2`)}</li>
+              <li>{t(`${p}.sections.washington.cardItem3`)}</li>
+              <li>{t(`${p}.sections.washington.cardItem4`)}</li>
             </ul>
           </div>
           
           <div className="bg-neutral-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold text-neutral-800 mb-2">Washington Labeling Best Practices:</h4>
+            <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.washington.recTitle`)}</h4>
             <ul className="text-sm space-y-1">
-              <li>✓ Display ASTM D6400/D6868 certification</li>
-              <li>✓ Use green or brown color coding</li>
-              <li>✓ Include "Compostable" text in prominent location</li>
-              <li>✓ Avoid any claims of "biodegradable" or "degradable"</li>
+              <li>{t(`${p}.sections.washington.rec1`)}</li>
+              <li>{t(`${p}.sections.washington.rec2`)}</li>
+              <li>{t(`${p}.sections.washington.rec3`)}</li>
+              <li>{t(`${p}.sections.washington.rec4`)}</li>
             </ul>
           </div>
         </div>
@@ -152,19 +156,19 @@ const USALabelingGuidePage: React.FC = () => {
     },
     {
       id: 'colorado',
-      title: 'Colorado Requirements',
+      title: t(`${p}.sections.colorado.title`),
       icon: <MapPin className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Colorado has established standards for compostable product labeling.</p>
+          <p>{t(`${p}.sections.colorado.intro`)}</p>
           
           <div className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500 mt-4">
-            <h4 className="font-semibold text-purple-800 mb-2">Colorado Requirements</h4>
+            <h4 className="font-semibold text-purple-800 mb-2">{t(`${p}.sections.colorado.cardTitle`)}</h4>
             <ul className="text-sm text-purple-700 space-y-1">
-              <li>• Products labeled "compostable" must meet ASTM D6400</li>
-              <li>• Must include "Commercially Compostable Only" if not home compostable</li>
-              <li>• Prohibits misleading environmental marketing claims</li>
-              <li>• Enforced by Colorado Department of Public Health and Environment</li>
+              <li>{t(`${p}.sections.colorado.cardItem1`)}</li>
+              <li>{t(`${p}.sections.colorado.cardItem2`)}</li>
+              <li>{t(`${p}.sections.colorado.cardItem3`)}</li>
+              <li>{t(`${p}.sections.colorado.cardItem4`)}</li>
             </ul>
           </div>
         </div>
@@ -172,78 +176,80 @@ const USALabelingGuidePage: React.FC = () => {
     },
     {
       id: 'other-states',
-      title: 'Other States with Compostable Labeling Laws',
+      title: t(`${p}.sections.otherStates.title`),
       icon: <Scale className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Several other states have enacted or are considering compostable labeling legislation:</p>
+          <p>{t(`${p}.sections.otherStates.intro`)}</p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-neutral-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-neutral-800 mb-2">Oregon</h4>
-              <p className="text-sm">Follows similar requirements to Washington. ASTM certification required for compostable claims.</p>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.otherStates.card1Title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.otherStates.card1Desc`)}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-neutral-800 mb-2">Maryland</h4>
-              <p className="text-sm">Requires ASTM D6400/D6868 certification. Focus on food service products.</p>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.otherStates.card2Title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.otherStates.card2Desc`)}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-neutral-800 mb-2">New York</h4>
-              <p className="text-sm">Considering legislation similar to California. Check current status before finalizing packaging.</p>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.otherStates.card3Title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.otherStates.card3Desc`)}</p>
             </div>
             <div className="bg-neutral-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-neutral-800 mb-2">Maine</h4>
-              <p className="text-sm">Has enacted Extended Producer Responsibility (EPR) laws affecting packaging.</p>
+              <h4 className="font-semibold text-neutral-800 mb-2">{t(`${p}.sections.otherStates.card4Title`)}</h4>
+              <p className="text-sm">{t(`${p}.sections.otherStates.card4Desc`)}</p>
             </div>
           </div>
           
           <p className="text-sm mt-4 text-neutral-600">
-            <strong>Note:</strong> Legislation is evolving rapidly. We recommend checking with state agencies for the most current requirements before finalizing packaging designs.
+            <strong>{t('common.note', 'Note:')}</strong> {t(`${p}.sections.otherStates.evolveText`)}
           </p>
         </div>
       )
     },
     {
       id: 'design-guidance',
-      title: 'Label Design Guidance',
+      title: t(`${p}.sections.designGuidance.title`),
       icon: <BookOpen className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Follow these guidelines to create compliant compostable packaging labels:</p>
+          <p>{t(`${p}.sections.designGuidance.intro`)}</p>
           
           <div className="bg-green-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
               <CheckCircle className="h-4 w-4" />
-              DO: Recommended Label Elements
+              {t(`${p}.sections.designGuidance.doTitle`)}
             </h4>
             <ul className="text-sm text-green-700 space-y-2">
-              <li>✓ <strong>"Commercially Compostable"</strong> – Clear, prominent text</li>
-              <li>✓ <strong>ASTM D6400 / ASTM D6868</strong> – Include certification standard</li>
-              <li>✓ <strong>BPI Certified Compostable logo</strong> – If applicable</li>
-              <li>✓ <strong>Green or brown tinting</strong> – Helps distinguish from recyclables</li>
-              <li>✓ <strong>"Check locally for industrial composting facilities"</strong> – Consumer guidance</li>
-              <li>✓ <strong>Compostable recycling symbol (seedling logo)</strong> – Recognized internationally</li>
+              <li>{t(`${p}.sections.designGuidance.do1`)}</li>
+              <li>{t(`${p}.sections.designGuidance.do2`)}</li>
+              <li>{t(`${p}.sections.designGuidance.do3`)}</li>
+              <li>{t(`${p}.sections.designGuidance.do4`)}</li>
+              <li>{t(`${p}.sections.designGuidance.do5`)}</li>
+              <li>{t(`${p}.sections.designGuidance.do6`)}</li>
             </ul>
           </div>
           
           <div className="bg-red-50 p-4 rounded-lg mt-4">
             <h4 className="font-semibold text-red-800 mb-2 flex items-center gap-2">
               <AlertTriangle className="h-4 w-4" />
-              DON'T: Terms to Avoid
+              {t(`${p}.sections.designGuidance.dontTitle`)}
             </h4>
             <ul className="text-sm text-red-700 space-y-2">
-              <li>✗ <strong>"Biodegradable"</strong> – Prohibited in California and other states</li>
-              <li>✗ <strong>"Degradable" or "Decomposable"</strong> – Misleading claims</li>
-              <li>✗ <strong>"Eco-friendly" or "Green"</strong> – Without specific certification</li>
-              <li>✗ <strong>"100% Natural"</strong> – Does not indicate compostability</li>
-              <li>✗ <strong>"Breaks down in landfill"</strong> – False claim for compostables</li>
-              <li>✗ <strong>"Marine biodegradable"</strong> – Unless specifically certified</li>
+              <li>{t(`${p}.sections.designGuidance.dont1`)}</li>
+              <li>{t(`${p}.sections.designGuidance.dont2`)}</li>
+              <li>{t(`${p}.sections.designGuidance.dont3`)}</li>
+              <li>{t(`${p}.sections.designGuidance.dont4`)}</li>
+              <li>{t(`${p}.sections.designGuidance.dont5`)}</li>
+              <li>{t(`${p}.sections.designGuidance.dont6`)}</li>
             </ul>
           </div>
           
           <div className="bg-primary-50 p-4 rounded-lg mt-4">
             <p className="text-sm">
-              <strong>Need help with your label design?</strong> Achieve Pack's team can review your artwork and provide guidance to ensure compliance with US labeling requirements. <Link to="/store" className="text-primary-600 hover:underline font-semibold">Contact us →</Link>
+              <strong>{t(`${p}.sections.designGuidance.helpStrong`)}</strong>
+              {t(`${p}.sections.designGuidance.helpText`)}
+              <Link to="/store" className="text-primary-600 hover:underline font-semibold">{t(`${p}.sections.designGuidance.helpLink`)}</Link>
             </p>
           </div>
           
@@ -251,9 +257,9 @@ const USALabelingGuidePage: React.FC = () => {
           <div className="mt-6">
             <ClickableImage 
               src="/imgs/seo-photos/usa/label/a_labeling_design_best_practices_0279886.webp" 
-              alt="Labeling design best practices for compostable packaging" 
+              alt={t(`${p}.sections.designGuidance.imgAlt`)} 
               className="w-full rounded-lg shadow-md"
-              caption="Best practices for designing compliant compostable packaging labels"
+              caption={t(`${p}.sections.designGuidance.imgCaption`)}
             />
           </div>
         </div>
@@ -261,36 +267,36 @@ const USALabelingGuidePage: React.FC = () => {
     },
     {
       id: 'achieve-pack-help',
-      title: 'How Achieve Pack Helps',
+      title: t(`${p}.sections.achievePackHelp.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>We provide comprehensive support to ensure your compostable packaging meets US requirements:</p>
+          <p>{t(`${p}.sections.achievePackHelp.intro`)}</p>
           
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <div className="bg-primary-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-primary-800 mb-2">Certified Materials</h4>
+              <h4 className="font-semibold text-primary-800 mb-2">{t(`${p}.sections.achievePackHelp.card1Title`)}</h4>
               <ul className="text-sm space-y-1">
-                <li>• ASTM D6400 certified films</li>
-                <li>• EN 13432 certified (EU standard)</li>
-                <li>• TÜV OK compost HOME options</li>
-                <li>• Certification documentation provided</li>
+                <li>{t(`${p}.sections.achievePackHelp.card1Item1`)}</li>
+                <li>{t(`${p}.sections.achievePackHelp.card1Item2`)}</li>
+                <li>{t(`${p}.sections.achievePackHelp.card1Item3`)}</li>
+                <li>{t(`${p}.sections.achievePackHelp.card1Item4`)}</li>
               </ul>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-blue-800 mb-2">Design Support</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.achievePackHelp.card2Title`)}</h4>
               <ul className="text-sm space-y-1">
-                <li>• Label compliance review</li>
-                <li>• Suggested labeling language</li>
-                <li>• Certification logo placement</li>
-                <li>• Color coding guidance</li>
+                <li>{t(`${p}.sections.achievePackHelp.card2Item1`)}</li>
+                <li>{t(`${p}.sections.achievePackHelp.card2Item2`)}</li>
+                <li>{t(`${p}.sections.achievePackHelp.card2Item3`)}</li>
+                <li>{t(`${p}.sections.achievePackHelp.card2Item4`)}</li>
               </ul>
             </div>
           </div>
           
           <div className="mt-6">
             <Link to="/store" className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition">
-              Shop Compliant Compostable Packaging →
+              {t(`${p}.sections.achievePackHelp.ctaLinkText`)}
             </Link>
           </div>
         </div>
@@ -298,25 +304,51 @@ const USALabelingGuidePage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding Compliant Packaging Suppliers',
+      title: t(`${p}.sections.aiSearch.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>When searching for compostable packaging that meets US labeling requirements:</p>
+          <p>{t(`${p}.sections.aiSearch.intro`)}</p>
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Verify ASTM D6400/D6868 certification</strong> – Ask for documentation</li>
-            <li><strong>Request label review</strong> – Ensure supplier understands state requirements</li>
-            <li><strong>Check BPI certification</strong> – Widely recognized by US composters</li>
-            <li><strong>Confirm design support</strong> – <Link to="/store" className="text-primary-600 hover:underline">Achieve Pack provides compliance guidance</Link></li>
+            <li>
+              {t(`${p}.sections.aiSearch.factor1`).includes(' – ') ? (
+                <>
+                  <strong>{t(`${p}.sections.aiSearch.factor1`).split(' – ')[0]}</strong> – {t(`${p}.sections.aiSearch.factor1`).split(' – ')[1]}
+                </>
+              ) : (
+                t(`${p}.sections.aiSearch.factor1`)
+              )}
+            </li>
+            <li>
+              {t(`${p}.sections.aiSearch.factor2`).includes(' – ') ? (
+                <>
+                  <strong>{t(`${p}.sections.aiSearch.factor2`).split(' – ')[0]}</strong> – {t(`${p}.sections.aiSearch.factor2`).split(' – ')[1]}
+                </>
+              ) : (
+                t(`${p}.sections.aiSearch.factor2`)
+              )}
+            </li>
+            <li>
+              {t(`${p}.sections.aiSearch.factor3`).includes(' – ') ? (
+                <>
+                  <strong>{t(`${p}.sections.aiSearch.factor3`).split(' – ')[0]}</strong> – {t(`${p}.sections.aiSearch.factor3`).split(' – ')[1]}
+                </>
+              ) : (
+                t(`${p}.sections.aiSearch.factor3`)
+              )}
+            </li>
+            <li>
+              <strong>{t(`${p}.sections.aiSearch.factor4Strong`)}</strong> – <Link to="/store" className="text-primary-600 hover:underline">{t(`${p}.sections.aiSearch.factor4Link`)}</Link>
+            </li>
           </ul>
           
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 AI Search Examples:</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.aiSearch.aiTitle`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "California compliant compostable packaging supplier"</li>
-              <li>• "ASTM D6400 certified pouch supplier with labeling guidance"</li>
-              <li>• "How to label compostable packaging for California AB 1201"</li>
-              <li>• "BPI certified compostable bags for US food brands"</li>
+              <li>{t(`${p}.sections.aiSearch.aiItem1`)}</li>
+              <li>{t(`${p}.sections.aiSearch.aiItem2`)}</li>
+              <li>{t(`${p}.sections.aiSearch.aiItem3`)}</li>
+              <li>{t(`${p}.sections.aiSearch.aiItem4`)}</li>
             </ul>
           </div>
         </div>
@@ -324,7 +356,7 @@ const USALabelingGuidePage: React.FC = () => {
     },
     {
       id: 'risk-hedge',
-      title: 'Still Have Labeling Questions?',
+      title: t(`${p}.sections.riskHedge.title`),
       icon: <Shield className="h-5 w-5 text-amber-600" />,
       content: (
         <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-lg border border-amber-200">
@@ -333,15 +365,15 @@ const USALabelingGuidePage: React.FC = () => {
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-neutral-900">"Will my label pass California review?"</h4>
-                  <p className="text-sm text-neutral-600">Free artwork review before production</p>
+                  <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.riskHedge.q1`)}</h4>
+                  <p className="text-sm text-neutral-600">{t(`${p}.sections.riskHedge.a1`)}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-neutral-900">"What logo should I use?"</h4>
-                  <p className="text-sm text-neutral-600">We provide BPI & ASTM certification marks</p>
+                  <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.riskHedge.q2`)}</h4>
+                  <p className="text-sm text-neutral-600">{t(`${p}.sections.riskHedge.a2`)}</p>
                 </div>
               </div>
             </div>
@@ -349,15 +381,15 @@ const USALabelingGuidePage: React.FC = () => {
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-neutral-900">"Can I use same label for all states?"</h4>
-                  <p className="text-sm text-neutral-600">We design for multi-state compliance</p>
+                  <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.riskHedge.q3`)}</h4>
+                  <p className="text-sm text-neutral-600">{t(`${p}.sections.riskHedge.a3`)}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-neutral-900">"What color should the bag be?"</h4>
-                  <p className="text-sm text-neutral-600">Natural kraft meets brown requirement</p>
+                  <h4 className="font-semibold text-neutral-900">{t(`${p}.sections.riskHedge.q4`)}</h4>
+                  <p className="text-sm text-neutral-600">{t(`${p}.sections.riskHedge.a4`)}</p>
                 </div>
               </div>
             </div>
@@ -367,34 +399,34 @@ const USALabelingGuidePage: React.FC = () => {
     },
     {
       id: 'decision-cta',
-      title: 'Ready for Compliant Packaging?',
+      title: t(`${p}.sections.decisionCta.title`),
       icon: <FileCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-8 rounded-xl">
-          <h3 className="text-2xl font-bold mb-6 text-center">Get Expert Help with US Labeling Compliance</h3>
+          <h3 className="text-2xl font-bold mb-6 text-center">{t(`${p}.sections.decisionCta.heading`)}</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
               <Calendar className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Book a Call</h4>
-              <p className="text-sm text-white/80 mb-4">30-min labeling consultation</p>
+              <h4 className="font-semibold mb-2">{t(`${p}.sections.decisionCta.card1Title`)}</h4>
+              <p className="text-sm text-white/80 mb-4">{t(`${p}.sections.decisionCta.card1Desc`)}</p>
               <button onClick={openCalendly} className="w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition cursor-pointer">
-                Schedule Now
+                {t(`${p}.sections.decisionCta.card1Button`)}
               </button>
             </div>
             <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
               <Mail className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Email Your Artwork</h4>
-              <p className="text-sm text-white/80 mb-4">Free compliance review</p>
+              <h4 className="font-semibold mb-2">{t(`${p}.sections.decisionCta.card2Title`)}</h4>
+              <p className="text-sm text-white/80 mb-4">{t(`${p}.sections.decisionCta.card2Desc`)}</p>
               <a href="mailto:ryan@achievepack.com?subject=Labeling Compliance Review" className="block w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
-                Send Artwork
+                {t(`${p}.sections.decisionCta.card2Button`)}
               </a>
             </div>
             <div className="bg-white/10 backdrop-blur p-6 rounded-lg text-center">
               <Download className="h-8 w-8 mx-auto mb-3" />
-              <h4 className="font-semibold mb-2">Free Samples</h4>
-              <p className="text-sm text-white/80 mb-4">See compliant labels in action</p>
+              <h4 className="font-semibold mb-2">{t(`${p}.sections.decisionCta.card3Title`)}</h4>
+              <p className="text-sm text-white/80 mb-4">{t(`${p}.sections.decisionCta.card3Desc`)}</p>
               <Link to="/contact" className="block w-full bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">
-                Request Samples
+                {t(`${p}.sections.decisionCta.card3Button`)}
               </Link>
             </div>
           </div>
@@ -403,40 +435,34 @@ const USALabelingGuidePage: React.FC = () => {
     }
   ]
 
-  const faqs = [
-    { question: "Can I use 'biodegradable' on my compostable packaging?", answer: "No. In California and several other states, the term 'biodegradable' is prohibited on plastic packaging because it can mislead consumers about proper disposal. Use 'Commercially Compostable' or 'Home Compostable' with appropriate ASTM certification instead." },
-    { question: "Do I need BPI certification?", answer: "While BPI certification is not legally required in most states, it is highly recommended. BPI is the most widely recognized third-party certification in North America, and many composting facilities specifically look for the BPI logo when accepting materials." },
-    { question: "What colors should I use for compostable packaging?", answer: "California AB 1201 requires compostable plastic packaging to either use green or brown tinting OR prominently display the word 'Compostable.' Many brands opt for natural kraft paper, which inherently meets the brown color requirement." },
-    { question: "How do I know if my packaging is accepted by composters?", answer: "Packaging certified to ASTM D6400 is designed to be accepted by industrial composting facilities. However, acceptance varies by facility. We recommend checking with major composters in your target markets and including guidance like 'Check locally for industrial composting facilities' on your label." },
-    { question: "What's the penalty for non-compliant labeling in California?", answer: "California SB 343 allows for civil penalties up to $10,000 per day for violations. Additionally, non-compliant products may be subject to recall. It's essential to ensure your labeling meets all requirements before going to market." }
-  ]
+  const faqs = t(`${p}.faqs`, { returnObjects: true }) as { question: string; answer: string }[]
 
   const relatedLinks = [
-    { title: "USA Compostable Hub", url: "/usa/compostable-packaging", description: "Complete guide to compostable packaging for US brands" },
-    { title: "Shop Compostable Pouches", url: "/store", description: "Browse certified compostable packaging – MOQ from 100 pieces" },
-    { title: "Industrial Compostable Materials", url: "/materials/industrial-compostable", description: "ASTM D6400 certified materials" },
-    { title: "Home Compostable Materials", url: "/materials/home-compostable", description: "TÜV OK compost HOME certified options" },
-    { title: "Compostable Materials Overview", url: "/materials/compostable", description: "All compostable material options" }
+    { title: t(`${p}.relatedLinks.0.title`), url: "/usa/compostable-packaging", description: t(`${p}.relatedLinks.0.description`) },
+    { title: t(`${p}.relatedLinks.1.title`), url: "/store", description: t(`${p}.relatedLinks.1.description`) },
+    { title: t(`${p}.relatedLinks.2.title`), url: "/materials/industrial-compostable", description: t(`${p}.relatedLinks.2.description`) },
+    { title: t(`${p}.relatedLinks.3.title`), url: "/materials/home-compostable", description: t(`${p}.relatedLinks.3.description`) },
+    { title: t(`${p}.relatedLinks.4.title`), url: "/materials/compostable", description: t(`${p}.relatedLinks.4.description`) }
   ]
 
   return (
     <SEOPageLayout heroBgColor="#1f2937"
-      title="US Compostable Packaging Labeling Guide | California, Washington, Colorado | Achieve Pack"
-      description="Complete guide to US compostable packaging labeling requirements. California SB 343, AB 1201, Washington, and Colorado compliance. ASTM D6400 certification and label design guidance."
-      keywords={['compostable labeling requirements', 'California AB 1201', 'California SB 343', 'ASTM D6400 labeling', 'compostable packaging regulations', 'BPI certification', 'Washington compostable law', 'Colorado compostable labeling', 'US packaging compliance', 'eco-friendly packaging labels']}
+      title={t(`${p}.seo.title`)}
+      description={t(`${p}.seo.description`)}
+      keywords={t(`${p}.seo.keywords`, { returnObjects: true }) as string[]}
       canonicalUrl="https://achievepack.com/usa/labeling-guide"
-      heroTitle="US Compostable Packaging Labeling & Compliance Guide"
-      heroSubtitle="Navigate California, Washington, and Colorado labeling requirements for compostable packaging. ASTM D6400 certification, proper terminology, and compliant label design."
+      heroTitle={t(`${p}.seo.heroTitle`)}
+      heroSubtitle={t(`${p}.seo.heroSubtitle`)}
       heroImage="/imgs/seo-photos/usa/label/a_fda_labeling_compliance_checklist_8653787.webp"
-      heroImageAlt="Compliant compostable packaging with proper US labeling"
-      introSummary="This guide covers US labeling requirements for compostable packaging, including California SB 343/AB 1201, Washington, and Colorado regulations, with practical guidance for compliant label design."
+      heroImageAlt={t(`${p}.seo.heroImageAlt`)}
+      introSummary={t(`${p}.seo.introSummary`)}
       sections={sections}
       faqs={faqs}
       schemaType="Article"
       relatedLinks={relatedLinks}
-      ctaTitle="Get Compliant Compostable Packaging"
-      ctaDescription="Order certified compostable pouches with design support to ensure your labeling meets all US requirements."
-      ctaButtonText="Shop Compliant Packaging"
+      ctaTitle={t(`${p}.seo.ctaTitle`)}
+      ctaDescription={t(`${p}.seo.ctaDescription`)}
+      ctaButtonText={t(`${p}.seo.ctaButtonText`)}
     />
   )
 }
