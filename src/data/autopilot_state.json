@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T20:30:27.101Z",
+  "lastUnifiedRun": "2026-06-07T20:45:27.541Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1827,17 +1827,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "sustainable-sachet-dimensions-for-baby-food",
       "status": "Pending Approval",
       "volume": 550,
       "keyword": "sustainable sachet dimensions for baby food",
-      "difficulty": "Low",
-      "slug": "sustainable-sachet-dimensions-for-baby-food"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1000,
       "keyword": "mono pe film for custom packaging",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "mono-pe-film-for-custom-packaging"
     },
     {
       "status": "Pending",
@@ -1980,9 +1981,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T20:30:19.971Z",
+      "timestamp": "2026-06-07T20:45:19.678Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet dimensions for baby food\" to /blog/sustainable-sachet-dimensions-for-baby-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe film for custom packaging\" to /blog/mono-pe-film-for-custom-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable sachet dimensions for baby food\" to /blog/sustainable-sachet-dimensions-for-baby-food (Pending Approval)",
+      "timestamp": "2026-06-07T20:30:19.971Z"
     },
     {
       "action": "Autopilot Generation Draft",
