@@ -100,12 +100,12 @@ async function translateToLanguage(enContent, langCode, langInfo) {
     
     try {
       const texts = chunk.map(item => item.text);
-      const translatedRes = await translate(texts, { to: langCode });
+      const translatedRes = await translate(texts, { to: langCode, rejectOnPartialFail: false });
       
       for (let j = 0; j < chunk.length; j++) {
         const item = chunk[j];
-        // translatedRes can be an array of objects containing text property
-        const transText = translatedRes[j]?.text || item.text;
+        // If translation is null/undefined or has error, fall back to the original text
+        const transText = (translatedRes && translatedRes[j] && translatedRes[j].text) ? translatedRes[j].text : item.text;
         setDeep(langContent, item.path, transText);
       }
       
@@ -117,8 +117,14 @@ async function translateToLanguage(enContent, langCode, langInfo) {
       await delay(500);
     } catch (e) {
       console.error(`❌ Error translating batch:`, e.message);
-      // Wait longer before retrying or next batch
-      await delay(5000);
+      // Fall back to original English texts for this entire batch in case of a fatal call error
+      for (let j = 0; j < chunk.length; j++) {
+        const item = chunk[j];
+        setDeep(langContent, item.path, item.text);
+      }
+      fs.writeFileSync(langPath, JSON.stringify(langContent, null, 4), 'utf-8');
+      console.log(`⚠️ Batch failed, fell back to English and saved.`);
+      await delay(2000);
     }
   }
 
