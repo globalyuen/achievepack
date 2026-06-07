@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2954,
+  "total_images": 2958,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1416,
+    ".png": 1420,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,32 @@
       ]
     },
     "blog/heros": {
-      "count": 252,
+      "count": 256,
       "images": [
+        {
+          "filename": "recyclable-flat-bottom-pouch-for-coffee-hero.png",
+          "path": "/imgs/blog/heros/recyclable-flat-bottom-pouch-for-coffee-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T10:15:24.339Z"
+        },
+        {
+          "filename": "barrier-pouch-dimensions-for-liquids-hero.png",
+          "path": "/imgs/blog/heros/barrier-pouch-dimensions-for-liquids-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T10:00:30.433Z"
+        },
+        {
+          "filename": "compostable-sachet-sizes-for-spices-hero.png",
+          "path": "/imgs/blog/heros/compostable-sachet-sizes-for-spices-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T09:45:29.647Z"
+        },
+        {
+          "filename": "digital-print-flexible-packaging-for-nuts-hero.png",
+          "path": "/imgs/blog/heros/digital-print-flexible-packaging-for-nuts-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T09:30:22.154Z"
+        },
         {
           "filename": "eco-friendly-pouch-suppliers-for-powders-hero.png",
           "path": "/imgs/blog/heros/eco-friendly-pouch-suppliers-for-powders-hero.png",

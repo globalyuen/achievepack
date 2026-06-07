@@ -1067,8 +1067,9 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
             }
             .print-page {
               width: 210mm;
-              height: 297mm;
-              padding: 15mm 20mm;
+              height: 282mm;
+              max-height: 282mm;
+              padding: 10mm 15mm;
               position: relative;
               page-break-after: always !important;
               page-break-inside: avoid !important;
@@ -1082,25 +1083,25 @@ export default function ComplianceLetterTab({ globalCustomer }: ComplianceLetter
               page-break-after: avoid !important;
             }
             h4 {
-              margin-top: 8px !important;
+              margin-top: 6px !important;
               margin-bottom: 2px !important;
-              font-size: 10px !important;
+              font-size: 9px !important;
             }
             p {
-              margin-bottom: 5px !important;
-              font-size: 8px !important;
-              line-height: 1.35 !important;
+              margin-bottom: 4px !important;
+              font-size: 7.5px !important;
+              line-height: 1.3 !important;
             }
             table {
               border-collapse: collapse;
               width: 100%;
-              margin-bottom: 6px !important;
+              margin-bottom: 4px !important;
             }
             th, td {
               border: 1px solid #bdc3c7;
-              padding: 3px 5px !important;
-              font-size: 7.5px !important;
-              line-height: 1.25 !important;
+              padding: 2px 4px !important;
+              font-size: 7.2px !important;
+              line-height: 1.2 !important;
             }
             .bg-gray-100 {
               background-color: #f5f6fa !important;
