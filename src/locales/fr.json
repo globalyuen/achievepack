@@ -12952,6 +12952,280 @@
                         "footer": "Fiers partenaires B2B derrière reachpack.com et Pouch.eco • Plus de 21 ans d'excellence en usine directe"
                     }
                 }
+            },
+            "customLabels": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Étiquettes de feuilles personnalisées | Pas de commande minimum | Réaliser le pack",
+                        "description": "Étiquettes professionnelles personnalisées en feuille sans minimum de commande, délai d'exécution de 2 à 3 jours et examen de conception par un expert. Impression de haute qualité pour les produits, les emballages et l'image de marque.",
+                        "heroTitle": "Étiquettes de feuille personnalisées",
+                        "heroSubtitle": "Qualité professionnelle • Pas de commande minimum • Délai d'exécution rapide",
+                        "introSummary": "Étiquettes personnalisées de haute qualité pour les produits, les événements et l'image de marque. Prêt à imprimer en 2 à 3 jours ouvrables avec l'assistance d'un expert en matière de conception.",
+                        "keywords": [
+                            "étiquettes personnalisées",
+                            "étiquettes de feuille",
+                            "étiquettes de produits",
+                            "autocollants",
+                            "étiquettes d'emballage",
+                            "pas de MOQ",
+                            "délai d'exécution rapide",
+                            "étiquettes imperméables"
+                        ]
+                    },
+                    "gallery": {
+                        "item1": {
+                            "title": "Présentation des étiquettes de feuilles personnalisées",
+                            "desc": "Présentation des étiquettes adhésives en papier personnalisées"
+                        },
+                        "item2": {
+                            "title": "Aperçu de la marque et du produit",
+                            "desc": "Aperçu de la marque et du produit"
+                        },
+                        "item3": {
+                            "title": "Étiquettes sur les pochettes",
+                            "desc": "LabelApplicationAtPochettes Stand-Up"
+                        },
+                        "item4": {
+                            "title": "Processus de candidature facile",
+                            "desc": "Processus d'étiquetage facile"
+                        },
+                        "item5": {
+                            "title": "Options multi-matériaux",
+                            "desc": "PlusieursMatériauxFacultatif"
+                        },
+                        "item6": {
+                            "title": "Qualité adhésive forte",
+                            "desc": "Adhésif permanent puissant"
+                        },
+                        "item7": {
+                            "title": "Remises multi-designs",
+                            "desc": "Remises multi-designs"
+                        },
+                        "item8": {
+                            "title": "Processus de commande simple",
+                            "desc": "Processus personnalisé simple"
+                        }
+                    },
+                    "sections": {
+                        "intro": {
+                            "title": "Présentation des étiquettes de feuilles personnalisées",
+                            "badgeNoMoq": "Pas de quantité minimale de commande",
+                            "badgeTurnaround": "Délai de 2 à 3 jours",
+                            "badgeReview": "Revue d'art experte",
+                            "badgeRating": "Note 4,7/5",
+                            "summaryStrong": "Étiquettes professionnelles personnalisées sans minimum de commande",
+                            "summaryText": "— Feuilles d'étiquettes de haute qualité conçues pour les produits, les événements, l'usage personnel et la personnalisation de petits lots. Prêt à imprimer en 2-3 jours ouvrables.",
+                            "summaryStrongCn": "ProfessionalIndustryCustomLabel, NoMostLowMinimum OrderVolume",
+                            "summaryTextCn": "— Étiquettes adhésives en papier de haute qualité, adaptées à ProductLabel, ActivityLabel, UnitPersonCustomAndSmall BatchProduction. DesignConfirmAfter 2-3 UnitBusiness DaysInsidePrintingShipping.",
+                            "item1": {
+                                "title": "Large gamme d'applications",
+                                "titleCn": "Scénarios d'application étendus",
+                                "desc": "Des étiquettes de produits et autocollants d'événements aux projets personnels et à l'image de marque des petites entreprises, nos feuilles d'étiquettes personnalisées sont parfaites pour toute application. Que vous ayez besoin de 10 feuilles ou de 10 000, nous offrons une qualité constante à chaque fois.",
+                                "descCn": "FromProductLabel、ActivityStickerToUnitPersonProjectAndSmallTypeEnterpriseIndustryBrand——OurCustomPaperLabelSuitable forAnyScenario.NoTheoryYouRequireNeed 10 SheetAlsoIs 10,000 Sheet, WeAlwaysIfOneGroundProvideHighQualityProduct."
+                            },
+                            "item2": {
+                                "title": "Parfait pour l’intégration d’emballages",
+                                "titleCn": "CompletBeautéFondreAdaptéEmballage",
+                                "desc": "Appliquez facilement des étiquettes personnalisées sur les sachets, les pots, les bouteilles et les boîtes. Nos étiquettes sont conçues pour compléter les solutions d'emballage flexibles d'Achieve Pack, créant ainsi une expérience de marque cohérente sur l'ensemble de votre gamme de produits.",
+                                "descCn": "CanNoSeamApplicationAtStand-Up Pouches、CanChild、BottleChildAndBoxChild.NotreÉtiquetteConceptionEt Réalisez un Pack OfFlexiblePackagingSolveSolutionCompleteBeautyWithSuitable，ForYouOfWholeUnitProductLineStrikeMakeSystemOneOfBrandBodyTest。"
+                            }
+                        },
+                        "features": {
+                            "title": "Principales caractéristiques et avantages",
+                            "card1": {
+                                "title": "Pas de commande minimum",
+                                "desc": "Commandez autant d’étiquettes que nécessaire. Parfait pour les tests, les échantillons ou la production en petits lots.",
+                                "sub": "Pas de limite de volume de commande minimum, peu de volumes également peuvent imprimer"
+                            },
+                            "card2": {
+                                "title": "Délai d'exécution rapide de 2 à 3 jours",
+                                "desc": "Après approbation de la conception, les étiquettes sont imprimées et expédiées dans un délai de 2 à 3 jours ouvrables.",
+                                "sub": "Expédié dans les 2-3 jours ouvrables après la confirmation de la conception"
+                            },
+                            "card3": {
+                                "title": "Revue d'art experte",
+                                "desc": "Notre équipe de conception examine chaque fichier et suggère des améliorations avant l’impression.",
+                                "sub": "Revue de conception professionnelle et suggestions"
+                            },
+                            "item3": {
+                                "title": "Application facile et résultats professionnels",
+                                "titleCn": "Application facile, résultats professionnels",
+                                "desc": "Nos étiquettes en feuille sont conçues pour une application facile à décoller et à appliquer. L'impression haute résolution garantit des couleurs éclatantes et des bords nets qui donnent à vos produits un aspect professionnel et haut de gamme.",
+                                "descCn": "OurPaperLabelDesignConvenientAtTearUnderImmediatelyPaste。HighDivideResolutionPrintingEnsureColorColorBright、EdgeEdgeClear，ForYouOfProductWithComeProfessionalIndustry、PremiumOfOutsideView。"
+                            },
+                            "inner1": {
+                                "title": "Plusieurs formes et tailles",
+                                "desc": "Choisissez parmi des rectangles, des rectangles arrondis, des cercles, des ovales et des formes découpées personnalisées de différentes tailles.",
+                                "sub": "PlusieursFormeEtDimensionsChoisir"
+                            },
+                            "inner2": {
+                                "title": "Qualité d'impression supérieure",
+                                "desc": "L'impression numérique haute résolution offre une précision des couleurs époustouflante et une reproduction fine des détails.",
+                                "sub": "Effet d'impression de haute qualité"
+                            }
+                        },
+                        "materials": {
+                            "title": "Options matérielles",
+                            "item4": {
+                                "title": "Sélection de matériaux riches",
+                                "titleCn": "RicheMatériauChoisir",
+                                "desc": "Choisissez parmi une variété de matériaux pour correspondre à votre application : blanc mat pour un usage quotidien, imperméable pour les environnements sujets à l'humidité, résistant à l'huile pour les aliments et les cosmétiques, et résistant aux rayures pour les applications durables.",
+                                "descCn": "ProvideMultipleMaterialWithMatchWithYouOfApplicationScenario：DailyUseOfWhiteMatte、SuitableSuitableHumidEnvironmentOfAntiWaterMaterial、FoodAndCosmeticsProfessionalUseOfResistantOilMaterial，WithAndHoldLongResistantUseOfAntiScrapeMaterial."
+                            },
+                            "card1": {
+                                "title": "Blanc Mat",
+                                "desc": "Adhésif permanent standard",
+                                "sub": "BlancMatPapier"
+                            },
+                            "card2": {
+                                "title": "Étanche",
+                                "desc": "BOPP avec résistance à l'eau",
+                                "sub": "AntiEauMatériau"
+                            },
+                            "card3": {
+                                "title": "Résistant à l'huile",
+                                "desc": "Pour l'alimentation et les cosmétiques",
+                                "sub": "RésistantHuileMatériau"
+                            },
+                            "card4": {
+                                "title": "Inscriptible",
+                                "desc": "Compatible avec les stylos et les marqueurs",
+                                "sub": "PeutBookWrite"
+                            }
+                        },
+                        "adhesive": {
+                            "title": "Force adhésive et durabilité",
+                            "item5": {
+                                "title": "Adhésif permanent puissant",
+                                "titleCn": "StrongPowerPermanentLongGlue",
+                                "desc": "Nos étiquettes blanches mates sont dotées d'un adhésif permanent puissant qui adhère solidement à la plupart des surfaces. Parfait pour une utilisation quotidienne sur les produits, les emballages et les applications bureautiques.",
+                                "descCn": "OurWhiteMatteLabelUsingStrongPowerPermanentLongGlue, CanSturdyStickAttachAtLargeMultipleNumberSurface. Idéal pour un produit approprié, un emballage et un usage quotidien au bureau."
+                            },
+                            "performanceTitle": "Performance adhésive",
+                            "row1Label": "Virage initial",
+                            "row1Desc": "Un lien fort et immédiat",
+                            "row2Label": "Lien ultime",
+                            "row2Desc": "Adhésion totale 24 heures",
+                            "row3Label": "Plage de température",
+                            "row3Desc": "-20°C à 70°C"
+                        },
+                        "multiDesign": {
+                            "title": "Remises multi-designs",
+                            "item6": {
+                                "title": "Économisez avec plusieurs conceptions",
+                                "titleCn": "MultipleConceptionProfitezExcellentRemise",
+                                "desc": "Besoin de différents modèles dans la même taille et le même matériau ? Profitez de notre réduction multi-design. Imprimez plusieurs variantes de votre commande et économisez sur les coûts unitaires.",
+                                "descCn": "RequireNeedSameDimensions、SameMaterialOfNotSameDesign？EnjoyReceiveMultipleDesignDiscountExcellentDiscount。InSameOneOrderInPrintingMultipleChangeBody，SaveSinglePositionCost。"
+                            },
+                            "card1": {
+                                "title": "1-2",
+                                "desc": "Dessins",
+                                "sub": "Tarif standard"
+                            },
+                            "card2": {
+                                "title": "3-5",
+                                "desc": "Dessins",
+                                "sub": "5% de réduction"
+                            },
+                            "card3": {
+                                "title": "6+",
+                                "desc": "Dessins",
+                                "sub": "10% de réduction"
+                            }
+                        },
+                        "process": {
+                            "title": "Processus de commande simple",
+                            "item7": {
+                                "title": "3 étapes simples pour vos étiquettes personnalisées",
+                                "titleCn": "ThreeStepLightLoosePersonnalisé",
+                                "desc": "Notre processus de commande simplifié facilite l'obtention d'étiquettes personnalisées professionnelles : 1) Choisissez votre taille, votre forme et votre matériau. 2) Téléchargez votre design ou utilisez nos modèles. 3) Recevez vos étiquettes dans 2-3 jours ouvrables.",
+                                "descCn": "WeSimpleizationOfOrderProcessLetYouLightLooseObtainProfessionalIndustryCustomLabel：1)ChooseDimensions、ShapeAndMaterial。2)UploadDesignOrUseOurModelBoard。3)2-3 UnitBusiness DaysInsideCollectToLabel。"
+                            },
+                            "step1": {
+                                "title": "Choisissez les spécifications",
+                                "desc": "Sélectionnez la taille, la forme, le matériau et la quantité",
+                                "sub": "ChoisirSpécificationParticiperNuméro"
+                            },
+                            "step2": {
+                                "title": "Télécharger la conception",
+                                "desc": "Soumettez votre œuvre à l’examen d’un expert",
+                                "sub": "TéléchargerDesignTextPièce"
+                            },
+                            "step3": {
+                                "title": "Livraison rapide",
+                                "desc": "Recevez vos étiquettes en 2-3 jours",
+                                "sub": "Expédition rapide"
+                            }
+                        },
+                        "reviews": {
+                            "title": "Commentaires des clients",
+                            "stats": "à partir de plus de 6 700 avis",
+                            "card1": {
+                                "review": "\"La qualité est exceptionnelle. Les couleurs sont éclatantes et exactement ce à quoi je m'attendais. Expédition rapide également!\"",
+                                "author": "— Propriétaire d'une petite entreprise"
+                            },
+                            "card2": {
+                                "review": "\"Parfait pour notre gamme de produits. L'adhésif est solide et ils ont l'air très professionnels.\"",
+                                "author": "— Vendeur de commerce électronique"
+                            },
+                            "card3": {
+                                "review": "\"J'adore l'option sans minimum. Idéal pour tester différents modèles avant de s'engager dans des commandes importantes.\"",
+                                "author": "- Fondateur de startup"
+                            }
+                        },
+                        "related": {
+                            "title": "Complétez votre solution d'emballage",
+                            "desc": "Combinez des étiquettes personnalisées avec nos solutions d’emballage flexibles pour une expérience de marque complète :",
+                            "link1": {
+                                "title": "Pochettes verticales",
+                                "desc": "Base parfaite pour vos étiquettes"
+                            },
+                            "link2": {
+                                "title": "Pochettes plates",
+                                "desc": "Options de joint sur 3 côtés"
+                            },
+                            "link3": {
+                                "title": "Finitions de surface",
+                                "desc": "Mat, brillant, doux au toucher"
+                            },
+                            "link4": {
+                                "title": "Matériaux respectueux de l'environnement",
+                                "desc": "Options durables"
+                            }
+                        },
+                        "faq": {
+                            "title": "Foire aux questions",
+                            "q1": {
+                                "q": "Y a-t-il une quantité minimum de commande pour les étiquettes personnalisées ?",
+                                "a": "Non! Nous n'avons pas d'exigence minimum de commande. Vous pouvez commander autant d’étiquettes que nécessaire. Cela le rend parfait pour tester des conceptions, des petites entreprises ou des lots d’échantillons."
+                            },
+                            "q2": {
+                                "q": "À quelle vitesse puis-je obtenir mes étiquettes personnalisées ?",
+                                "a": "Après approbation de la conception, les étiquettes sont imprimées et expédiées dans un délai de 2 à 3 jours ouvrables. Notre équipe d’experts examine chaque fichier avant l’impression pour garantir des résultats optimaux."
+                            },
+                            "q3": {
+                                "q": "Quels matériaux sont disponibles pour les étiquettes en feuille ?",
+                                "a": "Nous proposons du papier blanc mat pour un usage quotidien, du BOPP imperméable pour les environnements sujets à l'humidité, des matériaux résistants à l'huile pour les aliments et les cosmétiques, des options résistantes aux rayures et des surfaces inscriptibles pour l'utilisation de stylos et de marqueurs."
+                            },
+                            "q4": {
+                                "q": "Puis-je commander plusieurs modèles en une seule commande ?",
+                                "a": "Oui! Nous proposons des réductions multi-designs. Commandez 3 à 5 modèles différents dans la même taille et le même matériau pour 5 % de réduction, ou plus de 6 modèles pour 10 % de réduction. Idéal pour les gammes de produits comportant plusieurs SKU."
+                            },
+                            "q5": {
+                                "q": "Quelles formes et tailles sont disponibles ?",
+                                "a": "Nous proposons des rectangles, des rectangles arrondis, des cercles, des ovales et des formes découpées sur mesure dans différentes tailles. Si vous avez besoin d'une forme ou d'une taille spécifique, notre équipe peut créer un outillage personnalisé adapté à vos besoins."
+                            }
+                        },
+                        "cta": {
+                            "title": "Prêt à commander des étiquettes personnalisées ?",
+                            "header": "Commencez dès aujourd'hui",
+                            "desc": "Contactez notre équipe pour discuter de vos besoins en matière d'étiquettes personnalisées. Pas de minimum de commande, un délai d'exécution rapide et une assistance experte tout au long du processus.",
+                            "btnCall": "Réservez une consultation gratuite",
+                            "btnWa": "Chat WhatsApp",
+                            "btnMail": "Devis par e-mail"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

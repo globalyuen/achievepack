@@ -12952,6 +12952,280 @@
                         "footer": "Achievepack.com 和 pouch.eco 背後令人自豪的 B2B 合作夥伴 • 21 年以上工廠直銷卓越經驗"
                     }
                 }
+            },
+            "customLabels": {
+                "achievePack": {
+                    "seo": {
+                        "title": "客製化標籤|無最低訂購量 |成就包",
+                        "description": "專業客製化標籤，無最低訂購量，2-3 天週轉，並有專家設計審查。 適用於產品、包裝和品牌的高品質印刷。",
+                        "heroTitle": "自訂標籤",
+                        "heroSubtitle": "專業品質•無最低訂購量•快速週轉",
+                        "introSummary": "適用於產品、活動和品牌的高品質客製化標籤。 在專家設計支援下，2-3 個工作天即可列印完畢。",
+                        "keywords": [
+                            "自訂標籤",
+                            "標籤紙",
+                            "產品標籤",
+                            "貼紙",
+                            "包裝標籤",
+                            "無最小起訂量",
+                            "快速週轉",
+                            "防水標籤"
+                        ]
+                    },
+                    "gallery": {
+                        "item1": {
+                            "title": "自訂工作表標籤概述",
+                            "desc": "定製紙質不乾膠標籤概述"
+                        },
+                        "item2": {
+                            "title": "品牌及產品概覽",
+                            "desc": "品牌及產品概覽"
+                        },
+                        "item3": {
+                            "title": "袋子上的標籤",
+                            "desc": "自立袋標籤應用"
+                        },
+                        "item4": {
+                            "title": "簡單的申請流程",
+                            "desc": "簡單的標籤過程"
+                        },
+                        "item5": {
+                            "title": "多種材質選擇",
+                            "desc": "多種材質可選"
+                        },
+                        "item6": {
+                            "title": "黏合品質強",
+                            "desc": "強力永久黏合劑"
+                        },
+                        "item7": {
+                            "title": "多種設計折扣",
+                            "desc": "多種設計折扣"
+                        },
+                        "item8": {
+                            "title": "簡單的訂購流程",
+                            "desc": "簡單的客製化流程"
+                        }
+                    },
+                    "sections": {
+                        "intro": {
+                            "title": "自訂工作表標籤概述",
+                            "badgeNoMoq": "無起訂量",
+                            "badgeTurnaround": "2-3 天週轉",
+                            "badgeReview": "專家藝術評論",
+                            "badgeRating": "4.7/5 評分",
+                            "summaryStrong": "專業客製化標籤，無最低訂購量限制",
+                            "summaryText": "— 專為產品、活動、個人使用和小批量定製而設計的高品質標籤。 2-3 個工作天內即可列印。",
+                            "summaryStrongCn": "專業行業客製標籤，無最低訂購量",
+                            "summaryTextCn": "— 高品質紙質不乾膠標籤，適合產品標籤、活動標籤、單位客製化和小批量生產。設計確認後2-3單位工作天內印刷出貨。",
+                            "item1": {
+                                "title": "應用範圍廣泛",
+                                "titleCn": "應用場景廣泛",
+                                "desc": "從產品標籤和活動貼紙到個人專案和小型企業品牌 - 我們的客製化標籤非常適合任何應用。 無論您需要 10 張還是 10,000 張，我們每次都能提供一致的品質。",
+                                "descCn": "從產品標籤、活動貼紙到單位人專案和小型企業行業品牌—我們的客製化紙質標籤適合任何場景。沒有理論您需要需要10張也就是10,000張，我們始終如一地提供高品質的產品。"
+                            },
+                            "item2": {
+                                "title": "完美的包裝集成",
+                                "titleCn": "完整BeautyMelt適合包裝",
+                                "desc": "將自訂標籤無縫貼在袋子、罐子、瓶子和盒子上。 我們的標籤旨在補充 Achieve Pack 的軟包裝解決方案，在您的整個產品線中打造有凝聚力的品牌體驗。",
+                                "descCn": "CanNoSeam應用在自立袋、CanChild、BottleChild和BoxChild。我們的標籤設計和實現包的柔性包裝解決方案完整美觀與適合，為您的整個產品線的打擊打造系統一體的品牌體測試。"
+                            }
+                        },
+                        "features": {
+                            "title": "主要特點和優點",
+                            "card1": {
+                                "title": "無最低訂購量",
+                                "desc": "根據您的需求訂購盡可能少或任意數量的標籤。 非常適合測試、樣品或小批量生產。",
+                                "sub": "無最小起訂量限制，少量也可印刷"
+                            },
+                            "card2": {
+                                "title": "2-3 天快速週轉",
+                                "desc": "設計批准後，標籤將在 2-3 個工作天內列印並發貨。",
+                                "sub": "設計確認後 2-3 個工作天內出貨"
+                            },
+                            "card3": {
+                                "title": "專家藝術評論",
+                                "desc": "我們的設計團隊會在列印前審查每個文件並提出改進建議。",
+                                "sub": "專業的設計評審與建議"
+                            },
+                            "item3": {
+                                "title": "簡單的應用和專業的結果",
+                                "titleCn": "輕鬆申請，專業結果",
+                                "desc": "我們的片材標籤專為輕鬆剝離和粘貼而設計。 高解析度列印可確保鮮豔的色彩和銳利的邊緣，為您的產品帶來專業、優質的外觀。",
+                                "descCn": "OurPaperLabelDesignConvenientAtTearUnderImmediatelyPaste。HighDivideResolutionPrintingEnsureColorColorBright、EdgeEdgeClear，ForYouOfProductWithComeProfessionalIndustry、PremiumOfOutsideView。"
+                            },
+                            "inner1": {
+                                "title": "多種形狀和尺寸",
+                                "desc": "Choose from rectangles, rounded rectangles, circles, ovals, and custom die-cut shapes in various sizes.",
+                                "sub": "多種形狀和尺寸選擇"
+                            },
+                            "inner2": {
+                                "title": "優質的列印品質",
+                                "desc": "High-resolution digital printing delivers stunning color accuracy and fine detail reproduction.",
+                                "sub": "高品質列印效果"
+                            }
+                        },
+                        "materials": {
+                            "title": "材料選擇",
+                            "item4": {
+                                "title": "豐富的材質選擇",
+                                "titleCn": "豐富材質選擇",
+                                "desc": "從多種材料中進行選擇以配合您的應用：適合日常使用的白色霧面材料、適合潮濕環境的防水材料、適合食品和化妝品的防油材料以及適合耐用應用的防刮材料。",
+                                "descCn": "提供多種材質與您相匹配的應用場景：日常使用的白色啞光、適合適合潮濕環境的防水材質、食品和化妝品專業使用的防油材質，以及保持長久使用的防刮材質。"
+                            },
+                            "card1": {
+                                "title": "白色霧面",
+                                "desc": "標準永久黏合劑",
+                                "sub": "白色霧面紙"
+                            },
+                            "card2": {
+                                "title": "防水的",
+                                "desc": "BOPP耐水性",
+                                "sub": "防水材質"
+                            },
+                            "card3": {
+                                "title": "耐油",
+                                "desc": "用於食品和化妝品",
+                                "sub": "耐油材料"
+                            },
+                            "card4": {
+                                "title": "可寫",
+                                "desc": "筆和記號筆友好",
+                                "sub": "可以寫書"
+                            }
+                        },
+                        "adhesive": {
+                            "title": "黏合強度和耐久性",
+                            "item5": {
+                                "title": "強力永久黏合劑",
+                                "titleCn": "強力永久長膠",
+                                "desc": "我們的白色霧面標籤採用強力永久黏合劑，可牢固地黏合到大多數表面。 非常適合產品、包裝和辦公室應用的日常使用。",
+                                "descCn": "OurWhiteMatteLabelUsingStrongPowerPermanentLongGlue，CanSturdyStickAttachAtLargeMultipleNumberSurface。Ideal forSuitableProduct、PackagingAndOfficeDailyUse。"
+                            },
+                            "performanceTitle": "黏合性能",
+                            "row1Label": "初始黏性",
+                            "row1Desc": "牢固的直接聯繫",
+                            "row2Label": "終極債券",
+                            "row2Desc": "24小時全附著力",
+                            "row3Label": "溫度範圍",
+                            "row3Desc": "-20°C 至 70°C"
+                        },
+                        "multiDesign": {
+                            "title": "多種設計折扣",
+                            "item6": {
+                                "title": "保存多種設計",
+                                "titleCn": "多重設計尊享超值折扣",
+                                "desc": "需要相同尺寸和材質的不同設計？ 利用我們的多種設計折扣。 列印訂單的多種變體並節省單位成本。",
+                                "descCn": "RequireNeedNeedSameDimensions、SameMaterialOfNotSameDesign？享受接收MultipleDesignDiscount優秀折扣。 InSameOneOrderInPrintingMultipleChangeBody，節省SinglePosition成本。"
+                            },
+                            "card1": {
+                                "title": "1-2",
+                                "desc": "設計",
+                                "sub": "標準定價"
+                            },
+                            "card2": {
+                                "title": "3-5",
+                                "desc": "設計",
+                                "sub": "5% 折扣"
+                            },
+                            "card3": {
+                                "title": "6+",
+                                "desc": "設計",
+                                "sub": "10% 折扣"
+                            }
+                        },
+                        "process": {
+                            "title": "簡單的訂購流程",
+                            "item7": {
+                                "title": "客製化標籤的 3 個簡單步驟",
+                                "titleCn": "三步驟輕鬆客製",
+                                "desc": "我們簡化的訂購流程使您可以輕鬆獲得專業的客製化標籤：1) 選擇您的尺寸、形狀和材料。 2) 上傳您的設計或使用我們的範本。 3) 在 2-3 個工作天內收到您的標籤。",
+                                "descCn": "我們簡化訂單流程讓您輕鬆獲得專業行業客製化標籤：1）選擇尺寸、形狀和材質。 2）上傳設計或使用我們的模型板。 3）2-3個工作天內收集到標籤。"
+                            },
+                            "step1": {
+                                "title": "選擇規格",
+                                "desc": "選擇尺寸、形狀、材質和數量",
+                                "sub": "選擇規格參加人數"
+                            },
+                            "step2": {
+                                "title": "上傳設計",
+                                "desc": "提交您的作品以供專家評審",
+                                "sub": "上傳設計文字片段"
+                            },
+                            "step3": {
+                                "title": "快速交貨",
+                                "desc": "2-3 天內收到您的標籤",
+                                "sub": "快速運輸"
+                            }
+                        },
+                        "reviews": {
+                            "title": "客戶評價",
+                            "stats": "來自 6,700 多條評論",
+                            "card1": {
+                                "review": "“品質非常出色。顏色鮮豔，正是我所期望的。發貨也很快！”",
+                                "author": "— 小企業主"
+                            },
+                            "card2": {
+                                "review": "“非常適合我們的產品線。黏合劑很強，而且看起來非常專業。”",
+                                "author": "— 電子商務賣家"
+                            },
+                            "card3": {
+                                "review": "“喜歡沒有最低限度的選擇。非常適合在承諾大訂單之前測試不同的設計。”",
+                                "author": "— 新創公司創辦人"
+                            }
+                        },
+                        "related": {
+                            "title": "完善您的包裝解決方案",
+                            "desc": "將客製化標籤與我們的軟包裝解決方案相結合，以獲得完整的品牌體驗：",
+                            "link1": {
+                                "title": "自立袋",
+                                "desc": "標籤的完美基礎"
+                            },
+                            "link2": {
+                                "title": "平袋",
+                                "desc": "3 邊密封選項"
+                            },
+                            "link3": {
+                                "title": "表面處理",
+                                "desc": "霧面、亮光、觸感柔軟"
+                            },
+                            "link4": {
+                                "title": "環保材料",
+                                "desc": "永續的選擇"
+                            }
+                        },
+                        "faq": {
+                            "title": "常見問題解答",
+                            "q1": {
+                                "q": "客製化標籤有最低訂購量嗎？",
+                                "a": "不！ 我們沒有最低訂單要求。 您可以根據需要訂購任意數量的標籤。 這使得它非常適合測試設計、小型企業或樣品批次。"
+                            },
+                            "q2": {
+                                "q": "我能多快獲得自訂標籤？",
+                                "a": "設計批准後，標籤將在 2-3 個工作天內列印並發貨。 我們的專家團隊在列印前審查每個文件，以確保最佳結果。"
+                            },
+                            "q3": {
+                                "q": "片材標籤有哪些材質可供選擇？",
+                                "a": "我們提供適合日常使用的白色霧面紙、適合潮濕環境的防水 BOPP、適合食品和化妝品的耐油材料、防刮選項以及適合鋼筆和記號筆使用的可書寫表面。"
+                            },
+                            "q4": {
+                                "q": "我可以在一份訂單中訂購多種設計嗎？",
+                                "a": "是的！ 我們提供多種設計折扣。 訂購 3-5 件相同尺寸和材料的不同設計可享 5% 的折扣，或訂購 6 個以上設計可享 10% 的折扣。 非常適合具有多個 SKU 的產品線。"
+                            },
+                            "q5": {
+                                "q": "有哪些形狀和尺寸可供選擇？",
+                                "a": "我們提供各種尺寸的矩形、圓角矩形、圓形、橢圓形和客製化模切形狀。 如果您需要特定的形狀或尺寸，我們的團隊可以根據您的要求建立客製化工具。"
+                            }
+                        },
+                        "cta": {
+                            "title": "準備好訂購客製化標籤了嗎？",
+                            "header": "今天開始",
+                            "desc": "聯絡我們的團隊討論您的客製化標籤要求。 無最低訂購量、快速週轉以及整個過程的專家支援。",
+                            "btnCall": "預約免費諮詢",
+                            "btnWa": "WhatsApp 聊天",
+                            "btnMail": "電子郵件報價"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
