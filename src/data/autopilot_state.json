@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T03:00:42.727Z",
+  "lastUnifiedRun": "2026-06-07T03:15:39.945Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1337,17 +1337,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "high-barrier-recyclable-films",
       "status": "Pending Approval",
       "volume": 820,
       "keyword": "high barrier recyclable films",
-      "difficulty": "Low",
-      "slug": "high-barrier-recyclable-films"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1400,
       "keyword": "stand up pouch filling equipment",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "stand-up-pouch-filling-equipment"
     },
     {
       "status": "Pending",
@@ -1472,9 +1473,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T03:00:34.053Z",
+      "timestamp": "2026-06-07T03:15:31.817Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier recyclable films\" to /blog/high-barrier-recyclable-films (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch filling equipment\" to /blog/stand-up-pouch-filling-equipment (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier recyclable films\" to /blog/high-barrier-recyclable-films (Pending Approval)",
+      "timestamp": "2026-06-07T03:00:34.053Z"
     },
     {
       "action": "Autopilot Generation Draft",
