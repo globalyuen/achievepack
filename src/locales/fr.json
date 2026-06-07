@@ -12555,6 +12555,403 @@
                         }
                     }
                 }
+            },
+            "customCompostableLabels": {
+                "pouch": {
+                    "seo": {
+                        "title": "Étiquettes compostables personnalisées | Autocollants PLA certifiés FSC",
+                        "description": "Étiquettes adhésives personnalisées certifiées compostables à partir de 1 000 unités. FDA de qualité alimentaire, résistant à l'eau, sans microplastique. Parfait pour les cosmétiques, flacons et coffrets bio. Expédition mondiale rapide.",
+                        "keywords": [
+                            "étiquettes compostables personnalisées",
+                            "Autocollants biodégradables PLA",
+                            "Étiquettes de produits certifiés FSC",
+                            "Adhésif compostable de qualité alimentaire FDA",
+                            "étiquette d'emballage zéro microplastique",
+                            "pouch.eco"
+                        ]
+                    },
+                    "hero": {
+                        "badge": "100% certifié écologique",
+                        "title": "COMPOSTABLE",
+                        "subtitle": "Papier à base de pâte de bois FSC® et films PLA à base d'amidon végétal. Bio-adhésif haute performance. Biodégradation complète ne laissant aucun microplastique.",
+                        "btnCall": "Réserver un appel gratuit",
+                        "btnWa": "WhatsApp B2B",
+                        "imageAlt": "Étiquette compostable certifiée FSC",
+                        "moqLabel": "FAIBLE MOQ : 1 000 !"
+                    },
+                    "benefits": {
+                        "title": "PERFORMANCE ÉCOLOGIQUE AVANCÉE",
+                        "card1": {
+                            "title": "Dégradation sur 180 jours",
+                            "desc": "100 % compostable domestique et industriel. Dans des environnements de compostage, les étiquettes se désintègrent en biomasse organique, eau et CO2 en 6 mois."
+                        },
+                        "card2": {
+                            "title": "Adhésif de qualité alimentaire",
+                            "desc": "Adhésif biologique sensible à la pression certifié FDA 21 CFR 175.105. Sans danger pour le contact direct et indirect avec les aliments et les soins de la peau biologiques."
+                        },
+                        "card3": {
+                            "title": "Preuve de l'eau et de l'huile",
+                            "desc": "Les choix de films PLA végétaux à haute barrière offrent une résistance exceptionnelle à l’humidité, à la graisse et à l’huile. Idéal pour les cosmétiques, les bouteilles et les huiles de bain."
+                        },
+                        "card4": {
+                            "title": "Impression HP Indigo",
+                            "desc": "Presses numériques multicolores HP Indigo ultra haute définition utilisant des encres végétales/soja certifiées écologiques. Détails de conception exquis."
+                        }
+                    },
+                    "structure": {
+                        "badge": "La norme verte",
+                        "title": "STRUCTURE À 4 COUCHES",
+                        "intro": "Nos étiquettes compostables présentent une conception écologique avancée à 4 couches :",
+                        "step1": {
+                            "title": "1. Papier facial durable ou film PLA",
+                            "desc": "Fabriqué à partir de pâte de bois certifiée FSC ou de film d'amidon PLA végétal d'origine biologique. Imprimé avec des encres écologiques de soja et végétales certifiées pour des graphismes éclatants."
+                        },
+                        "step2": {
+                            "title": "2. Couche bio-adhésive émulsionnée",
+                            "desc": "Adhésif compostable sensible à la pression haute performance qui crée une liaison permanente exceptionnelle sur le verre, le papier, les bioplastiques et les métaux."
+                        },
+                        "step3": {
+                            "title": "3. Doublure antiadhésive de qualité supérieure en glassine",
+                            "desc": "Papier antiadhésif de qualité supérieure offrant un décollement mécanique en douceur et une compatibilité totale avec les étiqueteuses B2B automatisées à grande vitesse."
+                        },
+                        "clickExpand": "[CLIQUEZ POUR DÉVELOPPER LE DIAGRAMME DE STRUCTURE]",
+                        "imgAlt": "Infographie de structure écologique premium à 4 couches"
+                    },
+                    "qa": {
+                        "badge": "Intégrité industrielle",
+                        "title": "FABRICATION B2B & CONTRÔLE QUALITÉ",
+                        "desc": "Nos étiquettes sont fabriquées dans des lignes de production B2B propres et à humidité contrôlée certifiées BRCGS et ISO-9001. Nous garantissons la cohésion structurelle et la précision des couleurs dans des environnements logistiques extrêmes.",
+                        "card1": {
+                            "title": "Découpe rotative",
+                            "desc": "Découpe de forme parfaite calibrée dans une tolérance de ± 0,15 mm. Prêt pour une application automatisée en rouleau."
+                        },
+                        "card2": {
+                            "title": "Vision par ordinateur",
+                            "desc": "Les systèmes de vérification visuelle en ligne détectent en permanence les erreurs d’alignement, les rayures et les écarts de couleur."
+                        },
+                        "card3": {
+                            "title": "Encres de soja biosourcées",
+                            "desc": "Encre végétale d'impression 100 % biodégradable offrant une fidélité éclatante de niveau Pantone sans teneur en métaux lourds."
+                        },
+                        "card4": {
+                            "title": "Protection contre l'humidité",
+                            "desc": "L'emballage en carton avec protection déshydratante garantit que l'adhésif biologique reste intact avant l'application."
+                        },
+                        "imgAlt": "Liste de contrôle d'assurance qualité pour la fabrication B2B",
+                        "clickExpand": "[CLIQUEZ POUR DÉVELOPPER LA LISTE DE CONTRÔLE QA]"
+                    },
+                    "samples": {
+                        "title": "ÉCHANTILLONS DU MONDE RÉEL",
+                        "desc": "Cliquez sur n’importe quel échantillon ou diagramme de production pour inspecter les détails haute résolution"
+                    },
+                    "specs": {
+                        "title": "SPÉCIFICATIONS ET PRIX",
+                        "thMaterial": "Spécification matérielle",
+                        "thAdhesive": "Type d'adhésif",
+                        "thMoisture": "Bouclier contre l'humidité",
+                        "thLeadTime": "Délai de mise en œuvre",
+                        "thUseCase": "Cas d'utilisation",
+                        "row1": {
+                            "material": "Papier écologique certifié FSC",
+                            "adhesive": "Émulsion permanente",
+                            "moisture": "Médium (Vernis en option)",
+                            "leadTime": "3-5 jours ouvrables",
+                            "useCase": "Étiquetage de sachets kraft, graphisme de boîtes postales en papier, boulangeries sèches"
+                        },
+                        "row2": {
+                            "material": "Film biopolymère PLA (blanc)",
+                            "adhesive": "Émulsion permanente",
+                            "moisture": "Haute imperméabilité / résistance à la graisse",
+                            "leadTime": "5-7 jours ouvrables",
+                            "useCase": "Pots de suppléments humides, sachets d'emballage surgelés, produits de soin de la peau"
+                        },
+                        "row3": {
+                            "material": "Film biopolymère PLA (transparent)",
+                            "adhesive": "Émulsion permanente",
+                            "moisture": "Haute imperméabilité/transparence",
+                            "leadTime": "5-7 jours ouvrables",
+                            "useCase": "Bouteilles en verre transparent de qualité supérieure, bouteilles de jus biologiques, pochette transparente"
+                        },
+                        "card1": {
+                            "price": "60 $ US",
+                            "sub": "Prix ​​de départ / 1 000 pièces",
+                            "detail": "Comprend des critiques gratuites sur la mise en page des illustrations"
+                        },
+                        "card2": {
+                            "price": "Gratuite",
+                            "sub": "Épreuvage électronique B2B 24 heures sur 24",
+                            "detail": "Obtenez un balisage numérique précis de vos formes et couleurs"
+                        },
+                        "card3": {
+                            "price": "Jusqu'à 15%",
+                            "sub": "Remise personnalisée multi-SKU",
+                            "detail": "Commandez plusieurs variantes d'étiquettes ensemble et économisez des coûts importants"
+                        }
+                    },
+                    "faq": {
+                        "title": "QUESTIONS FRÉQUEMMENT POSÉES"
+                    },
+                    "cta": {
+                        "title": "LANCEZ VOS ÉCO LABELS PERSONNALISÉS AUJOURD'HUI",
+                        "desc": "Améliorez vos références en matière d'emballage avec des biopolymères certifiés à 100 %. Bénéficiez de maquettes gratuites, d'une assistance instantanée et d'un délai d'exécution rapide.",
+                        "btnCall": "Planifier un appel B2B",
+                        "btnWa": "Assistance en direct WhatsApp"
+                    }
+                },
+                "achievePack": {
+                    "seo": {
+                        "title": "Étiquettes compostables personnalisées | Autocollants PLA certifiés FSC | Réaliser le pack",
+                        "description": "Étiquettes personnalisées certifiées FSC et compostables. Bio-adhésif biodégradable de qualité alimentaire FDA. Parfait pour les cosmétiques, les bouteilles et les boîtes. Faible MOQ 1000 pièces, expédié dans le monde entier.",
+                        "canonicalUrl": "https://achievepack.com/products/custom-compostable-labels",
+                        "heroTitle": "Étiquettes compostables personnalisées",
+                        "heroSubtitle": "Certifié FSC® • PLA 100 % biodégradable • Adhésif FDA de qualité alimentaire",
+                        "introSummary": "Autocollants et étiquettes adhésifs personnalisés certifiés compostables, fabriqués à partir de papier de pâte de bois FSC et de film PLA d'amidon végétal. Soutenu par un bio-adhésif en émulsion haute performance qui se dégrade en toute sécurité en compost en 180 jours sans microplastique.",
+                        "heroImageAlt": "Étiquettes compostables personnalisées",
+                        "keywords": [
+                            "étiquettes compostables personnalisées",
+                            "Autocollants biodégradables PLA",
+                            "Étiquettes de produits certifiés FSC",
+                            "Adhésif compostable de qualité alimentaire FDA",
+                            "étiquette d'emballage zéro microplastique",
+                            "pouch.eco",
+                            "réaliser des étiquettes de pack"
+                        ]
+                    },
+                    "gallery": {
+                        "item1": {
+                            "title": "Structure des couches compostables",
+                            "desc": "Vue technique éclatée de nos papiers frontaux FSC, de nos encres de soja, de nos bio-adhésifs et de nos doublures glassine."
+                        },
+                        "item2": {
+                            "title": "Chronologie de dégradation sur 180 jours",
+                            "desc": "Processus de décomposition complet montrant comment l'étiquette retourne en toute sécurité au sol, ne laissant aucun microplastique."
+                        },
+                        "item3": {
+                            "title": "Conformité et cas d'utilisation B2B",
+                            "desc": "Notre vaste matrice de certification (FSC, TÜV, FDA, SGS) et nos applications d'emballage professionnelles."
+                        }
+                    },
+                    "photoGallery": {
+                        "p1": {
+                            "title": "Couverture d'étiquette compostable certifiée FSC",
+                            "titleCn": "Autocollant et étiquette compostables certifiés FSC Image principale",
+                            "desc": "Étiquette adhésive compostable officielle certifiée FSC prenant en charge la personnalisation de petits lots, une forte adhérence et des devis 24 heures sur 24."
+                        },
+                        "p2": {
+                            "title": "Infographie de structure écologique premium à 4 couches",
+                            "titleCn": "Schéma du système structurel d'écolabel écologique à quatre couches en or",
+                            "desc": "Conception écologique avancée à 4 couches comprenant un papier frontal PLA végétal biodégradable, des encres d'impression soja/légumes respectueuses de l'environnement, un bio-adhésif sensible à la pression et une doublure anti-adhérente en glassine."
+                        },
+                        "p3": {
+                            "title": "Liste de contrôle de fabrication B2B et d'assurance qualité certifiée FSC",
+                            "titleCn": "Liste d'inspection des processus de fabrication B2B et du contrôle qualité certifiés FSC",
+                            "desc": "Liste de contrôle visuelle démontrant notre tranchage de rouleaux certifié FSC, notre impression numérique de soja multicolore, notre découpe rotative automatisée, notre étalonnage de vision par ordinateur en ligne et notre assistance aux devis B2B 24 heures sur 24."
+                        },
+                        "p4": {
+                            "title": "Obtenez des étiquettes éco-responsables",
+                            "titleCn": "Rouleau d'autocollants écologiques de la marque Achieve Pack",
+                            "desc": "Étiquettes personnalisées pour aliments, compléments et cosmétiques en rouleaux haute densité avec une encre végétale vibrante."
+                        },
+                        "p5": {
+                            "title": "Étiquette de gommage corporel durable Beū",
+                            "titleCn": "Autocollants biodégradables cosmétiques biologiques Beū",
+                            "desc": "Papier frontal en PLA végétal de qualité supérieure, résistant à l'humidité, avec adhésif compostable et impression à base de soja."
+                        },
+                        "p6": {
+                            "title": "Étiquettes thermiques directes durables",
+                            "titleCn": "Label express logistique thermique certifié BPI",
+                            "desc": "Rouleaux d'étiquettes thermiques directes certifiés BPI et compostables avec doublure recyclable et revêtement thermique respectueux de l'environnement."
+                        },
+                        "p7": {
+                            "title": "Réaliser l'étiquette de film de résine durable du pack",
+                            "titleCn": "Achieve Pack Étiquette de film compostable vert",
+                            "desc": "Étiquette en film de résine végétale certifiée durable présentant une impression numérique précise sur toute la largeur et une forte adhérence."
+                        },
+                        "p8": {
+                            "title": "Schéma du processus d'impression d'étiquettes compostables",
+                            "titleCn": "Processus d'impression de production professionnelle d'étiquettes compostables et d'inspection de la qualité",
+                            "desc": "Répartition détaillée du processus de fabrication commerciale B2B, y compris le refendage des matières premières, l'impression numérique avancée, la découpe, l'étalonnage de vision par ordinateur en ligne et l'emballage automatisé."
+                        }
+                    },
+                    "overview": {
+                        "title": "Aperçu des étiquettes adhésives compostables personnalisées",
+                        "para1Strong": "Étiquettes personnalisées 100 % certifiées compostables",
+                        "para1Text": "— La solution d'étiquetage durable ultime pour les marques haut de gamme. Conçu à partir de papier certifié FSC® et d'un film PLA à base d'amidon végétal, combinés à un bio-adhésif sensible à la pression haute performance, conforme au contact alimentaire de la FDA. Ne laisse aucun microplastique et se biodégrade complètement en 180 jours.",
+                        "para2Strong": "Étiquettes autocollantes personnalisées compostables, certifiées à 100 % par l'UE",
+                        "para2Text": "— Une solution autocollante respectueuse de l'environnement spécialement développée pour les marques haut de gamme. Fabriqué à partir de papier certifié forestier FSC® et d'un film PLA d'amidon végétal naturel, ainsi que d'une bio-colle très efficace approuvée par la FDA pour le contact direct avec les aliments. Se dégrade complètement en dioxyde de carbone et en eau en 180 jours, ne laissant aucun microplastique.",
+                        "bullets": {
+                            "b1": "Certifié FSC®",
+                            "b2": "TÜV OK Compost",
+                            "b3": "Contact alimentaire FDA",
+                            "b4": "EN 13432 / ASTM D6400",
+                            "b5": "Faible MOQ (1 000 pièces)"
+                        },
+                        "altSec": {
+                            "title": "Structure écologique premium à 4 couches",
+                            "titleCn": "Système structurel écologique à quatre couches d'or",
+                            "desc": "Nos étiquettes compostables présentent une conception écologique avancée à 4 couches : 1) Papier facial durable certifié FSC ou film PLA biodégradable imprimé avec des encres de soja/végétales respectueuses de l'environnement. 2) Bio-adhésif émulsionné sensible à la pression qui adhère solidement au papier, au verre, aux bioplastiques et au métal. 3) Doublure en papier glassine de qualité supérieure pour un pelage mécanique sans couture.",
+                            "descCn": "Nos étiquettes compostables adoptent une structure écologique innovante à quatre couches : 1) La couche la plus externe est du papier de pâte de bois certifié FSC ou un film PLA à base d'amidon végétal naturel, qui est imprimé en ultra haute définition avec de l'encre respectueuse de l'environnement de la plante de soja ; 2) La couche intermédiaire est constituée d'une bio-colle sensible à la pression en émulsion d'eau, qui présente une adhérence initiale extrêmement forte et une adhérence soutenue ; 3) La couche inférieure est constituée de papier support antiadhésif glassine, qui supporte parfaitement l'étiquetage automatique par les machines."
+                        }
+                    },
+                    "biodegradability": {
+                        "title": "Biodégradabilité et performance du compostage",
+                        "altSec": {
+                            "title": "Zéro microplastique. Biodégradabilité totale.",
+                            "titleCn": "Entièrement biodégradable en 180 jours • Zéro résidu de microplastique",
+                            "desc": "Contrairement aux étiquettes traditionnelles en plastique (PP/PET) qui se décomposent en microplastiques persistants, nos étiquettes compostables en PLA et en papier FSC se dégradent complètement dans des conditions de compostage standard. Pendant 180 jours, les micro-organismes décomposent le papier d'impression, le bio-adhésif et l'encre d'impression à base de plantes en biomasse propre, en eau et en CO2, se fondant ainsi pleinement dans l'écosystème naturel.",
+                            "descCn": "Contrairement aux étiquettes en plastique traditionnelles (PP/PET) qui se décomposent en microplastiques qui polluent l'environnement pendant longtemps, nos étiquettes compostables seront rapidement décomposées par les micro-organismes dans un environnement de compostage standard. Au cours du cycle de dégradation dorée de 180 jours, le matériau de surface, le bio-adhésif et l'encre végétale seront complètement convertis en nutriments organiques, en eau et en dioxyde de carbone, sans qu'il ne reste de métaux lourds ou de toxines chimiques."
+                        },
+                        "table": {
+                            "title": "Performance des matériaux compostables",
+                            "desc": "Notre film PLA à base de plantes présente un léger arôme naturel d'amidon et offre des propriétés exceptionnelles de barrière contre l'huile, la graisse et l'humidité, ce qui le rend supérieur pour les marques cosmétiques et alimentaires.",
+                            "thDimension": "Dimension Performance",
+                            "thPla": "PLA / FSC Compostable",
+                            "thConventional": "PP/PET conventionnel",
+                            "row1Dim": "Taux de dégradation",
+                            "row1Pla": "100% en 180 jours",
+                            "row1Conv": "Non biodégradable",
+                            "row2Dim": "Risque microplastique",
+                            "row2Pla": "Zéro",
+                            "row2Conv": "Extrêmement élevé",
+                            "row3Dim": "Source principale",
+                            "row3Pla": "Amidon de maïs et pâte de bois",
+                            "row3Conv": "À base de pétrole",
+                            "row4Dim": "Certifications écologiques",
+                            "row4Pla": "FSC, TÜV, SGS",
+                            "row4Conv": "Aucune"
+                        },
+                        "safety": {
+                            "title": "Sécurité certifiée du contact alimentaire",
+                            "desc": "Adhérant à des normes strictes d’approvisionnement B2B, notre adhésif en émulsion biologique est certifié FDA 21 CFR 175.105 pour le contact alimentaire indirect. Il offre une excellente fiabilité de liaison à long terme dans des plages de températures allant de -20 °C (congélation) à 70 °C, empêchant ainsi le soulèvement des bords sur les profils de conteneurs humides ou incurvés.",
+                            "boxTitle": "Données techniques des adhésifs B2B :",
+                            "boxItem1": "• Adhérence initiale (test d'adhérence en boucle) : ≥ 12 N/pouce",
+                            "boxItem2": "• Plage de températures de fonctionnement : -20 °C à +70 °C",
+                            "boxItem3": "• Limite d'étiquetage à basse température : -5°C (applicable à la logistique de la chaîne du froid)"
+                        }
+                    },
+                    "certifications": {
+                        "title": "Certifications internationales et capacités industrielles",
+                        "altSec": {
+                            "title": "Conformité mondiale et image de marque durable",
+                            "titleCn": "Certification mondiale faisant autorité et applications multi-scénarios",
+                            "desc": "Conçues spécifiquement pour les marques mondiales, nos étiquettes compostables sont entièrement conformes aux normes forestières de l'Union européenne (EN 13432), nord-américaines (ASTM D6400) et mondiales FSC. Imprimés sur des presses commerciales HP Indigo numériques haute définition, nous garantissons des graphiques éclatants, des détails riches et une présence cohérente de la marque sur tous les cosmétiques biologiques, produits d'épicerie frais, bouteilles de bien-être et boîtes postales.",
+                            "descCn": "Conçu pour les marques multinationales d'exportation. Nos autocollants sont entièrement conformes aux normes de compostage européennes EN 13432 et nord-américaines ASTM D6400 et sont certifiés BPI, DIN CERTCO et FSC Forest Chain. Il adopte la machine d'impression numérique HP numérique importée aux normes nationales, qui est parfaitement compatible avec les applications d'étiquetage tous scénarios telles que les bouteilles en verre de cosmétiques biologiques, les emballages de supermarchés de produits frais, les compléments alimentaires, les boîtes d'emballage extérieur express, etc."
+                        },
+                        "card1": {
+                            "title": "Plus de 21 ans d'expérience B2B",
+                            "desc": "Fabriqué dans notre usine ultramoderne de 3 200 m². Soutenu par les normes mondiales BRC et la gestion de l'assurance qualité certifiée ISO 9001.",
+                            "sub": "21 ans de fabrication physique en usine • 3 200㎡ Expert en technologie d'étiquettes numériques"
+                        },
+                        "card2": {
+                            "title": "Livraison accélérée en 48 heures",
+                            "desc": "Equipé de 4 lignes de production numérique à grande vitesse. Nous prenons en charge les outils de forme personnalisés, les épreuves de mise en page gratuites et l'expédition rapide.",
+                            "sub": "Les commandes urgentes sont expédiées dans les 48 heures • Des échantillons gratuits de composition et d'électronique sont fournis"
+                        },
+                        "card3": {
+                            "title": "Garantie de satisfaction",
+                            "desc": "Chaque lot est soumis à des contrôles de qualité stricts. Nous fournissons une garantie de satisfaction totale et une assistance en matière de réimpression/remboursement pour tout problème d'assurance qualité.",
+                            "sub": "Processus fastidieux - Inspection de qualité couche par couche - Fournit une réimpression après-vente de qualité et une promesse de remboursement"
+                        }
+                    },
+                    "process": {
+                        "title": "Processus de fabrication et d'impression • Impression professionnelle et flux de processus",
+                        "titleEn": "Flux de travail de fabrication de précision",
+                        "titleCn": "Technologie de production et d'impression rigoureuse",
+                        "descEn": "Nos étiquettes compostables sont fabriquées dans notre usine propre de pointe de 3 200 m². Nous mettons en œuvre un contrôle de qualité standard en plusieurs étapes pour garantir que la performance physique des étiquettes répond aux normes internationales rigoureuses de compostabilité (EN 13432 et BPI) tout en conservant une excellente présentation au détail.",
+                        "descCn": "Nos étiquettes compostables sont fabriquées dans une usine sans poussière de 3 200 m² équipée d'équipements de production de pointe. Nous mettons en œuvre des tests de qualité rigoureux en plusieurs étapes pour garantir que les propriétés physiques de l'étiquette sont conformes aux normes internationales strictes de compostage telles que EN 13432 et BPI, tout en conservant une excellente présentation au détail.",
+                        "card1": {
+                            "title": "1. Presses HP Indigo multicolores",
+                            "desc": "Équipé de presses numériques rouleau à rouleau HP Indigo, leader du secteur, utilisant des encres végétales de qualité alimentaire pour des textes nets et des couleurs éclatantes.",
+                            "sub": "Équipé d'une machine d'impression numérique HP et imprimé avec de l'encre de soja non toxique et respectueuse de l'environnement, garantissant des motifs exquis et des couleurs saturées."
+                        },
+                        "card2": {
+                            "title": "2. Découpe à grande vitesse",
+                            "desc": "Systèmes de découpe rotatifs mécaniques précis avec des tolérances de ± 0,15 mm pour s'adapter aux flux de travail des machines d'étiquetage automatisées.",
+                            "sub": "À l'aide d'une machine de découpe rotative de haute précision, l'erreur est contrôlée à ± 0,15 mm et prend en charge les lignes de production de machines d'étiquetage semi-automatiques ou entièrement automatiques."
+                        },
+                        "card3": {
+                            "title": "3. Assurance qualité de la vision par ordinateur en ligne",
+                            "desc": "Des capteurs optiques automatisés vérifient la cohérence de l’impression, l’alignement des bords et la profondeur de l’adhésif pour garantir des lots B2B zéro défaut.",
+                            "sub": "Équipé d'un système de détection visuelle des défauts en ligne pour filtrer les taches sales, les rayures et les différences de couleur en temps réel afin de garantir un taux de réussite en usine de 100 %."
+                        },
+                        "card4": {
+                            "title": "4. Emballage sécurisé pour le transport aérien",
+                            "desc": "Emballage en carton robuste avec dessicants d'humidité pour préserver l'activité moléculaire bioadhésive pendant le transit aérien international.",
+                            "sub": "Il est emballé dans une boîte extérieure de haute dureté et dispose d'un déshydratant intégré résistant à l'humidité pour verrouiller l'activité de la colle biologique afin de garantir que la logistique internationale longue distance est intacte."
+                        }
+                    },
+                    "specs": {
+                        "title": "Spécifications et options de prix",
+                        "thMaterial": "Type de matériau",
+                        "thAdhesive": "Type d'adhésif",
+                        "thMoisture": "Barrière eau/graisse",
+                        "thLeadTime": "Redressement (numérique)",
+                        "thUseCase": "Applications idéales",
+                        "row1": {
+                            "material": "Papier certifié FSC",
+                            "adhesive": "Bio-adhésif en émulsion",
+                            "moisture": "Médium (Vernis waterproof disponible)",
+                            "leadTime": "3-5 jours ouvrables",
+                            "useCase": "Boîtes d'expédition en carton DTC, sacs de boulangerie bio secs"
+                        },
+                        "row2": {
+                            "material": "Film PLA compostable (blanc)",
+                            "adhesive": "Bio-adhésif en émulsion",
+                            "moisture": "Élevé (barrière exceptionnelle contre l’eau et la graisse)",
+                            "leadTime": "5-7 jours ouvrables",
+                            "useCase": "Huiles essentielles bio, pots en verre cosmétiques pour le bain, pochettes glacées"
+                        },
+                        "row3": {
+                            "material": "Film PLA compostable (clair)",
+                            "adhesive": "Bio-adhésif en émulsion",
+                            "moisture": "Élevé (excellente clarté optique)",
+                            "leadTime": "5-7 jours ouvrables",
+                            "useCase": "Bouteilles de jus haut de gamme, produits gastronomiques biologiques visibles"
+                        },
+                        "card1": {
+                            "val": "60 $ US",
+                            "sub": "Prix ​​de départ pour 1 000 pièces",
+                            "detail": "Aperçu gratuit de la conception numérique inclus"
+                        },
+                        "card2": {
+                            "val": "100% Gratuit",
+                            "sub": "Devis instantané B2B en 30 secondes",
+                            "detail": "Préparation gratuite de la mise en page par un expert"
+                        },
+                        "card3": {
+                            "val": "Jusqu'à 15%",
+                            "sub": "Remise sur la conception multi-SKU",
+                            "detail": "Économisez en imprimant plusieurs variantes"
+                        }
+                    },
+                    "faq": {
+                        "title": "Foire aux questions",
+                        "q1": {
+                            "q": "Ces étiquettes sont-elles certifiées sans danger pour le contact alimentaire ?",
+                            "a": "Oui. L'adhésif en émulsion biologique sensible à la pression utilisé dans nos étiquettes est conforme à la réglementation stricte FDA 21 CFR 175.105 pour le contact alimentaire indirect. Cela rend nos étiquettes exceptionnellement sûres pour une application sur des cartons de produits frais, des emballages de boulangerie et des sachets d'ingrédients biologiques sans migration de substances toxiques."
+                        },
+                        "q2": {
+                            "q": "Les étiquettes peuvent-elles résister aux basses températures (congélation) ?",
+                            "a": "Absolument. Nos étiquettes compostables sont conçues pour garantir la fiabilité de la chaîne du froid. Une fois appliquée à des températures ambiantes normales (ou dans des environnements d'étiquetage à froid jusqu'à -5°C), la structure de liaison moléculaire adhésive conserve toute sa cohésion et ses performances à l'intérieur des congélateurs et des environnements de stockage frigorifique allant de -20°C à +70°C."
+                        },
+                        "q3": {
+                            "q": "Comment les étiquettes compostables se comparent-elles aux autocollants en plastique PP/PET standards ?",
+                            "a": "Les autocollants traditionnels en plastique (BOPP, PET) sont dérivés du pétrole et se décomposent en microplastiques qui mettent des centaines d'années à se fragmenter, polluant ainsi de manière permanente la terre et l'eau. Nos étiquettes compostables en pâte de bois PLA et FSC sont issues de ressources végétales durables. Lorsqu'ils sont éliminés dans des systèmes de compostage industriel ou organique, ils se dégradent complètement en 180 jours, ne laissant aucun microplastique, aucun résidu et un rendement de compostage sain."
+                        },
+                        "q4": {
+                            "q": "Quelle est la quantité minimum de commande (MOQ) et le délai de production ?",
+                            "a": "Pour soutenir les startups durables (via Pouch.eco) et la grande logistique commerciale B2B (via reachpack.com), nous avons établi un faible MOQ personnalisé de seulement 1 000 pièces. L'impression numérique standard prend 3 à 5 jours ouvrables pour les étiquettes en papier FSC et 5 à 7 jours ouvrables pour les formes de film PLA personnalisées, avec une expédition aérienne accélérée dans le monde entier."
+                        }
+                    },
+                    "cta": {
+                        "title": "Lancez votre campagne de label durable",
+                        "desc": "Que vous ayez besoin d'une capacité de vente en gros commerciale B2B ou d'un emballage de commerce électronique à faible MOQ, nous proposons des configurations gratuites de preuve de conception et des consultations instantanées. Transformez vos étiquettes de produits dès aujourd'hui.",
+                        "btnCall": "Réservez une consultation gratuite sur l’emballage",
+                        "btnWa": "Spécialiste WhatsApp B2B",
+                        "btnMail": "Demander un devis personnalisé gratuit",
+                        "footer": "Fiers partenaires B2B derrière reachpack.com et Pouch.eco • Plus de 21 ans d'excellence en usine directe"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

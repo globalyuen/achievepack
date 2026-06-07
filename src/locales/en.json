@@ -12654,6 +12654,403 @@
                         }
                     }
                 }
+            },
+            "customCompostableLabels": {
+                "pouch": {
+                    "seo": {
+                        "title": "Custom Compostable Labels | FSC Certified PLA Stickers",
+                        "description": "Certified compostable custom adhesive labels from 1,000 units. FDA food-grade, water-resistant, zero microplastics. Perfect for organic cosmetics, bottles, and boxes. Fast global shipping.",
+                        "keywords": [
+                            "custom compostable labels",
+                            "PLA biodegradable stickers",
+                            "FSC certified product labels",
+                            "FDA food-grade compostable adhesive",
+                            "zero microplastic packaging label",
+                            "pouch.eco"
+                        ]
+                    },
+                    "hero": {
+                        "badge": "100% Certified Eco-Friendly",
+                        "title": "COMPOSTABLE",
+                        "subtitle": "FSC® wood-pulp paper & plant starch PLA films. High-performance bio-adhesive. Complete biodegradation leaving zero microplastics.",
+                        "btnCall": "Book Free Call",
+                        "btnWa": "WhatsApp B2B",
+                        "imageAlt": "FSC Certified Compostable Label",
+                        "moqLabel": "LOW MOQ: 1,000!"
+                    },
+                    "benefits": {
+                        "title": "ADVANCED ECOLOGICAL PERFORMANCE",
+                        "card1": {
+                            "title": "180-Day Degradation",
+                            "desc": "100% home & industrial compostable. Under composting environments, labels disintegrate into organic biomass, water, and CO2 in 6 months."
+                        },
+                        "card2": {
+                            "title": "Food-Grade Adhesive",
+                            "desc": "FDA 21 CFR 175.105 certified biological pressure-sensitive adhesive. Safe for direct & indirect contact with organic foodstuffs and skincare."
+                        },
+                        "card3": {
+                            "title": "Water & Oil Proof",
+                            "desc": "High-barrier plant PLA film choices provide stellar moisture, fat, and oil resistance. Ideal for cosmetics, bottles, and bath oils."
+                        },
+                        "card4": {
+                            "title": "HP Indigo Printing",
+                            "desc": "Ultra-high-definition digital HP Indigo multi-color presses using certified eco-friendly vegetable/soy inks. Exquisite design details."
+                        }
+                    },
+                    "structure": {
+                        "badge": "The Green Standard",
+                        "title": "4-LAYER STRUCTURE",
+                        "intro": "Our compostable labels feature an advanced 4-layer ecological design:",
+                        "step1": {
+                            "title": "1. Sustainable Face Paper or PLA Film",
+                            "desc": "Made of FSC-certified wood pulp stock or bio-based plant PLA starch film. Printed with certified soy and vegetable eco-inks for vivid graphics."
+                        },
+                        "step2": {
+                            "title": "2. Emulsified Bio-Adhesive Layer",
+                            "desc": "High-performance pressure-sensitive compostable adhesive that creates an outstanding permanent bond to glass, paper, bioplastics, and metals."
+                        },
+                        "step3": {
+                            "title": "3. Premium Glassine Release Liner",
+                            "desc": "Top-grade release paper providing smooth mechanical peeling and full compatibility with high-speed automated B2B labeling machines."
+                        },
+                        "clickExpand": "[CLICK TO EXPAND STRUCTURE DIAGRAM]",
+                        "imgAlt": "Premium 4-Layer Ecological Structure Infographic"
+                    },
+                    "qa": {
+                        "badge": "Industrial Integrity",
+                        "title": "B2B MANUFACTURING & QUALITY CONTROL",
+                        "desc": "Our labels are manufactured in clean, humidity-controlled BRCGS & ISO-9001 certified B2B production lines. We guarantee structural cohesion and color accuracy under extreme logistics environments.",
+                        "card1": {
+                            "title": "Rotary Die-Cutting",
+                            "desc": "Perfect shape cutting calibrated within ±0.15mm tolerance. Ready for automated roll application."
+                        },
+                        "card2": {
+                            "title": "Computer Vision",
+                            "desc": "Inline visual verification systems continuously detect alignment errors, scratches, and color deviancy."
+                        },
+                        "card3": {
+                            "title": "Bio-Based Soy Inks",
+                            "desc": "100% biodegradable printing vegetable ink offering vivid Pantone-level fidelity without heavy metal content."
+                        },
+                        "card4": {
+                            "title": "Moisture Protection",
+                            "desc": "Carton packaging with desiccant protection ensures that biological adhesive remains pristine before application."
+                        },
+                        "imgAlt": "B2B Manufacturing QA Checklist",
+                        "clickExpand": "[CLICK TO EXPAND QA CHECKLIST]"
+                    },
+                    "samples": {
+                        "title": "REAL-WORLD SAMPLES",
+                        "desc": "Click any production sample or diagram to inspect the high resolution details"
+                    },
+                    "specs": {
+                        "title": "SPECIFICATIONS & PRICING",
+                        "thMaterial": "Material Spec",
+                        "thAdhesive": "Adhesive Type",
+                        "thMoisture": "Moisture Shield",
+                        "thLeadTime": "Lead Time",
+                        "thUseCase": "Use-Case",
+                        "row1": {
+                            "material": "FSC Certified Eco-Paper",
+                            "adhesive": "Permanent Emulsion",
+                            "moisture": "Medium (Varnish optional)",
+                            "leadTime": "3-5 Business Days",
+                            "useCase": "Kraft pouch labeling, paper mailer box graphics, dry bakeries"
+                        },
+                        "row2": {
+                            "material": "PLA Biopolymer Film (White)",
+                            "adhesive": "Permanent Emulsion",
+                            "moisture": "High Waterproof / Greaseproof",
+                            "leadTime": "5-7 Business Days",
+                            "useCase": "Moist supplement jars, frozen packaging pouches, skincare products"
+                        },
+                        "row3": {
+                            "material": "PLA Biopolymer Film (Clear)",
+                            "adhesive": "Permanent Emulsion",
+                            "moisture": "High Waterproof / Transparency",
+                            "leadTime": "5-7 Business Days",
+                            "useCase": "Clear premium glass bottles, organic juice bottles, transparent pouching"
+                        },
+                        "card1": {
+                            "price": "US$60",
+                            "sub": "Starting Price / 1,000 Pcs",
+                            "detail": "Includes complimentary artwork layout reviews"
+                        },
+                        "card2": {
+                            "price": "Free",
+                            "sub": "24-Hour B2B Soft Proof",
+                            "detail": "Get precise digital markup of your shapes and colors"
+                        },
+                        "card3": {
+                            "price": "Up to 15%",
+                            "sub": "Multi-SKU Custom Discount",
+                            "detail": "Order multiple label variations together and save major costs"
+                        }
+                    },
+                    "faq": {
+                        "title": "FREQUENTLY ASKED QUESTIONS"
+                    },
+                    "cta": {
+                        "title": "LAUNCH YOUR CUSTOM ECO LABELS TODAY",
+                        "desc": "Elevate your packaging credentials with 100% certified biopolymers. Get free mockups, instant support, and fast turnaround.",
+                        "btnCall": "Schedule B2B Call",
+                        "btnWa": "WhatsApp Live Support"
+                    }
+                },
+                "achievePack": {
+                    "seo": {
+                        "title": "Custom Compostable Labels | FSC Certified PLA Stickers | Achieve Pack",
+                        "description": "FSC certified & compostable custom labels. FDA food-grade biodegradable bio-adhesive. Perfect for cosmetics, bottles, and boxes. Low MOQ 1000 pcs, ship globally.",
+                        "canonicalUrl": "https://achievepack.com/products/custom-compostable-labels",
+                        "heroTitle": "Custom Compostable Labels",
+                        "heroSubtitle": "FSC® Certified • 100% Biodegradable PLA • FDA Food-Grade Adhesive",
+                        "introSummary": "Certified compostable custom adhesive stickers and labels engineered from FSC wood pulp paper and plant starch PLA film. Backed by high-performance emulsion bio-adhesive that degrades safely into compost in 180 days with zero microplastics.",
+                        "heroImageAlt": "Custom Compostable Labels",
+                        "keywords": [
+                            "custom compostable labels",
+                            "PLA biodegradable stickers",
+                            "FSC certified product labels",
+                            "FDA food-grade compostable adhesive",
+                            "zero microplastic packaging label",
+                            "pouch.eco",
+                            "achieve pack labels"
+                        ]
+                    },
+                    "gallery": {
+                        "item1": {
+                            "title": "Compostable Layer Structure",
+                            "desc": "Exploded engineering view of our FSC face stock, soy-ink, bio-adhesive, and glassine liner."
+                        },
+                        "item2": {
+                            "title": "180-Day Degradation Timeline",
+                            "desc": "Complete breakdown process showing how the label returns safely to the soil leaving zero microplastics."
+                        },
+                        "item3": {
+                            "title": "Compliance & B2B Use-Cases",
+                            "desc": "Our extensive certification matrix (FSC, TÜV, FDA, SGS) and professional packaging applications."
+                        }
+                    },
+                    "photoGallery": {
+                        "p1": {
+                            "title": "FSC Certified Compostable Label Cover",
+                            "titleCn": "FSC 認證可堆肥貼紙與標籤主圖",
+                            "desc": "Official FSC-certified compostable adhesive label supporting small batch customization, strong adhesion, and 24-hour quotes."
+                        },
+                        "p2": {
+                            "title": "Premium 4-Layer Ecological Structure Infographic",
+                            "titleCn": "四層黃金環保生態標籤結構體系圖",
+                            "desc": "Advanced 4-layer ecological design featuring biodegradable plant PLA face stock, eco-friendly soy/vegetable printing inks, pressure-sensitive bio-adhesive, and glassine release liner."
+                        },
+                        "p3": {
+                            "title": "FSC Certified B2B Manufacturing & QA Checklist",
+                            "titleCn": "FSC 認證 B2B 生產製造工藝與品控檢驗清單",
+                            "desc": "Visual checklist demonstrating our FSC certified rollstock slicing, digital multi-color soy printing, automated rotary die-cutting, inline computer vision calibration, and B2B 24-hour quotation support."
+                        },
+                        "p4": {
+                            "title": "Achieve Pack Eco-Conscious Labels",
+                            "titleCn": "Achieve Pack 品牌環保貼紙捲料",
+                            "desc": "Custom printed food, supplement, and cosmetic labels in high-density rolls with vibrant vegetable ink."
+                        },
+                        "p5": {
+                            "title": "Beū Sustainable Body Scrub Label",
+                            "titleCn": "Beū 有機化妝品生物降解貼紙",
+                            "desc": "Premium moisture-resistant plant PLA face stock with compostable adhesive and soy-based printing."
+                        },
+                        "p6": {
+                            "title": "Sustainable Direct Thermal Labels",
+                            "titleCn": "BPI認證熱敏物流快遞標籤",
+                            "desc": "BPI certified and compostable direct thermal label rolls with recyclable liner and eco-conscious thermal coating."
+                        },
+                        "p7": {
+                            "title": "Achieve Pack Sustainable Resin Film Label",
+                            "titleCn": "Achieve Pack 綠色可堆肥薄膜標籤",
+                            "desc": "Certified sustainable plant-based resin film label exhibiting precise, full-width digital printing and strong adhesion."
+                        },
+                        "p8": {
+                            "title": "Compostable Label Printing Process Diagram",
+                            "titleCn": "可堆肥標籤專業生產印刷與質檢工藝流程",
+                            "desc": "Detailed B2B commercial manufacturing process breakdown including raw material slitting, advanced digital printing, die-cutting, inline computer vision calibration, and automated packaging."
+                        }
+                    },
+                    "overview": {
+                        "title": "Custom Compostable Adhesive Labels Overview",
+                        "para1Strong": "100% Certified Compostable Custom Labels",
+                        "para1Text": " — The ultimate sustainable labeling solution for premium brands. Engineered using FSC® certified paper and plant-starch PLA film, combined with a high-performance, FDA food-contact compliant pressure-sensitive bio-adhesive. Leave zero microplastics and completely biodegrade within 180 days.",
+                        "para2Strong": "100% 歐盟認證可堆肥客製貼紙標籤",
+                        "para2Text": " — 專為高端品牌研發的環保不干膠解決方案。採用 FSC® 森林認證紙張與天然植物澱粉 PLA 薄膜，配合 FDA 認證可與食品直接接觸的高效生物膠水。180天內完全降解為二氧化碳和水，不殘留任何微塑料。",
+                        "bullets": {
+                            "b1": "FSC® Certified",
+                            "b2": "TÜV OK Compost",
+                            "b3": "FDA Food Contact",
+                            "b4": "EN 13432 / ASTM D6400",
+                            "b5": "Low MOQ (1,000 pcs)"
+                        },
+                        "altSec": {
+                            "title": "Premium 4-Layer Ecological Structure",
+                            "titleCn": "四層黃金環保結構體系",
+                            "desc": "Our compostable labels feature an advanced 4-layer ecological design: 1) Sustainable FSC-certified face paper or biodegradable PLA film printed with eco-friendly soy/vegetable inks. 2) Emulsified pressure-sensitive bio-adhesive that bonds securely to paper, glass, bio-plastics, and metal. 3) Premium glassine paper liner for seamless mechanical peeling.",
+                            "descCn": "我們的可堆肥標籤採用創新的四層生態結構：1) 最外層為 FSC 森林認證木漿紙或天然植物澱粉 PLA 薄膜，以大豆植物環保油墨進行超高清印刷；2) 中間為水乳型壓敏性生物膠水，具備極強的初粘性與持粘性；3) 底層採用格拉辛離型底紙，完美支持機器自動貼標。"
+                        }
+                    },
+                    "biodegradability": {
+                        "title": "Biodegradability & Composting Performance",
+                        "altSec": {
+                            "title": "Zero Microplastics. Complete Biodegradability.",
+                            "titleCn": "180天完全生物降解 • 零微塑料殘留",
+                            "desc": "Unlike traditional plastic (PP/PET) labels that break down into persistent microplastics, our PLA and FSC-paper compostable labels completely degrade under standard composting conditions. Over 180 days, microorganisms break down the face stock, bio-adhesive, and plant-based printing ink into clean biomass, water, and CO2, fully blending back into the natural eco-system.",
+                            "descCn": "與傳統塑料標籤（PP/PET）破碎成微塑料長期污染環境不同，我們的可堆肥標籤在標準堆肥環境下會迅速被微生物分解。在180天的黃金降解周期內，面材、生物黏合劑及植物油墨將徹底轉化為有機養分、水及二氧化碳，無重金屬或化學毒素殘留。"
+                        },
+                        "table": {
+                            "title": "Compostable Material Performance",
+                            "desc": "Our plant-based PLA film exhibits a slight natural starch aroma and provides outstanding oil, grease, and moisture barrier properties, making it superior for cosmetic and food brands.",
+                            "thDimension": "Performance Dimension",
+                            "thPla": "PLA / FSC Compostable",
+                            "thConventional": "Conventional PP/PET",
+                            "row1Dim": "Degradation Rate",
+                            "row1Pla": "100% in 180 days",
+                            "row1Conv": "Non-biodegradable",
+                            "row2Dim": "Microplastic Risk",
+                            "row2Pla": "Zero",
+                            "row2Conv": "Extremely High",
+                            "row3Dim": "Primary Source",
+                            "row3Pla": "Corn starch & Wood pulp",
+                            "row3Conv": "Petroleum-based",
+                            "row4Dim": "Eco Certifications",
+                            "row4Pla": "FSC, TÜV, SGS",
+                            "row4Conv": "None"
+                        },
+                        "safety": {
+                            "title": "Certified Food Contact Safety",
+                            "desc": "Adhering to strict B2B procurement standards, our biological emulsion adhesive is certified under FDA 21 CFR 175.105 for indirect food contact. It provides excellent long-term bonding reliability under temperature ranges from -20°C (deep freeze) to 70°C, preventing edge lifting on damp or curved container profiles.",
+                            "boxTitle": "B2B Adhesive Technical Data:",
+                            "boxItem1": "• Initial Tack (loop tack test): ≥ 12 N/inch",
+                            "boxItem2": "• Operating Temperature Range: -20°C to +70°C",
+                            "boxItem3": "• Low Temperature Labeling Limit: -5°C (applicable to cold chain logistics)"
+                        }
+                    },
+                    "certifications": {
+                        "title": "International Certifications & Industrial Capabilities",
+                        "altSec": {
+                            "title": "Global Compliance & Sustainable Branding",
+                            "titleCn": "全球權威認證與多場景應用",
+                            "desc": "Designed specifically for global brands, our compostable labels are fully compliant with European Union (EN 13432), North American (ASTM D6400), and global FSC forest standards. Printed on high-definition digital HP Indigo commercial presses, we ensure vibrant graphics, rich detail, and consistent brand presence across all organic cosmetics, fresh grocery items, wellness bottles, and mailing boxes.",
+                            "descCn": "為跨國出口品牌量身定制。我們的貼紙完全符合歐盟 EN 13432 與北美 ASTM D6400 堆肥標準，獲得 BPI、DIN CERTCO 與 FSC 森林鏈認證。採用國標頂尖進口數碼惠普數碼印刷機，完美兼容有機化妝品玻璃瓶、生鮮超市包裝、膳食補充劑、快遞外包裝箱等全場景貼標應用。"
+                        },
+                        "card1": {
+                            "title": "21+ Years B2B Experience",
+                            "desc": "Manufactured in our 3,200 m² state-of-the-art facility. Backed by BRC Global Standards and ISO 9001 certified QA management.",
+                            "sub": "21年實體工廠製造 • 3200㎡ 數字化標籤工藝專家"
+                        },
+                        "card2": {
+                            "title": "48-Hour Expedited Delivery",
+                            "desc": "Equipped with 4 high-speed digital production lines. We support custom shape tooling, free layout proofs, and fast shipping.",
+                            "sub": "急單支持48小時極速出貨 • 提供免費排版與電子樣稿"
+                        },
+                        "card3": {
+                            "title": "Satisfaction Guarantee",
+                            "desc": "Every batch goes through strict quality inspections. We provide a full satisfaction guarantee and reprint/refund support for any QA issues.",
+                            "sub": "繁瑣工序 - 層層質檢 - 提供品質售後重印退款承諾"
+                        }
+                    },
+                    "process": {
+                        "title": "Manufacturing & Printing Process • 專業印刷與工藝流程",
+                        "titleEn": "Precision Manufacturing Workflow",
+                        "titleCn": "嚴謹的生產印刷工藝",
+                        "descEn": "Our compostable labels are manufactured in our state-of-the-art 3,200 m² clean facility. We implement a standard multi-stage quality check to ensure that the physical performance of the labels meets rigorous international compostability standards (EN 13432 & BPI) while retaining excellent retail presentation.",
+                        "descCn": "我們的可堆肥標籤在配備先進生產設備的 3200 ㎡ 無塵工廠中製造。我們實施嚴格的多階段品質檢測，以確保標籤的物理性能符合 EN 13432 和 BPI 等嚴格的國際堆肥標準，同時保持出色的零售展示效果。",
+                        "card1": {
+                            "title": "1. Multi-Color HP Indigo Presses",
+                            "desc": "Equipped with industry-leading HP Indigo digital roll-to-roll presses using food-safe vegetable inks for crisp text and vibrant colors.",
+                            "sub": "配備惠普數字印刷機，採用無毒環保大豆油墨印刷，保證圖案精緻、色彩飽和。"
+                        },
+                        "card2": {
+                            "title": "2. High-Speed Die-Cutting",
+                            "desc": "Precise mechanical rotary die-cut systems with ±0.15mm tolerances to fit automated labeling machinery workflows.",
+                            "sub": "使用高精度旋轉模切機，誤差控制在 ±0.15mm 以內，支持半自動或全自動貼標機生產線。"
+                        },
+                        "card3": {
+                            "title": "3. Inline Computer Vision QA",
+                            "desc": "Automated optic sensors verify print consistency, edge alignment, and adhesive depth to ensure zero-defect B2B batches.",
+                            "sub": "配備在線視覺缺陷檢測系統，實時篩查髒點、劃痕、色差，確保出廠合格率 100%。"
+                        },
+                        "card4": {
+                            "title": "4. Secure Air Shipping Packing",
+                            "desc": "Heavy-duty carton boxing with moisture desiccants to preserve the bio-adhesive molecular activity during international air transit.",
+                            "sub": "採用高硬度外箱封裝，內置防潮乾燥劑，鎖定生物膠水活性，確保遠途國際物流完好無損。"
+                        }
+                    },
+                    "specs": {
+                        "title": "Specifications & Pricing Options",
+                        "thMaterial": "Material Type",
+                        "thAdhesive": "Adhesive Type",
+                        "thMoisture": "Water / Grease Barrier",
+                        "thLeadTime": "Turnaround (Digital)",
+                        "thUseCase": "Ideal Applications",
+                        "row1": {
+                            "material": "FSC Certified Paper",
+                            "adhesive": "Emulsion Bio-Adhesive",
+                            "moisture": "Medium (Waterproof varnish available)",
+                            "leadTime": "3-5 Business Days",
+                            "useCase": "DTC cardboard shipping boxes, dry organic bakery bags"
+                        },
+                        "row2": {
+                            "material": "Compostable PLA Film (White)",
+                            "adhesive": "Emulsion Bio-Adhesive",
+                            "moisture": "High (Outstanding water & grease barrier)",
+                            "leadTime": "5-7 Business Days",
+                            "useCase": "Organic essential oils, bath cosmetic glass jars, frozen pouches"
+                        },
+                        "row3": {
+                            "material": "Compostable PLA Film (Clear)",
+                            "adhesive": "Emulsion Bio-Adhesive",
+                            "moisture": "High (Excellent optical clarity)",
+                            "leadTime": "5-7 Business Days",
+                            "useCase": "Premium retail juice bottles, visible organic gourmet goods"
+                        },
+                        "card1": {
+                            "val": "US$60",
+                            "sub": "Starting Price for 1,000 Pcs",
+                            "detail": "Free digital design preview included"
+                        },
+                        "card2": {
+                            "val": "100% Free",
+                            "sub": "30-Second B2B Instant Quote",
+                            "detail": "Free expert layout preparation"
+                        },
+                        "card3": {
+                            "val": "Up to 15%",
+                            "sub": "Multi-SKU Design Discount",
+                            "detail": "Save by printing multiple variants"
+                        }
+                    },
+                    "faq": {
+                        "title": "Frequently Asked Questions",
+                        "q1": {
+                            "q": "Are these labels certified safe for food contact?",
+                            "a": "Yes. The biological pressure-sensitive emulsion adhesive used in our labels complies with the strict FDA 21 CFR 175.105 regulation for indirect food contact. This makes our labels exceptionally safe for application on fresh food cartons, bakery wraps, and organic ingredient pouches without migrating toxic substances."
+                        },
+                        "q2": {
+                            "q": "Can the labels withstand low temperatures (deep freezing)?",
+                            "a": "Absolutely. Our compostable labels are engineered for cold chain reliability. Once applied at normal room temperatures (or cold labeling environments down to -5°C), the adhesive molecular bonding structure retains full cohesion and performance inside deep freezers and cold storage environments ranging from -20°C to +70°C."
+                        },
+                        "q3": {
+                            "q": "How do compostable labels compare to standard PP/PET plastic stickers?",
+                            "a": "Traditional plastic (BOPP, PET) stickers are petroleum-derived and break down into microplastics that take hundreds of years to fragment, permanently polluting land and water. Our compostable PLA and FSC wood-pulp labels are derived from sustainable plant resources. When disposed of in industrial or organic composting systems, they completely degrade in 180 days leaving zero microplastics, zero residues, and a healthy composting output."
+                        },
+                        "q4": {
+                            "q": "What is the Minimum Order Quantity (MOQ) and production turnaround?",
+                            "a": "To support sustainable startups (via pouch.eco) and large B2B commercial logistics (via achievepack.com), we have established a low custom MOQ of just 1,000 pieces. Standard digital printing takes 3-5 business days for FSC paper labels, and 5-7 business days for custom PLA film shapes, with expedited air shipping globally."
+                        }
+                    },
+                    "cta": {
+                        "title": "Launch Your Sustainable Label Campaign",
+                        "desc": "Whether you require B2B commercial wholesale capacity or low MOQ e-commerce packaging, we provide free design proof setups and instant consultations. Transition your product labels today.",
+                        "btnCall": "Book Free Packaging Consultation",
+                        "btnWa": "WhatsApp B2B Specialist",
+                        "btnMail": "Request Free Custom Quote",
+                        "footer": "Proud B2B partners behind achievepack.com and pouch.eco • 21+ Years Factory-Direct Excellence"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
