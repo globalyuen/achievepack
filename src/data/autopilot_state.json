@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T11:31:12.462Z",
+  "lastUnifiedRun": "2026-06-07T11:45:39.256Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1575,17 +1575,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "digital-printed-compostable-bags-for-beverages",
       "status": "Pending Approval",
       "volume": 750,
       "keyword": "digital printed compostable bags for beverages",
-      "difficulty": "Low",
-      "slug": "digital-printed-compostable-bags-for-beverages"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1600,
       "keyword": "stand up pouch filling and sealing for small business",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "stand-up-pouch-filling-and-sealing-for-small-business"
     },
     {
       "status": "Pending",
@@ -1722,9 +1723,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T11:30:41.625Z",
+      "timestamp": "2026-06-07T11:45:26.181Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printed compostable bags for beverages\" to /blog/digital-printed-compostable-bags-for-beverages (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch filling and sealing for small business\" to /blog/stand-up-pouch-filling-and-sealing-for-small-business (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed compostable bags for beverages\" to /blog/digital-printed-compostable-bags-for-beverages (Pending Approval)",
+      "timestamp": "2026-06-07T11:30:41.625Z"
     },
     {
       "action": "Autopilot Generation Draft",
