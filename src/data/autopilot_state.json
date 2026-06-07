@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T00:15:31.463Z",
+  "lastUnifiedRun": "2026-06-07T00:30:30.631Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1260,17 +1260,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-films-for-retort-packaging",
       "status": "Pending Approval",
       "volume": 1100,
       "keyword": "high barrier films for retort packaging",
-      "difficulty": "Medium",
-      "slug": "high-barrier-films-for-retort-packaging"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 790,
       "keyword": "eco friendly custom pouch printing",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-custom-pouch-printing"
     },
     {
       "status": "Pending",
@@ -1353,9 +1354,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T00:15:23.868Z",
+      "timestamp": "2026-06-07T00:30:22.629Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier films for retort packaging\" to /blog/high-barrier-films-for-retort-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly custom pouch printing\" to /blog/eco-friendly-custom-pouch-printing (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier films for retort packaging\" to /blog/high-barrier-films-for-retort-packaging (Pending Approval)",
+      "timestamp": "2026-06-07T00:15:23.868Z"
     },
     {
       "action": "Autopilot Generation Draft",
