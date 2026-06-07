@@ -756,6 +756,31 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                     </div>
                   </div>
                 </div>
+
+                {/* ACHIEVEPACK CORPORATE SEAL */}
+                <svg className="absolute right-[40px] bottom-[5px] opacity-85 transform rotate-[-8deg] pointer-events-none" width="85" height="85" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#ef4444" strokeWidth="2" strokeDasharray="94 1.5" />
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="#ef4444" strokeWidth="0.75" />
+                  <path id="preview-seal-path" d="M 15 50 A 35 35 0 0 1 85 50" fill="none" />
+                  <text fill="#ef4444" fontSize="5.8" fontWeight="bold" letterSpacing="0.6">
+                    <textPath href="#preview-seal-path" startOffset="50%" textAnchor="middle">
+                      ACHIEVE PACK CO., LIMITED
+                    </textPath>
+                  </text>
+                  <path id="preview-seal-zh-path" d="M 22 50 A 28 28 0 0 0 78 50" fill="none" />
+                  <text fill="#ef4444" fontSize="6.2" fontWeight="bold" letterSpacing="0.4">
+                    <textPath href="#preview-seal-zh-path" startOffset="50%" textAnchor="middle">
+                      达之包装有限公司
+                    </textPath>
+                  </text>
+                  <polygon points="50,38 53,46 62,46 55,51 58,59 50,54 42,59 45,51 38,46 47,46" fill="#ef4444" />
+                  <text x="50" y="71" fill="#ef4444" fontSize="6.8" fontWeight="bold" textAnchor="middle">
+                    专用章
+                  </text>
+                  <text x="50" y="79" fill="#ef4444" fontSize="4.2" fontFamily="monospace" textAnchor="middle" letterSpacing="0.1">
+                    79945613213015
+                  </text>
+                </svg>
               </div>
 
             </div>
@@ -780,21 +805,19 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
               color: black;
               font-family: Arial, sans-serif;
             }
-            .print-page {
+          .print-page {
               width: 297mm;
-              height: 210mm;
-              padding: 10mm 15mm;
+              height: 200mm;
+              max-height: 200mm;
+              padding: 4mm 6mm;
               position: relative;
-              page-break-after: always !important;
+              page-break-after: avoid !important;
               page-break-inside: avoid !important;
               box-sizing: border-box;
               overflow: hidden;
               display: flex;
               flex-direction: column;
               justify-content: space-between;
-            }
-            .print-page:last-child {
-              page-break-after: avoid !important;
             }
             .print-page tr {
               page-break-inside: avoid !important;
@@ -812,16 +835,15 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             .print-page table {
               border-collapse: collapse !important;
               width: 100% !important;
-              margin-top: 4px !important;
-              margin-bottom: 4px !important;
+              margin-bottom: 2px !important;
               page-break-inside: avoid !important;
             }
             .print-page th, 
             .print-page td {
               border: 0.5px solid #7f8c8d !important;
-              padding: 3px 5px !important;
-              font-size: 7.5px !important;
-              line-height: 1.2 !important;
+              padding: 0.5px 1.5px !important;
+              font-size: 5.8px !important;
+              line-height: 1.05 !important;
             }
             .bg-gray-100 {
               background-color: #f2f2f2 !important;
@@ -881,29 +903,25 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
               </div>
             </div>
 
-            {/* COA Parameters Table 1 (Appearance + Dimensional Deviation) */}
+            {/* COA Parameters Table */}
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="text-left font-bold text-gray-600 w-24 text-[7.5px] p-1">Item Category</th>
-                  <th className="text-left font-bold text-gray-600 w-32 text-[7.5px] p-1">Inspection Item</th>
-                  <th className="text-left font-bold text-gray-600 text-[7.5px] p-1">Inspection Standard</th>
-                  <th className="text-center font-bold text-gray-600 w-20 text-[7.5px] p-1">Test Speed</th>
-                  <th className="text-center font-bold text-gray-600 w-24 text-[7.5px] p-1">Inspection Result</th>
-                  <th className="text-center font-bold text-gray-600 w-20 text-[7.5px] p-1">Conclusion</th>
+                  <th className="text-left font-bold text-gray-600 w-18 text-[5.8px] p-0.5">Item Category</th>
+                  <th className="text-left font-bold text-gray-600 w-24 text-[5.8px] p-0.5">Inspection Item</th>
+                  <th className="text-left font-bold text-gray-600 text-[5.8px] p-0.5">Inspection Standard</th>
+                  <th className="text-center font-bold text-gray-600 w-16 text-[5.8px] p-0.5">Test Speed</th>
+                  <th className="text-center font-bold text-gray-600 w-18 text-[5.8px] p-0.5">Inspection Result</th>
+                  <th className="text-center font-bold text-gray-600 w-14 text-[5.8px] p-0.5">Conclusion</th>
                 </tr>
               </thead>
               <tbody>
                 {(() => {
-                  const page1Items = data.items.filter(
-                    item => item.category === 'Appearance' || item.category === 'Dimensional deviation'
-                  );
-                  
                   const rowSpans: number[] = [];
                   let currentCategory = '';
                   let currentSpanIndex = -1;
                   
-                  page1Items.forEach((item, idx) => {
+                  data.items.forEach((item, idx) => {
                     if (item.category !== currentCategory) {
                       currentCategory = item.category;
                       currentSpanIndex = idx;
@@ -914,99 +932,20 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
                     }
                   });
 
-                  return page1Items.map((item, idx) => (
+                  return data.items.map((item, idx) => (
                     <tr key={idx}>
                       {rowSpans[idx] > 0 && (
-                        <td className="font-bold text-gray-500 align-middle bg-gray-50/50 text-[7.5px] p-1 border-r border-gray-200" rowSpan={rowSpans[idx]}>
-                          {item.category === 'Dimensional deviation' ? 'Dimensional' : item.category}
+                        <td className="font-bold text-gray-500 align-middle bg-gray-50/50 text-[5.8px] p-0.5" rowSpan={rowSpans[idx]}>
+                          {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' :
+                           item.category === 'Dimensional deviation' ? 'Dimensional' :
+                           item.category}
                         </td>
                       )}
-                      <td className="font-semibold text-gray-900 text-[7.5px] p-1">{item.name}</td>
-                      <td className="text-gray-600 text-[7.5px] p-1 leading-snug">{item.standard}</td>
-                      <td className="text-center text-gray-600 font-mono text-[7.5px] p-1">{item.testSpeed || '-'}</td>
-                      <td className="text-center font-semibold text-gray-800 font-mono text-[7.5px] p-1">{item.result}</td>
-                      <td className="text-center font-bold text-emerald-700 text-[7.5px] p-1">{item.conclusion}</td>
-                    </tr>
-                  ));
-                })()}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="border-t border-gray-200 pt-1 text-right text-[7px] text-gray-400 font-semibold">
-            <span>Page 1 of 2</span>
-          </div>
-        </div>
-
-        {/* PRINT PAGE 2 */}
-        <div className="print-page flex flex-col justify-between">
-          <div>
-            {/* Header Letterhead for Page 2 */}
-            <div className="flex justify-between items-start border-b-[3px] border-blue-900 pb-1 mb-1.5">
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1">
-                  <img src="/logo.png" alt="AchievePack" className="h-7 w-auto object-contain" />
-                  <span className="text-base font-black tracking-widest text-blue-950">achievepack</span>
-                </div>
-                <span className="text-[6.5px] font-extrabold text-gray-400 uppercase tracking-wider mt-0.5">High Performance Sustainable Packaging</span>
-              </div>
-              <div className="text-right text-[6px] leading-tight text-gray-500 max-w-[250px]">
-                <strong className="text-[7.5px] text-gray-800 font-bold block">AchievePack Limited</strong>
-                HK BRN: 41007097-000-07-14-4<br/>
-                1 Floor, No.41 Wo Liu Hang Tsuen, Fotan, Hong Kong<br/>
-                Hotline: +852 6970 4411 | engineering@achievepack.com
-              </div>
-            </div>
-
-            <div className="bg-blue-900 text-white text-center font-bold text-[9px] uppercase py-0.5 tracking-widest rounded mb-1.5" style={{ color: 'white' }}>
-              Factory Inspection Report / Certificate of Analysis (Continued) — Batch No: {data.batchNumber}
-            </div>
-
-            {/* COA Parameters Table 2 (Physical & Mechanical properties + any others) */}
-            <table className="w-full">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="text-left font-bold text-gray-600 w-24 text-[7.5px] p-1">Item Category</th>
-                  <th className="text-left font-bold text-gray-600 w-32 text-[7.5px] p-1">Inspection Item</th>
-                  <th className="text-left font-bold text-gray-600 text-[7.5px] p-1">Inspection Standard</th>
-                  <th className="text-center font-bold text-gray-600 w-20 text-[7.5px] p-1">Test Speed</th>
-                  <th className="text-center font-bold text-gray-600 w-24 text-[7.5px] p-1">Inspection Result</th>
-                  <th className="text-center font-bold text-gray-600 w-20 text-[7.5px] p-1">Conclusion</th>
-                </tr>
-              </thead>
-              <tbody>
-                {(() => {
-                  const page2Items = data.items.filter(
-                    item => item.category !== 'Appearance' && item.category !== 'Dimensional deviation'
-                  );
-                  
-                  const rowSpans: number[] = [];
-                  let currentCategory = '';
-                  let currentSpanIndex = -1;
-                  
-                  page2Items.forEach((item, idx) => {
-                    if (item.category !== currentCategory) {
-                      currentCategory = item.category;
-                      currentSpanIndex = idx;
-                      rowSpans[idx] = 1;
-                    } else {
-                      rowSpans[currentSpanIndex]++;
-                      rowSpans[idx] = 0;
-                    }
-                  });
-
-                  return page2Items.map((item, idx) => (
-                    <tr key={idx}>
-                      {rowSpans[idx] > 0 && (
-                        <td className="font-bold text-gray-500 align-middle bg-gray-50/50 text-[7.5px] p-1 border-r border-gray-200" rowSpan={rowSpans[idx]}>
-                          {item.category === 'Physical and mechanical properties' ? 'Physical & Mech' : item.category}
-                        </td>
-                      )}
-                      <td className="font-semibold text-gray-900 text-[7.5px] p-1">{item.name}</td>
-                      <td className="text-gray-600 text-[7.5px] p-1 leading-snug">{item.standard}</td>
-                      <td className="text-center text-gray-600 font-mono text-[7.5px] p-1">{item.testSpeed || '-'}</td>
-                      <td className="text-center font-semibold text-gray-800 font-mono text-[7.5px] p-1">{item.result}</td>
-                      <td className="text-center font-bold text-emerald-700 text-[7.5px] p-1">{item.conclusion}</td>
+                      <td className="font-semibold text-gray-900 text-[5.8px] p-0.5">{item.name}</td>
+                      <td className="text-gray-600 text-[5.8px] p-0.5 leading-tight">{item.standard}</td>
+                      <td className="text-center text-gray-600 font-mono text-[5.8px] p-0.5">{item.testSpeed || '-'}</td>
+                      <td className="text-center font-semibold text-gray-800 font-mono text-[5.8px] p-0.5">{item.result}</td>
+                      <td className="text-center font-bold text-emerald-700 text-[5.8px] p-0.5">{item.conclusion}</td>
                     </tr>
                   ));
                 })()}
@@ -1014,30 +953,55 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
             </table>
 
             {/* COA Bottom Block */}
-            <div className="border-t border-gray-300 pt-2 mt-2 space-y-1 relative">
+            <div className="border-t border-gray-300 pt-1 mt-1 space-y-1 relative">
               <div>
-                <span className="font-extrabold text-[7px] text-gray-400 uppercase tracking-wider block mb-0.5">Overall Inspection Conclusion</span>
-                <p className="font-bold text-blue-900 text-[9px]">{data.conclusionText}</p>
+                <span className="font-extrabold text-[6.5px] text-gray-400 uppercase tracking-wider block mb-0.5">Overall Inspection Conclusion</span>
+                <p className="font-bold text-blue-900 text-[8.5px]">{data.conclusionText}</p>
               </div>
-              <div className="grid grid-cols-2 gap-4 pt-1">
+              <div className="grid grid-cols-2 gap-4 pt-0.5">
                 <div className="space-y-0.5">
-                  <span className="text-gray-400 font-bold block text-[6.5px] uppercase tracking-wider">Signature of Analyst</span>
-                  <div className="border border-indigo-100 rounded p-1 bg-indigo-50/30 flex items-center justify-center min-h-[20px] w-28">
-                    <span className="font-serif italic text-[9.5px] text-indigo-800">{data.analystSignature}</span>
+                  <span className="text-gray-400 font-bold block text-[6px] uppercase tracking-wider">Signature of Analyst</span>
+                  <div className="border border-indigo-100 rounded p-0.5 bg-indigo-50/30 flex items-center justify-center min-h-[16px] w-24">
+                    <span className="font-serif italic text-[8.5px] text-indigo-800">{data.analystSignature}</span>
                   </div>
                 </div>
                 <div className="space-y-0.5 text-right">
-                  <span className="text-gray-400 font-bold block text-[6.5px] uppercase tracking-wider">Signature of Factory Director</span>
-                  <div className="border border-indigo-100 rounded p-1 bg-indigo-50/30 flex items-center justify-center min-h-[20px] w-28 ml-auto">
-                    <span className="font-serif italic text-[9.5px] text-indigo-800">{data.directorSignature}</span>
+                  <span className="text-gray-400 font-bold block text-[6px] uppercase tracking-wider">Signature of Factory Director</span>
+                  <div className="border border-indigo-100 rounded p-0.5 bg-indigo-50/30 flex items-center justify-center min-h-[16px] w-24 ml-auto">
+                    <span className="font-serif italic text-[8.5px] text-indigo-800">{data.directorSignature}</span>
                   </div>
                 </div>
               </div>
+
+              {/* ACHIEVEPACK CORPORATE SEAL */}
+              <svg className="absolute right-[15px] bottom-[-5px] opacity-85 transform rotate-[-8deg] pointer-events-none" width="60" height="60" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#ef4444" strokeWidth="2" strokeDasharray="94 1.5" />
+                <circle cx="50" cy="50" r="44" fill="none" stroke="#ef4444" strokeWidth="0.75" />
+                <path id="print-seal-path" d="M 15 50 A 35 35 0 0 1 85 50" fill="none" />
+                <text fill="#ef4444" fontSize="5.8" fontWeight="bold" letterSpacing="0.6">
+                  <textPath href="#print-seal-path" startOffset="50%" textAnchor="middle">
+                    ACHIEVE PACK CO., LIMITED
+                  </textPath>
+                </text>
+                <path id="print-seal-zh-path" d="M 22 50 A 28 28 0 0 0 78 50" fill="none" />
+                <text fill="#ef4444" fontSize="6.2" fontWeight="bold" letterSpacing="0.4">
+                  <textPath href="#print-seal-zh-path" startOffset="50%" textAnchor="middle">
+                    达之包装有限公司
+                  </textPath>
+                </text>
+                <polygon points="50,38 53,46 62,46 55,51 58,59 50,54 42,59 45,51 38,46 47,46" fill="#ef4444" />
+                <text x="50" y="71" fill="#ef4444" fontSize="6.8" fontWeight="bold" textAnchor="middle">
+                  专用章
+                </text>
+                <text x="50" y="79" fill="#ef4444" fontSize="4.2" fontFamily="monospace" textAnchor="middle" letterSpacing="0.1">
+                  79945613213015
+                </text>
+              </svg>
             </div>
           </div>
 
           <div className="border-t border-gray-200 pt-1 text-right text-[7px] text-gray-400 font-semibold">
-            <span>Page 2 of 2</span>
+            <span>Page 1 of 1</span>
           </div>
         </div>
       </div>

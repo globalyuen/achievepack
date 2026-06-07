@@ -22,7 +22,7 @@ async function main() {
   });
   
   console.log('Navigating to daily reports page...');
-  await page.goto('http://localhost:5174/ctrl-x9k7m/daily-reports', { waitUntil: 'networkidle2' });
+  await page.goto('http://localhost:5173/ctrl-x9k7m/daily-reports', { waitUntil: 'networkidle2' });
   
   console.log('Waiting for custom password input to render...');
   await page.waitForSelector('input[type="password"]', { timeout: 10000 });

@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2950,
+  "total_images": 2951,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1412,
+    ".png": 1413,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 248,
+      "count": 249,
       "images": [
+        {
+          "filename": "compostable-barrier-film-for-dry-goods-hero.png",
+          "path": "/imgs/blog/heros/compostable-barrier-film-for-dry-goods-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T08:30:32.925Z"
+        },
         {
           "filename": "compostable-flat-bottom-pouch-for-nuts-hero.png",
           "path": "/imgs/blog/heros/compostable-flat-bottom-pouch-for-nuts-hero.png",
