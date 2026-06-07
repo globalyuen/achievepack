@@ -790,8 +790,8 @@ export default function CoaTab({ globalCustomer }: CoaTabProps) {
 
       </div>
 
-      {/* PRINT ENGINE MULTI-PAGE RENDERER (Hidden on screen, prints portrait A4) */}
-      <div className="hidden print:block bg-white text-black min-h-screen text-xs leading-normal">
+      {/* PRINT ENGINE MULTI-PAGE RENDERER (Hidden on screen, prints landscape A4) */}
+      <div className="hidden print:block bg-white text-black text-xs leading-normal">
         <style>{`
           @page {
             size: A4 landscape;

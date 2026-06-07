@@ -14,10 +14,17 @@ async function main() {
   // Set viewport to A4 Landscape-like aspect ratio (e.g. 1414 x 1000)
   await page.setViewport({ width: 1414, height: 1000 });
   
+  // Listen for the native window.prompt dialog and enter the password
+  page.on('dialog', async dialog => {
+    console.log('Native Dialog opened:', dialog.message());
+    await dialog.accept('8888****');
+    console.log('Native Dialog accepted!');
+  });
+  
   console.log('Navigating to daily reports page...');
   await page.goto('http://localhost:5174/ctrl-x9k7m/daily-reports', { waitUntil: 'networkidle2' });
   
-  console.log('Waiting for password input to render...');
+  console.log('Waiting for custom password input to render...');
   await page.waitForSelector('input[type="password"]', { timeout: 10000 });
   
   console.log('Entering secure PIN...');

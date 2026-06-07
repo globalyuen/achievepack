@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-07",
-  "total_images": 2945,
+  "total_images": 2946,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1407,
+    ".png": 1408,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 243,
+      "count": 244,
       "images": [
+        {
+          "filename": "custom-digital-print-sachet-sizes-hero.png",
+          "path": "/imgs/blog/heros/custom-digital-print-sachet-sizes-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-07T07:15:46.145Z"
+        },
         {
           "filename": "stand-up-pouch-filling-and-sealing-equipment-hero.png",
           "path": "/imgs/blog/heros/stand-up-pouch-filling-and-sealing-equipment-hero.png",
