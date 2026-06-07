@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T05:30:29.875Z",
+  "lastUnifiedRun": "2026-06-07T05:45:30.440Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1407,17 +1407,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "custom-shaped-sachets-for-beverages",
       "status": "Pending Approval",
       "volume": 1050,
       "keyword": "custom shaped sachets for beverages",
-      "difficulty": "Low",
-      "slug": "custom-shaped-sachets-for-beverages"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "sustainable barrier film suppliers",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sustainable-barrier-film-suppliers"
     },
     {
       "status": "Pending",
@@ -1482,9 +1483,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T05:30:22.081Z",
+      "timestamp": "2026-06-07T05:45:22.249Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"custom shaped sachets for beverages\" to /blog/custom-shaped-sachets-for-beverages (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable barrier film suppliers\" to /blog/sustainable-barrier-film-suppliers (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"custom shaped sachets for beverages\" to /blog/custom-shaped-sachets-for-beverages (Pending Approval)",
+      "timestamp": "2026-06-07T05:30:22.081Z"
     },
     {
       "action": "Autopilot Generation Draft",
