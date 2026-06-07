@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-07T18:30:29.036Z",
+  "lastUnifiedRun": "2026-06-07T18:45:25.306Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1771,17 +1771,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-eco-friendly-films-suppliers",
       "status": "Pending Approval",
       "volume": 600,
       "keyword": "high barrier eco friendly films suppliers",
-      "difficulty": "Low",
-      "slug": "high-barrier-eco-friendly-films-suppliers"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "custom shape recyclable pouches dimensions",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-shape-recyclable-pouches-dimensions"
     },
     {
       "status": "Pending",
@@ -1858,9 +1859,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-07T18:30:21.318Z",
+      "timestamp": "2026-06-07T18:45:18.218Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier eco friendly films suppliers\" to /blog/high-barrier-eco-friendly-films-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom shape recyclable pouches dimensions\" to /blog/custom-shape-recyclable-pouches-dimensions (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier eco friendly films suppliers\" to /blog/high-barrier-eco-friendly-films-suppliers (Pending Approval)",
+      "timestamp": "2026-06-07T18:30:21.318Z"
     },
     {
       "action": "Autopilot Generation Draft",
