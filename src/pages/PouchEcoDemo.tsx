@@ -166,7 +166,7 @@ export default function PouchEcoDemo() {
               
               {/* Decorative Background Elements */}
               <div className="absolute top-10 -right-10 w-full h-full border-4 border-black bg-[#D4FF00] -z-0 rotate-6" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#FF00FF] border-4 border-black flex items-center justify-center animate-bounce">
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#FF00FF] border-4 border-black flex items-center justify-center animate-bounce z-20">
                 <span className="font-black text-xl rotate-[-15deg]">500!</span>
               </div>
             </div>

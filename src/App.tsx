@@ -1273,7 +1273,7 @@ function App() {
               </motion.div>
 
               {/* Decorative Foreground Badge */}
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-32 md:h-32 bg-primary-600 rounded-full flex items-center justify-center animate-bounce z-30 shadow-lg text-white font-bold">
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-32 md:h-32 bg-primary-600 rounded-full flex items-center justify-center animate-bounce z-[70] shadow-lg text-white font-bold">
                 <span className="font-extrabold text-sm md:text-lg rotate-[-15deg]">MOQ 500!</span>
               </div>
             </div>

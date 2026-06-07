@@ -684,7 +684,7 @@ export default function PouchHomePage() {
               </motion.div>
 
               {/* Decorative Foreground Badge */}
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-32 md:h-32 bg-[#FF00FF] border-4 border-black flex items-center justify-center animate-bounce z-30">
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-32 md:h-32 bg-[#FF00FF] border-4 border-black flex items-center justify-center animate-bounce z-[70]">
                 <span className="font-black text-sm md:text-xl rotate-[-15deg]">500!</span>
               </div>
             </div>
