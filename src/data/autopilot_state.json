@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-06T23:45:25.898Z",
+  "lastUnifiedRun": "2026-06-07T00:00:30.156Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1246,17 +1246,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "digital-printed-stand-up-bags-wholesale",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "digital printed stand up bags wholesale",
-      "difficulty": "Low",
-      "slug": "digital-printed-stand-up-bags-wholesale"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 680,
       "keyword": "sachet packaging dimensions guide",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "sachet-packaging-dimensions-guide"
     },
     {
       "status": "Pending",
@@ -1351,9 +1352,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-06T23:45:18.265Z",
+      "timestamp": "2026-06-07T00:00:22.292Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"digital printed stand up bags wholesale\" to /blog/digital-printed-stand-up-bags-wholesale (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"sachet packaging dimensions guide\" to /blog/sachet-packaging-dimensions-guide (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"digital printed stand up bags wholesale\" to /blog/digital-printed-stand-up-bags-wholesale (Pending Approval)",
+      "timestamp": "2026-06-06T23:45:18.265Z"
     },
     {
       "action": "Autopilot Generation Draft",
