@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T11:45:39.835Z",
+  "lastUnifiedRun": "2026-06-08T12:00:41.491Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2191,17 +2191,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "kraft-paper-sachet-with-spout",
       "status": "Pending Approval",
       "volume": 550,
       "keyword": "kraft paper sachet with spout",
-      "difficulty": "Low",
-      "slug": "kraft-paper-sachet-with-spout"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "biodegradable barrier pouch dimensions",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "biodegradable-barrier-pouch-dimensions"
     },
     {
       "status": "Pending",
@@ -2246,125 +2247,130 @@
       "difficulty": "Low"
     },
     {
-      "keyword": "eco friendly sachet dimensions for coffee",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 850,
-      "status": "Pending"
+      "keyword": "eco friendly sachet dimensions for coffee",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable flat bottom pouch size guide",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1100,
-      "status": "Pending"
+      "keyword": "compostable flat bottom pouch size guide",
+      "difficulty": "Low"
     },
     {
-      "keyword": "low moq compostable pouch printing",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 720,
-      "status": "Pending"
+      "keyword": "low moq compostable pouch printing",
+      "difficulty": "Low"
     },
     {
-      "keyword": "stand up pouch dimensions chart for 4 oz",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 950,
-      "status": "Pending"
+      "keyword": "stand up pouch dimensions chart for 4 oz",
+      "difficulty": "Low"
     },
     {
-      "keyword": "mono pe film suppliers for custom packaging",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 680,
-      "status": "Pending"
+      "keyword": "mono pe film suppliers for custom packaging",
+      "difficulty": "Low"
     },
     {
-      "keyword": "high barrier film for sustainable stand up pouches",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1300,
-      "status": "Pending"
+      "keyword": "high barrier film for sustainable stand up pouches",
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital print on kraft paper pouches",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 790,
-      "status": "Pending"
+      "keyword": "digital print on kraft paper pouches",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable sachet sizes for baby food",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1050,
-      "status": "Pending"
+      "keyword": "compostable sachet sizes for baby food",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable pouch dimensions for spices",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 620,
-      "status": "Pending"
+      "keyword": "recyclable pouch dimensions for spices",
+      "difficulty": "Low"
     },
     {
-      "keyword": "flexible packaging size chart for liquids",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1400,
-      "status": "Pending"
+      "keyword": "flexible packaging size chart for liquids",
+      "difficulty": "Low"
     },
     {
-      "keyword": "biodegradable flat bottom pouch suppliers",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 880,
-      "status": "Pending"
+      "keyword": "biodegradable flat bottom pouch suppliers",
+      "difficulty": "Low"
     },
     {
-      "keyword": "custom shape sachets for beverages eco friendly",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 710,
-      "status": "Pending"
+      "keyword": "custom shape sachets for beverages eco friendly",
+      "difficulty": "Low"
     },
     {
-      "keyword": "small batch mono material pouch printing",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 930,
-      "status": "Pending"
+      "keyword": "small batch mono material pouch printing",
+      "difficulty": "Low"
     },
     {
-      "keyword": "kraft paper stand up pouch sizes for nuts",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 760,
-      "status": "Pending"
+      "keyword": "kraft paper stand up pouch sizes for nuts",
+      "difficulty": "Low"
     },
     {
-      "keyword": "sustainable barrier film for sachet packaging",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 1150,
-      "status": "Pending"
+      "keyword": "sustainable barrier film for sachet packaging",
+      "difficulty": "Low"
     },
     {
-      "keyword": "compostable retort pouch size guide",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 820,
-      "status": "Pending"
+      "keyword": "compostable retort pouch size guide",
+      "difficulty": "Low"
     },
     {
-      "keyword": "digital printed custom shaped pouches",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 670,
-      "status": "Pending"
+      "keyword": "digital printed custom shaped pouches",
+      "difficulty": "Low"
     },
     {
-      "keyword": "eco friendly pouch filling solutions for powders",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 990,
-      "status": "Pending"
+      "keyword": "eco friendly pouch filling solutions for powders",
+      "difficulty": "Low"
     },
     {
-      "keyword": "recyclable stand up pouch dimensions for pet food",
-      "difficulty": "Low",
+      "status": "Pending",
       "volume": 740,
-      "status": "Pending"
+      "keyword": "recyclable stand up pouch dimensions for pet food",
+      "difficulty": "Low"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T11:45:33.725Z",
+      "timestamp": "2026-06-08T12:00:34.890Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"kraft paper sachet with spout\" to /blog/kraft-paper-sachet-with-spout (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable barrier pouch dimensions\" to /blog/biodegradable-barrier-pouch-dimensions (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper sachet with spout\" to /blog/kraft-paper-sachet-with-spout (Pending Approval)",
+      "timestamp": "2026-06-08T11:45:33.725Z"
     },
     {
       "action": "Autopilot Generation Draft",
