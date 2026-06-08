@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T15:00:28.584Z",
+  "lastUnifiedRun": "2026-06-08T15:15:39.217Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2282,17 +2282,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "mono-pe-film-suppliers-for-custom-packaging",
       "status": "Pending Approval",
       "volume": 680,
       "keyword": "mono pe film suppliers for custom packaging",
-      "difficulty": "Low",
-      "slug": "mono-pe-film-suppliers-for-custom-packaging"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1300,
       "keyword": "high barrier film for sustainable stand up pouches",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "high-barrier-film-for-sustainable-stand-up-pouches"
     },
     {
       "status": "Pending",
@@ -2375,9 +2376,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T15:00:22.258Z",
+      "timestamp": "2026-06-08T15:15:32.583Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"mono pe film suppliers for custom packaging\" to /blog/mono-pe-film-suppliers-for-custom-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier film for sustainable stand up pouches\" to /blog/high-barrier-film-for-sustainable-stand-up-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe film suppliers for custom packaging\" to /blog/mono-pe-film-suppliers-for-custom-packaging (Pending Approval)",
+      "timestamp": "2026-06-08T15:00:22.258Z"
     },
     {
       "action": "Autopilot Generation Draft",
