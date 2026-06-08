@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T13:00:46.425Z",
+  "lastUnifiedRun": "2026-06-08T13:15:41.067Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2226,17 +2226,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "sustainable-digital-printed-bags-for-beverages",
       "status": "Pending Approval",
       "volume": 600,
       "keyword": "sustainable digital printed bags for beverages",
-      "difficulty": "Low",
-      "slug": "sustainable-digital-printed-bags-for-beverages"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "mono pe film suppliers for pouches",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "mono-pe-film-suppliers-for-pouches"
     },
     {
       "status": "Pending",
@@ -2367,9 +2368,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T13:00:39.699Z",
+      "timestamp": "2026-06-08T13:15:35.076Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable digital printed bags for beverages\" to /blog/sustainable-digital-printed-bags-for-beverages (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"mono pe film suppliers for pouches\" to /blog/mono-pe-film-suppliers-for-pouches (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable digital printed bags for beverages\" to /blog/sustainable-digital-printed-bags-for-beverages (Pending Approval)",
+      "timestamp": "2026-06-08T13:00:39.699Z"
     },
     {
       "action": "Autopilot Generation Draft",
