@@ -14984,6 +14984,116 @@
                         "buttonText": "Configurer les sachets"
                     }
                 }
+            },
+            "materialDataSheet": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Fiche technique du matériau (papier kraft 60 g/m² + film compostable 50 μ)",
+                        "description": "Spécifications techniques, couches structurelles et mesures de laboratoire pour le papier kraft 60 g/m² + film d'emballage biopolymère compostable 50 μ.",
+                        "keywords": [
+                            "fiche technique du matériau",
+                            "spécification du film compostable",
+                            "Spécifications du papier kraft 60 g/m²",
+                            "atteindre les spécifications techniques du pack",
+                            "table en stratifié compostable"
+                        ],
+                        "heroTitle": "Fiche technique",
+                        "heroSubtitle": "Spécifications techniques officielles : papier kraft 60 g/m² + film intérieur compostable 50 μ",
+                        "introSummary": "Accédez à la composition précise du matériau, aux mesures des couches, à la répartition de l'épaisseur et aux paramètres techniques conformes à BPI/B Corp de notre papier stratifié kraft 100 % compostable."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Présentation et spécifications du produit",
+                            "p1": "Cette fiche technique détaille les mesures de performance et la composition structurelle de notre stratifié papier kraft haut de gamme 60 g/m² + film intérieur compostable 50 μ. Conçue pour des performances élevées et une empreinte environnementale minimale, cette structure compostable est idéale pour les marques recherchant une marque biologique de haute qualité avec une protection fiable.",
+                            "cards": {
+                                "productName": {
+                                    "label": "Nom du produit",
+                                    "title": "Stratifié kraft et compostable",
+                                    "desc": "Papier kraft 60 g/m² + film intérieur compostable 50 μ."
+                                },
+                                "materialStructure": {
+                                    "label": "Structure matérielle",
+                                    "title": "Film kraft/compostable",
+                                    "desc": "Papier Kraft naturel non couché laminé sur un film biopolymère organique."
+                                },
+                                "calculationBasis": {
+                                    "label": "Base de calcul",
+                                    "title": "Nominal 130μ / 130gsm",
+                                    "desc": "Épaisseur totale nominale de 0,13 mm pour 1 m² de surface."
+                                }
+                            }
+                        },
+                        "features": {
+                            "title": "Principales fonctionnalités et applications courantes",
+                            "highlightsTitle": "Faits saillants des performances",
+                            "list": [
+                                "Stratifié haute barrière compostable à base de papier",
+                                "100 % compostable domestique et industriel (EN 13432 et ASTM D6400)",
+                                "Esthétique naturelle du papier kraft non couché et texture organique de qualité supérieure.",
+                                "Résistance d'étanchéité exceptionnelle et fenêtre de thermoscellage",
+                                "Énergie de surface optimisée pour des encres écologiques haute définition"
+                            ],
+                            "appsTitle": "Applications recommandées",
+                            "tags": [
+                                "Aliments secs",
+                                "Café en grains",
+                                "Confiserie",
+                                "Noix et graines",
+                                "Fruits secs",
+                                "Produits de boulangerie",
+                                "Poudres"
+                            ],
+                            "certsTitle": "Certifications de l'industrie",
+                            "bpiAlt": "Certifié BPI",
+                            "bcorpAlt": "B Corp"
+                        },
+                        "structure": {
+                            "title": "Visualisation de la structure matérielle",
+                            "p1": "Notre stratifié multicouche utilise des fibres de cellulose naturelles associées à un film d'étanchéité interne compostable, liés entre eux par des bio-adhésifs sans solvants.",
+                            "imgAlt": "Schéma de structure du papier kraft + film compostable"
+                        },
+                        "specifications": {
+                            "title": "Données techniques et spécifications techniques",
+                            "p1": "Vous trouverez ci-dessous les spécifications techniques du laboratoire et les propriétés physiques de la structure stratifiée.",
+                            "tableHeaders": {
+                                "colLayer": "Couche",
+                                "colMaterial": "Matériel",
+                                "colGsm": "GSM",
+                                "colThicknessMm": "Épaisseur (mm)",
+                                "colThicknessUm": "Épaisseur (μm)",
+                                "colWeightPct": "Weight %",
+                                "colThicknessPct": "Thickness %"
+                            },
+                            "rows": {
+                                "outer": {
+                                    "layer": "Outer Layer",
+                                    "material": "Kraft paper (uncoated)"
+                                },
+                                "inner": {
+                                    "layer": "Inner Layer",
+                                    "material": "Compostable film (50μ)"
+                                },
+                                "total": {
+                                    "layer": "TOTAL",
+                                    "material": "Laminated Structure"
+                                }
+                            },
+                            "notesTitle": "Engineering & Analytical Notes:",
+                            "notes": [
+                                "60gsm kraft paper typical thickness range 70–85μm; nominal 80μm taken for target analysis.",
+                                "Compostable biopolymer film (50μm) is analyzed at an average density ρ = 1.4 g/cm³, representing a basis weight of ~70 g/m².",
+                                "Thickness and weight percentage share is calculated as: Layer Value ÷ Total Value × 100%."
+                            ],
+                            "docId": "Document ID: SPEC-AP-2026-V1 // Verified Secure Archive",
+                            "downloadBtn": "Download Official Technical PDF"
+                        }
+                    },
+                    "cta": {
+                        "title": "Need a custom composite spec?",
+                        "description": "Our engineering team can formulate custom barrier layers, custom paper thicknesses, and specialized sealing biopolymers tailored to your exact application.",
+                        "buttonText": "Talk to a Packaging Engineer"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

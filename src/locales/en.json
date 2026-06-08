@@ -15083,6 +15083,116 @@
                         "buttonText": "Configure Sachets"
                     }
                 }
+            },
+            "materialDataSheet": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Material Data Sheet (60gsm Kraft Paper + 50μ Compostable Film)",
+                        "description": "Technical specifications, structural layers, and laboratory metrics for the 60gsm Kraft Paper + 50μ Compostable biopolymer packaging film.",
+                        "keywords": [
+                            "material data sheet",
+                            "compostable film specification",
+                            "60gsm kraft paper spec",
+                            "achieve pack technical specs",
+                            "compostable laminate table"
+                        ],
+                        "heroTitle": "Technical Data Sheet",
+                        "heroSubtitle": "Official Engineering Specifications: 60gsm Kraft Paper + 50μ Compostable Inner Film",
+                        "introSummary": "Access the precise material composition, layer metrics, thickness distribution, and BPI / B Corp compliant technical parameters of our 100% compostable Kraft paper laminate."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Product Overview & Specifications",
+                            "p1": "This technical data sheet details the performance metrics and structural composition of our premium 60gsm Kraft Paper + 50μ Compostable Inner Film laminate. Engineered for high performance and minimal environmental footprint, this compostable structure is ideal for brands seeking high-quality organic branding with reliable protection.",
+                            "cards": {
+                                "productName": {
+                                    "label": "Product Name",
+                                    "title": "Kraft & Compostable Laminate",
+                                    "desc": "60gsm Kraft Paper + 50μ Compostable Inner Film."
+                                },
+                                "materialStructure": {
+                                    "label": "Material Structure",
+                                    "title": "Kraft / Compostable Film",
+                                    "desc": "Natural uncoated Kraft paper laminated to organic biopolymer film."
+                                },
+                                "calculationBasis": {
+                                    "label": "Calculation Basis",
+                                    "title": "Nominal 130μ / 130gsm",
+                                    "desc": "Nominal total thickness of 0.13mm per 1 m² area."
+                                }
+                            }
+                        },
+                        "features": {
+                            "title": "Key Features & Common Applications",
+                            "highlightsTitle": "Performance Highlights",
+                            "list": [
+                                "Paper-based compostable high-barrier laminate",
+                                "100% Home & Industrial Compostable (EN 13432 & ASTM D6400)",
+                                "Natural uncoated Kraft Paper aesthetics and premium organic texture",
+                                "Exceptional seal strength and thermal sealing window",
+                                "Optimized surface energy for high-definition eco-friendly inks"
+                            ],
+                            "appsTitle": "Recommended Applications",
+                            "tags": [
+                                "Dry Foods",
+                                "Coffee Beans",
+                                "Confectionery",
+                                "Nuts & Seeds",
+                                "Dried Fruits",
+                                "Baked Goods",
+                                "Powders"
+                            ],
+                            "certsTitle": "Industry Certifications",
+                            "bpiAlt": "BPI Certified",
+                            "bcorpAlt": "B Corp"
+                        },
+                        "structure": {
+                            "title": "Material Structure Visualization",
+                            "p1": "Our multi-layer laminate uses natural cellulose fibers paired with compostable inner sealing film, bonded together with solvent-free bio-adhesives.",
+                            "imgAlt": "Kraft Paper + Compostable Film Structure Diagram"
+                        },
+                        "specifications": {
+                            "title": "Technical Data & Engineering Specifications",
+                            "p1": "Below are the laboratory engineering specifications and physical properties of the laminated structure.",
+                            "tableHeaders": {
+                                "colLayer": "Layer (层级)",
+                                "colMaterial": "Material (材料)",
+                                "colGsm": "GSM",
+                                "colThicknessMm": "Thickness (mm)",
+                                "colThicknessUm": "Thickness (μm)",
+                                "colWeightPct": "Weight %",
+                                "colThicknessPct": "Thickness %"
+                            },
+                            "rows": {
+                                "outer": {
+                                    "layer": "Outer Layer",
+                                    "material": "Kraft paper (uncoated)"
+                                },
+                                "inner": {
+                                    "layer": "Inner Layer",
+                                    "material": "Compostable film (50μ)"
+                                },
+                                "total": {
+                                    "layer": "TOTAL",
+                                    "material": "Laminated Structure"
+                                }
+                            },
+                            "notesTitle": "Engineering & Analytical Notes:",
+                            "notes": [
+                                "60gsm kraft paper typical thickness range 70–85μm; nominal 80μm taken for target analysis.",
+                                "Compostable biopolymer film (50μm) is analyzed at an average density ρ = 1.4 g/cm³, representing a basis weight of ~70 g/m².",
+                                "Thickness and weight percentage share is calculated as: Layer Value ÷ Total Value × 100%."
+                            ],
+                            "docId": "Document ID: SPEC-AP-2026-V1 // Verified Secure Archive",
+                            "downloadBtn": "Download Official Technical PDF"
+                        }
+                    },
+                    "cta": {
+                        "title": "Need a custom composite spec?",
+                        "description": "Our engineering team can formulate custom barrier layers, custom paper thicknesses, and specialized sealing biopolymers tailored to your exact application.",
+                        "buttonText": "Talk to a Packaging Engineer"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

@@ -1,34 +1,55 @@
 import React from 'react'
 import { FileText, CheckCircle, Info, Download, Layers, ShieldCheck, Sparkles, ArrowRight } from 'lucide-react'
 import SEOPageLayout from '../../components/SEOPageLayout'
+import { useTranslation } from 'react-i18next'
 
 const MaterialDataSheetPage: React.FC = () => {
+  const { t } = useTranslation();
+
   const sections = [
     {
       id: 'overview',
-      title: 'Product Overview & Specifications',
+      title: t('seoPages.pages.materialDataSheet.achievePack.sections.overview.title'),
       icon: <Info className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="text-lg leading-relaxed">
-            This technical data sheet details the performance metrics and structural composition of our premium <strong>60gsm Kraft Paper + 50μ Compostable Inner Film</strong> laminate. Engineered for high performance and minimal environmental footprint, this compostable structure is ideal for brands seeking high-quality organic branding with reliable protection.
+            {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.p1')}
           </p>
           
           <div className="grid md:grid-cols-3 gap-4 bg-gradient-to-r from-primary-50 to-primary-100/30 p-6 rounded-2xl border border-primary-100 shadow-sm">
             <div className="bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
-              <span className="text-[10px] uppercase font-bold text-primary-700 tracking-wider">Product Name</span>
-              <p className="font-bold text-neutral-800 mt-1">Kraft & Compostable Laminate</p>
-              <p className="text-xs text-neutral-500 mt-1">60gsm Kraft Paper + 50μ Compostable Inner Film.</p>
+              <span className="text-[10px] uppercase font-bold text-primary-700 tracking-wider">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.cards.productName.label')}
+              </span>
+              <p className="font-bold text-neutral-800 mt-1">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.cards.productName.title')}
+              </p>
+              <p className="text-xs text-neutral-500 mt-1">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.cards.productName.desc')}
+              </p>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
-              <span className="text-[10px] uppercase font-bold text-primary-700 tracking-wider">Material Structure</span>
-              <p className="font-bold text-neutral-800 mt-1">Kraft / Compostable Film</p>
-              <p className="text-xs text-neutral-500 mt-1">Natural uncoated Kraft paper laminated to organic biopolymer film.</p>
+              <span className="text-[10px] uppercase font-bold text-primary-700 tracking-wider">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.cards.materialStructure.label')}
+              </span>
+              <p className="font-bold text-neutral-800 mt-1">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.cards.materialStructure.title')}
+              </p>
+              <p className="text-xs text-neutral-500 mt-1">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.cards.materialStructure.desc')}
+              </p>
             </div>
             <div className="bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
-              <span className="text-[10px] uppercase font-bold text-primary-700 tracking-wider">Calculation Basis</span>
-              <p className="font-bold text-neutral-800 mt-1">Nominal 130μ / 130gsm</p>
-              <p className="text-xs text-neutral-500 mt-1">Nominal total thickness of 0.13mm per 1 m² area.</p>
+              <span className="text-[10px] uppercase font-bold text-primary-700 tracking-wider">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.cards.calculationBasis.label')}
+              </span>
+              <p className="font-bold text-neutral-800 mt-1">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.cards.calculationBasis.title')}
+              </p>
+              <p className="text-xs text-neutral-500 mt-1">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.overview.cards.calculationBasis.desc')}
+              </p>
             </div>
           </div>
         </div>
@@ -36,7 +57,7 @@ const MaterialDataSheetPage: React.FC = () => {
     },
     {
       id: 'features',
-      title: 'Key Features & Common Applications',
+      title: t('seoPages.pages.materialDataSheet.achievePack.sections.features.title'),
       icon: <ShieldCheck className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
@@ -45,16 +66,10 @@ const MaterialDataSheetPage: React.FC = () => {
             <div>
               <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-primary-600" />
-                Performance Highlights
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.features.highlightsTitle')}
               </h4>
               <ul className="space-y-3">
-                {[
-                  'Paper-based compostable high-barrier laminate',
-                  '100% Home & Industrial Compostable (EN 13432 & ASTM D6400)',
-                  'Natural uncoated Kraft Paper aesthetics and premium organic texture',
-                  'Exceptional seal strength and thermal sealing window',
-                  'Optimized surface energy for high-definition eco-friendly inks'
-                ].map((feature, idx) => (
+                {((t('seoPages.pages.materialDataSheet.achievePack.sections.features.list', { returnObjects: true }) || []) as string[]).map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
                     <CheckCircle className="h-5 w-5 text-primary-600 shrink-0 mt-0.5" />
                     <span className="text-sm text-neutral-600">{feature}</span>
@@ -65,19 +80,31 @@ const MaterialDataSheetPage: React.FC = () => {
 
             {/* Applications & Certs */}
             <div>
-              <h4 className="font-bold text-neutral-900 mb-4">Recommended Applications</h4>
+              <h4 className="font-bold text-neutral-900 mb-4">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.features.appsTitle')}
+              </h4>
               <div className="flex flex-wrap gap-2 mb-6">
-                {['Dry Foods', 'Coffee Beans', 'Confectionery', 'Nuts & Seeds', 'Dried Fruits', 'Baked Goods', 'Powders'].map(tag => (
+                {((t('seoPages.pages.materialDataSheet.achievePack.sections.features.tags', { returnObjects: true }) || []) as string[]).map(tag => (
                   <span key={tag} className="text-xs font-medium text-primary-800 bg-primary-50 border border-primary-100 px-3 py-1.5 rounded-full">
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <h4 className="font-bold text-neutral-900 mb-3">Industry Certifications</h4>
+              <h4 className="font-bold text-neutral-900 mb-3">
+                {t('seoPages.pages.materialDataSheet.achievePack.sections.features.certsTitle')}
+              </h4>
               <div className="flex gap-4 items-center bg-neutral-50 p-4 rounded-xl border border-neutral-100">
-                <img src="/imgs/bpi.svg" alt="BPI Certified" className="h-10 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" />
-                <img src="/bcorp.svg" alt="B Corp" className="h-10 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" />
+                <img 
+                  src="/imgs/bpi.svg" 
+                  alt={t('seoPages.pages.materialDataSheet.achievePack.sections.features.bpiAlt')} 
+                  className="h-10 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" 
+                />
+                <img 
+                  src="/bcorp.svg" 
+                  alt={t('seoPages.pages.materialDataSheet.achievePack.sections.features.bcorpAlt')} 
+                  className="h-10 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" 
+                />
               </div>
             </div>
           </div>
@@ -86,17 +113,17 @@ const MaterialDataSheetPage: React.FC = () => {
     },
     {
       id: 'structure',
-      title: 'Material Structure Visualization',
+      title: t('seoPages.pages.materialDataSheet.achievePack.sections.structure.title'),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="leading-relaxed">
-            Our multi-layer laminate uses natural cellulose fibers paired with compostable inner sealing film, bonded together with solvent-free bio-adhesives.
+            {t('seoPages.pages.materialDataSheet.achievePack.sections.structure.p1')}
           </p>
           <div className="bg-white border border-neutral-200 p-8 rounded-2xl flex justify-center items-center shadow-sm hover:shadow-md transition-shadow duration-300">
             <img 
               src="https://achievepack.com/imgs/store/barrier/2-paper.webp" 
-              alt="Kraft Paper + Compostable Film Structure Diagram" 
+              alt={t('seoPages.pages.materialDataSheet.achievePack.sections.structure.imgAlt')} 
               className="max-w-full h-auto max-h-64 object-contain"
             />
           </div>
@@ -105,12 +132,12 @@ const MaterialDataSheetPage: React.FC = () => {
     },
     {
       id: 'specifications',
-      title: 'Technical Data & Engineering Specifications',
+      title: t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.title'),
       icon: <FileText className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6 text-neutral-700">
           <p className="leading-relaxed">
-            Below are the laboratory engineering specifications and physical properties of the laminated structure.
+            {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.p1')}
           </p>
           
           <div className="border border-neutral-200 rounded-2xl overflow-hidden shadow-sm bg-white">
@@ -118,19 +145,37 @@ const MaterialDataSheetPage: React.FC = () => {
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
                   <tr className="bg-primary-800 text-white font-semibold">
-                    <th className="p-4 border-b border-primary-900">Layer (层级)</th>
-                    <th className="p-4 border-b border-primary-900">Material (材料)</th>
-                    <th className="p-4 border-b border-primary-900 text-center">GSM</th>
-                    <th className="p-4 border-b border-primary-900 text-center">Thickness (mm)</th>
-                    <th className="p-4 border-b border-primary-900 text-center">Thickness (μm)</th>
-                    <th className="p-4 border-b border-primary-900 text-center">Weight %</th>
-                    <th className="p-4 border-b border-primary-900 text-center">Thickness %</th>
+                    <th className="p-4 border-b border-primary-900">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.tableHeaders.colLayer')}
+                    </th>
+                    <th className="p-4 border-b border-primary-900">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.tableHeaders.colMaterial')}
+                    </th>
+                    <th className="p-4 border-b border-primary-900 text-center">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.tableHeaders.colGsm')}
+                    </th>
+                    <th className="p-4 border-b border-primary-900 text-center">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.tableHeaders.colThicknessMm')}
+                    </th>
+                    <th className="p-4 border-b border-primary-900 text-center">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.tableHeaders.colThicknessUm')}
+                    </th>
+                    <th className="p-4 border-b border-primary-900 text-center">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.tableHeaders.colWeightPct')}
+                    </th>
+                    <th className="p-4 border-b border-primary-900 text-center">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.tableHeaders.colThicknessPct')}
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-100">
                   <tr className="hover:bg-neutral-50/50 transition-colors">
-                    <td className="p-4 font-semibold text-neutral-900 bg-neutral-50/30">Outer Layer</td>
-                    <td className="p-4 text-neutral-600">Kraft paper (uncoated)</td>
+                    <td className="p-4 font-semibold text-neutral-900 bg-neutral-50/30">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.rows.outer.layer')}
+                    </td>
+                    <td className="p-4 text-neutral-600">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.rows.outer.material')}
+                    </td>
                     <td className="p-4 text-center font-medium">60</td>
                     <td className="p-4 text-center">0.08</td>
                     <td className="p-4 text-center">80</td>
@@ -138,8 +183,12 @@ const MaterialDataSheetPage: React.FC = () => {
                     <td className="p-4 text-center text-neutral-500">61.5%</td>
                   </tr>
                   <tr className="hover:bg-neutral-50/50 transition-colors">
-                    <td className="p-4 font-semibold text-neutral-900 bg-neutral-50/30">Inner Layer</td>
-                    <td className="p-4 text-neutral-600">Compostable film (50μ)</td>
+                    <td className="p-4 font-semibold text-neutral-900 bg-neutral-50/30">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.rows.inner.layer')}
+                    </td>
+                    <td className="p-4 text-neutral-600">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.rows.inner.material')}
+                    </td>
                     <td className="p-4 text-center font-medium">70</td>
                     <td className="p-4 text-center">0.05</td>
                     <td className="p-4 text-center">50</td>
@@ -147,8 +196,12 @@ const MaterialDataSheetPage: React.FC = () => {
                     <td className="p-4 text-center text-neutral-500">38.5%</td>
                   </tr>
                   <tr className="bg-primary-50/50 font-bold text-primary-900">
-                    <td className="p-4">TOTAL</td>
-                    <td className="p-4 uppercase text-primary-800">Laminated Structure</td>
+                    <td className="p-4">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.rows.total.layer')}
+                    </td>
+                    <td className="p-4 uppercase text-primary-800">
+                      {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.rows.total.material')}
+                    </td>
                     <td className="p-4 text-center">130</td>
                     <td className="p-4 text-center">0.13</td>
                     <td className="p-4 text-center">130</td>
@@ -162,25 +215,27 @@ const MaterialDataSheetPage: React.FC = () => {
 
           {/* Technical Notes */}
           <div className="bg-neutral-50 border border-neutral-200 p-6 rounded-2xl">
-            <h5 className="font-bold text-neutral-900 mb-3 text-xs uppercase tracking-wider">Engineering & Analytical Notes:</h5>
+            <h5 className="font-bold text-neutral-900 mb-3 text-xs uppercase tracking-wider">
+              {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.notesTitle')}
+            </h5>
             <ul className="space-y-2 text-xs text-neutral-500 list-disc list-inside">
-              <li>60gsm kraft paper typical thickness range 70–85μm; nominal 80μm taken for target analysis.</li>
-              <li>Compostable biopolymer film (50μm) is analyzed at an average density ρ = 1.4 g/cm³, representing a basis weight of ~70 g/m².</li>
-              <li>Thickness and weight percentage share is calculated as: <code>Layer Value ÷ Total Value × 100%</code>.</li>
+              {((t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.notes', { returnObjects: true }) || []) as string[]).map((note, idx) => (
+                <li key={idx} dangerouslySetInnerHTML={{ __html: note }} />
+              ))}
             </ul>
           </div>
           
           {/* Action button */}
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pt-4 border-t border-neutral-100">
             <div className="text-xs text-neutral-400">
-              Document ID: SPEC-AP-2026-V1 // Verified Secure Archive
+              {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.docId')}
             </div>
             <a 
               href="/pdfs/material_data_sheet.pdf?v=2" 
               className="inline-flex items-center gap-2 bg-primary-700 text-white px-5 py-2.5 rounded-xl font-semibold hover:bg-primary-800 transition shadow-sm hover:shadow"
             >
               <Download className="w-4 h-4" />
-              Download Official Technical PDF
+              {t('seoPages.pages.materialDataSheet.achievePack.sections.specifications.downloadBtn')}
             </a>
           </div>
         </div>
@@ -190,19 +245,19 @@ const MaterialDataSheetPage: React.FC = () => {
 
   return (
     <SEOPageLayout
-      title="Material Data Sheet (60gsm Kraft Paper + 50μ Compostable Film)"
-      description="Technical specifications, structural layers, and laboratory metrics for the 60gsm Kraft Paper + 50μ Compostable biopolymer packaging film."
-      keywords={['material data sheet', 'compostable film specification', '60gsm kraft paper spec', 'achieve pack technical specs', 'compostable laminate table']}
-      heroTitle="Technical Data Sheet"
-      heroSubtitle="Official Engineering Specifications: 60gsm Kraft Paper + 50μ Compostable Inner Film"
-      introSummary="Access the precise material composition, layer metrics, thickness distribution, and BPI / B Corp compliant technical parameters of our 100% compostable Kraft paper laminate."
+      title={t('seoPages.pages.materialDataSheet.achievePack.seo.title')}
+      description={t('seoPages.pages.materialDataSheet.achievePack.seo.description')}
+      keywords={t('seoPages.pages.materialDataSheet.achievePack.seo.keywords', { returnObjects: true }) as string[]}
+      heroTitle={t('seoPages.pages.materialDataSheet.achievePack.seo.heroTitle')}
+      heroSubtitle={t('seoPages.pages.materialDataSheet.achievePack.seo.heroSubtitle')}
+      introSummary={t('seoPages.pages.materialDataSheet.achievePack.seo.introSummary')}
       sections={sections}
-      ctaTitle="Need a custom composite spec?"
-      ctaDescription="Our engineering team can formulate custom barrier layers, custom paper thicknesses, and specialized sealing biopolymers tailored to your exact application."
-      ctaButtonText="Talk to a Packaging Engineer"
+      ctaTitle={t('seoPages.pages.materialDataSheet.achievePack.cta.title')}
+      ctaDescription={t('seoPages.pages.materialDataSheet.achievePack.cta.description')}
+      ctaButtonText={t('seoPages.pages.materialDataSheet.achievePack.cta.buttonText')}
       ctaButtonUrl="https://calendly.com/30-min-free-packaging-consultancy"
     />
   )
 }
 
-export default MaterialDataSheetPage
+export default MaterialDataSheetPage;

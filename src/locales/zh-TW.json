@@ -14984,6 +14984,116 @@
                         "buttonText": "配置小袋"
                     }
                 }
+            },
+            "materialDataSheet": {
+                "achievePack": {
+                    "seo": {
+                        "title": "材料資料表（60gsm牛皮紙+50μ可堆肥薄膜）",
+                        "description": "60gsm 牛皮紙 + 50μ 可堆肥生物聚合物包裝膜的技術規格、結構層和實驗室指標。",
+                        "keywords": [
+                            "材料數據表",
+                            "可堆肥薄膜規格",
+                            "60gsm牛皮紙規格",
+                            "實現包技術規格",
+                            "可堆肥層壓板桌"
+                        ],
+                        "heroTitle": "技術資料表",
+                        "heroSubtitle": "官方工程規格：60gsm牛皮紙+50μ可堆肥內膜",
+                        "introSummary": "了解我們 100% 可堆肥牛皮紙層壓板的精確材料成分、層數、厚度分佈以及符合 BPI / B Corp 的技術參數。"
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "產品概要和規格",
+                            "p1": "本技術資料表詳細介紹了我們優質 60gsm 牛皮紙 + 50μ 可堆肥內膜層壓板的性能指標和結構組成。 這種可堆肥結構專為高性能和最小環境足跡而設計，是尋求高品質有機品牌和可靠保護的品牌的理想選擇。",
+                            "cards": {
+                                "productName": {
+                                    "label": "產品名稱",
+                                    "title": "牛皮紙和可堆肥層壓板",
+                                    "desc": "60gsm 牛皮紙 + 50μ 可堆肥內膜。"
+                                },
+                                "materialStructure": {
+                                    "label": "材料結構",
+                                    "title": "牛皮紙/可堆肥薄膜",
+                                    "desc": "天然無塗層牛皮紙層壓至有機生物聚合物薄膜。"
+                                },
+                                "calculationBasis": {
+                                    "label": "計算依據",
+                                    "title": "標稱130μ/130gsm",
+                                    "desc": "每 1 平方公尺面積的標稱總厚度為 0.13 毫米。"
+                                }
+                            }
+                        },
+                        "features": {
+                            "title": "主要特性與常見應用",
+                            "highlightsTitle": "性能亮點",
+                            "list": [
+                                "紙基可堆肥高阻隔層壓板",
+                                "100% 家庭和工業可堆肥（EN 13432 和 ASTM D6400）",
+                                "天然無塗層牛皮紙美學和優質有機質感",
+                                "卓越的密封強度和熱密封窗口",
+                                "優化表面能，打造高清環保油墨"
+                            ],
+                            "appsTitle": "推薦應用",
+                            "tags": [
+                                "乾糧",
+                                "咖啡豆",
+                                "糖果點心",
+                                "堅果和種子",
+                                "乾果",
+                                "烘焙食品",
+                                "粉末"
+                            ],
+                            "certsTitle": "行業認證",
+                            "bpiAlt": "BPI認證",
+                            "bcorpAlt": "共益企業"
+                        },
+                        "structure": {
+                            "title": "材料結構可視化",
+                            "p1": "我們的多層層壓板使用天然纖維素纖維與可堆肥內密封膜搭配，並用無溶劑生物黏合劑黏合在一起。",
+                            "imgAlt": "牛皮紙+可堆肥膜結構圖"
+                        },
+                        "specifications": {
+                            "title": "技術數據和工程規格",
+                            "p1": "以下是層合結構的實驗室工程規格和物理性能。",
+                            "tableHeaders": {
+                                "colLayer": "Layer (層級)",
+                                "colMaterial": "Material (材料)",
+                                "colGsm": "全球行動通訊系統",
+                                "colThicknessMm": "厚度（毫米）",
+                                "colThicknessUm": "厚度（微米）",
+                                "colWeightPct": "重量 ％",
+                                "colThicknessPct": "厚度 ％"
+                            },
+                            "rows": {
+                                "outer": {
+                                    "layer": "外層",
+                                    "material": "牛皮紙（無塗層）"
+                                },
+                                "inner": {
+                                    "layer": "內層",
+                                    "material": "可堆肥膜（50μ）"
+                                },
+                                "total": {
+                                    "layer": "全部的",
+                                    "material": "疊層結構"
+                                }
+                            },
+                            "notesTitle": "工程與分析註釋：",
+                            "notes": [
+                                "60gsm牛皮紙典型厚度範圍70–85μm；標稱 80μm 用於目標分析。",
+                                "可堆肥生物聚合物薄膜 (50μm) 在平均密度 ρ = 1.4 g/cm3 下進行分析，代表基重約為 70 g/m2。",
+                                "厚度和重量百分比的計算公式為：層值 ÷ 總價值 × 100%。"
+                            ],
+                            "docId": "文件 ID：SPEC-AP-2026-V1 // 已驗證的安全存檔",
+                            "downloadBtn": "下載官方技術 PDF"
+                        }
+                    },
+                    "cta": {
+                        "title": "需要客製化複合材料規格嗎？",
+                        "description": "我們的工程團隊可以根據您的特定應用制定客製化阻隔層、定製紙張厚度和專門的密封生物聚合物。",
+                        "buttonText": "與包裝工程師交談"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

@@ -14984,6 +14984,116 @@
                         "buttonText": "Configurar sobres"
                     }
                 }
+            },
+            "materialDataSheet": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Hoja de datos del material (papel Kraft de 60 g/m² + película compostable de 50 μ)",
+                        "description": "Especificaciones técnicas, capas estructurales y métricas de laboratorio para el film de embalaje Papel Kraft 60gsm + Biopolímero Compostable 50μ.",
+                        "keywords": [
+                            "hoja de datos del material",
+                            "especificación de película compostable",
+                            "Especificaciones del papel kraft de 60 g/m²",
+                            "alcanzar las especificaciones técnicas del paquete",
+                            "mesa laminada compostable"
+                        ],
+                        "heroTitle": "Ficha Técnica",
+                        "heroSubtitle": "Especificaciones oficiales de ingeniería: papel Kraft de 60 g/m² + película interior compostable de 50 μ",
+                        "introSummary": "Acceda a la composición precisa del material, las métricas de las capas, la distribución del espesor y los parámetros técnicos que cumplen con BPI/B Corp de nuestro laminado de papel Kraft 100 % compostable."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Descripción general y especificaciones del producto",
+                            "p1": "Esta hoja de datos técnicos detalla las métricas de rendimiento y la composición estructural de nuestro laminado premium de papel Kraft de 60 g/m² + película interior compostable de 50 μ. Diseñada para un alto rendimiento y una huella ambiental mínima, esta estructura compostable es ideal para marcas que buscan una marca orgánica de alta calidad con una protección confiable.",
+                            "cards": {
+                                "productName": {
+                                    "label": "Nombre del producto",
+                                    "title": "Laminado Kraft y compostable",
+                                    "desc": "Papel Kraft de 60 g/m² + Película interior compostable de 50 μ."
+                                },
+                                "materialStructure": {
+                                    "label": "Estructura de materiales",
+                                    "title": "Película Kraft/Compostable",
+                                    "desc": "Papel Kraft natural sin recubrimiento laminado sobre una película de biopolímero orgánico."
+                                },
+                                "calculationBasis": {
+                                    "label": "Base de cálculo",
+                                    "title": "Nominal 130μ / 130gsm",
+                                    "desc": "Espesor total nominal de 0,13 mm por 1 m² de superficie."
+                                }
+                            }
+                        },
+                        "features": {
+                            "title": "Características clave y aplicaciones comunes",
+                            "highlightsTitle": "Aspectos destacados del rendimiento",
+                            "list": [
+                                "Laminado de alta barrera compostable a base de papel",
+                                "100% compostable doméstico e industrial (EN 13432 y ASTM D6400)",
+                                "Estética natural del papel Kraft sin revestimiento y textura orgánica de primera calidad.",
+                                "Fuerza de sellado excepcional y ventana de sellado térmico",
+                                "Energía superficial optimizada para tintas ecológicas de alta definición"
+                            ],
+                            "appsTitle": "Aplicaciones recomendadas",
+                            "tags": [
+                                "Alimentos secos",
+                                "Granos De Café",
+                                "Confitería",
+                                "Nueces y semillas",
+                                "frutos secos",
+                                "Productos horneados",
+                                "Polvos"
+                            ],
+                            "certsTitle": "Certificaciones de la industria",
+                            "bpiAlt": "Certificada BPI",
+                            "bcorpAlt": "Empresa B"
+                        },
+                        "structure": {
+                            "title": "Visualización de la estructura del material",
+                            "p1": "Nuestro laminado multicapa utiliza fibras de celulosa natural combinadas con una película de sellado interior compostable, unidas con bioadhesivos sin disolventes.",
+                            "imgAlt": "Diagrama de estructura de papel kraft + película compostable"
+                        },
+                        "specifications": {
+                            "title": "Datos técnicos y especificaciones de ingeniería",
+                            "p1": "A continuación se muestran las especificaciones de ingeniería de laboratorio y las propiedades físicas de la estructura laminada.",
+                            "tableHeaders": {
+                                "colLayer": "Capa",
+                                "colMaterial": "Material",
+                                "colGsm": "GSM",
+                                "colThicknessMm": "Espesor (mm)",
+                                "colThicknessUm": "Espesor (μm)",
+                                "colWeightPct": "Peso %",
+                                "colThicknessPct": "Espesor %"
+                            },
+                            "rows": {
+                                "outer": {
+                                    "layer": "Capa exterior",
+                                    "material": "Papel kraft (sin estucar)"
+                                },
+                                "inner": {
+                                    "layer": "Capa interior",
+                                    "material": "Película compostable (50μ)"
+                                },
+                                "total": {
+                                    "layer": "TOTAL",
+                                    "material": "Estructura Laminada"
+                                }
+                            },
+                            "notesTitle": "Notas analíticas y de ingeniería:",
+                            "notes": [
+                                "Papel kraft de 60 g/m², rango de espesor típico de 70 a 85 μm; 80 μm nominales tomados para el análisis de objetivos.",
+                                "La película de biopolímero compostable (50 μm) se analiza con una densidad promedio ρ = 1,4 g/cm³, lo que representa un peso base de ~70 g/m².",
+                                "El porcentaje de espesor y peso se calcula como: Valor de capa ÷ Valor total × 100%."
+                            ],
+                            "docId": "ID del documento: SPEC-AP-2026-V1 // Archivo seguro verificado",
+                            "downloadBtn": "Descargar PDF Técnico Oficial"
+                        }
+                    },
+                    "cta": {
+                        "title": "¿Necesita una especificación compuesta personalizada?",
+                        "description": "Nuestro equipo de ingeniería puede formular capas de barrera personalizadas, espesores de papel personalizados y biopolímeros de sellado especializados adaptados a su aplicación exacta.",
+                        "buttonText": "Hablar con una ingeniera de embalaje"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
