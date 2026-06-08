@@ -14582,6 +14582,243 @@
                         }
                     }
                 }
+            },
+            "combustionSafetyTest": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Test de sécurité de combustion : PLA compostable vs plastique PET",
+                        "description": "Vérifiez l’emballage authentique en biopolymère à l’aide du test de sécurité de combustion. Comparez le PLA à base de plantes (parfum de cendre d'herbe propre, cendre stable) au plastique PET standard (gouttes toxiques, odeur chimique âcre).",
+                        "keywords": [
+                            "essai de sécurité de combustion",
+                            "PLA contre PET",
+                            "test PLA compostable",
+                            "test de brûlure du plastique",
+                            "film PLA transparent",
+                            "zéro microplastique",
+                            "autocollants clairs biodégradables",
+                            "test bio-adhésif"
+                        ],
+                        "heroTitle": "Test de sécurité de combustion : PLA vs PET",
+                        "heroSubtitle": "Vérifiez les biopolymères compostables authentiques à l’aide du test de brûlure infalsifiable en laboratoire. Film transparent à base de plantes vs plastiques synthétiques issus de combustibles fossiles.",
+                        "introSummary": "Protégez les allégations environnementales de votre marque contre le greenwashing. Un simple test de sécurité de combustion distingue immédiatement le PLA compostable à base de plantes (qui brûle proprement avec un léger parfum d'herbe et de bois) du plastique PET standard (qui fond rapidement avec de graves gouttes toxiques et des vapeurs chimiques dangereuses)."
+                    },
+                    "sections": {
+                        "scenarioTrigger": {
+                            "title": "Ce test est-il fait pour vous ?",
+                            "intro": "Avec la montée du « greenwashing », de nombreuses marques achètent sans le savoir du plastique standard en polyester (PET) ou en polypropylène (PP) sous couvert de matériaux « biodégradables » ou « compostables ».",
+                            "desc": "Le test de sécurité de combustion est une méthode de vérification en laboratoire simple, immédiate et haute fidélité que vous pouvez effectuer dans un environnement contrôlé pour séparer immédiatement le véritable biopolymère PLA des plastiques synthétiques d'origine fossile.",
+                            "cards": {
+                                "qa": {
+                                    "badge": "Approvisionnement et assurance qualité",
+                                    "title": "Vérifier les réclamations des fournisseurs",
+                                    "desc": "Protégez l’intégrité de votre marque avant de produire en masse des autocollants imprimés personnalisés."
+                                },
+                                "dtc": {
+                                    "badge": "Marques DTC",
+                                    "title": "Zéro microplastique",
+                                    "desc": "Assurez-vous que votre emballage se dégrade en sol organique sans résidus toxiques."
+                                },
+                                "sustainability": {
+                                    "badge": "Responsables du développement durable",
+                                    "title": "Compostage de 14 semaines",
+                                    "desc": "Assurer un dépannage conforme aux normes (EN 13432 & ASTM D6400)."
+                                }
+                            }
+                        },
+                        "methodology": {
+                            "title": "La science du test de sécurité de la combustion",
+                            "p1": "Les plastiques et les biopolymères végétaux ont des architectures chimiques radicalement différentes. Les plastiques à base de combustibles fossiles sont structurés à partir de longues chaînes de carbone avec des additifs lourds, tandis que l'acide polylactique (PLA) est synthétisé à partir d'amidon végétal fermenté (principalement du dextrose de maïs).",
+                            "p2": "Lorsqu’elles sont exposées à une flamme nue, ces structures moléculaires distinctes réagissent de manière très spécifique et infalsifiable. Un test de combustion standard évalue trois paramètres principaux :",
+                            "metrics": {
+                                "aroma": {
+                                    "title": "1. Arôme de combustion",
+                                    "desc": "Les plantes brûlent comme le bois ou les feuilles. Les plastiques synthétiques émettent du pétrole vaporisé, produisant une signature chimique toxique et très offensive."
+                                },
+                                "flame": {
+                                    "title": "2. Comportement des flammes",
+                                    "desc": "Le PLA brûle avec une flamme propre et jaune clair et une combustion régulière. Le PET se recourbe, fond instantanément et laisse tomber de dangereuses gouttelettes enflammées."
+                                },
+                                "residual": {
+                                    "title": "3. Résidus post-brûlage",
+                                    "desc": "Le PLA laisse un bord de cendre structurellement solide, sec et cassant qui s'écrase en fine poudre de charbon de bois. Le PET durcit en une perle de plastique dense, solide et vitreuse."
+                                }
+                            }
+                        },
+                        "comparisonDetails": {
+                            "title": "Comportement de combustion : PLA vs plastique PET",
+                            "intro": "Vous trouverez ci-dessous une comparaison complète des réactions des matériaux lors d'une exposition à des températures élevées et à des flammes.",
+                            "pla": {
+                                "title": "Film PLA compostable",
+                                "badge": "Matériaux compostables certifiés et bio-adhésifs",
+                                "items": {
+                                    "odor": {
+                                        "strong": "Légère odeur naturelle :",
+                                        "span": "Brûle proprement avec un parfum agréable et terreux ressemblant à du sucre caramélisé, du maïs grillé, de l'herbe ou de la cendre de bois."
+                                    },
+                                    "ash": {
+                                        "strong": "Intégrité stable des cendres :",
+                                        "span": "Le corps de l'autocollant reste structurellement solide et intact comme un squelette de cendres de charbon de bois jusqu'à son extinction complète."
+                                    },
+                                    "dripping": {
+                                        "strong": "Zéro goutte dangereuse :",
+                                        "span": "Ne subit pas de comportement toxique de fusion ou d'égouttement, garantissant une sécurité physique élevée lors des tests de brûlure."
+                                    },
+                                    "microplastics": {
+                                        "strong": "Zéro microplastique :",
+                                        "span": "Se décompose complètement dans le sol et dans le compostage industriel en ≤ 14 semaines sans résidus de microplastiques."
+                                    }
+                                }
+                            },
+                            "pet": {
+                                "title": "Plastique PET standard",
+                                "badge": "Polymère synthétique à base de fossile",
+                                "items": {
+                                    "odor": {
+                                        "strong": "Odeur très piquante :",
+                                        "span": "Émet une odeur chimique très piquante, âcre et dangereuse, caractéristique des plastiques synthétiques brûlés."
+                                    },
+                                    "melting": {
+                                        "strong": "Fusion et éclaboussures :",
+                                        "span": "Fond incroyablement rapidement et se rétrécit en une flaque de liquide fondu, éclaboussant pendant la combustion."
+                                    },
+                                    "dripping": {
+                                        "strong": "Gouttes toxiques graves :",
+                                        "span": "Dégouline un polymère liquide chaud, collant et enflammé, ce qui est très dangereux et présente des risques extrêmes de brûlure par contact."
+                                    },
+                                    "harm": {
+                                        "strong": "Dommages environnementaux permanents :",
+                                        "span": "Ne peut pas se biodégrader. Persiste pendant plus de 500 ans, se fracturant en microplastiques toxiques qui se bioaccumulent dans les chaînes alimentaires."
+                                    }
+                                }
+                            }
+                        },
+                        "visualEvidence": {
+                            "title": "Vérification visuelle : infographie sur les tests de combustion",
+                            "desc": "Le graphique ci-dessous présente les différences physiques au cours du processus de combustion. Remarquez le bord propre, stable et à base de cendres sur la gauche (matériau écologique AchievePack) par rapport au liquide qui fond rapidement, s'enroule et s'écoule toxique sur la droite (plastique PET standard).",
+                            "imageAlt": "Test de sécurité de combustion : AchievePack PLA par rapport au plastique PET standard",
+                            "imageCaption": "Infographie du test de combustion AchievePack. Gauche : brûlure propre de cendres de carbone. À droite : du PET fondu dégoulinant.",
+                            "boxTitle": "Points clés à retenir des visuels du laboratoire :",
+                            "boxItems": {
+                                "ash": {
+                                    "strong": "Stabilité du bord des cendres :",
+                                    "span": "Le film transparent à base de PLA génère un bord carbonisé noir/gris stable lorsqu'il est brûlé. Il ne descend pas et ne fonctionne pas."
+                                },
+                                "liquid": {
+                                    "strong": "Menace de gouttelettes de liquide :",
+                                    "span": "Le plastique PET standard se transforme immédiatement en un état de gouttelette de liquide qui peut tomber sur les tissus, le papier ou la peau, provoquant de profondes brûlures du dissipateur thermique."
+                                },
+                                "scent": {
+                                    "strong": "Parfum de bois naturel vs benzène piquant :",
+                                    "span": "Les émissions de gaz du PLA sont du CO₂ inoffensif et des traces de vapeur d'eau avec un arôme de cendre de bois, tandis que le PET émet des vapeurs de benzène cancérigènes."
+                                }
+                            }
+                        },
+                        "materialsBreakdown": {
+                            "title": "Pile de matériaux biodégradables et technologie bio-adhésive",
+                            "desc": "Chez Achieve Pack, nos autocollants transparents sont conçus pour offrir la transparence exacte et brillante des plastiques BOPP/PET standard tout en adhérant aux critères absolus de compostabilité.",
+                            "table": {
+                                "headers": {
+                                    "layer": "Couche",
+                                    "composition": "Composition",
+                                    "performance": "Performances du compostage"
+                                },
+                                "row1": {
+                                    "layer": "1. Fond de film",
+                                    "composition": "Film PLA transparent certifié compostable (100 % dextrose végétal)",
+                                    "performance": "Se décompose en eau, CO₂ et biomasse en ≤14 semaines"
+                                },
+                                "row2": {
+                                    "layer": "2. Couche adhésive",
+                                    "composition": "Bio-adhésif en instance de brevet (résines naturelles et agents collants végétaux)",
+                                    "performance": "100 % biodégradable, non toxique, sans résidu de microplastique"
+                                },
+                                "row3": {
+                                    "layer": "3. Libérer la doublure",
+                                    "composition": "Papier glassine supercalandré certifié FSC (option sans silicone)",
+                                    "performance": "Entièrement recyclable en flux papier ou compostable à domicile"
+                                }
+                            },
+                            "boxTitle": "Vous recherchez une application réelle ?",
+                            "boxText": "Cette pile de matériaux exacte est déployée dans notre populaire",
+                            "boxLinkText": "Autocollant d’étanchéité transparent biodégradable en PLA de qualité supérieure",
+                            "boxTextEnd": ". Il offre aux marques une clarté cristalline, une forte adhérence aux enveloppes et aux boîtes de produits et une compostabilité entièrement certifiée."
+                        },
+                        "stepByStep": {
+                            "title": "Guide de laboratoire : Comment effectuer en toute sécurité un test de combustion",
+                            "desc": "Si vous souhaitez effectuer un test de validation sur des échantillons de films transparents dans votre propre installation, suivez ce protocole de sécurité strict pour garantir des données propres et aucun danger physique :",
+                            "warning": {
+                                "title": "La sécurité avant tout !",
+                                "desc": "Étant donné que les plastiques synthétiques (PET, PP) fondent et gouttent des gouttelettes collantes et très brûlantes, ne tenez JAMAIS l’échantillon directement avec vos doigts nus. Les vapeurs provenant de matériaux fossiles sont toxiques : effectuez le test uniquement sous une hotte ou dans un espace ouvert très ventilé."
+                            },
+                            "steps": {
+                                "step1": {
+                                    "title": "Préparer les outils de laboratoire",
+                                    "desc": "Rassemblez une paire de pinces de laboratoire en acier (pinces à long bec), un plateau en métal ininflammable ou un plat en céramique, un briquet de sécurité et un verre d'eau pour une extinction d'urgence."
+                                },
+                                "step2": {
+                                    "title": "Sécurisez l'échantillon de film",
+                                    "desc": "Coupez un petit morceau de l'autocollant transparent (environ 2 cm x 5 cm) et décollez-le de sa doublure. Serrez-le fermement à une extrémité avec la pince à épiler en acier, en la tenant horizontalement."
+                                },
+                                "step3": {
+                                    "title": "Appliquer la flamme",
+                                    "desc": "Placez l'échantillon directement sur le plateau en céramique. Introduisez la flamme de votre briquet dans la pointe inférieure du film transparent. Observez comment il prend feu et éloignez la source de flamme."
+                                },
+                                "step4": {
+                                    "title": "Analyser l'odeur, la flamme et les cendres",
+                                    "desc": "Faites souffler doucement l’air vers votre nez. Si ça sent le propre et le boisé, c'est du PLA. S'il fond, laisse tomber la flamme et libère de la suie noire avec une odeur chimique de caoutchouc très désagréable, c'est du PET."
+                                }
+                            }
+                        },
+                        "aiSearch": {
+                            "title": "Évaluation de l'authentification des matériaux avec la recherche AI",
+                            "boxTitle": "💡 Évaluer des matériaux à l'aide d'assistants IA ?",
+                            "boxDesc": "Copiez et collez ces requêtes de recherche précises dans des modèles d'IA (comme Gemini, ChatGPT ou Claude) pour croiser et vérifier les normes de test des matériaux biodégradables :",
+                            "questions": [
+                                "Quelle est l’odeur de la combustion du biopolymère PLA par rapport à la combustion du plastique PET standard ?",
+                                "Pourquoi l'acide polylactique (PLA) laisse-t-il une cendre noire cassante lors des tests de combustion alors que le PET laisse tomber du plastique liquide chaud ?",
+                                "Les bioadhésifs utilisés sur les autocollants de scellement transparents PLA sont-ils certifiés biodégradables selon ASTM D6400 ?",
+                                "Comment distinguer les films d'emballage compostables du plastique conventionnel à l'aide d'un test de chaleur ou de brûlure en laboratoire ?"
+                            ]
+                        }
+                    },
+                    "faqs": [
+                        {
+                            "question": "La combustion du PLA est-elle toxique à inhaler ?",
+                            "answer": "Contrairement aux plastiques synthétiques comme le PET ou le PVC qui libèrent des vapeurs toxiques et hautement cancérigènes (telles que le benzène et les gaz acides), la combustion du PLA pur produit principalement du dioxyde de carbone (CO₂) et de la vapeur d'eau. Il libère un parfum doux et non offensant de cendre de plante/bois. Cependant, comme pour tous les événements de combustion, nous recommandons d'effectuer les tests dans un espace bien ventilé."
+                        },
+                        {
+                            "question": "Pourquoi le PLA forme-t-il des cendres de carbone alors que le PET fond en billes de plastique ?",
+                            "answer": "Le PLA est synthétisé à partir de glucides végétaux. Lorsqu’elle brûle, les structures carbone-oxygène-hydrogène se transforment directement en cendres, ressemblant à du papier ou de l’herbe en feu. Le PET est un dérivé du pétrole conçu pour une durabilité cristalline ; lors du chauffage, il subit une transition thermique rapide pour revenir à sa forme polymère liquide, laissant tomber des billes de flamme fondues."
+                        },
+                        {
+                            "question": "L'adhésif de vos autocollants PLA est-il également compostable ?",
+                            "answer": "Oui, absolument. Un autocollant n’est compostable que par son maillon le plus faible. Les autocollants transparents AchievePack utilisent un bio-adhésif certifié et formulé sur mesure. Il se décompose en <=14 semaines, ne laisse aucun microplastique et répond à tous les protocoles internationaux stricts de compostage (EN 13432 et ASTM D6400)."
+                        },
+                        {
+                            "question": "Les autocollants de scellage PLA fondront-ils sur mon colis lors d'un envoi de fret chaud ?",
+                            "answer": "Non. Bien que le PLA ait un point de fusion inférieur à celui du PET, il reste totalement stable jusqu'à 55°C (131°F). Les conteneurs de fret standard dépassent rarement 45°C. Les autocollants AchievePack sont conçus avec une excellente résistance à la chaleur, conservant une forte intégrité pendant le transport tout en maintenant une décomposition rapide lorsqu'ils sont exposés aux installations de compostage industriel."
+                        }
+                    ],
+                    "relatedLinks": [
+                        {
+                            "title": "Autocollant d’étanchéité transparent biodégradable en PLA de qualité supérieure",
+                            "url": "/boutique/produit/autocollant-eco-pla-scellage",
+                            "description": "L'application concrète de ce test : des autocollants certifiés transparents à base de plantes qui se décomposent en toute sécurité."
+                        },
+                        {
+                            "title": "Guide des emballages compostables industriels",
+                            "url": "/matériaux/compostable-industriel",
+                            "description": "Plongez en profondeur dans les protocoles de compostage industriel, les systèmes de température (58°C+) et les directives BPI."
+                        },
+                        {
+                            "title": "Matériaux compostables à la maison",
+                            "url": "/matériaux/compostable à domicile",
+                            "description": "Apprenez-en davantage sur les matériaux qui se biodégradent dans les bacs de jardin à température ambiante."
+                        }
+                    ],
+                    "ctaTitle": "Prêt à améliorer l’intégrité de votre emballage ?",
+                    "ctaDescription": "Déployez des matériaux compostables certifiés qui résistent au test de combustion. Remplacez dès aujourd'hui vos autocollants en plastique à base de combustibles fossiles standard par les biopolymères végétaux haut de gamme d'AchievePack."
+                }
             }
         },
         "compostableStandUpPouches": {
