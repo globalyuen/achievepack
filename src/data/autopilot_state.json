@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T05:30:29.640Z",
+  "lastUnifiedRun": "2026-06-08T05:45:24.872Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2016,17 +2016,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "recyclable-flat-bottom-pouch-sizes-for-nuts",
       "status": "Pending Approval",
       "volume": 900,
       "keyword": "recyclable flat bottom pouch sizes for nuts",
-      "difficulty": "Low",
-      "slug": "recyclable-flat-bottom-pouch-sizes-for-nuts"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 700,
       "keyword": "small batch compostable sachets for spices",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-compostable-sachets-for-spices"
     },
     {
       "status": "Pending",
@@ -2115,9 +2116,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T05:30:21.108Z",
+      "timestamp": "2026-06-08T05:45:18.903Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"recyclable flat bottom pouch sizes for nuts\" to /blog/recyclable-flat-bottom-pouch-sizes-for-nuts (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch compostable sachets for spices\" to /blog/small-batch-compostable-sachets-for-spices (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable flat bottom pouch sizes for nuts\" to /blog/recyclable-flat-bottom-pouch-sizes-for-nuts (Pending Approval)",
+      "timestamp": "2026-06-08T05:30:21.108Z"
     },
     {
       "action": "Autopilot Generation Draft",
