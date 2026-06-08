@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T07:01:33.201Z",
+  "lastUnifiedRun": "2026-06-08T07:15:58.956Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2058,17 +2058,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "sustainable-flexible-packaging-for-baby-food-pouches",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "sustainable flexible packaging for baby food pouches",
-      "difficulty": "Low",
-      "slug": "sustainable-flexible-packaging-for-baby-food-pouches"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 750,
       "keyword": "kraft paper stand up pouch with window dimensions",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "kraft-paper-stand-up-pouch-with-window-dimensions"
     },
     {
       "status": "Pending",
@@ -2117,13 +2118,126 @@
       "volume": 1600,
       "keyword": "compostable pouch manufacturers for small batch orders",
       "difficulty": "Low"
+    },
+    {
+      "keyword": "custom compostable pouch sizes for coffee",
+      "difficulty": "Low",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "digital printed stand up pouches for pet food",
+      "difficulty": "Low",
+      "volume": 850,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono material barrier film for sachets",
+      "difficulty": "Medium",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable sachet dimensions for liquids",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable flat bottom pouch for spices",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "recyclable pouch with zipper for nuts",
+      "difficulty": "Low",
+      "volume": 550,
+      "status": "Pending"
+    },
+    {
+      "keyword": "high barrier film roll stock suppliers",
+      "difficulty": "Medium",
+      "volume": 1200,
+      "status": "Pending"
+    },
+    {
+      "keyword": "small batch digital print flexible packaging",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "eco friendly stand up pouch for baby food",
+      "difficulty": "Low",
+      "volume": 750,
+      "status": "Pending"
+    },
+    {
+      "keyword": "kraft paper sachet with spout",
+      "difficulty": "Low",
+      "volume": 550,
+      "status": "Pending"
+    },
+    {
+      "keyword": "biodegradable barrier pouch dimensions",
+      "difficulty": "Medium",
+      "volume": 800,
+      "status": "Pending"
+    },
+    {
+      "keyword": "custom shaped pouch for powders low moq",
+      "difficulty": "Low",
+      "volume": 700,
+      "status": "Pending"
+    },
+    {
+      "keyword": "retort pouch suppliers compostable",
+      "difficulty": "Low",
+      "volume": 900,
+      "status": "Pending"
+    },
+    {
+      "keyword": "flexible packaging size chart for snacks",
+      "difficulty": "Medium",
+      "volume": 1000,
+      "status": "Pending"
+    },
+    {
+      "keyword": "sustainable digital printed bags for beverages",
+      "difficulty": "Low",
+      "volume": 600,
+      "status": "Pending"
+    },
+    {
+      "keyword": "mono pe film suppliers for pouches",
+      "difficulty": "Medium",
+      "volume": 1100,
+      "status": "Pending"
+    },
+    {
+      "keyword": "compostable packaging for dry goods sizes",
+      "difficulty": "Low",
+      "volume": 650,
+      "status": "Pending"
+    },
+    {
+      "keyword": "barrier sachet filling solutions",
+      "difficulty": "Low",
+      "volume": 500,
+      "status": "Pending"
     }
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T07:00:31.803Z",
+      "timestamp": "2026-06-08T07:15:52.567Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"sustainable flexible packaging for baby food pouches\" to /blog/sustainable-flexible-packaging-for-baby-food-pouches (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"kraft paper stand up pouch with window dimensions\" to /blog/kraft-paper-stand-up-pouch-with-window-dimensions (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"sustainable flexible packaging for baby food pouches\" to /blog/sustainable-flexible-packaging-for-baby-food-pouches (Pending Approval)",
+      "timestamp": "2026-06-08T07:00:31.803Z"
     },
     {
       "action": "Autopilot Generation Draft",
