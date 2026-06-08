@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T13:45:41.319Z",
+  "lastUnifiedRun": "2026-06-08T14:00:38.991Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2247,17 +2247,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "barrier-sachet-filling-solutions",
       "status": "Pending Approval",
       "volume": 500,
       "keyword": "barrier sachet filling solutions",
-      "difficulty": "Low",
-      "slug": "barrier-sachet-filling-solutions"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "eco friendly sachet dimensions for coffee",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-sachet-dimensions-for-coffee"
     },
     {
       "status": "Pending",
@@ -2370,9 +2371,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T13:45:33.316Z",
+      "timestamp": "2026-06-08T14:00:31.144Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"barrier sachet filling solutions\" to /blog/barrier-sachet-filling-solutions (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly sachet dimensions for coffee\" to /blog/eco-friendly-sachet-dimensions-for-coffee (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"barrier sachet filling solutions\" to /blog/barrier-sachet-filling-solutions (Pending Approval)",
+      "timestamp": "2026-06-08T13:45:33.316Z"
     },
     {
       "action": "Autopilot Generation Draft",
