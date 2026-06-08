@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T07:45:35.520Z",
+  "lastUnifiedRun": "2026-06-08T08:00:46.111Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2079,17 +2079,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "biodegradable-barrier-film-for-dry-snacks-packaging",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "biodegradable barrier film for dry snacks packaging",
-      "difficulty": "Low",
-      "slug": "biodegradable-barrier-film-for-dry-snacks-packaging"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 850,
       "keyword": "recyclable mono pe stand up pouch suppliers",
-      "difficulty": "Medium"
+      "difficulty": "Medium",
+      "slug": "recyclable-mono-pe-stand-up-pouch-suppliers"
     },
     {
       "status": "Pending",
@@ -2232,9 +2233,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T07:45:27.295Z",
+      "timestamp": "2026-06-08T08:00:38.040Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"biodegradable barrier film for dry snacks packaging\" to /blog/biodegradable-barrier-film-for-dry-snacks-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable mono pe stand up pouch suppliers\" to /blog/recyclable-mono-pe-stand-up-pouch-suppliers (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable barrier film for dry snacks packaging\" to /blog/biodegradable-barrier-film-for-dry-snacks-packaging (Pending Approval)",
+      "timestamp": "2026-06-08T07:45:27.295Z"
     },
     {
       "action": "Autopilot Generation Draft",
