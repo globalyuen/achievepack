@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T04:00:36.550Z",
+  "lastUnifiedRun": "2026-06-08T04:15:39.993Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -1974,17 +1974,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "stand-up-pouch-dimensions-for-10-oz",
       "status": "Pending Approval",
       "volume": 1500,
       "keyword": "stand up pouch dimensions for 10 oz",
-      "difficulty": "Low",
-      "slug": "stand-up-pouch-dimensions-for-10-oz"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "biodegradable flat bottom pouches for nuts",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "biodegradable-flat-bottom-pouches-for-nuts"
     },
     {
       "status": "Pending",
@@ -2109,9 +2110,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T04:00:28.670Z",
+      "timestamp": "2026-06-08T04:15:34.295Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch dimensions for 10 oz\" to /blog/stand-up-pouch-dimensions-for-10-oz (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"biodegradable flat bottom pouches for nuts\" to /blog/biodegradable-flat-bottom-pouches-for-nuts (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch dimensions for 10 oz\" to /blog/stand-up-pouch-dimensions-for-10-oz (Pending Approval)",
+      "timestamp": "2026-06-08T04:00:28.670Z"
     },
     {
       "action": "Autopilot Generation Draft",
