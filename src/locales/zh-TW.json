@@ -14070,6 +14070,275 @@
                         }
                     }
                 }
+            },
+            "lowMoq": {
+                "achievePack": {
+                    "seo": {
+                        "title": "低起訂量包裝 |最少 100 件 |成就包",
+                        "description": "客製化印刷可持續包裝，起訂量低，起訂量為 100 件。 非常適合新創企業、小批量生產商和電子商務品牌。",
+                        "keywords": [
+                            "低起訂量包裝",
+                            "小批量包裝",
+                            "客製化印刷袋 最少 100 個",
+                            "啟動包裝",
+                            "小型企業包裝"
+                        ]
+                    },
+                    "hero": {
+                        "title": "低起訂量包裝 |最少 100 件 |成就包",
+                        "description": "客製化印刷可持續包裝，起訂量低，起訂量為 100 件。 非常適合新創企業、小批量生產商和電子商務品牌。 美國快速交貨。",
+                        "keywords": [
+                            "低起訂量包裝",
+                            "小批量包裝",
+                            "客製化印刷袋 最少 100 個",
+                            "啟動包裝",
+                            "小型企業包裝"
+                        ],
+                        "heroTitle": "低起訂量包裝",
+                        "heroSubtitle": "Custom Printed Sustainable Pouches | Minimum 100 Pieces | Fast USA Delivery",
+                        "introSummary": "Custom printed sustainable packaging with the industry's lowest minimum order quantity - just 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands testing new products."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "低起訂量軟包裝",
+                            "introStart": "創立新品牌或測試新產品？",
+                            "introBold": "Achieve Pack offers the lowest MOQ in the industry - just 100 pieces",
+                            "introEnd": "用於客製化印刷可持續包裝。 非常适合需要专业包装且无需承担大量库存的小批量生产商、初创公司和电子商务品牌。",
+                            "whyTitle": "為什麼低最小起訂量很重要",
+                            "whyItems": {
+                                "testBold": "測試新產品",
+                                "testEnd": "無大庫存風險",
+                                "launchBold": "啟動速度更快",
+                                "launchEnd": "初始訂單量較小",
+                                "cashBold": "保留現金流",
+                                "cashEnd": "對於成長型企業",
+                                "iterateBold": "迭代設計",
+                                "iterateEnd": "根據客戶回饋"
+                            },
+                            "moqTitle": "我們的最小起訂量選項",
+                            "moqItems": {
+                                "digital": "數位印刷",
+                                "digitalValue": "100 件",
+                                "plate": "版畫",
+                                "plateValue": "1,000 件",
+                                "stock": "庫存袋",
+                                "stockValue": "50 件"
+                            },
+                            "gallery": {
+                                "coffee": "小批量咖啡烘焙機包裝",
+                                "artisan": "工匠零食品牌低訂量包裝",
+                                "tea": "優質茶葉品牌小批量包裝"
+                            }
+                        },
+                        "whoBenefits": {
+                            "title": "誰從低起訂量中受益？",
+                            "cards": {
+                                "coffee": {
+                                    "title": "小批量咖啡烘焙機",
+                                    "desc": "Test new single-origin releases with custom branded packaging before committing to larger orders.",
+                                    "linkText": "查看咖啡袋"
+                                },
+                                "eco": {
+                                    "title": "具有生態意識的新創公司",
+                                    "desc": "Launch with sustainable packaging from day one without the financial burden of large MOQs.",
+                                    "linkText": "查看可堆肥"
+                                },
+                                "ecommerce": {
+                                    "title": "電商品牌商",
+                                    "desc": "Manage inventory efficiently with smaller, more frequent orders that match sales velocity.",
+                                    "linkText": "查看自立袋"
+                                },
+                                "dev": {
+                                    "title": "產品開發商",
+                                    "desc": "在規模生產之前，透過專業包裝的樣品獲取市場回饋。",
+                                    "linkText": "查看補充品"
+                                },
+                                "market": {
+                                    "title": "農夫市集供應商",
+                                    "desc": "透過與知名品牌競爭的客製化包裝提升產品品質。",
+                                    "linkText": "看看零食包裝"
+                                },
+                                "seasonal": {
+                                    "title": "限量版發布",
+                                    "desc": "創建獨家季節性或協作包裝，無需多餘庫存。",
+                                    "linkText": "查看數位印刷"
+                                }
+                            }
+                        },
+                        "digitalPrinting": {
+                            "title": "Digital Printing: The Low MOQ Solution",
+                            "introStart": "我們的",
+                            "introBold": "HP Indigo digital printing technology",
+                            "introEnd": "在不犧牲品質的情況下實現低最小起訂量成為可能。 與傳統的印版印刷不同，數位印刷沒有印版成本——您只需為印刷的內容付費。",
+                            "advantagesTitle": "數位印刷的優勢",
+                            "advantages": {
+                                "plate": {
+                                    "title": "無製版成本",
+                                    "desc": "Save $500-$2,000 in upfront plate fees"
+                                },
+                                "photo": {
+                                    "title": "照片品質的圖形",
+                                    "desc": "全 CMYK 色，無顏色限制"
+                                },
+                                "variable": {
+                                    "title": "可變數據",
+                                    "desc": "同一訂單的不同設計（SKU 變化）"
+                                },
+                                "fast": {
+                                    "title": "快速週轉",
+                                    "desc": "2-3 weeks production vs 4-6 weeks plate print"
+                                }
+                            },
+                            "comparisonTitle": "成本比較",
+                            "comparison": {
+                                "digitalOrder": "100 袋訂單",
+                                "plateOrder": "1,000 袋訂單",
+                                "unitCost": "每單位成本",
+                                "digitalType": "數位印刷",
+                                "digitalRange": "0.85 美元 - 1.50 美元",
+                                "plateType": "版畫",
+                                "plateRange": "$0.35 - $0.65",
+                                "note": "* 確切的定價取決於尺寸、材料和飾面"
+                            }
+                        },
+                        "materials": {
+                            "title": "可用的可持續材料",
+                            "introStart": "我們所有的低最小起訂量包裝均適用於",
+                            "introBold": "永續材料選擇",
+                            "introEnd": "。 选择符合您品牌价值的环保包装。",
+                            "types": {
+                                "compostable": {
+                                    "title": "可堆肥",
+                                    "desc": "ASTM D6400 和 EN 13432 認證"
+                                },
+                                "recyclable": {
+                                    "title": "單PE可回收",
+                                    "desc": "商店投遞可回收"
+                                },
+                                "pcr": {
+                                    "title": "PCR內容",
+                                    "desc": "30-50% 消費後回收"
+                                },
+                                "bio": {
+                                    "title": "生物聚乙烯",
+                                    "desc": "植物基甘蔗 PE"
+                                }
+                            },
+                            "examplesTitle": "Low MOQ Custom Packaging Examples",
+                            "examples": {
+                                "benefits": "低訂量優勢",
+                                "benefitsAlt": "Low MOQ packaging infographic showing 100 piece minimum",
+                                "print": "數位印刷",
+                                "printAlt": "用於客製化低最小起訂量包裝的數位印刷",
+                                "pouch": "電商袋",
+                                "pouchAlt": "電商品牌輕量袋包裝",
+                                "turnaround": "快速週轉",
+                                "turnaroundAlt": "小批量訂單的快速週轉"
+                            }
+                        },
+                        "pouchStyles": {
+                            "title": "可用的手袋款式",
+                            "introStart": "所有流行的小包款式均可搭配",
+                            "introBold": "低最小起訂量 100 件起",
+                            "introEnd": "。",
+                            "styles": {
+                                "standUp": {
+                                    "title": "自立袋",
+                                    "desc": "最受歡迎的零售業",
+                                    "alt": "自立袋低起訂量"
+                                },
+                                "flatBottom": {
+                                    "title": "平底袋",
+                                    "desc": "優質貨架存在",
+                                    "alt": "平底袋低訂購量"
+                                },
+                                "sideGusset": {
+                                    "title": "側邊插角袋",
+                                    "desc": "經典咖啡包款式",
+                                    "alt": "側邊插角袋低最小起訂量"
+                                }
+                            }
+                        },
+                        "leadTime": {
+                            "title": "快速的交貨時間",
+                            "timelineTitle": "生產時間表",
+                            "steps": {
+                                "step1": {
+                                    "title": "設計批准",
+                                    "desc": "1-2 個工作天"
+                                },
+                                "step2": {
+                                    "title": "生產",
+                                    "desc": "2-3 週（數位）"
+                                },
+                                "step3": {
+                                    "title": "運送到美國",
+                                    "desc": "5-7天（空運）"
+                                }
+                            },
+                            "totalTitle": "總交貨時間：3-4 週",
+                            "totalDesc": "從訂單確認到您在美國的送貨上門"
+                        },
+                        "certifications": {
+                            "title": "品質與合規性",
+                            "introStart": "Even at low MOQ, our packaging meets the ",
+                            "introBold": "最高的品質和安全標準",
+                            "introEnd": "。",
+                            "certs": {
+                                "fda": {
+                                    "title": "FDA 核准",
+                                    "desc": "食品接觸安全"
+                                },
+                                "brc": {
+                                    "title": "BRC認證",
+                                    "desc": "全球食品安全"
+                                },
+                                "iso": {
+                                    "title": "ISO 9001",
+                                    "desc": "品質管理"
+                                },
+                                "fsc": {
+                                    "title": "FSC 認證",
+                                    "desc": "永續林業"
+                                }
+                            }
+                        },
+                        "faq": {
+                            "title": "常見問題解答",
+                            "q1": "客製化印刷包裝的最小訂購量是多少？",
+                            "a1": "數位印刷袋的最低訂購量為 100 件，平板印刷包裝的最低訂購量為 1,000 件，庫存袋的最低訂購量為 50 件。 這使得新創公司和小批量生產商可以使用專業包裝。",
+                            "q2": "低起訂量訂單的生產需要多長時間？",
+                            "a2": "數位印刷訂單的生產通常需要 2-3 週，加上運送到美國需要 5-7 天，從訂單確認到您上門的總交貨時間為 3-4 週。",
+                            "q3": "永續包裝是否可以低起訂量提供？",
+                            "a3": "是的！ 我们所有的低最小起订量包装均采用可持续选项，包括可堆肥（ASTM D6400 认证）、可回收单一材料、PCR 含量 (30-50%) 和生物基材料。 您不必為了小批量而犧牲永續性。",
+                            "q4": "為什麼數位印刷用於低最小起訂量？",
+                            "a4": "Digital printing (HP Indigo) has no plate costs, making it economical for small orders. You save $500-$2,000 in upfront plate fees. It also offers photo-quality graphics, variable data capability, and faster turnaround than traditional plate printing.",
+                            "q5": "What is the cost per bag for low MOQ orders?",
+                            "a5": "對於 100 袋數位印刷訂單，每袋成本通常為 0.85-1.50 美元，具體取決於尺寸、材料和飾面。 隨著數量的增加，單位成本顯著降低。 1,000 個以上袋子的製版印刷費用為每袋 0.35-0.65 美元。"
+                        },
+                        "cta": {
+                            "title": "開始您的低起訂量訂單",
+                            "cardTitle": "準備好開始了嗎？",
+                            "cardDesc": "最低訂購量僅為 100 件，即可獲得客製化的永續包裝。",
+                            "bookConsultation": "預約免費諮詢",
+                            "browseProducts": "瀏覽商品",
+                            "features": {
+                                "design": {
+                                    "title": "免費設計協助",
+                                    "desc": "我們的團隊協助製作藝術品"
+                                },
+                                "sample": {
+                                    "title": "範例程式",
+                                    "desc": "訂購前請參閱材料"
+                                },
+                                "shipping": {
+                                    "title": "美國航運",
+                                    "desc": "全國範圍內快速發貨"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

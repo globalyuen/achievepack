@@ -14070,6 +14070,275 @@
                         }
                     }
                 }
+            },
+            "lowMoq": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Embalaje de MOQ bajo | Mínimo 100 piezas | Paquete de logros",
+                        "description": "Embalaje sostenible impreso personalizado con MOQ bajo a partir de 100 piezas. Perfecto para empresas emergentes, productores de pequeños lotes y marcas de comercio electrónico.",
+                        "keywords": [
+                            "Embalaje de MOQ bajo",
+                            "embalaje de lotes pequeños",
+                            "bolsas impresas personalizadas 100 mínimo",
+                            "embalaje de inicio",
+                            "embalaje para pequeñas empresas"
+                        ]
+                    },
+                    "hero": {
+                        "title": "Embalaje de MOQ bajo | Mínimo 100 piezas | Paquete de logros",
+                        "description": "Embalaje sostenible impreso personalizado con MOQ bajo a partir de 100 piezas. Perfecto para empresas emergentes, productores de pequeños lotes y marcas de comercio electrónico. Entrega rápida en EE. UU.",
+                        "keywords": [
+                            "Embalaje de MOQ bajo",
+                            "embalaje de lotes pequeños",
+                            "bolsas impresas personalizadas 100 mínimo",
+                            "embalaje de inicio",
+                            "embalaje para pequeñas empresas"
+                        ],
+                        "heroTitle": "Embalaje de MOQ bajo",
+                        "heroSubtitle": "Bolsas sostenibles impresas personalizadas | Mínimo 100 piezas | Entrega rápida en EE. UU.",
+                        "introSummary": "Embalaje sostenible impreso personalizado con la cantidad mínima de pedido más baja de la industria: solo 100 piezas. Perfecto para empresas emergentes, productores de lotes pequeños y marcas de comercio electrónico que prueban nuevos productos."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Embalaje flexible de MOQ bajo",
+                            "introStart": "¿Comenzar una nueva marca o probar nuevos productos?",
+                            "introBold": "Achieve Pack ofrece el MOQ más bajo de la industria: solo 100 piezas",
+                            "introEnd": "para embalajes sostenibles impresos personalizados. Perfecto para productores de lotes pequeños, empresas emergentes y marcas de comercio electrónico que necesitan empaques profesionales sin grandes compromisos de inventario.",
+                            "whyTitle": "Por qué es importante un MOQ bajo",
+                            "whyItems": {
+                                "testBold": "Probar nuevos productos",
+                                "testEnd": "sin gran riesgo de inventario",
+                                "launchBold": "Lanzar más rápido",
+                                "launchEnd": "con pequeños pedidos iniciales",
+                                "cashBold": "Preservar el flujo de caja",
+                                "cashEnd": "para empresas en crecimiento",
+                                "iterateBold": "Iterar diseños",
+                                "iterateEnd": "basado en los comentarios de los clientes"
+                            },
+                            "moqTitle": "Nuestras opciones de MOQ",
+                            "moqItems": {
+                                "digital": "Impresión Digital",
+                                "digitalValue": "100 piezas",
+                                "plate": "Impresión de placa",
+                                "plateValue": "1.000 piezas",
+                                "stock": "Bolsas de valores",
+                                "stockValue": "50 piezas"
+                            },
+                            "gallery": {
+                                "coffee": "Embalaje para tostadores de café en lotes pequeños",
+                                "artisan": "Envasado de MOQ bajo de marca de snacks artesanales",
+                                "tea": "Envases de lotes pequeños de marca de té premium"
+                            }
+                        },
+                        "whoBenefits": {
+                            "title": "¿Quién se beneficia de un MOQ bajo?",
+                            "cards": {
+                                "coffee": {
+                                    "title": "Tostadores de café en lotes pequeños",
+                                    "desc": "Pruebe nuevos lanzamientos de origen único con empaques de marca personalizados antes de comprometerse con pedidos más grandes.",
+                                    "linkText": "Ver Bolsas de Café"
+                                },
+                                "eco": {
+                                    "title": "Startups con conciencia ecológica",
+                                    "desc": "Lanzamiento con embalaje sostenible desde el primer día sin la carga financiera de grandes MOQ.",
+                                    "linkText": "Ver compostables"
+                                },
+                                "ecommerce": {
+                                    "title": "Propietarias de marcas de comercio electrónico",
+                                    "desc": "Administre el inventario de manera eficiente con pedidos más pequeños y más frecuentes que coincidan con la velocidad de ventas.",
+                                    "linkText": "Ver bolsas verticales"
+                                },
+                                "dev": {
+                                    "title": "Desarrolladores de productos",
+                                    "desc": "Obtenga comentarios del mercado con muestras empaquetadas profesionalmente antes de escalar la producción.",
+                                    "linkText": "Ver Suplementos"
+                                },
+                                "market": {
+                                    "title": "Vendedores del mercado de agricultores",
+                                    "desc": "Eleve los productos con empaques personalizados que compitan con marcas establecidas.",
+                                    "linkText": "Ver envases de snacks"
+                                },
+                                "seasonal": {
+                                    "title": "Lanzamientos de edición limitada",
+                                    "desc": "Cree empaques exclusivos de temporada o de colaboración sin exceso de inventario.",
+                                    "linkText": "Ver Impresión Digital"
+                                }
+                            }
+                        },
+                        "digitalPrinting": {
+                            "title": "Impresión digital: la solución de MOQ bajo",
+                            "introStart": "Nuestra",
+                            "introBold": "Tecnología de impresión digital HP Indigo",
+                            "introEnd": "hace posible un MOQ bajo sin sacrificar la calidad. A diferencia de la impresión de planchas tradicional, la impresión digital no tiene costes de plancha: usted paga sólo por lo que imprime.",
+                            "advantagesTitle": "Ventajas de la impresión digital",
+                            "advantages": {
+                                "plate": {
+                                    "title": "Sin costos de placa",
+                                    "desc": "Ahorre entre $500 y $2000 en tarifas iniciales de matrícula"
+                                },
+                                "photo": {
+                                    "title": "Gráficos con calidad fotográfica",
+                                    "desc": "Color CMYK completo sin límites de color"
+                                },
+                                "variable": {
+                                    "title": "Datos variables",
+                                    "desc": "Diferentes diseños en el mismo pedido (variaciones de SKU)"
+                                },
+                                "fast": {
+                                    "title": "Respuesta Rápida",
+                                    "desc": "2-3 semanas de producción frente a 4-6 semanas de impresión de planchas"
+                                }
+                            },
+                            "comparisonTitle": "Comparación de costos",
+                            "comparison": {
+                                "digitalOrder": "Orden de 100 bolsas",
+                                "plateOrder": "Pedido de 1.000 bolsas",
+                                "unitCost": "Costo por unidad",
+                                "digitalType": "Impresión Digital",
+                                "digitalRange": "$0,85 - $1,50",
+                                "plateType": "Impresión de placa",
+                                "plateRange": "$0,35 - $0,65",
+                                "note": "* El precio exacto depende del tamaño, material y acabados."
+                            }
+                        },
+                        "materials": {
+                            "title": "Materiales sostenibles disponibles",
+                            "introStart": "Todos nuestros envases de MOQ bajo están disponibles en",
+                            "introBold": "opciones de materiales sostenibles",
+                            "introEnd": ". Elija envases ecológicos que se alineen con los valores de su marca.",
+                            "types": {
+                                "compostable": {
+                                    "title": "Compostable",
+                                    "desc": "Certificado ASTM D6400 y EN 13432"
+                                },
+                                "recyclable": {
+                                    "title": "Mono-PE reciclable",
+                                    "desc": "Entrega en tienda reciclable"
+                                },
+                                "pcr": {
+                                    "title": "Contenido de la PCR",
+                                    "desc": "30-50% reciclado posconsumo"
+                                },
+                                "bio": {
+                                    "title": "Bio-PE",
+                                    "desc": "PE de caña de azúcar de origen vegetal"
+                                }
+                            },
+                            "examplesTitle": "Ejemplos de embalajes personalizados con MOQ bajo",
+                            "examples": {
+                                "benefits": "Beneficios de MOQ bajo",
+                                "benefitsAlt": "Infografía de embalaje con MOQ bajo que muestra un mínimo de 100 piezas",
+                                "print": "Impresión Digital",
+                                "printAlt": "Impresión digital para embalajes personalizados de MOQ bajo",
+                                "pouch": "Bolsa de comercio electrónico",
+                                "pouchAlt": "Embalaje de bolsa ligera de marca de comercio electrónico",
+                                "turnaround": "Respuesta Rápida",
+                                "turnaroundAlt": "Entrega rápida para pedidos de lotes pequeños"
+                            }
+                        },
+                        "pouchStyles": {
+                            "title": "Estilos de bolsa disponibles",
+                            "introStart": "Todos los estilos de bolsas populares están disponibles con",
+                            "introBold": "MOQ bajo a partir de 100 piezas",
+                            "introEnd": ".",
+                            "styles": {
+                                "standUp": {
+                                    "title": "Bolsas de pie",
+                                    "desc": "Más popular para el comercio minorista",
+                                    "alt": "Bolsa de pie con MOQ bajo"
+                                },
+                                "flatBottom": {
+                                    "title": "Bolsas de fondo plano",
+                                    "desc": "Presencia premium en los estantes",
+                                    "alt": "Bolsa de fondo plano MOQ bajo"
+                                },
+                                "sideGusset": {
+                                    "title": "Bolsas con fuelle lateral",
+                                    "desc": "Estilo clásico de bolsa de café",
+                                    "alt": "Bolsa con fuelle lateral MOQ bajo"
+                                }
+                            }
+                        },
+                        "leadTime": {
+                            "title": "Plazos de entrega rápidos",
+                            "timelineTitle": "Cronograma de producción",
+                            "steps": {
+                                "step1": {
+                                    "title": "Aprobación de diseño",
+                                    "desc": "1-2 días hábiles"
+                                },
+                                "step2": {
+                                    "title": "Producción",
+                                    "desc": "2-3 semanas (digital)"
+                                },
+                                "step3": {
+                                    "title": "Envío a EE.UU.",
+                                    "desc": "5-7 días (flete aéreo)"
+                                }
+                            },
+                            "totalTitle": "Plazo de entrega total: 3-4 semanas",
+                            "totalDesc": "Desde la confirmación del pedido hasta su puerta en EE. UU."
+                        },
+                        "certifications": {
+                            "title": "Calidad y cumplimiento",
+                            "introStart": "Incluso con MOQ bajos, nuestro embalaje cumple con los",
+                            "introBold": "los más altos estándares de calidad y seguridad",
+                            "introEnd": ".",
+                            "certs": {
+                                "fda": {
+                                    "title": "Aprobado por la FDA",
+                                    "desc": "Seguro para el contacto con alimentos"
+                                },
+                                "brc": {
+                                    "title": "Certificada BRC",
+                                    "desc": "Seguridad alimentaria mundial"
+                                },
+                                "iso": {
+                                    "title": "Norma ISO 9001",
+                                    "desc": "Gestión de calidad"
+                                },
+                                "fsc": {
+                                    "title": "Certificada FSC",
+                                    "desc": "Silvicultura sostenible"
+                                }
+                            }
+                        },
+                        "faq": {
+                            "title": "Preguntas frecuentes",
+                            "q1": "¿Cuál es la cantidad mínima de pedido para embalajes impresos personalizados?",
+                            "a1": "Nuestra cantidad mínima de pedido es de 100 piezas para bolsas con impresión digital, 1000 piezas para envases con impresión en placa y 50 piezas para bolsas en stock. Esto hace que los envases profesionales sean accesibles para las empresas emergentes y los productores de pequeños lotes.",
+                            "q2": "¿Cuánto tiempo lleva la producción para pedidos MOQ bajos?",
+                            "a2": "Los pedidos de impresión digital normalmente tardan de 2 a 3 semanas en producirse más 5 a 7 días de envío a EE. UU., para un tiempo total de entrega de 3 a 4 semanas desde la confirmación del pedido hasta su puerta.",
+                            "q3": "¿Hay envases sostenibles disponibles a un MOQ bajo?",
+                            "a3": "¡Sí! Todos nuestros envases de MOQ bajo están disponibles en opciones sostenibles que incluyen compostables (certificado ASTM D6400), monomaterial reciclable, contenido de PCR (30-50%) y materiales de base biológica. No es necesario sacrificar la sostenibilidad por pequeñas cantidades.",
+                            "q4": "¿Por qué se utiliza la impresión digital para MOQ bajos?",
+                            "a4": "La impresión digital (HP Indigo) no tiene costes de plancha, lo que la hace económica para pedidos pequeños. Ahorra entre $500 y $2000 en tarifas iniciales de matrícula. También ofrece gráficos de calidad fotográfica, capacidad de datos variables y tiempos de entrega más rápidos que la impresión de planchas tradicional.",
+                            "q5": "¿Cuál es el costo por bolsa para pedidos MOQ bajos?",
+                            "a5": "Para pedidos de impresión digital de 100 bolsas, los costos suelen oscilar entre $0,85 y $1,50 por bolsa, según el tamaño, el material y los acabados. A medida que aumentan las cantidades, los costos unitarios disminuyen significativamente. La impresión de planchas con más de 1000 bolsas puede costar entre 0,35 y 0,65 dólares por bolsa."
+                        },
+                        "cta": {
+                            "title": "Comience su pedido de MOQ bajo",
+                            "cardTitle": "¿Listo para empezar?",
+                            "cardDesc": "Obtenga envases sostenibles personalizados con un pedido mínimo de solo 100 piezas.",
+                            "bookConsultation": "Reservar consulta gratuita",
+                            "browseProducts": "Explorar productos",
+                            "features": {
+                                "design": {
+                                    "title": "Ayuda de diseño gratuita",
+                                    "desc": "Nuestro equipo ayuda con las obras de arte."
+                                },
+                                "sample": {
+                                    "title": "Programa de muestra",
+                                    "desc": "Ver materiales antes de realizar el pedido."
+                                },
+                                "shipping": {
+                                    "title": "Envío a EE. UU.",
+                                    "desc": "Entrega rápida a todo el país."
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

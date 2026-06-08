@@ -14070,6 +14070,275 @@
                         }
                     }
                 }
+            },
+            "lowMoq": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Emballage à faible MOQ | 100 pièces minimum | Réaliser le pack",
+                        "description": "Emballage durable imprimé sur mesure avec un faible MOQ à partir de 100 pièces. Parfait pour les startups, les producteurs en petits lots et les marques de commerce électronique.",
+                        "keywords": [
+                            "emballage à faible MOQ",
+                            "emballage en petits lots",
+                            "pochettes imprimées personnalisées 100 minimum",
+                            "emballage de démarrage",
+                            "emballage pour petites entreprises"
+                        ]
+                    },
+                    "hero": {
+                        "title": "Emballage à faible MOQ | 100 pièces minimum | Réaliser le pack",
+                        "description": "Emballage durable imprimé sur mesure avec un faible MOQ à partir de 100 pièces. Parfait pour les startups, les producteurs en petits lots et les marques de commerce électronique. Livraison rapide aux États-Unis.",
+                        "keywords": [
+                            "emballage à faible MOQ",
+                            "emballage en petits lots",
+                            "pochettes imprimées personnalisées 100 minimum",
+                            "emballage de démarrage",
+                            "emballage pour petites entreprises"
+                        ],
+                        "heroTitle": "Emballage à faible MOQ",
+                        "heroSubtitle": "Pochettes durables imprimées sur mesure | Minimum 100 pièces | Livraison rapide aux États-Unis",
+                        "introSummary": "Emballage durable imprimé sur mesure avec la quantité minimum de commande la plus basse du secteur - seulement 100 pièces. Idéal pour les startups, les producteurs en petits lots et les marques de commerce électronique qui testent de nouveaux produits."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Emballage flexible à faible MOQ",
+                            "introStart": "Créer une nouvelle marque ou tester de nouveaux produits ?",
+                            "introBold": "Achieve Pack offre le MOQ le plus bas de l'industrie - seulement 100 pièces",
+                            "introEnd": "pour des emballages durables imprimés sur mesure. Parfait pour les producteurs en petits lots, les startups et les marques de commerce électronique qui ont besoin d'un emballage professionnel sans engagements de stocks importants.",
+                            "whyTitle": "Pourquoi un faible MOQ est important",
+                            "whyItems": {
+                                "testBold": "Testez de nouveaux produits",
+                                "testEnd": "sans risque de stock important",
+                                "launchBold": "Lancez-vous plus rapidement",
+                                "launchEnd": "avec de petites commandes initiales",
+                                "cashBold": "Préserver la trésorerie",
+                                "cashEnd": "pour les entreprises en croissance",
+                                "iterateBold": "Itérer les conceptions",
+                                "iterateEnd": "basé sur les commentaires des clients"
+                            },
+                            "moqTitle": "Nos options de quantité minimale de commande",
+                            "moqItems": {
+                                "digital": "Impression numérique",
+                                "digitalValue": "100 pièces",
+                                "plate": "Impression sur plaque",
+                                "plateValue": "1 000 pièces",
+                                "stock": "Sacs de stockage",
+                                "stockValue": "50 pièces"
+                            },
+                            "gallery": {
+                                "coffee": "Emballage de torréfacteur en petits lots",
+                                "artisan": "Emballage à faible MOQ de marque de collations artisanales",
+                                "tea": "Emballage en petits lots de marque de thé haut de gamme"
+                            }
+                        },
+                        "whoBenefits": {
+                            "title": "À qui profite un faible MOQ ?",
+                            "cards": {
+                                "coffee": {
+                                    "title": "Torréfacteurs de café en petits lots",
+                                    "desc": "Testez les nouvelles versions d'origine unique avec des emballages de marque personnalisés avant de vous engager dans des commandes plus importantes.",
+                                    "linkText": "Voir les sacs de café"
+                                },
+                                "eco": {
+                                    "title": "Startups éco-conscientes",
+                                    "desc": "Lancez-vous avec un emballage durable dès le premier jour sans le fardeau financier des grands MOQ.",
+                                    "linkText": "Voir Compostable"
+                                },
+                                "ecommerce": {
+                                    "title": "Propriétaires de marques de commerce électronique",
+                                    "desc": "Gérez efficacement les stocks avec des commandes plus petites et plus fréquentes qui correspondent à la vitesse des ventes.",
+                                    "linkText": "Voir les pochettes verticales"
+                                },
+                                "dev": {
+                                    "title": "Développeurs de produits",
+                                    "desc": "Obtenez des commentaires du marché avec des échantillons emballés par des professionnels avant de développer la production.",
+                                    "linkText": "Voir les suppléments"
+                                },
+                                "market": {
+                                    "title": "Vendeurs du marché fermier",
+                                    "desc": "Élevez les produits avec des emballages personnalisés qui rivalisent avec les marques établies.",
+                                    "linkText": "Voir l'emballage des collations"
+                                },
+                                "seasonal": {
+                                    "title": "Sorties en édition limitée",
+                                    "desc": "Créez des emballages saisonniers ou collaboratifs exclusifs sans excédent de stock.",
+                                    "linkText": "Voir l'impression numérique"
+                                }
+                            }
+                        },
+                        "digitalPrinting": {
+                            "title": "Impression numérique : la solution à faible quantité de commande",
+                            "introStart": "Notre",
+                            "introBold": "Technologie d'impression numérique HP Indigo",
+                            "introEnd": "permet un faible MOQ sans sacrifier la qualité. Contrairement à l’impression traditionnelle sur plaques, l’impression numérique ne nécessite aucun coût de plaque : vous ne payez que ce que vous imprimez.",
+                            "advantagesTitle": "Avantages de l'impression numérique",
+                            "advantages": {
+                                "plate": {
+                                    "title": "Aucun frais de plaque",
+                                    "desc": "Économisez entre 500 $ et 2 000 $ en frais de plaque initiaux"
+                                },
+                                "photo": {
+                                    "title": "Graphiques de qualité photo",
+                                    "desc": "Couleur CMJN complète sans limite de couleur"
+                                },
+                                "variable": {
+                                    "title": "Données variables",
+                                    "desc": "Différents modèles dans la même commande (variations SKU)"
+                                },
+                                "fast": {
+                                    "title": "Délai d'exécution rapide",
+                                    "desc": "2 à 3 semaines de production contre 4 à 6 semaines d'impression sur plaque"
+                                }
+                            },
+                            "comparisonTitle": "Comparaison des coûts",
+                            "comparison": {
+                                "digitalOrder": "Commande de 100 sacs",
+                                "plateOrder": "Commande de 1 000 sacs",
+                                "unitCost": "Coût unitaire",
+                                "digitalType": "Impression numérique",
+                                "digitalRange": "0,85 $ - 1,50 $",
+                                "plateType": "Impression sur plaque",
+                                "plateRange": "0,35 $ - 0,65 $",
+                                "note": "* Le prix exact dépend de la taille, du matériau et des finitions"
+                            }
+                        },
+                        "materials": {
+                            "title": "Matériaux durables disponibles",
+                            "introStart": "Tous nos emballages à faible MOQ sont disponibles en",
+                            "introBold": "options matérielles durables",
+                            "introEnd": ". Choisissez un emballage écologique qui correspond aux valeurs de votre marque.",
+                            "types": {
+                                "compostable": {
+                                    "title": "Compostable",
+                                    "desc": "Certifié ASTM D6400 et EN 13432"
+                                },
+                                "recyclable": {
+                                    "title": "Mono-PE Recyclable",
+                                    "desc": "Dépôt en magasin recyclable"
+                                },
+                                "pcr": {
+                                    "title": "Contenu du RAP",
+                                    "desc": "30 à 50 % recyclés après consommation"
+                                },
+                                "bio": {
+                                    "title": "Bio-PE",
+                                    "desc": "PE de canne à sucre d'origine végétale"
+                                }
+                            },
+                            "examplesTitle": "Exemples d'emballages personnalisés à faible MOQ",
+                            "examples": {
+                                "benefits": "Avantages d'un faible MOQ",
+                                "benefitsAlt": "Infographie d'emballage à faible MOQ montrant 100 pièces minimum",
+                                "print": "Impression numérique",
+                                "printAlt": "Impression numérique pour emballages personnalisés à faible MOQ",
+                                "pouch": "Pochette e-commerce",
+                                "pouchAlt": "Emballage en pochette léger de marque e-commerce",
+                                "turnaround": "Délai d'exécution rapide",
+                                "turnaroundAlt": "Délai d'exécution rapide pour les petites commandes par lots"
+                            }
+                        },
+                        "pouchStyles": {
+                            "title": "Styles de pochettes disponibles",
+                            "introStart": "Tous les styles de pochettes populaires sont disponibles avec",
+                            "introBold": "faible MOQ à partir de 100 pièces",
+                            "introEnd": ".",
+                            "styles": {
+                                "standUp": {
+                                    "title": "Pochettes verticales",
+                                    "desc": "Le plus populaire pour le commerce de détail",
+                                    "alt": "Pochette debout faible MOQ"
+                                },
+                                "flatBottom": {
+                                    "title": "Sacs à fond plat",
+                                    "desc": "Présence premium en rayon",
+                                    "alt": "Sac à fond plat faible MOQ"
+                                },
+                                "sideGusset": {
+                                    "title": "Sacs à soufflet latéraux",
+                                    "desc": "Style de sac à café classique",
+                                    "alt": "Sac à soufflet latéral faible MOQ"
+                                }
+                            }
+                        },
+                        "leadTime": {
+                            "title": "Délais de livraison rapides",
+                            "timelineTitle": "Chronologie de production",
+                            "steps": {
+                                "step1": {
+                                    "title": "Approbation de la conception",
+                                    "desc": "1-2 jours ouvrables"
+                                },
+                                "step2": {
+                                    "title": "Production",
+                                    "desc": "2-3 semaines (numérique)"
+                                },
+                                "step3": {
+                                    "title": "Expédition aux États-Unis",
+                                    "desc": "5-7 jours (fret aérien)"
+                                }
+                            },
+                            "totalTitle": "Délai total : 3-4 semaines",
+                            "totalDesc": "De la confirmation de commande à votre porte aux USA"
+                        },
+                        "certifications": {
+                            "title": "Qualité et conformité",
+                            "introStart": "Même à faible MOQ, notre emballage répond aux",
+                            "introBold": "normes de qualité et de sécurité les plus élevées",
+                            "introEnd": ".",
+                            "certs": {
+                                "fda": {
+                                    "title": "Approuvé par la FDA",
+                                    "desc": "Sans danger pour le contact alimentaire"
+                                },
+                                "brc": {
+                                    "title": "Certifié BRC",
+                                    "desc": "Sécurité alimentaire mondiale"
+                                },
+                                "iso": {
+                                    "title": "OIN 9001",
+                                    "desc": "Gestion de la qualité"
+                                },
+                                "fsc": {
+                                    "title": "Certifié FSC",
+                                    "desc": "Foresterie durable"
+                                }
+                            }
+                        },
+                        "faq": {
+                            "title": "Foire aux questions",
+                            "q1": "Quelle est la quantité minimum de commande pour un emballage imprimé personnalisé ?",
+                            "a1": "Notre quantité minimale de commande est de 100 pièces pour les sachets imprimés numériquement, de 1 000 pièces pour les emballages imprimés sur plaque et de 50 pièces pour les sacs en stock. Cela rend les emballages professionnels accessibles aux startups et aux producteurs en petites séries.",
+                            "q2": "Combien de temps prend la production pour les commandes à faible MOQ ?",
+                            "a2": "Les commandes d'impression numérique prennent généralement 2 à 3 semaines pour la production, plus 5 à 7 jours pour l'expédition aux États-Unis, pour un délai total de 3 à 4 semaines à compter de la confirmation de la commande jusqu'à votre porte.",
+                            "q3": "Les emballages durables sont-ils disponibles à un faible MOQ ?",
+                            "a3": "Oui! Tous nos emballages à faible MOQ sont disponibles dans des options durables, notamment compostables (certifiés ASTM D6400), mono-matériau recyclable, teneur en PCR (30 à 50 %) et matériaux d'origine biologique. Vous n'êtes pas obligé de sacrifier la durabilité pour de petites quantités.",
+                            "q4": "Pourquoi l'impression numérique est-elle utilisée pour un faible MOQ ?",
+                            "a4": "L'impression numérique (HP Indigo) ne nécessite aucun coût de plaque, ce qui la rend économique pour les petites commandes. Vous économisez entre 500 $ et 2 000 $ en frais initiaux de plaque. Elle offre également des graphiques de qualité photo, une capacité de données variables et un délai d'exécution plus rapide que l'impression sur plaque traditionnelle.",
+                            "q5": "Quel est le coût par sac pour les commandes à faible MOQ ?",
+                            "a5": "Pour les commandes d'impression numérique de 100 sacs, les coûts varient généralement de 0,85 $ à 1,50 $ par sac en fonction de la taille, du matériau et des finitions. À mesure que les quantités augmentent, les coûts unitaires diminuent considérablement. L'impression sur plaque à partir de 1 000 sacs peut coûter entre 0,35 et 0,65 $ par sac."
+                        },
+                        "cta": {
+                            "title": "Commencez votre commande à faible MOQ",
+                            "cardTitle": "Prêt à commencer ?",
+                            "cardDesc": "Obtenez un emballage durable personnalisé avec seulement 100 pièces minimum de commande.",
+                            "bookConsultation": "Réservez une consultation gratuite",
+                            "browseProducts": "Parcourir les produits",
+                            "features": {
+                                "design": {
+                                    "title": "Aide à la conception gratuite",
+                                    "desc": "Notre équipe vous assiste avec les œuvres d'art"
+                                },
+                                "sample": {
+                                    "title": "Exemple de programme",
+                                    "desc": "Voir les matériaux avant de commander"
+                                },
+                                "shipping": {
+                                    "title": "Expédition aux États-Unis",
+                                    "desc": "Livraison rapide dans tout le pays"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

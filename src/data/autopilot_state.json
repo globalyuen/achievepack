@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T00:19:06.497Z",
+  "lastUnifiedRun": "2026-06-08T00:30:26.645Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -1897,17 +1897,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "eco-friendly-retort-bags-for-baby-food",
       "status": "Pending Approval",
       "volume": 700,
       "keyword": "eco friendly retort bags for baby food",
-      "difficulty": "Low",
-      "slug": "eco-friendly-retort-bags-for-baby-food"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1200,
       "keyword": "recyclable flat bottom pouch suppliers",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "recyclable-flat-bottom-pouch-suppliers"
     },
     {
       "status": "Pending",
@@ -1990,9 +1991,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T00:18:54.616Z",
+      "timestamp": "2026-06-08T00:30:19.065Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly retort bags for baby food\" to /blog/eco-friendly-retort-bags-for-baby-food (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"recyclable flat bottom pouch suppliers\" to /blog/recyclable-flat-bottom-pouch-suppliers (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly retort bags for baby food\" to /blog/eco-friendly-retort-bags-for-baby-food (Pending Approval)",
+      "timestamp": "2026-06-08T00:18:54.616Z"
     },
     {
       "action": "Autopilot Generation Draft",

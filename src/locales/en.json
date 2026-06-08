@@ -14169,6 +14169,275 @@
                         }
                     }
                 }
+            },
+            "lowMoq": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Low MOQ Packaging | 100 Piece Minimum | Achieve Pack",
+                        "description": "Custom printed sustainable packaging with low MOQ from 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands.",
+                        "keywords": [
+                            "low MOQ packaging",
+                            "small batch packaging",
+                            "custom printed pouches 100 minimum",
+                            "startup packaging",
+                            "small business packaging"
+                        ]
+                    },
+                    "hero": {
+                        "title": "Low MOQ Packaging | 100 Piece Minimum | Achieve Pack",
+                        "description": "Custom printed sustainable packaging with low MOQ from 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands. Fast USA delivery.",
+                        "keywords": [
+                            "low MOQ packaging",
+                            "small batch packaging",
+                            "custom printed pouches 100 minimum",
+                            "startup packaging",
+                            "small business packaging"
+                        ],
+                        "heroTitle": "Low MOQ Packaging",
+                        "heroSubtitle": "Custom Printed Sustainable Pouches | Minimum 100 Pieces | Fast USA Delivery",
+                        "introSummary": "Custom printed sustainable packaging with the industry's lowest minimum order quantity - just 100 pieces. Perfect for startups, small-batch producers, and e-commerce brands testing new products."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Low MOQ Flexible Packaging",
+                            "introStart": "Starting a new brand or testing new products? ",
+                            "introBold": "Achieve Pack offers the lowest MOQ in the industry - just 100 pieces",
+                            "introEnd": " for custom printed sustainable packaging. Perfect for small-batch producers, startups, and e-commerce brands who need professional packaging without large inventory commitments.",
+                            "whyTitle": "Why Low MOQ Matters",
+                            "whyItems": {
+                                "testBold": "Test new products",
+                                "testEnd": " without large inventory risk",
+                                "launchBold": "Launch faster",
+                                "launchEnd": " with small initial orders",
+                                "cashBold": "Preserve cash flow",
+                                "cashEnd": " for growing businesses",
+                                "iterateBold": "Iterate designs",
+                                "iterateEnd": " based on customer feedback"
+                            },
+                            "moqTitle": "Our MOQ Options",
+                            "moqItems": {
+                                "digital": "Digital Print",
+                                "digitalValue": "100 pcs",
+                                "plate": "Plate Print",
+                                "plateValue": "1,000 pcs",
+                                "stock": "Stock Bags",
+                                "stockValue": "50 pcs"
+                            },
+                            "gallery": {
+                                "coffee": "Small batch coffee roaster packaging",
+                                "artisan": "Artisan snack brand low MOQ packaging",
+                                "tea": "Premium tea brand small batch packaging"
+                            }
+                        },
+                        "whoBenefits": {
+                            "title": "Who Benefits from Low MOQ?",
+                            "cards": {
+                                "coffee": {
+                                    "title": "Small-Batch Coffee Roasters",
+                                    "desc": "Test new single-origin releases with custom branded packaging before committing to larger orders.",
+                                    "linkText": "View Coffee Bags"
+                                },
+                                "eco": {
+                                    "title": "Eco-Conscious Startups",
+                                    "desc": "Launch with sustainable packaging from day one without the financial burden of large MOQs.",
+                                    "linkText": "View Compostable"
+                                },
+                                "ecommerce": {
+                                    "title": "E-commerce Brand Owners",
+                                    "desc": "Manage inventory efficiently with smaller, more frequent orders that match sales velocity.",
+                                    "linkText": "View Stand-Up Pouches"
+                                },
+                                "dev": {
+                                    "title": "Product Developers",
+                                    "desc": "Get market feedback with professionally packaged samples before scaling production.",
+                                    "linkText": "View Supplements"
+                                },
+                                "market": {
+                                    "title": "Farmers Market Vendors",
+                                    "desc": "Elevate products with custom packaging that competes with established brands.",
+                                    "linkText": "View Snack Packaging"
+                                },
+                                "seasonal": {
+                                    "title": "Limited Edition Releases",
+                                    "desc": "Create exclusive seasonal or collaboration packaging without excess inventory.",
+                                    "linkText": "View Digital Print"
+                                }
+                            }
+                        },
+                        "digitalPrinting": {
+                            "title": "Digital Printing: The Low MOQ Solution",
+                            "introStart": "Our ",
+                            "introBold": "HP Indigo digital printing technology",
+                            "introEnd": " makes low MOQ possible without sacrificing quality. Unlike traditional plate printing, digital printing has no plate costs - you pay only for what you print.",
+                            "advantagesTitle": "Digital Print Advantages",
+                            "advantages": {
+                                "plate": {
+                                    "title": "No Plate Costs",
+                                    "desc": "Save $500-$2,000 in upfront plate fees"
+                                },
+                                "photo": {
+                                    "title": "Photo-Quality Graphics",
+                                    "desc": "Full CMYK color with no color limits"
+                                },
+                                "variable": {
+                                    "title": "Variable Data",
+                                    "desc": "Different designs in same order (SKU variations)"
+                                },
+                                "fast": {
+                                    "title": "Fast Turnaround",
+                                    "desc": "2-3 weeks production vs 4-6 weeks plate print"
+                                }
+                            },
+                            "comparisonTitle": "Cost Comparison",
+                            "comparison": {
+                                "digitalOrder": "100 Bags Order",
+                                "plateOrder": "1,000 Bags Order",
+                                "unitCost": "Per Unit Cost",
+                                "digitalType": "Digital Print",
+                                "digitalRange": "$0.85 - $1.50",
+                                "plateType": "Plate Print",
+                                "plateRange": "$0.35 - $0.65",
+                                "note": "* Exact pricing depends on size, material, and finishes"
+                            }
+                        },
+                        "materials": {
+                            "title": "Available Sustainable Materials",
+                            "introStart": "All our low MOQ packaging is available in ",
+                            "introBold": "sustainable material options",
+                            "introEnd": ". Choose eco-friendly packaging that aligns with your brand values.",
+                            "types": {
+                                "compostable": {
+                                    "title": "Compostable",
+                                    "desc": "ASTM D6400 & EN 13432 certified"
+                                },
+                                "recyclable": {
+                                    "title": "Mono-PE Recyclable",
+                                    "desc": "Store drop-off recyclable"
+                                },
+                                "pcr": {
+                                    "title": "PCR Content",
+                                    "desc": "30-50% post-consumer recycled"
+                                },
+                                "bio": {
+                                    "title": "Bio-PE",
+                                    "desc": "Plant-based sugarcane PE"
+                                }
+                            },
+                            "examplesTitle": "Low MOQ Custom Packaging Examples",
+                            "examples": {
+                                "benefits": "Low MOQ Benefits",
+                                "benefitsAlt": "Low MOQ packaging infographic showing 100 piece minimum",
+                                "print": "Digital Print",
+                                "printAlt": "Digital printing for custom low MOQ packaging",
+                                "pouch": "E-commerce Pouch",
+                                "pouchAlt": "E-commerce brand lightweight pouch packaging",
+                                "turnaround": "Fast Turnaround",
+                                "turnaroundAlt": "Fast turnaround for small batch orders"
+                            }
+                        },
+                        "pouchStyles": {
+                            "title": "Available Pouch Styles",
+                            "introStart": "All popular pouch styles are available with ",
+                            "introBold": "low MOQ starting from 100 pieces",
+                            "introEnd": ".",
+                            "styles": {
+                                "standUp": {
+                                    "title": "Stand-Up Pouches",
+                                    "desc": "Most popular for retail",
+                                    "alt": "Stand up pouch low MOQ"
+                                },
+                                "flatBottom": {
+                                    "title": "Flat Bottom Bags",
+                                    "desc": "Premium shelf presence",
+                                    "alt": "Flat bottom bag low MOQ"
+                                },
+                                "sideGusset": {
+                                    "title": "Side Gusset Bags",
+                                    "desc": "Classic coffee bag style",
+                                    "alt": "Side gusset bag low MOQ"
+                                }
+                            }
+                        },
+                        "leadTime": {
+                            "title": "Fast Lead Times",
+                            "timelineTitle": "Production Timeline",
+                            "steps": {
+                                "step1": {
+                                    "title": "Design Approval",
+                                    "desc": "1-2 business days"
+                                },
+                                "step2": {
+                                    "title": "Production",
+                                    "desc": "2-3 weeks (digital)"
+                                },
+                                "step3": {
+                                    "title": "Shipping to USA",
+                                    "desc": "5-7 days (air freight)"
+                                }
+                            },
+                            "totalTitle": "Total Lead Time: 3-4 Weeks",
+                            "totalDesc": "From order confirmation to your door in the USA"
+                        },
+                        "certifications": {
+                            "title": "Quality & Compliance",
+                            "introStart": "Even at low MOQ, our packaging meets the ",
+                            "introBold": "highest quality and safety standards",
+                            "introEnd": ".",
+                            "certs": {
+                                "fda": {
+                                    "title": "FDA Approved",
+                                    "desc": "Food contact safe"
+                                },
+                                "brc": {
+                                    "title": "BRC Certified",
+                                    "desc": "Global food safety"
+                                },
+                                "iso": {
+                                    "title": "ISO 9001",
+                                    "desc": "Quality management"
+                                },
+                                "fsc": {
+                                    "title": "FSC Certified",
+                                    "desc": "Sustainable forestry"
+                                }
+                            }
+                        },
+                        "faq": {
+                            "title": "Frequently Asked Questions",
+                            "q1": "What is the minimum order quantity for custom printed packaging?",
+                            "a1": "Our minimum order quantity is 100 pieces for digital printed pouches, 1,000 pieces for plate printed packaging, and 50 pieces for stock bags. This makes professional packaging accessible to startups and small-batch producers.",
+                            "q2": "How long does production take for low MOQ orders?",
+                            "a2": "Digital print orders typically take 2-3 weeks for production plus 5-7 days shipping to USA, for a total lead time of 3-4 weeks from order confirmation to your door.",
+                            "q3": "Is sustainable packaging available at low MOQ?",
+                            "a3": "Yes! All our low MOQ packaging is available in sustainable options including compostable (ASTM D6400 certified), recyclable mono-material, PCR content (30-50%), and bio-based materials. You don't have to sacrifice sustainability for small quantities.",
+                            "q4": "Why is digital printing used for low MOQ?",
+                            "a4": "Digital printing (HP Indigo) has no plate costs, making it economical for small orders. You save $500-$2,000 in upfront plate fees. It also offers photo-quality graphics, variable data capability, and faster turnaround than traditional plate printing.",
+                            "q5": "What is the cost per bag for low MOQ orders?",
+                            "a5": "For 100-bag digital print orders, costs typically range from $0.85-$1.50 per bag depending on size, material, and finishes. As quantities increase, per-unit costs decrease significantly. Plate printing at 1,000+ bags can be $0.35-$0.65 per bag."
+                        },
+                        "cta": {
+                            "title": "Start Your Low MOQ Order",
+                            "cardTitle": "Ready to Get Started?",
+                            "cardDesc": "Get custom sustainable packaging with just 100 pieces minimum order.",
+                            "bookConsultation": "Book Free Consultation",
+                            "browseProducts": "Browse Products",
+                            "features": {
+                                "design": {
+                                    "title": "Free Design Help",
+                                    "desc": "Our team assists with artwork"
+                                },
+                                "sample": {
+                                    "title": "Sample Program",
+                                    "desc": "See materials before ordering"
+                                },
+                                "shipping": {
+                                    "title": "USA Shipping",
+                                    "desc": "Fast delivery nationwide"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
