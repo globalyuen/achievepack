@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T11:00:38.016Z",
+  "lastUnifiedRun": "2026-06-08T11:15:38.393Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 14,
+  "totalLinkedAnchors": 1,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -2170,17 +2170,18 @@
       "difficulty": "Low"
     },
     {
+      "slug": "high-barrier-film-roll-stock-suppliers",
       "status": "Pending Approval",
       "volume": 1200,
       "keyword": "high barrier film roll stock suppliers",
-      "difficulty": "Medium",
-      "slug": "high-barrier-film-roll-stock-suppliers"
+      "difficulty": "Medium"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 650,
       "keyword": "small batch digital print flexible packaging",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "small-batch-digital-print-flexible-packaging"
     },
     {
       "status": "Pending",
@@ -2245,9 +2246,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T11:00:30.559Z",
+      "timestamp": "2026-06-08T11:15:30.768Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"high barrier film roll stock suppliers\" to /blog/high-barrier-film-roll-stock-suppliers (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital print flexible packaging\" to /blog/small-batch-digital-print-flexible-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"high barrier film roll stock suppliers\" to /blog/high-barrier-film-roll-stock-suppliers (Pending Approval)",
+      "timestamp": "2026-06-08T11:00:30.559Z"
     },
     {
       "action": "Autopilot Generation Draft",
