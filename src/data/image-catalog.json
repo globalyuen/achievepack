@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-08",
-  "total_images": 3012,
+  "total_images": 3013,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1474,
+    ".png": 1475,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 310,
+      "count": 311,
       "images": [
+        {
+          "filename": "kraft-paper-pouch-with-zipper-custom-hero.png",
+          "path": "/imgs/blog/heros/kraft-paper-pouch-with-zipper-custom-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-08T01:15:16.046Z"
+        },
         {
           "filename": "small-batch-compostable-sachet-printing-hero.png",
           "path": "/imgs/blog/heros/small-batch-compostable-sachet-printing-hero.png",
