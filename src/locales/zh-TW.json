@@ -14339,6 +14339,249 @@
                         }
                     }
                 }
+            },
+            "recyclableMono": {
+                "achievePack": {
+                    "seo": {
+                        "title": "可回收單一材料袋| Mono-PE 和 Mono-PP |商店送貨|成就包",
+                        "description": "由 100% PE 或 PP 製成的可回收單一材料袋。 路邊和商店的垃圾回收站可回收。 提供高壁壘選項。 低最小起訂量 100 件起。",
+                        "ogTitle": "可回收單一材料袋|成就包",
+                        "ogDescription": "100% 可回收的單 PE 和單 PP 袋。 相容商店送貨。 低最小起訂量 100 件起。",
+                        "keywordsString": "可回收袋、單一材料包裝、單一 PE 袋、單一 PP 袋、商店可回收、How2Recycle、可持續包裝、可回收咖啡袋、可回收零食袋",
+                        "jsonLd": {
+                            "name": "可回收的單一材料袋",
+                            "description": "用於食品包裝的 100% 可回收單 PE 和單 PP 袋。 商店投遞與 How2Recycle 標籤相容。",
+                            "category": "可回收包裝"
+                        }
+                    },
+                    "hero": {
+                        "title": "可回收單一材料袋|商店投遞可回收 |成就包",
+                        "description": "100% 可回收的單 PE 和單 PP 袋。 存放可回收的軟包裝。 客製化印刷，起訂量低，起訂量 100 件。",
+                        "keywords": [
+                            "可回收的單一材料袋",
+                            "單PE包裝",
+                            "單一PP袋",
+                            "商店投遞可回收",
+                            "永續軟包裝"
+                        ],
+                        "heroTitle": "可回收的單一材料袋",
+                        "heroSubtitle": "100% Mono-PE 和 Mono-PP |商店投遞可回收 |低起訂量",
+                        "introSummary": "我們的單一材料袋由 100% 單一聚合物（PE 或 PP）製成，可在商店回收點輕鬆回收。 最低訂購量僅 100 件，可進行客製化印刷。"
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "可回收的單一材料袋",
+                            "introStart": "Achieve Pack 的可回收單一材質袋",
+                            "introBold": "專為路邊回收相容性設計。 這些袋子由單一聚合物類型（單聚乙烯或單聚丙烯）製成，可以透過現有的塑膠回收基礎設施進行回收。",
+                            "whyTitle": "為什麼選擇單一材料可回收：",
+                            "whyItems": {
+                                "curbsideBold": "路邊可回收",
+                                "curbsideEnd": "– 適用於現有的 PE 回收流",
+                                "barrierBold": "高阻隔可用",
+                                "barrierEnd": "– 保存期限長達 12 個月以上",
+                                "dropoffBold": "相容商店送貨",
+                                "dropoffEnd": "– 由主要零售商接受",
+                                "footprintBold": "較低的碳足跡",
+                                "footprintEnd": "– 與原生塑膠替代品相比",
+                                "printBold": "完整的列印能力",
+                                "printEnd": "– 優質的圖形和飾面"
+                            },
+                            "vsTitle": "⚡ 何時選擇可回收與可堆肥：",
+                            "vsBold": "選擇可回收的單一材料",
+                            "vsText": "如果您的客戶比堆肥設施更容易獲得塑膠回收。 Mono-PE 袋適用於沃爾瑪、塔吉特和美國其他主要零售商的商店送貨計劃。",
+                            "infographicAlt": "可回收單一材料袋資訊圖",
+                            "infographicCaption": "可回收單一材料包裝概述"
+                        },
+                        "materials": {
+                            "title": "單一材料選項",
+                            "pe": {
+                                "title": "單PE（聚乙烯）",
+                                "desc": "100% PE 結構與 LDPE 回收流相容。",
+                                "item1": "商店投遞可回收 (How2Recycle)",
+                                "item2": "透明、白色或牛皮紙外觀選項",
+                                "item3": "中高壁壘",
+                                "item4": "最適合：點心、咖啡、乾貨",
+                                "linkText": "查看 Mono-PE 規格 →"
+                            },
+                            "pp": {
+                                "title": "單PP（聚丙烯）",
+                                "desc": "100% PP 結構，適用於 #5 塑膠回收。",
+                                "item1": "比PE更高的耐熱性",
+                                "item2": "更好的清晰度選項",
+                                "item3": "中高壁壘",
+                                "item4": "最適合：熱灌裝，可微波爐加熱",
+                                "linkText": "查看 Mono-PP 規格 →"
+                            },
+                            "table": {
+                                "headers": {
+                                    "structure": "結構",
+                                    "barrier": "障礙",
+                                    "recyclability": "可回收性",
+                                    "applications": "應用領域"
+                                },
+                                "row1": {
+                                    "structure": "單PE透明",
+                                    "barrier": "中等的",
+                                    "recyclability": "商店還車",
+                                    "applications": "零食、糖果、堅果"
+                                },
+                                "row2": {
+                                    "structure": "單PE + EVOH",
+                                    "barrier": "高的",
+                                    "recyclability": "商店還車",
+                                    "applications": "咖啡、茶、補充劑"
+                                },
+                                "row3": {
+                                    "structure": "Mono-PP 透明",
+                                    "barrier": "中等的",
+                                    "recyclability": "#5 回收",
+                                    "applications": "準備餐點、零食"
+                                },
+                                "row4": {
+                                    "structure": "Mono-PP 金屬化",
+                                    "barrier": "高的",
+                                    "recyclability": "#5 回收",
+                                    "applications": "咖啡、薯條、寵物食品"
+                                }
+                            },
+                            "galleryTitle": "可回收的單一材料包裝樣品",
+                            "gallery": {
+                                "item1": {
+                                    "alt": "可回收單一材料袋認證資訊圖",
+                                    "caption": "可回收認證"
+                                },
+                                "item2": {
+                                    "alt": "軟包裝店回收站",
+                                    "caption": "商店還車"
+                                },
+                                "item3": {
+                                    "alt": "單一材料可回收包裝認證",
+                                    "caption": "可回收性合規性"
+                                },
+                                "item4": {
+                                    "alt": "豪華可回收單一材質袋紋理",
+                                    "caption": "優質質感"
+                                }
+                            }
+                        },
+                        "recycling": {
+                            "title": "單一材料回收的工作原理",
+                            "intro": "了解回收途徑有助於您與消費者進行有效溝通：",
+                            "steps": {
+                                "dropoff": {
+                                    "title": "商店還車",
+                                    "desc": "PE 袋可在沃爾瑪、塔吉特、克羅格等商店的商店垃圾箱處回收。"
+                                },
+                                "stream": {
+                                    "title": "低密度聚乙烯流",
+                                    "desc": "用塑膠袋和薄膜收集，然後回收製成複合木材、遊樂場設備。"
+                                },
+                                "products": {
+                                    "title": "新產品",
+                                    "desc": "回收製成地板、圍籬和新包裝產品。"
+                                }
+                            },
+                            "labeling": {
+                                "title": "為消費者提供清晰的標籤",
+                                "desc": "我們可以幫助您在包裝上添加 How2Recycle 標籤，以清楚傳達回收說明。 這減少了混亂並提高了回收率。"
+                            }
+                        },
+                        "applications": {
+                            "title": "應用與產業",
+                            "types": {
+                                "coffee": {
+                                    "title": "☕ 咖啡和茶",
+                                    "desc": "高阻隔單一 PE，帶有排氣閥，可提供新鮮烘焙保護。"
+                                },
+                                "snacks": {
+                                    "title": "🥜 零食乾貨",
+                                    "desc": "薯片、堅果、格蘭諾拉麥片——出色的阻隔性和貨架吸引力。"
+                                },
+                                "pet": {
+                                    "title": "🐕 寵物食品和零食",
+                                    "desc": "寵物食品的高阻隔選擇，可延長保存期限。"
+                                },
+                                "supplements": {
+                                    "title": "💪 補充劑",
+                                    "desc": "蛋白粉、維生素－防潮層至關重要。"
+                                }
+                            }
+                        },
+                        "certifications": {
+                            "title": "可回收性認證",
+                            "intro": "Our mono-material pouches are designed for compatibility with major recycling programs:",
+                            "cards": {
+                                "how2recycle": {
+                                    "title": "如何回收",
+                                    "desc": "Store drop-off label eligible"
+                                },
+                                "dropoff": {
+                                    "title": "商店還車",
+                                    "desc": "Walmart, Target, Kroger compatible"
+                                },
+                                "apr": {
+                                    "title": "APR 設計指南",
+                                    "desc": "符合可回收性標準"
+                                }
+                            },
+                            "pcr": {
+                                "title": "PCR 內容可用",
+                                "desc": "Add post-consumer recycled content to your pouches. We offer 30%, 50%, and up to 100% PCR options for even greater sustainability credentials.",
+                                "linkText": "了解 PCR 選項 →"
+                            }
+                        },
+                        "moq": {
+                            "title": "訂購和定價",
+                            "cards": {
+                                "moq": {
+                                    "value": "100",
+                                    "label": "最低訂購量",
+                                    "desc": "數位印刷"
+                                },
+                                "production": {
+                                    "value": "7-10",
+                                    "label": "生產天數",
+                                    "desc": "批准後"
+                                },
+                                "shipping": {
+                                    "value": "15-20日",
+                                    "label": "前往美國天數",
+                                    "desc": "送貨上門"
+                                }
+                            },
+                            "pricing": {
+                                "title": "有競爭力的定價：",
+                                "desc": "單一材料袋的價格與傳統的多層袋相似，因此對於大多數品牌來說，轉向可回收包裝的成本是中性的。"
+                            }
+                        },
+                        "faq": {
+                            "title": "常見問題解答",
+                            "q1": "What makes mono-material pouches recyclable?",
+                            "a1": "單一材料袋由單一聚合物類型（100% PE 或 100% PP）製成。 這使得它們可以透過現有的塑膠回收基礎設施進行回收，而無需分離不同的材料，而多層傳統袋子則需要分離不同的材料。",
+                            "q2": "How do customers recycle mono-PE pouches?",
+                            "a2": "Mono-PE 袋可在商店回收点回收。 沃爾瑪、塔吉特和克羅格等主要零售商都設有塑膠袋和軟包裝收集箱。 我們可以協助您新增 How2Recycle 標籤，以清楚傳達處置說明。",
+                            "q3": "Do mono-material pouches have good barrier properties?",
+                            "a3": "是的！ 我们的带有 EVOH 层的高阻隔单一 PE 袋可为咖啡、零食和干货提供 12 个月以上的保质期。 单一结构不会影响阻隔性能 - 您的产品与传统包装一样保持新鲜。",
+                            "q4": "Should I choose recyclable or compostable packaging?",
+                            "a4": "這取決於您的客戶對處置基礎架構的存取權限。 如果您的客戶可以更好地獲得商店回收品，請選擇可回收品。 如果他們可以使用工業堆肥設施或路邊有機收集，請選擇可堆肥。 我們可以幫助您根據您的目標市場做出決定。",
+                            "q5": "我可以將 PCR 內容添加到單一材料袋中嗎？",
+                            "a5": "是的！ 我们提供含有 30%、50% 或高达 100% 消费后回收 (PCR) 成分的单一材料袋。 这进一步减少了原生塑料的使用，同时保持了可回收性。 PCR 内容通过我们的供应链进行验证。"
+                        },
+                        "cta": {
+                            "title": "Get Recyclable Mono-Material Pouches",
+                            "header": "Ready for recyclable packaging?",
+                            "desc": "取得單 PE 或單 PP 袋的報價。 我们将帮助您选择适合您的产品和回收目标的结构。",
+                            "bookButton": "預約諮詢",
+                            "shopButton": "立即購買",
+                            "related": {
+                                "label": "有關的：",
+                                "pe": "單PE詳細信息",
+                                "pp": "Mono-PP 詳細信息",
+                                "pcr": "PCR內容"
+                            }
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

@@ -14339,6 +14339,249 @@
                         }
                     }
                 }
+            },
+            "recyclableMono": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Pochettes mono-matière recyclables | Mono-PE & Mono-PP | Dépôt en magasin | Réaliser le pack",
+                        "description": "Pochettes mono-matériau recyclables 100% PE ou PP. Recyclable en bordure de rue et en magasin. Options de barrière élevée disponibles. Faible MOQ à partir de 100 pièces.",
+                        "ogTitle": "Pochettes mono-matière recyclables | Réaliser le pack",
+                        "ogDescription": "Pochettes mono-PE et mono-PP 100% recyclables. Compatible dépôt en magasin. Faible MOQ à partir de 100 pièces.",
+                        "keywordsString": "sachets recyclables, emballages mono-matériau, sachets mono-PE, sachets mono-PP, dépôt magasin recyclable, How2Recycle, emballage durable, sachets de café recyclables, sachets snack recyclables",
+                        "jsonLd": {
+                            "name": "Pochettes mono-matière recyclables",
+                            "description": "Sachets mono-PE et mono-PP 100% recyclables pour emballage alimentaire. Dépôt en magasin compatible avec l'étiquetage How2Recycle.",
+                            "category": "Emballage recyclable"
+                        }
+                    },
+                    "hero": {
+                        "title": "Pochettes mono-matière recyclables | Dépôt en magasin Recyclable | Réaliser le pack",
+                        "description": "Pochettes mono-PE et mono-PP 100% recyclables. Conservez les emballages souples recyclables à déposer. Impression personnalisée avec un faible MOQ à partir de 100 pièces.",
+                        "keywords": [
+                            "pochettes mono-matière recyclables",
+                            "emballage mono-PE",
+                            "sacs mono-PP",
+                            "dépôt en magasin recyclable",
+                            "emballage flexible durable"
+                        ],
+                        "heroTitle": "Pochettes mono-matière recyclables",
+                        "heroSubtitle": "100 % Mono-PE et Mono-PP | Dépôt en magasin Recyclable | Faible quantité de commande",
+                        "introSummary": "Nos pochettes mono-matériau sont composées à 100% de monopolymère (PE ou PP) pour un recyclage facile en points de dépôt en magasin. Disponible en impression personnalisée à partir de seulement 100 pièces minimum de commande."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Pochettes mono-matière recyclables",
+                            "introStart": "Les pochettes mono-matière recyclables d'Achieve Pack",
+                            "introBold": "sont conçus pour être compatibles avec la collecte sélective. Fabriqués à partir d'un seul type de polymère (mono-PE ou mono-PP), ces sachets peuvent être recyclés via les infrastructures de recyclage du plastique existantes.",
+                            "whyTitle": "Pourquoi choisir le mono-matériau recyclable :",
+                            "whyItems": {
+                                "curbsideBold": "Recyclable en bordure de rue",
+                                "curbsideEnd": "– Fonctionne avec les flux de recyclage de PE existants",
+                                "barrierBold": "Haute barrière disponible",
+                                "barrierEnd": "– Jusqu’à 12+ mois de durée de conservation",
+                                "dropoffBold": "Compatible dépôt en magasin",
+                                "dropoffEnd": "– Accepté chez les grands détaillants",
+                                "footprintBold": "Empreinte carbone réduite",
+                                "footprintEnd": "– vs alternatives au plastique vierge",
+                                "printBold": "Capacité d'impression complète",
+                                "printEnd": "– Graphismes et finitions premium"
+                            },
+                            "vsTitle": "⚡ Quand choisir le recyclable ou le compostable :",
+                            "vsBold": "Optez pour un mono-matériau recyclable",
+                            "vsText": "si vos clients ont un meilleur accès au recyclage du plastique qu’aux installations de compostage. Les pochettes Mono-PE fonctionnent avec les programmes de dépôt en magasin chez Walmart, Target et d'autres grands détaillants aux États-Unis.",
+                            "infographicAlt": "Infographie pochette mono-matière recyclable",
+                            "infographicCaption": "Aperçu des emballages mono-matériaux recyclables"
+                        },
+                        "materials": {
+                            "title": "Options mono-matériau",
+                            "pe": {
+                                "title": "Mono-PE (Polyéthylène)",
+                                "desc": "Structure 100% PE compatible avec les filières de recyclage LDPE.",
+                                "item1": "Dépôt en magasin recyclable (How2Recycle)",
+                                "item2": "Options transparentes, blanches ou d'aspect kraft",
+                                "item3": "Barrière moyenne à élevée",
+                                "item4": "Idéal pour : collations, café, produits secs",
+                                "linkText": "Voir les spécifications Mono-PE →"
+                            },
+                            "pp": {
+                                "title": "Mono-PP (Polypropylène)",
+                                "desc": "Structure 100% PP pour le recyclage du plastique #5.",
+                                "item1": "Résistance thermique supérieure à celle du PE",
+                                "item2": "De meilleures options de clarté",
+                                "item3": "Barrière moyenne à élevée",
+                                "item4": "Idéal pour : remplissage à chaud, micro-ondes",
+                                "linkText": "Voir les spécifications Mono-PP →"
+                            },
+                            "table": {
+                                "headers": {
+                                    "structure": "Structure",
+                                    "barrier": "Barrière",
+                                    "recyclability": "Recyclabilité",
+                                    "applications": "Applications"
+                                },
+                                "row1": {
+                                    "structure": "Mono-PE Clair",
+                                    "barrier": "Moyen",
+                                    "recyclability": "Dépôt en magasin",
+                                    "applications": "Collations, bonbons, noix"
+                                },
+                                "row2": {
+                                    "structure": "Mono-PE + EVOH",
+                                    "barrier": "Haut",
+                                    "recyclability": "Dépôt en magasin",
+                                    "applications": "Café, thé, suppléments"
+                                },
+                                "row3": {
+                                    "structure": "Mono-PP Clair",
+                                    "barrier": "Moyen",
+                                    "recyclability": "#5 recyclage",
+                                    "applications": "Plats cuisinés, snacks"
+                                },
+                                "row4": {
+                                    "structure": "Mono-PP métallisé",
+                                    "barrier": "Haut",
+                                    "recyclability": "#5 recyclage",
+                                    "applications": "Café, chips, nourriture pour animaux"
+                                }
+                            },
+                            "galleryTitle": "Échantillons d'emballages mono-matériaux recyclables",
+                            "gallery": {
+                                "item1": {
+                                    "alt": "Infographie de certification des pochettes mono-matériaux recyclables",
+                                    "caption": "Certifié recyclable"
+                                },
+                                "item2": {
+                                    "alt": "Borne de recyclage dépôt en magasin pour emballages souples",
+                                    "caption": "Dépôt en magasin"
+                                },
+                                "item3": {
+                                    "alt": "Certification emballage recyclable mono-matériau",
+                                    "caption": "Conformité à la recyclabilité"
+                                },
+                                "item4": {
+                                    "alt": "Texture pochette luxe mono-matière recyclable",
+                                    "caption": "Texture haut de gamme"
+                                }
+                            }
+                        },
+                        "recycling": {
+                            "title": "Comment fonctionne le recyclage mono-matériau",
+                            "intro": "Comprendre le parcours de recyclage vous aide à communiquer efficacement avec les consommateurs :",
+                            "steps": {
+                                "dropoff": {
+                                    "title": "Dépôt en magasin",
+                                    "desc": "Les sachets PE peuvent être recyclés dans les bacs de dépôt des magasins Walmart, Target, Kroger, etc."
+                                },
+                                "stream": {
+                                    "title": "Flux PEBD",
+                                    "desc": "Collectés avec des sacs et des films plastiques, puis recyclés en bois composite, équipement de jeux."
+                                },
+                                "products": {
+                                    "title": "Nouveaux produits",
+                                    "desc": "Recyclé dans les terrasses, les clôtures et les nouveaux produits d'emballage."
+                                }
+                            },
+                            "labeling": {
+                                "title": "Étiquetage pour plus de clarté pour le consommateur",
+                                "desc": "Nous pouvons vous aider à ajouter des étiquettes How2Recycle à votre emballage pour communiquer clairement les instructions de recyclage. Cela réduit la confusion et augmente les taux de recyclage."
+                            }
+                        },
+                        "applications": {
+                            "title": "Applications et secteurs",
+                            "types": {
+                                "coffee": {
+                                    "title": "☕ Café et thé",
+                                    "desc": "Mono-PE haute barrière avec vannes de dégazage pour une protection des rôtis frais."
+                                },
+                                "snacks": {
+                                    "title": "🥜 Snacks et produits secs",
+                                    "desc": "Chips, noix, granola – excellente barrière et attrait en conservation."
+                                },
+                                "pet": {
+                                    "title": "🐕 Aliments et friandises pour animaux",
+                                    "desc": "Options à haute barrière pour les aliments pour animaux de compagnie avec une durée de conservation prolongée."
+                                },
+                                "supplements": {
+                                    "title": "💪 Suppléments",
+                                    "desc": "Poudres de protéines, vitamines – barrière contre l'humidité essentielle."
+                                }
+                            }
+                        },
+                        "certifications": {
+                            "title": "Certifications de recyclabilité",
+                            "intro": "Nos pochettes mono-matériau sont conçues pour être compatibles avec les grands programmes de recyclage :",
+                            "cards": {
+                                "how2recycle": {
+                                    "title": "Comment2Recycler",
+                                    "desc": "Étiquette de dépôt en magasin éligible"
+                                },
+                                "dropoff": {
+                                    "title": "Dépôt en magasin",
+                                    "desc": "Compatible Walmart, Target, Kroger"
+                                },
+                                "apr": {
+                                    "title": "Guide de conception APR",
+                                    "desc": "Répond aux critères de recyclabilité"
+                                }
+                            },
+                            "pcr": {
+                                "title": "Contenu PCR disponible",
+                                "desc": "Ajoutez du contenu recyclé post-consommation à vos pochettes. Nous proposons des options PCR de 30 %, 50 % et jusqu'à 100 % pour des références encore plus élevées en matière de durabilité.",
+                                "linkText": "En savoir plus sur les options PCR →"
+                            }
+                        },
+                        "moq": {
+                            "title": "Commande et prix",
+                            "cards": {
+                                "moq": {
+                                    "value": "100",
+                                    "label": "Commande minimale",
+                                    "desc": "Impression numérique"
+                                },
+                                "production": {
+                                    "value": "7-10",
+                                    "label": "Jours de production",
+                                    "desc": "Après approbation"
+                                },
+                                "shipping": {
+                                    "value": "15-20",
+                                    "label": "Jours aux États-Unis",
+                                    "desc": "Porte-à-porte"
+                                }
+                            },
+                            "pricing": {
+                                "title": "Prix ​​compétitifs :",
+                                "desc": "Les sachets mono-matériaux ont un prix similaire à celui des sachets multicouches conventionnels, ce qui rend le passage à des emballages recyclables sans coût pour la plupart des marques."
+                            }
+                        },
+                        "faq": {
+                            "title": "Foire aux questions",
+                            "q1": "Qu’est-ce qui rend les pochettes mono-matériau recyclables ?",
+                            "a1": "Les pochettes mono-matériau sont fabriquées à partir d'un seul type de polymère (soit 100 % PE, soit 100 % PP). Cela leur permet d'être recyclés via l'infrastructure de recyclage du plastique existante sans qu'il soit nécessaire de séparer les différents matériaux, ce qui est nécessaire pour les sachets conventionnels multicouches.",
+                            "q2": "Comment les clients recyclent-ils les sachets mono-PE ?",
+                            "a2": "Les pochettes Mono-PE peuvent être recyclées dans les points de dépôt en magasin. Les grands détaillants comme Walmart, Target et Kroger disposent de bacs de collecte pour les sacs en plastique et les emballages flexibles. Nous pouvons vous aider à ajouter des étiquettes How2Recycle pour communiquer clairement les instructions d'élimination.",
+                            "q3": "Les pochettes mono-matériau ont-elles de bonnes propriétés barrières ?",
+                            "a3": "Oui! Nos sachets mono-PE à haute barrière avec couche EVOH peuvent offrir une durée de conservation de plus de 12 mois pour le café, les collations et les produits secs. La monostructure ne compromet pas les performances de barrière : vos produits restent aussi frais que dans un emballage conventionnel.",
+                            "q4": "Dois-je choisir un emballage recyclable ou compostable ?",
+                            "a4": "Cela dépend de l’accès de vos clients aux infrastructures d’élimination. Choisissez recyclable si vos clients ont un meilleur accès au recyclage en magasin. Choisissez compostable s’ils ont accès à des installations de compostage industriel ou à une collecte sélective de matières organiques. Nous pouvons vous aider à décider en fonction de votre marché cible.",
+                            "q5": "Puis-je ajouter du contenu PCR aux sachets mono-matériau ?",
+                            "a5": "Oui! Nous proposons des sachets mono-matériau contenant 30 %, 50 % ou jusqu'à 100 % de contenu recyclé post-consommation (PCR). Cela réduit encore davantage l’utilisation de plastique vierge tout en maintenant la recyclabilité. Le contenu PCR est vérifié via notre chaîne d’approvisionnement."
+                        },
+                        "cta": {
+                            "title": "Procurez-vous des pochettes mono-matériau recyclables",
+                            "header": "Prêt pour les emballages recyclables ?",
+                            "desc": "Obtenez un devis pour des sachets mono-PE ou mono-PP. Nous vous aiderons à choisir la structure adaptée à votre produit et à vos objectifs de recyclage.",
+                            "bookButton": "Consultation de livres",
+                            "shopButton": "Achetez maintenant",
+                            "related": {
+                                "label": "En rapport:",
+                                "pe": "Détails Mono-PE",
+                                "pp": "Détails Mono-PP",
+                                "pcr": "Contenu du RAP"
+                            }
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

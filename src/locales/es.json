@@ -14339,6 +14339,249 @@
                         }
                     }
                 }
+            },
+            "recyclableMono": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Bolsas Monomaterial Reciclables | Mono-PE y Mono-PP | Entrega en tienda | Paquete de logros",
+                        "description": "Bolsas monomateriales reciclables fabricadas 100% PE o PP. Reciclable para dejar en la acera y en la tienda. Opciones de alta barrera disponibles. MOQ bajo a partir de 100 piezas.",
+                        "ogTitle": "Bolsas Monomaterial Reciclables | Paquete de logros",
+                        "ogDescription": "Bolsas mono-PE y mono-PP 100% reciclables. Compatible con entrega en tienda. MOQ bajo a partir de 100 piezas.",
+                        "keywordsString": "bolsas reciclables, embalaje monomaterial, bolsas mono-PE, bolsas mono-PP, entrega en tienda reciclable, How2Recycle, embalaje sostenible, bolsas de café reciclables, bolsas de snacks reciclables",
+                        "jsonLd": {
+                            "name": "Bolsas Monomaterial Reciclables",
+                            "description": "Bolsas mono-PE y mono-PP 100% reciclables para envasado de alimentos. Entrega en tienda compatible con el etiquetado How2Recycle.",
+                            "category": "Embalaje reciclable"
+                        }
+                    },
+                    "hero": {
+                        "title": "Bolsas Monomaterial Reciclables | Entrega en tienda reciclable | Paquete de logros",
+                        "description": "Bolsas mono-PE y mono-PP 100% reciclables. Almacenar envases flexibles reciclables de entrega. Impresión personalizada con MOQ bajo a partir de 100 piezas.",
+                        "keywords": [
+                            "bolsas monomaterial reciclables",
+                            "embalaje mono-PE",
+                            "bolsas mono-PP",
+                            "entrega en tienda reciclable",
+                            "envases flexibles sostenibles"
+                        ],
+                        "heroTitle": "Bolsas Monomaterial Reciclables",
+                        "heroSubtitle": "100% MonoPE y MonoPP | Entrega en tienda reciclable | MOQ bajo",
+                        "introSummary": "Nuestras bolsas monomaterial están hechas 100% de un solo polímero (PE o PP) para facilitar el reciclaje en los lugares de entrega de las tiendas. Disponible con impresión personalizada a partir de un pedido mínimo de solo 100 piezas."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Bolsas Monomaterial Reciclables",
+                            "introStart": "Las bolsas monomaterial reciclables de Achieve Pack",
+                            "introBold": "están diseñados para ser compatibles con el reciclaje en la acera. Fabricadas a partir de un solo tipo de polímero (mono-PE o mono-PP), estas bolsas se pueden reciclar a través de la infraestructura de reciclaje de plástico existente.",
+                            "whyTitle": "Por qué elegir monomaterial reciclable:",
+                            "whyItems": {
+                                "curbsideBold": "Reciclable en la acera",
+                                "curbsideEnd": "– Funciona con flujos de reciclaje de PE existentes",
+                                "barrierBold": "Alta barrera disponible",
+                                "barrierEnd": "– Hasta más de 12 meses de vida útil",
+                                "dropoffBold": "Compatible con entrega en tienda",
+                                "dropoffEnd": "– Aceptado en los principales minoristas.",
+                                "footprintBold": "Menor huella de carbono",
+                                "footprintEnd": "– frente a alternativas de plástico virgen",
+                                "printBold": "Capacidad de impresión completa",
+                                "printEnd": "– Gráficos y acabados premium"
+                            },
+                            "vsTitle": "⚡ Cuándo elegir reciclable o compostable:",
+                            "vsBold": "Elija monomaterial reciclable",
+                            "vsText": "si sus clientes tienen mejor acceso al reciclaje de plástico que a las instalaciones de compostaje. Las bolsas Mono-PE funcionan con programas de entrega en tiendas de Walmart, Target y otros minoristas importantes de EE. UU.",
+                            "infographicAlt": "Infografía de bolsa monomaterial reciclable",
+                            "infographicCaption": "Descripción general de los envases monomateriales reciclables"
+                        },
+                        "materials": {
+                            "title": "Opciones monomaterial",
+                            "pe": {
+                                "title": "Mono-PE (Polietileno)",
+                                "desc": "Estructura 100% PE compatible con flujos de reciclaje de LDPE.",
+                                "item1": "Entrega en tienda de materiales reciclables (How2Recycle)",
+                                "item2": "Opciones transparentes, blancas o con apariencia kraft",
+                                "item3": "Barrera media a alta",
+                                "item4": "Ideal para: refrigerios, café y productos secos.",
+                                "linkText": "Ver especificaciones Mono-PE →"
+                            },
+                            "pp": {
+                                "title": "Mono-PP (Polipropileno)",
+                                "desc": "Estructura 100% PP para reciclaje de plástico #5.",
+                                "item1": "Mayor resistencia al calor que el PE",
+                                "item2": "Mejores opciones de claridad",
+                                "item3": "Barrera media a alta",
+                                "item4": "Ideal para: relleno en caliente, apto para microondas",
+                                "linkText": "Ver especificaciones de Mono-PP →"
+                            },
+                            "table": {
+                                "headers": {
+                                    "structure": "Estructura",
+                                    "barrier": "Barrera",
+                                    "recyclability": "Reciclabilidad",
+                                    "applications": "Aplicaciones"
+                                },
+                                "row1": {
+                                    "structure": "Mono-PE transparente",
+                                    "barrier": "Medio",
+                                    "recyclability": "Entrega de tienda",
+                                    "applications": "Aperitivos, dulces, frutos secos."
+                                },
+                                "row2": {
+                                    "structure": "Mono-PE + EVOH",
+                                    "barrier": "Alta",
+                                    "recyclability": "Entrega de tienda",
+                                    "applications": "Café, té, suplementos."
+                                },
+                                "row3": {
+                                    "structure": "Mono-PP transparente",
+                                    "barrier": "Medio",
+                                    "recyclability": "#5 reciclaje",
+                                    "applications": "Platos preparados, snacks"
+                                },
+                                "row4": {
+                                    "structure": "Mono-PP metalizado",
+                                    "barrier": "Alta",
+                                    "recyclability": "#5 reciclaje",
+                                    "applications": "Café, patatas fritas, comida para mascotas."
+                                }
+                            },
+                            "galleryTitle": "Muestras de envases monomaterial reciclables",
+                            "gallery": {
+                                "item1": {
+                                    "alt": "Infografía de certificación de bolsas monomateriales reciclables",
+                                    "caption": "Certificada reciclable"
+                                },
+                                "item2": {
+                                    "alt": "Estación de reciclaje de entrega en tienda para envases flexibles",
+                                    "caption": "Entrega en tienda"
+                                },
+                                "item3": {
+                                    "alt": "Certificación de envases reciclables monomaterial",
+                                    "caption": "Cumplimiento de reciclabilidad"
+                                },
+                                "item4": {
+                                    "alt": "Textura de bolsa monomaterial reciclable de lujo",
+                                    "caption": "Textura premium"
+                                }
+                            }
+                        },
+                        "recycling": {
+                            "title": "Cómo funciona el reciclaje de monomateriales",
+                            "intro": "Comprender la ruta del reciclaje le ayuda a comunicarse eficazmente con los consumidores:",
+                            "steps": {
+                                "dropoff": {
+                                    "title": "Entrega en tienda",
+                                    "desc": "Las bolsas de PE se pueden reciclar en los contenedores de entrega de las tiendas Walmart, Target, Kroger, etc."
+                                },
+                                "stream": {
+                                    "title": "Corriente de LDPE",
+                                    "desc": "Recogidos con bolsas de plástico y películas, luego reciclados en madera compuesta y equipos de juegos infantiles."
+                                },
+                                "products": {
+                                    "title": "Nuevos productos",
+                                    "desc": "Reciclado en terrazas, cercas y nuevos productos de embalaje."
+                                }
+                            },
+                            "labeling": {
+                                "title": "Etiquetado para mayor claridad para el consumidor",
+                                "desc": "Podemos ayudarle a agregar etiquetas How2Recycle a su embalaje para comunicar claramente las instrucciones de reciclaje. Esto reduce la confusión y aumenta las tasas de reciclaje."
+                            }
+                        },
+                        "applications": {
+                            "title": "Aplicaciones e industrias",
+                            "types": {
+                                "coffee": {
+                                    "title": "☕ Café y té",
+                                    "desc": "Mono-PE de alta barrera con válvulas desgasificadoras para protección del asado fresco."
+                                },
+                                "snacks": {
+                                    "title": "🥜 Aperitivos y productos secos",
+                                    "desc": "Chips, nueces, granola: excelente barrera y atractivo en el estante."
+                                },
+                                "pet": {
+                                    "title": "🐕 Comida y golosinas para mascotas",
+                                    "desc": "Opciones de alta barrera para alimentos para mascotas con vida útil prolongada."
+                                },
+                                "supplements": {
+                                    "title": "💪 Suplementos",
+                                    "desc": "Proteínas en polvo, vitaminas: la barrera contra la humedad es fundamental."
+                                }
+                            }
+                        },
+                        "certifications": {
+                            "title": "Certificaciones de reciclabilidad",
+                            "intro": "Nuestras bolsas monomateriales están diseñadas para ser compatibles con los principales programas de reciclaje:",
+                            "cards": {
+                                "how2recycle": {
+                                    "title": "Cómo2reciclar",
+                                    "desc": "Etiqueta de entrega en tienda elegible"
+                                },
+                                "dropoff": {
+                                    "title": "Entrega en tienda",
+                                    "desc": "Compatible con Walmart, Target y Kroger."
+                                },
+                                "apr": {
+                                    "title": "Guía de diseño APR",
+                                    "desc": "Cumple con los criterios de reciclabilidad"
+                                }
+                            },
+                            "pcr": {
+                                "title": "Contenido de PCR disponible",
+                                "desc": "Agregue contenido reciclado posconsumo a sus bolsas. Ofrecemos opciones de PCR del 30 %, 50 % y hasta 100 % para obtener credenciales de sostenibilidad aún mayores.",
+                                "linkText": "Conozca las opciones de PCR →"
+                            }
+                        },
+                        "moq": {
+                            "title": "Pedidos y precios",
+                            "cards": {
+                                "moq": {
+                                    "value": "100",
+                                    "label": "Orden Mínima",
+                                    "desc": "Impreso digitalmente."
+                                },
+                                "production": {
+                                    "value": "7-10",
+                                    "label": "Días de producción",
+                                    "desc": "Después de la aprobación"
+                                },
+                                "shipping": {
+                                    "value": "15-20",
+                                    "label": "Días a EE.UU.",
+                                    "desc": "Puerta a puerta"
+                                }
+                            },
+                            "pricing": {
+                                "title": "Precios competitivos:",
+                                "desc": "Las bolsas monomaterial tienen un precio similar al de las bolsas multicapa convencionales, lo que hace que el cambio a envases reciclables tenga un coste neutro para la mayoría de las marcas."
+                            }
+                        },
+                        "faq": {
+                            "title": "Preguntas frecuentes",
+                            "q1": "¿Qué hace que las bolsas monomaterial sean reciclables?",
+                            "a1": "Las bolsas monomaterial están hechas de un solo tipo de polímero (100% PE o 100% PP). Esto permite reciclarlos a través de la infraestructura de reciclaje de plástico existente sin la necesidad de separar diferentes materiales, lo que es necesario para las bolsas convencionales multicapa.",
+                            "q2": "¿Cómo reciclan las clientes las bolsas mono-PE?",
+                            "a2": "Las bolsas de Mono-PE se pueden reciclar en los lugares de entrega de las tiendas. Los principales minoristas como Walmart, Target y Kroger tienen contenedores de recolección para bolsas de plástico y envases flexibles. Podemos ayudarlo a agregar etiquetas How2Recycle para comunicar claramente las instrucciones de eliminación.",
+                            "q3": "¿Las bolsas monomateriales tienen buenas propiedades de barrera?",
+                            "a3": "¡Sí! Nuestras bolsas mono-PE de alta barrera con capa de EVOH pueden proporcionar más de 12 meses de vida útil para café, refrigerios y productos secos. La monoestructura no compromete el rendimiento de la barrera: sus productos se mantienen tan frescos como en envases convencionales.",
+                            "q4": "¿Debo elegir envases reciclables o compostables?",
+                            "a4": "Depende del acceso de sus clientes a la infraestructura de eliminación. Elija reciclable si sus clientes tienen mejor acceso al reciclaje en la tienda. Elija compostable si tienen acceso a instalaciones de compostaje industrial o recolección orgánica en la acera. Podemos ayudarle a decidir en función de su mercado objetivo.",
+                            "q5": "¿Puedo agregar contenido de PCR a bolsas monomaterial?",
+                            "a5": "¡Sí! Ofrecemos bolsas monomaterial con un 30 %, un 50 % o hasta un 100 % de contenido reciclado posconsumo (PCR). Esto reduce aún más el uso de plástico virgen y al mismo tiempo mantiene la reciclabilidad. El contenido de PCR se verifica a través de nuestra cadena de suministro."
+                        },
+                        "cta": {
+                            "title": "Obtenga bolsas monomaterial reciclables",
+                            "header": "¿Listo para envases reciclables?",
+                            "desc": "Obtenga una cotización para bolsas mono-PE o mono-PP. Le ayudaremos a elegir la estructura adecuada para su producto y sus objetivos de reciclaje.",
+                            "bookButton": "Consulta de libros",
+                            "shopButton": "Compra ahora",
+                            "related": {
+                                "label": "Relacionada:",
+                                "pe": "Detalles mono-PE",
+                                "pp": "Detalles mono-PP",
+                                "pcr": "Contenido de la PCR"
+                            }
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
