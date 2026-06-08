@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T08:15:34.671Z",
+  "lastUnifiedRun": "2026-06-08T08:30:35.002Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -2093,17 +2093,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "stand-up-pouch-size-chart-for-12-oz-liquids",
       "status": "Pending Approval",
       "volume": 950,
       "keyword": "stand up pouch size chart for 12 oz liquids",
-      "difficulty": "Low",
-      "slug": "stand-up-pouch-size-chart-for-12-oz-liquids"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1100,
       "keyword": "custom shape compostable barrier bags",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-shape-compostable-barrier-bags"
     },
     {
       "status": "Pending",
@@ -2234,9 +2235,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T08:15:26.153Z",
+      "timestamp": "2026-06-08T08:30:26.066Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch size chart for 12 oz liquids\" to /blog/stand-up-pouch-size-chart-for-12-oz-liquids (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom shape compostable barrier bags\" to /blog/custom-shape-compostable-barrier-bags (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"stand up pouch size chart for 12 oz liquids\" to /blog/stand-up-pouch-size-chart-for-12-oz-liquids (Pending Approval)",
+      "timestamp": "2026-06-08T08:15:26.153Z"
     },
     {
       "action": "Autopilot Generation Draft",
