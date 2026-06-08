@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T09:15:36.867Z",
+  "lastUnifiedRun": "2026-06-08T09:30:36.510Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2121,17 +2121,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "compostable-pouch-manufacturers-for-small-batch-orders",
       "status": "Pending Approval",
       "volume": 1600,
       "keyword": "compostable pouch manufacturers for small batch orders",
-      "difficulty": "Low",
-      "slug": "compostable-pouch-manufacturers-for-small-batch-orders"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 800,
       "keyword": "custom compostable pouch sizes for coffee",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "custom-compostable-pouch-sizes-for-coffee"
     },
     {
       "status": "Pending",
@@ -2238,9 +2239,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T09:15:28.038Z",
+      "timestamp": "2026-06-08T09:30:28.480Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch manufacturers for small batch orders\" to /blog/compostable-pouch-manufacturers-for-small-batch-orders (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"custom compostable pouch sizes for coffee\" to /blog/custom-compostable-pouch-sizes-for-coffee (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"compostable pouch manufacturers for small batch orders\" to /blog/compostable-pouch-manufacturers-for-small-batch-orders (Pending Approval)",
+      "timestamp": "2026-06-08T09:15:28.038Z"
     },
     {
       "action": "Autopilot Generation Draft",
