@@ -1,10 +1,10 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T11:15:38.393Z",
+  "lastUnifiedRun": "2026-06-08T11:30:44.376Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
-  "totalLinkedAnchors": 1,
+  "totalLinkedAnchors": 14,
   "trafficMetrics": {
     "apCurrentWeek": 143544,
     "apPreviousWeek": 139120,
@@ -2177,17 +2177,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "small-batch-digital-print-flexible-packaging",
       "status": "Pending Approval",
       "volume": 650,
       "keyword": "small batch digital print flexible packaging",
-      "difficulty": "Low",
-      "slug": "small-batch-digital-print-flexible-packaging"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 750,
       "keyword": "eco friendly stand up pouch for baby food",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "eco-friendly-stand-up-pouch-for-baby-food"
     },
     {
       "status": "Pending",
@@ -2246,9 +2247,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T11:15:30.768Z",
+      "timestamp": "2026-06-08T11:30:38.006Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"small batch digital print flexible packaging\" to /blog/small-batch-digital-print-flexible-packaging (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly stand up pouch for baby food\" to /blog/eco-friendly-stand-up-pouch-for-baby-food (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"small batch digital print flexible packaging\" to /blog/small-batch-digital-print-flexible-packaging (Pending Approval)",
+      "timestamp": "2026-06-08T11:15:30.768Z"
     },
     {
       "action": "Autopilot Generation Draft",
