@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { Leaf, AlertTriangle, CheckCircle, Award, Calendar, MessageCircle, Target, Shield, Clock, ExternalLink, FileCheck, Search, X, Package, ChevronDown } from 'lucide-react'
 import { useCalendly } from '../../contexts/CalendlyContext'
 import Footer from '../../components/Footer'
@@ -103,19 +104,29 @@ const ImageTextRow: React.FC<{
 }
 
 const BiodegradableVsCompostablePage: React.FC = () => {
+  const { t } = useTranslation()
   const { openCalendly } = useCalendly()
+
+  const sidebarNav = t('seoPages.pages.biodegradableVsCompostable.sidebarNav', { returnObjects: true }) as string[] || []
+  const sec2Problems = t('seoPages.pages.biodegradableVsCompostable.sec2Problems', { returnObjects: true }) as string[] || []
+  const sec3Guarantees = t('seoPages.pages.biodegradableVsCompostable.sec3Guarantees', { returnObjects: true }) as string[] || []
+  const sec6Flags = t('seoPages.pages.biodegradableVsCompostable.sec6Flags', { returnObjects: true }) as Array<{ flag: string; tip: string }> || []
+  const sec7Questions = t('seoPages.pages.biodegradableVsCompostable.sec7Questions', { returnObjects: true }) as Array<{ q: string; look: string }> || []
+  const faqs = t('seoPages.pages.biodegradableVsCompostable.faqs', { returnObjects: true }) as Array<{ question: string; answer: string }> || []
+
+  const sidebarNavHrefs = ['#intro', '#biodegradable', '#compostable', '#comparison', '#certifications', '#greenwashing', '#cta']
 
   return (
     <>
       <Helmet>
-        <title>Biodegradable vs Compostable Packaging: How to Avoid Greenwashing | Achieve Pack</title>
-        <meta name="description" content="Learn the critical difference between biodegradable and compostable packaging. Expert guide to EN 13432, ASTM D6400 certifications and how to avoid greenwashing. From Achievepack® certified compostable packaging experts." />
+        <title>{t('seoPages.pages.biodegradableVsCompostable.title')}</title>
+        <meta name="description" content={t('seoPages.pages.biodegradableVsCompostable.description')} />
         <link rel="canonical" href="https://achievepack.com/composting/biodegradable-vs-compostable" />
-        <meta name="keywords" content="biodegradable vs compostable, greenwashing packaging, EN 13432, ASTM D6400, compostable certification, BPI certified, TUV OK Compost, sustainable packaging" />
+        <meta name="keywords" content={t('seoPages.pages.biodegradableVsCompostable.keywords')} />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Biodegradable vs Compostable Packaging: How to Avoid Greenwashing" />
-        <meta property="og:description" content="A practical guide for coffee roasters and food brands. Learn to identify true compostable packaging from greenwashing." />
+        <meta property="og:title" content={t('seoPages.pages.biodegradableVsCompostable.ogTitle')} />
+        <meta property="og:description" content={t('seoPages.pages.biodegradableVsCompostable.ogDescription')} />
         <meta property="og:image" content="https://achievepack.com/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp" />
         <meta property="og:type" content="article" />
         
@@ -124,8 +135,8 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Biodegradable vs Compostable Packaging: How to Avoid Greenwashing",
-            "description": "A practical guide for coffee roasters and food brands to understand the difference between biodegradable and compostable packaging.",
+            "headline": t('seoPages.pages.biodegradableVsCompostable.ogTitle'),
+            "description": t('seoPages.pages.biodegradableVsCompostable.ogDescription'),
             "image": "https://achievepack.com/imgs/composting/vs/a_hero_biodegradable_vs_compostable_8031695.webp",
             "author": {
               "@type": "Organization",
@@ -151,32 +162,11 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is the difference between biodegradable and compostable packaging?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Biodegradable means a material will eventually break down, but with no timeframe or conditions specified. Compostable means the material will break down within 90-180 days under specific conditions (industrial or home composting) and leave no toxic residue, verified by certifications like EN 13432 or ASTM D6400."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What certifications should I look for in compostable packaging?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Look for EN 13432 (EU standard), ASTM D6400 (US standard), BPI Certified (US), TUV OK Compost (industrial), or TUV OK Home (home composting). These certifications require rigorous third-party testing and are verifiable in public databases."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do I identify greenwashing in packaging claims?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Red flags include: vague terms like 'eco-friendly' without certifications, 'biodegradable' claims without timeframes, no third-party certification logos, inability to provide test reports, and claims that aren't verifiable in certification databases like BPI or TUV Austria."
-                }
-              }
-            ]
+            "mainEntity": Array.isArray(faqs) ? faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq?.question || '',
+              "acceptedAnswer": { "@type": "Answer", "text": faq?.answer || '' }
+            })) : []
           })}
         </script>
       </Helmet>
@@ -192,14 +182,14 @@ const BiodegradableVsCompostablePage: React.FC = () => {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="bg-amber-500 text-amber-900 px-3 py-1 rounded-full text-sm font-medium">
-                    Sustainability Guide
+                    {t('seoPages.pages.biodegradableVsCompostable.badge')}
                   </span>
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                  Biodegradable vs Compostable Packaging: How to Avoid Greenwashing
+                  {t('seoPages.pages.biodegradableVsCompostable.heroTitle')}
                 </h1>
                 <p className="text-lg md:text-xl text-green-100 mb-6">
-                  A practical guide for coffee roasters and food brands, from Achievepack® certified compostable packaging experts.
+                  {t('seoPages.pages.biodegradableVsCompostable.heroDescription')}
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <button
@@ -207,20 +197,20 @@ const BiodegradableVsCompostablePage: React.FC = () => {
                     className="flex items-center gap-2 bg-white text-green-800 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition"
                   >
                     <Calendar className="h-5 w-5" />
-                    Free Consultation
+                    {t('seoPages.pages.biodegradableVsCompostable.btnConsultation')}
                   </button>
                   <Link
                     to="/store"
                     className="flex items-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
                   >
-                    Request Samples
+                    {t('seoPages.pages.biodegradableVsCompostable.btnRequestSamples')}
                   </Link>
                 </div>
               </div>
               <div className="hidden md:block">
                 <ClickableImage 
                   src={IMAGES.hero}
-                  alt="Biodegradable vs Compostable Packaging Visual Comparison"
+                  alt={t('seoPages.pages.biodegradableVsCompostable.heroImageAlt')}
                   className="w-full rounded-xl shadow-2xl"
                 />
               </div>
@@ -234,15 +224,19 @@ const BiodegradableVsCompostablePage: React.FC = () => {
             {/* Sidebar Navigation */}
             <aside className="hidden lg:block lg:col-span-1">
               <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-white rounded-xl shadow-sm border border-neutral-100 p-4">
-                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">Contents</h3>
+                <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-4">
+                  {t('seoPages.pages.biodegradableVsCompostable.sidebarContents')}
+                </h3>
                 <nav className="space-y-1">
-                  <a href="#intro" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Why Terms Matter</a>
-                  <a href="#biodegradable" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">What is Biodegradable</a>
-                  <a href="#compostable" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">What is Compostable</a>
-                  <a href="#comparison" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Key Differences</a>
-                  <a href="#certifications" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Certifications</a>
-                  <a href="#greenwashing" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Greenwashing Red Flags</a>
-                  <a href="#cta" className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition">Get Started</a>
+                  {Array.isArray(sidebarNav) && sidebarNav.map((text, idx) => (
+                    <a 
+                      key={idx} 
+                      href={sidebarNavHrefs[idx]} 
+                      className="block px-3 py-2 text-sm text-neutral-600 hover:bg-primary-50 hover:text-primary-700 rounded-lg transition"
+                    >
+                      {text}
+                    </a>
+                  ))}
                 </nav>
               </div>
             </aside>
@@ -255,34 +249,26 @@ const BiodegradableVsCompostablePage: React.FC = () => {
             <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg mb-8">
               <h2 className="text-xl font-bold text-amber-800 mb-2 flex items-center gap-2">
                 <AlertTriangle className="h-5 w-5" />
-                Why These Terms Matter
+                {t('seoPages.pages.biodegradableVsCompostable.sec1WarningTitle')}
               </h2>
-              <p className="text-amber-900">
-                In the rush to appear sustainable, many brands use "biodegradable" and "compostable" interchangeably. 
-                But these terms have <strong>vastly different meanings</strong>—and using them incorrectly can expose your brand 
-                to greenwashing accusations, regulatory penalties, and loss of consumer trust.
-              </p>
+              <p className="text-amber-900" dangerouslySetInnerHTML={{ __html: t('seoPages.pages.biodegradableVsCompostable.sec1WarningP1') }} />
             </div>
 
             <ImageTextRow 
               image={IMAGES.hero}
-              imageAlt="Understanding packaging terminology"
-              imageCaption="The difference matters more than you think"
+              imageAlt={t('seoPages.pages.biodegradableVsCompostable.sec1ImgAlt')}
+              imageCaption={t('seoPages.pages.biodegradableVsCompostable.sec1ImgCaption')}
               imageLeft={true}
             >
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-neutral-900">The Greenwashing Risk</h3>
+                <h3 className="text-2xl font-bold text-neutral-900">
+                  {t('seoPages.pages.biodegradableVsCompostable.sec1Title')}
+                </h3>
                 <p className="text-neutral-700">
-                  The FTC (Federal Trade Commission) in the US and equivalent bodies in the EU are increasingly 
-                  cracking down on misleading environmental claims. Brands using "biodegradable" without qualification 
-                  have faced fines and forced to remove claims from packaging.
+                  {t('seoPages.pages.biodegradableVsCompostable.sec1P1')}
                 </p>
                 <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-                  <p className="text-sm text-red-800">
-                    <strong>Real Risk:</strong> In 2024, several major brands faced legal action for using 
-                    "biodegradable" claims on packaging that would only break down under industrial conditions 
-                    that don't exist in most waste streams.
-                  </p>
+                  <p className="text-sm text-red-800" dangerouslySetInnerHTML={{ __html: t('seoPages.pages.biodegradableVsCompostable.sec1Note') }} />
                 </div>
               </div>
             </ImageTextRow>
@@ -292,42 +278,33 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           <section id="biodegradable" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Target className="h-7 w-7 text-amber-600" />
-              What "Biodegradable" Really Means
+              {t('seoPages.pages.biodegradableVsCompostable.sec2Title')}
             </h2>
             
             <ImageTextRow 
               image={IMAGES.comparison}
-              imageAlt="Comparison of Biodegradable, Compostable, and Degradable terms"
-              imageCaption="Three terms, very different meanings"
+              imageAlt={t('seoPages.pages.biodegradableVsCompostable.sec2ImgAlt')}
+              imageCaption={t('seoPages.pages.biodegradableVsCompostable.sec2ImgCaption')}
               imageLeft={false}
             >
               <div className="space-y-4">
                 <div className="bg-amber-50 p-5 rounded-lg border border-amber-200">
-                  <h4 className="font-semibold text-amber-800 mb-2">Definition</h4>
-                  <p className="text-amber-900">
-                    "Biodegradable" simply means a material will <em>eventually</em> break down through natural 
-                    biological processes. There's no specified timeframe—it could be 5 years or 500 years.
-                  </p>
+                  <h4 className="font-semibold text-amber-800 mb-2">
+                    {t('seoPages.pages.biodegradableVsCompostable.sec2DefTitle')}
+                  </h4>
+                  <p className="text-amber-900" dangerouslySetInnerHTML={{ __html: t('seoPages.pages.biodegradableVsCompostable.sec2DefP') }} />
                 </div>
                 
-                <h4 className="font-semibold text-neutral-800">The Problem:</h4>
+                <h4 className="font-semibold text-neutral-800">
+                  {t('seoPages.pages.biodegradableVsCompostable.sec2ProblemTitle')}
+                </h4>
                 <ul className="space-y-2 text-neutral-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-1">✗</span>
-                    <span><strong>No time requirement:</strong> A plastic bag in a landfill is technically "biodegradable"</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-1">✗</span>
-                    <span><strong>No condition specification:</strong> May require UV light, oxygen, or heat not present in landfills</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-1">✗</span>
-                    <span><strong>No residue standards:</strong> May leave microplastics or toxic compounds</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-1">✗</span>
-                    <span><strong>No certification required:</strong> Anyone can claim it without proof</span>
-                  </li>
+                  {Array.isArray(sec2Problems) && sec2Problems.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-red-500 mt-1">✗</span>
+                      <span dangerouslySetInnerHTML={{ __html: item }} />
+                    </li>
+                  ))}
                 </ul>
               </div>
             </ImageTextRow>
@@ -337,57 +314,52 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           <section id="compostable" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Leaf className="h-7 w-7 text-green-600" />
-              What "Compostable" Actually Guarantees
+              {t('seoPages.pages.biodegradableVsCompostable.sec3Title')}
             </h2>
             
             <ImageTextRow 
               image={IMAGES.lifecycle}
-              imageAlt="Compostable packaging lifecycle infographic"
-              imageCaption="The 4-stage composting process"
+              imageAlt={t('seoPages.pages.biodegradableVsCompostable.sec3ImgAlt')}
+              imageCaption={t('seoPages.pages.biodegradableVsCompostable.sec3ImgCaption')}
               imageLeft={true}
             >
               <div className="space-y-4">
                 <div className="bg-green-50 p-5 rounded-lg border border-green-200">
-                  <h4 className="font-semibold text-green-800 mb-2">Certified Standards</h4>
-                  <p className="text-green-900">
-                    "Compostable" is a <strong>legally defined term</strong> with strict standards that materials 
-                    must meet through third-party testing.
-                  </p>
+                  <h4 className="font-semibold text-green-800 mb-2">
+                    {t('seoPages.pages.biodegradableVsCompostable.sec3CertTitle')}
+                  </h4>
+                  <p className="text-green-900" dangerouslySetInnerHTML={{ __html: t('seoPages.pages.biodegradableVsCompostable.sec3CertDesc') }} />
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="bg-white p-4 rounded-lg border shadow-sm">
                     <h5 className="font-semibold text-neutral-800 flex items-center gap-2">
-                      <span className="text-lg">🇪🇺</span> EN 13432
+                      <span className="text-lg">🇪🇺</span> {t('seoPages.pages.biodegradableVsCompostable.sec3Card1Title')}
                     </h5>
-                    <p className="text-sm text-neutral-600 mt-1">European standard for industrial composting. Requires 90% disintegration in 12 weeks.</p>
+                    <p className="text-sm text-neutral-600 mt-1">
+                      {t('seoPages.pages.biodegradableVsCompostable.sec3Card1Desc')}
+                    </p>
                   </div>
                   <div className="bg-white p-4 rounded-lg border shadow-sm">
                     <h5 className="font-semibold text-neutral-800 flex items-center gap-2">
-                      <span className="text-lg">🇺🇸</span> ASTM D6400
+                      <span className="text-lg">🇺🇸</span> {t('seoPages.pages.biodegradableVsCompostable.sec3Card2Title')}
                     </h5>
-                    <p className="text-sm text-neutral-600 mt-1">US standard for compostable plastics. Requires 60% biodegradation in 180 days.</p>
+                    <p className="text-sm text-neutral-600 mt-1">
+                      {t('seoPages.pages.biodegradableVsCompostable.sec3Card2Desc')}
+                    </p>
                   </div>
                 </div>
 
-                <h4 className="font-semibold text-neutral-800 mt-4">The Guarantees:</h4>
+                <h4 className="font-semibold text-neutral-800 mt-4">
+                  {t('seoPages.pages.biodegradableVsCompostable.sec3GuaranteesTitle')}
+                </h4>
                 <ul className="space-y-2 text-neutral-700">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span><strong>Defined timeframe:</strong> 90-180 days maximum</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span><strong>No toxic residue:</strong> Must pass ecotoxicity tests</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span><strong>Third-party verified:</strong> Independent lab testing required</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span><strong>Database verifiable:</strong> Check BPI or TÜV Austria registries</span>
-                  </li>
+                  {Array.isArray(sec3Guarantees) && sec3Guarantees.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span dangerouslySetInnerHTML={{ __html: item }} />
+                    </li>
+                  ))}
                 </ul>
               </div>
             </ImageTextRow>
@@ -397,49 +369,49 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           <section id="comparison" className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-neutral-100">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <FileCheck className="h-7 w-7 text-blue-600" />
-              Key Differences at a Glance
+              {t('seoPages.pages.biodegradableVsCompostable.sec4Title')}
             </h2>
             
             <div className="overflow-x-auto">
               <table className="w-full text-sm border-collapse bg-white rounded-xl overflow-hidden shadow-lg" style={{ minWidth: '600px' }}>
                 <thead>
                   <tr className="bg-neutral-800 text-white">
-                    <th className="text-left p-4 font-semibold">Criteria</th>
-                    <th className="text-left p-4 font-semibold">Biodegradable</th>
-                    <th className="text-left p-4 font-semibold bg-green-700">Compostable</th>
-                    <th className="text-left p-4 font-semibold">Degradable</th>
+                    <th className="text-left p-4 font-semibold">{t('seoPages.pages.biodegradableVsCompostable.sec4TableCriteria')}</th>
+                    <th className="text-left p-4 font-semibold">{t('seoPages.pages.biodegradableVsCompostable.sec4TableBio')}</th>
+                    <th className="text-left p-4 font-semibold bg-green-700">{t('seoPages.pages.biodegradableVsCompostable.sec4TableComp')}</th>
+                    <th className="text-left p-4 font-semibold">{t('seoPages.pages.biodegradableVsCompostable.sec4TableDeg')}</th>
                   </tr>
                 </thead>
                 <tbody className="text-neutral-700">
                   <tr className="border-b">
-                    <td className="p-4 font-medium">Timeframe</td>
-                    <td className="p-4">Undefined</td>
-                    <td className="p-4 bg-green-50">90-180 days</td>
-                    <td className="p-4">Undefined</td>
+                    <td className="p-4 font-medium">{t('seoPages.pages.biodegradableVsCompostable.sec4Row1Criteria')}</td>
+                    <td className="p-4">{t('seoPages.pages.biodegradableVsCompostable.sec4Row1Bio')}</td>
+                    <td className="p-4 bg-green-50">{t('seoPages.pages.biodegradableVsCompostable.sec4Row1Comp')}</td>
+                    <td className="p-4">{t('seoPages.pages.biodegradableVsCompostable.sec4Row1Deg')}</td>
                   </tr>
                   <tr className="border-b bg-neutral-50">
-                    <td className="p-4 font-medium">Certification Required</td>
-                    <td className="p-4">❌ No</td>
-                    <td className="p-4 bg-green-50 whitespace-nowrap">✅ Yes (EN 13432, ASTM D6400)</td>
-                    <td className="p-4">❌ No</td>
+                    <td className="p-4 font-medium">{t('seoPages.pages.biodegradableVsCompostable.sec4Row2Criteria')}</td>
+                    <td className="p-4">{t('seoPages.pages.biodegradableVsCompostable.sec4Row2Bio')}</td>
+                    <td className="p-4 bg-green-50 whitespace-nowrap">{t('seoPages.pages.biodegradableVsCompostable.sec4Row2Comp')}</td>
+                    <td className="p-4">{t('seoPages.pages.biodegradableVsCompostable.sec4Row2Deg')}</td>
                   </tr>
                   <tr className="border-b">
-                    <td className="p-4 font-medium">Toxic Residue Testing</td>
-                    <td className="p-4">❌ Not required</td>
-                    <td className="p-4 bg-green-50">✅ Mandatory</td>
-                    <td className="p-4">❌ Not required</td>
+                    <td className="p-4 font-medium">{t('seoPages.pages.biodegradableVsCompostable.sec4Row3Criteria')}</td>
+                    <td className="p-4">{t('seoPages.pages.biodegradableVsCompostable.sec4Row3Bio')}</td>
+                    <td className="p-4 bg-green-50">{t('seoPages.pages.biodegradableVsCompostable.sec4Row3Comp')}</td>
+                    <td className="p-4">{t('seoPages.pages.biodegradableVsCompostable.sec4Row3Deg')}</td>
                   </tr>
                   <tr className="border-b bg-neutral-50">
-                    <td className="p-4 font-medium">Verifiable</td>
-                    <td className="p-4">❌ No public database</td>
-                    <td className="p-4 bg-green-50">✅ BPI, TÜV databases</td>
-                    <td className="p-4">❌ No</td>
+                    <td className="p-4 font-medium">{t('seoPages.pages.biodegradableVsCompostable.sec4Row4Criteria')}</td>
+                    <td className="p-4">{t('seoPages.pages.biodegradableVsCompostable.sec4Row4Bio')}</td>
+                    <td className="p-4 bg-green-50">{t('seoPages.pages.biodegradableVsCompostable.sec4Row4Comp')}</td>
+                    <td className="p-4">{t('seoPages.pages.biodegradableVsCompostable.sec4Row4Deg')}</td>
                   </tr>
                   <tr>
-                    <td className="p-4 font-medium">Regulatory Compliance</td>
-                    <td className="p-4 text-red-600">⚠️ FTC warning risk</td>
-                    <td className="p-4 bg-green-50 text-green-700">✅ Compliant</td>
-                    <td className="p-4 text-red-600">⚠️ Often banned (oxo-)</td>
+                    <td className="p-4 font-medium">{t('seoPages.pages.biodegradableVsCompostable.sec4Row5Criteria')}</td>
+                    <td className="p-4 text-red-600">{t('seoPages.pages.biodegradableVsCompostable.sec4Row5Bio')}</td>
+                    <td className="p-4 bg-green-50 text-green-700">{t('seoPages.pages.biodegradableVsCompostable.sec4Row5Comp')}</td>
+                    <td className="p-4 text-red-600">{t('seoPages.pages.biodegradableVsCompostable.sec4Row5Deg')}</td>
                   </tr>
                 </tbody>
               </table>
@@ -447,67 +419,59 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           </section>
 
           {/* Other Terms to Watch */}
-          <section className="mb-16">
+          <section id="certifications" className="mb-16">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Search className="h-7 w-7 text-purple-600" />
-              Other Terms to Watch Out For
+              {t('seoPages.pages.biodegradableVsCompostable.sec5Title')}
             </h2>
             
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-red-50 p-5 rounded-lg border border-red-200">
-                <h4 className="font-semibold text-red-800 mb-2">❌ "Degradable"</h4>
+                <h4 className="font-semibold text-red-800 mb-2">{t('seoPages.pages.biodegradableVsCompostable.sec5Card1Title')}</h4>
                 <p className="text-sm text-red-700">
-                  Means nothing specific. All materials are technically degradable given enough time.
+                  {t('seoPages.pages.biodegradableVsCompostable.sec5Card1Desc')}
                 </p>
               </div>
               <div className="bg-red-50 p-5 rounded-lg border border-red-200">
-                <h4 className="font-semibold text-red-800 mb-2">❌ "Oxo-degradable"</h4>
-                <p className="text-sm text-red-700">
-                  <strong>Banned in the EU.</strong> Fragments into microplastics. Not compostable.
+                <h4 className="font-semibold text-red-800 mb-2">{t('seoPages.pages.biodegradableVsCompostable.sec5Card2Title')}</h4>
+                <p className="text-sm text-red-700" dangerouslySetInnerHTML={{ __html: t('seoPages.pages.biodegradableVsCompostable.sec5Card2Desc') }} />
+              </div>
+              <div className="bg-amber-50 p-5 rounded-lg border border-amber-200">
+                <h4 className="font-semibold text-amber-800 mb-2">{t('seoPages.pages.biodegradableVsCompostable.sec5Card3Title')}</h4>
+                <p className="text-sm text-amber-700">
+                  {t('seoPages.pages.biodegradableVsCompostable.sec5Card3Desc')}
                 </p>
               </div>
               <div className="bg-amber-50 p-5 rounded-lg border border-amber-200">
-                <h4 className="font-semibold text-amber-800 mb-2">⚠️ "Plant-based"</h4>
+                <h4 className="font-semibold text-amber-800 mb-2">{t('seoPages.pages.biodegradableVsCompostable.sec5Card4Title')}</h4>
                 <p className="text-sm text-amber-700">
-                  Only describes origin. Bio-PE is plant-based but NOT compostable—it's recyclable like regular PE.
-                </p>
-              </div>
-              <div className="bg-amber-50 p-5 rounded-lg border border-amber-200">
-                <h4 className="font-semibold text-amber-800 mb-2">⚠️ "Eco-friendly"</h4>
-                <p className="text-sm text-amber-700">
-                  Vague marketing term. Ask: "What certification backs this claim?"
+                  {t('seoPages.pages.biodegradableVsCompostable.sec5Card4Desc')}
                 </p>
               </div>
             </div>
           </section>
 
           {/* Identifying Greenwashing */}
-          <section className="mb-16">
+          <section id="greenwashing" className="mb-16">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <AlertTriangle className="h-7 w-7 text-red-600" />
-              5 Red Flags: How to Spot Greenwashing
+              {t('seoPages.pages.biodegradableVsCompostable.sec6Title')}
             </h2>
             
             <ImageTextRow 
               image={IMAGES.greenwashing}
-              imageAlt="Greenwashing vs genuine certification comparison"
-              imageCaption="Vague claims vs. transparent certification"
+              imageAlt={t('seoPages.pages.biodegradableVsCompostable.sec6ImgAlt')}
+              imageCaption={t('seoPages.pages.biodegradableVsCompostable.sec6ImgCaption')}
               imageLeft={false}
             >
               <div className="space-y-3">
-                {[
-                  { flag: 'No certification logo visible', tip: 'Legitimate certifications are displayed prominently' },
-                  { flag: 'Claims without timeframes', tip: '"Biodegradable" without "within X days" is a red flag' },
-                  { flag: 'No certificate number provided', tip: 'All certified products have verifiable registration numbers' },
-                  { flag: 'Cannot provide test reports', tip: 'Ask for third-party lab reports—they should be readily available' },
-                  { flag: 'Not listed in certification databases', tip: 'Verify at BPI or TÜV Austria green marks' }
-                ].map((item, idx) => (
+                {Array.isArray(sec6Flags) && sec6Flags.map((item, idx) => (
                   <div key={idx} className="bg-white p-4 rounded-lg border border-neutral-200 shadow-sm">
                     <div className="flex items-start gap-3">
                       <span className="bg-red-100 text-red-600 font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">{idx + 1}</span>
                       <div>
-                        <p className="font-medium text-neutral-800">{item.flag}</p>
-                        <p className="text-sm text-neutral-600">{item.tip}</p>
+                        <p className="font-medium text-neutral-800">{item?.flag}</p>
+                        <p className="text-sm text-neutral-600">{item?.tip}</p>
                       </div>
                     </div>
                   </div>
@@ -520,26 +484,19 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           <section className="mb-16">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <CheckCircle className="h-7 w-7 text-green-600" />
-              6-Point Supplier Evaluation Framework
+              {t('seoPages.pages.biodegradableVsCompostable.sec7Title')}
             </h2>
             
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 md:p-8 rounded-xl border border-green-200">
               <p className="text-neutral-700 mb-6">
-                Use this checklist when evaluating any supplier claiming to offer compostable packaging:
+                {t('seoPages.pages.biodegradableVsCompostable.sec7Desc')}
               </p>
               
               <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { q: 'Which certification do you hold?', look: 'EN 13432, ASTM D6400, BPI, TÜV OK Compost/Home' },
-                  { q: 'Can you provide the certificate number?', look: 'Should be verifiable in public databases' },
-                  { q: 'Is it industrial or home compostable?', look: 'Match to your customers\' disposal options' },
-                  { q: 'Do you have third-party test reports?', look: 'Not just manufacturer claims' },
-                  { q: 'What is the shelf life of the material?', look: 'Compostable materials have shorter shelf life' },
-                  { q: 'What happens at end-of-life?', look: 'Clear disposal instructions you can print' }
-                ].map((item, idx) => (
+                {Array.isArray(sec7Questions) && sec7Questions.map((item, idx) => (
                   <div key={idx} className="bg-white p-4 rounded-lg border border-green-200">
-                    <p className="font-medium text-neutral-800 mb-1">{idx + 1}. {item.q}</p>
-                    <p className="text-sm text-green-700">Look for: {item.look}</p>
+                    <p className="font-medium text-neutral-800 mb-1">{idx + 1}. {item?.q}</p>
+                    <p className="text-sm text-green-700">Look for: {item?.look}</p>
                   </div>
                 ))}
               </div>
@@ -550,48 +507,45 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           <section className="mb-16">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6 flex items-center gap-3">
               <Award className="h-7 w-7 text-primary-600" />
-              Why Brands Trust Achieve Pack
+              {t('seoPages.pages.biodegradableVsCompostable.sec8Title')}
             </h2>
             
             <ImageTextRow 
               image={IMAGES.productTrust}
-              imageAlt="Achieve Pack certified compostable products with certification badges"
-              imageCaption="Every claim backed by verifiable certification"
+              imageAlt={t('seoPages.pages.biodegradableVsCompostable.sec8ImgAlt')}
+              imageCaption={t('seoPages.pages.biodegradableVsCompostable.sec8ImgCaption')}
               imageLeft={true}
             >
               <div className="space-y-4">
-                <p className="text-neutral-700">
-                  At Achieve Pack, we believe in <strong>transparency over marketing claims</strong>. 
-                  Every product page shows exactly which certifications apply—and which don't.
-                </p>
+                <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: t('seoPages.pages.biodegradableVsCompostable.sec8P1') }} />
                 
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-neutral-800">Certified Compostable Options</p>
-                      <p className="text-sm text-neutral-600">TÜV OK Home, OK Compost Industrial, BPI verified</p>
+                      <p className="font-medium text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.sec8Card1Title')}</p>
+                      <p className="text-sm text-neutral-600">{t('seoPages.pages.biodegradableVsCompostable.sec8Card1Desc')}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-neutral-800">Recyclable Alternatives</p>
-                      <p className="text-sm text-neutral-600">Mono-PE/PP for where composting infrastructure is limited</p>
+                      <p className="font-medium text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.sec8Card2Title')}</p>
+                      <p className="text-sm text-neutral-600">{t('seoPages.pages.biodegradableVsCompostable.sec8Card2Desc')}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-neutral-800">Low MOQ Sampling</p>
-                      <p className="text-sm text-neutral-600">Test from 100 pieces before committing</p>
+                      <p className="font-medium text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.sec8Card3Title')}</p>
+                      <p className="text-sm text-neutral-600">{t('seoPages.pages.biodegradableVsCompostable.sec8Card3Desc')}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-neutral-800">Full Documentation</p>
-                      <p className="text-sm text-neutral-600">Test reports, certificates, and disposal instructions provided</p>
+                      <p className="font-medium text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.sec8Card4Title')}</p>
+                      <p className="text-sm text-neutral-600">{t('seoPages.pages.biodegradableVsCompostable.sec8Card4Desc')}</p>
                     </div>
                   </div>
                 </div>
@@ -604,7 +558,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
                     className="text-sm text-primary-600 hover:underline flex items-center gap-1"
                   >
                     <ExternalLink className="h-4 w-4" />
-                    Verify on BPI Database
+                    {t('seoPages.pages.biodegradableVsCompostable.sec8VerifyBpi')}
                   </a>
                   <a 
                     href="https://www.tuv-at.be/green-marks/certified-products/" 
@@ -613,7 +567,7 @@ const BiodegradableVsCompostablePage: React.FC = () => {
                     className="text-sm text-primary-600 hover:underline flex items-center gap-1"
                   >
                     <ExternalLink className="h-4 w-4" />
-                    TÜV Austria Registry
+                    {t('seoPages.pages.biodegradableVsCompostable.sec8VerifyTuv')}
                   </a>
                 </div>
               </div>
@@ -625,47 +579,40 @@ const BiodegradableVsCompostablePage: React.FC = () => {
             <div className="bg-neutral-800 text-white p-6 md:p-8 rounded-xl">
               <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                 <Shield className="h-6 w-6 text-amber-400" />
-                The Honest Truth About Composting Infrastructure
+                {t('seoPages.pages.biodegradableVsCompostable.sec9Title')}
               </h3>
-              <p className="text-neutral-300 mb-4">
-                We acknowledge the reality: <strong>industrial composting facilities are not available everywhere.</strong> 
-                In many regions, compostable packaging may end up in landfill where it won't break down as intended.
-              </p>
-              <p className="text-neutral-300">
-                That's why we also offer <strong>recyclable mono-material options</strong> (Mono-PE, Mono-PP) for markets 
-                where recycling infrastructure is more accessible than composting. The best sustainable choice 
-                depends on your customers' real disposal options—not just what sounds good in marketing.
-              </p>
+              <p className="text-neutral-300 mb-4" dangerouslySetInnerHTML={{ __html: t('seoPages.pages.biodegradableVsCompostable.sec9P1') }} />
+              <p className="text-neutral-300" dangerouslySetInnerHTML={{ __html: t('seoPages.pages.biodegradableVsCompostable.sec9P2') }} />
             </div>
           </section>
 
           {/* Related Links */}
           <section className="mb-16">
-            <h2 className="text-xl font-bold text-neutral-900 mb-4">Explore Related Topics</h2>
+            <h2 className="text-xl font-bold text-neutral-900 mb-4">{t('seoPages.pages.biodegradableVsCompostable.relatedTitle')}</h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               <Link to="/materials/home-compostable" className="bg-white p-4 rounded-lg border hover:shadow-md transition">
-                <h4 className="font-semibold text-neutral-800">Home Compostable Materials</h4>
-                <p className="text-sm text-neutral-600 mt-1">TÜV OK Home certified options</p>
+                <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.related1Title')}</h4>
+                <p className="text-sm text-neutral-600 mt-1">{t('seoPages.pages.biodegradableVsCompostable.related1Desc')}</p>
               </Link>
               <Link to="/materials/industrial-compostable" className="bg-white p-4 rounded-lg border hover:shadow-md transition">
-                <h4 className="font-semibold text-neutral-800">Industrial Compostable</h4>
-                <p className="text-sm text-neutral-600 mt-1">EN 13432 certified packaging</p>
+                <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.related2Title')}</h4>
+                <p className="text-sm text-neutral-600 mt-1">{t('seoPages.pages.biodegradableVsCompostable.related2Desc')}</p>
               </Link>
               <Link to="/materials/recyclable-mono-pe" className="bg-white p-4 rounded-lg border hover:shadow-md transition">
-                <h4 className="font-semibold text-neutral-800">Recyclable Mono-PE</h4>
-                <p className="text-sm text-neutral-600 mt-1">Single-material recyclable</p>
+                <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.related3Title')}</h4>
+                <p className="text-sm text-neutral-600 mt-1">{t('seoPages.pages.biodegradableVsCompostable.related3Desc')}</p>
               </Link>
               <Link to="/topics/eco-friendly-food-packaging" className="bg-white p-4 rounded-lg border hover:shadow-md transition">
-                <h4 className="font-semibold text-neutral-800">Eco-Friendly Food Packaging</h4>
-                <p className="text-sm text-neutral-600 mt-1">Complete guide for food brands</p>
+                <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.related4Title')}</h4>
+                <p className="text-sm text-neutral-600 mt-1">{t('seoPages.pages.biodegradableVsCompostable.related4Desc')}</p>
               </Link>
               <Link to="/company/certificates" className="bg-white p-4 rounded-lg border hover:shadow-md transition">
-                <h4 className="font-semibold text-neutral-800">Our Certifications</h4>
-                <p className="text-sm text-neutral-600 mt-1">BPI, TÜV, BRC documentation</p>
+                <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.related5Title')}</h4>
+                <p className="text-sm text-neutral-600 mt-1">{t('seoPages.pages.biodegradableVsCompostable.related5Desc')}</p>
               </Link>
               <Link to="/support/faqs" className="bg-white p-4 rounded-lg border hover:shadow-md transition">
-                <h4 className="font-semibold text-neutral-800">FAQ</h4>
-                <p className="text-sm text-neutral-600 mt-1">Common questions answered</p>
+                <h4 className="font-semibold text-neutral-800">{t('seoPages.pages.biodegradableVsCompostable.related6Title')}</h4>
+                <p className="text-sm text-neutral-600 mt-1">{t('seoPages.pages.biodegradableVsCompostable.related6Desc')}</p>
               </Link>
             </div>
           </section>
@@ -673,55 +620,38 @@ const BiodegradableVsCompostablePage: React.FC = () => {
           {/* FAQ Section */}
           <section className="mb-12 bg-white rounded-xl p-6 md:p-8">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center">
-              Frequently Asked Questions
+              {t('seoPages.pages.biodegradableVsCompostable.faqTitle')}
             </h2>
             <div className="space-y-4 max-w-3xl mx-auto">
-              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-                  <span className="font-semibold text-neutral-900 pr-4">What is the difference between biodegradable and compostable packaging?</span>
-                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
-                </summary>
-                <div className="px-6 pb-6 text-neutral-700">
-                  Biodegradable means a material will eventually break down, but with no timeframe or conditions specified. Compostable means the material will break down within 90-180 days under specific conditions (industrial or home composting) and leave no toxic residue, verified by certifications like EN 13432 or ASTM D6400.
-                </div>
-              </details>
-              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-                  <span className="font-semibold text-neutral-900 pr-4">What certifications should I look for in compostable packaging?</span>
-                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
-                </summary>
-                <div className="px-6 pb-6 text-neutral-700">
-                  Look for EN 13432 (EU standard), ASTM D6400 (US standard), BPI Certified (US), TUV OK Compost (industrial), or TUV OK Home (home composting). These certifications require rigorous third-party testing and are verifiable in public databases.
-                </div>
-              </details>
-              <details className="group bg-neutral-50 rounded-xl overflow-hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-                  <span className="font-semibold text-neutral-900 pr-4">How do I identify greenwashing in packaging claims?</span>
-                  <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
-                </summary>
-                <div className="px-6 pb-6 text-neutral-700">
-                  Red flags include: vague terms like 'eco-friendly' without certifications, 'biodegradable' claims without timeframes, no third-party certification logos, inability to provide test reports, and claims that aren't verifiable in certification databases like BPI or TUV Austria.
-                </div>
-              </details>
+              {Array.isArray(faqs) && faqs.map((faq, idx) => (
+                <details key={idx} className="group bg-neutral-50 rounded-xl overflow-hidden">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
+                    <span className="font-semibold text-neutral-900 pr-4">{faq?.question}</span>
+                    <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
+                  </summary>
+                  <div className="px-6 pb-6 text-neutral-700">
+                    {faq?.answer}
+                  </div>
+                </details>
+              ))}
             </div>
           </section>
 
           {/* CTA Section */}
-          <section className="mb-8">
+          <section id="cta" className="mb-8">
             <div className="relative rounded-xl overflow-hidden">
               <img 
                 src={IMAGES.ctaBanner}
-                alt="Get started with certified compostable packaging"
+                alt={t('seoPages.pages.biodegradableVsCompostable.ctaImageAlt')}
                 className="w-full h-64 md:h-80 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 to-green-800/70 flex items-center">
                 <div className="p-6 md:p-10 max-w-2xl">
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                    Ready to Make the Right Choice?
+                    {t('seoPages.pages.biodegradableVsCompostable.ctaTitle')}
                   </h3>
                   <p className="text-green-100 mb-6">
-                    Get free material samples with full certification documentation. 
-                    We'll help you choose the right sustainable option for your brand.
+                    {t('seoPages.pages.biodegradableVsCompostable.ctaP1')}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <button
@@ -729,20 +659,20 @@ const BiodegradableVsCompostablePage: React.FC = () => {
                       className="flex items-center justify-center gap-2 bg-white text-green-800 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition shadow-lg"
                     >
                       <Calendar className="h-5 w-5" />
-                      Book Free Consultation
+                      {t('seoPages.pages.biodegradableVsCompostable.btnBookConsultation')}
                     </button>
                     <Link
                       to="/store?category=sample"
                       className="flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-500 transition"
                     >
                       <Package className="h-5 w-5" />
-                      Order Sample Pack
+                      {t('seoPages.pages.biodegradableVsCompostable.btnOrderSamples')}
                     </Link>
                     <Link
                       to="/store"
                       className="flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition"
                     >
-                      Browse Store
+                      {t('seoPages.pages.biodegradableVsCompostable.btnBrowseStore')}
                     </Link>
                   </div>
                 </div>
