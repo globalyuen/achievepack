@@ -14819,6 +14819,171 @@
                     "ctaTitle": "準備好提升您的包裝完整性了嗎？",
                     "ctaDescription": "Deploy certified compostable materials that stand up to the combustion test. Swap your standard fossil-fuel plastic stickers for AchievePack's Premium plant-based biopolymers today."
                 }
+            },
+            "conventionalPrintedSachets": {
+                "achievePack": {
+                    "seo": {
+                        "title": "常規材質小香袋（8x8cm），附優質絲紙殼|成就包",
+                        "description": "計算傳統塑膠內襯小袋的印刷定價矩陣。 低最小起訂量燙印和數位顏色選項，具有高阻隔鋁層壓芯。",
+                        "keywords": [
+                            "小袋包裝",
+                            "傳統印刷袋",
+                            "絲綢紙香袋",
+                            "牛皮紙袋",
+                            "低起訂量印袋"
+                        ],
+                        "heroTitle": "小袋：常規材質",
+                        "heroSubtitle": "高阻隔層壓結構與優質絲紙視覺造型",
+                        "introSummary": "獲得扁平的三邊密封小袋（8x8 公分），具有手工製作的絲綢或牛皮紙質感。 採用高阻隔傳統塑膠內襯層壓，可確保粉末、咖啡和化妝品 12 個月以上的保存期限。 燙金起訂量僅 500 件，數位彩色印刷起訂量為 1,000 件。"
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "概述及材料結構",
+                            "p1": "我們的小袋 - 傳統材料 (8x8cm) 是一款扁平的三面密封袋，專為品牌樣品、單份粉末、化妝乳液、茶和特殊成分而設計。",
+                            "p2": "雖然外部採用優質紋理絲紙或牛皮紙來傳達手工製作的高端有機美感，但內部採用堅固的傳統塑膠襯裡（多層層壓結構，包括純鋁箔和聚乙烯內密封層）。",
+                            "boxTitle": "為什麼採用傳統塑膠襯裡？",
+                            "boxText": "與具有中等阻氣性的可堆肥生物塑膠不同，傳統的層壓 PET/AL/PE 結構提供絕對的氣體、光線和水分阻隔（OTR 和 WVTR < 0.1）。 這保證了 12-24 個月的保質期，完全防止粉末內容物氧化、硬化或液體配方洩漏。",
+                            "warningText": "⚠️注意：這種材料結構包含標準化石燃料塑膠層和鋁箔，這意味著它不可在標準紙箱中堆肥或回收。 應將其與一般廢物流一起處置。"
+                        },
+                        "customPricing": {
+                            "title": "Custom Printing Options & Price Matrix",
+                            "intro": "我們根據您的訂單運行要求支援 8x8cm 小袋的三種高級客製化列印選項。 選擇與您的設計和產量目標相符的製程：",
+                            "hotStamping": {
+                                "badge": "Hot Stamping (燙金)",
+                                "title": "金屬質感印花",
+                                "desc": "最適合簡單的文字或乾淨的標誌品牌。 平裝價格包含製版費和雙面單色燙金。",
+                                "p500": "500 件：",
+                                "p1000": "1,000 件：",
+                                "p2000": "2,000 件：",
+                                "setup": "✓ 設定：0 美元免費",
+                                "moq": "✓ 起訂量：500 件"
+                            },
+                            "digitalColor": {
+                                "badge": "Digital Color (數位彩印)",
+                                "title": "充滿活力的照片列印",
+                                "desc": "非常適合複雜的藝術品、色彩繽紛的設計或照片圖形。 完全免除安裝費用。",
+                                "p1000": "1,000 件：",
+                                "p2000": "2,000 件：",
+                                "p3000": "3,000 件：",
+                                "p5000": "5,000 件：",
+                                "p10k": "10k+ 件：",
+                                "setup": "✓ 設定：免除 0 美元",
+                                "sampleFee": "✓ Sample fee: $147.00 USD"
+                            },
+                            "traditionalGravure": {
+                                "badge": "Traditional Gravure (傳統彩印)",
+                                "title": "批量商業運行",
+                                "desc": "Best unit rates for commercial distribution. Intended for long-term production with high color precision.",
+                                "p50k": "50,000 件：",
+                                "unitPrice": "單價：",
+                                "setup": "✓ Setup: $126.00 USD / color",
+                                "moq": "✓ 起訂量：50,000 件"
+                            },
+                            "options": {
+                                "title": "✨ Optional Process Customizations:",
+                                "roundCorners": "圓角 (圓角)：所有訂購等級的價格為每包 +0.0336 美元。",
+                                "highVolume": "大量列印厚度：對於 5,000 件以上的數位列印，厚度會自動免費升級至厚 13.5 絲/135 微米。"
+                            }
+                        },
+                        "unprintedSkus": {
+                            "title": "Unprinted Stock SKUs Pricing",
+                            "p1": "如果您需要未印刷的空白小袋進行測試、手工貼標或小批量，我們可以提供預先包裝的庫存紙箱套裝。 所有庫存未印刷商品均以每袋 0.30 美元的統一費率計算：",
+                            "tableHeader": "Available Unprinted Options (8x8cm)",
+                            "colSku": "SKU/顏色分類",
+                            "colQty": "數量",
+                            "colUnitPrice": "單價",
+                            "colTotalCost": "總包裝成本",
+                            "rows": {
+                                "row1": {
+                                    "sku": "Silk & Kraft 9 Colors Sample Pack (蠶絲與牛皮9色各1個)",
+                                    "qty": "共 9 件"
+                                },
+                                "row2": {
+                                    "sku": "Off-White Silk Paper (米白色 100個)",
+                                    "qty": "100 件"
+                                },
+                                "row3": {
+                                    "sku": "Black Silk Paper (黑色 100個)",
+                                    "qty": "100 件"
+                                },
+                                "row4": {
+                                    "sku": "Pink Silk Paper (粉红色 100个)",
+                                    "qty": "100 件"
+                                },
+                                "row5": {
+                                    "sku": "Gold Silk Paper (金色 100个)",
+                                    "qty": "100 件"
+                                },
+                                "row6": {
+                                    "sku": "Blue Silk Paper (蓝色 100个)",
+                                    "qty": "100 件"
+                                },
+                                "row7": {
+                                    "sku": "Light Yellow Silk Paper (淺黃色 100個)",
+                                    "qty": "100 件"
+                                },
+                                "row8": {
+                                    "sku": "Teal/Cyan Silk Paper (青色 100个)",
+                                    "qty": "100 件"
+                                },
+                                "row9": {
+                                    "sku": "Yellow Kraft Paper (黄色 牛皮纸100个)",
+                                    "qty": "100 件"
+                                },
+                                "row10": {
+                                    "sku": "White Kraft Paper (白色 牛皮紙100個)",
+                                    "qty": "100 件"
+                                },
+                                "row11": {
+                                    "sku": "White Cotton Paper (白色棉纸 100个)",
+                                    "qty": "100 件"
+                                }
+                            }
+                        },
+                        "visualGallery": {
+                            "title": "產品美學與視覺畫廊",
+                            "intro": "我們的小袋子採用嚴格的高清對齊方式製造。 在下面的選項卡之間切換以查看優質紋理和印刷品：",
+                            "tabs": {
+                                "gold": {
+                                    "label": "Gold Stamping (燙金)",
+                                    "alt": "帶有金箔燙印的紋理灰白色絲綢紙袋"
+                                },
+                                "digital": {
+                                    "label": "Digital Color Print (数码彩印)",
+                                    "alt": "帶有高解析度數位印刷的藍色紋理絲綢紙袋"
+                                },
+                                "traditional": {
+                                    "label": "Calligraphy/Traditional (传统彩印)",
+                                    "alt": "帶有傳統書法黑色墨水印花的紋理粉紅色絲綢紙袋"
+                                }
+                            },
+                            "caption": "📸 {替代}。 下緣印有微妙的 *achievepack.com* 品牌標誌。"
+                        }
+                    },
+                    "faqs": [
+                        {
+                            "question": "這些小袋的材料成分是什麼？",
+                            "answer": "小袋採用複合紙塑層壓結構。 外部採用優質絲紋紙或牛皮紙（70g-90g），內部採用高阻隔鋁箔（AL）層和食品級聚乙烯（PE）密封層層壓。 這種組合提供了優質的觸感質感和絕對的保護。"
+                        },
+                        {
+                            "question": "Are these sachets eco-friendly or compostable?",
+                            "answer": "由於這些傳統的小袋使用標準塑膠和鋁箔層壓板來實現極端的防潮/氣體保護，因此它們不可在紙箱中堆肥或回收。 如需經過認證的家用或工業可堆肥軟包裝，請瀏覽我們的 PLA 或 Cello-Kraft 生物聚合物產品。"
+                        },
+                        {
+                            "question": "最小起訂量和生產提前期是多少？",
+                            "answer": "最小起訂量 (MOQ) 取決於印刷方式：燙印從 500 件起，數位彩色印刷從 1,000 件起，傳統凹印從 50,000 件起。 生產需要 15 至 20 個工作天，包括全球快遞空運。"
+                        },
+                        {
+                            "question": "我可以要求香袋上有圓角嗎？",
+                            "answer": "是的，圓角 (圓角) 裁切作為所有列印方法和訂單量的附加處理選項得到全面支持，價格為每單位 + 0.0336 美元的小額附加費。 這消除了散裝外箱運輸過程中尖角刺穿的情況。"
+                        }
+                    ],
+                    "cta": {
+                        "title": "立即配置您的小袋",
+                        "description": "選擇您的列印方法，選擇圓角裝飾，並計算小袋包裝運行的即時報價。",
+                        "buttonText": "配置小袋"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

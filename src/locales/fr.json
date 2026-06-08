@@ -14819,6 +14819,171 @@
                     "ctaTitle": "Prêt à améliorer l’intégrité de votre emballage ?",
                     "ctaDescription": "Déployez des matériaux compostables certifiés qui résistent au test de combustion. Remplacez dès aujourd'hui vos autocollants en plastique à base de combustibles fossiles standard par les biopolymères végétaux haut de gamme d'AchievePack."
                 }
+            },
+            "conventionalPrintedSachets": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Petits sachets en matériaux conventionnels (8 x 8 cm) avec coque en papier de soie de qualité supérieure | Réaliser le pack",
+                        "description": "Calculez les matrices de prix d'impression pour les petits sachets conventionnels doublés de plastique. Marquage à chaud à faible MOQ et options de couleur numérique avec noyaux laminés en aluminium à haute barrière.",
+                        "keywords": [
+                            "emballage en petits sachets",
+                            "sachet imprimé conventionnel",
+                            "sachet en papier de soie",
+                            "sachets en papier kraft",
+                            "pochettes imprimées à faible moq"
+                        ],
+                        "heroTitle": "Petits sachets : matériel conventionnel",
+                        "heroSubtitle": "Structures laminées à haute barrière avec style visuel en papier de soie de qualité supérieure",
+                        "introSummary": "Procurez-vous des petits sachets plats (8 x 8 cm) scellés sur 3 côtés au toucher soie ou papier kraft fabriqués à la main. Laminé avec une doublure intérieure en plastique conventionnelle à haute barrière pour garantir une stabilité de conservation de plus de 12 mois pour les poudres, le café et les cosmétiques. Le MOQ commence à seulement 500 pièces pour l'estampage à chaud en or et 1 000 pièces pour les impressions couleur numériques."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Présentation et structure matérielle",
+                            "p1": "Notre petite pochette – Matériau conventionnel (8 x 8 cm) est une pochette plate scellée sur 3 côtés conçue pour les échantillons de marque, les poudres en portion individuelle, les lotions cosmétiques, les thés et les ingrédients spéciaux.",
+                            "p2": "Alors que l'extérieur utilise du papier de soie texturé de qualité supérieure ou du papier kraft pour transmettre une esthétique organique haut de gamme fabriquée à la main, l'intérieur est doté d'une doublure en plastique conventionnelle robuste (structure stratifiée multicouche comprenant une feuille d'aluminium pur et une couche d'étanchéité intérieure en polyéthylène).",
+                            "boxTitle": "Pourquoi un revêtement en plastique conventionnel ?",
+                            "boxText": "Contrairement aux bioplastiques compostables qui présentent des barrières moyennes contre les gaz, la structure laminée conventionnelle PET/AL/PE fournit une barrière absolue contre les gaz, la lumière et l'humidité (OTR et WVTR < 0,1). Cela garantit une durée de conservation de 12 à 24 mois, empêchant complètement l'oxydation, le durcissement du contenu en poudre ou les fuites de formulations liquides.",
+                            "warningText": "⚠️ Remarque : Cette structure matérielle contient des couches de plastique fossile standard et du papier d'aluminium, ce qui signifie qu'elle n'est ni compostable ni recyclable dans les bacs à papier standard. Il doit être éliminé avec les flux de déchets généraux."
+                        },
+                        "customPricing": {
+                            "title": "Options d'impression personnalisées et matrice de prix",
+                            "intro": "Nous prenons en charge trois options d'impression personnalisées haut de gamme pour le petit sachet de 8 x 8 cm en fonction des exigences de votre commande. Choisissez le processus qui correspond à votre conception et à votre objectif de volume :",
+                            "hotStamping": {
+                                "badge": "Marquage à chaud",
+                                "title": "Impressions d’accents métalliques",
+                                "desc": "Idéal pour un texte simple ou un logo épuré. Les prix des forfaits comprennent les frais de plaque et l’estampage recto-verso d’une seule couleur.",
+                                "p500": "500 pièces :",
+                                "p1000": "1 000 pièces :",
+                                "p2000": "2 000 pièces :",
+                                "setup": "✓ Configuration : 0 $ gratuit",
+                                "moq": "✓ MOQ : 500 pièces"
+                            },
+                            "digitalColor": {
+                                "badge": "Couleur numérique (impression numérique couleur)",
+                                "title": "Impressions photo éclatantes",
+                                "desc": "Excellent pour les œuvres d'art complexes, les designs colorés ou les graphiques photographiques. Frais d’installation totalement supprimés.",
+                                "p1000": "1 000 pièces :",
+                                "p2000": "2 000 pièces :",
+                                "p3000": "3 000 pièces :",
+                                "p5000": "5 000 pièces :",
+                                "p10k": "10 000 pièces :",
+                                "setup": "✓ Configuration : 0 $ annulé",
+                                "sampleFee": "✓ Frais d'échantillonnage : 147,00 $ USD"
+                            },
+                            "traditionalGravure": {
+                                "badge": "Héliogravure traditionnelle (impression couleur traditionnelle)",
+                                "title": "Séries commerciales en vrac",
+                                "desc": "Meilleurs tarifs unitaires pour la distribution commerciale. Destiné à une production à long terme avec une haute précision des couleurs.",
+                                "p50k": "50 000 pièces :",
+                                "unitPrice": "Prix ​​unitaire:",
+                                "setup": "✓ Configuration : 126,00 $ USD / couleur",
+                                "moq": "✓ MOQ : 50 000 pièces"
+                            },
+                            "options": {
+                                "title": "✨ Personnalisations facultatives des processus :",
+                                "roundCorners": "Coins ronds (圆角) : disponible à +0,0336 USD/sachet pour tous les niveaux de commande.",
+                                "highVolume": "Épaisseur d'impression à grand volume : pour les tirages d'impression numérique de plus de 5 000 pièces, l'épaisseur est automatiquement mise à niveau jusqu'à une épaisseur de 13,5 丝 / 135 microns gratuitement."
+                            }
+                        },
+                        "unprintedSkus": {
+                            "title": "Prix ​​des SKU de stock non imprimés",
+                            "p1": "Si vous avez besoin de sachets vierges non imprimés pour des tests, un étiquetage manuel ou de petits lots, nous fournissons des ensembles de cartons préemballés. Tous les articles en stock non imprimés sont calculés à un tarif forfaitaire de 0,30 USD par sachet :",
+                            "tableHeader": "Options non imprimées disponibles (8 x 8 cm)",
+                            "colSku": "UGS/Classification des couleurs",
+                            "colQty": "Quantité",
+                            "colUnitPrice": "Prix ​​unitaire",
+                            "colTotalCost": "Coût total du pack",
+                            "rows": {
+                                "row1": {
+                                    "sku": "Pack d'échantillons de 9 couleurs Silk & Kraft (1 de chacune des 9 couleurs de soie et de peau de vache)",
+                                    "qty": "9 pièces au total"
+                                },
+                                "row2": {
+                                    "sku": "Papier de soie blanc cassé (blanc cassé 100 pièces)",
+                                    "qty": "100 pièces"
+                                },
+                                "row3": {
+                                    "sku": "Papier de soie noir (100 pièces)",
+                                    "qty": "100 pièces"
+                                },
+                                "row4": {
+                                    "sku": "Papier de soie rose (rose 100 pièces)",
+                                    "qty": "100 pièces"
+                                },
+                                "row5": {
+                                    "sku": "Papier de soie doré (or 100 pièces)",
+                                    "qty": "100 pièces"
+                                },
+                                "row6": {
+                                    "sku": "Papier de soie bleu (bleu 100 pièces)",
+                                    "qty": "100 pièces"
+                                },
+                                "row7": {
+                                    "sku": "Papier de soie jaune clair (jaune clair 100 pièces)",
+                                    "qty": "100 pièces"
+                                },
+                                "row8": {
+                                    "sku": "Papier de soie bleu sarcelle/cyan (cyan 100 pièces)",
+                                    "qty": "100 pièces"
+                                },
+                                "row9": {
+                                    "sku": "Papier kraft jaune (100 morceaux de papier kraft jaune)",
+                                    "qty": "100 pièces"
+                                },
+                                "row10": {
+                                    "sku": "Papier kraft blanc (100 morceaux de papier kraft blanc)",
+                                    "qty": "100 pièces"
+                                },
+                                "row11": {
+                                    "sku": "Papier de coton blanc (100 pièces)",
+                                    "qty": "100 pièces"
+                                }
+                            }
+                        },
+                        "visualGallery": {
+                            "title": "Esthétique du produit et galerie visuelle",
+                            "intro": "Nos sachets sont fabriqués selon un alignement haute définition strict. Basculez entre les onglets ci-dessous pour afficher les textures et impressions premium :",
+                            "tabs": {
+                                "gold": {
+                                    "label": "Estampage d'or",
+                                    "alt": "Sachet de papier de soie blanc cassé texturé avec estampage à chaud en feuille d'or"
+                                },
+                                "digital": {
+                                    "label": "Impression couleur numérique",
+                                    "alt": "Sachet de papier de soie texturé bleu avec impression numérique haute résolution"
+                                },
+                                "traditional": {
+                                    "label": "Calligraphie/Traditionnel (impression couleur traditionnelle)",
+                                    "alt": "Sachet de papier de soie rose texturé avec impression à l'encre noire de calligraphie traditionnelle"
+                                }
+                            },
+                            "caption": "📸{alt}. La marque subtile *achievepack.com* est imprimée sur le bord inférieur."
+                        }
+                    },
+                    "faqs": [
+                        {
+                            "question": "Quelle est la composition matérielle de ces sachets ?",
+                            "answer": "Les petits sachets utilisent une structure stratifiée composite papier-plastique. L'extérieur est en papier de soie texturé de qualité supérieure ou en papier kraft (70 g-90 g), tandis que l'intérieur est laminé avec une couche de papier d'aluminium (AL) à haute barrière et une couche d'étanchéité en polyéthylène (PE) de qualité alimentaire. Cette combinaison offre une texture tactile haut de gamme avec une protection absolue."
+                        },
+                        {
+                            "question": "Ces sachets sont-ils écologiques ou compostables ?",
+                            "answer": "Étant donné que ces sachets conventionnels utilisent des laminés de plastique et de papier d'aluminium standard pour obtenir une protection extrême contre l'humidité et les gaz, ils ne sont ni compostables ni recyclables dans les bacs à papier. Pour des emballages flexibles compostables domestiques ou industriels certifiés, veuillez parcourir nos produits en biopolymère PLA ou Cello-Kraft."
+                        },
+                        {
+                            "question": "Quel est le MOQ et le délai de production ?",
+                            "answer": "La quantité minimale de commande (MOQ) dépend de la méthode d'impression : l'estampage à chaud commence à 500 pièces, l'impression couleur numérique commence à 1 000 pièces et l'impression hélio traditionnelle commence à 50 000 pièces. La production prend 15 à 20 jours ouvrables, livraison aérienne express mondiale comprise."
+                        },
+                        {
+                            "question": "Puis-je demander des coins arrondis sur les sachets ?",
+                            "answer": "Oui, le rognage des coins arrondis (圆角) est entièrement pris en charge en tant qu'option de traitement complémentaire pour toutes les méthodes d'impression et tous les volumes de commande, au prix d'un petit supplément de +0,0336 USD par unité. Cela élimine les perforations dans les coins pointus lors du transport du carton principal en vrac."
+                        }
+                    ],
+                    "cta": {
+                        "title": "Configurez vos sachets aujourd'hui",
+                        "description": "Sélectionnez votre méthode d'impression, choisissez des garnitures aux coins arrondis et calculez des devis en direct pour les petites séries d'emballages en sachets.",
+                        "buttonText": "Configurer les sachets"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

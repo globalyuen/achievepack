@@ -14918,6 +14918,171 @@
                     "ctaTitle": "Ready to Elevate Your Packaging Integrity?",
                     "ctaDescription": "Deploy certified compostable materials that stand up to the combustion test. Swap your standard fossil-fuel plastic stickers for AchievePack's Premium plant-based biopolymers today."
                 }
+            },
+            "conventionalPrintedSachets": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Conventional Material Small Sachets (8x8cm) with Premium Silk Paper Shell | Achieve Pack",
+                        "description": "Calculate printing pricing matrices for conventional plastic-lined small sachets. Low MOQ hot stamping and digital color options with high-barrier aluminum laminated cores.",
+                        "keywords": [
+                            "small sachets packaging",
+                            "conventional printed sachet",
+                            "silk paper sachet",
+                            "kraft paper sachets",
+                            "low moq printed pouches"
+                        ],
+                        "heroTitle": "Small Sachets: Conventional Material",
+                        "heroSubtitle": "High-Barrier Laminated Structures with Premium Silk Paper Visual Styling",
+                        "introSummary": "Get flat, 3-side seal small sachets (8x8cm) with a hand-crafted silk or kraft paper feel. Laminated with a high-barrier conventional plastic inner lining to guarantee 12+ months shelf stability for powders, coffee, and cosmetics. MOQ starts at just 500pcs for gold hot stamping and 1,000pcs for digital color prints."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Overview & Material Structure",
+                            "p1": "Our Small Pouch – Conventional Material (8x8cm) is a flat, 3-side seal pouch engineered for brand sample runs, single-serve powders, cosmetic lotions, teas, and specialty ingredients.",
+                            "p2": "While the exterior utilizes premium textured Silk Paper or Kraft Paper to convey a hand-crafted, high-end organic aesthetic, the interior features a robust Conventional Plastic Lining (Multi-Layer laminate structure including pure aluminum foil and a polyethylene inner sealant layer).",
+                            "boxTitle": "Why Conventional Plastic Lining?",
+                            "boxText": "Unlike compostable bio-plastics which exhibit medium gas barriers, the conventional laminated PET / AL / PE structure provides an absolute gas, light, and moisture barrier (OTR and WVTR < 0.1). This guarantees a 12–24 month shelf life, completely preventing oxidation, hardening of powder contents, or leakage of liquid formulations.",
+                            "warningText": "⚠️ Note: This material structure contains standard fossil-fuel plastic layers and aluminum foil, meaning it is not compostable or recyclable in standard paper bins. It should be disposed of in general waste streams."
+                        },
+                        "customPricing": {
+                            "title": "Custom Printing Options & Price Matrix",
+                            "intro": "We support three premium custom printing options for the 8x8cm Small Sachet based on your order run requirements. Choose the process that matches your design and volume target:",
+                            "hotStamping": {
+                                "badge": "Hot Stamping (烫金)",
+                                "title": "Metallic Accent Prints",
+                                "desc": "Best for simple text or clean logo branding. Flat package prices include plate fees & double-sided single-color stamping.",
+                                "p500": "500 pcs:",
+                                "p1000": "1,000 pcs:",
+                                "p2000": "2,000 pcs:",
+                                "setup": "✓ Setup: $0 Free",
+                                "moq": "✓ MOQ: 500 pcs"
+                            },
+                            "digitalColor": {
+                                "badge": "Digital Color (数码彩印)",
+                                "title": "Vibrant Photo Prints",
+                                "desc": "Excellent for complex artworks, colorful designs, or photo graphics. Setup fees completely waived.",
+                                "p1000": "1,000 pcs:",
+                                "p2000": "2,000 pcs:",
+                                "p3000": "3,000 pcs:",
+                                "p5000": "5,000 pcs:",
+                                "p10k": "10k+ pcs:",
+                                "setup": "✓ Setup: $0 Waived",
+                                "sampleFee": "✓ Sample fee: $147.00 USD"
+                            },
+                            "traditionalGravure": {
+                                "badge": "Traditional Gravure (传统彩印)",
+                                "title": "Bulk Commercial Runs",
+                                "desc": "Best unit rates for commercial distribution. Intended for long-term production with high color precision.",
+                                "p50k": "50,000 pcs:",
+                                "unitPrice": "Unit price:",
+                                "setup": "✓ Setup: $126.00 USD / color",
+                                "moq": "✓ MOQ: 50,000 pcs"
+                            },
+                            "options": {
+                                "title": "✨ Optional Process Customizations:",
+                                "roundCorners": "Round Corners (圆角): Available at +$0.0336 USD / sachet for all ordering tiers.",
+                                "highVolume": "High-Volume Print thickness: For Digital Print runs of 5,000+ pieces, thickness is automatically upgraded to a thick 13.5丝 / 135 microns for free."
+                            }
+                        },
+                        "unprintedSkus": {
+                            "title": "Unprinted Stock SKUs Pricing",
+                            "p1": "If you need unprinted blank sachets for testing, hand-labeling, or small batches, we supply pre-packaged stock carton sets. All stock unprinted items are calculated at a flat rate of $0.30 USD per sachet:",
+                            "tableHeader": "Available Unprinted Options (8x8cm)",
+                            "colSku": "SKU / Color Classification",
+                            "colQty": "Quantity",
+                            "colUnitPrice": "Unit Price",
+                            "colTotalCost": "Total Pack Cost",
+                            "rows": {
+                                "row1": {
+                                    "sku": "Silk & Kraft 9 Colors Sample Pack (蚕丝和牛皮9色各1个)",
+                                    "qty": "9 pcs total"
+                                },
+                                "row2": {
+                                    "sku": "Off-White Silk Paper (米白色 100个)",
+                                    "qty": "100 pcs"
+                                },
+                                "row3": {
+                                    "sku": "Black Silk Paper (黑色 100个)",
+                                    "qty": "100 pcs"
+                                },
+                                "row4": {
+                                    "sku": "Pink Silk Paper (粉红色 100个)",
+                                    "qty": "100 pcs"
+                                },
+                                "row5": {
+                                    "sku": "Gold Silk Paper (金色 100个)",
+                                    "qty": "100 pcs"
+                                },
+                                "row6": {
+                                    "sku": "Blue Silk Paper (蓝色 100个)",
+                                    "qty": "100 pcs"
+                                },
+                                "row7": {
+                                    "sku": "Light Yellow Silk Paper (浅黄色 100个)",
+                                    "qty": "100 pcs"
+                                },
+                                "row8": {
+                                    "sku": "Teal/Cyan Silk Paper (青色 100个)",
+                                    "qty": "100 pcs"
+                                },
+                                "row9": {
+                                    "sku": "Yellow Kraft Paper (黄色 牛皮纸100个)",
+                                    "qty": "100 pcs"
+                                },
+                                "row10": {
+                                    "sku": "White Kraft Paper (白色 牛皮纸100个)",
+                                    "qty": "100 pcs"
+                                },
+                                "row11": {
+                                    "sku": "White Cotton Paper (白色棉纸 100个)",
+                                    "qty": "100 pcs"
+                                }
+                            }
+                        },
+                        "visualGallery": {
+                            "title": "Product Aesthetics & Visual Gallery",
+                            "intro": "Our sachets are manufactured using strict high-definition alignment. Toggle between the tabs below to view the premium textures and prints:",
+                            "tabs": {
+                                "gold": {
+                                    "label": "Gold Stamping (烫金)",
+                                    "alt": "Textured Off-White Silk Paper Sachet with Gold Foil Hot Stamping"
+                                },
+                                "digital": {
+                                    "label": "Digital Color Print (数码彩印)",
+                                    "alt": "Blue Textured Silk Paper Sachet with High-Resolution Digital Printing"
+                                },
+                                "traditional": {
+                                    "label": "Calligraphy/Traditional (传统彩印)",
+                                    "alt": "Textured Pink Silk Paper Sachet with Traditional Calligraphy Black Ink Print"
+                                }
+                            },
+                            "caption": "📸 {alt}. Subtle *achievepack.com* branding is printed on the lower edge."
+                        }
+                    },
+                    "faqs": [
+                        {
+                            "question": "What is the material composition of these sachets?",
+                            "answer": "The Small Sachets utilize a composite paper-plastic laminate structure. The exterior is premium textured Silk Paper or Kraft Paper (70g-90g), while the interior is laminated with a high-barrier aluminum foil (AL) layer and a food-grade Polyethylene (PE) sealant layer. This combination provides a premium tactile texture with absolute protection."
+                        },
+                        {
+                            "question": "Are these sachets eco-friendly or compostable?",
+                            "answer": "Because these conventional sachets use standard plastic and aluminum foil laminates to achieve extreme moisture/gas protection, they are not compostable or recyclable in paper bins. For certified home or industrial compostable flexible packaging, please browse our PLA or Cello-Kraft biopolymer products."
+                        },
+                        {
+                            "question": "What is the MOQ and production lead time?",
+                            "answer": "The minimum order quantity (MOQ) depends on the print method: Hot Stamping starts at 500 pieces, Digital Color Printing starts at 1,000 pieces, and Traditional Gravure printing starts at 50,000 pieces. Production takes 15–20 business days including global express air delivery."
+                        },
+                        {
+                            "question": "Can I request rounded corners on the sachets?",
+                            "answer": "Yes, round corner (圆角) trimming is fully supported as an add-on processing option for all print methods and order volumes, priced at a small surcharge of +$0.0336 USD per unit. This eliminates sharp corner punctures during bulk master carton transport."
+                        }
+                    ],
+                    "cta": {
+                        "title": "Configure Your Sachets Today",
+                        "description": "Select your print method, choose round corner trims, and calculate live quotes for small sachet packaging runs.",
+                        "buttonText": "Configure Sachets"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

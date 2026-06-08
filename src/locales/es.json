@@ -14819,6 +14819,171 @@
                     "ctaTitle": "¿Listo para mejorar la integridad de su embalaje?",
                     "ctaDescription": "Implementar materiales compostables certificados que resistan la prueba de combustión. Cambie hoy sus pegatinas de plástico estándar de combustibles fósiles por los biopolímeros vegetales Premium de AchievePack."
                 }
+            },
+            "conventionalPrintedSachets": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Bolsitas pequeñas de material convencional (8x8 cm) con cubierta de papel de seda de primera calidad | Paquete de logros",
+                        "description": "Calcule matrices de precios de impresión para bolsitas pequeñas forradas de plástico convencionales. Opciones de color digital y estampado en caliente de MOQ bajo con núcleos laminados de aluminio de alta barrera.",
+                        "keywords": [
+                            "embalaje de bolsitas pequeñas",
+                            "bolsita impresa convencional",
+                            "bolsita de papel de seda",
+                            "bolsitas de papel kraft",
+                            "bolsas impresas de bajo moq"
+                        ],
+                        "heroTitle": "Bolsitas Pequeñas: Material Convencional",
+                        "heroSubtitle": "Estructuras laminadas de alta barrera con estilo visual de papel de seda de primera calidad",
+                        "introSummary": "Obtenga bolsitas pequeñas, planas y selladas por los 3 lados (8 x 8 cm) con un tacto de seda o papel kraft hechos a mano. Laminado con un revestimiento interior de plástico convencional de alta barrera para garantizar una estabilidad de almacenamiento de más de 12 meses para polvos, café y cosméticos. La cantidad mínima de pedido comienza en solo 500 piezas para estampado en caliente de oro y 1000 piezas para impresiones digitales en color."
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Descripción general y estructura del material",
+                            "p1": "Nuestra bolsa pequeña de material convencional (8 x 8 cm) es una bolsa plana con cierre de 3 lados diseñada para muestras de marcas, polvos monodosis, lociones cosméticas, tés e ingredientes especiales.",
+                            "p2": "Mientras que el exterior utiliza papel de seda o papel Kraft con textura premium para transmitir una estética orgánica de alta gama hecha a mano, el interior presenta un robusto revestimiento de plástico convencional (estructura laminada multicapa que incluye papel de aluminio puro y una capa selladora interna de polietileno).",
+                            "boxTitle": "¿Por qué un revestimiento de plástico convencional?",
+                            "boxText": "A diferencia de los bioplásticos compostables que presentan barreras medias contra los gases, la estructura laminada convencional de PET/AL/PE proporciona una barrera absoluta contra los gases, la luz y la humedad (OTR y WVTR <0,1). Esto garantiza una vida útil de 12 a 24 meses, evitando por completo la oxidación, el endurecimiento del contenido del polvo o la fuga de formulaciones líquidas.",
+                            "warningText": "⚠️ Nota: Esta estructura de material contiene capas de plástico estándar de combustibles fósiles y papel de aluminio, lo que significa que no es compostable ni reciclable en contenedores de papel estándar. Debe eliminarse en los flujos de residuos generales."
+                        },
+                        "customPricing": {
+                            "title": "Opciones de impresión personalizadas y matriz de precios",
+                            "intro": "Admitimos tres opciones de impresión personalizadas premium para el sobre pequeño de 8x8 cm según los requisitos de ejecución de su pedido. Elija el proceso que coincida con su diseño y volumen objetivo:",
+                            "hotStamping": {
+                                "badge": "Estampado en caliente",
+                                "title": "Impresiones decorativas metálicas",
+                                "desc": "Lo mejor para texto simple o logotipo limpio. Los precios del paquete fijo incluyen tarifas de placas y estampado de un solo color a doble cara.",
+                                "p500": "500 piezas:",
+                                "p1000": "1.000 unidades:",
+                                "p2000": "2.000 unidades:",
+                                "setup": "✓ Configuración: $0 gratis",
+                                "moq": "✓ MOQ: 500 piezas"
+                            },
+                            "digitalColor": {
+                                "badge": "Color digital (impresión digital en color)",
+                                "title": "Impresiones fotográficas vibrantes",
+                                "desc": "Excelente para obras de arte complejas, diseños coloridos o gráficos fotográficos. Tarifas de instalación completamente exentas.",
+                                "p1000": "1.000 unidades:",
+                                "p2000": "2.000 unidades:",
+                                "p3000": "3.000 piezas:",
+                                "p5000": "5.000 unidades:",
+                                "p10k": "Más de 10.000 unidades:",
+                                "setup": "✓ Configuración: $0 exentos",
+                                "sampleFee": "✓ Tarifa de muestra: $147.00 USD"
+                            },
+                            "traditionalGravure": {
+                                "badge": "Huecograbado tradicional (impresión en color tradicional)",
+                                "title": "Ejecuciones comerciales a granel",
+                                "desc": "Las mejores tarifas unitarias para distribución comercial. Diseñado para producción a largo plazo con alta precisión de color.",
+                                "p50k": "50.000 unidades:",
+                                "unitPrice": "Precio unitario:",
+                                "setup": "✓ Configuración: $126.00 USD / color",
+                                "moq": "✓ MOQ: 50.000 unidades"
+                            },
+                            "options": {
+                                "title": "✨Personalizaciones de procesos opcionales:",
+                                "roundCorners": "Esquinas redondeadas (圆角): Disponible a +$0,0336 USD/bolsa para todos los niveles de pedido.",
+                                "highVolume": "Grosor de impresión de alto volumen: para tiradas de impresión digital de más de 5000 piezas, el grosor se actualiza automáticamente a 13,5丝 / 135 micrones de forma gratuita."
+                            }
+                        },
+                        "unprintedSkus": {
+                            "title": "Precios de SKU en stock sin imprimir",
+                            "p1": "Si necesita sobres en blanco sin imprimir para realizar pruebas, etiquetar manualmente o lotes pequeños, le suministramos juegos de cajas de cartón preenvasados. Todos los artículos en stock sin imprimir se calculan a una tarifa fija de $0,30 USD por sobre:",
+                            "tableHeader": "Opciones sin imprimir disponibles (8x8cm)",
+                            "colSku": "SKU / Clasificación de colores",
+                            "colQty": "Cantidad",
+                            "colUnitPrice": "Precio unitario",
+                            "colTotalCost": "Costo total del paquete",
+                            "rows": {
+                                "row1": {
+                                    "sku": "Paquete de muestra de 9 colores Silk & Kraft (1 de cada 9 colores de seda y cuero de vaca)",
+                                    "qty": "9 piezas en total"
+                                },
+                                "row2": {
+                                    "sku": "Papel de seda blanquecino (blanquecino 100 piezas)",
+                                    "qty": "100 piezas"
+                                },
+                                "row3": {
+                                    "sku": "Papel Seda Negro (100 piezas)",
+                                    "qty": "100 piezas"
+                                },
+                                "row4": {
+                                    "sku": "Papel de seda rosa (rosa 100 piezas)",
+                                    "qty": "100 piezas"
+                                },
+                                "row5": {
+                                    "sku": "Papel de seda dorado (oro 100 piezas)",
+                                    "qty": "100 piezas"
+                                },
+                                "row6": {
+                                    "sku": "Papel de seda azul (azul 100 piezas)",
+                                    "qty": "100 piezas"
+                                },
+                                "row7": {
+                                    "sku": "Papel de seda amarillo claro (amarillo claro 100 piezas)",
+                                    "qty": "100 piezas"
+                                },
+                                "row8": {
+                                    "sku": "Papel de seda verde azulado/cian (cian 100 piezas)",
+                                    "qty": "100 piezas"
+                                },
+                                "row9": {
+                                    "sku": "Papel Kraft Amarillo (100 piezas de papel kraft amarillo)",
+                                    "qty": "100 piezas"
+                                },
+                                "row10": {
+                                    "sku": "Papel Kraft Blanco (100 piezas de papel kraft blanco)",
+                                    "qty": "100 piezas"
+                                },
+                                "row11": {
+                                    "sku": "Papel de Algodón Blanco (100 piezas)",
+                                    "qty": "100 piezas"
+                                }
+                            }
+                        },
+                        "visualGallery": {
+                            "title": "Estética del producto y galería visual",
+                            "intro": "Nuestros sobres se fabrican utilizando una estricta alineación de alta definición. Cambie entre las pestañas siguientes para ver las texturas e impresiones premium:",
+                            "tabs": {
+                                "gold": {
+                                    "label": "Estampado de oro",
+                                    "alt": "Bolsita de papel de seda texturizada de color blanquecino con estampado en caliente de lámina dorada"
+                                },
+                                "digital": {
+                                    "label": "Impresión digital en color",
+                                    "alt": "Bolsita de papel de seda con textura azul con impresión digital de alta resolución"
+                                },
+                                "traditional": {
+                                    "label": "Caligrafía/Tradicional (impresión en color tradicional)",
+                                    "alt": "Bolsita de papel de seda rosa texturizada con impresión de tinta negra de caligrafía tradicional"
+                                }
+                            },
+                            "caption": "📸 {alt}. La sutil marca *achievepack.com* está impresa en el borde inferior."
+                        }
+                    },
+                    "faqs": [
+                        {
+                            "question": "¿Cuál es la composición material de estos sobres?",
+                            "answer": "Los sobres pequeños utilizan una estructura laminada compuesta de papel y plástico. El exterior es papel de seda o papel kraft con textura premium (70 g-90 g), mientras que el interior está laminado con una capa de papel de aluminio (AL) de alta barrera y una capa selladora de polietileno (PE) de calidad alimentaria. Esta combinación proporciona una textura táctil premium con protección absoluta."
+                        },
+                        {
+                            "question": "¿Estos sobres son ecológicos o compostables?",
+                            "answer": "Debido a que estos sobres convencionales utilizan laminados estándar de plástico y papel de aluminio para lograr una protección extrema contra la humedad y los gases, no son compostables ni reciclables en contenedores de papel. Para envases flexibles compostables domésticos o industriales certificados, consulte nuestros productos de biopolímero PLA o Cello-Kraft."
+                        },
+                        {
+                            "question": "¿Cuál es el MOQ y el plazo de producción?",
+                            "answer": "La cantidad mínima de pedido (MOQ) depende del método de impresión: el estampado en caliente comienza a partir de 500 piezas, la impresión digital en color comienza a partir de 1000 piezas y la impresión en huecograbado tradicional comienza a partir de 50 000 piezas. La producción demora entre 15 y 20 días hábiles, incluida la entrega aérea urgente global."
+                        },
+                        {
+                            "question": "¿Puedo solicitar esquinas redondeadas en los sobres?",
+                            "answer": "Sí, el recorte de esquinas redondeadas (圆角) es totalmente compatible como opción de procesamiento adicional para todos los métodos de impresión y volúmenes de pedidos, con un precio pequeño de +$0,0336 USD por unidad. Esto elimina los pinchazos en las esquinas durante el transporte de cajas maestras a granel."
+                        }
+                    ],
+                    "cta": {
+                        "title": "Configure sus sobres hoy",
+                        "description": "Seleccione su método de impresión, elija adornos de esquinas redondeadas y calcule cotizaciones en vivo para tiradas de empaques de bolsitas pequeñas.",
+                        "buttonText": "Configurar sobres"
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
