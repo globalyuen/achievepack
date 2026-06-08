@@ -3,48 +3,52 @@ import { Layers, Shield, Leaf, CheckCircle, MessageCircle, Package, Zap } from '
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
+import { useTranslation } from 'react-i18next'
 
 const PcrPpTriplexAluminumPage: React.FC = () => {
-  const structureName = 'OPP20 / AL7 / 30% PCR-PE (PP Triplex)'
-  const thickness = '105 micron or 4.1 mil'
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pcrPpTriplexAluminum'
+
+  const structureName = t(`${p}.structureName`)
+  const thickness = t(`${p}.thickness`)
   const otr = '<0.5'
   const wvtr = '<0.3'
 
   const sections = [
     {
       id: 'structure-overview',
-      title: 'What Is This Material Structure?',
+      title: t(`${p}.sections.structureOverview.title`),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <div className="bg-gray-100 p-6 rounded-lg border border-gray-300">
+          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
             <ClickableImage
               src="/imgs/spec/pcr-pp-triplex-aluminum.webp"
               alt="PCR PP Triplex Aluminum Foil Structure"
               className="w-full max-w-md mx-auto rounded-lg shadow-md mb-4"
               caption="PP Triplex with Aluminum Foil - Best Moisture"
             />
-            <h3 className="text-xl font-bold text-gray-800 mb-3">{structureName}</h3>
+            <h3 className="text-xl font-bold text-green-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
-              <Zap className="h-5 w-5 text-gray-600" />
-              <span className="text-sm text-gray-600">Maximum Barrier - Best Moisture Protection</span>
+              
+              <span className="text-sm text-green-600">{t(`${p}.sections.structureOverview.badge`)}</span>
             </div>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Thickness</p>
-                <p className="font-semibold text-gray-700">{thickness}</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.thickness`)}</p>
+                <p className="font-semibold text-green-700">{thickness}</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">OTR</p>
-                <p className="font-semibold text-gray-700">{otr} cc/m²/day</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.otr`)}</p>
+                <p className="font-semibold text-green-700">{otr} cc/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">WVTR</p>
-                <p className="font-semibold text-gray-700">{wvtr} g/m²/day</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.wvtr`)}</p>
+                <p className="font-semibold text-green-700">{wvtr} g/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Key Benefit</p>
-                <p className="font-semibold text-gray-700">Lowest WVTR Available</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.layers`)}</p>
+                <p className="font-semibold text-green-700">{t(`${p}.sections.structureOverview.layersValue`)}</p>
               </div>
             </div>
           </div>
@@ -53,7 +57,7 @@ const PcrPpTriplexAluminumPage: React.FC = () => {
     },
     {
       id: 'layer-breakdown',
-      title: 'How Is Each Layer Built?',
+      title: t(`${p}.sections.layerBreakdown.title`),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -61,22 +65,15 @@ const PcrPpTriplexAluminumPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-lg">
               <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
               <div>
-                <p className="font-semibold text-blue-800">OPP20 (Outer Layer)</p>
-                <p className="text-sm text-blue-700">20-micron oriented polypropylene adds inherent moisture resistance on top of foil barrier, achieving the lowest WVTR possible.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 p-4 bg-gray-100 rounded-lg">
-              <div className="w-8 h-8 bg-gray-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
-              <div>
-                <p className="font-semibold text-gray-800">AL7 (Middle Layer)</p>
-                <p className="text-sm text-gray-700">7-micron aluminum foil provides absolute barrier to oxygen, moisture, and light.</p>
+                <p className="font-semibold text-blue-800">{t(`${p}.sections.layerBreakdown.layer1.name`)}</p>
+                <p className="text-sm text-blue-700">{t(`${p}.sections.layerBreakdown.layer1.desc`)}</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
               <div>
-                <p className="font-semibold text-green-800">30% PCR-PE (Inner Layer)</p>
-                <p className="text-sm text-green-700">Sustainable polyethylene sealant with recycled or bio-based content.</p>
+                <p className="font-semibold text-green-800">{t(`${p}.sections.layerBreakdown.layer2.name`)}</p>
+                <p className="text-sm text-green-700">{t(`${p}.sections.layerBreakdown.layer2.desc`)}</p>
               </div>
             </div>
           </div>
@@ -85,50 +82,50 @@ const PcrPpTriplexAluminumPage: React.FC = () => {
     },
     {
       id: 'barrier-properties',
-      title: 'What Barrier Protection Does It Offer?',
+      title: t(`${p}.sections.barrierProperties.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>This PP-foil combination achieves the absolute lowest WVTR available in flexible packaging.</p>
+          <p>{t(`${p}.sections.barrierProperties.intro`)}</p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-gray-100 p-4 rounded-lg border border-gray-300">
-              <h4 className="font-semibold text-gray-800 mb-2">Oxygen Barrier</h4>
+              <h4 className="font-semibold text-gray-800 mb-2">{t(`${p}.sections.barrierProperties.oxygenBarrier`)}</h4>
               <p className="text-2xl font-bold text-gray-600">{otr} cc/m²/day</p>
-              <p className="text-sm text-gray-700 mt-1">Virtually zero - complete oxygen exclusion.</p>
+              <p className="text-sm text-gray-700 mt-1">{t(`${p}.sections.barrierProperties.oxygenNote`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">Moisture Barrier</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.barrierProperties.moistureBarrier`)}</h4>
               <p className="text-2xl font-bold text-blue-600">{wvtr} g/m²/day</p>
-              <p className="text-sm text-blue-700 mt-1">Lowest available - OPP + AL7 = ultimate moisture protection.</p>
+              <p className="text-sm text-blue-700 mt-1">{t(`${p}.sections.barrierProperties.moistureNote`)}</p>
             </div>
           </div>
           <div className="bg-green-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold text-green-800 mb-2">Why PP + Foil is Superior</h4>
-            <p className="text-sm text-green-700">OPP's inherent low moisture permeability adds extra protection at seal areas and potential pinhole sites in the foil, achieving WVTR &lt;0.3 vs &lt;0.5 for PET-foil structures.</p>
+            <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.barrierProperties.premiumShelf`)}</h4>
+            <p className="text-sm text-green-700">{t(`${p}.sections.barrierProperties.premiumShelfDesc`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'sustainability',
-      title: 'Sustainability Considerations',
+      title: t(`${p}.sections.sustainability.title`),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-green-800 mb-3">Eco-Friendly Elements</h4>
+            <h4 className="font-semibold text-green-800 mb-3">{t(`${p}.sections.sustainability.heading`)}</h4>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>PCR/Bio-PE:</strong> Sustainable sealant reduces virgin plastic</span>
+                <span><strong>{t(`${p}.sections.sustainability.item1Name`)}</strong> {t(`${p}.sections.sustainability.item1Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Food Waste Reduction:</strong> Maximum protection = minimum waste</span>
+                <span><strong>{t(`${p}.sections.sustainability.item2Name`)}</strong> {t(`${p}.sections.sustainability.item2Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Aluminum Value:</strong> High recycling value when separated</span>
+                <span><strong>{t(`${p}.sections.sustainability.item3Name`)}</strong> {t(`${p}.sections.sustainability.item3Desc`)}</span>
               </li>
             </ul>
           </div>
@@ -137,16 +134,16 @@ const PcrPpTriplexAluminumPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'What Products Is This Best For?',
+      title: t(`${p}.sections.applications.title`),
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Essential for extremely hygroscopic products requiring maximum moisture protection:</p>
+          <p>{t(`${p}.sections.applications.intro`)}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {['Powdered milk', 'Instant coffee', 'Protein isolates', 'Pharmaceutical powders', 'Hygroscopic chemicals', 'Desiccants', 'Freeze-dried products', 'Moisture-sensitive vitamins', 'Specialty powders'].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
-                <CheckCircle className="h-4 w-4 text-gray-500 flex-shrink-0" />
-                <span className="text-sm text-gray-800">{item}</span>
+            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">
+                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                <span className="text-sm text-green-800">{item}</span>
               </div>
             ))}
           </div>
@@ -155,21 +152,21 @@ const PcrPpTriplexAluminumPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding PP Aluminum Foil Packaging',
+      title: t(`${p}.sections.aiSearch.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Lowest WVTR</strong> – Best for hygroscopic products</li>
-            <li><strong>Complete protection</strong> – Oxygen + moisture + light</li>
-            <li><strong>Shop now</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse foil pouches</Link></li>
+            <li><strong>{t(`${p}.sections.aiSearch.point1`)}</strong> – {t(`${p}.sections.aiSearch.point1Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.point2`)}</strong> – {t(`${p}.sections.aiSearch.point2Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.shopNow`)}</strong> – <Link to="/store" className="text-primary-600 hover:underline">{t(`${p}.sections.aiSearch.browseLink`)}</Link></li>
           </ul>
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 AI Search Suggestions:</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">💡 {t(`${p}.sections.aiSearch.aiSuggestions`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "Best moisture barrier packaging for powder products"</li>
-              <li>• "Aluminum foil pouch with lowest WVTR"</li>
-              <li>• "Packaging for hygroscopic pharmaceutical powders"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion1`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion2`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion3`)}"</li>
             </ul>
           </div>
         </div>
@@ -178,29 +175,29 @@ const PcrPpTriplexAluminumPage: React.FC = () => {
   ]
 
   const faqs = [
-    { question: 'Why choose PP-foil over PET-foil?', answer: 'PP-foil achieves WVTR <0.3 vs <0.5 for PET-foil. For extremely hygroscopic products (powdered milk, protein isolates), this 40% improvement is significant.' },
-    { question: 'What shelf life can I expect?', answer: 'Maximum shelf life of 24-36+ months depending on product. Some pharmaceutical applications achieve 5+ years stability.' },
-    { question: 'Is this suitable for hot-fill?', answer: 'For hot-fill applications above 85°C, contact us for high-temperature resistant variants with modified sealant layers.' },
-    { question: 'Can the aluminum be recycled?', answer: 'The aluminum layer has high recycling value. While multi-layer recycling is challenging, aluminum recovery programs exist. The structure significantly reduces food waste.' },
-    { question: 'What seal strength can I expect?', answer: 'The PCR/Bio-PE sealant provides excellent seal strength comparable to virgin PE, suitable for demanding distribution conditions.' }
+    { question: t(`${p}.faqs.q1`), answer: t(`${p}.faqs.a1`) },
+    { question: t(`${p}.faqs.q2`), answer: t(`${p}.faqs.a2`) },
+    { question: t(`${p}.faqs.q3`), answer: t(`${p}.faqs.a3`) },
+    { question: t(`${p}.faqs.q4`), answer: t(`${p}.faqs.a4`) },
+    { question: t(`${p}.faqs.q5`), answer: t(`${p}.faqs.a5`) },
   ]
 
   const relatedLinks = [
-    { title: "Shop Foil Pouches", url: "/store", description: "Browse aluminum foil packaging" },
-    { title: "PET Foil Triplex", url: "/spec/pcr-pet-triplex-aluminum", description: "Compare PET-based option" },
-    { title: "Metalised Alternative", url: "/spec/pcr-pp-triplex-metalised", description: "More recyclable option" },
-    { title: "Barrier Guide", url: "/features/high-barrier", description: "Compare barrier levels" }
+    { title: t(`${p}.relatedLinks.link1.title`), url: "/store", description: t(`${p}.relatedLinks.link1.description`) },
+    { title: t(`${p}.relatedLinks.link2.title`), url: "/spec/pcr-pet-triplex-aluminum", description: t(`${p}.relatedLinks.link2.description`) },
+    { title: t(`${p}.relatedLinks.link3.title`), url: "/spec/pcr-pp-triplex-metalised", description: t(`${p}.relatedLinks.link3.description`) },
+    { title: t(`${p}.relatedLinks.link4.title`), url: "/features/high-barrier", description: t(`${p}.relatedLinks.link4.description`) },
   ]
 
   return (
     <SEOPageLayout heroBgColor="#1f2937"
-      title="PP Aluminum Foil Triplex | Lowest WVTR Maximum Barrier Packaging"
-      description="PP Aluminum Foil Triplex: OPP20 / AL7 / PCR-PE. Lowest moisture barrier (WVTR <0.3). Maximum oxygen barrier (OTR <0.5). 105 micron. Ideal for powders, pharmaceuticals."
-      heroTitle="PP Aluminum Foil Triplex Structure"
-      heroSubtitle="OPP20 / AL7 / PCR-PE - Ultimate Moisture Protection"
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroLogo="/eco-logo/white-bkg/eco-logo-pcr.png"
       heroLogoAlt="PCR Recycled Content"
-      introSummary="The lowest moisture barrier available in flexible packaging, combining OPP's moisture resistance with aluminum foil's absolute barrier. Essential for extremely hygroscopic products like powdered milk, protein isolates, and pharmaceutical powders."
+      introSummary={t(`${p}.introSummary`)}
       keywords={[
         'PP aluminum foil packaging',
         'lowest WVTR pouch',
@@ -219,4 +216,4 @@ const PcrPpTriplexAluminumPage: React.FC = () => {
   )
 }
 
-export default PcrPpTriplexAluminumPage
+export default PcrPpTriplexAluminumPage;

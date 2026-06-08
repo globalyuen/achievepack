@@ -1,10 +1,10 @@
 {
   "generated": "2026-06-08",
-  "total_images": 3010,
+  "total_images": 3011,
   "total_categories": 171,
   "extensions": {
     ".webp": 1303,
-    ".png": 1472,
+    ".png": 1473,
     ".jpg": 232,
     ".svg": 3
   },
@@ -800,8 +800,14 @@
       ]
     },
     "blog/heros": {
-      "count": 308,
+      "count": 309,
       "images": [
+        {
+          "filename": "high-barrier-sustainable-films-for-pouches-hero.png",
+          "path": "/imgs/blog/heros/high-barrier-sustainable-films-for-pouches-hero.png",
+          "extension": ".png",
+          "modified": "2026-06-08T00:45:22.789Z"
+        },
         {
           "filename": "recyclable-flat-bottom-pouch-suppliers-hero.png",
           "path": "/imgs/blog/heros/recyclable-flat-bottom-pouch-suppliers-hero.png",

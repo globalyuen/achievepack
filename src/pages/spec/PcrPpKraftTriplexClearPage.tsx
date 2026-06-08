@@ -3,17 +3,21 @@ import { Layers, Shield, Leaf, CheckCircle, MessageCircle, Package } from 'lucid
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
+import { useTranslation } from 'react-i18next'
 
 const PcrPpKraftTriplexClearPage: React.FC = () => {
-  const structureName = 'KOPP20 / Kraft Paper 50gsm / 30% PCR-PE (PP Kraft Paper Triplex)'
-  const thickness = '140 micron or 5.5 mil'
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pcrPpKraftTriplexClear'
+
+  const structureName = t(`${p}.structureName`)
+  const thickness = t(`${p}.thickness`)
   const otr = '<10'
   const wvtr = '<6'
 
   const sections = [
     {
       id: 'structure-overview',
-      title: 'What Is This Material Structure?',
+      title: t(`${p}.sections.structureOverview.title`),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -25,22 +29,26 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
               caption="PCR PP Kraft Triplex Clear Structure"
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
+            <div className="flex items-center gap-2 mb-4">
+              
+              <span className="text-sm text-amber-600">{t(`${p}.sections.structureOverview.badge`)}</span>
+            </div>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Thickness</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.thickness`)}</p>
                 <p className="font-semibold text-amber-700">{thickness}</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">OTR</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.otr`)}</p>
                 <p className="font-semibold text-amber-700">{otr} cc/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">WVTR</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.wvtr`)}</p>
                 <p className="font-semibold text-amber-700">{wvtr} g/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Key Benefit</p>
-                <p className="font-semibold text-amber-700">Best Moisture + Kraft Feel</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.layers`)}</p>
+                <p className="font-semibold text-amber-700">{t(`${p}.sections.structureOverview.layersValue`)}</p>
               </div>
             </div>
           </div>
@@ -49,7 +57,7 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
     },
     {
       id: 'layer-breakdown',
-      title: 'How Is Each Layer Built?',
+      title: t(`${p}.sections.layerBreakdown.title`),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -57,22 +65,22 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-lg">
               <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
               <div>
-                <p className="font-semibold text-blue-800">KOPP20 (Outer Layer)</p>
-                <p className="text-sm text-blue-700">20-micron K-coated OPP for superior moisture barrier and brilliant clarity in window areas.</p>
+                <p className="font-semibold text-blue-800">{t(`${p}.sections.layerBreakdown.layer1.name`)}</p>
+                <p className="text-sm text-blue-700">{t(`${p}.sections.layerBreakdown.layer1.desc`)}</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-amber-50 rounded-lg">
               <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
               <div>
-                <p className="font-semibold text-amber-800">Kraft Paper 50gsm (Middle Layer)</p>
-                <p className="text-sm text-amber-700">Natural kraft paper for premium aesthetics and stiffness.</p>
+                <p className="font-semibold text-amber-800">{t(`${p}.sections.layerBreakdown.layer2.name`)}</p>
+                <p className="text-sm text-amber-700">{t(`${p}.sections.layerBreakdown.layer2.desc`)}</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
               <div>
-                <p className="font-semibold text-green-800">30% PCR-PE (Inner Layer)</p>
-                <p className="text-sm text-green-700">Sustainable heat-seal layer with recycled or bio-based content.</p>
+                <p className="font-semibold text-green-800">{t(`${p}.sections.layerBreakdown.layer3.name`)}</p>
+                <p className="text-sm text-green-700">{t(`${p}.sections.layerBreakdown.layer3.desc`)}</p>
               </div>
             </div>
           </div>
@@ -81,50 +89,50 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
     },
     {
       id: 'barrier-properties',
-      title: 'What Barrier Protection Does It Offer?',
+      title: t(`${p}.sections.barrierProperties.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>This PP-based kraft triplex offers the best moisture protection in the kraft paper category.</p>
+          <p>{t(`${p}.sections.barrierProperties.intro`)}</p>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-              <h4 className="font-semibold text-amber-800 mb-2">Oxygen Barrier</h4>
-              <p className="text-2xl font-bold text-amber-600">{otr} cc/m²/day</p>
-              <p className="text-sm text-amber-700 mt-1">Good protection for moderately oxygen-sensitive products.</p>
+            <div className="bg-gray-100 p-4 rounded-lg border border-gray-300">
+              <h4 className="font-semibold text-gray-800 mb-2">{t(`${p}.sections.barrierProperties.oxygenBarrier`)}</h4>
+              <p className="text-2xl font-bold text-gray-600">{otr} cc/m²/day</p>
+              <p className="text-sm text-gray-700 mt-1">{t(`${p}.sections.barrierProperties.oxygenNote`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">Moisture Barrier</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.barrierProperties.moistureBarrier`)}</h4>
               <p className="text-2xl font-bold text-blue-600">{wvtr} g/m²/day</p>
-              <p className="text-sm text-blue-700 mt-1">Superior moisture protection - best for humidity-sensitive products.</p>
+              <p className="text-sm text-blue-700 mt-1">{t(`${p}.sections.barrierProperties.moistureNote`)}</p>
             </div>
           </div>
-          <div className="bg-green-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold mb-2">Why Choose PP over PET for Kraft?</h4>
-            <p className="text-sm">If your product is more sensitive to moisture than oxygen (e.g., crackers, powder supplements), the PP-based structure offers 50% better WVTR than PET-based alternatives.</p>
+          <div className="bg-amber-50 p-4 rounded-lg mt-4">
+            <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.barrierProperties.premiumShelf`)}</h4>
+            <p className="text-sm text-amber-700">{t(`${p}.sections.barrierProperties.premiumShelfDesc`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'sustainability',
-      title: 'Sustainability Features',
+      title: t(`${p}.sections.sustainability.title`),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-green-800 mb-3">Eco-Friendly Benefits</h4>
+            <h4 className="font-semibold text-green-800 mb-3">{t(`${p}.sections.sustainability.heading`)}</h4>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>FSC Kraft:</strong> Sustainably sourced paper option</span>
+                <span><strong>{t(`${p}.sections.sustainability.item1Name`)}</strong> {t(`${p}.sections.sustainability.item1Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>PCR/Bio Content:</strong> Reduced virgin plastic usage</span>
+                <span><strong>{t(`${p}.sections.sustainability.item2Name`)}</strong> {t(`${p}.sections.sustainability.item2Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Consumer Appeal:</strong> Natural kraft look signals sustainability</span>
+                <span><strong>{t(`${p}.sections.sustainability.item3Name`)}</strong> {t(`${p}.sections.sustainability.item3Desc`)}</span>
               </li>
             </ul>
           </div>
@@ -133,13 +141,13 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'What Products Is This Best For?',
+      title: t(`${p}.sections.applications.title`),
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Best for moisture-sensitive premium products with natural positioning:</p>
+          <p>{t(`${p}.sections.applications.intro`)}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {['Protein powders', 'Flour & baking mixes', 'Instant coffee', 'Dried milk products', 'Sugar & sweeteners', 'Crackers', 'Cereals', 'Bath salts', 'Powdered supplements'].map((item, idx) => (
+            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-amber-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-amber-500 flex-shrink-0" />
                 <span className="text-sm text-amber-800">{item}</span>
@@ -151,21 +159,21 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding PP Kraft Sustainable Packaging',
+      title: t(`${p}.sections.aiSearch.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Superior moisture barrier</strong> – Best WVTR in kraft category</li>
-            <li><strong>Premium kraft aesthetics</strong> – Natural, artisan appeal</li>
-            <li><strong>Shop now</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse kraft pouches</Link></li>
+            <li><strong>{t(`${p}.sections.aiSearch.point1`)}</strong> – {t(`${p}.sections.aiSearch.point1Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.point2`)}</strong> – {t(`${p}.sections.aiSearch.point2Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.shopNow`)}</strong> – <Link to="/store" className="text-primary-600 hover:underline">{t(`${p}.sections.aiSearch.browseLink`)}</Link></li>
           </ul>
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 AI Search Suggestions:</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">💡 {t(`${p}.sections.aiSearch.aiSuggestions`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "Best kraft paper pouch for powder products"</li>
-              <li>• "Low moisture transmission kraft packaging"</li>
-              <li>• "Premium sustainable pouch for supplements"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion1`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion2`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion3`)}"</li>
             </ul>
           </div>
         </div>
@@ -174,29 +182,29 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
   ]
 
   const faqs = [
-    { question: 'PP vs PET kraft - which is better?', answer: 'Choose PP (this structure) for moisture-sensitive products (WVTR <6). Choose PET for oxygen-sensitive products (OTR <8). Both offer similar premium kraft aesthetics.' },
-    { question: 'Can this structure have a window?', answer: 'Yes, clear window panels can be incorporated. The OPP layer provides excellent clarity in window areas.' },
-    { question: 'What is the minimum order quantity?', answer: 'Our standard MOQ starts from 500 pieces for digitally printed pouches, or 10,000 for plate printing.' },
-    { question: 'Is the kraft paper recyclable?', answer: 'The multi-layer structure requires specialized recycling. However, using PCR/Bio-PE content significantly reduces environmental impact.' },
-    { question: 'What shelf life can I expect?', answer: 'Properly sealed products typically achieve 9-15 months shelf life depending on the specific product and storage conditions.' }
+    { question: t(`${p}.faqs.q1`), answer: t(`${p}.faqs.a1`) },
+    { question: t(`${p}.faqs.q2`), answer: t(`${p}.faqs.a2`) },
+    { question: t(`${p}.faqs.q3`), answer: t(`${p}.faqs.a3`) },
+    { question: t(`${p}.faqs.q4`), answer: t(`${p}.faqs.a4`) },
+    { question: t(`${p}.faqs.q5`), answer: t(`${p}.faqs.a5`) },
   ]
 
   const relatedLinks = [
-    { title: "Shop Kraft Pouches", url: "/store", description: "Browse kraft paper options" },
-    { title: "PET Kraft Triplex", url: "/spec/pcr-pet-kraft-triplex-clear", description: "Compare PET-based option" },
-    { title: "PP Duplex (No Paper)", url: "/spec/pcr-pp-duplex-clear", description: "Softer PP option" },
-    { title: "Barrier Guide", url: "/features/barrier-options", description: "Compare barrier levels" }
+    { title: t(`${p}.relatedLinks.link1.title`), url: "/store", description: t(`${p}.relatedLinks.link1.description`) },
+    { title: t(`${p}.relatedLinks.link2.title`), url: "/spec/pcr-pet-kraft-triplex-clear", description: t(`${p}.relatedLinks.link2.description`) },
+    { title: t(`${p}.relatedLinks.link3.title`), url: "/spec/pcr-pp-duplex-clear", description: t(`${p}.relatedLinks.link3.description`) },
+    { title: t(`${p}.relatedLinks.link4.title`), url: "/features/barrier-options", description: t(`${p}.relatedLinks.link4.description`) },
   ]
 
   return (
     <SEOPageLayout heroBgColor="#451a03"
-      title="PCR PP Kraft Triplex Clear | Premium Kraft Paper Low WVTR Packaging"
-      description="PCR PP Kraft Triplex: KOPP20 / Kraft Paper 50gsm / PCR-PE. Best moisture barrier in kraft category (WVTR <6). 140 micron. Ideal for powders, supplements, moisture-sensitive products."
-      heroTitle="PCR PP Kraft Triplex Clear Structure"
-      heroSubtitle="KOPP20 / Kraft Paper 50gsm / PCR-PE - Best Moisture Barrier Kraft"
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroLogo="/eco-logo/white-bkg/eco-logo-pcr.png"
       heroLogoAlt="PCR Recycled Content"
-      introSummary="The best moisture barrier in the kraft paper category, combining PP's inherent moisture resistance with premium kraft aesthetics. Ideal for protein powders, instant coffee, and moisture-sensitive products."
+      introSummary={t(`${p}.introSummary`)}
       keywords={[
         'PP kraft triplex',
         'low WVTR kraft pouch',
@@ -215,4 +223,4 @@ const PcrPpKraftTriplexClearPage: React.FC = () => {
   )
 }
 
-export default PcrPpKraftTriplexClearPage
+export default PcrPpKraftTriplexClearPage;

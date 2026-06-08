@@ -4,29 +4,33 @@ import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 import SortableMaterialStructuresTable, { COMPOSTABLE_STRUCTURES } from '../../components/SortableMaterialStructuresTable'
+import { useTranslation } from 'react-i18next'
 
 const CompostableMaterialStructurePage: React.FC = () => {
-  const structureName = 'High Barrier Cellulose or PLA 25gsm / PBAT60 (Cello Duplex)'
-  const thickness = '85 micron or 3.3 mil'
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.compostableMaterialStructure'
+
+  const structureName = t(`${p}.structureName`)
+  const thickness = t(`${p}.thickness`)
   const otr = '<5'
   const wvtr = '<10'
 
   const sections = [
     {
       id: 'all-compost-overview',
-      title: 'What Compostable Structures Are Available?',
+      title: t(`${p}.sections.allCompostOverview.title`),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <SortableMaterialStructuresTable
           structures={COMPOSTABLE_STRUCTURES}
-          title="All Compostable Structures - Sortable & Filterable"
+          title={t(`${p}.sections.allCompostOverview.tableTitle`)}
           categoryColor="green"
         />
       )
     },
     {
       id: 'structure-overview',
-      title: 'What Is This Material Structure?',
+      title: t(`${p}.sections.structureOverview.title`),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -41,24 +45,24 @@ const CompostableMaterialStructurePage: React.FC = () => {
             <div className="flex items-center gap-2 mb-4">
               <Sprout className="h-5 w-5 text-green-500" />
               <Eye className="h-5 w-5 text-green-500" />
-              <span className="text-sm text-green-600">100% Compostable - Clear Window Capable</span>
+              <span className="text-sm text-green-600">{t(`${p}.sections.structureOverview.badge`)}</span>
             </div>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Thickness</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.thickness`)}</p>
                 <p className="font-semibold text-green-700">{thickness}</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">OTR</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.otr`)}</p>
                 <p className="font-semibold text-green-700">{otr} cc/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">WVTR</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.wvtr`)}</p>
                 <p className="font-semibold text-green-700">{wvtr} g/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Certification</p>
-                <p className="font-semibold text-green-700">TUV OK Compost / BPI</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.certification`)}</p>
+                <p className="font-semibold text-green-700">{t(`${p}.sections.structureOverview.certificationValue`)}</p>
               </div>
             </div>
           </div>
@@ -67,7 +71,7 @@ const CompostableMaterialStructurePage: React.FC = () => {
     },
     {
       id: 'layer-breakdown',
-      title: 'How Is Each Layer Built?',
+      title: t(`${p}.sections.layerBreakdown.title`),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -75,15 +79,15 @@ const CompostableMaterialStructurePage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
               <div>
-                <p className="font-semibold text-green-800">High Barrier Cellulose or PLA 25gsm (Outer Layer)</p>
-                <p className="text-sm text-green-700">Cellulose (wood-pulp derived) or PLA (corn-based) film with barrier coating provides oxygen protection and clear window capability. 100% bio-based and compostable.</p>
+                <p className="font-semibold text-green-800">{t(`${p}.sections.layerBreakdown.layer1.name`)}</p>
+                <p className="text-sm text-green-700">{t(`${p}.sections.layerBreakdown.layer1.desc`)}</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-amber-50 rounded-lg">
               <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
               <div>
-                <p className="font-semibold text-amber-800">PBAT60 (Inner/Sealant Layer)</p>
-                <p className="text-sm text-amber-700">60-micron PBAT (polybutylene adipate terephthalate) is a biodegradable polyester that provides heat-seal and moisture barrier while fully composting.</p>
+                <p className="font-semibold text-amber-800">{t(`${p}.sections.layerBreakdown.layer2.name`)}</p>
+                <p className="text-sm text-amber-700">{t(`${p}.sections.layerBreakdown.layer2.desc`)}</p>
               </div>
             </div>
           </div>
@@ -92,28 +96,28 @@ const CompostableMaterialStructurePage: React.FC = () => {
     },
     {
       id: 'barrier-properties',
-      title: 'What Barrier Protection Does It Offer?',
+      title: t(`${p}.sections.barrierProperties.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Here's the thing: this compostable structure gives you mid-level barrier—enough for many food applications without sacrificing your eco-credentials.</p>
+          <p>{t(`${p}.sections.barrierProperties.intro`)}</p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-              <h4 className="font-semibold text-amber-800 mb-2">Oxygen Barrier</h4>
+              <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.barrierProperties.oxygenBarrier`)}</h4>
               <p className="text-2xl font-bold text-amber-600">{otr} cc/m²/day</p>
-              <p className="text-sm text-amber-700 mt-1">Good - high barrier cellulose provides protection.</p>
+              <p className="text-sm text-amber-700 mt-1">{t(`${p}.sections.barrierProperties.oxygenNote`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">Moisture Barrier</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.barrierProperties.moistureBarrier`)}</h4>
               <p className="text-2xl font-bold text-blue-600">{wvtr} g/m²/day</p>
-              <p className="text-sm text-blue-700 mt-1">Moderate - PBAT layer provides moisture resistance.</p>
+              <p className="text-sm text-blue-700 mt-1">{t(`${p}.sections.barrierProperties.moistureNote`)}</p>
             </div>
           </div>
           <div className="bg-green-50 p-4 rounded-lg mt-4 flex items-start gap-3">
             <Eye className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-semibold text-green-800 mb-1">Clear Window Capable</h4>
-              <p className="text-sm text-green-700">Cellulose film provides beautiful clarity for window applications, letting consumers see your product while maintaining compostability.</p>
+              <h4 className="font-semibold text-green-800 mb-1">{t(`${p}.sections.barrierProperties.clearWindow`)}</h4>
+              <p className="text-sm text-green-700">{t(`${p}.sections.barrierProperties.clearWindowDesc`)}</p>
             </div>
           </div>
         </div>
@@ -121,47 +125,47 @@ const CompostableMaterialStructurePage: React.FC = () => {
     },
     {
       id: 'sustainability',
-      title: 'Is It Certified Compostable?',
+      title: t(`${p}.sections.sustainability.title`),
       icon: <Sprout className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-green-800 mb-3">Certified Compostable</h4>
+            <h4 className="font-semibold text-green-800 mb-3">{t(`${p}.sections.sustainability.heading`)}</h4>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Industrial Composting:</strong> TUV OK Compost Industrial / BPI certified</span>
+                <span><strong>{t(`${p}.sections.sustainability.item1Name`)}</strong> {t(`${p}.sections.sustainability.item1Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Break-down Time:</strong> 90-180 days in industrial facilities</span>
+                <span><strong>{t(`${p}.sections.sustainability.item2Name`)}</strong> {t(`${p}.sections.sustainability.item2Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Bio-based Content:</strong> Cellulose from wood pulp, PLA from corn</span>
+                <span><strong>{t(`${p}.sections.sustainability.item3Name`)}</strong> {t(`${p}.sections.sustainability.item3Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>No Microplastics:</strong> Fully biodegrades to CO2, water, biomass</span>
+                <span><strong>{t(`${p}.sections.sustainability.item4Name`)}</strong> {t(`${p}.sections.sustainability.item4Desc`)}</span>
               </li>
             </ul>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-            <h4 className="font-semibold text-amber-800 mb-2">Composting Note</h4>
-            <p className="text-sm text-amber-700">This structure requires industrial composting facilities (high heat, controlled conditions). Home composting is not recommended. Check local composting availability.</p>
+            <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.sustainability.compostingNoteHeading`)}</h4>
+            <p className="text-sm text-amber-700">{t(`${p}.sections.sustainability.compostingNote`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'applications',
-      title: 'What Products Is This Best For?',
+      title: t(`${p}.sections.applications.title`),
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>This structure is perfect for eco-conscious brands that have access to composting infrastructure:</p>
+          <p>{t(`${p}.sections.applications.intro`)}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {['Coffee beans', 'Tea leaves', 'Dried fruits', 'Nuts & seeds', 'Granola', 'Organic snacks', 'Herbs & spices', 'Supplements', 'Pet treats'].map((item, idx) => (
+            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
                 <span className="text-sm text-green-800">{item}</span>
@@ -173,21 +177,21 @@ const CompostableMaterialStructurePage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Need Help Finding Compostable Clear Packaging?',
+      title: t(`${p}.sections.aiSearch.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Truly compostable</strong> – Certified industrial composting</li>
-            <li><strong>Clear windows</strong> – Show your product beautifully</li>
-            <li><strong>Shop now</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse compostable pouches</Link></li>
+            <li><strong>{t(`${p}.sections.aiSearch.point1`)}</strong> – {t(`${p}.sections.aiSearch.point1Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.point2`)}</strong> – {t(`${p}.sections.aiSearch.point2Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.shopNow`)}</strong> – <Link to="/store" className="text-primary-600 hover:underline">{t(`${p}.sections.aiSearch.browseLink`)}</Link></li>
           </ul>
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 AI Search Suggestions:</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">💡 {t(`${p}.sections.aiSearch.aiSuggestions`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "Compostable coffee bag with clear window"</li>
-              <li>• "BPI certified stand-up pouch"</li>
-              <li>• "Cellulose packaging for organic products"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion1`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion2`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion3`)}"</li>
             </ul>
           </div>
         </div>
@@ -195,67 +199,67 @@ const CompostableMaterialStructurePage: React.FC = () => {
     },
     {
       id: 'compare-structures',
-      title: 'How Do Compostable Structures Compare?',
+      title: t(`${p}.sections.compareStructures.title`),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p className="text-sm text-neutral-600 mb-4">Compare all 5 compostable structures by barrier level and best applications:</p>
+          <p className="text-sm text-neutral-600 mb-4">{t(`${p}.sections.compareStructures.intro`)}</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr className="bg-green-100">
-                  <th className="p-2 text-left border">Structure</th>
-                  <th className="p-2 text-center border">OTR</th>
-                  <th className="p-2 text-center border">WVTR</th>
-                  <th className="p-2 text-left border">Best For</th>
+                  <th className="p-2 text-left border">{t(`${p}.sections.compareStructures.headers.structure`)}</th>
+                  <th className="p-2 text-center border">{t(`${p}.sections.compareStructures.headers.otr`)}</th>
+                  <th className="p-2 text-center border">{t(`${p}.sections.compareStructures.headers.wvtr`)}</th>
+                  <th className="p-2 text-left border">{t(`${p}.sections.compareStructures.headers.bestFor`)}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="bg-green-50 font-semibold">
-                  <td className="p-2 border"><Link to="/spec/compostable-material-structure" className="text-primary-600 hover:underline">Cellulose Duplex Clear</Link></td>
+                  <td className="p-2 border"><Link to="/spec/compostable-material-structure" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row1.title`)}</Link></td>
                   <td className="p-2 text-center border">&lt;5</td>
                   <td className="p-2 text-center border">&lt;10</td>
-                  <td className="p-2 border">Window bags, visibility</td>
+                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row1.desc`)}</td>
                 </tr>
                 <tr>
-                  <td className="p-2 border"><Link to="/spec/bio-cello-triplex-highest" className="text-primary-600 hover:underline">Cellulose Triplex Highest</Link></td>
+                  <td className="p-2 border"><Link to="/spec/bio-cello-triplex-highest" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row2.title`)}</Link></td>
                   <td className="p-2 text-center border">&lt;1</td>
                   <td className="p-2 text-center border">&lt;3</td>
-                  <td className="p-2 border">Maximum barrier compostable</td>
+                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row2.desc`)}</td>
                 </tr>
                 <tr>
-                  <td className="p-2 border"><Link to="/spec/bio-cello-triplex-metalised" className="text-primary-600 hover:underline">Cellulose Triplex Metalised</Link></td>
+                  <td className="p-2 border"><Link to="/spec/bio-cello-triplex-metalised" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row3.title`)}</Link></td>
                   <td className="p-2 text-center border">&lt;1</td>
                   <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 border">High barrier, coffee</td>
+                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row3.desc`)}</td>
                 </tr>
                 <tr>
-                  <td className="p-2 border"><Link to="/spec/bio-kraft-vm-cello" className="text-primary-600 hover:underline">Kraft VM Cellulose</Link></td>
+                  <td className="p-2 border"><Link to="/spec/bio-kraft-vm-cello" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row4.title`)}</Link></td>
                   <td className="p-2 text-center border">&lt;1</td>
                   <td className="p-2 text-center border">&lt;1</td>
-                  <td className="p-2 border">Premium natural look</td>
+                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row4.desc`)}</td>
                 </tr>
                 <tr>
-                  <td className="p-2 border"><Link to="/spec/bio-kraft-pbat-low" className="text-primary-600 hover:underline">Kraft PBAT Low</Link></td>
+                  <td className="p-2 border"><Link to="/spec/bio-kraft-pbat-low" className="text-primary-600 hover:underline">{t(`${p}.sections.compareStructures.rows.row5.title`)}</Link></td>
                   <td className="p-2 text-center border">&lt;2000</td>
                   <td className="p-2 text-center border">&lt;15</td>
-                  <td className="p-2 border">Home compostable option</td>
+                  <td className="p-2 border">{t(`${p}.sections.compareStructures.rows.row5.desc`)}</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div className="grid sm:grid-cols-3 gap-4 mt-6">
             <div className="bg-green-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">Need Window?</p>
-              <p className="font-semibold text-green-700">Cellulose Duplex Clear</p>
+              <p className="text-xs text-neutral-500 mb-1">{t(`${p}.sections.compareStructures.footer.card1Title`)}</p>
+              <p className="font-semibold text-green-700">{t(`${p}.sections.compareStructures.footer.card1Value`)}</p>
             </div>
             <div className="bg-amber-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">Max Barrier?</p>
-              <p className="font-semibold text-amber-700">Triplex Metalised</p>
+              <p className="text-xs text-neutral-500 mb-1">{t(`${p}.sections.compareStructures.footer.card2Title`)}</p>
+              <p className="font-semibold text-amber-700">{t(`${p}.sections.compareStructures.footer.card2Value`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg text-center">
-              <p className="text-xs text-neutral-500 mb-1">Home Compost?</p>
-              <p className="font-semibold text-blue-700">Kraft PBAT Low</p>
+              <p className="text-xs text-neutral-500 mb-1">{t(`${p}.sections.compareStructures.footer.card3Title`)}</p>
+              <p className="font-semibold text-blue-700">{t(`${p}.sections.compareStructures.footer.card3Value`)}</p>
             </div>
           </div>
         </div>
@@ -264,29 +268,29 @@ const CompostableMaterialStructurePage: React.FC = () => {
   ]
 
   const faqs = [
-    { question: 'Is this home compostable?', answer: 'This structure requires industrial composting (high heat facilities). For home compostable, see our kraft-based bio structures with specific home composting certifications.' },
-    { question: 'What shelf life can I expect?', answer: 'Typically 6-9 months for most dry goods. The high barrier cellulose provides good oxygen protection for extended freshness.' },
-    { question: 'Can I print on cellulose film?', answer: 'Yes, we offer high-quality printing on cellulose with compostable inks. Up to 8 colors available.' },
-    { question: 'Is this suitable for oily products?', answer: 'The PBAT layer provides moderate grease resistance. For very oily products, contact us for specific recommendations.' },
-    { question: 'How do I display compostability on pack?', answer: 'We provide guidance on certification logos (TUV, BPI) and recommended disposal language for consumer education.' }
+    { question: t(`${p}.faqs.q1`), answer: t(`${p}.faqs.a1`) },
+    { question: t(`${p}.faqs.q2`), answer: t(`${p}.faqs.a2`) },
+    { question: t(`${p}.faqs.q3`), answer: t(`${p}.faqs.a3`) },
+    { question: t(`${p}.faqs.q4`), answer: t(`${p}.faqs.a4`) },
+    { question: t(`${p}.faqs.q5`), answer: t(`${p}.faqs.a5`) }
   ]
 
   const relatedLinks = [
-    { title: "Shop Compostable Pouches", url: "/store", description: "Browse biodegradable options" },
-    { title: "Higher Barrier Bio", url: "/spec/bio-cello-triplex-highest", description: "Maximum compostable barrier" },
-    { title: "Bio Kraft Option", url: "/spec/bio-kraft-vm-cello", description: "Natural kraft look" },
-    { title: "Compostable Guide", url: "/materials/compostable", description: "Learn about composting" }
+    { title: t(`${p}.relatedLinks.link1.title`), url: "/store", description: t(`${p}.relatedLinks.link1.description`) },
+    { title: t(`${p}.relatedLinks.link2.title`), url: "/spec/bio-cello-triplex-highest", description: t(`${p}.relatedLinks.link2.description`) },
+    { title: t(`${p}.relatedLinks.link3.title`), url: "/spec/bio-kraft-vm-cello", description: t(`${p}.relatedLinks.link3.description`) },
+    { title: t(`${p}.relatedLinks.link4.title`), url: "/materials/compostable", description: t(`${p}.relatedLinks.link4.description`) }
   ]
 
   return (
     <SEOPageLayout heroBgColor="#1f2937"
-      title="Compostable Material Structure | Compostable Window Packaging"
-      description="Bio Cellulose Duplex: High Barrier Cellulose/PLA 25gsm / PBAT60 (85 micron). TUV/BPI certified compostable, clear window capable. OTR <5, WVTR <10. Ideal for coffee, tea, organic snacks."
-      heroTitle="Compostable Material Structure"
-      heroSubtitle="High Barrier Cellulose / PBAT - TUV & BPI Certified"
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroLogo="/eco-logo/white-bkg/eco-logo-compost.png"
       heroLogoAlt="TUV/BPI Compostable Certified"
-      introSummary="A certified compostable packaging structure with clear window capability. Combines high barrier cellulose or PLA outer layer with biodegradable PBAT sealant. Fully breaks down in industrial composting facilities."
+      introSummary={t(`${p}.introSummary`)}
       keywords={[
         'compostable packaging',
         'cellulose pouch',
@@ -305,4 +309,4 @@ const CompostableMaterialStructurePage: React.FC = () => {
   )
 }
 
-export default CompostableMaterialStructurePage
+export default CompostableMaterialStructurePage;

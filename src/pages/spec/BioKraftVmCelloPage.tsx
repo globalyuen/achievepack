@@ -3,17 +3,21 @@ import { Layers, Shield, Leaf, CheckCircle, MessageCircle, Package, Sprout, Spar
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
+import { useTranslation } from 'react-i18next'
 
 const BioKraftVmCelloPage: React.FC = () => {
-  const structureName = 'Kraft Paper 50gsm / VM cellulose or PLA15 / PBAT60'
-  const thickness = '125 micron or 5 mil'
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.bioKraftVmCello'
+
+  const structureName = t(`${p}.structureName`)
+  const thickness = t(`${p}.thickness`)
   const otr = '<2'
   const wvtr = '<5'
 
   const sections = [
     {
       id: 'structure-overview',
-      title: 'What Is This Material Structure?',
+      title: t(`${p}.sections.structureOverview.title`),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -26,26 +30,26 @@ const BioKraftVmCelloPage: React.FC = () => {
             />
             <h3 className="text-xl font-bold text-amber-800 mb-3">{structureName}</h3>
             <div className="flex items-center gap-2 mb-4">
-              <Sprout className="h-5 w-5 text-green-500" />
+              <Sprout className="h-5 w-5 text-amber-500" />
               <Sparkles className="h-5 w-5 text-amber-500" />
-              <span className="text-sm text-amber-600">Natural Kraft + High Barrier + Compostable</span>
+              <span className="text-sm text-amber-600">{t(`${p}.sections.structureOverview.badge`)}</span>
             </div>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Thickness</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.thickness`)}</p>
                 <p className="font-semibold text-amber-700">{thickness}</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">OTR</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.otr`)}</p>
                 <p className="font-semibold text-amber-700">{otr} cc/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">WVTR</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.wvtr`)}</p>
                 <p className="font-semibold text-amber-700">{wvtr} g/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Stiffness</p>
-                <p className="font-semibold text-amber-700">With Paper Lining (Stiffer)</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.layers`)}</p>
+                <p className="font-semibold text-amber-700">{t(`${p}.sections.structureOverview.layersValue`)}</p>
               </div>
             </div>
           </div>
@@ -54,7 +58,7 @@ const BioKraftVmCelloPage: React.FC = () => {
     },
     {
       id: 'layer-breakdown',
-      title: 'How Is Each Layer Built?',
+      title: t(`${p}.sections.layerBreakdown.title`),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -62,22 +66,22 @@ const BioKraftVmCelloPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-amber-50 rounded-lg">
               <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
               <div>
-                <p className="font-semibold text-amber-800">Kraft Paper 50gsm (Outer Layer)</p>
-                <p className="text-sm text-amber-700">Natural unbleached kraft paper provides authentic eco-friendly appearance, excellent stiffness, and premium tactile feel.</p>
+                <p className="font-semibold text-amber-800">{t(`${p}.sections.layerBreakdown.layer1.name`)}</p>
+                <p className="text-sm text-amber-700">{t(`${p}.sections.layerBreakdown.layer1.desc`)}</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-purple-50 rounded-lg">
               <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
               <div>
-                <p className="font-semibold text-purple-800">VM Cellulose or PLA15 (Middle Layer)</p>
-                <p className="text-sm text-purple-700">Vacuum-metalised cellulose or PLA film provides high barrier protection while remaining fully compostable.</p>
+                <p className="font-semibold text-purple-800">{t(`${p}.sections.layerBreakdown.layer2.name`)}</p>
+                <p className="text-sm text-purple-700">{t(`${p}.sections.layerBreakdown.layer2.desc`)}</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
               <div>
-                <p className="font-semibold text-green-800">PBAT60 (Inner/Sealant Layer)</p>
-                <p className="text-sm text-green-700">Biodegradable polyester provides heat-seal and grease barrier to protect the kraft paper.</p>
+                <p className="font-semibold text-green-800">{t(`${p}.sections.layerBreakdown.layer3.name`)}</p>
+                <p className="text-sm text-green-700">{t(`${p}.sections.layerBreakdown.layer3.desc`)}</p>
               </div>
             </div>
           </div>
@@ -86,54 +90,54 @@ const BioKraftVmCelloPage: React.FC = () => {
     },
     {
       id: 'barrier-properties',
-      title: 'What Barrier Protection Does It Offer?',
+      title: t(`${p}.sections.barrierProperties.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>This kraft-based structure combines natural aesthetics with high barrier performance, all while remaining compostable.</p>
+          <p>{t(`${p}.sections.barrierProperties.intro`)}</p>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <h4 className="font-semibold text-purple-800 mb-2">Oxygen Barrier</h4>
-              <p className="text-2xl font-bold text-purple-600">{otr} cc/m²/day</p>
-              <p className="text-sm text-purple-700 mt-1">High - VM layer provides excellent protection.</p>
+            <div className="bg-gray-100 p-4 rounded-lg border border-gray-300">
+              <h4 className="font-semibold text-gray-800 mb-2">{t(`${p}.sections.barrierProperties.oxygenBarrier`)}</h4>
+              <p className="text-2xl font-bold text-gray-600">{otr} cc/m²/day</p>
+              <p className="text-sm text-gray-700 mt-1">{t(`${p}.sections.barrierProperties.oxygenNote`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">Moisture Barrier</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.barrierProperties.moistureBarrier`)}</h4>
               <p className="text-2xl font-bold text-blue-600">{wvtr} g/m²/day</p>
-              <p className="text-sm text-blue-700 mt-1">Very good - kraft protected by inner layers.</p>
+              <p className="text-sm text-blue-700 mt-1">{t(`${p}.sections.barrierProperties.moistureNote`)}</p>
             </div>
           </div>
           <div className="bg-amber-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold text-amber-800 mb-2">Premium Kraft Aesthetics</h4>
-            <p className="text-sm text-amber-700">The natural kraft outer layer communicates sustainability to consumers, while the hidden VM layer provides full barrier protection.</p>
+            <h4 className="font-semibold text-amber-800 mb-2">{t(`${p}.sections.barrierProperties.premiumShelf`)}</h4>
+            <p className="text-sm text-amber-700">{t(`${p}.sections.barrierProperties.premiumShelfDesc`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'sustainability',
-      title: 'Is It Certified Compostable?',
-      icon: <Sprout className="h-5 w-5 text-primary-600" />,
+      title: t(`${p}.sections.sustainability.title`),
+      icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-green-800 mb-3">Certified Industrial Compostable</h4>
+            <h4 className="font-semibold text-green-800 mb-3">{t(`${p}.sections.sustainability.heading`)}</h4>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>TUV OK Compost:</strong> Industrial composting certified</span>
+                <span><strong>{t(`${p}.sections.sustainability.item1Name`)}</strong> {t(`${p}.sections.sustainability.item1Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>BPI Certified:</strong> US composting standard</span>
+                <span><strong>{t(`${p}.sections.sustainability.item2Name`)}</strong> {t(`${p}.sections.sustainability.item2Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>FSC Kraft:</strong> Sustainably sourced paper available</span>
+                <span><strong>{t(`${p}.sections.sustainability.item3Name`)}</strong> {t(`${p}.sections.sustainability.item3Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Full Biodegradation:</strong> All layers break down completely</span>
+                <span><strong>{t(`${p}.sections.sustainability.item4Name`)}</strong> {t(`${p}.sections.sustainability.item4Desc`)}</span>
               </li>
             </ul>
           </div>
@@ -142,13 +146,13 @@ const BioKraftVmCelloPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'What Products Is This Best For?',
+      title: t(`${p}.sections.applications.title`),
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Perfect for premium natural products with compostable commitment:</p>
+          <p>{t(`${p}.sections.applications.intro`)}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {['Specialty coffee', 'Premium loose tea', 'Artisan granola', 'Organic dried fruits', 'Natural supplements', 'Craft protein', 'Premium pet treats', 'Gourmet spices', 'Superfood blends'].map((item, idx) => (
+            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 bg-amber-50 px-3 py-2 rounded-lg">
                 <CheckCircle className="h-4 w-4 text-amber-500 flex-shrink-0" />
                 <span className="text-sm text-amber-800">{item}</span>
@@ -160,21 +164,21 @@ const BioKraftVmCelloPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Need Kraft Compostable Packaging?',
+      title: t(`${p}.sections.aiSearch.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Natural + protected + compostable</strong> – Triple benefit</li>
-            <li><strong>Premium positioning</strong> – Kraft stiffness and appeal</li>
-            <li><strong>Shop now</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse kraft compostable pouches</Link></li>
+            <li><strong>{t(`${p}.sections.aiSearch.point1`)}</strong> – {t(`${p}.sections.aiSearch.point1Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.point2`)}</strong> – {t(`${p}.sections.aiSearch.point2Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.shopNow`)}</strong> – <Link to="/store" className="text-primary-600 hover:underline">{t(`${p}.sections.aiSearch.browseLink`)}</Link></li>
           </ul>
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 AI Search Suggestions:</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">💡 {t(`${p}.sections.aiSearch.aiSuggestions`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "Kraft paper compostable coffee bag with barrier"</li>
-              <li>• "Natural biodegradable stand-up pouch"</li>
-              <li>• "Premium eco packaging kraft paper"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion1`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion2`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion3`)}"</li>
             </ul>
           </div>
         </div>
@@ -183,29 +187,29 @@ const BioKraftVmCelloPage: React.FC = () => {
   ]
 
   const faqs = [
-    { question: 'Can I print on the kraft paper?', answer: 'Yes, we offer high-quality printing on kraft with compostable inks. White underbase available for vibrant colors on brown kraft.' },
-    { question: 'Is the kraft paper FSC certified?', answer: 'FSC-certified kraft is available upon request for brands requiring verified sustainable sourcing.' },
-    { question: 'Can I add a window to kraft compostable?', answer: 'Yes, clear cellulose windows can be incorporated while maintaining full compostability.' },
-    { question: 'What shelf life can I expect?', answer: 'Typically 9-12 months for most products. The VM layer provides high barrier despite natural appearance.' },
-    { question: 'Is this home compostable?', answer: 'This structure is certified for industrial composting. The kraft paper alone would home compost, but the complete structure requires industrial conditions.' }
+    { question: t(`${p}.faqs.q1`), answer: t(`${p}.faqs.a1`) },
+    { question: t(`${p}.faqs.q2`), answer: t(`${p}.faqs.a2`) },
+    { question: t(`${p}.faqs.q3`), answer: t(`${p}.faqs.a3`) },
+    { question: t(`${p}.faqs.q4`), answer: t(`${p}.faqs.a4`) },
+    { question: t(`${p}.faqs.q5`), answer: t(`${p}.faqs.a5`) },
   ]
 
   const relatedLinks = [
-    { title: "Shop Kraft Pouches", url: "/store", description: "Browse kraft paper options" },
-    { title: "Low Barrier Kraft Bio", url: "/spec/bio-kraft-pbat-low", description: "Simpler home-compostable option" },
-    { title: "Clear Compostable", url: "/spec/bio-cello-duplex-clear", description: "Window-focused option" },
-    { title: "Compostable Guide", url: "/materials/compostable", description: "Learn about composting" }
+    { title: t(`${p}.relatedLinks.link1.title`), url: "/store", description: t(`${p}.relatedLinks.link1.description`) },
+    { title: t(`${p}.relatedLinks.link2.title`), url: "/spec/bio-kraft-pbat-low", description: t(`${p}.relatedLinks.link2.description`) },
+    { title: t(`${p}.relatedLinks.link3.title`), url: "/spec/bio-cello-duplex-clear", description: t(`${p}.relatedLinks.link3.description`) },
+    { title: t(`${p}.relatedLinks.link4.title`), url: "/materials/compostable", description: t(`${p}.relatedLinks.link4.description`) },
   ]
 
   return (
     <SEOPageLayout heroBgColor="#451a03"
-      title="Bio Kraft VM Cellulose | Natural High Barrier Compostable Packaging"
-      description="Bio Kraft VM Cellulose: Kraft 50gsm / VM Cellulose / PBAT (125 micron). Natural kraft with high barrier (OTR <2, WVTR <5). TUV/BPI certified compostable. Ideal for specialty coffee, premium organics."
-      heroTitle="Bio Kraft VM Cellulose - Natural & Compostable"
-      heroSubtitle="Kraft 50gsm / VM Cellulose / PBAT - Premium Look with High Barrier"
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroLogo="/eco-logo/white-bkg/eco-logo-compost.png"
       heroLogoAlt="TUV/BPI Compostable Certified"
-      introSummary="The perfect blend of natural kraft aesthetics and high barrier protection in a fully compostable structure. Hidden VM cellulose layer provides OTR <2 while kraft paper communicates sustainability to consumers."
+      introSummary={t(`${p}.introSummary`)}
       keywords={[
         'kraft paper compostable',
         'natural biodegradable packaging',
@@ -224,4 +228,4 @@ const BioKraftVmCelloPage: React.FC = () => {
   )
 }
 
-export default BioKraftVmCelloPage
+export default BioKraftVmCelloPage;

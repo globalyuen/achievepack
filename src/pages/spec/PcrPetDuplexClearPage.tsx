@@ -4,32 +4,21 @@ import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import ClickableImage from '../../components/ClickableImage'
 import SortableMaterialStructuresTable, { PCR_STRUCTURES } from '../../components/SortableMaterialStructuresTable'
+import { useTranslation } from 'react-i18next'
 
 const PcrPetDuplexClearPage: React.FC = () => {
-  const structureName = 'KPET12 / 30% PCR-PE (PET Duplex)'
-  const thickness = '100 micron or 4 mil'
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.pcrPetDuplexClear'
+
+  const structureName = t(`${p}.structureName`)
+  const thickness = t(`${p}.thickness`)
   const otr = '<8'
   const wvtr = '<12'
-  const materialCategory = 'PCR or Bio Plastic'
-  const barrierType = 'Mid Clear Mid Barrier (Optional Window)'
-  const stiffness = 'Without Paper Lining (Softer)'
 
   const sections = [
     {
-      id: 'all-pcr-overview',
-      title: 'All PCR Structures at a Glance',
-      icon: <Layers className="h-5 w-5 text-primary-600" />,
-      content: (
-        <SortableMaterialStructuresTable
-          structures={PCR_STRUCTURES}
-          title="All 14 PCR Structures - Sortable & Filterable"
-          categoryColor="blue"
-        />
-      )
-    },
-    {
       id: 'structure-overview',
-      title: 'What Is This Material Structure?',
+      title: t(`${p}.sections.structureOverview.title`),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -41,22 +30,26 @@ const PcrPetDuplexClearPage: React.FC = () => {
               caption="PCR PET Duplex Clear Structure"
             />
             <h3 className="text-xl font-bold text-green-800 mb-3">{structureName}</h3>
+            <div className="flex items-center gap-2 mb-4">
+              
+              <span className="text-sm text-green-600">{t(`${p}.sections.structureOverview.badge`)}</span>
+            </div>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Thickness</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.thickness`)}</p>
                 <p className="font-semibold text-green-700">{thickness}</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">OTR (Oxygen Transmission Rate)</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.otr`)}</p>
                 <p className="font-semibold text-green-700">{otr} cc/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">WVTR (Water Vapor Transmission Rate)</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.wvtr`)}</p>
                 <p className="font-semibold text-green-700">{wvtr} g/m²/day</p>
               </div>
               <div className="bg-white p-3 rounded-lg">
-                <p className="text-sm text-neutral-500">Material Category</p>
-                <p className="font-semibold text-green-700">{materialCategory}</p>
+                <p className="text-sm text-neutral-500">{t(`${p}.sections.structureOverview.layers`)}</p>
+                <p className="font-semibold text-green-700">{t(`${p}.sections.structureOverview.layersValue`)}</p>
               </div>
             </div>
           </div>
@@ -65,7 +58,7 @@ const PcrPetDuplexClearPage: React.FC = () => {
     },
     {
       id: 'layer-breakdown',
-      title: 'How Is Each Layer Built?',
+      title: t(`${p}.sections.layerBreakdown.title`),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
@@ -73,15 +66,15 @@ const PcrPetDuplexClearPage: React.FC = () => {
             <div className="flex items-start gap-4 p-4 bg-blue-50 rounded-lg">
               <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
               <div>
-                <p className="font-semibold text-blue-800">KPET12 (Outer Layer)</p>
-                <p className="text-sm text-blue-700">12-micron K-coated PET film provides excellent oxygen barrier and printability. The K-coating (PVDC) enhances barrier properties while maintaining clarity for window applications.</p>
+                <p className="font-semibold text-blue-800">{t(`${p}.sections.layerBreakdown.layer1.name`)}</p>
+                <p className="text-sm text-blue-700">{t(`${p}.sections.layerBreakdown.layer1.desc`)}</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
               <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
               <div>
-                <p className="font-semibold text-green-800">30% PCR-PE (Inner/Sealant Layer)</p>
-                <p className="text-sm text-green-700">Sustainable polyethylene made from either 30% post-consumer recycled content or 50% bio-based sugarcane sources. Provides excellent heat-seal properties and moisture barrier.</p>
+                <p className="font-semibold text-green-800">{t(`${p}.sections.layerBreakdown.layer2.name`)}</p>
+                <p className="text-sm text-green-700">{t(`${p}.sections.layerBreakdown.layer2.desc`)}</p>
               </div>
             </div>
           </div>
@@ -90,72 +83,68 @@ const PcrPetDuplexClearPage: React.FC = () => {
     },
     {
       id: 'barrier-properties',
-      title: 'What Barrier Protection Does It Offer?',
+      title: t(`${p}.sections.barrierProperties.title`),
       icon: <Shield className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>This mid-barrier structure offers balanced protection suitable for a wide range of food products.</p>
+          <p>{t(`${p}.sections.barrierProperties.intro`)}</p>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
-              <h4 className="font-semibold text-amber-800 mb-2">Oxygen Barrier</h4>
-              <p className="text-2xl font-bold text-amber-600">{otr} cc/m²/day</p>
-              <p className="text-sm text-amber-700 mt-1">Good protection against oxidation, suitable for snacks, dried foods, and moderate shelf-life products.</p>
+            <div className="bg-gray-100 p-4 rounded-lg border border-gray-300">
+              <h4 className="font-semibold text-gray-800 mb-2">{t(`${p}.sections.barrierProperties.oxygenBarrier`)}</h4>
+              <p className="text-2xl font-bold text-gray-600">{otr} cc/m²/day</p>
+              <p className="text-sm text-gray-700 mt-1">{t(`${p}.sections.barrierProperties.oxygenNote`)}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 className="font-semibold text-blue-800 mb-2">Moisture Barrier</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">{t(`${p}.sections.barrierProperties.moistureBarrier`)}</h4>
               <p className="text-2xl font-bold text-blue-600">{wvtr} g/m²/day</p>
-              <p className="text-sm text-blue-700 mt-1">Effective moisture protection for products sensitive to humidity changes.</p>
+              <p className="text-sm text-blue-700 mt-1">{t(`${p}.sections.barrierProperties.moistureNote`)}</p>
             </div>
           </div>
-          <div className="bg-neutral-50 p-4 rounded-lg mt-4">
-            <h4 className="font-semibold mb-2">Optional Window Feature</h4>
-            <p className="text-sm">This structure supports clear window panels, allowing consumers to see the product inside while maintaining barrier integrity.</p>
+          <div className="bg-green-50 p-4 rounded-lg mt-4">
+            <h4 className="font-semibold text-green-800 mb-2">{t(`${p}.sections.barrierProperties.premiumShelf`)}</h4>
+            <p className="text-sm text-green-700">{t(`${p}.sections.barrierProperties.premiumShelfDesc`)}</p>
           </div>
         </div>
       )
     },
     {
       id: 'sustainability',
-      title: 'Sustainability Features',
+      title: t(`${p}.sections.sustainability.title`),
       icon: <Leaf className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-green-800 mb-3">Eco-Friendly Benefits</h4>
+            <h4 className="font-semibold text-green-800 mb-3">{t(`${p}.sections.sustainability.heading`)}</h4>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>PCR Option:</strong> Contains 30% post-consumer recycled polyethylene, reducing virgin plastic usage</span>
+                <span><strong>{t(`${p}.sections.sustainability.item1Name`)}</strong> {t(`${p}.sections.sustainability.item1Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Bio-PE Option:</strong> 50% bio-based PE from renewable sugarcane sources</span>
+                <span><strong>{t(`${p}.sections.sustainability.item2Name`)}</strong> {t(`${p}.sections.sustainability.item2Desc`)}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Lower Carbon Footprint:</strong> Reduced environmental impact vs conventional plastics</span>
+                <span><strong>{t(`${p}.sections.sustainability.item3Name`)}</strong> {t(`${p}.sections.sustainability.item3Desc`)}</span>
               </li>
             </ul>
-          </div>
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <h4 className="font-semibold text-blue-800 mb-2">Recycling Information</h4>
-            <p className="text-sm text-blue-700">This multi-layer structure is currently not widely recyclable in standard streams. However, the use of PCR/Bio-PE content significantly reduces the environmental footprint compared to 100% virgin materials.</p>
           </div>
         </div>
       )
     },
     {
       id: 'applications',
-      title: 'What Products Is This Best For?',
+      title: t(`${p}.sections.applications.title`),
       icon: <CheckCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>This PET duplex structure is ideal for products requiring moderate barrier protection with window visibility:</p>
+          <p>{t(`${p}.sections.applications.intro`)}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-            {['Coffee beans', 'Tea leaves', 'Dried fruits', 'Nuts & seeds', 'Snack foods', 'Granola & cereals', 'Protein powders', 'Dried herbs', 'Pet treats'].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2 bg-primary-50 px-3 py-2 rounded-lg">
-                <CheckCircle className="h-4 w-4 text-primary-500 flex-shrink-0" />
-                <span className="text-sm text-primary-800">{item}</span>
+            {(t(`${p}.sections.applications.items`, { returnObjects: true }) as string[]).map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">
+                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                <span className="text-sm text-green-800">{item}</span>
               </div>
             ))}
           </div>
@@ -164,23 +153,21 @@ const PcrPetDuplexClearPage: React.FC = () => {
     },
     {
       id: 'ai-search',
-      title: 'Finding the Right Sustainable Packaging',
+      title: t(`${p}.sections.aiSearch.title`),
       icon: <MessageCircle className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p>Key factors when selecting PCR/Bio-PE packaging:</p>
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Barrier requirements</strong> – Match OTR/WVTR to your product needs</li>
-            <li><strong>Sustainability goals</strong> – PCR reduces waste, Bio-PE reduces fossil fuel use</li>
-            <li><strong>Custom options</strong> – <Link to="/store" className="text-primary-600 hover:underline">Browse our eco-friendly pouches</Link></li>
-            <li><strong>Window feature</strong> – Show off your product with clear panels</li>
+            <li><strong>{t(`${p}.sections.aiSearch.point1`)}</strong> – {t(`${p}.sections.aiSearch.point1Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.point2`)}</strong> – {t(`${p}.sections.aiSearch.point2Desc`)}</li>
+            <li><strong>{t(`${p}.sections.aiSearch.shopNow`)}</strong> – <Link to="/store" className="text-primary-600 hover:underline">{t(`${p}.sections.aiSearch.browseLink`)}</Link></li>
           </ul>
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-4">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 If you're using AI search (Gemini, ChatGPT), try asking:</h4>
+            <h4 className="font-semibold text-blue-800 mb-2">💡 {t(`${p}.sections.aiSearch.aiSuggestions`)}</h4>
             <ul className="text-sm text-blue-700 space-y-1">
-              <li>• "What is the best PCR packaging for coffee with window?"</li>
-              <li>• "Sustainable stand-up pouch with medium barrier properties"</li>
-              <li>• "Bio-based flexible packaging supplier low MOQ"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion1`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion2`)}"</li>
+              <li>• "{t(`${p}.sections.aiSearch.suggestion3`)}"</li>
             </ul>
           </div>
         </div>
@@ -188,11 +175,11 @@ const PcrPetDuplexClearPage: React.FC = () => {
     },
     {
       id: 'compare-structures',
-      title: 'Compare All PCR Structures',
+      title: t(`${p}.sections.compareStructures.title`),
       icon: <Layers className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4 text-neutral-700">
-          <p className="text-sm text-neutral-600 mb-4">Compare all 14 PCR structures by barrier level and best applications:</p>
+          <p className="text-sm text-neutral-600 mb-4">{t(`${p}.sections.compareStructures.intro`)}</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
               <thead>
@@ -311,29 +298,29 @@ const PcrPetDuplexClearPage: React.FC = () => {
   ]
 
   const faqs = [
-    { question: 'What does KPET12 mean?', answer: 'KPET12 refers to a 12-micron polyester (PET) film with a K-coating (PVDC barrier coating) that enhances oxygen barrier properties while maintaining clarity.' },
-    { question: 'Can I get this structure with a clear window?', answer: 'Yes, this mid-clear barrier structure is specifically designed to support window panels, allowing product visibility while maintaining protection.' },
-    { question: 'What does 30% PCR-PE mean?', answer: 'PCR-PE uses 30% post-consumer recycled polyethylene, reducing plastic waste by incorporating recycled content while maintaining packaging performance and food safety compliance.' },
-    { question: 'What shelf life can I expect with this structure?', answer: 'With proper sealing and storage conditions, products can typically achieve 6-12 months shelf life depending on the specific food product and storage environment.' },
-    { question: 'Is this structure food-safe?', answer: 'Yes, all materials meet FDA and EU food contact regulations for direct food packaging applications.' }
+    { question: t(`${p}.faqs.q1`), answer: t(`${p}.faqs.a1`) },
+    { question: t(`${p}.faqs.q2`), answer: t(`${p}.faqs.a2`) },
+    { question: t(`${p}.faqs.q3`), answer: t(`${p}.faqs.a3`) },
+    { question: t(`${p}.faqs.q4`), answer: t(`${p}.faqs.a4`) },
+    { question: t(`${p}.faqs.q5`), answer: t(`${p}.faqs.a5`) },
   ]
 
   const relatedLinks = [
-    { title: "Shop Eco-Friendly Pouches", url: "/store", description: "Browse sustainable packaging options - MOQ from 500 pieces" },
-    { title: "PCR Recycled Materials", url: "/materials/pcr", description: "Learn about post-consumer recycled content" },
-    { title: "Bio-PE Materials", url: "/materials/bio-pe", description: "Explore plant-based polyethylene options" },
-    { title: "Barrier Options Guide", url: "/features/barrier-options", description: "Compare different barrier levels" }
+    { title: t(`${p}.relatedLinks.link1.title`), url: "/store", description: t(`${p}.relatedLinks.link1.description`) },
+    { title: t(`${p}.relatedLinks.link2.title`), url: "/materials/pcr", description: t(`${p}.relatedLinks.link2.description`) },
+    { title: t(`${p}.relatedLinks.link3.title`), url: "/materials/bio-pe", description: t(`${p}.relatedLinks.link3.description`) },
+    { title: t(`${p}.relatedLinks.link4.title`), url: "/features/barrier-options", description: t(`${p}.relatedLinks.link4.description`) },
   ]
 
   return (
     <SEOPageLayout heroBgColor="#3f6212"
-      title="PCR PET Duplex Clear Structure | KPET12 / PCR-PE Sustainable Packaging"
-      description="PCR PET Duplex Clear packaging structure: KPET12 / 30% PCR-PE. Mid barrier, optional window, 100 micron thickness. Ideal for coffee, snacks, dried foods. OTR <8, WVTR <12."
-      heroTitle="PCR PET Duplex Clear Structure"
-      heroSubtitle="KPET12 / 30% PCR-PE - Mid Barrier with Optional Window"
+      title={t(`${p}.title`)}
+      description={t(`${p}.description`)}
+      heroTitle={t(`${p}.heroTitle`)}
+      heroSubtitle={t(`${p}.heroSubtitle`)}
       heroLogo="/eco-logo/white-bkg/eco-logo-pcr.png"
       heroLogoAlt="PCR Recycled Content"
-      introSummary="A sustainable duplex structure combining K-coated PET for oxygen barrier with recycled or bio-based PE sealant. Ideal for coffee, snacks, and dried foods requiring mid-level barrier protection with window visibility option."
+      introSummary={t(`${p}.introSummary`)}
       keywords={[
         'PCR PET packaging',
         'KPET12 structure',
@@ -352,4 +339,4 @@ const PcrPetDuplexClearPage: React.FC = () => {
   )
 }
 
-export default PcrPetDuplexClearPage
+export default PcrPetDuplexClearPage;

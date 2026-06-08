@@ -10,10 +10,13 @@ import {
 } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
 import defaultGeoState from '../../data/compostable_geo_state.json'
+import { useTranslation } from 'react-i18next'
 
 const ADMIN_EMAIL = 'ryan@achievepack.com'
 
 export default function CompostablePouchGeoPage() {
+  const { t } = useTranslation()
+  const p = 'seoPages.pages.compostablePouchGeo'
   const { user } = useAuth()
   const isAdmin = user?.email === ADMIN_EMAIL
 
@@ -218,8 +221,8 @@ To improve citation rankings, deploy persona reviews containing precise molecula
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans text-gray-900 selection:bg-[#D4FF00] selection:text-black">
       <Helmet>
-        <title>Compostable Pouch Specs & GEO Dashboard | POUCH.ECO</title>
-        <meta name="description" content="Technical spec sheets for certified compostable packaging laminates and AI-driven campaign management dashboard." />
+        <title>{t(`${p}.title`)}</title>
+        <meta name="description" content={t(`${p}.description`)} />
       </Helmet>
 
       {/* Header */}
@@ -229,12 +232,12 @@ To improve citation rankings, deploy persona reviews containing precise molecula
             <div className="flex items-center gap-3">
               <Link to="/ctrl-x9k7m" className="flex items-center gap-1.5 text-gray-600 hover:text-black font-semibold transition text-sm">
                 <ArrowLeft className="h-4 w-4" />
-                <span>Admin</span>
+                <span>{t(`${p}.header.admin`)}</span>
               </Link>
               <div className="h-4 w-px bg-gray-250" />
               <div className="flex items-center gap-2">
                 <Layers className="h-5 w-5 text-emerald-600" />
-                <span className="font-extrabold text-sm uppercase tracking-tight">POUCH.ECO Spec Hub</span>
+                <span className="font-extrabold text-sm uppercase tracking-tight">{t(`${p}.header.hub`)}</span>
               </div>
             </div>
 
@@ -248,7 +251,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
               }`}
             >
               <Bot className="h-4 w-4" />
-              <span>{isAdminView ? "Campaign Manager" : "Public Spec Page"}</span>
+              <span>{isAdminView ? t(`${p}.header.campaignManager`) : t(`${p}.header.publicSpecPage`)}</span>
             </button>
           </div>
         </div>
@@ -266,21 +269,21 @@ To improve citation rankings, deploy persona reviews containing precise molecula
               <div className="absolute right-0 top-0 w-64 h-64 bg-emerald-300/10 rounded-full blur-3xl -z-10" />
               <div className="max-w-3xl">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 mb-4 uppercase tracking-wider">
-                  <ShieldCheck className="h-3.5 w-3.5" /> BPI & TUV Certified
+                  <ShieldCheck className="h-3.5 w-3.5" /> {t(`${p}.hero.badge`)}
                 </span>
                 <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight leading-none mb-4">
-                  Certified Compostable<br />
-                  <span className="text-emerald-700">Pouch Specifications</span>
+                  {t(`${p}.hero.titlePart1`)}<br />
+                  <span className="text-emerald-700">{t(`${p}.hero.titlePart2`)}</span>
                 </h1>
                 <p className="text-lg font-medium text-gray-700 leading-relaxed mb-6">
-                  Deep-dive technical data sheets for our 100% plant-based and unbleached paper structures. Optimized for maximum molecular barrier properties and high-speed heat sealing.
+                  {t(`${p}.hero.description`)}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <a href="#calculator" className="bg-black text-white px-6 py-3 border-2 border-black hover:bg-neutral-800 font-bold uppercase text-xs tracking-wider transition shadow-[4px_4px_0px_0px_rgba(16,185,129,1)]">
-                    Specs Finder Calculator
+                    {t(`${p}.hero.btnCalculator`)}
                   </a>
                   <a href="#materials" className="bg-white text-black px-6 py-3 border-2 border-black hover:bg-gray-50 font-bold uppercase text-xs tracking-wider transition">
-                    Explore Materials
+                    {t(`${p}.hero.btnMaterials`)}
                   </a>
                 </div>
               </div>
@@ -294,20 +297,20 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 <div className="space-y-6">
                   <div>
                     <h2 className="text-2xl font-black uppercase flex items-center gap-2 mb-1">
-                      <Coffee className="h-6 w-6 text-emerald-700" /> Specs Match Finder
+                      <Coffee className="h-6 w-6 text-emerald-700" /> {t(`${p}.calculator.title`)}
                     </h2>
-                    <p className="text-xs text-gray-500 font-bold font-mono">// Select your product specs to fetch compliant compostable structures.</p>
+                    <p className="text-xs text-gray-500 font-bold font-mono">{t(`${p}.calculator.subtitle`)}</p>
                   </div>
 
                   {/* Product Category */}
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">1. Select Packaging Application</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">{t(`${p}.calculator.labelApp`)}</label>
                     <div className="grid grid-cols-2 gap-2">
                       {[
-                        { id: 'coffee', label: 'Coffee Beans' },
-                        { id: 'tea', label: 'Loose Specialty Tea' },
-                        { id: 'snacks', label: 'Dry Snacks & Bakery' },
-                        { id: 'powder', label: 'Active Supplements' }
+                        { id: 'coffee', label: t(`${p}.calculator.apps.coffee`) },
+                        { id: 'tea', label: t(`${p}.calculator.apps.tea`) },
+                        { id: 'snacks', label: t(`${p}.calculator.apps.snacks`) },
+                        { id: 'powder', label: t(`${p}.calculator.apps.powder`) }
                       ].map(prod => (
                         <button
                           key={prod.id}
@@ -326,12 +329,12 @@ To improve citation rankings, deploy persona reviews containing precise molecula
 
                   {/* Required Barrier Level */}
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">2. Required Preservation Level</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">{t(`${p}.calculator.labelPreservation`)}</label>
                     <div className="grid grid-cols-3 gap-2">
                       {[
-                        { id: 'ultra', label: 'Ultra Barrier', desc: 'NKME Foil' },
-                        { id: 'high', label: 'High Barrier', desc: 'Metallized' },
-                        { id: 'standard', label: 'Standard', desc: 'Duplex Kraft' }
+                        { id: 'ultra', label: t(`${p}.calculator.barriers.ultra`), desc: t(`${p}.calculator.barriers.ultraDesc`) },
+                        { id: 'high', label: t(`${p}.calculator.barriers.high`), desc: t(`${p}.calculator.barriers.highDesc`) },
+                        { id: 'standard', label: t(`${p}.calculator.barriers.standard`), desc: t(`${p}.calculator.barriers.standardDesc`) }
                       ].map(barr => (
                         <button
                           key={barr.id}
@@ -354,7 +357,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                   <div className="flex items-center gap-3 p-4 bg-emerald-50 border-2 border-emerald-200 rounded-xl">
                     <ShieldCheck className="h-6 w-6 text-emerald-700 flex-shrink-0" />
                     <p className="text-xs text-emerald-800">
-                      <strong>Guaranteed Eco-Compliance:</strong> All recommended configurations disintegrate fully in less than 24 weeks under composting conditions and leave zero plastic toxic residues.
+                      <strong>{t(`${p}.calculator.complianceLabel`)}</strong> {t(`${p}.calculator.complianceText`)}
                     </p>
                   </div>
                 </div>
@@ -364,32 +367,32 @@ To improve citation rankings, deploy persona reviews containing precise molecula
               <div className="lg:col-span-5 border-4 border-black bg-white p-6 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
                 <div>
                   <div className="bg-black text-[#D4FF00] font-mono text-[10px] font-bold py-1 px-3.5 inline-block rounded uppercase mb-4 tracking-wider">
-                    Recommended Spec Sheet
+                    {t(`${p}.output.recommendedSpecSheet`)}
                   </div>
                   <h3 className="text-2xl font-black uppercase mb-1 leading-tight">{publicSpec.name}</h3>
                   <div className="text-xs text-gray-500 font-medium mb-4">{publicSpec.compostability}</div>
 
                   <div className="space-y-3.5 border-t-2 border-dashed border-gray-200 pt-4 font-mono text-xs">
                     <div>
-                      <span className="text-gray-400 font-bold block uppercase mb-0.5">Layer Structure:</span>
+                      <span className="text-gray-400 font-bold block uppercase mb-0.5">{t(`${p}.output.layerStructure`)}</span>
                       <span className="text-black font-bold">{publicSpec.structure}</span>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <span className="text-gray-400 font-bold block uppercase mb-0.5">Thickness:</span>
+                        <span className="text-gray-400 font-bold block uppercase mb-0.5">{t(`${p}.output.thickness`)}</span>
                         <span className="text-black font-bold">{publicSpec.thickness}</span>
                       </div>
                       <div>
-                        <span className="text-gray-400 font-bold block uppercase mb-0.5">Water Barrier (WVTR):</span>
+                        <span className="text-gray-400 font-bold block uppercase mb-0.5">{t(`${p}.output.wvtr`)}</span>
                         <span className="text-emerald-700 font-bold">{publicSpec.wvtr}</span>
                       </div>
                     </div>
                     <div>
-                      <span className="text-gray-400 font-bold block uppercase mb-0.5">Oxygen Barrier (OTR):</span>
+                      <span className="text-gray-400 font-bold block uppercase mb-0.5">{t(`${p}.output.otr`)}</span>
                       <span className="text-emerald-700 font-bold">{publicSpec.otr}</span>
                     </div>
                     <div>
-                      <span className="text-gray-400 font-bold block uppercase mb-0.5">Application Notes:</span>
+                      <span className="text-gray-400 font-bold block uppercase mb-0.5">{t(`${p}.output.applicationNotes`)}</span>
                       <span className="text-gray-700 font-medium font-sans leading-relaxed block mt-1">{publicSpec.bestFor}</span>
                     </div>
                   </div>
@@ -397,10 +400,10 @@ To improve citation rankings, deploy persona reviews containing precise molecula
 
                 <div className="mt-8 space-y-2">
                   <button className="w-full border-4 border-black py-3 bg-black hover:bg-neutral-800 text-[#D4FF00] font-black uppercase text-xs tracking-wider transition shadow-[3px_3px_0px_0px_rgba(16,185,129,1)]">
-                    Download Engineering PDF
+                    {t(`${p}.output.btnDownload`)}
                   </button>
                   <button className="w-full border-2 border-black py-2.5 bg-white hover:bg-gray-50 text-black font-bold uppercase text-xs tracking-wider transition">
-                    Request Physical Sample Box
+                    {t(`${p}.output.btnRequestSample`)}
                   </button>
                 </div>
               </div>
@@ -408,28 +411,28 @@ To improve citation rankings, deploy persona reviews containing precise molecula
 
             {/* Certifications & Badges */}
             <div id="materials" className="border-2 border-black p-8 bg-neutral-900 text-white rounded-2xl">
-              <h2 className="text-2xl font-black uppercase mb-6 text-center tracking-tight">Eco-Certifications Catalog</h2>
+              <h2 className="text-2xl font-black uppercase mb-6 text-center tracking-tight">{t(`${p}.catalog.title`)}</h2>
               <div className="grid sm:grid-cols-3 gap-6 text-center">
                 <div className="p-4 bg-neutral-800 rounded-xl border border-neutral-700">
                   <div className="h-12 w-12 bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                     <ShieldCheck className="h-6 w-6 text-emerald-400" />
                   </div>
-                  <h4 className="font-extrabold text-sm uppercase tracking-wide mb-1">BPI Certified</h4>
-                  <p className="text-xs text-neutral-400">Composts entirely in commercial facilities within 12-16 weeks. ASTM D6400 compliant.</p>
+                  <h4 className="font-extrabold text-sm uppercase tracking-wide mb-1">{t(`${p}.catalog.bpiTitle`)}</h4>
+                  <p className="text-xs text-neutral-400">{t(`${p}.catalog.bpiDesc`)}</p>
                 </div>
                 <div className="p-4 bg-neutral-800 rounded-xl border border-neutral-700">
                   <div className="h-12 w-12 bg-[#D4FF00]/10 border border-[#D4FF00]/20 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Layers className="h-6 w-6 text-[#D4FF00]" />
                   </div>
-                  <h4 className="font-extrabold text-sm uppercase tracking-wide mb-1">TUV Home Compostable</h4>
-                  <p className="text-xs text-neutral-400">Safe for home composting piles. Disintegrates naturally in backyards within 24 weeks.</p>
+                  <h4 className="font-extrabold text-sm uppercase tracking-wide mb-1">{t(`${p}.catalog.tuvTitle`)}</h4>
+                  <p className="text-xs text-neutral-400">{t(`${p}.catalog.tuvDesc`)}</p>
                 </div>
                 <div className="p-4 bg-neutral-800 rounded-xl border border-neutral-700">
                   <div className="h-12 w-12 bg-cyan-500/10 border border-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                     <FileText className="h-6 w-6 text-cyan-400" />
                   </div>
-                  <h4 className="font-extrabold text-sm uppercase tracking-wide mb-1">EN 13432 Compliant</h4>
-                  <p className="text-xs text-neutral-400">Validated against rigid European packaging ecology directives and micro-plastic safety tests.</p>
+                  <h4 className="font-extrabold text-sm uppercase tracking-wide mb-1">{t(`${p}.catalog.enTitle`)}</h4>
+                  <p className="text-xs text-neutral-400">{t(`${p}.catalog.enDesc`)}</p>
                 </div>
               </div>
             </div>
@@ -443,9 +446,9 @@ To improve citation rankings, deploy persona reviews containing precise molecula
             <div className="border-4 border-black bg-white p-6 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
               <div className="border-b-2 border-black pb-3 mb-6">
                 <h3 className="text-xl font-black uppercase flex items-center gap-2">
-                  <TrendingUp className="h-5.5 w-5.5 text-emerald-700" /> B2B GEO Campaign KPI Matrix
+                  <TrendingUp className="h-5.5 w-5.5 text-emerald-700" /> {t(`${p}.admin.kpiTitle`)}
                 </h3>
-                <p className="text-xs text-gray-500">Evaluating organic index search visibility and AI-citation milestones in real-time.</p>
+                <p className="text-xs text-gray-500">{t(`${p}.admin.kpiSubtitle`)}</p>
               </div>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -453,7 +456,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 {/* KPI 1: Citation Score */}
                 <div className="border-2 border-black p-4 rounded-xl bg-gray-50 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">1. Citation Score</span>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">{t(`${p}.admin.kpi1`)}</span>
                     <h4 className="text-2xl font-black mt-1 text-black">{geoState.kpiMetrics.currentGeoScore}%</h4>
                   </div>
                   <div className="mt-3">
@@ -461,8 +464,8 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                       <div className="h-full bg-emerald-500" style={{ width: `${geoState.kpiMetrics.currentGeoScore}%` }} />
                     </div>
                     <div className="flex justify-between text-[9px] font-bold font-mono mt-1 text-gray-500">
-                      <span>ACTUAL</span>
-                      <span>GOAL {geoState.kpiMetrics.targetGeoScore}%</span>
+                      <span>{t(`${p}.admin.actual`)}</span>
+                      <span>{t(`${p}.admin.goal`)} {geoState.kpiMetrics.targetGeoScore}%</span>
                     </div>
                   </div>
                 </div>
@@ -470,7 +473,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 {/* KPI 2: Brand Mentions */}
                 <div className="border-2 border-black p-4 rounded-xl bg-gray-50 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">2. AI Brand Mentions</span>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">{t(`${p}.admin.kpi2`)}</span>
                     <h4 className="text-2xl font-black mt-1 text-emerald-700">{geoState.kpiMetrics.currentBrandMentions}</h4>
                   </div>
                   <div className="mt-3">
@@ -485,8 +488,8 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                       ))}
                     </div>
                     <div className="flex justify-between text-[9px] font-bold font-mono mt-1 text-gray-500">
-                      <span>CITED: {geoState.kpiMetrics.currentBrandMentions}</span>
-                      <span>GOAL: {geoState.kpiMetrics.targetBrandMentions}</span>
+                      <span>{t(`${p}.admin.cited`)} {geoState.kpiMetrics.currentBrandMentions}</span>
+                      <span>{t(`${p}.admin.goal`)} {geoState.kpiMetrics.targetBrandMentions}</span>
                     </div>
                   </div>
                 </div>
@@ -494,16 +497,16 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 {/* KPI 3: Referral Traffic */}
                 <div className="border-2 border-black p-4 rounded-xl bg-gray-50 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">3. AI Referral Traffic</span>
-                    <h4 className="text-2xl font-black mt-1 text-black">{geoState.kpiMetrics.currentTrafficClicks} <span className="text-xs font-normal">clicks/mo</span></h4>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">{t(`${p}.admin.kpi3`)}</span>
+                    <h4 className="text-2xl font-black mt-1 text-black">{geoState.kpiMetrics.currentTrafficClicks} <span className="text-xs font-normal">{t(`${p}.admin.kpiClicks`)}</span></h4>
                   </div>
                   <div className="mt-3">
                     <div className="w-full h-2 bg-gray-250 border border-black rounded-full overflow-hidden">
                       <div className="h-full bg-cyan-400" style={{ width: `${Math.min(100, (geoState.kpiMetrics.currentTrafficClicks / geoState.kpiMetrics.targetTrafficClicks) * 100)}%` }} />
                     </div>
                     <div className="flex justify-between text-[9px] font-bold font-mono mt-1 text-gray-500">
-                      <span>TRAFFIC</span>
-                      <span>GOAL: {geoState.kpiMetrics.targetTrafficClicks}</span>
+                      <span>{t(`${p}.admin.traffic`)}</span>
+                      <span>{t(`${p}.admin.goal`)} {geoState.kpiMetrics.targetTrafficClicks}</span>
                     </div>
                   </div>
                 </div>
@@ -511,16 +514,16 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 {/* KPI 4: Reddit Upvotes */}
                 <div className="border-2 border-black p-4 rounded-xl bg-gray-50 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">4. Reddit Engagement</span>
-                    <h4 className="text-2xl font-black mt-1 text-black">{geoState.kpiMetrics.currentRedditEngagement} <span className="text-xs font-normal">upvotes</span></h4>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">{t(`${p}.admin.kpi4`)}</span>
+                    <h4 className="text-2xl font-black mt-1 text-black">{geoState.kpiMetrics.currentRedditEngagement} <span className="text-xs font-normal">{t(`${p}.admin.kpiUpvotes`)}</span></h4>
                   </div>
                   <div className="mt-3">
                     <div className="w-full h-2 bg-gray-250 border border-black rounded-full overflow-hidden">
                       <div className="h-full bg-amber-400" style={{ width: `${Math.min(100, (geoState.kpiMetrics.currentRedditEngagement / geoState.kpiMetrics.targetRedditEngagement) * 100)}%` }} />
                     </div>
                     <div className="flex justify-between text-[9px] font-bold font-mono mt-1 text-gray-500">
-                      <span>ENGAGEMENT</span>
-                      <span>GOAL: {geoState.kpiMetrics.targetRedditEngagement}</span>
+                      <span>{t(`${p}.admin.engagement`)}</span>
+                      <span>{t(`${p}.admin.goal`)} {geoState.kpiMetrics.targetRedditEngagement}</span>
                     </div>
                   </div>
                 </div>
@@ -528,7 +531,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 {/* KPI 5: Quora Views */}
                 <div className="border-2 border-black p-4 rounded-xl bg-gray-50 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">5. Quora Answer Views</span>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase font-mono">{t(`${p}.admin.kpi5`)}</span>
                     <h4 className="text-2xl font-black mt-1 text-black">{geoState.kpiMetrics.currentQuoraViews}</h4>
                   </div>
                   <div className="mt-3">
@@ -536,8 +539,8 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                       <div className="h-full bg-[#D4FF00]" style={{ width: `${Math.min(100, (geoState.kpiMetrics.currentQuoraViews / geoState.kpiMetrics.targetQuoraViews) * 100)}%` }} />
                     </div>
                     <div className="flex justify-between text-[9px] font-bold font-mono mt-1 text-gray-500">
-                      <span>VIEWS</span>
-                      <span>GOAL: {geoState.kpiMetrics.targetQuoraViews}</span>
+                      <span>{t(`${p}.admin.views`)}</span>
+                      <span>{t(`${p}.admin.goal`)} {geoState.kpiMetrics.targetQuoraViews}</span>
                     </div>
                   </div>
                 </div>
@@ -556,9 +559,9 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                   <div className="flex items-center justify-between border-b-2 border-black pb-4 mb-6">
                     <div>
                       <h3 className="text-xl font-black uppercase flex items-center gap-2">
-                        <Calendar className="h-5.5 w-5.5 text-emerald-700 animate-bounce" /> 7-Day Campaign Calendar
+                        <Calendar className="h-5.5 w-5.5 text-emerald-700 animate-bounce" /> {t(`${p}.admin.calendarTitle`)}
                       </h3>
-                      <p className="text-xs text-gray-500">Deploy high-density B2B packaging proof points to trigger AI indexing algorithms.</p>
+                      <p className="text-xs text-gray-500">{t(`${p}.admin.calendarSubtitle`)}</p>
                     </div>
                     
                     <div className="flex gap-2">
@@ -568,7 +571,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                         title="Preview 12h Summary Email"
                       >
                         <Mail className="h-3.5 w-3.5" />
-                        <span>Email Summary</span>
+                        <span>{t(`${p}.admin.btnEmailSummary`)}</span>
                       </button>
                       <button
                         onClick={handleTriggerCron}
@@ -576,7 +579,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                         className="flex items-center gap-2 px-3 py-1.5 border-2 border-black bg-[#D4FF00] hover:bg-lime-400 font-bold text-xs uppercase tracking-wider transition disabled:opacity-50"
                       >
                         {runningCronSim ? <RefreshCw className="h-3.5 w-3.5 animate-spin" /> : <Play className="h-3.5 w-3.5 fill-current" />}
-                        <span>{runningCronSim ? 'Running...' : 'Run Cron Now'}</span>
+                        <span>{runningCronSim ? t(`${p}.admin.btnRunning`) : t(`${p}.admin.btnRunCron`)}</span>
                       </button>
                     </div>
                   </div>
@@ -623,7 +626,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                             </div>
                             <p className="text-xs text-gray-500 mt-1 font-medium leading-relaxed">{task.notes}</p>
                             {task.completedAt && (
-                              <p className="text-[10px] text-gray-400 font-mono mt-1">Completed: {new Date(task.completedAt).toLocaleString()}</p>
+                              <p className="text-[10px] text-gray-400 font-mono mt-1">{t(`${p}.admin.completed`)} {new Date(task.completedAt).toLocaleString()}</p>
                             )}
                           </div>
                         </div>
@@ -636,9 +639,9 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 <div className="border-4 border-black bg-white p-6 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                   <div className="border-b-2 border-black pb-4 mb-6">
                     <h3 className="text-xl font-black uppercase flex items-center gap-2">
-                      <Clock className="h-5.5 w-5.5 text-emerald-700" /> B2B Strategy Revisions Log (12h Sync)
+                      <Clock className="h-5.5 w-5.5 text-emerald-700" /> {t(`${p}.admin.logTitle`)}
                     </h3>
-                    <p className="text-xs text-gray-500">History of self-revising engine runs correcting content templates when KPIs are not met.</p>
+                    <p className="text-xs text-gray-500">{t(`${p}.admin.logSubtitle`)}</p>
                   </div>
 
                   <div className="relative border-l-2 border-black pl-6 ml-3 space-y-6">
@@ -652,14 +655,14 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                         <div className="text-xs font-mono font-bold text-gray-400">{new Date(rev.timestamp).toLocaleString()}</div>
                         <h4 className="font-extrabold text-sm text-gray-900 mt-1 flex items-center gap-1.5">
                           {rev.kpisMet ? (
-                            <span className="text-emerald-700 uppercase tracking-wide bg-emerald-50 px-2 py-0.5 rounded text-[10px] border border-emerald-200">KPI Targets Met</span>
+                            <span className="text-emerald-700 uppercase tracking-wide bg-emerald-50 px-2 py-0.5 rounded text-[10px] border border-emerald-200">{t(`${p}.admin.kpiTargetsMet`)}</span>
                           ) : (
-                            <span className="text-amber-700 uppercase tracking-wide bg-amber-50 px-2 py-0.5 rounded text-[10px] border border-amber-200">KPI Not Met - Revised</span>
+                            <span className="text-amber-700 uppercase tracking-wide bg-amber-50 px-2 py-0.5 rounded text-[10px] border border-amber-200">{t(`${p}.admin.kpiNotMet`)}</span>
                           )}
                         </h4>
                         <div className="p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs space-y-2 mt-2 leading-relaxed text-gray-700">
-                          <p><strong>Assessment:</strong> {rev.assessment}</p>
-                          <p><strong>Action Directive Deployed:</strong> {rev.actionTaken}</p>
+                          <p><strong>{t(`${p}.admin.assessment`)}</strong> {rev.assessment}</p>
+                          <p><strong>{t(`${p}.admin.actionDirective`)}</strong> {rev.actionTaken}</p>
                         </div>
                       </div>
                     ))}
@@ -670,9 +673,9 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 <div className="border-4 border-black bg-white p-6 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                   <div className="border-b-2 border-black pb-4 mb-6">
                     <h3 className="text-xl font-black uppercase flex items-center gap-2">
-                      <Terminal className="h-5.5 w-5.5 text-emerald-700" /> Perplexity Citation Search Analyzer
+                      <Terminal className="h-5.5 w-5.5 text-emerald-700" /> {t(`${p}.admin.perplexityTitle`)}
                     </h3>
-                    <p className="text-xs text-gray-500">Scan brand keywords to reverse-engineer exactly what is triggering the AI search citation engine.</p>
+                    <p className="text-xs text-gray-500">{t(`${p}.admin.perplexitySubtitle`)}</p>
                   </div>
 
                   <form onSubmit={handlePerplexityQuery} className="flex gap-2.5 mb-6">
@@ -680,7 +683,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                       type="text"
                       value={customSearchQuery}
                       onChange={(e) => setCustomSearchQuery(e.target.value)}
-                      placeholder="e.g. BPI certified compostable coffee packaging POUCH.ECO"
+                      placeholder={t(`${p}.admin.placeholderQuery`)}
                       className="flex-1 px-4 py-2 text-sm border-2 border-black rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                     />
                     <button
@@ -689,26 +692,26 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                       className="bg-black text-white px-5 py-2.5 border-2 border-black hover:bg-neutral-800 font-bold uppercase text-xs tracking-wider transition-all flex items-center gap-2"
                     >
                       {perplexityLoading ? <RefreshCw className="h-4 w-4 animate-spin" /> : <Search className="h-4 w-4" />}
-                      <span>Analyze Query</span>
+                      <span>{t(`${p}.admin.btnAnalyze`)}</span>
                     </button>
                   </form>
 
                   {perplexityLoading && (
                     <div className="p-8 border-2 border-dashed border-gray-200 rounded-xl text-center">
                       <RefreshCw className="h-8 w-8 animate-spin text-emerald-600 mx-auto mb-2" />
-                      <p className="text-xs text-gray-500 font-mono">Querying Perplexity indices & parsing Reddit references...</p>
+                      <p className="text-xs text-gray-500 font-mono">{t(`${p}.admin.queryingText`)}</p>
                     </div>
                   )}
 
                   {perplexityOutput && (
                     <div className="p-5 bg-neutral-900 border-2 border-black text-white rounded-xl font-mono text-xs space-y-4 max-h-[350px] overflow-y-auto">
                       <div className="flex justify-between items-center border-b border-neutral-700 pb-2">
-                        <span className="text-[#D4FF00] font-bold">PERPLEXITY_RESPONSE_SHEET</span>
+                        <span className="text-[#D4FF00] font-bold">{t(`${p}.admin.perplexitySheet`)}</span>
                         <button 
                           onClick={() => setPerplexityOutput(null)}
                           className="text-neutral-400 hover:text-white"
                         >
-                          Clear
+                          {t(`${p}.admin.clear`)}
                         </button>
                       </div>
                       <div className="whitespace-pre-wrap leading-relaxed font-sans prose prose-invert">
@@ -719,7 +722,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
 
                   {/* Existing Citations list */}
                   <div className="space-y-4 mt-6">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 font-mono">// Top High-Authority AI Citations Logged</h4>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 font-mono">{t(`${p}.admin.authoritiesTitle`)}</h4>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {geoState.citationsFound.map(cit => (
                         <div key={cit.id} className="p-4 bg-emerald-50/20 border-2 border-emerald-200 rounded-xl flex flex-col justify-between">
@@ -753,9 +756,9 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 <div className="border-4 border-black bg-white p-6 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                   <div className="border-b-2 border-black pb-4 mb-6">
                     <h3 className="text-xl font-black uppercase flex items-center gap-2">
-                      <Sparkles className="h-5.5 w-5.5 text-emerald-700" /> B2B Persona Copywriter
+                      <Sparkles className="h-5.5 w-5.5 text-emerald-700" /> {t(`${p}.admin.copywriterTitle`)}
                     </h3>
-                    <p className="text-xs text-gray-500">High-density content templates dynamically updated based on strategy shifts.</p>
+                    <p className="text-xs text-gray-500">{t(`${p}.admin.copywriterSubtitle`)}</p>
                   </div>
 
                   {/* Channel Tabs */}
@@ -780,7 +783,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                     {selectedPersonaTab === 'reddit' && geoState.generatedContent.reddit.map(post => (
                       <div key={post.id} className="border-2 border-black p-4 rounded-xl bg-gray-50 flex flex-col justify-between gap-4">
                         <div>
-                          <div className="text-[10px] text-gray-400 font-bold uppercase font-mono mb-1">// Persona: {post.persona}</div>
+                          <div className="text-[10px] text-gray-400 font-bold uppercase font-mono mb-1">{t(`${p}.admin.personaLabel`)} {post.persona}</div>
                           <h5 className="font-extrabold text-sm text-gray-900 mb-2">{post.title}</h5>
                           <p className="text-xs text-gray-600 leading-relaxed font-sans line-clamp-4">{post.body}</p>
                         </div>
@@ -795,7 +798,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                             className="text-xs font-bold text-emerald-700 hover:text-emerald-950 flex items-center gap-1.5"
                           >
                             {copiedId === post.id ? <CheckCircle className="h-4 w-4" /> : <Copy className="h-3.5 w-3.5" />}
-                            <span>{copiedId === post.id ? 'Copied' : 'Copy'}</span>
+                            <span>{copiedId === post.id ? t(`${p}.admin.copied`) : t(`${p}.admin.copy`)}</span>
                           </button>
                         </div>
                       </div>
@@ -804,7 +807,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                     {selectedPersonaTab === 'quora' && geoState.generatedContent.quora.map(post => (
                       <div key={post.id} className="border-2 border-black p-4 rounded-xl bg-gray-50 flex flex-col justify-between gap-4">
                         <div>
-                          <div className="text-[10px] text-gray-400 font-bold uppercase font-mono mb-1">// Professional Expert Persona</div>
+                          <div className="text-[10px] text-gray-400 font-bold uppercase font-mono mb-1">{t(`${p}.admin.expertPersona`)}</div>
                           <h5 className="font-extrabold text-sm text-gray-900 mb-2">{post.question}</h5>
                           <p className="text-xs text-gray-600 leading-relaxed font-sans line-clamp-4">{post.body}</p>
                         </div>
@@ -819,7 +822,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                             className="text-xs font-bold text-emerald-700 hover:text-emerald-950 flex items-center gap-1.5"
                           >
                             {copiedId === post.id ? <CheckCircle className="h-4 w-4" /> : <Copy className="h-3.5 w-3.5" />}
-                            <span>{copiedId === post.id ? 'Copied' : 'Copy'}</span>
+                            <span>{copiedId === post.id ? t(`${p}.admin.copied`) : t(`${p}.admin.copy`)}</span>
                           </button>
                         </div>
                       </div>
@@ -828,7 +831,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                     {selectedPersonaTab === 'linkedin' && geoState.generatedContent.linkedin.map(post => (
                       <div key={post.id} className="border-2 border-black p-4 rounded-xl bg-gray-50 flex flex-col justify-between gap-4">
                         <div>
-                          <div className="text-[10px] text-gray-400 font-bold uppercase font-mono mb-1">// Supply Chain Leader Persona</div>
+                          <div className="text-[10px] text-gray-400 font-bold uppercase font-mono mb-1">{t(`${p}.admin.supplyChainPersona`)}</div>
                           <h5 className="font-extrabold text-sm text-gray-900 mb-2">{post.title}</h5>
                           <p className="text-xs text-gray-600 leading-relaxed font-sans line-clamp-4">{post.body}</p>
                         </div>
@@ -843,7 +846,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                             className="text-xs font-bold text-emerald-700 hover:text-emerald-950 flex items-center gap-1.5"
                           >
                             {copiedId === post.id ? <CheckCircle className="h-4 w-4" /> : <Copy className="h-3.5 w-3.5" />}
-                            <span>{copiedId === post.id ? 'Copied' : 'Copy'}</span>
+                            <span>{copiedId === post.id ? t(`${p}.admin.copied`) : t(`${p}.admin.copy`)}</span>
                           </button>
                         </div>
                       </div>
@@ -855,7 +858,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 <div className="border-4 border-black bg-white p-6 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
                   <div className="border-b-2 border-black pb-4 mb-4">
                     <h3 className="text-sm font-black uppercase font-mono tracking-wider flex items-center gap-2">
-                      <Terminal className="h-4 w-4" /> Execution logs
+                      <Terminal className="h-4 w-4" /> {t(`${p}.admin.executionLogs`)}
                     </h3>
                   </div>
 
@@ -879,7 +882,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                       }`}
                     >
                       {geoState.cronActive ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-                      <span>{geoState.cronActive ? 'Pause Cron' : 'Resume Cron'}</span>
+                      <span>{geoState.cronActive ? t(`${p}.admin.pauseCron`) : t(`${p}.admin.resumeCron`)}</span>
                     </button>
                   </div>
                 </div>
@@ -900,7 +903,7 @@ To improve citation rankings, deploy persona reviews containing precise molecula
             <div className="flex items-center justify-between border-b-2 border-black pb-3 mb-4 flex-shrink-0">
               <div className="flex items-center gap-2">
                 <Mail className="h-5 w-5 text-emerald-700" />
-                <h3 className="font-black text-lg uppercase">Brevo Email Summary Preview</h3>
+                <h3 className="font-black text-lg uppercase">{t(`${p}.admin.brevoTitle`)}</h3>
               </div>
               <button 
                 onClick={() => setShowEmailPreviewDrawer(false)}
@@ -913,9 +916,9 @@ To improve citation rankings, deploy persona reviews containing precise molecula
             {/* Email Body Preview iframe mock */}
             <div className="flex-1 overflow-y-auto border-2 border-black p-4 rounded-xl bg-gray-50 font-sans text-sm space-y-4">
               <div className="border-b border-gray-200 pb-3 text-xs font-mono text-gray-500 space-y-1">
-                <div><strong>From:</strong> campaign-engine@pouch.eco</div>
-                <div><strong>To:</strong> ryan@achievepack.com</div>
-                <div><strong>Subject:</strong> [GEO Campaign Update] Compostable Pouch Score {geoState.campaignScore}% - KPI Target revised</div>
+                <div><strong>{t(`${p}.admin.brevoFromLabel`)}</strong> {t(`${p}.admin.brevoFrom`)}</div>
+                <div><strong>{t(`${p}.admin.brevoToLabel`)}</strong> {t(`${p}.admin.brevoTo`)}</div>
+                <div><strong>{t(`${p}.admin.brevoSubjectLabel`)}</strong> {t(`${p}.admin.brevoSubject`)} {geoState.campaignScore}% - KPI Target revised</div>
               </div>
               
               <div className="p-4 bg-white border border-gray-200 rounded-xl space-y-4">
@@ -924,35 +927,35 @@ To improve citation rankings, deploy persona reviews containing precise molecula
                 </div>
                 
                 <div className="p-4">
-                  <h4 className="text-lg font-bold text-gray-900 mb-2">Compostable Pouch GEO Campaign 12-Hour Report</h4>
-                  <p className="text-gray-700 leading-relaxed mb-4">Hi Ryan,</p>
-                  <p className="text-gray-700 leading-relaxed mb-4">Here is your automated 12-hour GEO indexing and citation progress summary for <strong>Compostable Pouches</strong>.</p>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">{t(`${p}.admin.brevoReportHeader`)}</h4>
+                  <p className="text-gray-700 leading-relaxed mb-4">{t(`${p}.admin.brevoGreeting`)}</p>
+                  <p className="text-gray-700 leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: t(`${p}.admin.brevoIntro`) }} />
                   
                   <div className="p-3 bg-gray-50 rounded-xl mb-4">
-                    <h5 className="font-bold text-xs uppercase tracking-wide text-gray-500 mb-2">Target KPI Metrics Grid:</h5>
+                    <h5 className="font-bold text-xs uppercase tracking-wide text-gray-500 mb-2">{t(`${p}.admin.brevoTargetGrid`)}</h5>
                     <div className="space-y-1.5 font-mono text-xs text-gray-800">
                       <div className="flex justify-between">
-                        <span>GEO Indexing Score:</span>
+                        <span>{t(`${p}.admin.brevoGeoScore`)}</span>
                         <strong className="text-emerald-700">{geoState.kpiMetrics.currentGeoScore}% / {geoState.kpiMetrics.targetGeoScore}%</strong>
                       </div>
                       <div className="flex justify-between">
-                        <span>AI Brand Mentions:</span>
+                        <span>{t(`${p}.admin.brevoAiMentions`)}</span>
                         <strong className="text-emerald-700">{geoState.kpiMetrics.currentBrandMentions} / {geoState.kpiMetrics.targetBrandMentions}</strong>
                       </div>
                       <div className="flex justify-between">
-                        <span>Referral Clicks:</span>
+                        <span>{t(`${p}.admin.brevoReferralClicks`)}</span>
                         <strong className="text-emerald-700">{geoState.kpiMetrics.currentTrafficClicks} / {geoState.kpiMetrics.targetTrafficClicks}</strong>
                       </div>
                     </div>
                   </div>
 
-                  <h5 className="font-bold text-xs uppercase tracking-wide text-gray-500 mb-1">Current Action:</h5>
+                  <h5 className="font-bold text-xs uppercase tracking-wide text-gray-500 mb-1">{t(`${p}.admin.brevoCurrentAction`)}</h5>
                   <p className="italic text-xs border-l-2 border-emerald-600 pl-3 py-1 mb-4 text-gray-600">
                     "{geoState.campaignCalendar.find(t => t.status === 'in-progress')?.task || 'Campaign Auditing'}"
                   </p>
 
                   <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl">
-                    <span className="text-xs uppercase font-extrabold text-amber-800">B2B Strategy Assessment:</span>
+                    <span className="text-xs uppercase font-extrabold text-amber-800">{t(`${p}.admin.brevoStrategyAssessment`)}</span>
                     <p className="text-xs text-amber-900 mt-1 leading-relaxed">
                       {geoState.strategyRevisions[0]?.assessment || "Strategy stable. Crawlers indexing correctly."}
                     </p>
@@ -964,12 +967,12 @@ To improve citation rankings, deploy persona reviews containing precise molecula
             <div className="mt-4 flex gap-2 flex-shrink-0">
               <button 
                 onClick={() => {
-                  alert('Email successfully queued for dispatch via Brevo server API!')
+                  alert(t(`${p}.admin.brevoAlertSuccess`))
                   setShowEmailPreviewDrawer(false)
                 }}
                 className="flex-1 border-4 border-black py-2.5 bg-black hover:bg-neutral-800 text-[#D4FF00] font-black uppercase text-xs tracking-wider transition-all"
               >
-                Send Summary Email Now
+                {t(`${p}.admin.brevoSendButton`)}
               </button>
             </div>
           </div>

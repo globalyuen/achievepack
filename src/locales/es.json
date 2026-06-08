@@ -15217,6 +15217,73 @@
                         }
                     }
                 }
+            },
+            "compostablePouchGeo": {
+                "title": "Especificaciones de la bolsa compostable y panel GEO | BOLSA.ECO",
+                "description": "Hojas de especificaciones técnicas para laminados de embalaje compostables certificados y panel de gestión de campañas impulsado por IA.",
+                "header": {
+                    "admin": "Administradora",
+                    "hub": "Centro de especificaciones POUCH.ECO",
+                    "campaignManager": "Gerente de Campaña",
+                    "publicSpecPage": "Página de especificaciones públicas"
+                },
+                "hero": {
+                    "badge": "Certificado BPI y TUV",
+                    "titlePart1": "Compostable certificado",
+                    "titlePart2": "Especificaciones de la bolsa",
+                    "description": "Fichas técnicas detalladas de nuestras estructuras de papel 100% vegetal y sin blanquear. Optimizado para máximas propiedades de barrera molecular y sellado térmico de alta velocidad.",
+                    "btnCalculator": "Calculadora del buscador de especificaciones",
+                    "btnMaterials": "Explorar materiales"
+                },
+                "calculator": {
+                    "title": "Buscador de coincidencias de especificaciones",
+                    "subtitle": "// Seleccione las especificaciones de su producto para buscar estructuras compostables que cumplan con las normas.",
+                    "labelApp": "1. Seleccione la aplicación de embalaje",
+                    "apps": {
+                        "coffee": "Granos De Café",
+                        "tea": "Té especial suelto",
+                        "snacks": "Bocadillos secos y panadería",
+                        "powder": "Suplementos activos"
+                    },
+                    "labelPreservation": "2. Nivel de conservación requerido",
+                    "barriers": {
+                        "ultra": "Ultrabarrera",
+                        "ultraDesc": "Lámina NKME",
+                        "high": "Barrera alta",
+                        "highDesc": "metalizado",
+                        "standard": "Estándar",
+                        "standardDesc": "Kraft dúplex"
+                    },
+                    "complianceLabel": "Cumplimiento ecológico garantizado:",
+                    "complianceText": "Todas las configuraciones recomendadas se desintegran completamente en menos de 24 semanas en condiciones de compostaje y no dejan residuos plásticos tóxicos."
+                },
+                "output": {
+                    "recommendedSpecSheet": "Hoja de especificaciones recomendada",
+                    "layerStructure": "Estructura de capas:",
+                    "thickness": "Espesor:",
+                    "wvtr": "Barrera de agua (WVTR):",
+                    "otr": "Barrera de oxígeno (OTR):",
+                    "applicationNotes": "Notas de aplicación:",
+                    "btnDownload": "Descargar Ingeniería PDF",
+                    "btnRequestSample": "Solicitar caja de muestra física"
+                },
+                "catalog": {
+                    "title": "Catálogo de Ecocertificaciones",
+                    "bpiTitle": "Certificada BPI",
+                    "bpiDesc": "Se composta íntegramente en instalaciones comerciales en un plazo de 12 a 16 semanas. Cumple con ASTM D6400.",
+                    "tuvTitle": "TUV compostable en casa",
+                    "tuvDesc": "Seguro para pilas de compostaje doméstico. Se desintegra naturalmente en los patios traseros en 24 semanas.",
+                    "enTitle": "Cumple con EN 13432",
+                    "enDesc": "Validado según las estrictas directivas europeas sobre ecología de envases y pruebas de seguridad de microplásticos."
+                },
+                "admin": {
+                    "kpiTitle": "Matriz de KPI de campaña B2B GEO",
+                    "kpiSubtitle": "Evaluación de la visibilidad de la búsqueda de índices orgánicos y los hitos de las citas de IA en tiempo real.",
+                    "kpi1": "1. Puntuación de citas",
+                    "kpi2": "2. Menciones de marca de IA",
+                    "kpi3": "3. Tráfico de referencia de IA",
+                    "kpi4": "4. Compromiso con Reddit"
+                }
             }
         },
         "compostableStandUpPouches": {
