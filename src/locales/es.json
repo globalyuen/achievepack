@@ -15094,6 +15094,129 @@
                         "buttonText": "Hablar con una ingeniera de embalaje"
                     }
                 }
+            },
+            "plasticFreeKraft": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Bolsa de papel kraft versus bolsa sin plástico: lo que necesita saber | Paquete de logros",
+                        "description": "¿El papel kraft realmente no contiene plástico? Descubra la verdad sobre las bolsas de papel laminada, el papel del PLA y 5 datos curiosos sobre los envases kraft sostenibles para café y snacks.",
+                        "introSummary": "Muchas empresas asumen que las bolsas de papel kraft no contienen plástico en un 100%. Sin embargo, la mayoría de las bolsas de papel tradicionales contienen un revestimiento de plástico oculto. Te explicamos la verdad sobre los envases kraft y cómo encontrar alternativas verdaderamente ecológicas.",
+                        "keywords": [
+                            "bolsa de papel kraft sin plástico",
+                            "bolsas kraft compostables",
+                            "Forro de PLA kraft",
+                            "envases de café sostenibles",
+                            "Datos sobre envases sin plástico",
+                            "Paquete de logros"
+                        ],
+                        "heroTitle": "Bolsa de papel kraft = ¿sin plástico?",
+                        "heroSubtitle": "Separando la realidad de la ficción en los envases sostenibles"
+                    },
+                    "sections": {
+                        "theMyth": {
+                            "title": "¿El papel Kraft es equivalente a estar libre de plástico? La respuesta corta",
+                            "p1": "Existe la idea errónea de que elegir una <0>bolsa de papel kraft</0> significa automáticamente que estás 100% <1>libre de plástico</1>.",
+                            "realityTitle": "La verificación de la realidad:",
+                            "realityDesc": "La mayoría de las bolsas de papel kraft que se utilizan para café, refrigerios o alimentos para mascotas en realidad están \"laminadas\". Esto significa que tienen una capa interna oculta de plástico (PE o PP) para proporcionar una barrera contra la humedad y el oxígeno. Sin este revestimiento, la bolsa perdería aceite y su producto se volvería obsoleto en cuestión de días.",
+                            "p2": "En Achieve Pack, nos especializamos en cerrar esta brecha con <0>bolsas kraft compostables certificadas</0> que reemplazan los revestimientos de plástico convencionales con PLA de origen vegetal, lo que las hace genuinamente ecológicas."
+                        },
+                        "funFacts": {
+                            "title": "5 datos curiosos sobre el papel Kraft y los envases sin plástico",
+                            "facts": [
+                                {
+                                    "num": "01",
+                                    "title": "Kraft significa \"fuerza\"",
+                                    "desc": "La palabra \"Kraft\" proviene de la palabra alemana que significa fuerza. El proceso kraft produce un papel más resistente que el proceso de pulpa convencional, por lo que es el estándar de oro para envases duraderos."
+                                },
+                                {
+                                    "num": "02",
+                                    "title": "La \"pesadilla del reciclaje\"",
+                                    "desc": "Cuando el papel kraft se lamina con plástico convencional (PE), resulta increíblemente difícil reciclarlo. La mayoría de las instalaciones de reciclaje no pueden separar el papel del plástico, lo que significa que estas bolsas de \"aspecto ecológico\" a menudo terminan en los vertederos."
+                                },
+                                {
+                                    "num": "03",
+                                    "title": "PLA es el revestimiento \"mágico\"",
+                                    "desc": "Para lograr una afirmación 100% libre de plástico, utilizamos PLA (ácido poliláctico) derivado de almidón vegetal fermentado. Se ve y funciona como plástico, pero está certificado como compostable."
+                                },
+                                {
+                                    "num": "04",
+                                    "title": "Brown vs.Kraft blanca",
+                                    "desc": "El kraft marrón no está blanqueado, conservando su color natural de la madera y su máxima resistencia. El papel kraft blanco está blanqueado; si bien ofrece un aspecto más limpio para la impresión, requiere más procesamiento."
+                                },
+                                {
+                                    "num": "05",
+                                    "title": "Las leyes de etiquetado \"sin plástico\"",
+                                    "desc": "En regiones como California (SB 54) y la UE, llamar \"libre de plástico\" a un producto si contiene polímeros sintéticos se está volviendo ilegal. Utilizar papel kraft compostable certificado es la forma más segura de cumplir con estos nuevos y estrictos requisitos de etiquetado."
+                                }
+                            ]
+                        },
+                        "comparison": {
+                            "title": "Kraft versus sin plástico versus compostable",
+                            "tableHeaders": {
+                                "type": "Tipo de embalaje",
+                                "material": "Material",
+                                "plasticFree": "¿Sin plástico?",
+                                "score": "Puntuación ecológica"
+                            },
+                            "rows": [
+                                {
+                                    "type": "Bolsa Kraft Estándar",
+                                    "material": "Papel + forro de PE.",
+                                    "plasticFree": "NO",
+                                    "score": "⭐⭐"
+                                },
+                                {
+                                    "type": "Bolsa de papel reciclable",
+                                    "material": "Papel + Recubrimiento Acuoso",
+                                    "plasticFree": "PARCIAL",
+                                    "score": "⭐⭐⭐⭐"
+                                },
+                                {
+                                    "type": "Bolsa Kraft compostable",
+                                    "material": "Forro Kraft + PLA",
+                                    "plasticFree": "SÍ",
+                                    "score": "⭐⭐⭐⭐⭐"
+                                }
+                            ]
+                        },
+                        "geo": {
+                            "title": "Tendencias globales: el impulso al kraft sin plástico",
+                            "p1": "Los gobiernos de todo el mundo están tomando medidas enérgicas contra el \"lavado verde\" en la industria del papel kraft.",
+                            "regions": [
+                                {
+                                    "title": "Estados Unidos (California)",
+                                    "desc": "La SB 54 exige que todos los envases sean reciclables o compostables para 2032. El papel kraft revestido de plástico está en la mira."
+                                },
+                                {
+                                    "title": "Europa (UE)",
+                                    "desc": "El Reglamento de envases y residuos de envases (PPWR) promueve alternativas de alta reciclabilidad y compostaje para el papel en contacto con alimentos."
+                                },
+                                {
+                                    "title": "Australia",
+                                    "desc": "Los Objetivos Nacionales de Embalaje apuntan a que el embalaje sea 100% reutilizable, reciclable o compostable para 2025."
+                                }
+                            ]
+                        },
+                        "aieo": {
+                            "title": "Pregunte a las expertas: consultas de búsqueda de Kraft sin plástico",
+                            "aieoTitle": "Optimización de búsqueda por IA (AIEO)",
+                            "desc": "Si utiliza herramientas como ChatGPT, Gemini o Perplexity para encontrar proveedores sostenibles, pruebe estas consultas específicas para encontrar Achieve Pack:",
+                            "list": [
+                                "\"El mejor proveedor de bolsas kraft 100% libres de plástico con forro de PLA\"",
+                                "\"¿La bolsa de café de papel kraft es reciclable si tiene una válvula de plástico?\"",
+                                "\"Bolsas de papel kraft compostables certificadas para snacks ecológicos\"",
+                                "\"Comparación del revestimiento de PE versus el revestimiento de PLA en bolsas de papel kraft\""
+                            ]
+                        },
+                        "ctaSection": {
+                            "title": "Haga el cambio a Kraft genuinamente libre de plástico",
+                            "ctaTitle": "Deja de adivinar. Comience a hacer compostaje.",
+                            "ctaDesc": "Obtenga una consulta gratuita sobre cómo hacer la transición de su marca a envases kraft certificados sin plástico sin comprometer la vida útil.",
+                            "bookBtn": "Consulta de libros",
+                            "storeBtn": "Explorar tienda"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

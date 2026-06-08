@@ -15094,6 +15094,129 @@
                         "buttonText": "Talk to a Packaging Engineer"
                     }
                 }
+            },
+            "plasticFreeKraft": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Sac en papier kraft ou sans plastique : ce que vous devez savoir | Réaliser le pack",
+                        "description": "Le papier kraft est-il vraiment sans plastique ? Découvrez la vérité sur les sacs en papier laminé, le rôle du PLA et 5 faits amusants sur les emballages kraft durables pour le café et les snacks.",
+                        "introSummary": "De nombreuses entreprises supposent que les sacs en papier kraft sont 100 % sans plastique. Cependant, la plupart des pochettes en papier traditionnelles contiennent une doublure en plastique cachée. Nous expliquons la vérité sur les emballages kraft et comment trouver des alternatives véritablement respectueuses de l'environnement.",
+                        "keywords": [
+                            "sac en papier kraft sans plastique",
+                            "sachets kraft compostables",
+                            "PLA doublure kraft",
+                            "emballage de café durable",
+                            "faits sur les emballages sans plastique",
+                            "Réaliser le pack"
+                        ],
+                        "heroTitle": "Sac en papier kraft = sans plastique ?",
+                        "heroSubtitle": "Séparer les faits de la fiction dans un emballage durable"
+                    },
+                    "sections": {
+                        "theMyth": {
+                            "title": "Le papier kraft est-il équivalent au papier sans plastique ? La réponse courte",
+                            "p1": "Il existe une idée fausse très répandue selon laquelle choisir un <0>sac en papier kraft</0> signifie automatiquement que vous êtes 100 % <1>sans plastique</1>.",
+                            "realityTitle": "Le test de la réalité :",
+                            "realityDesc": "La plupart des sacs en papier kraft utilisés pour le café, les collations ou la nourriture pour animaux sont en fait « plastifiés ». Cela signifie qu'ils ont une couche interne cachée de plastique (PE ou PP) pour fournir une barrière contre l'humidité et l'oxygène. Sans cette doublure, le sac perdrait de l'huile et votre produit deviendrait périmé en quelques jours.",
+                            "p2": "Chez Achieve Pack, nous sommes spécialisés dans la réduction de cette lacune avec des <0>sachets kraft certifiés compostables</0> qui remplacent les doublures en plastique conventionnelles par du PLA à base de plantes, les rendant véritablement écologiques."
+                        },
+                        "funFacts": {
+                            "title": "5 faits amusants sur le papier kraft et les emballages sans plastique",
+                            "facts": [
+                                {
+                                    "num": "01",
+                                    "title": "Kraft signifie « force »",
+                                    "desc": "Le mot « Kraft » vient du mot allemand signifiant force. Le processus kraft produit un papier plus résistant que la pâte à papier conventionnelle, c'est pourquoi il constitue la référence en matière d'emballage durable."
+                                },
+                                {
+                                    "num": "02",
+                                    "title": "Le « cauchemar du recyclage »",
+                                    "desc": "Lorsque le papier kraft est laminé avec du plastique conventionnel (PE), il devient incroyablement difficile à recycler. La plupart des installations de recyclage ne peuvent pas séparer le papier du plastique, ce qui signifie que ces sacs « écologiques » finissent souvent dans les décharges."
+                                },
+                                {
+                                    "num": "03",
+                                    "title": "Le PLA est la doublure « magique »",
+                                    "desc": "Pour obtenir une allégation 100 % sans plastique, nous utilisons du PLA (acide polylactique) dérivé de l'amidon végétal fermenté. Il ressemble et fonctionne comme du plastique mais est certifié compostable."
+                                },
+                                {
+                                    "num": "04",
+                                    "title": "Kraft brun ou kraft blanc",
+                                    "desc": "Le kraft brun n'est pas blanchi, conservant sa couleur naturelle du bois et sa résistance maximale. Le papier kraft blanc est blanchi. Bien qu'il offre un aspect plus propre à l'impression, il nécessite plus de traitement."
+                                },
+                                {
+                                    "num": "05",
+                                    "title": "Les lois sur l'étiquetage « sans plastique »",
+                                    "desc": "Dans des régions comme la Californie (SB 54) et l'UE, qualifier un produit de « sans plastique » s'il contient des polymères synthétiques devient illégal. L’utilisation de papier kraft certifié compostable est le moyen le plus sûr de répondre à ces nouvelles exigences strictes en matière d’étiquetage."
+                                }
+                            ]
+                        },
+                        "comparison": {
+                            "title": "Kraft vs sans plastique vs compostable",
+                            "tableHeaders": {
+                                "type": "Type d'emballage",
+                                "material": "Matérielle",
+                                "plasticFree": "Sans plastique ?",
+                                "score": "Éco-Score"
+                            },
+                            "rows": [
+                                {
+                                    "type": "Sac kraft standard",
+                                    "material": "Papier + doublure PE",
+                                    "plasticFree": "NON",
+                                    "score": "⭐⭐"
+                                },
+                                {
+                                    "type": "Sac en papier recyclable",
+                                    "material": "Papier + Revêtement Aqueux",
+                                    "plasticFree": "PARTIELLE",
+                                    "score": "⭐⭐⭐⭐"
+                                },
+                                {
+                                    "type": "Pochette kraft compostable",
+                                    "material": "Doublure Kraft + PLA",
+                                    "plasticFree": "OUI",
+                                    "score": "⭐⭐⭐⭐⭐"
+                                }
+                            ]
+                        },
+                        "geo": {
+                            "title": "Tendances mondiales : la pression pour un papier kraft sans plastique",
+                            "p1": "Les gouvernements du monde entier s’attaquent au « greenwashing » dans l’industrie du papier kraft.",
+                            "regions": [
+                                {
+                                    "title": "États-Unis (Californie)",
+                                    "desc": "Le SB 54 exige que tous les emballages soient recyclables ou compostables d’ici 2032. Le kraft doublé de plastique est dans la ligne de mire."
+                                },
+                                {
+                                    "title": "Europe (UE)",
+                                    "desc": "Le Règlement sur les emballages et les déchets d’emballages (PPWR) promeut des alternatives hautement recyclables et compostables pour le papier en contact avec les aliments."
+                                },
+                                {
+                                    "title": "Australie",
+                                    "desc": "Les objectifs nationaux en matière d’emballage visent des emballages 100 % réutilisables, recyclables ou compostables d’ici 2025."
+                                }
+                            ]
+                        },
+                        "aieo": {
+                            "title": "Demandez aux experts : requêtes de recherche en papier kraft sans plastique",
+                            "aieoTitle": "Optimisation de la recherche IA (AIEO)",
+                            "desc": "Si vous utilisez des outils tels que ChatGPT, Gemini ou Perplexity pour trouver des fournisseurs durables, essayez ces requêtes spécifiques pour trouver Achieve Pack :",
+                            "list": [
+                                "\"Meilleur fournisseur de sachets kraft 100% sans plastique avec doublure PLA\"",
+                                "\"Le sac à café en papier kraft est-il recyclable s'il est doté d'une valve en plastique ?\"",
+                                "\"Pochettes en papier kraft certifié compostable pour snacks bio\"",
+                                "\"Comparaison entre la doublure PE et la doublure PLA dans les sacs en papier kraft\""
+                            ]
+                        },
+                        "ctaSection": {
+                            "title": "Passez au Kraft véritablement sans plastique",
+                            "ctaTitle": "Arrêtez de deviner. Commencez le compostage.",
+                            "ctaDesc": "Obtenez une consultation gratuite sur la façon de faire évoluer votre marque vers des emballages kraft certifiés sans plastique sans compromettre la durée de conservation.",
+                            "bookBtn": "Consultation de livres",
+                            "storeBtn": "Parcourir la boutique"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
