@@ -13915,6 +13915,260 @@
                         }
                     }
                 }
+            },
+            "labBags": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Lab Blender Bags | Sterile Filter Bags, Wire Closure | Achieve Pack",
+                        "description": "Premium sterile laboratory blender bags for microbiology and food safety testing. Lateral filter bags, standard blender bags, wire closure bags. Gamma sterilized, clean room produced.",
+                        "heroTitle": "Laboratory Blender Bags",
+                        "heroSubtitle": "Lateral Filter • Standard Blender • Wire Closure • Gamma Sterilized",
+                        "introSummary": "Premium sterile lab bags for microbiology, food safety, and pharmaceutical testing. Clean room produced with certified sterilization.",
+                        "keywords": [
+                            "lab blender bags",
+                            "sterile blender bags",
+                            "lateral filter bags",
+                            "wire closure bags",
+                            "stomacher bags",
+                            "homogenizer bags",
+                            "microbiology bags",
+                            "food testing bags"
+                        ]
+                    },
+                    "clickToEnlarge": "Click to enlarge Click to enlarge",
+                    "gallery": {
+                        "item1": {
+                            "title": "Lateral Filter Blender Bags",
+                            "desc": "Side Filter Membrane Homogenizer Bags"
+                        },
+                        "item2": {
+                            "title": "Sterile Lab Bag Collection",
+                            "desc": "NoBacteriaLaboratoryHomogenizerBagSeries"
+                        },
+                        "item3": {
+                            "title": "Filter Membrane Detail",
+                            "desc": "Filter MembraneDetailsClose-Up"
+                        },
+                        "item4": {
+                            "title": "Lab Blender Bags",
+                            "desc": "LaboratoryHomogenizerBag"
+                        },
+                        "item5": {
+                            "title": "Standard Blender Bags",
+                            "desc": "StandardHomogenizerBag"
+                        },
+                        "item6": {
+                            "title": "Wire Closure Bags",
+                            "desc": "Wire Tie Closure Bags"
+                        },
+                        "item7": {
+                            "title": "Wire Closure Collection",
+                            "desc": "Iron WireSealSeries"
+                        }
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Laboratory Blender Bags Overview",
+                            "summaryStrong": "Premium sterile laboratory bags for microbiology and food safety testing",
+                            "summaryText": " — AchievePack® lab bag series includes lateral filter bags, standard blender bags, and wire closure bags. Clean room produced and gamma sterilized for contamination-sensitive applications.",
+                            "summaryStrongCn": "PremiumNoBacteriaLaboratoryBag，UseAtMicrobialStudyAndFoodSafeTesting",
+                            "summaryTextCn": " — AchievePack® LaboratoryBagSeriesPackIncludingSide FilterBag、StandardHomogenizerBagAndWire Tie Closure Bags。Cleanroom Production，GammaRadiation Sterilization，Suitable forContamination-SensitiveOfApplication。",
+                            "badgeFilter": "Lateral Filter Bags",
+                            "badgeStandard": "Standard Blender Bags",
+                            "badgeWire": "Wire Closure Bags",
+                            "badgeGamma": "Gamma Sterilized",
+                            "cardFilter": {
+                                "title": "Lateral Filter Bags",
+                                "titleCn": "Side Filter Membrane Homogenizer Bags",
+                                "desc": "Side-mounted filtration membrane for instant, particle-free sample preparation."
+                            },
+                            "cardStandard": {
+                                "title": "Standard Blender Bags",
+                                "titleCn": "StandardLaboratoryHomogenizerBag",
+                                "desc": "Classic sterile blender bags for general homogenization applications."
+                            },
+                            "cardWire": {
+                                "title": "Wire Closure Bags",
+                                "titleCn": "Wire Tie Closure Bags",
+                                "desc": "Secure wire closure for sample collection and storage applications."
+                            }
+                        },
+                        "filterBags": {
+                            "title": "Lateral Filter Blender Bags",
+                            "section1": {
+                                "title": "Advanced Lateral Filtration Technology",
+                                "titleCn": "FirstIntoSideThroughFilterTechnology",
+                                "content": "AchievePack® BagFilter series features side-mounted non-woven filtration membrane that provides instant, particle-free filtrate. The lateral filter design allows efficient sample separation while maintaining sterility throughout the process.",
+                                "contentCn": "AchievePack® BagFilter SeriesUsingSideSetNoFilter Membrane，ProvideImmediatelyTimeNoParticle Filtrate。Side FilterDesignAchieveEfficientSampleDivideLeave，MeanwhileWhole ProcessMaintainNoBacteriaStatus。"
+                            },
+                            "section2": {
+                                "title": "High-Quality Non-Woven Filter Membrane",
+                                "titleCn": "HighQualityVolumeNoFilter Membrane",
+                                "content": "Our proprietary filter membrane is designed for optimal particle retention while allowing rapid filtrate flow. The non-woven construction ensures consistent performance across batches and eliminates fiber shedding during use.",
+                                "contentCn": "WeProfessionalHaveOfFilter MembraneDesignAchieveMostBestParticleCutStayOfMeanwhileAllowFastFilterLiquidFlowMove。NoWeaveStructureEnsureBatchTimesBetweenOneUltimatePropertyCan，EliminateUseProcessInOfFiber Shedding。"
+                            },
+                            "badgeFilter": {
+                                "title": "Lateral Filter",
+                                "desc": "Side-mounted membrane",
+                                "descCn": "Side Filter"
+                            },
+                            "badgeSterile": {
+                                "title": "Gamma Sterile",
+                                "desc": "Radiation sterilized",
+                                "descCn": "GammaSterilization"
+                            },
+                            "badgeClean": {
+                                "title": "Clean Room",
+                                "desc": "ISO certified production",
+                                "descCn": "Cleanroom Production"
+                            },
+                            "badgeFree": {
+                                "title": "Particle-Free",
+                                "desc": "Clean filtrate",
+                                "descCn": "NoParticle Filtrate"
+                            }
+                        },
+                        "blenderBags": {
+                            "title": "Standard Lab Blender Bags",
+                            "section1": {
+                                "title": "Classic Sterile Blender Bags",
+                                "titleCn": "ThroughClassicNoBacteriaHomogenizerBag",
+                                "content": "Our standard blender bags are designed for general homogenization applications in food safety, environmental, and pharmaceutical testing. Multi-layer film construction provides excellent puncture resistance and seal integrity.",
+                                "contentCn": "OurStandardHomogenizerBagProfessionalForFoodSafe、EnvironmentAndPharmaceuticalTestingInOfOneGeneralHomogenizerApplicationDesign。Multi-LayerFilmStructureProvideOutstandingOfPuncture ResistantPropertyAndSealedCompleteProperty。"
+                            },
+                            "statCapacity": {
+                                "val": "400mL",
+                                "title": "Standard Capacity",
+                                "titleCn": "StandardCapacity"
+                            },
+                            "statFilm": {
+                                "val": "3-Layer",
+                                "title": "Film Construction",
+                                "titleCn": "ThreeLayerComposite Structure"
+                            },
+                            "statGamma": {
+                                "val": "25kGy",
+                                "title": "Gamma Sterilization",
+                                "titleCn": "GammaRadiation Sterilization"
+                            }
+                        },
+                        "wireBags": {
+                            "title": "Wire Closure Bags",
+                            "section1": {
+                                "title": "Secure Wire Closure Design",
+                                "titleCn": "SafeIron WireSealDesign",
+                                "content": "Wire closure bags feature integrated metal wire for secure, reusable sealing. Perfect for sample collection, transport, and storage applications where repeated access is required while maintaining sample integrity.",
+                                "contentCn": "Wire Tie Closure BagsWithHaveCollectionFormWire，AchieveSafeCanRepeatedSealed。Ideal forSuitableRequireNeedRepeatedVisitMeanwhileMaintainSampleCompletePropertyOfSampleCollectCollection、TransportationAndStorageApplication。"
+                            },
+                            "featClosure": {
+                                "title": "Reusable Closure",
+                                "desc": "Open and reseal multiple times",
+                                "descCn": "CanRepeatedOpenSuitable"
+                            },
+                            "featSeal": {
+                                "title": "Secure Seal",
+                                "desc": "Prevents contamination",
+                                "descCn": "PreventContamination"
+                            },
+                            "featStorage": {
+                                "title": "Sample Storage",
+                                "desc": "Long-term preservation",
+                                "descCn": "Long TermSave"
+                            }
+                        },
+                        "applications": {
+                            "title": "Industry Applications",
+                            "intro": "AchievePack® laboratory bags are used across multiple industries for critical testing and quality assurance:",
+                            "cardFood": {
+                                "title": "Food Safety",
+                                "desc": "Pathogen detection, quality testing",
+                                "descCn": "FoodSafeTesting"
+                            },
+                            "cardMicro": {
+                                "title": "Microbiology",
+                                "desc": "Culture preparation, analysis",
+                                "descCn": "MicrobialStudyResearch"
+                            },
+                            "cardPharm": {
+                                "title": "Pharmaceutical",
+                                "desc": "QC testing, sample prep",
+                                "descCn": "PharmaceuticalQualityCheck"
+                            },
+                            "cardEnv": {
+                                "title": "Environmental",
+                                "desc": "Water, soil, air testing",
+                                "descCn": "Environmental Testing"
+                            }
+                        },
+                        "quality": {
+                            "title": "Quality & Certifications",
+                            "sectionTitle": "Manufacturing Standards",
+                            "certIso": {
+                                "title": "ISO 9001 Certified",
+                                "desc": "Quality management"
+                            },
+                            "certClean": {
+                                "title": "Clean Room Production",
+                                "desc": "Controlled environment"
+                            },
+                            "certGamma": {
+                                "title": "Gamma Sterilization",
+                                "desc": "25kGy validated"
+                            }
+                        },
+                        "related": {
+                            "title": "Related Products",
+                            "intro": "Explore our complete range of specialized packaging solutions:",
+                            "linkPouches": {
+                                "title": "Stand-Up Pouches",
+                                "desc": "Flexible food packaging"
+                            },
+                            "linkVacuum": {
+                                "title": "Vacuum Pouches",
+                                "desc": "Extended shelf life"
+                            },
+                            "linkLabels": {
+                                "title": "Labels & Stickers",
+                                "desc": "Product identification"
+                            },
+                            "linkEco": {
+                                "title": "Eco Materials",
+                                "desc": "Sustainable options"
+                            }
+                        },
+                        "faq": {
+                            "title": "Frequently Asked Questions",
+                            "q1": {
+                                "q": "How are your lab bags sterilized?",
+                                "a": "Our laboratory bags are gamma sterilized at 25kGy minimum dose. This radiation sterilization process ensures complete sterility while maintaining the structural integrity and performance of the bags. Each batch is validated for sterility assurance."
+                            },
+                            "q2": {
+                                "q": "What is the advantage of lateral filter bags?",
+                                "a": "Lateral filter bags feature a side-mounted non-woven filtration membrane that provides instant, particle-free filtrate. This design allows efficient sample separation while maintaining sterility throughout the entire process - ideal for microbiology testing."
+                            },
+                            "q3": {
+                                "q": "What sizes are available for lab blender bags?",
+                                "a": "Our standard capacity is 400mL, which is compatible with most laboratory blender/stomacher machines. Custom sizes are available for specific applications. Contact us for your exact requirements."
+                            },
+                            "q4": {
+                                "q": "Are wire closure bags reusable?",
+                                "a": "Wire closure bags feature integrated metal wire for secure, reusable sealing. They can be opened and resealed multiple times while maintaining sample integrity. However, they are single-use disposable bags - the reusable closure allows repeated access during testing."
+                            },
+                            "q5": {
+                                "q": "What certifications do your lab bags have?",
+                                "a": "Our lab bags are produced in an ISO 9001 certified clean room environment. All bags undergo gamma sterilization (25kGy validated) and meet quality management standards for food safety and pharmaceutical testing applications."
+                            }
+                        },
+                        "cta": {
+                            "title": "Request Lab Bags Quote",
+                            "header": "Get Your Laboratory Bags Quote",
+                            "desc": "Contact our team to discuss your laboratory bag requirements. Premium quality, certified sterile, and expert support for your testing needs.",
+                            "btnCall": "Book Consultation",
+                            "btnWa": "WhatsApp Chat",
+                            "btnMail": "Email Quote"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

@@ -3,8 +3,9 @@ import { Beaker, FlaskConical, Microscope, Package, Layers, Settings, Shield, Ch
 import SEOPageLayout from '../../components/SEOPageLayout'
 import { Link } from 'react-router-dom'
 import { useCalendly } from '../../contexts/CalendlyContext'
+import { useTranslation } from 'react-i18next'
 
-// Combined gallery images from lab folders
+// Combined gallery images from lab folders - raw fallback data
 const labBagGallery = [
   // Filter bags
   { src: '/imgs/lab/filter/hero.webp', title: 'Lateral Filter Blender Bags', desc: 'Side Filter Membrane Homogenizer Bags', category: 'filter' },
@@ -19,15 +20,22 @@ const labBagGallery = [
 ]
 
 const LabBagsPage: React.FC = () => {
+  const { t } = useTranslation()
   const { openCalendly } = useCalendly()
   const [galleryEnlarged, setGalleryEnlarged] = useState<{ src: string; index: number } | null>(null)
   
+  const translatedGallery = labBagGallery.map((item, idx) => ({
+    ...item,
+    title: t(`seoPages.pages.labBags.achievePack.gallery.item${idx + 1}.title`, { defaultValue: item.title }),
+    desc: t(`seoPages.pages.labBags.achievePack.gallery.item${idx + 1}.desc`, { defaultValue: item.desc }),
+  }))
+
   const navigateGallery = (direction: 'prev' | 'next') => {
     if (!galleryEnlarged) return
     let newIndex = direction === 'prev' ? galleryEnlarged.index - 1 : galleryEnlarged.index + 1
-    if (newIndex < 0) newIndex = labBagGallery.length - 1
-    if (newIndex >= labBagGallery.length) newIndex = 0
-    setGalleryEnlarged({ src: labBagGallery[newIndex].src, index: newIndex })
+    if (newIndex < 0) newIndex = translatedGallery.length - 1
+    if (newIndex >= translatedGallery.length) newIndex = 0
+    setGalleryEnlarged({ src: translatedGallery[newIndex].src, index: newIndex })
   }
 
   // Alternating layout component
@@ -58,7 +66,9 @@ const LabBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">
+              {t('seoPages.pages.labBags.achievePack.clickToEnlarge', { defaultValue: 'Click to enlarge Click to enlarge' })}
+            </div>
           </button>
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-neutral-900">{title}</h3>
@@ -80,7 +90,9 @@ const LabBagsPage: React.FC = () => {
             className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group md:order-2"
           >
             <img src={image} alt={imageAlt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">Click to enlarge Click to enlarge</div>
+            <div className="bg-neutral-100 px-3 py-2 text-xs text-neutral-500 text-center">
+              {t('seoPages.pages.labBags.achievePack.clickToEnlarge', { defaultValue: 'Click to enlarge Click to enlarge' })}
+            </div>
           </button>
         </>
       )}
@@ -90,43 +102,69 @@ const LabBagsPage: React.FC = () => {
   const sections = [
     {
       id: 'overview',
-      title: 'Laboratory Blender Bags Overview',
+      title: t('seoPages.pages.labBags.achievePack.sections.overview.title'),
       icon: <Beaker className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
             <p className="text-lg font-medium text-neutral-900 mb-4">
-              <strong>Premium sterile laboratory bags for microbiology and food safety testing</strong> — AchievePack® lab bag series includes lateral filter bags, standard blender bags, and wire closure bags. Clean room produced and gamma sterilized for contamination-sensitive applications.
+              <strong>{t('seoPages.pages.labBags.achievePack.sections.overview.summaryStrong')}</strong>{t('seoPages.pages.labBags.achievePack.sections.overview.summaryText')}
             </p>
             <p className="text-neutral-700 mb-4">
-              PremiumNoBacteriaLaboratoryBag，UseAtMicrobialStudyAndFoodSafeTesting — AchievePack® LaboratoryBagSeriesPackIncludingSide FilterBag、StandardHomogenizerBagAndWire Tie Closure Bags。Cleanroom Production，GammaRadiation Sterilization，Suitable forContamination-SensitiveOfApplication。
+              {t('seoPages.pages.labBags.achievePack.sections.overview.summaryStrongCn')}{t('seoPages.pages.labBags.achievePack.sections.overview.summaryTextCn')}
             </p>
             <div className="flex flex-wrap gap-2 mt-4">
-              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-blue-700 border border-blue-200">Lateral Filter Bags</span>
-              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-blue-700 border border-blue-200">Standard Blender Bags</span>
-              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-blue-700 border border-blue-200">Wire Closure Bags</span>
-              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-blue-700 border border-blue-200">Gamma Sterilized</span>
+              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-blue-700 border border-blue-200">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.badgeFilter')}
+              </span>
+              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-blue-700 border border-blue-200">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.badgeStandard')}
+              </span>
+              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-blue-700 border border-blue-200">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.badgeWire')}
+              </span>
+              <span className="px-3 py-1 bg-white rounded-full text-sm font-medium text-blue-700 border border-blue-200">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.badgeGamma')}
+              </span>
             </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             <Link to="/lab/lateral-filter-bags" className="group block bg-white p-6 rounded-xl border border-neutral-200 hover:border-primary-400 hover:shadow-lg transition-all">
-              <img src="/imgs/lab/filter/hero.webp" alt="Lateral Filter Blender Bags" className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
-              <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">Lateral Filter Bags</h3>
-              <p className="text-sm text-primary-600 font-medium mb-2">Side Filter Membrane Homogenizer Bags</p>
-              <p className="text-neutral-600 text-sm">Side-mounted filtration membrane for instant, particle-free sample preparation.</p>
+              <img src="/imgs/lab/filter/hero.webp" alt={t('seoPages.pages.labBags.achievePack.sections.overview.cardFilter.title')} className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
+              <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.cardFilter.title')}
+              </h3>
+              <p className="text-sm text-primary-600 font-medium mb-2">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.cardFilter.titleCn')}
+              </p>
+              <p className="text-neutral-600 text-sm">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.cardFilter.desc')}
+              </p>
             </Link>
             <Link to="/lab/lab-blender-bags" className="group block bg-white p-6 rounded-xl border border-neutral-200 hover:border-primary-400 hover:shadow-lg transition-all">
-              <img src="/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp" alt="Standard Lab Blender Bags" className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
-              <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">Standard Blender Bags</h3>
-              <p className="text-sm text-primary-600 font-medium mb-2">StandardLaboratoryHomogenizerBag</p>
-              <p className="text-neutral-600 text-sm">Classic sterile blender bags for general homogenization applications.</p>
+              <img src="/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp" alt={t('seoPages.pages.labBags.achievePack.sections.overview.cardStandard.title')} className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
+              <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.cardStandard.title')}
+              </h3>
+              <p className="text-sm text-primary-600 font-medium mb-2">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.cardStandard.titleCn')}
+              </p>
+              <p className="text-neutral-600 text-sm">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.cardStandard.desc')}
+              </p>
             </Link>
             <Link to="/lab/wire-closure-bags" className="group block bg-white p-6 rounded-xl border border-neutral-200 hover:border-primary-400 hover:shadow-lg transition-all">
-              <img src="/imgs/lab/wire/hero.webp" alt="Wire Closure Bags" className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
-              <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">Wire Closure Bags</h3>
-              <p className="text-sm text-primary-600 font-medium mb-2">Wire Tie Closure Bags</p>
-              <p className="text-neutral-600 text-sm">Secure wire closure for sample collection and storage applications.</p>
+              <img src="/imgs/lab/wire/hero.webp" alt={t('seoPages.pages.labBags.achievePack.sections.overview.cardWire.title')} className="w-full h-40 object-cover rounded-lg mb-4 group-hover:scale-[1.02] transition-transform" />
+              <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 mb-2">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.cardWire.title')}
+              </h3>
+              <p className="text-sm text-primary-600 font-medium mb-2">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.cardWire.titleCn')}
+              </p>
+              <p className="text-neutral-600 text-sm">
+                {t('seoPages.pages.labBags.achievePack.sections.overview.cardWire.desc')}
+              </p>
             </Link>
           </div>
         </div>
@@ -134,28 +172,28 @@ const LabBagsPage: React.FC = () => {
     },
     {
       id: 'filter-bags',
-      title: 'Lateral Filter Blender Bags',
+      title: t('seoPages.pages.labBags.achievePack.sections.filterBags.title'),
       icon: <Filter className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/filter/a_achieve_pack_400ml_kv_main_visual_5029578.webp"
-            imageAlt="Sterile lab bag collection"
-            title="Advanced Lateral Filtration Technology"
-            titleCn="FirstIntoSideThroughFilterTechnology"
-            content="AchievePack® BagFilter series features side-mounted non-woven filtration membrane that provides instant, particle-free filtrate. The lateral filter design allows efficient sample separation while maintaining sterility throughout the process."
-            contentCn="AchievePack® BagFilter SeriesUsingSideSetNoFilter Membrane，ProvideImmediatelyTimeNoParticle Filtrate。Side FilterDesignAchieveEfficientSampleDivideLeave，MeanwhileWhole ProcessMaintainNoBacteriaStatus。"
+            imageAlt={t('seoPages.pages.labBags.achievePack.sections.filterBags.section1.title')}
+            title={t('seoPages.pages.labBags.achievePack.sections.filterBags.section1.title')}
+            titleCn={t('seoPages.pages.labBags.achievePack.sections.filterBags.section1.titleCn')}
+            content={t('seoPages.pages.labBags.achievePack.sections.filterBags.section1.content')}
+            contentCn={t('seoPages.pages.labBags.achievePack.sections.filterBags.section1.contentCn')}
             imageLeft={true}
             index={1}
           />
 
           <AlternatingSection
             image="/imgs/lab/filter/a_achieve_pack_400ml_filter_texture_detail_7479934.webp"
-            imageAlt="Filter membrane detail"
-            title="High-Quality Non-Woven Filter Membrane"
-            titleCn="HighQualityVolumeNoFilter Membrane"
-            content="Our proprietary filter membrane is designed for optimal particle retention while allowing rapid filtrate flow. The non-woven construction ensures consistent performance across batches and eliminates fiber shedding during use."
-            contentCn="WeProfessionalHaveOfFilter MembraneDesignAchieveMostBestParticleCutStayOfMeanwhileAllowFastFilterLiquidFlowMove。NoWeaveStructureEnsureBatchTimesBetweenOneUltimatePropertyCan，EliminateUseProcessInOfFiber Shedding。"
+            imageAlt={t('seoPages.pages.labBags.achievePack.sections.filterBags.section2.title')}
+            title={t('seoPages.pages.labBags.achievePack.sections.filterBags.section2.title')}
+            titleCn={t('seoPages.pages.labBags.achievePack.sections.filterBags.section2.titleCn')}
+            content={t('seoPages.pages.labBags.achievePack.sections.filterBags.section2.content')}
+            contentCn={t('seoPages.pages.labBags.achievePack.sections.filterBags.section2.contentCn')}
             imageLeft={false}
             index={2}
           />
@@ -163,27 +201,51 @@ const LabBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-4">
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Filter className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-              <h5 className="font-semibold text-neutral-900 text-sm">Lateral Filter</h5>
-              <p className="text-xs text-neutral-600">Side-mounted membrane</p>
-              <p className="text-xs text-primary-600">Side Filter</p>
+              <h5 className="font-semibold text-neutral-900 text-sm">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeFilter.title')}
+              </h5>
+              <p className="text-xs text-neutral-600">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeFilter.desc')}
+              </p>
+              <p className="text-xs text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeFilter.descCn')}
+              </p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Shield className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-              <h5 className="font-semibold text-neutral-900 text-sm">Gamma Sterile</h5>
-              <p className="text-xs text-neutral-600">Radiation sterilized</p>
-              <p className="text-xs text-primary-600">GammaSterilization</p>
+              <h5 className="font-semibold text-neutral-900 text-sm">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeSterile.title')}
+              </h5>
+              <p className="text-xs text-neutral-600">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeSterile.desc')}
+              </p>
+              <p className="text-xs text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeSterile.descCn')}
+              </p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Factory className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-              <h5 className="font-semibold text-neutral-900 text-sm">Clean Room</h5>
-              <p className="text-xs text-neutral-600">ISO certified production</p>
-              <p className="text-xs text-primary-600">Cleanroom Production</p>
+              <h5 className="font-semibold text-neutral-900 text-sm">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeClean.title')}
+              </h5>
+              <p className="text-xs text-neutral-600">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeClean.desc')}
+              </p>
+              <p className="text-xs text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeClean.descCn')}
+              </p>
             </div>
             <div className="bg-white p-4 rounded-lg border border-neutral-200 text-center">
               <Droplets className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-              <h5 className="font-semibold text-neutral-900 text-sm">Particle-Free</h5>
-              <p className="text-xs text-neutral-600">Clean filtrate</p>
-              <p className="text-xs text-primary-600">NoParticle Filtrate</p>
+              <h5 className="font-semibold text-neutral-900 text-sm">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeFree.title')}
+              </h5>
+              <p className="text-xs text-neutral-600">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeFree.desc')}
+              </p>
+              <p className="text-xs text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.filterBags.badgeFree.descCn')}
+              </p>
             </div>
           </div>
         </div>
@@ -191,36 +253,54 @@ const LabBagsPage: React.FC = () => {
     },
     {
       id: 'blender-bags',
-      title: 'Standard Lab Blender Bags',
+      title: t('seoPages.pages.labBags.achievePack.sections.blenderBags.title'),
       icon: <FlaskConical className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/blend/a_hero_kv_sterile_lab_1567556.webp"
-            imageAlt="Standard lab blender bags"
-            title="Classic Sterile Blender Bags"
-            titleCn="ThroughClassicNoBacteriaHomogenizerBag"
-            content="Our standard blender bags are designed for general homogenization applications in food safety, environmental, and pharmaceutical testing. Multi-layer film construction provides excellent puncture resistance and seal integrity."
-            contentCn="OurStandardHomogenizerBagProfessionalForFoodSafe、EnvironmentAndPharmaceuticalTestingInOfOneGeneralHomogenizerApplicationDesign。Multi-LayerFilmStructureProvideOutstandingOfPuncture ResistantPropertyAndSealedCompleteProperty。"
+            imageAlt={t('seoPages.pages.labBags.achievePack.sections.blenderBags.section1.title')}
+            title={t('seoPages.pages.labBags.achievePack.sections.blenderBags.section1.title')}
+            titleCn={t('seoPages.pages.labBags.achievePack.sections.blenderBags.section1.titleCn')}
+            content={t('seoPages.pages.labBags.achievePack.sections.blenderBags.section1.content')}
+            contentCn={t('seoPages.pages.labBags.achievePack.sections.blenderBags.section1.contentCn')}
             imageLeft={true}
             index={3}
           />
 
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-lg text-center">
-              <div className="text-2xl font-bold text-blue-600 mb-1">400mL</div>
-              <p className="text-sm text-neutral-700">Standard Capacity</p>
-              <p className="text-xs text-neutral-600">StandardCapacity</p>
+              <div className="text-2xl font-bold text-blue-600 mb-1">
+                {t('seoPages.pages.labBags.achievePack.sections.blenderBags.statCapacity.val')}
+              </div>
+              <p className="text-sm text-neutral-700">
+                {t('seoPages.pages.labBags.achievePack.sections.blenderBags.statCapacity.title')}
+              </p>
+              <p className="text-xs text-neutral-600">
+                {t('seoPages.pages.labBags.achievePack.sections.blenderBags.statCapacity.titleCn')}
+              </p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-lg text-center">
-              <div className="text-2xl font-bold text-blue-600 mb-1">3-Layer</div>
-              <p className="text-sm text-neutral-700">Film Construction</p>
-              <p className="text-xs text-neutral-600">ThreeLayerComposite Structure</p>
+              <div className="text-2xl font-bold text-blue-600 mb-1">
+                {t('seoPages.pages.labBags.achievePack.sections.blenderBags.statFilm.val')}
+              </div>
+              <p className="text-sm text-neutral-700">
+                {t('seoPages.pages.labBags.achievePack.sections.blenderBags.statFilm.title')}
+              </p>
+              <p className="text-xs text-neutral-600">
+                {t('seoPages.pages.labBags.achievePack.sections.blenderBags.statFilm.titleCn')}
+              </p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-lg text-center">
-              <div className="text-2xl font-bold text-blue-600 mb-1">25kGy</div>
-              <p className="text-sm text-neutral-700">Gamma Sterilization</p>
-              <p className="text-xs text-neutral-600">GammaRadiation Sterilization</p>
+              <div className="text-2xl font-bold text-blue-600 mb-1">
+                {t('seoPages.pages.labBags.achievePack.sections.blenderBags.statGamma.val')}
+              </div>
+              <p className="text-sm text-neutral-700">
+                {t('seoPages.pages.labBags.achievePack.sections.blenderBags.statGamma.title')}
+              </p>
+              <p className="text-xs text-neutral-600">
+                {t('seoPages.pages.labBags.achievePack.sections.blenderBags.statGamma.titleCn')}
+              </p>
             </div>
           </div>
         </div>
@@ -228,17 +308,17 @@ const LabBagsPage: React.FC = () => {
     },
     {
       id: 'wire-bags',
-      title: 'Wire Closure Bags',
+      title: t('seoPages.pages.labBags.achievePack.sections.wireBags.title'),
       icon: <Package className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-8">
           <AlternatingSection
             image="/imgs/lab/wire/hero.webp"
-            imageAlt="Wire closure bags"
-            title="Secure Wire Closure Design"
-            titleCn="SafeIron WireSealDesign"
-            content="Wire closure bags feature integrated metal wire for secure, reusable sealing. Perfect for sample collection, transport, and storage applications where repeated access is required while maintaining sample integrity."
-            contentCn="Wire Tie Closure BagsWithHaveCollectionFormWire，AchieveSafeCanRepeatedSealed。Ideal forSuitableRequireNeedRepeatedVisitMeanwhileMaintainSampleCompletePropertyOfSampleCollectCollection、TransportationAndStorageApplication。"
+            imageAlt={t('seoPages.pages.labBags.achievePack.sections.wireBags.section1.title')}
+            title={t('seoPages.pages.labBags.achievePack.sections.wireBags.section1.title')}
+            titleCn={t('seoPages.pages.labBags.achievePack.sections.wireBags.section1.titleCn')}
+            content={t('seoPages.pages.labBags.achievePack.sections.wireBags.section1.content')}
+            contentCn={t('seoPages.pages.labBags.achievePack.sections.wireBags.section1.contentCn')}
             imageLeft={false}
             index={5}
           />
@@ -246,21 +326,39 @@ const LabBagsPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <Settings className="h-6 w-6 text-blue-600 mb-3" />
-              <h5 className="font-semibold text-neutral-900">Reusable Closure</h5>
-              <p className="text-sm text-neutral-600 mt-1">Open and reseal multiple times</p>
-              <p className="text-xs text-primary-600 mt-1">CanRepeatedOpenSuitable</p>
+              <h5 className="font-semibold text-neutral-900">
+                {t('seoPages.pages.labBags.achievePack.sections.wireBags.featClosure.title')}
+              </h5>
+              <p className="text-sm text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.wireBags.featClosure.desc')}
+              </p>
+              <p className="text-xs text-primary-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.wireBags.featClosure.descCn')}
+              </p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <Shield className="h-6 w-6 text-blue-600 mb-3" />
-              <h5 className="font-semibold text-neutral-900">Secure Seal</h5>
-              <p className="text-sm text-neutral-600 mt-1">Prevents contamination</p>
-              <p className="text-xs text-primary-600 mt-1">PreventContamination</p>
+              <h5 className="font-semibold text-neutral-900">
+                {t('seoPages.pages.labBags.achievePack.sections.wireBags.featSeal.title')}
+              </h5>
+              <p className="text-sm text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.wireBags.featSeal.desc')}
+              </p>
+              <p className="text-xs text-primary-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.wireBags.featSeal.descCn')}
+              </p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200">
               <ClipboardCheck className="h-6 w-6 text-blue-600 mb-3" />
-              <h5 className="font-semibold text-neutral-900">Sample Storage</h5>
-              <p className="text-sm text-neutral-600 mt-1">Long-term preservation</p>
-              <p className="text-xs text-primary-600 mt-1">Long TermSave</p>
+              <h5 className="font-semibold text-neutral-900">
+                {t('seoPages.pages.labBags.achievePack.sections.wireBags.featStorage.title')}
+              </h5>
+              <p className="text-sm text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.wireBags.featStorage.desc')}
+              </p>
+              <p className="text-xs text-primary-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.wireBags.featStorage.descCn')}
+              </p>
             </div>
           </div>
         </div>
@@ -268,44 +366,70 @@ const LabBagsPage: React.FC = () => {
     },
     {
       id: 'applications',
-      title: 'Industry Applications',
+      title: t('seoPages.pages.labBags.achievePack.sections.applications.title'),
       icon: <Building2 className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">AchievePack® laboratory bags are used across multiple industries for critical testing and quality assurance:</p>
+          <p className="text-neutral-700">
+            {t('seoPages.pages.labBags.achievePack.sections.applications.intro')}
+          </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Beaker className="h-6 w-6 text-green-600" />
               </div>
-              <h5 className="font-semibold text-neutral-900">Food Safety</h5>
-              <p className="text-xs text-neutral-600 mt-1">Pathogen detection, quality testing</p>
-              <p className="text-xs text-primary-600">FoodSafeTesting</p>
+              <h5 className="font-semibold text-neutral-900">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardFood.title')}
+              </h5>
+              <p className="text-xs text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardFood.desc')}
+              </p>
+              <p className="text-xs text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardFood.descCn')}
+              </p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Microscope className="h-6 w-6 text-blue-600" />
               </div>
-              <h5 className="font-semibold text-neutral-900">Microbiology</h5>
-              <p className="text-xs text-neutral-600 mt-1">Culture preparation, analysis</p>
-              <p className="text-xs text-primary-600">MicrobialStudyResearch</p>
+              <h5 className="font-semibold text-neutral-900">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardMicro.title')}
+              </h5>
+              <p className="text-xs text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardMicro.desc')}
+              </p>
+              <p className="text-xs text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardMicro.descCn')}
+              </p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-3">
                 <FlaskConical className="h-6 w-6 text-purple-600" />
               </div>
-              <h5 className="font-semibold text-neutral-900">Pharmaceutical</h5>
-              <p className="text-xs text-neutral-600 mt-1">QC testing, sample prep</p>
-              <p className="text-xs text-primary-600">PharmaceuticalQualityCheck</p>
+              <h5 className="font-semibold text-neutral-900">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardPharm.title')}
+              </h5>
+              <p className="text-xs text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardPharm.desc')}
+              </p>
+              <p className="text-xs text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardPharm.descCn')}
+              </p>
             </div>
             <div className="bg-white p-5 rounded-lg border border-neutral-200 text-center">
               <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Globe className="h-6 w-6 text-amber-600" />
               </div>
-              <h5 className="font-semibold text-neutral-900">Environmental</h5>
-              <p className="text-xs text-neutral-600 mt-1">Water, soil, air testing</p>
-              <p className="text-xs text-primary-600">Environmental Testing</p>
+              <h5 className="font-semibold text-neutral-900">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardEnv.title')}
+              </h5>
+              <p className="text-xs text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardEnv.desc')}
+              </p>
+              <p className="text-xs text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.applications.cardEnv.descCn')}
+              </p>
             </div>
           </div>
         </div>
@@ -313,35 +437,47 @@ const LabBagsPage: React.FC = () => {
     },
     {
       id: 'quality',
-      title: 'Quality & Certifications',
+      title: t('seoPages.pages.labBags.achievePack.sections.quality.title'),
       icon: <Award className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
             <h4 className="font-bold text-neutral-900 mb-4 flex items-center gap-2">
               <Shield className="h-5 w-5 text-green-600" />
-              Manufacturing Standards
+              {t('seoPages.pages.labBags.achievePack.sections.quality.sectionTitle')}
             </h4>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-neutral-800">ISO 9001 Certified</p>
-                  <p className="text-sm text-neutral-600">Quality management</p>
+                  <p className="font-medium text-neutral-800">
+                    {t('seoPages.pages.labBags.achievePack.sections.quality.certIso.title')}
+                  </p>
+                  <p className="text-sm text-neutral-600">
+                    {t('seoPages.pages.labBags.achievePack.sections.quality.certIso.desc')}
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-neutral-800">Clean Room Production</p>
-                  <p className="text-sm text-neutral-600">Controlled environment</p>
+                  <p className="font-medium text-neutral-800">
+                    {t('seoPages.pages.labBags.achievePack.sections.quality.certClean.title')}
+                  </p>
+                  <p className="text-sm text-neutral-600">
+                    {t('seoPages.pages.labBags.achievePack.sections.quality.certClean.desc')}
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-neutral-800">Gamma Sterilization</p>
-                  <p className="text-sm text-neutral-600">25kGy validated</p>
+                  <p className="font-medium text-neutral-800">
+                    {t('seoPages.pages.labBags.achievePack.sections.quality.certGamma.title')}
+                  </p>
+                  <p className="text-sm text-neutral-600">
+                    {t('seoPages.pages.labBags.achievePack.sections.quality.certGamma.desc')}
+                  </p>
                 </div>
               </div>
             </div>
@@ -351,32 +487,50 @@ const LabBagsPage: React.FC = () => {
     },
     {
       id: 'related',
-      title: 'Related Products',
+      title: t('seoPages.pages.labBags.achievePack.sections.related.title'),
       icon: <Globe className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-6">
-          <p className="text-neutral-700">Explore our complete range of specialized packaging solutions:</p>
+          <p className="text-neutral-700">
+            {t('seoPages.pages.labBags.achievePack.sections.related.intro')}
+          </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link to="/packaging/stand-up-pouches" className="group block bg-white p-5 rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
               <Package className="h-6 w-6 text-primary-600 mb-3 group-hover:scale-110 transition-transform" />
-              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">Stand-Up Pouches</h5>
-              <p className="text-xs text-neutral-600 mt-1">Flexible food packaging</p>
+              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.related.linkPouches.title')}
+              </h5>
+              <p className="text-xs text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.related.linkPouches.desc')}
+              </p>
             </Link>
             <Link to="/packaging/vacuum-pouches" className="group block bg-white p-5 rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
               <Layers className="h-6 w-6 text-primary-600 mb-3 group-hover:scale-110 transition-transform" />
-              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">Vacuum Pouches</h5>
-              <p className="text-xs text-neutral-600 mt-1">Extended shelf life</p>
+              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.related.linkVacuum.title')}
+              </h5>
+              <p className="text-xs text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.related.linkVacuum.desc')}
+              </p>
             </Link>
             <Link to="/products/labels-and-stickers" className="group block bg-white p-5 rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
               <FileCheck className="h-6 w-6 text-primary-600 mb-3 group-hover:scale-110 transition-transform" />
-              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">Labels & Stickers</h5>
-              <p className="text-xs text-neutral-600 mt-1">Product identification</p>
+              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.related.linkLabels.title')}
+              </h5>
+              <p className="text-xs text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.related.linkLabels.desc')}
+              </p>
             </Link>
             <Link to="/materials/compostable" className="group block bg-white p-5 rounded-lg border border-neutral-200 hover:border-primary-400 hover:shadow-md transition-all">
               <Sparkles className="h-6 w-6 text-primary-600 mb-3 group-hover:scale-110 transition-transform" />
-              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">Eco Materials</h5>
-              <p className="text-xs text-neutral-600 mt-1">Sustainable options</p>
+              <h5 className="font-semibold text-neutral-900 group-hover:text-primary-600">
+                {t('seoPages.pages.labBags.achievePack.sections.related.linkEco.title')}
+              </h5>
+              <p className="text-xs text-neutral-600 mt-1">
+                {t('seoPages.pages.labBags.achievePack.sections.related.linkEco.desc')}
+              </p>
             </Link>
           </div>
         </div>
@@ -384,57 +538,79 @@ const LabBagsPage: React.FC = () => {
     },
     {
       id: 'faq',
-      title: 'Frequently Asked Questions',
+      title: t('seoPages.pages.labBags.achievePack.sections.faq.title'),
       icon: <Beaker className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="space-y-4">
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">How are your lab bags sterilized?</span>
+              <span className="font-semibold text-neutral-900 pr-4">
+                {t('seoPages.pages.labBags.achievePack.sections.faq.q1.q')}
+              </span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Our laboratory bags are gamma sterilized at 25kGy minimum dose. This radiation sterilization process ensures complete sterility while maintaining the structural integrity and performance of the bags. Each batch is validated for sterility assurance.</div>
+            <div className="px-6 pb-6 text-neutral-700">
+              {t('seoPages.pages.labBags.achievePack.sections.faq.q1.a')}
+            </div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">What is the advantage of lateral filter bags?</span>
+              <span className="font-semibold text-neutral-900 pr-4">
+                {t('seoPages.pages.labBags.achievePack.sections.faq.q2.q')}
+              </span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Lateral filter bags feature a side-mounted non-woven filtration membrane that provides instant, particle-free filtrate. This design allows efficient sample separation while maintaining sterility throughout the entire process - ideal for microbiology testing.</div>
+            <div className="px-6 pb-6 text-neutral-700">
+              {t('seoPages.pages.labBags.achievePack.sections.faq.q2.a')}
+            </div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">What sizes are available for lab blender bags?</span>
+              <span className="font-semibold text-neutral-900 pr-4">
+                {t('seoPages.pages.labBags.achievePack.sections.faq.q3.q')}
+              </span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Our standard capacity is 400mL, which is compatible with most laboratory blender/stomacher machines. Custom sizes are available for specific applications. Contact us for your exact requirements.</div>
+            <div className="px-6 pb-6 text-neutral-700">
+              {t('seoPages.pages.labBags.achievePack.sections.faq.q3.a')}
+            </div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">Are wire closure bags reusable?</span>
+              <span className="font-semibold text-neutral-900 pr-4">
+                {t('seoPages.pages.labBags.achievePack.sections.faq.q4.q')}
+              </span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Wire closure bags feature integrated metal wire for secure, reusable sealing. They can be opened and resealed multiple times while maintaining sample integrity. However, they are single-use disposable bags - the reusable closure allows repeated access during testing.</div>
+            <div className="px-6 pb-6 text-neutral-700">
+              {t('seoPages.pages.labBags.achievePack.sections.faq.q4.a')}
+            </div>
           </details>
           <details className="group bg-neutral-50 rounded-xl overflow-hidden">
             <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-neutral-100 transition">
-              <span className="font-semibold text-neutral-900 pr-4">What certifications do your lab bags have?</span>
+              <span className="font-semibold text-neutral-900 pr-4">
+                {t('seoPages.pages.labBags.achievePack.sections.faq.q5.q')}
+              </span>
               <ChevronDown className="h-5 w-5 text-neutral-500 group-open:rotate-180 transition-transform flex-shrink-0" />
             </summary>
-            <div className="px-6 pb-6 text-neutral-700">Our lab bags are produced in an ISO 9001 certified clean room environment. All bags undergo gamma sterilization (25kGy validated) and meet quality management standards for food safety and pharmaceutical testing applications.</div>
+            <div className="px-6 pb-6 text-neutral-700">
+              {t('seoPages.pages.labBags.achievePack.sections.faq.q5.a')}
+            </div>
           </details>
         </div>
       )
     },
     {
       id: 'cta',
-      title: 'Request Lab Bags Quote',
+      title: t('seoPages.pages.labBags.achievePack.sections.cta.title'),
       icon: <Beaker className="h-5 w-5 text-primary-600" />,
       content: (
         <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-2xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Get Your Laboratory Bags Quote</h3>
+          <h3 className="text-2xl font-bold mb-4">
+            {t('seoPages.pages.labBags.achievePack.sections.cta.header')}
+          </h3>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Contact our team to discuss your laboratory bag requirements. Premium quality, certified sterile, and expert support for your testing needs.
+            {t('seoPages.pages.labBags.achievePack.sections.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -442,7 +618,7 @@ const LabBagsPage: React.FC = () => {
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition"
             >
               <Calendar className="h-5 w-5" />
-              Book Consultation
+              {t('seoPages.pages.labBags.achievePack.sections.cta.btnCall')}
             </button>
             <a
               href="https://wa.me/85269704411?text=Hi%2C%20I%27m%20interested%20in%20lab%20blender%20bags"
@@ -450,14 +626,14 @@ const LabBagsPage: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition"
             >
-              WhatsApp Chat
+              {t('seoPages.pages.labBags.achievePack.sections.cta.btnWa')}
             </a>
             <a
               href="mailto:ryan@achievepack.com?subject=Lab Bags Quote Request"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white rounded-lg font-semibold hover:bg-white/20 transition"
             >
               <Mail className="h-5 w-5" />
-              Email Quote
+              {t('seoPages.pages.labBags.achievePack.sections.cta.btnMail')}
             </a>
           </div>
         </div>
@@ -468,15 +644,15 @@ const LabBagsPage: React.FC = () => {
   return (
     <>
       <SEOPageLayout heroBgColor="#1f2937"
-        title="Lab Blender Bags | Sterile Filter Bags, Wire Closure | Achieve Pack"
-        description="Premium sterile laboratory blender bags for microbiology and food safety testing. Lateral filter bags, standard blender bags, wire closure bags. Gamma sterilized, clean room produced."
+        title={t('seoPages.pages.labBags.achievePack.seo.title')}
+        description={t('seoPages.pages.labBags.achievePack.seo.description')}
         canonicalUrl="https://achievepack.com/products/lab-bags"
-        heroTitle="Laboratory Blender Bags"
-        heroSubtitle="Lateral Filter • Standard Blender • Wire Closure • Gamma Sterilized"
-        introSummary="Premium sterile lab bags for microbiology, food safety, and pharmaceutical testing. Clean room produced with certified sterilization."
+        heroTitle={t('seoPages.pages.labBags.achievePack.seo.heroTitle')}
+        heroSubtitle={t('seoPages.pages.labBags.achievePack.seo.heroSubtitle')}
+        introSummary={t('seoPages.pages.labBags.achievePack.seo.introSummary')}
         heroImage="/imgs/lab/filter/hero.webp"
         sections={sections}
-        keywords={['lab blender bags', 'sterile blender bags', 'lateral filter bags', 'wire closure bags', 'stomacher bags', 'homogenizer bags', 'microbiology bags', 'food testing bags']}
+        keywords={t('seoPages.pages.labBags.achievePack.seo.keywords', { returnObjects: true }) as string[]}
         schemaType="Product"
       />
 
@@ -503,14 +679,14 @@ const LabBagsPage: React.FC = () => {
           </button>
           <img
             src={galleryEnlarged.src}
-            alt={labBagGallery[galleryEnlarged.index]?.title}
+            alt={translatedGallery[galleryEnlarged.index]?.title}
             className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
           />
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center">
-            <p className="font-medium">{labBagGallery[galleryEnlarged.index]?.title}</p>
-            <p className="text-sm text-white/70">{labBagGallery[galleryEnlarged.index]?.desc}</p>
-            <p className="text-xs text-white/50 mt-1">{galleryEnlarged.index + 1} / {labBagGallery.length}</p>
+            <p className="font-medium">{translatedGallery[galleryEnlarged.index]?.title}</p>
+            <p className="text-sm text-white/70">{translatedGallery[galleryEnlarged.index]?.desc}</p>
+            <p className="text-xs text-white/50 mt-1">{galleryEnlarged.index + 1} / {translatedGallery.length}</p>
           </div>
         </div>
       )}

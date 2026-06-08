@@ -13816,6 +13816,260 @@
                         }
                     }
                 }
+            },
+            "labBags": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Sacs de mélangeur de laboratoire | Sacs filtrants stériles, fermeture métallique | Réaliser le pack",
+                        "description": "Sacs mélangeurs de laboratoire stériles de qualité supérieure pour les tests de microbiologie et de sécurité alimentaire. Sacs filtrants latéraux, sacs mélangeurs standards, sacs à fermeture métallique. Stérilisé gamma, produit en salle blanche.",
+                        "heroTitle": "Sacs pour mélangeurs de laboratoire",
+                        "heroSubtitle": "Filtre latéral • Mélangeur standard • Fermeture à fil • Stérilisé gamma",
+                        "introSummary": "Sacs de laboratoire stériles haut de gamme pour la microbiologie, la sécurité alimentaire et les tests pharmaceutiques. Salle blanche réalisée avec stérilisation certifiée.",
+                        "keywords": [
+                            "sacs de mélangeur de laboratoire",
+                            "sacs de mélangeur stériles",
+                            "sacs filtrants latéraux",
+                            "sacs à fermeture métallique",
+                            "sacs stomacal",
+                            "sacs homogénéisateurs",
+                            "sacs de microbiologie",
+                            "sacs d'analyse alimentaire"
+                        ]
+                    },
+                    "clickToEnlarge": "Cliquez pour agrandir Cliquez pour agrandir",
+                    "gallery": {
+                        "item1": {
+                            "title": "Sacs mélangeurs à filtre latéral",
+                            "desc": "Sacs d'homogénéisateur à membrane filtrante latérale"
+                        },
+                        "item2": {
+                            "title": "Collecte de sacs de laboratoire stériles",
+                            "desc": "NoBactérieLaboratoireHomogénéisateurBagSérie"
+                        },
+                        "item3": {
+                            "title": "Détail de la membrane filtrante",
+                            "desc": "Membrane filtranteDétailsGros plan"
+                        },
+                        "item4": {
+                            "title": "Sacs pour mélangeurs de laboratoire",
+                            "desc": "Sac d'homogénéisateur de laboratoire"
+                        },
+                        "item5": {
+                            "title": "Sacs de mixage standard",
+                            "desc": "Sac homogénéisateur standard"
+                        },
+                        "item6": {
+                            "title": "Sacs à fermeture métallique",
+                            "desc": "Sacs à fermeture à attache métallique"
+                        },
+                        "item7": {
+                            "title": "Collection de fermetures à fil",
+                            "desc": "Fil de ferSealSérie"
+                        }
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "Aperçu des sacs pour mélangeurs de laboratoire",
+                            "summaryStrong": "Sacs de laboratoire stériles haut de gamme pour les tests de microbiologie et de sécurité alimentaire",
+                            "summaryText": "— La série de sacs de laboratoire AchievePack® comprend des sacs filtrants latéraux, des sacs mélangeurs standard et des sacs à fermeture métallique. Salle blanche produite et stérilisée aux rayons gamma pour les applications sensibles à la contamination.",
+                            "summaryStrongCn": "PremiumNoBacteriaLaboratoryBag, UseAtMicrobialStudyAndFoodSafeTesting",
+                            "summaryTextCn": "— AchievePack® LaboratoryBagSeriesPack comprenant un sac filtrant latéral, un sac d'homogénéisation standard et des sacs à fermeture à attache métallique. Production en salle blanche, stérilisation par rayonnement gamma, adapté aux applications sensibles à la contamination.",
+                            "badgeFilter": "Sacs filtrants latéraux",
+                            "badgeStandard": "Sacs de mixage standard",
+                            "badgeWire": "Sacs à fermeture métallique",
+                            "badgeGamma": "Stérilisé aux rayons gamma",
+                            "cardFilter": {
+                                "title": "Sacs filtrants latéraux",
+                                "titleCn": "Sacs d'homogénéisateur à membrane filtrante latérale",
+                                "desc": "Membrane de filtration latérale pour une préparation d'échantillon instantanée et sans particules."
+                            },
+                            "cardStandard": {
+                                "title": "Sacs de mixage standard",
+                                "titleCn": "Sac homogénéisateur de laboratoire standard",
+                                "desc": "Sacs mélangeurs stériles classiques pour les applications générales d'homogénéisation."
+                            },
+                            "cardWire": {
+                                "title": "Sacs à fermeture métallique",
+                                "titleCn": "Sacs à fermeture à attache métallique",
+                                "desc": "Fermeture métallique sécurisée pour les applications de collecte et de stockage d'échantillons."
+                            }
+                        },
+                        "filterBags": {
+                            "title": "Sacs mélangeurs à filtre latéral",
+                            "section1": {
+                                "title": "Technologie avancée de filtration latérale",
+                                "titleCn": "Technologie FirstIntoSideThroughFilter",
+                                "content": "La série AchievePack® BagFilter comprend une membrane de filtration non tissée montée sur le côté qui fournit un filtrat instantané et sans particules. La conception du filtre latéral permet une séparation efficace des échantillons tout en maintenant la stérilité tout au long du processus.",
+                                "contentCn": "Série AchievePack® BagFilter utilisant la membrane SideSetNoFilter, fournit un filtrat immédiat sans particules."
+                            },
+                            "section2": {
+                                "title": "Membrane filtrante non tissée de haute qualité",
+                                "titleCn": "Membrane HighQualityVolumeNoFilter",
+                                "content": "Notre membrane filtrante exclusive est conçue pour une rétention optimale des particules tout en permettant un écoulement rapide du filtrat. La construction non tissée garantit des performances constantes d’un lot à l’autre et élimine la perte de fibres pendant l’utilisation.",
+                                "contentCn": "WeProfessionalHaveOfFilter MembraneDesignAchieveMostBestParticleCutStayOfMeanwhileAllowFastFilterLiquidFlowMove.NoWeaveStructureEnsureBatchTimesBetweenOneUltimatePropertyCan,EliminateUseProcessInOfFiber Shedding."
+                            },
+                            "badgeFilter": {
+                                "title": "Filtre latéral",
+                                "desc": "Membrane latérale",
+                                "descCn": "Filtre latéral"
+                            },
+                            "badgeSterile": {
+                                "title": "Gamma stérile",
+                                "desc": "Stérilisé par radiation",
+                                "descCn": "Stérilisation Gamma"
+                            },
+                            "badgeClean": {
+                                "title": "Chambre propre",
+                                "desc": "Fabrication certifiée ISO",
+                                "descCn": "Production en salle blanche"
+                            },
+                            "badgeFree": {
+                                "title": "Sans particules",
+                                "desc": "Nettoyer le filtre",
+                                "descCn": "Aucun filtrat de particules"
+                            }
+                        },
+                        "blenderBags": {
+                            "title": "Sacs de mélangeur de laboratoire standard",
+                            "section1": {
+                                "title": "Sacs mélangeurs stériles classiques",
+                                "titleCn": "À traversClassiquePas de bactériesHomogénéisateurBag",
+                                "content": "Nos sacs mélangeurs standard sont conçus pour les applications générales d'homogénéisation dans les domaines de la sécurité alimentaire, de l'environnement et des tests pharmaceutiques. La construction du film multicouche offre une excellente résistance à la perforation et une excellente intégrité du joint.",
+                                "contentCn": "OurStandardHomogenizerBagProfessionalForFoodSafe、EnvironmentAndPharmaceuticalTestingInOfOneGeneralHomogenizerApplicationDesign。Multi-LayerFilmStructureProvideOutstandingOfPuncture ResistancePropertyAndSealedCompleteProperty。"
+                            },
+                            "statCapacity": {
+                                "val": "400 ml",
+                                "title": "Capacité standard",
+                                "titleCn": "Capacité standard"
+                            },
+                            "statFilm": {
+                                "val": "3 couches",
+                                "title": "Construction de films",
+                                "titleCn": "Structure composite à trois couches"
+                            },
+                            "statGamma": {
+                                "val": "25kGy",
+                                "title": "Stérilisation gamma",
+                                "titleCn": "Stérilisation par rayonnement gamma"
+                            }
+                        },
+                        "wireBags": {
+                            "title": "Sacs à fermeture métallique",
+                            "section1": {
+                                "title": "Conception de fermeture de fil sécurisée",
+                                "titleCn": "SafeIron WireSealDesign",
+                                "content": "Les sacs à fermeture métallique comportent un fil métallique intégré pour une fermeture sécurisée et réutilisable. Parfait pour les applications de collecte, de transport et de stockage d’échantillons où un accès répété est requis tout en préservant l’intégrité des échantillons.",
+                                "contentCn": "Sacs à fermeture à attache métallique avec fil de forme de collection, AchieveSafeCanRepeatedSealed.Idéal pourSuitableRequireNeedRepeatedVisitMeanwhileMaintainSampleCompletePropertyOfSampleCollectCollection、TransportationAndStorageApplication."
+                            },
+                            "featClosure": {
+                                "title": "Fermeture réutilisable",
+                                "desc": "Ouvrir et refermer plusieurs fois",
+                                "descCn": "CanRepeatedOpenConvient"
+                            },
+                            "featSeal": {
+                                "title": "Sceau sécurisé",
+                                "desc": "Empêche la contamination",
+                                "descCn": "Prévenir la contamination"
+                            },
+                            "featStorage": {
+                                "title": "Stockage des échantillons",
+                                "desc": "Conservation à long terme",
+                                "descCn": "Sauvegarde à long terme"
+                            }
+                        },
+                        "applications": {
+                            "title": "Applications industrielles",
+                            "intro": "Les sacs de laboratoire AchievePack® sont utilisés dans plusieurs industries pour les tests critiques et l'assurance qualité :",
+                            "cardFood": {
+                                "title": "Sécurité alimentaire",
+                                "desc": "Détection d'agents pathogènes, tests de qualité",
+                                "descCn": "Tests de sécurité alimentaire"
+                            },
+                            "cardMicro": {
+                                "title": "Microbiologie",
+                                "desc": "Préparation de culture, analyse",
+                                "descCn": "Étude microbienneRecherche"
+                            },
+                            "cardPharm": {
+                                "title": "Pharmaceutique",
+                                "desc": "Tests de contrôle qualité, préparation d'échantillons",
+                                "descCn": "PharmaceutiqueQualityCheck"
+                            },
+                            "cardEnv": {
+                                "title": "Environnementale",
+                                "desc": "Analyses d'eau, de sol et d'air",
+                                "descCn": "Tests environnementaux"
+                            }
+                        },
+                        "quality": {
+                            "title": "Qualité et Certifications",
+                            "sectionTitle": "Normes de fabrication",
+                            "certIso": {
+                                "title": "Certifié ISO 9001",
+                                "desc": "Gestion de la qualité"
+                            },
+                            "certClean": {
+                                "title": "Production en salle blanche",
+                                "desc": "Environnement contrôlé"
+                            },
+                            "certGamma": {
+                                "title": "Stérilisation gamma",
+                                "desc": "25kGy validé"
+                            }
+                        },
+                        "related": {
+                            "title": "Produits connexes",
+                            "intro": "Découvrez notre gamme complète de solutions d’emballage spécialisées :",
+                            "linkPouches": {
+                                "title": "Pochettes verticales",
+                                "desc": "Emballage alimentaire souple"
+                            },
+                            "linkVacuum": {
+                                "title": "Pochettes sous vide",
+                                "desc": "Durée de conservation prolongée"
+                            },
+                            "linkLabels": {
+                                "title": "Étiquettes et autocollants",
+                                "desc": "Identification du produit"
+                            },
+                            "linkEco": {
+                                "title": "Matériaux écologiques",
+                                "desc": "Options durables"
+                            }
+                        },
+                        "faq": {
+                            "title": "Foire aux questions",
+                            "q1": {
+                                "q": "Comment vos sacs de laboratoire sont-ils stérilisés ?",
+                                "a": "Nos sacs de laboratoire sont stérilisés aux rayons gamma à une dose minimale de 25kGy. Ce processus de stérilisation par rayonnement garantit une stérilité complète tout en maintenant l’intégrité structurelle et les performances des sacs. Chaque lot est validé pour l'assurance de la stérilité."
+                            },
+                            "q2": {
+                                "q": "Quel est l'avantage des sacs filtrants latéraux ?",
+                                "a": "Les sacs filtrants latéraux sont dotés d'une membrane de filtration non tissée montée sur le côté qui fournit un filtrat instantané et sans particules. Cette conception permet une séparation efficace des échantillons tout en maintenant la stérilité tout au long du processus – idéal pour les tests microbiologiques."
+                            },
+                            "q3": {
+                                "q": "Quelles tailles sont disponibles pour les sacs pour mélangeurs de laboratoire ?",
+                                "a": "Notre capacité standard est de 400 ml, ce qui est compatible avec la plupart des mélangeurs/stomachers de laboratoire. Des tailles personnalisées sont disponibles pour des applications spécifiques. Contactez-nous pour vos besoins précis."
+                            },
+                            "q4": {
+                                "q": "Les sacs à fermeture métallique sont-ils réutilisables ?",
+                                "a": "Les sacs à fermeture métallique comportent un fil métallique intégré pour une fermeture sécurisée et réutilisable. Ils peuvent être ouverts et refermés plusieurs fois tout en préservant l’intégrité de l’échantillon. Il s’agit cependant de sacs jetables à usage unique – la fermeture réutilisable permet un accès répété pendant les tests."
+                            },
+                            "q5": {
+                                "q": "De quelles certifications disposent vos sacs de laboratoire ?",
+                                "a": "Nos sacs de laboratoire sont produits dans un environnement de salle blanche certifié ISO 9001. Tous les sacs sont soumis à une stérilisation gamma (validée à 25 kGy) et répondent aux normes de gestion de la qualité pour les applications de sécurité alimentaire et de tests pharmaceutiques."
+                            }
+                        },
+                        "cta": {
+                            "title": "Demander un devis pour les sacs de laboratoire",
+                            "header": "Obtenez votre devis de sacs de laboratoire",
+                            "desc": "Contactez notre équipe pour discuter de vos besoins en matière de sacs de laboratoire. Qualité supérieure, certifié stérile et assistance experte pour vos besoins en matière de tests.",
+                            "btnCall": "Consultation de livres",
+                            "btnWa": "Chat WhatsApp",
+                            "btnMail": "Devis par e-mail"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {

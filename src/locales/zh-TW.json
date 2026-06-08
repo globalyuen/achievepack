@@ -13816,6 +13816,260 @@
                         }
                     }
                 }
+            },
+            "labBags": {
+                "achievePack": {
+                    "seo": {
+                        "title": "Lab Blender Bags | Sterile Filter Bags, Wire Closure | Achieve Pack",
+                        "description": "用於微生物學和食品安全測試的優質無菌實驗室攪拌袋。 側向過濾袋、標準攪拌袋、金屬絲封閉袋。 伽瑪滅菌，無塵室生產。",
+                        "heroTitle": "實驗室攪拌袋",
+                        "heroSubtitle": "側向過濾器 • 標準攪拌機 • 線閉合 • 伽瑪滅菌",
+                        "introSummary": "用於微生物學、食品安全和藥物測試的優質無菌實驗室袋。 潔淨室經過滅菌認證。",
+                        "keywords": [
+                            "實驗室攪拌袋",
+                            "無菌攪拌袋",
+                            "側向濾袋",
+                            "鐵絲封口袋",
+                            "胃袋",
+                            "均質袋",
+                            "微生物袋",
+                            "食品檢測袋"
+                        ]
+                    },
+                    "clickToEnlarge": "點擊放大 點擊放大",
+                    "gallery": {
+                        "item1": {
+                            "title": "側向過濾攪拌袋",
+                            "desc": "側濾膜均質袋"
+                        },
+                        "item2": {
+                            "title": "無菌實驗室袋系列",
+                            "desc": "無菌實驗室均質袋系列"
+                        },
+                        "item3": {
+                            "title": "過濾膜細節",
+                            "desc": "過濾膜細節特寫"
+                        },
+                        "item4": {
+                            "title": "實驗室攪拌機袋",
+                            "desc": "實驗室均質袋"
+                        },
+                        "item5": {
+                            "title": "標準攪拌袋",
+                            "desc": "標準均質袋"
+                        },
+                        "item6": {
+                            "title": "線封袋",
+                            "desc": "紮帶封口袋"
+                        },
+                        "item7": {
+                            "title": "線材閉合系列",
+                            "desc": "鐵絲密封系列"
+                        }
+                    },
+                    "sections": {
+                        "overview": {
+                            "title": "實驗室攪拌袋概述",
+                            "summaryStrong": "Premium sterile laboratory bags for microbiology and food safety testing",
+                            "summaryText": "— AchievePack® 實驗室袋系列包括橫向過濾袋、標準攪拌袋和金屬絲封閉袋。 在無塵室生產並經過伽馬射線滅菌，適用於污染敏感的應用。",
+                            "summaryStrongCn": "優質無細菌實驗室袋，用於微生物研究和食品安全測試",
+                            "summaryTextCn": " — AchievePack® LaboratoryBagSeriesPackIncludingSide FilterBag、StandardHomogenizerBagAndWire Tie Closure Bags。Cleanroom Production，GammaRadiation Sterilization，Suitable forContamination-SensitiveOfApplication。",
+                            "badgeFilter": "側向濾袋",
+                            "badgeStandard": "標準攪拌袋",
+                            "badgeWire": "線封袋",
+                            "badgeGamma": "伽瑪射線滅菌",
+                            "cardFilter": {
+                                "title": "側向濾袋",
+                                "titleCn": "側濾膜均質袋",
+                                "desc": "側裝過濾膜可實現即時、無顆粒的樣品製備。"
+                            },
+                            "cardStandard": {
+                                "title": "標準攪拌袋",
+                                "titleCn": "標準實驗室均質袋",
+                                "desc": "Classic sterile blender bags for general homogenization applications."
+                            },
+                            "cardWire": {
+                                "title": "線封袋",
+                                "titleCn": "紮帶封口袋",
+                                "desc": "Secure wire closure for sample collection and storage applications."
+                            }
+                        },
+                        "filterBags": {
+                            "title": "側向過濾攪拌袋",
+                            "section1": {
+                                "title": "先進的側向過濾技術",
+                                "titleCn": "FirstIntoSideThroughFilter技術",
+                                "content": "AchievePack® BagFilter 系列採用側面安裝的不織布過濾膜，可提供即時、無顆粒的濾液。 橫向過濾器設計可實現高效的樣品分離，同時在整個過程中保持無菌狀態。",
+                                "contentCn": "AchievePack®袋式過濾器系列採用側置無濾膜，立即提供無顆粒過濾。側置過濾器設計實現高效的樣品分離開，同時整個過程保持無細菌狀態。"
+                            },
+                            "section2": {
+                                "title": "高品質不織布過濾膜",
+                                "titleCn": "HighQualityVolumeNoFilter Membrane",
+                                "content": "我們專有的過濾膜專為最佳顆粒保留而設計，同時允許濾液快速流動。 不織布結構可確保各批次的性能一致，並消除使用過程中的纖維脫落。",
+                                "contentCn": "我們專業的過濾膜設計實現了最佳的顆粒截留，同時允許快速的過濾液體流動。無編織結構確保批次時間之間的終極性能可以，消除使用過程中的纖維脫落。"
+                            },
+                            "badgeFilter": {
+                                "title": "Lateral Filter",
+                                "desc": "側裝膜",
+                                "descCn": "Side Filter"
+                            },
+                            "badgeSterile": {
+                                "title": "Gamma Sterile",
+                                "desc": "Radiation sterilized",
+                                "descCn": "伽瑪射線滅菌"
+                            },
+                            "badgeClean": {
+                                "title": "Clean Room",
+                                "desc": "ISO certified production",
+                                "descCn": "無塵室生產"
+                            },
+                            "badgeFree": {
+                                "title": "無顆粒",
+                                "desc": "Clean filtrate",
+                                "descCn": "NoParticle Filtrate"
+                            }
+                        },
+                        "blenderBags": {
+                            "title": "Standard Lab Blender Bags",
+                            "section1": {
+                                "title": "經典無菌攪拌機袋",
+                                "titleCn": "透過經典無細菌均質器袋",
+                                "content": "我們的標準攪拌袋專為食品安全、環境和藥物測試中的一般均質應用而設計。 多層薄膜結構提供優異的抗穿刺性和密封完整性。",
+                                "contentCn": "我們的標準均質機袋專業用於食品安全、環境和藥品測試InOfOne通用均質機應用設計。多層薄膜結構提供優異的抗穿刺性能和密封完整性能。"
+                            },
+                            "statCapacity": {
+                                "val": "400毫升",
+                                "title": "標準容量",
+                                "titleCn": "標準容量"
+                            },
+                            "statFilm": {
+                                "val": "3-Layer",
+                                "title": "薄膜結構",
+                                "titleCn": "三層複合結構"
+                            },
+                            "statGamma": {
+                                "val": "25kGy",
+                                "title": "伽瑪射線滅菌",
+                                "titleCn": "伽瑪射線滅菌"
+                            }
+                        },
+                        "wireBags": {
+                            "title": "線封袋",
+                            "section1": {
+                                "title": "安全線閉合設計",
+                                "titleCn": "SafeIron WireSealDesign",
+                                "content": "線封袋採用整合式金屬線，可實現安全、可重複使用的密封。 非常適合需要重複存取同時保持樣品完整性的樣品採集、運輸和儲存應用。",
+                                "contentCn": "紮帶封口袋以有收集形式的線材，實現安全可重複密封。非常適合需要重複訪問同時保持樣品完整屬性的樣品收集、收集、運輸和儲存應用。"
+                            },
+                            "featClosure": {
+                                "title": "可重複使用的瓶蓋",
+                                "desc": "多次打開並重新密封",
+                                "descCn": "可以重複打開適合"
+                            },
+                            "featSeal": {
+                                "title": "Secure Seal",
+                                "desc": "防止污染",
+                                "descCn": "防止污染"
+                            },
+                            "featStorage": {
+                                "title": "Sample Storage",
+                                "desc": "長期保存",
+                                "descCn": "Long TermSave"
+                            }
+                        },
+                        "applications": {
+                            "title": "產業應用",
+                            "intro": "AchievePack® 實驗室袋在多個行業中用於關鍵測試和品質保證：",
+                            "cardFood": {
+                                "title": "食品安全",
+                                "desc": "病原檢測、品質檢測",
+                                "descCn": "食品安全檢測"
+                            },
+                            "cardMicro": {
+                                "title": "微生物學",
+                                "desc": "培養物製備、分析",
+                                "descCn": "微生物研究"
+                            },
+                            "cardPharm": {
+                                "title": "製藥",
+                                "desc": "QC測試、樣品製備",
+                                "descCn": "藥品品質檢查"
+                            },
+                            "cardEnv": {
+                                "title": "環境的",
+                                "desc": "水、土壤、空氣檢測",
+                                "descCn": "環境測試"
+                            }
+                        },
+                        "quality": {
+                            "title": "品質與認證",
+                            "sectionTitle": "製造標準",
+                            "certIso": {
+                                "title": "ISO 9001 認證",
+                                "desc": "品質管理"
+                            },
+                            "certClean": {
+                                "title": "無塵室生產",
+                                "desc": "受控環境"
+                            },
+                            "certGamma": {
+                                "title": "伽瑪射線滅菌",
+                                "desc": "25kGy 驗證"
+                            }
+                        },
+                        "related": {
+                            "title": "相關產品",
+                            "intro": "探索我們完整的專業包裝解決方案系列：",
+                            "linkPouches": {
+                                "title": "自立袋",
+                                "desc": "食品軟包裝"
+                            },
+                            "linkVacuum": {
+                                "title": "真空袋",
+                                "desc": "延長保存期限"
+                            },
+                            "linkLabels": {
+                                "title": "標籤和貼紙",
+                                "desc": "產品標識"
+                            },
+                            "linkEco": {
+                                "title": "生態材料",
+                                "desc": "永續的選擇"
+                            }
+                        },
+                        "faq": {
+                            "title": "常見問題解答",
+                            "q1": {
+                                "q": "你們的實驗包是如何消毒的？",
+                                "a": "我們的實驗室袋經過 25kGy 最小劑量的伽馬射線滅菌。 這種輻射滅菌過程可確保完全無菌，同時保持袋子的結構完整性和性能。 每批次均經過無菌保證驗證。"
+                            },
+                            "q2": {
+                                "q": "側向濾袋有什麼優點？",
+                                "a": "側邊過濾袋採用側邊安裝的不織布過濾膜，可提供即時、無顆粒的濾液。 這種設計可實現高效的樣品分離，同時在整個過程中保持無菌狀態 - 非常適合微生物學測試。"
+                            },
+                            "q3": {
+                                "q": "實驗室攪拌袋有哪些尺寸可供選擇？",
+                                "a": "我們的標準容量為 400mL，與大多數實驗室攪拌機/胃機相容。 可針對特定應用客製尺寸。 請聯絡我們以了解您的具體要求。"
+                            },
+                            "q4": {
+                                "q": "鐵絲封口袋可以重複使用嗎？",
+                                "a": "線封袋採用整合式金屬線，可實現安全、可重複使用的密封。 它們可以多次打開和重新密封，同時保持樣品完整性。 然而，它們是一次性袋子——可重複使用的封口允許在測試期間重複使用。"
+                            },
+                            "q5": {
+                                "q": "你們的實驗室包有哪些認證？",
+                                "a": "我們的實驗室袋是在經過 ISO 9001 認證的無塵室環境中生產的。 所有袋子均經過伽瑪滅菌（25kGy 驗證），並符合食品安全和藥品測試應用的品質管理標準。"
+                            }
+                        },
+                        "cta": {
+                            "title": "請求實驗室袋報價",
+                            "header": "取得您的實驗室袋報價",
+                            "desc": "請聯絡我們的團隊討論您的實驗室包要求。 優質、無菌認證和專家支持，滿足您的測試需求。",
+                            "btnCall": "預約諮詢",
+                            "btnWa": "WhatsApp 聊天",
+                            "btnMail": "電子郵件報價"
+                        }
+                    }
+                }
             }
         },
         "compostableStandUpPouches": {
