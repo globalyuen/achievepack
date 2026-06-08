@@ -1,7 +1,7 @@
 {
   "autopilotMode": "A",
   "emailNotifications": false,
-  "lastUnifiedRun": "2026-06-08T06:30:45.643Z",
+  "lastUnifiedRun": "2026-06-08T06:45:39.115Z",
   "cronActive": true,
   "cronInterval": "Every 10 Minutes (*/10 * * * * HKT)",
   "totalLinkedAnchors": 14,
@@ -2044,17 +2044,18 @@
       "difficulty": "Medium"
     },
     {
+      "slug": "eco-friendly-sachet-filling-and-sealing-equipment",
       "status": "Pending Approval",
       "volume": 800,
       "keyword": "eco friendly sachet filling and sealing equipment",
-      "difficulty": "Low",
-      "slug": "eco-friendly-sachet-filling-and-sealing-equipment"
+      "difficulty": "Low"
     },
     {
-      "status": "Pending",
+      "status": "Pending Approval",
       "volume": 1000,
       "keyword": "retort pouch size guide for compostable packaging",
-      "difficulty": "Low"
+      "difficulty": "Low",
+      "slug": "retort-pouch-size-guide-for-compostable-packaging"
     },
     {
       "status": "Pending",
@@ -2119,9 +2120,14 @@
   ],
   "logs": [
     {
-      "timestamp": "2026-06-08T06:30:38.263Z",
+      "timestamp": "2026-06-08T06:45:28.863Z",
       "action": "Autopilot Generation Draft",
-      "message": "Soro Pipeline generated draft article for keyword \"eco friendly sachet filling and sealing equipment\" to /blog/eco-friendly-sachet-filling-and-sealing-equipment (Pending Approval)"
+      "message": "Soro Pipeline generated draft article for keyword \"retort pouch size guide for compostable packaging\" to /blog/retort-pouch-size-guide-for-compostable-packaging (Pending Approval)"
+    },
+    {
+      "action": "Autopilot Generation Draft",
+      "message": "Soro Pipeline generated draft article for keyword \"eco friendly sachet filling and sealing equipment\" to /blog/eco-friendly-sachet-filling-and-sealing-equipment (Pending Approval)",
+      "timestamp": "2026-06-08T06:30:38.263Z"
     },
     {
       "action": "Autopilot Generation Draft",
